@@ -13,7 +13,8 @@ helix-importer-ui
 !AGENTS.md
 
 # raw scrapes from www.lufthansa.com (large, re-fetchable)
-tools/source-export/
+tools/source-export/*
+!tools/source-export/har/
 tools/importer/bd-snapshots/
 migration-work/scrape-check/
 migration-work/images/
