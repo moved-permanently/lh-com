@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/homepage",
+  "path": "gb/en/homepage",
+  "timestamp": "2026-10-21T18:23:07.976Z",
+  "title": "Book your flight now - travel with Lufthansa to over 200 destinations | Lufthansa",
+  "template": "homepage",
+  "blocks": [
+    "flight-search",
+    "hero-card-overlay",
+    "fare-teaser",
+    "carousel-cards",
+    "destination-finder",
+    "cards-icon",
+    "columns-logos",
+    "accordion-columns"
+  ]
+}
