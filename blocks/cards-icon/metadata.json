@@ -1,0 +1,22 @@
+{
+  "variantName": "cards-icon",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "row of compact link tiles with a centred icon over a bold label",
+    "traits": [
+      "light grey tiles of equal size",
+      "centred icon above a bold label",
+      "whole tile clickable",
+      "external targets open in a new tab"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per tile. Cell 1: icon (:icon-name: token or small image). Cell 2: label linked to the target. Cells may be merged or missing: the first icon/image, first link and the text of the row are used"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "'Looking for more than just a flight?' style service shortcuts.",
+  "reuseGuidance": "Use for icon shortcuts. For image + body cards use the vanilla cards block. Icons need SVGs under /icons/ (e.g. hotel.svg, car-rental.svg, airport-parking.svg)."
+}

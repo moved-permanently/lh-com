@@ -1,0 +1,22 @@
+{
+  "variantName": "fare-teaser",
+  "baseBlock": "fare-teaser",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "static list of authored routes with live lowest fares",
+    "traits": [
+      "three-column grid of compact route teasers at desktop",
+      "small square destination image with a plane badge",
+      "origin over destination, price label and bold price right-aligned",
+      "conditions link below the grid"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value. Rows: Origin | FRA or Frankfurt (FRA) (omitted: locale home airport); Destinations | CHI, WAS, IST or Chicago (CHI), ... (names authored in brackets are shown as is; otherwise names come from the fare service; omitted: the service recommends destinations); Trip duration | 7; Cabin | E; Price label | Round trip from; Link | optional URL pattern with {origin}, {destination}, {duration}, {cabin} (default: the locale's /book-and-manage/destination page); Conditions | text or link. The section heading stays default content above the block. UI strings have built-in English and German defaults chosen by the page language; any can be overridden with a row of the same name"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Seasonal deals sections on homepage and offers pages.",
+  "reuseGuidance": "Reuse for any curated route list with prices. Request and response mapping sit at the top of fare-teaser.js (fareTeaserRequest, mapFareOffers, buildDestinationLink)."
+}

@@ -1,0 +1,46 @@
+/* cards-icon: structural layout only; brand styling comes with the design pass */
+.cards-icon > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-icon .cards-icon-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 24px 12px;
+  background-color: var(--light-color, #f4f4f4);
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cards-icon .cards-icon-icon {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+}
+
+.cards-icon .cards-icon-icon picture,
+.cards-icon .cards-icon-icon img,
+.cards-icon .cards-icon-icon .icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-icon .cards-icon-icon img {
+  object-fit: contain;
+}
+
+.cards-icon .cards-icon-label {
+  font-weight: 700;
+}

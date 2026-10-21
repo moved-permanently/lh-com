@@ -1,0 +1,55 @@
+/* columns-logos: structural layout only; brand styling comes with the design pass */
+.columns-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-logos .columns-logos-col {
+  min-width: 0;
+}
+
+.columns-logos .columns-logos-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-logos .columns-logos-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns-logos .columns-logos-list li {
+  display: flex;
+  align-items: center;
+}
+
+.columns-logos .columns-logos-list a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.columns-logos .columns-logos-list picture,
+.columns-logos .columns-logos-list img,
+.columns-logos .columns-logos-list .icon {
+  display: block;
+  width: auto;
+  max-width: 64px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .columns-logos {
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  .columns-logos .columns-logos-col {
+    flex: 1 1 0;
+  }
+}

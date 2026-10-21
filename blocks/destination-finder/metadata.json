@@ -1,0 +1,22 @@
+{
+  "variantName": "destination-finder",
+  "baseBlock": "destination-finder",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "dynamic fare recommender: origin picker in the heading, trip type chips and a slider of recommended destinations with live prices",
+    "traits": [
+      "heading with an underlined, editable origin city",
+      "pill chips for round trip / one way",
+      "edge-to-edge slider of tall destination images with city and price below",
+      "disclaimer and conditions on the left, arrows and outlined CTA button on the right"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value. Rows (all optional): Heading | Flight offers from; Default origin | FRA (omitted: locale home airport); Origin input label | ...; Trip types | Round trip, One way (first = round trip, second = one way); Trip duration | 14; Price label | Round trip from; One way price label | One way from; Region | region code (switches to the region finder route); Finder card | image + text + link (last slide); CTA | link; Disclaimer | text (adds * to prices); Conditions | text or link; Sr heading | Recommendations for your next trip. Authored links with an OriginCode parameter follow the chosen origin and trip type. Overridable UI rows: Change origin label, Trip type label, Previous label, Next label, No results label. UI strings have built-in English and German defaults chosen by the page language; any can be overridden with a row of the same name"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Homepage and offers pages: personalised destination recommendations.",
+  "reuseGuidance": "Reuse unchanged across templates and locales. Request and response mapping sit at the top of destination-finder.js (destinationsRoute, mapDestinations, mapOriginName, airportSuggestionsRoute, mapAirportSuggestions, buildDestinationLink)."
+}

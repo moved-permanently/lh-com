@@ -1,0 +1,151 @@
+/* flight-search: structural layout only; brand styling comes with the design pass */
+.flight-search {
+  position: relative;
+}
+
+.flight-search .flight-search-sr-only,
+.flight-search .airport-combobox-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.flight-search .flight-search-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.flight-search .flight-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flight-search .flight-search-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.flight-search .flight-search-nonstop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.flight-search .airport-combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.flight-search .airport-combobox input,
+.flight-search .flight-search-date input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flight-search .airport-combobox [role="listbox"] {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: var(--background-color, #fff);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.flight-search .airport-combobox [role="option"] {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.flight-search .airport-combobox [role="option"][aria-selected="true"] {
+  outline: 2px solid currentcolor;
+  outline-offset: -2px;
+}
+
+.flight-search .flight-search-swap {
+  justify-self: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-swap::before {
+  content: "\21C4";
+}
+
+.flight-search .flight-search-dates {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.flight-search .flight-search-dates legend {
+  padding: 0;
+}
+
+.flight-search .flight-search-date {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.flight-search .flight-search-date[hidden] {
+  display: none;
+}
+
+/* with an authored "Departure - return" legend the per-input labels stay for screen readers */
+.flight-search .flight-search-dates legend ~ .flight-search-date .flight-search-date-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.flight-search .flight-search-submit {
+  margin: 0;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-error[hidden] {
+  display: none;
+}
+
+.flight-search .flight-search-links {
+  margin-top: 16px;
+}
+
+@media (width >= 900px) {
+  .flight-search .flight-search-fields {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) minmax(0, 1.2fr) auto;
+  }
+}

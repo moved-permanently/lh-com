@@ -1,0 +1,88 @@
+/* accordion-columns: structural layout only; brand styling comes with the design pass */
+.accordion-columns .accordion-columns-item {
+  border-bottom: 1px solid var(--light-color, #ccc);
+}
+
+.accordion-columns .accordion-columns-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 40px 16px 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.accordion-columns .accordion-columns-title::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-columns .accordion-columns-title > * {
+  margin: 0;
+  font-size: inherit;
+}
+
+.accordion-columns .accordion-columns-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-75%) rotate(45deg);
+}
+
+.accordion-columns .accordion-columns-item[open] > .accordion-columns-title::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.accordion-columns .accordion-columns-panel {
+  padding-bottom: 24px;
+}
+
+.accordion-columns .accordion-columns-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.accordion-columns .accordion-columns-column {
+  min-width: 0;
+}
+
+.accordion-columns .accordion-columns-column > :first-child {
+  margin-top: 0;
+}
+
+.accordion-columns .accordion-columns-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width >= 600px) {
+  .accordion-columns .accordion-columns-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .accordion-columns .accordion-columns-columns {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .accordion-columns .accordion-columns-columns.accordion-columns-1-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .accordion-columns .accordion-columns-columns.accordion-columns-2-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .accordion-columns .accordion-columns-columns.accordion-columns-3-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

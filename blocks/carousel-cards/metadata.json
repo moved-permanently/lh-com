@@ -1,0 +1,22 @@
+{
+  "variantName": "carousel-cards",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "horizontal carousel of bordered teaser cards, several visible at once, mixed widths",
+    "traits": [
+      "cards with image on top and text below inside a thin border",
+      "wide and compact cards side by side",
+      "scroll-snap track with next/previous arrows and dot indicators",
+      "external CTA links open in a new tab"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per slide. Cell 1: image. Cell 2: optional eyebrow paragraph, heading, description, CTA link. Optional cell 3: 'wide' for a wide card (default compact). Cells may be missing; a slide without an image renders text only. Optional label rows (2 cells, no image): Carousel label, Previous label, Next label, Slide label ('{n} of {total}'). UI strings have built-in English and German defaults chosen by the page language; any can be overridden with a row of the same name"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "'Current topics and news' sections and any multi-teaser row that overflows the page width.",
+  "reuseGuidance": "Use when several teasers must be visible at once. For one full-width slide at a time use the vanilla carousel."
+}

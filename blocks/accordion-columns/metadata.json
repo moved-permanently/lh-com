@@ -1,0 +1,21 @@
+{
+  "variantName": "accordion-columns",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "accordion whose panel splits its content into columns at each heading",
+    "traits": [
+      "full-width collapsible row with a chevron",
+      "up to four link columns in the open panel",
+      "stacked columns on mobile"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per item. Cell 1: title. Cell 2: content; each heading (of the first heading level used, usually H3) starts a column, followed by its list of links. Content before the first heading spans all columns. A single-cell row uses its first element as the title. Zero-width characters are removed"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "'Popular destinations' SEO link panel above the footer.",
+  "reuseGuidance": "Use when an accordion panel holds several parallel link lists. For plain stacked panel content use the vanilla accordion."
+}

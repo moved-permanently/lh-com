@@ -1,0 +1,143 @@
+/* carousel-cards: structural layout only; brand styling comes with the design pass */
+.carousel-cards {
+  position: relative;
+}
+
+.carousel-cards .carousel-cards-viewport {
+  position: relative;
+}
+
+.carousel-cards .carousel-cards-track {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.carousel-cards .carousel-cards-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-cards .carousel-cards-slide {
+  display: flex;
+  flex: 0 0 80%;
+  flex-direction: column;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--light-color, #ccc);
+  scroll-snap-align: start;
+}
+
+.carousel-cards .carousel-cards-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.carousel-cards .carousel-cards-image picture,
+.carousel-cards .carousel-cards-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-cards .carousel-cards-image img {
+  object-fit: cover;
+}
+
+.carousel-cards .carousel-cards-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.carousel-cards .carousel-cards-body > :first-child {
+  margin-top: 0;
+}
+
+.carousel-cards .carousel-cards-cta {
+  margin-top: auto;
+}
+
+.carousel-cards .carousel-cards-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0;
+}
+
+.carousel-cards .carousel-cards-nav[hidden],
+.carousel-cards .carousel-cards-dots[hidden] {
+  display: none;
+}
+
+.carousel-cards .carousel-cards-prev,
+.carousel-cards .carousel-cards-next {
+  position: absolute;
+  top: 120px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carousel-cards .carousel-cards-prev {
+  left: 0;
+}
+
+.carousel-cards .carousel-cards-next {
+  right: 0;
+}
+
+.carousel-cards .carousel-cards-prev::before {
+  content: "\2039";
+}
+
+.carousel-cards .carousel-cards-next::before {
+  content: "\203A";
+}
+
+.carousel-cards .carousel-cards-prev:disabled,
+.carousel-cards .carousel-cards-next:disabled {
+  visibility: hidden;
+}
+
+.carousel-cards .carousel-cards-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-cards .carousel-cards-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel-cards .carousel-cards-dot[aria-current="true"] {
+  background: currentcolor;
+}
+
+@media (width >= 900px) {
+  .carousel-cards .carousel-cards-slide {
+    flex-basis: calc((100% - 32px) / 3.3);
+  }
+
+  .carousel-cards .carousel-cards-slide.carousel-cards-wide {
+    flex-basis: calc((100% - 16px) / 1.75);
+  }
+}

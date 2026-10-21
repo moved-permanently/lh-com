@@ -1,0 +1,218 @@
+/* destination-finder: structural layout only; brand styling comes with the design pass */
+.destination-finder .destination-finder-sr-only,
+.destination-finder .airport-combobox-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.destination-finder .destination-finder-header {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.destination-finder .destination-finder-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+}
+
+.destination-finder .destination-finder-origin {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentcolor;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-origin::after {
+  content: "\270E";
+  margin-left: 8px;
+  font-size: 0.6em;
+}
+
+.destination-finder .destination-finder-picker {
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+.destination-finder .destination-finder-picker[hidden] {
+  display: none;
+}
+
+.destination-finder .airport-combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-finder .airport-combobox input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.destination-finder .airport-combobox [role="listbox"] {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: var(--background-color, #fff);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.destination-finder .airport-combobox [role="option"] {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.destination-finder .airport-combobox [role="option"][aria-selected="true"] {
+  outline: 2px solid currentcolor;
+  outline-offset: -2px;
+}
+
+.destination-finder .destination-finder-trip-types {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.destination-finder .destination-finder-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.destination-finder .destination-finder-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid currentcolor;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.destination-finder .destination-finder-chip:has(input:focus-visible) {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+.destination-finder .destination-finder-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(200px, 70%);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.destination-finder .destination-finder-list::-webkit-scrollbar {
+  display: none;
+}
+
+.destination-finder .destination-finder-item {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.destination-finder .destination-finder-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.destination-finder .destination-finder-image {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.destination-finder .destination-finder-image img,
+.destination-finder .destination-finder-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destination-finder .destination-finder-offer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+
+.destination-finder .destination-finder-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.destination-finder .destination-finder-notes {
+  flex: 1 1 300px;
+}
+
+.destination-finder .destination-finder-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.destination-finder .destination-finder-prev,
+.destination-finder .destination-finder-next {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-prev::before {
+  content: "\2190";
+}
+
+.destination-finder .destination-finder-next::before {
+  content: "\2192";
+}
+
+.destination-finder .destination-finder-prev:disabled,
+.destination-finder .destination-finder-next:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (width >= 600px) {
+  .destination-finder .destination-finder-list {
+    grid-auto-columns: calc((100% - 32px) / 3);
+  }
+}
+
+@media (width >= 900px) {
+  .destination-finder .destination-finder-list {
+    grid-auto-columns: calc((100% - 64px) / 5);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variantName": "columns-logos",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "side-by-side columns, each a small heading over an inline row of logo or icon links",
+    "traits": [
+      "two columns at desktop, stacked on mobile",
+      "small heading above each logo row",
+      "small, uniformly sized logos in a wrapping row"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row, one cell per column (more rows add more columns). Each cell: heading, then linked logo images or :icon: tokens. Image alt text names each logo; icon-only links are named from the icon name. Plain text links are kept as text items"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Payment options and social links above the footer; good candidate for a shared fragment.",
+  "reuseGuidance": "Use for any logo strip grouped under headings. For content columns use the vanilla columns block."
+}

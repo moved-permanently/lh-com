@@ -1,0 +1,76 @@
+/* hero-card-overlay: structural layout only; brand styling comes with the design pass */
+.hero-card-overlay-container .hero-card-overlay-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-card-overlay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-card-overlay .hero-card-overlay-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.hero-card-overlay .hero-card-overlay-media picture,
+.hero-card-overlay .hero-card-overlay-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-card-overlay .hero-card-overlay-media img {
+  object-fit: cover;
+}
+
+.hero-card-overlay .hero-card-overlay-card {
+  position: relative;
+  box-sizing: border-box;
+  padding: 24px;
+  background-color: var(--dark-color, #05164d);
+  color: var(--background-color, #fff);
+}
+
+.hero-card-overlay .hero-card-overlay-card > :first-child {
+  margin-top: 0;
+}
+
+.hero-card-overlay .hero-card-overlay-card > :last-child {
+  margin-bottom: 0;
+}
+
+.hero-card-overlay .hero-card-overlay-card a {
+  color: inherit;
+}
+
+@media (width >= 900px) {
+  .hero-card-overlay {
+    display: block;
+    min-height: 560px;
+  }
+
+  .hero-card-overlay .hero-card-overlay-media {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+  }
+
+  .hero-card-overlay .hero-card-overlay-card {
+    position: absolute;
+    top: 50%;
+    left: max(32px, calc((100% - 1200px) / 2));
+    width: min(480px, 40%);
+    padding: 40px;
+    transform: translateY(-50%);
+  }
+
+  .hero-card-overlay.hero-card-overlay-no-image .hero-card-overlay-card {
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+}
