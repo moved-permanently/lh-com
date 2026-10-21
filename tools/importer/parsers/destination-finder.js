@@ -92,9 +92,14 @@ export default function parse(element, { document }) {
     .filter((c, i, all) => all.indexOf(c) === i)
     .map((c) => attr(c, 'label') || visibleText(c))
     .filter(Boolean);
-  addRow('Trip types', [...new Set(chips)].join(', '));
+  const tripTypes = [...new Set(chips)];
+  addRow('Trip types', tripTypes.join(', '));
+  // data-dcep isOneWayDefault: the one-way chip starts selected (fareteaser/offers tripType)
+  if (props.isOneWayDefault === true && tripTypes[1]) addRow('Default trip type', tripTypes[1]);
 
   addRow('Trip duration', clean(firstQuery.get('TripDuration')));
+  // data-dcep airlineWhitelistingEnabled: sent as airlineDestWhitelist in the offers request
+  if (props.airlineWhitelistingEnabled === true) addRow('Airline whitelist', 'yes');
 
   // Price label only (prices are live data).
   addRow('Price label', attr(element.querySelector('maui-price-display[label]'), 'label'));

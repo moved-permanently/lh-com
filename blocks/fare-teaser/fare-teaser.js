@@ -1,79 +1,124 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
-import { lhFetch } from '../../scripts/lh-data.js';
+import { getLocale } from '../../scripts/locale.js';
 import {
-  readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName, formatPrice,
+  readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
+import {
+  ALL_TRAVEL_MONTHS, fareTeaserManualRequest, fareTeaserOffersRequest, labelsRequest,
+  catalogRequest, fetchRequest, fetchLabels, pickLabels, mapManualOffers, mapOffers,
+  mapConditions, mapLocaleData, formatFare, destinationImageUrl, fillLabel, htmlToParagraphs,
+} from '../../scripts/lh-api.js';
 
 /* ---------------------------------------------------------------------------------------------
- * Data contract. Request building and response mapping live here so the recorded responses
- * from the live site only require changes in this section.
+ * Data contract (see scripts/lh-api.js for the live request and response shapes).
  * ------------------------------------------------------------------------------------------- */
 
+/** Live labels (labels/fareteaserstatic) used by the block, by block label key. */
+const LIVE_LABELS = {
+  'show more': 'fareteaserstatic.fullApp.offers.showAllLabel',
+  'card label': 'fareteaserstatic.fullApp.offers.extendedSrCardLabel',
+};
+
+/** Live label bundles the block loads. */
+const LABEL_BUNDLES = ['fareteaserstatic'];
+
 /**
- * Fare teaser request: the "manual" route for authored destinations, the "offers" route
- * (the service picks the destinations) when none are authored.
- * @returns {{route: string, method: string, body: Object}}
+ * Settings of an authored block (the live component's data-dcep): origin, the routes, trip
+ * duration, cabin, trip type and the months the fares are searched in.
+ * @param {Object} config result of readConfigRows
+ * @param {Object} locale result of getLocale()
  */
-function fareTeaserRequest({
-  origin, destinations, tripDuration, cabin,
-}, locale) {
-  const common = {
-    origin,
-    tripDuration,
-    cabinClass: cabin,
-    countryCode: locale.country.toUpperCase(),
-    languageCode: locale.lang,
-    currency: locale.currency,
-  };
-  if (destinations.length) {
-    return {
-      route: '/service/api/lhg-fare-teaser/fareteaser/manual',
-      method: 'POST',
-      body: { ...common, destinations },
-    };
-  }
+export function readFareTeaserSettings(config, locale) {
+  const text = (...keys) => (pick(config, ...keys) || {}).text || '';
+  const originValue = text('origin', 'default-origin');
+  const months = text('travel-months', 'months')
+    .split(/\s*,\s*/).map(Number).filter((m) => m >= 1 && m <= 12);
+  const patternRow = pick(config, 'link', 'link-pattern');
+  let pattern = '';
+  if (patternRow) pattern = patternRow.link ? patternRow.link.getAttribute('href') : patternRow.text;
   return {
-    route: `/service/api/lhg-fare-teaser/fareteaser/offers/${encodeURIComponent(origin)}`,
-    method: 'POST',
-    body: common,
+    origin: parseAirportCode(originValue) || locale.homeAirport,
+    originName: parseAirportCode(originValue) ? parseAirportName(originValue) : '',
+    destinations: (pick(config, 'destinations', 'destination') || { list: [] }).list
+      .map((value) => ({
+        destination: parseAirportCode(value),
+        destinationName: parseAirportName(value),
+      }))
+      .filter((d) => d.destination),
+    tripDuration: parseInt(text('trip-duration', 'duration'), 10) || 7,
+    cabin: (text('cabin') || 'E').toUpperCase(),
+    tripType: /^(o|one)/i.test(text('trip-type')) ? 'ONEWAY' : 'RETURN',
+    travelMonths: months.length ? [...new Set(months)].join(',') : ALL_TRAVEL_MONTHS,
+    // only a pattern with placeholders can link every route
+    pattern: /\{(origin|destination)\}/.test(decodeURIComponent(pattern)) ? pattern : '',
   };
 }
 
-/** Absolute image URL for images served by the live site. */
-function liveImageUrl(src) {
-  if (!src) return '';
-  try {
-    return new URL(src, LIVE_ORIGIN).toString();
-  } catch (e) {
-    return '';
-  }
+/**
+ * The live requests of the block: "manual" for authored routes, "offers" (the service picks
+ * the destinations) when none are authored; labels, conditions and number format.
+ */
+export function fareTeaserRequests(settings, locale) {
+  const fares = settings.destinations.length
+    ? fareTeaserManualRequest({
+      travels: settings.destinations.map((d) => ({
+        destination: d.destination, origin: settings.origin,
+      })),
+      cabin: settings.cabin,
+      tripType: settings.tripType,
+      tripDuration: settings.tripDuration,
+      travelMonths: settings.travelMonths,
+    })
+    : fareTeaserOffersRequest({ origin: settings.origin, tripType: settings.tripType });
+  return {
+    fares,
+    labels: LABEL_BUNDLES.map((bundle) => labelsRequest(bundle, locale)),
+    conditions: catalogRequest('conditions'),
+    localeData: catalogRequest('localeData'),
+  };
 }
 
 /**
- * Maps the fare teaser response to
- * [{ origin, originName, destination, destinationName, price, currency, formattedPrice, image }].
+ * Loads fares, labels, conditions and number format. Fares are matched to the request
+ * (origin and destination), so a recording of another route never shows its price.
+ * @returns {Promise<{offers: Array, labels: Object, conditions: Object, localeData: Object,
+ *   sources: Object<string, string>}>}
  */
-function mapFareOffers(data) {
-  const list = Array.isArray(data) ? data
-    : (data && (data.offers || data.fares || data.recommendations
-      || data.items || data.data)) || [];
-  const code = (value) => (typeof value === 'string' ? value.toUpperCase() : '');
-  return list.map((item) => {
-    const origin = typeof item.origin === 'object' && item.origin ? item.origin : {};
-    const destination = typeof item.destination === 'object' && item.destination ? item.destination : {};
-    const price = item.price || item.fare || {};
-    return {
-      origin: code(origin.code || item.originCode || item.origin),
-      originName: origin.cityName || origin.name || item.originName || item.originCityName || '',
-      destination: code(destination.code || item.destinationCode || item.destination),
-      destinationName: destination.cityName || destination.name || item.destinationName
-        || item.destinationCityName || '',
-      price: price.amount ?? price.value ?? item.amount ?? item.priceAmount ?? (typeof price === 'number' ? price : ''),
-      currency: price.currency || price.currencyCode || item.currency || '',
-      formattedPrice: price.formatted || item.formattedPrice || '',
-      image: liveImageUrl(destination.image || destination.imageUrl || item.image || item.imageUrl),
-    };
-  }).filter((offer) => /^[A-Z]{3}$/.test(offer.destination));
+export async function loadFareTeaserData(settings, locale) {
+  const requests = fareTeaserRequests(settings, locale);
+  const sources = {};
+  const settle = (name, promise, mapper, fallback) => promise
+    .then(({ data, source }) => {
+      sources[name] = source;
+      return mapper(data);
+    })
+    .catch(() => {
+      sources[name] = 'none';
+      return fallback;
+    });
+  const manual = settings.destinations.length > 0;
+  const [offers, live, conditions, localeData] = await Promise.all([
+    // exact: a recording for another cabin, trip type or months must not show its prices
+    settle('fares', fetchRequest(requests.fares, locale, { exact: true }), (data) => (manual
+      ? mapManualOffers(data).filter((o) => o.origin === settings.origin
+        && settings.destinations.some((d) => d.destination === o.destination))
+      : mapOffers(data).map((o) => ({
+        origin: settings.origin,
+        originName: '',
+        destination: o.code,
+        destinationName: o.name,
+        price: o.price,
+        currency: o.currency,
+        symbol: o.symbol,
+        prefixed: o.prefixed,
+      }))), []),
+    fetchLabels(LABEL_BUNDLES, locale),
+    settle('conditions', fetchRequest(requests.conditions, locale), mapConditions, mapConditions()),
+    settle('localeData', fetchRequest(requests.localeData, locale), mapLocaleData, {}),
+  ]);
+  Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
+  return {
+    offers, labels: pickLabels(live.labels, LIVE_LABELS), conditions, localeData, sources,
+  };
 }
 
 /**
@@ -137,11 +182,39 @@ function renderConditions(cell) {
   return wrap;
 }
 
+/** Conditions from the catalog (catalogs/conditions) when the authored cell has no text. */
+function fillConditions(footer, conditions) {
+  if (!conditions.html || footer.querySelector('.fare-teaser-conditions-details')) return;
+  const wrap = footer.querySelector('.fare-teaser-conditions');
+  const authoredTitle = wrap ? wrap.textContent.trim() : '';
+  if (authoredTitle.length > 60) return; // authored conditions text without a title
+  const paragraphs = htmlToParagraphs(conditions.html);
+  if (!paragraphs.length) return;
+  const fresh = el('div', 'fare-teaser-conditions');
+  const disclosure = el('details', 'fare-teaser-conditions-details');
+  const text = el('div', 'fare-teaser-conditions-text');
+  text.append(...paragraphs);
+  disclosure.append(el('summary', 'fare-teaser-conditions-label', authoredTitle || conditions.headline), text);
+  fresh.append(disclosure);
+  if (wrap) wrap.replaceWith(fresh);
+  else footer.prepend(fresh);
+}
+
 function renderItem(route, labels, locale, pattern) {
   const li = el('li', 'fare-teaser-item');
   li.dataset.destination = route.destination;
 
   const imageWrap = el('div', 'fare-teaser-image');
+  const src = destinationImageUrl(route.destination, 180);
+  if (src) {
+    const img = el('img');
+    img.src = src;
+    img.alt = '';
+    img.loading = 'lazy';
+    // a destination without a live image keeps the placeholder
+    img.addEventListener('error', () => img.remove());
+    imageWrap.append(img);
+  }
   li.append(imageWrap);
 
   const link = el('a', 'fare-teaser-route');
@@ -159,99 +232,90 @@ function renderItem(route, labels, locale, pattern) {
   return li;
 }
 
-function applyOffer(li, offer, route, locale) {
-  if (!route.originName && offer.originName) {
-    li.querySelector('.fare-teaser-origin').textContent = offer.originName;
-  }
-  if (!route.destinationName && offer.destinationName) {
-    li.querySelector('.fare-teaser-destination').textContent = offer.destinationName;
-  }
-  if (offer.image) {
-    const img = el('img');
-    img.src = offer.image;
-    img.alt = '';
-    img.loading = 'lazy';
-    li.querySelector('.fare-teaser-image').replaceChildren(img);
-  }
-  const price = offer.formattedPrice || formatPrice(offer.price, offer.currency, locale);
-  if (price) {
-    li.querySelector('.fare-teaser-price').textContent = price;
-    li.querySelector('.fare-teaser-offer').hidden = false;
+function applyOffer(li, offer, route, labels, locale, localeData) {
+  const originName = route.originName || offer.originName || route.origin;
+  const destinationName = route.destinationName || offer.destinationName || route.destination;
+  li.querySelector('.fare-teaser-origin').textContent = originName;
+  li.querySelector('.fare-teaser-destination').textContent = destinationName;
+  const price = formatFare(offer.price, offer, locale, localeData);
+  if (!price) return;
+  li.querySelector('.fare-teaser-price').textContent = price;
+  li.querySelector('.fare-teaser-offer').hidden = false;
+  if (labels['card label']) {
+    // "Flight offer from {ORIGIN} to {DESTINATION} {FROMLABEL} {PRICE} {CURRENCY}"
+    li.querySelector('.fare-teaser-route').setAttribute('aria-label', fillLabel(labels['card label'], {
+      ORIGIN: originName,
+      DESTINATION: destinationName,
+      FROMLABEL: labels['price label'],
+      PRICE: Math.ceil(offer.price - 1e-9),
+      CURRENCY: offer.currency,
+      FOOTERTEXT: '',
+    }));
   }
 }
 
 export default async function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
-  const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
-  const text = (...keys) => (pick(config, ...keys) || {}).text || '';
-
-  const originValue = text('origin', 'default-origin');
-  const origin = parseAirportCode(originValue) || locale.homeAirport;
-  const originName = parseAirportCode(originValue) ? parseAirportName(originValue) : '';
-  const destinations = (pick(config, 'destinations', 'destination') || { list: [] }).list
-    .map((value) => ({
-      destination: parseAirportCode(value),
-      destinationName: parseAirportName(value),
-    }))
-    .filter((d) => d.destination);
-  const tripDuration = parseInt(text('trip-duration', 'duration'), 10) || 7;
-  const cabin = text('cabin') || 'E';
-  const patternRow = pick(config, 'link', 'link-pattern');
-  let pattern = '';
-  if (patternRow) pattern = patternRow.link ? patternRow.link.getAttribute('href') : patternRow.text;
-  const conditions = (pick(config, 'conditions', 'conditions-label') || {}).cell;
+  let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
+  const settings = readFareTeaserSettings(config, locale);
+  const conditionsCell = (pick(config, 'conditions', 'conditions-label') || {}).cell;
 
   const routeFor = (d) => ({
-    origin, originName, tripDuration, cabin, ...d,
+    origin: settings.origin,
+    originName: settings.originName,
+    tripDuration: settings.tripDuration,
+    cabin: settings.cabin,
+    ...d,
   });
   const list = el('ul', 'fare-teaser-list');
-  list.append(...destinations.map((d) => renderItem(routeFor(d), labels, locale, pattern)));
+  list.append(...settings.destinations
+    .map((d) => renderItem(routeFor(d), labels, locale, settings.pattern)));
 
   const footer = el('div', 'fare-teaser-footer');
-  if (conditions && conditions.textContent.trim()) footer.append(renderConditions(conditions));
+  if (conditionsCell && conditionsCell.textContent.trim()) {
+    footer.append(renderConditions(conditionsCell));
+  }
   block.replaceChildren(list, footer);
   block.setAttribute('aria-busy', 'true');
 
-  let offers = [];
-  try {
-    const request = fareTeaserRequest({
-      origin, destinations: destinations.map((d) => d.destination), tripDuration, cabin,
-    }, locale);
-    const { data, source } = await lhFetch(request.route, {
-      method: request.method,
-      body: request.body,
-    });
-    block.dataset.source = source;
-    offers = mapFareOffers(data);
-  } catch (e) {
-    block.dataset.source = 'none';
-  }
+  const data = await loadFareTeaserData(settings, locale);
+  block.dataset.source = data.sources.fares;
   block.removeAttribute('aria-busy');
 
-  if (!destinations.length) {
+  // live labels (fareteaserstatic) between the built-in defaults and the authored rows
+  labels = resolveLabels({
+    [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
+  }, config, locale.lang);
+  list.querySelectorAll('.fare-teaser-price-label').forEach((span) => {
+    span.textContent = labels['price label'];
+  });
+
+  if (!settings.destinations.length) {
     // no authored routes: show what the service recommends
-    offers.forEach((offer) => {
-      const route = routeFor({ destination: offer.destination, destinationName: '', origin: offer.origin || origin });
-      const li = renderItem(route, labels, locale, pattern);
-      applyOffer(li, offer, route, locale);
+    data.offers.forEach((offer) => {
+      const route = routeFor({ destination: offer.destination, destinationName: '' });
+      const li = renderItem(route, labels, locale, settings.pattern);
+      applyOffer(li, offer, route, labels, locale, data.localeData);
       list.append(li);
     });
   } else {
-    destinations.forEach((d) => {
-      const offer = offers.find((o) => o.destination === d.destination);
+    settings.destinations.forEach((d) => {
+      const offer = data.offers.find((o) => o.destination === d.destination);
       const li = list.querySelector(`[data-destination="${d.destination}"]`);
-      if (offer && li) applyOffer(li, offer, routeFor(d), locale);
+      if (offer && li) applyOffer(li, offer, routeFor(d), labels, locale, data.localeData);
     });
   }
 
   // the origin is the same for every route: name all teasers once the service names it
-  const namedOrigin = !originName && offers.find((o) => o.originName && o.origin === origin);
+  const namedOrigin = !settings.originName && data.offers.find((o) => o.originName);
   if (namedOrigin) {
     list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
-      if (span.textContent === origin) span.textContent = namedOrigin.originName;
+      if (span.textContent === settings.origin) span.textContent = namedOrigin.originName;
     });
   }
+
+  fillConditions(footer, data.conditions);
 
   if (list.children.length > MOBILE_VISIBLE) {
     // small screens show the first routes only (CSS); the button reveals the rest

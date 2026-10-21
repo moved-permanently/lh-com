@@ -1,40 +1,16 @@
 import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
-import { lhFetch } from '../../scripts/lh-data.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
+import { searchAirports } from '../../scripts/lh-api.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract. Request building, response mapping and the hand-off URL live here so a
  * captured live request only requires changes in this section.
  * ------------------------------------------------------------------------------------------- */
 
-/** Airport autocomplete request (same route as the flight-search block). */
-function airportSuggestionsRoute(term, locale) {
-  const params = new URLSearchParams({
-    searchTerm: term,
-    countryCode: locale.country.toUpperCase(),
-    languageCode: locale.lang,
-  });
-  return `/service/api/suggestions/airports?${params}`;
-}
-
-/** Maps the autocomplete response to [{ code, name, label }]. */
-function mapAirportSuggestions(data) {
-  const list = Array.isArray(data) ? data
-    : (data && (data.airports || data.suggestions || data.items || data.data)) || [];
-  return list.map((item) => {
-    const code = String(item.code || item.iataCode || item.airportCode || item.cityCode || item.id || '').toUpperCase();
-    const name = item.cityName || item.name || item.airportName || item.label || '';
-    const country = item.countryName || item.country || '';
-    return {
-      code,
-      name,
-      label: [name && `${name} (${code})`, country].filter(Boolean).join(', '),
-    };
-  }).filter((a) => /^[A-Z]{3}$/.test(a.code));
-}
+/* Airport autocomplete: searchAirports (scripts/lh-api.js), shared with flight-search. */
 
 /** Tab keys by authored position; "number" is the source's activeTab value. */
 const TAB_KEYS = ['number', 'route', 'airport'];
@@ -166,11 +142,6 @@ function dateOptions(before, after, locale) {
   return options;
 }
 
-async function fetchSuggestions(term, locale) {
-  const { data } = await lhFetch(airportSuggestionsRoute(term, locale));
-  return mapAirportSuggestions(data);
-}
-
 /** Wraps a control with an error message wired up through aria-invalid/aria-describedby. */
 function withError(id, control, wrap) {
   const message = el('p', 'flight-status-error');
@@ -222,7 +193,7 @@ function airportField(id, label, value, locale, labels) {
     label,
     name: id,
     value,
-    fetchSuggestions: (term) => fetchSuggestions(term, locale),
+    fetchSuggestions: (term) => searchAirports(term, locale),
     noResultsLabel: labels['no results label'],
   });
   wrap.append(combobox.element);

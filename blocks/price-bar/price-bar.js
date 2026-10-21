@@ -1,71 +1,101 @@
 import { getLocale } from '../../scripts/locale.js';
-import { lhFetch } from '../../scripts/lh-data.js';
 import {
-  readConfigRows, pick, resolveLabels, parseAirportCode, formatPrice,
+  readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
+import {
+  fareTeaserManualRequest, defaultAirportRequest, labelsRequest, catalogRequest, fetchRequest,
+  fetchLabels, pickLabels, mapManualOffers, mapDefaultAirport, mapLocaleData, formatFare,
+} from '../../scripts/lh-api.js';
 
 /* ---------------------------------------------------------------------------------------------
- * Data contract. Request building and response mapping live here so the recorded responses
- * from the live site only require changes in this section.
+ * Data contract (see scripts/lh-api.js). The live sticky price (dcep-sticky-price, data-dcep
+ * {"destinationCode":"BER","priceLabel":"Round trip from"}) loads labels/stickyprice; its fare
+ * request was not captured yet. The block asks the fare teaser "manual" service (same fares,
+ * recorded shape) for the market default origin (defaultAirport) to the destination.
  * ------------------------------------------------------------------------------------------- */
 
+/** Live labels (labels/stickyprice) used by the block, by block label key. */
+const LIVE_LABELS = {
+  'link label': 'stickyprice.common.default.ctaLabel',
+};
+
+const LABEL_BUNDLES = ['stickyprice'];
+
 /**
- * Lowest fare request: the fare teaser "manual" route (same service as the fare-teaser
- * block) for the one destination of the bar.
- * @returns {{route: string, method: string, body: Object}}
+ * Settings of an authored block.
+ * @param {Object} config result of readConfigRows
  */
-function priceBarRequest({
-  origin, destination, tripDuration, cabin,
-}, locale) {
+export function readPriceBarSettings(config) {
+  const text = (...keys) => (pick(config, ...keys) || {}).text || '';
   return {
-    route: '/service/api/lhg-fare-teaser/fareteaser/manual',
-    method: 'POST',
-    body: {
-      origin,
-      destinations: [destination],
-      tripDuration,
-      cabinClass: cabin,
-      countryCode: locale.country.toUpperCase(),
-      languageCode: locale.lang,
-      currency: locale.currency,
-    },
+    title: text('title', 'destination-name'),
+    destination: parseAirportCode(text('destination', 'destination-code')),
+    // empty: the market default airport, like the live bar (OriginCode= empty)
+    origin: parseAirportCode(text('origin', 'origin-code')),
+    tripDuration: parseInt(text('trip-duration', 'duration'), 10) || 7,
+    cabin: (text('cabin') || 'E').toUpperCase(),
+  };
+}
+
+/** The live requests of the block for an origin (resolved by loadPriceBarData). */
+export function priceBarRequests(settings, locale, origin) {
+  return {
+    fares: fareTeaserManualRequest({
+      travels: [{ destination: settings.destination, origin }],
+      cabin: settings.cabin,
+      tripType: 'R',
+      tripDuration: settings.tripDuration,
+    }),
+    defaultAirport: defaultAirportRequest(),
+    labels: LABEL_BUNDLES.map((bundle) => labelsRequest(bundle, locale)),
+    localeData: catalogRequest('localeData'),
   };
 }
 
 /**
- * Maps the fare response to the lowest offer for the destination:
- * { price, currency, formattedPrice } or null.
+ * Loads the lowest fare to the destination (only an answer for this origin and destination
+ * counts), the live labels and the number format.
+ * @returns {Promise<{lowest: Object|null, origin: string, labels: Object, localeData: Object,
+ *   sources: Object<string, string>}>}
  */
-function mapLowestPrice(data, destination) {
-  let list = [];
-  if (Array.isArray(data)) list = data;
-  else if (data && typeof data === 'object') {
-    list = data.offers || data.fares || data.recommendations || data.items || data.data
-      || (data.price || data.amount ? [data] : []);
+export async function loadPriceBarData(settings, locale) {
+  const sources = {};
+  const base = priceBarRequests(settings, locale, settings.origin);
+  // exact: a recording of other routes or parameters never shows its price
+  const settle = (name, request, mapper, fallback) => fetchRequest(request, locale, { exact: true })
+    .then(({ data, source }) => {
+      sources[name] = source;
+      return mapper(data);
+    })
+    .catch(() => {
+      sources[name] = 'none';
+      return fallback;
+    });
+  const labelsPromise = fetchLabels(LABEL_BUNDLES, locale);
+  const localeDataPromise = settle('localeData', base.localeData, mapLocaleData, {});
+  let { origin } = settings;
+  if (!origin) {
+    const airport = await settle('defaultAirport', base.defaultAirport, mapDefaultAirport, null);
+    origin = (airport && airport.code) || locale.homeAirport;
   }
-  if (!Array.isArray(list)) return null;
-  const code = (value) => (typeof value === 'string' ? value.toUpperCase() : '');
-  const offers = list.map((item) => {
-    const dest = typeof item.destination === 'object' && item.destination ? item.destination : {};
-    const price = item.price || item.fare || item.lowestPrice || {};
-    const amount = typeof price === 'object'
-      ? price.amount ?? price.value ?? item.amount ?? item.priceAmount
-      : price;
-    return {
-      destination: code(dest.code || item.destinationCode || item.destination),
-      price: Number(amount),
-      currency: (typeof price === 'object' && (price.currency || price.currencyCode)) || item.currency || '',
-      formattedPrice: (typeof price === 'object' && price.formatted) || item.formattedPrice || '',
-    };
-  }).filter((o) => !Number.isNaN(o.price) && o.price > 0);
-  const matching = offers.filter((o) => !o.destination || o.destination === destination);
-  if (!matching.length) return null;
-  return matching.reduce((low, o) => (o.price < low.price ? o : low));
+  let lowest = null;
+  if (settings.destination) {
+    const offers = await settle('fares', priceBarRequests(settings, locale, origin).fares, mapManualOffers, []);
+    lowest = offers
+      .filter((o) => o.origin === origin && o.destination === settings.destination)
+      .reduce((low, o) => (!low || o.price < low.price ? o : low), null);
+  }
+  const [live, localeData] = await Promise.all([labelsPromise, localeDataPromise]);
+  Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
+  return {
+    lowest, origin, labels: pickLabels(live.labels, LIVE_LABELS), localeData, sources,
+  };
 }
 
 /**
  * The single place where the "Find flights" link is built: the authored link (empty query
- * parameters such as OriginCode= dropped) or the locale's offers page for the destination.
+ * parameters such as OriginCode= dropped) or the locale's offers page for the destination
+ * (the live ctaRedirectUrl "/{MARKET}/{LANGUAGE}/book-and-manage/offers-and-destination").
  */
 function buildOffersLink(authoredHref, destination, locale) {
   if (authoredHref) {
@@ -135,39 +165,35 @@ function observeVisibility(block, sentinel) {
 export default async function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
-  const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
-  const text = (...keys) => (pick(config, ...keys) || {}).text || '';
-
-  const title = text('title', 'destination-name');
-  const destination = parseAirportCode(text('destination', 'destination-code'));
-  const origin = parseAirportCode(text('origin', 'origin-code')) || locale.homeAirport;
-  const tripDuration = parseInt(text('trip-duration', 'duration'), 10) || 7;
-  const cabin = text('cabin') || 'E';
+  let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
+  const settings = readPriceBarSettings(config);
   const linkRow = pick(config, 'link', 'cta');
   const authoredLink = linkRow && linkRow.link;
-  const href = buildOffersLink(authoredLink ? authoredLink.getAttribute('href') : '', destination, locale);
+  const href = buildOffersLink(authoredLink ? authoredLink.getAttribute('href') : '', settings.destination, locale);
 
   const inner = el('div', 'price-bar-inner');
   const info = el('div', 'price-bar-info');
-  if (title) info.append(el('p', 'price-bar-title', title));
+  if (settings.title) info.append(el('p', 'price-bar-title', settings.title));
   const offer = el('p', 'price-bar-offer');
   offer.append(el('span', 'price-bar-price-label', labels['price label']), el('span', 'price-bar-price'));
   offer.hidden = true;
   info.append(offer);
   inner.append(info);
 
+  let link;
+  const authoredLinkText = (authoredLink && authoredLink.textContent.trim())
+    || (linkRow && !authoredLink && linkRow.text);
   if (href) {
-    const link = el('a', 'price-bar-link button', (authoredLink && authoredLink.textContent.trim())
-      || (linkRow && !authoredLink && linkRow.text) || labels['link label']);
+    link = el('a', 'price-bar-link button', authoredLinkText || labels['link label']);
     link.href = href;
     if (authoredLink && authoredLink.title) link.title = authoredLink.title;
     inner.append(link);
   }
 
   block.replaceChildren(inner);
-  if (title) {
+  if (settings.title) {
     block.setAttribute('role', 'region');
-    block.setAttribute('aria-label', title);
+    block.setAttribute('aria-label', settings.title);
   }
 
   // the bar leaves the flow (fixed); a zero-height marker keeps its place on the page
@@ -176,24 +202,16 @@ export default async function decorate(block) {
   block.before(sentinel);
   observeVisibility(block, sentinel);
 
-  if (!destination) return;
-  try {
-    const request = priceBarRequest({
-      origin, destination, tripDuration, cabin,
-    }, locale);
-    const { data, source } = await lhFetch(request.route, {
-      method: request.method,
-      body: request.body,
-    });
-    block.dataset.source = source;
-    const lowest = mapLowestPrice(data, destination);
-    const price = lowest && (lowest.formattedPrice
-      || formatPrice(lowest.price, lowest.currency, locale));
-    if (price) {
-      offer.querySelector('.price-bar-price').textContent = price;
-      offer.hidden = false;
-    }
-  } catch (e) {
-    block.dataset.source = 'none';
+  if (!settings.destination) return;
+  const data = await loadPriceBarData(settings, locale);
+  block.dataset.source = data.sources.fares || 'none';
+  labels = resolveLabels({
+    [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
+  }, config, locale.lang);
+  if (link && !authoredLinkText) link.textContent = labels['link label'];
+  const price = data.lowest && formatFare(data.lowest.price, data.lowest, locale, data.localeData);
+  if (price) {
+    offer.querySelector('.price-bar-price').textContent = price;
+    offer.hidden = false;
   }
 }

@@ -10,6 +10,8 @@
  *   Destinations  | Chicago (CHI), Washington D.C. (WAS), ...
  *   Trip duration | 7
  *   Cabin         | E
+ *   Trip type     | One way (only when data-dcep tripType is "O"; default round trip)
+ *   Travel months | 1,2,3,10,11,12 (data-dcep travelMonths, sent in the fare request)
  *   Price label   | Round trip from
  *   Link          | URL pattern (only when the source links differ from the block default)
  *   Conditions    | conditions label + conditions text (from the portalled conditions dialog)
@@ -88,6 +90,12 @@ export default function parse(element, { document }) {
   const firstRoute = routes.find((r) => r.url) || {};
   addRow('Trip duration', clean(String(props.tripDuration || '')) || firstRoute.tripDuration || '');
   addRow('Cabin', clean(props.cabin) || firstRoute.cabin || '');
+  // fare request parameters of the component (fareteaser/manual body): trip type only when
+  // not the default round trip ("R"), travel months as authored ("1,2,3,10,11,12")
+  const tripType = clean(props.tripType).toUpperCase();
+  if (tripType === 'O') addRow('Trip type', 'One way');
+  const months = clean(String(props.travelMonths || '')).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
+  addRow('Travel months', months.join(','));
 
   // Price label (label only, never the price).
   addRow('Price label', attr(element.querySelector('maui-price-display[label]'), 'label'));
@@ -103,7 +111,9 @@ export default function parse(element, { document }) {
     swap(firstRoute.destination, '{destination}');
     swap(firstRoute.tripDuration, '{duration}');
     swap(firstRoute.cabin, '{cabin}');
-    addRow('Link', pattern);
+    // a pattern that still names one route (e.g. city names in the path) would send every
+    // teaser to that route: only emit it when the route codes became placeholders
+    if (pattern.includes('{origin}') || pattern.includes('{destination}')) addRow('Link', pattern);
   }
 
   // Conditions: footer text, the "Conditions" dialog trigger label and the dialog content.

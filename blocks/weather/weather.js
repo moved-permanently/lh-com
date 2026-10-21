@@ -10,17 +10,15 @@ import {
  * ------------------------------------------------------------------------------------------- */
 
 /**
- * Weather request for one city or airport code. The path follows the lh-proxy allowlist
- * (GET /aircore/weather/...) and its test route /aircore/weather/FRA; the language query is
- * an assumption until a live request is captured.
+ * Weather of one city as the live AirCore destination pages load it:
+ * GET /aircore/weather/{lang}/{code}, e.g. /aircore/weather/de/nyc (lower-case city code).
  * @param {{location: string}} config
  * @param {Object} locale result of getLocale()
  * @returns {{route: string, method: string}}
  */
-function weatherRequest({ location }, locale) {
-  const params = new URLSearchParams({ lang: locale.lang });
+export function weatherRequest({ location }, locale) {
   return {
-    route: `/aircore/weather/${encodeURIComponent(location)}?${params}`,
+    route: `/aircore/weather/${encodeURIComponent(locale.lang)}/${encodeURIComponent(location.toLowerCase())}`,
     method: 'GET',
   };
 }
@@ -52,11 +50,58 @@ function toUnit(value) {
 }
 
 /**
+ * The live answer: one entry per day, then one with the current conditions and labels.
+ * [{"iata":"NYC","date":"2026-10-21","max_celsius":"16","max_fahrenheit":"61","min_celsius":"7",
+ *   "min_fahrenheit":"45","symbol":"0","day_word":"Today","symbol_word":"Sunny",
+ *   "symbol_path":"/aircore/cache/weather-0.svg"}, ...,
+ *  {"iata":"NYC","humidity":"77","wind_direction":"N","wind_speed":"17","humidity_word":"Humidity",
+ *   "wind_word":"Wind","temperature_word":"Temperature"}]
+ * → { unit, current: { temp, condition, icon, humidity, wind }, days: [{ date, name, min, max,
+ *   condition, icon }], labels: { 'humidity label', 'wind label' } }; null without days.
+ * Both units come with the answer, so the requested one is used as is.
+ */
+function mapLiveWeather(data, unit) {
+  const suffix = unit === 'F' ? 'fahrenheit' : 'celsius';
+  const num = (v) => (v === undefined || v === null || v === '' || Number.isNaN(Number(v)) ? null : Number(v));
+  const days = data.filter((d) => d && d.date).map((d) => {
+    const day = String(d.date).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return {
+      date: day ? new Date(Number(day[1]), Number(day[2]) - 1, Number(day[3])) : null,
+      name: d.day_word || '',
+      min: num(d[`min_${suffix}`]),
+      max: num(d[`max_${suffix}`]),
+      condition: d.symbol_word || '',
+      icon: weatherIconUrl(d.symbol_path || ''),
+    };
+  }).filter((d) => d.min !== null || d.max !== null);
+  if (!days.length) return null;
+  const extra = data.find((d) => d && !d.date
+    && (d.humidity !== undefined || d.wind_speed !== undefined)) || {};
+  const [today] = days;
+  const labels = {};
+  if (extra.humidity_word) labels['humidity label'] = extra.humidity_word;
+  if (extra.wind_word) labels['wind label'] = extra.wind_word;
+  return {
+    unit,
+    current: {
+      temp: today.max,
+      condition: today.condition,
+      icon: today.icon,
+      humidity: num(extra.humidity),
+      wind: num(extra.wind_speed),
+    },
+    days,
+    labels,
+  };
+}
+
+/**
  * Maps the weather response to
  * { unit, current: { temp, condition, icon, humidity, wind }, days: [{ date, min, max,
  * condition, icon }] }. Tolerates flat and nested shapes; returns null without usable data.
  */
-function mapWeather(data) {
+function mapWeather(data, requestedUnit = 'C') {
+  if (Array.isArray(data)) return mapLiveWeather(data, requestedUnit);
   if (!data || typeof data !== 'object') return null;
   const root = data.weather || data.data || data;
   const unit = toUnit(root.unit || root.units || root.temperatureUnit || data.unit);
@@ -111,6 +156,23 @@ function mapWeather(data) {
   }).filter((d) => d.min !== null || d.max !== null);
   if (current.temp === null && !days.length) return null;
   return { unit, current, days };
+}
+
+/**
+ * Loads and maps the weather of one location. Recorded answers count only for this exact
+ * request: another city's weather is never shown.
+ * @returns {Promise<{weather: Object|null, source: string}>}
+ */
+export async function loadWeather({ location, unit = 'C' }, locale) {
+  try {
+    const request = weatherRequest({ location }, locale);
+    const { data, source } = await lhFetch(request.route, {
+      method: request.method, market: locale.key, exact: true,
+    });
+    return { weather: mapWeather(data, unit), source };
+  } catch (e) {
+    return { weather: null, source: 'none' };
+  }
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -208,7 +270,9 @@ function renderWeather(weather, unit, labels, locale) {
     weather.days.forEach((day) => {
       const li = el('li', 'weather-day');
       let name = '';
-      if (day.date) name = isSameDay(day.date, now) ? labels['today label'] : dayFormat.format(day.date);
+      // the live day words ("Today", "Tomorrow", "Friday") come localized with the answer
+      if (day.name) name = day.name;
+      else if (day.date) name = isSameDay(day.date, now) ? labels['today label'] : dayFormat.format(day.date);
       li.append(el('span', 'weather-day-name', name));
       if (day.date) li.append(el('span', 'weather-day-date', dateFormat.format(day.date)));
       const img = iconImage(day.icon, day.condition);
@@ -231,7 +295,6 @@ function renderWeather(weather, unit, labels, locale) {
 export default async function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
-  const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
 
   const title = text('title', 'heading');
@@ -256,19 +319,17 @@ export default async function decorate(block) {
   }
 
   block.setAttribute('aria-busy', 'true');
-  let weather = null;
-  try {
-    const request = weatherRequest({ location }, locale);
-    const { data: response, source } = await lhFetch(request.route, { method: request.method });
-    block.dataset.source = source;
-    weather = mapWeather(response);
-  } catch (e) {
-    block.dataset.source = 'none';
-  }
+  const { weather, source } = await loadWeather({ location, unit }, locale);
+  block.dataset.source = source;
   if (!weather) {
     unavailable();
     return;
   }
+  // labels of the answer (humidity_word, wind_word) unless authored
+  const defaults = DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en;
+  const labels = resolveLabels({
+    [locale.lang]: { ...defaults, ...(weather.labels || {}) },
+  }, config, locale.lang);
   data.replaceChildren(renderWeather(weather, unit, labels, locale));
   data.hidden = false;
   block.removeAttribute('aria-busy');

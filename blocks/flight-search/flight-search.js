@@ -1,57 +1,107 @@
 import { getLocale } from '../../scripts/locale.js';
-import { lhFetch } from '../../scripts/lh-data.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
-import { createAirportCombobox } from '../../scripts/airport-combobox.js';
+import { createAirportCombobox, airportDisplay } from '../../scripts/airport-combobox.js';
+import {
+  labelsRequest, catalogRequest, defaultAirportRequest, fetchRequest, fetchLabels, pickLabels,
+  mapDefaultAirport, mapAirportNames, searchAirports, fillLabel,
+} from '../../scripts/lh-api.js';
 
 /* ---------------------------------------------------------------------------------------------
- * Data contract. Request building and response mapping live here so the recorded responses
- * from the live site only require changes in this section.
+ * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
+ * flight manager loads labels/flightmanager, defaultAirport (the prefilled origin) and
+ * catalogs/airportnames, and asks suggestions/airports for every typed term.
  * ------------------------------------------------------------------------------------------- */
 
-/** Airport autocomplete request. */
-function airportSuggestionsRoute(term, locale) {
-  const params = new URLSearchParams({
-    searchTerm: term,
-    countryCode: locale.country.toUpperCase(),
-    languageCode: locale.lang,
-  });
-  return `/service/api/suggestions/airports?${params}`;
+/** Live labels used by the block, by block label key (labels/flightmanager, labels/common). */
+const LIVE_LABELS = {
+  'round trip label': 'flightmanager.flight.tripType.roundtrip.label',
+  'one way label': 'flightmanager.flight.tripType.oneway.label',
+  'trip type label': 'flightmanager.flight.travelDetails.tripTypeLabel',
+  'date label': 'flightmanager.flight.dateInputGrouped.roundtrip',
+  'one way date label': 'flightmanager.flight.dateInputGrouped.oneway',
+  'date error': 'flightmanager.flight.dateInputGrouped.dateRequired',
+  'return date error': 'flightmanager.flight.od.returnDateRequired',
+  'submit label': 'flightmanager.flight.searchButton.default',
+  'swap label': 'flightmanager.flight.swapButton.label',
+  'origin error': 'flightmanager.flight.od.originCodeErrorRequired',
+  'destination error': 'flightmanager.flight.od.destinationCodeErrorRequired',
+  'same airport error': 'flightmanager.flight.od.destinationCodeErrorNot',
+  'from label': 'common.od.originCode.label',
+  'to label': 'common.od.destinationCode.label',
+};
+
+/** Live label bundles: flightmanager (homepage), common (loaded by the live site elsewhere). */
+const LABEL_BUNDLES = ['flightmanager', 'common'];
+
+/**
+ * Settings of an authored block.
+ * @param {Object} config result of readConfigRows
+ * @param {Object} locale result of getLocale()
+ */
+export function readFlightSearchSettings(config, locale) {
+  const text = (...keys) => (pick(config, ...keys) || {}).text || '';
+  const originValue = text('default-origin', 'origin');
+  const destinationValue = text('default-destination', 'destination');
+  const destinationCode = parseAirportCode(destinationValue);
+  return {
+    tabs: (pick(config, 'tabs', 'tab') || { list: [] }).list,
+    tripTypes: (pick(config, 'trip-types', 'trip-type') || { list: [] }).list.slice(0, 2),
+    defaultTripType: text('default-trip-type'),
+    // null: the market default airport (defaultAirport), like the live prefilled origin
+    origin: parseAirportCode(originValue)
+      ? { code: parseAirportCode(originValue), name: parseAirportName(originValue) } : null,
+    destination: destinationCode
+      ? { code: destinationCode, name: parseAirportName(destinationValue) } : null,
+    adults: parseInt(text('adults', 'travellers'), 10) || 1,
+    cabin: (text('cabin') || 'E').toUpperCase(),
+    travellerLabel: text('traveller-label', 'travellers-label'),
+    nonstopLabel: text('nonstop-label', 'nonstop'),
+    fallbackOrigin: locale.homeAirport,
+  };
 }
 
-/** Maps the autocomplete response to [{ code, name, label }]. */
-function mapAirportSuggestions(data) {
-  const list = Array.isArray(data) ? data
-    : (data && (data.airports || data.suggestions || data.items || data.data)) || [];
-  return list.map((item) => {
-    const code = item.code || item.iataCode || item.airportCode || item.cityCode || item.id || '';
-    const name = item.cityName || item.name || item.airportName || item.label || '';
-    const country = item.countryName || item.country || '';
-    return {
-      code: String(code).toUpperCase(),
-      name,
-      label: [name && `${name} (${String(code).toUpperCase()})`, country].filter(Boolean).join(', '),
-    };
-  }).filter((a) => /^[A-Z]{3}$/.test(a.code));
+/** The live requests of the block (the typed-term suggestions come from searchAirports). */
+export function flightSearchRequests(settings, locale) {
+  return {
+    labels: LABEL_BUNDLES.map((bundle) => labelsRequest(bundle, locale)),
+    defaultAirport: defaultAirportRequest(),
+    airportNames: catalogRequest('airportnames'),
+  };
 }
 
-/** Airport names catalog request (used to name the default origin). */
-function airportNamesRoute(locale) {
-  return `/service/api/catalogs/airportnames?${new URLSearchParams({ lang: locale.lang })}`;
-}
-
-/** Maps the airport names catalog to a display name for one code. */
-function mapAirportName(data, code) {
-  if (!data || !code) return '';
-  const source = data.airportnames || data.airports || data.data || data;
-  if (Array.isArray(source)) {
-    const hit = source.find((a) => [a.code, a.iataCode, a.airportCode].includes(code));
-    return hit ? hit.cityName || hit.name || hit.airportName || '' : '';
+/**
+ * Loads the live labels and the origin to prefill: the authored one (named from the airport
+ * names catalog or the default airport when authored as a bare code), else the market default.
+ * @returns {Promise<{labels: Object<string, string>, origin: {code: string, name: string},
+ *   sources: Object<string, string>}>}
+ */
+export async function loadFlightSearchData(settings, locale) {
+  const requests = flightSearchRequests(settings, locale);
+  const sources = {};
+  const settle = (name, mapper, fallback) => fetchRequest(requests[name], locale)
+    .then(({ data, source }) => {
+      sources[name] = source;
+      return mapper(data);
+    })
+    .catch(() => {
+      sources[name] = 'none';
+      return fallback;
+    });
+  const [live, defaultAirport, airportNames] = await Promise.all([
+    fetchLabels(LABEL_BUNDLES, locale),
+    settle('defaultAirport', mapDefaultAirport, null),
+    settle('airportNames', mapAirportNames, []),
+  ]);
+  Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
+  let origin = settings.origin || defaultAirport || { code: settings.fallbackOrigin, name: '' };
+  if (!origin.name) {
+    const named = airportNames.find((a) => a.code === origin.code)
+      || (defaultAirport && defaultAirport.code === origin.code ? defaultAirport : null);
+    if (named) origin = { code: origin.code, name: named.name };
   }
-  const hit = source[code];
-  if (!hit) return '';
-  return typeof hit === 'string' ? hit : hit.cityName || hit.name || '';
+  return { labels: pickLabels(live.labels, LIVE_LABELS), origin, sources };
 }
 
 /** Trip type codes by authored position: first trip type is round trip, second one way. */
@@ -87,32 +137,47 @@ function buildShopHandoffUrl(query, locale) {
 
 /* ------------------------------------------------------------------------------------------- */
 
-/** UI strings that are not visible authored content; any can be overridden by a block row. */
+/**
+ * UI strings that are not visible authored content. Order of precedence: an authored row of
+ * the same name, the live label (LIVE_LABELS), these defaults.
+ */
 const DEFAULT_LABELS = {
   en: {
     'from label': 'From',
     'to label': 'To',
     'submit label': 'Search flights',
+    'date label': 'Departure - Return',
+    'one way date label': 'Departure',
     'date error': 'Please provide travel date(s)',
+    'return date error': 'Please enter your return date and try again.',
     'trip type label': 'Type of trip',
+    'round trip label': 'Round trip',
+    'one way label': 'One-way',
     'swap label': 'Swap origin and destination',
     'departure label': 'Departure',
     'return label': 'Return',
     'origin error': 'Please select an origin',
     'destination error': 'Please select a destination',
+    'same airport error': 'Origin and destination are the same. Please check your input and try again.',
     'no results label': 'No matching airports',
   },
   de: {
     'from label': 'Von',
     'to label': 'Nach',
     'submit label': 'Flüge suchen',
+    'date label': 'Hinflug - Rückflug',
+    'one way date label': 'Hinflug',
     'date error': 'Bitte geben Sie Reisedaten an',
+    'return date error': 'Bitte geben Sie Ihr Rückflugdatum ein und versuchen es erneut.',
     'trip type label': 'Reiseart',
+    'round trip label': 'Hin- und Rückflug',
+    'one way label': 'Einfacher Flug',
     'swap label': 'Abflug- und Zielort tauschen',
     'departure label': 'Hinflug',
     'return label': 'Rückflug',
     'origin error': 'Bitte wählen Sie einen Abflugort',
     'destination error': 'Bitte wählen Sie ein Ziel',
+    'same airport error': 'Abflug- und Zielflughafen sind identisch. Bitte überprüfen Sie Ihre Angaben.',
     'no results label': 'Keine passenden Flughäfen',
   },
 };
@@ -129,56 +194,38 @@ function isoDate(date) {
   return local.toISOString().slice(0, 10);
 }
 
-async function fetchSuggestions(term, locale) {
-  const { data } = await lhFetch(airportSuggestionsRoute(term, locale));
-  return mapAirportSuggestions(data);
-}
-
-async function nameDefaultOrigin(combobox, code, locale) {
-  try {
-    const { data } = await lhFetch(airportNamesRoute(locale));
-    const name = mapAirportName(data, code);
-    const value = combobox.getValue();
-    if (name && value && value.code === code && !value.name) {
-      combobox.setValue({ code, name }, { silent: true });
-    }
-  } catch (e) {
-    // no catalog: the code alone stays visible
-  }
-}
-
 /**
- * Reads the authored label and splits "Departure - return" into its two parts.
+ * Splits the grouped date label "Departure - Return" into its two parts; an authored
+ * Departure label / Return label row wins.
  */
-function dateLabels(dateLabel, labels) {
-  const parts = (dateLabel || '').split(/\s+[-–/]\s+/);
-  if (parts.length === 2) return { departure: parts[0], return: parts[1] };
-  return { departure: labels['departure label'], return: labels['return label'] };
+function dateLabels(labels, config) {
+  const parts = (labels['date label'] || '').split(/\s+[-–/]\s+/);
+  const authored = (key) => config[key] && config[key].text;
+  return {
+    departure: authored('departure-label') || (parts.length === 2 ? parts[0] : labels['departure label']),
+    return: authored('return-label') || (parts.length === 2 ? parts[1] : labels['return label']),
+  };
 }
 
 export default function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
-  const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
+  const settings = readFlightSearchSettings(config, locale);
+  let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
-
-  const tabs = (pick(config, 'tabs', 'tab') || { list: [] }).list;
-  const tripTypes = (pick(config, 'trip-types', 'trip-type') || { list: [] }).list.slice(0, 2);
-  const defaultTripType = text('default-trip-type');
-  const originValue = text('default-origin', 'origin');
-  const originCode = parseAirportCode(originValue) || locale.homeAirport;
-  const originName = parseAirportCode(originValue) ? parseAirportName(originValue) : '';
-  const destinationValue = text('default-destination', 'destination');
-  const destinationCode = parseAirportCode(destinationValue);
-  const adults = parseInt(text('adults', 'travellers'), 10) || 1;
-  const cabin = text('cabin') || 'E';
   const links = (pick(config, 'where-we-fly', 'links', 'link') || {}).cell;
+  // texts that follow the live labels once they load (authored rows always win)
+  const refreshers = [];
+  const bind = (fn) => {
+    refreshers.push(fn);
+    fn(labels);
+  };
 
   const content = document.createDocumentFragment();
 
-  if (tabs.length) {
+  if (settings.tabs.length) {
     const tabBar = el('div', 'flight-search-tabs');
-    tabBar.append(el('span', 'flight-search-tab', tabs[0]));
+    tabBar.append(el('span', 'flight-search-tab', settings.tabs[0]));
     content.append(tabBar);
   }
 
@@ -189,75 +236,95 @@ export default function decorate(block) {
   // options row: trip type, travellers, nonstop
   const optionsRow = el('div', 'flight-search-options');
   let tripTypeSelect;
-  if (tripTypes.length) {
+  if (settings.tripTypes.length) {
     const wrap = el('div', 'flight-search-trip-type');
-    const label = el('label', 'flight-search-sr-only', labels['trip type label']);
+    const label = el('label', 'flight-search-sr-only');
+    bind((l) => { label.textContent = l['trip type label']; });
     tripTypeSelect = el('select');
     tripTypeSelect.name = 'tripType';
     tripTypeSelect.id = `flight-search-trip-type-${Math.random().toString(36).slice(2, 8)}`;
     label.htmlFor = tripTypeSelect.id;
-    tripTypes.forEach((type, i) => {
-      const option = el('option', '', type);
-      option.value = TRIP_TYPE_CODES[i];
-      option.selected = Boolean(defaultTripType)
-        && type.toLowerCase() === defaultTripType.toLowerCase();
+    // the live flight manager always offers both: a missing second type gets the live label
+    TRIP_TYPE_CODES.forEach((code, i) => {
+      const option = el('option');
+      option.value = code;
+      if (settings.tripTypes[i]) option.textContent = settings.tripTypes[i];
+      else bind((l) => { option.textContent = l[i ? 'one way label' : 'round trip label']; });
+      option.selected = Boolean(settings.defaultTripType)
+        && option.textContent.toLowerCase() === settings.defaultTripType.toLowerCase();
       tripTypeSelect.append(option);
     });
     wrap.append(label, tripTypeSelect);
     optionsRow.append(wrap);
   }
-  const travellerLabel = text('traveller-label', 'travellers-label');
-  if (travellerLabel) optionsRow.append(el('span', 'flight-search-travellers', travellerLabel));
+  if (settings.travellerLabel) optionsRow.append(el('span', 'flight-search-travellers', settings.travellerLabel));
   let nonstop;
-  const nonstopLabel = text('nonstop-label', 'nonstop');
-  if (nonstopLabel) {
+  if (settings.nonstopLabel) {
     const label = el('label', 'flight-search-nonstop');
     nonstop = el('input');
     nonstop.type = 'checkbox';
     nonstop.name = 'nonstop';
-    label.append(nonstop, document.createTextNode(` ${nonstopLabel}`));
+    label.append(nonstop, document.createTextNode(` ${settings.nonstopLabel}`));
     optionsRow.append(label);
   }
   if (optionsRow.children.length) form.append(optionsRow);
 
   // fields row: origin, swap, destination, dates, submit
   const fields = el('div', 'flight-search-fields');
+  let originTouched = false;
   const origin = createAirportCombobox({
     label: text('origin-label', 'from') || labels['from label'],
     name: 'origin',
-    value: { code: originCode, name: originName },
-    fetchSuggestions: (term) => fetchSuggestions(term, locale),
+    value: settings.origin || { code: settings.fallbackOrigin, name: '' },
+    fetchSuggestions: (term) => searchAirports(term, locale),
+    onChange: () => { originTouched = true; },
     noResultsLabel: labels['no results label'],
   });
   origin.element.classList.add('flight-search-origin');
   const destination = createAirportCombobox({
     label: text('destination-label', 'to') || labels['to label'],
     name: 'destination',
-    value: destinationCode
-      ? { code: destinationCode, name: parseAirportName(destinationValue) }
-      : null,
-    fetchSuggestions: (term) => fetchSuggestions(term, locale),
+    value: settings.destination,
+    fetchSuggestions: (term) => searchAirports(term, locale),
     noResultsLabel: labels['no results label'],
   });
   destination.element.classList.add('flight-search-destination');
+  if (!text('origin-label', 'from')) {
+    bind((l) => { origin.element.querySelector('label').textContent = l['from label']; });
+  }
+  if (!text('destination-label', 'to')) {
+    bind((l) => { destination.element.querySelector('label').textContent = l['to label']; });
+  }
 
   const swap = el('button', 'flight-search-swap');
   swap.type = 'button';
-  swap.setAttribute('aria-label', labels['swap label']);
-  swap.title = labels['swap label'];
+  // authored or built-in, without placeholders: used until both airports are set
+  const plainSwapLabel = labels['swap label'];
+  const updateSwapLabel = () => {
+    // live: "Click here to switch the origin {ORIGIN} and destination {DESTINATION}."
+    const from = airportDisplay(origin.getValue());
+    const to = airportDisplay(destination.getValue());
+    const label = /\{[A-Z_]+\}/.test(labels['swap label']) && !(from && to)
+      ? plainSwapLabel
+      : fillLabel(labels['swap label'], { ORIGIN: from, DESTINATION: to });
+    swap.setAttribute('aria-label', label);
+    swap.title = label;
+  };
+  bind(updateSwapLabel);
   swap.addEventListener('click', () => {
     const from = origin.getValue();
     origin.setValue(destination.getValue());
     destination.setValue(from);
+    updateSwapLabel();
   });
+  [origin, destination].forEach((c) => c.input.addEventListener('change', updateSwapLabel));
 
   const dates = el('fieldset', 'flight-search-dates');
-  const dateLabel = text('date-label', 'dates-label');
-  if (dateLabel) dates.append(el('legend', '', dateLabel));
-  const { departure: departureText, return: returnText } = dateLabels(dateLabel, labels);
-  const makeDate = (name, labelText) => {
+  const legend = el('legend');
+  dates.append(legend);
+  const makeDate = (name) => {
     const label = el('label', `flight-search-date flight-search-${name}`);
-    const span = el('span', 'flight-search-date-label', labelText);
+    const span = el('span', 'flight-search-date-label');
     const input = el('input');
     input.type = 'date';
     input.name = name;
@@ -265,17 +332,18 @@ export default function decorate(block) {
     input.min = isoDate(new Date());
     label.append(span, input);
     dates.append(label);
-    return { label, input };
+    return { label, input, span };
   };
-  const departure = makeDate('departure', departureText);
-  const ret = makeDate('return', returnText);
+  const departure = makeDate('departure');
+  const ret = makeDate('return');
   departure.input.addEventListener('change', () => {
     ret.input.min = departure.input.value || isoDate(new Date());
     if (ret.input.value && ret.input.value < departure.input.value) ret.input.value = '';
   });
 
-  const submit = el('button', 'flight-search-submit button primary', text('submit') || labels['submit label']);
+  const submit = el('button', 'flight-search-submit button primary');
   submit.type = 'submit';
+  bind((l) => { submit.textContent = text('submit') || l['submit label']; });
 
   fields.append(origin.element, swap, destination.element, dates, submit);
   form.append(fields);
@@ -290,9 +358,13 @@ export default function decorate(block) {
     ret.label.hidden = oneWay;
     ret.input.disabled = oneWay;
     form.dataset.tripType = oneWay ? 'ONEWAY' : 'RETURN';
+    const parts = dateLabels(labels, config);
+    legend.textContent = oneWay ? labels['one way date label'] : labels['date label'];
+    departure.span.textContent = parts.departure;
+    ret.span.textContent = parts.return;
   };
   if (tripTypeSelect) tripTypeSelect.addEventListener('change', updateTripType);
-  updateTripType();
+  bind(updateTripType);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -302,8 +374,8 @@ export default function decorate(block) {
       destination: (destination.getValue() || {}).code,
       departureDate: departure.input.value,
       returnDate: ret.input.value,
-      adults,
-      cabin,
+      adults: settings.adults,
+      cabin: settings.cabin,
       nonstop: Boolean(nonstop && nonstop.checked),
     };
     let message = '';
@@ -314,9 +386,15 @@ export default function decorate(block) {
     } else if (!query.destination) {
       message = labels['destination error'];
       focus = destination.input;
-    } else if (!query.departureDate || (query.tripType === 'RETURN' && !query.returnDate)) {
+    } else if (query.origin === query.destination) {
+      message = labels['same airport error'];
+      focus = destination.input;
+    } else if (!query.departureDate) {
       message = labels['date error'];
-      focus = query.departureDate ? ret.input : departure.input;
+      focus = departure.input;
+    } else if (query.tripType === 'RETURN' && !query.returnDate) {
+      message = labels['return date error'];
+      focus = ret.input;
     }
     error.textContent = message;
     error.hidden = !message;
@@ -337,5 +415,17 @@ export default function decorate(block) {
 
   block.replaceChildren(content);
 
-  if (!originName) nameDefaultOrigin(origin, originCode, locale);
+  loadFlightSearchData(settings, locale).then((data) => {
+    block.dataset.source = data.sources['labels/flightmanager'];
+    labels = resolveLabels({
+      [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
+    }, config, locale.lang);
+    refreshers.forEach((fn) => fn(labels));
+    // prefill like the live site (authored origin named, else the market default airport)
+    // unless the visitor already picked an origin
+    if (!originTouched) {
+      origin.setValue(data.origin, { silent: true });
+      updateSwapLabel();
+    }
+  });
 }

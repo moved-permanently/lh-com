@@ -13,7 +13,7 @@
     ]
   },
   "contentPattern": {
-    "structure": "2 columns, label | value. Rows (all optional): Tabs | Flights; Trip types | Round trip, One way (first = round trip, second = one way); Default trip type | Round trip; Traveller label | Economy, 1 Traveller; Nonstop label | Nonstop only; From label | From; Default origin | Frankfurt (FRA) or FRA (omitted: the locale home airport); Default destination | code; To label | To; Date label | Departure - return (split at ' - ' into the two date labels); Date error | Please provide travel date(s); Submit label | Search flights; Where we fly | link; Cabin | E; Adults | 1. Overridable UI rows: Trip type label, Swap label, Departure label, Return label, Origin error, Destination error, No results label. UI strings have built-in English and German defaults chosen by the page language; any can be overridden with a row of the same name"
+    "structure": "2 columns, label | value. Rows (all optional): Tabs | Flights; Trip types | Round trip, One way (first = round trip, second = one way; a missing second type gets the live one-way label); Default trip type | Round trip; Traveller label | Economy, 1 Traveller; Nonstop label | Nonstop only; From label | From; Default origin | Frankfurt (FRA) or FRA (omitted: the market default airport from /service/api/defaultAirport, like the live prefilled origin); Default destination | code; To label | To; Date label | Departure - Return (split at ' - ' into the two date labels); Date error | Please provide travel date(s); Submit label | Find flights; Where we fly | link; Cabin | E; Adults | 1. Overridable UI rows: Trip type label, Swap label, Departure label, Return label, One way date label, Return date error, Origin error, Destination error, Same airport error, No results label. UI strings: an authored row wins, then the live labels (/service/api/labels/flightmanager and common), then built-in English/German defaults"
   },
   "options": [],
   "memberVariantIds": [],
@@ -28,5 +28,5 @@
     "reuseCount": 3,
     "lastUsed": "2026-10-21"
   },
-  "reuseGuidance": "Reuse unchanged on every template and locale; change only the authored labels. Airport suggestions and names come from /service/api via lhFetch; request and response mapping sit at the top of flight-search.js, the shop handoff parameters in buildShopHandoffUrl."
+  "reuseGuidance": "Reuse unchanged on every template and locale; change only the authored labels. Request builders and response mappers of the live API are in scripts/lh-api.js (suggestions/airports, labels, defaultAirport, catalogs/airportnames); typed terms without a live or recorded answer are matched against the airports known from the market recordings. The block keeps the label key map (LIVE_LABELS) and the shop handoff parameters (buildShopHandoffUrl)."
 }

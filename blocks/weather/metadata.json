@@ -13,10 +13,10 @@
     ]
   },
   "contentPattern": {
-    "structure": "2 columns, label | value. Rows: Title | Current weather in New York (rendered immediately as the heading); Location | NYC (IATA city or airport code, also 'New York (NYC)'; without a code the block stays hidden); Units | C or F (default C; values are converted when the service answers in the other unit). Optional label rows with built-in English/German defaults chosen by the page language: Today label (Today / Heute), Forecast label (Forecast / Vorhersage), Humidity label (Humidity / Luftfeuchtigkeit), Wind label (Wind / Wind), Min label (Min / Min.), Max label (Max / Max.). Weather comes at runtime from GET /aircore/weather/{code}?lang={lang} via lhFetch (lh-proxy or recorded data); if neither answers the whole block is hidden, like the source. Day names and dates are formatted with Intl for the page locale. Unknown rows are ignored."
+    "structure": "2 columns, label | value. Rows: Title | Current weather in New York (rendered immediately as the heading); Location | NYC (IATA city or airport code, also 'New York (NYC)'; without a code the block stays hidden); Units | C or F (default C; the live answer carries both). Optional label rows with built-in English/German defaults chosen by the page language: Today label (Today / Heute), Forecast label (Forecast / Vorhersage), Humidity label, Wind label (default: the words of the live answer), Min label (Min / Min.), Max label (Max / Max.). Weather comes at runtime from GET /aircore/weather/{lang}/{code} (e.g. /aircore/weather/de/nyc, as the live AirCore pages load it) via lhFetch (lh-proxy or exactly this recorded request); if neither answers the whole block is hidden, like the source. Day names come with the answer (Today, Tomorrow, Friday). Unknown rows are ignored."
   },
   "options": [],
   "memberVariantIds": [],
   "usage": "AirCore destination pages (/lhg/{cc}/{lang}/dest/cy/{city}) in every locale: one weather block per destination, after the entry regulation cards.",
-  "reuseGuidance": "Reuse unchanged for any destination; author only Title and Location. Request and response mapping sit at the top of weather.js (weatherRequest, mapWeather, weatherIconUrl); adjust only that section once a live /aircore/weather/ response is captured."
+  "reuseGuidance": "Reuse unchanged for any destination; author only Title and Location. Request and response mapping sit at the top of weather.js (weatherRequest, mapLiveWeather for the live day list, mapWeather, weatherIconUrl)."
 }

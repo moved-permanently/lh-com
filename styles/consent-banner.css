@@ -1,0 +1,579 @@
+/*
+ * Cookie consent.
+ * 1. Fallback banner (scripts/consent-banner.js): reproduces the computed styles of
+ *    Lufthansa's OneTrust banner (otCenterRounded + Lufthansa custom CSS), measured at
+ *    320-1440px. Breakpoints are OneTrust's: 425/426, 600/601, 800/801, 896/897.
+ * 2. Fixes for the real OneTrust banner on this site (Lufthansa's icon font is not loaded).
+ * 3. Hiding OneTrust while the fallback is shown or an authoring overlay is open.
+ */
+
+/* ---------------------------------------------------------------- shared ---- */
+
+.lh-consent {
+  --lh-consent-navy: #05164d;
+  --lh-consent-link: #52627c;
+  --lh-consent-yellow: #ffad00;
+  --lh-consent-focus: #0968f6;
+  --lh-consent-head: lufthansahead, arial, helvetica, sans-serif;
+  --lh-consent-text: lufthansatext, arial, helvetica, sans-serif;
+
+  color: var(--lh-consent-navy);
+}
+
+.lh-consent *,
+.lh-consent ::before,
+.lh-consent ::after {
+  box-sizing: content-box;
+}
+
+.lh-consent-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483645;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0 0 0 / 50%);
+  animation: lh-consent-fade-in 400ms ease-in-out;
+}
+
+@keyframes lh-consent-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lh-consent h2,
+.lh-consent h3,
+.lh-consent p,
+.lh-consent ul {
+  margin: 0;
+  color: inherit;
+  letter-spacing: normal;
+  scroll-margin: 0;
+}
+
+.lh-consent a:any-link {
+  color: var(--lh-consent-link);
+  font-weight: 700;
+  text-decoration: none;
+  transition: none;
+}
+
+.lh-consent a:hover {
+  color: var(--lh-consent-link);
+  text-decoration: none;
+}
+
+.lh-consent button {
+  cursor: pointer;
+}
+
+.lh-consent-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lh-consent-links a:any-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--lh-consent-head);
+  font-size: 14px;
+  line-height: 21px;
+  white-space: normal;
+}
+
+.lh-consent-arrow {
+  display: block;
+  flex: none;
+  width: 9px;
+  height: 21px;
+}
+
+.lh-consent-arrow svg {
+  display: block;
+  width: 9px;
+  height: 21px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------------------------------------------------------------- banner ---- */
+
+.lh-consent-banner {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 2147483645;
+  width: 95%;
+  max-width: min(650px, 100vw - 2em);
+  max-height: 90%;
+  margin: 0 auto;
+  padding: 10px 15px;
+  overflow: hidden auto;
+  border-radius: 2.5px;
+  background-color: #fff;
+  box-shadow: 0 0 18px rgb(0 0 0 / 20%);
+  font-family: var(--lh-consent-head);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  transform: translateY(-50%);
+  animation: lh-consent-fade-in 400ms ease-in-out;
+}
+
+.lh-consent-banner:focus {
+  outline: 1px solid #000;
+  outline-offset: -2px;
+}
+
+.lh-consent-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 26px 0;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.lh-consent .lh-consent-title {
+  width: calc(100% - 90px);
+  padding: 0 22px 10px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.lh-consent-text {
+  margin: 0 22px 10px;
+}
+
+.lh-consent-text p {
+  margin-bottom: 15px;
+  font-family: var(--lh-consent-text);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.lh-consent-text h3,
+.lh-consent-pc-desc h3 {
+  margin-bottom: 10px;
+  font-family: var(--lh-consent-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.lh-consent-actions {
+  position: sticky;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 30px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.lh-consent-buttons {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.lh-consent-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  margin: 0 0 10px;
+  padding: 0 16px;
+  border-radius: 4px;
+  color: var(--lh-consent-navy);
+  font-family: var(--lh-consent-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.lh-consent-accept {
+  order: 1;
+  border: 1px solid var(--lh-consent-yellow);
+  background-color: var(--lh-consent-yellow);
+}
+
+.lh-consent-reject {
+  order: 2;
+  border: 2px solid var(--lh-consent-navy);
+  background-color: #fff;
+}
+
+@media (width >= 426px) and (width <= 896px) {
+  .lh-consent-banner {
+    top: 15%;
+    max-width: 600px;
+    transform: translateY(-13%);
+  }
+}
+
+@media (width >= 601px) {
+  .lh-consent .lh-consent-title {
+    padding: 0 0 10px 30px;
+  }
+
+  .lh-consent-text {
+    margin: 0 30px 10px;
+  }
+}
+
+@media (width >= 801px) {
+  .lh-consent-banner {
+    padding: 0;
+  }
+
+  .lh-consent-text p {
+    margin-bottom: 10px;
+    font-family: var(--lh-consent-head);
+  }
+
+  .lh-consent-banner .lh-consent-links {
+    gap: 6px;
+  }
+
+  .lh-consent-banner .lh-consent-links a:any-link {
+    gap: 6px;
+  }
+
+  .lh-consent-buttons {
+    flex-direction: row;
+    padding: 0 8px;
+  }
+
+  .lh-consent-buttons button {
+    flex: 1 1 0;
+    width: auto;
+    max-width: 220px;
+    height: 44px;
+    margin: 0 0 16px;
+  }
+
+  .lh-consent-buttons .lh-consent-reject {
+    order: 1;
+    margin-right: auto;
+  }
+
+  .lh-consent-buttons .lh-consent-accept {
+    order: 2;
+  }
+}
+
+@media (width >= 897px) {
+  .lh-consent-banner {
+    top: 10%;
+    left: 1em;
+    width: 60%;
+    max-width: min(650px, 100vw - 2em);
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------- preference center ---- */
+
+.lh-consent-pc {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: var(--lh-consent-head);
+  font-size: 16px;
+  line-height: 1.5;
+  animation: lh-consent-fade-in 400ms ease-in-out;
+}
+
+.lh-consent-pc:focus {
+  outline: none;
+}
+
+.lh-consent-pc-header {
+  position: relative;
+  flex: none;
+  height: 40px;
+  padding: 10px 0 10px 30px;
+}
+
+.lh-consent .lh-consent-close {
+  position: absolute;
+  top: 10px;
+  right: 4px;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: #333;
+}
+
+.lh-consent-close::before,
+.lh-consent-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: currentcolor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.lh-consent-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.lh-consent-pc-content {
+  position: relative;
+  flex: 1 1 auto;
+  margin: 1px 1.5px 0;
+  padding: 0 30px;
+  overflow-y: auto;
+}
+
+.lh-consent .lh-consent-pc-title {
+  margin: 10px 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.lh-consent-pc-desc {
+  margin-bottom: 25px;
+}
+
+.lh-consent-pc-desc p {
+  margin-bottom: 14px;
+  font-family: var(--lh-consent-text);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.lh-consent-pc-desc .lh-consent-links {
+  gap: 0;
+}
+
+.lh-consent-groups {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.lh-consent-item {
+  margin: 10px 0 0;
+}
+
+.lh-consent-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 0;
+}
+
+.lh-consent-item label {
+  display: inline-flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 16px;
+  margin: 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.lh-consent-item input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: #fff center / 14px 12px no-repeat;
+  appearance: none;
+  cursor: pointer;
+}
+
+.lh-consent-item input:checked {
+  border-color: #333;
+  background-color: #414e63;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'%3E%3Cpath d='M1.5 6.5l3.5 3.5 7.5-8.5' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.lh-consent-item input:disabled {
+  border-color: #949494;
+  background-color: #8f97a4;
+  cursor: default;
+}
+
+.lh-consent-always {
+  flex: none;
+  color: #3860be;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.lh-consent .lh-consent-toggle {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lh-consent-navy);
+}
+
+.lh-consent-toggle::before,
+.lh-consent-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background: currentcolor;
+  transform: translate(-50%, -50%);
+}
+
+.lh-consent-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.lh-consent-toggle[aria-expanded="true"]::after {
+  display: none;
+}
+
+.lh-consent-group-desc {
+  padding: 0 8px 10px 48px;
+  font-family: var(--lh-consent-text);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.lh-consent-group-desc ul {
+  padding-left: 18px;
+}
+
+.lh-consent-pc-footer {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.lh-consent-pc-footer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 2px solid var(--lh-consent-yellow);
+  border-radius: 4px;
+  background-color: var(--lh-consent-yellow);
+  color: var(--lh-consent-navy);
+  font-family: var(--lh-consent-head);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (width >= 601px) {
+  .lh-consent-pc {
+    top: 5%;
+    bottom: auto;
+    width: 575px;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 2.5px;
+    box-shadow: 0 2px 10px -3px #999;
+  }
+
+  .lh-consent-pc-footer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 30px;
+  }
+
+  .lh-consent-pc-footer button {
+    width: 240px;
+  }
+}
+
+.lh-consent-buttons button:hover,
+.lh-consent-pc-footer button:hover {
+  opacity: 0.9;
+}
+
+.lh-consent a:focus,
+.lh-consent button:focus,
+.lh-consent input:focus {
+  outline: 2px solid var(--lh-consent-focus);
+  outline-offset: 1px;
+}
+
+/* ------------------------------------------------ real OneTrust banner ---- */
+
+/* the links use Lufthansa's icon font (lh-arrow-right), which this site does not load */
+#onetrust-consent-sdk #onetrust-banner-sdk .lh-arrow-right::before,
+#onetrust-consent-sdk #onetrust-pc-sdk .lh-arrow-right::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 21px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 21'%3E%3Cpath d='M.75 10.5h7M5 7.25l3.25 3.25L5 13.75' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 9px 21px no-repeat;
+}
+
+#onetrust-consent-sdk #onetrust-pc-sdk .lh-arrow-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* ------------------------------------------------------------- hiding ---- */
+
+.lh-consent-fallback #onetrust-consent-sdk,
+.lh-consent-suppressed #onetrust-consent-sdk,
+.lh-consent-suppressed .lh-consent {
+  display: none !important;
+}

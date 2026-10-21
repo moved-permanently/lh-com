@@ -15,6 +15,7 @@ import {
   toClassName,
 } from './aem.js';
 import { getLocale } from './locale.js';
+import { initConsent, isAuthoringContext } from './consent.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -208,6 +209,10 @@ async function loadEager(doc) {
   } catch (e) {
     // do nothing
   }
+
+  // cookie banner (OneTrust as on lufthansa.com) right after the first section;
+  // runs once per page and never inside DA authoring
+  initConsent();
 }
 
 /**
@@ -235,13 +240,12 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  import('./consent-check.js');
   // load anything that can be postponed to the latest here
 }
 
 async function loadPage() {
-  // the live site sends / to the German homepage for a visitor in Germany
-  if (window.location.pathname === '/') {
+  // the live site sends / to the German homepage for a visitor in Germany (not inside DA)
+  if (window.location.pathname === '/' && !isAuthoringContext()) {
     window.location.replace('/de/de/homepage');
     return;
   }
@@ -251,3 +255,10 @@ async function loadPage() {
 }
 
 loadPage();
+
+// DA live preview: re-renders the page while the author edits
+(async function loadDa() {
+  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
+  // eslint-disable-next-line import/no-unresolved
+  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
+}());

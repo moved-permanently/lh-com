@@ -84,10 +84,15 @@ walk(path.join(src, 'api'), '.ndjson').forEach((file) => {
   });
 });
 
+// The index is rebuilt from the sources on every run: they are the complete record, and a
+// change of requestKey() (e.g. a newly ignored volatile field) must not leave stale keys.
 fs.mkdirSync(out, { recursive: true });
 const indexFile = path.join(out, 'index.json');
-const index = fs.existsSync(indexFile) ? JSON.parse(fs.readFileSync(indexFile, 'utf8')) : { entries: {} };
-const skipped = { status: 0, json: 0, locale: 0 };
+const previous = fs.existsSync(indexFile) ? JSON.parse(fs.readFileSync(indexFile, 'utf8')).entries || {} : {};
+const index = { entries: {} };
+const skipped = {
+  status: 0, json: 0, locale: 0, duplicate: 0,
+};
 
 records.forEach((r) => {
   if (!r.locale) { skipped.locale += 1; return; }
@@ -95,12 +100,24 @@ records.forEach((r) => {
   let data;
   try { data = JSON.parse(r.text); } catch (e) { skipped.json += 1; return; }
   const key = requestKey(r.method, r.route, r.body);
+  const entry = `${r.locale}|${key}`;
+  // first answer wins: later calls of the same request come from a session already changed by
+  // the capture (e.g. catalogs/airportnames lists the airports searched for so far)
+  if (index.entries[entry]) { skipped.duplicate += 1; return; }
   const file = `${r.locale.replace('/', '-')}-${fnv1a(key)}.json`;
   fs.writeFileSync(path.join(out, file), `${JSON.stringify(data)}\n`);
-  index.entries[`${r.locale}|${key}`] = { file, recordedAt: r.recordedAt || new Date().toISOString() };
+  // ndjson lines carry no time: keep the time of the run that first recorded them
+  const recordedAt = r.recordedAt || previous[entry]?.recordedAt || new Date().toISOString();
+  index.entries[entry] = { file, recordedAt };
 });
+
+// recordings no longer referenced (their request key changed) are removed
+const referenced = new Set(Object.values(index.entries).map((e) => e.file));
+const removed = fs.readdirSync(out)
+  .filter((f) => /^[a-z]{2}-[a-z]{2}-[0-9a-f]{8}\.json$/.test(f) && !referenced.has(f));
+removed.forEach((f) => fs.unlinkSync(path.join(out, f)));
 
 index.updatedAt = new Date().toISOString();
 fs.writeFileSync(indexFile, `${JSON.stringify(index, null, 1)}\n`);
 const perLocale = LOCALES.map((l) => `${l}: ${Object.keys(index.entries).filter((k) => k.startsWith(`${l}|`)).length}`);
-console.log(`recorded ${records.length} responses read; index now ${Object.keys(index.entries).length} entries (${perLocale.join(', ')}); skipped ${JSON.stringify(skipped)}`);
+console.log(`recorded ${records.length} responses read; index now ${Object.keys(index.entries).length} entries (${perLocale.join(', ')}); removed ${removed.length} stale files; skipped ${JSON.stringify(skipped)}`);
