@@ -1,0 +1,38 @@
+name: Deploy lh-msm
+# Deploys the DA multi-site worker (da-sites/da-msm, pinned) as lh-msm, the content source of
+# sites that inherit their pages from lh-com. The worker code is checked out, not copied here.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-lh-msm.yaml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-lh-msm
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ac7ee4615628005dc5ba0a22f0aae2a6
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        repository: da-sites/da-msm
+        ref: cf72b9b95b236e314168eefff0a9fa21e5f8c8ba
+        path: da-msm
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - name: Check Cloudflare credentials
+      run: |
+        if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+          echo "::error::Repository secret CLOUDFLARE_API_TOKEN is not set. It needs Workers Scripts:Edit on the Blackbird account."
+          exit 1
+        fi
+    - name: Deploy
+      working-directory: da-msm
+      run: npx -y wrangler@4 deploy --name lh-msm
