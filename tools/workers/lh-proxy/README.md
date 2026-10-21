@@ -18,6 +18,9 @@ routes to `UPSTREAM_ORIGIN` and adds CORS. It has no dependencies.
   `Referer` are set to the upstream origin. Cookies and `Authorization` are never forwarded.
   When `Accept-Language` is missing, the worker derives one from the path lang (labels route)
   or the `?lang=` parameter, and falls back to `en-US`.
+- `X-LH-Market: {country}/{lang}` (sent by `scripts/lh-data.js`, e.g. `de/de`) sets the upstream
+  `Referer` to that market's homepage, because catalogs, fares and defaults carry no market
+  parameter; the market is also part of the cache key. Invalid values are ignored.
 - POST bodies larger than 64 KB get `413`. If upstream takes longer than `UPSTREAM_TIMEOUT_MS`,
   the worker returns `504 {"error":"upstream-timeout"}`. A network error returns `502 upstream-error`.
 - Cloudflare challenges and blocks (403 or 503 with `text/html`, or `cf-mitigated: challenge`)
@@ -54,7 +57,7 @@ encoded slashes or backslashes (`%2f`, `%5c`, `\`) are always rejected.
 | Name | Default |
 | --- | --- |
 | `UPSTREAM_ORIGIN` | `https://www.lufthansa.com` |
-| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet)--moved-permanently\.aem\.(page\|live)$` |
+| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet)--moved-permanently\.(aem\.(page\|live)\|(stage-)?(preview\|ue)\.da\.(live\|page))$` (aem.page/live plus DA preview, Quick Edit and UE hosts) |
 | `EXTRA_ALLOWED_ORIGINS` | `http://localhost:3000` (comma-separated) |
 | `CACHE_TTL` | `300` (seconds; `0` disables caching) |
 | `UPSTREAM_TIMEOUT_MS` | `8000` |

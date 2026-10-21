@@ -30,7 +30,7 @@ const ALLOWLIST = [
 
 const DEFAULTS = {
   UPSTREAM_ORIGIN: 'https://www.lufthansa.com',
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.aem\\.(page|live)$',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
   EXTRA_ALLOWED_ORIGINS: 'http://localhost:3000',
   CACHE_TTL: 300,
   UPSTREAM_TIMEOUT_MS: 8000,
@@ -86,7 +86,7 @@ function corsHeaders(origin) {
   if (origin) {
     h.set('Access-Control-Allow-Origin', origin);
     h.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-    h.set('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language');
+    h.set('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, X-LH-Market');
     h.set('Access-Control-Max-Age', '86400');
   }
   return h;
@@ -200,7 +200,11 @@ async function handle(request, env, ctx) {
   const upstreamUrl = `${cfg.upstream}${url.pathname}${url.search}`;
   const isGet = request.method === 'GET';
   const cache = isGet && cfg.cacheTtl > 0 ? getCache() : null;
-  const cacheKey = cache ? new Request(upstreamUrl, { method: 'GET' }) : null;
+  const marketHeader = (request.headers.get('x-lh-market') || '').toLowerCase();
+  const market = /^[a-z]{2}\/[a-z]{2}$/.test(marketHeader) ? marketHeader : null;
+  // answers differ per market, so the market is part of the cache key (never sent upstream)
+  const cacheUrl = market ? `${upstreamUrl}${upstreamUrl.includes('?') ? '&' : '?'}__lh_market=${market}` : upstreamUrl;
+  const cacheKey = cache ? new Request(cacheUrl, { method: 'GET' }) : null;
 
   if (cache) {
     const hit = await cache.match(cacheKey);
@@ -219,7 +223,9 @@ async function handle(request, env, ctx) {
     headers.set('accept-language', acceptLanguageFor(/^[a-z]{2}$/.test(lang || '') ? lang : null));
   }
   headers.set('origin', cfg.upstream);
-  headers.set('referer', `${cfg.upstream}/`);
+  // the market (e.g. de/de): catalogs, fares and defaults carry no market parameter, the live
+  // site derives it from the page, so send that market's homepage as Referer
+  headers.set('referer', market ? `${cfg.upstream}/${market}/homepage` : `${cfg.upstream}/`);
 
   let body;
   if (request.method === 'POST') {

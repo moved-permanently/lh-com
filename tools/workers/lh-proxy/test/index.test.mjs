@@ -171,7 +171,7 @@ test('preflight returns 204 with CORS headers', async () => {
   assert.equal(res.status, 204);
   assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN);
   assert.equal(res.headers.get('access-control-allow-methods'), 'GET,POST,OPTIONS');
-  assert.equal(res.headers.get('access-control-allow-headers'), 'Content-Type, Accept, Accept-Language');
+  assert.equal(res.headers.get('access-control-allow-headers'), 'Content-Type, Accept, Accept-Language, X-LH-Market');
   assert.equal(res.headers.get('access-control-max-age'), '86400');
   assert.equal(res.headers.get('vary'), 'Origin');
   assert.equal(calls.length, 0);
@@ -309,4 +309,49 @@ test('works without caches global', async () => {
   const res = await worker.fetch(req('/service/api/catalogs/regions'), ENV, {});
   assert.equal(res.status, 200);
   assert.equal(res.headers.get('x-lh-proxy-cache'), null);
+});
+
+test('X-LH-Market sets the market homepage as Referer and keys the cache per market', async () => {
+  const store = new Map();
+  globalThis.caches = {
+    default: {
+      match: async (key) => store.get(key.url)?.clone(),
+      put: async (key, res) => { store.set(key.url, res); },
+    },
+  };
+  const pending = [];
+  const ctx = { waitUntil: (p) => pending.push(p) };
+  const path = '/service/api/defaultAirport';
+
+  const at = await worker.fetch(req(path, { headers: { Origin: ORIGIN, 'X-LH-Market': 'at/de' } }), ENV, ctx);
+  assert.equal(at.status, 200);
+  assert.equal(calls[0].url, `https://upstream.test${path}`);
+  assert.equal(calls[0].init.headers.get('referer'), 'https://upstream.test/at/de/homepage');
+  await Promise.all(pending);
+  assert.ok(store.has(`https://upstream.test${path}?__lh_market=at/de`));
+
+  // another market is not served from the at/de cache entry
+  await worker.fetch(req(path, { headers: { Origin: ORIGIN, 'X-LH-Market': 'gb/en' } }), ENV, ctx);
+  assert.equal(calls.length, 2);
+  assert.equal(calls[1].init.headers.get('referer'), 'https://upstream.test/gb/en/homepage');
+
+  // an invalid market is ignored
+  await worker.fetch(req(`${path}?x=1`, { headers: { Origin: ORIGIN, 'X-LH-Market': '../evil' } }), ENV, ctx);
+  assert.equal(calls[2].init.headers.get('referer'), 'https://upstream.test/');
+});
+
+test('DA preview and Universal Editor hosts are accepted', async () => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const origin of [
+    'https://main--lh-com--moved-permanently.preview.da.live',
+    'https://main--lh-com--moved-permanently.stage-preview.da.live',
+    'https://main--lh-com--moved-permanently.ue.da.live',
+  ]) {
+    // eslint-disable-next-line no-await-in-loop
+    const res = await worker.fetch(req('/health', { headers: { Origin: origin } }), ENV);
+    assert.equal(res.status, 200, origin);
+    assert.equal(res.headers.get('access-control-allow-origin'), origin);
+  }
+  const bad = await worker.fetch(req('/health', { headers: { Origin: 'https://main--other--org.preview.da.live' } }), ENV);
+  assert.equal(bad.status, 403);
 });

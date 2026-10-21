@@ -19,7 +19,7 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
 3. **Variables** live in `tools/workers/lh-proxy/wrangler.toml` `[vars]`; change them there
    and push (that triggers a deploy):
    - `UPSTREAM_ORIGIN = "https://www.lufthansa.com"`
-   - `ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.aem\\.(page|live)$"`
+   - `ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"` (aem.page/live and the DA preview, Quick Edit and UE hosts)
    - `EXTRA_ALLOWED_ORIGINS = "http://localhost:3000"` (comma list)
    - `CACHE_TTL = "300"` (seconds; the Cache API has no effect on `*.workers.dev`)
    - `UPSTREAM_TIMEOUT_MS` (default 8000)
@@ -34,7 +34,7 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
    - `curl -i -H "Origin: https://evil.example" $W/health` should return 403 `{"error":"origin-not-allowed"}`.
    - `curl -i -X OPTIONS -H "Origin: $O" -H "Access-Control-Request-Method: POST" $W/service/api/lhg-fare-teaser/fareteaser/offers/FRA`
      should return 204 with `Access-Control-Allow-Origin: $O`.
-   - `curl -i -H "Origin: $O" "$W/service/api/defaultAirport"` and
+   - `curl -i -H "Origin: $O" -H "X-LH-Market: at/de" "$W/service/api/defaultAirport"` (should answer Vienna once upstream lets the worker through) and
      `curl -i -H "Origin: $O" "$W/service/api/suggestions/airports?searchTerm=fra"` should return
      200 with JSON if Lufthansa lets the worker through. Today they answer
      **502 `{"error":"upstream-blocked","status":403}`**: Lufthansa's Cloudflare refuses the

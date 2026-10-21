@@ -173,6 +173,7 @@ export async function lhFetch(route, {
       const init = { method, signal: controller.signal, headers: { Accept: 'application/json' } };
       const language = acceptLanguage(market);
       if (language) init.headers['Accept-Language'] = language;
+      if (market) init.headers['X-LH-Market'] = market;
       if (body !== undefined) {
         init.body = typeof body === 'string' ? body : JSON.stringify(body);
         init.headers['Content-Type'] = 'application/json';
