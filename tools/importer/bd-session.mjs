@@ -14,7 +14,7 @@
  *
  * Usage: node tools/importer/bd-session.mjs (--list urls.txt | --url <url> ...) [--batch 20]
  *          [--model] [--force] [--min-delay 5000] [--max-delay 10000] [--widths 1440,768,390]
- *          [--parity-list urls-parity.txt]
+ *          [--parity-list urls-parity.txt] [--since 2026-10-21T18:46:00Z]
  * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
  * parity check, so a page is never loaded again just for a screenshot.
  */
@@ -83,7 +83,11 @@ const saveState = () => {
 const snapshotOf = (url) => snapshotPathFor(url, root, process.env.BD_SNAPSHOT_DIR);
 const captured = (url) => fs.existsSync(snapshotOf(url)) || ['404', 'error-page'].includes(state.pages[url]?.status)
   || (state.pages[url]?.status === 'net-error' && state.pages[url].attempts >= 3);
-const pending = urls.filter((u) => has('force') || !captured(u)).slice(0, batch);
+// --since <ISO>: redo only pages whose last capture is older (e.g. after a capture fix), so a
+// long redo list advances instead of starting over
+const since = opt('since') ? Date.parse(opt('since')) : null;
+const stale = (u) => since !== null && state.pages[u]?.status === 'ok' && Date.parse(state.pages[u].at) < since;
+const pending = urls.filter((u) => has('force') || !captured(u) || stale(u)).slice(0, batch);
 if (!pending.length) {
   console.log(`bd-session: nothing to do (${urls.length} URLs already captured)`);
   process.exit(0);

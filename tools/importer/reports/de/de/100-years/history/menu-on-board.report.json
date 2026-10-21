@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/100-years/history/menu-on-board",
+  "path": "de/de/100-years/history/menu-on-board",
+  "timestamp": "2026-10-21T20:18:24.361Z",
+  "title": "Menüs an Board | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

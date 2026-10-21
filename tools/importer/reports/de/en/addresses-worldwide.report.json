@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/addresses-worldwide",
+  "path": "de/en/addresses-worldwide",
+  "timestamp": "2026-10-21T20:03:26.855Z",
+  "title": "Addresses worldwide | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

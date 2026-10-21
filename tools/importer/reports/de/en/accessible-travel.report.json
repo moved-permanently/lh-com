@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/accessible-travel",
+  "path": "de/en/accessible-travel",
+  "timestamp": "2026-10-21T20:03:22.603Z",
+  "title": "Accessible travel | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "carousel-cards",
+    "carousel-cards",
+    "carousel-cards"
+  ]
+}

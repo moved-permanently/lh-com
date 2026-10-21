@@ -78,5 +78,300 @@
   "template": "homepage",
   "status": "ok",
   "at": "2026-10-21T18:23:08.353Z"
+ },
+ "https://www.lufthansa.com/de/en/additional-services": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.057Z"
+ },
+ "https://www.lufthansa.com/de/en/airport-information": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.060Z"
+ },
+ "https://www.lufthansa.com/de/en/digital-self-services": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.062Z"
+ },
+ "https://www.lufthansa.com/de/en/flights": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.065Z"
+ },
+ "https://www.lufthansa.com/de/en/food-and-beverages": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.068Z"
+ },
+ "https://www.lufthansa.com/de/en/lounges": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.071Z"
+ },
+ "https://www.lufthansa.com/de/en/lufthansa-travel-classes": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.073Z"
+ },
+ "https://www.lufthansa.com/de/en/meetings-and-events": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.076Z"
+ },
+ "https://www.lufthansa.com/de/en/miles-and-more": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.079Z"
+ },
+ "https://www.lufthansa.com/de/en/overview-flights": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.082Z"
+ },
+ "https://www.lufthansa.com/de/en/overview-manage": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.084Z"
+ },
+ "https://www.lufthansa.com/de/en/overview-special-request": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.087Z"
+ },
+ "https://www.lufthansa.com/de/en/overview-travel-information": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.090Z"
+ },
+ "https://www.lufthansa.com/de/en/services-at-the-airport": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.092Z"
+ },
+ "https://www.lufthansa.com/de/en/services-on-board": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.095Z"
+ },
+ "https://www.lufthansa.com/de/en/special-needs": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:10.095Z"
+ },
+ "https://www.lufthansa.com/de/de/speisen-und-getraenke": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:17.939Z"
+ },
+ "https://www.lufthansa.com/de/de/services-an-bord": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T20:03:17.939Z"
+ },
+ "https://www.lufthansa.com/de/en/accessible-travel": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.408Z"
+ },
+ "https://www.lufthansa.com/de/en/add-sports-baggage": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.412Z"
+ },
+ "https://www.lufthansa.com/de/en/addresses-worldwide": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.414Z"
+ },
+ "https://www.lufthansa.com/de/en/admission-rules": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.417Z"
+ },
+ "https://www.lufthansa.com/de/en/advance-seat-reservation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.420Z"
+ },
+ "https://www.lufthansa.com/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.423Z"
+ },
+ "https://www.lufthansa.com/de/en/affiliatemarketing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.426Z"
+ },
+ "https://www.lufthansa.com/de/en/all-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.429Z"
+ },
+ "https://www.lufthansa.com/de/en/arrival-services": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.431Z"
+ },
+ "https://www.lufthansa.com/de/en/assistenzhunde": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.434Z"
+ },
+ "https://www.lufthansa.com/de/en/automatic-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.437Z"
+ },
+ "https://www.lufthansa.com/de/en/baggage-irregularities": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.439Z"
+ },
+ "https://www.lufthansa.com/de/en/bid-upgrade": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.442Z"
+ },
+ "https://www.lufthansa.com/de/en/children-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.444Z"
+ },
+ "https://www.lufthansa.com/de/en/childrens-menus-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.447Z"
+ },
+ "https://www.lufthansa.com/de/en/during-your-trip/food-and-beverages/onboard-delights/faq": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.450Z"
+ },
+ "https://www.lufthansa.com/de/en/menus-on-long-haul-flights": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.453Z"
+ },
+ "https://www.lufthansa.com/de/en/menus-travel-classes": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.453Z"
+ },
+ "https://www.lufthansa.com/de/en/onboard-delights": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:01.453Z"
+ },
+ "https://www.lufthansa.com/de/de/kinder-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.230Z"
+ },
+ "https://www.lufthansa.com/de/de/kindermenues-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.233Z"
+ },
+ "https://www.lufthansa.com/de/de/onboard-delights-faq": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.236Z"
+ },
+ "https://www.lufthansa.com/de/de/menues-auf-langstreckenfluegen": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.239Z"
+ },
+ "https://www.lufthansa.com/de/de/menues-reiseklassen": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.239Z"
+ },
+ "https://www.lufthansa.com/de/de/onboard-delights": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:04:19.239Z"
+ },
+ "https://www.lufthansa.com/de/en/doctor-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.152Z"
+ },
+ "https://www.lufthansa.com/de/en/doctor-on-board-news": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.155Z"
+ },
+ "https://www.lufthansa.com/de/en/during-your-trip/lhg-wifi": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.159Z"
+ },
+ "https://www.lufthansa.com/de/en/first-class-comfort": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.161Z"
+ },
+ "https://www.lufthansa.com/de/en/lufthansa-first-class-entertainment": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.162Z"
+ },
+ "https://www.lufthansa.com/de/en/unterhaltung-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:17:56.162Z"
+ },
+ "https://www.lufthansa.com/de/de/doctor-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.111Z"
+ },
+ "https://www.lufthansa.com/de/de/doctor-on-board-news": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.114Z"
+ },
+ "https://www.lufthansa.com/de/de/during-your-trip/lhg-wifi": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.117Z"
+ },
+ "https://www.lufthansa.com/de/de/lufthansa-first-class-komfort": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.120Z"
+ },
+ "https://www.lufthansa.com/de/de/lufthansa-first-class-entertainment": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.120Z"
+ },
+ "https://www.lufthansa.com/de/de/unterhaltung-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:18:13.120Z"
+ },
+ "https://www.lufthansa.com/de/en/100-years/history/menu-on-board": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-21T20:18:20.679Z"
+ },
+ "https://www.lufthansa.com/de/en/discover-lufthansa/new-onboard-experience": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-21T20:18:20.680Z"
+ },
+ "https://www.lufthansa.com/de/de/100-years/history/menu-on-board": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-21T20:18:28.216Z"
+ },
+ "https://www.lufthansa.com/de/de/discover-lufthansa/new-onboard-experience": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-21T20:18:28.216Z"
  }
 }

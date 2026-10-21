@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/food-and-beverages",
+  "path": "de/en/food-and-beverages",
+  "timestamp": "2026-10-21T20:02:43.683Z",
+  "title": "Menus on board | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

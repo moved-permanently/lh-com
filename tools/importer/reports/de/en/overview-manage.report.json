@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/overview-manage",
+  "path": "de/en/overview-manage",
+  "timestamp": "2026-10-21T20:02:57.674Z",
+  "title": "Manage your bookings | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}

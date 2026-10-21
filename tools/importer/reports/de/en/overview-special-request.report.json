@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/overview-special-request",
+  "path": "de/en/overview-special-request",
+  "timestamp": "2026-10-21T20:02:59.788Z",
+  "title": "Special requests | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}
