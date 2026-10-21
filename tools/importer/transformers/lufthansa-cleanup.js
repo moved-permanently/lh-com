@@ -6,20 +6,30 @@
  * Generic for all templates and locales; nothing here is homepage-specific.
  *
  * beforeTransform (before parsers run):
- *  - removes global chrome: header, footer, skip links, sticky header placeholder,
- *    a11y live regions, OneTrust, Tealium/utag, Monetate, Quantum Metric, tracking pixels,
- *    tracking iframes, script/noscript/style/link
+ *  - removes global chrome: AEM and AirCore header (incl. the AirCore slide-in mega-menu),
+ *    footer (incl. the AirCore payment/follow-us band; it becomes a shared fragment), skip
+ *    links, breadcrumbs, sticky header placeholder, a11y live regions, OneTrust, Tealium/utag,
+ *    Monetate, Quantum Metric, tracking pixels, tracking iframes, script/noscript/style/link,
+ *    location/language and login modals, AirCore loaders and the empty AirCore info banner
  *  - removes screen-reader-only elements (sr-only headings, "opens in a new tab" spans)
+ *  - removes the mobile-only copy of content rendered twice (.hidden-lg-up swiper next to the
+ *    .hidden-md-down grid, .d-md-none next to .d-none.d-md-block); the desktop copy stays
+ *  - rewrites in-page anchors to the heading ids EDS generates (#americas ->
+ *    #north-and-south-america, /de/en/baggage#baggage-types -> #types-of-baggage)
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
- *  - normalizes images: largest srcset rendition, absolute https://www.lufthansa.com URLs,
- *    lazy-load data-src, drops broken "undefined.transform" images
+ *  - normalizes images (AEM and AirCore): largest srcset/<source> rendition, absolute
+ *    https://www.lufthansa.com URLs, lazy-load data-src, drops broken "undefined.transform" images
  *
  * afterTransform (after parsers ran):
- *  - removes portalled modals/overlays outside the content (kept until now so parsers can
- *    read e.g. fare conditions)
- *  - rewrites links: in-scope pages become root-relative (no .html), everything else on
- *    lufthansa.com becomes absolute https://www.lufthansa.com/...
+ *  - removes portalled modals/overlays outside the content, incl. the fleet .lightbox-modal
+ *    (kept until now so parsers can read e.g. fare conditions and seat-map slides)
+ *  - converts maui-button-link / maui-navigation-link / maui-link [href] into <a href>
+ *  - removes icon-font elements (em.lh-arrow-right, ...) and zero-width spaces
+ *  - splits default-content paragraphs at <br><br> (not inside block tables)
+ *  - rewrites links: in-scope pages become root-relative (no .html), locale roots (/de/en)
+ *    become /{cc}/{ll}/homepage, everything else on lufthansa.com becomes absolute
+ *    https://www.lufthansa.com/...
  *  - re-normalizes images created by parsers, strips tracking/event attributes
  *  - never removes HTML comments (XWalk field hints)
  *
@@ -46,16 +56,25 @@ const CHROME_SELECTORS = [
   '.commonheader',
   '.dcep-header-flyout',
   '.dcep-header-quick-action-links',
+  // AirCore (/lhg/) header incl. the inline slide-in mega-menu
+  'header.header-content-nav',
+  '.header-navigation-flyout-slide-in',
   // global footer (becomes the per-locale footer fragment)
   'footer',
+  '#footer',
   '.footer-area',
   '.footer-logos',
   '.commonfooter',
+  // AirCore footer bands (payment/follow-us, search + language, logo); normally inside footer#footer
+  'footer .footer-brand-links',
+  '.above-footer-container',
+  '.secondary-footer-container',
   // skip links, breadcrumbs, a11y live regions, AEM placeholders
   '.skiplinks',
   '.skip-links',
   '.breadcrumb',
   '.breadcrumbs',
+  '.breadcrumb-wrapper',
   'nav[aria-label*="readcrumb"]',
   '#sr-log',
   '#a11y-status-message',
@@ -72,6 +91,14 @@ const CHROME_SELECTORS = [
   '.optanon-alert-box-wrapper',
   // Cloudflare Turnstile pre-clearance
   '#turnstile-preclearance-frame',
+  // global modals that never hold page content: location/language pickers, login, AirCore
+  // loaders/spinners, UI sound effects. Content modals (fare conditions, the fleet seat-map
+  // .lightbox-modal) stay until afterTransform because parsers read them.
+  'maui-modal.country-language-selector-modal',
+  'maui-modal.one-id-login__modal',
+  '.language-selection-modal',
+  '.loader',
+  'audio[id^="uifx"]',
   // Tealium / utag, Monetate, Quantum Metric and other trackers
   '[id^="utag_"]',
   '[id^="utag-"]',
@@ -157,7 +184,7 @@ const MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, i
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {
-  if (el.textContent.replace(/ /g, ' ').trim()) return false;
+  if (el.textContent.replace(/\u00A0/g, ' ').trim()) return false;
   return !el.querySelector(MEDIA);
 }
 
@@ -171,6 +198,278 @@ function removeEmptyComponents(document) {
   [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')]
     .reverse()
     .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
+}
+
+/* -------------------------------------------- AirCore leftovers ----------------- */
+
+/**
+ * AirCore (/lhg/) chrome that survives the selector list: the location/language picker modal
+ * portalled to <body> and the empty flash-message slot (.info-banner#contentInfo) in the hero.
+ * The AirCore content (main > section.hero-full-width, #content) is never touched here.
+ */
+function removeAirCoreLeftovers(document) {
+  document.querySelectorAll('.language-selection-modal').forEach((m) => {
+    const modal = m.closest('.modal') || m;
+    if (modal.isConnected) modal.remove();
+  });
+  document.querySelectorAll('.info-banner, #contentInfo').forEach((banner) => {
+    if (!banner.isConnected || !isEmpty(banner)) return;
+    const parent = banner.parentElement;
+    banner.remove();
+    // section.hero-full-width > div.container wraps only the banner
+    if (parent && parent.tagName === 'DIV' && !parent.matches('main, #content, .contentpage') && isEmpty(parent)) {
+      parent.remove();
+    }
+  });
+}
+
+/* ------------------------------------------- desktop/mobile copies ----------------- */
+
+// Responsive copies: the same content rendered twice, one visible below and one above the lg
+// breakpoint (AEM twocolumn/threecolumn: .hidden-md-down grid + .hidden-lg-up swiper).
+const MOBILE_COPY = '.hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs';
+const DESKTOP_COPY = '.hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex';
+
+function assetKey(url) {
+  return (url || '').trim().split(/\s/)[0].replace(/\.transform\/.*$/, '').replace(/[?#].*$/, '');
+}
+
+/** Text + image assets + link targets; renditions and whitespace do not matter. */
+function copySignature(el) {
+  const text = el.textContent.replace(/[\u200B\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
+  const imgs = [...el.querySelectorAll('img')]
+    .map((i) => assetKey(i.getAttribute('src') || i.getAttribute('data-src') || i.getAttribute('srcset')))
+    .filter(Boolean).sort();
+  const hrefs = [...el.querySelectorAll('[href]')].map((a) => a.getAttribute('href')).sort();
+  if (!text && !imgs.length && !hrefs.length) return '';
+  return `${text}|${imgs.join(',')}|${hrefs.join(',')}`;
+}
+
+/**
+ * Removes the mobile-only copy when a desktop copy with the same content sits next to it
+ * (same parent, up to 3 levels up). Mobile-only elements without a desktop twin are kept.
+ * Returns the number of removed copies.
+ */
+function removeMobileDuplicates(document) {
+  let removed = 0;
+  [...document.querySelectorAll(MOBILE_COPY)].forEach((mobile) => {
+    if (!mobile.isConnected) return;
+    const sig = copySignature(mobile);
+    if (!sig) return; // empty: handled by the empty-component cleanup
+    let scope = mobile.parentElement;
+    for (let level = 0; scope && level < 3; level += 1, scope = scope.parentElement) {
+      const twin = [...scope.querySelectorAll(DESKTOP_COPY)].find((d) => d !== mobile
+        && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
+      if (twin) {
+        mobile.remove();
+        removed += 1;
+        return;
+      }
+    }
+  });
+  return removed;
+}
+
+/* ---------------------------------------------------------- anchors ----------------- */
+
+/** Heading id as EDS generates it from the heading text (github-slugger rules: lowercase,
+ * drop punctuation, spaces to '-', letters such as \u00F6 and \u00DF are kept). */
+function headingId(text) {
+  return (text || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{M}\p{N}\p{Pc}\- ]/gu, '')
+    .replace(/ /g, '-');
+}
+
+const HEADING = 'h1, h2, h3, h4, h5, h6';
+
+function cleanText(el) {
+  return el.textContent.replace(/[\u200B\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+/** The heading an anchor target stands for: the target itself, its leading heading, or the
+ * heading right after an empty anchor element. */
+function headingForTarget(target) {
+  if (target.matches(HEADING)) return target;
+  const inner = target.querySelector(HEADING);
+  if (inner && cleanText(inner) && cleanText(target).startsWith(cleanText(inner))) return inner;
+  if (!cleanText(target)) {
+    const next = target.nextElementSibling;
+    if (next && next.matches(HEADING)) return next;
+    const nextInner = next && next.querySelector(HEADING);
+    if (nextInner && cleanText(next).startsWith(cleanText(nextInner))) return nextInner;
+  }
+  return null;
+}
+
+function currentPagePath(document, payload) {
+  const params = (payload && payload.params) || {};
+  const candidates = [params.originalURL, payload && payload.url];
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) candidates.push(canonical.getAttribute('href'));
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) candidates.push(ogUrl.getAttribute('content'));
+  for (const c of candidates) {
+    try {
+      if (c) return normalizePath(new URL(c, `${LIVE_ORIGIN}/`).pathname);
+    } catch (e) { /* try the next one */ }
+  }
+  return null;
+}
+
+/**
+ * Rewrites in-page links (href="#x" or "/same/page#x") whose target is or holds a heading to
+ * the id EDS derives from that heading's text: #americas -> #north-and-south-america,
+ * /de/en/baggage#baggage-types -> #types-of-baggage. Other anchors are left alone.
+ * Must run before parsers (they may drop the target ids). Returns the number rewritten.
+ */
+function rewriteAnchors(document, pagePath) {
+  // EDS-style ids for every heading, with -1, -2 suffixes for repeated texts.
+  const ids = new Map();
+  const used = new Map();
+  document.querySelectorAll(HEADING).forEach((h) => {
+    const base = headingId(cleanText(h));
+    if (!base) return;
+    const n = used.get(base) || 0;
+    used.set(base, n + 1);
+    ids.set(h, n ? `${base}-${n}` : base);
+  });
+  let rewritten = 0;
+  document.querySelectorAll('[href*="#"]').forEach((link) => {
+    const href = (link.getAttribute('href') || '').trim();
+    const hashAt = href.indexOf('#');
+    const fragment = href.slice(hashAt + 1);
+    if (!fragment || fragment.startsWith('/') || fragment.startsWith('!')) return;
+    if (hashAt > 0) {
+      let u;
+      try { u = new URL(href, `${LIVE_ORIGIN}/`); } catch (e) { return; }
+      if (!SOURCE_HOSTS.includes(u.hostname) || !pagePath || u.search) return;
+      if (normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, '') !== pagePath) return;
+    }
+    let target = null;
+    try { target = document.getElementById(decodeURIComponent(fragment)); } catch (e) { return; }
+    if (!target) return;
+    const heading = headingForTarget(target);
+    const id = heading && ids.get(heading);
+    if (!id) return;
+    link.setAttribute('href', `#${id}`);
+    rewritten += 1;
+  });
+  return rewritten;
+}
+
+/* ------------------------------------------------------- maui links ----------------- */
+
+const MAUI_LINK = 'maui-button-link[href], maui-navigation-link[href], maui-link[href]';
+
+/**
+ * <maui-button-link|maui-navigation-link|maui-link href> custom elements -> plain <a href>
+ * with the label text (images are moved over for linked badges). A primary button
+ * (maui-button-link type="primary") is wrapped in <strong> so EDS decorates it as a primary
+ * button. Runs in afterTransform: parsers read the custom elements. Returns the count.
+ */
+function convertMauiLinks(document) {
+  const links = [...document.querySelectorAll(MAUI_LINK)].reverse(); // innermost first
+  links.forEach((el) => {
+    const a = document.createElement('a');
+    a.setAttribute('href', el.getAttribute('href'));
+    const title = el.getAttribute('title');
+    if (title) a.setAttribute('title', title);
+    if (el.querySelector('img, picture, svg')) {
+      while (el.firstChild) a.append(el.firstChild);
+    } else {
+      a.textContent = cleanText(el) || el.getAttribute('label') || el.getAttribute('aria-label') || '';
+    }
+    let replacement = a;
+    if (el.tagName === 'MAUI-BUTTON-LINK' && el.getAttribute('type') === 'primary') {
+      replacement = document.createElement('strong');
+      replacement.append(a);
+    }
+    el.replaceWith(replacement);
+  });
+  return links.length;
+}
+
+/* --------------------------------------------------- icons / text ----------------- */
+
+/**
+ * Icon-font elements (<em class="lh lh-arrow-right">, <i class="lh lh-arrow-collapse">,
+ * <span class="lh lh-arrow-right ...">) carry no text; zero-width spaces pad link labels.
+ */
+function removeIconsAndZeroWidth(document) {
+  let icons = 0;
+  document.querySelectorAll('em.lh, i.lh, span.lh, em[class*="lh-"], i[class*="lh-"], span[class*="lh-arrow"]').forEach((el) => {
+    if (!el.isConnected || ![...el.classList].some((c) => /^lh-/.test(c))) return;
+    if (cleanText(el) || el.querySelector('img, svg, picture, input')) return;
+    el.remove();
+    icons += 1;
+  });
+  let zw = 0;
+  const walker = document.createTreeWalker(document.body, 4 /* NodeFilter.SHOW_TEXT */);
+  const empty = [];
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    if (/[\u200B\uFEFF]/.test(node.nodeValue)) {
+      node.nodeValue = node.nodeValue.replace(/[\u200B\uFEFF]/g, '');
+      zw += 1;
+      if (!node.nodeValue) empty.push(node);
+    }
+  }
+  empty.forEach((n) => n.remove());
+  return { icons, zw };
+}
+
+/* --------------------------------------------------- <br><br> splitting ----------------- */
+
+function isBr(node) {
+  return node && node.nodeType === 1 && node.tagName === 'BR';
+}
+
+function isBlankText(node) {
+  return node && node.nodeType === 3 && !node.nodeValue.replace(/\u00A0/g, ' ').trim();
+}
+
+/**
+ * Splits default-content paragraphs at runs of 2+ <br> into separate <p> elements
+ * (single <br> line breaks stay). Paragraphs inside block tables are left to the block.
+ * Returns the number of paragraphs added.
+ */
+function splitBrParagraphs(document) {
+  let added = 0;
+  [...document.querySelectorAll('p')].forEach((p) => {
+    if (p.closest('table') || !p.querySelector('br')) return;
+    const groups = [[]];
+    const nodes = [...p.childNodes];
+    for (let i = 0; i < nodes.length; i += 1) {
+      const node = nodes[i];
+      if (isBr(node)) {
+        // look ahead over blank text for another <br>
+        let j = i + 1;
+        while (j < nodes.length && isBlankText(nodes[j])) j += 1;
+        if (isBr(nodes[j])) {
+          while (j < nodes.length && (isBr(nodes[j]) || isBlankText(nodes[j]))) j += 1;
+          groups.push([]);
+          i = j - 1;
+          continue;
+        }
+      }
+      groups[groups.length - 1].push(node);
+    }
+    if (groups.length < 2) return;
+    const paras = groups.map((group) => {
+      // drop leading/trailing <br> and blank text
+      while (group.length && (isBr(group[0]) || isBlankText(group[0]))) group.shift();
+      while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
+      if (!group.length) return null;
+      const np = document.createElement('p');
+      group.forEach((n) => np.append(n));
+      return np;
+    }).filter(Boolean);
+    if (paras.length < 2) return;
+    p.replaceWith(...paras);
+    added += paras.length - 1;
+  });
+  return added;
 }
 
 /* --------------------------------------------------------------- images ----------------- */
@@ -219,7 +518,11 @@ function bestImageSource(img) {
   const picture = img.closest('picture');
   if (picture) {
     picture.querySelectorAll('source').forEach((s) => {
-      parseSrcset(s.getAttribute('srcset') || s.getAttribute('data-srcset')).forEach((c) => add(c.url, c.w));
+      // AirCore <source media="(min-width: 5334px)" srcset="/aircore/media/..."> has no w
+      // descriptor; the media min-width ranks the rendition instead.
+      const media = (s.getAttribute('media') || '').match(/min-width:\s*(\d+)/);
+      const mediaW = media ? parseInt(media[1], 10) : 0;
+      parseSrcset(s.getAttribute('srcset') || s.getAttribute('data-srcset')).forEach((c) => add(c.url, c.w || mediaW));
     });
   }
   parseSrcset(img.getAttribute('srcset')).forEach((c) => add(c.url, c.w));
@@ -262,6 +565,7 @@ function sourceOrigins(payload) {
 }
 
 const PAGE_PATH = /^\/(?:[a-z]{2}\/[a-z]{2}|lhg\/[a-z]{2}\/[a-z]{2})(?:\/|$)/;
+const LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
 
 /**
  * Returns the rewritten href, or null to leave it untouched.
@@ -280,6 +584,12 @@ function rewriteHref(href, origins) {
   const pathname = normalizePath(u.pathname);
   // Strip a leading /content/lh (author-style) path if present.
   const pagePath = pathname.replace(/^\/content\/lh(?=\/)/, '');
+  // Locale roots (/de/en, /de/en/, /de/en.html, https://www.lufthansa.com/gb/en) are the
+  // market homepages: /de/en -> /de/en/homepage when that page is in scope.
+  // AirCore roots (/lhg/de/en) are pages of their own and stay as they are.
+  if (LOCALE_ROOT.test(pagePath) && SCOPE_PATHS.has(`${pagePath}/homepage`)) {
+    return `${pagePath}/homepage${u.search}${u.hash}`;
+  }
   if (PAGE_PATH.test(pagePath) && SCOPE_PATHS.has(pagePath)) {
     return `${pagePath}${u.search}${u.hash}`;
   }
@@ -307,8 +617,11 @@ function stripTrackingAttributes(document) {
 /* -------------------------------------------------------------- overlays ----------------- */
 
 function removeOverlays(document) {
-  // Modals and overlays portalled to <body> (login, cart, conditions, travel details, calendar).
-  document.querySelectorAll('maui-modal, .react-modal, .modal, [role="dialog"]').forEach((m) => {
+  // Modals and overlays portalled to <body> (login, cart, conditions, travel details, calendar,
+  // AirCore traveller/date pickers) and the AEM slideshow .lightbox-modal after the footer
+  // (fleet seat maps), kept until now because the parsers (fare conditions, carousel-lightbox)
+  // read them.
+  document.querySelectorAll('maui-modal, .react-modal, .modal, .lightbox-modal, [role="dialog"]').forEach((m) => {
     if (m.isConnected && !m.closest('.container-content')) m.remove();
   });
   // Body-level leftovers outside the content area (empty divs, hidden frames).
@@ -326,9 +639,13 @@ export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
 
   if (hookName === 'beforeTransform') {
+    const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
     removeAll(document, CHROME_SELECTORS);
+    removeAirCoreLeftovers(document);
     removeTracking(document);
     removeScreenReaderOnly(document);
+    removeMobileDuplicates(document);
+    rewriteAnchors(document, pagePath);
     removeEmptyComponents(document);
     normalizeImages(document);
   }
@@ -336,6 +653,9 @@ export default function transform(hookName, element, payload) {
   if (hookName === 'afterTransform') {
     removeOverlays(document);
     removeAll(document, ['script', 'noscript', 'style', 'link', 'iframe[src*="cookielaw"]']);
+    convertMauiLinks(document);
+    removeIconsAndZeroWidth(document);
+    splitBrParagraphs(document);
     normalizeImages(document);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);

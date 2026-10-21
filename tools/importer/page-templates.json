@@ -237,7 +237,91 @@
         "https://www.lufthansa.com/at/de/betreuungsbedarf",
         "https://www.lufthansa.com/gb/en/special-needs"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "cards-teaser",
+          "instances": [
+            ".section-content > .twocolumn:has(.column-view-item > .image + .headline)",
+            ".section-content > .threecolumn:has(.column-view-item > .image + .headline)"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Page title and intro",
+          "selector": [
+            ".contentpage > .container-fluid.section-regular:has(> h1), .container-content > .section .section-content > .text:has(+ .imagelinklist), .container-content > .section .section-content > .imagelinklist"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > .container-fluid.section-regular > h1",
+            ".container-content > .section .section-content > .text:has(+ .imagelinklist)",
+            ".container-content > .section .section-content > .imagelinklist"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Types of baggage",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:has(#baggage-types), .container-content > .section .section-content > .twocolumn:has(#baggage-types) + .twocolumn, .container-content > .section .section-content > .twocolumn:has(#baggage-types) + .twocolumn + .twocolumn"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".container-content > .section .section-content > .twocolumn:has(#baggage-types) > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Bag-free travel (Airportr)",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:has(#airportr)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Baggage services",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:has(.container-gray)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".container-content > .section .section-content > .twocolumn:has(.container-gray) > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Further information",
+          "selector": [
+            ".container-content > .section:has(.threecolumn)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.threecolumn) .threecolumn > .column-view > div:not(.row) > h2"
+          ]
+        }
+      ]
     },
     {
       "name": "info",
@@ -920,7 +1004,63 @@
         "https://www.lufthansa.com/at/de/mit-kindern-am-flughafen",
         "https://www.lufthansa.com/gb/en/with-children-at-the-airport"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".threecolumn:has(.teaser)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Title, intro, image and body text",
+          "selector": [
+            ".contentpage > .container-fluid.section-regular:has(> h1), .container-content > .section .section-content > .text:has(+ .image), .container-content > .section .section-content > .image, .container-content > .section .section-content > .onecolumn"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > .container-fluid.section-regular > h1",
+            ".container-content > .section .section-content > .text:has(+ .image)",
+            ".container-content > .section .section-content > .image",
+            ".container-content > .section .section-content > .onecolumn"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "FAQ accordion",
+          "selector": [
+            ".container-content > .section .section-content > .accordion"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "This may also be of interest to you",
+          "selector": [
+            ".container-content > .section:has(.threecolumn .teaser)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "carousel-cards"
+          ],
+          "defaultContent": [
+            ".container-content > .section .threecolumn:has(.teaser) > .column-view > div:not(.row) > h2"
+          ]
+        }
+      ]
     },
     {
       "name": "campaign",
@@ -1015,7 +1155,168 @@
         "https://www.lufthansa.com/at/de/munich-fair",
         "https://www.lufthansa.com/gb/en/munich-fair"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".sidebar",
+            ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+          ]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [
+            ".section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Campaign stage (100 years of Lufthansa)",
+          "selector": [
+            ".container-content > .section:has(.inspirationteaser h1)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-campaign"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Anniversary signet and intro",
+          "selector": [
+            ".container-content > .section:has(.inspirationteaser h1) + .section:has(> div > .section-content > .image:only-child), .container-content > .section:has(.inspirationteaser h1) ~ .section:has(> div > .section-content > .text:only-child)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section:has(.inspirationteaser h1) + .section:has(> div > .section-content > .image:only-child) .section-content > .image",
+            ".container-content > .section:has(.inspirationteaser h1) ~ .section:has(> div > .section-content > .text:only-child) .section-content > .text"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Under the symbol of the crane",
+          "selector": [
+            ".container-content > .section:has(> div > .section-content > .onecolumn .sidebar)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "A century of iconic destinations",
+          "selector": [
+            ".container-content > .section:has(> div > .section-content > .image + .headline)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section:has(> div > .section-content > .image + .headline) .section-content > .image",
+            ".container-content > .section:has(> div > .section-content > .image + .headline) .section-content > .headline",
+            ".container-content > .section:has(> div > .section-content > .image + .headline) .section-content > .text",
+            ".container-content > .section:has(> div > .section-content > .image + .headline) .section-content > .link"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "A culinary journey through time",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:has(~ .twocolumn)",
+            ".container-content > .section .section-content > .twocolumn:has(+ .twocolumn)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Anniversary story teasers",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn + .twocolumn, .container-content > .section .section-content > .twocolumn:only-child:has(.column-view-item:first-child > .image + .headline)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Icons of advertising",
+          "selector": [
+            ".container-content > .section:has(> div > .section-content > .sidebar)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Timeline stage (100 years at-a-glance)",
+          "selector": [
+            ".container-content > .section:has(.inspirationteaser h2)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-campaign"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Anniversary products",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:only-child:has(.column-view-item:first-child > .image:only-child)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-10",
+          "name": "More about the 100th anniversary",
+          "selector": [
+            ".container-content > .section:has(> div > .section-content > .headline:first-child)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section:has(> div > .section-content > .headline:first-child) .section-content > .headline",
+            ".container-content > .section:has(> div > .section-content > .headline:first-child) .section-content > .text",
+            ".container-content > .section:has(> div > .section-content > .headline:first-child) .section-content > .link"
+          ]
+        },
+        {
+          "id": "section-11",
+          "name": "Closing signet",
+          "selector": [
+            ".container-content > .section:last-child:has(> div > .section-content > .image:only-child)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section:last-child:has(> div > .section-content > .image:only-child) .section-content > .image"
+          ]
+        }
+      ]
     },
     {
       "name": "fleet",
@@ -1054,7 +1355,76 @@
         "https://www.lufthansa.com/at/de/sitzplaene",
         "https://www.lufthansa.com/gb/en/seat-maps"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "carousel-lightbox",
+          "instances": [
+            ".slideshow"
+          ]
+        },
+        {
+          "name": "table-striped",
+          "instances": [
+            "div.table:has(.cms-table-maui-wrapper)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Page title and aircraft image",
+          "selector": [
+            ".contentpage > h1, .contentpage .container-content > .image"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > h1",
+            ".contentpage .container-content > .image"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Seat map (lightbox slideshow)",
+          "selector": [
+            ".contentpage .container-content > .onecolumn:has(.slideshow)"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-lightbox"
+          ],
+          "defaultContent": [
+            ".contentpage .container-content > .onecolumn:has(.slideshow) div.headline"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Seat maps to download",
+          "selector": [
+            ".contentpage .container-content > .onecolumn:has(.link .maui-link)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage .container-content > .onecolumn:has(.link .maui-link) div.headline",
+            ".contentpage .container-content > .onecolumn:has(.link .maui-link) div.link"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Technical data",
+          "selector": [
+            ".contentpage .container-content > .onecolumn:has(.table)"
+          ],
+          "style": null,
+          "blocks": [
+            "table-striped"
+          ],
+          "defaultContent": [
+            ".contentpage .container-content > .onecolumn:has(.table) div.headline"
+          ]
+        }
+      ]
     },
     {
       "name": "insights",
@@ -1189,7 +1559,131 @@
         "https://www.lufthansa.com/at/de/articles/tags/munich",
         "https://www.lufthansa.com/gb/en/articles/tags/munich"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "article-header",
+          "instances": [
+            ".article-details-page > .article-feature-image"
+          ]
+        },
+        {
+          "name": "price-bar",
+          "instances": [
+            ".dcep-sticky-price"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".threecolumn:has(.teaser)"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+          ]
+        },
+        {
+          "name": "related-articles",
+          "instances": [
+            ".relatedarticles"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Article header (feature image, tags, title, intro, byline)",
+          "selector": [
+            ".article-details-page > .article-feature-image, .article-details-page .article-content > div:has(> .chip-wrapper), .article-details-page .article-content > .article-title, .article-details-page .article-content > .article-intro"
+          ],
+          "style": null,
+          "blocks": [
+            "article-header"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Destination price bar (sticky)",
+          "selector": [
+            ".article-details-page .dcep-sticky-price"
+          ],
+          "style": null,
+          "blocks": [
+            "price-bar"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Eat - Currywurst with Cult Status at Curry Baude",
+          "selector": [
+            ".article-details-page .article-content > .article-intro ~ *:not(div:has(> .threecolumn), div:has(> .threecolumn) ~ *)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".article-details-page .article-content > .article-intro ~ *:not(div:has(> .threecolumn), div:has(> .threecolumn) ~ *)"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "This may also be of interest to you",
+          "selector": [
+            ".article-details-page .article-content > div:has(> .threecolumn)"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-cards"
+          ],
+          "defaultContent": [
+            ".article-details-page .article-content > div > .threecolumn > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "See and Do (article body continued)",
+          "selector": [
+            ".article-details-page .article-content > div:has(> .threecolumn) ~ *:not(div:has(> .twocolumn), div:has(> .twocolumn) ~ *)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".article-details-page .article-content > div:has(> .threecolumn) ~ *:not(div:has(> .twocolumn), div:has(> .twocolumn) ~ *)"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Ready to explore the German capital? (destination CTA, back link, price note)",
+          "selector": [
+            ".article-details-page .article-content > div:has(> .twocolumn)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": [
+            ".article-details-page .article-content > div:has(> .twocolumn) > .link",
+            ".article-details-page .article-content > div:has(> .twocolumn) > .text"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Related Articles",
+          "selector": [
+            ".article-details-page > .relatedarticles"
+          ],
+          "style": null,
+          "blocks": [
+            "related-articles"
+          ],
+          "defaultContent": [
+            ".relatedarticles .related-articles-headline"
+          ]
+        }
+      ]
     },
     {
       "name": "legal",
@@ -1312,7 +1806,80 @@
         "https://www.lufthansa.com/at/de/travel-id-terms-conditions",
         "https://www.lufthansa.com/gb/en/travel-id-terms-conditions"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "columns-media",
+          "instances": [
+            ".section-content > .twocolumn"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Page title",
+          "selector": [
+            ".contentpage > .container-fluid.section-regular:has(> h1)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > .container-fluid.section-regular > h1"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Company contact and registration",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:nth-child(1)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Boards, registered office and regulator",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:nth-child(2)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Legal information",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn:nth-child(3)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": [
+            ".container-content > .section .section-content > .twocolumn > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Lufthansa Insights legal notice",
+          "selector": [
+            ".container-content > .section .section-content > .twocolumn ~ .headline, .container-content > .section .section-content > .twocolumn ~ .text, .container-content > .section .section-content > .twocolumn ~ .link"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section .section-content > .twocolumn ~ .headline",
+            ".container-content > .section .section-content > .twocolumn ~ .text",
+            ".container-content > .section .section-content > .twocolumn ~ .link"
+          ]
+        }
+      ]
     },
     {
       "name": "form",
@@ -1355,7 +1922,67 @@
         "https://www.lufthansa.com/at/de/register-animal-cabin",
         "https://www.lufthansa.com/gb/en/register-animal-cabin"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "form",
+          "instances": [
+            ".feedbackforms"
+          ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Title and contact-route link list",
+          "selector": [
+            ".contentpage > .container-fluid:has(> h1), .container-content .section-content > .onecolumn:nth-child(1), .container-content .section-content > .onecolumn:nth-child(2), .container-content .section-content > .onecolumn:nth-child(3), .container-content .section-content > .onecolumn:nth-child(4), .container-content .section-content > .onecolumn:has(.feedbackforms) .column-view > div:has(> #formular), .container-content .section-content > .onecolumn:has(.feedbackforms) .column-view-item > .text"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > .container-fluid > h1",
+            ".container-content .section-content > .onecolumn:nth-child(1)",
+            ".container-content .section-content > .onecolumn:nth-child(2)",
+            ".container-content .section-content > .onecolumn:nth-child(3)",
+            ".container-content .section-content > .onecolumn:nth-child(4)",
+            ".container-content .section-content > .onecolumn:has(.feedbackforms) .column-view > div:has(> #formular)",
+            ".container-content .section-content > .onecolumn:has(.feedbackforms) .column-view-item > .text"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Topic selection form (grey band)",
+          "selector": [
+            ".container-content .section-content > .onecolumn:has(.feedbackforms) .feedbackforms"
+          ],
+          "style": null,
+          "blocks": [
+            "form"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Please note and more contact options",
+          "selector": [
+            ".container-content .section-content > .onecolumn:nth-child(6), .container-content .section-content > .onecolumn:has(.accordion)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": [
+            ".container-content .section-content > .onecolumn:nth-child(6)",
+            ".container-content .section-content > .onecolumn:has(.accordion) .column-view-item > .headline"
+          ]
+        }
+      ]
     },
     {
       "name": "app-entry",
@@ -1386,7 +2013,115 @@
         "https://www.lufthansa.com/at/de/pre-check-in",
         "https://www.lufthansa.com/gb/en/pre-check-in"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "columns-media",
+          "instances": [
+            ".container-content > .section .section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+          ]
+        },
+        {
+          "name": "cards-steps",
+          "instances": [
+            ".tabs .fourcolumn"
+          ]
+        },
+        {
+          "name": "booking-lookup",
+          "instances": [
+            ".tabs:has(.checkinpassengerreceiptentry)"
+          ]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [
+            ".container-content > .section .section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Page title",
+          "selector": [
+            ".contentpage > .container-fluid.section-regular:has(> h1)"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".contentpage > .container-fluid.section-regular > h1"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Lufthansa app promotion",
+          "selector": [
+            ".container-content > .section:has(.container-gray)"
+          ],
+          "style": "grey",
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Check in online now",
+          "selector": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > :is(.text.section, .headline.section, .tabs.section)"
+          ],
+          "style": null,
+          "blocks": [
+            "booking-lookup"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .text.section",
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .headline.section"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "How to get your boarding pass",
+          "selector": [
+            ".container-content > .section .tabs .column-view-item > .fourcolumn.column"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-steps"
+          ],
+          "defaultContent": [
+            ".tabs .fourcolumn > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Travel ID",
+          "selector": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .twocolumn.column.section:has(#travelid)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .twocolumn:has(#travelid) > .column-view > div:not(.row) > h2"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Your check-in with Lufthansa",
+          "selector": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .twocolumn.column.section:not(:has(#travelid))"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-teaser"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.checkinpassengerreceiptentry) .section-content > .twocolumn:not(:has(#travelid)) > .column-view > div:not(.row) > h2"
+          ]
+        }
+      ]
     },
     {
       "name": "flight-status",
@@ -1397,7 +2132,82 @@
         "https://www.lufthansa.com/at/de/flugplan-und-flugstatus",
         "https://www.lufthansa.com/gb/en/timetable-and-flight-status"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "flight-status",
+          "instances": [
+            ".flightstatustimetable"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".onecolumn .twocolumn:not(:has(.column-view-item > .image + .headline))"
+          ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Flight status",
+          "selector": [
+            ".container-content > .section .section-content > .text:has(+ .flightstatustimetable), .container-content > .section .section-content > .flightstatustimetable"
+          ],
+          "style": null,
+          "blocks": [
+            "flight-status"
+          ],
+          "defaultContent": [
+            ".container-content > .section .section-content > .text:has(+ .flightstatustimetable)"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "My bookings teaser",
+          "selector": [
+            ".container-content > .section .section-content > .text:has(+ .link), .container-content > .section .section-content > .text + .link"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-content > .section .section-content > .text:has(+ .link)",
+            ".container-content > .section .section-content > .text + .link"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "App, airport information and time slot",
+          "selector": [
+            ".container-content > .section .section-content > .onecolumn .twocolumn"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Advice about text messaging in the USA and Canada",
+          "selector": [
+            ".container-content > .section .section-content > .onecolumn .column-view-item > .headline:has(+ .accordion), .container-content > .section .section-content > .onecolumn .column-view-item > .accordion",
+            ".container-content > .section .section-content > .onecolumn .column-view-item > .separator + .headline, .container-content > .section .section-content > .onecolumn .column-view-item > .accordion"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": [
+            ".container-content > .section .section-content > .onecolumn .column-view-item > .headline:has(+ .accordion)"
+          ]
+        }
+      ]
     },
     {
       "name": "aircore-destination-overview",
@@ -1413,7 +2223,136 @@
         "https://www.lufthansa.com/lhg/de/en/dest/c/india",
         "https://www.lufthansa.com/lhg/de/en/dest/c/united-kingdom"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".flight-manager-full-width"
+          ]
+        },
+        {
+          "name": "cards-price",
+          "instances": [
+            ".sitemap-background .image-box-wrapper"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Flight search and stage image",
+          "selector": [
+            "main > section.hero-full-width"
+          ],
+          "style": null,
+          "blocks": [
+            "flight-search"
+          ],
+          "defaultContent": [
+            "main > section.hero-full-width .hero-image"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Intro",
+          "selector": [
+            "#content > h1, #content > .content-wrapper"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#content > h1",
+            "#content > .content-wrapper"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Continent jump links",
+          "selector": [
+            "#content > .jumpmarks"
+          ],
+          "style": "link-tiles",
+          "blocks": [],
+          "defaultContent": [
+            "#content > .jumpmarks"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Europe destinations",
+          "selector": [
+            "#content > h2#europe, #content > h2#europe ~ .sitemap-background:not(h2#africa ~ *)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h2#europe",
+            "#content > h2#europe ~ .sitemap-background:not(h2#africa ~ *) h3"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Africa destinations",
+          "selector": [
+            "#content > h2#africa, #content > h2#africa ~ .sitemap-background:not(h2#asia ~ *)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h2#africa",
+            "#content > h2#africa ~ .sitemap-background:not(h2#asia ~ *) h3"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Asia destinations",
+          "selector": [
+            "#content > h2#asia, #content > h2#asia ~ .sitemap-background:not(h2#americas ~ *)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h2#asia",
+            "#content > h2#asia ~ .sitemap-background:not(h2#americas ~ *) h3"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "North and South America destinations",
+          "selector": [
+            "#content > h2#americas, #content > h2#americas ~ .sitemap-background:not(h2#oceania ~ *)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h2#americas",
+            "#content > h2#americas ~ .sitemap-background:not(h2#oceania ~ *) h3"
+          ]
+        },
+        {
+          "id": "section-8",
+          "name": "Oceania destinations",
+          "selector": [
+            "#content > h2#oceania, #content > h2#oceania ~ .sitemap-background"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h2#oceania",
+            "#content > h2#oceania ~ .sitemap-background h3"
+          ]
+        }
+      ]
     },
     {
       "name": "aircore-destination",
@@ -1435,7 +2374,177 @@
         "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york/business-class",
         "https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo/business-class"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".flight-manager-full-width"
+          ]
+        },
+        {
+          "name": "cards-price",
+          "instances": [
+            ".image-box-wrapper-city"
+          ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            "#content > .travel-information",
+            "#content > .faq"
+          ]
+        },
+        {
+          "name": "table-deals",
+          "instances": [
+            "section.last-minute-deals"
+          ]
+        },
+        {
+          "name": "cards-icon-text",
+          "instances": [
+            "#content > .icon-links"
+          ]
+        },
+        {
+          "name": "weather",
+          "instances": [
+            "#content > .weather"
+          ]
+        },
+        {
+          "name": "accordion-side-by-side",
+          "instances": [
+            "#content > .internal-links"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Flight search and destination panorama",
+          "selector": [
+            "main > section.hero-full-width"
+          ],
+          "style": "full-bleed",
+          "blocks": [
+            "flight-search"
+          ],
+          "defaultContent": [
+            "main > section.hero-full-width .hero-image"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Title and best offers by origin",
+          "selector": [
+            "#content > h1, #content > h2:has(+ .image-box-wrapper-city), #content > .image-box-wrapper-city"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-price"
+          ],
+          "defaultContent": [
+            "#content > h1",
+            "#content > h2:has(+ .image-box-wrapper-city)"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Destination copy",
+          "selector": [
+            "#content > .automated-content-wrapper, #content > .unique-content-wrapper"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#content > .automated-content-wrapper",
+            "#content > .unique-content-wrapper"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Useful information for your travel destination",
+          "selector": [
+            "#content > h2:has(+ .travel-information), #content > .travel-information, #content > .disclaimer"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": [
+            "#content > h2:has(+ .travel-information)",
+            "#content > .disclaimer"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Last-minute flights",
+          "selector": [
+            "#content > section.last-minute-deals"
+          ],
+          "style": null,
+          "blocks": [
+            "table-deals"
+          ],
+          "defaultContent": [
+            "section.last-minute-deals > h2",
+            "section.last-minute-deals > h2 + div"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Entry regulations link",
+          "selector": [
+            "#content > .icon-links"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-text"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Current weather",
+          "selector": [
+            "#content > .weather"
+          ],
+          "style": null,
+          "blocks": [
+            "weather"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "FAQ",
+          "selector": [
+            "#content > h2:has(+ .faq), #content > .faq"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": [
+            "#content > h2:has(+ .faq)"
+          ]
+        },
+        {
+          "id": "section-9",
+          "name": "Discover our destinations",
+          "selector": [
+            "#content > h2:has(+ .internal-links), #content > .internal-links"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-side-by-side"
+          ],
+          "defaultContent": [
+            "#content > h2:has(+ .internal-links)"
+          ]
+        }
+      ]
     },
     {
       "name": "aircore-route",
@@ -1453,7 +2562,102 @@
         "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-new-york",
         "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".flight-manager-full-width"
+          ]
+        },
+        {
+          "name": "cards-icon-text",
+          "instances": [
+            "#content > .icon-links"
+          ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            "#content > .faq"
+          ]
+        },
+        {
+          "name": "accordion-side-by-side",
+          "instances": [
+            "#content > .internal-links"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Flight search and route panorama",
+          "selector": [
+            "main > section.hero-full-width"
+          ],
+          "style": "full-bleed",
+          "blocks": [
+            "flight-search"
+          ],
+          "defaultContent": [
+            "main > section.hero-full-width .hero-image"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Title, return-route link and route copy",
+          "selector": [
+            "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "#content > h1",
+            "#content > .reversed-route",
+            "#content > .automated-content-wrapper"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Entry regulations link",
+          "selector": [
+            "#content > .icon-links"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-text"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "FAQ",
+          "selector": [
+            "#content > h2:has(+ .faq), #content > .faq"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": [
+            "#content > h2:has(+ .faq)"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Discover our destinations",
+          "selector": [
+            "#content > h2:has(+ .internal-links), #content > .internal-links"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-side-by-side"
+          ],
+          "defaultContent": [
+            "#content > h2:has(+ .internal-links)"
+          ]
+        }
+      ]
     }
   ],
   "metadata": {
