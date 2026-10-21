@@ -11,3 +11,8 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# raw scrapes from www.lufthansa.com (large, re-fetchable)
+tools/source-export/
+tools/importer/bd-snapshots/
+migration-work/scrape-check/
