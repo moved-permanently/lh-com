@@ -1,36 +1,53 @@
-/* stylelint-disable max-line-length */
+/*
+ * Lufthansa web fonts, loaded from www.lufthansa.com (served with CORS *).
+ * Not copied into this repository: the fonts are licensed to Lufthansa.
+ */
 @font-face {
-  font-family: roboto-condensed;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-condensed-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/roboto-medium.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
+  font-family: LufthansaHead;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: LufthansaHead;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Light.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff') format('woff');
 }
