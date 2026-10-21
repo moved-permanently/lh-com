@@ -1,8 +1,10 @@
-/* columns-logos: structural layout only; brand styling comes with the design pass */
+/* columns-logos: Lufthansa .twocolumn .column-view with .imagelinklist (.link-list ul.horizontal) per column */
+
+/* < 768: columns stack; .column-view > .row > .column-view-item { margin-bottom: 1rem } */
 .columns-logos {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
 }
 
 .columns-logos .columns-logos-col {
@@ -13,40 +15,104 @@
   margin-top: 0;
 }
 
+.columns-logos .columns-logos-col > :last-child {
+  margin-bottom: 0;
+}
+
+/* h4.headline.heading-copytext-large: LufthansaHead 2rem -> 2.4rem bold, line-height 110%, margin-bottom 2.4rem */
+.columns-logos .columns-logos-col h2,
+.columns-logos .columns-logos-col h3,
+.columns-logos .columns-logos-col h4,
+.columns-logos .columns-logos-col h5,
+.columns-logos .columns-logos-col h6 {
+  margin-bottom: var(--spacing-default);
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+}
+
+/* .link-list .horizontal { display: flex; flex-wrap: wrap; gap: 0 2rem } */
 .columns-logos .columns-logos-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 16px;
-  margin: 8px 0 0;
+  gap: 0 20px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* .link-list .horizontal li { display: inline-flex }; maui-navigation-link size large: 24px line */
 .columns-logos .columns-logos-list li {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  min-height: 24px;
+  margin: 0;
+  line-height: 24px;
 }
 
 .columns-logos .columns-logos-list a {
   display: inline-flex;
   align-items: center;
+  color: var(--link-color);
 }
 
-.columns-logos .columns-logos-list picture,
+.columns-logos .columns-logos-list a:hover {
+  color: var(--link-hover-color);
+}
+
+.columns-logos .columns-logos-list picture {
+  display: contents;
+}
+
+/* .link-list .icon-svg { width: 2.4rem; height: 2.4rem; margin-right: .5rem; position: relative; top: -.2rem } */
 .columns-logos .columns-logos-list img,
 .columns-logos .columns-logos-list .icon {
   display: block;
-  width: auto;
-  max-width: 64px;
+  position: relative;
+  top: -2px;
+  flex: 0 0 auto;
+  width: 24px;
+  max-width: none;
   height: 24px;
+  margin-right: 5px;
   object-fit: contain;
 }
 
-@media (width >= 900px) {
+.columns-logos .columns-logos-list .icon img {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin-right: 0;
+}
+
+/* plain text links (no logo): .link-list a, link-small style */
+.columns-logos .columns-logos-list .columns-logos-text a {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+}
+
+/* >= 768: .col-md-6 { flex: 0 0 50% } with the 2rem grid gutter; >= 1025: .col-lg { flex: 1 1 0 } */
+@media (width >= 768px) {
   .columns-logos {
-    flex-direction: row;
-    gap: 48px;
+    flex-flow: row wrap;
+    gap: 20px var(--grid-gutter);
+  }
+
+  .columns-logos .columns-logos-col {
+    flex: 0 0 calc((100% - var(--grid-gutter)) / 2);
+  }
+
+  .columns-logos.columns-logos-1-cols .columns-logos-col {
+    flex-basis: 100%;
+  }
+}
+
+@media (width >= 1025px) {
+  .columns-logos {
+    flex-wrap: nowrap;
   }
 
   .columns-logos .columns-logos-col {

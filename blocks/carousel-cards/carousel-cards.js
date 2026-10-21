@@ -136,6 +136,9 @@ export default function decorate(block) {
   const prev = makeButton('prev');
   const next = makeButton('next');
 
+  // scroll position of a slide, measured from the first slide so track padding does not count
+  const slideLeft = (li) => li.offsetLeft - items[0].offsetLeft;
+
   const dots = el('ol', 'carousel-cards-dots');
   const dotButtons = items.map((li, i) => {
     const dotItem = el('li');
@@ -144,7 +147,7 @@ export default function decorate(block) {
     dot.setAttribute('aria-label', li.getAttribute('aria-label'));
     dot.setAttribute('aria-controls', track.id);
     dot.addEventListener('click', () => {
-      track.scrollTo({ left: items[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      track.scrollTo({ left: slideLeft(items[i]), behavior: 'smooth' });
     });
     dotItem.append(dot);
     dots.append(dotItem);
@@ -155,8 +158,8 @@ export default function decorate(block) {
     const left = track.scrollLeft;
     let best = 0;
     items.forEach((li, i) => {
-      const distance = Math.abs(li.offsetLeft - track.offsetLeft - left);
-      const bestDistance = Math.abs(items[best].offsetLeft - track.offsetLeft - left);
+      const distance = Math.abs(slideLeft(li) - left);
+      const bestDistance = Math.abs(slideLeft(items[best]) - left);
       if (distance < bestDistance) best = i;
     });
     return best;
@@ -178,7 +181,7 @@ export default function decorate(block) {
   const step = (dir) => {
     const index = currentIndex();
     const target = items[Math.min(items.length - 1, Math.max(0, index + dir))];
-    track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    track.scrollTo({ left: slideLeft(target), behavior: 'smooth' });
   };
   prev.addEventListener('click', () => step(-1));
   next.addEventListener('click', () => step(1));

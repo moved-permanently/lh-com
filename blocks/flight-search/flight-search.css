@@ -1,6 +1,15 @@
-/* flight-search: structural layout only; brand styling comes with the design pass */
+/* flight-search: homepage flight manager (.flightmanager-container.flma-hp-evolution-design, form.flma-flight) */
 .flight-search {
+  --flight-search-line: var(--lh-grey-8);
+  --flight-search-label-size: var(--body-font-size-xxs);
+  --flight-search-label-line: 18px;
+
   position: relative;
+
+  /* .flm-overlay padding 1rem 0 + .tab-content padding-top 2rem; bottom spacing is the section gap */
+  padding: 30px 0 0;
+  font-family: var(--body-font-family);
+  color: var(--text-color);
 }
 
 .flight-search .flight-search-sr-only,
@@ -13,104 +22,312 @@
   white-space: nowrap;
 }
 
+/* .tab-content-wrapper.flma-hp-evolution-design .tab-nav-wrapper { display: none } */
 .flight-search .flight-search-tabs {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
+  display: none;
 }
 
+/* mobile: one grid, options interleaved like the source (trip type on top, travellers + nonstop
+   below the dates) */
 .flight-search .flight-search-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "trip trip"
+    "origin origin"
+    "dest dest"
+    "dates dates"
+    "trav nonstop"
+    "submit submit"
+    "error error";
+  align-items: center;
 }
 
-.flight-search .flight-search-options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
+.flight-search .flight-search-options,
+.flight-search .flight-search-fields {
+  display: contents;
 }
 
-.flight-search .flight-search-nonstop {
-  display: inline-flex;
+/* options row: .triptype-dropdown-wrapper, .travel-details-opener, .custom-checkbox.btn-nonstop-only */
+.flight-search .flight-search-trip-type {
+  grid-area: trip;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+/* .dropdown-button-secondary: transparent, #52627c, max-height 3rem; .dropdown-content 16px bold;
+   expand icon margin-left .7rem */
+.flight-search .flight-search-trip-type select {
+  appearance: none;
+  height: 30px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0 21px 0 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 7'%3E%3Cpath d='M1 1.2 5 5.2l4-4' fill='none' stroke='%2352627c' stroke-width='1.8'/%3E%3C/svg%3E") right center / 10px 7px no-repeat;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  line-height: 1.5;
   cursor: pointer;
 }
 
-.flight-search .flight-search-fields {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  align-items: end;
+.flight-search .flight-search-trip-type select:hover {
+  color: var(--link-hover-color);
+}
+
+/* maui-link-button.btn-sm.travel-details-opener with the filter icon */
+.flight-search .flight-search-travellers {
+  grid-area: trav;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+  margin: 5px 10px 0 0;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.flight-search .flight-search-travellers::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 10px;
+  height: 14px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 14'%3E%3Cpath d='M1.5 0h1.2v14H1.5zM7.3 0h1.2v14H7.3zM0 8h4.2v2.4H0zM5.8 3.4H10v2.4H5.8z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* .custom-checkbox.btn-nonstop-only: height 3rem; indicator 1.6rem #52627c; description 1.4rem bold,
+   #52627c, margin-left 1rem */
+.flight-search .flight-search-nonstop {
+  grid-area: nonstop;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+  margin: 5px 0 0 7px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-nonstop [type="checkbox"] {
+  appearance: none;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 2px solid var(--link-color);
+  border-radius: 1px;
+  background: transparent center / 12px 12px no-repeat;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-nonstop:hover [type="checkbox"] {
+  border-color: var(--link-hover-color);
+}
+
+/* .custom-control-input:checked ~ .custom-control-indicator { background #05164d; color #fff } */
+.flight-search .flight-search-nonstop [type="checkbox"]:checked {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2 6.2 2.6 2.6L10 3.3' fill='none' stroke='%23fff' stroke-width='1.8'/%3E%3C/svg%3E");
+}
+
+.flight-search .flight-search-nonstop:has(:checked) {
+  color: var(--lh-deepblue);
+}
+
+/* fields: .input / .input-wrapper / .input-border-wrapper (underlined), label 1.2rem (1.4rem >=1281) #666 */
+.flight-search .flight-search-origin {
+  grid-area: origin;
+  margin-bottom: 19px;
+}
+
+.flight-search .flight-search-destination {
+  grid-area: dest;
 }
 
 .flight-search .airport-combobox {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
   min-width: 0;
+  padding-top: 18px;
 }
 
+.flight-search .airport-combobox label,
+.flight-search .flight-search-dates legend,
+.flight-search .flight-search-date-label {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 0;
+  overflow: hidden;
+  color: var(--dark-color);
+  font-size: var(--flight-search-label-size);
+  font-weight: 400;
+  line-height: var(--flight-search-label-line);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.15s linear;
+}
+
+/* .input input: 1.8rem/150%, padding .6rem 0, transparent; .input-border-wrapper 0.2rem bottom #333 */
 .flight-search .airport-combobox input,
 .flight-search .flight-search-date input {
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 41px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 6px 0;
+  background: transparent;
+  color: var(--lh-deepblue);
+  caret-color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 27px;
 }
 
+.flight-search .airport-combobox input {
+  border-bottom: 2px solid var(--flight-search-line);
+  text-overflow: ellipsis;
+}
+
+/* the underline is on the fieldset */
+.flight-search .flight-search-date input {
+  height: 39px;
+  cursor: pointer;
+}
+
+.flight-search .flight-search-destination input {
+  padding-right: 40px;
+}
+
+/* .input.is-active .input-border-wrapper { border-color transparent; padding 0 1rem; outline .2rem solid #333 } */
+.flight-search .airport-combobox input:focus,
+.flight-search .flight-search-date input:focus {
+  outline: 2px solid var(--flight-search-line);
+  outline-offset: 0;
+  border-bottom-color: transparent;
+  padding-inline: 10px;
+}
+
+.flight-search .flight-search-destination input:focus {
+  padding-right: 40px;
+}
+
+.flight-search .airport-combobox input::selection {
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
+}
+
+/* empty, not focused: the label sits in the field like a placeholder (#666, 1.8rem) */
+.flight-search .airport-combobox[data-code=""]:not(:focus-within) label,
+.flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) legend {
+  top: 24px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+  pointer-events: none;
+}
+
+/* autocomplete list: .selectable-result-list, .sel-item, .sel-item-hovered */
 .flight-search .airport-combobox [role="listbox"] {
   position: absolute;
   z-index: 10;
   top: 100%;
   left: 0;
   right: 0;
-  max-height: 320px;
+  box-sizing: border-box;
+  max-height: 316px;
   margin: 0;
-  padding: 0;
+  padding: 10px 0;
   overflow-y: auto;
   list-style: none;
-  background: var(--background-color, #fff);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  background: var(--background-color);
+  box-shadow: 0 1.25px 2.5px rgb(0 0 0 / 40%);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
 }
 
 .flight-search .airport-combobox [role="option"] {
   padding: 8px 12px;
+  color: var(--dark-color);
   cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+.flight-search .airport-combobox [role="option"]:hover,
 .flight-search .airport-combobox [role="option"][aria-selected="true"] {
-  outline: 2px solid currentcolor;
-  outline-offset: -2px;
+  background-color: var(--lh-marble-blue);
+  color: var(--lh-white);
 }
 
+/* swap: maui-icon-button with lh-arrows-swap (#05164d); mobile at the end of the "To" field, rotated */
 .flight-search .flight-search-swap {
-  justify-self: center;
+  position: relative;
+  z-index: 2;
+  grid-area: dest;
+  place-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
-  margin: 0;
+  margin: 0 -8px 3px 0;
+  border: 0;
+  border-radius: 50%;
   padding: 0;
+  background: transparent;
+  color: var(--lh-deepblue);
   cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
 .flight-search .flight-search-swap::before {
-  content: "\21C4";
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M5 7h13M15 3.5 18.5 7 15 10.5M19 17H6M9 13.5 5.5 17 9 20.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(90deg) scaleY(-1);
 }
 
+.flight-search .flight-search-swap:hover {
+  background-color: var(--lh-deepblue-transparent);
+}
+
+/* dates (.date-input, maui-input): one underlined field, "Departure - return" as placeholder,
+   calendar icon at the end */
 .flight-search .flight-search-dates {
+  grid-area: dates;
+  position: relative;
   display: flex;
-  gap: 8px;
+  gap: 20px;
   min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
 
-.flight-search .flight-search-dates legend {
-  padding: 0;
+  /* .flma-origin-and-destination-wrapper.mb-7 (2rem below "To" on mobile) */
+  margin: 20px 0 0;
+  border: 0;
+  border-bottom: 2px solid var(--flight-search-line);
+  padding: 18px 30px 0 0;
 }
 
 .flight-search .flight-search-date {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -119,6 +336,14 @@
 
 .flight-search .flight-search-date[hidden] {
   display: none;
+}
+
+.flight-search .flight-search-date-label {
+  top: -18px;
+}
+
+.flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) input {
+  color: transparent;
 }
 
 /* with an authored "Departure - return" legend the per-input labels stay for screen readers */
@@ -131,21 +356,187 @@
   white-space: nowrap;
 }
 
+/* one calendar icon (lh-calendar, #52627c, 1.6rem) instead of the native pickers, which cover the
+   inputs invisibly so a click anywhere opens the picker */
+@supports selector(::-webkit-calendar-picker-indicator) {
+  .flight-search .flight-search-dates::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    bottom: 11px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--link-color);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 0h1.5v2h7V0H13v2h3v14H0V2h3zM1.5 5.5v9h13v-9zM3 7h2.5v2H3zm3.5 0H9v2H6.5zM10 7h3v4h-3zm1 1v2h1V8zM3 10h2.5v2H3zm3.5 0H9v2H6.5z' fill-rule='evenodd'/%3E%3C/svg%3E") center / contain no-repeat;
+    pointer-events: none;
+  }
+
+  .flight-search .flight-search-date input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+/* maui-button primary "Search flights": global button.button.primary, margin-top 1.8rem */
 .flight-search .flight-search-submit {
-  margin: 0;
-  cursor: pointer;
+  grid-area: submit;
+  margin-top: 18px;
+}
+
+/* .input .error > .highlight { background #c00; color #fff; padding .1rem .5rem }, 1.4rem */
+.flight-search .flight-search-error {
+  grid-area: error;
+  justify-self: start;
+  width: fit-content;
+  margin: 8px 0 0;
+  padding: 1px 5px;
+  background-color: var(--lh-red);
+  color: var(--lh-white);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
 }
 
 .flight-search .flight-search-error[hidden] {
   display: none;
 }
 
+/* "Where we fly" (.flma-where-we-fly-wrapper) only shows inside the open destination list in the
+   source: here it appears while the search is in use */
 .flight-search .flight-search-links {
-  margin-top: 16px;
+  display: none;
+  margin-top: 10px;
+  font-size: var(--body-font-size-s);
 }
 
-@media (width >= 900px) {
+.flight-search:focus-within .flight-search-links,
+.flight-search .flight-search-links:hover {
+  display: block;
+}
+
+.flight-search .flight-search-links p {
+  margin: 0;
+}
+
+@media (width >= 376px) {
+  /* .flm-overlay padding-top 2.2rem + .tab-content padding-top 2rem */
+  .flight-search {
+    padding-top: 42px;
+  }
+}
+
+@media (width >= 768px) {
+  /* .flm-bg-img min-height 25rem with .flm-overlay margin-top -24.5rem, + .tab-content 2rem */
+  .flight-search {
+    padding-top: 25px;
+  }
+
+  .flight-search .flight-search-form {
+    display: block;
+  }
+
+  /* .flight-tab2 options row: nonstop margin-bottom 2.4rem, opener / indicator margin-left 2rem */
+  .flight-search .flight-search-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 30px;
+    margin-bottom: 24px;
+  }
+
+  .flight-search .flight-search-trip-type {
+    margin: 0;
+  }
+
+  .flight-search .flight-search-travellers,
+  .flight-search .flight-search-nonstop {
+    margin: 0;
+  }
+
+  .flight-search .flight-search-options > * + * {
+    margin-left: 20px;
+  }
+
+  /* origin + destination .col-md-7, dates .col-md-5, button .col-md-5.push-md-7 on the next row */
   .flight-search .flight-search-fields {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) minmax(0, 1.2fr) auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) calc(41.6667% - 11.6667px);
+    grid-template-areas:
+      "origin swap dest dates"
+      ". . . submit";
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .flight-search .flight-search-origin,
+  .flight-search .flight-search-dates {
+    margin: 0;
+  }
+
+  .flight-search .flight-search-destination input {
+    padding-right: 0;
+  }
+
+  .flight-search .flight-search-destination input:focus {
+    padding-right: 10px;
+  }
+
+  /* .half-border: 0.2rem x 2rem at the right end while the field is empty */
+  .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 20px;
+    background-color: var(--flight-search-line);
+  }
+
+  .flight-search .flight-search-swap {
+    grid-area: swap;
+    justify-self: center;
+    margin: 0 0 5px;
+  }
+
+  .flight-search .flight-search-swap::before {
+    transform: none;
+  }
+
+  /* .flight-tab2 .selectable .selectable-result-list { width: 33.5rem } */
+  .flight-search .airport-combobox [role="listbox"] {
+    right: auto;
+    width: 335px;
+    min-width: 100%;
+  }
+
+  /* maui-button: margin-top 2rem, width 100% */
+  .flight-search .flight-search-submit {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media (width >= 1025px) {
+  /* origin + destination .col-lg-6, dates and button .col-lg-3 each */
+  .flight-search .flight-search-fields {
+    grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) calc(25% - 15px) calc(25% - 15px);
+    grid-template-areas: "origin swap dest dates submit";
+  }
+
+  /* maui-button margin-top .5rem */
+  .flight-search .flight-search-submit {
+    margin-top: 5px;
+  }
+}
+
+@media (width >= 1281px) {
+  .flight-search {
+    --flight-search-label-size: var(--body-font-size-xs);
+    --flight-search-label-line: 21px;
   }
 }

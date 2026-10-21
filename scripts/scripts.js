@@ -10,6 +10,9 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toCamelCase,
+  toClassName,
 } from './aem.js';
 import { getLocale } from './locale.js';
 
@@ -125,7 +128,11 @@ function decorateButtons(main) {
     // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    if (!strong && !em) return;
+    if (!strong && !em) {
+      // a plain link alone in its paragraph renders as a standalone navigation link
+      if (p.querySelectorAll('a').length === 1) p.classList.add('link-wrapper');
+      return;
+    }
 
     p.className = 'button-wrapper';
     a.className = 'button';
@@ -144,6 +151,28 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies section metadata (the vendored aem.js does not): "style" values become section
+ * classes, other keys data attributes. The metadata block itself is removed.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div > div.section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.parentElement;
+    const meta = readBlockConfig(sectionMeta);
+    Object.entries(meta).forEach(([key, value]) => {
+      if (key === 'style') {
+        String(value).split(',').map((style) => toClassName(style.trim()))
+          .filter(Boolean)
+          .forEach((style) => section.classList.add(style));
+      } else {
+        section.dataset[toCamelCase(key)] = value;
+      }
+    });
+    sectionMeta.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +180,7 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  decorateSectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);

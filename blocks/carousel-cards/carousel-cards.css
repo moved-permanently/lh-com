@@ -1,4 +1,4 @@
-/* carousel-cards: structural layout only; brand styling comes with the design pass */
+/* carousel-cards: Lufthansa .new-carousel (.swiper-multi-slide-auto) with .wide-teaser / .compact-teaser cards */
 .carousel-cards {
   position: relative;
 }
@@ -7,12 +7,14 @@
   position: relative;
 }
 
+/* the swiper bleeds into the page margin: margin -container-offset, padding container-offset */
 .carousel-cards .carousel-cards-track {
   display: flex;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
+  gap: 10px;
+  margin: 0 calc(-1 * var(--layout-margin));
+  padding: 5px var(--layout-margin) 8px;
   overflow-x: auto;
+  scroll-padding-inline: var(--layout-margin);
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   list-style: none;
@@ -22,19 +24,33 @@
   display: none;
 }
 
+/* card: .compact-teaser .card / .wide-teaser .card-container */
 .carousel-cards .carousel-cards-slide {
+  position: relative;
   display: flex;
-  flex: 0 0 80%;
+  flex: 0 0 100%;
   flex-direction: column;
   min-width: 0;
   box-sizing: border-box;
-  border: 1px solid var(--light-color, #ccc);
+  overflow: hidden;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: var(--radius-l);
+  background-color: var(--lh-white);
+  box-shadow: var(--shadow-1);
+  color: var(--lh-deepblue);
   scroll-snap-align: start;
 }
 
+.carousel-cards .carousel-cards-slide:hover {
+  border-color: var(--lh-grey-8);
+  box-shadow: var(--shadow-2);
+}
+
 .carousel-cards .carousel-cards-image {
-  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
 }
 
 .carousel-cards .carousel-cards-image picture,
@@ -52,23 +68,104 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 16px;
+  padding: 24px 24px 32px;
 }
 
-.carousel-cards .carousel-cards-body > :first-child {
-  margin-top: 0;
+.carousel-cards .carousel-cards-body > * {
+  margin: 0 0 32px;
 }
 
-.carousel-cards .carousel-cards-cta {
+.carousel-cards .carousel-cards-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* CTA: maui-link-mimic with lh-arrow-right */
+.carousel-cards .carousel-cards-body > .carousel-cards-cta {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.carousel-cards .carousel-cards-cta a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--link-color);
+}
+
+/* links inside headlines keep the headline colour */
+.carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) a:any-link {
+  color: inherit;
+}
+
+.carousel-cards .carousel-cards-cta a:any-link:hover {
+  color: var(--link-hover-color);
+}
+
+.carousel-cards .carousel-cards-cta a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* eyebrow: .wide-teaser .teaser-title */
+.carousel-cards .carousel-cards-body > .carousel-cards-eyebrow {
+  margin-bottom: 8px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* headline: .wide-teaser .teaser-headline (default) */
+.carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* compact card (also used when no width is authored): .compact-teaser .teaser-headline / .teaser-description */
+.carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > * {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-eyebrow {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.1;
+}
+
+.carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-cta {
   margin-top: auto;
 }
 
+/* the whole card is the link (a.compact-teaser-link / a.wide-teaser-link) */
+.carousel-cards .carousel-cards-cta a:only-child::after,
+.carousel-cards .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) a:only-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* nav: .swiper.swiper .swiper-button-next/-prev, at the outer edges of the bleed */
 .carousel-cards .carousel-cards-nav {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 0;
+  inset: 0 calc(-1 * var(--layout-margin));
+  pointer-events: none;
 }
 
 .carousel-cards .carousel-cards-nav[hidden],
@@ -79,12 +176,21 @@
 .carousel-cards .carousel-cards-prev,
 .carousel-cards .carousel-cards-next {
   position: absolute;
-  top: 120px;
-  width: 40px;
-  height: 40px;
+  top: calc(50% - 20px);
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 70px;
   margin: 0;
   padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: #000000b3;
+  color: var(--lh-white);
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .carousel-cards .carousel-cards-prev {
@@ -95,12 +201,23 @@
   right: 0;
 }
 
-.carousel-cards .carousel-cards-prev::before {
-  content: "\2039";
+.carousel-cards .carousel-cards-prev::before,
+.carousel-cards .carousel-cards-next::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-.carousel-cards .carousel-cards-next::before {
-  content: "\203A";
+.carousel-cards .carousel-cards-prev::before {
+  transform: scaleX(-1);
+}
+
+.carousel-cards .carousel-cards-prev:focus-visible,
+.carousel-cards .carousel-cards-next:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
 .carousel-cards .carousel-cards-prev:disabled,
@@ -108,13 +225,18 @@
   visibility: hidden;
 }
 
+/* pagination: .swiper.swiper .swiper-pagination-bullet */
 .carousel-cards .carousel-cards-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 16px 0 0;
+  margin: 8px 0 0;
   padding: 0;
   list-style: none;
+}
+
+.carousel-cards .carousel-cards-dots li {
+  display: flex;
 }
 
 .carousel-cards .carousel-cards-dot {
@@ -122,22 +244,59 @@
   height: 8px;
   margin: 0;
   padding: 0;
-  border: 1px solid currentcolor;
+  border: 1px solid var(--lh-grey-7);
   border-radius: 50%;
-  background: none;
+  background-color: var(--lh-white);
   cursor: pointer;
 }
 
 .carousel-cards .carousel-cards-dot[aria-current="true"] {
-  background: currentcolor;
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
 }
 
-@media (width >= 900px) {
+.carousel-cards .carousel-cards-dot:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width >= 768px) {
   .carousel-cards .carousel-cards-slide {
-    flex-basis: calc((100% - 32px) / 3.3);
+    flex-basis: calc((100% - 10px) / 2);
+  }
+
+  .carousel-cards .carousel-cards-body {
+    padding: 32px 32px 40px;
+  }
+
+  .carousel-cards .carousel-cards-body > .carousel-cards-eyebrow {
+    font-weight: 300;
+  }
+
+  .carousel-cards .carousel-cards-dots {
+    margin-top: 32px;
+  }
+}
+
+@media (width >= 1025px) {
+  .carousel-cards .carousel-cards-track {
+    gap: 20px;
+  }
+
+  .carousel-cards .carousel-cards-slide {
+    flex-basis: 396px;
   }
 
   .carousel-cards .carousel-cards-slide.carousel-cards-wide {
-    flex-basis: calc((100% - 16px) / 1.75);
+    flex-basis: 700px;
+  }
+
+  .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .carousel-cards .carousel-cards-prev,
+  .carousel-cards .carousel-cards-next {
+    display: flex;
   }
 }

@@ -100,15 +100,41 @@ function buildDestinationLink({
 
 /** Defaults for strings an author may leave out; any can be overridden by a block row. */
 const DEFAULT_LABELS = {
-  en: { 'price label': 'Round trip from' },
-  de: { 'price label': 'Hin- und Rückflug ab' },
+  en: { 'price label': 'Round trip from', 'show more': 'Show more' },
+  de: { 'price label': 'Hin- und Rückflug ab', 'show more': 'mehr anzeigen' },
 };
+
+/** Routes shown on small screens before "Show more" (the live site hides the rest below 768px). */
+const MOBILE_VISIBLE = 3;
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
   if (text) node.textContent = text;
   return node;
+}
+
+/**
+ * Conditions cell: a short title followed by the conditions text becomes a disclosure
+ * (the live site shows only a "Conditions" trigger); anything else is kept as authored.
+ */
+function renderConditions(cell) {
+  const wrap = el('div', 'fare-teaser-conditions');
+  const nodes = [...cell.childNodes].filter((n) => n.nodeType === Node.ELEMENT_NODE
+    || n.textContent.trim());
+  const [title, ...body] = nodes;
+  const titleText = title ? title.textContent.trim() : '';
+  if (body.length && title.nodeType === Node.ELEMENT_NODE && !title.querySelector('a')
+    && titleText && titleText.length <= 60) {
+    const details = el('details', 'fare-teaser-conditions-details');
+    const text = el('div', 'fare-teaser-conditions-text');
+    text.append(...body);
+    details.append(el('summary', 'fare-teaser-conditions-label', titleText), text);
+    wrap.append(details);
+  } else {
+    wrap.append(...cell.childNodes);
+  }
+  return wrap;
 }
 
 function renderItem(route, labels, locale, pattern) {
@@ -182,13 +208,9 @@ export default async function decorate(block) {
   const list = el('ul', 'fare-teaser-list');
   list.append(...destinations.map((d) => renderItem(routeFor(d), labels, locale, pattern)));
 
-  const content = [list];
-  if (conditions && conditions.textContent.trim()) {
-    const footer = el('div', 'fare-teaser-conditions');
-    footer.append(...conditions.childNodes);
-    content.push(footer);
-  }
-  block.replaceChildren(...content);
+  const footer = el('div', 'fare-teaser-footer');
+  if (conditions && conditions.textContent.trim()) footer.append(renderConditions(conditions));
+  block.replaceChildren(list, footer);
   block.setAttribute('aria-busy', 'true');
 
   let offers = [];
@@ -229,6 +251,19 @@ export default async function decorate(block) {
     list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
       if (span.textContent === origin) span.textContent = namedOrigin.originName;
     });
+  }
+
+  if (list.children.length > MOBILE_VISIBLE) {
+    // small screens show the first routes only (CSS); the button reveals the rest
+    const more = el('button', 'fare-teaser-more', labels['show more']);
+    more.type = 'button';
+    more.addEventListener('click', () => {
+      block.classList.add('fare-teaser-expanded');
+      more.remove();
+      const next = list.children[MOBILE_VISIBLE];
+      if (next) next.querySelector('.fare-teaser-route').focus();
+    });
+    footer.append(more);
   }
 
   if (!list.children.length) block.classList.add('fare-teaser-empty');

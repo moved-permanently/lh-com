@@ -1,46 +1,91 @@
-/* cards-icon: structural layout only; brand styling comes with the design pass */
+/* cards-icon: Lufthansa icon teaser (.teaser-wrapper.link-list ul.horizontal > .teasericon > .icon-teaser) */
+
+/* .teaser-wrapper .horizontal { gap: 2rem }: tiles of fixed width wrap in rows */
 .cards-icon > ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* .icon-teaser { display: flex; height: 100% }; .icon-teaser-link { width: 33.5rem } (23.6rem >= 768) */
+.cards-icon > ul > li {
+  display: flex;
+  box-sizing: border-box;
+  width: 335px;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* .icon-teaser .icon-teaser-link + .non-inverted */
 .cards-icon .cards-icon-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  height: 100%;
+  justify-content: flex-start;
   box-sizing: border-box;
-  padding: 24px 12px;
-  background-color: var(--light-color, #f4f4f4);
-  color: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: var(--radius-l);
+  background-color: var(--lh-grey-1);
+  box-shadow: var(--shadow-1);
+  color: var(--lh-deepblue);
+  font-weight: 700;
   text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* .icon-teaser .icon-teaser-link:hover { box-shadow: elevation-2 }, .non-inverted:hover { border: --maui-border-50 } */
+.cards-icon a.cards-icon-tile:hover {
+  border-color: var(--lh-grey-8);
+  box-shadow: var(--shadow-2);
+  color: var(--lh-deepblue);
   text-decoration: none;
 }
 
+/* .teaser-container .icon-box { margin-bottom: 1.2rem; padding: 1.4rem .7rem }, maui-icon size 48px */
 .cards-icon .cards-icon-icon {
-  display: inline-flex;
-  width: 32px;
-  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin-bottom: 12px;
+  padding: 14px 7px;
+  color: var(--lh-deepblue);
 }
 
+.cards-icon .cards-icon-icon .icon,
 .cards-icon .cards-icon-icon picture,
-.cards-icon .cards-icon-icon img,
-.cards-icon .cards-icon-icon .icon {
+.cards-icon .cards-icon-icon > img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 48px;
+  height: 48px;
 }
 
 .cards-icon .cards-icon-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
+/* .teaser-container .headline: LufthansaHead 1.6rem -> 1.8rem, line-height 110%, bold, #05164d */
 .cards-icon .cards-icon-label {
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
   font-weight: 700;
+  line-height: var(--heading-line-height);
+  text-align: center;
+}
+
+@media (width >= 768px) {
+  .cards-icon > ul > li {
+    width: 236px;
+  }
 }

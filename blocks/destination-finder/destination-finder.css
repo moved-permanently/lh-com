@@ -1,4 +1,18 @@
-/* destination-finder: structural layout only; brand styling comes with the design pass */
+/* destination-finder: Lufthansa .fare-teaser-dynamic-evo (ftde) in a .section-wide.
+   The slider is edge to edge; heading, chips and footer sit in maui-section, which keeps
+   them to a 1440px column with --maui-layout-margin side paddings. */
+main > .section > .destination-finder-wrapper {
+  max-width: 2560px;
+  padding: 0;
+}
+
+.destination-finder {
+  --destination-finder-margin: 16px;
+  --destination-finder-card-width: 186px;
+  --destination-finder-card-padding: 2px;
+  --destination-finder-conditions-color: #4d4d4d;
+}
+
 .destination-finder .destination-finder-sr-only,
 .destination-finder .airport-combobox-status {
   position: absolute;
@@ -9,38 +23,67 @@
   white-space: nowrap;
 }
 
+/* header: .ftde-section + .trip-type-chips */
+.destination-finder .destination-finder-header,
+.destination-finder .destination-finder-footer {
+  box-sizing: border-box;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--destination-finder-margin);
+}
+
 .destination-finder .destination-finder-header {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .destination-finder .destination-finder-heading {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 0 8px;
+  gap: 0 10px;
+  margin: 0 0 20px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 300;
+  line-height: 1.4;
 }
 
+/* origin: .inlinetextautocomplete input, light headline type with .half-border underline */
 .destination-finder .destination-finder-origin {
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 207px;
+  max-width: 100%;
+  margin: 0 0 0 -5px;
+  padding: 0 2px 0 5px;
   border: 0;
-  border-bottom: 1px solid currentcolor;
+  border-bottom: 2px solid var(--lh-deepblue);
+  border-radius: 0;
   background: none;
-  font: inherit;
-  color: inherit;
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.1;
+  text-align: left;
   cursor: pointer;
 }
 
 .destination-finder .destination-finder-origin::after {
-  content: "\270E";
-  margin-left: 8px;
-  font-size: 0.6em;
+  content: "";
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.3V21h3.8L17.8 9.9l-3.7-3.7zM20.7 7a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.8 1.8 3.7 3.7z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* origin picker: .selectable.autocomplete-airport and .selectable-result-list */
 .destination-finder .destination-finder-picker {
   max-width: 400px;
-  margin-bottom: 16px;
 }
 
 .destination-finder .destination-finder-picker[hidden] {
@@ -53,9 +96,25 @@
   flex-direction: column;
 }
 
+.destination-finder .airport-combobox label {
+  margin-bottom: 5px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+}
+
 .destination-finder .airport-combobox input {
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
+  padding: 0 2px 0 5px;
+  border: 0;
+  border-bottom: 2px solid var(--lh-deepblue);
+  border-radius: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.1;
 }
 
 .destination-finder .airport-combobox [role="listbox"] {
@@ -64,28 +123,46 @@
   top: 100%;
   left: 0;
   right: 0;
+  min-width: min(300px, 100%);
   max-height: 320px;
-  margin: 0;
+  margin: 5px 0 0;
   padding: 0;
   overflow-y: auto;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: var(--radius-l);
+  background: var(--background-color);
+  box-shadow: var(--shadow-1);
   list-style: none;
-  background: var(--background-color, #fff);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.destination-finder .airport-combobox [role="listbox"][hidden] {
+  display: none;
 }
 
 .destination-finder .airport-combobox [role="option"] {
-  padding: 8px 12px;
+  margin: 0;
+  padding: 10px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
   cursor: pointer;
 }
 
-.destination-finder .airport-combobox [role="option"][aria-selected="true"] {
-  outline: 2px solid currentcolor;
-  outline-offset: -2px;
+.destination-finder .airport-combobox [role="option"]:hover {
+  background-color: var(--lh-marble-blue);
+  color: var(--lh-white);
 }
 
+.destination-finder .airport-combobox [role="option"][aria-selected="true"] {
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
+  font-weight: 700;
+}
+
+/* trip type: maui-chip-list */
 .destination-finder .destination-finder-trip-types {
   min-width: 0;
-  margin: 0;
+  margin: 30px 0 0;
   padding: 0;
   border: 0;
 }
@@ -93,17 +170,37 @@
 .destination-finder .destination-finder-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  max-width: 376px;
 }
 
 .destination-finder .destination-finder-chip {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
-  border: 1px solid currentcolor;
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 8px 15px;
+  border: 1px solid var(--lh-grey-8);
   border-radius: 999px;
+  background-color: var(--lh-white);
+  color: var(--lh-whale-blue);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.destination-finder .destination-finder-chip:hover {
+  border-color: var(--lh-deepblue);
+  color: var(--lh-deepblue);
+}
+
+.destination-finder .destination-finder-chip:has(input:checked) {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
+  font-weight: 700;
 }
 
 .destination-finder .destination-finder-chip input {
@@ -113,19 +210,22 @@
 }
 
 .destination-finder .destination-finder-chip:has(input:focus-visible) {
-  outline: 2px solid currentcolor;
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
+}
+
+/* slider: .ftde-swiper-parent (padding-top .5rem) > .swiper > .swiper-slide (padding .4rem 0) */
+.destination-finder .destination-finder-slider {
+  padding-top: 5px;
 }
 
 .destination-finder .destination-finder-list {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(200px, 70%);
-  gap: 16px;
-  margin: 0;
-  padding: 0;
+  grid-auto-columns: var(--destination-finder-card-width);
+  margin: 0 0 30px;
+  padding: 4px 0 0;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   list-style: none;
 }
@@ -134,20 +234,55 @@
   display: none;
 }
 
-.destination-finder .destination-finder-item {
-  scroll-snap-align: start;
-  min-width: 0;
+.destination-finder .destination-finder-list:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
 }
 
-.destination-finder .destination-finder-link {
+/* loading: .ftde-skeleton-box-carousel-body; reloading keeps the old cards dimmed */
+.destination-finder .destination-finder-list[aria-busy="true"]:empty {
+  min-height: 390px;
+  background-color: var(--lh-grey-1);
+}
+
+.destination-finder .destination-finder-list[aria-busy="true"]:not(:empty) {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* card: .ftde-card { width 18.6rem / 37rem }, .ftde-card-content */
+.destination-finder .destination-finder-item {
+  position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.destination-finder .destination-finder-item:has(.destination-finder-link:focus-visible) {
+  z-index: 1;
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+  border-radius: var(--radius-l);
+}
+
+.destination-finder .destination-finder-link:any-link {
+  display: flex;
+  flex-direction: column;
+  color: var(--lh-deepblue);
+  font-weight: 400;
   text-decoration: none;
+}
+
+.destination-finder .destination-finder-link:focus-visible {
+  outline: none;
 }
 
 .destination-finder .destination-finder-image {
   aspect-ratio: 2 / 3;
   overflow: hidden;
+  background-color: var(--lh-grey-2);
 }
 
 .destination-finder .destination-finder-image img,
@@ -158,61 +293,281 @@
   object-fit: cover;
 }
 
+/* .ftde-card-destination: maui-headline format heading-l, bold */
+.destination-finder .destination-finder-city {
+  padding: 20px var(--destination-finder-card-padding) 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  overflow-wrap: break-word;
+}
+
+/* .ftde-card-price { margin-top: 2rem }: maui-price-display size extra-large */
 .destination-finder .destination-finder-offer {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 8px;
+  gap: 0 8px;
+  margin: 20px 0 0;
+  padding: 0 var(--destination-finder-card-padding);
+  color: var(--lh-deepblue);
+}
+
+.destination-finder .destination-finder-price-label {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.destination-finder .destination-finder-price {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  white-space: nowrap;
+}
+
+.destination-finder .destination-finder-price sup {
+  padding: 0 0 0 2px;
+  font-size: 50%;
+}
+
+/* footer paragraphs (disclaimer, conditions) */
+.destination-finder .destination-finder-notes p {
   margin: 0;
 }
 
+.destination-finder .destination-finder-notes p + p {
+  margin-top: 10px;
+}
+
+/* last slide: .ftde-card with maui-copy + maui-navigation-link */
+.destination-finder .destination-finder-card {
+  display: flex;
+  flex-direction: column;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.destination-finder .destination-finder-card > * {
+  margin: 0;
+  padding: 0 var(--destination-finder-card-padding);
+}
+
+.destination-finder .destination-finder-card > p:has(picture) {
+  aspect-ratio: 2 / 3;
+  margin-bottom: 20px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.destination-finder .destination-finder-card > p:has(picture) picture {
+  display: block;
+  height: 100%;
+}
+
+.destination-finder .destination-finder-card > :not(p:has(picture)) + * {
+  margin-top: 5px;
+}
+
+.destination-finder .destination-finder-card a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.destination-finder .destination-finder-card p.link-wrapper a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* footer: .recommender-footer (column below 768px, CTA first) */
 .destination-finder .destination-finder-footer {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-  margin-top: 24px;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.destination-finder .destination-finder-cta {
+  order: -1;
+}
+
+.destination-finder .destination-finder-cta a.button:any-link {
+  margin: 0;
+}
+
+/* .disclaimer { color #000245, gap 1rem }, maui-copy size s */
 .destination-finder .destination-finder-notes {
-  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
+/* .disclaimerandconditions maui-link-button variant dialog: #4D4D4D, 1.4rem */
+.destination-finder .destination-finder-conditions-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--destination-finder-conditions-color);
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.destination-finder .destination-finder-conditions-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.destination-finder .destination-finder-conditions-toggle::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.3'%3E%3Cpath d='M6.5 5.5V1.5h8v8h-4'/%3E%3Cpath d='M1.5 6.5h8v8h-8z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.destination-finder .destination-finder-conditions-toggle:hover {
+  text-decoration: underline;
+}
+
+.destination-finder .destination-finder-conditions-body {
+  margin-top: 10px;
+}
+
+.destination-finder .destination-finder-conditions a:any-link {
+  color: var(--destination-finder-conditions-color);
+}
+
+/* .swiper-navigation: maui-icon-button size large, hidden below 768px */
 .destination-finder .destination-finder-controls {
-  display: flex;
-  gap: 8px;
+  display: none;
+  gap: 16px;
 }
 
 .destination-finder .destination-finder-prev,
 .destination-finder .destination-finder-next {
-  width: 40px;
-  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   margin: 0;
   padding: 0;
+  border: 0;
+  border-radius: var(--radius-s);
+  background-color: var(--lh-grey-2);
+  color: var(--lh-marble-blue);
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.destination-finder .destination-finder-prev::before,
+.destination-finder .destination-finder-next::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .destination-finder .destination-finder-prev::before {
-  content: "\2190";
-}
-
-.destination-finder .destination-finder-next::before {
-  content: "\2192";
+  transform: scaleX(-1);
 }
 
 .destination-finder .destination-finder-prev:disabled,
 .destination-finder .destination-finder-next:disabled {
-  opacity: 0.4;
+  color: var(--lh-grey-4);
   cursor: default;
 }
 
-@media (width >= 600px) {
-  .destination-finder .destination-finder-list {
-    grid-auto-columns: calc((100% - 32px) / 3);
+.destination-finder .destination-finder-prev:hover:not(:disabled),
+.destination-finder .destination-finder-next:hover:not(:disabled) {
+  background-color: var(--lh-grey-3);
+  color: var(--lh-deepblue);
+}
+
+/* no destinations (empty response or error): nothing to page through */
+.destination-finder.destination-finder-empty .destination-finder-controls {
+  display: none;
+}
+
+@media (width >= 376px) {
+  .destination-finder {
+    --destination-finder-margin: 24px;
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
+  .destination-finder {
+    --destination-finder-margin: 48px;
+    --destination-finder-card-width: 370px;
+    --destination-finder-card-padding: 10px;
+  }
+
+  .destination-finder .destination-finder-origin {
+    margin-left: 0;
+  }
+
+  .destination-finder .destination-finder-origin,
+  .destination-finder .airport-combobox input {
+    font-size: 36px;
+  }
+
+  .destination-finder .destination-finder-heading {
+    line-height: var(--heading-line-height);
+  }
+
   .destination-finder .destination-finder-list {
-    grid-auto-columns: calc((100% - 64px) / 5);
+    margin-bottom: 60px;
+    padding-bottom: 4px;
+  }
+
+  .destination-finder .destination-finder-list[aria-busy="true"]:empty {
+    min-height: 680px;
+  }
+
+  /* .recommender-footer: row-reverse, space-between, gap 2rem; .ftde-footer-cta gap 16px */
+  .destination-finder .destination-finder-footer {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .destination-finder .destination-finder-notes {
+    flex: 1 1 auto;
+    margin-right: 4px;
+  }
+
+  .destination-finder .destination-finder-controls {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .destination-finder .destination-finder-cta {
+    flex-shrink: 0;
+    order: 0;
+  }
+
+  .destination-finder.destination-finder-empty .destination-finder-controls {
+    display: none;
+  }
+}
+
+@media (width >= 1025px) {
+  .destination-finder {
+    --destination-finder-margin: 72px;
   }
 }

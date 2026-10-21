@@ -1,0 +1,12 @@
+https://www.lufthansa.com/de/en/homepage#nav
+https://www.lufthansa.com/de/en/homepage#footer
+https://www.lufthansa.com/de/en/homepage#payment-social
+https://www.lufthansa.com/de/de/homepage#nav
+https://www.lufthansa.com/de/de/homepage#footer
+https://www.lufthansa.com/de/de/homepage#payment-social
+https://www.lufthansa.com/at/de/homepage#nav
+https://www.lufthansa.com/at/de/homepage#footer
+https://www.lufthansa.com/at/de/homepage#payment-social
+https://www.lufthansa.com/gb/en/homepage#nav
+https://www.lufthansa.com/gb/en/homepage#footer
+https://www.lufthansa.com/gb/en/homepage#payment-social

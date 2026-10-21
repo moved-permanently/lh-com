@@ -1,28 +1,49 @@
-/* fare-teaser: structural layout only; brand styling comes with the design pass */
+/* fare-teaser: Lufthansa .fareteaser.fareteaser-static with .fareteaser-recommendation.fareteaser-variant-default items */
+
+/* the section headline is maui-headline type="h3" format="heading-xl" class="maui-mb-5" (light, not the bold h3 style) */
+.fare-teaser-container .default-content-wrapper h3 {
+  margin-bottom: 30px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 300;
+}
+
+.fare-teaser.fare-teaser-empty {
+  display: none;
+}
+
+/* ul.row.maui-mb-5 > li.col-12.col-md-6.col-lg-4 { padding-bottom: 3rem } */
 .fare-teaser .fare-teaser-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin: 0;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--grid-gutter, 20px);
+  margin: 0 0 30px;
   padding: 0;
   list-style: none;
 }
 
+/* .fareteaser-recommendation; image column + .fareteaser-recommendation-container { padding: 0 2rem 0 0 } */
 .fare-teaser .fare-teaser-item {
   position: relative;
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
-  grid-template-areas:
-    "image route"
-    "image offer";
-  column-gap: 16px;
-  align-items: start;
+  grid-template:
+    "image route" auto
+    "image offer" 1fr / 76px minmax(0, 1fr);
+  column-gap: 12.5px;
+  margin: 0;
+  padding: 0 20px 30px 0;
+  color: var(--text-color);
+  overflow-wrap: anywhere;
 }
 
+/* .image-wrapper { width/height: 7.6rem }, image margin: 1rem 1.25rem 1rem 0 */
 .fare-teaser .fare-teaser-image {
   grid-area: image;
-  aspect-ratio: 1;
-  overflow: hidden;
+  position: relative;
+  align-self: start;
+  width: 76px;
+  height: 76px;
+  margin: 10px 0;
+  background-color: var(--lh-grey-2);
 }
 
 .fare-teaser .fare-teaser-image img {
@@ -32,44 +53,215 @@
   object-fit: cover;
 }
 
-.fare-teaser .fare-teaser-route {
+/* maui-icon.icon-journey-airplane: #05164d circle, 1px white border, right -.4rem, top 5.3rem */
+.fare-teaser .fare-teaser-image::after {
+  content: "";
+  position: absolute;
+  top: 53px;
+  right: -4px;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--lh-white);
+  border-radius: 50%;
+  background: var(--lh-deepblue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' transform='rotate(90 12 12)' d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E") center / 18px no-repeat;
+}
+
+/* .fareteaser-recommendation-od-link { color: inherit; margin: 0 0 1rem 1rem }; the offer's border-top is
+   drawn here so the line stays while the price loads */
+.fare-teaser .fare-teaser-route:any-link {
   grid-area: route;
   display: flex;
   flex-direction: column;
+  padding: 0 0 10px 10px;
+  border-bottom: 1px solid #b0b0b0;
+  color: inherit;
   text-decoration: none;
 }
 
-/* the route link covers the whole teaser */
+.fare-teaser .fare-teaser-route:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the route link covers the whole teaser (:before { inset: -1px; position: absolute }) */
 .fare-teaser .fare-teaser-route::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
 }
 
+.fare-teaser .fare-teaser-route:focus-visible {
+  outline: none;
+}
+
+.fare-teaser .fare-teaser-route:focus-visible::after {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* .fareteaser-recommendation-origin: 1.4rem/150% (bold via the link) */
+.fare-teaser .fare-teaser-origin {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* .fareteaser-recommendation-destination: 1.8rem/150%, weight 400 */
+.fare-teaser .fare-teaser-destination {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* .fareteaser-recommendation-offer { justify-content: flex-end; padding-left: 1rem },
+   .fareteaser-recommendation-link-placeholder { min-height: 2.5rem }, price .align-self-end */
 .fare-teaser .fare-teaser-offer {
   grid-area: offer;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: baseline;
-  gap: 8px;
+  column-gap: 8px;
   margin: 0;
+  padding: 25px 0 0 10px;
+  text-align: right;
 }
 
+/* keep the row height while the price loads or when there is none (the live offer row stays empty) */
 .fare-teaser .fare-teaser-offer[hidden] {
+  display: flex;
+  visibility: hidden;
+}
+
+.fare-teaser .fare-teaser-price-label {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+/* maui-price-display (shadow DOM, from the screenshot): LufthansaHead bold ~24px */
+.fare-teaser .fare-teaser-price {
+  min-height: 1.1em;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* footer: .disclaimer row (Conditions maui-link-button, "Show more" .ml-auto below 768px) */
+.fare-teaser .fare-teaser-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px 20px;
+}
+
+.fare-teaser .fare-teaser-footer:empty {
   display: none;
 }
 
 .fare-teaser .fare-teaser-conditions {
-  margin-top: 24px;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--body-font-size-xs);
 }
 
-@media (width >= 600px) {
-  .fare-teaser .fare-teaser-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.fare-teaser .fare-teaser-conditions p {
+  margin: 0 0 12px;
+}
+
+.fare-teaser .fare-teaser-conditions > :last-child,
+.fare-teaser .fare-teaser-conditions-text > :last-child {
+  margin-bottom: 0;
+}
+
+/* maui-link-button with the dialog icon: whale-blue, bold */
+.fare-teaser .fare-teaser-conditions-label,
+.fare-teaser .fare-teaser-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.fare-teaser .fare-teaser-more {
+  margin-left: auto;
+}
+
+.fare-teaser .fare-teaser-conditions-label::-webkit-details-marker {
+  display: none;
+}
+
+.fare-teaser .fare-teaser-conditions-label::before,
+.fare-teaser .fare-teaser-more::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M9 3h12v12H9zM15 15v6H3V9h6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* maui-icon use="expand" */
+.fare-teaser .fare-teaser-more::after {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='m5 9 7 7 7-7'/%3E%3C/svg%3E");
+}
+
+.fare-teaser .fare-teaser-conditions-label:hover,
+.fare-teaser .fare-teaser-more:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.fare-teaser .fare-teaser-conditions-label:focus-visible,
+.fare-teaser .fare-teaser-more:focus-visible {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.fare-teaser .fare-teaser-conditions-text {
+  max-width: 1000px;
+  margin-top: 12px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+/* li.hidden-sm-down: routes 4+ are hidden below 768px until "Show more" */
+@media (width < 768px) {
+  .fare-teaser:not(.fare-teaser-expanded) .fare-teaser-item:nth-child(n + 4) {
+    display: none;
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 768px) {
+  /* .col-md-6 */
+  .fare-teaser .fare-teaser-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* the "Show more" row is .hidden-md-up */
+  .fare-teaser .fare-teaser-more {
+    display: none;
+  }
+}
+
+@media (width >= 1025px) {
+  /* .col-lg-4 */
   .fare-teaser .fare-teaser-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

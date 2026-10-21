@@ -179,13 +179,27 @@ function renderDestination(dest, state, labels, locale, hasDisclaimer) {
   if (price) {
     const offer = el('p', 'destination-finder-offer');
     const label = state.tripType === 'ONEWAY' ? labels['one way price label'] : labels['price label'];
-    offer.append(
-      el('span', 'destination-finder-price-label', label),
-      el('span', 'destination-finder-price', hasDisclaimer ? `${price}*` : price),
-    );
+    const priceEl = el('span', 'destination-finder-price', price);
+    if (hasDisclaimer) priceEl.append(el('sup', '', '*'));
+    offer.append(el('span', 'destination-finder-price-label', label), priceEl);
     li.append(offer);
   }
   return li;
+}
+
+/**
+ * Conditions authored as a title paragraph plus text: the title becomes a disclosure
+ * (the live site opens the text in a dialog from a "Conditions" link button).
+ */
+function decorateConditions(conditions) {
+  const [title, ...rest] = [...conditions.children];
+  if (!title || !rest.length || title.querySelector('a') || !title.textContent.trim()) return;
+  const details = el('details');
+  const summary = el('summary', 'destination-finder-conditions-toggle', title.textContent.trim());
+  const body = el('div', 'destination-finder-conditions-body');
+  body.append(...rest);
+  details.append(summary, body);
+  conditions.replaceChildren(details);
 }
 
 function updateAuthoredLinks(root, state) {
@@ -227,6 +241,9 @@ export default function decorate(block) {
   const disclaimer = moveCell(cell('disclaimer'), 'destination-finder-disclaimer');
   const conditions = moveCell(cell('conditions', 'conditions-label'), 'destination-finder-conditions');
   const cta = moveCell(cell('cta', 'link'), 'destination-finder-cta');
+  if (conditions) decorateConditions(conditions);
+  const ctaLink = cta && cta.querySelector('a[href]');
+  if (ctaLink && !ctaLink.classList.contains('button')) ctaLink.classList.add('button', 'secondary');
   const srHeading = text('sr-heading', 'list-heading', 'recommendations-heading');
 
   // heading with origin switch

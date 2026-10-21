@@ -1,6 +1,8 @@
-/* hero-card-overlay: structural layout only; brand styling comes with the design pass */
-.hero-card-overlay-container .hero-card-overlay-wrapper {
-  max-width: unset;
+/* hero-card-overlay: Lufthansa .mainstageteaser-container (.main-stage-teaser image + .mst-card.container-brand) */
+
+/* full-bleed stage (.full-width-bg.p-0) */
+main > .section > .hero-card-overlay-wrapper {
+  max-width: none;
   padding: 0;
 }
 
@@ -10,10 +12,12 @@
   flex-direction: column;
 }
 
+/* .mainstageteaser-container .moving-image img { aspect-ratio: 4/3 } (21/9 >= 768px, 3/1 >= 1025px) */
 .hero-card-overlay .hero-card-overlay-media {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
+  background-color: var(--lh-grey-2);
 }
 
 .hero-card-overlay .hero-card-overlay-media picture,
@@ -27,30 +31,98 @@
   object-fit: cover;
 }
 
+/* .mst-card { padding: 4rem 4.8rem; width: auto } .container-brand { background: #05164d; color: #fff } */
 .hero-card-overlay .hero-card-overlay-card {
   position: relative;
   box-sizing: border-box;
-  padding: 24px;
-  background-color: var(--dark-color, #05164d);
-  color: var(--background-color, #fff);
-}
-
-.hero-card-overlay .hero-card-overlay-card > :first-child {
-  margin-top: 0;
+  padding: 40px 48px;
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
 }
 
 .hero-card-overlay .hero-card-overlay-card > :last-child {
   margin-bottom: 0;
 }
 
-.hero-card-overlay .hero-card-overlay-card a {
-  color: inherit;
+.hero-card-overlay .hero-card-overlay-card p {
+  margin-bottom: var(--spacing-default);
 }
 
-@media (width >= 900px) {
+/* .mst-title.overwrite-title: LufthansaHead 1.6rem -> 1.8rem, 110%, weight 400; margin-bottom 1.2rem */
+.hero-card-overlay .hero-card-overlay-card .hero-card-overlay-eyebrow {
+  margin-bottom: 12px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  line-height: var(--heading-line-height);
+  text-wrap: balance;
+}
+
+/* .display-text: LufthansaHead 3.6rem -> 4.8rem, 110%, bold, #fff, margin-bottom 2.4rem (3rem >= 1025px) */
+.hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 24px;
+  color: var(--lh-white);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  text-wrap: balance;
+}
+
+/* .container-brand focus ring: .2rem solid #fff */
+.hero-card-overlay .hero-card-overlay-card a:focus-visible {
+  outline-color: var(--lh-white);
+}
+
+/* maui-navigation-link inside .container-brand: interaction-inverted #ebebeb, hover #fff */
+.hero-card-overlay .hero-card-overlay-card a:any-link:not(.button) {
+  color: var(--lh-grey-2);
+}
+
+.hero-card-overlay .hero-card-overlay-card a:not(.button):hover {
+  color: var(--lh-white);
+}
+
+.hero-card-overlay .hero-card-overlay-cta a:any-link:not(.button) {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* lh-arrow-right */
+.hero-card-overlay .hero-card-overlay-cta a:any-link:not(.button)::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* a secondary (outline) button would vanish on the brand card: invert it */
+.hero-card-overlay .hero-card-overlay-card a.button.secondary {
+  border-color: var(--lh-white);
+  color: var(--lh-white);
+}
+
+.hero-card-overlay .hero-card-overlay-card a.button.secondary:hover {
+  background-color: var(--lh-white);
+  color: var(--lh-deepblue);
+}
+
+@media (width >= 768px) {
+  .hero-card-overlay .hero-card-overlay-media {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+/* >= 1025px: .mst-card-container { position: absolute; inset: 0; max-width: 126.4rem; justify-content: center },
+   .mst-card { border-radius: .8rem; width: 59rem }. The card stays in flow over the absolutely placed image,
+   so the stage (3/1) grows instead of clipping a long card. */
+@media (width >= 1025px) {
   .hero-card-overlay {
-    display: block;
-    min-height: 560px;
+    justify-content: center;
+    aspect-ratio: 3 / 1;
   }
 
   .hero-card-overlay .hero-card-overlay-media {
@@ -60,17 +132,17 @@
   }
 
   .hero-card-overlay .hero-card-overlay-card {
-    position: absolute;
-    top: 50%;
-    left: max(32px, calc((100% - 1200px) / 2));
-    width: min(480px, 40%);
-    padding: 40px;
-    transform: translateY(-50%);
+    width: 590px;
+    max-width: calc(100% - 2 * var(--layout-margin));
+    margin: 24px 0 24px max(var(--layout-margin), calc((100% - 1264px) / 2));
+    border-radius: var(--radius-l);
   }
 
-  .hero-card-overlay.hero-card-overlay-no-image .hero-card-overlay-card {
-    position: relative;
-    top: auto;
-    transform: none;
+  .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 30px;
+  }
+
+  .hero-card-overlay.hero-card-overlay-no-image {
+    aspect-ratio: auto;
   }
 }

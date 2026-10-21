@@ -13,7 +13,10 @@
  * A block ends the session (exit 2); a new run starts a new warm session.
  *
  * Usage: node tools/importer/bd-session.mjs (--list urls.txt | --url <url> ...) [--batch 20]
- *          [--model] [--force] [--min-delay 5000] [--max-delay 10000]
+ *          [--model] [--force] [--min-delay 5000] [--max-delay 10000] [--widths 1440,768,390]
+ *          [--parity-list urls-parity.txt]
+ * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
+ * parity check, so a page is never loaded again just for a screenshot.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,6 +42,25 @@ const MAX_HEIGHT = 8000;
 const batch = Number(opt('batch', 20));
 const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
+const widths = opt('widths', '1440').split(',').map(Number).filter(Boolean);
+// extra widths only for these URLs (the parity scope); every other page gets 1440 only
+const parityFile = opt('parity-list');
+const parity = parityFile ? new Set(fs.readFileSync(path.resolve(root, parityFile), 'utf8').split(/\r?\n/).map((u) => u.trim()).filter(Boolean)) : null;
+const widthsFor = (url) => (!parity || parity.has(url) ? widths : [1440]);
+
+/** Scrolls down in viewport steps so lazy images at this width load (max 8000 px). */
+async function quickScroll(page) {
+  await page.evaluate(async (max) => {
+    const step = Math.max(300, Math.floor(window.innerHeight * 0.8));
+    const end = Math.min(document.documentElement.scrollHeight, max);
+    for (let y = 0; y < end; y += step) {
+      window.scrollTo(0, y);
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => { setTimeout(r, 120); });
+    }
+    window.scrollTo(0, 0);
+  }, MAX_HEIGHT).catch(() => {});
+}
 const stateFile = path.join(root, 'tools/source-export/bd-session-state.json');
 const pagesDir = path.join(root, 'tools/source-export/pages');
 
@@ -54,7 +76,8 @@ const saveState = () => {
   fs.renameSync(`${stateFile}.tmp`, stateFile);
 };
 const snapshotOf = (url) => snapshotPathFor(url, root, process.env.BD_SNAPSHOT_DIR);
-const captured = (url) => fs.existsSync(snapshotOf(url)) || ['404', 'error-page'].includes(state.pages[url]?.status);
+const captured = (url) => fs.existsSync(snapshotOf(url)) || ['404', 'error-page'].includes(state.pages[url]?.status)
+  || (state.pages[url]?.status === 'net-error' && state.pages[url].attempts >= 3);
 const pending = urls.filter((u) => has('force') || !captured(u)).slice(0, batch);
 if (!pending.length) {
   console.log(`bd-session: nothing to do (${urls.length} URLs already captured)`);
@@ -70,6 +93,8 @@ const hardTimer = setTimeout(() => {
 hardTimer.unref();
 
 let mainStatus = null;
+const T0 = { t: Date.now() };
+const lap = (label) => { if (process.env.BD_TIMING) console.log(`  ${label} ${((Date.now() - T0.t) / 1000).toFixed(1)}s`); T0.t = Date.now(); };
 
 /** Navigates the page and waits until the Cloudflare interstitial is gone. */
 async function open(page, url) {
@@ -84,7 +109,10 @@ async function open(page, url) {
   const title = () => page.title().catch(() => 'just a moment');
   for (let i = 0; i < 60 && (CHALLENGE.test(await title()) || !(await title())); i += 1) await sleep(1000);
   await page.waitForLoadState('domcontentloaded').catch(() => {});
-  await sleep(2000);
+  // stylesheets and fonts (AirCore loads its CSS late; without this the capture is unstyled)
+  await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+  await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
+  await sleep(1500);
   return { title: await title(), status: mainStatus };
 }
 
@@ -112,9 +140,12 @@ try {
   await sleep(minDelay);
 
   for (const url of pending) {
+    const navStart = Date.now();
     state.inflight = { url, startedAt: new Date().toISOString() };
     saveState();
+    T0.t = Date.now();
     const nav = await open(page, url);
+    lap('open');
     const detection = await detectBlocked(page, { status: () => nav.status });
     if (detection.isBotProtection || CHALLENGE.test(nav.title)) {
       blocked = true;
@@ -124,13 +155,21 @@ try {
       console.error(`bd-session: BLOCKED at ${url} (${nav.status} ${detection.type || ''}); ending session`);
       break;
     }
-    if (detection.isError || nav.status === 404) {
+    // the browser's own error page (proxy tunnel failure, DNS): the page never loaded, so
+    // nothing is saved and the URL stays pending for a later session
+    const netError = nav.status === null && await page.evaluate(() => Boolean(document.querySelector('#offline-resources, #main-frame-error'))
+      || /ERR_[A-Z_]+/.test(document.body?.innerText || '')).catch(() => false);
+    if (netError) {
+      state.pages[url] = { status: 'net-error', attempts: (state.pages[url]?.attempts || 0) + 1, at: new Date().toISOString() };
+      console.log(`net-error ${url} (not saved; retried in a later session)`);
+    } else if (detection.isError || nav.status === 404) {
       state.pages[url] = { status: nav.status === 404 ? '404' : 'error-page', http: nav.status, at: new Date().toISOString() };
       console.log(`${nav.status} error page ${url}`);
     } else {
       await dismissCookies(page);
       await scrollToTriggerLazyLoad(page).catch(() => {});
       await sleep(1000);
+      lap('lazy-scroll');
       const { pathname } = new URL(url);
       const dir = path.join(pagesDir, pathname.replace(/^\/|\/$/g, '') || 'index');
       fs.mkdirSync(dir, { recursive: true });
@@ -140,16 +179,30 @@ try {
       fs.mkdirSync(path.dirname(snap), { recursive: true });
       fs.writeFileSync(snap, raw);
       fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
+      lap('snapshot+cleaned');
 
-      const height = await page.evaluate(() => document.documentElement.scrollHeight).catch(() => 900);
-      await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
-      await page.screenshot({
-        path: path.join(dir, 'screenshot.png'),
-        fullPage: true,
-        clip: {
-          x: 0, y: 0, width: 1440, height: Math.min(height, MAX_HEIGHT),
-        },
-      }).catch((e) => console.error(`  screenshot failed: ${e.message.split('\n')[0]}`));
+      const pageWidths = widthsFor(url);
+      for (const width of pageWidths) {
+        if (width !== 1440) {
+          await page.setViewportSize({ width, height: 900 }).catch(() => {});
+          await sleep(800);
+          await quickScroll(page);
+          await sleep(500);
+        }
+        const height = await page.evaluate(() => document.documentElement.scrollHeight).catch(() => 900);
+        await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
+        await page.screenshot({
+          path: path.join(dir, width === 1440 ? 'screenshot.png' : `screenshot-${width}.png`),
+          fullPage: true,
+          clip: {
+            x: 0, y: 0, width, height: Math.min(height, MAX_HEIGHT),
+          },
+        }).catch((e) => console.error(`  screenshot ${width} failed: ${e.message.split('\n')[0]}`));
+        lap(`shot ${width}`);
+      }
+      if (pageWidths.some((w) => w !== 1440)) await page.setViewportSize({ width: 1440, height: 900 }).catch(() => {});
+      const alternates = await page.evaluate(() => [...document.querySelectorAll('link[rel="alternate"][hreflang]')]
+        .map((l) => ({ hreflang: l.getAttribute('hreflang'), href: l.href }))).catch(() => []);
 
       let model = null;
       if (has('model') && !pathname.startsWith('/lhg/')) {
@@ -173,6 +226,8 @@ try {
         rawHtml: { filePath: snap, size: raw.length },
         metadata: await extractMetadata(page).catch(() => ({})),
         images: { mapping: {} },
+        alternates,
+        screenshots: pageWidths,
       }, null, 2));
       state.pages[url] = {
         status: 'ok',
@@ -187,7 +242,8 @@ try {
     }
     delete state.inflight;
     saveState();
-    await sleep(minDelay + Math.random() * (maxDelay - minDelay));
+    // one navigation every 5-10 s at most, counted from the previous navigation's start
+    await sleep(Math.max(0, navStart + minDelay + Math.random() * (maxDelay - minDelay) - Date.now()));
   }
 } finally {
   saveState();

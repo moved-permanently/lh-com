@@ -261,6 +261,7 @@ export default function decorate(block) {
     const input = el('input');
     input.type = 'date';
     input.name = name;
+    input.required = true; // form is noValidate; lets the CSS tell empty fields (:invalid) apart
     input.min = isoDate(new Date());
     label.append(span, input);
     dates.append(label);
@@ -273,7 +274,7 @@ export default function decorate(block) {
     if (ret.input.value && ret.input.value < departure.input.value) ret.input.value = '';
   });
 
-  const submit = el('button', 'flight-search-submit', text('submit') || labels['submit label']);
+  const submit = el('button', 'flight-search-submit button primary', text('submit') || labels['submit label']);
   submit.type = 'submit';
 
   fields.append(origin.element, swap, destination.element, dates, submit);
