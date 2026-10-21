@@ -1,20 +1,34 @@
 {
   "updatedAt": "2026-10-21",
-  "blocker": "Cloudflare blocks the agent's browser on www.lufthansa.com. Waiting for the user's team to provide open access or a source export (tools/importer/SOURCE-EXPORT.md). No unblocking proxy.",
+  "blocker": "Bright Data scrape of https://www.lufthansa.com/de/en/baggage returned HTTP 403 (one attempt, not retried). Earlier in the same session the de/en homepage and its .model.json came through Bright Data. Waiting for the user's decision.",
+  "access": {
+    "route": "Bright Data (botProtected: true in .migration/project.json)",
+    "ok": ["/de/en/homepage (scrape)", "/de/en/homepage.model.json (in-page fetch, tools/importer/bd-fetch.mjs)"],
+    "blocked": ["/de/en/baggage (scrape, HTTP 403)"],
+    "staticAssets": "CSS, fonts and images answer 200 to plain curl"
+  },
   "decisions": {
     "forms": "render-only form block, no Forms add-on",
     "navFooterPaths": "/{country}/{lang}/nav and /{country}/{lang}/footer; AirCore pages use their locale's",
     "rootRedirect": "redirects sheet maps / to /de/de/homepage (tools/importer/redirects.csv, upload with content), plus a JS fallback in scripts.js",
-    "proxy": "scripts/lh-data.js PROXY_ORIGIN stays empty until the worker is deployed; recorded fallback in data/recorded/"
+    "proxy": "scripts/lh-data.js PROXY_ORIGIN stays empty until the worker URL is known (CI workflow deploy-lh-proxy.yaml deploys it); recorded fallback in data/recorded/",
+    "fonts": "Lufthansa Head/Text loaded from www.lufthansa.com (CORS *), not copied into the public repo"
+  },
+  "templates": {
+    "homepage": "done: analysis, 8 blocks, mapping, transformers, parsers, import script, de/en imported",
+    "hub": "blocked at page analysis (/de/en/baggage 403)",
+    "info": "pending", "campaign": "pending", "fleet": "pending", "insights": "pending",
+    "legal": "pending", "form": "pending", "app-entry": "pending", "flight-status": "pending",
+    "aircore-destination-overview": "pending", "aircore-destination": "pending", "aircore-route": "pending"
   },
   "steps": {
     "offlineInfrastructure": "done",
-    "1-templates-first-pages": "blocked",
-    "2-blocks-import-header-footer-locales": "blocked",
-    "3-worker": "built and tested, not deployed; recorded data blocked; widget integration waits for the blocks",
+    "1-templates-first-pages": "1 of 10 templates done (homepage)",
+    "2-blocks-import-header-footer-locales": "fonts done; rest pending",
+    "3-worker": "built, tested, CI deploy workflow added by user; recorded data pending",
     "4-da-upload-preview": "pending",
     "5-parity": "harness done; checks pending",
     "6-nav-unmigrated": "generator done; report waits for nav content"
   },
-  "pagesImported": { "de/en": 0, "de/de": 0, "at/de": 0, "gb/en": 0, "aircore": 0 }
+  "pagesImported": { "de/en": 1, "de/de": 0, "at/de": 0, "gb/en": 0, "aircore": 0 }
 }
