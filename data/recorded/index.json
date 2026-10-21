@@ -1,0 +1,409 @@
+{
+ "entries": {
+  "at/de|GET /service/api/catalogs/localeData": {
+   "file": "at-de-d8016f7e.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/catalogs/calendar": {
+   "file": "at-de-7de093da.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/catalogs/conditions": {
+   "file": "at-de-a0a234f6.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/catalogs/airportnames": {
+   "file": "at-de-741c0d99.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/defaultAirport": {
+   "file": "at-de-7c8a42b7.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/catalogs/countryselector": {
+   "file": "at-de-066da6f3.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/labels/countrylanguageselection/lh/de": {
+   "file": "at-de-73527636.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/catalogs/car": {
+   "file": "at-de-8beac17a.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/labels/flightmanager/lh/de": {
+   "file": "at-de-79a70a9b.json",
+   "recordedAt": "2026-10-21T19:06:58.782Z"
+  },
+  "at/de|GET /service/api/lhg-fare-teaser/fareteaser/recommend": {
+   "file": "at-de-dbc8b51a.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/recentSearches/lh/de": {
+   "file": "at-de-f34fa95f.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/flashteaser/lh/de": {
+   "file": "at-de-30e50248.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/shoppingCart/lh/de": {
+   "file": "at-de-d83272b2.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/loginForm/lh/de": {
+   "file": "at-de-06041ee5.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/mainstageteaser/lh/de": {
+   "file": "at-de-3cf0c1c3.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/bookingQuery/lh/de": {
+   "file": "at-de-992aa755.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/tourOperatorQuery/lh/de": {
+   "file": "at-de-07f3b67c.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/labels/fareteaserstatic/lh/de": {
+   "file": "at-de-d6f0396e.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/catalogs/airlines": {
+   "file": "at-de-b6c45b3b.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|GET /service/api/suggestions/airports?lang=de&portal=LH&query=Wien&rd=y&rep=airportsReq&site=AT&start=0": {
+   "file": "at-de-641dfa83.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|POST /service/api/lhg-fare-teaser/fareteaser/offers/VIE#982335cd": {
+   "file": "at-de-e2796c48.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "at/de|POST /service/api/lhg-fare-teaser/fareteaser/manual#906e5138": {
+   "file": "at-de-36f8f0ae.json",
+   "recordedAt": "2026-10-21T19:06:58.783Z"
+  },
+  "de/de|GET /service/api/catalogs/conditions": {
+   "file": "de-de-a0a234f6.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/localeData": {
+   "file": "de-de-d8016f7e.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/calendar": {
+   "file": "de-de-7de093da.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/airportnames": {
+   "file": "de-de-741c0d99.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/defaultAirport": {
+   "file": "de-de-7c8a42b7.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/countryselector": {
+   "file": "de-de-066da6f3.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/countrylanguageselection/lh/de": {
+   "file": "de-de-73527636.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/car": {
+   "file": "de-de-8beac17a.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/flightmanager/lh/de": {
+   "file": "de-de-79a70a9b.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/recentSearches/lh/de": {
+   "file": "de-de-f34fa95f.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/lhg-fare-teaser/fareteaser/recommend": {
+   "file": "de-de-dbc8b51a.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/flashteaser/lh/de": {
+   "file": "de-de-30e50248.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/suggestions/airports?lang=de&portal=LH&query=Frankfurt%2FMain+International&rd=y&rep=airportsReq&site=DE&start=0": {
+   "file": "de-de-57c2ca30.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/catalogs/airlines": {
+   "file": "de-de-b6c45b3b.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/mainstageteaser/lh/de": {
+   "file": "de-de-3cf0c1c3.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/loginForm/lh/de": {
+   "file": "de-de-06041ee5.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/tourOperatorQuery/lh/de": {
+   "file": "de-de-07f3b67c.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|POST /service/api/lhg-fare-teaser/fareteaser/manual#c26c2cff": {
+   "file": "de-de-fd347efe.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/bookingQuery/lh/de": {
+   "file": "de-de-992aa755.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/shoppingCart/lh/de": {
+   "file": "de-de-d83272b2.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/labels/fareteaserstatic/lh/de": {
+   "file": "de-de-d6f0396e.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|GET /service/api/suggestions/airports?lang=de&portal=LH&query=Frankfurt&rd=y&rep=airportsReq&site=DE&start=0": {
+   "file": "de-de-62bfbd85.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/de|POST /service/api/lhg-fare-teaser/fareteaser/offers/FRA#3ae5fd28": {
+   "file": "de-de-a90f6396.json",
+   "recordedAt": "2026-10-21T19:06:15.752Z"
+  },
+  "de/en|GET /service/api/catalogs/calendar": {
+   "file": "de-en-7de093da.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/catalogs/localeData": {
+   "file": "de-en-d8016f7e.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/catalogs/conditions": {
+   "file": "de-en-a0a234f6.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/catalogs/airportnames": {
+   "file": "de-en-741c0d99.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/catalogs/countryselector": {
+   "file": "de-en-066da6f3.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/countrylanguageselection/lh/en": {
+   "file": "de-en-58500d1e.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/lhg-fare-teaser/fareteaser/recommend": {
+   "file": "de-en-dbc8b51a.json",
+   "recordedAt": "2026-10-21T19:05:35.109Z"
+  },
+  "de/en|GET /service/api/labels/flashteaser/lh/en": {
+   "file": "de-en-09e2864c.json",
+   "recordedAt": "2026-10-21T19:05:35.109Z"
+  },
+  "de/en|GET /service/api/catalogs/car": {
+   "file": "de-en-8beac17a.json",
+   "recordedAt": "2026-10-21T19:05:35.109Z"
+  },
+  "de/en|GET /service/api/defaultAirport": {
+   "file": "de-en-7c8a42b7.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/flightmanager/lh/en": {
+   "file": "de-en-54a90ef3.json",
+   "recordedAt": "2026-10-21T19:05:35.109Z"
+  },
+  "de/en|GET /service/api/labels/mainstageteaser/lh/en": {
+   "file": "de-en-27f4724b.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/labels/shoppingCart/lh/en": {
+   "file": "de-en-fd306e5a.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/recentSearches/lh/en": {
+   "file": "de-en-1e522ba7.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/labels/loginForm/lh/en": {
+   "file": "de-en-2d069ae1.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#c26c2cff": {
+   "file": "de-en-fd347efe.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/labels/fareteaserstatic/lh/en": {
+   "file": "de-en-abedb726.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/catalogs/airlines": {
+   "file": "de-en-b6c45b3b.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/tourOperatorQuery/lh/en": {
+   "file": "de-en-10f18610.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/labels/bookingQuery/lh/en": {
+   "file": "de-en-802cbe91.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/suggestions/airports?lang=en&portal=LH&query=Frankfurt%2FMain+International&rd=y&rep=airportsReq&site=DE&start=0": {
+   "file": "de-en-e79c01e8.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/suggestions/airports?lang=en&portal=LH&query=Frankfurt&rd=y&rep=airportsReq&site=DE&start=0": {
+   "file": "de-en-393da13d.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|POST /service/api/lhg-fare-teaser/fareteaser/offers/FRA#f2652cee": {
+   "file": "de-en-8bff2550.json",
+   "recordedAt": "2026-10-21T19:05:35.110Z"
+  },
+  "de/en|GET /service/api/labels/common/lh/en": {
+   "file": "de-en-7b8e7b29.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/searchBar/lh/en": {
+   "file": "de-en-c6904537.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/socialShare/lh/en": {
+   "file": "de-en-c11a8f88.json",
+   "recordedAt": "2026-10-21T19:09:38.541Z"
+  },
+  "de/en|GET /service/api/labels/stickyprice/lh/en": {
+   "file": "de-en-7a4939ee.json",
+   "recordedAt": "2026-10-21T19:09:38.541Z"
+  },
+  "de/en|GET /service/api/labels/relatedarticles/lh/en": {
+   "file": "de-en-fc1ca956.json",
+   "recordedAt": "2026-10-21T19:09:38.541Z"
+  },
+  "de/en|GET /service/api/catalogs/feedbackForm": {
+   "file": "de-en-574b86b9.json",
+   "recordedAt": "2026-10-21T19:10:14.666Z"
+  },
+  "de/en|GET /service/api/labels/voucherExchange/lh/en": {
+   "file": "de-en-d5cdb169.json",
+   "recordedAt": "2026-10-21T19:10:14.666Z"
+  },
+  "de/en|GET /service/api/labels/feedbackform/lh/en": {
+   "file": "de-en-6ab221c9.json",
+   "recordedAt": "2026-10-21T19:10:14.666Z"
+  },
+  "de/en|GET /service/api/labels/checkin/lh/en": {
+   "file": "de-en-45353b11.json",
+   "recordedAt": "2026-10-21T19:10:36.063Z"
+  },
+  "de/en|GET /service/api/labels/flightstatus/lh/en": {
+   "file": "de-en-7156aa34.json",
+   "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "gb/en|GET /service/api/catalogs/calendar": {
+   "file": "gb-en-7de093da.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/localeData": {
+   "file": "gb-en-d8016f7e.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/conditions": {
+   "file": "gb-en-a0a234f6.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/airportnames": {
+   "file": "gb-en-741c0d99.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/countrylanguageselection/lh/en": {
+   "file": "gb-en-58500d1e.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/countryselector": {
+   "file": "gb-en-066da6f3.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/defaultAirport": {
+   "file": "gb-en-7c8a42b7.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/car": {
+   "file": "gb-en-8beac17a.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/flightmanager/lh/en": {
+   "file": "gb-en-54a90ef3.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/recentSearches/lh/en": {
+   "file": "gb-en-1e522ba7.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/suggestions/airports?lang=en&portal=LH&query=Wien+International&rd=y&rep=airportsReq&site=GB&start=0": {
+   "file": "gb-en-13929102.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/lhg-fare-teaser/fareteaser/recommend": {
+   "file": "gb-en-dbc8b51a.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/flashteaser/lh/en": {
+   "file": "gb-en-09e2864c.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/shoppingCart/lh/en": {
+   "file": "gb-en-fd306e5a.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/mainstageteaser/lh/en": {
+   "file": "gb-en-27f4724b.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/loginForm/lh/en": {
+   "file": "gb-en-2d069ae1.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/catalogs/airlines": {
+   "file": "gb-en-b6c45b3b.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/bookingQuery/lh/en": {
+   "file": "gb-en-802cbe91.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/fareteaserstatic/lh/en": {
+   "file": "gb-en-abedb726.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/labels/tourOperatorQuery/lh/en": {
+   "file": "gb-en-10f18610.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#a26ff24d": {
+   "file": "gb-en-9fe7679c.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|GET /service/api/suggestions/airports?lang=en&portal=LH&query=London&rd=y&rep=airportsReq&site=GB&start=0": {
+   "file": "gb-en-6ffffdec.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  },
+  "gb/en|POST /service/api/lhg-fare-teaser/fareteaser/offers/LON#c7578075": {
+   "file": "gb-en-7b6bd424.json",
+   "recordedAt": "2026-10-21T19:07:40.380Z"
+  }
+ },
+ "updatedAt": "2026-10-21T19:11:39.934Z"
+}

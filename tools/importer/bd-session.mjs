@@ -62,6 +62,11 @@ async function quickScroll(page) {
   }, MAX_HEIGHT).catch(() => {});
 }
 const stateFile = path.join(root, 'tools/source-export/bd-session-state.json');
+// API responses the live page loads by itself while it is captured (no extra requests);
+// tools/importer/record-live-data.mjs turns them into data/recorded/
+const apiDir = path.join(root, 'tools/source-export/api');
+const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|aircore\/(weather|geolocation))(\/|$)/;
+let pageResponses = [];
 const pagesDir = path.join(root, 'tools/source-export/pages');
 
 const listFile = opt('list');
@@ -132,6 +137,13 @@ try {
   await page.setViewportSize({ width: 1440, height: 900 }).catch(() => {});
   page.on('response', (r) => {
     if (r.request().isNavigationRequest() && r.frame() === page.mainFrame()) mainStatus = r.status();
+    let u;
+    try { u = new URL(r.url()); } catch (e) { return; }
+    if (u.hostname !== 'www.lufthansa.com' || !RECORDABLE.test(u.pathname) || r.status() !== 200) return;
+    const req = r.request();
+    pageResponses.push(r.text().then((text) => ({
+      method: req.method(), url: r.url(), body: req.postData() || undefined, status: r.status(), text,
+    })).catch(() => null));
   });
 
   console.log(`bd-session: warming up on ${ANCHOR}`);
@@ -141,6 +153,7 @@ try {
 
   for (const url of pending) {
     const navStart = Date.now();
+    pageResponses = [];
     state.inflight = { url, startedAt: new Date().toISOString() };
     saveState();
     T0.t = Date.now();
@@ -166,6 +179,20 @@ try {
       state.pages[url] = { status: nav.status === 404 ? '404' : 'error-page', http: nav.status, at: new Date().toISOString() };
       console.log(`${nav.status} error page ${url}`);
     } else {
+      // script loaders as on the live page (snapshots are saved without scripts): OneTrust
+      // stub and domain config, consent wiring
+      const scripts = await page.evaluate(() => ({
+        external: [...document.scripts].filter((sc) => sc.src).map((sc) => ({
+          src: sc.src,
+          attrs: Object.fromEntries([...sc.attributes].filter((a) => a.name !== 'src').map((a) => [a.name, a.value])),
+        })),
+        inline: [...document.scripts].filter((sc) => !sc.src && /cookielaw|onetrust|optanon/i.test(sc.textContent))
+          .map((sc) => sc.textContent.slice(0, 600)),
+        oneTrust: window.OneTrust ? {
+          version: window.OneTrust.GetDomainData ? window.OneTrust.GetDomainData().cctId || null : null,
+          lang: document.documentElement.getAttribute('lang'),
+        } : null,
+      })).catch(() => null);
       await dismissCookies(page);
       await scrollToTriggerLazyLoad(page).catch(() => {});
       await sleep(1000);
@@ -178,8 +205,7 @@ try {
       const snap = snapshotOf(url);
       fs.mkdirSync(path.dirname(snap), { recursive: true });
       fs.writeFileSync(snap, raw);
-      fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
-      lap('snapshot+cleaned');
+      lap('snapshot');
 
       const pageWidths = widthsFor(url);
       for (const width of pageWidths) {
@@ -203,6 +229,9 @@ try {
       if (pageWidths.some((w) => w !== 1440)) await page.setViewportSize({ width: 1440, height: 900 }).catch(() => {});
       const alternates = await page.evaluate(() => [...document.querySelectorAll('link[rel="alternate"][hreflang]')]
         .map((l) => ({ hreflang: l.getAttribute('hreflang'), href: l.href }))).catch(() => []);
+      // last: extractCleanedHTML mutates the live page (removes <style>, strips attributes), so
+      // anything that renders or reads the page must happen before it
+      fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
 
       let model = null;
       if (has('model') && !pathname.startsWith('/lhg/')) {
@@ -227,10 +256,21 @@ try {
         metadata: await extractMetadata(page).catch(() => ({})),
         images: { mapping: {} },
         alternates,
+        scripts,
         screenshots: pageWidths,
       }, null, 2));
+      const recorded = (await Promise.all(pageResponses)).filter(Boolean);
+      if (recorded.length) {
+        const locale = (pathname.replace(/^\/lhg/, '').match(/^\/([a-z]{2}\/[a-z]{2})\//) || [])[1] || null;
+        fs.mkdirSync(apiDir, { recursive: true });
+        fs.appendFileSync(path.join(apiDir, `${(locale || 'unknown').replace('/', '-')}.ndjson`), recorded
+          .map((r) => `${JSON.stringify({
+            ...r, locale, referer: url, recordedAt: new Date().toISOString(),
+          })}\n`).join(''));
+      }
       state.pages[url] = {
         status: 'ok',
+        api: recorded.length,
         http: nav.status,
         model: model?.status ?? null,
         // why a component tree was refused: a Cloudflare page (text/html) or AEM itself
