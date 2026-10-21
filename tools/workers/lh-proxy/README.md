@@ -69,3 +69,18 @@ npx eslint tools/workers
 ```
 
 The tests stub `globalThis.fetch` and `globalThis.caches`, so they make no network requests.
+
+## Deployment
+
+The worker deploys itself: every push to `main` that changes `tools/workers/lh-proxy/**` (or
+`.github/workflows/deploy-lh-proxy.yaml`) runs the "Deploy lh-proxy" workflow, which runs
+`npm test` in this folder and then `npx wrangler@4 deploy` to the Blackbird Cloudflare account
+(repository secret `CLOUDFLARE_API_TOKEN`). It can also be started by hand (workflow_dispatch).
+
+- URL: https://lh-proxy.aem-poc-lab.workers.dev (`/health` answers `{"ok":true,...}`)
+- The site's live-data client uses it by default: `PROXY_ORIGIN` in `scripts/lh-data.js`.
+- After a worker change, check the run under Actions → "Deploy lh-proxy", then
+  `curl https://lh-proxy.aem-poc-lab.workers.dev/health`.
+- Lufthansa's Cloudflare currently refuses the worker's upstream calls, so data routes answer
+  `502 {"error":"upstream-blocked"}` and the widgets use the responses recorded in
+  `data/recorded/`. That is expected; nothing to fix in the worker.
