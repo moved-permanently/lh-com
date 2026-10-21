@@ -1,0 +1,20 @@
+{
+  "updatedAt": "2026-10-21",
+  "blocker": "Cloudflare blocks the agent's browser on www.lufthansa.com. Waiting for the user's team to provide open access or a source export (tools/importer/SOURCE-EXPORT.md). No unblocking proxy.",
+  "decisions": {
+    "forms": "render-only form block, no Forms add-on",
+    "navFooterPaths": "/{country}/{lang}/nav and /{country}/{lang}/footer; AirCore pages use their locale's",
+    "rootRedirect": "redirects sheet maps / to /de/de/homepage (tools/importer/redirects.csv, upload with content), plus a JS fallback in scripts.js",
+    "proxy": "scripts/lh-data.js PROXY_ORIGIN stays empty until the worker is deployed; recorded fallback in data/recorded/"
+  },
+  "steps": {
+    "offlineInfrastructure": "done",
+    "1-templates-first-pages": "blocked",
+    "2-blocks-import-header-footer-locales": "blocked",
+    "3-worker": "built and tested, not deployed; recorded data blocked; widget integration waits for the blocks",
+    "4-da-upload-preview": "pending",
+    "5-parity": "harness done; checks pending",
+    "6-nav-unmigrated": "generator done; report waits for nav content"
+  },
+  "pagesImported": { "de/en": 0, "de/de": 0, "at/de": 0, "gb/en": 0, "aircore": 0 }
+}
