@@ -1,0 +1,80 @@
+/* weather: structural layout only; brand styling comes with the design pass */
+.weather.weather-unavailable {
+  display: none;
+}
+
+.weather .weather-data[hidden] {
+  display: none;
+}
+
+.weather .weather-data {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.weather .weather-label {
+  margin: 0 0 8px;
+}
+
+.weather .weather-current {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.weather .weather-temp {
+  font-size: var(--heading-font-size-m);
+}
+
+.weather .weather-additional {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 16px;
+  margin: 16px 0 0;
+}
+
+.weather .weather-additional dd {
+  margin: 0;
+}
+
+.weather .weather-days {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0 0 8px;
+  overflow-x: auto;
+  list-style: none;
+}
+
+.weather .weather-day {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 96px;
+}
+
+.weather .weather-day-name {
+  text-transform: uppercase;
+}
+
+.weather img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .weather .weather-data {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  .weather .weather-forecast {
+    min-width: 0;
+  }
+}

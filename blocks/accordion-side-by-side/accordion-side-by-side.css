@@ -1,0 +1,92 @@
+/* accordion-side-by-side: structural layout only; brand styling comes with the design pass */
+.accordion-side-by-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-side-by-side .accordion-side-by-side-item {
+  min-width: 0;
+  border-top: 1px solid var(--dark-color, #505050);
+}
+
+.accordion-side-by-side .accordion-side-by-side-title {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.accordion-side-by-side .accordion-side-by-side-static .accordion-side-by-side-title {
+  padding: 16px 0;
+}
+
+.accordion-side-by-side .accordion-side-by-side-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 16px 40px 16px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.accordion-side-by-side .accordion-side-by-side-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-75%) rotate(45deg);
+}
+
+.accordion-side-by-side .accordion-side-by-side-button[aria-expanded="true"]::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.accordion-side-by-side .accordion-side-by-side-button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+.accordion-side-by-side .accordion-side-by-side-panel {
+  padding-bottom: 24px;
+}
+
+.accordion-side-by-side .accordion-side-by-side-panel[hidden] {
+  display: none;
+}
+
+.accordion-side-by-side .accordion-side-by-side-panel > :first-child {
+  margin-top: 0;
+}
+
+.accordion-side-by-side .accordion-side-by-side-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion-side-by-side .accordion-side-by-side-panel li + li {
+  margin-top: 8px;
+}
+
+@media (width >= 993px) {
+  .accordion-side-by-side {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .accordion-side-by-side .accordion-side-by-side-item {
+    flex: 1 1 0;
+  }
+}

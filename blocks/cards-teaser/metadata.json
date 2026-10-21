@@ -1,0 +1,28 @@
+{
+  "variantName": "cards-teaser",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/baggage",
+  "visualCharacteristics": {
+    "purpose": "borderless image teaser grid linking to sub-pages",
+    "traits": [
+      "no card chrome",
+      "16:9 image on top",
+      "heading, paragraph and arrow CTA link",
+      "2-up by default, 3-up with three-up at desktop",
+      "stacks on mobile"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, one row per card. Cell 1: image (alt required). Cell 2: heading (any level; H3 recommended, H2 on campaign pages), description paragraph(s), CTA link as the last paragraph (rendered as an arrow link; authored bold/italic button formatting is dropped). Cells may be merged or missing: the first picture of the row is the media, everything else is the body; a row without an image renders text only. Default 2 per row from 600px; option three-up = 3 per row from 900px with a smaller title. No label rows; all texts are authored"
+  },
+  "options": [
+    {
+      "class": "three-up",
+      "label": "Three up"
+    }
+  ],
+  "usage": "Hub pages (/{country}/{lang}/baggage), app-entry (/online-check-in: \"Your check-in with Lufthansa\"), campaign (/100-years stories).",
+  "reuseGuidance": "Use for borderless image teasers. For bordered cards (carousel on mobile) use carousel-cards; for destination tiles with prices use cards-price.",
+  "memberVariantIds": []
+}

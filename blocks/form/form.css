@@ -1,0 +1,245 @@
+/* form: structural layout only; brand styling comes with the design pass */
+.form .form-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.form .form-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* step band: full-bleed grey band, intro + white card */
+.form .form-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 32px 0;
+  background-color: var(--light-color, #f8f8f8);
+  box-shadow: 0 0 0 100vmax var(--light-color, #f8f8f8);
+  clip-path: inset(0 -100vmax);
+}
+
+.form .form-step + .form-step {
+  border-top: 1px solid rgb(0 0 0 / 10%);
+}
+
+.form .form-step-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.form .form-step-description {
+  margin: 0;
+}
+
+.form .form-step-card {
+  padding: 24px;
+  background-color: var(--background-color, #fff);
+}
+
+.form .form-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form .form-label {
+  font-weight: 700;
+}
+
+.form .form-control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid var(--dark-color, #505050);
+  border-radius: 0;
+  background-color: var(--background-color, #fff);
+  color: var(--text-color, #131313);
+  font: inherit;
+}
+
+.form textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form .form-field-checkbox .form-control,
+.form input[type="radio"],
+.form input[type="checkbox"] {
+  width: 20px;
+  min-height: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.form .form-field-file .form-control {
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+}
+
+.form .form-file-names {
+  font-size: var(--body-font-size-xs, 14px);
+}
+
+.form .form-help,
+.form .form-help p,
+.form .form-note p {
+  margin: 0;
+}
+
+.form .form-help {
+  font-size: var(--body-font-size-xs, 14px);
+}
+
+.form .form-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form .form-group > legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.form .form-group > .form-help {
+  margin-bottom: 8px;
+}
+
+.form .form-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form .form-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* radio cards: grid of selectable cards */
+.form .form-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.form .form-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--dark-color, #505050);
+  background-color: var(--background-color, #fff);
+  cursor: pointer;
+}
+
+.form .form-field-invalid .form-card {
+  border-color: #c00;
+}
+
+.form .form-card:has(input:checked) {
+  outline: 2px solid currentcolor;
+  outline-offset: -2px;
+}
+
+.form .form-card:has(input:focus-visible) {
+  outline: 3px solid var(--link-color, #3b63fb);
+  outline-offset: 2px;
+}
+
+.form .form-required {
+  font-weight: 700;
+}
+
+/* visible focus */
+.form .form-control:focus-visible,
+.form input[type="radio"]:focus-visible,
+.form input[type="checkbox"]:focus-visible,
+.form button:focus-visible {
+  outline: 3px solid var(--link-color, #3b63fb);
+  outline-offset: 2px;
+}
+
+/* validation */
+.form .form-control:user-invalid,
+.form .form-field-invalid .form-control {
+  border-color: #c00;
+}
+
+.form .form-error {
+  margin: 0;
+  color: #c00;
+  font-size: var(--body-font-size-xs, 14px);
+}
+
+.form .form-error[hidden] {
+  display: none;
+}
+
+.form .form-actions {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.form .form-status {
+  margin: 16px 0 0;
+}
+
+.form .form-status:empty {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .form .form-step {
+    grid-template-columns: 4fr 1fr 7fr;
+    gap: 0;
+  }
+
+  .form .form-step-intro {
+    grid-column: 1;
+  }
+
+  .form .form-step-card {
+    grid-column: 3;
+  }
+
+  .form .form-step-plain .form-step-card {
+    grid-column: 1 / -1;
+  }
+
+  .form .form-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+
+  /* wide content spans both columns */
+  .form .form-field-textarea,
+  .form .form-field-radio,
+  .form .form-field-radio-cards,
+  .form .form-field-checkbox:has(fieldset),
+  .form .form-field-note,
+  .form .form-field-file,
+  .form .form-actions {
+    grid-column: 1 / -1;
+  }
+}

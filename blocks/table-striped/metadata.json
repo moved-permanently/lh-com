@@ -1,0 +1,29 @@
+{
+  "variantName": "table-striped",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/359",
+  "visualCharacteristics": {
+    "purpose": "header-less key/value specification table with zebra rows",
+    "traits": [
+      "no header row, every row is data",
+      "alternating grey/white rows, no cell borders",
+      "equal-width columns (fixed table layout)",
+      "first cell rendered as a row header when it is a short text label"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per table row, no header row: every row is data. Any number of cells per row; typically 2 (Cell 1: label, Cell 2: value). A short text first cell (not a number) becomes a row header (th scope=row) when the row has 2 or more cells. Rows with fewer cells than the widest row stretch their last cell across the remaining columns. Empty rows are ignored. Cell content (text, links, lists) is kept as authored; zero-width characters are removed"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Aircraft 'Technical data' table on fleet pages; key/value tables on legal pages.",
+    "pagesUsing": [
+      "/de/en/359"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-21"
+  },
+  "reuseGuidance": "Use for plain key/value or multi-column data tables without a header. For tables with a header row use the vanilla table; for linked deal rows use table-deals."
+}

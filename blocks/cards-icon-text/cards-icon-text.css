@@ -1,0 +1,83 @@
+/* cards-icon-text: structural layout only; brand styling comes with the design pass */
+.cards-icon-text > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-icon-text .cards-icon-text-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: var(--text-color, #131313);
+  text-decoration: none;
+}
+
+.cards-icon-text a.cards-icon-text-card:focus-visible {
+  outline: 2px solid var(--link-color, #3b63fb);
+  outline-offset: 4px;
+}
+
+.cards-icon-text .cards-icon-text-icon {
+  display: inline-flex;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.cards-icon-text .cards-icon-text-icon picture,
+.cards-icon-text .cards-icon-text-icon img,
+.cards-icon-text .cards-icon-text-icon .icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-icon-text .cards-icon-text-icon img {
+  object-fit: contain;
+}
+
+.cards-icon-text .cards-icon-text-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cards-icon-text .cards-icon-text-body > * {
+  margin: 0 0 8px;
+}
+
+.cards-icon-text .cards-icon-text-body > :last-child {
+  margin-bottom: 0;
+}
+
+.cards-icon-text .cards-icon-text-title {
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+}
+
+.cards-icon-text .cards-icon-text-link {
+  color: var(--link-color, #3b63fb);
+}
+
+.cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-title,
+.cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-link {
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .cards-icon-text > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-icon-text > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

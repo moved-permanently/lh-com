@@ -1,0 +1,101 @@
+/* table-deals: structural layout only; brand styling comes with the design pass */
+.table-deals .table-deals-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.table-deals .table-deals-item {
+  border-bottom: 1px solid var(--light-color, #ccc);
+}
+
+.table-deals .table-deals-item:first-child {
+  border-top: 1px solid var(--light-color, #ccc);
+}
+
+.table-deals .table-deals-item[hidden] {
+  display: none;
+}
+
+.table-deals .table-deals-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-auto-flow: row dense;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 12px 0;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.table-deals a.table-deals-row {
+  position: relative;
+  padding-right: 24px;
+}
+
+.table-deals a.table-deals-row::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  border: solid currentcolor;
+  border-width: 2px 2px 0 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.table-deals a.table-deals-row:hover .table-deals-origin,
+.table-deals a.table-deals-row:hover .table-deals-destination {
+  text-decoration: underline;
+}
+
+.table-deals .table-deals-row > span {
+  grid-column: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.table-deals .table-deals-row > .table-deals-price {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.table-deals .table-deals-more {
+  display: block;
+  margin: 16px auto 0;
+  cursor: pointer;
+}
+
+.table-deals .table-deals-more[hidden] {
+  display: none;
+}
+
+.table-deals a.table-deals-row:focus-visible,
+.table-deals .table-deals-more:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  .table-deals .table-deals-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    grid-auto-flow: row;
+  }
+
+  .table-deals .table-deals-row > span {
+    grid-column: auto;
+  }
+
+  .table-deals .table-deals-row > .table-deals-price {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .table-deals .table-deals-row > .table-deals-extra {
+    grid-column: 1 / -1;
+  }
+}

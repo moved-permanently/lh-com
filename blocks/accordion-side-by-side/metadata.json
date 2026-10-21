@@ -1,0 +1,30 @@
+{
+  "variantName": "accordion-side-by-side",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york",
+  "visualCharacteristics": {
+    "purpose": "link-list accordions whose items sit side by side in equal columns on desktop",
+    "traits": [
+      "each item has a top rule and a chevron toggle",
+      "equal columns from 993px for any number of items, stacked below",
+      "all items start collapsed; each opens independently, several may be open",
+      "panels hold plain link lists"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per item. Cell 1: title (plain text or a heading; an authored heading keeps its level and wraps the toggle). Cell 2: panel content, usually a bulleted list of links (additional cells are appended to the panel). Items sit in equal columns from 993px (any number), stacked below; all start collapsed and toggle independently. A row without panel content renders its title only, not collapsible. Empty rows are ignored; zero-width characters are removed; external links open in a new tab"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "'City trips worldwide / Popular routes / Flights from ...' internal link panels on AirCore destination, origin and route pages.",
+    "pagesUsing": [
+      "/lhg/de/en/dest/cy/new-york",
+      "/lhg/de/en/o-d/c-c/germany-usa"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-21"
+  },
+  "reuseGuidance": "Use when several short accordions should sit next to each other as columns. When one panel splits into columns use accordion-columns; for stacked full-width panels use the vanilla accordion."
+}

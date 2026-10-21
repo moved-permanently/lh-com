@@ -17,6 +17,15 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "'Current topics and news' sections and any multi-teaser row that overflows the page width.",
+  "usage": {
+    "description": "'Current topics and news' sections and any multi-teaser row that overflows the page width.",
+    "pagesUsing": [
+      "/de/en/homepage",
+      "/de/en/flying-with-small-children",
+      "/de/en/articles/explore-the-world/eat-see-do-berlin"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-21"
+  },
   "reuseGuidance": "Use when several teasers must be visible at once. For one full-width slide at a time use the vanilla carousel."
 }

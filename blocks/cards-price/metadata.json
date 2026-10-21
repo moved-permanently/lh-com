@@ -1,0 +1,28 @@
+{
+  "variantName": "cards-price",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york",
+  "visualCharacteristics": {
+    "purpose": "grid of destination or origin tiles with a frozen authored lowest price",
+    "traits": [
+      "bordered rounded tiles with a light shadow",
+      "optional square image on top",
+      "bold label over a \"from <price>\" line with the amount in bold",
+      "whole tile clickable when linked",
+      "4-up desktop, 3-up tablet, 2-up mobile"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, one row per tile. Cell 1: optional square image (alt = city name; may be empty). Cell 2: the label as a link to the city/route page (a paragraph, not a heading), followed by an optional price paragraph exactly as rendered on the source with the amount in bold, e.g. \"from **454 €**\" / \"ab **1.488 €**\" (frozen authored text; no live price calls, so wording and currency come from the authored content in every locale). No image (empty cell 1 or a single text cell) renders a text-only tile; no link renders a non-clickable tile; extra paragraphs are shown as further price lines. Empty rows are skipped. Option mobile-limit: only the first 4 tiles are shown below 600px (source .mobile-hidden). No label rows; no built-in UI strings"
+  },
+  "options": [
+    {
+      "class": "mobile-limit",
+      "label": "Mobile limit (first 4 tiles on mobile)"
+    }
+  ],
+  "usage": "AirCore destination pages (/lhg/{country}/{lang}/dest/cy/*: \"From <origin> from <price>\" tiles, mobile-limit), destination overview (/lhg/{country}/{lang}: square city images with prices), origin and route pages.",
+  "reuseGuidance": "Use for curated destination/origin tiles with authored prices. For live fares use fare-teaser; for icon shortcut tiles use cards-icon. Prices are frozen at import: re-import to refresh.",
+  "memberVariantIds": []
+}

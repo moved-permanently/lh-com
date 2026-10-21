@@ -16,6 +16,18 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "'Popular destinations' SEO link panel above the footer.",
+  "usage": {
+    "description": "'Popular destinations' SEO link panel above the footer.",
+    "pagesUsing": [
+      "/de/en/homepage",
+      "/de/en/flying-with-small-children",
+      "/de/en/feedback",
+      "/de/en/timetable-and-flight-status",
+      "/lhg/de/en/dest/cy/new-york",
+      "/lhg/de/en/o-d/c-c/germany-usa"
+    ],
+    "reuseCount": 5,
+    "lastUsed": "2026-10-21"
+  },
   "reuseGuidance": "Use when an accordion panel holds several parallel link lists. For plain stacked panel content use the vanilla accordion."
 }

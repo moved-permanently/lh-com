@@ -1,0 +1,28 @@
+{
+  "variantName": "hero-campaign",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/100-years",
+  "visualCharacteristics": {
+    "purpose": "full-bleed campaign stage with text directly on a background image or muted looping background video",
+    "traits": [
+      "full-bleed stage, about 810px tall at 1440px",
+      "background image, optionally a muted looping background video without controls",
+      "pause/play toggle for the background video",
+      "text on the media (no card), vertically centred, left-aligned by default",
+      "option right: text aligned right"
+    ]
+  },
+  "contentPattern": {
+    "structure": "1 column. Row 1: background image (poster), optionally followed by a link to an .mp4 file that plays as a muted, looping, inline background video without controls (started only after the page has loaded; not started for users who prefer reduced motion, who keep the poster). Row 2: heading (H1 on the page stage, H2 further down), optional subtitle (the plain paragraph directly after the heading), optional text paragraph(s), optional CTA link (bold link = primary button). Option right: text aligned right (default left), always vertically centred. A pause/play toggle is shown while a background video is present; its labels default to 'Pause background video' / 'Play background video' (EN) and 'Hintergrundvideo anhalten' / 'Hintergrundvideo abspielen' (DE) and can be overridden with optional trailing rows 'Pause label | ...' and 'Play label | ...'. Defensive: the first image anywhere is the background, the first .mp4 link the video, everything else is text; rows may be merged or split."
+  },
+  "options": [
+    {
+      "class": "right",
+      "label": "Text right"
+    }
+  ],
+  "memberVariantIds": [],
+  "usage": "Campaign stages on /de/en/100-years (page stage with background video and H1; timeline uplift with image and H2, option right). Expected on 100-years sub-pages, stopover, offers and trade-fair pages.",
+  "reuseGuidance": "Use for any full-bleed stage with text directly on the media. For a solid text card on the image use hero-card-overlay."
+}

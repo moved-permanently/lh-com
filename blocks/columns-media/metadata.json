@@ -1,0 +1,29 @@
+{
+  "variantName": "columns-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/online-check-in",
+  "visualCharacteristics": {
+    "purpose": "text beside media (image, several images, linked image or click-to-play video), one row per pair",
+    "traits": [
+      "two columns at desktop, equal widths by default",
+      "authored cell order sets the media side",
+      "top-aligned columns, stacked on mobile",
+      "several images in one cell sit side by side (photo + QR code)",
+      "poster image with a play button bottom-left that starts an inline video",
+      "option wide-media: media column about 73%, text about 27%"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, one or more rows (one row per text/media pair). Each cell is either media or text: a cell holding only pictures and links is media, any other cell is text, so text | text and image | image are also valid. Cell order sets the media side. Media cell: one image; or several images (shown side by side, e.g. photo + QR code); or a linked image (an image wrapped in a link, or an image with a bare link (link text = URL) in the same paragraph, which then wraps the image; a link with real link text stays a visible link); or a video: poster image plus a link to an .mp4 file, rendered as the poster with a play button (bottom left) that replaces it with an inline video with controls (looping). The play button's accessible name is the .mp4 link text when it is not a URL, otherwise the locale default 'Play video' (EN) / 'Video abspielen' (DE). Text cell: headings, paragraphs, lists, links (bold link = primary button, italic = secondary). Option wide-media: media column about 73%, text about 27% at desktop, media shown first on mobile. Without the option the columns are equal and mobile keeps the authored order. Rows or cells left empty are dropped; a row with a single cell spans the full width; rows with more than two cells get equal columns. External links open in a new tab. Section style 'grey' (Section Metadata) gives the grey band."
+  },
+  "options": [
+    {
+      "class": "wide-media",
+      "label": "Wide media (73/27)"
+    }
+  ],
+  "memberVariantIds": [],
+  "usage": "Text beside media on app-entry (/de/en/online-check-in), campaign (/de/en/100-years, with video and wide-media), flight-status (/de/en/timetable-and-flight-status), hub (/de/en/baggage), insights (article closing teaser with linked image) and legal (/de/en/imprint, text | text) pages.",
+  "reuseGuidance": "Use for any side-by-side text and media row, including prose-only two-column text. For a heading plus logo strip per column use columns-logos; for card grids use the cards variants."
+}

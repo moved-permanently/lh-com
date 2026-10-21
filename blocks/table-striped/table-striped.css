@@ -1,0 +1,39 @@
+/* table-striped: structural layout only; brand styling comes with the design pass */
+.table-striped {
+  overflow-x: auto;
+}
+
+.table-striped table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.table-striped th,
+.table-striped td {
+  padding: 8px 16px;
+  border: 0;
+  text-align: left;
+  vertical-align: top;
+  font-weight: inherit;
+  overflow-wrap: anywhere;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: var(--light-color, #f8f8f8);
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background-color: var(--background-color, #fff);
+}
+
+.table-striped th > :first-child,
+.table-striped td > :first-child {
+  margin-top: 0;
+}
+
+.table-striped th > :last-child,
+.table-striped td > :last-child {
+  margin-bottom: 0;
+}

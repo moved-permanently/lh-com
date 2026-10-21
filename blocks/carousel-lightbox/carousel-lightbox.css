@@ -1,0 +1,219 @@
+/* carousel-lightbox: structural layout only; brand styling comes with the design pass */
+.carousel-lightbox .carousel-lightbox-preview {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.carousel-lightbox .carousel-lightbox-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-lightbox .carousel-lightbox-preview:focus-visible,
+.carousel-lightbox .carousel-lightbox-dialog button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* zoom icon: magnifier drawn with borders, bottom right of the preview */
+.carousel-lightbox .carousel-lightbox-zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--text-color, #131313);
+  color: var(--background-color, #fff);
+}
+
+.carousel-lightbox .carousel-lightbox-zoom::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 2px solid currentcolor;
+  border-radius: 50%;
+}
+
+.carousel-lightbox .carousel-lightbox-zoom::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 23px;
+  width: 8px;
+  height: 2px;
+  background-color: currentcolor;
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.carousel-lightbox .carousel-lightbox-dialog {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 100%;
+  margin: auto;
+  padding: 56px 16px 24px;
+  border: 0;
+  background-color: var(--text-color, #131313);
+  color: var(--background-color, #fff);
+  overscroll-behavior: contain;
+}
+
+.carousel-lightbox .carousel-lightbox-dialog::backdrop {
+  background-color: rgb(0 0 0 / 80%);
+}
+
+.carousel-lightbox .carousel-lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.carousel-lightbox .carousel-lightbox-close::before,
+.carousel-lightbox .carousel-lightbox-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  background-color: currentcolor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel-lightbox .carousel-lightbox-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.carousel-lightbox .carousel-lightbox-stage {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-lightbox .carousel-lightbox-track {
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-lightbox .carousel-lightbox-slide[hidden] {
+  display: none;
+}
+
+.carousel-lightbox .carousel-lightbox-slide figure {
+  margin: 0;
+}
+
+.carousel-lightbox .carousel-lightbox-slide img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 160px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.carousel-lightbox .carousel-lightbox-caption {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.carousel-lightbox .carousel-lightbox-prev,
+.carousel-lightbox .carousel-lightbox-next {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.carousel-lightbox .carousel-lightbox-prev { grid-column: 1; }
+
+.carousel-lightbox .carousel-lightbox-next { grid-column: 3; }
+
+.carousel-lightbox .carousel-lightbox-prev:disabled,
+.carousel-lightbox .carousel-lightbox-next:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel-lightbox .carousel-lightbox-prev::after,
+.carousel-lightbox .carousel-lightbox-next::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border: solid currentcolor;
+  border-width: 2px 2px 0 0;
+  transform: translate(-70%, -50%) rotate(45deg);
+}
+
+.carousel-lightbox .carousel-lightbox-prev::after {
+  transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.carousel-lightbox .carousel-lightbox-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-lightbox .carousel-lightbox-dot {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.carousel-lightbox .carousel-lightbox-dot[aria-current="true"] {
+  background-color: currentcolor;
+}
+
+@media (width >= 600px) {
+  .carousel-lightbox .carousel-lightbox-preview {
+    max-width: 50%;
+  }
+
+  .carousel-lightbox .carousel-lightbox-dialog {
+    padding: 56px 24px 32px;
+  }
+}

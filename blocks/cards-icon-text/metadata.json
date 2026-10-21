@@ -1,0 +1,23 @@
+{
+  "variantName": "cards-icon-text",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york",
+  "visualCharacteristics": {
+    "purpose": "transparent link cards with an icon left of a bold title and a short description",
+    "traits": [
+      "no card background or border",
+      "48px icon left of the text",
+      "bold title over a description",
+      "whole card clickable",
+      "1-up mobile, 2-up tablet, 4-up desktop"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, one row per card. Cell 1: icon (:icon-name: token, e.g. :alert:, or a small image). Cell 2: H3 title, description paragraph(s), link. The last link of the row makes the whole card clickable; if its text equals the title it is not repeated, otherwise its text is shown as a link line under the description. Cells may be merged or missing: the first icon/image is the icon, the rest is the body; a card without a link is not clickable. No label rows; all texts are authored"
+  },
+  "options": [],
+  "usage": "AirCore destination pages (/lhg/{country}/{lang}/dest/cy/*): \"Entry regulations\" info card.",
+  "reuseGuidance": "Use for icon + title + description link cards. For centred icon tiles with a label only use cards-icon; for image cards use cards-teaser. Icons need SVGs under /icons/ (e.g. alert.svg).",
+  "memberVariantIds": []
+}

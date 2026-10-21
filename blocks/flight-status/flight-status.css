@@ -1,0 +1,160 @@
+/* flight-status: structural layout only; brand styling comes with the design pass */
+.flight-status {
+  position: relative;
+}
+
+.flight-status .flight-status-sr-only,
+.flight-status .airport-combobox-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.flight-status .flight-status-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.flight-status .flight-status-tab {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.flight-status .flight-status-tab[aria-selected="true"] {
+  border-bottom-color: currentcolor;
+  font-weight: 700;
+}
+
+.flight-status .flight-status-panel {
+  padding: 24px 0;
+}
+
+.flight-status .flight-status-panel[hidden] {
+  display: none;
+}
+
+.flight-status .flight-status-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.flight-status .flight-status-field,
+.flight-status .airport-combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.flight-status .flight-status-field input,
+.flight-status .flight-status-field select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flight-status [aria-invalid="true"] {
+  border-color: #c00;
+}
+
+.flight-status .flight-status-hint,
+.flight-status .flight-status-error {
+  margin: 0;
+}
+
+.flight-status .flight-status-error {
+  color: #c00;
+}
+
+.flight-status .flight-status-error[hidden] {
+  display: none;
+}
+
+.flight-status .airport-combobox [role="listbox"] {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: var(--background-color, #fff);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+}
+
+.flight-status .airport-combobox [role="listbox"][hidden] {
+  display: none;
+}
+
+.flight-status .airport-combobox [role="option"] {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.flight-status .airport-combobox [role="option"][aria-selected="true"] {
+  outline: 2px solid currentcolor;
+  outline-offset: -2px;
+}
+
+.flight-status .flight-status-direction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.flight-status .flight-status-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.flight-status .flight-status-submit {
+  margin: 0;
+  cursor: pointer;
+}
+
+.flight-status .flight-status-tab:focus-visible,
+.flight-status .flight-status-panel:focus-visible,
+.flight-status input:focus-visible,
+.flight-status select:focus-visible,
+.flight-status .flight-status-submit:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+@media (width >= 600px) {
+  .flight-status .flight-status-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flight-status .flight-status-direction,
+  .flight-status .flight-status-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 900px) {
+  .flight-status .flight-status-form {
+    max-width: 900px;
+  }
+}

@@ -17,6 +17,16 @@
   },
   "options": [],
   "memberVariantIds": [],
-  "usage": "Homepage and booking hub pages: the primary flight search above the stage.",
+  "usage": {
+    "description": "Homepage and booking hub pages: the primary flight search above the stage.",
+    "pagesUsing": [
+      "/de/en/homepage",
+      "/lhg/de/en",
+      "/lhg/de/en/dest/cy/new-york",
+      "/lhg/de/en/o-d/c-c/germany-usa"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-10-21"
+  },
   "reuseGuidance": "Reuse unchanged on every template and locale; change only the authored labels. Airport suggestions and names come from /service/api via lhFetch; request and response mapping sit at the top of flight-search.js, the shop handoff parameters in buildShopHandoffUrl."
 }

@@ -1,0 +1,17 @@
+# form
+
+Custom **form** block. Purpose: render-only contact and feedback form built from an authored field table; nothing is ever sent.
+
+## Authoring (Document Authoring)
+
+Model: `standalone`
+
+Single block table. Content: 7 columns: Label | Type | Name | Required | Options | Help text | Placeholder. The first row is the header (English or German header words such as Label/Bezeichnung, Type/Typ, Name, Required/Pflichtfeld, Options/Optionen, Help text/Hilfetext, Placeholder/Platzhalter); columns are matched by header name, so they may be reordered or left out. Without a recognizable header row the default order above is used. Then one row per field, in order. Type is one of: step (starts a new step band: Label = step headline, Help text = step description; the following fields go into that step's white card), text, email, tel, number, date, textarea, select (Placeholder = disabled empty first option), radio, radio-cards (radio group shown as selectable cards), checkbox (single checkbox without Options, a checkbox group with Options), file (Options may list accepted types such as .pdf, .jpg and the word multiple; files are only listed, never uploaded), note (static text: the Label cell, links and formatting kept), submit (Label = button text, empty = locale default Submit/Absenden), label (UI text override, see below). Unknown types render as text inputs. Name: the field name; when empty it is derived from the Label and made unique. Required: yes, ja, true, x or required (any case) makes the field required; anything else or empty is optional. Options: comma-separated value=Label pairs or just Label (value derived from the label), or one option per paragraph/list item. Help text renders under the field and may contain links. Placeholder is the input placeholder or the select's empty first option. Rows with missing cells use empty values, extra cells are ignored, empty rows are skipped. UI text overrides: a row with Type label, Name = key and Label = text. Keys and defaults (English / German): sent message = This is a preview form. Nothing has been sent. / Dies ist ein Vorschauformular. Es wurden keine Daten gesendet.; submit label = Submit / Absenden; required marker = * / *; required text (screen-reader text for required groups) = (required) / (Pflichtfeld); file none label = No file selected / Keine Datei ausgewählt; checkbox group error = Please select at least one option. / Bitte wählen Sie mindestens eine Option aus. Render-only: the form has no action, submitting is always prevented and nothing is sent or uploaded; a valid submit shows the sent message, an invalid one shows inline messages and focuses the first invalid field..
+
+## Supported variations
+
+No variations.
+
+## Universal Editor fields
+
+N/A (Document Authoring project)

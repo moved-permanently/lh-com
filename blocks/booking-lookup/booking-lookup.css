@@ -1,0 +1,112 @@
+/* booking-lookup: structural layout only; brand styling comes with the design pass */
+.booking-lookup .booking-lookup-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.booking-lookup .booking-lookup-tab {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.booking-lookup .booking-lookup-tab[aria-selected="true"] {
+  border-bottom-color: currentcolor;
+  font-weight: 700;
+}
+
+.booking-lookup .booking-lookup-panel {
+  padding: 24px 0;
+}
+
+.booking-lookup .booking-lookup-panel[hidden] {
+  display: none;
+}
+
+.booking-lookup .booking-lookup-notice {
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--dark-color, #505050);
+  background: var(--light-color, #f8f8f8);
+}
+
+.booking-lookup .booking-lookup-notice > :first-child {
+  margin-top: 0;
+}
+
+.booking-lookup .booking-lookup-notice > :last-child {
+  margin-bottom: 0;
+}
+
+.booking-lookup .booking-lookup-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.booking-lookup .booking-lookup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.booking-lookup .booking-lookup-field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.booking-lookup .booking-lookup-field input[aria-invalid="true"] {
+  border-color: #c00;
+}
+
+.booking-lookup .booking-lookup-error {
+  margin: 0;
+  color: #c00;
+}
+
+.booking-lookup .booking-lookup-error[hidden] {
+  display: none;
+}
+
+.booking-lookup .booking-lookup-submit {
+  margin: 0;
+  cursor: pointer;
+}
+
+.booking-lookup .booking-lookup-panel img {
+  max-width: 100%;
+  height: auto;
+}
+
+.booking-lookup .booking-lookup-tab:focus-visible,
+.booking-lookup .booking-lookup-panel:focus-visible,
+.booking-lookup input:focus-visible,
+.booking-lookup .booking-lookup-submit:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+@media (width >= 600px) {
+  .booking-lookup .booking-lookup-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-lookup .booking-lookup-field:first-child,
+  .booking-lookup .booking-lookup-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 900px) {
+  .booking-lookup .booking-lookup-form {
+    max-width: 800px;
+  }
+}

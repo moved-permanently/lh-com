@@ -1,0 +1,22 @@
+{
+  "variantName": "booking-lookup",
+  "baseBlock": "booking-lookup",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/online-check-in",
+  "visualCharacteristics": {
+    "purpose": "booking lookup form (booking reference or ticket number, first and last name) that validates in the browser and hands off to the live check-in app, with optional extra content tabs",
+    "traits": [
+      "tab bar 'Booking reference or ticket number' / 'Tour operator travel' when extra tabs are authored",
+      "info notice 'Log in with your profile to select a booking.' with a login link above the form",
+      "full-width reference field, first and last name side by side from 600px",
+      "primary 'Confirm' button; inline error messages under invalid fields"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value; every row optional. Tab | Booking reference or ticket number (first Tab row = the form tab; an optional Panel row right after it adds intro content above the form); Login notice | text + 'Go to login' link; Reference label | Booking reference or ticket number (DE: Buchungscode oder Ticketnummer); Reference pattern | ^([A-Z0-9]{6}|\\d{13})$ (default; input is upper-cased and spaces removed before the check); First name label | First name (Vorname); Last name label | Last name (Nachname); Submit label | Confirm (Bestätigen); Submit URL | hand-off URL or pattern with {COUNTRY}, {LANG}, {REFERENCE}, {FIRSTNAME}, {LASTNAME} (default https://once.lufthansa.com/connect/main-app?APPID=LHG_ONLINE&COUNTRY={COUNTRY}&LANGUAGE={LANG}&TENANT=LH&MODE=PORTAL); Errors | First name is required, Last name is required (2 items = first/last name, 3 items = reference/first/last). Single error rows: Reference error, First name error (Vorname ist erforderlich), Last name error (Nachname ist erforderlich); Tabs label (accessible name of the tab bar: Find your booking / Buchung finden). Extra tabs: each further 'Tab | label' row followed by 'Panel | rich content' (paragraph, link, image) becomes a WAI-ARIA tab; without extra tabs no tab bar is drawn. Nothing is sent anywhere: submit validates and navigates to the Submit URL. Unknown rows are ignored."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "App-entry pages that start with booking reference + name: online check-in (/de/en/online-check-in), and later pre-check-in, my bookings and manage booking in all four locales.",
+  "reuseGuidance": "Reuse for every app-entry page; change labels, Submit URL and extra tabs only. The hand-off is isolated at the top of booking-lookup.js (DEFAULT_SUBMIT_URL, buildHandoffUrl); tabs in buildTabs, tab rows in readTabs."
+}
