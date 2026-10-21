@@ -42,6 +42,8 @@ const MAX_HEIGHT = 8000;
 const batch = Number(opt('batch', 20));
 const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
+// --format jpg: smaller screenshots travel faster from the remote browser
+const shotExt = opt('format', 'png') === 'jpg' ? 'jpg' : 'png';
 const widths = opt('widths', '1440').split(',').map(Number).filter(Boolean);
 // extra widths only for these URLs (the parity scope); every other page gets 1440 only
 const parityFile = opt('parity-list');
@@ -222,7 +224,8 @@ try {
         const height = await page.evaluate(() => document.documentElement.scrollHeight).catch(() => 900);
         await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
         await page.screenshot({
-          path: path.join(dir, width === 1440 ? 'screenshot.png' : `screenshot-${width}.png`),
+          path: path.join(dir, `${width === 1440 ? 'screenshot' : `screenshot-${width}`}.${shotExt}`),
+          ...(shotExt === 'jpg' ? { type: 'jpeg', quality: 85 } : {}),
           fullPage: true,
           clip: {
             x: 0, y: 0, width, height: Math.min(height, MAX_HEIGHT),

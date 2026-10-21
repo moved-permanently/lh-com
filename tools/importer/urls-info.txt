@@ -1,6 +1,10 @@
-https://www.lufthansa.com/de/de/doctor-on-board
-https://www.lufthansa.com/de/de/doctor-on-board-news
-https://www.lufthansa.com/de/de/during-your-trip/lhg-wifi
-https://www.lufthansa.com/de/de/lufthansa-first-class-komfort
-https://www.lufthansa.com/de/de/lufthansa-first-class-entertainment
-https://www.lufthansa.com/de/de/unterhaltung-an-bord
+https://www.lufthansa.com/de/en/book-and-manage/flights/giftvoucher
+https://www.lufthansa.com/de/en/book-and-manage/flights/helvetic
+https://www.lufthansa.com/de/en/book-and-manage/flights/lufthansa-voucher
+https://www.lufthansa.com/de/en/book-and-manage/flights/wetlease-hub
+https://www.lufthansa.com/de/en/book-and-manage/pax-receipt
+https://www.lufthansa.com/de/en/book-and-manage/pax-receipt/invoices-different-countries
+https://www.lufthansa.com/de/en/book-and-manage/rebook
+https://www.lufthansa.com/de/en/book-and-manage/rebook/involuntary-rebooking
+https://www.lufthansa.com/de/en/book-and-manage/rebook/voluntary-rebooking
+https://www.lufthansa.com/de/en/business-class

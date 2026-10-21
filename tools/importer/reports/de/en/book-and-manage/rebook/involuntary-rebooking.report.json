@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "path": "de/en/book-and-manage/rebook/involuntary-rebooking",
+  "timestamp": "2026-10-21T20:48:49.236Z",
+  "title": "Flight cancellation | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

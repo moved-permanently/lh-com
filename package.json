@@ -25,6 +25,7 @@
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
     "exceljs": "4.4.0",
+    "jpeg-js": "0.4.4",
     "pixelmatch": "7.2.0",
     "playwright-core": "1.58.2",
     "pngjs": "7.0.0",

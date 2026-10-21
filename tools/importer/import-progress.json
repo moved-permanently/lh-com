@@ -373,5 +373,90 @@
   "template": "campaign",
   "status": "ok",
   "at": "2026-10-21T20:18:28.216Z"
+ },
+ "https://www.lufthansa.com/de/en/boarding": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.147Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/additional-services/get-your-guide": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.150Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/additional-services/travel-insurances": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.154Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/digital-self-services/airline-apps": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.157Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/air-baltic": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.159Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/ana": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.162Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/ana/faq": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:42:01.162Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/giftvoucher": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.649Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/helvetic": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.652Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/lufthansa-voucher": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.655Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/flights/wetlease-hub": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.658Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/pax-receipt": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.661Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/pax-receipt/invoices-different-countries": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.665Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/rebook": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.668Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/rebook/involuntary-rebooking": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.670Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/rebook/voluntary-rebooking": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.682Z"
+ },
+ "https://www.lufthansa.com/de/en/business-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T20:48:54.682Z"
  }
 }

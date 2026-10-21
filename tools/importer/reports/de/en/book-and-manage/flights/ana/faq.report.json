@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/book-and-manage/flights/ana/faq",
+  "path": "de/en/book-and-manage/flights/ana/faq",
+  "timestamp": "2026-10-21T20:42:00.121Z",
+  "title": "FAQs on travel with Lufthansa and ANA | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

@@ -19,6 +19,18 @@ const { getArgs, writeJsonAtomic, mkdirp } = require('./lib.js');
 
 const DIFF_COLOR = [255, 0, 0];
 
+/** Reads a PNG or JPEG (live captures are JPEG) into {width, height, data}. */
+function readImage(file) {
+  const buf = fs.readFileSync(file);
+  if (/\.jpe?g$/i.test(file)) {
+    // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+    const jpeg = require('jpeg-js');
+    const img = jpeg.decode(buf, { useTArray: true, maxMemoryUsageInMB: 1024 });
+    return { width: img.width, height: img.height, data: Buffer.from(img.data) };
+  }
+  return PNG.sync.read(buf);
+}
+
 function pad(img, width, height) {
   if (img.width === width && img.height === height) return img;
   const out = new PNG({ width, height });
@@ -82,8 +94,8 @@ function comparePngs(imgA, imgB, { threshold = 0.1, bandHeight = 200 } = {}) {
 function compareImages({
   a, b, out, threshold, bandHeight,
 }) {
-  const imgA = PNG.sync.read(fs.readFileSync(a));
-  const imgB = PNG.sync.read(fs.readFileSync(b));
+  const imgA = readImage(a);
+  const imgB = readImage(b);
   const { result, diff } = comparePngs(imgA, imgB, { threshold, bandHeight });
   const full = {
     a: path.resolve(a), b: path.resolve(b), diff: path.resolve(out), ...result,

@@ -992,6 +992,22 @@
    "file": "gb-en-bcf47298.json",
    "recordedAt": "2026-10-21T18:30:06.496Z"
   },
+  "de/de|GET /service/api/labels/searchBar/lh/de": {
+   "file": "de-de-db8e27af.json",
+   "recordedAt": "2026-10-21T19:58:41.130Z"
+  },
+  "de/de|GET /service/api/labels/common/lh/de": {
+   "file": "de-de-648c185d.json",
+   "recordedAt": "2026-10-21T19:59:26.649Z"
+  },
+  "de/de|GET /service/api/labels/herobanner/lh/de": {
+   "file": "de-de-c3087986.json",
+   "recordedAt": "2026-10-21T19:59:26.649Z"
+  },
+  "de/de|GET /service/api/labels/videoviewer/lh/de": {
+   "file": "de-de-74a1a4f7.json",
+   "recordedAt": "2026-10-21T20:15:29.047Z"
+  },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
    "recordedAt": "2026-10-21T19:07:59.991Z"
@@ -1031,7 +1047,55 @@
   "de/en|GET /service/api/labels/flightstatus/lh/en": {
    "file": "de-en-7156aa34.json",
    "recordedAt": "2026-10-21T19:10:53.868Z"
+  },
+  "de/en|GET /service/api/labels/videoviewer/lh/en": {
+   "file": "de-en-8fa40e0f.json",
+   "recordedAt": "2026-10-21T20:14:38.228Z"
+  },
+  "de/en|GET /service/api/catalogs/regions": {
+   "file": "de-en-751a8e41.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/catalogs/affinities": {
+   "file": "de-en-7c94c7ac.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/labels/favourites/lh/en": {
+   "file": "de-en-0731778c.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/labels/fareAlert/lh/en": {
+   "file": "de-en-31a2e43c.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/destinationfinder/campaign/FRA": {
+   "file": "de-en-787b3bd4.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/labels/destinationFinder/lh/en": {
+   "file": "de-en-c63f7cce.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/destinationfinder/destination/finder/FRA/E?months=0_11&tripType=RETURN": {
+   "file": "de-en-13de00e7.json",
+   "recordedAt": "2026-10-21T20:24:31.290Z"
+  },
+  "de/en|GET /service/api/catalogs/lounges/cities": {
+   "file": "de-en-fc858297.json",
+   "recordedAt": "2026-10-21T20:25:03.062Z"
+  },
+  "de/en|GET /service/api/labels/loungefinder/lh/en": {
+   "file": "de-en-1cc370a6.json",
+   "recordedAt": "2026-10-21T20:25:03.062Z"
+  },
+  "de/en|GET /service/api/labels/herobanner/lh/en": {
+   "file": "de-en-e806752e.json",
+   "recordedAt": "2026-10-21T20:25:24.293Z"
+  },
+  "de/en|GET /service/api/labels/loginoneid/lh/en": {
+   "file": "de-en-d888a78a.json",
+   "recordedAt": "2026-10-21T20:47:08.875Z"
   }
  },
- "updatedAt": "2026-10-21T19:30:26.980Z"
+ "updatedAt": "2026-10-21T20:49:02.231Z"
 }
