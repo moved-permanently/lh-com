@@ -7,3 +7,8 @@ package-lock.json
 test/*
 sync-block-collection.sh
 tools/migration-scope/
+tools/workers/
+tools/reports/
+tools/parity/
+tools/source-export/
+migration-work/

@@ -24,6 +24,10 @@
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
+    "exceljs": "4.4.0",
+    "pixelmatch": "7.2.0",
+    "playwright-core": "1.58.2",
+    "pngjs": "7.0.0",
     "stylelint": "17.16.0",
     "stylelint-config-standard": "40.0.0"
   }
