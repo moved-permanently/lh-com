@@ -54,7 +54,7 @@ encoded slashes or backslashes (`%2f`, `%5c`, `\`) are always rejected.
 | Name | Default |
 | --- | --- |
 | `UPSTREAM_ORIGIN` | `https://www.lufthansa.com` |
-| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--lh-com--moved-permanently\.aem\.(page\|live)$` |
+| `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet)--moved-permanently\.aem\.(page\|live)$` |
 | `EXTRA_ALLOWED_ORIGINS` | `http://localhost:3000` (comma-separated) |
 | `CACHE_TTL` | `300` (seconds; `0` disables caching) |
 | `UPSTREAM_TIMEOUT_MS` | `8000` |

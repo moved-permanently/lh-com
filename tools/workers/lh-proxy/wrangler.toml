@@ -10,7 +10,7 @@ compatibility_date = "2026-10-01"
 
 [vars]
 UPSTREAM_ORIGIN = "https://www.lufthansa.com"
-ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--lh-com--moved-permanently\\.aem\\.(page|live)$"
+ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.aem\\.(page|live)$"
 EXTRA_ALLOWED_ORIGINS = "http://localhost:3000"
 CACHE_TTL = "300"
 # UPSTREAM_TIMEOUT_MS = "8000"

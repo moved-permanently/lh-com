@@ -141,6 +141,21 @@ test('extra allowed origins and .aem.live are accepted', async () => {
   assert.equal(c.status, 403);
 });
 
+test('linked lh-flynet site hosts are accepted', async () => {
+  for (const origin of [
+    'https://main--lh-flynet--moved-permanently.aem.page',
+    'https://main--lh-flynet--moved-permanently.aem.live',
+  ]) {
+    const res = await worker.fetch(req('/health', { headers: { Origin: origin } }), ENV);
+    assert.equal(res.status, 200, origin);
+    assert.equal(res.headers.get('access-control-allow-origin'), origin);
+  }
+  const other = await worker.fetch(req('/health', {
+    headers: { Origin: 'https://main--lh-flynetx--moved-permanently.aem.page' },
+  }), ENV);
+  assert.equal(other.status, 403);
+});
+
 test('preflight returns 204 with CORS headers', async () => {
   const res = await worker.fetch(req('/service/api/lhg-fare-teaser/fareteaser/offers/FRA', {
     method: 'OPTIONS',
