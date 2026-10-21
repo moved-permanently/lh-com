@@ -7,12 +7,13 @@
  * One page every 5-10 s. Per page it saves:
  *   tools/importer/bd-snapshots/www.lufthansa.com/{path}.html   raw rendered HTML (import input)
  *   tools/source-export/pages/{path}/cleaned.html, metadata.json, screenshot.png (1440 px, max 8000 px)
- *   tools/source-export/pages/{path}.model.json                 AEM component tree (AEM pages)
+ *   tools/source-export/pages/{path}.model.json                 AEM component tree, with --model
+ *     (Cloudflare challenges in-page fetch() of .model.json, so it is off by default)
  * Pages that already have a snapshot are never fetched again (unless --force).
  * A block ends the session (exit 2); a new run starts a new warm session.
  *
  * Usage: node tools/importer/bd-session.mjs (--list urls.txt | --url <url> ...) [--batch 20]
- *          [--no-model] [--force] [--min-delay 5000] [--max-delay 10000]
+ *          [--model] [--force] [--min-delay 5000] [--max-delay 10000]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -151,7 +152,7 @@ try {
       }).catch((e) => console.error(`  screenshot failed: ${e.message.split('\n')[0]}`));
 
       let model = null;
-      if (!has('no-model') && !pathname.startsWith('/lhg/')) {
+      if (has('model') && !pathname.startsWith('/lhg/')) {
         model = await page.evaluate(async (u) => {
           const r = await fetch(u, { credentials: 'include' });
           return { status: r.status, type: r.headers.get('content-type') || '', text: await r.text() };
