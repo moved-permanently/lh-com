@@ -38,6 +38,21 @@ export default function parse(element, { document }) {
     const out = [];
     [...root.children].forEach((child) => {
       if (child.matches(SR_ONLY)) return;
+      // "external website" tooltips wrap their link as slot="trigger"; the box is SR_ONLY
+      if (child.tagName === 'MAUI-TOOLTIP') {
+        out.push(...convertRichText(child));
+        return;
+      }
+      // Lufthansa link components (maui-navigation-link, maui-link, maui-button-link)
+      if (/^MAUI-.*LINK$/.test(child.tagName) && child.getAttribute('href')) {
+        const link = makeLink(child);
+        if (link) {
+          const p = document.createElement('p');
+          p.append(link);
+          out.push(p);
+        }
+        return;
+      }
       const tag = child.tagName;
       if (/^H[1-6]$/.test(tag)) {
         const text = visibleText(child);
@@ -112,7 +127,7 @@ export default function parse(element, { document }) {
     const columns = [...panel.querySelectorAll('.column-view-item')];
     const parts = columns.length ? columns : [panel];
     parts.forEach((part) => {
-      part.querySelectorAll('h1, h2, h3, h4, h5, h6, .richtext, ul, ol').forEach((node) => {
+      part.querySelectorAll('h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]').forEach((node) => {
         // only outermost nodes: rich text containers are converted as a whole
         if (node.parentElement && node.parentElement.closest('.richtext, ul, ol') && part.contains(node.parentElement.closest('.richtext, ul, ol'))) return;
         if (/^H[1-6]$/.test(node.tagName)) {
@@ -132,6 +147,66 @@ export default function parse(element, { document }) {
     });
     return content;
   };
+
+  /**
+   * AirCore (/lhg/) accordions: `#content > .faq` and `#content > .travel-information`
+   *   > div > h3.accordion-header > button > span ([img icon] title) + i.lh
+   *         > .accordion-panel > .inner (inline text with links, or <p>s/lists)
+   * Title icons are inline base64 SVGs without a name; known ones are mapped to an
+   * ":icon-name:" token (SVGs in /icons/{name}.svg) by a fingerprint of the data URI, unknown
+   * ones are kept as the image.
+   */
+  const AIRCORE_ICONS = { '2qb66p': 'document', '4b3rr0': 'currency' };
+  const fingerprint = (s) => {
+    let x = 5381;
+    for (let i = 0; i < s.length; i += 1) x = ((x * 33) ^ s.charCodeAt(i)) >>> 0;
+    return x.toString(36);
+  };
+  const aircoreItems = [...element.querySelectorAll(':scope > div')].filter((d) => d.querySelector(':scope > .accordion-header'));
+  if (aircoreItems.length) {
+    const rows = [];
+    aircoreItems.forEach((item) => {
+      const header = item.querySelector(':scope > .accordion-header');
+      const label = header.querySelector('button > span') || header;
+      const titleCell = [];
+      const icon = label.querySelector('img');
+      const iconSrc = icon && icon.getAttribute('src');
+      if (iconSrc) {
+        const name = AIRCORE_ICONS[fingerprint(iconSrc)]
+          || (!iconSrc.startsWith('data:') && /\.svg/i.test(iconSrc) ? iconSrc.split('?')[0].split('/').pop().replace(/\.svg$/i, '').toLowerCase() : '');
+        if (name) {
+          titleCell.push(`:${name}: `);
+        } else {
+          const img = document.createElement('img');
+          img.src = iconSrc;
+          img.alt = clean(icon.getAttribute('alt'));
+          titleCell.push(img, ' ');
+        }
+      }
+      const title = visibleText(label);
+      if (title) titleCell.push(title);
+
+      const panel = item.querySelector('.accordion-panel .inner') || item.querySelector('.accordion-panel');
+      let content = [];
+      if (panel) {
+        const hasBlocks = [...panel.children].some((c) => /^(P|DIV|UL|OL|H[1-6])$/.test(c.tagName));
+        if (hasBlocks) {
+          content = convertRichText(panel);
+        } else {
+          const wrap = document.createElement('div');
+          const p = document.createElement('p');
+          p.innerHTML = panel.innerHTML;
+          wrap.append(p);
+          content = convertRichText(wrap);
+        }
+      }
+      if (!title && !content.length) return;
+      rows.push([titleCell.length ? titleCell : '', content.length ? content : '']);
+    });
+    const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: 'accordion-columns', cells: rows });
+    element.replaceWith(aircoreBlock);
+    return;
+  }
 
   let items = [...element.querySelectorAll('maui-collapsible-item')];
   if (!items.length) items = [...element.querySelectorAll('.accordionitem')];

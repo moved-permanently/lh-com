@@ -52,6 +52,48 @@ var CustomImportScript = (() => {
       return clean(clone.textContent);
     };
     const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
+    if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
+      parseAirCore();
+      return;
+    }
+    function parseAirCore() {
+      const rows = [];
+      const add = (key, value) => {
+        if (value) rows.push([key, value]);
+      };
+      const options = [...element.querySelectorAll('#tripType-listbox li[role="option"]')].filter((li) => !li.matches('.multicity, [data-value="multi"], [data-url]'));
+      const tripTypes2 = [...new Set(options.map(visibleText).filter(Boolean))];
+      const tripInput = element.querySelector("#tripType-input");
+      const selected = options.find((li) => li.classList.contains("selected"));
+      const selectedTrip2 = visibleText(selected) || attr(tripInput, "value");
+      if (!tripTypes2.length && selectedTrip2) tripTypes2.push(selectedTrip2);
+      add("Trip types", tripTypes2.join(", "));
+      if (tripTypes2.length > 1) add("Default trip type", selectedTrip2);
+      add("Traveller label", visibleText(element.querySelector("#travelerClass") || element.querySelector(".travelerClass")));
+      add("Nonstop label", visibleText(element.querySelector(".btn-nonstop-only .custom-control-description")));
+      const airport = (input) => {
+        const code = attr(input, "data-value");
+        if (!/^[A-Za-z]{3}$/.test(code)) return "";
+        const name = attr(input, "value");
+        return name && name.toUpperCase() !== code.toUpperCase() ? `${name} (${code.toUpperCase()})` : code.toUpperCase();
+      };
+      const fromInput = element.querySelector("#flightFrom-input");
+      const toInput = element.querySelector("#flightTo-input");
+      add("From label", visibleText(element.querySelector('label[for="flightFrom-input"]')) || attr(fromInput, "placeholder"));
+      add("Default origin", airport(fromInput));
+      add("To label", visibleText(element.querySelector('label[for="flightTo-input"]')) || attr(toInput, "placeholder"));
+      add("Default destination", airport(toInput));
+      const dateLabel = element.querySelector("#displayDateLabel");
+      add("Date label", attr(dateLabel, "data-translation-rt") || visibleText(dateLabel));
+      add("Submit label", visibleText(element.querySelector("#searchFlights")));
+      const travelerEl = element.querySelector("#travelerClass[data-compartment], .travelerClass[data-compartment]");
+      const cabin = attr(travelerEl, "data-compartment").toUpperCase();
+      if (/^[A-Z]$/.test(cabin) && cabin !== "E") add("Cabin", cabin);
+      const adults = parseInt(attr(travelerEl, "data-adults"), 10);
+      if (adults > 1) add("Adults", String(adults));
+      const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells: rows });
+      element.replaceWith(aircoreBlock);
+    }
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -319,6 +361,62 @@ var CustomImportScript = (() => {
       p.textContent = text;
       return p;
     };
+    if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
+      const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
+      const hasDesktopTwin = !!element.querySelector(".hidden-md-down a.teaser, .hidden-sm-down a.teaser");
+      const view = element.querySelector(":scope > .column-view") || element.querySelector(".column-view") || element;
+      const titles = [];
+      [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
+        const t = visibleText(h);
+        if (!t) return;
+        const out = document.createElement(h.tagName.toLowerCase());
+        out.textContent = t;
+        titles.push(out);
+      }));
+      const cards = [...element.querySelectorAll("a.teaser")].filter((a) => !a.closest(".swiper-slide-duplicate") && !(hasDesktopTwin && a.closest(MOBILE)));
+      const rows = [];
+      cards.forEach((card) => {
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        let imageCell = "";
+        if (img) {
+          const image = document.createElement("img");
+          image.src = img.getAttribute("src");
+          image.alt = img.getAttribute("alt") || "";
+          imageCell = image;
+        }
+        const href = card.getAttribute("href");
+        const content = [];
+        const heading = visibleText(card.querySelector(".teaser-heading, h2, h3, h4, h5, h6"));
+        const ctaLabel = visibleText(card.querySelector(".teaser-link-text"));
+        if (heading) {
+          const h = document.createElement("h3");
+          if (!ctaLabel && href) {
+            const a = document.createElement("a");
+            a.href = href;
+            a.textContent = heading;
+            h.append(a);
+          } else {
+            h.textContent = heading;
+          }
+          content.push(h);
+        }
+        const description = visibleText(card.querySelector(".teaser-description"));
+        if (description) content.push(para(description));
+        if (ctaLabel && href) {
+          const a = document.createElement("a");
+          a.href = href;
+          a.textContent = ctaLabel;
+          const p = document.createElement("p");
+          p.append(a);
+          content.push(p);
+        }
+        if (!imageCell && !content.length) return;
+        rows.push([imageCell, content.length ? content : ""]);
+      });
+      const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", cells: rows });
+      element.replaceWith(...titles, block2);
+      return;
+    }
     const teasers = [...element.querySelectorAll(".wide-teaser, .compact-teaser")].filter((t) => !t.closest(".swiper-slide-duplicate"));
     const cells = [];
     teasers.forEach((teaser) => {
@@ -621,6 +719,19 @@ var CustomImportScript = (() => {
       const out = [];
       [...root.children].forEach((child) => {
         if (child.matches(SR_ONLY2)) return;
+        if (child.tagName === "MAUI-TOOLTIP") {
+          out.push(...convertRichText(child));
+          return;
+        }
+        if (/^MAUI-.*LINK$/.test(child.tagName) && child.getAttribute("href")) {
+          const link = makeLink(child);
+          if (link) {
+            const p = document.createElement("p");
+            p.append(link);
+            out.push(p);
+          }
+          return;
+        }
         const tag = child.tagName;
         if (/^H[1-6]$/.test(tag)) {
           const text = visibleText(child);
@@ -692,7 +803,7 @@ var CustomImportScript = (() => {
       const columns = [...panel.querySelectorAll(".column-view-item")];
       const parts = columns.length ? columns : [panel];
       parts.forEach((part) => {
-        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol").forEach((node) => {
+        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]").forEach((node) => {
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
           if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
@@ -711,6 +822,55 @@ var CustomImportScript = (() => {
       });
       return content;
     };
+    const AIRCORE_ICONS = { "2qb66p": "document", "4b3rr0": "currency" };
+    const fingerprint = (s) => {
+      let x = 5381;
+      for (let i = 0; i < s.length; i += 1) x = (x * 33 ^ s.charCodeAt(i)) >>> 0;
+      return x.toString(36);
+    };
+    const aircoreItems = [...element.querySelectorAll(":scope > div")].filter((d) => d.querySelector(":scope > .accordion-header"));
+    if (aircoreItems.length) {
+      const rows = [];
+      aircoreItems.forEach((item) => {
+        const header = item.querySelector(":scope > .accordion-header");
+        const label = header.querySelector("button > span") || header;
+        const titleCell = [];
+        const icon = label.querySelector("img");
+        const iconSrc = icon && icon.getAttribute("src");
+        if (iconSrc) {
+          const name = AIRCORE_ICONS[fingerprint(iconSrc)] || (!iconSrc.startsWith("data:") && /\.svg/i.test(iconSrc) ? iconSrc.split("?")[0].split("/").pop().replace(/\.svg$/i, "").toLowerCase() : "");
+          if (name) {
+            titleCell.push(`:${name}: `);
+          } else {
+            const img = document.createElement("img");
+            img.src = iconSrc;
+            img.alt = clean(icon.getAttribute("alt"));
+            titleCell.push(img, " ");
+          }
+        }
+        const title = visibleText(label);
+        if (title) titleCell.push(title);
+        const panel = item.querySelector(".accordion-panel .inner") || item.querySelector(".accordion-panel");
+        let content = [];
+        if (panel) {
+          const hasBlocks = [...panel.children].some((c) => /^(P|DIV|UL|OL|H[1-6])$/.test(c.tagName));
+          if (hasBlocks) {
+            content = convertRichText(panel);
+          } else {
+            const wrap = document.createElement("div");
+            const p = document.createElement("p");
+            p.innerHTML = panel.innerHTML;
+            wrap.append(p);
+            content = convertRichText(wrap);
+          }
+        }
+        if (!title && !content.length) return;
+        rows.push([titleCell.length ? titleCell : "", content.length ? content : ""]);
+      });
+      const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: "accordion-columns", cells: rows });
+      element.replaceWith(aircoreBlock);
+      return;
+    }
     let items = [...element.querySelectorAll("maui-collapsible-item")];
     if (!items.length) items = [...element.querySelectorAll(".accordionitem")];
     const cells = [];
@@ -737,16 +897,25 @@ var CustomImportScript = (() => {
     ".commonheader",
     ".dcep-header-flyout",
     ".dcep-header-quick-action-links",
+    // AirCore (/lhg/) header incl. the inline slide-in mega-menu
+    "header.header-content-nav",
+    ".header-navigation-flyout-slide-in",
     // global footer (becomes the per-locale footer fragment)
     "footer",
+    "#footer",
     ".footer-area",
     ".footer-logos",
     ".commonfooter",
+    // AirCore footer bands (payment/follow-us, search + language, logo); normally inside footer#footer
+    "footer .footer-brand-links",
+    ".above-footer-container",
+    ".secondary-footer-container",
     // skip links, breadcrumbs, a11y live regions, AEM placeholders
     ".skiplinks",
     ".skip-links",
     ".breadcrumb",
     ".breadcrumbs",
+    ".breadcrumb-wrapper",
     'nav[aria-label*="readcrumb"]',
     "#sr-log",
     "#a11y-status-message",
@@ -763,6 +932,14 @@ var CustomImportScript = (() => {
     ".optanon-alert-box-wrapper",
     // Cloudflare Turnstile pre-clearance
     "#turnstile-preclearance-frame",
+    // global modals that never hold page content: location/language pickers, login, AirCore
+    // loaders/spinners, UI sound effects. Content modals (fare conditions, the fleet seat-map
+    // .lightbox-modal) stay until afterTransform because parsers read them.
+    "maui-modal.country-language-selector-modal",
+    "maui-modal.one-id-login__modal",
+    ".language-selection-modal",
+    ".loader",
+    'audio[id^="uifx"]',
     // Tealium / utag, Monetate, Quantum Metric and other trackers
     '[id^="utag_"]',
     '[id^="utag-"]',
@@ -833,7 +1010,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   function isEmpty(el) {
-    if (el.textContent.replace(/ /g, " ").trim()) return false;
+    if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.querySelector(MEDIA);
   }
   function removeEmptyComponents(document) {
@@ -845,6 +1022,213 @@ var CustomImportScript = (() => {
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
       if (el.isConnected && isEmpty(el)) el.remove();
     });
+  }
+  function removeAirCoreLeftovers(document) {
+    document.querySelectorAll(".language-selection-modal").forEach((m) => {
+      const modal = m.closest(".modal") || m;
+      if (modal.isConnected) modal.remove();
+    });
+    document.querySelectorAll(".info-banner, #contentInfo").forEach((banner) => {
+      if (!banner.isConnected || !isEmpty(banner)) return;
+      const parent = banner.parentElement;
+      banner.remove();
+      if (parent && parent.tagName === "DIV" && !parent.matches("main, #content, .contentpage") && isEmpty(parent)) {
+        parent.remove();
+      }
+    });
+  }
+  var MOBILE_COPY = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs";
+  var DESKTOP_COPY = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex";
+  function assetKey(url) {
+    return (url || "").trim().split(/\s/)[0].replace(/\.transform\/.*$/, "").replace(/[?#].*$/, "");
+  }
+  function copySignature(el) {
+    const text = el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
+    const imgs = [...el.querySelectorAll("img")].map((i) => assetKey(i.getAttribute("src") || i.getAttribute("data-src") || i.getAttribute("srcset"))).filter(Boolean).sort();
+    const hrefs = [...el.querySelectorAll("[href]")].map((a) => a.getAttribute("href")).sort();
+    if (!text && !imgs.length && !hrefs.length) return "";
+    return `${text}|${imgs.join(",")}|${hrefs.join(",")}`;
+  }
+  function removeMobileDuplicates(document) {
+    let removed = 0;
+    [...document.querySelectorAll(MOBILE_COPY)].forEach((mobile) => {
+      if (!mobile.isConnected) return;
+      const sig = copySignature(mobile);
+      if (!sig) return;
+      let scope = mobile.parentElement;
+      for (let level = 0; scope && level < 3; level += 1, scope = scope.parentElement) {
+        const twin = [...scope.querySelectorAll(DESKTOP_COPY)].find((d) => d !== mobile && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
+        if (twin) {
+          mobile.remove();
+          removed += 1;
+          return;
+        }
+      }
+    });
+    return removed;
+  }
+  function headingId(text) {
+    return (text || "").trim().toLowerCase().replace(/[^\p{L}\p{M}\p{N}\p{Pc}\- ]/gu, "").replace(/ /g, "-");
+  }
+  var HEADING = "h1, h2, h3, h4, h5, h6";
+  function cleanText(el) {
+    return el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
+  }
+  function headingForTarget(target) {
+    if (target.matches(HEADING)) return target;
+    const inner = target.querySelector(HEADING);
+    if (inner && cleanText(inner) && cleanText(target).startsWith(cleanText(inner))) return inner;
+    if (!cleanText(target)) {
+      const next = target.nextElementSibling;
+      if (next && next.matches(HEADING)) return next;
+      const nextInner = next && next.querySelector(HEADING);
+      if (nextInner && cleanText(next).startsWith(cleanText(nextInner))) return nextInner;
+    }
+    return null;
+  }
+  function currentPagePath(document, payload) {
+    const params = payload && payload.params || {};
+    const candidates = [params.originalURL, payload && payload.url];
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) candidates.push(canonical.getAttribute("href"));
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) candidates.push(ogUrl.getAttribute("content"));
+    for (const c of candidates) {
+      try {
+        if (c) return normalizePath(new URL(c, `${LIVE_ORIGIN}/`).pathname);
+      } catch (e) {
+      }
+    }
+    return null;
+  }
+  function rewriteAnchors(document, pagePath) {
+    const ids = /* @__PURE__ */ new Map();
+    const used = /* @__PURE__ */ new Map();
+    document.querySelectorAll(HEADING).forEach((h) => {
+      const base = headingId(cleanText(h));
+      if (!base) return;
+      const n = used.get(base) || 0;
+      used.set(base, n + 1);
+      ids.set(h, n ? `${base}-${n}` : base);
+    });
+    let rewritten = 0;
+    document.querySelectorAll('[href*="#"]').forEach((link) => {
+      const href = (link.getAttribute("href") || "").trim();
+      const hashAt = href.indexOf("#");
+      const fragment = href.slice(hashAt + 1);
+      if (!fragment || fragment.startsWith("/") || fragment.startsWith("!")) return;
+      if (hashAt > 0) {
+        let u;
+        try {
+          u = new URL(href, `${LIVE_ORIGIN}/`);
+        } catch (e) {
+          return;
+        }
+        if (!SOURCE_HOSTS.includes(u.hostname) || !pagePath || u.search) return;
+        if (normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, "") !== pagePath) return;
+      }
+      let target = null;
+      try {
+        target = document.getElementById(decodeURIComponent(fragment));
+      } catch (e) {
+        return;
+      }
+      if (!target) return;
+      const heading = headingForTarget(target);
+      const id = heading && ids.get(heading);
+      if (!id) return;
+      link.setAttribute("href", `#${id}`);
+      rewritten += 1;
+    });
+    return rewritten;
+  }
+  var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
+  function convertMauiLinks(document) {
+    const links = [...document.querySelectorAll(MAUI_LINK)].reverse();
+    links.forEach((el) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", el.getAttribute("href"));
+      const title = el.getAttribute("title");
+      if (title) a.setAttribute("title", title);
+      if (el.querySelector("img, picture, svg")) {
+        while (el.firstChild) a.append(el.firstChild);
+      } else {
+        a.textContent = cleanText(el) || el.getAttribute("label") || el.getAttribute("aria-label") || "";
+      }
+      let replacement = a;
+      if (el.tagName === "MAUI-BUTTON-LINK" && el.getAttribute("type") === "primary") {
+        replacement = document.createElement("strong");
+        replacement.append(a);
+      }
+      el.replaceWith(replacement);
+    });
+    return links.length;
+  }
+  function removeIconsAndZeroWidth(document) {
+    let icons = 0;
+    document.querySelectorAll('em.lh, i.lh, span.lh, em[class*="lh-"], i[class*="lh-"], span[class*="lh-arrow"]').forEach((el) => {
+      if (!el.isConnected || ![...el.classList].some((c) => /^lh-/.test(c))) return;
+      if (cleanText(el) || el.querySelector("img, svg, picture, input")) return;
+      el.remove();
+      icons += 1;
+    });
+    let zw = 0;
+    const walker = document.createTreeWalker(
+      document.body,
+      4
+      /* NodeFilter.SHOW_TEXT */
+    );
+    const empty = [];
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      if (/[\u200B\uFEFF]/.test(node.nodeValue)) {
+        node.nodeValue = node.nodeValue.replace(/[\u200B\uFEFF]/g, "");
+        zw += 1;
+        if (!node.nodeValue) empty.push(node);
+      }
+    }
+    empty.forEach((n) => n.remove());
+    return { icons, zw };
+  }
+  function isBr(node) {
+    return node && node.nodeType === 1 && node.tagName === "BR";
+  }
+  function isBlankText(node) {
+    return node && node.nodeType === 3 && !node.nodeValue.replace(/\u00A0/g, " ").trim();
+  }
+  function splitBrParagraphs(document) {
+    let added = 0;
+    [...document.querySelectorAll("p")].forEach((p) => {
+      if (p.closest("table") || !p.querySelector("br")) return;
+      const groups = [[]];
+      const nodes = [...p.childNodes];
+      for (let i = 0; i < nodes.length; i += 1) {
+        const node = nodes[i];
+        if (isBr(node)) {
+          let j = i + 1;
+          while (j < nodes.length && isBlankText(nodes[j])) j += 1;
+          if (isBr(nodes[j])) {
+            while (j < nodes.length && (isBr(nodes[j]) || isBlankText(nodes[j]))) j += 1;
+            groups.push([]);
+            i = j - 1;
+            continue;
+          }
+        }
+        groups[groups.length - 1].push(node);
+      }
+      if (groups.length < 2) return;
+      const paras = groups.map((group) => {
+        while (group.length && (isBr(group[0]) || isBlankText(group[0]))) group.shift();
+        while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
+        if (!group.length) return null;
+        const np = document.createElement("p");
+        group.forEach((n) => np.append(n));
+        return np;
+      }).filter(Boolean);
+      if (paras.length < 2) return;
+      p.replaceWith(...paras);
+      added += paras.length - 1;
+    });
+    return added;
   }
   function parseSrcset(srcset) {
     if (!srcset) return [];
@@ -891,7 +1275,9 @@ var CustomImportScript = (() => {
     const picture = img.closest("picture");
     if (picture) {
       picture.querySelectorAll("source").forEach((s) => {
-        parseSrcset(s.getAttribute("srcset") || s.getAttribute("data-srcset")).forEach((c) => add(c.url, c.w));
+        const media = (s.getAttribute("media") || "").match(/min-width:\s*(\d+)/);
+        const mediaW = media ? parseInt(media[1], 10) : 0;
+        parseSrcset(s.getAttribute("srcset") || s.getAttribute("data-srcset")).forEach((c) => add(c.url, c.w || mediaW));
       });
     }
     parseSrcset(img.getAttribute("srcset")).forEach((c) => add(c.url, c.w));
@@ -934,6 +1320,7 @@ var CustomImportScript = (() => {
     return origins;
   }
   var PAGE_PATH = /^\/(?:[a-z]{2}\/[a-z]{2}|lhg\/[a-z]{2}\/[a-z]{2})(?:\/|$)/;
+  var LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
   function rewriteHref(href, origins) {
     const raw = (href || "").trim();
     if (!raw || raw.startsWith("#") || /^(mailto|tel|javascript|data|sms):/i.test(raw)) return null;
@@ -949,6 +1336,9 @@ var CustomImportScript = (() => {
     if (!/^https?:$/.test(u.protocol)) return null;
     const pathname = normalizePath(u.pathname);
     const pagePath = pathname.replace(/^\/content\/lh(?=\/)/, "");
+    if (LOCALE_ROOT.test(pagePath) && SCOPE_PATHS.has(`${pagePath}/homepage`)) {
+      return `${pagePath}/homepage${u.search}${u.hash}`;
+    }
     if (PAGE_PATH.test(pagePath) && SCOPE_PATHS.has(pagePath)) {
       return `${pagePath}${u.search}${u.hash}`;
     }
@@ -970,7 +1360,7 @@ var CustomImportScript = (() => {
     });
   }
   function removeOverlays(document) {
-    document.querySelectorAll('maui-modal, .react-modal, .modal, [role="dialog"]').forEach((m) => {
+    document.querySelectorAll('maui-modal, .react-modal, .modal, .lightbox-modal, [role="dialog"]').forEach((m) => {
       if (m.isConnected && !m.closest(".container-content")) m.remove();
     });
     const content = document.querySelector(".contentpage-wrapper, .contentpage, main");
@@ -985,15 +1375,22 @@ var CustomImportScript = (() => {
   function transform(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
+      const pagePath = currentPagePath(document, payload);
       removeAll(document, CHROME_SELECTORS);
+      removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      removeMobileDuplicates(document);
+      rewriteAnchors(document, pagePath);
       removeEmptyComponents(document);
       normalizeImages(document);
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
       removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
+      convertMauiLinks(document);
+      removeIconsAndZeroWidth(document);
+      splitBrParagraphs(document);
       normalizeImages(document);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);

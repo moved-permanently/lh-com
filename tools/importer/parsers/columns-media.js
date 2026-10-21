@@ -1,0 +1,269 @@
+/* eslint-disable */
+/* global WebImporter */
+
+/**
+ * Parser for columns-media (text beside media). Sources:
+ *  - ".twocolumn" column views (hub, campaign, insights, legal, app-entry, flight-status): one
+ *    cell per ".column-view-item" of this column view (nested column views are flattened into
+ *    their cell: app-badge image links, photo + QR code)
+ *  - ".sidebar" (campaign): ".sidebar-content" (media) | ".sidebar-aside" (text), option
+ *    "wide-media"
+ *
+ * Output (blocks/columns-media README): 2 columns, one row per text/media pair. A media cell
+ * holds images (linked images keep their link), or a poster image plus a link to the .mp4
+ * (link text = the source play button's aria-label). A text cell holds headings (source level;
+ * AEM "copytext" headings are labels and become paragraphs), paragraphs (<br><br> split into
+ * paragraphs), lists and links (primary maui-button-link = bold link).
+ *
+ * Column title (".column-view > div:not(.row) > h2") is default content before the table.
+ * When several column views form one block (flight-status: 3 x .twocolumn in a .onecolumn) and
+ * this instance has no own column title, its rows are appended to the previous Columns Media
+ * table of the same variant, provided nothing but empty wrappers sits between the two.
+ */
+export default function parse(element, { document }) {
+  const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
+  const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
+  const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
+  const MOBILE = '.hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none';
+  const DESKTOP = '.hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block';
+  const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+  const visibleText = (node) => {
+    if (!node) return '';
+    const c = node.cloneNode(true);
+    c.querySelectorAll(SKIP).forEach((n) => n.remove());
+    return clean(c.textContent);
+  };
+  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || src.startsWith('data:');
+
+  const isBr = (n) => n && n.nodeType === 1 && n.tagName === 'BR';
+  const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+  const trimBreaks = (el) => {
+    while (el.lastChild && (isBr(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
+    while (el.firstChild && (isBr(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
+  };
+  const tidy = (el) => {
+    el.querySelectorAll(SKIP).forEach((s) => s.remove());
+    el.querySelectorAll('em, i, span').forEach((s) => {
+      if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector('img')) s.remove();
+    });
+    el.removeAttribute('class');
+    return el;
+  };
+  /** Splits a paragraph at runs of two or more <br>. */
+  const splitParagraph = (p) => {
+    const groups = [[]];
+    const nodes = [...p.childNodes];
+    for (let i = 0; i < nodes.length; i += 1) {
+      if (isBr(nodes[i])) {
+        let j = i + 1;
+        while (j < nodes.length && isBlank(nodes[j])) j += 1;
+        if (isBr(nodes[j])) {
+          while (j < nodes.length && (isBr(nodes[j]) || isBlank(nodes[j]))) j += 1;
+          groups.push([]);
+          i = j - 1;
+          continue;
+        }
+      }
+      groups[groups.length - 1].push(nodes[i]);
+    }
+    return groups.map((g) => {
+      const np = document.createElement('p');
+      g.forEach((n) => np.append(n));
+      trimBreaks(np);
+      return np;
+    }).filter((np) => clean(np.textContent) || np.querySelector('img'));
+  };
+
+  /** Block-level copies of a richtext container; loose inline runs are wrapped in <p>. */
+  const richNodes = (scope) => {
+    const rt = scope.querySelector('.richtext') || scope;
+    const out = [];
+    let run = null;
+    const pushP = (p) => { tidy(p); out.push(...splitParagraph(p)); };
+    const flush = () => { if (run) pushP(run); run = null; };
+    [...rt.childNodes].forEach((n) => {
+      if (n.nodeType === 8) return;
+      if (n.nodeType === 1 && n.matches(SKIP)) return;
+      if (n.nodeType === 1 && BLOCK_TAGS.test(n.tagName)) {
+        flush();
+        const c = n.cloneNode(true);
+        if (c.tagName === 'P') { pushP(c); return; }
+        tidy(c);
+        if (clean(c.textContent) || c.querySelector('img')) out.push(c);
+        return;
+      }
+      if (isBlank(n) && !run) return;
+      if (!run) run = document.createElement('p');
+      run.append(n.cloneNode(true));
+    });
+    flush();
+    return out;
+  };
+
+  const MAUI = 'maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]';
+  const linkPara = (scope) => {
+    const m = scope.querySelector(MAUI);
+    if (!m) return null;
+    const label = visibleText(m) || clean(m.getAttribute('label') || m.getAttribute('aria-label'));
+    const href = m.getAttribute('href');
+    if (!label || !href) return null;
+    const a = document.createElement('a');
+    a.setAttribute('href', href);
+    a.textContent = label;
+    const p = document.createElement('p');
+    if (m.tagName === 'MAUI-BUTTON-LINK' && m.getAttribute('type') === 'primary') {
+      const strong = document.createElement('strong');
+      strong.append(a);
+      p.append(strong);
+    } else {
+      p.append(a);
+    }
+    return p;
+  };
+
+  const headingFrom = (scope) => {
+    const h = scope.querySelector('h1, h2, h3, h4, h5, h6');
+    const text = visibleText(h || scope);
+    if (!text) return null;
+    // AEM styles some labels as headings with a copytext class; they read as body text
+    const isLabel = h && /(^|\s)copytext/.test(h.getAttribute('class') || '');
+    const out = document.createElement(h && !isLabel ? h.tagName.toLowerCase() : 'p');
+    out.textContent = text;
+    return out;
+  };
+
+  /** Media of an AEM image component: [img] | [a > img] | [poster img, a(.mp4)]. */
+  const mediaNodes = (comp) => {
+    const out = [];
+    const img = [...comp.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')) && !i.closest(SKIP_COMPONENTS));
+    const video = comp.querySelector('video[src], video source[src]');
+    let image = null;
+    if (img) {
+      image = document.createElement('img');
+      image.setAttribute('src', img.getAttribute('src'));
+      image.setAttribute('alt', img.getAttribute('alt') || '');
+    }
+    if (video) {
+      const src = video.getAttribute('src');
+      if (image) out.push(image);
+      const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
+      const a = document.createElement('a');
+      a.setAttribute('href', src);
+      a.textContent = clean(button && button.getAttribute('aria-label')) || src;
+      const p = document.createElement('p');
+      p.append(a);
+      out.push(p);
+      return out;
+    }
+    if (!image) return out;
+    const link = img.closest('a[href]');
+    if (link && comp.contains(link)) {
+      const a = document.createElement('a');
+      a.setAttribute('href', link.getAttribute('href'));
+      a.append(image);
+      out.push(a);
+    } else {
+      out.push(image);
+    }
+    return out;
+  };
+
+  /** Content of a column, in document order, nested column views flattened. */
+  const collect = (node, out) => {
+    [...node.children].forEach((child) => {
+      if (child.matches(SKIP_COMPONENTS)) return;
+      if (child.matches(MOBILE) && child.parentElement && child.parentElement.querySelector(`:scope > :is(${DESKTOP})`)) return;
+      const cl = child.classList;
+      if (cl.contains('headline')) {
+        const h = headingFrom(child);
+        if (h) out.push(h);
+      } else if (cl.contains('text') && child.querySelector('.richtext')) {
+        out.push(...richNodes(child));
+      } else if (cl.contains('link') && child.querySelector(MAUI)) {
+        const p = linkPara(child);
+        if (p) out.push(p);
+      } else if (cl.contains('image') && child.querySelector('img, video')) {
+        out.push(...mediaNodes(child));
+      } else {
+        collect(child, out);
+      }
+    });
+    return out;
+  };
+
+  /** In a text cell, consecutive images / image links share one paragraph (badge rows). */
+  const finishCell = (nodes) => {
+    const inline = (n) => n.tagName === 'IMG' || n.tagName === 'A';
+    if (nodes.every(inline) || !nodes.some(inline)) return nodes;
+    const out = [];
+    let p = null;
+    nodes.forEach((n) => {
+      if (inline(n)) {
+        if (!p) { p = document.createElement('p'); out.push(p); }
+        p.append(n);
+      } else {
+        p = null;
+        out.push(n);
+      }
+    });
+    return out;
+  };
+
+  // --- cells
+  const titles = [];
+  const cells = [];
+  let variants = [];
+  if (element.classList.contains('sidebar') || element.querySelector(':scope > .airem-sidebar')) {
+    variants = ['wide-media'];
+    const media = element.querySelector('.sidebar-content');
+    const text = element.querySelector('.sidebar-aside');
+    const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];
+    if (row.some((c) => c.length)) cells.push(row.map((c) => (c.length ? c : '')));
+  } else {
+    const view = element.querySelector(':scope > .column-view') || element.querySelector('.column-view') || element;
+    [...view.children].filter((d) => !d.classList.contains('row') && !d.classList.contains('carousel')).forEach((d) => {
+      d.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
+        const t = visibleText(h);
+        if (!t) return;
+        const out = document.createElement(h.tagName.toLowerCase());
+        out.textContent = t;
+        titles.push(out);
+      });
+    });
+    const items = [...view.querySelectorAll('.column-view-item')]
+      .filter((it) => it.closest('.column-view') === view && !it.closest(MOBILE));
+    const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+    if (row.length) cells.push(row);
+  }
+
+  const block = WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants, cells });
+
+  // --- merge into the previous Columns Media table when this is its continuation
+  const headerText = (t) => clean((t.querySelector('tr') || t).textContent).toLowerCase();
+  const previousSameBlock = () => {
+    const name = headerText(block);
+    const before = [...document.querySelectorAll('table')].filter((t) => !element.contains(t)
+      && (t.compareDocumentPosition(element) & 4) && headerText(t) === name);
+    const prev = before[before.length - 1];
+    if (!prev) return null;
+    const range = document.createRange();
+    range.setStartAfter(prev);
+    range.setEndBefore(element);
+    const between = range.cloneContents();
+    if (clean(between.textContent)) return null;
+    if (between.querySelector('img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input')) return null;
+    return prev;
+  };
+  if (!titles.length && cells.length) {
+    const prev = previousSameBlock();
+    if (prev) {
+      const rows = [...block.querySelectorAll('tr')].slice(1);
+      const lastRow = [...prev.querySelectorAll('tr')].pop();
+      rows.forEach((r) => lastRow.parentNode.append(r));
+      element.remove();
+      return;
+    }
+  }
+
+  element.replaceWith(...titles, block);
+}

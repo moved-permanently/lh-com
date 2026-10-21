@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-usa",
+  "path": "lhg/de/en/o-d/c-c/germany-usa",
+  "timestamp": "2026-10-21T17:07:24.799Z",
+  "title": "Flights from Germany to USA | Lufthansa",
+  "template": "aircore-route",
+  "blocks": [
+    "flight-search",
+    "cards-icon-text",
+    "accordion-columns",
+    "accordion-side-by-side"
+  ]
+}

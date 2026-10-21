@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/zz-test",
+  "path": "lhg/de/en/zz-test",
+  "timestamp": "2026-10-21T17:04:36.900Z",
+  "title": "t",
+  "template": "aircore-destination",
+  "blocks": [
+    "cards-icon-text"
+  ]
+}

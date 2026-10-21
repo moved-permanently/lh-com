@@ -1,34 +1,56 @@
 {
   "updatedAt": "2026-10-21",
-  "blocker": "Bright Data scrape of https://www.lufthansa.com/de/en/baggage returned HTTP 403 (one attempt, not retried). Earlier in the same session the de/en homepage and its .model.json came through Bright Data. Waiting for the user's decision.",
+  "blocker": null,
   "access": {
-    "route": "Bright Data (botProtected: true in .migration/project.json)",
-    "ok": ["/de/en/homepage (scrape)", "/de/en/homepage.model.json (in-page fetch, tools/importer/bd-fetch.mjs)"],
-    "blocked": ["/de/en/baggage (scrape, HTTP 403)"],
-    "staticAssets": "CSS, fonts and images answer 200 to plain curl"
+    "route": "warm Bright Data session (tools/importer/bd-session.mjs); model.json not collectable (Cloudflare challenges in-page fetch)",
+    "ok": [
+      "/de/en/homepage (scrape)",
+      "/de/en/homepage.model.json (in-page fetch, tools/importer/bd-fetch.mjs)"
+    ],
+    "blocked": [],
+    "staticAssets": "CSS, fonts and images answer 200 to plain curl",
+    "incidents": [
+      "2026-10-21: one unintended cold Bright Data fetch of https://www.lufthansa.com/lhg/de/en/zz-test (404) by run-bulk-import during a parser repro; import-batch.mjs now refuses URLs without snapshot"
+    ]
   },
   "decisions": {
     "forms": "render-only form block, no Forms add-on",
     "navFooterPaths": "/{country}/{lang}/nav and /{country}/{lang}/footer; AirCore pages use their locale's",
     "rootRedirect": "redirects sheet maps / to /de/de/homepage (tools/importer/redirects.csv, upload with content), plus a JS fallback in scripts.js",
-    "proxy": "scripts/lh-data.js PROXY_ORIGIN stays empty until the worker URL is known (CI workflow deploy-lh-proxy.yaml deploys it); recorded fallback in data/recorded/",
-    "fonts": "Lufthansa Head/Text loaded from www.lufthansa.com (CORS *), not copied into the public repo"
+    "proxy": "scripts/lh-data.js PROXY_ORIGIN = https://lh-proxy.aem-poc-lab.workers.dev (deployed by CI; upstream answers 502 upstream-blocked, so widgets use recorded data)",
+    "fonts": "Lufthansa Head/Text loaded from www.lufthansa.com (CORS *), not copied into the public repo",
+    "checkin": "booking-lookup hands off to the check-in app with country/language only; no personal data in URLs",
+    "aircorePrices": "frozen as captured, incl. last-minute deals"
   },
   "templates": {
-    "homepage": "done: analysis, 8 blocks, mapping, transformers, parsers, import script, de/en imported",
-    "hub": "blocked at page analysis (/de/en/baggage 403)",
-    "info": "pending", "campaign": "pending", "fleet": "pending", "insights": "pending",
-    "legal": "pending", "form": "pending", "app-entry": "pending", "flight-status": "pending",
-    "aircore-destination-overview": "pending", "aircore-destination": "pending", "aircore-route": "pending"
+    "homepage": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "hub": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "info": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "campaign": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "fleet": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "insights": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "legal": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "form": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "app-entry": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "flight-status": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "aircore-destination-overview": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "aircore-destination": "analysis, blocks, mapping, parsers, import script done; de/en representative imported",
+    "aircore-route": "analysis, blocks, mapping, parsers, import script done; de/en representative imported"
   },
   "steps": {
     "offlineInfrastructure": "done",
-    "1-templates-first-pages": "1 of 10 templates done (homepage)",
+    "1-templates-first-pages": "done: 13 templates, one de/en page each",
     "2-blocks-import-header-footer-locales": "fonts done; rest pending",
     "3-worker": "built, tested, CI deploy workflow added by user; recorded data pending",
     "4-da-upload-preview": "pending",
     "5-parity": "harness done; checks pending",
     "6-nav-unmigrated": "generator done; report waits for nav content"
   },
-  "pagesImported": { "de/en": 1, "de/de": 0, "at/de": 0, "gb/en": 0, "aircore": 0 }
+  "pagesImported": {
+    "de/en": 10,
+    "de/de": 0,
+    "at/de": 0,
+    "gb/en": 0,
+    "aircore": 3
+  }
 }

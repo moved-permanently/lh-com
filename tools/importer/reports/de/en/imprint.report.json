@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/imprint",
+  "path": "de/en/imprint",
+  "timestamp": "2026-10-21T16:55:21.743Z",
+  "title": "Legal notice | Lufthansa",
+  "template": "legal",
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

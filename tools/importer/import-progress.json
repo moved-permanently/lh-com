@@ -1,0 +1,67 @@
+{
+ "https://www.lufthansa.com/de/en/homepage": {
+  "template": "homepage",
+  "status": "ok",
+  "at": "2026-10-21T17:01:12.505Z"
+ },
+ "https://www.lufthansa.com/de/en/baggage": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-21T16:54:59.738Z"
+ },
+ "https://www.lufthansa.com/de/en/flying-with-small-children": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-21T17:01:19.017Z"
+ },
+ "https://www.lufthansa.com/de/en/100-years": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-21T16:55:08.008Z"
+ },
+ "https://www.lufthansa.com/de/en/359": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-21T16:55:12.600Z"
+ },
+ "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-berlin": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-21T16:55:17.772Z"
+ },
+ "https://www.lufthansa.com/de/en/imprint": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-21T16:55:21.946Z"
+ },
+ "https://www.lufthansa.com/de/en/feedback": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-21T17:01:26.282Z"
+ },
+ "https://www.lufthansa.com/de/en/online-check-in": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-21T16:55:30.324Z"
+ },
+ "https://www.lufthansa.com/de/en/timetable-and-flight-status": {
+  "template": "flight-status",
+  "status": "ok",
+  "at": "2026-10-21T17:01:33.702Z"
+ },
+ "https://www.lufthansa.com/lhg/de/en": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-21T16:55:44.161Z"
+ },
+ "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-21T17:07:20.871Z"
+ },
+ "https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-usa": {
+  "template": "aircore-route",
+  "status": "ok",
+  "at": "2026-10-21T17:07:25.052Z"
+ }
+}

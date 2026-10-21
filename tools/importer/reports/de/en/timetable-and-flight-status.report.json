@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/timetable-and-flight-status",
+  "path": "de/en/timetable-and-flight-status",
+  "timestamp": "2026-10-21T17:01:33.445Z",
+  "title": "Timetable & flight status | Lufthansa",
+  "template": "flight-status",
+  "blocks": [
+    "flight-status",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "accordion-columns"
+  ]
+}

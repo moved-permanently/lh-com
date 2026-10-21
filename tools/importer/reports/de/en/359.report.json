@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/359",
+  "path": "de/en/359",
+  "timestamp": "2026-10-21T16:55:12.414Z",
+  "title": "Airbus A350-900 | Lufthansa",
+  "template": "fleet",
+  "blocks": [
+    "carousel-lightbox",
+    "table-striped"
+  ]
+}
