@@ -7,7 +7,7 @@ import { getLocale } from './locale.js';
 
 // Origin of the deployed lh-proxy worker, e.g. 'https://lh-proxy.example.workers.dev'.
 // Empty until the worker is deployed (see tools/workers/DEPLOY-PROMPT.md).
-export const PROXY_ORIGIN = '';
+export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
 
 const PROXY_TIMEOUT_MS = 4000;
 const RECORDED_BASE = '/data/recorded';
