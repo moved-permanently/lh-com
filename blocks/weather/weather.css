@@ -1,4 +1,10 @@
-/* weather: structural layout only; brand styling comes with the design pass */
+/* weather: AirCore destination weather (.weather.weather-wrapper: .w-today, .w-forecast > .w-day) */
+
+/* .weather { min-height: 450px } reserves the space while loading; .weather.hidden { display: none } */
+.weather {
+  min-height: 450px;
+}
+
 .weather.weather-unavailable {
   display: none;
 }
@@ -10,41 +16,86 @@
 .weather .weather-data {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
-.weather .weather-label {
-  margin: 0 0 8px;
+/* .weather-label: 1.4rem/1.8rem light, no text transform */
+.weather .weather-label,
+.weather .weather-additional dt,
+.weather .weather-condition {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 300;
+  line-height: 18px;
+  text-transform: none;
+}
+
+.weather h3.weather-label {
+  flex: 1 0 100%;
+  margin-bottom: 10px;
+}
+
+/* .weather .w-today { display: flex; margin-bottom: 6rem }, children flex 1 (gap 4rem < 768) */
+.weather .weather-today {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  margin-bottom: 60px;
 }
 
 .weather .weather-current {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0;
 }
 
-.weather .weather-temp {
-  font-size: var(--heading-font-size-m);
+/* .weather .bigger: LufthansaHead 2.4rem/2.8rem light (2.8rem/3.2rem >= 1281) */
+.weather .weather-temp,
+.weather .weather-additional dd {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28px;
 }
 
+/* .w-today-additional { display: flex; flex-direction: column; gap: 2rem } */
 .weather .weather-additional {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 16px;
-  margin: 16px 0 0;
+  flex: 1;
+  grid-auto-flow: row;
+  align-content: start;
+  margin: 0;
 }
 
 .weather .weather-additional dd {
-  margin: 0;
+  margin: 0 0 20px;
 }
 
+.weather .weather-additional dd:last-child {
+  margin-bottom: 0;
+}
+
+/* .weather img { max-width: 100%; margin: 0 0 1rem } */
+.weather img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 10px;
+}
+
+.weather .weather-current img {
+  width: auto;
+  height: 92px;
+}
+
+/* .weather .w-forecast { display: flex; gap: 6rem; padding-bottom: 1rem } (4rem, scrolling <= 1320) */
 .weather .weather-days {
   display: flex;
-  gap: 24px;
+  gap: 40px;
   margin: 0;
-  padding: 0 0 8px;
+  padding: 0 0 10px;
   overflow-x: auto;
   list-style: none;
 }
@@ -53,28 +104,78 @@
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  gap: 4px;
-  min-width: 96px;
+  margin: 0;
 }
 
+/* .weather .w-day > * { width: 9.8rem; text-align: left; font-size: 1.5rem } */
+.weather .weather-day > * {
+  width: 98px;
+  font-size: 15px;
+  text-align: left;
+}
+
+/* first child: weight 500, uppercase */
 .weather .weather-day-name {
+  font-weight: 500;
   text-transform: uppercase;
 }
 
-.weather img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* .weather .w-day img { height: 9.2rem; width: auto; margin: 0 0 0 -.9rem } */
+.weather .weather-day img {
+  width: auto;
+  height: 92px;
+  margin: 0 0 0 -9px;
 }
 
-@media (width >= 900px) {
-  .weather .weather-data {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
+/* .weather .w-range { font-weight: 700; font-size: 1.4rem; line-height: 1.8rem } */
+.weather .weather-range {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@media (width <= 767px) {
+  .weather {
+    margin-bottom: 10px;
+  }
+}
+
+/* >= 1025: .w-today { gap: 4rem } children flex initial; additional values side by side,
+   flex 1 0 18rem (25rem >= 1200) */
+@media (width >= 1025px) {
+  .weather .weather-current {
+    flex: initial;
   }
 
-  .weather .weather-forecast {
-    min-width: 0;
+  .weather .weather-additional {
+    flex: initial;
+    grid-template-rows: auto auto;
+    grid-auto-columns: minmax(180px, auto);
+    grid-auto-flow: column;
+    column-gap: 40px;
+  }
+
+  .weather .weather-additional dd {
+    margin-bottom: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .weather .weather-additional {
+    grid-auto-columns: minmax(250px, auto);
+  }
+}
+
+@media (width >= 1281px) {
+  .weather .weather-temp,
+  .weather .weather-additional dd {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+@media (width >= 1321px) {
+  .weather .weather-days {
+    gap: 60px;
   }
 }

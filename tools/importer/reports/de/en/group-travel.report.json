@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/group-travel",
+  "path": "de/en/group-travel",
+  "timestamp": "2026-10-21T21:18:02.306Z",
+  "title": "Group travel | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

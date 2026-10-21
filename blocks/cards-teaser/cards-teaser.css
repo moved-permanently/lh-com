@@ -1,8 +1,16 @@
-/* cards-teaser: structural layout only; brand styling comes with the design pass */
+/*
+ * cards-teaser: Lufthansa .twocolumn / .threecolumn column-view of image + headline + richtext +
+ * maui-navigation-link (variant hyper) items.
+ * Grid: .row { margin: 0 -1rem } with .col-md-6.col-lg { padding: 0 1rem } = 20px gutter,
+ * 2 per row from 768px (.col-md-6), three-up 3 per row from 1025px (.col-lg).
+ * Vertical rhythm measured on /de/en/baggage, /de/en/online-check-in, /de/en/overview-flights:
+ * .image .image-wrapper { margin-bottom: 4rem }, .column-view-item { margin-bottom: 1rem / 2rem },
+ * each source row is its own column-view (66px from the last link to the next image).
+ */
 .cards-teaser > ul {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 32px 24px;
+  gap: 0 var(--grid-gutter);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -11,72 +19,114 @@
 .cards-teaser > ul > li {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   min-width: 0;
 }
 
+/* stacked: 36px inside a source pair (link margin 2.4rem + item margin 1rem), 66px between pairs */
+.cards-teaser > ul > li + li {
+  margin-top: 36px;
+}
+
+.cards-teaser:not(.three-up) > ul > li:nth-child(2n + 3) {
+  margin-top: 66px;
+}
+
+/* image: natural aspect ratio (.teaser .image-wrapper img { width: 100%; height: auto }) */
 .cards-teaser .cards-teaser-image {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .cards-teaser .cards-teaser-image picture,
 .cards-teaser .cards-teaser-image img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
-.cards-teaser .cards-teaser-image img {
-  object-fit: cover;
-}
-
+/* .richtext p { margin-bottom: 2.4rem }, copytext-large 18px / 150% */
 .cards-teaser .cards-teaser-body > * {
-  margin: 0 0 12px;
+  margin: 0 0 var(--spacing-default);
 }
 
 .cards-teaser .cards-teaser-body > :last-child {
   margin-bottom: 0;
 }
 
-.cards-teaser .cards-teaser-title {
-  font-size: var(--heading-font-size-s);
+/* title: h3.headline.heading-small (also h2.heading-small next to h3 cards on /online-check-in) */
+.cards-teaser .cards-teaser-body > .cards-teaser-title {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+  line-height: var(--heading-line-height);
 }
 
-.cards-teaser.three-up .cards-teaser-title {
-  font-size: var(--heading-font-size-xs);
+/* cards titled with h2 only (overview pages): h2.headline.heading-medium */
+.cards-teaser:not(:has(:is(h3, h4, h5, h6).cards-teaser-title)) .cards-teaser-body > h2.cards-teaser-title {
+  margin-bottom: var(--heading-margin-xl);
+  font-size: var(--heading-font-size-xl);
 }
 
-.cards-teaser .cards-teaser-cta-link {
+/* three-up: h3.headline.heading-copytext-large */
+.cards-teaser.three-up .cards-teaser-body > .cards-teaser-title {
+  margin-bottom: var(--spacing-default);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+/* CTA: maui-navigation-link size large, variant hyper (lh-arrow-right before the text) */
+.cards-teaser .cards-teaser-cta {
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+.cards-teaser .cards-teaser-cta-link:any-link {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
+  color: var(--link-color);
+  font-weight: 700;
 }
 
-.cards-teaser .cards-teaser-cta-link::after {
+.cards-teaser .cards-teaser-cta-link:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.cards-teaser .cards-teaser-cta-link::before {
   content: "";
-  display: inline-block;
   flex: 0 0 auto;
-  width: 6px;
-  height: 6px;
-  border-top: 2px solid currentcolor;
-  border-right: 2px solid currentcolor;
-  transform: rotate(45deg);
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-.cards-teaser .cards-teaser-cta-link:focus-visible {
-  outline: 2px solid var(--link-color, #3b63fb);
-  outline-offset: 2px;
+/* variant external (off-site links): lh-arrow-up-right */
+.cards-teaser .cards-teaser-cta-link[target="_blank"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 19 5 17.7 15.7 7H8V5.2h10.8V16H17V8.3z'/%3E%3C/svg%3E");
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
   .cards-teaser > ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 66px;
+  }
+
+  .cards-teaser > ul > li + li,
+  .cards-teaser:not(.three-up) > ul > li:nth-child(2n + 3) {
+    margin-top: 0;
+  }
+
+  /* three-up wraps inside one column-view at tablet: link margin 2.4rem + item margin 2rem */
+  .cards-teaser.three-up > ul {
+    row-gap: 46px;
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 1025px) {
   .cards-teaser.three-up > ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 66px;
   }
 }

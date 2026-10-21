@@ -1,4 +1,6 @@
+import { decorateIcons } from '../../scripts/aem.js';
 import { stripZeroWidth, decorateExternalLinks } from '../../scripts/block-config.js';
+import { takeIconName } from '../../scripts/lh-icons.js';
 
 const HEADINGS = 'h2, h3, h4, h5, h6';
 
@@ -79,6 +81,14 @@ export default function decorate(block) {
       if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'P') summary.append(...node.childNodes);
       else summary.append(node);
     });
+    // an undecorated leading ":name:" token (content served without the icon pipeline)
+    const token = !summary.querySelector('span.icon') && takeIconName(summary);
+    if (token) {
+      const icon = document.createElement('span');
+      icon.className = `icon icon-${token}`;
+      summary.prepend(icon);
+      decorateIcons(summary);
+    }
     details.append(summary, buildPanel(panelNodes));
     items.push(details);
   });

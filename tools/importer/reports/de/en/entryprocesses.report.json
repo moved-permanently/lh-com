@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/entryprocesses",
+  "path": "de/en/entryprocesses",
+  "timestamp": "2026-10-21T21:09:51.447Z",
+  "title": "Entry regulations | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -139,14 +139,11 @@ export default function decorate(block) {
   let current = 0;
   let prev;
   let next;
-  let dots = [];
+  let counter;
   const show = (index) => {
     current = Math.max(0, Math.min(total - 1, index));
     items.forEach((li, i) => { li.hidden = i !== current; });
-    dots.forEach((dot, i) => {
-      if (i === current) dot.setAttribute('aria-current', 'true');
-      else dot.removeAttribute('aria-current');
-    });
+    if (counter) counter.textContent = slideLabel(current);
     if (prev) prev.disabled = current === 0;
     if (next) next.disabled = current === total - 1;
   };
@@ -165,19 +162,11 @@ export default function decorate(block) {
     stage.prepend(prev);
     stage.append(next);
 
-    const bullets = el('ol', 'carousel-lightbox-dots');
-    dots = items.map((li, i) => {
-      const item = el('li');
-      const dot = el('button', 'carousel-lightbox-dot');
-      dot.type = 'button';
-      dot.setAttribute('aria-controls', track.id);
-      dot.setAttribute('aria-label', slideLabel(i));
-      dot.addEventListener('click', () => show(i));
-      item.append(dot);
-      bullets.append(item);
-      return dot;
-    });
-    dialog.append(bullets);
+    // fraction pagination ("1 of 2") as on the source slideshow; the slides carry the same
+    // label for assistive technology
+    counter = el('p', 'carousel-lightbox-counter');
+    counter.setAttribute('aria-hidden', 'true');
+    stage.append(counter);
 
     dialog.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') { e.preventDefault(); show(current + 1); }

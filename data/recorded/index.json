@@ -1095,7 +1095,11 @@
   "de/en|GET /service/api/labels/loginoneid/lh/en": {
    "file": "de-en-d888a78a.json",
    "recordedAt": "2026-10-21T20:47:08.875Z"
+  },
+  "de/en|GET /service/api/catalogs/countries": {
+   "file": "de-en-bf45fe3e.json",
+   "recordedAt": "2026-10-21T21:14:12.763Z"
   }
  },
- "updatedAt": "2026-10-21T20:49:02.231Z"
+ "updatedAt": "2026-10-21T21:18:37.498Z"
 }

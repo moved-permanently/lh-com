@@ -6,7 +6,7 @@ Custom **cards** block. Purpose: borderless image teaser grid linking to sub-pag
 
 Model: `standalone`
 
-Single block table. Content: 2 columns, one row per card. Cell 1: image (alt required). Cell 2: heading (any level; H3 recommended, H2 on campaign pages), description paragraph(s), CTA link as the last paragraph (rendered as an arrow link; authored bold/italic button formatting is dropped). Cells may be merged or missing: the first picture of the row is the media, everything else is the body; a row without an image renders text only. Default 2 per row from 600px; option three-up = 3 per row from 900px with a smaller title. No label rows; all texts are authored.
+Single block table. Content: 2 columns, one row per card. Cell 1: image (alt required). Cell 2: heading (any level; H3 recommended, H2 on campaign pages), description paragraph(s), CTA link as the last paragraph (rendered as an arrow link; authored bold/italic button formatting is dropped). Cells may be merged or missing: the first picture of the row is the media, everything else is the body; a row without an image renders text only. Default 2 per row from 768px; option three-up = 2 per row from 768px, 3 per row from 1025px, with a smaller bold title. Titles render light (Lufthansa heading-small); a block whose card titles are all H2 renders them at the larger H2 size (heading-medium). No label rows; all texts are authored.
 
 ## Supported variations
 

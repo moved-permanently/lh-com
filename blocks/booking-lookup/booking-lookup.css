@@ -1,112 +1,318 @@
-/* booking-lookup: structural layout only; brand styling comes with the design pass */
+/* booking-lookup: .tabs (maui-tab-control-responsive spreadtabs, accordion below 768px)
+   with .checkinpassengerreceiptentry (maui-notification info, .input / maui-input, maui-button) */
+.booking-lookup {
+  --booking-lookup-field-height: 58px;
+  --booking-lookup-field-reserve: 24px;
+  --booking-lookup-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 1.9 1.9 0 8 6.1 14.1 0 16 1.9l-8 8z'/%3E%3C/svg%3E");
+  --booking-lookup-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
+  --booking-lookup-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m1 6.4H7V12.8h2zM8 2.9a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3'/%3E%3C/svg%3E");
+
+  color: var(--lh-deepblue);
+}
+
+/* tab bar: tabs spread over the full width, 1px #ccc base line, 4px deep blue indicator */
 .booking-lookup .booking-lookup-tabs {
   display: flex;
-  gap: 4px;
-  overflow-x: auto;
+  box-shadow: inset 0 -1px 0 var(--lh-grey-4);
 }
 
 .booking-lookup .booking-lookup-tab {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
-  padding: 12px 16px;
+  padding: 15px 20px;
   border: 0;
-  border-bottom: 3px solid transparent;
+  border-bottom: 4px solid transparent;
   background: none;
-  color: inherit;
-  font: inherit;
+  color: var(--lh-grey-7);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
   cursor: pointer;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.booking-lookup .booking-lookup-tab:hover {
+  color: var(--lh-deepblue);
 }
 
 .booking-lookup .booking-lookup-tab[aria-selected="true"] {
-  border-bottom-color: currentcolor;
+  border-bottom-color: var(--lh-deepblue);
+  color: var(--lh-deepblue);
   font-weight: 700;
 }
 
 .booking-lookup .booking-lookup-panel {
-  padding: 24px 0;
+  padding-top: 52px;
 }
 
 .booking-lookup .booking-lookup-panel[hidden] {
   display: none;
 }
 
-.booking-lookup .booking-lookup-notice {
-  margin-bottom: 24px;
-  padding: 12px 16px;
-  border-left: 4px solid var(--dark-color, #505050);
-  background: var(--light-color, #f8f8f8);
-}
-
-.booking-lookup .booking-lookup-notice > :first-child {
-  margin-top: 0;
-}
-
-.booking-lookup .booking-lookup-notice > :last-child {
+.booking-lookup .booking-lookup-panel > :last-child,
+.booking-lookup .booking-lookup-panel > :last-child > :last-child {
   margin-bottom: 0;
 }
 
-.booking-lookup .booking-lookup-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+.booking-lookup .booking-lookup-panel img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.booking-lookup .booking-lookup-field {
+/* maui-notification type info: #f5f5f5 box, 16px info icon, action link below the copy */
+.booking-lookup .booking-lookup-notice {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 20px 18px 17px 49px;
+  background-color: var(--lh-grey-1);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.booking-lookup .booking-lookup-notice::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--lh-deepblue);
+  mask: var(--booking-lookup-info) center / contain no-repeat;
+}
+
+.booking-lookup .booking-lookup-notice > p {
+  margin: 0;
+}
+
+/* maui-navigation-link variant hyper, slot action: 14px bold, arrow-right */
+.booking-lookup .booking-lookup-notice a:any-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 13px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.booking-lookup .booking-lookup-notice a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: var(--booking-lookup-arrow) center / contain no-repeat;
+}
+
+.booking-lookup .booking-lookup-notice a:hover {
+  color: var(--link-hover-color);
+}
+
+.booking-lookup .booking-lookup-intro {
+  margin-bottom: var(--spacing-default);
+}
+
+.booking-lookup .booking-lookup-form {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  min-width: 0;
+  align-items: flex-start;
+}
+
+/* .input / maui-input: 33.5rem wide, 58px field, label inside, 2px #333 underline
+   with the .half-border tick at the right end, 24px reserved for the message */
+.booking-lookup .booking-lookup-field {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 335px;
+  min-height: calc(var(--booking-lookup-field-height) + var(--booking-lookup-field-reserve));
+}
+
+/* the legacy .input (booking reference) keeps a larger gap to the maui-input fields */
+.booking-lookup .booking-lookup-field:first-child {
+  margin-bottom: 19px;
+}
+
+.booking-lookup .booking-lookup-field::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--booking-lookup-field-height) - 20px);
+  right: 0;
+  width: 2px;
+  height: 20px;
+  background-color: var(--lh-grey-8);
+}
+
+.booking-lookup .booking-lookup-field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out, line-height 0.2s ease-in-out;
+}
+
+.booking-lookup .booking-lookup-field:has(> input:placeholder-shown:not(:focus)) label {
+  top: 24px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
 }
 
 .booking-lookup .booking-lookup-field input {
-  width: 100%;
   box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: var(--booking-lookup-field-height);
+  margin: 0;
+  padding: 24px 0 5px;
+  border: 0;
+  border-bottom: 2px solid var(--lh-grey-8);
+  border-radius: 0;
+  background: transparent;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+/* the label stands in for the placeholder */
+.booking-lookup .booking-lookup-field input::placeholder {
+  color: transparent;
 }
 
 .booking-lookup .booking-lookup-field input[aria-invalid="true"] {
-  border-color: #c00;
+  border-bottom-color: var(--lh-red);
+}
+
+.booking-lookup .booking-lookup-field:has(input[aria-invalid="true"])::after {
+  background-color: var(--lh-red);
 }
 
 .booking-lookup .booking-lookup-error {
-  margin: 0;
-  color: #c00;
+  margin: 7px 0 0;
+  color: var(--lh-red);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
 }
 
 .booking-lookup .booking-lookup-error[hidden] {
   display: none;
 }
 
-.booking-lookup .booking-lookup-submit {
-  margin: 0;
-  cursor: pointer;
+.booking-lookup .booking-lookup-actions {
+  width: 100%;
 }
 
-.booking-lookup .booking-lookup-panel img {
-  max-width: 100%;
-  height: auto;
+/* maui-button type primary size medium */
+.booking-lookup .booking-lookup-submit {
+  border-color: var(--lh-yellow);
+  background-color: var(--lh-yellow);
+  color: var(--lh-deepblue);
+}
+
+.booking-lookup .booking-lookup-submit:hover,
+.booking-lookup .booking-lookup-submit:focus-visible {
+  border-color: var(--lh-sunglow-yellow);
+  background-color: var(--lh-sunglow-yellow);
 }
 
 .booking-lookup .booking-lookup-tab:focus-visible,
-.booking-lookup .booking-lookup-panel:focus-visible,
+.booking-lookup .booking-lookup-panel:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
 .booking-lookup input:focus-visible,
 .booking-lookup .booking-lookup-submit:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
 
-@media (width >= 600px) {
-  .booking-lookup .booking-lookup-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* below 768px maui-tab-control-responsive is an accordion: header, panel, header, ... */
+@media (width < 768px) {
+  .booking-lookup:has(> .booking-lookup-tabs) {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--lh-grey-4);
   }
 
-  .booking-lookup .booking-lookup-field:first-child,
-  .booking-lookup .booking-lookup-actions {
-    grid-column: 1 / -1;
+  .booking-lookup .booking-lookup-tabs {
+    display: contents;
   }
+
+  .booking-lookup .booking-lookup-tab {
+    position: relative;
+    padding: 11px 56px 11px 20px;
+    border-top: 1px solid var(--lh-grey-4);
+    border-bottom: 0;
+    color: var(--lh-deepblue);
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .booking-lookup .booking-lookup-tab::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 16px;
+    height: 10px;
+    background-color: currentcolor;
+    mask: var(--booking-lookup-chevron) center / contain no-repeat;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .booking-lookup .booking-lookup-tab[aria-selected="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  .booking-lookup .booking-lookup-tabs ~ .booking-lookup-panel {
+    padding: 40px 20px;
+  }
+
+  /* header i, then panel i (panels follow the tab list in the DOM) */
+  .booking-lookup .booking-lookup-tab:nth-child(1) { order: 1; }
+  .booking-lookup > .booking-lookup-panel:nth-child(2) { order: 2; }
+  .booking-lookup .booking-lookup-tab:nth-child(2) { order: 3; }
+  .booking-lookup > .booking-lookup-panel:nth-child(3) { order: 4; }
+  .booking-lookup .booking-lookup-tab:nth-child(3) { order: 5; }
+  .booking-lookup > .booking-lookup-panel:nth-child(4) { order: 6; }
+  .booking-lookup .booking-lookup-tab:nth-child(4) { order: 7; }
+  .booking-lookup > .booking-lookup-panel:nth-child(5) { order: 8; }
+  .booking-lookup .booking-lookup-tab:nth-child(5) { order: 9; }
+  .booking-lookup > .booking-lookup-panel:nth-child(6) { order: 10; }
+  .booking-lookup .booking-lookup-tab:nth-child(n + 6) { order: 11; }
+  .booking-lookup > .booking-lookup-panel:nth-child(n + 7) { order: 12; }
 }
 
-@media (width >= 900px) {
-  .booking-lookup .booking-lookup-form {
-    max-width: 800px;
+/* content tabs (.twocolumn, col-md-6): copy and button left, image right */
+@media (width >= 768px) {
+  .booking-lookup .booking-lookup-panel:not(.booking-lookup-form-panel) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--grid-gutter);
+    align-content: start;
+  }
+
+  .booking-lookup .booking-lookup-panel:not(.booking-lookup-form-panel) > * {
+    grid-column: 1;
+  }
+
+  .booking-lookup .booking-lookup-panel:not(.booking-lookup-form-panel) > :has(picture) {
+    grid-area: 1 / 2 / span 20;
+    margin: 0;
   }
 }

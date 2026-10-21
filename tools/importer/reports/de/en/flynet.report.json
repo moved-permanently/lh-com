@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/flynet",
+  "path": "de/en/flynet",
+  "timestamp": "2026-10-21T21:17:46.105Z",
+  "title": "FlyNet® on board | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1,14 +1,23 @@
-/* columns-media: structural layout only; brand styling comes with the design pass */
+/*
+ * columns-media: Lufthansa .twocolumn column-view (.col-md-6.col-lg items, 20px gutter, 50/50 from
+ * 768px) and, for wide-media, .airem-sidebar (.sidebar-content 75% / .sidebar-aside 25% from 768px).
+ * Each block row is one source column-view: 66px between rows.
+ * Stacked (< 768px): .image .image-wrapper { margin-bottom: 4rem } + .column-view-item
+ * { margin-bottom: 1rem } = 50px below media, 36px below text (link margin 2.4rem + 1rem),
+ * wide-media .sidebar-aside { margin-top: 4rem } = 40px.
+ * Measured on /de/en/timetable-and-flight-status, /de/en/baggage, /de/en/online-check-in,
+ * /de/en/imprint, /de/en/100-years.
+ */
 .columns-media {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 66px;
 }
 
 .columns-media .columns-media-row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 var(--grid-gutter);
   align-items: start;
 }
 
@@ -16,14 +25,28 @@
   min-width: 0;
 }
 
-.columns-media .columns-media-text > :first-child {
-  margin-top: 0;
+.columns-media .columns-media-row > .columns-media-media:not(:last-child) {
+  margin-bottom: 50px;
 }
 
-.columns-media .columns-media-text > :last-child {
+.columns-media .columns-media-row > .columns-media-text:not(:last-child) {
+  margin-bottom: 36px;
+}
+
+/* wide-media stacks media first, 40px above the text */
+.columns-media.wide-media .columns-media-media-last > .columns-media-media {
+  order: -1;
+}
+
+.columns-media.wide-media .columns-media-row > .columns-media-media {
+  margin-bottom: 40px;
+}
+
+.columns-media.wide-media .columns-media-media-last > .columns-media-text {
   margin-bottom: 0;
 }
 
+/* media cell */
 .columns-media .columns-media-media p {
   margin: 0;
 }
@@ -40,16 +63,86 @@
   display: block;
 }
 
-.columns-media .columns-media-media a:focus-visible {
-  outline: 2px solid var(--text-color, #131313);
-  outline-offset: 2px;
+/* text cell: .richtext (p 18px / 150%, margin-bottom 2.4rem) and .headline */
+.columns-media .columns-media-text > :first-child {
+  margin-top: 0;
 }
 
-/* several images side by side (e.g. photo + QR code) */
+.columns-media .columns-media-text > :last-child {
+  margin-bottom: 0;
+}
+
+/* h3.headline.heading-small (/baggage, /online-check-in); h2 keeps the heading-medium default */
+.columns-media .columns-media-text h3 {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+}
+
+/* .richtext ul/ol: 18px / 150%, li margin-bottom 1rem */
+.columns-media .columns-media-text li {
+  margin-bottom: 10px;
+}
+
+/* linked badge images in a text paragraph (app store badges, /online-check-in):
+   full width and stacked on mobile (.col-md-6 image items), 40px high side by side from 768px */
+.columns-media .columns-media-text p:has(> a > picture) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+
+  /* 55px from the copy above (collapses with the paragraph margin) */
+  margin-top: 55px;
+}
+
+.columns-media .columns-media-text p > a:has(> picture) {
+  display: block;
+  width: 100%;
+}
+
+.columns-media .columns-media-text p > a > picture,
+.columns-media .columns-media-text p > a > picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* a link alone in its paragraph: maui-navigation-link size large, variant hyper */
+.columns-media .columns-media-text p.link-wrapper {
+  line-height: 24px;
+}
+
+.columns-media .columns-media-text p.link-wrapper a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--link-color);
+}
+
+.columns-media .columns-media-text p.link-wrapper a:hover {
+  color: var(--link-hover-color);
+}
+
+.columns-media .columns-media-text p.link-wrapper a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* variant external (off-site links): lh-arrow-up-right */
+.columns-media .columns-media-text p.link-wrapper a[target="_blank"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 19 5 17.7 15.7 7H8V5.2h10.8V16H17V8.3z'/%3E%3C/svg%3E");
+}
+
+/* several images side by side (photo + QR code): two .col-md-6.col-lg image items */
 .columns-media .columns-media-multi {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: var(--grid-gutter);
   align-items: flex-start;
 }
 
@@ -58,66 +151,89 @@
   min-width: 0;
 }
 
-/* click-to-play video */
+/* click-to-play video: .moving-image .on-image-button-wrapper { padding: 1.5rem },
+   .on-image-button { 4rem x 4rem; background: #0009; border-radius: 0; color: #fff } */
 .columns-media .columns-media-video {
   position: relative;
 }
 
 .columns-media .columns-media-video:not(:has(picture, video)) {
   aspect-ratio: 16 / 9;
-  background-color: var(--dark-color, #505050);
+  background-color: var(--lh-grey-7);
 }
 
 .columns-media .columns-media-play {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  width: 56px;
-  height: 56px;
+  bottom: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 50%;
-  background-color: var(--background-color, #fff);
+  border-radius: 0;
+  background-color: #0009;
+  color: var(--lh-white);
   cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+/* lh-play icon, 18px (.on-image-button maui-icon --maui-icon-size-override: 18px) */
 .columns-media .columns-media-play::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  border-width: 10px 0 10px 16px;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--text-color, #131313);
-  transform: translate(-35%, -50%);
+  inset: 0;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5v17L20.5 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.columns-media .columns-media-play:hover,
+.columns-media .columns-media-play:focus-visible {
+  color: var(--lh-grey-4);
 }
 
 .columns-media .columns-media-play:focus-visible {
-  outline: 3px solid var(--text-color, #131313);
-  outline-offset: 3px;
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
-/* stacked on mobile: wide-media shows the media first */
-.columns-media.wide-media .columns-media-media-last > .columns-media-media {
-  order: -1;
-}
-
-@media (width >= 900px) {
+@media (width >= 768px) {
   .columns-media .columns-media-row {
     grid-template-columns: repeat(var(--columns-media-cols, 2), minmax(0, 1fr));
-    gap: 32px;
+  }
+
+  .columns-media .columns-media-row > .columns-media-media:not(:last-child),
+  .columns-media .columns-media-row > .columns-media-text:not(:last-child),
+  .columns-media.wide-media .columns-media-row > .columns-media-media {
+    margin-bottom: 0;
   }
 
   .columns-media.wide-media .columns-media-media-first {
-    grid-template-columns: minmax(0, 73fr) minmax(0, 27fr);
+    grid-template-columns: calc(75% - 10px) calc(25% - 10px);
   }
 
   .columns-media.wide-media .columns-media-media-last {
-    grid-template-columns: minmax(0, 27fr) minmax(0, 73fr);
+    grid-template-columns: calc(25% - 10px) calc(75% - 10px);
   }
 
   .columns-media.wide-media .columns-media-media-last > .columns-media-media {
     order: 0;
+  }
+
+  .columns-media .columns-media-text p:has(> a > picture) {
+    flex-flow: row wrap;
+    gap: var(--grid-gutter);
+  }
+
+  .columns-media .columns-media-text p > a:has(> picture) {
+    width: auto;
+  }
+
+  .columns-media .columns-media-text p > a > picture img {
+    width: auto;
+    height: 40px;
   }
 }

@@ -1,4 +1,6 @@
+import { decorateIcons } from '../../scripts/aem.js';
 import { cleanText, decorateExternalLinks } from '../../scripts/block-config.js';
+import { takeIconName } from '../../scripts/lh-icons.js';
 
 /**
  * Body elements of a row (all cells merged), without the icon. Cells authored without
@@ -36,7 +38,16 @@ export default function decorate(block) {
   const ul = document.createElement('ul');
 
   [...block.children].forEach((row) => {
-    const icon = row.querySelector('span.icon, picture, img');
+    let icon = row.querySelector('span.icon, picture, img');
+    // an undecorated ":name:" token (content served without the icon pipeline) is the icon too
+    const token = !icon && takeIconName(row);
+    if (token) {
+      const holder = document.createElement('div');
+      icon = document.createElement('span');
+      icon.className = `icon icon-${token}`;
+      holder.append(icon);
+      decorateIcons(holder);
+    }
     const iconEl = icon && icon.tagName === 'IMG' && icon.closest('picture') ? icon.closest('picture') : icon;
     const links = [...row.querySelectorAll('a[href]')];
     const link = links[links.length - 1] || null;

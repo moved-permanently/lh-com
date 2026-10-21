@@ -192,7 +192,10 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  document.documentElement.lang = getLocale().lang;
+  const locale = getLocale();
+  document.documentElement.lang = locale.lang;
+  // AirCore pages (/lhg/...) keep the AirCore look of shared blocks (body.aircore scoped rules)
+  if (locale.aircore) document.body.classList.add('aircore');
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

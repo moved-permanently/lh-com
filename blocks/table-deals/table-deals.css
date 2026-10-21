@@ -1,101 +1,140 @@
-/* table-deals: structural layout only; brand styling comes with the design pass */
+/* table-deals: AirCore last-minute deals (section.last-minute-deals .last-minute-deals__list) */
+
+/* .last-minute-deals__list { display: grid; gap: 1px; background: #d9d9d9 }: 1px lines between rows */
 .table-deals .table-deals-list {
+  display: grid;
+  gap: 1px;
   margin: 0;
   padding: 0;
+  background-color: #d9d9d9;
   list-style: none;
 }
 
+/* .last-minute-deals__offer { background: #fff } */
 .table-deals .table-deals-item {
-  border-bottom: 1px solid var(--light-color, #ccc);
-}
-
-.table-deals .table-deals-item:first-child {
-  border-top: 1px solid var(--light-color, #ccc);
+  margin: 0;
+  background-color: var(--background-color);
 }
 
 .table-deals .table-deals-item[hidden] {
   display: none;
 }
 
+/* .last-minute-deals__offer-link: grid minmax(0,1fr) minmax(0,1fr) auto, gap 1rem,
+   padding 1.5rem 1rem, color inherit, weight 400 */
 .table-deals .table-deals-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-auto-flow: row dense;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   align-items: center;
-  gap: 4px 16px;
-  padding: 12px 0;
+  gap: 10px;
+  padding: 15px 10px;
   color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.2;
   text-decoration: none;
 }
 
-.table-deals a.table-deals-row {
+/* .last-minute-deals__offer-link:hover { background: #f5f5f5; text-decoration: none } */
+.table-deals a.table-deals-row:hover,
+.table-deals a.table-deals-row:focus-visible {
+  background-color: var(--lh-grey-1);
+  color: var(--text-color);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.table-deals a.table-deals-row:focus-visible {
   position: relative;
-  padding-right: 24px;
+  z-index: 1;
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
-.table-deals a.table-deals-row::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  width: 7px;
-  height: 7px;
-  border: solid currentcolor;
-  border-width: 2px 2px 0 0;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.table-deals a.table-deals-row:hover .table-deals-origin,
-.table-deals a.table-deals-row:hover .table-deals-destination {
-  text-decoration: underline;
-}
-
+/* .last-minute-deals__route-name, time: 1.6rem, line-height 1.2 */
 .table-deals .table-deals-row > span {
-  grid-column: 1;
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
-.table-deals .table-deals-row > .table-deals-price {
-  grid-column: 2;
-  grid-row: 1 / span 3;
-  font-weight: 700;
-  text-align: right;
-  white-space: nowrap;
+.table-deals .table-deals-origin {
+  grid-column: 1;
+  grid-row: 1;
 }
 
+.table-deals .table-deals-destination {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.table-deals .table-deals-date {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.table-deals .table-deals-price {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.table-deals .table-deals-extra {
+  grid-column: 1 / -1;
+}
+
+/* .last-minute-deals__price-label 400, __price-value 700 (both 1.6rem) */
+.table-deals .table-deals-price-label {
+  font-weight: 400;
+}
+
+.table-deals .table-deals-price-value {
+  font-weight: 700;
+}
+
+/* .lh.lh-arrow-right.last-minute-deals__icon: 1.9rem, column 3 over both rows, right aligned */
+.table-deals a.table-deals-row::after {
+  content: "";
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  place-self: center end;
+  width: 19px;
+  height: 19px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.6 13.1v-2.2h10.5l-4.3-4.3L12.4 5l7 7-7 7-1.6-1.6 4.3-4.3z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* .last-minute-deals__load-more.btn-secondary { display: block; width: auto; margin: 2.5rem auto 0 } */
 .table-deals .table-deals-more {
-  display: block;
-  margin: 16px auto 0;
-  cursor: pointer;
+  display: flex;
+  width: fit-content;
+  margin: 25px auto 0;
 }
 
 .table-deals .table-deals-more[hidden] {
   display: none;
 }
 
-.table-deals a.table-deals-row:focus-visible,
-.table-deals .table-deals-more:focus-visible {
-  outline: 2px solid currentcolor;
-  outline-offset: 2px;
-}
-
-@media (width >= 900px) {
+/* >= 768: one line per deal, columns origin | destination | date | (0) | price + icon | 0, gap 0 */
+@media (width >= 768px) {
   .table-deals .table-deals-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-    grid-auto-flow: row;
+    grid-template-columns:
+      minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0)
+      minmax(0, 1fr) 0;
+    gap: 0;
   }
 
-  .table-deals .table-deals-row > span {
-    grid-column: auto;
-  }
-
-  .table-deals .table-deals-row > .table-deals-price {
-    grid-column: 4;
+  .table-deals .table-deals-date {
+    grid-column: 3;
     grid-row: 1;
   }
 
-  .table-deals .table-deals-row > .table-deals-extra {
-    grid-column: 1 / -1;
+  .table-deals .table-deals-price {
+    grid-column: 5;
+    grid-row: 1;
+    white-space: nowrap;
+  }
+
+  .table-deals a.table-deals-row::after {
+    grid-column: 5;
+    grid-row: 1;
   }
 }

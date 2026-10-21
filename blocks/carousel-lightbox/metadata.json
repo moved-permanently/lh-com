@@ -6,14 +6,14 @@
   "visualCharacteristics": {
     "purpose": "inline image preview with a zoom icon that opens all slides in a modal carousel",
     "traits": [
-      "first slide shown inline (half width from 600px) with a round zoom icon",
-      "dark modal dialog with close button, prev/next arrows and bullets",
+      "first slide shown inline (full width, half width from 768px) with a round photo-gallery icon centred on it (bottom right for a single slide)",
+      "lightbox on a 90% black backdrop: close icon top right, image at full width, dark arrow tabs on the image edges, \"1 of 2\" counter (Slide label) below the image",
       "Escape, backdrop click or close button closes; focus returns to the preview",
-      "arrow keys navigate; a single slide shows no arrows or bullets"
+      "arrow keys navigate; a single slide shows no arrows or counter"
     ]
   },
   "contentPattern": {
-    "structure": "One row per slide. Cell 1: image (required, with alt text; rows without an image are not slides). Cell 2 (optional): caption shown under the image in the lightbox. The first slide's image is the inline preview button. Optional label rows (2 cells, no image) for UI strings, with defaults by page language: Open label (EN 'Enlarge image', DE 'Bild vergrößern'), Close label ('Close' / 'Schließen'), Previous label ('Previous image' / 'Vorheriges Bild'), Next label ('Next image' / 'Nächstes Bild'), Dialog label ('Image gallery' / 'Bildergalerie'), Slide label ('{n} of {total}' / '{n} von {total}'). Other rows without an image are ignored; a block without any image is hidden"
+    "structure": "One row per slide. Cell 1: image (required, with alt text; rows without an image are not slides). Cell 2 (optional): caption shown under the image in the lightbox. The first slide's image is the inline preview button. Optional label rows (2 cells, no image) for UI strings, with defaults by page language: Open label (EN 'Enlarge image', DE 'Bild vergrößern'), Close label ('Close' / 'Schließen'), Previous label ('Previous image' / 'Vorheriges Bild'), Next label ('Next image' / 'Nächstes Bild'), Dialog label ('Image gallery' / 'Bildergalerie'), Slide label ('{n} of {total}' / '{n} von {total}'; also the visible counter under the image). Other rows without an image are ignored; a block without any image is hidden"
   },
   "options": [],
   "memberVariantIds": [],

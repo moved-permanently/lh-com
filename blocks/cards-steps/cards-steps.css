@@ -1,68 +1,110 @@
-/* cards-steps: structural layout only; brand styling comes with the design pass */
+/* cards-steps: .fourcolumn column-view (col-md-6 col-lg): per step a h2.heading-large number,
+   h3.heading-copytext-large title, .richtext copy and a maui-navigation-link */
+.cards-steps {
+  --cards-steps-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.2 4.6h8.2v8.2h-1.9V7.9l-7.9 7.9-1.3-1.3 7.9-7.9H7.2z'/%3E%3C/svg%3E");
+  --cards-steps-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
+}
+
 .cards-steps > ol {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
+  gap: 34px var(--grid-gutter);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .cards-steps .cards-steps-step {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  min-width: 0;
+  margin: 0;
 }
 
+/* h2.heading-large: LufthansaHead bold, h1 scale (36px to 48px) */
 .cards-steps .cards-steps-number {
+  display: block;
+  margin-bottom: var(--heading-margin-xxl);
+  color: var(--heading-color);
   font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-xl);
+  font-size: var(--heading-font-size-xxl);
   font-weight: 700;
-  line-height: 1;
+  line-height: var(--heading-line-height);
 }
 
-.cards-steps .cards-steps-body > * {
-  margin: 0 0 8px;
+/* h3.heading-copytext-large: bold, 20px to 24px, 2.4rem below */
+.cards-steps .cards-steps-title {
+  margin: 0 0 var(--spacing-default);
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+}
+
+.cards-steps .cards-steps-body > p,
+.cards-steps .cards-steps-body > ul,
+.cards-steps .cards-steps-body > ol {
+  margin: 0 0 var(--spacing-default);
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
 }
 
 .cards-steps .cards-steps-body > :last-child {
   margin-bottom: 0;
 }
 
-.cards-steps .cards-steps-title {
-  font-size: var(--heading-font-size-xs);
-  font-weight: 700;
-}
-
-.cards-steps .cards-steps-cta-link {
+/* maui-navigation-link size large: 18px bold whale blue; external links get the
+   north-east arrow, internal ones arrow-right (20px icon box, 8px gap) */
+.cards-steps .cards-steps-cta-link:any-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  color: var(--link-color);
+  font-weight: 700;
 }
 
-.cards-steps .cards-steps-cta-link::after {
+.cards-steps .cards-steps-cta-link::before {
   content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-top: 2px solid currentcolor;
-  border-right: 2px solid currentcolor;
-  transform: rotate(45deg);
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: var(--cards-steps-arrow) center / 16px 16px no-repeat;
+}
+
+.cards-steps .cards-steps-cta-link[target="_blank"]::before {
+  mask: var(--cards-steps-external) center / contain no-repeat;
+}
+
+.cards-steps .cards-steps-cta-link:hover {
+  color: var(--link-hover-color);
 }
 
 .cards-steps .cards-steps-cta-link:focus-visible {
-  outline: 2px solid var(--link-color, #3b63fb);
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
 
-@media (width >= 600px) {
+/* col-md-6 in a stacked column view: one step per row at half width */
+@media (width >= 768px) {
   .cards-steps > ol {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 44px;
+  }
+
+  .cards-steps .cards-steps-step {
+    grid-column: 1;
   }
 }
 
-@media (width >= 900px) {
+/* col-lg: four equal columns */
+@media (width >= 1025px) {
   .cards-steps > ol {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: none;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+
+  .cards-steps .cards-steps-step {
+    grid-column: auto;
   }
 }

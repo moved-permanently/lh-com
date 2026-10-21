@@ -1,22 +1,34 @@
-/* hero-campaign: structural layout only; brand styling comes with the design pass */
+/*
+ * hero-campaign: Lufthansa inspiration teaser (.cms-inspiration-teaser, app.*.css).
+ * Stage: .cms-inspiration-teaser .dcep-moving-image img { height: 81rem } on all breakpoints.
+ * Text: .campaign-information.section-regular.container-fluid (max 144rem, container offset),
+ * vertically centred (top: 50%; translateY(-50%)).
+ * Default: .alignment-left with .inspiration-teaser-no-animation and the #6F625A gradient overlay.
+ * Option right: .alignment-right.uplift-animation, a white text card on the image.
+ */
 .hero-campaign {
   --hero-campaign-scrollbar: 0px;
+  --hero-campaign-overlay-color: #6f625a;
+  --hero-campaign-overlay-direction: bottom;
+  --hero-campaign-overlay-start: 70%;
+  --hero-campaign-overlay-end: 90%;
 
   position: relative;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   width: calc(100vw - var(--hero-campaign-scrollbar));
-  min-height: 480px;
+  min-height: 810px;
   margin-inline: calc(50% - 50vw + var(--hero-campaign-scrollbar) / 2);
   overflow: hidden;
-  color: var(--background-color, #fff);
+  color: var(--lh-white);
 }
 
 .hero-campaign .hero-campaign-media {
   position: absolute;
   inset: 0;
-  background-color: var(--dark-color, #505050);
+  isolation: isolate;
+  background-color: var(--dark-color);
 }
 
 .hero-campaign .hero-campaign-media picture,
@@ -39,107 +51,246 @@
   opacity: 1;
 }
 
+/* .inspiration-teaser-no-animation .transparent-overlay: gradient from the overlay colour,
+   multiplied onto the image */
+.hero-campaign:not(.right) .hero-campaign-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to var(--hero-campaign-overlay-direction),
+    var(--hero-campaign-overlay-color) 0%,
+    rgb(0 0 0 / 55%) var(--hero-campaign-overlay-start),
+    transparent var(--hero-campaign-overlay-end)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
 .hero-campaign .hero-campaign-inner {
   position: relative;
+  z-index: 2;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: var(--spacing-default) var(--layout-margin);
 }
 
+/* .campaign-information .headline / .information { max-width: 48.5rem } */
 .hero-campaign .hero-campaign-content {
-  max-width: 600px;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+  box-sizing: border-box;
+  max-width: 485px;
+  font-size: var(--body-font-size-m);
+  font-weight: 300;
+  line-height: var(--body-line-height);
 }
 
-.hero-campaign.right .hero-campaign-content {
-  margin-left: auto;
-  text-align: right;
+/* .campaign-information .headline: LufthansaHead 700, 3.6rem fluid to 4.8rem, but the later
+   min-width: 1025px rule fixes it at 4.2rem from 1025px; line-height 110%; margin-bottom 1.6rem */
+.hero-campaign .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 0 16px;
+  color: inherit;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
 }
 
-.hero-campaign .hero-campaign-content > :first-child {
-  margin-top: 0;
+/* .campaign-information .subheadline: LufthansaHead 300, 2.2rem fluid to 2.8rem, line-height 110%,
+   padding-top 1.6rem, margin-bottom 1.6rem */
+.hero-campaign .hero-campaign-content > .hero-campaign-subtitle {
+  margin: 0 0 16px;
+  padding-top: 16px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+  line-height: var(--heading-line-height);
 }
 
-.hero-campaign .hero-campaign-content > :last-child {
-  margin-bottom: 0;
+/* .campaign-information .information .richtext p { font-size: 1.8rem; font-weight: 300;
+   margin-bottom: 2rem } */
+.hero-campaign .hero-campaign-content > p {
+  margin: 0 0 20px;
 }
 
 .hero-campaign .hero-campaign-content a:not(.button) {
   color: inherit;
 }
 
+.hero-campaign .hero-campaign-content > .hero-campaign-cta {
+  margin: 0;
+}
+
+.hero-campaign .hero-campaign-content > .hero-campaign-cta:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* maui-button-link size="medium" width="auto": 48px high, 1.6rem bold */
+.hero-campaign .hero-campaign-cta a.button:any-link {
+  width: auto;
+  min-height: 48px;
+  padding: 10px 30px;
+  font-size: var(--body-font-size-s);
+}
+
+/* maui-button-link type="secondary" inverted on the image */
+.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary {
+  border-color: var(--lh-white);
+  background-color: transparent;
+  color: var(--lh-white);
+}
+
+.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:hover,
+.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:focus-visible {
+  border-color: var(--lh-white);
+  background-color: var(--lh-white);
+  color: var(--lh-deepblue);
+}
+
+.hero-campaign .hero-campaign-cta a.button:focus-visible {
+  outline-color: var(--lh-white);
+}
+
+/* option right: .alignment-right.uplift-animation, white card at the right edge;
+   .headline { padding: 3rem; margin-bottom: -.3rem }, .subheadline { padding: 1.6rem 3rem 2rem;
+   margin-bottom: -.3rem }, .information { padding: 0 3rem 3rem; margin-bottom: 2.4rem } below
+   768px; text #05164d */
+.hero-campaign.right .hero-campaign-inner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-campaign.right .hero-campaign-content {
+  width: 100%;
+  margin-bottom: var(--spacing-default);
+  padding: 30px;
+  background-color: var(--lh-white);
+  color: var(--lh-deepblue);
+}
+
+.hero-campaign.right .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 27px;
+}
+
+.hero-campaign.right .hero-campaign-content > .hero-campaign-subtitle {
+  margin-bottom: 17px;
+}
+
+/* the source always renders the .information box; under a subtitle-only stage it holds an
+   empty paragraph (2.7rem line + 2rem margin) that is part of the vertically centred box */
+.hero-campaign:not(.right) .hero-campaign-content > .hero-campaign-subtitle:last-child {
+  margin-bottom: 63px;
+}
+
+.hero-campaign.right .hero-campaign-cta a.button:focus-visible {
+  outline-color: var(--focus-color);
+}
+
+/* no image: plain text on light grey */
 .hero-campaign.hero-campaign-no-image {
-  color: var(--text-color, #131313);
+  color: var(--text-color);
 }
 
-.hero-campaign.hero-campaign-no-image .hero-campaign-content {
-  text-shadow: none;
+.hero-campaign.hero-campaign-no-image .hero-campaign-media {
+  background-color: var(--light-color);
 }
 
+.hero-campaign.hero-campaign-no-image .hero-campaign-media::after {
+  content: none;
+}
+
+/* background video toggle: .moving-image-play-button (.on-image-button 4rem square, #0009,
+   18px white icon, hover #ccc) in .on-image-button-wrapper.opposite-alignment-left
+   (right: 0; padding: 1.5rem 1.5rem 0; height 7.2rem when the controls are visible) */
 .hero-campaign .hero-campaign-toggle {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 44px;
-  height: 44px;
+  right: 15px;
+  bottom: 17px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 50%;
-  background-color: rgb(0 0 0 / 50%);
+  border-radius: 0;
+  background-color: rgb(0 0 0 / 60%);
+  color: var(--lh-white);
   cursor: pointer;
+  transition: transform 0.5s, color 0.3s ease-in-out;
 }
 
-/* pause icon (two bars); play icon (triangle) when paused */
 .hero-campaign .hero-campaign-toggle::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 4px;
-  height: 16px;
-  border-right: 4px solid var(--background-color, #fff);
-  border-left: 4px solid var(--background-color, #fff);
-  transform: translate(-50%, -50%);
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 4h4v16H6zm8 0h4v16h-4z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .hero-campaign .hero-campaign-toggle.hero-campaign-toggle-paused::before {
-  width: 0;
-  height: 0;
-  border-width: 8px 0 8px 14px;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--background-color, #fff);
-  transform: translate(-35%, -50%);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5v17L20 12z'/%3E%3C/svg%3E");
+}
+
+.hero-campaign .hero-campaign-toggle:hover {
+  color: var(--lh-grey-4);
 }
 
 .hero-campaign .hero-campaign-toggle:focus-visible {
-  outline: 3px solid var(--background-color, #fff);
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
 
-@media (width >= 600px) {
-  .hero-campaign {
-    min-height: 560px;
+/* the controls slide in while the pointer is over the stage (or the toggle has focus) */
+@media (hover: hover) {
+  .hero-campaign .hero-campaign-toggle {
+    transform: translateY(57px);
+  }
+
+  .hero-campaign:hover .hero-campaign-toggle,
+  .hero-campaign .hero-campaign-toggle:focus-visible {
+    transform: none;
   }
 }
 
-@media (width >= 900px) {
-  .hero-campaign {
-    min-height: clamp(560px, 56.25vw, 810px);
-  }
-
-  .hero-campaign .hero-campaign-inner {
-    padding: 64px 32px;
-  }
-
-  .hero-campaign .hero-campaign-content {
-    max-width: 50%;
-  }
-
+@media (prefers-reduced-motion: reduce) {
   .hero-campaign .hero-campaign-toggle {
-    right: 32px;
-    bottom: 32px;
+    transition: none;
+  }
+}
+
+@media (width >= 768px) {
+  /* --transparent-overlay-gradient-start: max(calc(475px + var(--container-offset)), 43%) */
+  .hero-campaign {
+    --hero-campaign-overlay-direction: right;
+    --hero-campaign-overlay-start: max(calc(475px + var(--layout-margin)), 43%);
+  }
+
+  .hero-campaign.right .hero-campaign-content {
+    margin-bottom: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  .hero-campaign {
+    --hero-campaign-overlay-end: 80%;
+  }
+
+  .hero-campaign .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 42px;
+  }
+
+  /* .campaign-information .information { padding-left: 6.4rem } (border-box, max 48.5rem) */
+  .hero-campaign:not(.right) .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
+    padding-left: 64px;
+  }
+}
+
+@media (width >= 1281px) {
+  .hero-campaign {
+    --hero-campaign-overlay-end: 65%;
   }
 }

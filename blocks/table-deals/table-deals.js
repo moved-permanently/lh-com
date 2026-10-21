@@ -49,6 +49,24 @@ function buildCell(cell, index) {
     node.textContent = stripZeroWidth(node.textContent);
     node = walker.nextNode();
   }
+  // a plain price text "from 423 €" gets its prefix and amount styled apart, like the source
+  // (.last-minute-deals__price-label / __price-value)
+  const price = CELL_CLASSES[index] === 'price' && !span.children.length
+    && span.textContent.trim().match(/^(\D*?)\s*(\d.*)$/);
+  if (price) {
+    const [, prefix, amount] = price;
+    const value = document.createElement('span');
+    value.className = 'table-deals-price-value';
+    value.textContent = amount;
+    span.replaceChildren();
+    if (prefix) {
+      const label = document.createElement('span');
+      label.className = 'table-deals-price-label';
+      label.textContent = prefix;
+      span.append(label, ' ');
+    }
+    span.append(value);
+  }
   return span;
 }
 
@@ -104,7 +122,8 @@ export default function decorate(block) {
 
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'table-deals-more';
+  // .last-minute-deals__load-more.btn-secondary: the global secondary button
+  button.className = 'table-deals-more button secondary';
   button.textContent = labels['show more label'];
   button.setAttribute('aria-controls', list.id);
   button.setAttribute('aria-expanded', 'false');

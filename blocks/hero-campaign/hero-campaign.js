@@ -9,6 +9,11 @@ const DEFAULT_LABELS = {
 
 const LABEL_KEYS = ['pause-label', 'play-label'];
 
+/** A paragraph after the heading up to this length is the subtitle (.subheadline). */
+const SUBTITLE_MAX_LENGTH = 100;
+
+const INLINE_TAGS = ['A', 'ABBR', 'B', 'BR', 'CODE', 'EM', 'I', 'SMALL', 'SPAN', 'STRONG', 'SUB', 'SUP', 'U'];
+
 let instanceCount = 0;
 
 /** Whether a link points to an .mp4 video. */
@@ -144,17 +149,29 @@ export default function decorate(block) {
   const videoSrc = videoLink ? videoLink.href : '';
   if (videoLink) videoLink.remove();
 
-  // everything else is text
+  // everything else is text; loose text and inline nodes (cells without a paragraph) are
+  // wrapped in a paragraph so they get the text styles
   const content = document.createElement('div');
   content.className = 'hero-campaign-content';
+  let loose = null;
   [...block.children].forEach((row) => {
     [...row.children].forEach((cell) => {
       [...cell.childNodes].forEach((node) => {
         if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return;
         if (node.nodeType === Node.ELEMENT_NODE && ['P', 'DIV'].includes(node.tagName)
           && !node.textContent.trim() && !node.querySelector('img, a, picture')) return;
+        if (node.nodeType === Node.TEXT_NODE || INLINE_TAGS.includes(node.tagName)) {
+          if (!loose) {
+            loose = document.createElement('p');
+            content.append(loose);
+          }
+          loose.append(node);
+          return;
+        }
+        loose = null;
         content.append(node);
       });
+      loose = null;
     });
   });
 
@@ -163,9 +180,10 @@ export default function decorate(block) {
     heading.id = heading.id || `hero-campaign-heading-${instanceCount}`;
     block.setAttribute('role', 'region');
     block.setAttribute('aria-labelledby', heading.id);
-    // subtitle: the plain paragraph directly after the heading
+    // subtitle: a short plain paragraph directly after the heading (longer ones are body text)
     const next = heading.nextElementSibling;
-    if (next && next.tagName === 'P' && !next.querySelector('a, picture')) {
+    if (next && next.tagName === 'P' && !next.querySelector('a, picture')
+      && cleanText(next).length <= SUBTITLE_MAX_LENGTH) {
       next.classList.add('hero-campaign-subtitle');
     }
   }
@@ -174,6 +192,12 @@ export default function decorate(block) {
     const links = p.querySelectorAll('a[href]');
     if (links.length && [...links].map((a) => a.textContent).join('').trim() === p.textContent.trim()) {
       p.classList.add('hero-campaign-cta');
+      // a call to action on the stage is always a button; unformatted links are secondary
+      links.forEach((a) => {
+        if (!a.classList.contains('button')) a.classList.add('button', 'secondary');
+      });
+      p.classList.remove('link-wrapper');
+      p.classList.add('button-wrapper');
     }
   });
 

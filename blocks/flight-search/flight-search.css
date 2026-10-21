@@ -540,3 +540,292 @@
     --flight-search-label-line: 21px;
   }
 }
+
+/* AirCore pages (body.aircore): the flight manager stage (section.hero-full-width >
+   .flight-manager-full-width .flight .tab-content, then .hero-image). The AEM look above stays
+   unchanged; the block JS moves the panorama paragraph into the block (.flight-search-image) and
+   makes the section full-bleed */
+body.aircore .flight-search {
+  --flight-search-line: var(--lh-deepblue);
+  --flight-search-inline: calc(var(--layout-margin) + 20px);
+
+  /* .hero-full-width .flight-manager-full-width { padding: 2.5rem 0 0 } */
+  padding: 25px 0 0;
+  background-color: var(--background-color);
+}
+
+/* .container (max 144rem) > * { padding: 0 1.6rem / 2.2rem / 2.4rem / 8rem / 8.8rem } +
+   .flight .tab-content { padding: 1rem 2rem } */
+body.aircore .flight-search > :not(.flight-search-image) {
+  box-sizing: border-box;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--flight-search-inline);
+}
+
+/* mobile order: trip type, From, To (swap at its top right), dates, travellers, nonstop, button */
+body.aircore .flight-search .flight-search-form {
+  padding-top: 10px;
+  grid-template-areas:
+    "trip trip"
+    "origin origin"
+    "dest dest"
+    "dates dates"
+    "trav trav"
+    "nonstop nonstop"
+    "submit submit"
+    "error error";
+}
+
+/* .content-row-settings { margin: 1.1rem 0 2rem } */
+body.aircore .flight-search .flight-search-trip-type {
+  margin: 11px 0 20px;
+}
+
+/* #tripTypeFormGroup .input-trip-type: LufthansaText 1.4rem/3rem bold #52627c,
+   maui expand icon 16px rgb(111 102 96) */
+body.aircore .flight-search .flight-search-trip-type select {
+  padding-right: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%236f6660' d='M13.508 5.953 8 11.463 2.492 5.955 3.906 4.54l4.092 4.092 4.095-4.095z'/%3E%3C/svg%3E");
+  background-size: 16px 16px;
+  font-size: var(--body-font-size-xs);
+  line-height: 30px;
+}
+
+body.aircore .flight-search .flight-search-trip-type select:hover {
+  color: var(--link-color);
+}
+
+/* .traveler-group-mobile { margin: 1rem 0 2rem }: 1.4rem bold #52627c, line-height 3rem,
+   i.lh.lh-filter 2.8rem with .5rem gap */
+body.aircore .flight-search .flight-search-travellers {
+  gap: 5px;
+  margin: 20px 0 0;
+  line-height: 30px;
+}
+
+body.aircore .flight-search .flight-search-travellers::before {
+  width: 28px;
+  height: 28px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.8 7.2C18.1 7.2 18.4 7.5 18.4 7.8C18.4 8.1 18.1 8.4 17.8 8.4L12.1 8.4C11.8 9.2 11.1 9.8 10.2 9.8C9.3 9.8 8.6 9.2 8.3 8.4L6.2 8.4C5.9 8.4 5.6 8.1 5.6 7.8C5.6 7.5 5.9 7.2 6.2 7.2L8.3 7.2C8.6 6.4 9.3 5.8 10.2 5.8C11.1 5.8 11.8 6.4 12.1 7.2ZM10.2 9C10.9 9 11.4 8.5 11.4 7.8C11.4 7.1 10.9 6.6 10.2 6.6C9.5 6.6 9 7.1 9 7.8C9 8.5 9.5 9 10.2 9ZM17.8 11.4C18.1 11.4 18.4 11.7 18.4 12C18.4 12.3 18.1 12.6 17.8 12.6L16.9 12.6C16.6 13.4 15.9 14 15 14C14.1 14 13.4 13.4 13.1 12.6L6.2 12.6C5.9 12.6 5.6 12.3 5.6 12C5.6 11.7 5.9 11.4 6.2 11.4L13.1 11.4C13.4 10.6 14.1 10 15 10C15.9 10 16.6 10.6 16.9 11.4ZM15 13.2C15.7 13.2 16.2 12.7 16.2 12C16.2 11.3 15.7 10.8 15 10.8C14.3 10.8 13.8 11.3 13.8 12C13.8 12.7 14.3 13.2 15 13.2ZM17.8 15.6C18.1 15.6 18.4 15.9 18.4 16.2C18.4 16.5 18.1 16.8 17.8 16.8L9.4 16.8C9.1 17.6 8.4 18.2 7.5 18.2C6.4 18.2 5.5 17.3 5.5 16.2C5.5 15.1 6.4 14.2 7.5 14.2C8.4 14.2 9.1 14.8 9.4 15.6ZM7.5 17.4C8.2 17.4 8.7 16.9 8.7 16.2C8.7 15.5 8.2 15 7.5 15C6.8 15 6.3 15.5 6.3 16.2C6.3 16.9 6.8 17.4 7.5 17.4Z'/%3E%3C/svg%3E");
+}
+
+/* .custom-checkbox.btn-nonstop-only: indicator 1.6rem, border .2rem #666, radius 0, text at 2.4rem;
+   checked: #0a1f62, description weight 600 */
+body.aircore .flight-search .flight-search-nonstop {
+  gap: 8px;
+  margin: 40px 0 0;
+  line-height: 30px;
+}
+
+body.aircore .flight-search .flight-search-nonstop [type="checkbox"] {
+  border-color: var(--lh-grey-7);
+  border-radius: 0;
+}
+
+body.aircore .flight-search .flight-search-nonstop:hover [type="checkbox"] {
+  border-color: var(--lh-grey-7);
+}
+
+body.aircore .flight-search .flight-search-nonstop [type="checkbox"]:checked {
+  border-color: #0a1f62;
+  background-color: #0a1f62;
+}
+
+body.aircore .flight-search .flight-search-nonstop:has(:checked) {
+  color: #0a1f62;
+}
+
+/* .flight .fm-group { gap: 3rem } (mobile) */
+body.aircore .flight-search .flight-search-origin {
+  margin-bottom: 30px;
+}
+
+/* .combobox-wrapper label: #6d6d6d 1.2rem/3rem, top -.4rem; empty: 1.8rem, top 2.1rem */
+body.aircore .flight-search .flight-search-form .airport-combobox label {
+  top: -4px;
+  color: #6d6d6d;
+  line-height: 30px;
+}
+
+body.aircore .flight-search .airport-combobox[data-code=""]:not(:focus-within) label {
+  top: 21px;
+  line-height: 30px;
+}
+
+/* .combobox-wrapper input: 1.8rem/2.4rem 400, padding .5rem 0, border-bottom .2rem #05164d */
+body.aircore .flight-search .airport-combobox input {
+  height: 36px;
+  padding-block: 5px;
+  line-height: 24px;
+}
+
+/* .flight .date-wrapper .form-group input: margin-top .9rem, padding .5rem, 1.8rem/2.4rem light,
+   border-bottom .2rem #05164d; label (#6d6d6d) top 1rem, filled/focused top -1rem 1.2rem/1.4rem */
+body.aircore .flight-search .flight-search-dates {
+  margin-top: 30px;
+  padding-top: 9px;
+}
+
+body.aircore .flight-search .flight-search-date input {
+  height: 34px;
+  padding-block: 5px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+body.aircore .flight-search .flight-search-dates legend {
+  top: -10px;
+  color: #6d6d6d;
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+}
+
+body.aircore .flight-search .flight-search-dates:not(:focus-within, :has(input:valid)) legend {
+  top: 10px;
+  font-size: var(--body-font-size-m);
+  font-weight: 300;
+  line-height: 30px;
+}
+
+/* .flight .calendar-input .lh.lh-datepicker: 2.4rem, top 1.4rem, right 0, #05164d */
+@supports selector(::-webkit-calendar-picker-indicator) {
+  body.aircore .flight-search .flight-search-dates::after {
+    top: 14px;
+    right: 0;
+    bottom: auto;
+    width: 24px;
+    height: 24px;
+    background-color: var(--lh-deepblue);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.6 5.7L18.6 18.9L5.4 18.9L5.4 5.7L7.2 5.7L7.2 6.9L9.6 6.9L9.6 5.7L14.4 5.7L14.4 6.9L16.8 6.9L16.8 5.7ZM6.6 17.7L17.4 17.7L17.4 9.3L6.6 9.3ZM7.8 5.1L7.8 6.3L9 6.3L9 5.1ZM15 5.1L15 6.3L16.2 6.3L16.2 5.1ZM7.8 15.3L7.8 16.5L9 16.5L9 15.3ZM7.8 12.9L7.8 14.1L9 14.1L9 12.9ZM7.8 10.5L7.8 11.7L9 11.7L9 10.5ZM10.2 15.3L10.2 16.5L11.4 16.5L11.4 15.3ZM15 14.1L13.8 14.1L13.8 15.3L15 15.3ZM16.2 12.9L16.2 16.5L12.6 16.5L12.6 12.9ZM10.2 12.9L10.2 14.1L11.4 14.1L11.4 12.9ZM10.2 10.5L10.2 11.7L11.4 11.7L11.4 10.5ZM12.6 10.5L12.6 11.7L13.8 11.7L13.8 10.5ZM15 10.5L15 11.7L16.2 11.7L16.2 10.5Z'/%3E%3C/svg%3E");
+  }
+}
+
+/* .flight .swap: transparent, .lh.lh-arrows-swap 2.4rem #666 (hover #52627c); mobile at the top
+   right of "To" */
+body.aircore .flight-search .flight-search-swap {
+  align-self: start;
+  margin: -11px -8px 0 0;
+  color: var(--lh-grey-7);
+  transition: color 0.3s;
+}
+
+body.aircore .flight-search .flight-search-swap:hover {
+  background-color: transparent;
+  color: var(--link-color);
+}
+
+body.aircore .flight-search .flight-search-swap::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.9 3.5L17.2 7.8L12.9 12.1L11.9 11.1L14.6 8.5L8.2 8.5L8.2 7.1L14.6 7.1L11.9 4.5ZM11.1 11.9L6.8 16.2L11.1 20.5L12.1 19.5L9.4 16.9L15.8 16.9L15.8 15.5L9.4 15.5L12.1 12.9Z'/%3E%3C/svg%3E");
+  transform: none;
+}
+
+/* .flight .content-row .btn-primary { width: 100% } */
+body.aircore .flight-search .flight-search-submit {
+  margin-top: 22px;
+}
+
+/* .hero-full-width .hero-image img { width: 100%; aspect-ratio: 4/3 (21/9 >= 768, 3/1 >= 1025);
+   object-fit: cover } */
+.flight-search .flight-search-image {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.flight-search .flight-search-image picture,
+.flight-search .flight-search-image img {
+  display: block;
+  width: 100%;
+}
+
+.flight-search .flight-search-image img {
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (width < 376px) {
+  body.aircore .flight-search {
+    --flight-search-inline: 36px;
+  }
+}
+
+@media (width >= 768px) {
+  body.aircore .flight-search .flight-search-form {
+    display: block;
+  }
+
+  /* options row: trip type margin-right 2rem, .traveler-group margin .8rem 2.2rem .5rem 0 */
+  body.aircore .flight-search .flight-search-options {
+    margin: 18px 0 26px;
+  }
+
+  body.aircore .flight-search .flight-search-trip-type,
+  body.aircore .flight-search .flight-search-travellers,
+  body.aircore .flight-search .flight-search-nonstop {
+    margin: 0;
+  }
+
+  body.aircore .flight-search .flight-search-options > * + * {
+    margin-left: 20px;
+  }
+
+  body.aircore .flight-search .flight-search-options > .flight-search-nonstop {
+    margin-left: 22px;
+  }
+
+  /* .content-row: 12 columns, gap 2rem; From | 5rem swap | To share 7 (6 >= 1025) columns, the
+     date 5 (3), the button below the date (3 next to it) */
+  body.aircore .flight-search .flight-search-fields {
+    grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr) calc(41.6667% + 8.3333px);
+    gap: 30px 0;
+  }
+
+  body.aircore .flight-search .flight-search-dates,
+  body.aircore .flight-search .flight-search-submit {
+    margin-left: 20px;
+  }
+
+  /* .flight .fm-group .combobox-wrapper { top: -1rem } */
+  body.aircore .flight-search .flight-search-origin,
+  body.aircore .flight-search .flight-search-destination {
+    margin: -9px 0 0;
+  }
+
+  body.aircore .flight-search .flight-search-dates {
+    margin-top: 0;
+  }
+
+  /* no .half-border on AirCore */
+  body.aircore .flight-search .airport-combobox[data-code=""]:not(:focus-within)::after {
+    content: none;
+  }
+
+  body.aircore .flight-search .flight-search-swap {
+    place-self: start center;
+    margin: 3px 0 0;
+  }
+
+  body.aircore .flight-search .flight-search-submit {
+    width: calc(100% - 20px);
+    margin-top: 0;
+  }
+
+  .flight-search .flight-search-image img {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+@media (width >= 1025px) {
+  body.aircore .flight-search .flight-search-fields {
+    grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr) calc(25% + 5px) calc(25% + 5px);
+  }
+
+  .flight-search .flight-search-image {
+    margin-top: 44px;
+  }
+
+  .flight-search .flight-search-image img {
+    aspect-ratio: 3 / 1;
+  }
+}

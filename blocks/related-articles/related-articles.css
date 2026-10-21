@@ -1,31 +1,51 @@
-/* related-articles: structural layout only; brand styling comes with the design pass */
+/* related-articles: Lufthansa .dcep-related-articles (.related-articles > a.articles-card) */
 .related-articles .related-articles-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  justify-content: flex-start;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* .articles-card { flex: 1 1 100% } */
+.related-articles .related-articles-list > li {
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+/* .articles-card { padding: 1rem; color: #05164d; overflow: hidden } */
 .related-articles .related-articles-card {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: inherit;
+  padding: 10px;
+  overflow: hidden;
+  color: var(--lh-deepblue);
   text-decoration: none;
 }
 
-.related-articles .related-articles-card:focus-visible {
-  outline: 2px solid var(--text-color, #131313);
-  outline-offset: 4px;
+.related-articles .related-articles-card:hover {
+  color: var(--lh-deepblue);
+  text-decoration: none;
 }
 
-/* the 16:9 box is reserved before the index loads */
+/* .articles-card:focus { border-radius: 4px; outline: .2rem solid #0968f6; outline-offset: 0 } */
+.related-articles .related-articles-card:focus-visible {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--focus-color);
+  outline-offset: 0;
+}
+
+/* .card-image; the 16:9 box is reserved before the index loads */
 .related-articles .related-articles-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background-color: var(--light-color, #f8f8f8);
+  background-color: var(--light-color);
 }
 
 .related-articles .related-articles-image picture,
@@ -36,36 +56,51 @@
   object-fit: cover;
 }
 
+/* .card-text: padding 1rem 0, LufthansaHead bold 2rem to 2.4rem, line-height 110% */
 .related-articles .related-articles-byline {
   display: flex;
   flex-wrap: wrap;
-  min-height: 1.5em;
-  margin: 16px 0 8px;
-  font-weight: bold;
-}
-
-.related-articles .related-articles-byline > * + *::before {
-  content: '|';
-  padding: 0 8px;
-}
-
-.related-articles .related-articles-title {
+  min-height: 1.1em;
   margin: 0;
+  padding: 10px 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* .divider-line.px-2.px-md-3; the divider stays on the line of the part before it */
+.related-articles .related-articles-byline > :not(:last-child)::after {
+  content: '|';
+  padding: 0 5px;
+}
+
+/* h4.card-title: LufthansaHead light 2.8rem to 3.6rem, line-height 110% */
+.related-articles .related-articles-title {
+  margin: 0 0 24px;
+  color: inherit;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
   font-weight: 300;
+  line-height: 1.1;
+  overflow-wrap: break-word;
 }
 
-.related-articles .related-articles-card:hover .related-articles-title {
-  text-decoration: underline;
-}
+@media (width >= 768px) {
+  .related-articles .related-articles-list > li {
+    flex: 1 1 calc(50% - 10px);
+    max-width: 50%;
+    margin-left: 1px;
+  }
 
-@media (width >= 600px) {
-  .related-articles .related-articles-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .related-articles .related-articles-byline > :not(:last-child)::after {
+    padding: 0 10px;
   }
 }
 
-@media (width >= 900px) {
-  .related-articles .related-articles-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (width >= 1025px) {
+  .related-articles .related-articles-list > li {
+    flex: 1 1 calc(33.3% - 10px);
+    max-width: 33.3%;
   }
 }

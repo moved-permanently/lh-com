@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/gefaehrliche-gegenstaende",
+  "path": "de/en/gefaehrliche-gegenstaende",
+  "timestamp": "2026-10-21T21:17:57.010Z",
+  "title": "Dangerous goods | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

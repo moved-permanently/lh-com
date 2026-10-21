@@ -1,76 +1,124 @@
-/* price-bar: structural layout and sticky behaviour only; brand styling comes with the design pass */
+/* price-bar: Lufthansa .dcep-sticky-price (.sticky-price-wrapper.container-gray, fixed at the bottom) */
 .price-bar {
   position: fixed;
-  z-index: 50;
+  z-index: 100;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 12px 16px;
-  background: var(--light-color, #f8f8f8);
-  box-shadow: 0 -2px 8px rgb(0 0 0 / 15%);
+  background-color: var(--lh-grey-1);
+  color: var(--lh-deepblue);
   transform: translateY(100%);
   visibility: hidden;
-  transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  transition: transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
 .price-bar.price-bar-visible {
   transform: none;
   visibility: visible;
-  transition: transform 0.25s ease, visibility 0s;
+  transition: transform 0.3s ease, visibility 0s;
 }
 
+/* .sticky-price.container > .sticky-price-container { padding: 2rem 0 } */
 .price-bar .price-bar-inner {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  max-width: 1200px;
+  gap: 20px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
+  padding: 20px var(--layout-margin);
 }
 
+/* .sticky-price-info { display: flex; align-items: center; justify-content: space-between } */
 .price-bar .price-bar-info {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 4px 16px;
+  gap: 10px 20px;
+  min-width: 0;
 }
 
-.price-bar .price-bar-title,
-.price-bar .price-bar-offer {
+/* .sticky-price-title: LufthansaHead bold 2.8rem to 3.6rem, line-height 110% */
+.price-bar .price-bar-title {
   margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
+/* maui-price-display size="extra-large": label above the price, right aligned */
 .price-bar .price-bar-offer {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  text-align: right;
 }
 
 .price-bar .price-bar-offer[hidden] {
   display: none;
 }
 
-.price-bar .price-bar-link {
+.price-bar .price-bar-price-label {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.price-bar .price-bar-price {
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* the conditions asterisk of maui-price-display */
+.price-bar .price-bar-price::after {
+  content: '*';
+  font-size: var(--body-font-size-m);
+  line-height: 1;
+  vertical-align: top;
+}
+
+/* maui-button-link type="secondary" size="medium" */
+.price-bar a.price-bar-link:any-link {
+  flex: none;
+  width: 100%;
   margin: 0;
-  text-align: center;
+  border-color: var(--lh-deepblue);
+  background-color: transparent;
+  color: var(--lh-deepblue);
 }
 
-.price-bar .price-bar-link:focus-visible {
-  outline: 2px solid currentcolor;
-  outline-offset: 2px;
+.price-bar a.price-bar-link:hover,
+.price-bar a.price-bar-link:focus-visible {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
+  /* .sticky-price-display { display: flex; gap: 2rem }, the button sits next to the price */
   .price-bar .price-bar-inner {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
   }
 
   .price-bar .price-bar-info {
-    flex: 1;
-    justify-content: flex-start;
+    flex: 1 1 auto;
+  }
+
+  .price-bar .price-bar-offer {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 9px;
+  }
+
+  .price-bar a.price-bar-link:any-link {
+    width: auto;
   }
 }
 

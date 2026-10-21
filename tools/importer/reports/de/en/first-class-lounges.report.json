@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/first-class-lounges",
+  "path": "de/en/first-class-lounges",
+  "timestamp": "2026-10-21T21:10:07.253Z",
+  "title": "First Class Lounges | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

@@ -1,42 +1,59 @@
-/* cards-icon-text: structural layout only; brand styling comes with the design pass */
+/* cards-icon-text: AirCore icon links (.icon-links > a: .icon-wrapper img + div > h4 + span) */
+
+/* .icon-links { display: flex; flex-wrap: wrap } */
 .cards-icon-text > ul {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* .icon-links > * { flex: 1 0 100%; margin: 1.24rem 0 3rem } */
+.cards-icon-text > ul > li {
+  display: flex;
+  flex: 1 0 100%;
+  margin: 12.4px 0 30px;
+}
+
+/* .icon-links a: LufthansaText 1.8rem/2.4rem light, a { color: #414e63 } */
 .cards-icon-text .cards-icon-text-card {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  height: 100%;
   box-sizing: border-box;
+  width: 100%;
   background: transparent;
-  color: var(--text-color, #131313);
+  color: var(--link-hover-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 300;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.cards-icon-text a.cards-icon-text-card:hover {
+  color: var(--link-hover-color);
   text-decoration: none;
 }
 
 .cards-icon-text a.cards-icon-text-card:focus-visible {
-  outline: 2px solid var(--link-color, #3b63fb);
-  outline-offset: 4px;
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
+/* .icon-links .icon-wrapper { padding-right: 1.2rem }; img 4.8rem x 4.8rem */
 .cards-icon-text .cards-icon-text-icon {
   display: inline-flex;
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
+  flex: 0 0 auto;
+  padding-right: 12px;
 }
 
 .cards-icon-text .cards-icon-text-icon picture,
 .cards-icon-text .cards-icon-text-icon img,
 .cards-icon-text .cards-icon-text-icon .icon {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 48px;
+  height: 48px;
 }
 
 .cards-icon-text .cards-icon-text-icon img {
@@ -49,35 +66,39 @@
 }
 
 .cards-icon-text .cards-icon-text-body > * {
-  margin: 0 0 8px;
+  margin: 0;
 }
 
-.cards-icon-text .cards-icon-text-body > :last-child {
-  margin-bottom: 0;
-}
-
+/* .icon-links h4: LufthansaHead 1.8rem/2.4rem bold #05164d, margin 0 0 1rem */
 .cards-icon-text .cards-icon-text-title {
-  font-size: var(--body-font-size-s);
+  margin: 0 0 10px;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
   font-weight: 700;
+  line-height: 24px;
 }
 
 .cards-icon-text .cards-icon-text-link {
-  color: var(--link-color, #3b63fb);
+  font-weight: 700;
 }
 
+/* .icon-links:hover h4 { text-decoration: underline } */
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-title,
 .cards-icon-text a.cards-icon-text-card:hover .cards-icon-text-link {
   text-decoration: underline;
 }
 
-@media (width >= 600px) {
-  .cards-icon-text > ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* >= 768: flex 1 0 50% with margin-right 1.5rem (so one per line); >= 1025: 1 0 25% */
+@media (width >= 768px) {
+  .cards-icon-text > ul > li {
+    flex: 1 0 50%;
+    margin-right: 15px;
   }
 }
 
-@media (width >= 900px) {
-  .cards-icon-text > ul {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+@media (width >= 1025px) {
+  .cards-icon-text > ul > li {
+    flex: 1 0 25%;
   }
 }

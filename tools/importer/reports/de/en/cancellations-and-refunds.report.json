@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/cancellations-and-refunds",
+  "path": "de/en/cancellations-and-refunds",
+  "timestamp": "2026-10-21T21:00:11.729Z",
+  "title": "Cancellation and refund | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1,10 +1,16 @@
-/* table-striped: structural layout only; brand styling comes with the design pass */
+/*
+ * table-striped: Lufthansa .cms-table-maui-wrapper maui-table[equalcolumns] without header.
+ * Measured on /de/en/359 (1440/768/390): equal columns, rows alternate #f5f5f5 (first row) and
+ * white, no borders, 1.8rem regular text with 2.7rem lines, cells 3.2rem x 2rem padded
+ * (91px rows), text at the top of the cell.
+ */
 .table-striped {
   overflow-x: auto;
 }
 
 .table-striped table {
   width: 100%;
+  margin: 0;
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
@@ -12,20 +18,24 @@
 
 .table-striped th,
 .table-striped td {
-  padding: 8px 16px;
+  box-sizing: border-box;
+  padding: 32px 20px;
   border: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: var(--body-line-height);
   text-align: left;
   vertical-align: top;
-  font-weight: inherit;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .table-striped tbody tr:nth-child(odd) {
-  background-color: var(--light-color, #f8f8f8);
+  background-color: var(--light-color);
 }
 
 .table-striped tbody tr:nth-child(even) {
-  background-color: var(--background-color, #fff);
+  background-color: var(--background-color);
 }
 
 .table-striped th > :first-child,
@@ -36,4 +46,11 @@
 .table-striped th > :last-child,
 .table-striped td > :last-child {
   margin-bottom: 0;
+}
+
+.table-striped th ul,
+.table-striped td ul,
+.table-striped th ol,
+.table-striped td ol {
+  padding-left: 20px;
 }

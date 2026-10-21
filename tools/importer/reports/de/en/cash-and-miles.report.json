@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/cash-and-miles",
+  "path": "de/en/cash-and-miles",
+  "timestamp": "2026-10-21T21:00:16.728Z",
+  "title": "Cash & Miles | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

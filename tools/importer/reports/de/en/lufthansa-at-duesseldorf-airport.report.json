@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/lufthansa-at-duesseldorf-airport",
+  "path": "de/en/lufthansa-at-duesseldorf-airport",
+  "timestamp": "2026-10-21T21:18:21.964Z",
+  "title": "Lufthansa at Dusseldorf Airport | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

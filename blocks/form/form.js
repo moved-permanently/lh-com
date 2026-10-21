@@ -264,6 +264,9 @@ function renderField(row, ctx) {
   if (row.required) control.required = true;
   if (row.placeholder && !['select', 'checkbox', 'file', 'date'].includes(row.type)) {
     control.placeholder = row.placeholder;
+  } else if (['text', 'email', 'tel', 'number'].includes(row.type)) {
+    // blank placeholder: lets the CSS show the label inside the empty field (maui-input)
+    control.placeholder = ' ';
   }
   if (row.type === 'email') control.autocomplete = 'email';
   if (row.type === 'tel') control.autocomplete = 'tel';
@@ -272,6 +275,10 @@ function renderField(row, ctx) {
   const label = el('label', 'form-label');
   label.htmlFor = id;
   label.append(...labelContent(row, labels, false));
+  // maui-select shows its label as the trigger text: an identical placeholder replaces it
+  if (row.type === 'select' && row.placeholder && row.placeholder === row.label) {
+    label.classList.add('form-sr-only');
+  }
 
   if (row.type === 'checkbox') {
     const line = el('div', 'form-option');
