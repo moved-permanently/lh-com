@@ -142,14 +142,17 @@ test('extra allowed origins and .aem.live are accepted', async () => {
 });
 
 test('linked lh-flynet site hosts are accepted', async () => {
-  for (const origin of [
+  const origins = [
     'https://main--lh-flynet--moved-permanently.aem.page',
     'https://main--lh-flynet--moved-permanently.aem.live',
-  ]) {
-    const res = await worker.fetch(req('/health', { headers: { Origin: origin } }), ENV);
-    assert.equal(res.status, 200, origin);
-    assert.equal(res.headers.get('access-control-allow-origin'), origin);
-  }
+  ];
+  const responses = await Promise.all(origins.map(
+    (origin) => worker.fetch(req('/health', { headers: { Origin: origin } }), ENV),
+  ));
+  responses.forEach((res, i) => {
+    assert.equal(res.status, 200, origins[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), origins[i]);
+  });
   const other = await worker.fetch(req('/health', {
     headers: { Origin: 'https://main--lh-flynetx--moved-permanently.aem.page' },
   }), ENV);
