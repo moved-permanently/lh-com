@@ -512,7 +512,7 @@ function safeDecode(s) {
   try { return decodeURI(s); } catch (e) { return s; }
 }
 
-function bestImageSource(img) {
+function bestImageSource(img, keepInline) {
   const candidates = [];
   const add = (url, w) => { if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) }); };
   const picture = img.closest('picture');
@@ -530,16 +530,27 @@ function bestImageSource(img) {
   const src = img.getAttribute('src');
   const dataSrc = img.getAttribute('data-src') || img.getAttribute('data-lazy-src');
   add(dataSrc, 0);
-  if (src && !src.startsWith('data:')) add(src, 0);
-  if (!candidates.length) return src && src.startsWith('data:') ? src : null;
+  const inline = src && /^(data|blob):/i.test(src);
+  if (src && !inline) add(src, 0);
+  if (!candidates.length) return inline && keepInline ? src : null;
   candidates.sort((a, b) => b.w - a.w);
   return candidates[0].url;
 }
 
-function normalizeImages(document) {
+/**
+ * keepInline: data:/blob: images without a real source survive beforeTransform (parsers map
+ * known inline icons to :icon: tokens); afterTransform drops them, they never reach content.
+ * (The helix importer turns data: images into blob: URLs before transform() runs.)
+ */
+function normalizeImages(document, keepInline) {
   document.querySelectorAll('img').forEach((img) => {
-    const best = bestImageSource(img);
-    if (!best) { img.remove(); return; }
+    const best = bestImageSource(img, keepInline);
+    if (!best) {
+      const pic = img.closest('picture');
+      img.remove();
+      if (pic && !pic.querySelector('img')) pic.remove();
+      return;
+    }
     img.setAttribute('src', absoluteImageUrl(best));
     ['srcset', 'data-srcset', 'data-src', 'data-lazy-src', 'sizes', 'loading'].forEach((a) => img.removeAttribute(a));
     const picture = img.closest('picture');
@@ -647,7 +658,7 @@ export default function transform(hookName, element, payload) {
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
     removeEmptyComponents(document);
-    normalizeImages(document);
+    normalizeImages(document, true);
   }
 
   if (hookName === 'afterTransform') {
@@ -656,7 +667,7 @@ export default function transform(hookName, element, payload) {
     convertMauiLinks(document);
     removeIconsAndZeroWidth(document);
     splitBrParagraphs(document);
-    normalizeImages(document);
+    normalizeImages(document, false);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);
   }

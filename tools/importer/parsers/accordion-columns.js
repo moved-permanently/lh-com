@@ -153,14 +153,48 @@ export default function parse(element, { document }) {
    *   > div > h3.accordion-header > button > span ([img icon] title) + i.lh
    *         > .accordion-panel > .inner (inline text with links, or <p>s/lists)
    * Title icons are inline base64 SVGs without a name; known ones are mapped to an
-   * ":icon-name:" token (SVGs in /icons/{name}.svg) by a fingerprint of the data URI, unknown
-   * ones are kept as the image.
+   * ":icon-name:" token (SVGs in /icons/{name}.svg) by a fingerprint of the data URI. The
+   * helix importer turns data: images into blob: URLs BEFORE transform(), so a blob: icon is read
+   * back (sync XHR) and re-encoded to the original data URI; if that fails, the item title
+   * identifies the icon (travel-information has a documents and a currency item). Unknown inline
+   * icons are dropped: data:/blob: URLs are never emitted.
    */
   const AIRCORE_ICONS = { '2qb66p': 'document', '4b3rr0': 'currency' };
+  const ICON_BY_TITLE = [
+    ['document', /document|dokument|papier|visa|einreise|entry/i],
+    ['currency', /currenc|währung|waehrung|devise|monnaie|valuta|moneda|divisa|moeda/i],
+  ];
   const fingerprint = (s) => {
     let x = 5381;
     for (let i = 0; i < s.length; i += 1) x = ((x * 33) ^ s.charCodeAt(i)) >>> 0;
     return x.toString(36);
+  };
+  const blobToDataUri = (url) => {
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, false);
+      xhr.overrideMimeType('text/plain; charset=x-user-defined');
+      xhr.send();
+      if (xhr.status && xhr.status !== 200) return '';
+      const raw = xhr.responseText;
+      let bin = '';
+      for (let i = 0; i < raw.length; i += 1) bin += String.fromCharCode(raw.charCodeAt(i) & 0xff);
+      const type = (xhr.getResponseHeader('Content-Type') || 'image/svg+xml').split(';')[0];
+      return `data:${type};base64,${btoa(bin)}`;
+    } catch (e) {
+      return '';
+    }
+  };
+  const iconName = (src, title) => {
+    const inline = /^(data|blob):/i.test(src);
+    if (!inline) {
+      return /\.svg/i.test(src) ? src.split('?')[0].split('/').pop().replace(/\.svg$/i, '').toLowerCase() : '';
+    }
+    const dataUri = src.startsWith('blob:') ? blobToDataUri(src) : src;
+    const known = dataUri && AIRCORE_ICONS[fingerprint(dataUri)];
+    if (known) return known;
+    const byTitle = ICON_BY_TITLE.find(([, re]) => re.test(title));
+    return byTitle ? byTitle[0] : '';
   };
   const aircoreItems = [...element.querySelectorAll(':scope > div')].filter((d) => d.querySelector(':scope > .accordion-header'));
   if (aircoreItems.length) {
@@ -171,19 +205,18 @@ export default function parse(element, { document }) {
       const titleCell = [];
       const icon = label.querySelector('img');
       const iconSrc = icon && icon.getAttribute('src');
+      const title = visibleText(label);
       if (iconSrc) {
-        const name = AIRCORE_ICONS[fingerprint(iconSrc)]
-          || (!iconSrc.startsWith('data:') && /\.svg/i.test(iconSrc) ? iconSrc.split('?')[0].split('/').pop().replace(/\.svg$/i, '').toLowerCase() : '');
+        const name = iconName(iconSrc, title);
         if (name) {
           titleCell.push(`:${name}: `);
-        } else {
+        } else if (!/^(data|blob):/i.test(iconSrc)) {
           const img = document.createElement('img');
           img.src = iconSrc;
           img.alt = clean(icon.getAttribute('alt'));
           titleCell.push(img, ' ');
         }
       }
-      const title = visibleText(label);
       if (title) titleCell.push(title);
 
       const panel = item.querySelector('.accordion-panel .inner') || item.querySelector('.accordion-panel');

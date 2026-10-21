@@ -36,9 +36,9 @@ export default function parse(element, { document }) {
     const src = img && img.getAttribute('src');
     if (src) {
       const name = (src.split('?')[0].split('/').pop() || '').replace(/\.svg$/i, '');
-      if (/\.svg/i.test(src) && /^[a-z0-9-_]+$/i.test(name) && !src.startsWith('data:')) {
+      if (/\.svg/i.test(src) && /^[a-z0-9-_]+$/i.test(name) && !/^(data|blob):/i.test(src)) {
         iconCell = `:${name.toLowerCase().replace(/_/g, '-')}:`;
-      } else {
+      } else if (!/^(data|blob):/i.test(src)) { // inline icons (data:/blob:) are dropped
         const image = document.createElement('img');
         image.src = src;
         image.alt = clean(img.getAttribute('alt'));

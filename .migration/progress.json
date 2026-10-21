@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-10-21",
-  "blocker": "Lufthansa /service/api/* calls return Cloudflare 403 inside the Bright Data session (also on the first page): no recorded live data, widget labels degraded in captures, live screenshots show broken widgets/icons. Waiting for the user's decision. Page HTML still captures fine.",
+  "blocker": "DA upload/preview needs the user's explicit request in a message (the guard does not accept a dialog answer). Everything else continues.",
   "access": {
     "route": "warm Bright Data session (tools/importer/bd-session.mjs); model.json not collectable (Cloudflare challenges in-page fetch)",
     "ok": [
@@ -10,8 +10,11 @@
     "blocked": [],
     "staticAssets": "CSS, fonts and images answer 200 to plain curl",
     "incidents": [
-      "2026-10-21: one unintended cold Bright Data fetch of https://www.lufthansa.com/lhg/de/en/zz-test (404) by run-bulk-import during a parser repro; import-batch.mjs now refuses URLs without snapshot"
-    ]
+      "2026-10-21: one unintended cold Bright Data fetch of https://www.lufthansa.com/lhg/de/en/zz-test (404) by run-bulk-import during a parser repro; import-batch.mjs now refuses URLs without snapshot",
+      "2026-10-21: screenshots taken after extractCleanedHTML mutated the page (broken widgets/icons); fixed at 18:46 UTC, stale captures redone once (--since)",
+      "2026-10-21: --force recapture restarted the list and reloaded 13 already-fixed pages once more; replaced by --since"
+    ],
+    "apiCalls": "the live pages' own /service/api calls succeed inside the session and are recorded passively; agent-initiated fetch() calls are refused (403) and not made"
   },
   "decisions": {
     "forms": "render-only form block, no Forms add-on",
@@ -40,24 +43,27 @@
   "steps": {
     "offlineInfrastructure": "done",
     "1-templates-first-pages": "done: 13 templates, one de/en page each",
-    "2-blocks-import-header-footer-locales": "design tokens + homepage block CSS done (no browser verification yet); nav/footer/payment-social docs for 4 locales imported; header/footer blocks rewritten; capture of all pages in progress (see tools/source-export/bd-session-state.json)",
-    "3-worker": "built, tested, CI deploy workflow added by user; recorded data pending",
+    "2-blocks-import-header-footer-locales": "all blocks styled from source CSS (browser verification pending), header/footer per locale, consent; capture/import loop running (tools/importer/batch-cycle.sh)",
+    "3-worker": "deployed by CI at https://lh-proxy.aem-poc-lab.workers.dev (market Referer, DA origins); recorded fallback: passive capture + team HARs, widgets wired (tools/importer/test-widgets.mjs)",
     "4-da-upload-preview": "pending",
     "5-parity": "harness done; checks pending",
     "6-nav-unmigrated": "generator done; report waits for nav content"
   },
   "pagesImported": {
-    "de/en": 10,
-    "de/de": 0,
-    "at/de": 0,
-    "gb/en": 0,
+    "de/en": 139,
+    "de/de": 17,
+    "at/de": 1,
+    "gb/en": 1,
     "aircore": 3
   },
   "capture": {
     "list": "tools/importer/urls-capture.txt",
     "parityList": "tools/importer/urls-parity.txt",
-    "command": "node tools/importer/bd-session.mjs --list tools/importer/urls-capture.txt --batch 14 --widths 1440,768,390 --parity-list tools/importer/urls-parity.txt",
-    "captured": 45,
-    "left": 1166
-  }
+    "command": "tools/importer/batch-cycle.sh",
+    "captured": 160,
+    "left": 1051
+  },
+  "livePageGaps": [
+    "/de/en/lufthansa-city/menu-card and /de/de/lufthansa-city/menu-card answer 404 on the live site"
+  ]
 }

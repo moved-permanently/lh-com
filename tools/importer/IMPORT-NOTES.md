@@ -20,6 +20,10 @@ Things that are not obvious from the code and cost time once.
 
 - The importer unwraps `<span>` elements before the import script's `transform()` runs.
   Text that sat in a span becomes a bare text node: read `childNodes`, not `children`.
+- helix-importer's preProcess runs before `transform()` and replaces every `<img src="data:...">`
+  with a `blob:` URL (or with `data-src` when present). Parsers never see data URIs in the real
+  pipeline, though jsdom checks against snapshots do. Treat `data:` and `blob:` alike;
+  the cleanup drops leftover inline images in afterTransform.
 - `cleaned.html` drops attributes the parsers need (`maui-*` labels, `data-dcep` JSON,
   input values). Validate parsers against the raw snapshots.
 - Links are still `maui-navigation-link` / `maui-link` / `maui-button-link` (often inside a

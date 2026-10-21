@@ -3,8 +3,13 @@
  * .lightbox-modal .lightbox-slider .slide-show.swiper, app.*.css).
  */
 
-/* preview: .open-lightbox { border: 0; width: 100% } in a .col-md-6 column (half width from
-   768px); .image-wrapper img { width: 100% } */
+/* the slideshow's .col-md-6 column (half width from 768px): optional intro (headline
+   components of that column) above the preview */
+.carousel-lightbox .carousel-lightbox-intro > :last-child {
+  margin-bottom: var(--spacing-default);
+}
+
+/* preview: .open-lightbox { border: 0; width: 100% }; .image-wrapper img { width: 100% } */
 .carousel-lightbox .carousel-lightbox-preview {
   position: relative;
   display: block;
@@ -251,7 +256,7 @@
 }
 
 @media (width >= 768px) {
-  .carousel-lightbox .carousel-lightbox-preview {
+  .carousel-lightbox .carousel-lightbox-inline {
     width: calc((100% - var(--grid-gutter)) / 2);
   }
 

@@ -11,6 +11,10 @@
  * image duplicates slide 1, so it is only used when no modal slides are found.
  *
  * Output (blocks/carousel-lightbox README): 2 columns, one row per slide.
+ *   intro row (optional, first, 1 cell): headings/text that share the slideshow's column when
+ *     the slideshow sits in a multi-column layout (e.g. /de/en/359: h3 "Sample illustration ..."
+ *     above the preview in a .col-md-6); those components are moved into the block so they keep
+ *     the preview's half width. Full-width slideshows keep their headings as default content.
  *   cell 1: image (src + alt), cell 2: caption (".lightbox-description") or empty
  * Label row "Close label" is added when the modal carries a visible close-button text.
  */
@@ -23,7 +27,7 @@ export default function parse(element, { document }) {
     c.querySelectorAll(SKIP).forEach((n) => n.remove());
     return clean(c.textContent);
   };
-  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || src.startsWith('data:');
+  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
   const imageOf = (img) => {
     const out = document.createElement('img');
     out.setAttribute('src', img.getAttribute('src'));
@@ -42,6 +46,38 @@ export default function parse(element, { document }) {
 
   const cells = [];
   const seen = new Set();
+
+  // --- intro: components before the slideshow in the same column of a multi-column layout
+  const intro = [];
+  const column = element.closest('.column-view-item');
+  const layout = column && column.closest('.twocolumn, .threecolumn, .fourcolumn');
+  if (column && layout && column.parentElement && column.parentElement.children.length > 1) {
+    let part = element;
+    while (part.parentElement && part.parentElement !== column) part = part.parentElement;
+    const before = [];
+    for (let n = part.previousElementSibling; n; n = n.previousElementSibling) before.unshift(n);
+    before.forEach((comp) => {
+      const nodes = [...comp.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol')]
+        .filter((n) => !n.parentElement.closest('p, ul, ol, h1, h2, h3, h4, h5, h6'));
+      if (!nodes.length || comp.querySelector('img, picture, video, iframe, form, table')) return;
+      nodes.forEach((n) => {
+        const text = visibleText(n);
+        if (!text) return;
+        let out;
+        if (/^H[1-6]$/.test(n.tagName)) {
+          out = document.createElement(n.tagName.toLowerCase());
+          out.textContent = text;
+        } else {
+          out = n.cloneNode(true);
+          out.querySelectorAll(SKIP).forEach((x) => x.remove());
+          out.removeAttribute('class');
+        }
+        intro.push(out);
+      });
+      comp.remove();
+    });
+  }
+  if (intro.length) cells.push([intro]);
   if (modal) {
     modal.querySelectorAll('.swiper-slide').forEach((slide) => {
       if (slide.classList.contains('swiper-slide-duplicate')) return;
@@ -68,14 +104,14 @@ export default function parse(element, { document }) {
       cells.push([imageOf(img), captionCell]);
     });
   }
-  if (!cells.length) {
+  if (cells.length === (intro.length ? 1 : 0)) {
     const img = [...element.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));
     if (img) cells.push([imageOf(img), '']);
   }
 
   // --- UI label authored in the modal (visible close-button text)
   const close = modal && visibleText(modal.querySelector('.modal-close-button-text, .lightbox-close'));
-  if (close && cells.length) cells.push(['Close label', close]);
+  if (close && cells.length > (intro.length ? 1 : 0)) cells.push(['Close label', close]);
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', cells });
   element.replaceWith(block);

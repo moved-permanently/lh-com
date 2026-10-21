@@ -209,7 +209,9 @@ export default async function decorate(block) {
     [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
   }, config, locale.lang);
   if (link && !authoredLinkText) link.textContent = labels['link label'];
-  const price = data.lowest && formatFare(data.lowest.price, data.lowest, locale, data.localeData);
+  // the sticky price shows the cents (maui-price-display price="141.26"), unlike fare teasers
+  const price = data.lowest
+    && formatFare(data.lowest.price, data.lowest, locale, data.localeData, { decimals: true });
   if (price) {
     offer.querySelector('.price-bar-price').textContent = price;
     offer.hidden = false;

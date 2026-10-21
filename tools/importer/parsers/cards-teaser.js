@@ -26,7 +26,7 @@ export default function parse(element, { document }) {
     c.querySelectorAll(SKIP).forEach((n) => n.remove());
     return clean(c.textContent);
   };
-  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || src.startsWith('data:');
+  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
 
   const imageFrom = (scope) => {
     const img = [...scope.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));

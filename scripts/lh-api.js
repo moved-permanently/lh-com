@@ -275,27 +275,38 @@ export function mapLocaleData(data) {
     && number.patterns.currency.currencypatternsDefault.positivePattern;
   return {
     group: typeof symbols.group === 'string' ? symbols.group : undefined,
+    decimal: typeof symbols.decimal === 'string' ? symbols.decimal : undefined,
     prefixed: typeof pattern === 'string' ? pattern.trim().startsWith('{currency}') : undefined,
     currencies: number.currencies || {},
   };
 }
 
 /**
- * Fare as the live widgets show it: rounded up to whole units, the response's currency symbol
- * before or after ("717 €", "€ 612").
+ * Fare as the live widgets show it, the response's currency symbol before or after. Fare teasers
+ * and the destination finder round up to whole units ("717 €", "€ 612"); the sticky price bar
+ * (maui-price-display) keeps the cents ("141.26 €"): pass { decimals: true }.
+ * Group and decimal separators come from the market's locale data when it is loaded.
  * @param {number} amount
  * @param {{currency?: string, symbol?: string, prefixed?: boolean}} currency from the response
  * @param {Object} locale result of getLocale()
  * @param {Object} [localeData] result of mapLocaleData
+ * @param {{decimals?: boolean}} [options] decimals: two decimals (whole amounts stay whole)
  * @returns {string} '' without a valid amount
  */
-export function formatFare(amount, currency = {}, locale = {}, localeData = {}) {
+export function formatFare(amount, currency = {}, locale = {}, localeData = {}, options = {}) {
   const value = Number(amount);
   if (amount === null || amount === undefined || amount === '' || !Number.isFinite(value) || value <= 0) return '';
-  const whole = Math.ceil(value - 1e-9);
+  const cents = Math.round(value * 100) / 100;
+  const digits = options.decimals && !Number.isInteger(cents) ? 2 : 0;
+  const rounded = digits ? cents : Math.ceil(value - 1e-9);
   const tag = locale.lang && locale.country ? `${locale.lang}-${locale.country.toUpperCase()}` : undefined;
-  let number = new Intl.NumberFormat(tag, { maximumFractionDigits: 0 }).format(whole);
-  if (localeData.group !== undefined) number = number.replace(/[^\d]/g, localeData.group);
+  const number = new Intl.NumberFormat(tag, {
+    minimumFractionDigits: digits, maximumFractionDigits: digits,
+  }).formatToParts(rounded).map(({ type, value: part }) => {
+    if (type === 'group' && localeData.group !== undefined) return localeData.group;
+    if (type === 'decimal' && localeData.decimal !== undefined) return localeData.decimal;
+    return part;
+  }).join('');
   const code = currency.currency || locale.currency || '';
   const symbol = currency.symbol || (localeData.currencies || {})[code] || code;
   let prefixed = currency.prefixed ?? localeData.prefixed;

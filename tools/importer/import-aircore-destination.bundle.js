@@ -344,10 +344,41 @@ var CustomImportScript = (() => {
       return content;
     };
     const AIRCORE_ICONS = { "2qb66p": "document", "4b3rr0": "currency" };
+    const ICON_BY_TITLE = [
+      ["document", /document|dokument|papier|visa|einreise|entry/i],
+      ["currency", /currenc|währung|waehrung|devise|monnaie|valuta|moneda|divisa|moeda/i]
+    ];
     const fingerprint = (s) => {
       let x = 5381;
       for (let i = 0; i < s.length; i += 1) x = (x * 33 ^ s.charCodeAt(i)) >>> 0;
       return x.toString(36);
+    };
+    const blobToDataUri = (url) => {
+      try {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, false);
+        xhr.overrideMimeType("text/plain; charset=x-user-defined");
+        xhr.send();
+        if (xhr.status && xhr.status !== 200) return "";
+        const raw = xhr.responseText;
+        let bin = "";
+        for (let i = 0; i < raw.length; i += 1) bin += String.fromCharCode(raw.charCodeAt(i) & 255);
+        const type = (xhr.getResponseHeader("Content-Type") || "image/svg+xml").split(";")[0];
+        return `data:${type};base64,${btoa(bin)}`;
+      } catch (e) {
+        return "";
+      }
+    };
+    const iconName = (src, title) => {
+      const inline = /^(data|blob):/i.test(src);
+      if (!inline) {
+        return /\.svg/i.test(src) ? src.split("?")[0].split("/").pop().replace(/\.svg$/i, "").toLowerCase() : "";
+      }
+      const dataUri = src.startsWith("blob:") ? blobToDataUri(src) : src;
+      const known = dataUri && AIRCORE_ICONS[fingerprint(dataUri)];
+      if (known) return known;
+      const byTitle = ICON_BY_TITLE.find(([, re]) => re.test(title));
+      return byTitle ? byTitle[0] : "";
     };
     const aircoreItems = [...element.querySelectorAll(":scope > div")].filter((d) => d.querySelector(":scope > .accordion-header"));
     if (aircoreItems.length) {
@@ -358,18 +389,18 @@ var CustomImportScript = (() => {
         const titleCell = [];
         const icon = label.querySelector("img");
         const iconSrc = icon && icon.getAttribute("src");
+        const title = visibleText(label);
         if (iconSrc) {
-          const name = AIRCORE_ICONS[fingerprint(iconSrc)] || (!iconSrc.startsWith("data:") && /\.svg/i.test(iconSrc) ? iconSrc.split("?")[0].split("/").pop().replace(/\.svg$/i, "").toLowerCase() : "");
+          const name = iconName(iconSrc, title);
           if (name) {
             titleCell.push(`:${name}: `);
-          } else {
+          } else if (!/^(data|blob):/i.test(iconSrc)) {
             const img = document.createElement("img");
             img.src = iconSrc;
             img.alt = clean(icon.getAttribute("alt"));
             titleCell.push(img, " ");
           }
         }
-        const title = visibleText(label);
         if (title) titleCell.push(title);
         const panel = item.querySelector(".accordion-panel .inner") || item.querySelector(".accordion-panel");
         let content = [];
@@ -474,9 +505,9 @@ var CustomImportScript = (() => {
       const src = img && img.getAttribute("src");
       if (src) {
         const name = (src.split("?")[0].split("/").pop() || "").replace(/\.svg$/i, "");
-        if (/\.svg/i.test(src) && /^[a-z0-9-_]+$/i.test(name) && !src.startsWith("data:")) {
+        if (/\.svg/i.test(src) && /^[a-z0-9-_]+$/i.test(name) && !/^(data|blob):/i.test(src)) {
           iconCell = `:${name.toLowerCase().replace(/_/g, "-")}:`;
-        } else {
+        } else if (!/^(data|blob):/i.test(src)) {
           const image = document.createElement("img");
           image.src = src;
           image.alt = clean(img.getAttribute("alt"));
@@ -1000,7 +1031,7 @@ var CustomImportScript = (() => {
       return s;
     }
   }
-  function bestImageSource(img) {
+  function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
       if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
@@ -1018,16 +1049,19 @@ var CustomImportScript = (() => {
     const src = img.getAttribute("src");
     const dataSrc = img.getAttribute("data-src") || img.getAttribute("data-lazy-src");
     add(dataSrc, 0);
-    if (src && !src.startsWith("data:")) add(src, 0);
-    if (!candidates.length) return src && src.startsWith("data:") ? src : null;
+    const inline = src && /^(data|blob):/i.test(src);
+    if (src && !inline) add(src, 0);
+    if (!candidates.length) return inline && keepInline ? src : null;
     candidates.sort((a, b) => b.w - a.w);
     return candidates[0].url;
   }
-  function normalizeImages(document) {
+  function normalizeImages(document, keepInline) {
     document.querySelectorAll("img").forEach((img) => {
-      const best = bestImageSource(img);
+      const best = bestImageSource(img, keepInline);
       if (!best) {
+        const pic = img.closest("picture");
         img.remove();
+        if (pic && !pic.querySelector("img")) pic.remove();
         return;
       }
       img.setAttribute("src", absoluteImageUrl(best));
@@ -1116,7 +1150,7 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       removeEmptyComponents(document);
-      normalizeImages(document);
+      normalizeImages(document, true);
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
@@ -1124,7 +1158,7 @@ var CustomImportScript = (() => {
       convertMauiLinks(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
-      normalizeImages(document);
+      normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
     }
@@ -1132,6 +1166,12 @@ var CustomImportScript = (() => {
 
   // tools/importer/transformers/lufthansa-sections.js
   var MARKER = "data-excat-section-id";
+  var BREAK = "data-excat-section-break";
+  var FOLLOWING = 4;
+  function nextBreak(document, marker) {
+    const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
+    return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll("hr"));
+  }
   function findSectionElement(document, section) {
     const selectors = Array.isArray(section.selector) ? section.selector : [section.selector];
     for (const sel of selectors) {
@@ -1165,6 +1205,7 @@ var CustomImportScript = (() => {
         const styled = hasStyle(section);
         if (i === 0 && !styled) continue;
         const hr = document.createElement("hr");
+        hr.setAttribute(BREAK, "");
         if (styled) hr.setAttribute(MARKER, section.id);
         if (i === 0) hr.setAttribute("data-excat-section-first", "true");
         el.parentNode.insertBefore(hr, el);
@@ -1180,13 +1221,9 @@ var CustomImportScript = (() => {
             name: "Section Metadata",
             cells: { style: styleValue(section) }
           });
-          let cursor = marker.nextSibling;
-          let last = marker;
-          while (cursor && !(cursor.nodeType === 1 && cursor.tagName === "HR")) {
-            last = cursor;
-            cursor = cursor.nextSibling;
-          }
-          last.parentNode.insertBefore(meta, last.nextSibling);
+          const next = nextBreak(document, marker);
+          if (next) next.parentNode.insertBefore(meta, next);
+          else element.appendChild(meta);
         }
         if (marker.getAttribute("data-excat-section-first") === "true") {
           marker.remove();
@@ -1194,6 +1231,7 @@ var CustomImportScript = (() => {
           marker.removeAttribute(MARKER);
         }
       }
+      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
     }
   }
 

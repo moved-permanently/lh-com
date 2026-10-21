@@ -599,7 +599,7 @@ var CustomImportScript = (() => {
       return s;
     }
   }
-  function bestImageSource(img) {
+  function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
       if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
@@ -617,16 +617,19 @@ var CustomImportScript = (() => {
     const src = img.getAttribute("src");
     const dataSrc = img.getAttribute("data-src") || img.getAttribute("data-lazy-src");
     add(dataSrc, 0);
-    if (src && !src.startsWith("data:")) add(src, 0);
-    if (!candidates.length) return src && src.startsWith("data:") ? src : null;
+    const inline = src && /^(data|blob):/i.test(src);
+    if (src && !inline) add(src, 0);
+    if (!candidates.length) return inline && keepInline ? src : null;
     candidates.sort((a, b) => b.w - a.w);
     return candidates[0].url;
   }
-  function normalizeImages(document) {
+  function normalizeImages(document, keepInline) {
     document.querySelectorAll("img").forEach((img) => {
-      const best = bestImageSource(img);
+      const best = bestImageSource(img, keepInline);
       if (!best) {
+        const pic = img.closest("picture");
         img.remove();
+        if (pic && !pic.querySelector("img")) pic.remove();
         return;
       }
       img.setAttribute("src", absoluteImageUrl(best));
@@ -715,7 +718,7 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       removeEmptyComponents(document);
-      normalizeImages(document);
+      normalizeImages(document, true);
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
@@ -723,7 +726,7 @@ var CustomImportScript = (() => {
       convertMauiLinks(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
-      normalizeImages(document);
+      normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
     }
@@ -731,6 +734,12 @@ var CustomImportScript = (() => {
 
   // tools/importer/transformers/lufthansa-sections.js
   var MARKER = "data-excat-section-id";
+  var BREAK = "data-excat-section-break";
+  var FOLLOWING = 4;
+  function nextBreak(document, marker) {
+    const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
+    return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll("hr"));
+  }
   function findSectionElement(document, section) {
     const selectors = Array.isArray(section.selector) ? section.selector : [section.selector];
     for (const sel of selectors) {
@@ -764,6 +773,7 @@ var CustomImportScript = (() => {
         const styled = hasStyle(section);
         if (i === 0 && !styled) continue;
         const hr = document.createElement("hr");
+        hr.setAttribute(BREAK, "");
         if (styled) hr.setAttribute(MARKER, section.id);
         if (i === 0) hr.setAttribute("data-excat-section-first", "true");
         el.parentNode.insertBefore(hr, el);
@@ -779,13 +789,9 @@ var CustomImportScript = (() => {
             name: "Section Metadata",
             cells: { style: styleValue(section) }
           });
-          let cursor = marker.nextSibling;
-          let last = marker;
-          while (cursor && !(cursor.nodeType === 1 && cursor.tagName === "HR")) {
-            last = cursor;
-            cursor = cursor.nextSibling;
-          }
-          last.parentNode.insertBefore(meta, last.nextSibling);
+          const next = nextBreak(document, marker);
+          if (next) next.parentNode.insertBefore(meta, next);
+          else element.appendChild(meta);
         }
         if (marker.getAttribute("data-excat-section-first") === "true") {
           marker.remove();
@@ -793,6 +799,7 @@ var CustomImportScript = (() => {
           marker.removeAttribute(MARKER);
         }
       }
+      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
     }
   }
 

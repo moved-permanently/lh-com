@@ -29,6 +29,9 @@ const DEFAULT_LABELS = {
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);
 
+/** Live renders .dcep-social-share empty (no share links); the share code stays for later use. */
+const SHOW_SHARE = false;
+
 let instanceCount = 0;
 
 /**
@@ -51,14 +54,19 @@ function parseDate(value) {
   return null;
 }
 
-/** Publication date formatted for the page locale, or the authored text. */
+/**
+ * Publication date as live prints it in the article header: "20. August 2026" in every language
+ * (day, dot, month name in the page language, year), or the authored text.
+ */
 function formatDate(value, locale) {
   const date = parseDate(value);
   if (!date || Number.isNaN(date.getTime())) return String(value ?? '').trim();
   try {
-    return new Intl.DateTimeFormat(`${locale.lang}-${locale.country.toUpperCase()}`, {
+    const parts = new Intl.DateTimeFormat(locale.lang, {
       day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
-    }).format(date);
+    }).formatToParts(date);
+    const part = (type) => (parts.find((p) => p.type === type) || {}).value;
+    return `${part('day')}. ${part('month')} ${part('year')}`;
   } catch (e) {
     return String(value).trim();
   }
@@ -196,8 +204,8 @@ function buildShare(labels, title) {
 }
 
 /**
- * Article page header: feature image, then a panel with tag chips, H1, intro, byline and share
- * links. Tags, date, reading time and author come from page metadata.
+ * Article page header: feature image, then a panel with tag chips, H1, intro and byline (share
+ * links only with SHOW_SHARE). Tags, date, reading time and author come from page metadata.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -255,7 +263,7 @@ export default function decorate(block) {
   meta.className = 'article-header-meta';
   const byline = buildByline(locale);
   if (byline) meta.append(byline);
-  meta.append(buildShare(labels, heading ? cleanText(heading) : ''));
+  if (SHOW_SHARE) meta.append(buildShare(labels, heading ? cleanText(heading) : ''));
   panel.append(meta);
 
   block.replaceChildren(...(media.children.length ? [media] : []), panel);

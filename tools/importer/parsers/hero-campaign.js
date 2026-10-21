@@ -6,7 +6,7 @@
  *
  * Output (blocks/hero-campaign README): 1 column.
  *   row 1: background image (poster) + link to the background .mp4 when the stage has a video
- *   row 2: heading (source level: H1 on the page stage, H2 further down), subtitle paragraph
+ *   row 2: heading (source level: H1 on the page stage, H2/H3 further down), subtitle paragraph
  *          (source h3.subheadline is a tagline, not a heading), text paragraph(s), CTA link
  *          (maui-button-link type=primary = bold link)
  * Option "right" when the text block is ".alignment-right" (default left).
@@ -21,7 +21,7 @@ export default function parse(element, { document }) {
     c.querySelectorAll(SKIP).forEach((n) => n.remove());
     return clean(c.textContent);
   };
-  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || src.startsWith('data:');
+  const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
   const isBr = (n) => n && n.nodeType === 1 && n.tagName === 'BR';
   const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
   const trimBreaks = (el) => {
@@ -54,7 +54,11 @@ export default function parse(element, { document }) {
 
   // --- row 2: text
   const text = [];
-  const heading = info.querySelector('h1.headline:not(.subheadline), h2.headline:not(.subheadline), h1, h2');
+  // the stage title: the .headline that is not a tagline, at any level (the First Class stage on
+  // /discover-lufthansa/new-onboard-experience is an h3.headline), else the first heading
+  const HEADINGS = 'h1, h2, h3, h4, h5, h6';
+  const heading = [...info.querySelectorAll(HEADINGS)].find((h) => h.matches('.headline:not(.subheadline)'))
+    || [...info.querySelectorAll(HEADINGS)].find((h) => !h.matches('.subheadline'));
   if (heading && visibleText(heading)) {
     const h = document.createElement(heading.tagName.toLowerCase());
     h.textContent = visibleText(heading);

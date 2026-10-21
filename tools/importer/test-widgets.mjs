@@ -318,7 +318,7 @@ async function checkPriceBar(base, config, locale) {
     { ...base, check: `fares ${data.origin}-${settings.destination}` },
     Boolean(data.lowest),
     isRecorded(locale.key, fares),
-    data.lowest ? formatFare(data.lowest.price, data.lowest, locale, data.localeData) : 'not recorded (no other route\'s price shown)',
+    data.lowest ? formatFare(data.lowest.price, data.lowest, locale, data.localeData, { decimals: true }) : 'not recorded (no other route\'s price shown)',
   );
   record(
     { ...base, check: 'labels/stickyprice' },

@@ -54,13 +54,16 @@ function parseDate(value) {
   return date && !Number.isNaN(date.getTime()) ? date : null;
 }
 
-/** Publication date formatted for the page locale, or the indexed text. */
+/**
+ * Publication date as the live article cards print it: the page language's default long date
+ * ("August 20, 2026" for en, "20. August 2026" for de), or the indexed text.
+ */
 function formatDate(value, locale) {
   const date = parseDate(value);
   const text = typeof value === 'number' ? '' : String(value ?? '').trim();
   if (!date) return text;
   try {
-    return new Intl.DateTimeFormat(`${locale.lang}-${locale.country.toUpperCase()}`, {
+    return new Intl.DateTimeFormat(locale.lang, {
       day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
     }).format(date);
   } catch (e) {

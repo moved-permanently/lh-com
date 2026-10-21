@@ -8,11 +8,25 @@
  * beforeTransform: walks sections in reverse and inserts <hr> before every non-first section
  *   while the source elements still exist (parsers may replace them later). Styled sections
  *   get a marked <hr data-excat-section-id>; a styled first section gets a temporary one.
- * afterTransform: walks sections in reverse, inserts a Section Metadata block (style) after
- *   each marker, removes the marker attribute, and removes the first section's temporary <hr>.
+ * afterTransform: walks sections in reverse, inserts a Section Metadata block (style) at the end
+ *   of each styled section, removes the marker attribute, and removes the first section's
+ *   temporary <hr>.
+ *
+ * Every inserted <hr> carries BREAK. The end of a section is the next section break in document
+ * order (compareDocumentPosition), not the next sibling: later breaks are often nested deeper or
+ * shallower than the styled section's own marker (app-entry, AirCore hero vs. #content).
  */
 
 const MARKER = 'data-excat-section-id';
+const BREAK = 'data-excat-section-break';
+const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
+
+/** First section break after `marker` in document order (inserted <hr>, else any <hr> outside a block table). */
+function nextBreak(document, marker) {
+  const after = (list) => [...list].find((hr) => hr !== marker
+    && (marker.compareDocumentPosition(hr) & FOLLOWING) && !hr.closest('table'));
+  return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll('hr'));
+}
 
 function findSectionElement(document, section) {
   const selectors = Array.isArray(section.selector) ? section.selector : [section.selector];
@@ -52,6 +66,7 @@ export default function transform(hookName, element, payload) {
       const styled = hasStyle(section);
       if (i === 0 && !styled) continue;
       const hr = document.createElement('hr');
+      hr.setAttribute(BREAK, '');
       if (styled) hr.setAttribute(MARKER, section.id);
       if (i === 0) hr.setAttribute('data-excat-section-first', 'true');
       el.parentNode.insertBefore(hr, el);
@@ -68,14 +83,10 @@ export default function transform(hookName, element, payload) {
           name: 'Section Metadata',
           cells: { style: styleValue(section) },
         });
-        // Put the metadata at the end of the section: before the next <hr>, else at the end.
-        let cursor = marker.nextSibling;
-        let last = marker;
-        while (cursor && !(cursor.nodeType === 1 && cursor.tagName === 'HR')) {
-          last = cursor;
-          cursor = cursor.nextSibling;
-        }
-        last.parentNode.insertBefore(meta, last.nextSibling);
+        // End of the section: right before the next break in document order, else end of main.
+        const next = nextBreak(document, marker);
+        if (next) next.parentNode.insertBefore(meta, next);
+        else element.appendChild(meta);
       }
       if (marker.getAttribute('data-excat-section-first') === 'true') {
         marker.remove();
@@ -83,5 +94,6 @@ export default function transform(hookName, element, payload) {
         marker.removeAttribute(MARKER);
       }
     }
+    document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
   }
 }

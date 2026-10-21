@@ -38,10 +38,15 @@ function el(tag, className) {
   return node;
 }
 
-/** Splits rows into slides (a row with an image) and label rows (2 cells, known key). */
+/**
+ * Splits rows into slides (a row with an image), label rows (2 cells, known key) and intro
+ * content (rows without an image before the first slide that are not label rows: headings and
+ * text shown above the preview, in its column).
+ */
 function readRows(block) {
   const config = {};
   const slides = [];
+  const intro = [];
   [...block.children].forEach((row) => {
     const cells = [...row.children];
     const img = row.querySelector('img');
@@ -66,19 +71,36 @@ function readRows(block) {
       return;
     }
     const key = cells.length === 2 ? toConfigKey(cleanText(cells[0])) : '';
-    if (LABEL_KEYS.includes(key) && !config[key]) config[key] = { text: cleanText(cells[1]) };
+    if (LABEL_KEYS.includes(key)) {
+      if (!config[key]) config[key] = { text: cleanText(cells[1]) };
+      return;
+    }
+    if (slides.length) return;
+    cells.forEach((cell) => {
+      [...cell.childNodes].forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          if (!node.textContent.trim()) return;
+          const p = el('p');
+          p.textContent = node.textContent.trim();
+          intro.push(p);
+          return;
+        }
+        if (node.nodeType === Node.ELEMENT_NODE && cleanText(node)) intro.push(node);
+      });
+    });
   });
-  return { config, slides };
+  return { config, slides, intro };
 }
 
 /**
- * Inline preview of the first slide; opens every slide in a modal carousel.
+ * Inline preview of the first slide (below the optional intro); opens every slide in a modal
+ * carousel.
  * @param {Element} block
  */
 export default function decorate(block) {
   instanceCount += 1;
   const uid = `carousel-lightbox-${instanceCount}`;
-  const { config, slides } = readRows(block);
+  const { config, slides, intro } = readRows(block);
   const labels = resolveLabels(DEFAULT_LABELS, config, getLocale().lang);
 
   if (!slides.length) {
@@ -192,7 +214,16 @@ export default function decorate(block) {
     close.focus();
   });
 
-  block.replaceChildren(trigger, dialog);
+  // the preview column: optional intro (headings/text) above the preview button
+  const inline = el('div', 'carousel-lightbox-inline');
+  if (intro.length) {
+    const introBox = el('div', 'carousel-lightbox-intro');
+    introBox.append(...intro);
+    inline.append(introBox);
+  }
+  inline.append(trigger);
+
+  block.replaceChildren(inline, dialog);
   show(0);
   decorateExternalLinks(dialog);
 }

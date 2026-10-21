@@ -51,7 +51,7 @@ var CustomImportScript = (() => {
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
       return clean(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || src.startsWith("data:");
+    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const imageOf = (img) => {
       const out = document.createElement("img");
       out.setAttribute("src", img.getAttribute("src"));
@@ -71,6 +71,35 @@ var CustomImportScript = (() => {
     if (!modal) modal = element.querySelector(".lightbox-modal") || document.querySelector(".lightbox-modal");
     const cells = [];
     const seen = /* @__PURE__ */ new Set();
+    const intro = [];
+    const column = element.closest(".column-view-item");
+    const layout = column && column.closest(".twocolumn, .threecolumn, .fourcolumn");
+    if (column && layout && column.parentElement && column.parentElement.children.length > 1) {
+      let part = element;
+      while (part.parentElement && part.parentElement !== column) part = part.parentElement;
+      const before = [];
+      for (let n = part.previousElementSibling; n; n = n.previousElementSibling) before.unshift(n);
+      before.forEach((comp) => {
+        const nodes = [...comp.querySelectorAll("h1, h2, h3, h4, h5, h6, p, ul, ol")].filter((n) => !n.parentElement.closest("p, ul, ol, h1, h2, h3, h4, h5, h6"));
+        if (!nodes.length || comp.querySelector("img, picture, video, iframe, form, table")) return;
+        nodes.forEach((n) => {
+          const text = visibleText(n);
+          if (!text) return;
+          let out;
+          if (/^H[1-6]$/.test(n.tagName)) {
+            out = document.createElement(n.tagName.toLowerCase());
+            out.textContent = text;
+          } else {
+            out = n.cloneNode(true);
+            out.querySelectorAll(SKIP).forEach((x) => x.remove());
+            out.removeAttribute("class");
+          }
+          intro.push(out);
+        });
+        comp.remove();
+      });
+    }
+    if (intro.length) cells.push([intro]);
     if (modal) {
       modal.querySelectorAll(".swiper-slide").forEach((slide) => {
         if (slide.classList.contains("swiper-slide-duplicate")) return;
@@ -97,12 +126,12 @@ var CustomImportScript = (() => {
         cells.push([imageOf(img), captionCell]);
       });
     }
-    if (!cells.length) {
+    if (cells.length === (intro.length ? 1 : 0)) {
       const img = [...element.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
       if (img) cells.push([imageOf(img), ""]);
     }
     const close = modal && visibleText(modal.querySelector(".modal-close-button-text, .lightbox-close"));
-    if (close && cells.length) cells.push(["Close label", close]);
+    if (close && cells.length > (intro.length ? 1 : 0)) cells.push(["Close label", close]);
     const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", cells });
     element.replaceWith(block);
   }
@@ -518,7 +547,7 @@ var CustomImportScript = (() => {
       return s;
     }
   }
-  function bestImageSource(img) {
+  function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
       if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
@@ -536,16 +565,19 @@ var CustomImportScript = (() => {
     const src = img.getAttribute("src");
     const dataSrc = img.getAttribute("data-src") || img.getAttribute("data-lazy-src");
     add(dataSrc, 0);
-    if (src && !src.startsWith("data:")) add(src, 0);
-    if (!candidates.length) return src && src.startsWith("data:") ? src : null;
+    const inline = src && /^(data|blob):/i.test(src);
+    if (src && !inline) add(src, 0);
+    if (!candidates.length) return inline && keepInline ? src : null;
     candidates.sort((a, b) => b.w - a.w);
     return candidates[0].url;
   }
-  function normalizeImages(document) {
+  function normalizeImages(document, keepInline) {
     document.querySelectorAll("img").forEach((img) => {
-      const best = bestImageSource(img);
+      const best = bestImageSource(img, keepInline);
       if (!best) {
+        const pic = img.closest("picture");
         img.remove();
+        if (pic && !pic.querySelector("img")) pic.remove();
         return;
       }
       img.setAttribute("src", absoluteImageUrl(best));
@@ -634,7 +666,7 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       removeEmptyComponents(document);
-      normalizeImages(document);
+      normalizeImages(document, true);
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
@@ -642,7 +674,7 @@ var CustomImportScript = (() => {
       convertMauiLinks(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
-      normalizeImages(document);
+      normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
     }
@@ -650,6 +682,12 @@ var CustomImportScript = (() => {
 
   // tools/importer/transformers/lufthansa-sections.js
   var MARKER = "data-excat-section-id";
+  var BREAK = "data-excat-section-break";
+  var FOLLOWING = 4;
+  function nextBreak(document, marker) {
+    const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
+    return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll("hr"));
+  }
   function findSectionElement(document, section) {
     const selectors = Array.isArray(section.selector) ? section.selector : [section.selector];
     for (const sel of selectors) {
@@ -683,6 +721,7 @@ var CustomImportScript = (() => {
         const styled = hasStyle(section);
         if (i === 0 && !styled) continue;
         const hr = document.createElement("hr");
+        hr.setAttribute(BREAK, "");
         if (styled) hr.setAttribute(MARKER, section.id);
         if (i === 0) hr.setAttribute("data-excat-section-first", "true");
         el.parentNode.insertBefore(hr, el);
@@ -698,13 +737,9 @@ var CustomImportScript = (() => {
             name: "Section Metadata",
             cells: { style: styleValue(section) }
           });
-          let cursor = marker.nextSibling;
-          let last = marker;
-          while (cursor && !(cursor.nodeType === 1 && cursor.tagName === "HR")) {
-            last = cursor;
-            cursor = cursor.nextSibling;
-          }
-          last.parentNode.insertBefore(meta, last.nextSibling);
+          const next = nextBreak(document, marker);
+          if (next) next.parentNode.insertBefore(meta, next);
+          else element.appendChild(meta);
         }
         if (marker.getAttribute("data-excat-section-first") === "true") {
           marker.remove();
@@ -712,6 +747,7 @@ var CustomImportScript = (() => {
           marker.removeAttribute(MARKER);
         }
       }
+      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
     }
   }
 
