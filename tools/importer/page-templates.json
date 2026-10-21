@@ -9,7 +9,160 @@
         "https://www.lufthansa.com/at/de/homepage",
         "https://www.lufthansa.com/gb/en/homepage"
       ],
-      "blocks": []
+      "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".redesignedflightmanager"
+          ]
+        },
+        {
+          "name": "hero-card-overlay",
+          "instances": [
+            ".mainstageteaser"
+          ]
+        },
+        {
+          "name": "fare-teaser",
+          "instances": [
+            ".fareteaserstatic"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".carousel"
+          ]
+        },
+        {
+          "name": "destination-finder",
+          "instances": [
+            ".fareteaserdynamicevo"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".teaserwrapper"
+          ]
+        },
+        {
+          "name": "columns-logos",
+          "instances": [
+            ".twocolumn"
+          ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Flight search",
+          "selector": [
+            ".container-content > .section:has(.redesignedflightmanager)"
+          ],
+          "style": null,
+          "blocks": [
+            "flight-search"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Main stage teaser",
+          "selector": [
+            ".container-content > .section:has(.mainstageteaser)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-card-overlay"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Winter deals fare teaser",
+          "selector": [
+            ".container-content > .section:has(.fareteaserstatic)"
+          ],
+          "style": null,
+          "blocks": [
+            "fare-teaser"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.fareteaserstatic) maui-headline"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Current topics and news",
+          "selector": [
+            ".container-content > .section:has(.carousel)"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-cards"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.carousel) h2.headline:not(.sr-only)"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Flight offers from (destination finder)",
+          "selector": [
+            ".container-content > .section:has(.fareteaserdynamicevo)"
+          ],
+          "style": null,
+          "blocks": [
+            "destination-finder"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Looking for more than just a flight?",
+          "selector": [
+            ".container-content > .section:has(.teaserwrapper)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            ".container-content > .section:has(.teaserwrapper) h2.headline:not(.sr-only)"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Payment options and Follow us",
+          "selector": [
+            ".container-content > .section:has(.twocolumn)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-logos"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Popular destinations",
+          "selector": [
+            ".container-content > .section:has(.accordion)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-columns"
+          ],
+          "defaultContent": []
+        }
+      ]
     },
     {
       "name": "hub",
