@@ -28,12 +28,14 @@ export const DEFAULT_LOCALE = 'de/de';
  * @returns {Object} locale with key, base path and whether the page is an AirCore page
  */
 export function getLocale(pathname = window.location.pathname) {
-  const match = pathname.match(/^\/(lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  // the local dev server (aem up --html-folder content) serves pages under /content/
+  const prefix = pathname.startsWith('/content/') ? '/content' : '';
+  const match = pathname.slice(prefix.length).match(/^\/(lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
   const key = match && LOCALES[`${match[2]}/${match[3]}`] ? `${match[2]}/${match[3]}` : DEFAULT_LOCALE;
   return {
     ...LOCALES[key],
     key,
-    base: `/${key}`,
+    base: `${prefix}/${key}`,
     aircore: Boolean(match && match[1]),
   };
 }
