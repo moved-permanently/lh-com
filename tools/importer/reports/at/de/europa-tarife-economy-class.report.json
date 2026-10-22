@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/europa-tarife-economy-class",
+  "path": "at/de/europa-tarife-economy-class",
+  "timestamp": "2026-10-22T07:14:50.282Z",
+  "title": "Unsere Europa-Tarife | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

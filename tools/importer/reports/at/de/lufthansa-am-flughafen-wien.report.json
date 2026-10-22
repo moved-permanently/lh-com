@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/lufthansa-am-flughafen-wien",
+  "path": "at/de/lufthansa-am-flughafen-wien",
+  "timestamp": "2026-10-22T07:23:58.479Z",
+  "title": "Lufthansa am Flughafen Wien | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

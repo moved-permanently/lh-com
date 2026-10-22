@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/nachhaltiger-fliegen",
+  "path": "at/de/nachhaltiger-fliegen",
+  "timestamp": "2026-10-22T07:23:15.670Z",
+  "title": "Nachhaltiger fliegen | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

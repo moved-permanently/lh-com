@@ -1032,6 +1032,10 @@
    "file": "at-de-74a1a4f7.json",
    "recordedAt": "2026-10-22T06:54:23.062Z"
   },
+  "at/de|GET /service/api/catalogs/countries": {
+   "file": "at-de-bf45fe3e.json",
+   "recordedAt": "2026-10-22T07:20:59.655Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1217,5 +1221,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T07:07:47.974Z"
+ "updatedAt": "2026-10-22T07:27:30.828Z"
 }

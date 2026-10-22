@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/fliegen-mit-kleinkind",
+  "path": "at/de/fliegen-mit-kleinkind",
+  "timestamp": "2026-10-22T07:23:18.646Z",
+  "title": "Fliegen mit kleinen Kindern | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}
