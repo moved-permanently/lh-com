@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_6825_exports = {};
-  __export(tmp_bundle_insights_6825_exports, {
-    default: () => tmp_bundle_insights_6825_default
+  var tmp_bundle_insights_18318_exports = {};
+  __export(tmp_bundle_insights_18318_exports, {
+    default: () => tmp_bundle_insights_18318_default
   });
 
   // tools/importer/parsers/article-header.js
@@ -266,6 +266,52 @@ var CustomImportScript = (() => {
       p.textContent = text;
       return p;
     };
+    const loginCards = [...element.querySelectorAll(".login-oneid-card")];
+    if (loginCards.length) {
+      const intro = [];
+      const form = element.querySelector(".dcep-login-form") || element;
+      form.querySelectorAll(".richtext").forEach((rt) => {
+        if (rt.closest(".login-oneid-card, maui-modal")) return;
+        rt.querySelectorAll(":scope > p").forEach((p) => {
+          const t = visibleText(p);
+          if (t) intro.push(para(t));
+        });
+      });
+      const rows = [];
+      loginCards.forEach((card) => {
+        const content = [];
+        const headline = card.querySelector("maui-headline, h1, h2, h3, h4, h5, h6");
+        const title = visibleText(headline);
+        if (title) {
+          const type = (headline.getAttribute("type") || headline.tagName).toLowerCase();
+          const h = document.createElement(/^h[3-6]$/.test(type) ? type : "h3");
+          h.textContent = title;
+          content.push(h);
+        }
+        card.querySelectorAll(".richtext > p").forEach((p) => {
+          const t = visibleText(p);
+          if (t) content.push(para(t));
+        });
+        const BUTTONS = "maui-button-link, maui-button, a[href]";
+        [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
+          const label = visibleText(btn) || clean(btn.getAttribute("label"));
+          if (!label) return;
+          const a = document.createElement("a");
+          a.href = btn.getAttribute("href") || "#booking-code";
+          a.textContent = label;
+          const primary = btn.getAttribute("type") === "primary";
+          const wrap = document.createElement(primary ? "strong" : "em");
+          wrap.append(a);
+          const p = document.createElement("p");
+          p.append(wrap);
+          content.push(p);
+        });
+        if (content.length) rows.push(["", content]);
+      });
+      const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["grid"], cells: rows });
+      element.replaceWith(...intro, block2);
+      return;
+    }
     if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
       const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
       const hasDesktopTwin = !!element.querySelector(".hidden-md-down a.teaser, .hidden-sm-down a.teaser");
@@ -293,11 +339,12 @@ var CustomImportScript = (() => {
         }
         const href = card.getAttribute("href");
         const content = [];
-        const heading = visibleText(card.querySelector(".teaser-heading, h2, h3, h4, h5, h6"));
-        const ctaLabel = visibleText(card.querySelector(".teaser-link-text"));
+        const headingEl = card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6");
+        const heading = visibleText(headingEl);
         if (heading) {
-          const h = document.createElement("h3");
-          if (!ctaLabel && href) {
+          const level = headingEl && /^H[3-6]$/.test(headingEl.tagName) ? headingEl.tagName.toLowerCase() : "h3";
+          const h = document.createElement(level);
+          if (href) {
             const a = document.createElement("a");
             a.href = href;
             a.textContent = heading;
@@ -309,18 +356,13 @@ var CustomImportScript = (() => {
         }
         const description = visibleText(card.querySelector(".teaser-description"));
         if (description) content.push(para(description));
-        if (ctaLabel && href) {
-          const a = document.createElement("a");
-          a.href = href;
-          a.textContent = ctaLabel;
-          const p = document.createElement("p");
-          p.append(a);
-          content.push(p);
-        }
         if (!imageCell && !content.length) return;
         rows.push([imageCell, content.length ? content : ""]);
       });
-      const variants = isArticle ? ["article"] : [];
+      let variants = [];
+      if (isArticle) variants = ["article"];
+      else if (element.querySelector(".swiper-multi-slide")) variants = ["four-up"];
+      else if (!element.matches(".carousel")) variants = element.matches(".fourcolumn") ? ["grid", "four-up"] : ["grid"];
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
       element.replaceWith(...titles, block2);
       return;
@@ -1927,7 +1969,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_6825_default = {
+  var tmp_bundle_insights_18318_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1957,5 +1999,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_6825_exports);
+  return __toCommonJS(tmp_bundle_insights_18318_exports);
 })();

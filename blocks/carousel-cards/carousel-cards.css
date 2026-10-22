@@ -314,9 +314,10 @@
   scroll-snap-type: none;
 }
 
-/* .teaser.card { border: .1rem solid #b0b0b0; border-radius: 4px; box-shadow: 0 .1rem .4rem #0003 } */
-.carousel-cards.article .carousel-cards-slide,
-.carousel-cards.article .carousel-cards-slide:hover {
+/* .teaser.card { border: .1rem solid #b0b0b0; border-radius: 4px; box-shadow: 0 .1rem .4rem #0003 }
+   (also options grid and four-up, below) */
+.carousel-cards:is(.article, .grid, .four-up) .carousel-cards-slide,
+.carousel-cards:is(.article, .grid, .four-up) .carousel-cards-slide:hover {
   border-color: #b0b0b0;
   border-radius: var(--radius-s);
   box-shadow: 0 1px 4px #0003;
@@ -355,5 +356,134 @@
 @media (width >= 1025px) {
   .carousel-cards.article .carousel-cards-track {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* options grid and four-up: Lufthansa a.teaser.card outside articles (same card as the article
+   variant: 1px #b0b0b0 border, 4px radius, image at its own aspect ratio, LufthansaHead bold
+   20px to 24px titles 10px above the description, which sits at the bottom of the card) */
+.carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+.carousel-cards:is(.grid, .four-up) .carousel-cards-image img {
+  height: auto;
+}
+
+.carousel-cards:is(.grid, .four-up) .carousel-cards-body {
+  padding: 20px;
+}
+
+.carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 10px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  line-height: 1.1;
+}
+
+.carousel-cards:is(.grid, .four-up) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: auto;
+}
+
+/* grid: cards in rows, stacked 40px apart on mobile, two per row from 768px, three (four-up:
+   four) from 1025px, 20px apart (.column-view-item gutters); source rows that are column views
+   of their own sit 64px apart (the margin collapses with the wrapper's 24px) */
+.carousel-cards.grid .carousel-cards-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid {
+  margin-top: 64px;
+}
+
+/* text-only cards (my-bookings login strip, .login-oneid-card): #dcdcdc border, square
+   corners, 20px 10px padding, 40px from 768px; buttons as wide as their label */
+.carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only,
+.carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only:hover {
+  border-color: var(--lh-grey-3);
+  border-radius: 0;
+  box-shadow: var(--shadow-1);
+}
+
+.carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-text-only) {
+  gap: 20px;
+}
+
+.carousel-cards.grid .carousel-cards-text-only .carousel-cards-body {
+  padding: 20px 10px;
+}
+
+.carousel-cards.grid .carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: 0;
+}
+
+.carousel-cards.grid .carousel-cards-text-only .carousel-cards-body > * {
+  margin-bottom: var(--spacing-default);
+}
+
+.carousel-cards.grid .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 20px;
+}
+
+/* buttons (maui size medium): as wide as the label, no 150px minimum ("Login" 108px); the
+   booking code button (a maui-button, not a link, on live) spans the card below 768px */
+.carousel-cards .carousel-cards-body > .button-wrapper {
+  align-self: flex-start;
+}
+
+.carousel-cards .carousel-cards-body > .button-wrapper a.button:any-link {
+  min-width: 0;
+}
+
+@media (width < 768px) {
+  .carousel-cards .carousel-cards-text-only .carousel-cards-body > .button-wrapper:has(a.secondary) {
+    align-self: stretch;
+  }
+
+  .carousel-cards .carousel-cards-text-only .carousel-cards-body > .button-wrapper a.button.secondary:any-link {
+    width: 100%;
+  }
+}
+
+/* four-up carousel (.swiper-multi-slide): one card per view on mobile, two from 768px, four
+   from 1025px, the next card peeking into the page margin */
+.carousel-cards.four-up .carousel-cards-dots {
+  margin-top: 7px;
+}
+
+@media (width >= 768px) {
+  .carousel-cards.grid .carousel-cards-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .carousel-cards.grid .carousel-cards-text-only .carousel-cards-body {
+    padding: 40px;
+  }
+}
+
+@media (width >= 1025px) {
+  .carousel-cards.grid .carousel-cards-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .carousel-cards.grid.four-up .carousel-cards-track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* login cards: two per row (.col-md-6) */
+  .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-text-only) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .carousel-cards.four-up:not(.grid) .carousel-cards-slide {
+    flex-basis: calc((100% - 3 * 20px) / 4);
   }
 }

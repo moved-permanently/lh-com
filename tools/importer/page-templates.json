@@ -252,6 +252,12 @@
           ]
         },
         {
+          "name": "carousel-cards",
+          "instances": [
+            ".threecolumn:has(a.teaser.card)"
+          ]
+        },
+        {
           "name": "columns-media",
           "instances": [
             ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
@@ -1033,7 +1039,8 @@
         {
           "name": "carousel-cards",
           "instances": [
-            ".threecolumn:has(.teaser)"
+            ".threecolumn:has(.teaser)",
+            ".fourcolumn:has(a.teaser.card)"
           ]
         },
         {
@@ -1403,6 +1410,12 @@
           "name": "table-striped",
           "instances": [
             "div.table:has(.cms-table-maui-wrapper)"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".carousel:has(a.teaser.card)"
           ]
         },
         {
@@ -2096,7 +2109,14 @@
         {
           "name": "cards-teaser",
           "instances": [
-            ".container-content > .section .section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+            ".container-content > .section .section-content > .twocolumn:has(.column-view-item > .image + .headline)",
+            ".container-content > .section .section-content > .threecolumn:has(.column-view-item > .image + .headline)"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".loginform:has(.login-oneid-card)"
           ]
         }
       ],

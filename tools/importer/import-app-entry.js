@@ -7,6 +7,7 @@ import columnsMediaParser from './parsers/columns-media.js';
 import cardsStepsParser from './parsers/cards-steps.js';
 import bookingLookupParser from './parsers/booking-lookup.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
+import carouselCardsParser from './parsers/carousel-cards.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -44,7 +45,14 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-teaser",
       "instances": [
-        ".container-content > .section .section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+        ".container-content > .section .section-content > .twocolumn:has(.column-view-item > .image + .headline)",
+        ".container-content > .section .section-content > .threecolumn:has(.column-view-item > .image + .headline)"
+      ]
+    },
+    {
+      "name": "carousel-cards",
+      "instances": [
+        ".loginform:has(.login-oneid-card)"
       ]
     }
   ],
@@ -139,6 +147,7 @@ const parsers = {
   'cards-steps': cardsStepsParser,
   'booking-lookup': bookingLookupParser,
   'cards-teaser': cardsTeaserParser,
+  'carousel-cards': carouselCardsParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

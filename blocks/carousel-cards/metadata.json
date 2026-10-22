@@ -19,6 +19,14 @@
     {
       "name": "article",
       "description": "Insights articles: cards in the article column (83.333% from 768px), 1/2/3 per row (mobile/768/1025), 16:9 images, no carousel controls"
+    },
+    {
+      "name": "grid",
+      "description": "Teaser cards (a.teaser.card column views) in rows: 1/2/3 per row (mobile/768/1025), images at their own aspect ratio, description at the card bottom, no carousel; text-only cards (login strip) with buttons, 2 per row"
+    },
+    {
+      "name": "four-up",
+      "description": "Carousel of teaser cards, 1/2/4 per view (mobile/768/1025) with a peek, one dot per page; with grid: 4 per row"
     }
   ],
   "memberVariantIds": [],
@@ -27,7 +35,11 @@
     "pagesUsing": [
       "/de/en/homepage",
       "/de/en/flying-with-small-children",
-      "/de/en/articles/explore-the-world/eat-see-do-berlin"
+      "/de/en/articles/explore-the-world/eat-see-do-berlin",
+      "/de/en/accessible-travel",
+      "/de/de/fluege",
+      "/de/en/boeing787",
+      "/de/en/my-bookings"
     ],
     "reuseCount": 2,
     "lastUsed": "2026-10-21"

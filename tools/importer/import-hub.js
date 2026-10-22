@@ -4,6 +4,7 @@
 
 import heroCampaignParser from './parsers/hero-campaign.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
+import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import destinationFinderParser from './parsers/destination-finder.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
@@ -27,6 +28,12 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".section-content > .twocolumn:has(.column-view-item > .image + .headline)",
         ".section-content > .threecolumn:has(.column-view-item > .image + .headline)"
+      ]
+    },
+    {
+      "name": "carousel-cards",
+      "instances": [
+        ".threecolumn:has(a.teaser.card)"
       ]
     },
     {
@@ -118,6 +125,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'hero-campaign': heroCampaignParser,
   'cards-teaser': cardsTeaserParser,
+  'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'destination-finder': destinationFinderParser,
 };

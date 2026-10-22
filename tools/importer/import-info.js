@@ -31,7 +31,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "carousel-cards",
       "instances": [
-        ".threecolumn:has(.teaser)"
+        ".threecolumn:has(.teaser)",
+        ".fourcolumn:has(a.teaser.card)"
       ]
     },
     {

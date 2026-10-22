@@ -36,6 +36,13 @@
   margin-bottom: 40px;
 }
 
+/* a teaser grid right after another one (my-bookings: .twocolumn and .threecolumn in AEM
+   sections of their own): 91px from the last link to the next image (margin collapses with
+   the wrapper's 24px) */
+.cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser {
+  margin-top: 91px;
+}
+
 .cards-teaser .cards-teaser-image picture,
 .cards-teaser .cards-teaser-image img {
   display: block;
@@ -52,8 +59,10 @@
   margin-bottom: 0;
 }
 
-/* title: h3.headline.heading-small (also h2.heading-small next to h3 cards on /online-check-in) */
-.cards-teaser .cards-teaser-body > .cards-teaser-title {
+/* title: h3.headline.heading-small (also h2.heading-small next to h3 cards on /online-check-in).
+   The title rules are :where() (one class), so a size marker ({heading-small}, main
+   h3.heading-small in styles.css) wins, e.g. my-bookings three-up cards with 28px light titles */
+.cards-teaser :where(.cards-teaser-body > .cards-teaser-title) {
   margin-bottom: var(--heading-margin-l);
   font-size: var(--heading-font-size-l);
   font-weight: 300;
@@ -61,13 +70,13 @@
 }
 
 /* cards titled with h2 only (overview pages): h2.headline.heading-medium */
-.cards-teaser:not(:has(:is(h3, h4, h5, h6).cards-teaser-title)) .cards-teaser-body > h2.cards-teaser-title {
+.cards-teaser:where(:not(:has(:is(h3, h4, h5, h6).cards-teaser-title))) :where(.cards-teaser-body > h2.cards-teaser-title) {
   margin-bottom: var(--heading-margin-xl);
   font-size: var(--heading-font-size-xl);
 }
 
 /* three-up: h3.headline.heading-copytext-large */
-.cards-teaser.three-up .cards-teaser-body > .cards-teaser-title {
+.cards-teaser:where(.three-up) :where(.cards-teaser-body > .cards-teaser-title) {
   margin-bottom: var(--spacing-default);
   font-size: var(--heading-font-size-m);
   font-weight: 700;

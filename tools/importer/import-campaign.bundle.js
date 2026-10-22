@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_5381_exports = {};
-  __export(tmp_bundle_campaign_5381_exports, {
-    default: () => tmp_bundle_campaign_5381_default
+  var tmp_bundle_campaign_18318_exports = {};
+  __export(tmp_bundle_campaign_18318_exports, {
+    default: () => tmp_bundle_campaign_18318_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -505,6 +505,8 @@ var CustomImportScript = (() => {
       if (!text) return null;
       const out = document.createElement(h ? h.tagName.toLowerCase() : "h3");
       out.textContent = text;
+      const style = h && [...h.classList].find((c) => /^heading-/.test(c));
+      if (style) out.className = style;
       return out;
     };
     const view = element.querySelector(":scope > .column-view") || element;
@@ -1824,7 +1826,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_5381_default = {
+  var tmp_bundle_campaign_18318_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1854,5 +1856,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_5381_exports);
+  return __toCommonJS(tmp_bundle_campaign_18318_exports);
 })();

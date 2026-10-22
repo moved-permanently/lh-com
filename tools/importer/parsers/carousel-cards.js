@@ -16,12 +16,19 @@
  * Swiper's own prev/next aria-labels are library defaults, not authored text, so no label rows
  * are emitted (the block uses its locale defaults).
  *
- * Info / insights variant of the source (".threecolumn:has(.teaser)"): a column view of
- * a.teaser.card links. Output: 2 columns per row (image | H3, description, CTA); the column
- * title H2 is emitted as default content before the table; the swiper copy below lg is
- * skipped when the desktop grid is present. Without a CTA label (insights) the H3 is linked
- * to the card target. Inside an insights article (.article-details-page) the block gets the
- * "article" variant (cards in the article column, no carousel).
+ * Teaser cards of the source (a.teaser.card: ".threecolumn" / ".fourcolumn" column views,
+ * ".carousel" swipers of them): 2 columns per row (image | heading linked to the card target,
+ * description). The card's ".teaser-link-text" is display:none on live and is not imported.
+ * Heading level as in the source (h3-h6; h1/h2 card titles become h3). The column title is
+ * emitted as default content before the table; a swiper copy below lg is skipped when the
+ * desktop grid is present. Options: column views "grid" (cards in rows, stacked on mobile;
+ * ".fourcolumn" adds "four-up"); a ".swiper-multi-slide" carousel "four-up" (4 per view);
+ * inside an insights article (.article-details-page) "article" (cards in the article column).
+ *
+ * Login cards (".loginform" .login-oneid-card: title, text, button): text-only rows in a
+ * "grid" block; the intro paragraph is default content before it. maui-button-link primary =
+ * bold link (yellow button); the booking code maui-button opens a dialog on live that the
+ * replica does not have: italic link (outlined button) to "#booking-code".
  */
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
@@ -39,8 +46,56 @@ export default function parse(element, { document }) {
     return p;
   };
 
-  // Info / insights: ".threecolumn" column view of a.teaser.card links (desktop grid, swiper
-  // copy below lg). Homepage ".carousel" markup is handled further down.
+  // my-bookings login strip: bordered text cards with a button each
+  const loginCards = [...element.querySelectorAll('.login-oneid-card')];
+  if (loginCards.length) {
+    const intro = [];
+    const form = element.querySelector('.dcep-login-form') || element;
+    form.querySelectorAll('.richtext').forEach((rt) => {
+      if (rt.closest('.login-oneid-card, maui-modal')) return;
+      rt.querySelectorAll(':scope > p').forEach((p) => {
+        const t = visibleText(p);
+        if (t) intro.push(para(t));
+      });
+    });
+    const rows = [];
+    loginCards.forEach((card) => {
+      const content = [];
+      const headline = card.querySelector('maui-headline, h1, h2, h3, h4, h5, h6');
+      const title = visibleText(headline);
+      if (title) {
+        const type = (headline.getAttribute('type') || headline.tagName).toLowerCase();
+        const h = document.createElement(/^h[3-6]$/.test(type) ? type : 'h3');
+        h.textContent = title;
+        content.push(h);
+      }
+      card.querySelectorAll('.richtext > p').forEach((p) => {
+        const t = visibleText(p);
+        if (t) content.push(para(t));
+      });
+      const BUTTONS = 'maui-button-link, maui-button, a[href]';
+      [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
+        const label = visibleText(btn) || clean(btn.getAttribute('label'));
+        if (!label) return;
+        const a = document.createElement('a');
+        a.href = btn.getAttribute('href') || '#booking-code';
+        a.textContent = label;
+        const primary = btn.getAttribute('type') === 'primary';
+        const wrap = document.createElement(primary ? 'strong' : 'em');
+        wrap.append(a);
+        const p = document.createElement('p');
+        p.append(wrap);
+        content.push(p);
+      });
+      if (content.length) rows.push(['', content]);
+    });
+    const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants: ['grid'], cells: rows });
+    element.replaceWith(...intro, block);
+    return;
+  }
+
+  // Teaser cards (a.teaser.card) in column views (desktop grid, swiper copy below lg) or in a
+  // swiper. Homepage ".carousel" markup (.wide-teaser / .compact-teaser) is handled further down.
   if (!element.querySelector('.wide-teaser, .compact-teaser') && element.querySelector('.teaser a.teaser, a.teaser.card')) {
     const MOBILE = '.hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none';
     const hasDesktopTwin = !!element.querySelector('.hidden-md-down a.teaser, .hidden-sm-down a.teaser');
@@ -75,11 +130,13 @@ export default function parse(element, { document }) {
       }
       const href = card.getAttribute('href');
       const content = [];
-      const heading = visibleText(card.querySelector('.teaser-heading, h2, h3, h4, h5, h6'));
-      const ctaLabel = visibleText(card.querySelector('.teaser-link-text'));
+      const headingEl = card.querySelector('.teaser-heading, h1, h2, h3, h4, h5, h6');
+      const heading = visibleText(headingEl);
       if (heading) {
-        const h = document.createElement('h3');
-        if (!ctaLabel && href) {
+        // the card is the link; .teaser-link-text is display:none on live (not imported)
+        const level = headingEl && /^H[3-6]$/.test(headingEl.tagName) ? headingEl.tagName.toLowerCase() : 'h3';
+        const h = document.createElement(level);
+        if (href) {
           const a = document.createElement('a');
           a.href = href;
           a.textContent = heading;
@@ -91,20 +148,16 @@ export default function parse(element, { document }) {
       }
       const description = visibleText(card.querySelector('.teaser-description'));
       if (description) content.push(para(description));
-      if (ctaLabel && href) {
-        const a = document.createElement('a');
-        a.href = href;
-        a.textContent = ctaLabel;
-        const p = document.createElement('p');
-        p.append(a);
-        content.push(p);
-      }
       if (!imageCell && !content.length) return;
       rows.push([imageCell, content.length ? content : '']);
     });
 
-    // Lufthansa Insights articles: three cards in the article column, stacked on mobile
-    const variants = isArticle ? ['article'] : [];
+    // articles: three cards in the article column; column views: cards in rows (".fourcolumn"
+    // four per row); a multi-slide swiper: carousel with four cards per view
+    let variants = [];
+    if (isArticle) variants = ['article'];
+    else if (element.querySelector('.swiper-multi-slide')) variants = ['four-up'];
+    else if (!element.matches('.carousel')) variants = element.matches('.fourcolumn') ? ['grid', 'four-up'] : ['grid'];
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;

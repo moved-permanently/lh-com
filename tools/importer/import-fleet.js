@@ -5,6 +5,7 @@
 import heroCampaignParser from './parsers/hero-campaign.js';
 import carouselLightboxParser from './parsers/carousel-lightbox.js';
 import tableStripedParser from './parsers/table-striped.js';
+import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
@@ -32,6 +33,12 @@ const PAGE_TEMPLATE = {
       "name": "table-striped",
       "instances": [
         "div.table:has(.cms-table-maui-wrapper)"
+      ]
+    },
+    {
+      "name": "carousel-cards",
+      "instances": [
+        ".carousel:has(a.teaser.card)"
       ]
     },
     {
@@ -103,6 +110,7 @@ const parsers = {
   'hero-campaign': heroCampaignParser,
   'carousel-lightbox': carouselLightboxParser,
   'table-striped': tableStripedParser,
+  'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];

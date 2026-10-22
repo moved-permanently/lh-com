@@ -105,6 +105,10 @@ export default function parse(element, { document }) {
     if (!text) return null;
     const out = document.createElement(h ? h.tagName.toLowerCase() : 'h3');
     out.textContent = text;
+    // the Lufthansa size class (h3.heading-small); the cleanup turns it into a
+    // "{heading-small}" marker when it differs from the level's size
+    const style = h && [...h.classList].find((c) => /^heading-/.test(c));
+    if (style) out.className = style;
     return out;
   };
 

@@ -84,7 +84,8 @@ function buildSlide(cells) {
       prev = prev.previousElementSibling;
     }
   }
-  body.querySelectorAll(':scope > p').forEach((p) => {
+  // link paragraphs are the arrow CTA; bold / italic links stay buttons (decorateButtons)
+  body.querySelectorAll(':scope > p:not(.button-wrapper)').forEach((p) => {
     const links = [...p.querySelectorAll('a[href]')];
     if (links.length && links.map((a) => a.textContent).join('').trim() === p.textContent.trim()) {
       p.classList.add('carousel-cards-cta');
@@ -92,8 +93,16 @@ function buildSlide(cells) {
   });
 
   if (image.children.length) li.append(image);
+  else li.classList.add('carousel-cards-text-only');
   li.append(body);
   return li;
+}
+
+/** Slides in view: 1 (one slide per dot) unless the four-up option shows several at once. */
+function slidesPerView(block, track, items) {
+  if (!block.classList.contains('four-up') || !items[0].offsetWidth) return 1;
+  const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+  return Math.max(1, Math.floor((track.clientWidth + gap) / (items[0].offsetWidth + gap)));
 }
 
 export default function decorate(block) {
@@ -119,15 +128,16 @@ export default function decorate(block) {
   block.setAttribute('aria-label', labels['carousel label']);
   decorateExternalLinks(track);
 
-  // article variant: a grid of cards in the article column, no carousel controls; links to
-  // lufthansa.com pages outside the site open in the same tab, as on the live article
+  // teaser cards (article, grid, four-up): links to lufthansa.com pages outside the site open
+  // in the same tab, as on live; article and grid are cards in rows, no carousel controls
   const article = block.classList.contains('article');
-  if (article) {
+  const grid = article || block.classList.contains('grid');
+  if (grid || block.classList.contains('four-up')) {
     track.querySelectorAll('a[target="_blank"]').forEach((a) => {
       if (/(^|\.)lufthansa\.com$/.test(new URL(a.href).hostname)) a.removeAttribute('target');
     });
   }
-  if (items.length < 2 || article) {
+  if (items.length < 2 || grid) {
     block.replaceChildren(viewport);
     return;
   }
@@ -147,20 +157,31 @@ export default function decorate(block) {
   // scroll position of a slide, measured from the first slide so track padding does not count
   const slideLeft = (li) => li.offsetLeft - items[0].offsetLeft;
 
+  // one dot per page of slides in view (four-up: Lufthansa swiper-multi-slide groups of 4/2/1)
   const dots = el('ol', 'carousel-cards-dots');
-  const dotButtons = items.map((li, i) => {
-    const dotItem = el('li');
-    const dot = el('button', 'carousel-cards-dot');
-    dot.type = 'button';
-    dot.setAttribute('aria-label', li.getAttribute('aria-label'));
-    dot.setAttribute('aria-controls', track.id);
-    dot.addEventListener('click', () => {
-      track.scrollTo({ left: slideLeft(items[i]), behavior: 'smooth' });
+  let perView = 0;
+  let dotButtons = [];
+  const buildDots = () => {
+    const n = slidesPerView(block, track, items);
+    if (n === perView) return;
+    perView = n;
+    const pages = Math.ceil(items.length / perView);
+    dotButtons = Array.from({ length: pages }, (_, page) => {
+      const first = items[page * perView];
+      const dotItem = el('li');
+      const dot = el('button', 'carousel-cards-dot');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', perView === 1 ? first.getAttribute('aria-label')
+        : labels['slide label'].replace('{n}', page + 1).replace('{total}', pages));
+      dot.setAttribute('aria-controls', track.id);
+      dot.addEventListener('click', () => {
+        track.scrollTo({ left: slideLeft(first), behavior: 'smooth' });
+      });
+      dotItem.append(dot);
+      return dot;
     });
-    dotItem.append(dot);
-    dots.append(dotItem);
-    return dot;
-  });
+    dots.replaceChildren(...dotButtons.map((d) => d.parentElement));
+  };
 
   const currentIndex = () => {
     const left = track.scrollLeft;
@@ -174,13 +195,16 @@ export default function decorate(block) {
   };
 
   const update = () => {
-    const index = currentIndex();
+    buildDots();
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    const page = atEnd && track.scrollLeft > 1 ? dotButtons.length - 1
+      : Math.round(currentIndex() / perView);
     dotButtons.forEach((dot, i) => {
-      if (i === index) dot.setAttribute('aria-current', 'true');
+      if (i === page) dot.setAttribute('aria-current', 'true');
       else dot.removeAttribute('aria-current');
     });
     prev.disabled = track.scrollLeft <= 1;
-    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    next.disabled = atEnd;
     const scrollable = track.scrollWidth > track.clientWidth + 1;
     nav.hidden = !scrollable;
     dots.hidden = !scrollable;
@@ -188,7 +212,7 @@ export default function decorate(block) {
 
   const step = (dir) => {
     const index = currentIndex();
-    const target = items[Math.min(items.length - 1, Math.max(0, index + dir))];
+    const target = items[Math.min(items.length - 1, Math.max(0, index + dir * perView))];
     track.scrollTo({ left: slideLeft(target), behavior: 'smooth' });
   };
   prev.addEventListener('click', () => step(-1));
