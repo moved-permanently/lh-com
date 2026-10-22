@@ -248,6 +248,7 @@
         {
           "name": "columns-media",
           "instances": [
+            ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
             ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
           ]
         },
@@ -1022,6 +1023,12 @@
           "instances": [
             ".threecolumn:has(.teaser)"
           ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))"
+          ]
         }
       ],
       "sections": [
@@ -1378,6 +1385,12 @@
           "name": "table-striped",
           "instances": [
             "div.table:has(.cms-table-maui-wrapper)"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))"
           ]
         }
       ],

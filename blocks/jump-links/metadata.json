@@ -1,0 +1,26 @@
+{
+  "variantName": "jump-links",
+  "baseBlock": "jump-links",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/baggage",
+  "visualCharacteristics": {
+    "purpose": "links to places on the same page, each with a down arrow",
+    "traits": [
+      "one row of links that wraps, 20px apart",
+      "down arrow before every label (lh-arrow-down, navigation link size large)",
+      "option columns: one equal column per link (stacked on mobile, two per row from 768px)"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One link per row (any rows or cells: every link of the block becomes one item). Link targets are in-page anchors (#heading-id)."
+  },
+  "options": [
+    {
+      "class": "columns",
+      "label": "Equal columns (one per link)"
+    }
+  ],
+  "memberVariantIds": [],
+  "usage": "Jump links below the intro of hub, info, legal and campaign pages (/de/en/baggage, /de/en/flight-disruptions, /de/en/cookie-policy, /de/en/discover-lufthansa/new-onboard-experience, /de/en/100-years/chronicle).",
+  "reuseGuidance": "For jump links next to the intro (Lufthansa .airem-sidebar) use columns-media (sidebar) with the links in the second cell."
+}

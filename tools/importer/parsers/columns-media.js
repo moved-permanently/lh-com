@@ -6,8 +6,8 @@
  *  - ".twocolumn" column views (hub, campaign, insights, legal, app-entry, flight-status): one
  *    cell per ".column-view-item" of this column view (nested column views are flattened into
  *    their cell: app-badge image links, photo + QR code)
- *  - ".sidebar" (campaign): ".sidebar-content" (media) | ".sidebar-aside" (text), option
- *    "wide-media"
+ *  - ".sidebar" (.airem-sidebar): ".sidebar-content" | ".sidebar-aside" (text or media each),
+ *    option "sidebar" (75/25); jump links in the aside stay links ("#heading-id")
  *
  * Output (blocks/columns-media README): 2 columns, one row per text/media pair. A media cell
  * holds images (linked images keep their link), or a poster image plus a link to the .mp4
@@ -136,7 +136,7 @@ export default function parse(element, { document }) {
   };
 
   const headingFrom = (scope) => {
-    const h = scope.querySelector('h1, h2, h3, h4, h5, h6');
+    const h = scope.matches('h1, h2, h3, h4, h5, h6') ? scope : scope.querySelector('h1, h2, h3, h4, h5, h6');
     const text = visibleText(h || scope);
     if (!text) return null;
     // AEM styles some labels as headings with a copytext class; they read as body text
@@ -229,7 +229,8 @@ export default function parse(element, { document }) {
   const cells = [];
   let variants = [];
   if (element.classList.contains('sidebar') || element.querySelector(':scope > .airem-sidebar')) {
-    variants = ['wide-media'];
+    // .airem-sidebar: .sidebar-content 75% | .sidebar-aside 25%, whatever each holds
+    variants = ['sidebar'];
     const media = element.querySelector('.sidebar-content');
     const text = element.querySelector('.sidebar-aside');
     const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];

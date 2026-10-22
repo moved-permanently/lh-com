@@ -449,6 +449,11 @@ main .default-content-wrapper > p > a:has(> picture) {
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* to a place on the same page (variant anchor-down): lh-arrow-down */
+.default-content-wrapper p.link-wrapper a:any-link[href^="#"]::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
 /* links in running text (.richtext a > em.lh.lh-arrow-right / lh-arrow-top-right / lh-arrow-down,
    a .lh { font-size: 1.6rem }): a 9x8px arrow ink 3px into the link, 5px to the text; up-right
    for other sites, down for in-page anchors (1440 capture, imprint "Internet: lufthansa.com");

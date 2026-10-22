@@ -1,0 +1,63 @@
+/*
+ * jump-links: maui-navigation-link variant="anchor-down" size="large" (lh-arrow-down, the same
+ * 19px icon box and 10px to the label as the standalone navigation links in default content).
+ * Default: .link-list .horizontal { display: flex; flex-wrap: wrap; gap: 0 2rem }, wrapped
+ * lines 30px apart, 31px more below the list than a paragraph (the list's 40px separator)
+ * (/de/en/baggage: rows and the next heading = live at 1440/768/390, /de/en/flight-disruptions).
+ * columns: the links of a column view, one .col-md-6.col-lg item each (20px gutter): stacked
+ * below 768px, two per row from 768px, all in one row from 1025px
+ * (/de/en/discover-lufthansa/new-onboard-experience, /de/en/100-years/chronicle).
+ */
+.jump-links .jump-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 0;
+  padding: 0 0 31px;
+  list-style: none;
+}
+
+.jump-links .jump-links-list li {
+  display: flex;
+  margin: 0;
+  line-height: 24px;
+}
+
+.jump-links .jump-links-list a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--link-color);
+}
+
+.jump-links .jump-links-list a:hover {
+  color: var(--link-hover-color);
+}
+
+.jump-links .jump-links-list a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: 19px;
+  height: 19px;
+  margin-top: 2.5px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.jump-links.columns .jump-links-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (width >= 768px) {
+  .jump-links.columns .jump-links-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1025px) {
+  .jump-links.columns .jump-links-list {
+    grid-template-columns: repeat(var(--jump-links-count, 4), minmax(0, 1fr));
+  }
+}

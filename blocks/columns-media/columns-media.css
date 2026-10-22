@@ -5,6 +5,7 @@
  * Stacked (< 768px): .image .image-wrapper { margin-bottom: 4rem } + .column-view-item
  * { margin-bottom: 1rem } = 50px below media, 36px below text (link margin 2.4rem + 1rem),
  * wide-media .sidebar-aside { margin-top: 4rem } = 40px.
+ * sidebar: .airem-sidebar (75/25 whatever the cells hold, padding 40px above / 20px below).
  * Measured on /de/en/timetable-and-flight-status, /de/en/baggage, /de/en/online-check-in,
  * /de/en/imprint, /de/en/100-years.
  */
@@ -44,6 +45,22 @@
 
 .columns-media.wide-media .columns-media-media-last > .columns-media-text {
   margin-bottom: 0;
+}
+
+/* sidebar (.airem-sidebar { padding: 2rem 0 1rem }, from 768px 4rem 0 2rem, plus the 2.4rem
+   margin of its last component): the first cell 75%, the second 25% whatever they hold; stacked
+   in authored order, .sidebar-aside { margin-top: 4rem }
+   (/de/de/additional-services, /de/en/boeing787, /de/en/accessible-travel) */
+.columns-media.sidebar {
+  padding: 20px 0 36px;
+}
+
+.columns-media.sidebar .columns-media-row > div:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.columns-media.sidebar .columns-media-row > div:empty {
+  display: none;
 }
 
 /* media cell */
@@ -108,9 +125,14 @@
   height: auto;
 }
 
-/* a link alone in its paragraph: maui-navigation-link size large, variant hyper */
+/* a link alone in its paragraph: maui-navigation-link size large, variant hyper; links one
+   below the other 50px apart (.maui-link { margin-bottom: 2.4rem }, 26px link box) */
 .columns-media .columns-media-text p.link-wrapper {
   line-height: 24px;
+}
+
+.columns-media .columns-media-text p.link-wrapper:has(+ p.link-wrapper) {
+  margin-bottom: 26px;
 }
 
 .columns-media .columns-media-text p.link-wrapper a:any-link {
@@ -127,11 +149,17 @@
 .columns-media .columns-media-text p.link-wrapper a:any-link::before {
   content: "";
   flex: 0 0 auto;
-  align-self: center;
+  align-self: flex-start;
   width: 20px;
   height: 20px;
+  margin-top: 2px;
   background-color: currentcolor;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* variant anchor-down (jump links to a heading on the page): lh-arrow-down */
+.columns-media .columns-media-text p.link-wrapper a[href^="#"]::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
 }
 
 /* variant external (off-site links): lh-arrow-up-right */
@@ -221,6 +249,22 @@
 
   .columns-media.wide-media .columns-media-media-last > .columns-media-media {
     order: 0;
+  }
+
+  .columns-media.sidebar {
+    padding: 40px 0 46px;
+  }
+
+  .columns-media.sidebar .columns-media-row:has(> :nth-child(2):last-child) {
+    grid-template-columns: calc(75% - 10px) calc(25% - 10px);
+  }
+
+  .columns-media.sidebar .columns-media-row > div:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .columns-media.sidebar .columns-media-row > div:empty {
+    display: block;
   }
 
   .columns-media .columns-media-text p:has(> a > picture) {

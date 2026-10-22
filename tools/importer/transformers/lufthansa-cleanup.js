@@ -19,6 +19,8 @@
  *    .hidden-md-down grid, .d-md-none next to .d-none.d-md-block); the desktop copy stays
  *  - rewrites in-page anchors to the heading ids EDS generates (#americas ->
  *    #north-and-south-america, /de/en/baggage#baggage-types -> #types-of-baggage)
+ *  - jump links (maui-navigation-link variant="anchor-down") of link lists and column views
+ *    become a Jump Links block
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
  *  - normalizes images (AEM and AirCore): largest srcset/<source> rendition, absolute
@@ -566,6 +568,56 @@ function rewriteAnchors(document, pagePath) {
   return rewritten;
 }
 
+/* ---------------------------------------------------------- jump links ----------------- */
+
+const JUMP_LINK = '[variant="anchor-down"][href]';
+
+/** Whether a component shows nothing but its jump links (no other text, images or links). */
+function onlyJumpLinks(el) {
+  const links = [...el.querySelectorAll('[href]')];
+  if (!links.length || !links.every((l) => l.matches(JUMP_LINK))) return null;
+  const rest = el.cloneNode(true);
+  rest.querySelectorAll('[href]').forEach((l) => l.remove());
+  if (cleanText(rest) || rest.querySelector('img, picture, video, iframe, input, select, button')) return null;
+  return links;
+}
+
+function jumpLinksBlock(document, links, variants) {
+  const cells = links.map((l) => {
+    const a = document.createElement('a');
+    a.setAttribute('href', l.getAttribute('href'));
+    a.textContent = cleanText(l) || l.getAttribute('label') || l.getAttribute('aria-label') || '';
+    return [a];
+  }).filter(([a]) => a.textContent);
+  return WebImporter.Blocks.createBlock(document, { name: 'Jump Links', variants, cells });
+}
+
+/**
+ * Jump links (maui-navigation-link variant="anchor-down") -> "Jump Links" block
+ * (blocks/jump-links): a link list (.imagelinklist > .link-list > ul.horizontal|.responsive) of
+ * only such links -> one row that wraps; a column view whose items hold only such links (one
+ * per item: /new-onboard-experience, /100-years/chronicle) -> option "columns". Other anchor
+ * links (sidebar next to the intro, single links in text) stay links. Runs after
+ * rewriteAnchors (the hrefs point to the heading ids) and before the parsers. Returns the count.
+ */
+function convertJumpLinks(document) {
+  let converted = 0;
+  document.querySelectorAll('.imagelinklist').forEach((list) => {
+    const links = list.isConnected && onlyJumpLinks(list);
+    if (!links) return;
+    list.replaceChildren(jumpLinksBlock(document, links, []));
+    converted += 1;
+  });
+  document.querySelectorAll('.twocolumn, .threecolumn, .fourcolumn').forEach((col) => {
+    const view = col.isConnected && col.querySelector(':scope > .column-view');
+    const links = view && onlyJumpLinks(view);
+    if (!links || links.length < 2) return;
+    col.replaceWith(jumpLinksBlock(document, links, ['columns']));
+    converted += 1;
+  });
+  return converted;
+}
+
 /* ------------------------------------------------------- maui links ----------------- */
 
 const MAUI_LINK = 'maui-button-link[href], maui-navigation-link[href], maui-link[href]';
@@ -1066,6 +1118,7 @@ export default function transform(hookName, element, payload) {
     removeScreenReaderOnly(document);
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
+    convertJumpLinks(document);
     removeEmptyComponents(document);
     normalizeImages(document, true);
   }
