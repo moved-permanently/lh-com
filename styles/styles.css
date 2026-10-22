@@ -703,12 +703,40 @@ main .default-content-wrapper li > ol {
   margin-bottom: 0;
 }
 
-/* .limited-width: running text uses two thirds of the content width on desktop */
+/* .limited-width: running text uses two thirds of the content width on desktop (lists
+   included their indent: 824px at 1425px like the paragraphs); text marked {full-width} (text
+   components without .limited-width: footnotes, notes) runs over the whole width */
 @media (width >= 1025px) {
-  main .default-content-wrapper > p:not(:has(picture), .button-wrapper),
-  main .default-content-wrapper > ul,
-  main .default-content-wrapper > ol {
+  main .default-content-wrapper > p:not(:has(picture), .button-wrapper, .full-width),
+  main .default-content-wrapper > ul:not(.full-width),
+  main .default-content-wrapper > ol:not(.full-width) {
+    box-sizing: border-box;
     max-width: 66%;
+  }
+
+  /* AirCore .content-wrapper { width: 75% } of .container, whose children have the side
+     paddings: 893px at 1425px, 904px at 1440px; small print (.disclaimer) and the
+     last-minute deals intro sit in the container itself (full width) */
+  body.aircore main .default-content-wrapper > p:not(:has(picture), .button-wrapper, .full-width),
+  body.aircore main .default-content-wrapper > ul:not(.full-width),
+  body.aircore main .default-content-wrapper > ol:not(.full-width) {
+    max-width: calc(75% - var(--layout-margin) / 2);
+  }
+
+  body.aircore main .default-content-wrapper > p.copytext-small,
+  body.aircore main > .section.table-deals-container > .default-content-wrapper > p {
+    max-width: none;
+  }
+}
+
+/* Lufthansa Insights articles (.article-content .article-limited-width / h3 / .text:
+   margin-inline 10%, max-width 80% of the article card = two thirds of the content width,
+   centred, from 768px): the article body sections after the article header */
+@media (width >= 768px) {
+  main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6) {
+    box-sizing: border-box;
+    max-width: 66.667%;
+    margin-inline: auto;
   }
 }
 

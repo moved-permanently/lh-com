@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination-overview.js
-  var tmp_bundle_aircore_destination_overview_38396_exports = {};
-  __export(tmp_bundle_aircore_destination_overview_38396_exports, {
-    default: () => tmp_bundle_aircore_destination_overview_38396_default
+  var tmp_bundle_aircore_destination_overview_42709_exports = {};
+  __export(tmp_bundle_aircore_destination_overview_42709_exports, {
+    default: () => tmp_bundle_aircore_destination_overview_42709_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -805,11 +805,28 @@ var CustomImportScript = (() => {
       const px = parseFloat(m[1]) * (m[2].toLowerCase() === "pt" ? 4 / 3 : 1);
       if (px < 15) p.classList.add("copytext-small");
     });
-    document.querySelectorAll("p.copytext-small, p.copytext-medium, p.copytext-large, p.footnote").forEach((p) => {
-      if (!cleanText(p) || /\{[a-z-]+\}\s*$/.test(p.textContent)) return;
-      const style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
-      if (style === "copytext-large" && !p.querySelector("a[href]")) return;
-      p.append(document.createTextNode(` {${style}}`));
+    const FULL_SCOPE = ".richtext:not(.limited-width)";
+    const NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table, .disclaimer";
+    const isFull = (el) => {
+      const rt = el.closest(FULL_SCOPE);
+      return !!rt && el.parentElement === rt && !rt.closest(NOT_DEFAULT);
+    };
+    const marker = (el) => /\{[a-z -]+\}\s*$/.test(el.textContent);
+    document.querySelectorAll("p").forEach((p) => {
+      if (!cleanText(p) || marker(p)) return;
+      let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
+      if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
+      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      if (!tokens.length) return;
+      p.append(document.createTextNode(` {${tokens.join(" ")}}`));
+      marked += 1;
+    });
+    document.querySelectorAll("ul, ol").forEach((list) => {
+      if (!isFull(list)) return;
+      const items = [...list.children].filter((li) => li.tagName === "LI");
+      const last = items[items.length - 1];
+      if (!last || marker(last)) return;
+      last.append(document.createTextNode(" {full-width}"));
       marked += 1;
     });
     return marked;
@@ -1142,7 +1159,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_destination_overview_38396_default = {
+  var tmp_bundle_aircore_destination_overview_42709_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1172,5 +1189,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_destination_overview_38396_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_overview_42709_exports);
 })();

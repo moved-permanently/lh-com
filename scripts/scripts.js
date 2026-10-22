@@ -174,7 +174,8 @@ function decorateSectionMetadata(main) {
 }
 
 const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
-const PARAGRAPH_STYLE = /\s*\{(copytext-(?:small|medium|large))\}\s*$/;
+const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width)(?: (?:copytext-(?:small|medium|large)|full-width))*)\}\s*$/;
+const LIST_STYLE = /\s*\{(full-width)\}\s*$/;
 
 /**
  * Removes a trailing style marker from the last text of an element; returns the style or null.
@@ -194,7 +195,8 @@ function takeStyleMarker(el, pattern) {
 /**
  * Text style markers (see README "Authoring conventions"): "Ticket refunds {heading-medium}"
  * renders as <h3 class="heading-medium">Ticket refunds</h3> (Lufthansa sizes headings by class,
- * not by level), "Small print {copytext-small}" as <p class="copytext-small">. The marker is
+ * not by level), "Small print {copytext-small}" as <p class="copytext-small">, a list whose last
+ * item ends with "{full-width}" as <ul class="full-width">. The marker is
  * removed from the text and from the heading id the backend derived from it.
  * @param {Element} main The container element
  */
@@ -207,7 +209,12 @@ function decorateTextStyles(main) {
   });
   main.querySelectorAll('p').forEach((p) => {
     const style = takeStyleMarker(p, PARAGRAPH_STYLE);
-    if (style) p.classList.add(style);
+    if (style) p.classList.add(...style.split(' '));
+  });
+  main.querySelectorAll('ul, ol').forEach((list) => {
+    const last = [...list.children].filter((li) => li.tagName === 'LI').pop();
+    const style = last && takeStyleMarker(last, LIST_STYLE);
+    if (style) list.classList.add(style);
   });
 }
 

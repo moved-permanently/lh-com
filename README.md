@@ -49,6 +49,14 @@ on AirCore pages: footnotes, disclaimers, small link lists), `{copytext-medium}`
 alone in such a paragraph stays a small text link with an arrow instead of a large
 navigation link.
 
+### Text width
+
+Running text (paragraphs, lists) uses two thirds of the content width from 1025px (AirCore
+pages: the AirCore text column, 893px at 1425px). `{full-width}` at the end of a paragraph, or
+at the end of the last item of a list, lets it run over the whole width; it combines with a
+size: `{copytext-small full-width}`. On Lufthansa Insights articles the body text is a centred
+column of two thirds of the width from 768px.
+
 ### Buttons and links
 
 - Bold link alone in a paragraph: primary (yellow) button. Italic link alone in a paragraph:
