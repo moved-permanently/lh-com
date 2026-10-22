@@ -18,11 +18,13 @@ function cleanTextNodes(root) {
 /**
  * Splits panel content into columns: each heading of the first heading level used starts a
  * column; content before the first such heading becomes an intro spanning all columns.
+ * With `single` (variant faq) nothing is split: the whole content is one column.
  */
-function buildPanel(nodes) {
+function buildPanel(nodes, single) {
   const panel = document.createElement('div');
   panel.className = 'accordion-columns-panel';
-  const first = nodes.find((n) => n.nodeType === Node.ELEMENT_NODE && n.matches(HEADINGS));
+  const first = !single
+    && nodes.find((n) => n.nodeType === Node.ELEMENT_NODE && n.matches(HEADINGS));
   const level = first ? first.tagName : null;
 
   const intro = document.createElement('div');
@@ -56,6 +58,8 @@ function buildPanel(nodes) {
  * @param {Element} block
  */
 export default function decorate(block) {
+  // faq: questions and answers (headings inside an answer stay in the one text column)
+  const single = block.classList.contains('faq');
   const items = [];
   [...block.children].forEach((row) => {
     const cells = [...row.children].filter((c) => c.textContent.trim() || c.querySelector('img'));
@@ -89,7 +93,7 @@ export default function decorate(block) {
       summary.prepend(icon);
       decorateIcons(summary);
     }
-    details.append(summary, buildPanel(panelNodes));
+    details.append(summary, buildPanel(panelNodes, single));
     items.push(details);
   });
 

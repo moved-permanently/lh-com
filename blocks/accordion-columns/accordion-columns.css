@@ -180,6 +180,58 @@
   }
 }
 
+/* faq (parser: no column view in the panels): questions and answers in one column; answers are
+   .richtext.limited-width (66% from 1025px), lists are bullet lists (list-style-position: inside) */
+.accordion-columns.faq .accordion-columns-panel ul,
+.accordion-columns.faq .accordion-columns-panel ol {
+  margin: 0 0 var(--spacing-default);
+  padding: 0;
+  list-style-position: inside;
+}
+
+.accordion-columns.faq .accordion-columns-panel ul {
+  list-style-type: disc;
+}
+
+.accordion-columns.faq .accordion-columns-panel li > a:any-link {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.accordion-columns.faq .accordion-columns-panel li > a:any-link::before {
+  content: none;
+}
+
+/* spaced (parser: .column-view-item > .accordion, part of a text column): 40px more space below
+   (all widths) and above (from 768px) than other blocks, measured on bid-upgrade, feedback and
+   timetable-and-flight-status (maui-collapsible.accordion margin 4rem 0); none after the last
+   element of the section */
+.accordion-columns.spaced {
+  padding-bottom: 40px;
+}
+
+main > .section > .accordion-columns-wrapper:last-child > .accordion-columns.spaced {
+  padding-bottom: 0;
+}
+
+@media (width >= 768px) {
+  .accordion-columns.spaced {
+    padding-top: 40px;
+  }
+}
+
+/* limited-width (parser: inside maui-limited-width): two thirds of the grid from 1025px
+   (833px of 1249px at 1425px); full-width faq answers keep the 66% text width */
+@media (width >= 1025px) {
+  .accordion-columns.limited-width {
+    max-width: 66.667%;
+  }
+
+  .accordion-columns.faq:not(.limited-width) .accordion-columns-panel :is(p, ul, ol, h2, h3, h4, h5, h6) {
+    max-width: 66%;
+  }
+}
+
 /* AirCore pages (body.aircore): FAQ / travel information accordions (.faq.accordion,
    .travel-information.with-icon-header.accordion); the AEM look above stays unchanged */
 

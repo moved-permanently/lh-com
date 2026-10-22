@@ -252,12 +252,14 @@
   cursor: pointer;
 }
 
-/* .mt-3.flightstatus-form-footer, maui-button type primary */
+/* .mt-3.flightstatus-form-footer, maui-button type primary: as wide as its label (119px for
+   "Search" at 1440, no 150px minimum like the link buttons) */
 .flight-status .flight-status-actions {
   margin-top: 34px;
 }
 
 .flight-status .flight-status-submit {
+  min-width: 0;
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
   color: var(--lh-deepblue);
@@ -280,6 +282,15 @@
 .flight-status .flight-status-submit:focus-visible {
   outline: 2px solid var(--focus-color);
   outline-offset: 2px;
+}
+
+/* below 768px the three tabs share the width equally (maui-tab-control fullwidth) */
+@media (width < 768px) {
+  .flight-status .flight-status-tab {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 4px;
+  }
 }
 
 @media (width >= 768px) {

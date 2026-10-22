@@ -199,6 +199,23 @@ function createField(id, {
   return { wrap, input, setError };
 }
 
+/**
+ * Sections right after the block's section with the style "in-booking-lookup" belong to the
+ * form tab (live: "How to get your boarding pass" sits in the first tab panel, below the form).
+ * The section elements are moved as a whole: loadSections() still loads their blocks.
+ */
+function adoptSections(block, panel) {
+  const section = block.closest('.section');
+  if (!section || block.parentElement.nextElementSibling) return;
+  let next = section.nextElementSibling;
+  while (next && next.classList.contains('in-booking-lookup')) {
+    const following = next.nextElementSibling;
+    next.classList.add('booking-lookup-section');
+    panel.append(next);
+    next = following;
+  }
+}
+
 export default function decorate(block) {
   instance += 1;
   const id = `booking-lookup-${instance}`;
@@ -303,6 +320,8 @@ export default function decorate(block) {
     decorateExternalLinks(panel);
     return panel;
   });
+
+  adoptSections(block, formPanel);
 
   if (extraPanels.length) {
     const panels = [formPanel, ...extraPanels];

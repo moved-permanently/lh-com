@@ -17,7 +17,7 @@
 }
 
 .booking-lookup .booking-lookup-tab {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
   margin: 0;
   padding: 15px 20px;
@@ -216,8 +216,10 @@
   width: 100%;
 }
 
-/* maui-button type primary size medium */
+/* maui-button type primary size medium: as wide as its label (128px for "Confirm" at 1440,
+   no 150px minimum like the link buttons); full width below 768px */
 .booking-lookup .booking-lookup-submit {
+  min-width: 0;
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
   color: var(--lh-deepblue);
@@ -239,6 +241,23 @@
 .booking-lookup .booking-lookup-submit:focus-visible {
   outline: 2px solid var(--focus-color);
   outline-offset: 2px;
+}
+
+/* sections adopted into the form tab (style in-booking-lookup: "How to get your boarding pass"):
+   live space Confirm button -> heading 78px (1440: 119px), last step -> next tab / section
+   88px (1440: 110px) */
+.booking-lookup .booking-lookup-section {
+  padding: 54px 0 43px;
+}
+
+.booking-lookup .booking-lookup-section > div + div {
+  margin-top: var(--spacing-default);
+}
+
+@media (width >= 768px) {
+  .booking-lookup .booking-lookup-section {
+    padding: 94px 0 47px;
+  }
 }
 
 /* below 768px maui-tab-control-responsive is an accordion: header, panel, header, ... */
@@ -300,7 +319,7 @@
 
 /* content tabs (.twocolumn, col-md-6): copy and button left, image right */
 @media (width >= 768px) {
-  .booking-lookup .booking-lookup-panel:not(.booking-lookup-form-panel) {
+  .booking-lookup .booking-lookup-panel:not(.booking-lookup-form-panel, [hidden]) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--grid-gutter);

@@ -141,7 +141,9 @@ function dateOptions(before, after, locale) {
   for (let offset = -before; offset <= after; offset += 1) {
     const date = new Date(today);
     date.setDate(today.getDate() + offset);
-    options.push({ value: isoDate(date), label: format.format(date), today: offset === 0 });
+    // live: "Thu 22/10/2026", "Do. 22.10.2026" (no comma after the weekday)
+    const label = format.format(date).replace(/,\s*/, ' ');
+    options.push({ value: isoDate(date), label, today: offset === 0 });
   }
   return options;
 }

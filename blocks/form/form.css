@@ -395,6 +395,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* topic sections (feedback-modules): every field in its own .col-12 row */
+  .form .form-modules .form-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   /* wide content spans both .col-lg-6 columns */
   .form .form-field-textarea,
   .form .form-field-radio,

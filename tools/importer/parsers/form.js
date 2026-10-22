@@ -20,7 +20,10 @@
  * Labels are read from the DOM (label element, label / buttontriggerlabel / placeholder
  * attributes); a field without a visible label uses its trigger label. Name stays empty unless
  * the source sets a meaningful name (the block derives one from the label). Topic-specific
- * follow-up fields are rendered by the app only after a choice and are not in the capture.
+ * follow-up fields are rendered by the app only after a choice and are not in the capture: for
+ * the dcep-feedback-form the first select gets the Name "topic" and a last row
+ * "feedback-modules | topic" lets the block render the topic's sections from the
+ * feedbackForm catalog and labels (blocks/form/feedback-modules.js).
  */
 export default function parse(element, { document }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
@@ -115,6 +118,11 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  // dcep-feedback-form: the topic select drives the sections the app adds after a choice
+  // (catalogs/feedbackForm modules); the block renders them at runtime from a
+  // "feedback-modules" row naming the select
+  const feedbackApp = element.matches('.dcep-feedback-form') || element.querySelector('.dcep-feedback-form');
+  let topicSelect = null;
   const sections = [...element.querySelectorAll('.form-section')]
     .filter((s) => !s.parentElement.closest('.form-section'));
   if (sections.length) {
@@ -124,11 +132,18 @@ export default function parse(element, { document }) {
       const fields = fieldRows(section);
       if (!headline && !help && !fields.length) return; // placeholder step filled later by the app
       if (headline || help) row({ label: headline, type: 'step', help });
-      fields.forEach(row);
+      fields.forEach((f) => {
+        if (feedbackApp && f.type === 'select' && !topicSelect) {
+          topicSelect = f;
+          if (!f.name) f.name = 'topic';
+        }
+        row(f);
+      });
     });
   } else {
     fieldRows(element).forEach(row);
   }
+  if (topicSelect) row({ type: 'feedback-modules', name: topicSelect.name });
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'form', cells });
   element.replaceWith(block);

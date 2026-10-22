@@ -244,6 +244,21 @@ export default function parse(element, { document }) {
   let items = [...element.querySelectorAll('maui-collapsible-item')];
   if (!items.length) items = [...element.querySelectorAll('.accordionitem')];
 
+  /*
+   * Variant options from the source:
+   *   faq           no item panel holds a column view (.column-view-item): questions and answers
+   *                 in one column instead of link columns
+   *   limited-width the accordion sits in <maui-limited-width> (two thirds of the grid)
+   *   spaced        the accordion is part of a text column (.column-view-item > .accordion, after
+   *                 a headline/text): 40px above and below from 768px, 20px below on mobile;
+   *                 section-level accordions (.section-content > .accordion) have no such margin
+   */
+  const options = [];
+  if (items.length && !items.some((item) => item.querySelector('.column-view-item'))) options.push('faq');
+  if (element.closest('maui-limited-width') || element.querySelector('maui-limited-width maui-collapsible, maui-limited-width .accordionitem')) options.push('limited-width');
+  if (element.parentElement && element.parentElement.closest('.column-view-item')) options.push('spaced');
+  const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
+
   const cells = [];
   items.forEach((item) => {
     const title = clean(item.getAttribute('headline'))
@@ -253,6 +268,6 @@ export default function parse(element, { document }) {
     cells.push([title, content.length ? content : '']);
   });
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'accordion-columns', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
   element.replaceWith(block);
 }

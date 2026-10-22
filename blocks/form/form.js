@@ -79,6 +79,7 @@ const TYPE_ALIASES = {
   absenden: 'submit',
   button: 'submit',
   label: 'label',
+  'feedback-modules': 'feedback-modules',
 };
 
 const REQUIRED_VALUES = ['yes', 'ja', 'true', 'x', 'required', 'pflicht', 'y', 'j'];
@@ -346,6 +347,104 @@ function createStep(row, ctx) {
   return { step, fields };
 }
 
+/* ------------------------------ topic-dependent feedback modules ------------------------- */
+
+/** A cell-like element holding text, for rows built from data instead of the document. */
+function textCell(text) {
+  if (!text) return null;
+  const cell = el('div');
+  cell.append(el('p', '', text));
+  return cell;
+}
+
+/** Form-block row for a field definition of feedback-modules.js. */
+function moduleRow(field, prefix) {
+  const optionsCell = field.options.length ? el('div') : null;
+  field.options.forEach(([value, label]) => optionsCell.append(el('p', '', `${value}=${label}`)));
+  return {
+    label: field.label,
+    labelCell: null,
+    type: field.type,
+    name: `${prefix}-${field.name}`,
+    required: field.required,
+    optionsCell,
+    options: field.type === 'file' ? [field.accept, field.multiple ? 'multiple' : ''].filter(Boolean).join(',')
+      : field.options.map(([value, label]) => `${value}=${label}`).join(','),
+    helpCell: textCell(field.help),
+    placeholder: field.type === 'select' ? field.label : '',
+  };
+}
+
+/**
+ * Row type "feedback-modules" (Name = the topic select): the sections of the selected topic,
+ * from the feedbackForm catalog and labels (blocks/form/feedback-modules.js), followed by the
+ * submit button. Nothing is shown before a topic is chosen, as on the live site.
+ */
+function setupFeedbackModules(form, host, selectName, ctx) {
+  const select = form.querySelector(`select[name="${CSS.escape(selectName)}"]`);
+  if (!select) return;
+  const block = form.closest('.block') || form;
+  let data = null;
+  let loading = null;
+  const render = async () => {
+    if (!data) {
+      loading = loading || import('./feedback-modules.js').then(async (mod) => {
+        const loaded = await mod.loadFeedbackData();
+        const { markSource } = await import('../../scripts/lh-data.js');
+        markSource(block, loaded.sources, ['catalogs/feedbackForm', 'labels/feedbackform']);
+        return { mod, loaded };
+      });
+      data = await loading;
+    }
+    const { steps, submit } = data.mod.topicSections(data.loaded, select.value);
+    const nodes = [];
+    steps.forEach((def, i) => {
+      const { step, fields } = createStep(null, ctx);
+      step.classList.remove('form-step-plain');
+      const intro = el('div', 'form-step-intro');
+      const titleId = `${ctx.prefix}-module-${ctx.steps}`;
+      const title = el('p', 'form-step-title', def.title);
+      title.id = titleId;
+      intro.append(title);
+      if (def.description) intro.append(el('p', 'form-step-description', def.description));
+      step.prepend(intro);
+      step.setAttribute('role', 'group');
+      step.setAttribute('aria-labelledby', titleId);
+      def.fields.forEach((field) => {
+        const wrapper = renderField(moduleRow(field, `${selectName}-${i + 1}`), ctx);
+        if (field.checked) {
+          const radio = wrapper.querySelector(`input[value="${CSS.escape(field.checked)}"]`);
+          if (radio) radio.checked = true;
+        }
+        fields.append(wrapper);
+      });
+      // a radio group that names the field after it (Ticket number / Booking reference)
+      def.fields.filter((f) => f.controls).forEach((field) => {
+        const target = fields.querySelector(`[data-name="${selectName}-${i + 1}-${field.controls}"] .form-label`);
+        fields.querySelectorAll(`input[name="${selectName}-${i + 1}-${field.name}"]`).forEach((radio) => {
+          radio.addEventListener('change', () => {
+            const text = radio.closest('label')?.textContent.trim();
+            if (target && text) target.firstChild.textContent = text;
+          });
+        });
+      });
+      nodes.push(step);
+    });
+    if (submit && nodes.length) {
+      const { step, fields } = createStep(null, ctx);
+      const actions = el('div', 'form-field form-actions');
+      const button = el('button', 'button', submit);
+      button.type = 'submit';
+      actions.append(button);
+      fields.append(actions);
+      nodes.push(step);
+    }
+    host.replaceChildren(...nodes);
+  };
+  select.addEventListener('change', () => { render(); });
+  if (select.value) render();
+}
+
 /* --------------------------------------- validation -------------------------------------- */
 
 /** Applies the custom rule for required checkbox groups (HTML has no group-required). */
@@ -427,8 +526,17 @@ export default function decorate(block) {
     return current;
   };
 
+  const moduleHosts = [];
   rows.forEach((row) => {
     if (row.type === 'label') return;
+    if (row.type === 'feedback-modules') {
+      const host = el('div', 'form-modules');
+      host.setAttribute('aria-live', 'polite');
+      form.append(host);
+      moduleHosts.push([host, row.name.trim()]);
+      current = null;
+      return;
+    }
     if (row.type === 'step') {
       current = createStep(row, ctx);
       form.append(current.step);
@@ -491,4 +599,5 @@ export default function decorate(block) {
 
   groups().forEach((g) => updateGroupValidity(g, labels));
   block.replaceChildren(form);
+  moduleHosts.forEach(([host, name]) => setupFeedbackModules(form, host, name, ctx));
 }
