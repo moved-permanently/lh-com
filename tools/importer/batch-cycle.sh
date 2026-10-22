@@ -18,12 +18,17 @@ CAPTURED=$(grep -c " ok https://" /tmp/bd-session.log)
 if [ "$CAPTURED" = "0" ]; then
   echo "capture: nothing captured (exit $CAPTURE_EXIT): $(grep -v -i 'endpoint\|wss://' /tmp/bd-session.log | grep -iE 'error|timeout|blocked' | head -2 | cut -c1-160)"
 fi
+# shared lock /tmp/lh-local-browser.lock: the importer starts a local Chromium (one local browser
+# at a time) and import/upload state files must not be written by two processes at once
+exec 9> /tmp/lh-local-browser.lock
+flock 9
 for t in $(node -e "console.log(require('./tools/importer/page-templates.json').templates.map((t) => t.name).join(' '))"); do
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done
 node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
 node tools/importer/build-upload-list.mjs > /tmp/upload-list.log 2>&1
 timeout 150 node tools/importer/da-upload.mjs --list tools/importer/upload-all.txt 2> /tmp/da-upload.err | grep -E "^da-upload:|^  "
+flock -u 9
 node tools/importer/record-live-data.mjs 2> /tmp/record.err | grep -o "index now [0-9]* entries"
 node -e "
 const p = require('./tools/importer/import-progress.json');
