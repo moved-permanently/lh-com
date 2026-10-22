@@ -192,15 +192,23 @@ function buildLegal(section, labels) {
   return list.children.length ? list : null;
 }
 
-function buildLogos(section, labels) {
+/*
+ * Logo row icon variants: the AEM footer shows the horizontal "STAR ALLIANCE" graphic
+ * (maui-graphic star-alliance-logo-horizontal-transparent), the AirCore (/lhg) footer the
+ * "A STAR ALLIANCE MEMBER" image (= /icons/star-alliance.svg).
+ */
+const AEM_LOGO_VARIANTS = { 'star-alliance': 'star-alliance-horizontal' };
+
+function buildLogos(section, labels, aircore) {
   if (!section) return null;
   const list = el('ul');
   section.querySelectorAll('a[href]').forEach((a) => {
     // an undecorated ":name:" icon token stands for /icons/{name}.svg
     const token = text(a).match(/^:([a-z0-9-]+):$/);
     if (token && !a.querySelector('img')) {
+      const file = (!aircore && AEM_LOGO_VARIANTS[token[1]]) || token[1];
       a.textContent = '';
-      a.append(el('img', { src: `${window.hlx.codeBasePath}/icons/${token[1]}.svg`, 'data-icon-name': token[1], alt: '' }));
+      a.append(el('img', { src: `${window.hlx.codeBasePath}/icons/${file}.svg`, 'data-icon-name': token[1], alt: '' }));
     }
     const img = a.querySelector('img');
     if (!img && !text(a)) return;
@@ -264,13 +272,14 @@ export default async function decorate(block) {
   if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
 
   block.textContent = '';
+  block.classList.toggle('footer-aircore', locale.aircore);
   if (band) {
     const bandEl = el('div', { className: 'footer-payment-social' });
     while (band.firstElementChild) bandEl.append(band.firstElementChild);
     block.append(bandEl);
   }
   block.append(el('div', { className: 'footer-main' }, inner));
-  const logosEl = buildLogos(logos, labels);
+  const logosEl = buildLogos(logos, labels, locale.aircore);
   if (logosEl) block.append(logosEl);
 
   syncAccordions(block);

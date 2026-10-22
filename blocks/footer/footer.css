@@ -6,7 +6,8 @@
   --footer-brand: #05164d;
   --footer-text: #fff;
   --footer-muted: #b4b4b4;
-  --footer-line: #ccc;
+  --footer-line: #8696cb;
+  --footer-field: #ccc;
   --footer-margin: var(--layout-margin, 22px);
 
   font-family: var(--body-font-family);
@@ -71,27 +72,32 @@
   display: flex;
   grid-area: search;
   align-items: center;
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--footer-text);
+
+  /* live .input-border-wrapper: margin-top 1.8rem, 2px bottom border; below it the
+   * .input-wrapper.only-child 1.9rem border and the .input 2.4rem margin */
+  margin: 18px 0 43px;
+  border-bottom: 2px solid var(--footer-field);
 }
 
 .footer .footer-search input {
   flex: 1 1 auto;
   box-sizing: border-box;
   min-width: 0;
-  height: 48px;
-  padding: 12px 8px 4px 0;
+  height: 39px;
+  margin: 0;
+  padding: 6px 32px 6px 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   color: var(--footer-text);
   font-family: inherit;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 27px;
   appearance: none;
 }
 
 .footer .footer-search input::placeholder {
-  color: var(--footer-muted);
+  color: var(--footer-field);
   opacity: 1;
 }
 
@@ -100,17 +106,19 @@
 }
 
 .footer .footer-search button {
+  position: absolute;
+  top: 6px;
+  right: 0;
   display: inline-flex;
-  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
-  color: var(--footer-text);
+  color: var(--footer-field);
   cursor: pointer;
 }
 
@@ -177,6 +185,8 @@
 }
 
 .footer .footer-column-toggle .lh-icon {
+  /* live: the chevron is positioned absolutely and does not add to the row height */
+  margin: -4px 0;
   transition: transform 0.3s ease;
 }
 
@@ -201,6 +211,12 @@
 
 .footer .footer-column.is-open .footer-column-links {
   display: block;
+}
+
+/* flex items: no line box strut around the links, a row is line height + 20px margin */
+.footer .footer-column-links li,
+.footer .footer-legal li {
+  display: flex;
 }
 
 .footer .footer-link {
@@ -236,7 +252,7 @@
   grid-area: legal;
   gap: 0 20px;
   margin: 0;
-  padding: 24px 0 4px;
+  padding: 30px 0 0;
   list-style: none;
 }
 
@@ -259,7 +275,7 @@
   box-sizing: border-box;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 25px var(--footer-margin) 10px;
+  padding: 28px var(--footer-margin) 38px;
 }
 
 .footer .footer-logos ul {
@@ -271,8 +287,17 @@
   list-style: none;
 }
 
+/* live stack below 768px: crane, 25px, member, 27px, Star Alliance */
 .footer .footer-logos li {
-  margin-bottom: 16px;
+  margin-bottom: 25px;
+}
+
+.footer .footer-logos li:nth-child(2) {
+  margin-bottom: 27px;
+}
+
+.footer .footer-logos li:last-child {
+  margin-bottom: 0;
 }
 
 .footer .footer-logos a {
@@ -287,8 +312,32 @@
   height: auto;
 }
 
-.footer .footer-logos .footer-logo-star-alliance img {
-  width: 147px;
+/* live: crane logo 116.7x20, "Member of Lufthansa Group" 160x8, Star Alliance 20px high
+ * (147x20 horizontal graphic on AEM pages, 205x20 member image on /lhg pages) */
+.footer .footer-logos .footer-logo-star-alliance img,
+.footer .footer-logos li:first-child img {
+  width: auto;
+  height: 20px;
+}
+
+.footer .footer-logos li:nth-child(2) img {
+  width: 160px;
+  height: 8px;
+}
+
+/* AirCore (/lhg) logo row (.secondary-footer-container): crane +26px, member +71px,
+ * Star Alliance +96px in a 156px stack */
+.footer.footer-aircore .footer-logos-inner {
+  padding-top: 26px;
+  padding-bottom: 40px;
+}
+
+.footer.footer-aircore .footer-logos li:first-child {
+  margin-bottom: 25px;
+}
+
+.footer.footer-aircore .footer-logos li:nth-child(2) {
+  margin-bottom: 17px;
 }
 
 /* ---------------------------------------------------------------- tablet+ ------------ */
@@ -304,9 +353,23 @@
     column-gap: 20px;
   }
 
+  /* live (de/de, at/de): 16px globe, 10px gap, text 70px below the footer top */
   .footer .footer-locale {
     justify-self: end;
-    margin: 0 0 40px;
+    margin: 19px 0 40px;
+  }
+
+  .footer .footer-locale-button {
+    gap: 10px;
+  }
+
+  .footer .footer-locale-button .lh-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer .footer-legal {
+    padding-left: 12px;
   }
 
   .footer .footer-columns {
@@ -338,31 +401,53 @@
     font-size: 14px;
   }
 
+  /* live offsets in the 79px row: crane +31px, member +39px, Star Alliance +29px */
   .footer .footer-logos ul {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .footer .footer-logos li {
-    margin: 0 32px 0 0;
+    margin: 6px 40px 0 0;
   }
 
   .footer .footer-logos li:nth-child(2) {
-    margin-top: 8px;
+    margin: 14px 40px 0 0;
   }
 
   .footer .footer-logos li:last-child {
-    margin: 0 0 0 auto;
+    margin: 4px 0 0 auto;
   }
 
   .footer .footer-logos-inner {
+    padding-top: 25px;
+    padding-bottom: 28px;
+  }
+
+  /* AirCore: 74px row, crane and Star Alliance +29px, member +35px and 2rem + a space
+   * after the crane */
+  .footer.footer-aircore .footer-logos-inner {
+    padding-top: 29px;
     padding-bottom: 25px;
+  }
+
+  .footer.footer-aircore .footer-logos li:first-child {
+    margin: 0 25px 0 0;
+  }
+
+  .footer.footer-aircore .footer-logos li:nth-child(2) {
+    margin: 6px 0 0;
+  }
+
+  .footer.footer-aircore .footer-logos li:last-child {
+    margin: 0 0 0 auto;
   }
 }
 
 @media (width >= 1025px) {
+  /* search as wide as one link column (live col-lg-3) */
   .footer .footer-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    grid-template-columns: calc((100% - 60px) / 4) minmax(0, 1fr);
   }
 }
 
