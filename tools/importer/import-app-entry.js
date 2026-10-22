@@ -87,7 +87,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".container-content > .section .tabs .column-view-item > .fourcolumn.column"
       ],
-      "style": null,
+      "style": "in-booking-lookup",
       "blocks": [
         "cards-steps"
       ],

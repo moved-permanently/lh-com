@@ -7,6 +7,7 @@ import priceBarParser from './parsers/price-bar.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import relatedArticlesParser from './parsers/related-articles.js';
+import carouselImagesParser from './parsers/carousel-images.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -45,6 +46,12 @@ const PAGE_TEMPLATE = {
       "name": "related-articles",
       "instances": [
         ".relatedarticles"
+      ]
+    },
+    {
+      "name": "carousel-images",
+      "instances": [
+        ".carousel:has(.swiper-single-slide)"
       ]
     }
   ],
@@ -149,6 +156,7 @@ const parsers = {
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'related-articles': relatedArticlesParser,
+  'carousel-images': carouselImagesParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

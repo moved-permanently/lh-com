@@ -1180,6 +1180,12 @@
           "instances": [
             ".section-content > .twocolumn:has(.column-view-item > .image + .headline)"
           ]
+        },
+        {
+          "name": "carousel-images",
+          "instances": [
+            ".carousel:has(.swiper-single-slide)"
+          ]
         }
       ],
       "sections": [
@@ -1594,6 +1600,12 @@
           "name": "related-articles",
           "instances": [
             ".relatedarticles"
+          ]
+        },
+        {
+          "name": "carousel-images",
+          "instances": [
+            ".carousel:has(.swiper-single-slide)"
           ]
         }
       ],
@@ -2091,7 +2103,7 @@
           "selector": [
             ".container-content > .section .tabs .column-view-item > .fourcolumn.column"
           ],
-          "style": null,
+          "style": "in-booking-lookup",
           "blocks": [
             "cards-steps"
           ],

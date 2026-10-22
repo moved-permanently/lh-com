@@ -5,6 +5,7 @@
 import heroCampaignParser from './parsers/hero-campaign.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
+import carouselImagesParser from './parsers/carousel-images.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -32,6 +33,12 @@ const PAGE_TEMPLATE = {
       "name": "cards-teaser",
       "instances": [
         ".section-content > .twocolumn:has(.column-view-item > .image + .headline)"
+      ]
+    },
+    {
+      "name": "carousel-images",
+      "instances": [
+        ".carousel:has(.swiper-single-slide)"
       ]
     }
   ],
@@ -182,6 +189,7 @@ const parsers = {
   'hero-campaign': heroCampaignParser,
   'columns-media': columnsMediaParser,
   'cards-teaser': cardsTeaserParser,
+  'carousel-images': carouselImagesParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 
