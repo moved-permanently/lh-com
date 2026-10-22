@@ -64,5 +64,11 @@
     "change": "Grid destination finder (destinationfinder/destination/finder and /campaign) moved to the direct-call path in scripts/lh-data.js like suggestions, labels, catalogs and defaultAirport: GET on www.lufthansa.com with the market's X-Portal-* headers (X-Portal-Site required, else 400 'Invalid site'), credentials omit, 3 s timeout, recordings on any failure, never lh-proxy; data-lh-source on the block. Fare teaser and weather stay on lh-proxy then recordings. test-widgets.mjs: new run G (routes direct/not direct, CORS error and Cloudflare 403 -> recorded without proxy call, hang -> recorded after 3 s, direct ok -> live with each market's headers); grid blocks expect live in run C; a grid whose market has no recording of its own expects 'recorded' (stub answers only the market's recordings; was the de/de/fluege run D failure). Remaining 4 failures: gb/en/flights grid queries LON, only LHR recorded (pre-existing).",
     "commit": "4957a96",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Channels (C): scripts/channel.js. FlyNet channel switched on only by page metadata channel=flynet (lh-flynet metadata sheet row URL /**): compact header (brand bar + sample flight bar from the /flight sheet, labelled 'Sample data'), no flight-search/booking-lookup/price-bar/fare-teaser/destination-finder blocks, no shop/booking/login/check-in/flight-search links, no login/cart/search tools, de/en + de/de locales only, styles/channels.css (smaller headings/spacing). ?channel=app on any page: no header, footer, breadcrumb or consent banner (showcase notice stays), internal links keep the parameter. header.js: a nav without quick-action section no longer shows the menu as quick actions; no lone divider. 'language' page metadata sets html lang (pages outside the locale trees). New block channels-demo (phone-width iframes side by side). lh-flynet documents, demo page and the Ben-run script in tools/channels/ (DA writes/previews refused to the agent); report tools/reports/channels.md. Website rendering unchanged.",
+    "commit": "2e98581",
+    "date": "2026-10-22"
   }
 ]
