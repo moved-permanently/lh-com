@@ -6,6 +6,11 @@
   padding-top: 16px;
 }
 
+/* trail from metadata still resolving: the row keeps its height */
+.breadcrumb.breadcrumb-loading nav {
+  visibility: hidden;
+}
+
 .breadcrumb ol {
   display: flex;
   flex-wrap: wrap;

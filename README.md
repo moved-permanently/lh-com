@@ -65,6 +65,13 @@ column of two thirds of the width from 768px.
 - Links in running text get a small arrow before the text (→ on lufthansa.com, ↗ to other
   sites, ↓ to a place on the same page), as on the live site; not on AirCore pages.
 
+### Breadcrumb
+
+Not authored in the page: the Metadata block names the page's parent (`Parent`: a link) and,
+where the label in trails differs from the page's og:title, `Breadcrumb title`. The trail is
+built at runtime by walking up the parents; see `blocks/breadcrumb/README.md` (also `Parent
+title` for parents outside the site and `Breadcrumb: hidden`).
+
 ### Theme `digital-assistant`
 
 Pages that show the Lufthansa digital assistant on the live site load its stylesheet, which maps

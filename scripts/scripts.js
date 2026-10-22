@@ -81,6 +81,30 @@ function buildWidgetAutoBlocks(main) {
 }
 
 /**
+ * Breadcrumb from page metadata (blocks/breadcrumb/README.md): pages name their parent
+ * ("Parent") instead of carrying the trail. The empty block goes where the live page shows the
+ * trail: AEM pages at the start of the first section, AirCore pages (/lhg/) right before the
+ * h1 (after the stage). Not when the document still has an authored breadcrumb or the page
+ * hides it ("Breadcrumb: hidden", parents that show no trail themselves).
+ * @param {Element} main The container element
+ */
+function buildBreadcrumb(main) {
+  if (!getMetadata('parent') || /^(hidden|off|no|false)$/i.test(getMetadata('breadcrumb'))) return;
+  if (main.querySelector('div.breadcrumb')) return;
+  const first = main.querySelector(':scope > div');
+  if (!first) return;
+  const block = buildBlock('breadcrumb', '');
+  const h1 = document.body.classList.contains('aircore') && main.querySelector('h1');
+  if (h1) {
+    let el = h1;
+    while (el.parentElement && el.parentElement.parentElement !== main) el = el.parentElement;
+    el.before(block);
+  } else {
+    first.prepend(block);
+  }
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -104,6 +128,7 @@ function buildAutoBlocks(main) {
       });
     }
     buildWidgetAutoBlocks(main);
+    buildBreadcrumb(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -236,10 +261,51 @@ export function decorateMain(main) {
 }
 
 /**
+ * Local dev server only (aem up --html-folder content): the document's Metadata block is still
+ * in <main> there; it becomes <meta> tags as the Edge Delivery pipeline makes them (links: their
+ * hrefs, several values joined by ", "), so metadata-driven features (Theme, Parent breadcrumb,
+ * channel) work locally too. Never present on aem.page / aem.live.
+ * @param {Element} main
+ */
+function applyDocumentMetadata(main) {
+  main.querySelectorAll(':scope > div > div.metadata').forEach((block) => {
+    [...block.children].forEach((row) => {
+      const [k, v] = row.children;
+      if (!k || !v) return;
+      const key = k.textContent.trim().toLowerCase();
+      const name = key.includes(':') ? key : toClassName(key);
+      const links = [...v.querySelectorAll('a[href]')].map((a) => a.getAttribute('href'));
+      const img = v.querySelector('img');
+      const paras = [...v.querySelectorAll('p')].map((p) => p.textContent.trim()).filter(Boolean);
+      let value = v.textContent.trim();
+      if (links.length) value = links.join(', ');
+      else if (img) value = img.src;
+      else if (paras.length) value = paras.join(', ');
+      if (name === 'title') document.title = value;
+      // the pipeline derives og:title from Title unless the document has an og:title row
+      (name === 'title' ? [name, 'og:title'] : [name]).forEach((n) => {
+        const attr = n.includes(':') ? 'property' : 'name';
+        let meta = document.head.querySelector(`meta[${attr}="${n}"]`);
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute(attr, n);
+          document.head.append(meta);
+        }
+        meta.setAttribute('content', value);
+      });
+    });
+    const section = block.parentElement;
+    block.remove();
+    if (!section.children.length) section.remove();
+  });
+}
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
+  if (doc.querySelector('main')) applyDocumentMetadata(doc.querySelector('main'));
   const locale = getLocale();
   // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
   document.documentElement.lang = getMetadata('language') || locale.lang;
