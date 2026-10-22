@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo",
+  "path": "lhg/de/en/dest/cy/tokyo",
+  "timestamp": "2026-10-22T13:12:19.454Z",
+  "title": "Flight to Tokyo (TYO) | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}

@@ -1363,7 +1363,31 @@
   "gb/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
    "file": "gb-en-18ef474e.json",
    "recordedAt": "2026-10-22T12:28:35.930Z"
+  },
+  "gb/en|GET /service/api/catalogs/feedbackForm": {
+   "file": "gb-en-574b86b9.json",
+   "recordedAt": "2026-10-22T12:49:31.649Z"
+  },
+  "gb/en|GET /service/api/labels/voucherExchange/lh/en": {
+   "file": "gb-en-d5cdb169.json",
+   "recordedAt": "2026-10-22T12:49:31.649Z"
+  },
+  "gb/en|GET /service/api/labels/feedbackform/lh/en": {
+   "file": "gb-en-6ab221c9.json",
+   "recordedAt": "2026-10-22T12:49:31.649Z"
+  },
+  "gb/en|GET /service/api/labels/quickactions/lh/en": {
+   "file": "gb-en-90d222da.json",
+   "recordedAt": "2026-10-22T12:51:40.932Z"
+  },
+  "gb/en|GET /service/api/labels/checkin/lh/en": {
+   "file": "gb-en-45353b11.json",
+   "recordedAt": "2026-10-22T12:57:24.148Z"
+  },
+  "gb/en|GET /service/api/labels/flightstatus/lh/en": {
+   "file": "gb-en-7156aa34.json",
+   "recordedAt": "2026-10-22T12:58:08.750Z"
   }
  },
- "updatedAt": "2026-10-22T12:45:01.820Z"
+ "updatedAt": "2026-10-22T13:04:55.665Z"
 }

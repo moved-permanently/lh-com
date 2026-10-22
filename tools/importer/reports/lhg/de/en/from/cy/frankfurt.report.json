@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/from/cy/frankfurt",
+  "path": "lhg/de/en/from/cy/frankfurt",
+  "timestamp": "2026-10-22T13:12:39.246Z",
+  "title": "Flights from Frankfurt (FRA) | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "cards-icon-text"
+  ]
+}

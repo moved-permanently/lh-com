@@ -1,1 +1,4 @@
-https://www.lufthansa.com/lhg/de/en
+https://www.lufthansa.com/lhg/de/en/dest/c/italy
+https://www.lufthansa.com/lhg/de/en/dest/c/japan
+https://www.lufthansa.com/lhg/de/en/dest/c/india
+https://www.lufthansa.com/lhg/de/en/dest/c/united-kingdom

@@ -5864,6 +5864,211 @@
    "uploaded": "2026-10-22T12:44:50.970Z",
    "mtime": 1792672962741,
    "preview": "2026-10-22T12:44:52.609Z"
+  },
+  "/gb/en/sepa-terms-and-conditions-b": {
+   "uploaded": "2026-10-22T12:54:30.513Z",
+   "mtime": 1792673542483,
+   "preview": "2026-10-22T12:54:32.271Z"
+  },
+  "/gb/en/terms-and-conditions-lh": {
+   "uploaded": "2026-10-22T12:54:33.454Z",
+   "mtime": 1792673544980,
+   "preview": "2026-10-22T12:54:35.230Z"
+  },
+  "/gb/en/terms-of-service-group": {
+   "uploaded": "2026-10-22T12:54:36.467Z",
+   "mtime": 1792673547206,
+   "preview": "2026-10-22T12:54:38.140Z"
+  },
+  "/gb/en/terms-of-use": {
+   "uploaded": "2026-10-22T12:54:39.278Z",
+   "mtime": 1792673549158,
+   "preview": "2026-10-22T12:54:40.737Z"
+  },
+  "/gb/en/travel-id-terms-conditions": {
+   "uploaded": "2026-10-22T12:54:41.961Z",
+   "mtime": 1792673551239,
+   "preview": "2026-10-22T12:54:43.381Z"
+  },
+  "/gb/en/anmeldung-tiere-frachtraum": {
+   "uploaded": "2026-10-22T12:54:44.620Z",
+   "mtime": 1792673565415,
+   "preview": "2026-10-22T12:54:46.208Z"
+  },
+  "/gb/en/book-and-manage/cancellation-and-refund/refund/refund-form": {
+   "uploaded": "2026-10-22T12:54:47.547Z",
+   "mtime": 1792673568477,
+   "preview": "2026-10-22T12:54:49.451Z"
+  },
+  "/gb/en/farealert/best-price-alert": {
+   "uploaded": "2026-10-22T12:54:50.860Z",
+   "mtime": 1792673570881,
+   "preview": "2026-10-22T12:54:52.879Z"
+  },
+  "/gb/en/feedback": {
+   "uploaded": "2026-10-22T12:54:54.133Z",
+   "mtime": 1792673572955,
+   "preview": "2026-10-22T12:54:55.604Z"
+  },
+  "/gb/en/feedback-past-flight": {
+   "uploaded": "2026-10-22T12:54:56.753Z",
+   "mtime": 1792673575292,
+   "preview": "2026-10-22T12:54:58.442Z"
+  },
+  "/gb/en/feedback/feedbackai": {
+   "uploaded": "2026-10-22T12:54:59.710Z",
+   "mtime": 1792673577927,
+   "preview": "2026-10-22T12:55:01.375Z"
+  },
+  "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage": {
+   "uploaded": "2026-10-22T12:55:02.839Z",
+   "mtime": 1792673581274,
+   "preview": "2026-10-22T12:55:04.721Z"
+  },
+  "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
+   "uploaded": "2026-10-22T12:55:06.152Z",
+   "mtime": 1792673583962,
+   "preview": "2026-10-22T12:55:07.814Z"
+  },
+  "/gb/en/register-animal-cabin": {
+   "uploaded": "2026-10-22T12:55:09.025Z",
+   "mtime": 1792673586465,
+   "preview": "2026-10-22T12:55:10.709Z"
+  },
+  "/gb/en/book-and-manage/booking-services/manage-my-bookings": {
+   "uploaded": "2026-10-22T12:55:11.918Z",
+   "mtime": 1792673596893,
+   "preview": "2026-10-22T12:55:13.748Z"
+  },
+  "/gb/en/flight-search": {
+   "uploaded": "2026-10-22T12:55:15.496Z",
+   "mtime": 1792673599719,
+   "preview": "2026-10-22T12:55:17.451Z"
+  },
+  "/gb/en/my-bookings": {
+   "uploaded": "2026-10-22T13:04:13.441Z",
+   "mtime": 1792674137722,
+   "preview": "2026-10-22T13:04:15.469Z"
+  },
+  "/gb/en/my-logbook": {
+   "uploaded": "2026-10-22T13:04:16.861Z",
+   "mtime": 1792674139607,
+   "preview": "2026-10-22T13:04:18.820Z"
+  },
+  "/gb/en/online-check-in": {
+   "uploaded": "2026-10-22T13:04:20.041Z",
+   "mtime": 1792674142506,
+   "preview": "2026-10-22T13:04:21.797Z"
+  },
+  "/gb/en/pre-check-in": {
+   "uploaded": "2026-10-22T13:04:23.056Z",
+   "mtime": 1792674144803,
+   "preview": "2026-10-22T13:04:24.896Z"
+  },
+  "/gb/en/timetable-and-flight-status": {
+   "uploaded": "2026-10-22T13:04:26.172Z",
+   "mtime": 1792674158544,
+   "preview": "2026-10-22T13:04:28.135Z"
+  },
+  "/lhg/de/en/dest/co/europe": {
+   "uploaded": "2026-10-22T13:04:29.474Z",
+   "mtime": 1792674169762,
+   "preview": "2026-10-22T13:04:31.558Z"
+  },
+  "/lhg/de/en/dest/co/north-and-south-america": {
+   "uploaded": "2026-10-22T13:04:32.795Z",
+   "mtime": 1792674172577,
+   "preview": "2026-10-22T13:04:34.691Z"
+  },
+  "/lhg/de/en/dest/c/usa": {
+   "uploaded": "2026-10-22T13:04:36.120Z",
+   "mtime": 1792674176200,
+   "preview": "2026-10-22T13:04:42.864Z"
+  },
+  "/lhg/de/en/dest/c/spain": {
+   "uploaded": "2026-10-22T13:04:44.144Z",
+   "mtime": 1792674178585,
+   "preview": "2026-10-22T13:04:46.230Z"
+  },
+  "/lhg/de/en/dest/c/italy": {
+   "uploaded": "2026-10-22T13:13:59.151Z",
+   "mtime": 1792674708688,
+   "preview": "2026-10-22T13:14:02.307Z"
+  },
+  "/lhg/de/en/dest/c/japan": {
+   "uploaded": "2026-10-22T13:14:03.582Z",
+   "mtime": 1792674711276,
+   "preview": "2026-10-22T13:14:05.962Z"
+  },
+  "/lhg/de/en/dest/c/india": {
+   "uploaded": "2026-10-22T13:14:07.286Z",
+   "mtime": 1792674714092,
+   "preview": "2026-10-22T13:14:09.283Z"
+  },
+  "/lhg/de/en/dest/c/united-kingdom": {
+   "uploaded": "2026-10-22T13:14:10.614Z",
+   "mtime": 1792674716985,
+   "preview": "2026-10-22T13:14:12.759Z"
+  },
+  "/lhg/de/en/dest/cy/los-angeles": {
+   "uploaded": "2026-10-22T13:14:14.111Z",
+   "mtime": 1792674731258,
+   "preview": "2026-10-22T13:14:16.360Z"
+  },
+  "/lhg/de/en/dest/cy/barcelona": {
+   "uploaded": "2026-10-22T13:14:17.791Z",
+   "mtime": 1792674734022,
+   "preview": "2026-10-22T13:14:19.948Z"
+  },
+  "/lhg/de/en/dest/cy/rome": {
+   "uploaded": "2026-10-22T13:14:21.263Z",
+   "mtime": 1792674736258,
+   "preview": "2026-10-22T13:14:23.498Z"
+  },
+  "/lhg/de/en/dest/cy/tokyo": {
+   "uploaded": "2026-10-22T13:14:24.995Z",
+   "mtime": 1792674739441,
+   "preview": "2026-10-22T13:14:27.732Z"
+  },
+  "/lhg/de/en/dest/cy/london": {
+   "uploaded": "2026-10-22T13:14:28.989Z",
+   "mtime": 1792674742793,
+   "preview": "2026-10-22T13:14:31.055Z"
+  },
+  "/lhg/de/en/dest/cy/paris": {
+   "uploaded": "2026-10-22T13:14:32.429Z",
+   "mtime": 1792674746407,
+   "preview": "2026-10-22T13:14:34.753Z"
+  },
+  "/lhg/de/en/dest/cy/amman": {
+   "uploaded": "2026-10-22T13:14:36.211Z",
+   "mtime": 1792674749102,
+   "preview": "2026-10-22T13:14:38.456Z"
+  },
+  "/lhg/de/en/dest/cy/palma-de-mallorca": {
+   "uploaded": "2026-10-22T13:14:39.654Z",
+   "mtime": 1792674752577,
+   "preview": "2026-10-22T13:14:41.655Z"
+  },
+  "/lhg/de/en/dest/cy/lisbon": {
+   "uploaded": "2026-10-22T13:14:42.978Z",
+   "mtime": 1792674756024,
+   "preview": "2026-10-22T13:14:44.933Z"
+  },
+  "/lhg/de/en/from/cy/frankfurt": {
+   "uploaded": "2026-10-22T13:14:46.582Z",
+   "mtime": 1792674759217,
+   "preview": "2026-10-22T13:14:48.886Z"
+  },
+  "/lhg/de/en/from/cy/munich": {
+   "uploaded": "2026-10-22T13:14:50.277Z",
+   "mtime": 1792674762898,
+   "preview": "2026-10-22T13:14:52.347Z"
+  },
+  "/lhg/de/en/from/cy/berlin": {
+   "uploaded": "2026-10-22T13:14:53.629Z",
+   "mtime": 1792674765880,
+   "preview": "2026-10-22T13:14:55.784Z"
   }
  },
  "media": {

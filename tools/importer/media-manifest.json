@@ -1,4 +1,15 @@
 {
+ "https://www.lufthansa.com/aircore/cache/alert.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/127d9c77baccad5f8ad7a7258b3a54a4.svg",
+  "format": "svg",
+  "bytes": 780,
+  "width": 32,
+  "height": 28,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T13:04:04.654Z"
+ },
  "https://www.lufthansa.com/aircore/cache/heroDefault.webp": {
   "status": 200,
   "version": 1,

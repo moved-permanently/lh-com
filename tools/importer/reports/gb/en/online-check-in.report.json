@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/online-check-in",
+  "path": "gb/en/online-check-in",
+  "timestamp": "2026-10-22T13:02:22.517Z",
+  "title": "Online check-in | Lufthansa",
+  "template": "app-entry",
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "cards-steps",
+    "booking-lookup",
+    "cards-teaser"
+  ]
+}

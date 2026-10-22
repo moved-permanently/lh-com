@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/rome",
+  "path": "lhg/de/en/dest/cy/rome",
+  "timestamp": "2026-10-22T13:12:16.274Z",
+  "title": "Flight to Rome (FCO) | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}

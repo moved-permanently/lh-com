@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/barcelona",
+  "path": "lhg/de/en/dest/cy/barcelona",
+  "timestamp": "2026-10-22T13:12:14.048Z",
+  "title": "Flight to Barcelona (BCN) | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}
