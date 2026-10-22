@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/discover-lufthansa/flightreservation-priceguarantee",
+  "path": "de/de/discover-lufthansa/flightreservation-priceguarantee",
+  "timestamp": "2026-10-22T03:11:19.140Z",
+  "title": "Reservierung mit Preisgarantie | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

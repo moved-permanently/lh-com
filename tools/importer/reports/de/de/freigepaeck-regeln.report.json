@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/freigepaeck-regeln",
+  "path": "de/de/freigepaeck-regeln",
+  "timestamp": "2026-10-22T03:29:02.643Z",
+  "title": "Freigepäckregeln bei Lufthansa | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

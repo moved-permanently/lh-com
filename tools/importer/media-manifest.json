@@ -643,6 +643,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:03.795Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-date-picker.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/99706fec4f60b7852fce402f97516093.svg",
+  "format": "svg",
+  "bytes": 415,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T03:55:38.779Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-flynet.svg": {
   "status": 200,
   "version": 1,
@@ -653,6 +664,17 @@
   "height": 300,
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:09.302Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-hand-stop-warning.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/3773d829c542b0cfab8e2c16f24c6574.svg",
+  "format": "svg",
+  "bytes": 1816,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T03:55:39.258Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-key-activities.svg": {
   "status": 200,
@@ -1713,6 +1735,12 @@
    "reason": "wider-than-2560"
   }
  },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-736656657-63601022.jpg": {
+  "status": 404,
+  "error": "HTTP 404",
+  "checkedAt": "2026-10-22T03:46:41.048Z",
+  "rendition": null
+ },
  "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/10/c-370074800-image-(1).png": {
   "status": 200,
   "version": 1,
@@ -1803,6 +1831,12 @@
    "version": 1,
    "reason": "wider-than-2560"
   }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/6/c-979059443-1093_4A_096.jpg": {
+  "status": 404,
+  "error": "HTTP 404",
+  "checkedAt": "2026-10-22T03:55:37.609Z",
+  "rendition": null
  },
  "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/7/c-630818968-417944.jpg": {
   "status": 200,
@@ -2151,6 +2185,17 @@
   "height": 540,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:18:36.628Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/discover-lufthansa/miles-and-more-credit-card/mam_inspiration-stage_smiling-young-man-and-woman-standing-on-street-with-shopping-bag_2560x1440.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/5532b1ad80a6a88b2c9099eb710d3600.jpg",
+  "format": "jpeg",
+  "bytes": 407259,
+  "width": 2560,
+  "height": 1440,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T03:11:50.332Z"
  },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/during-your-trip/lounges/lounge-companions/LH_FCT_LoungeArea_OscarBravo21_7860696.jpeg": {
   "status": 200,
@@ -3007,6 +3052,17 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:45:44.866Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/dbb/20-years-fct/241125_20_fct.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/3721a3ca9cd7d551744094aff53faf07.jpg",
+  "format": "jpeg",
+  "bytes": 492495,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T03:20:41.219Z"
  },
  "https://www.lufthansa.com/etc/designs/dcep/clientlib-all/vite/img/member-of-lhg.svg": {
   "status": 200,

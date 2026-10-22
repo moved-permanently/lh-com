@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/discover-lufthansa/lufthansa-group-airlines/ita-airways",
+  "path": "de/de/discover-lufthansa/lufthansa-group-airlines/ita-airways",
+  "timestamp": "2026-10-22T03:11:21.677Z",
+  "title": "ITA Airways | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

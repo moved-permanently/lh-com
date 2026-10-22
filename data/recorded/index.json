@@ -1024,6 +1024,10 @@
    "file": "de-de-f38b10a2.json",
    "recordedAt": "2026-10-22T02:47:34.665Z"
   },
+  "de/de|GET /service/api/catalogs/countries": {
+   "file": "de-de-bf45fe3e.json",
+   "recordedAt": "2026-10-22T03:26:36.009Z"
+  },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
    "recordedAt": "2026-10-21T19:07:59.991Z"
@@ -1129,5 +1133,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T03:04:09.195Z"
+ "updatedAt": "2026-10-22T03:56:34.443Z"
 }

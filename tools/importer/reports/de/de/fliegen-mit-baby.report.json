@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/fliegen-mit-baby",
+  "path": "de/de/fliegen-mit-baby",
+  "timestamp": "2026-10-22T03:20:25.973Z",
+  "title": "Flug mit Baby | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

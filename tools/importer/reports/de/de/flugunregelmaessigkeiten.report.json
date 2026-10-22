@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/flugunregelmaessigkeiten",
+  "path": "de/de/flugunregelmaessigkeiten",
+  "timestamp": "2026-10-22T03:20:28.719Z",
+  "title": "Kurzfristig verspätete und annullierte Flüge | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

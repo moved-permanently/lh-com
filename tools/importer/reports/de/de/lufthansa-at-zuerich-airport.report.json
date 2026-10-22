@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/lufthansa-at-zuerich-airport",
+  "path": "de/de/lufthansa-at-zuerich-airport",
+  "timestamp": "2026-10-22T03:38:01.935Z",
+  "title": "Lufthansa am Flughafen Zürich | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

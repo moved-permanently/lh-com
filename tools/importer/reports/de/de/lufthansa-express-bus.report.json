@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/lufthansa-express-bus",
+  "path": "de/de/lufthansa-express-bus",
+  "timestamp": "2026-10-22T03:46:01.182Z",
+  "title": "Lufthansa Express Bus | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}
