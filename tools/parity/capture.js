@@ -17,7 +17,9 @@
  *   the screenshot is clipped to the layout width (scrollbar excluded).
  * Before navigation the consent choice is stored the way scripts/consent.js stores it
  * (localStorage 'lh-consent' = {groups: ['C0001'], source: 'fallback', date}), so neither
- * OneTrust nor the fallback banner shows on the replica. After scrolling it waits for blocks,
+ * OneTrust nor the fallback banner shows on the replica; the showcase notice is acknowledged
+ * the same way (localStorage 'lh-showcase-acknowledged', scripts/showcase-notice.js).
+ * After scrolling it waits for blocks,
  * web fonts and visible images, and writes the document-coordinate boxes of live-data widgets
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out.
  */
@@ -46,6 +48,8 @@ const LIVE_SELECTORS = [
 /** What scripts/consent.js stores after "reject all" in the fallback banner. */
 const CONSENT_KEY = 'lh-consent';
 const CONSENT_GROUPS = ['C0001'];
+/** What scripts/showcase-notice.js stores when "I understand" is clicked. */
+const SHOWCASE_KEY = 'lh-showcase-acknowledged';
 const WAIT_BLOCKS_MS = 10000;
 const WAIT_FONTS_MS = 6000;
 const WAIT_IMAGES_MS = 8000;
@@ -155,10 +159,15 @@ async function scrollThrough(page) {
 /* eslint-disable no-undef */ // the callbacks below run in the page
 
 /** Runs before any page script: stored consent (replica only) and a permanent scrollbar. */
-function initScript({ key, groups, scrollbar }) {
+function initScript({
+  key, groups, showcaseKey, scrollbar,
+}) {
   try {
     if (!/(^|\.)lufthansa\.com$/.test(window.location.hostname) && !localStorage.getItem(key)) {
       localStorage.setItem(key, JSON.stringify({ groups, source: 'fallback', date: new Date().toISOString() }));
+    }
+    if (!/(^|\.)lufthansa\.com$/.test(window.location.hostname) && !localStorage.getItem(showcaseKey)) {
+      localStorage.setItem(showcaseKey, new Date().toISOString());
     }
   } catch (e) {
     // opaque origin (about:blank, sandboxed frame): nothing to store
@@ -314,7 +323,7 @@ async function main() {
     viewport: { width, height: VIEWPORT_HEIGHT }, deviceScaleFactor: 1,
   });
   await context.addInitScript(initScript, {
-    key: CONSENT_KEY, groups: CONSENT_GROUPS, scrollbar: withScrollbar,
+    key: CONSENT_KEY, groups: CONSENT_GROUPS, showcaseKey: SHOWCASE_KEY, scrollbar: withScrollbar,
   });
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
