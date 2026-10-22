@@ -1099,7 +1099,15 @@
   "de/en|GET /service/api/catalogs/countries": {
    "file": "de-en-bf45fe3e.json",
    "recordedAt": "2026-10-21T21:14:12.763Z"
+  },
+  "de/en|GET /service/api/labels/blogOverview/lh/en": {
+   "file": "de-en-360a917f.json",
+   "recordedAt": "2026-10-22T01:22:11.477Z"
+  },
+  "de/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
+   "file": "de-en-18ef474e.json",
+   "recordedAt": "2026-10-22T01:44:03.147Z"
   }
  },
- "updatedAt": "2026-10-22T01:02:04.948Z"
+ "updatedAt": "2026-10-22T02:13:41.686Z"
 }

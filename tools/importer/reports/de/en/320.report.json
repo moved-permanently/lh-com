@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/320",
+  "path": "de/en/320",
+  "timestamp": "2026-10-22T01:18:17.041Z",
+  "title": "Airbus A320-200 | Lufthansa",
+  "template": "fleet",
+  "blocks": [
+    "carousel-lightbox",
+    "table-striped"
+  ]
+}

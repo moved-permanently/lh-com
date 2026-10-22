@@ -1,5 +1,9 @@
-https://www.lufthansa.com/de/en/100-years
-https://www.lufthansa.com/de/en/100-years/history/menu-on-board
-https://www.lufthansa.com/de/en/discover-lufthansa/new-onboard-experience
-https://www.lufthansa.com/de/de/100-years/history/menu-on-board
-https://www.lufthansa.com/de/de/discover-lufthansa/new-onboard-experience
+https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof
+https://www.lufthansa.com/de/en/book-and-manage/stopover/neuschwanstein
+https://www.lufthansa.com/de/en/book-and-manage/stopover/zugspitze
+https://www.lufthansa.com/de/en/culinaryjourney
+https://www.lufthansa.com/de/en/discover-lufthansa/take-off
+https://www.lufthansa.com/de/en/frankfurt-fair
+https://www.lufthansa.com/de/en/lufthansa-city/culinaryjourney
+https://www.lufthansa.com/de/en/most-significant-route
+https://www.lufthansa.com/de/en/munich-fair

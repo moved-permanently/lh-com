@@ -1184,6 +1184,466 @@
    "uploaded": "2026-10-22T01:01:55.863Z",
    "mtime": 1792630861920,
    "preview": "2026-10-22T01:01:58.460Z"
+  },
+  "/de/en/100-years/cabin-design": {
+   "uploaded": "2026-10-22T01:10:24.844Z",
+   "mtime": 1792631377287,
+   "preview": "2026-10-22T01:10:29.687Z"
+  },
+  "/de/en/100-years/campaigns": {
+   "uploaded": "2026-10-22T01:10:31.080Z",
+   "mtime": 1792631379434,
+   "preview": "2026-10-22T01:10:35.599Z"
+  },
+  "/de/en/100-years/chronicle": {
+   "uploaded": "2026-10-22T01:10:36.990Z",
+   "mtime": 1792631383122,
+   "preview": "2026-10-22T01:10:43.508Z"
+  },
+  "/de/en/100-years/crane": {
+   "uploaded": "2026-10-22T01:10:44.801Z",
+   "mtime": 1792631386326,
+   "preview": "2026-10-22T01:10:48.764Z"
+  },
+  "/de/en/100-years/destinations": {
+   "uploaded": "2026-10-22T01:10:50.210Z",
+   "mtime": 1792631388731,
+   "preview": "2026-10-22T01:10:54.975Z"
+  },
+  "/de/en/100-years/fleet": {
+   "uploaded": "2026-10-22T01:10:56.346Z",
+   "mtime": 1792631391045,
+   "preview": "2026-10-22T01:11:00.998Z"
+  },
+  "/de/en/100-years/global-network": {
+   "uploaded": "2026-10-22T01:11:02.438Z",
+   "mtime": 1792631394081,
+   "preview": "2026-10-22T01:11:07.896Z"
+  },
+  "/de/en/100-years/history": {
+   "uploaded": "2026-10-22T01:11:09.374Z",
+   "mtime": 1792631408064,
+   "preview": "2026-10-22T01:11:12.203Z"
+  },
+  "/de/en/book-and-manage/stopover": {
+   "uploaded": "2026-10-22T01:11:13.364Z",
+   "mtime": 1792631398795,
+   "preview": "2026-10-22T01:11:18.350Z"
+  },
+  "/de/en/book-and-manage/stopover/bayerischer-hof": {
+   "uploaded": "2026-10-22T01:18:50.784Z",
+   "mtime": 1792631871497,
+   "preview": "2026-10-22T01:18:53.648Z"
+  },
+  "/de/en/book-and-manage/stopover/neuschwanstein": {
+   "uploaded": "2026-10-22T01:18:55.023Z",
+   "mtime": 1792631874020,
+   "preview": "2026-10-22T01:18:57.997Z"
+  },
+  "/de/en/book-and-manage/stopover/zugspitze": {
+   "uploaded": "2026-10-22T01:18:59.167Z",
+   "mtime": 1792631876168,
+   "preview": "2026-10-22T01:19:02.291Z"
+  },
+  "/de/en/culinaryjourney": {
+   "uploaded": "2026-10-22T01:19:03.486Z",
+   "mtime": 1792631878821,
+   "preview": "2026-10-22T01:19:05.879Z"
+  },
+  "/de/en/discover-lufthansa/take-off": {
+   "uploaded": "2026-10-22T01:19:07.335Z",
+   "mtime": 1792631880910,
+   "preview": "2026-10-22T01:19:10.607Z"
+  },
+  "/de/en/frankfurt-fair": {
+   "uploaded": "2026-10-22T01:19:11.902Z",
+   "mtime": 1792631883379,
+   "preview": "2026-10-22T01:19:14.980Z"
+  },
+  "/de/en/lufthansa-city/culinaryjourney": {
+   "uploaded": "2026-10-22T01:19:16.195Z",
+   "mtime": 1792631886146,
+   "preview": "2026-10-22T01:19:18.685Z"
+  },
+  "/de/en/most-significant-route": {
+   "uploaded": "2026-10-22T01:19:19.967Z",
+   "mtime": 1792631888809,
+   "preview": "2026-10-22T01:19:22.556Z"
+  },
+  "/de/en/munich-fair": {
+   "uploaded": "2026-10-22T01:19:23.735Z",
+   "mtime": 1792631890994,
+   "preview": "2026-10-22T01:19:26.360Z"
+  },
+  "/de/en/320": {
+   "uploaded": "2026-10-22T01:19:27.893Z",
+   "mtime": 1792631897029,
+   "preview": "2026-10-22T01:19:31.066Z"
+  },
+  "/de/en/32n": {
+   "uploaded": "2026-10-22T01:19:32.402Z",
+   "mtime": 1792631899192,
+   "preview": "2026-10-22T01:19:35.685Z"
+  },
+  "/de/en/744": {
+   "uploaded": "2026-10-22T01:19:36.964Z",
+   "mtime": 1792631901959,
+   "preview": "2026-10-22T01:19:39.890Z"
+  },
+  "/de/en/boeing787": {
+   "uploaded": "2026-10-22T01:19:41.166Z",
+   "mtime": 1792631903900,
+   "preview": "2026-10-22T01:19:44.396Z"
+  },
+  "/de/en/discover-lufthansa/lufthansa-fleet/351": {
+   "uploaded": "2026-10-22T01:19:45.586Z",
+   "mtime": 1792631906920,
+   "preview": "2026-10-22T01:19:48.282Z"
+  },
+  "/de/en/lufthansa-first-class-fleet": {
+   "uploaded": "2026-10-22T01:28:06.006Z",
+   "mtime": 1792632426307,
+   "preview": "2026-10-22T01:28:08.738Z"
+  },
+  "/de/en/seat-maps": {
+   "uploaded": "2026-10-22T01:28:09.818Z",
+   "mtime": 1792632429220,
+   "preview": "2026-10-22T01:28:14.113Z"
+  },
+  "/de/en/articles/authors/florian-tomberg": {
+   "uploaded": "2026-10-22T01:28:15.351Z",
+   "mtime": 1792632435011,
+   "preview": "2026-10-22T01:28:18.102Z"
+  },
+  "/de/en/articles/explore-flying": {
+   "uploaded": "2026-10-22T01:28:19.384Z",
+   "mtime": 1792632438114,
+   "preview": "2026-10-22T01:28:22.586Z"
+  },
+  "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history": {
+   "uploaded": "2026-10-22T01:28:23.752Z",
+   "mtime": 1792632441295,
+   "preview": "2026-10-22T01:28:26.356Z"
+  },
+  "/de/en/articles/explore-flying/anniversary-super-crane-special": {
+   "uploaded": "2026-10-22T01:28:27.776Z",
+   "mtime": 1792632443127,
+   "preview": "2026-10-22T01:28:30.949Z"
+  },
+  "/de/en/articles/explore-flying/essentials-future-of-flying": {
+   "uploaded": "2026-10-22T01:28:32.283Z",
+   "mtime": 1792632445178,
+   "preview": "2026-10-22T01:28:34.864Z"
+  },
+  "/de/en/articles/explore-flying/flying-high-christoph-quarch": {
+   "uploaded": "2026-10-22T01:28:36.008Z",
+   "mtime": 1792632448122,
+   "preview": "2026-10-22T01:28:39.022Z"
+  },
+  "/de/en/articles/explore-flying/inflight-entertainment-vr-experience": {
+   "uploaded": "2026-10-22T01:28:40.134Z",
+   "mtime": 1792632450901,
+   "preview": "2026-10-22T01:28:43.060Z"
+  },
+  "/de/en/articles/explore-the-world": {
+   "uploaded": "2026-10-22T01:28:44.379Z",
+   "mtime": 1792632453695,
+   "preview": "2026-10-22T01:28:48.644Z"
+  },
+  "/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
+   "uploaded": "2026-10-22T01:28:49.818Z",
+   "mtime": 1792632455682,
+   "preview": "2026-10-22T01:28:53.076Z"
+  },
+  "/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
+   "uploaded": "2026-10-22T01:28:54.356Z",
+   "mtime": 1792632457841,
+   "preview": "2026-10-22T01:28:57.638Z"
+  },
+  "/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips": {
+   "uploaded": "2026-10-22T01:37:23.166Z",
+   "mtime": 1792632994751,
+   "preview": "2026-10-22T01:37:26.181Z"
+  },
+  "/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips": {
+   "uploaded": "2026-10-22T01:37:27.477Z",
+   "mtime": 1792632997526,
+   "preview": "2026-10-22T01:37:30.728Z"
+  },
+  "/de/en/articles/explore-the-world/eat-see-do-algiers": {
+   "uploaded": "2026-10-22T01:37:31.741Z",
+   "mtime": 1792632999517,
+   "preview": "2026-10-22T01:37:34.489Z"
+  },
+  "/de/en/articles/explore-the-world/essentials-barcelona-facts": {
+   "uploaded": "2026-10-22T01:37:35.785Z",
+   "mtime": 1792633002378,
+   "preview": "2026-10-22T01:37:38.492Z"
+  },
+  "/de/en/articles/explore-the-world/essentials-frankfurt-facts": {
+   "uploaded": "2026-10-22T01:37:39.784Z",
+   "mtime": 1792633004426,
+   "preview": "2026-10-22T01:37:42.806Z"
+  },
+  "/de/en/articles/explore-the-world/in-my-hood-chiswick-london": {
+   "uploaded": "2026-10-22T01:37:44.010Z",
+   "mtime": 1792633007146,
+   "preview": "2026-10-22T01:37:46.642Z"
+  },
+  "/de/en/articles/explore-the-world/in-my-hood-district-zurich": {
+   "uploaded": "2026-10-22T01:37:47.745Z",
+   "mtime": 1792633009465,
+   "preview": "2026-10-22T01:37:50.729Z"
+  },
+  "/de/en/articles/explore-the-world/know-before-you-go-algiers": {
+   "uploaded": "2026-10-22T01:37:51.897Z",
+   "mtime": 1792633012099,
+   "preview": "2026-10-22T01:37:54.643Z"
+  },
+  "/de/en/articles/explore-the-world/know-before-you-go-berlin": {
+   "uploaded": "2026-10-22T01:37:55.947Z",
+   "mtime": 1792633014202,
+   "preview": "2026-10-22T01:37:58.721Z"
+  },
+  "/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
+   "uploaded": "2026-10-22T01:37:59.949Z",
+   "mtime": 1792633016598,
+   "preview": "2026-10-22T01:38:02.669Z"
+  },
+  "/de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
+   "uploaded": "2026-10-22T01:38:03.821Z",
+   "mtime": 1792633018491,
+   "preview": "2026-10-22T01:38:07.074Z"
+  },
+  "/de/en/articles/explore-the-world/picture-perfect-austin": {
+   "uploaded": "2026-10-22T01:38:08.581Z",
+   "mtime": 1792633021167,
+   "preview": "2026-10-22T01:38:11.865Z"
+  },
+  "/de/en/articles/explore-the-world/stop-over-tokyo": {
+   "uploaded": "2026-10-22T01:38:13.039Z",
+   "mtime": 1792633024207,
+   "preview": "2026-10-22T01:38:15.903Z"
+  },
+  "/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona": {
+   "uploaded": "2026-10-22T01:46:03.252Z",
+   "mtime": 1792633525753,
+   "preview": "2026-10-22T01:46:06.301Z"
+  },
+  "/de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt": {
+   "uploaded": "2026-10-22T01:46:07.778Z",
+   "mtime": 1792633528727,
+   "preview": "2026-10-22T01:46:10.565Z"
+  },
+  "/de/en/articles/highlights": {
+   "uploaded": "2026-10-22T01:46:12.075Z",
+   "mtime": 1792633530965,
+   "preview": "2026-10-22T01:46:15.939Z"
+  },
+  "/de/en/articles/highlights/all-it-takes-is-a-yes": {
+   "uploaded": "2026-10-22T01:46:17.057Z",
+   "mtime": 1792633533026,
+   "preview": "2026-10-22T01:46:20.471Z"
+  },
+  "/de/en/articles/highlights/allegris-premium-economy-san-diego": {
+   "uploaded": "2026-10-22T01:46:21.736Z",
+   "mtime": 1792633535074,
+   "preview": "2026-10-22T01:46:25.300Z"
+  },
+  "/de/en/articles/tags": {
+   "uploaded": "2026-10-22T01:46:26.351Z",
+   "mtime": 1792633537828,
+   "preview": "2026-10-22T01:46:28.470Z"
+  },
+  "/de/en/articles/tags/allegris": {
+   "uploaded": "2026-10-22T01:55:02.525Z",
+   "mtime": 1792634046340,
+   "preview": "2026-10-22T01:55:05.929Z"
+  },
+  "/de/en/articles/tags/munich": {
+   "uploaded": "2026-10-22T01:55:07.133Z",
+   "mtime": 1792634049072,
+   "preview": "2026-10-22T01:55:11.352Z"
+  },
+  "/de/en/advance-seat-reservations-terms-and-conditions": {
+   "uploaded": "2026-10-22T01:55:12.482Z",
+   "mtime": 1792634056061,
+   "preview": "2026-10-22T01:55:14.810Z"
+  },
+  "/de/en/besondere-befoerderungsbedingungen-bus": {
+   "uploaded": "2026-10-22T01:55:16.069Z",
+   "mtime": 1792634059158,
+   "preview": "2026-10-22T01:55:18.707Z"
+  },
+  "/de/en/business-terms-and-conditions": {
+   "uploaded": "2026-10-22T01:55:20.183Z",
+   "mtime": 1792634061404,
+   "preview": "2026-10-22T01:55:22.472Z"
+  },
+  "/de/en/common": {
+   "uploaded": "2026-10-22T01:55:23.632Z",
+   "mtime": 1792634063467,
+   "preview": "2026-10-22T01:55:25.986Z"
+  },
+  "/de/en/common/accessibility-statement": {
+   "uploaded": "2026-10-22T01:55:27.396Z",
+   "mtime": 1792634065328,
+   "preview": "2026-10-22T01:55:29.919Z"
+  },
+  "/de/en/common/agb-extra-services-at-online-check-in": {
+   "uploaded": "2026-10-22T01:55:31.164Z",
+   "mtime": 1792634067647,
+   "preview": "2026-10-22T01:55:33.869Z"
+  },
+  "/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation": {
+   "uploaded": "2026-10-22T01:55:35.276Z",
+   "mtime": 1792634069506,
+   "preview": "2026-10-22T01:55:37.822Z"
+  },
+  "/de/en/common/compensation-voucher": {
+   "uploaded": "2026-10-22T01:55:38.941Z",
+   "mtime": 1792634071639,
+   "preview": "2026-10-22T01:55:41.510Z"
+  },
+  "/de/en/common/imprint/lufthansa-insights-imprint": {
+   "uploaded": "2026-10-22T01:55:42.729Z",
+   "mtime": 1792634074241,
+   "preview": "2026-10-22T01:55:45.228Z"
+  },
+  "/de/en/common/privacy-statement/privacy-statement-group": {
+   "uploaded": "2026-10-22T02:03:32.496Z",
+   "mtime": 1792634559421,
+   "preview": "2026-10-22T02:03:35.173Z"
+  },
+  "/de/en/common/seatreservation-condtions/seat-reservations": {
+   "uploaded": "2026-10-22T02:03:36.561Z",
+   "mtime": 1792634562239,
+   "preview": "2026-10-22T02:03:39.237Z"
+  },
+  "/de/en/cookie-policy": {
+   "uploaded": "2026-10-22T02:03:40.647Z",
+   "mtime": 1792634565437,
+   "preview": "2026-10-22T02:03:43.217Z"
+  },
+  "/de/en/data-collection-canada": {
+   "uploaded": "2026-10-22T02:03:44.494Z",
+   "mtime": 1792634568051,
+   "preview": "2026-10-22T02:03:47.063Z"
+  },
+  "/de/en/data-collection-usa": {
+   "uploaded": "2026-10-22T02:03:48.298Z",
+   "mtime": 1792634570495,
+   "preview": "2026-10-22T02:03:50.934Z"
+  },
+  "/de/en/data-protection-information": {
+   "uploaded": "2026-10-22T02:03:52.326Z",
+   "mtime": 1792634572375,
+   "preview": "2026-10-22T02:03:54.805Z"
+  },
+  "/de/en/datenschutz": {
+   "uploaded": "2026-10-22T02:03:56.066Z",
+   "mtime": 1792634574827,
+   "preview": "2026-10-22T02:03:58.382Z"
+  },
+  "/de/en/faq-data-security": {
+   "uploaded": "2026-10-22T02:03:59.547Z",
+   "mtime": 1792634577379,
+   "preview": "2026-10-22T02:04:01.934Z"
+  },
+  "/de/en/faq-password-security": {
+   "uploaded": "2026-10-22T02:04:03.111Z",
+   "mtime": 1792634579781,
+   "preview": "2026-10-22T02:04:05.549Z"
+  },
+  "/de/en/general-conditions-currency-conversion": {
+   "uploaded": "2026-10-22T02:04:06.926Z",
+   "mtime": 1792634582447,
+   "preview": "2026-10-22T02:04:09.450Z"
+  },
+  "/de/en/passenger-rights": {
+   "uploaded": "2026-10-22T02:04:10.807Z",
+   "mtime": 1792634584865,
+   "preview": "2026-10-22T02:04:13.116Z"
+  },
+  "/de/en/prepare-for-your-trip/baggage/baggage-conditions": {
+   "uploaded": "2026-10-22T02:04:14.322Z",
+   "mtime": 1792634586928,
+   "preview": "2026-10-22T02:04:16.408Z"
+  },
+  "/de/en/rail-fly-terms-and-conditions": {
+   "uploaded": "2026-10-22T02:04:18.106Z",
+   "mtime": 1792634588870,
+   "preview": "2026-10-22T02:04:20.281Z"
+  },
+  "/de/en/sepa-terms-and-conditions": {
+   "uploaded": "2026-10-22T02:04:21.418Z",
+   "mtime": 1792634591723,
+   "preview": "2026-10-22T02:04:23.579Z"
+  },
+  "/de/en/sepa-terms-and-conditions-b": {
+   "uploaded": "2026-10-22T02:12:48.698Z",
+   "mtime": 1792635109502,
+   "preview": "2026-10-22T02:12:50.991Z"
+  },
+  "/de/en/terms-and-conditions-lh": {
+   "uploaded": "2026-10-22T02:12:52.272Z",
+   "mtime": 1792635113225,
+   "preview": "2026-10-22T02:12:55.866Z"
+  },
+  "/de/en/terms-of-service-group": {
+   "uploaded": "2026-10-22T02:12:57.168Z",
+   "mtime": 1792635115770,
+   "preview": "2026-10-22T02:12:59.238Z"
+  },
+  "/de/en/terms-of-use": {
+   "uploaded": "2026-10-22T02:13:00.562Z",
+   "mtime": 1792635118987,
+   "preview": "2026-10-22T02:13:02.836Z"
+  },
+  "/de/en/travel-id-terms-conditions": {
+   "uploaded": "2026-10-22T02:13:04.082Z",
+   "mtime": 1792635121703,
+   "preview": "2026-10-22T02:13:06.266Z"
+  },
+  "/de/en/anmeldung-tiere-frachtraum": {
+   "uploaded": "2026-10-22T02:13:07.713Z",
+   "mtime": 1792635128939,
+   "preview": "2026-10-22T02:13:10.050Z"
+  },
+  "/de/en/book-and-manage/cancellation-and-refund/refund/refund-form": {
+   "uploaded": "2026-10-22T02:13:11.361Z",
+   "mtime": 1792635132186,
+   "preview": "2026-10-22T02:13:13.480Z"
+  },
+  "/de/en/farealert/best-price-alert": {
+   "uploaded": "2026-10-22T02:13:14.863Z",
+   "mtime": 1792635133979,
+   "preview": "2026-10-22T02:13:17.606Z"
+  },
+  "/de/en/feedback-past-flight": {
+   "uploaded": "2026-10-22T02:13:18.821Z",
+   "mtime": 1792635136461,
+   "preview": "2026-10-22T02:13:21.031Z"
+  },
+  "/de/en/feedback/feedbackai": {
+   "uploaded": "2026-10-22T02:13:22.336Z",
+   "mtime": 1792635138936,
+   "preview": "2026-10-22T02:13:24.366Z"
+  },
+  "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage": {
+   "uploaded": "2026-10-22T02:13:25.707Z",
+   "mtime": 1792635141954,
+   "preview": "2026-10-22T02:13:27.945Z"
+  },
+  "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
+   "uploaded": "2026-10-22T02:13:29.019Z",
+   "mtime": 1792635144141,
+   "preview": "2026-10-22T02:13:31.323Z"
+  },
+  "/de/en/register-animal-cabin": {
+   "uploaded": "2026-10-22T02:13:32.531Z",
+   "mtime": 1792635146306,
+   "preview": "2026-10-22T02:13:34.860Z"
   }
  },
  "media": {

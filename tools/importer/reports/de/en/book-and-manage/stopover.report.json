@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/book-and-manage/stopover",
+  "path": "de/en/book-and-manage/stopover",
+  "timestamp": "2026-10-22T01:09:58.811Z",
+  "title": "Stopover | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

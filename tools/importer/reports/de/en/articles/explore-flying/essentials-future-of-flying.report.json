@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/essentials-future-of-flying",
+  "path": "de/en/articles/explore-flying/essentials-future-of-flying",
+  "timestamp": "2026-10-22T01:27:25.188Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

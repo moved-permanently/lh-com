@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/in-my-hood-chiswick-london",
+  "path": "de/en/articles/explore-the-world/in-my-hood-chiswick-london",
+  "timestamp": "2026-10-22T01:36:47.157Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

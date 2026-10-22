@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof",
+  "path": "de/en/book-and-manage/stopover/bayerischer-hof",
+  "timestamp": "2026-10-22T01:17:51.520Z",
+  "title": "Bayerischer Hof | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}
