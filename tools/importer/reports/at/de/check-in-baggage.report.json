@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/check-in-baggage",
   "path": "at/de/check-in-baggage",
-  "timestamp": "2026-10-22T20:03:57.460Z",
+  "timestamp": "2026-10-22T22:14:21.162Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

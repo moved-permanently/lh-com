@@ -24,7 +24,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "columns-media",
       "instances": [
-        ".onecolumn .twocolumn:not(:has(.column-view-item > .image + .headline))"
+        ".onecolumn .twocolumn:not(:has(.column-view-item > .image + .headline))",
+        ".videoViewer, .image:has(video)"
       ]
     },
     {

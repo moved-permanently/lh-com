@@ -167,11 +167,11 @@ export default function parse(element, { document }) {
     let cfg = {};
     try { cfg = JSON.parse(host.getAttribute('data-dcep')); } catch (e) { cfg = {}; }
     const video = comp.querySelector('video[src], video source[src]');
-    const src = cfg.videoSrc || (video && video.getAttribute('src'));
+    const src = clean(cfg.videoSrc || (video && video.getAttribute('src')));
     if (!src) return [];
     const out = [];
     const posterImg = comp.querySelector('.vjs-poster img[src]');
-    const poster = cfg.thumbnailSrc || (posterImg && posterImg.getAttribute('src'));
+    const poster = clean(cfg.thumbnailSrc || (posterImg && posterImg.getAttribute('src')));
     if (poster && !isBroken(poster)) {
       const img = document.createElement('img');
       img.setAttribute('src', poster);
@@ -262,6 +262,19 @@ export default function parse(element, { document }) {
     });
     return out;
   };
+
+  // --- a video outside column views (video viewer or moving image in default content, in tabs
+  // or in a one-column view): one media cell over the full width, settings as in a column.
+  // Videos of components that other parsers import (stage, carousels, accordions, mapped
+  // column views) are left to them: those are detached or inside their table by now.
+  if (element.matches('.videoViewer, .image')) {
+    if (!element.isConnected || !element.parentElement
+      || element.parentElement.closest('table, .inspirationteaser, .stage, .carousel, .slideshow, .accordion, .teaser')) return;
+    const media = element.classList.contains('videoViewer') ? viewerNodes(element) : mediaNodes(element);
+    if (!media.some((n) => n.tagName === 'P')) return;
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'columns-media', cells: [[media]] }));
+    return;
+  }
 
   // --- AirCore running text: an image floated beside the text that follows it
   // (<p><picture><img style="float: left; margin: 0 5rem 2rem 0" width="60%"></picture></p>):

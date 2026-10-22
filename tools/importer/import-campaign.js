@@ -26,7 +26,8 @@ const PAGE_TEMPLATE = {
       "name": "columns-media",
       "instances": [
         ".sidebar",
-        ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+        ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+        ".videoViewer, .image:has(video)"
       ]
     },
     {

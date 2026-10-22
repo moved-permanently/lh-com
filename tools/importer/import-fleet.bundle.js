@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_36607_exports = {};
-  __export(tmp_bundle_fleet_36607_exports, {
-    default: () => tmp_bundle_fleet_36607_default
+  var tmp_bundle_fleet_82911_exports = {};
+  __export(tmp_bundle_fleet_82911_exports, {
+    default: () => tmp_bundle_fleet_82911_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -559,11 +559,11 @@ var CustomImportScript = (() => {
         cfg = {};
       }
       const video = comp.querySelector("video[src], video source[src]");
-      const src = cfg.videoSrc || video && video.getAttribute("src");
+      const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
       if (!src) return [];
       const out = [];
       const posterImg = comp.querySelector(".vjs-poster img[src]");
-      const poster = cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src");
+      const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
       if (poster && !isBroken2(poster)) {
         const img = document.createElement("img");
         img.setAttribute("src", poster);
@@ -650,6 +650,13 @@ var CustomImportScript = (() => {
       });
       return out;
     };
+    if (element.matches(".videoViewer, .image")) {
+      if (!element.isConnected || !element.parentElement || element.parentElement.closest("table, .inspirationteaser, .stage, .carousel, .slideshow, .accordion, .teaser")) return;
+      const media = element.classList.contains("videoViewer") ? viewerNodes(element) : mediaNodes(element);
+      if (!media.some((n) => n.tagName === "P")) return;
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", cells: [[media]] }));
+      return;
+    }
     const floated = element.matches("p") && element.querySelector('img[style*="float"]');
     if (floated) {
       const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
@@ -1023,9 +1030,10 @@ var CustomImportScript = (() => {
     });
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
+  var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.querySelector(MEDIA);
+    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -1871,7 +1879,8 @@ var CustomImportScript = (() => {
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
           ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
-          ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))'
+          ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ".videoViewer, .image:has(video)"
         ]
       }
     ],
@@ -1961,7 +1970,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_36607_default = {
+  var tmp_bundle_fleet_82911_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1991,5 +2000,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_36607_exports);
+  return __toCommonJS(tmp_bundle_fleet_82911_exports);
 })();

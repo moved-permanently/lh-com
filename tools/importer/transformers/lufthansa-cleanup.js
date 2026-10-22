@@ -325,11 +325,14 @@ function removeScreenReaderOnly(document) {
 /* ------------------------------------------------- empty AEM components ----------------- */
 
 const MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
+// a video viewer whose player had not loaded yet in the snapshot (a maui-loader only) still has
+// its video in data-dcep (columns-media parser)
+const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {
   if (el.textContent.replace(/\u00A0/g, ' ').trim()) return false;
-  return !el.querySelector(MEDIA);
+  return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
 }
 
 /**

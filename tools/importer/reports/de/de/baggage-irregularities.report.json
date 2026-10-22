@@ -2,12 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/baggage-irregularities",
   "path": "de/de/baggage-irregularities",
-  "timestamp": "2026-10-22T19:55:23.638Z",
+  "timestamp": "2026-10-22T22:14:43.654Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
     "accordion-columns",
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media"
   ]
 }

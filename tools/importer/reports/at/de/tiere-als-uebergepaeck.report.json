@@ -2,12 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/tiere-als-uebergepaeck",
   "path": "at/de/tiere-als-uebergepaeck",
-  "timestamp": "2026-10-22T20:09:21.667Z",
+  "timestamp": "2026-10-22T22:14:40.398Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
     "accordion-columns",
+    "columns-media",
     "columns-media",
     "columns-media"
   ]

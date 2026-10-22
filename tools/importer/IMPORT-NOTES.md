@@ -26,6 +26,10 @@ Things that are not obvious from the code and cost time once.
   the cleanup drops leftover inline images in afterTransform.
 - `cleaned.html` drops attributes the parsers need (`maui-*` labels, `data-dcep` JSON,
   input values). Validate parsers against the raw snapshots.
+- Some snapshots caught a video viewer before its player loaded (`.dcep-video-viewer` with only a
+  `maui-loader`): the video is in its `data-dcep` JSON (`videoSrc`, `thumbnailSrc`), so the cleanup
+  keeps such components and the columns-media parser reads the JSON (/de/en/first-class,
+  /de/en/tiere-als-uebergepaeck).
 - Links are still `maui-navigation-link` / `maui-link` / `maui-button-link` (often inside a
   `maui-tooltip` as `slot="trigger"`) when parsers run; the cleanup converts the rest to `<a>`
   in afterTransform.

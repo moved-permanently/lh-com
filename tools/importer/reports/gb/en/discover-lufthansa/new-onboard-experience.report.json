@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience",
   "path": "gb/en/discover-lufthansa/new-onboard-experience",
-  "timestamp": "2026-10-22T19:23:36.837Z",
+  "timestamp": "2026-10-22T22:25:13.324Z",
   "title": "",
   "template": "campaign",
   "blocks": [
@@ -11,6 +11,7 @@
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",

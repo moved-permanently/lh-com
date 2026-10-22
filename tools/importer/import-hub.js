@@ -41,7 +41,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
         ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))",
-        ".container-content > .twocolumn:not(:has(.column-view-item > .image + .headline)):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))"
+        ".container-content > .twocolumn:not(:has(.column-view-item > .image + .headline)):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
+        ".videoViewer, .image:has(video)"
       ]
     },
     {

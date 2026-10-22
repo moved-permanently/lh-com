@@ -16,7 +16,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "columns-media",
       "instances": [
-        ".section-content > .twocolumn"
+        ".section-content > .twocolumn",
+        ".videoViewer, .image:has(video)"
       ]
     }
   ],

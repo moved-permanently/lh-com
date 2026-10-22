@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination-overview.js
-  var tmp_bundle_aircore_destination_overview_36607_exports = {};
-  __export(tmp_bundle_aircore_destination_overview_36607_exports, {
-    default: () => tmp_bundle_aircore_destination_overview_36607_default
+  var tmp_bundle_aircore_destination_overview_82911_exports = {};
+  __export(tmp_bundle_aircore_destination_overview_82911_exports, {
+    default: () => tmp_bundle_aircore_destination_overview_82911_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -415,9 +415,10 @@ var CustomImportScript = (() => {
     });
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
+  var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.querySelector(MEDIA);
+    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -1391,7 +1392,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_destination_overview_36607_default = {
+  var tmp_bundle_aircore_destination_overview_82911_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1421,5 +1422,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_destination_overview_36607_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_overview_82911_exports);
 })();

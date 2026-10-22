@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/100-years/destinations",
   "path": "de/en/100-years/destinations",
-  "timestamp": "2026-10-22T19:20:26.645Z",
+  "timestamp": "2026-10-22T22:24:55.204Z",
   "title": "",
   "template": "campaign",
   "blocks": [
@@ -11,6 +11,7 @@
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",

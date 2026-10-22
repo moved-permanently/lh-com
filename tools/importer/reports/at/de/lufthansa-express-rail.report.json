@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/lufthansa-express-rail",
   "path": "at/de/lufthansa-express-rail",
-  "timestamp": "2026-10-22T20:06:41.594Z",
+  "timestamp": "2026-10-22T22:14:34.904Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",

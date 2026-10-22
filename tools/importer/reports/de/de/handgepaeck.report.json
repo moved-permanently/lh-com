@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/handgepaeck",
   "path": "de/de/handgepaeck",
-  "timestamp": "2026-10-22T19:56:25.099Z",
+  "timestamp": "2026-10-22T22:14:57.998Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media"
   ]
 }

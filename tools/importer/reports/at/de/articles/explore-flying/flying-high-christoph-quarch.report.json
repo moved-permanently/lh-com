@@ -2,11 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/articles/explore-flying/flying-high-christoph-quarch",
   "path": "at/de/articles/explore-flying/flying-high-christoph-quarch",
-  "timestamp": "2026-10-22T19:28:55.712Z",
+  "timestamp": "2026-10-22T22:18:10.374Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "article-header",
+    "columns-media",
+    "columns-media",
     "related-articles"
   ]
 }

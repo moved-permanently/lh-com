@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/carry-on-baggage",
   "path": "de/en/carry-on-baggage",
-  "timestamp": "2026-10-22T19:49:05.630Z",
+  "timestamp": "2026-10-22T22:15:12.142Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media"
   ]
 }

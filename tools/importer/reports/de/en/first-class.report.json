@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/first-class",
   "path": "de/en/first-class",
-  "timestamp": "2026-10-22T19:50:16.357Z",
+  "timestamp": "2026-10-22T22:15:20.586Z",
   "title": "",
   "template": "info",
   "blocks": [
@@ -14,6 +14,8 @@
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",
+    "columns-media",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",
