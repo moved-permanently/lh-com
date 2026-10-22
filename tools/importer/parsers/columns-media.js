@@ -251,6 +251,11 @@ export default function parse(element, { document }) {
       .filter((it) => it.closest('.column-view') === view && !it.closest(MOBILE));
     const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
     if (row.length) cells.push(row);
+    // an image column view with carousel behaviour in a column (app teaser: photo + QR code):
+    // a slider with dots below 1025px (option slider)
+    const sliderView = items.some((it) => [...it.querySelectorAll('.column-view > .carousel')]
+      .some((c) => c.querySelectorAll('.hidden-md-down .image img').length > 1));
+    if (sliderView) variants.push('slider');
   }
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants, cells });

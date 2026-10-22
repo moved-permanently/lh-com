@@ -179,6 +179,61 @@
   min-width: 0;
 }
 
+/* option slider (column view with carousel behaviour): below 1025px the strip is a swiper, one
+   image per view, dots 68px under the image (.image-wrapper margin 4rem + pagination 2rem) and
+   45px above the end of the grey band; 68px between the text above and the slider
+   (/de/en/online-check-in app teaser at 390: badges 862, photo 930-1177, dots 1245, band 1297) */
+.columns-media .columns-media-dots {
+  display: none;
+}
+
+.columns-media.slider .columns-media-row > .columns-media-text:not(:last-child) {
+  margin-bottom: 68px;
+}
+
+@media (width < 1025px) {
+  .columns-media.slider .columns-media-multi {
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .columns-media.slider .columns-media-multi > * {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  .columns-media.slider .columns-media-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 68px 0 24px;
+  }
+
+  /* .swiper.swiper .swiper-pagination-bullet: 8px, white, 1px #666 border; active #05164d */
+  .columns-media .columns-media-dots button {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--lh-grey-7);
+    border-radius: 50%;
+    background-color: var(--lh-white);
+    cursor: pointer;
+  }
+
+  .columns-media .columns-media-dots button[aria-current="true"] {
+    border-color: var(--lh-deepblue);
+    background-color: var(--lh-deepblue);
+  }
+
+  .columns-media .columns-media-dots button:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+}
+
 /* click-to-play video: .moving-image .on-image-button-wrapper { padding: 1.5rem },
    .on-image-button { 4rem x 4rem; background: #0009; border-radius: 0; color: #fff } */
 .columns-media .columns-media-video {

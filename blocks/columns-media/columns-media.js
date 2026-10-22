@@ -5,8 +5,8 @@ import {
 } from '../../scripts/block-config.js';
 
 const DEFAULT_LABELS = {
-  en: { 'play video': 'Play video' },
-  de: { 'play video': 'Video abspielen' },
+  en: { 'play video': 'Play video', 'show image': 'Show image' },
+  de: { 'play video': 'Video abspielen', 'show image': 'Bild anzeigen' },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
@@ -131,6 +131,40 @@ function linkPictures(cell) {
 }
 
 /**
+ * Option slider: below 1025px the images of a strip are slides, one at a time, with dots
+ * (Lufthansa column view with carousel behaviour, .hidden-lg-up swiper).
+ * @param {Element} strip .columns-media-multi
+ * @param {Object} labels
+ */
+function buildSlider(strip, labels) {
+  const slides = [...strip.children];
+  const dots = document.createElement('div');
+  dots.className = 'columns-media-dots';
+  const buttons = slides.map((slide, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.setAttribute('aria-label', `${labels['show image']} ${index + 1}`);
+    button.addEventListener('click', () => {
+      strip.scrollTo({ left: slide.offsetLeft - strip.firstElementChild.offsetLeft, behavior: 'smooth' });
+    });
+    dots.append(button);
+    return button;
+  });
+  const update = () => {
+    const width = strip.clientWidth || 1;
+    const current = Math.min(slides.length - 1, Math.max(0, Math.round(strip.scrollLeft / width)));
+    buttons.forEach((b, i) => b.setAttribute('aria-current', String(i === current)));
+  };
+  let frame = 0;
+  strip.addEventListener('scroll', () => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => { frame = 0; update(); });
+  }, { passive: true });
+  update();
+  strip.after(dots);
+}
+
+/**
  * Two-column text and media rows.
  * Each row has (usually) two cells; a cell holding only pictures or links to media is a media
  * cell, any other cell is a text cell. Media cells accept several images (shown side by side),
@@ -167,6 +201,7 @@ export default function decorate(block) {
             strip.append(link && link.querySelectorAll('picture').length === 1 ? link : pic);
           });
           cell.prepend(strip);
+          if (block.classList.contains('slider')) buildSlider(strip, labels);
         }
       } else {
         cell.classList.add('columns-media-text');
