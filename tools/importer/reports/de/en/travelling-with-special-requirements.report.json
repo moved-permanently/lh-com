@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/travelling-with-special-requirements",
   "path": "de/en/travelling-with-special-requirements",
-  "timestamp": "2026-10-22T00:51:49.339Z",
-  "title": "Travelling with assistance requirements | Lufthansa",
+  "timestamp": "2026-10-22T19:54:21.807Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

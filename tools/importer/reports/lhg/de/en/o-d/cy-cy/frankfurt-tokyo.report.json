@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
   "path": "lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
-  "timestamp": "2026-10-22T13:22:39.089Z",
-  "title": "Flight from Frankfurt to Tokyo (FRA-TYO) | Lufthansa",
+  "timestamp": "2026-10-22T19:45:15.847Z",
+  "title": "",
   "template": "aircore-route",
   "blocks": [
     "flight-search"

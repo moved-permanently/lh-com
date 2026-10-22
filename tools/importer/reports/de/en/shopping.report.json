@@ -2,8 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/shopping",
   "path": "de/en/shopping",
-  "timestamp": "2026-10-22T00:42:42.743Z",
-  "title": "Inflight shopping, worldshop airport stores and online | Lufthansa",
+  "timestamp": "2026-10-22T19:53:33.945Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

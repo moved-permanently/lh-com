@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/mobility-partner-program-healthcare",
   "path": "de/en/mobility-partner-program-healthcare",
-  "timestamp": "2026-10-22T00:10:59.912Z",
-  "title": "Lufthansa Global Healthcare and Medical Services | Lufthansa",
+  "timestamp": "2026-10-22T19:51:56.127Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/discover-lufthansa/carbon-offsetting/saf",
   "path": "de/en/discover-lufthansa/carbon-offsetting/saf",
-  "timestamp": "2026-10-22T00:08:58.866Z",
-  "title": "Why support the use of Sustainable Aviation Fuel? | Lufthansa",
+  "timestamp": "2026-10-22T19:49:31.166Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

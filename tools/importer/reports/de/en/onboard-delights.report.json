@@ -2,10 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/onboard-delights",
   "path": "de/en/onboard-delights",
-  "timestamp": "2026-10-22T00:06:23.249Z",
-  "title": "Onboard Delights | Lufthansa",
+  "timestamp": "2026-10-22T19:47:11.999Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "carousel-cards"
+    "hero-campaign",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

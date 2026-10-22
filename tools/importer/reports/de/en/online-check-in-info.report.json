@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/online-check-in-info",
   "path": "de/en/online-check-in-info",
-  "timestamp": "2026-10-22T00:11:05.478Z",
-  "title": "Online check-in information | Lufthansa",
+  "timestamp": "2026-10-22T19:52:11.608Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

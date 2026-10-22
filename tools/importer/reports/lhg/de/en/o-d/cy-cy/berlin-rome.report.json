@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/berlin-rome",
   "path": "lhg/de/en/o-d/cy-cy/berlin-rome",
-  "timestamp": "2026-10-22T13:22:47.748Z",
-  "title": "Flight from Berlin to Rome (BER-FCO) | Lufthansa",
+  "timestamp": "2026-10-22T19:45:25.032Z",
+  "title": "",
   "template": "aircore-route",
   "blocks": [
     "flight-search"

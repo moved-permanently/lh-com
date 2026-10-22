@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-express",
   "path": "de/en/lufthansa-express",
-  "timestamp": "2026-10-22T00:10:38.087Z",
-  "title": "Airport arrival and departure – travel seamlessly | Lufthansa",
+  "timestamp": "2026-10-22T19:51:32.244Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

@@ -10,3 +10,15 @@
 2026-10-22T19:31Z re-import chunk | insights: 40/40 (8 left) {"at/de":16,"gb/en":24} | upload: pending (after all imports) | problems: none
 2026-10-22T19:31Z re-import chunk | insights: 8/8 (0 left) {"gb/en":8} | upload: pending (after all imports) | problems: none
 2026-10-22T19:33Z re-import chunk | legal: 40/40 (76 left) {"de/en":29,"de/de":11} | upload: pending (after all imports) | problems: none
+2026-10-22T19:35Z re-import chunk | legal: 40/40 (36 left) {"de/de":18,"at/de":22} | upload: pending (after all imports) | problems: none
+2026-10-22T19:37Z re-import chunk | legal: 36/36 (0 left) {"at/de":7,"gb/en":29} | upload: pending (after all imports) | problems: none
+2026-10-22T19:39Z re-import chunk | form: 36/36 (0 left) {"de/en":9,"de/de":9,"at/de":9,"gb/en":9} | upload: pending (after all imports) | problems: none
+2026-10-22T19:40Z re-import chunk | app-entry: 24/24 (0 left) {"de/en":6,"de/de":6,"at/de":6,"gb/en":6} | upload: pending (after all imports) | problems: none
+2026-10-22T19:42Z re-import chunk | aircore-destination-overview: 35/35 (0 left) {"aircore":35} | upload: pending (after all imports) | problems: none
+2026-10-22T19:44Z re-import chunk | aircore-destination: 40/40 (9 left) {"aircore":40} | upload: pending (after all imports) | problems: none
+2026-10-22T19:44Z re-import chunk | aircore-destination: 9/9 (0 left) {"aircore":9} | upload: pending (after all imports) | problems: none
+2026-10-22T19:46Z re-import chunk | aircore-route: 23/23 (0 left) {"aircore":23} | upload: pending (after all imports) | problems: none
+2026-10-22T19:48Z re-import chunk | info: 40/40 (636 left) {"de/en":28,"de/de":12} | upload: pending (after all imports) | problems: none
+2026-10-22T19:50Z re-import chunk | info: 40/40 (596 left) {"de/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T19:52Z re-import chunk | info: 40/40 (556 left) {"de/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T19:54Z re-import chunk | info: 40/40 (516 left) {"de/en":40} | upload: pending (after all imports) | problems: none

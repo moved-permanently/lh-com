@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/check-in-with-the-family",
   "path": "de/en/check-in-with-the-family",
-  "timestamp": "2026-10-22T00:08:40.474Z",
-  "title": "Online check-in with the whole family | Lufthansa",
+  "timestamp": "2026-10-22T19:49:13.263Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

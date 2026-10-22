@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/menues-reiseklassen",
   "path": "de/de/menues-reiseklassen",
-  "timestamp": "2026-10-22T00:06:33.541Z",
-  "title": "Menüs in unseren Reiseklassen | Lufthansa",
+  "timestamp": "2026-10-22T19:47:23.888Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

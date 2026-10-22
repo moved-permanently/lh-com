@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/children-on-board",
   "path": "de/en/children-on-board",
-  "timestamp": "2026-10-22T00:06:11.558Z",
-  "title": "On board with children and babies | Lufthansa",
+  "timestamp": "2026-10-22T19:47:00.272Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

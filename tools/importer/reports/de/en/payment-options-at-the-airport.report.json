@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/payment-options-at-the-airport",
   "path": "de/en/payment-options-at-the-airport",
-  "timestamp": "2026-10-22T00:02:46.372Z",
-  "title": "Payment options at the airport | Lufthansa",
+  "timestamp": "2026-10-22T19:52:24.215Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

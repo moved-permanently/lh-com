@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/cy/tokyo",
   "path": "lhg/gb/en/dest/cy/tokyo",
-  "timestamp": "2026-10-22T14:42:12.603Z",
+  "timestamp": "2026-10-22T19:44:38.466Z",
   "title": "",
   "template": "aircore-destination",
   "blocks": [
@@ -13,6 +13,7 @@
     "table-deals",
     "cards-icon-text",
     "weather",
-    "accordion-side-by-side"
+    "accordion-side-by-side",
+    "columns-media"
   ]
 }

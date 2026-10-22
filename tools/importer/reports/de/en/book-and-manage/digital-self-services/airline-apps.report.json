@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/book-and-manage/digital-self-services/airline-apps",
   "path": "de/en/book-and-manage/digital-self-services/airline-apps",
-  "timestamp": "2026-10-22T00:07:47.485Z",
-  "title": "Simply travel smarter | Lufthansa",
+  "timestamp": "2026-10-22T19:48:21.912Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

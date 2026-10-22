@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/arrival-services",
   "path": "de/en/arrival-services",
-  "timestamp": "2026-10-22T00:05:58.520Z",
-  "title": "Arrival services | Lufthansa",
+  "timestamp": "2026-10-22T19:46:47.915Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

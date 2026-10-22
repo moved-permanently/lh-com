@@ -2,8 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
   "path": "de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
-  "timestamp": "2026-10-22T00:42:15.709Z",
-  "title": "Children in Allegris Business Class | Lufthansa",
+  "timestamp": "2026-10-22T19:53:07.711Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

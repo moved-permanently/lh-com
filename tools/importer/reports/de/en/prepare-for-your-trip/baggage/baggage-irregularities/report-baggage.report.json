@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
   "path": "de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
-  "timestamp": "2026-10-22T02:12:21.965Z",
-  "title": "Quick help with delayed or damaged baggage | Lufthansa",
+  "timestamp": "2026-10-22T19:37:41.932Z",
+  "title": "",
   "template": "form",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

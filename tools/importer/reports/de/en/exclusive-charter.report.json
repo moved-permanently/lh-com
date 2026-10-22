@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/exclusive-charter",
   "path": "de/en/exclusive-charter",
-  "timestamp": "2026-10-22T00:09:21.997Z",
-  "title": "Lufthansa Charter | Lufthansa",
+  "timestamp": "2026-10-22T19:49:55.670Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

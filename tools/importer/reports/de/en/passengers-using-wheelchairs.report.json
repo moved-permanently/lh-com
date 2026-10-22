@@ -2,11 +2,26 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/passengers-using-wheelchairs",
   "path": "de/en/passengers-using-wheelchairs",
-  "timestamp": "2026-10-22T00:11:12.569Z",
-  "title": "Passengers requiring wheelchairs | Lufthansa",
+  "timestamp": "2026-10-22T19:52:19.114Z",
+  "title": "",
   "template": "info",
   "blocks": [
+    "hero-campaign",
     "accordion-columns",
-    "accordion-columns"
+    "accordion-columns",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

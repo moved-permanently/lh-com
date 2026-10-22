@@ -2,10 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-express-rail",
   "path": "de/en/lufthansa-express-rail",
-  "timestamp": "2026-10-22T00:10:43.135Z",
-  "title": "Lufthansa Express Rail | Lufthansa",
+  "timestamp": "2026-10-22T19:51:37.835Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

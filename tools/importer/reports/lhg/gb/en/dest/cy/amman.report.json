@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/cy/amman",
   "path": "lhg/gb/en/dest/cy/amman",
-  "timestamp": "2026-10-22T14:42:18.289Z",
+  "timestamp": "2026-10-22T19:44:44.314Z",
   "title": "",
   "template": "aircore-destination",
   "blocks": [
@@ -13,6 +13,7 @@
     "table-deals",
     "cards-icon-text",
     "weather",
-    "accordion-side-by-side"
+    "accordion-side-by-side",
+    "columns-media"
   ]
 }

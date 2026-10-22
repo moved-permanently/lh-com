@@ -2,10 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/book-and-manage/flights/helvetic",
   "path": "de/en/book-and-manage/flights/helvetic",
-  "timestamp": "2026-10-22T00:08:01.265Z",
+  "timestamp": "2026-10-22T19:48:34.326Z",
   "title": "Helvetic | Lufthansa",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

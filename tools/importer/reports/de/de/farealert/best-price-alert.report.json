@@ -2,10 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/farealert/best-price-alert",
   "path": "de/de/farealert/best-price-alert",
-  "timestamp": "2026-10-22T05:52:44.843Z",
+  "timestamp": "2026-10-22T19:37:55.305Z",
   "title": "Best price alert | Lufthansa",
   "template": "form",
   "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
     "accordion-columns"
   ]
 }

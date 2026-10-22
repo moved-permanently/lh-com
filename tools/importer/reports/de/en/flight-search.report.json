@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/flight-search",
   "path": "de/en/flight-search",
-  "timestamp": "2026-10-22T02:21:29.950Z",
-  "title": "Flight search | Lufthansa",
+  "timestamp": "2026-10-22T19:39:20.275Z",
+  "title": "",
   "template": "app-entry",
   "blocks": [
-    "columns-media"
+    "columns-media",
+    "cards-teaser"
   ]
 }

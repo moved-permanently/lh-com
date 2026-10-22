@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/rechnungsbeleg",
   "path": "de/en/rechnungsbeleg",
-  "timestamp": "2026-10-22T00:42:22.810Z",
+  "timestamp": "2026-10-22T19:53:14.816Z",
   "title": "Passenger receipt | Lufthansa",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

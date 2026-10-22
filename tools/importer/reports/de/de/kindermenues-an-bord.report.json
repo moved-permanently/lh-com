@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/kindermenues-an-bord",
   "path": "de/de/kindermenues-an-bord",
-  "timestamp": "2026-10-22T00:06:27.437Z",
-  "title": "Kindermenüs | Lufthansa",
+  "timestamp": "2026-10-22T19:47:16.753Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media"
+  ]
 }

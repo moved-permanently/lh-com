@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/group-travel-and-charter",
   "path": "de/en/group-travel-and-charter",
-  "timestamp": "2026-10-22T00:10:05.722Z",
-  "title": "Group travel and Lufthansa Charter | Lufthansa",
+  "timestamp": "2026-10-22T19:50:57.188Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }
