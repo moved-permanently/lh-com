@@ -20,7 +20,7 @@
  * OneTrust nor the fallback banner shows on the replica; the showcase notice is acknowledged
  * the same way (localStorage 'lh-showcase-acknowledged', scripts/showcase-notice.js).
  * After scrolling it waits for blocks,
- * web fonts and visible images, and writes the document-coordinate boxes of live-data widgets
+ * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the document-coordinate boxes of live-data widgets
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out.
  */
 const started = Date.now();
@@ -53,6 +53,7 @@ const SHOWCASE_KEY = 'lh-showcase-acknowledged';
 const WAIT_BLOCKS_MS = 10000;
 const WAIT_FONTS_MS = 6000;
 const WAIT_IMAGES_MS = 8000;
+const SVG_ANIMATION_MAX_MS = 15000;
 
 const args = getArgs({
   url: { type: 'string' },
@@ -211,6 +212,49 @@ function waitForImages(page) {
 }
 
 /**
+ * Waits (bounded) until the one-shot SMIL animations of the visible SVG images are over, so
+ * their final (fill="freeze") frame is captured like on the live screenshots; e.g. the at/de and
+ * gb/en header logo is a 10 s animated SVG. Indefinite animations are ignored.
+ * Returns the waited ms, or 'none'.
+ */
+async function waitForSvgAnimations(page) {
+  const endAt = await page.evaluate(async ({ maxH }) => {
+    const clock = (v) => {
+      const m = String(v || '').trim().match(/^([\d.]+)\s*(ms|s|min|h)?$/);
+      if (!m) return 0;
+      return Number(m[1]) * ({
+        ms: 1, s: 1000, min: 60000, h: 3600000,
+      }[m[2] || 's']);
+    };
+    const urls = [...new Set([...document.images].filter((img) => {
+      const r = img.getBoundingClientRect();
+      return r.width && r.height && r.top + window.scrollY <= maxH
+        && /\.svg(\?|#|$)/i.test(img.currentSrc || img.src);
+    }).map((img) => img.currentSrc || img.src))];
+    let latest = 0;
+    await Promise.all(urls.map(async (u) => {
+      const text = await fetch(u).then((res) => res.text()).catch(() => '');
+      let longest = 0;
+      (text.match(/<(animate|animateMotion|animateTransform|set)\b[^>]*>/g) || []).forEach((tag) => {
+        const attr = (name) => (tag.match(new RegExp(`\\s${name}="([^"]*)"`)) || [])[1];
+        const repeat = attr('repeatCount');
+        if (repeat === 'indefinite' || attr('repeatDur') === 'indefinite') return;
+        longest = Math.max(longest, clock(attr('begin')) + clock(attr('dur')) * (Number(repeat) || 1));
+      });
+      if (!longest) return;
+      const entry = performance.getEntriesByName(u)[0];
+      latest = Math.max(latest, (entry ? entry.responseEnd : 0) + longest);
+    }));
+    return latest;
+  }, { maxH: maxHeight }).catch(() => 0);
+  if (!endAt) return 'none';
+  const now = await page.evaluate(() => performance.now());
+  const ms = Math.min(SVG_ANIMATION_MAX_MS, Math.max(0, Math.ceil(endAt - now) + 500));
+  if (ms) await sleep(ms);
+  return ms;
+}
+
+/**
  * Nudges the viewport until the layout is exactly contentWidth wide (scrollbar thickness can
  * differ from the live browser's). Returns {viewportWidth, clientWidth}.
  */
@@ -349,6 +393,7 @@ async function main() {
   await scrollThrough(page);
   waits.images = await waitForImages(page);
   waits.fontsAfterScroll = await waitForFonts(page);
+  waits.svgAnimations = await waitForSvgAnimations(page);
 
   const metrics = await page.evaluate(collectMetrics);
   const height = Math.max(1, Math.min(metrics.scrollHeight, maxHeight));
