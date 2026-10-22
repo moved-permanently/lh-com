@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
-# One capture + import cycle, sized to finish in about 10 minutes:
+# One capture + import + upload cycle, sized to finish in about 10 minutes:
 #   1. capture the next pages through the warm Bright Data session (stale captures first),
 #   2. import every captured page that is not imported yet (offline, from snapshots),
-#   3. rebuild the recorded live data from the responses the pages loaded themselves.
+#   3. apply the Edge Delivery media limits (postprocess-media.mjs),
+#   4. upload new or changed documents to DA and preview them (preview only, never live),
+#   5. rebuild the recorded live data from the responses the pages loaded themselves.
 # Prints one progress line. Usage: tools/importer/batch-cycle.sh [capture-batch]
 cd "$(dirname "$0")/../.." || exit 1
-BATCH="${1:-18}"
-timeout 490 node tools/importer/bd-session.mjs --list tools/importer/urls-capture.txt --batch "$BATCH" \
+BATCH="${1:-14}"
+timeout 400 node tools/importer/bd-session.mjs --list tools/importer/urls-capture.txt --batch "$BATCH" \
   --since 2026-10-21T18:46:00Z --format jpg --widths 1440,768,390 --parity-list tools/importer/urls-parity.txt 2>&1 \
   | grep -E "^bd-session: .*(captured|BLOCKED)|BLOCKED|net-error|error page" | tail -3
 for t in $(node -e "console.log(require('./tools/importer/page-templates.json').templates.map((t) => t.name).join(' '))"); do
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done
 node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
-node tools/importer/record-live-data.mjs 2>/dev/null | grep -o "index now [0-9]* entries"
+node tools/importer/build-upload-list.mjs > /tmp/upload-list.log 2>&1
+timeout 150 node tools/importer/da-upload.mjs --list tools/importer/upload-all.txt 2> /tmp/da-upload.err | grep -E "^da-upload:|^  "
+node tools/importer/record-live-data.mjs 2> /tmp/record.err | grep -o "index now [0-9]* entries"
 node -e "
 const p = require('./tools/importer/import-progress.json');
 const c = {};
