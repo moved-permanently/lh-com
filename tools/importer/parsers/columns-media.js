@@ -13,7 +13,7 @@
  * holds images (linked images keep their link), or a poster image plus a link to the .mp4
  * (link text = the source play button's aria-label). A text cell holds headings (source level;
  * AEM "copytext" headings are labels and become paragraphs), paragraphs (<br><br> split into
- * paragraphs), lists and links (primary maui-button-link = bold link).
+ * paragraphs), lists and links (primary maui-button-link = bold link, secondary = italic link).
  *
  * Column title (".column-view > div:not(.row) > h2") is default content before the table.
  * When several column views form one block (flight-status: 3 x .twocolumn in a .onecolumn) and
@@ -46,7 +46,10 @@ export default function parse(element, { document }) {
     el.querySelectorAll('em, i, span').forEach((s) => {
       if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector('img')) s.remove();
     });
+    // text styles stay (the cleanup turns them into "{copytext-small}" markers)
+    const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
     el.removeAttribute('class');
+    if (keep.length) el.className = keep.join(' ');
     return el;
   };
   /** Splits a paragraph at runs of two or more <br>. */
@@ -68,6 +71,7 @@ export default function parse(element, { document }) {
     }
     return groups.map((g) => {
       const np = document.createElement('p');
+      if (p.className) np.className = p.className;
       g.forEach((n) => np.append(n));
       trimBreaks(np);
       return np;
@@ -111,10 +115,12 @@ export default function parse(element, { document }) {
     a.setAttribute('href', href);
     a.textContent = label;
     const p = document.createElement('p');
-    if (m.tagName === 'MAUI-BUTTON-LINK' && m.getAttribute('type') === 'primary') {
-      const strong = document.createElement('strong');
-      strong.append(a);
-      p.append(strong);
+    // maui-button-link: primary = bold link (yellow button), secondary = italic link (outlined)
+    const type = m.tagName === 'MAUI-BUTTON-LINK' ? m.getAttribute('type') : null;
+    if (type === 'primary' || type === 'secondary') {
+      const wrap = document.createElement(type === 'primary' ? 'strong' : 'em');
+      wrap.append(a);
+      p.append(wrap);
     } else {
       p.append(a);
     }

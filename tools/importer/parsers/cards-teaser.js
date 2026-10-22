@@ -87,10 +87,12 @@ export default function parse(element, { document }) {
     a.setAttribute('href', href);
     a.textContent = label;
     const p = document.createElement('p');
-    if (m.tagName === 'MAUI-BUTTON-LINK' && m.getAttribute('type') === 'primary') {
-      const strong = document.createElement('strong');
-      strong.append(a);
-      p.append(strong);
+    // maui-button-link: primary = bold link (yellow button), secondary = italic link (outlined)
+    const type = m.tagName === 'MAUI-BUTTON-LINK' ? m.getAttribute('type') : null;
+    if (type === 'primary' || type === 'secondary') {
+      const wrap = document.createElement(type === 'primary' ? 'strong' : 'em');
+      wrap.append(a);
+      p.append(wrap);
     } else {
       p.append(a);
     }

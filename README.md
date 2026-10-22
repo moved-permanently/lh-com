@@ -41,6 +41,22 @@ block would change the whole section or the structure for one heading. The marke
 and editable in the document, sits on the heading it applies to, survives copy and paste, and
 an author can delete it to get the default size again.
 
+### Small text
+
+The same marker at the end of a paragraph sets its text size: `{copytext-small}` (14px, 13px
+on AirCore pages: footnotes, disclaimers, small link lists), `{copytext-medium}` (16px),
+`{copytext-large}` (18px, the default size, but with regular instead of bold links). A link
+alone in such a paragraph stays a small text link with an arrow instead of a large
+navigation link.
+
+### Buttons and links
+
+- Bold link alone in a paragraph: primary (yellow) button. Italic link alone in a paragraph:
+  secondary (outlined) button. Bold and italic: dark filled button.
+- Plain link alone in a paragraph: navigation link with a large arrow.
+- Links in running text get a small arrow before the text (→ on lufthansa.com, ↗ to other
+  sites, ↓ to a place on the same page), as on the live site; not on AirCore pages.
+
 ### Theme `digital-assistant`
 
 Pages that show the Lufthansa digital assistant on the live site load its stylesheet, which maps

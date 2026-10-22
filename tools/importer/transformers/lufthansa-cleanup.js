@@ -31,8 +31,9 @@
  *    become /{cc}/{ll}/homepage, everything else on lufthansa.com becomes absolute
  *    https://www.lufthansa.com/...
  *  - re-normalizes images created by parsers, strips tracking/event attributes
- *  - heading style markers: "Title {heading-small}" when the Lufthansa class differs from the
- *    size of the level (scripts.js turns the marker into the class)
+ *  - text style markers: "Title {heading-small}" when the Lufthansa class differs from the
+ *    size of the level, "Small print {copytext-small}" for small text (scripts.js turns the
+ *    marker into the class)
  *  - metadata "Theme: digital-assistant" on pages that load the digital assistant stylesheet
  *    (its @font-face draws light head-font text bold)
  *  - never removes HTML comments (XWalk field hints)
@@ -428,8 +429,9 @@ const MAUI_LINK = 'maui-button-link[href], maui-navigation-link[href], maui-link
 /**
  * <maui-button-link|maui-navigation-link|maui-link href> custom elements -> plain <a href>
  * with the label text (images are moved over for linked badges). A primary button
- * (maui-button-link type="primary") is wrapped in <strong> so EDS decorates it as a primary
- * button. Runs in afterTransform: parsers read the custom elements. Returns the count.
+ * (maui-button-link type="primary") is wrapped in <strong>, a secondary one in <em>, so EDS
+ * decorates them as primary (yellow) / secondary (outlined) buttons. Runs in afterTransform:
+ * parsers read the custom elements. Returns the count.
  */
 function convertMauiLinks(document) {
   const links = [...document.querySelectorAll(MAUI_LINK)].reverse(); // innermost first
@@ -444,13 +446,27 @@ function convertMauiLinks(document) {
       a.textContent = cleanText(el) || el.getAttribute('label') || el.getAttribute('aria-label') || '';
     }
     let replacement = a;
-    if (el.tagName === 'MAUI-BUTTON-LINK' && el.getAttribute('type') === 'primary') {
-      replacement = document.createElement('strong');
+    const type = el.tagName === 'MAUI-BUTTON-LINK' ? el.getAttribute('type') : null;
+    if ((type === 'primary' || type === 'secondary') && !el.closest('strong, em')) {
+      replacement = document.createElement(type === 'primary' ? 'strong' : 'em');
       replacement.append(a);
     }
     el.replaceWith(replacement);
   });
   return links.length;
+}
+
+/**
+ * AirCore buttons are plain links with Bootstrap classes (<a class="btn-primary">,
+ * <a class="btn btn-secondary">): wrapped in <strong> / <em> like the maui buttons.
+ */
+function convertClassButtons(document) {
+  document.querySelectorAll('a.btn-primary[href], a.btn-secondary[href]').forEach((a) => {
+    if (a.closest('strong, em, b, i, table')) return;
+    const wrap = document.createElement(a.classList.contains('btn-primary') ? 'strong' : 'em');
+    a.replaceWith(wrap);
+    wrap.append(a);
+  });
 }
 
 /* --------------------------------------------------- icons / text ----------------- */
@@ -524,6 +540,7 @@ function splitBrParagraphs(document) {
       while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
       if (!group.length) return null;
       const np = document.createElement('p');
+      if (p.className) np.className = p.className; // text style (copytext-small) for every part
       group.forEach((n) => np.append(n));
       return np;
     }).filter(Boolean);
@@ -713,6 +730,35 @@ function markHeadingStyles(document) {
   return marked;
 }
 
+/**
+ * Paragraph text styles, same marker convention: p.copytext-small (14px) and p.copytext-medium
+ * (16px) get "{copytext-small}" / "{copytext-medium}" at the end, p.footnote and AirCore small
+ * print count as copytext-small. p.copytext-large is the default size (18px) but has regular instead of bold
+ * links, so it is marked only when it holds a link.
+ */
+function markParagraphStyles(document) {
+  let marked = 0;
+  // AirCore small print: .disclaimer { font-size: 1.3rem } paragraphs and paragraphs set in a
+  // smaller inline size (<p data-nosnippet><span style="font-size:10pt">Please note: ...)
+  document.querySelectorAll('div.disclaimer > p').forEach((p) => p.classList.add('copytext-small'));
+  document.querySelectorAll('p > span[style*="font-size"]').forEach((span) => {
+    const p = span.parentElement;
+    const m = (span.getAttribute('style') || '').match(/font-size:\s*([\d.]+)(pt|px)/i);
+    if (!m || cleanText(span) !== cleanText(p)) return;
+    const px = parseFloat(m[1]) * (m[2].toLowerCase() === 'pt' ? 4 / 3 : 1);
+    if (px < 15) p.classList.add('copytext-small');
+  });
+  document.querySelectorAll('p.copytext-small, p.copytext-medium, p.copytext-large, p.footnote').forEach((p) => {
+    if (!cleanText(p) || /\{[a-z-]+\}\s*$/.test(p.textContent)) return;
+    const style = p.classList.contains('footnote') ? 'copytext-small'
+      : ['copytext-small', 'copytext-medium', 'copytext-large'].find((c) => p.classList.contains(c));
+    if (style === 'copytext-large' && !p.querySelector('a[href]')) return;
+    p.append(document.createTextNode(` {${style}}`));
+    marked += 1;
+  });
+  return marked;
+}
+
 /* ---------------------------------------------------------- page theme ----------------- */
 
 const THEME_ATTR = 'data-lh-import-theme';
@@ -800,12 +846,14 @@ export default function transform(hookName, element, payload) {
     removeOverlays(document);
     removeAll(document, ['script', 'noscript', 'style', 'link', 'iframe[src*="cookielaw"]']);
     convertMauiLinks(document);
+    convertClassButtons(document);
     removeIconsAndZeroWidth(document);
     splitBrParagraphs(document);
     normalizeImages(document, false);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);
     markHeadingStyles(document);
+    markParagraphStyles(document);
     addThemeMetadata(document);
   }
 }

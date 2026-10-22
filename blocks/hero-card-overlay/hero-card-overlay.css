@@ -102,6 +102,7 @@ main > .section > .hero-card-overlay-wrapper {
 /* a secondary (outline) button would vanish on the brand card: invert it */
 .hero-card-overlay .hero-card-overlay-card a.button.secondary {
   border-color: var(--lh-white);
+  background-color: transparent;
   color: var(--lh-white);
 }
 

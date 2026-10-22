@@ -8,7 +8,7 @@
  *   row 1: background image (poster) + link to the background .mp4 when the stage has a video
  *   row 2: heading (source level: H1 on the page stage, H2/H3 further down), subtitle paragraph
  *          (source h3.subheadline is a tagline, not a heading), text paragraph(s), CTA link
- *          (maui-button-link type=primary = bold link)
+ *          (maui-button-link type=primary = bold link, secondary = italic link)
  * Option "right" when the text block is ".alignment-right" (default left).
  * No label rows: the pause/play labels are block defaults, the source has no authored labels.
  */
@@ -91,10 +91,12 @@ export default function parse(element, { document }) {
     a.setAttribute('href', m.getAttribute('href'));
     a.textContent = label;
     const p = document.createElement('p');
-    if (m.tagName === 'MAUI-BUTTON-LINK' && m.getAttribute('type') === 'primary') {
-      const strong = document.createElement('strong');
-      strong.append(a);
-      p.append(strong);
+    // maui-button-link: primary = bold link (yellow button), secondary = italic link (outlined)
+    const type = m.tagName === 'MAUI-BUTTON-LINK' ? m.getAttribute('type') : null;
+    if (type === 'primary' || type === 'secondary') {
+      const wrap = document.createElement(type === 'primary' ? 'strong' : 'em');
+      wrap.append(a);
+      p.append(wrap);
     } else {
       p.append(a);
     }

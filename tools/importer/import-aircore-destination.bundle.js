@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination.js
-  var tmp_bundle_aircore_destination_22043_exports = {};
-  __export(tmp_bundle_aircore_destination_22043_exports, {
-    default: () => tmp_bundle_aircore_destination_22043_default
+  var tmp_bundle_aircore_destination_31659_exports = {};
+  __export(tmp_bundle_aircore_destination_31659_exports, {
+    default: () => tmp_bundle_aircore_destination_31659_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -964,13 +964,22 @@ var CustomImportScript = (() => {
         a.textContent = cleanText(el) || el.getAttribute("label") || el.getAttribute("aria-label") || "";
       }
       let replacement = a;
-      if (el.tagName === "MAUI-BUTTON-LINK" && el.getAttribute("type") === "primary") {
-        replacement = document.createElement("strong");
+      const type = el.tagName === "MAUI-BUTTON-LINK" ? el.getAttribute("type") : null;
+      if ((type === "primary" || type === "secondary") && !el.closest("strong, em")) {
+        replacement = document.createElement(type === "primary" ? "strong" : "em");
         replacement.append(a);
       }
       el.replaceWith(replacement);
     });
     return links.length;
+  }
+  function convertClassButtons(document) {
+    document.querySelectorAll("a.btn-primary[href], a.btn-secondary[href]").forEach((a) => {
+      if (a.closest("strong, em, b, i, table")) return;
+      const wrap = document.createElement(a.classList.contains("btn-primary") ? "strong" : "em");
+      a.replaceWith(wrap);
+      wrap.append(a);
+    });
   }
   function removeIconsAndZeroWidth(document) {
     let icons = 0;
@@ -1029,6 +1038,7 @@ var CustomImportScript = (() => {
         while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
         if (!group.length) return null;
         const np = document.createElement("p");
+        if (p.className) np.className = p.className;
         group.forEach((n) => np.append(n));
         return np;
       }).filter(Boolean);
@@ -1189,6 +1199,25 @@ var CustomImportScript = (() => {
     });
     return marked;
   }
+  function markParagraphStyles(document) {
+    let marked = 0;
+    document.querySelectorAll("div.disclaimer > p").forEach((p) => p.classList.add("copytext-small"));
+    document.querySelectorAll('p > span[style*="font-size"]').forEach((span) => {
+      const p = span.parentElement;
+      const m = (span.getAttribute("style") || "").match(/font-size:\s*([\d.]+)(pt|px)/i);
+      if (!m || cleanText(span) !== cleanText(p)) return;
+      const px = parseFloat(m[1]) * (m[2].toLowerCase() === "pt" ? 4 / 3 : 1);
+      if (px < 15) p.classList.add("copytext-small");
+    });
+    document.querySelectorAll("p.copytext-small, p.copytext-medium, p.copytext-large, p.footnote").forEach((p) => {
+      if (!cleanText(p) || /\{[a-z-]+\}\s*$/.test(p.textContent)) return;
+      const style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
+      if (style === "copytext-large" && !p.querySelector("a[href]")) return;
+      p.append(document.createTextNode(` {${style}}`));
+      marked += 1;
+    });
+    return marked;
+  }
   var THEME_ATTR = "data-lh-import-theme";
   function detectTheme(document) {
     if (document.querySelector('link[href*="/digitalassistant/"][href$=".css"]')) {
@@ -1266,12 +1295,14 @@ var CustomImportScript = (() => {
       removeOverlays(document);
       removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
       convertMauiLinks(document);
+      convertClassButtons(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
       markHeadingStyles(document);
+      markParagraphStyles(document);
       addThemeMetadata(document);
     }
   }
@@ -1559,7 +1590,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_destination_22043_default = {
+  var tmp_bundle_aircore_destination_31659_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1589,5 +1620,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_destination_22043_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_31659_exports);
 })();

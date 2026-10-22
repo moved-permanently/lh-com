@@ -20,6 +20,18 @@
   {
     "scope": "site",
     "change": "Heading sizes by Lufthansa class: importer (cleanup afterTransform; columns-media keeps the class of rebuilt headings) appends a '{heading-medium}' style marker when the class differs from the level default (h1 large, h2 medium, h3/h4 copytext-large, h5/h6 copytext-medium); scripts.js turns it into the class and strips it from text and id; styles.css .heading-large 48/700, -medium 36/300, -small 28/300, -copytext-large 24/700, -copytext-medium 18/700, .copytext-large body text. Pages loading the digital assistant stylesheet (lh.css maps LufthansaHead 400 to HeadWeb-Bold) get metadata Theme: digital-assistant -> body.digital-assistant uses a Bold-only head face (136 snapshots, e.g. baggage, accessible-travel, kinder-an-bord). Verified: feedback h3s 36/300 (were 24/700), accessible-travel h2 bold like live; markers in test imports of chronicle (1970/1977/2006/2014, 'Together...' heading-large), imprint, boeing787, my-bookings, fluege, new-onboard-experience. README 'Authoring conventions'. Needs re-import (all AEM templates).",
+    "commit": "4f65dbd",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Buttons/links: maui-button-link type=secondary (1243 on live) now imported as italic link -> outlined secondary button (cleanup + columns-media, cards-teaser, hero-campaign, cards-steps parsers), AirCore a.btn-primary/btn-secondary -> bold/italic link (new-york 'Discover more' now primary); link buttons width auto on all breakpoints (live width=auto: 'A century in advertising' 249px vs live 250, mobile 'Login' 107px), secondary white fill (hero-card-overlay keeps transparent). Running-text links get a 9x8px arrow (internal), up-right (other sites) or down (anchors) 3px in / 5px to the text (imprint 'Internet: lufthansa.com' arrow ink x161-169 like live), not on AirCore. Small link lists: see copytext entry. Needs re-import.",
+    "commit": "pending",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Small print: p.copytext-small/-medium (and copytext-large with links, p.footnote, AirCore .disclaimer p and 10pt spans) imported with a '{copytext-small}' marker (cleanup; columns-media keeps the class), scripts.js -> class; 14px (AirCore 13px), 16px, regular links, 18px margins. Imprint footnote + 'To Help & Contact'/'To the feedback page' 14px/400 with small arrow, rows 525/546/585/624 = live spacing (49/60/39px); new-york disclaimer and germany-usa 'Please note' 13px. eat-see-do-berlin footnote was already 12.6px italic (em > sup). Needs re-import.",
     "commit": "pending",
     "date": "2026-10-22"
   }
