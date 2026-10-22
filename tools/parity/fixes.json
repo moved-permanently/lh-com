@@ -38,13 +38,13 @@
   {
     "scope": "site",
     "change": "Hidden text: 'external website' tooltip boxes of image links without href (<a slot=trigger> in maui-tooltip) are dropped and href-less links unwrapped (kinder-an-bord 'Bitte beachten Sie...' paragraph gone, no <a href=\"\">); rendered feedback questionnaire ('Fanden Sie diese Informationen nützlich? Ja Nein', fluege/flights) imported as new Feedback block (question + segmented Ja/Nein control, render-only; empty questionnaires dropped). Homepage price disclaimers and gb/en winter sports conditions verified already hidden behind the 'Conditions' disclosure (fare-teaser / destination-finder <details>) locally and on preview at 390/1440: no change. Needs re-import.",
-    "commit": "pending",
+    "commit": "0897358",
     "date": "2026-10-22"
   },
   {
     "scope": "site",
     "change": "Images: blocks that rebuild pictures (cards-teaser, cards-price, cards, carousel-cards, columns-media, hero-campaign, hero-card-overlay, article-header) keep the pipeline's width/height on the new img (keepImageSize in scripts/block-config.js), so lazy images reserve their space (baggage 390: not-yet-loaded card images 331x142 instead of 331x0, three-up cards no longer shift ~140px each); default-content image links (p > a > picture) are block boxes around the image (kinder-an-bord 'Fliegen mit Baby/Kind' link 331x142 instead of a 25px inline line).",
-    "commit": "pending",
+    "commit": "0897358",
     "date": "2026-10-22"
   }
 ]

@@ -423,6 +423,14 @@ textarea:focus-visible {
   font-weight: 300;
 }
 
+/* an image link in default content wraps its image (a block box, not one inline line); images
+   reserve their space from the width/height attributes until they load */
+main .default-content-wrapper > p > a:has(> picture) {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
 /* a link alone in a paragraph: maui-navigation-link (standalone, size large) with lh-arrow-right;
    live arrow ink 14x12px with ~12px to the text (1440 capture), i.e. a 19px box for this path */
 .default-content-wrapper p.link-wrapper a:any-link {
@@ -679,17 +687,9 @@ main .default-content-wrapper > * + h2 {
 
 main .default-content-wrapper > p > picture,
 main .default-content-wrapper > p > picture img,
-main .default-content-wrapper > p > a:has(> picture),
 main .default-content-wrapper > p > a > picture,
 main .default-content-wrapper > p > a > picture img {
   display: block;
-}
-
-/* an image link wraps its image (a block box, not one inline line); images reserve their
-   space from the width/height attributes until they load */
-main .default-content-wrapper > p > a:has(> picture) {
-  width: fit-content;
-  max-width: 100%;
 }
 
 main .default-content-wrapper > ul,
