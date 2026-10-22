@@ -3,9 +3,12 @@
   "/de/en/during-your-trip/internet-overview": {
     "by": "Ben",
     "date": "2026-10-22",
-    "note": "Channels demo (tools/reports/channels.md step 1): heading 'Entertainment' -> 'Entertainment on board'; DA copy tools/channels/da/lh-com/de/en/during-your-trip/internet-overview.html",
+    "note": "Channels demo (tools/reports/channels.md step 1): heading 'Entertainment' -> 'Entertainment on board'; DA copy tools/channels/da/lh-com/de/en/during-your-trip/internet-overview.html; 2026-10-22: from/to updated to the {heading-small} marker the importer writes since 4f65dbd (renders the same)",
     "replace": [
-      ["<h3 id=\"entertainment\">Entertainment</h3>", "<h3 id=\"entertainment-on-board\">Entertainment on board</h3>"]
+      [
+        "<h3 id=\"entertainment-heading-small\">Entertainment {heading-small}</h3>",
+        "<h3 id=\"entertainment-on-board-heading-small\">Entertainment on board {heading-small}</h3>"
+      ]
     ]
   }
 }
