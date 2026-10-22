@@ -1044,6 +1044,22 @@
    "file": "at-de-fc858297.json",
    "recordedAt": "2026-10-22T08:00:55.497Z"
   },
+  "at/de|GET /service/api/suggestions/airports?lang=de&portal=LH&query=Wien+International&rd=y&rep=airportsReq&site=AT&start=0": {
+   "file": "at-de-dca97a6a.json",
+   "recordedAt": "2026-10-22T08:26:56.488Z"
+  },
+  "at/de|GET /service/api/labels/blogOverview/lh/de": {
+   "file": "at-de-5b06fa27.json",
+   "recordedAt": "2026-10-22T08:40:13.844Z"
+  },
+  "at/de|GET /service/api/labels/socialShare/lh/de": {
+   "file": "at-de-a81ca6c4.json",
+   "recordedAt": "2026-10-22T08:41:22.785Z"
+  },
+  "at/de|GET /service/api/labels/relatedarticles/lh/de": {
+   "file": "at-de-e72059de.json",
+   "recordedAt": "2026-10-22T08:41:22.785Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1229,5 +1245,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T08:05:05.848Z"
+ "updatedAt": "2026-10-22T08:44:48.716Z"
 }

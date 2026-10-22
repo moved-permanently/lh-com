@@ -3808,5 +3808,250 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-22T08:03:22.686Z"
+ },
+ "https://www.lufthansa.com/at/de/reisen-mit-besonderen-anforderungen": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.539Z"
+ },
+ "https://www.lufthansa.com/at/de/traveltricks": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.542Z"
+ },
+ "https://www.lufthansa.com/at/de/uebergepaeck": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.544Z"
+ },
+ "https://www.lufthansa.com/at/de/alleinreisende-kinder": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.547Z"
+ },
+ "https://www.lufthansa.com/at/de/unterhaltung-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.550Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-business-class-langstrecke": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.553Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-first-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.555Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-informationen": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.558Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrademoeglichkeiten": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.560Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.563Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-in-die-business-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.567Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrade-in-die-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.569Z"
+ },
+ "https://www.lufthansa.com/at/de/upgrades-im-online-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.572Z"
+ },
+ "https://www.lufthansa.com/at/de/rollstuhlbatterien": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.574Z"
+ },
+ "https://www.lufthansa.com/at/de/mit-kindern-am-flughafen": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T08:21:12.576Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.589Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/cabin-design": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.592Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/campaigns": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.595Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/chronicle": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.598Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/crane": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.601Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/destinations": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.604Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/fleet": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.607Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/global-network": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.609Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/history": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:21:42.612Z"
+ },
+ "https://www.lufthansa.com/at/de/100-years/history/menu-on-board": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.451Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/stopover": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.455Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.457Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/stopover/neuschwanstein": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.460Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/stopover/zugspitze": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.462Z"
+ },
+ "https://www.lufthansa.com/at/de/culinaryjourney": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.465Z"
+ },
+ "https://www.lufthansa.com/at/de/discover-lufthansa/new-onboard-experience": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.467Z"
+ },
+ "https://www.lufthansa.com/at/de/discover-lufthansa/take-off": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.470Z"
+ },
+ "https://www.lufthansa.com/at/de/frankfurt-fair": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.472Z"
+ },
+ "https://www.lufthansa.com/at/de/lufthansa-city/culinaryjourney": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.475Z"
+ },
+ "https://www.lufthansa.com/at/de/bedeutsamste-strecken": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.478Z"
+ },
+ "https://www.lufthansa.com/at/de/munich-fair": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T08:32:21.480Z"
+ },
+ "https://www.lufthansa.com/at/de/320": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:32:29.785Z"
+ },
+ "https://www.lufthansa.com/at/de/32n": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.525Z"
+ },
+ "https://www.lufthansa.com/at/de/359": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.526Z"
+ },
+ "https://www.lufthansa.com/at/de/744": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.526Z"
+ },
+ "https://www.lufthansa.com/at/de/boeing787": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.526Z"
+ },
+ "https://www.lufthansa.com/at/de/discover-lufthansa/lufthansa-fleet/351": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.526Z"
+ },
+ "https://www.lufthansa.com/at/de/lufthansa-first-class-flotte": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.526Z"
+ },
+ "https://www.lufthansa.com/at/de/sitzplaene": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T08:43:01.529Z"
+ },
+ "https://www.lufthansa.com/at/de/articles/authors/florian-tomberg": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T08:43:19.292Z"
+ },
+ "https://www.lufthansa.com/at/de/articles/explore-flying": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T08:43:19.295Z"
+ },
+ "https://www.lufthansa.com/at/de/articles/explore-flying/7-people-who-shaped-lufthansa-history": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T08:43:19.298Z"
+ },
+ "https://www.lufthansa.com/at/de/articles/explore-flying/anniversary-super-crane-special": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T08:43:19.301Z"
+ },
+ "https://www.lufthansa.com/at/de/articles/explore-flying/essentials-future-of-flying": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T08:43:19.303Z"
  }
 }

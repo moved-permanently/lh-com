@@ -1977,6 +1977,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:10:05.056Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/100-years/destinations/lh100y_iconic_destinations_02_fallback_for_video.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/5ae59ce6d320eda1e4eabaf3281089b1.jpg",
+  "format": "jpeg",
+  "bytes": 148374,
+  "width": 1440,
+  "height": 810,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:21:44.662Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/100-years/destinations/lh100y_iconic_destinations_11.jpg": {
   "status": 200,
   "version": 1,
@@ -2943,6 +2954,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:27:47.460Z"
  },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/welcome-to-my-world-elyas-mbarek/lh_blog_portrait_elyas-mbarek_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0592d68dec109519a768844a05b1d3f2.jpg",
+  "format": "jpeg",
+  "bytes": 625015,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:43:22.591Z"
+ },
  "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/header-images/miami/lh_blog_miami-beach_getty1596596651_16x9.jpg": {
   "status": 200,
   "version": 1,
@@ -3052,6 +3074,50 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:54:41.203Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/100-Years-Seven-People-who-shaped-Lufthansa-History/lh_blog_marga-von-etzdorf_plane_flight_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/59d9263c7d4a071e39db35114fda6f63.jpg",
+  "format": "jpeg",
+  "bytes": 732483,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:43:24.541Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/aircraft-lights-explained/lh_blog_airplane-lights_plane_night_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6868f3e04d175aa342cef1d370513098.jpg",
+  "format": "jpeg",
+  "bytes": 294918,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:43:23.535Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/lufthansa-traditional-bavarian-attire/lh_blog_fashion_designer_elisa-berzgahi-freymann_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/a7171ffa38ec84d9503b0164043308bd.jpg",
+  "format": "jpeg",
+  "bytes": 694416,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:43:23.043Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/onboard-experience/lh_blog_fox_lufthansa_first-class_man_eating_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/51489205a0e3698d7b7b7099653ef923.jpg",
+  "format": "jpeg",
+  "bytes": 632514,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T08:43:24.042Z"
  },
  "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg": {
   "status": 200,

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/744",
+  "path": "at/de/744",
+  "timestamp": "2026-10-22T08:42:44.287Z",
+  "title": "Boeing 747-400 | Lufthansa",
+  "template": "fleet",
+  "blocks": [
+    "carousel-lightbox",
+    "carousel-lightbox",
+    "table-striped"
+  ]
+}

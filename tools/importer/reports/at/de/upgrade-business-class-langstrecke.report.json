@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/upgrade-business-class-langstrecke",
+  "path": "at/de/upgrade-business-class-langstrecke",
+  "timestamp": "2026-10-22T08:20:41.795Z",
+  "title": "Business Class Upgrade auf Langstreckenflügen | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/32n",
+  "path": "at/de/32n",
+  "timestamp": "2026-10-22T08:42:38.811Z",
+  "title": "Airbus A320neo | Lufthansa",
+  "template": "fleet",
+  "blocks": [
+    "carousel-lightbox",
+    "table-striped"
+  ]
+}
