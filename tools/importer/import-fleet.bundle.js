@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_8711_exports = {};
-  __export(tmp_bundle_fleet_8711_exports, {
-    default: () => tmp_bundle_fleet_8711_default
+  var tmp_bundle_fleet_6825_exports = {};
+  __export(tmp_bundle_fleet_6825_exports, {
+    default: () => tmp_bundle_fleet_6825_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -381,6 +381,41 @@ var CustomImportScript = (() => {
       keepHeadingStyle(h, out);
       return out;
     };
+    const videoPara = (src, label, settings) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", src);
+      a.textContent = label || src;
+      const p = document.createElement("p");
+      p.append(a);
+      if (settings.length) p.append(` {${settings.join(" ")}}`);
+      return p;
+    };
+    const viewerNodes = (comp) => {
+      const host = comp.querySelector("[data-dcep]");
+      let cfg = {};
+      try {
+        cfg = JSON.parse(host.getAttribute("data-dcep"));
+      } catch (e) {
+        cfg = {};
+      }
+      const video = comp.querySelector("video[src], video source[src]");
+      const src = cfg.videoSrc || video && video.getAttribute("src");
+      if (!src) return [];
+      const out = [];
+      const posterImg = comp.querySelector(".vjs-poster img[src]");
+      const poster = cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src");
+      if (poster && !isBroken2(poster)) {
+        const img = document.createElement("img");
+        img.setAttribute("src", poster);
+        img.setAttribute("alt", clean(cfg.alternativeText));
+        out.push(img);
+      }
+      const settings = [];
+      if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+      settings.push("controls", "round-play-button");
+      out.push(videoPara(src, clean(cfg.alternativeText), settings));
+      return out;
+    };
     const mediaNodes = (comp) => {
       const out = [];
       const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
@@ -395,12 +430,10 @@ var CustomImportScript = (() => {
         const src = video.getAttribute("src");
         if (image) out.push(image);
         const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
-        const a = document.createElement("a");
-        a.setAttribute("href", src);
-        a.textContent = clean(button && button.getAttribute("aria-label")) || src;
-        const p = document.createElement("p");
-        p.append(a);
-        out.push(p);
+        const settings = button ? [] : ["autoplay", "muted"];
+        if (!button && video.hasAttribute("loop")) settings.push("loop");
+        if (video.hasAttribute("controls")) settings.push("controls");
+        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -430,6 +463,8 @@ var CustomImportScript = (() => {
           if (p) out.push(p);
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
+        } else if (cl.contains("videoViewer")) {
+          out.push(...viewerNodes(child));
         } else {
           collect(child, out);
         }
@@ -479,6 +514,8 @@ var CustomImportScript = (() => {
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
       const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
       if (row.length) cells.push(row);
+      const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
+      if (sliderView) variants.push("slider");
     }
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
     const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
@@ -1641,7 +1678,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_8711_default = {
+  var tmp_bundle_fleet_6825_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1671,5 +1708,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_8711_exports);
+  return __toCommonJS(tmp_bundle_fleet_6825_exports);
 })();

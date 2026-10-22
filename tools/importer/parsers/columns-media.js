@@ -147,6 +147,44 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  /**
+   * Paragraph with the link to the .mp4 and, after it, the source's playback settings as a
+   * marker ("{autoplay muted loop}", "{controls round-play-button}", blocks/columns-media README).
+   */
+  const videoPara = (src, label, settings) => {
+    const a = document.createElement('a');
+    a.setAttribute('href', src);
+    a.textContent = label || src;
+    const p = document.createElement('p');
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(' ')}}`);
+    return p;
+  };
+
+  /** Video viewer (video.js: poster, round play button in the middle, controls). */
+  const viewerNodes = (comp) => {
+    const host = comp.querySelector('[data-dcep]');
+    let cfg = {};
+    try { cfg = JSON.parse(host.getAttribute('data-dcep')); } catch (e) { cfg = {}; }
+    const video = comp.querySelector('video[src], video source[src]');
+    const src = cfg.videoSrc || (video && video.getAttribute('src'));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector('.vjs-poster img[src]');
+    const poster = cfg.thumbnailSrc || (posterImg && posterImg.getAttribute('src'));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement('img');
+      img.setAttribute('src', poster);
+      img.setAttribute('alt', clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === 'true') settings.push('autoplay', 'muted');
+    settings.push('controls', 'round-play-button');
+    out.push(videoPara(src, clean(cfg.alternativeText), settings));
+    return out;
+  };
+
   /** Media of an AEM image component: [img] | [a > img] | [poster img, a(.mp4)]. */
   const mediaNodes = (comp) => {
     const out = [];
@@ -162,12 +200,11 @@ export default function parse(element, { document }) {
       const src = video.getAttribute('src');
       if (image) out.push(image);
       const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
-      const a = document.createElement('a');
-      a.setAttribute('href', src);
-      a.textContent = clean(button && button.getAttribute('aria-label')) || src;
-      const p = document.createElement('p');
-      p.append(a);
-      out.push(p);
+      // moving image without play button: plays by itself, muted, without controls
+      const settings = button ? [] : ['autoplay', 'muted'];
+      if (!button && video.hasAttribute('loop')) settings.push('loop');
+      if (video.hasAttribute('controls')) settings.push('controls');
+      out.push(videoPara(src, clean(button && button.getAttribute('aria-label')), settings));
       return out;
     }
     if (!image) return out;
@@ -199,6 +236,8 @@ export default function parse(element, { document }) {
         if (p) out.push(p);
       } else if (cl.contains('image') && child.querySelector('img, video')) {
         out.push(...mediaNodes(child));
+      } else if (cl.contains('videoViewer')) {
+        out.push(...viewerNodes(child));
       } else {
         collect(child, out);
       }

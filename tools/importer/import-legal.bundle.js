@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1284_exports = {};
-  __export(tmp_bundle_legal_1284_exports, {
-    default: () => tmp_bundle_legal_1284_default
+  var tmp_bundle_legal_6825_exports = {};
+  __export(tmp_bundle_legal_6825_exports, {
+    default: () => tmp_bundle_legal_6825_default
   });
 
   // tools/importer/parsers/columns-media.js
@@ -156,13 +156,48 @@ var CustomImportScript = (() => {
       if (style) to.className = style;
     };
     const headingFrom = (scope) => {
-      const h = scope.querySelector("h1, h2, h3, h4, h5, h6");
+      const h = scope.matches("h1, h2, h3, h4, h5, h6") ? scope : scope.querySelector("h1, h2, h3, h4, h5, h6");
       const text = visibleText(h || scope);
       if (!text) return null;
       const isLabel = h && /(^|\s)copytext/.test(h.getAttribute("class") || "");
       const out = document.createElement(h && !isLabel ? h.tagName.toLowerCase() : "p");
       out.textContent = text;
       keepHeadingStyle(h, out);
+      return out;
+    };
+    const videoPara = (src, label, settings) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", src);
+      a.textContent = label || src;
+      const p = document.createElement("p");
+      p.append(a);
+      if (settings.length) p.append(` {${settings.join(" ")}}`);
+      return p;
+    };
+    const viewerNodes = (comp) => {
+      const host = comp.querySelector("[data-dcep]");
+      let cfg = {};
+      try {
+        cfg = JSON.parse(host.getAttribute("data-dcep"));
+      } catch (e) {
+        cfg = {};
+      }
+      const video = comp.querySelector("video[src], video source[src]");
+      const src = cfg.videoSrc || video && video.getAttribute("src");
+      if (!src) return [];
+      const out = [];
+      const posterImg = comp.querySelector(".vjs-poster img[src]");
+      const poster = cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src");
+      if (poster && !isBroken2(poster)) {
+        const img = document.createElement("img");
+        img.setAttribute("src", poster);
+        img.setAttribute("alt", clean(cfg.alternativeText));
+        out.push(img);
+      }
+      const settings = [];
+      if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+      settings.push("controls", "round-play-button");
+      out.push(videoPara(src, clean(cfg.alternativeText), settings));
       return out;
     };
     const mediaNodes = (comp) => {
@@ -179,12 +214,10 @@ var CustomImportScript = (() => {
         const src = video.getAttribute("src");
         if (image) out.push(image);
         const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
-        const a = document.createElement("a");
-        a.setAttribute("href", src);
-        a.textContent = clean(button && button.getAttribute("aria-label")) || src;
-        const p = document.createElement("p");
-        p.append(a);
-        out.push(p);
+        const settings = button ? [] : ["autoplay", "muted"];
+        if (!button && video.hasAttribute("loop")) settings.push("loop");
+        if (video.hasAttribute("controls")) settings.push("controls");
+        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -214,6 +247,8 @@ var CustomImportScript = (() => {
           if (p) out.push(p);
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
+        } else if (cl.contains("videoViewer")) {
+          out.push(...viewerNodes(child));
         } else {
           collect(child, out);
         }
@@ -243,7 +278,7 @@ var CustomImportScript = (() => {
     const cells = [];
     let variants = [];
     if (element.classList.contains("sidebar") || element.querySelector(":scope > .airem-sidebar")) {
-      variants = ["wide-media"];
+      variants = ["sidebar"];
       const media = element.querySelector(".sidebar-content");
       const text = element.querySelector(".sidebar-aside");
       const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];
@@ -263,6 +298,8 @@ var CustomImportScript = (() => {
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
       const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
       if (row.length) cells.push(row);
+      const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
+      if (sliderView) variants.push("slider");
     }
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
     const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
@@ -512,8 +549,60 @@ var CustomImportScript = (() => {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.querySelector(MEDIA);
   }
+  var SEPARATOR_COMMENT = "lh-separator";
+  var SEPARATOR_MIN_SPACE = 50;
+  function separatorInfo(sep) {
+    const hr = sep.querySelector(".hr") || sep;
+    const line = hr.classList.contains("hr") && !hr.classList.contains("hr-no-layout");
+    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    const space = m ? Math.round(parseFloat(m[1])) : 25;
+    const tokens = [`${line ? "divider" : "spacer"}-${Math.max(space, 0)}`];
+    if (hr.classList.contains("hidden-sm-down")) tokens.push("from-768");
+    return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(" ") };
+  }
+  function markSeparators(document) {
+    const runs = [];
+    document.querySelectorAll(".separator").forEach((sep) => {
+      const last = runs[runs.length - 1];
+      if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
+      else runs.push([sep]);
+    });
+    runs.forEach((run) => {
+      const infos = run.map(separatorInfo);
+      const keep = infos.some((i) => i.keep);
+      run.forEach((sep, i) => {
+        if (!sep.isConnected) return;
+        if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
+        else sep.remove();
+      });
+    });
+  }
+  function convertSeparators(document) {
+    const found = [];
+    const walker = document.createTreeWalker(document.body, 128);
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+      if (n.nodeValue.startsWith(`${SEPARATOR_COMMENT} `)) found.push(n);
+    }
+    found.forEach((c) => {
+      const parent = c.parentElement;
+      if (!parent || parent.closest("table")) {
+        c.remove();
+        return;
+      }
+      const p = document.createElement("p");
+      p.textContent = `{${c.nodeValue.slice(SEPARATOR_COMMENT.length + 1).trim()}}`;
+      const textBlock = parent.closest("p, li, h1, h2, h3, h4, h5, h6");
+      if (textBlock) {
+        textBlock.after(p);
+        c.remove();
+      } else {
+        c.replaceWith(p);
+      }
+    });
+    return found.length;
+  }
   function removeEmptyComponents(document) {
-    removeAll(document, [".separator"]);
+    markSeparators(document);
     document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component').forEach((el) => {
       if (el.isConnected && isEmpty(el)) el.remove();
     });
@@ -640,6 +729,41 @@ var CustomImportScript = (() => {
       rewritten += 1;
     });
     return rewritten;
+  }
+  var JUMP_LINK = '[variant="anchor-down"][href]';
+  function onlyJumpLinks(el) {
+    const links = [...el.querySelectorAll("[href]")];
+    if (!links.length || !links.every((l) => l.matches(JUMP_LINK))) return null;
+    const rest = el.cloneNode(true);
+    rest.querySelectorAll("[href]").forEach((l) => l.remove());
+    if (cleanText(rest) || rest.querySelector("img, picture, video, iframe, input, select, button")) return null;
+    return links;
+  }
+  function jumpLinksBlock(document, links, variants) {
+    const cells = links.map((l) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", l.getAttribute("href"));
+      a.textContent = cleanText(l) || l.getAttribute("label") || l.getAttribute("aria-label") || "";
+      return [a];
+    }).filter(([a]) => a.textContent);
+    return WebImporter.Blocks.createBlock(document, { name: "Jump Links", variants, cells });
+  }
+  function convertJumpLinks(document) {
+    let converted = 0;
+    document.querySelectorAll(".imagelinklist").forEach((list) => {
+      const links = list.isConnected && onlyJumpLinks(list);
+      if (!links) return;
+      list.replaceChildren(jumpLinksBlock(document, links, []));
+      converted += 1;
+    });
+    document.querySelectorAll(".twocolumn, .threecolumn, .fourcolumn").forEach((col) => {
+      const view = col.isConnected && col.querySelector(":scope > .column-view");
+      const links = view && onlyJumpLinks(view);
+      if (!links || links.length < 2) return;
+      col.replaceWith(jumpLinksBlock(document, links, ["columns"]));
+      converted += 1;
+    });
+    return converted;
   }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
@@ -1044,6 +1168,7 @@ var CustomImportScript = (() => {
       removeScreenReaderOnly(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
+      convertJumpLinks(document);
       removeEmptyComponents(document);
       normalizeImages(document, true);
     }
@@ -1055,6 +1180,7 @@ var CustomImportScript = (() => {
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
+      convertSeparators(document);
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
@@ -1068,7 +1194,13 @@ var CustomImportScript = (() => {
   // tools/importer/transformers/lufthansa-sections.js
   var MARKER = "data-excat-section-id";
   var BREAK = "data-excat-section-break";
+  var FIRST = "data-excat-section-first";
+  var SOURCE_STYLE = "data-excat-section-source-style";
   var FOLLOWING = 4;
+  var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
+  var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
+  var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
+  var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
     const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
     return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll("hr"));
@@ -1093,46 +1225,122 @@ var CustomImportScript = (() => {
   function styleValue(section) {
     return Array.isArray(section.style) ? section.style.filter(Boolean).join(", ") : section.style.trim();
   }
+  function createBreak(document) {
+    const hr = document.createElement("hr");
+    hr.setAttribute(BREAK, "");
+    return hr;
+  }
+  function styledRegions(document, template, source) {
+    const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
+    const insideBlock = (el) => blockSelectors.some((sel) => {
+      try {
+        return !!(el.parentElement && el.parentElement.closest(sel));
+      } catch (e) {
+        return false;
+      }
+    });
+    const regions = [];
+    document.querySelectorAll(source).forEach((match) => {
+      if (match.closest(STYLE_SKIP) || match.parentElement && match.parentElement.closest(source)) return;
+      let region = match;
+      while (region.parentElement && !region.parentElement.matches(REGION_STOP)) region = region.parentElement;
+      if (!region.parentElement || region.matches("main, body") || insideBlock(region)) return;
+      if (regions.some((r) => r.contains(region) || region.contains(r))) return;
+      regions.push(region);
+    });
+    return regions;
+  }
+  function contentBetween(document, root, from, to) {
+    const range = document.createRange();
+    if (from) range.setStartAfter(from);
+    else range.setStart(root, 0);
+    range.setEndBefore(to);
+    const frag = range.cloneContents();
+    if ((frag.textContent || "").replace(/[\s ​]/g, "")) return true;
+    return !!frag.querySelector(MEDIA2);
+  }
+  function dropEmptyBreaks(document, root) {
+    const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
+    let prev = null;
+    breaks.forEach((hr) => {
+      if (contentBetween(document, root, prev, hr)) {
+        prev = hr;
+        return;
+      }
+      if (!prev) {
+        hr.setAttribute(FIRST, "true");
+        prev = hr;
+        return;
+      }
+      [MARKER, SOURCE_STYLE].forEach((attr) => {
+        if (!hr.hasAttribute(attr)) return;
+        const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(" ");
+        prev.setAttribute(attr, merged);
+      });
+      hr.remove();
+    });
+  }
   function transform2(hookName, element, payload) {
     const template = payload && payload.template || {};
     const sections = Array.isArray(template.sections) ? template.sections : [];
-    if (sections.length < 2 && !(sections.length === 1 && hasStyle(sections[0]))) return;
+    const useSections = sections.length >= 2 || sections.length === 1 && hasStyle(sections[0]);
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
-      for (let i = sections.length - 1; i >= 0; i -= 1) {
-        const section = sections[i];
-        const el = findSectionElement(document, section);
-        if (!el) continue;
-        const styled = hasStyle(section);
-        if (i === 0 && !styled) continue;
-        const hr = document.createElement("hr");
-        hr.setAttribute(BREAK, "");
-        if (styled) hr.setAttribute(MARKER, section.id);
-        if (i === 0) hr.setAttribute("data-excat-section-first", "true");
-        el.parentNode.insertBefore(hr, el);
+      if (useSections) {
+        for (let i = sections.length - 1; i >= 0; i -= 1) {
+          const section = sections[i];
+          const el = findSectionElement(document, section);
+          if (!el) continue;
+          const styled = hasStyle(section);
+          if (i === 0 && !styled) continue;
+          const hr = createBreak(document);
+          if (styled) hr.setAttribute(MARKER, section.id);
+          if (i === 0) hr.setAttribute(FIRST, "true");
+          el.parentNode.insertBefore(hr, el);
+        }
       }
+      SOURCE_STYLES.forEach(([source, style]) => {
+        styledRegions(document, template, source).forEach((region) => {
+          const start = createBreak(document);
+          start.setAttribute(SOURCE_STYLE, style);
+          region.before(start);
+          region.after(createBreak(document));
+        });
+      });
     }
     if (hookName === "afterTransform") {
-      for (let i = sections.length - 1; i >= 0; i -= 1) {
-        const section = sections[i];
-        const marker = document.querySelector(`hr[${MARKER}="${section.id}"]`);
-        if (!marker) continue;
-        if (hasStyle(section)) {
+      dropEmptyBreaks(document, element);
+      const styleOf = (hr) => {
+        const styles = [];
+        (hr.getAttribute(MARKER) || "").split(" ").filter(Boolean).forEach((id) => {
+          const section = sections.find((s) => s.id === id);
+          if (section && hasStyle(section)) styles.push(styleValue(section));
+        });
+        (hr.getAttribute(SOURCE_STYLE) || "").split(" ").filter(Boolean).forEach((style) => {
+          if (!styles.some((s) => s.split(/,\s*/).includes(style))) styles.unshift(style);
+        });
+        return styles.join(", ");
+      };
+      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest("table"));
+      marked.reverse().forEach((marker) => {
+        const style = styleOf(marker);
+        if (style) {
           const meta = WebImporter.Blocks.createBlock(document, {
             name: "Section Metadata",
-            cells: { style: styleValue(section) }
+            cells: { style }
           });
           const next = nextBreak(document, marker);
           if (next) next.parentNode.insertBefore(meta, next);
           else element.appendChild(meta);
         }
-        if (marker.getAttribute("data-excat-section-first") === "true") {
-          marker.remove();
-        } else {
-          marker.removeAttribute(MARKER);
+      });
+      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => {
+        if (hr.getAttribute(FIRST) === "true") {
+          hr.remove();
+          return;
         }
-      }
-      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
+        [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
+      });
     }
   }
 
@@ -1243,7 +1451,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1284_default = {
+  var tmp_bundle_legal_6825_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1273,5 +1481,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1284_exports);
+  return __toCommonJS(tmp_bundle_legal_6825_exports);
 })();
