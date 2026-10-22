@@ -52,5 +52,11 @@
     "change": "Text widths: limited-width lists include their indent (business-terms list 824px = live, was 864; 834 vs 874 at 1440); text components without .limited-width (default content only) imported with '{full-width}' (paragraphs; lists at the end of the last item; combinable '{copytext-small full-width}') -> full width (100-years 'Stay up to date...'); AirCore running text calc(75% - layout margin/2) = 893px at 1425 like .content-wrapper (was 824), AirCore small print and the last-minute deals intro full width (new-york 1249 = live); Insights article body sections two thirds centred from 768px (eat-see-do-berlin 833px at x296 = live, 470px at x142 at 768 = live). bid-upgrade footnotes are limited-width on live too (824px, unchanged). Needs re-import for the markers.",
     "commit": "0515e0b",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Showcase notice: native <dialog> (showModal) 'Technical showcase' in English on every locale and channel, max 42rem, white, shadow, dimmed backdrop, LufthansaHead/Text, full-width primary button 'I understand'; Escape does not close it (cancel prevented, closedby=none, reopened on any other close). Acknowledgement in localStorage 'lh-showcase-acknowledged' (once per browser; blocked storage still closes it for the page). Not in DA authoring contexts (isAuthoringContext), iframes or /tools/. scripts/showcase-notice.js + styles/showcase-notice.css imported from loadDelayed() 3.5 s after load. Consent banner unchanged and working in both orders. tools/parity/capture.js presets the key. Code only, no re-import.",
+    "commit": "90fc441",
+    "date": "2026-10-22"
   }
 ]
