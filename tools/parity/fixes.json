@@ -178,5 +178,11 @@
     "change": "D3 (3/4) swapped ratio on /discover-lufthansa/new-onboard-experience ('The taste of modern First Class', 'Enhancing every moment'; preview text 306 | image 938): no new code, the .sidebar mapping of D2 (eb71b33, option sidebar: first cell 75%, second 25% whatever they hold) already imports them in source order. Verified with a local test import (campaign): text 938 at x88 | image 306x306 at x1046 (1440, = live), stacked text then 346x346 image at 390. The preview still shows the pre-D2 import. Needs re-import (campaign).",
     "commit": "eb71b33",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "fleet",
+    "change": "D15 fleet pages. Aircraft image right below the h1 at the content width also when the original is smaller (styles.css h1 + image paragraph, live img.w-100): /de/en/359 A350-900 1249x535 at 1425 (live 1249, plane ink x122-1304 = live; was 1144x490), 60px (80px from 768px) to the next section when it ends the first section (/359 seat map h2 ink 897 vs live 896, was 820). carousel-lightbox: with its headline in the column (/359) 46/72px below the section heading and 95/120px to the next section, without (/boeing787 h2 + h3 above) 55px and 108/72px; /359 1440 rows h3 1005 / seat map 1078-1332 / download h2 1460 vs live 1004 / 1078-1332 / 1459 (were 888 / 961-1219 / 1275), 768 and 390 within 7px; boeing787 h3 to map 58 and map to next h2 80 (1440, live 58/80), 390 114 (live 114). Zoom icon redrawn as the live icon-photo-gallery glyph on the 60px circle (filled picture with cut-out sun and mountains, one frame corner behind; was two outline frames). table-striped 67/70px below its heading, 80px below an image; Technical data section 38/70/87px below a link section (/359 h2 ink 1222/1376/1697 vs live 1213 (header offset 4)/1374/1697), 76/97/95px after a grey band (boeing787 Allegris end to h2 102/143/143 = live). Mobile technical data: in the live 390 captures of /359 and /boeing787 the value text starts at x208 of 375 and 'Max. take-off weight' wraps, the same as the replica (value text x207.5): no change. Code only, no re-import.",
+    "commit": "pending",
+    "date": "2026-10-22"
   }
 ]

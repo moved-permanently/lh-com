@@ -5,7 +5,21 @@
  * (91px rows), text at the top of the cell.
  */
 .table-striped {
+  margin-top: 67px;
   overflow-x: auto;
+}
+
+/* "Technical data" heading to the first row: 67px (70px from 768px), as on /de/en/359 (the
+   margin collapses with the heading's and the wrapper's) */
+@media (width >= 768px) {
+  .table-striped {
+    margin-top: 70px;
+  }
+}
+
+/* an aircraft image between the heading and the table (boeing787): 80px from the image */
+.default-content-wrapper:has(> :last-child > picture) + .table-striped-wrapper > .table-striped {
+  margin-top: 80px;
 }
 
 .table-striped table {

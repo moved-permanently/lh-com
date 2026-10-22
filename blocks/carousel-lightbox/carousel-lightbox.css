@@ -35,7 +35,9 @@
 }
 
 /* .lightbox-icon: 6rem circle centred on the preview, #0009, padding .5rem,
-   5rem white icon-photo-gallery; :hover background #000 */
+   5rem white icon-photo-gallery (a filled picture with a cut-out sun and mountains, one frame
+   corner behind it; drawn on the 60px circle from the live 1440 capture of /de/en/359);
+   :hover background #000 */
 .carousel-lightbox .carousel-lightbox-zoom {
   position: absolute;
   top: 50%;
@@ -48,7 +50,7 @@
   width: 60px;
   height: 60px;
   margin: -30px 0 0 -30px;
-  padding: 5px;
+  padding: 0;
   border-radius: 50%;
   background-color: rgb(0 0 0 / 60%);
   color: var(--lh-white);
@@ -57,10 +59,10 @@
 
 .carousel-lightbox .carousel-lightbox-zoom::before {
   content: "";
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: currentcolor;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 4.5h13.5v10H19V6H7z'/%3E%3Cpath fill-rule='evenodd' d='M3.5 8h14v11.5h-14zM5 9.5v8.5h11V9.5zm.8 7.7 3-3.9 2.1 2.6 1.5-1.6 2.8 2.9zm7.7-5.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath fill-rule='evenodd' d='M10.5 21.5h34v22h-34zm5 7a3 3 0 1 0 6 0 3 3 0 1 0-6 0M18 42l9-10 4 2.5 5-4.5 7 6v6z'/%3E%3Cpath d='M15 17.5h33.5v1.3H15zm32.2 0h1.3V40h-1.3z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 /* .lightbox-icon.icon-one-slide: bottom right when there is a single slide */
@@ -272,4 +274,43 @@
   .carousel-lightbox .carousel-lightbox-caption {
     width: 66%;
   }
+}
+
+/* fleet pages. Slideshow with its headline in the column (/de/en/359: .onecolumn > headline +
+   column view of headline + slideshow): 46px (72px from 768px) below the section heading, 95px
+   (120px) to the next section. Headline outside the column (boeing787: h2 + h3 + column view in
+   one AEM section): 55px below the h3, 108px (72px from 768px) to the next heading. The margins collapse with the
+   wrapper's 24px and the section's 48px. */
+.carousel-lightbox {
+  margin-top: 46px;
+  margin-bottom: 95px;
+}
+
+.carousel-lightbox:not(:has(.carousel-lightbox-intro)) {
+  margin-top: 55px;
+  margin-bottom: 108px;
+}
+
+@media (width >= 768px) {
+  .carousel-lightbox {
+    margin-top: 72px;
+    margin-bottom: 120px;
+  }
+
+  .carousel-lightbox:not(:has(.carousel-lightbox-intro)) {
+    margin-top: 55px;
+    margin-bottom: 72px;
+  }
+}
+
+/* two slideshows of one column view (/744 Hauptdeck, Oberdeck; side by side on live from
+   768px, stacked here): 40px apart */
+.carousel-lightbox-wrapper:has(+ .carousel-lightbox-wrapper) > .carousel-lightbox.carousel-lightbox,
+.carousel-lightbox-wrapper:has(+ .carousel-lightbox-wrapper) > .carousel-lightbox:not(:has(.carousel-lightbox-intro)) {
+  margin-bottom: 0;
+}
+
+.carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox.carousel-lightbox,
+.carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox:not(:has(.carousel-lightbox-intro)) {
+  margin-top: 40px;
 }
