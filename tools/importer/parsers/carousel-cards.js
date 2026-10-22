@@ -94,6 +94,37 @@ export default function parse(element, { document }) {
     return;
   }
 
+  // Insights author slider (".authorslider": a swiper of author cards, four per view at 1440):
+  // carousel "four-up" + "authors", image | author name (h3 linked to the author page), description
+  const authors = [...element.querySelectorAll('a.author-slider-link')]
+    .filter((a) => !a.closest('.swiper-slide-duplicate'));
+  if (authors.length) {
+    const rows = authors.map((card) => {
+      const img = [...card.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));
+      let imageCell = '';
+      if (img) {
+        imageCell = document.createElement('img');
+        imageCell.src = img.getAttribute('src');
+        imageCell.alt = img.getAttribute('alt') || '';
+      }
+      const content = [];
+      const name = visibleText(card.querySelector('.author-name'));
+      if (name) {
+        const h = document.createElement('h3');
+        const a = document.createElement('a');
+        a.href = card.getAttribute('href');
+        a.textContent = name;
+        h.append(a);
+        content.push(h);
+      }
+      const description = visibleText(card.querySelector('.author-description'));
+      if (description) content.push(para(description));
+      return imageCell || content.length ? [imageCell, content.length ? content : ''] : null;
+    }).filter(Boolean);
+    if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants: ['four-up', 'authors'], cells: rows }));
+    return;
+  }
+
   // Teaser cards (a.teaser.card) in column views (desktop grid, swiper copy below lg) or in a
   // swiper. Homepage ".carousel" markup (.wide-teaser / .compact-teaser) is handled further down.
   if (!element.querySelector('.wide-teaser, .compact-teaser') && element.querySelector('.teaser a.teaser, a.teaser.card')) {

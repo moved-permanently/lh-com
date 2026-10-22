@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/tags",
   "path": "gb/en/articles/tags",
-  "timestamp": "2026-10-22T19:31:44.141Z",
+  "timestamp": "2026-10-22T23:12:44.467Z",
   "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "cards-teaser"
+  ]
 }

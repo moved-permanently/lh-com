@@ -1642,7 +1642,14 @@
         {
           "name": "carousel-cards",
           "instances": [
-            ".threecolumn:has(.teaser)"
+            ".threecolumn:has(.teaser)",
+            ".authorslider"
+          ]
+        },
+        {
+          "name": "cards-teaser",
+          "instances": [
+            ":is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .stage .stage-teaser)"
           ]
         },
         {

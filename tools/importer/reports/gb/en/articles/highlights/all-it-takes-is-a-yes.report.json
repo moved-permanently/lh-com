@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/highlights/all-it-takes-is-a-yes",
   "path": "gb/en/articles/highlights/all-it-takes-is-a-yes",
-  "timestamp": "2026-10-22T22:18:50.868Z",
+  "timestamp": "2026-10-22T23:12:41.778Z",
   "title": "",
   "template": "insights",
   "blocks": [
+    "cards-teaser",
     "columns-media"
   ]
 }

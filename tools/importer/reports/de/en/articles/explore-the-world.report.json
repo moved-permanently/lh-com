@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/explore-the-world",
   "path": "de/en/articles/explore-the-world",
-  "timestamp": "2026-10-22T19:26:06.341Z",
+  "timestamp": "2026-10-22T23:12:16.840Z",
   "title": "",
   "template": "insights",
   "blocks": [
+    "carousel-cards",
+    "cards-teaser",
     "columns-media"
   ]
 }

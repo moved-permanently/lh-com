@@ -8,7 +8,9 @@
  * Output (blocks/cards-teaser README): 2 columns, one row per card.
  *   cell 1: image (src + alt)
  *   cell 2: heading (source level kept), description paragraph(s), CTA link as last paragraph
- * A ".threecolumn" source adds the option "three-up" (Cards Teaser (three-up)).
+ * A ".threecolumn" source adds the option "three-up" (Cards Teaser (three-up)). Column views of
+ * stage teasers (".stage .stage-teaser", Insights "Explore more") add the option "overlay":
+ * image | headline as h3, subheadline as the CTA link to the tile's target.
  *
  * Column title (".column-view > div:not(.row) > h2") is default content: it is emitted before
  * the block table. When the source splits one teaser grid over several adjacent column views
@@ -112,6 +114,10 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  // Lufthansa stage teasers (".stage .stage-teaser": the whole tile links, headline and
+  // subheadline over the image): option "overlay", heading = headline, CTA = subheadline
+  const overlay = !!element.querySelector('.column-view-item > .stage .stage-teaser');
+
   // --- column title (default content before the block)
   const view = element.querySelector(':scope > .column-view') || element;
   const titles = [];
@@ -121,6 +127,10 @@ export default function parse(element, { document }) {
       if (!t) return;
       const out = document.createElement(h.tagName.toLowerCase());
       out.textContent = t;
+      // overlay tiles (Insights "Explore more", h2.heading-small): the size class becomes the
+      // cleanup's heading marker
+      const style = overlay && [...h.classList].find((c) => /^heading-/.test(c));
+      if (style) out.className = style;
       titles.push(out);
     });
   });
@@ -141,6 +151,21 @@ export default function parse(element, { document }) {
       } else if (comp.classList.contains('headline')) {
         const h = headingFrom(comp);
         if (h) body.push(h);
+      } else if (comp.classList.contains('stage') && comp.querySelector('.stage-teaser')) {
+        const img = imageFrom(comp);
+        if (img && !media) media = img;
+        const head = visibleText(comp.querySelector('.stage-teaser-headline'));
+        if (head) { const h = document.createElement('h3'); h.textContent = head; body.push(h); }
+        const link = comp.querySelector('a.stage-teaser-link[href], a[href]');
+        const sub = visibleText(comp.querySelector('.stage-teaser-subheadline'));
+        if (link && (sub || head)) {
+          const a = document.createElement('a');
+          a.setAttribute('href', link.getAttribute('href'));
+          a.textContent = sub || head;
+          const p = document.createElement('p');
+          p.append(a);
+          body.push(p);
+        }
       } else if (comp.classList.contains('link')) {
         const p = linkPara(comp);
         if (p) body.push(p);
@@ -153,6 +178,7 @@ export default function parse(element, { document }) {
   });
 
   const variants = element.classList.contains('threecolumn') ? ['three-up'] : [];
+  if (overlay) variants.push('overlay');
   const block = WebImporter.Blocks.createBlock(document, { name: 'cards-teaser', variants, cells });
 
   // --- merge into the previous Cards Teaser table when this is its continuation

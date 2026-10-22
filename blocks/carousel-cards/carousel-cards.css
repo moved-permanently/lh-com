@@ -487,3 +487,36 @@
     flex-basis: calc((100% - 3 * 20px) / 4);
   }
 }
+
+/* authors (with four-up: Lufthansa Insights .author-slider, "Our Authors"): the square portrait
+   10px inside the card, name LufthansaHead bold 20px to 24px with 20px above and below, the
+   description LufthansaHead 16px to 18px; 24px from the cards to the dots, 93px below them
+   (.swiper-wrapper and .author-slider margin-bottom 2.4rem, pagination, column view) */
+.carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+  padding: 10px 10px 0;
+}
+
+.carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body {
+  padding: 0 10px 20px;
+}
+
+.carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  padding: 20px 0;
+  font-size: clamp(20px, calc(20px + 4 * (100vw - 375px) / 1065), 24px);
+}
+
+.carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: clamp(16px, calc(16px + 2 * (100vw - 375px) / 1065), 18px);
+  line-height: 1.1;
+}
+
+.carousel-cards.authors .carousel-cards-dots {
+  margin-top: 24px;
+}
+
+.carousel-cards.authors {
+  margin-bottom: 93px;
+}

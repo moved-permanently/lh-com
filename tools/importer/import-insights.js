@@ -5,6 +5,7 @@
 import articleHeaderParser from './parsers/article-header.js';
 import priceBarParser from './parsers/price-bar.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
+import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import relatedArticlesParser from './parsers/related-articles.js';
 import carouselImagesParser from './parsers/carousel-images.js';
@@ -33,7 +34,14 @@ const PAGE_TEMPLATE = {
     {
       "name": "carousel-cards",
       "instances": [
-        ".threecolumn:has(.teaser)"
+        ".threecolumn:has(.teaser)",
+        ".authorslider"
+      ]
+    },
+    {
+      "name": "cards-teaser",
+      "instances": [
+        ":is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .stage .stage-teaser)"
       ]
     },
     {
@@ -156,6 +164,7 @@ const parsers = {
   'article-header': articleHeaderParser,
   'price-bar': priceBarParser,
   'carousel-cards': carouselCardsParser,
+  'cards-teaser': cardsTeaserParser,
   'columns-media': columnsMediaParser,
   'related-articles': relatedArticlesParser,
   'carousel-images': carouselImagesParser,

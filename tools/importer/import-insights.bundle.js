@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_82911_exports = {};
-  __export(tmp_bundle_insights_82911_exports, {
-    default: () => tmp_bundle_insights_82911_default
+  var tmp_bundle_insights_113884_exports = {};
+  __export(tmp_bundle_insights_113884_exports, {
+    default: () => tmp_bundle_insights_113884_default
   });
 
   // tools/importer/parsers/article-header.js
@@ -312,6 +312,33 @@ var CustomImportScript = (() => {
       element.replaceWith(...intro, block2);
       return;
     }
+    const authors = [...element.querySelectorAll("a.author-slider-link")].filter((a) => !a.closest(".swiper-slide-duplicate"));
+    if (authors.length) {
+      const rows = authors.map((card) => {
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        let imageCell = "";
+        if (img) {
+          imageCell = document.createElement("img");
+          imageCell.src = img.getAttribute("src");
+          imageCell.alt = img.getAttribute("alt") || "";
+        }
+        const content = [];
+        const name = visibleText(card.querySelector(".author-name"));
+        if (name) {
+          const h = document.createElement("h3");
+          const a = document.createElement("a");
+          a.href = card.getAttribute("href");
+          a.textContent = name;
+          h.append(a);
+          content.push(h);
+        }
+        const description = visibleText(card.querySelector(".author-description"));
+        if (description) content.push(para(description));
+        return imageCell || content.length ? [imageCell, content.length ? content : ""] : null;
+      }).filter(Boolean);
+      if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: rows }));
+      return;
+    }
     if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
       const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
       const hasDesktopTwin = !!element.querySelector(".hidden-md-down a.teaser, .hidden-sm-down a.teaser");
@@ -410,8 +437,186 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/columns-media.js
+  // tools/importer/parsers/cards-teaser.js
   function parse4(element, { document }) {
+    const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
+    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
+    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const c = node.cloneNode(true);
+      c.querySelectorAll(SKIP).forEach((n) => n.remove());
+      return clean(c.textContent);
+    };
+    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const imageFrom = (scope) => {
+      const img = [...scope.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      if (!img) return null;
+      const out = document.createElement("img");
+      out.setAttribute("src", img.getAttribute("src"));
+      out.setAttribute("alt", img.getAttribute("alt") || "");
+      return out;
+    };
+    const trimTrailingBreaks = (el) => {
+      let last = el.lastChild;
+      while (last && (last.nodeType === 3 && !clean(last.nodeValue) || last.nodeType === 1 && last.tagName === "BR")) {
+        const prev = last.previousSibling;
+        last.remove();
+        last = prev;
+      }
+    };
+    const richNodes = (scope) => {
+      const rt = scope.querySelector(".richtext") || scope;
+      const out = [];
+      let run = null;
+      const flush = () => {
+        if (run) {
+          trimTrailingBreaks(run);
+          if (clean(run.textContent) || run.querySelector("img")) out.push(run);
+        }
+        run = null;
+      };
+      [...rt.childNodes].forEach((n) => {
+        if (n.nodeType === 8) return;
+        if (n.nodeType === 1 && BLOCK_TAGS.test(n.tagName)) {
+          flush();
+          const c = n.cloneNode(true);
+          c.querySelectorAll(SKIP).forEach((s) => s.remove());
+          if (c.tagName === "P") trimTrailingBreaks(c);
+          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          return;
+        }
+        if (n.nodeType === 3 && !clean(n.nodeValue) && !run) return;
+        if (!run) run = document.createElement("p");
+        run.append(n.cloneNode(true));
+      });
+      flush();
+      return out;
+    };
+    const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
+    const linkPara = (scope) => {
+      const m = scope.querySelector(MAUI);
+      if (!m) return null;
+      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const href = m.getAttribute("href");
+      if (!label || !href) return null;
+      const a = document.createElement("a");
+      a.setAttribute("href", href);
+      a.textContent = label;
+      const p = document.createElement("p");
+      const type = m.tagName === "MAUI-BUTTON-LINK" ? m.getAttribute("type") : null;
+      if (type === "primary" || type === "secondary") {
+        const wrap = document.createElement(type === "primary" ? "strong" : "em");
+        wrap.append(a);
+        p.append(wrap);
+      } else {
+        p.append(a);
+      }
+      return p;
+    };
+    const headingFrom = (scope) => {
+      const h = scope.querySelector("h1, h2, h3, h4, h5, h6");
+      const text = visibleText(h || scope);
+      if (!text) return null;
+      const out = document.createElement(h ? h.tagName.toLowerCase() : "h3");
+      out.textContent = text;
+      const style = h && [...h.classList].find((c) => /^heading-/.test(c));
+      if (style) out.className = style;
+      return out;
+    };
+    const overlay = !!element.querySelector(".column-view-item > .stage .stage-teaser");
+    const view = element.querySelector(":scope > .column-view") || element;
+    const titles = [];
+    [...view.children].filter((d) => !d.classList.contains("row")).forEach((d) => {
+      d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
+        const t = visibleText(h);
+        if (!t) return;
+        const out = document.createElement(h.tagName.toLowerCase());
+        out.textContent = t;
+        const style = overlay && [...h.classList].find((c) => /^heading-/.test(c));
+        if (style) out.className = style;
+        titles.push(out);
+      });
+    });
+    const items = [...element.querySelectorAll(".column-view-item")].filter((it) => !it.parentElement.closest(".column-view-item"));
+    const cells = [];
+    items.forEach((item) => {
+      let media = null;
+      const body = [];
+      [...item.children].forEach((comp) => {
+        if (comp.classList.contains("image")) {
+          const img = imageFrom(comp);
+          if (!img) return;
+          if (!media) media = img;
+          else {
+            const p = document.createElement("p");
+            p.append(img);
+            body.push(p);
+          }
+        } else if (comp.classList.contains("headline")) {
+          const h = headingFrom(comp);
+          if (h) body.push(h);
+        } else if (comp.classList.contains("stage") && comp.querySelector(".stage-teaser")) {
+          const img = imageFrom(comp);
+          if (img && !media) media = img;
+          const head = visibleText(comp.querySelector(".stage-teaser-headline"));
+          if (head) {
+            const h = document.createElement("h3");
+            h.textContent = head;
+            body.push(h);
+          }
+          const link = comp.querySelector("a.stage-teaser-link[href], a[href]");
+          const sub = visibleText(comp.querySelector(".stage-teaser-subheadline"));
+          if (link && (sub || head)) {
+            const a = document.createElement("a");
+            a.setAttribute("href", link.getAttribute("href"));
+            a.textContent = sub || head;
+            const p = document.createElement("p");
+            p.append(a);
+            body.push(p);
+          }
+        } else if (comp.classList.contains("link")) {
+          const p = linkPara(comp);
+          if (p) body.push(p);
+        } else if (visibleText(comp)) {
+          body.push(...richNodes(comp));
+        }
+      });
+      if (!media && !body.length) return;
+      cells.push([media || "", body.length ? body : ""]);
+    });
+    const variants = element.classList.contains("threecolumn") ? ["three-up"] : [];
+    if (overlay) variants.push("overlay");
+    const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
+    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const previousSameBlock = () => {
+      const name = headerText(block);
+      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before[before.length - 1];
+      if (!prev) return null;
+      const range = document.createRange();
+      range.setStartAfter(prev);
+      range.setEndBefore(element);
+      const between = range.cloneContents();
+      if (clean(between.textContent)) return null;
+      if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
+      return prev;
+    };
+    if (!titles.length && cells.length) {
+      const prev = previousSameBlock();
+      if (prev) {
+        const rows = [...block.querySelectorAll("tr")].slice(1);
+        const lastRow = [...prev.querySelectorAll("tr")].pop();
+        rows.forEach((r) => lastRow.parentNode.append(r));
+        element.remove();
+        return;
+      }
+    }
+    element.replaceWith(...titles, block);
+  }
+
+  // tools/importer/parsers/columns-media.js
+  function parse5(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -808,7 +1013,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/related-articles.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -865,7 +1070,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken2 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -1944,7 +2149,14 @@ var CustomImportScript = (() => {
       {
         "name": "carousel-cards",
         "instances": [
-          ".threecolumn:has(.teaser)"
+          ".threecolumn:has(.teaser)",
+          ".authorslider"
+        ]
+      },
+      {
+        "name": "cards-teaser",
+        "instances": [
+          ":is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .stage .stage-teaser)"
         ]
       },
       {
@@ -2066,9 +2278,10 @@ var CustomImportScript = (() => {
     "article-header": parse,
     "price-bar": parse2,
     "carousel-cards": parse3,
-    "columns-media": parse4,
-    "related-articles": parse5,
-    "carousel-images": parse6
+    "cards-teaser": parse4,
+    "columns-media": parse5,
+    "related-articles": parse6,
+    "carousel-images": parse7
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2092,7 +2305,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_82911_default = {
+  var tmp_bundle_insights_113884_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2122,5 +2335,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_82911_exports);
+  return __toCommonJS(tmp_bundle_insights_113884_exports);
 })();

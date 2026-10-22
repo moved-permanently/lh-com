@@ -139,3 +139,111 @@
     row-gap: 66px;
   }
 }
+
+/*
+ * overlay (Lufthansa .stage-teaser tiles: Insights "Explore more"): the whole tile links to the
+ * CTA target; the title (.stage-teaser-headline, bold 20px to 24px) and the CTA text
+ * (.stage-teaser-subheadline, light 22px to 28px) sit white on a dark vertical gradient, 20px
+ * (40px from 768px) from the top left; the image zooms to 105% on hover. :nth-child(n): the
+ * specificity of the stacking rules above
+ */
+.cards-teaser.overlay > ul > li:nth-child(n) {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards-teaser.overlay > ul > li:nth-child(n + 2) {
+  margin-top: 20px;
+}
+
+.cards-teaser.overlay .cards-teaser-image {
+  margin: 0;
+}
+
+.cards-teaser.overlay .cards-teaser-image img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.cards-teaser.overlay > ul > li:hover .cards-teaser-image img,
+.cards-teaser.overlay > ul > li:focus-within .cards-teaser-image img {
+  transform: scale(1.05);
+}
+
+.cards-teaser.overlay .cards-teaser-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, #282828e6, #282828cc, #28272899 66%, #28282866);
+  pointer-events: none;
+}
+
+.cards-teaser.overlay .cards-teaser-image + .cards-teaser-body {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  color: #f5f5f5;
+}
+
+.cards-teaser.overlay .cards-teaser-body > * {
+  margin: 0;
+  color: inherit;
+  font-family: var(--heading-font-family);
+  line-height: 110%;
+}
+
+.cards-teaser.overlay :where(.cards-teaser-body > .cards-teaser-title) {
+  margin: 0;
+  font-size: calc(20px + 4 * (100vw - 375px) / 1065);
+  font-weight: 700;
+}
+
+.cards-teaser.overlay .cards-teaser-cta {
+  font-size: calc(22px + 6 * (100vw - 375px) / 1065);
+  margin-bottom: 10px;
+}
+
+.cards-teaser.overlay .cards-teaser-cta-link:any-link {
+  display: inline;
+  color: inherit;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.cards-teaser.overlay .cards-teaser-cta-link::before {
+  display: none;
+}
+
+/* the whole tile is the link (clipped by the card's overflow) */
+.cards-teaser.overlay .cards-teaser-cta-link::after {
+  content: "";
+  position: absolute;
+  inset: -9999px;
+  z-index: 1;
+}
+
+@media (width >= 768px) {
+  .cards-teaser.overlay > ul {
+    row-gap: 20px;
+  }
+
+  .cards-teaser.overlay > ul > li:nth-child(n + 2) {
+    margin-top: 0;
+  }
+
+  .cards-teaser.overlay .cards-teaser-image + .cards-teaser-body {
+    top: 40px;
+    left: 40px;
+    right: 40px;
+  }
+}
+
+@media (width >= 1281px) {
+  .cards-teaser.overlay :where(.cards-teaser-body > .cards-teaser-title) {
+    font-size: 24px;
+  }
+
+  .cards-teaser.overlay .cards-teaser-cta {
+    font-size: 28px;
+  }
+}
