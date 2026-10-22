@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/lufthansa-reiseklassen",
+  "path": "de/de/lufthansa-reiseklassen",
+  "timestamp": "2026-10-22T02:30:21.130Z",
+  "title": "Unsere Reiseklassen | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

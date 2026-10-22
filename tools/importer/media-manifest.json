@@ -1784,6 +1784,26 @@
    "reason": "wider-than-2560"
   }
  },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/5/c-1993098738-58997778.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/d60ec45f9f4c3c38d6897984161db98e.jpg",
+  "format": "jpeg",
+  "bytes": 912404,
+  "width": 2998,
+  "height": 1286,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T02:48:15.648Z",
+  "converted": {
+   "local": "/media-da/c08ef369f6b84eaa0d29778271b93562.jpg",
+   "bytes": 107914,
+   "width": 2560,
+   "height": 1098,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
  "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/7/c-630818968-417944.jpg": {
   "status": 200,
   "version": 1,
@@ -2244,6 +2264,17 @@
   "height": 1027,
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:47:00.320Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/baggage/carry-on-baggage/LH-video-thumb-texty.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/b402e1ad6d89e661be90e55a4d3e939b.jpg",
+  "format": "jpeg",
+  "bytes": 263525,
+  "width": 1882,
+  "height": 1013,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T03:02:54.133Z"
  },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/baggage/dangerous-goods/LH_sport-baggage_1440x460.png": {
   "status": 200,

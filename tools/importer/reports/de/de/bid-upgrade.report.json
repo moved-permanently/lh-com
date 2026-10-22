@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/bid-upgrade",
+  "path": "de/de/bid-upgrade",
+  "timestamp": "2026-10-22T02:39:42.662Z",
+  "title": "Bieten Sie für Ihr Upgrade | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

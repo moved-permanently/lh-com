@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/pre-check-in",
+  "path": "de/en/pre-check-in",
+  "timestamp": "2026-10-22T02:21:36.917Z",
+  "title": "Late-night check-in | Lufthansa",
+  "template": "app-entry",
+  "blocks": [
+    "columns-media"
+  ]
+}

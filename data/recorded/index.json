@@ -1008,6 +1008,22 @@
    "file": "de-de-74a1a4f7.json",
    "recordedAt": "2026-10-21T20:15:29.047Z"
   },
+  "de/de|GET /service/api/labels/loungefinder/lh/de": {
+   "file": "de-de-47c5f2ee.json",
+   "recordedAt": "2026-10-22T02:24:45.599Z"
+  },
+  "de/de|GET /service/api/catalogs/lounges/cities": {
+   "file": "de-de-fc858297.json",
+   "recordedAt": "2026-10-22T02:24:45.599Z"
+  },
+  "de/de|GET /service/api/labels/passengerreceipt/lh/de": {
+   "file": "de-de-2a785f90.json",
+   "recordedAt": "2026-10-22T02:46:29.513Z"
+  },
+  "de/de|GET /service/api/labels/loginoneid/lh/de": {
+   "file": "de-de-f38b10a2.json",
+   "recordedAt": "2026-10-22T02:47:34.665Z"
+  },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
    "recordedAt": "2026-10-21T19:07:59.991Z"
@@ -1107,7 +1123,11 @@
   "de/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
    "file": "de-en-18ef474e.json",
    "recordedAt": "2026-10-22T01:44:03.147Z"
+  },
+  "de/en|GET /service/api/labels/quickactions/lh/en": {
+   "file": "de-en-90d222da.json",
+   "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T02:13:41.686Z"
+ "updatedAt": "2026-10-22T03:04:09.195Z"
 }

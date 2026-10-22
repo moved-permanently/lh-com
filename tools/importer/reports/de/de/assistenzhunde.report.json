@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/assistenzhunde",
+  "path": "de/de/assistenzhunde",
+  "timestamp": "2026-10-22T02:39:34.713Z",
+  "title": "Assistenzhunde | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

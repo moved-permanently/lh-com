@@ -1,0 +1,2529 @@
+{
+  "generatedAt": "2026-10-22T02:54:31.472Z",
+  "contentDir": "content",
+  "scope": {
+    "file": "tools/importer/transformers/scope-paths.js",
+    "paths": 1211
+  },
+  "lhDomains": [
+    "lufthansa.com",
+    "lufthansagroup.com",
+    "lufthansagroup.careers",
+    "miles-and-more.com",
+    "lufthansa-cargo.com",
+    "lufthansa-technik.com",
+    "makechangefly.com"
+  ],
+  "statusFile": null,
+  "statusUrls": {
+    "file": "tools/reports/nav-link-urls.txt",
+    "count": 154
+  },
+  "inputs": {
+    "de/en": {
+      "nav.plain.html": 73,
+      "footer.plain.html": 34,
+      "fragments/payment-social.plain.html": 14
+    },
+    "de/de": {
+      "nav.plain.html": 73,
+      "footer.plain.html": 34,
+      "fragments/payment-social.plain.html": 14
+    },
+    "at/de": {
+      "nav.plain.html": 73,
+      "footer.plain.html": 34,
+      "fragments/payment-social.plain.html": 14
+    },
+    "gb/en": {
+      "nav.plain.html": 171,
+      "footer.plain.html": 34,
+      "fragments/payment-social.plain.html": 14
+    }
+  },
+  "summary": {
+    "locale": {
+      "de/en": 35,
+      "de/de": 36,
+      "at/de": 36,
+      "gb/en": 132
+    },
+    "area": {
+      "header": 120,
+      "flyout": 20,
+      "footer": 59,
+      "footer band": 40
+    },
+    "reason": {
+      "AirCore route beyond the sample (only /lhg/de/en pages are in scope) – page not in migration scope": 3,
+      "help/contact app (/support/*, /help-and-contact) – not in migration scope": 16,
+      "in scope – link should be rewritten": 4,
+      "login / Travel ID – out of scope": 8,
+      "Lufthansa Group site (business.lufthansagroup.com) – separate site": 8,
+      "Lufthansa Group site (www.lufthansagroup.com) – separate site": 8,
+      "My Flights (/deeplink/*) – out of scope": 16,
+      "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)": 96,
+      "page not in migration scope": 68,
+      "separate site: Lufthansa Group careers (lufthansagroup.careers)": 4,
+      "separate site: Lufthansa Group sustainability (Make Change Fly) (www.makechangefly.com)": 4,
+      "site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope": 4
+    },
+    "locale x area": {
+      "de/en / header": 6,
+      "de/en / flyout": 5,
+      "de/en / footer": 14,
+      "de/en / footer band": 10,
+      "de/de / header": 6,
+      "de/de / flyout": 5,
+      "de/de / footer": 15,
+      "de/de / footer band": 10,
+      "at/de / header": 6,
+      "at/de / flyout": 5,
+      "at/de / footer": 15,
+      "at/de / footer band": 10,
+      "gb/en / header": 102,
+      "gb/en / flyout": 5,
+      "gb/en / footer": 15,
+      "gb/en / footer band": 10
+    }
+  },
+  "inScopeAbsolute": [
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Shopping cart preview",
+      "label": "Shopping cart preview",
+      "url": "https://www.lufthansa.com/de/en/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "inScopeText": "yes",
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Warenkorb",
+      "label": "Warenkorb",
+      "url": "https://www.lufthansa.com/de/de/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "inScopeText": "yes",
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Warenkorb",
+      "label": "Warenkorb",
+      "url": "https://www.lufthansa.com/at/de/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "inScopeText": "yes",
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Shopping cart preview",
+      "label": "Shopping cart preview",
+      "url": "https://www.lufthansa.com/gb/en/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "inScopeText": "yes",
+      "reason": "in scope – link should be rewritten"
+    }
+  ],
+  "relativeOutOfScope": [],
+  "links": [
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Quick actions > My flights",
+      "label": "My flights",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "flyout",
+      "menuPath": "Book & Prepare > Travel information > Overview travel planning",
+      "label": "Overview travel planning",
+      "url": "https://www.lufthansa.com/de/en/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "flyout",
+      "menuPath": "My bookings > Manage > Manage bookings",
+      "label": "Manage bookings",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "flyout",
+      "menuPath": "My bookings > Extra services > Book additional baggage",
+      "label": "Book additional baggage",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "flyout",
+      "menuPath": "Discover Lufthansa > Travel classes > Lufthansa Allegris",
+      "label": "Lufthansa Allegris",
+      "url": "https://www.lufthansa.com/de/en/discover-lufthansa/allegris",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "flyout",
+      "menuPath": "Discover Lufthansa > Lufthansa Insights > Overview",
+      "label": "Overview",
+      "url": "https://www.lufthansa.com/de/en/articles",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Accessible travel",
+      "label": "Accessible travel",
+      "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Help & contact",
+      "label": "Help & contact",
+      "url": "https://www.lufthansa.com/de/en/support/help",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Search",
+      "label": "Search",
+      "url": "https://www.lufthansa.com/de/en/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Shopping cart preview",
+      "label": "Shopping cart preview",
+      "url": "https://www.lufthansa.com/de/en/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "de/en",
+      "area": "header",
+      "menuPath": "Header tools > Login",
+      "label": "Login",
+      "url": "https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/en/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Search bar > Enter search term",
+      "label": "Enter search term",
+      "url": "https://www.lufthansa.com/de/en/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Frequently visited pages > View & amend flights",
+      "label": "View & amend flights",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=de&language=en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Frequently visited pages > Travel briefing",
+      "label": "Travel briefing",
+      "url": "https://www.lufthansa.com/de/en/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Customer services > Travel ID Account",
+      "label": "Travel ID Account",
+      "url": "https://www.lufthansa.com/de/en/travel-id",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Customer services > Help",
+      "label": "Help",
+      "url": "https://www.lufthansa.com/de/en/help-and-contact",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Customer services > Newsletter",
+      "label": "Newsletter",
+      "url": "https://www.lufthansa.com/de/en/discover-lufthansa/register-newsletter",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "About us > Jobs & careers",
+      "label": "Jobs & careers",
+      "url": "https://lufthansagroup.careers/en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group careers (lufthansagroup.careers)"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "About us > Aviation Group",
+      "label": "Aviation Group",
+      "url": "https://www.lufthansa.com/de/en/discover-lufthansa/lufthansa-aviation-group",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "About us > Press",
+      "label": "Press",
+      "url": "https://www.lufthansagroup.com/en/home.html",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "About us > Sustainability",
+      "label": "Sustainability",
+      "url": "http://www.makechangefly.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group sustainability (Make Change Fly) (www.makechangefly.com)"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Corporate customers > Lufthansa Group for Business",
+      "label": "Lufthansa Group for Business",
+      "url": "https://business.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Corporate customers > Corporate bonus programme",
+      "label": "Corporate bonus programme",
+      "url": "https://business.lufthansagroup.com/gb/en/program/partner-plus-benefit",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Logos > Lufthansa logo, back to homepage",
+      "label": "Lufthansa logo, back to homepage",
+      "url": "https://www.lufthansa.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer",
+      "menuPath": "Logos > Member of Lufthansa Group",
+      "label": "Member of Lufthansa Group",
+      "url": "https://www.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Mastercard",
+      "label": "Mastercard",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Visa",
+      "label": "Visa",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > American Express",
+      "label": "American Express",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Diners Club",
+      "label": "Diners Club",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > JCB",
+      "label": "JCB",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > UATP",
+      "label": "UATP",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > PayPal",
+      "label": "PayPal",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Degussa Bank. The WorksiteBank",
+      "label": "Degussa Bank. The WorksiteBank",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > SEPA",
+      "label": "SEPA",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Klarna",
+      "label": "Klarna",
+      "url": "https://www.lufthansa.com/de/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Quick actions > Meine Flüge",
+      "label": "Meine Flüge",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "flyout",
+      "menuPath": "Buchen & Vorbereiten > Reiseinformationen > Übersicht Reiseplanung",
+      "label": "Übersicht Reiseplanung",
+      "url": "https://www.lufthansa.com/de/de/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "flyout",
+      "menuPath": "Meine Buchungen > Verwalten > Buchung bearbeiten",
+      "label": "Buchung bearbeiten",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "flyout",
+      "menuPath": "Meine Buchungen > Extra Services > Zusätzliches Gepäck buchen",
+      "label": "Zusätzliches Gepäck buchen",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "flyout",
+      "menuPath": "Lufthansa entdecken > Reiseklassen > Lufthansa Allegris",
+      "label": "Lufthansa Allegris",
+      "url": "https://www.lufthansa.com/de/de/discover-lufthansa/allegris",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "flyout",
+      "menuPath": "Lufthansa entdecken > Lufthansa Insights > Übersicht",
+      "label": "Übersicht",
+      "url": "https://www.lufthansa.com/de/de/articles",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Barrierefrei reisen",
+      "label": "Barrierefrei reisen",
+      "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Hilfe & Kontakt",
+      "label": "Hilfe & Kontakt",
+      "url": "https://www.lufthansa.com/de/de/support/help",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Suchen",
+      "label": "Suchen",
+      "url": "https://www.lufthansa.com/de/de/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Warenkorb",
+      "label": "Warenkorb",
+      "url": "https://www.lufthansa.com/de/de/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "de/de",
+      "area": "header",
+      "menuPath": "Header tools > Login",
+      "label": "Login",
+      "url": "https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/de/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Search bar > Suchbegriff eingeben",
+      "label": "Suchbegriff eingeben",
+      "url": "https://www.lufthansa.com/de/de/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Flüge ansehen & bearbeiten",
+      "label": "Flüge ansehen & bearbeiten",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Travel Briefing",
+      "label": "Travel Briefing",
+      "url": "https://www.lufthansa.com/de/de/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Flugziele",
+      "label": "Flugziele",
+      "url": "https://www.lufthansa.com/lhg/de/de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "AirCore route beyond the sample (only /lhg/de/en pages are in scope) – page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Travel ID Konto",
+      "label": "Travel ID Konto",
+      "url": "https://www.lufthansa.com/de/de/travel-id",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Hilfe",
+      "label": "Hilfe",
+      "url": "https://www.lufthansa.com/de/de/help-and-contact",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Newsletter",
+      "label": "Newsletter",
+      "url": "https://www.lufthansa.com/de/de/discover-lufthansa/register-newsletter",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Über uns > Jobs & Karriere",
+      "label": "Jobs & Karriere",
+      "url": "https://lufthansagroup.careers/de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group careers (lufthansagroup.careers)"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Über uns > Presse",
+      "label": "Presse",
+      "url": "https://www.lufthansagroup.com/de/home.html",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Über uns > Sustainability",
+      "label": "Sustainability",
+      "url": "http://www.makechangefly.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group sustainability (Make Change Fly) (www.makechangefly.com)"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Für Reisebüros",
+      "label": "Für Reisebüros",
+      "url": "https://www.lufthansa.com/de/de/business-services/for-travel-agencies",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Lufthansa Group for Business",
+      "label": "Lufthansa Group for Business",
+      "url": "https://business.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Firmenbonusprogramm",
+      "label": "Firmenbonusprogramm",
+      "url": "https://business.lufthansagroup.com/de/de/program/partner-plus-benefit",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Logos > Lufthansa logo, back to homepage",
+      "label": "Lufthansa logo, back to homepage",
+      "url": "https://www.lufthansa.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer",
+      "menuPath": "Logos > Member of Lufthansa Group",
+      "label": "Member of Lufthansa Group",
+      "url": "https://www.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Mastercard",
+      "label": "Mastercard",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Visa",
+      "label": "Visa",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > American Express",
+      "label": "American Express",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Diners Club",
+      "label": "Diners Club",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > JCB",
+      "label": "JCB",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > UATP",
+      "label": "UATP",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > PayPal",
+      "label": "PayPal",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Degussa Bank. Die WorksiteBank",
+      "label": "Degussa Bank. Die WorksiteBank",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Sepa",
+      "label": "Sepa",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "de/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Klarna",
+      "label": "Klarna",
+      "url": "https://www.lufthansa.com/de/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Quick actions > Meine Flüge",
+      "label": "Meine Flüge",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=AT&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "flyout",
+      "menuPath": "Buchen & Vorbereiten > Reiseinformationen > Übersicht Reiseplanung",
+      "label": "Übersicht Reiseplanung",
+      "url": "https://www.lufthansa.com/at/de/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "flyout",
+      "menuPath": "Meine Buchungen > Verwalten > Buchung bearbeiten",
+      "label": "Buchung bearbeiten",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=AT&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "flyout",
+      "menuPath": "Meine Buchungen > Extra Services > Zusätzliches Gepäck buchen",
+      "label": "Zusätzliches Gepäck buchen",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=AT&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "flyout",
+      "menuPath": "Lufthansa entdecken > Reiseklassen > Lufthansa Allegris",
+      "label": "Lufthansa Allegris",
+      "url": "https://www.lufthansa.com/at/de/discover-lufthansa/allegris",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "flyout",
+      "menuPath": "Lufthansa entdecken > Lufthansa Insights > Übersicht",
+      "label": "Übersicht",
+      "url": "https://www.lufthansa.com/at/de/articles",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Barrierefrei reisen",
+      "label": "Barrierefrei reisen",
+      "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Hilfe & Kontakt",
+      "label": "Hilfe & Kontakt",
+      "url": "https://www.lufthansa.com/at/de/support/help",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Suchen",
+      "label": "Suchen",
+      "url": "https://www.lufthansa.com/at/de/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Warenkorb",
+      "label": "Warenkorb",
+      "url": "https://www.lufthansa.com/at/de/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "at/de",
+      "area": "header",
+      "menuPath": "Header tools > Login",
+      "label": "Login",
+      "url": "https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/at/de/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=AT&lang=de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Search bar > Suchbegriff eingeben",
+      "label": "Suchbegriff eingeben",
+      "url": "https://www.lufthansa.com/at/de/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Flüge ansehen & bearbeiten",
+      "label": "Flüge ansehen & bearbeiten",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=AT&language=DE",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Travel Briefing",
+      "label": "Travel Briefing",
+      "url": "https://www.lufthansa.com/at/de/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Häufig besuchte Seiten > Flugziele",
+      "label": "Flugziele",
+      "url": "https://www.lufthansa.com/lhg/at/de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "AirCore route beyond the sample (only /lhg/de/en pages are in scope) – page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Travel ID Konto",
+      "label": "Travel ID Konto",
+      "url": "https://www.lufthansa.com/at/de/travel-id",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Hilfe",
+      "label": "Hilfe",
+      "url": "https://www.lufthansa.com/at/de/help-and-contact",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Kundenservices > Newsletter",
+      "label": "Newsletter",
+      "url": "https://www.lufthansa.com/at/de/discover-lufthansa/register-newsletter",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Über uns > Jobs & Karriere",
+      "label": "Jobs & Karriere",
+      "url": "https://lufthansagroup.careers/de",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group careers (lufthansagroup.careers)"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Über uns > Presse",
+      "label": "Presse",
+      "url": "https://www.lufthansagroup.com/de/home.html",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Über uns > Sustainability",
+      "label": "Sustainability",
+      "url": "http://www.makechangefly.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group sustainability (Make Change Fly) (www.makechangefly.com)"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Für Reisebüros",
+      "label": "Für Reisebüros",
+      "url": "https://www.lufthansa.com/at/de/business-services/for-travel-agencies",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Lufthansa Group for Business",
+      "label": "Lufthansa Group for Business",
+      "url": "https://business.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Firmenkunden > Firmenbonusprogramm",
+      "label": "Firmenbonusprogramm",
+      "url": "https://business.lufthansagroup.com/de/de/program/partner-plus-benefit",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Logos > Lufthansa logo, back to homepage",
+      "label": "Lufthansa logo, back to homepage",
+      "url": "https://www.lufthansa.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer",
+      "menuPath": "Logos > Member of Lufthansa Group",
+      "label": "Member of Lufthansa Group",
+      "url": "https://www.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Mastercard",
+      "label": "Mastercard",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Visa",
+      "label": "Visa",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > American Express",
+      "label": "American Express",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Diners Club",
+      "label": "Diners Club",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > JCB",
+      "label": "JCB",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > UATP",
+      "label": "UATP",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > PayPal",
+      "label": "PayPal",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Degussa Bank. Die WorksiteBank",
+      "label": "Degussa Bank. Die WorksiteBank",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Sepa",
+      "label": "Sepa",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "at/de",
+      "area": "footer band",
+      "menuPath": "Zahlungsmöglichkeiten > Klarna",
+      "label": "Klarna",
+      "url": "https://www.lufthansa.com/at/de/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Quick actions > My flights",
+      "label": "My flights",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=GB&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "flyout",
+      "menuPath": "Book & Prepare > Travel information > Overview travel planning",
+      "label": "Overview travel planning",
+      "url": "https://www.lufthansa.com/gb/en/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "flyout",
+      "menuPath": "My bookings > Manage > Manage bookings",
+      "label": "Manage bookings",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=GB&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "flyout",
+      "menuPath": "My bookings > Extra services > Book additional baggage",
+      "label": "Book additional baggage",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=GB&language=EN",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "flyout",
+      "menuPath": "Discover Lufthansa > Travel classes > Lufthansa Allegris",
+      "label": "Lufthansa Allegris",
+      "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/allegris",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "flyout",
+      "menuPath": "Discover Lufthansa > Lufthansa Insights > Overview",
+      "label": "Overview",
+      "url": "https://www.lufthansa.com/gb/en/articles",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Accessible travel",
+      "label": "Accessible travel",
+      "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Help & contact",
+      "label": "Help & contact",
+      "url": "https://www.lufthansa.com/gb/en/support/help",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Search",
+      "label": "Search",
+      "url": "https://www.lufthansa.com/gb/en/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Shopping cart preview",
+      "label": "Shopping cart preview",
+      "url": "https://www.lufthansa.com/gb/en/homepage",
+      "status": "not checked",
+      "inScope": true,
+      "reason": "in scope – link should be rewritten"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Header tools > Login",
+      "label": "Login",
+      "url": "https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/gb/en/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=GB&lang=en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Albania",
+      "label": "Albania",
+      "url": "https://www.lufthansa.com/al/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Algeria",
+      "label": "Algeria",
+      "url": "https://www.lufthansa.com/dz/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Angola",
+      "label": "Angola",
+      "url": "https://www.lufthansa.com/ao/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Argentina",
+      "label": "Argentina",
+      "url": "https://www.lufthansa.com/ar/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Armenia",
+      "label": "Armenia",
+      "url": "https://www.lufthansa.com/am/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Australia",
+      "label": "Australia",
+      "url": "https://www.lufthansa.com/au/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Austria",
+      "label": "Austria",
+      "url": "https://www.lufthansa.com/at/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Azerbaijan",
+      "label": "Azerbaijan",
+      "url": "https://www.lufthansa.com/az/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Bahrain",
+      "label": "Bahrain",
+      "url": "https://www.lufthansa.com/bh/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Belarus",
+      "label": "Belarus",
+      "url": "https://www.lufthansa.com/by/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Belgium",
+      "label": "Belgium",
+      "url": "https://www.lufthansa.com/be/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Bosnia-Herzegovina",
+      "label": "Bosnia-Herzegovina",
+      "url": "https://www.lufthansa.com/ba/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Brazil",
+      "label": "Brazil",
+      "url": "https://www.lufthansa.com/br/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Bulgaria",
+      "label": "Bulgaria",
+      "url": "https://www.lufthansa.com/bg/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Canada",
+      "label": "Canada",
+      "url": "https://www.lufthansa.com/ca/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Chile",
+      "label": "Chile",
+      "url": "https://www.lufthansa.com/cl/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > China (Mainland)",
+      "label": "China (Mainland)",
+      "url": "https://www.lufthansa.com/cn/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Colombia",
+      "label": "Colombia",
+      "url": "https://www.lufthansa.com/co/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Costa Rica",
+      "label": "Costa Rica",
+      "url": "https://www.lufthansa.com/cr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Croatia",
+      "label": "Croatia",
+      "url": "https://www.lufthansa.com/hr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Cyprus",
+      "label": "Cyprus",
+      "url": "https://www.lufthansa.com/cy/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Czech Republic",
+      "label": "Czech Republic",
+      "url": "https://www.lufthansa.com/cz/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Democratic Republic of Congo",
+      "label": "Democratic Republic of Congo",
+      "url": "https://www.lufthansa.com/cd/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Denmark",
+      "label": "Denmark",
+      "url": "https://www.lufthansa.com/dk/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Ecuador",
+      "label": "Ecuador",
+      "url": "https://www.lufthansa.com/ec/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Egypt",
+      "label": "Egypt",
+      "url": "https://www.lufthansa.com/eg/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Equatorial Guinea",
+      "label": "Equatorial Guinea",
+      "url": "https://www.lufthansa.com/gq/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Eritrea",
+      "label": "Eritrea",
+      "url": "https://www.lufthansa.com/er/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Estonia",
+      "label": "Estonia",
+      "url": "https://www.lufthansa.com/ee/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Ethiopia",
+      "label": "Ethiopia",
+      "url": "https://www.lufthansa.com/et/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Finland",
+      "label": "Finland",
+      "url": "https://www.lufthansa.com/fi/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > France",
+      "label": "France",
+      "url": "https://www.lufthansa.com/fr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Georgia",
+      "label": "Georgia",
+      "url": "https://www.lufthansa.com/ge/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Greece",
+      "label": "Greece",
+      "url": "https://www.lufthansa.com/gr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Hong Kong, China",
+      "label": "Hong Kong, China",
+      "url": "https://www.lufthansa.com/hk/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Hungary",
+      "label": "Hungary",
+      "url": "https://www.lufthansa.com/hu/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Iceland",
+      "label": "Iceland",
+      "url": "https://www.lufthansa.com/is/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > India",
+      "label": "India",
+      "url": "https://www.lufthansa.com/in/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Indonesia",
+      "label": "Indonesia",
+      "url": "https://www.lufthansa.com/id/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Iran",
+      "label": "Iran",
+      "url": "https://www.lufthansa.com/ir/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Iraq",
+      "label": "Iraq",
+      "url": "https://www.lufthansa.com/iq/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Ireland",
+      "label": "Ireland",
+      "url": "https://www.lufthansa.com/ie/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Israel",
+      "label": "Israel",
+      "url": "https://www.lufthansa.com/il/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Italy",
+      "label": "Italy",
+      "url": "https://www.lufthansa.com/it/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Japan",
+      "label": "Japan",
+      "url": "https://www.lufthansa.com/jp/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Jordan",
+      "label": "Jordan",
+      "url": "https://www.lufthansa.com/jo/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Kazakhstan",
+      "label": "Kazakhstan",
+      "url": "https://www.lufthansa.com/kz/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Kenya",
+      "label": "Kenya",
+      "url": "https://www.lufthansa.com/ke/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Korea, Republic of",
+      "label": "Korea, Republic of",
+      "url": "https://www.lufthansa.com/kr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Kuwait",
+      "label": "Kuwait",
+      "url": "https://www.lufthansa.com/kw/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Latvia",
+      "label": "Latvia",
+      "url": "https://www.lufthansa.com/lv/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Lebanon",
+      "label": "Lebanon",
+      "url": "https://www.lufthansa.com/lb/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Libya",
+      "label": "Libya",
+      "url": "https://www.lufthansa.com/ly/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Lithuania",
+      "label": "Lithuania",
+      "url": "https://www.lufthansa.com/lt/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Luxembourg",
+      "label": "Luxembourg",
+      "url": "https://www.lufthansa.com/lu/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Malaysia",
+      "label": "Malaysia",
+      "url": "https://www.lufthansa.com/my/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Maldives",
+      "label": "Maldives",
+      "url": "https://www.lufthansa.com/mv/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Malta",
+      "label": "Malta",
+      "url": "https://www.lufthansa.com/mt/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Mauritius",
+      "label": "Mauritius",
+      "url": "https://www.lufthansa.com/mu/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Mexico",
+      "label": "Mexico",
+      "url": "https://www.lufthansa.com/mx/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Moldova",
+      "label": "Moldova",
+      "url": "https://www.lufthansa.com/md/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Morocco",
+      "label": "Morocco",
+      "url": "https://www.lufthansa.com/ma/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Netherlands",
+      "label": "Netherlands",
+      "url": "https://www.lufthansa.com/nl/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > New Zealand",
+      "label": "New Zealand",
+      "url": "https://www.lufthansa.com/nz/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Nigeria",
+      "label": "Nigeria",
+      "url": "https://www.lufthansa.com/ng/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > North Macedonia",
+      "label": "North Macedonia",
+      "url": "https://www.lufthansa.com/mk/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Norway",
+      "label": "Norway",
+      "url": "https://www.lufthansa.com/no/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Oman",
+      "label": "Oman",
+      "url": "https://www.lufthansa.com/om/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Panama",
+      "label": "Panama",
+      "url": "https://www.lufthansa.com/pa/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Peru",
+      "label": "Peru",
+      "url": "https://www.lufthansa.com/pe/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Philippines",
+      "label": "Philippines",
+      "url": "https://www.lufthansa.com/ph/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Poland",
+      "label": "Poland",
+      "url": "https://www.lufthansa.com/pl/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Portugal",
+      "label": "Portugal",
+      "url": "https://www.lufthansa.com/pt/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Qatar",
+      "label": "Qatar",
+      "url": "https://www.lufthansa.com/qa/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Romania",
+      "label": "Romania",
+      "url": "https://www.lufthansa.com/ro/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Russian Federation",
+      "label": "Russian Federation",
+      "url": "https://www.lufthansa.com/ru/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Saudi Arabia",
+      "label": "Saudi Arabia",
+      "url": "https://www.lufthansa.com/sa/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Serbia",
+      "label": "Serbia",
+      "url": "https://www.lufthansa.com/rs/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Singapore",
+      "label": "Singapore",
+      "url": "https://www.lufthansa.com/sg/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Slovakia",
+      "label": "Slovakia",
+      "url": "https://www.lufthansa.com/sk/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Slovenia",
+      "label": "Slovenia",
+      "url": "https://www.lufthansa.com/si/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > South Africa",
+      "label": "South Africa",
+      "url": "https://www.lufthansa.com/za/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Spain",
+      "label": "Spain",
+      "url": "https://www.lufthansa.com/es/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Sudan",
+      "label": "Sudan",
+      "url": "https://www.lufthansa.com/sd/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Sweden",
+      "label": "Sweden",
+      "url": "https://www.lufthansa.com/se/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Switzerland",
+      "label": "Switzerland",
+      "url": "https://www.lufthansa.com/ch/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Taiwan, China",
+      "label": "Taiwan, China",
+      "url": "https://www.lufthansa.com/tw/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Thailand",
+      "label": "Thailand",
+      "url": "https://www.lufthansa.com/th/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Tunisia",
+      "label": "Tunisia",
+      "url": "https://www.lufthansa.com/tn/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Turkey",
+      "label": "Turkey",
+      "url": "https://www.lufthansa.com/tr/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Ukraine",
+      "label": "Ukraine",
+      "url": "https://www.lufthansa.com/ua/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > United Arab Emirates",
+      "label": "United Arab Emirates",
+      "url": "https://www.lufthansa.com/ae/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > USA",
+      "label": "USA",
+      "url": "https://www.lufthansa.com/us/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Venezuela",
+      "label": "Venezuela",
+      "url": "https://www.lufthansa.com/ve/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Vietnam",
+      "label": "Vietnam",
+      "url": "https://www.lufthansa.com/vn/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "header",
+      "menuPath": "Country & language dialog > Other countries",
+      "label": "Other countries",
+      "url": "https://www.lufthansa.com/xx/en/homepage",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "other country/language site – not in migration scope (migrated locales: de/en, de/de, at/de, gb/en)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Search bar > Enter search term",
+      "label": "Enter search term",
+      "url": "https://www.lufthansa.com/gb/en/support/search/search-result?query=",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Frequently visited pages > View & amend flights",
+      "label": "View & amend flights",
+      "url": "https://www.lufthansa.com/deeplink/cockpit?country=gb&language=en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "My Flights (/deeplink/*) – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Frequently visited pages > Travel briefing",
+      "label": "Travel briefing",
+      "url": "https://www.lufthansa.com/gb/en/travel-briefing",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Frequently visited pages > Destinations",
+      "label": "Destinations",
+      "url": "https://www.lufthansa.com/lhg/gb/en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "AirCore route beyond the sample (only /lhg/de/en pages are in scope) – page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Customer services > Travel ID Account",
+      "label": "Travel ID Account",
+      "url": "https://www.lufthansa.com/gb/en/travel-id",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "login / Travel ID – out of scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Customer services > Help",
+      "label": "Help",
+      "url": "https://www.lufthansa.com/gb/en/help-and-contact",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "help/contact app (/support/*, /help-and-contact) – not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Customer services > Newsletter",
+      "label": "Newsletter",
+      "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/register-newsletter",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "About us > Jobs & careers",
+      "label": "Jobs & careers",
+      "url": "https://lufthansagroup.careers/en",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group careers (lufthansagroup.careers)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "About us > Aviation Group",
+      "label": "Aviation Group",
+      "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/lufthansa-aviation-group",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "About us > Press",
+      "label": "Press",
+      "url": "https://www.lufthansagroup.com/en/home.html",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "About us > Sustainability",
+      "label": "Sustainability",
+      "url": "http://www.makechangefly.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "separate site: Lufthansa Group sustainability (Make Change Fly) (www.makechangefly.com)"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Corporate customers > Lufthansa Group for Business",
+      "label": "Lufthansa Group for Business",
+      "url": "https://business.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Corporate customers > Corporate bonus programme",
+      "label": "Corporate bonus programme",
+      "url": "https://business.lufthansagroup.com/gb/en/program/partner-plus-benefit",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (business.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Logos > Lufthansa logo, back to homepage",
+      "label": "Lufthansa logo, back to homepage",
+      "url": "https://www.lufthansa.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer",
+      "menuPath": "Logos > Member of Lufthansa Group",
+      "label": "Member of Lufthansa Group",
+      "url": "https://www.lufthansagroup.com/",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "Lufthansa Group site (www.lufthansagroup.com) – separate site"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Mastercard",
+      "label": "Mastercard",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Visa",
+      "label": "Visa",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > American Express",
+      "label": "American Express",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Diners Club",
+      "label": "Diners Club",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > JCB",
+      "label": "JCB",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > UATP",
+      "label": "UATP",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > PayPal",
+      "label": "PayPal",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Degussa Bank. The WorksiteBank",
+      "label": "Degussa Bank. The WorksiteBank",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > SEPA",
+      "label": "SEPA",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    },
+    {
+      "locale": "gb/en",
+      "area": "footer band",
+      "menuPath": "Payment options > Klarna",
+      "label": "Klarna",
+      "url": "https://www.lufthansa.com/gb/en/payment-options",
+      "status": "not checked",
+      "inScope": false,
+      "reason": "page not in migration scope"
+    }
+  ]
+}

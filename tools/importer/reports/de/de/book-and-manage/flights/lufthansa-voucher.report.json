@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/book-and-manage/flights/lufthansa-voucher",
+  "path": "de/de/book-and-manage/flights/lufthansa-voucher",
+  "timestamp": "2026-10-22T02:47:58.724Z",
+  "title": "Nutzungsbedingungen für den Kauf von Geschenkgutscheinen | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

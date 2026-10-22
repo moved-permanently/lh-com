@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/book-and-manage/flights/giftvoucher",
+  "path": "de/de/book-and-manage/flights/giftvoucher",
+  "timestamp": "2026-10-22T02:47:53.148Z",
+  "title": "Lufthansa Gutschein kaufen & Flug verschenken | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards",
+    "carousel-cards"
+  ]
+}

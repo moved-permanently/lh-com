@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/digitale-gepaeckservices",
+  "path": "de/de/digitale-gepaeckservices",
+  "timestamp": "2026-10-22T03:02:41.194Z",
+  "title": "Digitale Gepäckservices | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

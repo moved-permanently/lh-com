@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/baggage-irregularities",
+  "path": "de/de/baggage-irregularities",
+  "timestamp": "2026-10-22T02:39:40.116Z",
+  "title": "Probleme mit dem Gepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

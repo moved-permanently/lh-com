@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
+  "path": "de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
+  "timestamp": "2026-10-22T03:02:46.387Z",
+  "title": "Klimaschutzprojekte | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

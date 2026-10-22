@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/accessible-travel",
+  "path": "de/de/accessible-travel",
+  "timestamp": "2026-10-22T02:30:48.229Z",
+  "title": "Barrierefrei Reisen | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "carousel-cards",
+    "carousel-cards",
+    "carousel-cards"
+  ]
+}

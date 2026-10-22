@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/overview-flights",
+  "path": "de/de/overview-flights",
+  "timestamp": "2026-10-22T02:30:27.872Z",
+  "title": "Flüge - Ihre Reise beginnt hier | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}
