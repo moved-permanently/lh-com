@@ -535,6 +535,23 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* .contentpage { padding-top: 2.5rem }: AEM pages start 25px below the header on every
+   breakpoint. A leading breadcrumb sits above .contentpage and brings its own offset (17px +
+   18px box + 25px = h1 box 60px below the header, as nav padding + 24px section spacing here);
+   on article pages (.article-details-page) it sits inside .contentpage, 25px lower, with
+   .pb-7 (20px) to the article stage. AirCore pages (/lhg/) have no such padding. */
+body:not(.aircore) main > .section:first-of-type:not(.breadcrumb-container) {
+  margin-top: 25px;
+}
+
+body:not(.aircore) main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
+  padding-top: 25px;
+}
+
+main > .section > .breadcrumb-wrapper + .article-header-wrapper {
+  margin-top: 19px;
+}
+
 /* default content (.richtext); .section-content > :last-child > :last-child { margin-bottom: 0 },
    a trailing headline keeps its margin to the block that follows */
 main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {

@@ -4,5 +4,11 @@
     "change": "Shop handoff is a POST form to https://shop.lufthansa.com/booking/availability?lang=..&portalCountry=.. with fields lang, portalCountry, search (JSON: itineraries, travelers ADT per adult, cabin, portalFacts from consent), as captured from a real de/en search; replaces the placeholder GET URL. lang de-DE/de-AT/gb en-GB unverified.",
     "commit": "cfc9804",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Page start: first section 25px below the header on AEM pages without a leading breadcrumb (.contentpage padding-top 2.5rem, all breakpoints); article pages: breadcrumb 25px lower and 19px to the article stage (inside .contentpage, .pb-7). Verified h1/first text rows = live at 1440/768/390 on additional-services, advance-seat-reservation, terms-of-service-group, lufthansa-travel-classes, eat-see-do-berlin, homepage; breadcrumb pages and AirCore unchanged.",
+    "commit": "pending",
+    "date": "2026-10-22"
   }
 ]
