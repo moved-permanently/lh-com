@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_18318_exports = {};
-  __export(tmp_bundle_homepage_18318_exports, {
-    default: () => tmp_bundle_homepage_18318_default
+  var tmp_bundle_homepage_29668_exports = {};
+  __export(tmp_bundle_homepage_29668_exports, {
+    default: () => tmp_bundle_homepage_29668_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -1765,6 +1765,16 @@ var CustomImportScript = (() => {
     H5: "heading-copytext-medium",
     H6: "heading-copytext-medium"
   };
+  function convertClassHeadings(document) {
+    document.querySelectorAll("p.h1, p.h2, p.h3, p.h4, p.h5, p.h6").forEach((p) => {
+      if (!cleanText(p)) return;
+      const level = [1, 2, 3, 4, 5, 6].find((n) => p.classList.contains(`h${n}`));
+      const h = document.createElement(`h${level}`);
+      if (level === 3) h.className = "heading-small";
+      h.append(...p.childNodes);
+      p.replaceWith(h);
+    });
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -1931,6 +1941,7 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      convertClassHeadings(document);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -2285,7 +2296,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_18318_default = {
+  var tmp_bundle_homepage_29668_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2315,5 +2326,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_18318_exports);
+  return __toCommonJS(tmp_bundle_homepage_29668_exports);
 })();

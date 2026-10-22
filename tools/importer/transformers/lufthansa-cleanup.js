@@ -934,6 +934,22 @@ const HEADING_DEFAULTS = {
   H1: 'heading-large', H2: 'heading-medium', H3: 'heading-copytext-large', H4: 'heading-copytext-large', H5: 'heading-copytext-medium', H6: 'heading-copytext-medium',
 };
 
+/**
+ * AirCore titles set as paragraphs with a heading class (<p class="h3">Lufthansa Premium
+ * Economy</p>, 28px light above or beside a floated image) are headings of that level; AirCore
+ * .h3 is the heading-small size.
+ */
+function convertClassHeadings(document) {
+  document.querySelectorAll('p.h1, p.h2, p.h3, p.h4, p.h5, p.h6').forEach((p) => {
+    if (!cleanText(p)) return;
+    const level = [1, 2, 3, 4, 5, 6].find((n) => p.classList.contains(`h${n}`));
+    const h = document.createElement(`h${level}`);
+    if (level === 3) h.className = 'heading-small';
+    h.append(...p.childNodes);
+    p.replaceWith(h);
+  });
+}
+
 function markHeadingStyles(document) {
   let marked = 0;
   document.querySelectorAll(HEADING).forEach((h) => {
@@ -1135,6 +1151,7 @@ export default function transform(hookName, element, payload) {
     normalizeImages(document, false);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);
+    convertClassHeadings(document);
     markHeadingStyles(document);
     convertCaptions(document);
     markParagraphStyles(document);

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_18318_exports = {};
-  __export(tmp_bundle_app_entry_18318_exports, {
-    default: () => tmp_bundle_app_entry_18318_default
+  var tmp_bundle_app_entry_29668_exports = {};
+  __export(tmp_bundle_app_entry_29668_exports, {
+    default: () => tmp_bundle_app_entry_29668_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -367,6 +367,41 @@ var CustomImportScript = (() => {
       });
       return out;
     };
+    const floated = element.matches("p") && element.querySelector('img[style*="float"]');
+    if (floated) {
+      const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
+      const pct = parseInt(floated.getAttribute("width") || "", 10);
+      const media = [];
+      if (!isBroken2(floated.getAttribute("src"))) {
+        const img = document.createElement("img");
+        img.setAttribute("src", floated.getAttribute("src"));
+        img.setAttribute("alt", floated.getAttribute("alt") || "");
+        media.push(img);
+      }
+      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean(el.textContent) && !el.querySelector("img");
+      const text = [];
+      for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
+        n.remove();
+        n.querySelectorAll("a.btn-primary[href], a.btn-secondary[href]").forEach((a) => {
+          if (a.closest("strong, em, b, i")) return;
+          const wrap = document.createElement(a.classList.contains("btn-primary") ? "strong" : "em");
+          a.replaceWith(wrap);
+          wrap.append(a);
+        });
+        text.push(n);
+      }
+      if (!media.length || !text.length) {
+        text.reverse().forEach((n) => element.after(n));
+        return;
+      }
+      const floatBlock = WebImporter.Blocks.createBlock(document, {
+        name: "columns-media",
+        variants: pct > 0 && pct < 100 ? [`ratio-${pct}`] : [],
+        cells: [right ? [text, media] : [media, text]]
+      });
+      element.replaceWith(floatBlock);
+      return;
+    }
     const titles = [];
     const cells = [];
     let variants = [];
@@ -1707,6 +1742,16 @@ var CustomImportScript = (() => {
     H5: "heading-copytext-medium",
     H6: "heading-copytext-medium"
   };
+  function convertClassHeadings(document) {
+    document.querySelectorAll("p.h1, p.h2, p.h3, p.h4, p.h5, p.h6").forEach((p) => {
+      if (!cleanText(p)) return;
+      const level = [1, 2, 3, 4, 5, 6].find((n) => p.classList.contains(`h${n}`));
+      const h = document.createElement(`h${level}`);
+      if (level === 3) h.className = "heading-small";
+      h.append(...p.childNodes);
+      p.replaceWith(h);
+    });
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -1873,6 +1918,7 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      convertClassHeadings(document);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -2193,7 +2239,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_18318_default = {
+  var tmp_bundle_app_entry_29668_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2223,5 +2269,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_18318_exports);
+  return __toCommonJS(tmp_bundle_app_entry_29668_exports);
 })();

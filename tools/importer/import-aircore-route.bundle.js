@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-route.js
-  var tmp_bundle_aircore_route_226_exports = {};
-  __export(tmp_bundle_aircore_route_226_exports, {
-    default: () => tmp_bundle_aircore_route_226_default
+  var tmp_bundle_aircore_route_29668_exports = {};
+  __export(tmp_bundle_aircore_route_29668_exports, {
+    default: () => tmp_bundle_aircore_route_29668_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -703,8 +703,60 @@ var CustomImportScript = (() => {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.querySelector(MEDIA);
   }
+  var SEPARATOR_COMMENT = "lh-separator";
+  var SEPARATOR_MIN_SPACE = 50;
+  function separatorInfo(sep) {
+    const hr = sep.querySelector(".hr") || sep;
+    const line = hr.classList.contains("hr") && !hr.classList.contains("hr-no-layout");
+    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    const space = m ? Math.round(parseFloat(m[1])) : 25;
+    const tokens = [`${line ? "divider" : "spacer"}-${Math.max(space, 0)}`];
+    if (hr.classList.contains("hidden-sm-down")) tokens.push("from-768");
+    return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(" ") };
+  }
+  function markSeparators(document) {
+    const runs = [];
+    document.querySelectorAll(".separator").forEach((sep) => {
+      const last = runs[runs.length - 1];
+      if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
+      else runs.push([sep]);
+    });
+    runs.forEach((run) => {
+      const infos = run.map(separatorInfo);
+      const keep = infos.some((i) => i.keep);
+      run.forEach((sep, i) => {
+        if (!sep.isConnected) return;
+        if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
+        else sep.remove();
+      });
+    });
+  }
+  function convertSeparators(document) {
+    const found = [];
+    const walker = document.createTreeWalker(document.body, 128);
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+      if (n.nodeValue.startsWith(`${SEPARATOR_COMMENT} `)) found.push(n);
+    }
+    found.forEach((c) => {
+      const parent = c.parentElement;
+      if (!parent || parent.closest("table")) {
+        c.remove();
+        return;
+      }
+      const p = document.createElement("p");
+      p.textContent = `{${c.nodeValue.slice(SEPARATOR_COMMENT.length + 1).trim()}}`;
+      const textBlock = parent.closest("p, li, h1, h2, h3, h4, h5, h6");
+      if (textBlock) {
+        textBlock.after(p);
+        c.remove();
+      } else {
+        c.replaceWith(p);
+      }
+    });
+    return found.length;
+  }
   function removeEmptyComponents(document) {
-    removeAll(document, [".separator"]);
+    markSeparators(document);
     document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component').forEach((el) => {
       if (el.isConnected && isEmpty(el)) el.remove();
     });
@@ -832,6 +884,41 @@ var CustomImportScript = (() => {
     });
     return rewritten;
   }
+  var JUMP_LINK = '[variant="anchor-down"][href]';
+  function onlyJumpLinks(el) {
+    const links = [...el.querySelectorAll("[href]")];
+    if (!links.length || !links.every((l) => l.matches(JUMP_LINK))) return null;
+    const rest = el.cloneNode(true);
+    rest.querySelectorAll("[href]").forEach((l) => l.remove());
+    if (cleanText(rest) || rest.querySelector("img, picture, video, iframe, input, select, button")) return null;
+    return links;
+  }
+  function jumpLinksBlock(document, links, variants) {
+    const cells = links.map((l) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", l.getAttribute("href"));
+      a.textContent = cleanText(l) || l.getAttribute("label") || l.getAttribute("aria-label") || "";
+      return [a];
+    }).filter(([a]) => a.textContent);
+    return WebImporter.Blocks.createBlock(document, { name: "Jump Links", variants, cells });
+  }
+  function convertJumpLinks(document) {
+    let converted = 0;
+    document.querySelectorAll(".imagelinklist").forEach((list) => {
+      const links = list.isConnected && onlyJumpLinks(list);
+      if (!links) return;
+      list.replaceChildren(jumpLinksBlock(document, links, []));
+      converted += 1;
+    });
+    document.querySelectorAll(".twocolumn, .threecolumn, .fourcolumn").forEach((col) => {
+      const view = col.isConnected && col.querySelector(":scope > .column-view");
+      const links = view && onlyJumpLinks(view);
+      if (!links || links.length < 2) return;
+      col.replaceWith(jumpLinksBlock(document, links, ["columns"]));
+      converted += 1;
+    });
+    return converted;
+  }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
     const links = [...document.querySelectorAll(MAUI_LINK)].reverse();
@@ -922,16 +1009,23 @@ var CustomImportScript = (() => {
         groups[groups.length - 1].push(node);
       }
       if (groups.length < 2) return;
-      const paras = groups.map((group) => {
+      const parts = groups.map((group) => {
         while (group.length && (isBr(group[0]) || isBlankText(group[0]))) group.shift();
         while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
-        if (!group.length) return null;
+        return group;
+      }).filter((group) => group.length);
+      if (parts.length < 2) {
+        nodes.forEach((n) => {
+          if (!parts.length || !parts[0].includes(n)) n.remove();
+        });
+        return;
+      }
+      const paras = parts.map((group) => {
         const np = document.createElement("p");
         if (p.className) np.className = p.className;
         group.forEach((n) => np.append(n));
         return np;
-      }).filter(Boolean);
-      if (paras.length < 2) return;
+      });
       p.replaceWith(...paras);
       added += paras.length - 1;
     });
@@ -1078,6 +1172,16 @@ var CustomImportScript = (() => {
     H5: "heading-copytext-medium",
     H6: "heading-copytext-medium"
   };
+  function convertClassHeadings(document) {
+    document.querySelectorAll("p.h1, p.h2, p.h3, p.h4, p.h5, p.h6").forEach((p) => {
+      if (!cleanText(p)) return;
+      const level = [1, 2, 3, 4, 5, 6].find((n) => p.classList.contains(`h${n}`));
+      const h = document.createElement(`h${level}`);
+      if (level === 3) h.className = "heading-small";
+      h.append(...p.childNodes);
+      p.replaceWith(h);
+    });
+  }
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
@@ -1228,6 +1332,7 @@ var CustomImportScript = (() => {
       removeScreenReaderOnly(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
+      convertJumpLinks(document);
       removeEmptyComponents(document);
       normalizeImages(document, true);
     }
@@ -1239,9 +1344,11 @@ var CustomImportScript = (() => {
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
+      convertSeparators(document);
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      convertClassHeadings(document);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -1252,7 +1359,13 @@ var CustomImportScript = (() => {
   // tools/importer/transformers/lufthansa-sections.js
   var MARKER = "data-excat-section-id";
   var BREAK = "data-excat-section-break";
+  var FIRST = "data-excat-section-first";
+  var SOURCE_STYLE = "data-excat-section-source-style";
   var FOLLOWING = 4;
+  var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
+  var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
+  var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
+  var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
     const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
     return after(document.querySelectorAll(`hr[${BREAK}]`)) || after(document.querySelectorAll("hr"));
@@ -1277,46 +1390,122 @@ var CustomImportScript = (() => {
   function styleValue(section) {
     return Array.isArray(section.style) ? section.style.filter(Boolean).join(", ") : section.style.trim();
   }
+  function createBreak(document) {
+    const hr = document.createElement("hr");
+    hr.setAttribute(BREAK, "");
+    return hr;
+  }
+  function styledRegions(document, template, source) {
+    const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
+    const insideBlock = (el) => blockSelectors.some((sel) => {
+      try {
+        return !!(el.parentElement && el.parentElement.closest(sel));
+      } catch (e) {
+        return false;
+      }
+    });
+    const regions = [];
+    document.querySelectorAll(source).forEach((match) => {
+      if (match.closest(STYLE_SKIP) || match.parentElement && match.parentElement.closest(source)) return;
+      let region = match;
+      while (region.parentElement && !region.parentElement.matches(REGION_STOP)) region = region.parentElement;
+      if (!region.parentElement || region.matches("main, body") || insideBlock(region)) return;
+      if (regions.some((r) => r.contains(region) || region.contains(r))) return;
+      regions.push(region);
+    });
+    return regions;
+  }
+  function contentBetween(document, root, from, to) {
+    const range = document.createRange();
+    if (from) range.setStartAfter(from);
+    else range.setStart(root, 0);
+    range.setEndBefore(to);
+    const frag = range.cloneContents();
+    if ((frag.textContent || "").replace(/[\s ​]/g, "")) return true;
+    return !!frag.querySelector(MEDIA2);
+  }
+  function dropEmptyBreaks(document, root) {
+    const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
+    let prev = null;
+    breaks.forEach((hr) => {
+      if (contentBetween(document, root, prev, hr)) {
+        prev = hr;
+        return;
+      }
+      if (!prev) {
+        hr.setAttribute(FIRST, "true");
+        prev = hr;
+        return;
+      }
+      [MARKER, SOURCE_STYLE].forEach((attr) => {
+        if (!hr.hasAttribute(attr)) return;
+        const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(" ");
+        prev.setAttribute(attr, merged);
+      });
+      hr.remove();
+    });
+  }
   function transform2(hookName, element, payload) {
     const template = payload && payload.template || {};
     const sections = Array.isArray(template.sections) ? template.sections : [];
-    if (sections.length < 2 && !(sections.length === 1 && hasStyle(sections[0]))) return;
+    const useSections = sections.length >= 2 || sections.length === 1 && hasStyle(sections[0]);
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
-      for (let i = sections.length - 1; i >= 0; i -= 1) {
-        const section = sections[i];
-        const el = findSectionElement(document, section);
-        if (!el) continue;
-        const styled = hasStyle(section);
-        if (i === 0 && !styled) continue;
-        const hr = document.createElement("hr");
-        hr.setAttribute(BREAK, "");
-        if (styled) hr.setAttribute(MARKER, section.id);
-        if (i === 0) hr.setAttribute("data-excat-section-first", "true");
-        el.parentNode.insertBefore(hr, el);
+      if (useSections) {
+        for (let i = sections.length - 1; i >= 0; i -= 1) {
+          const section = sections[i];
+          const el = findSectionElement(document, section);
+          if (!el) continue;
+          const styled = hasStyle(section);
+          if (i === 0 && !styled) continue;
+          const hr = createBreak(document);
+          if (styled) hr.setAttribute(MARKER, section.id);
+          if (i === 0) hr.setAttribute(FIRST, "true");
+          el.parentNode.insertBefore(hr, el);
+        }
       }
+      SOURCE_STYLES.forEach(([source, style]) => {
+        styledRegions(document, template, source).forEach((region) => {
+          const start = createBreak(document);
+          start.setAttribute(SOURCE_STYLE, style);
+          region.before(start);
+          region.after(createBreak(document));
+        });
+      });
     }
     if (hookName === "afterTransform") {
-      for (let i = sections.length - 1; i >= 0; i -= 1) {
-        const section = sections[i];
-        const marker = document.querySelector(`hr[${MARKER}="${section.id}"]`);
-        if (!marker) continue;
-        if (hasStyle(section)) {
+      dropEmptyBreaks(document, element);
+      const styleOf = (hr) => {
+        const styles = [];
+        (hr.getAttribute(MARKER) || "").split(" ").filter(Boolean).forEach((id) => {
+          const section = sections.find((s) => s.id === id);
+          if (section && hasStyle(section)) styles.push(styleValue(section));
+        });
+        (hr.getAttribute(SOURCE_STYLE) || "").split(" ").filter(Boolean).forEach((style) => {
+          if (!styles.some((s) => s.split(/,\s*/).includes(style))) styles.unshift(style);
+        });
+        return styles.join(", ");
+      };
+      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest("table"));
+      marked.reverse().forEach((marker) => {
+        const style = styleOf(marker);
+        if (style) {
           const meta = WebImporter.Blocks.createBlock(document, {
             name: "Section Metadata",
-            cells: { style: styleValue(section) }
+            cells: { style }
           });
           const next = nextBreak(document, marker);
           if (next) next.parentNode.insertBefore(meta, next);
           else element.appendChild(meta);
         }
-        if (marker.getAttribute("data-excat-section-first") === "true") {
-          marker.remove();
-        } else {
-          marker.removeAttribute(MARKER);
+      });
+      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => {
+        if (hr.getAttribute(FIRST) === "true") {
+          hr.remove();
+          return;
         }
-      }
-      document.querySelectorAll(`hr[${BREAK}]`).forEach((hr) => hr.removeAttribute(BREAK));
+        [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
+      });
     }
   }
 
@@ -1454,7 +1643,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_route_226_default = {
+  var tmp_bundle_aircore_route_29668_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1484,5 +1673,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_route_226_exports);
+  return __toCommonJS(tmp_bundle_aircore_route_29668_exports);
 })();

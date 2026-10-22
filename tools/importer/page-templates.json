@@ -2569,6 +2569,12 @@
           "instances": [
             "#content > .internal-links"
           ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            ".content-wrapper > p:has(> picture > img[style*=\"float\"], > img[style*=\"float\"])"
+          ]
         }
       ],
       "sections": [

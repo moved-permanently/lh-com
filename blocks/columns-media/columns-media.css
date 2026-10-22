@@ -327,6 +327,20 @@
   outline: 2px solid rgb(9 104 246);
 }
 
+/* Insights articles: the closing teaser column view sits in the article card (.article-content
+   col-md-10 offset-1: 83.333%), its text 80% of the column (.article-content .text)
+   (eat-see-do-berlin, 7-people: image 517 at x193, text 413 at x724 at 1440) */
+@media (width >= 768px) {
+  main:has(.article-header) .columns-media {
+    max-width: 83.333%;
+    margin-inline: auto;
+  }
+
+  main:has(.article-header) .columns-media .columns-media-text > * {
+    max-width: 80%;
+  }
+}
+
 @media (width >= 768px) {
   .columns-media .columns-media-row {
     grid-template-columns: repeat(var(--columns-media-cols, 2), minmax(0, 1fr));
@@ -378,5 +392,33 @@
   .columns-media .columns-media-text p:not(:first-child) > a > picture img {
     width: auto;
     height: 40px;
+  }
+}
+
+/* option ratio-NN (AirCore running text: <img style="float: left; margin: 0 5rem 2rem 0"
+   width="60%">): the media cell floats NN% wide beside the text at every width, the text wraps
+   around it, 50px to the text, 20px below the image; a media cell authored after the text
+   floats right (the block JS puts it first) (/lhg/de/en/dest/cy/new-york 'Lufthansa Premium
+   Economy': image 536 of 893 at 1440, 199 of 331 at 390) */
+.columns-media[class*="ratio-"] .columns-media-row {
+  display: flow-root;
+}
+
+.columns-media[class*="ratio-"] .columns-media-row > .columns-media-media {
+  float: left;
+  width: var(--columns-media-first, 50%);
+  margin: 0 50px 20px 0;
+}
+
+.columns-media[class*="ratio-"] .columns-media-media-last > .columns-media-media {
+  float: right;
+  margin: 0 0 20px 50px;
+}
+
+/* AirCore: the block sits in the running text column (.content-wrapper { width: 75% }: 893px
+   at 1425px), like the AirCore paragraphs */
+@media (width >= 1025px) {
+  body.aircore .columns-media {
+    max-width: calc(75% - var(--layout-margin) / 2);
   }
 }

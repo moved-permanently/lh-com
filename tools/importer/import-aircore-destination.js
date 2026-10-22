@@ -9,6 +9,7 @@ import tableDealsParser from './parsers/table-deals.js';
 import cardsIconTextParser from './parsers/cards-icon-text.js';
 import weatherParser from './parsers/weather.js';
 import accordionSideBySideParser from './parsers/accordion-side-by-side.js';
+import columnsMediaParser from './parsers/columns-media.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -60,6 +61,12 @@ const PAGE_TEMPLATE = {
       "name": "accordion-side-by-side",
       "instances": [
         "#content > .internal-links"
+      ]
+    },
+    {
+      "name": "columns-media",
+      "instances": [
+        ".content-wrapper > p:has(> picture > img[style*=\"float\"], > img[style*=\"float\"])"
       ]
     }
   ],
@@ -201,6 +208,7 @@ const parsers = {
   'cards-icon-text': cardsIconTextParser,
   'weather': weatherParser,
   'accordion-side-by-side': accordionSideBySideParser,
+  'columns-media': columnsMediaParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 
