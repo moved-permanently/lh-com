@@ -124,5 +124,11 @@
     "change": "D14 separators: live .separator components with a visible line (.hr without .hr-no-layout) or 50px+ inline margin (runs of adjacent separators kept together) are no longer dropped: lufthansa-cleanup keeps an HTML comment placeholder in beforeTransform (template selectors unaffected) and writes a '{spacer-N}' / '{divider-N}' paragraph ('from-768' for .hidden-sm-down) in afterTransform, dropped inside block tables; scripts.js -> p.spacer (--spacer-size), styles.css: N+1px high (divider: 1px #ccc line + N), a separator-only wrapper 8px below the block (-16px at a section end). timetable-and-flight-status 'Advice about text messaging' 153px below the image (live 152, was 48); accessible-travel 40/line/30 run before 'Further information' with the full-width #ccc line; 100-years/destinations 16 x 60px spacers. README 'Spacing and dividers'. Needs re-import (all AEM templates; ~100 de/en pages have such separators).",
     "commit": "pending",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "D5 grey sections from the source: lufthansa-sections makes every outermost .container-gray (live #f5f5f5 full-width background) a section of its own with style grey, with a break before and after the component that holds it (child of .container-content / .section-content / a column item or grid column; not inside a block of the template, not the sticky price bar), so the grey ends where the live grey ends; breaks that would open an empty section are dropped (styles merged). The template 'grey' styles (hub Baggage services, info 'This may also be of interest', app-entry app promotion) are gone (the source decides). my-bookings: only the login strip grey (was login strip + all baggage teasers); accessible-travel: only 'Please tell us in advance' + 'Here's how to notify us' (was from the card grid to the end); baggage, flying-with-small-children, 100-years/campaigns, articles/highlights grey where the source is. Needs re-import (all AEM templates).",
+    "commit": "pending",
+    "date": "2026-10-22"
   }
 ]
