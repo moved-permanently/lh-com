@@ -106,6 +106,7 @@ function widthResult(job, width) {
     failedSrc: m.failedSrc,
     fonts: m.fonts,
     consentBannerVisible: m.consentBannerVisible,
+    showcaseNoticeVisible: m.showcaseNoticeVisible,
     truncated: m.truncated,
     diff: rel(c.diff || item.diff),
     errors: errors.length ? errors : undefined,
@@ -139,6 +140,7 @@ function remainsAt(w) {
     out.push(`no web font for ${noWebfont.map((k) => `${k} (${w.fonts[k].used})`).join(', ')} ${at}`);
   }
   if (w.consentBannerVisible) out.push(`a consent banner was visible ${at}`);
+  if (w.showcaseNoticeVisible) out.push(`the showcase notice was visible ${at}`);
   if (w.contentWidthMatched === false) {
     out.push(`layout width ${w.clientWidth} px instead of ${w.contentWidth} px ${at} (diff is skewed)`);
   }
@@ -156,16 +158,26 @@ function pageStatus(widths) {
   return 'fail';
 }
 
-const fixKind = (f) => (f.page && 'page') || (f.template && 'template') || (f.block && 'block') || 'site';
+// fixes.json entries also use "scope": a template name (or a comma list of them) counts as
+// "template", anything else ("site", "channels", "aircore") as site-wide; "block" may be a list
+const listOf = (v) => String(v || '').split(',').map((s) => s.trim()).filter(Boolean);
+const templateNames = new Set(jobs.map((j) => j.template));
+const fixTemplates = (f) => (f.template ? listOf(f.template)
+  : listOf(f.scope).filter((s) => templateNames.has(s)));
+const fixKind = (f) => (f.page && 'page') || (fixTemplates(f).length && 'template')
+  || (f.block && 'block') || 'site';
 function fixesFor(job, blocks) {
   return fixes.filter((f) => (f.page && normPath(f.page) === job.path)
-    || (f.template && f.template === job.template)
-    || (f.block && blocks.includes(f.block)))
+    || fixTemplates(f).includes(job.template)
+    || (f.block && listOf(f.block).some((b) => blocks.includes(b))))
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
 }
 function fixLine(f) {
   const kind = fixKind(f);
-  const scope = kind === 'template' || kind === 'block' ? `${kind} ${f[kind]}` : kind;
+  let scope = kind;
+  if (kind === 'template') scope = `template ${fixTemplates(f).join(', ')}`;
+  else if (kind === 'block') scope = `block ${f.block}`;
+  else if (kind === 'site' && f.scope && f.scope !== 'site') scope = `site (${f.scope})`;
   return `${f.date || '?'} [${scope}] ${f.change}${f.commit ? ` (${f.commit})` : ''}`;
 }
 

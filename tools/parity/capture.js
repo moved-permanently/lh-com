@@ -204,6 +204,8 @@ function waitForImages(page) {
   return page.waitForFunction((maxH) => [...document.images].every((img) => {
     const r = img.getBoundingClientRect();
     if (!r.width || !r.height || r.top + window.scrollY > maxH) return true;
+    // lazy images scrolled out horizontally (carousel slides) never load without a swipe
+    if (img.loading === 'lazy' && (r.right <= 0 || r.left >= window.innerWidth)) return true;
     return img.complete;
   }), maxHeight, { timeout: WAIT_IMAGES_MS, polling: 250 }).then(() => 'complete').catch(() => 'timeout');
 }
@@ -258,6 +260,8 @@ function collectMetrics() {
   document.fonts.forEach((f) => {
     if (f.status === 'loaded') loaded.add(f.family.replace(/^["']|["']$/g, ''));
   });
+  // CSS font-family names match case-insensitively (declared 'lufthansahead' = 'LufthansaHead')
+  const loadedLower = new Set([...loaded].map((f) => f.toLowerCase()));
   const generic = ['serif', 'sans-serif', 'monospace', 'cursive', 'fantasy', 'system-ui', 'ui-sans-serif', 'ui-serif', '-apple-system'];
   const font = (sel) => {
     const el = document.querySelector(sel);
@@ -265,7 +269,7 @@ function collectMetrics() {
     const declared = getComputedStyle(el).fontFamily;
     const stack = declared.split(',').map((s) => s.trim().replace(/^["']|["']$/g, ''));
     // first family in the stack that is a loaded web font; otherwise a local/system fallback
-    const web = stack.find((f) => loaded.has(f));
+    const web = stack.find((f) => loadedLower.has(f.toLowerCase()));
     return {
       declared,
       used: web || stack.find((f) => generic.includes(f)) || stack[0],
@@ -288,6 +292,9 @@ function collectMetrics() {
     scrollWidth: de.scrollWidth,
     consent,
     consentBannerVisible: visible('#onetrust-banner-sdk, #onetrust-pc-sdk, .lh-consent-banner, .lh-consent-pc'),
+    // scripts/showcase-notice.js dialog (acknowledged via localStorage before load)
+    showcaseNoticeVisible: visible('dialog.showcase-notice[open]')
+      || de.classList.contains('showcase-notice-open'),
     // against the layout width, so a visible scrollbar does not hide an overflow
     horizontalOverflow: de.scrollWidth > de.clientWidth + 1,
     overflowPx: Math.max(0, de.scrollWidth - de.clientWidth),

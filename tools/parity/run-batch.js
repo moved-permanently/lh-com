@@ -239,6 +239,7 @@ function summarizeMetrics(file) {
     fonts: m.fonts && Object.fromEntries(['h1', 'h2', 'body'].map((k) => [k, fontSummary(m.fonts[k])])),
     loadedWebfonts: m.fonts && m.fonts.loadedWebfonts,
     consentBannerVisible: m.consentBannerVisible,
+    showcaseNoticeVisible: m.showcaseNoticeVisible,
     waits: m.waits,
     liveBoxes: Array.isArray(m.liveBoxes) ? m.liveBoxes.length : undefined,
   };
@@ -358,6 +359,8 @@ const queue = items.filter((it) => (it.status === 'pending' || it.status === 'wa
 
 let outOfTime = false;
 queue.forEach((item) => {
+  // progress.json is large: write it only when this item changed
+  let changed = false;
   ['src', 'eds'].forEach((side) => {
     if (!needsCapture(item.captures[side]) || run.captures >= batch || outOfTime) return;
     if (!withinBudget(captureEstimateMs() + COMPARE_ESTIMATE_MS)) {
@@ -368,20 +371,25 @@ queue.forEach((item) => {
     runCapture(item, side);
     updateItemStatus(item);
     save();
+    changed = true;
   });
   const { src } = item.captures;
   if (src && src.status === 'missing' && fs.existsSync(src.out)) {
     item.captures.src = { out: src.out, status: 'provided' };
+    changed = true;
   }
   const caps = Object.values(item.captures);
   if (item.captures.src && caps.every(isOk) && !(item.compare && !item.compare.error)
     && !(item.compare && item.compare.attempts >= MAX_ATTEMPTS)
     && withinBudget(COMPARE_ESTIMATE_MS)) {
     runCompare(item);
+    changed = true;
   }
   // once the capture budget is used up the loop only runs (cheap) compares of complete items
-  updateItemStatus(item);
-  save();
+  if (changed) {
+    updateItemStatus(item);
+    save();
+  }
 });
 
 const counts = items.reduce((acc, it) => ({ ...acc, [it.status]: (acc[it.status] || 0) + 1 }), {});
