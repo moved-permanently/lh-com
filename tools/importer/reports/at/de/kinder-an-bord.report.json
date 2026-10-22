@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/kinder-an-bord",
   "path": "at/de/kinder-an-bord",
-  "timestamp": "2026-10-22T06:56:57.176Z",
-  "title": "Mit Kindern und Babys an Bord | Lufthansa",
+  "timestamp": "2026-10-22T20:04:03.972Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

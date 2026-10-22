@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/reisebueros",
   "path": "de/de/reisebueros",
-  "timestamp": "2026-10-22T04:22:02.507Z",
-  "title": "Für Reisebüros | Lufthansa",
+  "timestamp": "2026-10-22T20:01:14.049Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

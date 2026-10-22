@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/travelling-with-children/planning-with-kids",
   "path": "gb/en/prepare-for-your-trip/travelling-with-children/planning-with-kids",
-  "timestamp": "2026-10-22T11:18:01.244Z",
+  "timestamp": "2026-10-22T20:16:32.143Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

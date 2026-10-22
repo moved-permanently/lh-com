@@ -2,8 +2,20 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/first-class-terminal",
   "path": "de/de/first-class-terminal",
-  "timestamp": "2026-10-22T03:20:20.488Z",
-  "title": "First Class Terminal | Lufthansa",
+  "timestamp": "2026-10-22T19:57:46.151Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

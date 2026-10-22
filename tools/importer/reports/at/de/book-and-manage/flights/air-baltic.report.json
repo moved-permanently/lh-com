@@ -2,8 +2,20 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/book-and-manage/flights/air-baltic",
   "path": "at/de/book-and-manage/flights/air-baltic",
-  "timestamp": "2026-10-22T06:47:29.492Z",
+  "timestamp": "2026-10-22T20:02:59.832Z",
   "title": "Ihr Lufthansa Flug mit Air Baltic | Lufthansa",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

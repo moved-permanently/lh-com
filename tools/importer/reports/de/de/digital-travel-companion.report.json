@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/digital-travel-companion",
   "path": "de/de/digital-travel-companion",
-  "timestamp": "2026-10-22T03:02:44.233Z",
-  "title": "Lufthansa App | Lufthansa",
+  "timestamp": "2026-10-22T19:56:42.534Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

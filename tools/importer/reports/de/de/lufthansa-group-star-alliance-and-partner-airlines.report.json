@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-group-star-alliance-and-partner-airlines",
   "path": "de/de/lufthansa-group-star-alliance-and-partner-airlines",
-  "timestamp": "2026-10-22T03:46:06.223Z",
-  "title": "Lufthansa Group, Star Alliance und Partner-Airlines | Lufthansa",
+  "timestamp": "2026-10-22T19:58:58.397Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

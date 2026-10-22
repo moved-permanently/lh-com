@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/business-class-auf-kurz-und-mittelstrecken",
   "path": "at/de/business-class-auf-kurz-und-mittelstrecken",
-  "timestamp": "2026-10-22T06:56:34.901Z",
-  "title": "Business Class auf Kurz- und Mittelstrecken | Lufthansa",
+  "timestamp": "2026-10-22T20:03:44.053Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

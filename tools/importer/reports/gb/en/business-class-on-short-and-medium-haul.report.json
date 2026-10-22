@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/business-class-on-short-and-medium-haul",
   "path": "gb/en/business-class-on-short-and-medium-haul",
-  "timestamp": "2026-10-22T10:18:45.831Z",
-  "title": "Business Class on short and medium-haul routes | Lufthansa",
+  "timestamp": "2026-10-22T20:11:45.546Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

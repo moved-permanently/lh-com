@@ -2,11 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
   "path": "at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
-  "timestamp": "2026-10-22T06:37:49.510Z",
-  "title": "Informationen zu barrierefreien Reisen in die USA | Lufthansa",
+  "timestamp": "2026-10-22T20:02:28.436Z",
+  "title": "",
   "template": "info",
   "blocks": [
+    "hero-campaign",
     "carousel-cards",
-    "carousel-cards"
+    "carousel-cards",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

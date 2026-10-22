@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/automatic-check-in",
   "path": "gb/en/automatic-check-in",
-  "timestamp": "2026-10-22T10:02:26.084Z",
-  "title": "Automated check-in | Lufthansa",
+  "timestamp": "2026-10-22T20:10:41.832Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

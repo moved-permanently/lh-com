@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/all-check-in",
   "path": "at/de/all-check-in",
-  "timestamp": "2026-10-22T06:37:54.610Z",
-  "title": "Alle Check-in Möglichkeiten | Lufthansa",
+  "timestamp": "2026-10-22T20:02:33.907Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

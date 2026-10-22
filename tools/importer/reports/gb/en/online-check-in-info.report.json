@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/online-check-in-info",
   "path": "gb/en/online-check-in-info",
-  "timestamp": "2026-10-22T11:08:05.708Z",
+  "timestamp": "2026-10-22T20:15:27.700Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/upgrade-options",
   "path": "gb/en/upgrade-options",
-  "timestamp": "2026-10-22T11:42:42.628Z",
-  "title": "Upgrade options | Lufthansa",
+  "timestamp": "2026-10-22T20:18:13.394Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/green-fare",
   "path": "gb/en/green-fare",
-  "timestamp": "2026-10-22T10:45:13.278Z",
-  "title": "Impact Fares: A fare that supports lower-emission aviation | Lufthansa",
+  "timestamp": "2026-10-22T20:14:01.759Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

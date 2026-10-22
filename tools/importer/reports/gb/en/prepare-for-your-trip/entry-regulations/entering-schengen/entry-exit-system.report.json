@@ -2,11 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
   "path": "gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
-  "timestamp": "2026-10-22T11:08:37.358Z",
-  "title": "EES: the European Union’s new Entry/Exit System | Lufthansa",
+  "timestamp": "2026-10-22T20:16:00.415Z",
+  "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
-    "carousel-cards"
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

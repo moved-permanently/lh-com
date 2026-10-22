@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/free2move",
   "path": "at/de/free2move",
-  "timestamp": "2026-10-22T07:23:26.659Z",
-  "title": "Free2move Carsharing | Lufthansa",
+  "timestamp": "2026-10-22T20:05:52.733Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

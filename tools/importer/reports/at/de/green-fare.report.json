@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/green-fare",
   "path": "at/de/green-fare",
-  "timestamp": "2026-10-22T07:23:33.795Z",
-  "title": "Green Fares: Nachhaltiger fliegen | Lufthansa",
+  "timestamp": "2026-10-22T20:06:00.549Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

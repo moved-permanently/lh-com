@@ -2,10 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/rail-and-fly",
   "path": "gb/en/rail-and-fly",
-  "timestamp": "2026-10-22T11:18:03.966Z",
-  "title": "To your flight with Rail&Fly | Lufthansa",
+  "timestamp": "2026-10-22T20:16:35.068Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

@@ -22,3 +22,17 @@
 2026-10-22T19:50Z re-import chunk | info: 40/40 (596 left) {"de/en":40} | upload: pending (after all imports) | problems: none
 2026-10-22T19:52Z re-import chunk | info: 40/40 (556 left) {"de/en":40} | upload: pending (after all imports) | problems: none
 2026-10-22T19:54Z re-import chunk | info: 40/40 (516 left) {"de/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T19:55Z re-import chunk | info: 40/40 (476 left) {"de/en":21,"de/de":19} | upload: pending (after all imports) | problems: none
+2026-10-22T19:57Z re-import chunk | info: 40/40 (436 left) {"de/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T19:59Z re-import chunk | info: 40/40 (396 left) {"de/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:01Z re-import chunk | info: 40/40 (356 left) {"de/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:03Z re-import chunk | info: 40/40 (316 left) {"de/de":18,"at/de":22} | upload: pending (after all imports) | problems: none
+2026-10-22T20:05Z re-import chunk | info: 40/40 (276 left) {"at/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:07Z re-import chunk | info: 40/40 (236 left) {"at/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:09Z re-import chunk | info: 40/40 (196 left) {"at/de":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:10Z re-import chunk | info: 40/40 (156 left) {"at/de":27,"gb/en":13} | upload: pending (after all imports) | problems: none
+2026-10-22T20:12Z re-import chunk | info: 40/40 (116 left) {"gb/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:14Z re-import chunk | info: 40/40 (76 left) {"gb/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:16Z re-import chunk | info: 40/40 (36 left) {"gb/en":40} | upload: pending (after all imports) | problems: none
+2026-10-22T20:18Z re-import chunk | info: 36/36 (0 left) {"gb/en":36} | upload: pending (after all imports) | problems: none
+2026-10-22T20:23Z re-import complete | all templates 1279/1279 {de/en 293, de/de 293, at/de 293, gb/en 293, aircore 107}, 0 failed | postprocess-media --all: 1321 documents, 162 changed, 23 SVG rasterized, 135 resized, 27 fragments, 0 failing | upload list: 1318 documents (12 locale docs, 1279 pages, 27 AirCore fragments) | problems: internet-overview now imports the heading as 'Entertainment {heading-small}' (B5 heading markers), so author-edits.json no longer matches; one transient NFS git I/O error at the 19:32 checkpoint (retry ok)

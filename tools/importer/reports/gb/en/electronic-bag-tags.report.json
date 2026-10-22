@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/electronic-bag-tags",
   "path": "gb/en/electronic-bag-tags",
-  "timestamp": "2026-10-22T10:28:26.844Z",
-  "title": "Electronic bag tags | Lufthansa",
+  "timestamp": "2026-10-22T20:13:01.033Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media"
   ]
 }

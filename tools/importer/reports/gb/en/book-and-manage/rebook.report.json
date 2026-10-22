@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/book-and-manage/rebook",
   "path": "gb/en/book-and-manage/rebook",
-  "timestamp": "2026-10-22T10:09:57.430Z",
-  "title": "Flight Rebooking | Lufthansa",
+  "timestamp": "2026-10-22T20:11:35.833Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

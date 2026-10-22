@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-terminal-muenchen",
   "path": "de/de/lufthansa-terminal-muenchen",
-  "timestamp": "2026-10-22T03:46:10.841Z",
-  "title": "Lufthansa am Flughafen München | Lufthansa",
+  "timestamp": "2026-10-22T19:59:02.751Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

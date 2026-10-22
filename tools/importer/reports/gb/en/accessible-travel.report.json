@@ -2,12 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/accessible-travel",
   "path": "gb/en/accessible-travel",
-  "timestamp": "2026-10-22T10:02:02.059Z",
-  "title": "Accessible travel | Lufthansa",
+  "timestamp": "2026-10-22T20:10:15.988Z",
+  "title": "",
   "template": "info",
   "blocks": [
     "carousel-cards",
     "carousel-cards",
-    "carousel-cards"
+    "carousel-cards",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-aviation-group",
   "path": "de/de/lufthansa-aviation-group",
-  "timestamp": "2026-10-22T03:38:04.165Z",
-  "title": "Lufthansa Aviation Group | Lufthansa",
+  "timestamp": "2026-10-22T19:58:42.270Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

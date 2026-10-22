@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing",
   "path": "de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing",
-  "timestamp": "2026-10-22T04:03:58.939Z",
-  "title": "Lufthansa Express Bus – Leitfaden für Ihre Reise | Lufthansa",
+  "timestamp": "2026-10-22T20:00:02.282Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

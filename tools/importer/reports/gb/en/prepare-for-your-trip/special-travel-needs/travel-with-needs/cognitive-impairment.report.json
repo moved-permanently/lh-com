@@ -2,8 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
   "path": "gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
-  "timestamp": "2026-10-22T11:17:45.942Z",
-  "title": "Cognitive impairments | Lufthansa",
+  "timestamp": "2026-10-22T20:16:14.404Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

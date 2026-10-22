@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
   "path": "de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
-  "timestamp": "2026-10-22T03:55:10.859Z",
-  "title": "Verspätetes Gepäck LHG | Lufthansa",
+  "timestamp": "2026-10-22T19:59:44.677Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

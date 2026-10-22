@@ -2,8 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/shopping",
   "path": "at/de/shopping",
-  "timestamp": "2026-10-22T08:02:42.069Z",
-  "title": "Shopping: Bordverkauf, Worldshop und Airport Stores | Lufthansa",
+  "timestamp": "2026-10-22T20:08:48.671Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

@@ -2,8 +2,23 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/business-class",
   "path": "at/de/business-class",
-  "timestamp": "2026-10-22T06:56:32.734Z",
-  "title": "Business Class | Lufthansa",
+  "timestamp": "2026-10-22T20:03:41.632Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

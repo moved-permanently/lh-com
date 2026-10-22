@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/mit-kindern-am-flughafen",
   "path": "at/de/mit-kindern-am-flughafen",
-  "timestamp": "2026-10-22T08:21:05.367Z",
-  "title": "Mit Kindern am Flughafen | Lufthansa",
+  "timestamp": "2026-10-22T20:10:13.667Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

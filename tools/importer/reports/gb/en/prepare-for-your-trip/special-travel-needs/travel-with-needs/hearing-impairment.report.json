@@ -2,8 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
   "path": "gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
-  "timestamp": "2026-10-22T11:17:48.964Z",
-  "title": "Hearing impairments | Lufthansa",
+  "timestamp": "2026-10-22T20:16:17.362Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

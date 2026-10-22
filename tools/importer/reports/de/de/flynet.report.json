@@ -2,10 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/flynet",
   "path": "de/de/flynet",
-  "timestamp": "2026-10-22T03:28:55.077Z",
+  "timestamp": "2026-10-22T19:57:59.832Z",
   "title": "FlyNet® an Bord | Lufthansa",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "hero-campaign",
+    "hero-campaign",
+    "accordion-columns",
+    "columns-media",
+    "columns-media"
   ]
 }

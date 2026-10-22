@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/upgrade-in-die-premium-economy-class",
   "path": "de/de/upgrade-in-die-premium-economy-class",
-  "timestamp": "2026-10-22T04:30:57.259Z",
-  "title": "Premium Economy Class - Ihre Upgrademöglichkeiten | Lufthansa",
+  "timestamp": "2026-10-22T20:02:05.863Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

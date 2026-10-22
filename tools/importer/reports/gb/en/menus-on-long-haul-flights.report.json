@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/menus-on-long-haul-flights",
   "path": "gb/en/menus-on-long-haul-flights",
-  "timestamp": "2026-10-22T10:55:00.324Z",
-  "title": "Menus on long-haul flights | Lufthansa",
+  "timestamp": "2026-10-22T20:15:16.428Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

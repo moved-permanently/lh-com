@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/travelling-with-children/planning-with-kids",
   "path": "at/de/prepare-for-your-trip/travelling-with-children/planning-with-kids",
-  "timestamp": "2026-10-22T07:54:05.220Z",
-  "title": "Reiseplanung mit Kindern | Lufthansa",
+  "timestamp": "2026-10-22T20:08:24.132Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

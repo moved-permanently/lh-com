@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/traveltricks",
   "path": "de/de/traveltricks",
-  "timestamp": "2026-10-22T04:22:16.728Z",
-  "title": "Lufthansa Traveltricks | Lufthansa",
+  "timestamp": "2026-10-22T20:01:43.033Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

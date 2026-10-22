@@ -2367,6 +2367,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:46:33.837Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/homepage/main-stage/LH_FOX26_ECO_04_CULINARY_Menu-Card_1920x1080.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/69171d2f7224fe6073e52c8476cb286a.jpg",
+  "format": "jpeg",
+  "bytes": 423942,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T20:21:19.668Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/all-check-in/check-in-baggage/image-2026-02-11-12-37-48-489.jpg": {
   "status": 200,
   "version": 1,

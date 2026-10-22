@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/hotelangebote",
   "path": "de/de/hotelangebote",
-  "timestamp": "2026-10-22T03:29:17.459Z",
-  "title": "Hotelangebote | Lufthansa",
+  "timestamp": "2026-10-22T19:58:22.409Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

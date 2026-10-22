@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/gruppenreisen-und-charter",
   "path": "at/de/gruppenreisen-und-charter",
-  "timestamp": "2026-10-22T07:23:38.519Z",
-  "title": "Gruppenreisen & Lufthansa Charter | Lufthansa",
+  "timestamp": "2026-10-22T20:06:05.427Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

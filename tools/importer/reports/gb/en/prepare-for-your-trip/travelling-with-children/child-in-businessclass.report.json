@@ -2,8 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
   "path": "gb/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
-  "timestamp": "2026-10-22T11:17:58.915Z",
+  "timestamp": "2026-10-22T20:16:28.974Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

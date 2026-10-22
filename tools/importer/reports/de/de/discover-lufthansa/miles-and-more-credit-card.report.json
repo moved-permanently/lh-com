@@ -2,10 +2,18 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/discover-lufthansa/miles-and-more-credit-card",
   "path": "de/de/discover-lufthansa/miles-and-more-credit-card",
-  "timestamp": "2026-10-22T03:11:23.717Z",
-  "title": "Miles & More Credit Card | Lufthansa",
+  "timestamp": "2026-10-22T19:56:59.690Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "hero-campaign",
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

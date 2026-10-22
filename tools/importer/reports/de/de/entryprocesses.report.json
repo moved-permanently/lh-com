@@ -2,10 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/entryprocesses",
   "path": "de/de/entryprocesses",
-  "timestamp": "2026-10-22T03:11:33.799Z",
-  "title": "Einreisebestimmungen | Lufthansa",
+  "timestamp": "2026-10-22T19:57:09.937Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

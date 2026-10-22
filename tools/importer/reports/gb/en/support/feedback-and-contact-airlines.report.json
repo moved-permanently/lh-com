@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/support/feedback-and-contact-airlines",
   "path": "gb/en/support/feedback-and-contact-airlines",
-  "timestamp": "2026-10-22T11:26:44.590Z",
+  "timestamp": "2026-10-22T20:17:26.797Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

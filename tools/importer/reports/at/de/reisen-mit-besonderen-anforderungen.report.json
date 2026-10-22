@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/reisen-mit-besonderen-anforderungen",
   "path": "at/de/reisen-mit-besonderen-anforderungen",
-  "timestamp": "2026-10-22T08:20:28.167Z",
-  "title": "Reisen mit besonderen Anforderungen | Lufthansa",
+  "timestamp": "2026-10-22T20:09:38.385Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

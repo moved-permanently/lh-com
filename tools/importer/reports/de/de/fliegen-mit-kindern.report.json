@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/fliegen-mit-kindern",
   "path": "de/de/fliegen-mit-kindern",
-  "timestamp": "2026-10-22T04:22:11.602Z",
-  "title": "Fliegen mit Kindern: Tipps und Infos | Lufthansa | Lufthansa",
+  "timestamp": "2026-10-22T20:01:38.685Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

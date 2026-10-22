@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/cancellations-and-refunds",
   "path": "gb/en/cancellations-and-refunds",
-  "timestamp": "2026-10-22T10:18:50.943Z",
+  "timestamp": "2026-10-22T20:11:50.532Z",
   "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media"
   ]
 }

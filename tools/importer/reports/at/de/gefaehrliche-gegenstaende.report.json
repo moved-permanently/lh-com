@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/gefaehrliche-gegenstaende",
   "path": "at/de/gefaehrliche-gegenstaende",
-  "timestamp": "2026-10-22T07:23:31.593Z",
-  "title": "Gefährliche Gegenstände | Lufthansa",
+  "timestamp": "2026-10-22T20:05:58.050Z",
+  "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
-    "carousel-cards"
+    "carousel-cards",
+    "columns-media"
   ]
 }

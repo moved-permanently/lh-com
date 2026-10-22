@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/during-your-trip/internet-overview",
   "path": "de/de/during-your-trip/internet-overview",
-  "timestamp": "2026-10-22T03:11:25.559Z",
+  "timestamp": "2026-10-22T19:57:01.894Z",
   "title": "Internet | Lufthansa",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

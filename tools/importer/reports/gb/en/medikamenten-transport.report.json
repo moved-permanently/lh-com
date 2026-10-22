@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/medikamenten-transport",
   "path": "gb/en/medikamenten-transport",
-  "timestamp": "2026-10-22T10:54:53.562Z",
-  "title": "Always at the right temperature | Lufthansa",
+  "timestamp": "2026-10-22T20:15:08.710Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }

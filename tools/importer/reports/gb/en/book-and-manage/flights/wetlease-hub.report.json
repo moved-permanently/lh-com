@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/book-and-manage/flights/wetlease-hub",
   "path": "gb/en/book-and-manage/flights/wetlease-hub",
-  "timestamp": "2026-10-22T10:09:50.440Z",
+  "timestamp": "2026-10-22T20:11:28.409Z",
   "title": "Wet lease flights | Lufthansa",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "columns-media"
+  ]
 }

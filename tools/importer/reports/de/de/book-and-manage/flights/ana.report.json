@@ -2,10 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/book-and-manage/flights/ana",
   "path": "de/de/book-and-manage/flights/ana",
-  "timestamp": "2026-10-22T02:47:47.963Z",
-  "title": "ANA | Lufthansa",
+  "timestamp": "2026-10-22T19:55:38.230Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

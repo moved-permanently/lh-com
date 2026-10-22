@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/lufthansa-at-berlin-airport",
   "path": "gb/en/lufthansa-at-berlin-airport",
-  "timestamp": "2026-10-22T10:45:32.601Z",
-  "title": "Lufthansa at Berlin Brandenburg Airport | Lufthansa",
+  "timestamp": "2026-10-22T20:14:20.793Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

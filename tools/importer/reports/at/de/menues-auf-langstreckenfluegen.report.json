@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/menues-auf-langstreckenfluegen",
   "path": "at/de/menues-auf-langstreckenfluegen",
-  "timestamp": "2026-10-22T07:46:02.393Z",
-  "title": "Menüs auf Langstreckenflügen | Lufthansa",
+  "timestamp": "2026-10-22T20:07:12.997Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
 }

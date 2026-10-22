@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/support/feedback-and-contact-airlines",
   "path": "de/de/support/feedback-and-contact-airlines",
-  "timestamp": "2026-10-22T04:13:32.395Z",
-  "title": "Kontakt- und Feedback-Portal | Lufthansa",
+  "timestamp": "2026-10-22T20:01:03.431Z",
+  "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
 }
