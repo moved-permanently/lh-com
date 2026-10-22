@@ -111,6 +111,68 @@ main > .section > .hero-card-overlay-wrapper {
   color: var(--lh-deepblue);
 }
 
+/* conditions: maui-link-button.termsandcondition (variant dialog, navigational, inverted; 1.4rem
+   bold, dialog icon) below the CTA; the live dialog opens here as a disclosure. 18px below the
+   CTA (live gb/en: button bottom 657, link box from 675) */
+.hero-card-overlay .hero-card-overlay-card p:has(+ .hero-card-overlay-conditions) {
+  margin-bottom: 0;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions {
+  margin-top: 18px;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lh-grey-2);
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions summary::-webkit-details-marker {
+  display: none;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions summary::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M9 3h12v12H9zM15 15v6H3V9h6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions summary:hover {
+  color: var(--lh-white);
+  text-decoration: underline;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions summary:focus-visible {
+  border-radius: var(--radius-s);
+  outline: 2px solid var(--lh-white);
+  outline-offset: 2px;
+}
+
+.hero-card-overlay .hero-card-overlay-conditions-text {
+  margin-top: 12px;
+}
+
+.hero-card-overlay .hero-card-overlay-card .hero-card-overlay-conditions-text p {
+  margin: 0 0 8px;
+}
+
+/* no-mobile-image: promotionTeaser displayImageOnMobile false, the card alone below 768px */
+@media (width < 768px) {
+  .hero-card-overlay.no-mobile-image .hero-card-overlay-media {
+    display: none;
+  }
+}
+
 @media (width >= 768px) {
   .hero-card-overlay .hero-card-overlay-media {
     aspect-ratio: 21 / 9;
@@ -141,6 +203,12 @@ main > .section > .hero-card-overlay-wrapper {
 
   .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
     margin-bottom: 30px;
+  }
+
+  /* right variant: .mst-card.align-self-end (promotionTeaser alignment "right") */
+  .hero-card-overlay.right .hero-card-overlay-card {
+    margin-right: max(var(--layout-margin), calc((100% - 1264px) / 2));
+    margin-left: auto;
   }
 
   .hero-card-overlay.hero-card-overlay-no-image {

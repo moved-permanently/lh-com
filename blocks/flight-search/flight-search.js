@@ -216,7 +216,7 @@ const DEFAULT_LABELS = {
   en: {
     'from label': 'From',
     'to label': 'To',
-    'submit label': 'Search flights',
+    'submit label': 'Find flights',
     'date label': 'Departure - Return',
     'one way date label': 'Departure',
     'date error': 'Please provide travel date(s)',
@@ -276,6 +276,27 @@ function dateLabels(labels, config) {
     departure: authored('departure-label') || (parts.length === 2 ? parts[0] : labels['departure label']),
     return: authored('return-label') || (parts.length === 2 ? parts[1] : labels['return label']),
   };
+}
+
+/**
+ * Like the live flight manager, a chosen airport shows its name only ("Frankfurt", the code is
+ * the field's value); airports without a name (a typed code) show the code. The combobox writes
+ * "Name (CODE)": rewritten after every change and after its blur handler.
+ * @param {{input: HTMLInputElement, getValue: function, setValue: function}} combobox
+ */
+function showAirportNames(combobox) {
+  const show = () => {
+    const airport = combobox.getValue();
+    if (airport && airport.name) combobox.input.value = airport.name;
+  };
+  const { setValue } = combobox;
+  combobox.setValue = (airport, options) => {
+    setValue(airport, options);
+    show();
+  };
+  combobox.input.addEventListener('blur', show);
+  show();
+  return show;
 }
 
 /**
@@ -378,12 +399,17 @@ export default function decorate(block) {
   // fields row: origin, swap, destination, dates, submit
   const fields = el('div', 'flight-search-fields');
   let originTouched = false;
+  // set below: the name-only display of each field (showAirportNames)
+  const shown = {};
   const origin = createAirportCombobox({
     label: text('origin-label', 'from') || labels['from label'],
     name: 'origin',
     value: settings.origin || { code: settings.fallbackOrigin, name: '' },
     fetchSuggestions: (term) => suggest(term),
-    onChange: () => { originTouched = true; },
+    onChange: () => {
+      originTouched = true;
+      if (shown.origin) shown.origin();
+    },
     noResultsLabel: labels['no results label'],
   });
   origin.element.classList.add('flight-search-origin');
@@ -392,9 +418,12 @@ export default function decorate(block) {
     name: 'destination',
     value: settings.destination,
     fetchSuggestions: (term) => suggest(term),
+    onChange: () => { if (shown.destination) shown.destination(); },
     noResultsLabel: labels['no results label'],
   });
   destination.element.classList.add('flight-search-destination');
+  shown.origin = showAirportNames(origin);
+  shown.destination = showAirportNames(destination);
   if (!text('origin-label', 'from')) {
     bind((l) => { origin.element.querySelector('label').textContent = l['from label']; });
   }

@@ -25,6 +25,12 @@ import { markSource } from '../../scripts/lh-data.js';
 const TRIP_TYPE_CODES = ['RETURN', 'ONEWAY'];
 
 /**
+ * Destinations the slider shows: the live component lists the first 15 offers of the service's
+ * answer (27 recorded) and then the finder card (homepages de/en, de/de, at/de, gb/en).
+ */
+const MAX_DESTINATIONS = 15;
+
+/**
  * Settings of an authored block (the live component's data-dcep: preselectedOrigin,
  * isOneWayDefault, airlineWhitelistingEnabled; TripDuration of its links).
  * @param {Object} config result of readConfigRows
@@ -147,6 +153,8 @@ const DEFAULT_LABELS = {
     'previous label': 'Previous',
     'next label': 'Next',
     'no results label': 'No matching airports',
+    // live: labels/common common.user.disclaimerandconditions.linktext
+    'conditions label': 'Conditions',
   },
   de: {
     heading: 'Flugangebote ab',
@@ -158,6 +166,7 @@ const DEFAULT_LABELS = {
     'previous label': 'Zurück',
     'next label': 'Weiter',
     'no results label': 'Keine passenden Flughäfen',
+    'conditions label': 'Konditionen',
   },
 };
 
@@ -227,9 +236,11 @@ function decorateConditions(conditions) {
 
 /**
  * Disclaimer and conditions from catalogs/conditions where the author left them out (or
- * authored only the conditions title).
+ * authored only the conditions title). Untitled conditions get the title (the slider's live
+ * link reads "Conditions"/"Konditionen"; the grid's the catalog headline "General Conditions").
+ * @param {string} [title] disclosure title; default: the catalog's conditionsHeadline
  */
-function fillNotes(footer, notes, conditionsData) {
+function fillNotes(footer, notes, conditionsData, title) {
   if (!notes.querySelector('.destination-finder-disclaimer') && conditionsData.footerText) {
     const disclaimer = el('div', 'destination-finder-disclaimer');
     disclaimer.append(el('p', '', conditionsData.footerText));
@@ -238,14 +249,14 @@ function fillNotes(footer, notes, conditionsData) {
   let conditions = notes.querySelector('.destination-finder-conditions');
   const paragraphs = htmlToParagraphs(conditionsData.html);
   if (paragraphs.length && (!conditions || !conditions.querySelector('details'))) {
-    const title = conditions ? conditions.textContent.trim() : '';
-    if (title.length <= 60) {
+    const authored = conditions ? conditions.textContent.trim() : '';
+    if (authored.length <= 60) {
       if (!conditions) {
         conditions = el('div', 'destination-finder-conditions');
         notes.append(conditions);
       }
       const titleEl = el('p');
-      titleEl.append(el('strong', '', title || conditionsData.headline));
+      titleEl.append(el('strong', '', authored || title || conditionsData.headline));
       conditions.replaceChildren(titleEl, ...paragraphs);
       decorateConditions(conditions);
     }
@@ -1376,7 +1387,7 @@ export default function decorate(block) {
 
   // origin cities of the market name the origin and are what the picker offers
   contextPromise.then((context) => {
-    fillNotes(footer, notes, context.conditions);
+    fillNotes(footer, notes, context.conditions, labels['conditions label']);
     const city = findOrigin(context.origins, state.origin.code);
     if (city && !state.origin.name) {
       state.origin.name = city.name;
@@ -1395,9 +1406,10 @@ export default function decorate(block) {
     if (mine !== requestId) return;
     markSource(block, { offers: source, ...context.sources }, ['offers']);
     const hasDisclaimer = Boolean(disclaimer || context.conditions.footerText);
-    const items = destinations.map((d) => renderDestination(d, state, labels, locale, {
-      localeData: context.localeData, hasDisclaimer,
-    }));
+    const items = destinations.slice(0, MAX_DESTINATIONS)
+      .map((d) => renderDestination(d, state, labels, locale, {
+        localeData: context.localeData, hasDisclaimer,
+      }));
     if (finderItem) items.push(finderItem);
     list.replaceChildren(...items);
     list.scrollLeft = 0;

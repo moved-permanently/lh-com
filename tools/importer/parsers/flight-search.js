@@ -12,14 +12,14 @@
  *
  * Source (prerendered React):
  *   .tab-nav .tab-link                         -> Tabs
- *   .triptype-dropdown-wrapper button          -> Trip types / Default trip type
+ *   .triptype-dropdown-wrapper button          -> Trip types (rendered options, else the selected
+ *                                                 one) / Default trip type
  *   .travel-details-opener                     -> Traveller label
  *   .btn-nonstop-only .custom-control-description -> Nonstop label
- *   .autocomplete-airport label (1st / 2nd)    -> From label / To label
  *   origin input value or data-dcep.prefilledOrigin (only when it contains an IATA code)
- *   .date-input maui-input[label|errormessage] -> Date label / Date error
- *   maui-button (submit)                       -> Submit label
  *   .flma-where-we-fly-wrapper link            -> Where we fly
+ * Not authored: From/To/Date/Submit labels and the date error (the snapshot shows the built-in
+ * texts, the live site and the block use labels/flightmanager and labels/common).
  */
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
@@ -119,20 +119,16 @@ export default function parse(element, { document }) {
   addRow('Tabs', [...new Set(tabs)].join(', '));
 
   // Trip types: selected value from the dropdown button, further options from the menu if rendered.
+  // The menu is rendered on demand: then only the selected type is authored and the block names
+  // the one-way option with the live label (flightmanager.flight.tripType.oneway.label, "One-way",
+  // "Einfacher Flug"); the destination finder's chips ("One way", "Nur Hinflug") are other labels.
   const tripWrapper = element.querySelector('.triptype-dropdown-wrapper');
   const tripButton = tripWrapper && tripWrapper.querySelector('button.dropdown-button, button');
   const selectedTrip = visibleText(tripButton && (tripButton.querySelector('.dropdown-content') || tripButton));
   let tripTypes = tripWrapper
     ? [...tripWrapper.querySelectorAll('ul li, [role="option"]')].map(visibleText).filter(Boolean)
     : [];
-  if (!tripTypes.length && selectedTrip) {
-    // The menu is rendered on demand; the same trip type labels are used by the trip-type chips
-    // of other flight components on the page (e.g. the destination finder).
-    const chips = [...document.querySelectorAll('maui-chip-list')]
-      .map((list) => [...list.querySelectorAll('maui-chip')].map((c) => attr(c, 'label') || visibleText(c)).filter(Boolean))
-      .find((labels) => labels.length >= 2 && labels[0].toLowerCase() === selectedTrip.toLowerCase());
-    tripTypes = chips ? chips.slice(0, 2) : [selectedTrip];
-  }
+  if (!tripTypes.length && selectedTrip) tripTypes = [selectedTrip];
   addRow('Trip types', [...new Set(tripTypes)].join(', '));
   if (tripTypes.length > 1) addRow('Default trip type', selectedTrip);
 
@@ -143,27 +139,15 @@ export default function parse(element, { document }) {
   const airportFields = [...element.querySelectorAll('.autocomplete-airport')];
   const originField = element.querySelector('.retracted-field-origin .autocomplete-airport') || airportFields[0];
   const destinationField = airportFields.find((f) => f !== originField);
-  const fieldLabel = (field) => {
-    if (!field) return '';
-    const input = field.querySelector('input:not([type="hidden"])');
-    return visibleText(field.querySelector('label')) || attr(input, 'placeholder');
-  };
   const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), 'value');
   const withCode = (value) => (/\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : '');
 
-  addRow('From label', fieldLabel(originField));
+  // The field, date and submit labels are not authored: the rendered snapshot shows the flight
+  // manager's built-in texts ("Search flights", "Departure - return"), which the live site
+  // replaces with labels/flightmanager and labels/common once they load ("Find flights",
+  // "Departure - Return"); the block loads the same labels (its rows would override them).
   addRow('Default origin', withCode(clean(props.prefilledOrigin)) || withCode(fieldValue(originField)));
-  addRow('To label', fieldLabel(destinationField));
   addRow('Default destination', withCode(clean(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
-
-  // Dates.
-  const dateInput = element.querySelector('.date-input maui-input, .date-input input, maui-input[id*="travelDatetime"]');
-  addRow('Date label', attr(dateInput, 'label') || attr(dateInput, 'placeholder'));
-  addRow('Date error', attr(dateInput, 'errormessage'));
-
-  // Submit.
-  const submit = element.querySelector('maui-button[behavior="submit"], form maui-button, form button[type="submit"]');
-  addRow('Submit label', visibleText(submit));
 
   // Cabin preset (authored on the source component, empty on most pages).
   if (/^[A-Za-z]$/.test(clean(props.prefilledCabinClass))) addRow('Cabin', clean(props.prefilledCabinClass).toUpperCase());
