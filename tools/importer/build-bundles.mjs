@@ -6,6 +6,7 @@
  * renames the result over tools/importer/import-<template>.bundle.js.
  *
  * Usage: node tools/importer/build-bundles.mjs [<template> ...]   (default: every template)
+ *        AEM_IMPORT_HELPER=/path/to/aem-import-helper node tools/importer/build-bundles.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,7 +26,10 @@ names.forEach((name) => {
   try {
     execFileSync('node', [path.join(dir, 'build-import-script.js'), name], { cwd: root, stdio: 'pipe' });
     fs.copyFileSync(path.join(dir, `import-${name}.js`), tmpJs);
-    execFileSync('npx', ['--offline', '@adobe/aem-import-helper', 'bundle', '--importjs', path.relative(root, tmpJs)], {
+    // AEM_IMPORT_HELPER: path of an installed aem-import-helper binary when the npx cache has none
+    const helper = process.env.AEM_IMPORT_HELPER;
+    const [cmd, pre] = helper ? [helper, []] : ['npx', ['--offline', '@adobe/aem-import-helper']];
+    execFileSync(cmd, [...pre, 'bundle', '--importjs', path.relative(root, tmpJs)], {
       cwd: root, stdio: 'pipe', timeout: 300000,
     });
     const code = fs.readFileSync(tmpBundle, 'utf8').split(`${tmpBase}.js`).join(`import-${name}.js`);

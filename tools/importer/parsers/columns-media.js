@@ -121,6 +121,14 @@ export default function parse(element, { document }) {
     return p;
   };
 
+  // the Lufthansa size class (heading-medium, ...) of a rebuilt heading; the cleanup turns it
+  // into a "{heading-medium}" marker when it differs from the level's size
+  const keepHeadingStyle = (from, to) => {
+    if (!from || !/^H[1-6]$/.test(to.tagName)) return;
+    const style = [...from.classList].find((c) => /^heading-/.test(c));
+    if (style) to.className = style;
+  };
+
   const headingFrom = (scope) => {
     const h = scope.querySelector('h1, h2, h3, h4, h5, h6');
     const text = visibleText(h || scope);
@@ -129,6 +137,7 @@ export default function parse(element, { document }) {
     const isLabel = h && /(^|\s)copytext/.test(h.getAttribute('class') || '');
     const out = document.createElement(h && !isLabel ? h.tagName.toLowerCase() : 'p');
     out.textContent = text;
+    keepHeadingStyle(h, out);
     return out;
   };
 
@@ -227,6 +236,7 @@ export default function parse(element, { document }) {
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
         out.textContent = t;
+        keepHeadingStyle(h, out);
         titles.push(out);
       });
     });

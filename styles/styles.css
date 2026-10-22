@@ -222,6 +222,55 @@ h6 {
   font-size: var(--heading-font-size-s);
 }
 
+/* heading styles by class (.heading-large etc. in app.css), independent of the level; set from
+   the "{heading-medium}" markers authors put at the end of a heading (scripts.js). They also win
+   over block heading rules: the marker is an explicit choice. */
+main :is(h1, h2, h3, h4, h5, h6).heading-large {
+  margin-bottom: var(--heading-margin-xxl);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+}
+
+main :is(h1, h2, h3, h4, h5, h6).heading-medium {
+  margin-bottom: var(--heading-margin-xl);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 300;
+}
+
+main :is(h1, h2, h3, h4, h5, h6).heading-small {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+}
+
+main :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
+  margin-bottom: var(--spacing-default);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+main :is(h1, h2, h3, h4, h5, h6).heading-copytext-medium {
+  margin-bottom: 18px;
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+}
+
+/* .copytext-large on a heading: reads as body text */
+main :is(h1, h2, h3, h4, h5, h6).copytext-large {
+  margin-bottom: var(--spacing-default);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: var(--body-line-height);
+}
+
+/* pages with the digital assistant (metadata "Theme: digital-assistant"): its stylesheet
+   (/digitalassistant/support/Styles/lh.css) maps LufthansaHead 400 to LufthansaHeadWeb-Bold
+   and overrides the Light face, so light head-font text (300/400) draws bold there */
+body.digital-assistant {
+  --heading-font-family: lufthansahead-digital-assistant, lufthansahead-fallback, arial, helvetica, sans-serif;
+}
+
 /*
  * AirCore pages (/lhg/..., body.aircore): AirCore's own base typography (inline CSS of the
  * AirCore pages, html { font-size: 62.5% }): body { font-size: 1.8rem; font-weight: 300;

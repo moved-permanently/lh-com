@@ -51,3 +51,15 @@
     url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff2') format('woff2'),
     url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff') format('woff');
 }
+
+/* body.digital-assistant (styles.css): LufthansaHead as the digital assistant stylesheet leaves
+   it on those pages, Bold for every weight */
+@font-face {
+  font-family: lufthansahead-digital-assistant;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src:
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff2') format('woff2'),
+    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff') format('woff');
+}

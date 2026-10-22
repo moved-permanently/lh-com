@@ -14,6 +14,12 @@
   {
     "block": "breadcrumb",
     "change": "Parent links regular (400) instead of bold; 7x10px chevrons, 8px/6px to the texts (1440: chevron ink 134-139 vs live 134-140, current 151 = live); below 1025px only the parent (768: text at x30 = live, no chevron), below 768px back link with left chevron 5px in, text at x49 (live 49, was 43); AirCore: deep blue 300 links, full trail from 768px, mobile parent flush at x22 (live 22, was 48) with the arrow after it.",
+    "commit": "1db46e1",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Heading sizes by Lufthansa class: importer (cleanup afterTransform; columns-media keeps the class of rebuilt headings) appends a '{heading-medium}' style marker when the class differs from the level default (h1 large, h2 medium, h3/h4 copytext-large, h5/h6 copytext-medium); scripts.js turns it into the class and strips it from text and id; styles.css .heading-large 48/700, -medium 36/300, -small 28/300, -copytext-large 24/700, -copytext-medium 18/700, .copytext-large body text. Pages loading the digital assistant stylesheet (lh.css maps LufthansaHead 400 to HeadWeb-Bold) get metadata Theme: digital-assistant -> body.digital-assistant uses a Bold-only head face (136 snapshots, e.g. baggage, accessible-travel, kinder-an-bord). Verified: feedback h3s 36/300 (were 24/700), accessible-travel h2 bold like live; markers in test imports of chronicle (1970/1977/2006/2014, 'Together...' heading-large), imprint, boeing787, my-bookings, fluege, new-onboard-experience. README 'Authoring conventions'. Needs re-import (all AEM templates).",
     "commit": "pending",
     "date": "2026-10-22"
   }

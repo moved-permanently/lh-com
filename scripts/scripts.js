@@ -173,6 +173,28 @@ function decorateSectionMetadata(main) {
   });
 }
 
+const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
+
+/**
+ * Heading size markers: "Ticket refunds {heading-medium}" renders as
+ * <h3 class="heading-medium">Ticket refunds</h3> (Lufthansa sizes headings by class, not by
+ * level; see README "Heading styles"). The marker is removed from the text and from the id the
+ * backend derived from it.
+ * @param {Element} main The container element
+ */
+function decorateHeadingStyles(main) {
+  main.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
+    const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+    let last = null;
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+    const match = last && last.nodeValue.match(HEADING_STYLE);
+    if (!match) return;
+    last.nodeValue = last.nodeValue.slice(0, match.index);
+    h.classList.add(match[1]);
+    if (h.id.endsWith(`-${match[1]}`)) h.id = h.id.slice(0, -match[1].length - 1);
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -180,6 +202,7 @@ function decorateSectionMetadata(main) {
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
+  decorateHeadingStyles(main);
   buildAutoBlocks(main);
   decorateSectionMetadata(main);
   decorateSections(main);

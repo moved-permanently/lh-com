@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_165041_exports = {};
-  __export(tmp_bundle_info_165041_exports, {
-    default: () => tmp_bundle_info_165041_default
+  var tmp_bundle_info_22043_exports = {};
+  __export(tmp_bundle_info_22043_exports, {
+    default: () => tmp_bundle_info_22043_default
   });
 
   // tools/importer/parsers/accordion-columns.js
@@ -898,6 +898,70 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var HEADING_STYLES = ["heading-large", "heading-medium", "heading-small", "heading-copytext-large", "heading-copytext-medium", "copytext-large"];
+  var HEADING_DEFAULTS = {
+    H1: "heading-large",
+    H2: "heading-medium",
+    H3: "heading-copytext-large",
+    H4: "heading-copytext-large",
+    H5: "heading-copytext-medium",
+    H6: "heading-copytext-medium"
+  };
+  function markHeadingStyles(document) {
+    let marked = 0;
+    document.querySelectorAll(HEADING).forEach((h) => {
+      const style = HEADING_STYLES.find((c) => h.classList.contains(c));
+      if (!style || style === HEADING_DEFAULTS[h.tagName] || !cleanText(h) || /\{[a-z-]+\}\s*$/.test(h.textContent)) return;
+      h.append(document.createTextNode(` {${style}}`));
+      marked += 1;
+    });
+    return marked;
+  }
+  var THEME_ATTR = "data-lh-import-theme";
+  function detectTheme(document) {
+    if (document.querySelector('link[href*="/digitalassistant/"][href$=".css"]')) {
+      document.documentElement.setAttribute(THEME_ATTR, "digital-assistant");
+    }
+  }
+  function addThemeMetadata(document) {
+    const theme = document.documentElement.getAttribute(THEME_ATTR);
+    if (!theme) return;
+    document.documentElement.removeAttribute(THEME_ATTR);
+    const existing = [...document.querySelectorAll("table")].find((t) => {
+      const first = t.querySelector("tr");
+      return first && cleanText(first) === "Metadata";
+    });
+    if (existing) {
+      const tr = document.createElement("tr");
+      ["Theme", theme].forEach((v) => {
+        const td = document.createElement("td");
+        td.textContent = v;
+        tr.append(td);
+      });
+      (existing.querySelector("tbody") || existing).append(tr);
+      return;
+    }
+    const meta = WebImporter.Blocks.getMetadata(document);
+    meta.Theme = theme;
+    const head = document.head;
+    if (head) {
+      [
+        "description",
+        "og:image",
+        "og:image:alt",
+        "og:title",
+        "og:description",
+        "twitter:title",
+        "twitter:description",
+        "twitter:image",
+        "twitter:image:alt"
+      ].forEach((n) => {
+        head.querySelectorAll(`meta[name="${n}"], meta[property="${n}"]`).forEach((m) => m.remove());
+      });
+      head.querySelectorAll("title").forEach((t) => t.remove());
+    }
+    document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
+  }
   function removeOverlays(document) {
     document.querySelectorAll('maui-modal, .react-modal, .modal, .lightbox-modal, [role="dialog"]').forEach((m) => {
       if (m.isConnected && !m.closest(".container-content")) m.remove();
@@ -915,6 +979,7 @@ var CustomImportScript = (() => {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
       const pagePath = currentPagePath(document, payload);
+      detectTheme(document);
       convertBreadcrumbs(document);
       removeAll(document, CHROME_SELECTORS);
       removeAirCoreLeftovers(document);
@@ -934,6 +999,8 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
+      markHeadingStyles(document);
+      addThemeMetadata(document);
     }
   }
 
@@ -1099,7 +1166,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_165041_default = {
+  var tmp_bundle_info_22043_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1129,5 +1196,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_165041_exports);
+  return __toCommonJS(tmp_bundle_info_22043_exports);
 })();
