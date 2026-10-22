@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/assistenzhunde",
+  "path": "gb/en/assistenzhunde",
+  "timestamp": "2026-10-22T10:02:23.590Z",
+  "title": "Assistance dogs | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/carry-on-baggage",
+  "path": "gb/en/carry-on-baggage",
+  "timestamp": "2026-10-22T10:18:53.421Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

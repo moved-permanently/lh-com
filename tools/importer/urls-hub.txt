@@ -1,16 +1,1 @@
-https://www.lufthansa.com/gb/en/additional-services
-https://www.lufthansa.com/gb/en/airport-information
-https://www.lufthansa.com/gb/en/baggage
-https://www.lufthansa.com/gb/en/digital-self-services
-https://www.lufthansa.com/gb/en/flights
-https://www.lufthansa.com/gb/en/food-and-beverages
-https://www.lufthansa.com/gb/en/lounges
-https://www.lufthansa.com/gb/en/lufthansa-travel-classes
-https://www.lufthansa.com/gb/en/meetings-and-events
-https://www.lufthansa.com/gb/en/miles-and-more
-https://www.lufthansa.com/gb/en/overview-flights
-https://www.lufthansa.com/gb/en/overview-manage
-https://www.lufthansa.com/gb/en/overview-special-request
-https://www.lufthansa.com/gb/en/overview-travel-information
-https://www.lufthansa.com/gb/en/services-at-the-airport
-https://www.lufthansa.com/gb/en/services-on-board
+https://www.lufthansa.com/gb/en/special-needs

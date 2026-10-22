@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/advance-seat-reservation",
+  "path": "gb/en/advance-seat-reservation",
+  "timestamp": "2026-10-22T10:02:13.142Z",
+  "title": "Advance seat reservation | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

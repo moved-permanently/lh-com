@@ -4493,5 +4493,305 @@
   "template": "hub",
   "status": "ok",
   "at": "2026-10-22T09:52:54.912Z"
+ },
+ "https://www.lufthansa.com/gb/en/special-needs": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-22T10:01:58.170Z"
+ },
+ "https://www.lufthansa.com/gb/en/accessible-travel": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.531Z"
+ },
+ "https://www.lufthansa.com/gb/en/add-sports-baggage": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.533Z"
+ },
+ "https://www.lufthansa.com/gb/en/addresses-worldwide": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.536Z"
+ },
+ "https://www.lufthansa.com/gb/en/admission-rules": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.538Z"
+ },
+ "https://www.lufthansa.com/gb/en/advance-seat-reservation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.540Z"
+ },
+ "https://www.lufthansa.com/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.542Z"
+ },
+ "https://www.lufthansa.com/gb/en/affiliatemarketing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.545Z"
+ },
+ "https://www.lufthansa.com/gb/en/all-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.547Z"
+ },
+ "https://www.lufthansa.com/gb/en/arrival-services": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.550Z"
+ },
+ "https://www.lufthansa.com/gb/en/assistenzhunde": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.552Z"
+ },
+ "https://www.lufthansa.com/gb/en/automatic-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.555Z"
+ },
+ "https://www.lufthansa.com/gb/en/baggage-irregularities": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:02:34.558Z"
+ },
+ "https://www.lufthansa.com/gb/en/bid-upgrade": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.716Z"
+ },
+ "https://www.lufthansa.com/gb/en/boarding": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.719Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/additional-services/get-your-guide": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.723Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/additional-services/travel-insurances": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.725Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/digital-self-services/airline-apps": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.729Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/air-baltic": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.731Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/ana": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.734Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/ana/faq": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.736Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/giftvoucher": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.738Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/helvetic": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.741Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/lufthansa-voucher": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.743Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/flights/wetlease-hub": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.745Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/pax-receipt": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.747Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/pax-receipt/invoices-different-countries": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.749Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/rebook": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.752Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/rebook/involuntary-rebooking": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.754Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/rebook/voluntary-rebooking": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.756Z"
+ },
+ "https://www.lufthansa.com/gb/en/business-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:10:09.759Z"
+ },
+ "https://www.lufthansa.com/gb/en/business-class-on-short-and-medium-haul": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.056Z"
+ },
+ "https://www.lufthansa.com/gb/en/business-services": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.058Z"
+ },
+ "https://www.lufthansa.com/gb/en/cancellations-and-refunds": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.061Z"
+ },
+ "https://www.lufthansa.com/gb/en/carry-on-baggage": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.063Z"
+ },
+ "https://www.lufthansa.com/gb/en/cash-and-miles": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.066Z"
+ },
+ "https://www.lufthansa.com/gb/en/check-in-baggage": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.068Z"
+ },
+ "https://www.lufthansa.com/gb/en/check-in-with-the-family": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.070Z"
+ },
+ "https://www.lufthansa.com/gb/en/child-restraint-systems": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.072Z"
+ },
+ "https://www.lufthansa.com/gb/en/children-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.074Z"
+ },
+ "https://www.lufthansa.com/gb/en/childrens-menus-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.076Z"
+ },
+ "https://www.lufthansa.com/gb/en/dangerous-dogs": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.079Z"
+ },
+ "https://www.lufthansa.com/gb/en/digital-baggage-services": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.081Z"
+ },
+ "https://www.lufthansa.com/gb/en/digital-travel-companion": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:19:23.083Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/carbon-offsetting/climate-protection-projects": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.784Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.787Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/carbon-offsetting/faq-saf": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.790Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/carbon-offsetting/saf": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.793Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/flightreservation-priceguarantee": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.795Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/lufthansa-group-airlines/ita-airways": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.801Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/miles-and-more-credit-card": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.804Z"
+ },
+ "https://www.lufthansa.com/gb/en/doctor-on-board": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.806Z"
+ },
+ "https://www.lufthansa.com/gb/en/doctor-on-board-news": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.809Z"
+ },
+ "https://www.lufthansa.com/gb/en/during-your-trip/food-and-beverages/onboard-delights/faq": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.812Z"
+ },
+ "https://www.lufthansa.com/gb/en/during-your-trip/internet-overview": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.815Z"
+ },
+ "https://www.lufthansa.com/gb/en/during-your-trip/lhg-wifi": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.817Z"
+ },
+ "https://www.lufthansa.com/gb/en/economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.820Z"
+ },
+ "https://www.lufthansa.com/gb/en/electronic-bag-tags": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.823Z"
+ },
+ "https://www.lufthansa.com/gb/en/entryprocesses": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.826Z"
+ },
+ "https://www.lufthansa.com/gb/en/europa-tarife-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T10:28:39.829Z"
  }
 }

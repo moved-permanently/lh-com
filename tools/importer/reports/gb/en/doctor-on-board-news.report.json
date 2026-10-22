@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/doctor-on-board-news",
+  "path": "gb/en/doctor-on-board-news",
+  "timestamp": "2026-10-22T10:28:13.910Z",
+  "title": "Doctor on Board—good to know | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

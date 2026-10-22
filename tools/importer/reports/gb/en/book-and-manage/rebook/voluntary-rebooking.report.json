@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/book-and-manage/rebook/voluntary-rebooking",
+  "path": "gb/en/book-and-manage/rebook/voluntary-rebooking",
+  "timestamp": "2026-10-22T10:10:02.545Z",
+  "title": "Change flight | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/book-and-manage/additional-services/travel-insurances",
+  "path": "gb/en/book-and-manage/additional-services/travel-insurances",
+  "timestamp": "2026-10-22T10:09:33.213Z",
+  "title": "Travel Care | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "carousel-cards"
+  ]
+}

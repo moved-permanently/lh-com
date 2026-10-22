@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/book-and-manage/flights/giftvoucher",
+  "path": "gb/en/book-and-manage/flights/giftvoucher",
+  "timestamp": "2026-10-22T10:09:43.559Z",
+  "title": "Buy a Lufthansa Gift Card & give a flight as a gift | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards",
+    "carousel-cards"
+  ]
+}
