@@ -1028,6 +1028,26 @@
    "file": "de-de-bf45fe3e.json",
    "recordedAt": "2026-10-22T03:26:36.009Z"
   },
+  "de/de|GET /service/api/labels/relatedarticles/lh/de": {
+   "file": "de-de-e72059de.json",
+   "recordedAt": "2026-10-22T05:01:13.272Z"
+  },
+  "de/de|GET /service/api/labels/socialShare/lh/de": {
+   "file": "de-de-a81ca6c4.json",
+   "recordedAt": "2026-10-22T05:01:13.272Z"
+  },
+  "de/de|GET /service/api/labels/stickyprice/lh/de": {
+   "file": "de-de-554cd146.json",
+   "recordedAt": "2026-10-22T05:01:13.272Z"
+  },
+  "de/de|GET /service/api/labels/blogOverview/lh/de": {
+   "file": "de-de-5b06fa27.json",
+   "recordedAt": "2026-10-22T05:12:17.888Z"
+  },
+  "de/de|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
+   "file": "de-de-18ef474e.json",
+   "recordedAt": "2026-10-22T05:12:56.511Z"
+  },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
    "recordedAt": "2026-10-21T19:07:59.991Z"
@@ -1133,5 +1153,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T04:50:27.147Z"
+ "updatedAt": "2026-10-22T05:38:51.954Z"
 }

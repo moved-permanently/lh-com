@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/common/imprint/lufthansa-insights-imprint",
+  "path": "de/de/common/imprint/lufthansa-insights-imprint",
+  "timestamp": "2026-10-22T05:28:21.912Z",
+  "title": "Lufthansa Insights Impressum | Lufthansa",
+  "template": "legal",
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

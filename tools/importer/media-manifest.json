@@ -175,6 +175,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:27:51.429Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/article-images/winter-destinations/lh_blog_johannesburg_skyline_getty697945296_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/149e2ac1816cbfe1033969101ad4f911.jpg",
+  "format": "jpeg",
+  "bytes": 788829,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:01.125Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/article-images/winter-destinations/lh_blog_minneapolis_skyline_getty934492392_16x9.jpg": {
   "status": 200,
   "version": 1,
@@ -207,6 +218,17 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:45:48.848Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/article-images/winter-push/lh_blog_austin_woman-with-hat_stocksy-3198696_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/87160768ef888886ae7a5e954357d354.jpg",
+  "format": "jpeg",
+  "bytes": 649917,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:00.623Z"
  },
  "https://www.lufthansa.com/content/dam/lh/article-images/winter-push/lh_blog_hyderabad_train_awo-pool-banner_16x9.jpg": {
   "status": 200,
@@ -3031,6 +3053,72 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:54:41.203Z"
  },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/ca4c938eec55de04ddd13b866c1c34c4.jpg",
+  "format": "jpeg",
+  "bytes": 728969,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:01.620Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/highlights/allegris-business-class-shanghai/lh_blog_portrait_clara-dupre_airplane_sketching_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/a82e0439dbf6f4fb6a2cdc7003f9922b.jpg",
+  "format": "jpeg",
+  "bytes": 835990,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:02.117Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/highlights/allegris-travel-hacks-crew/lh_blog_lufthansa-allegris_seats_screen_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/7662a4f7f3854cf14b8ff9c5c49de217.jpg",
+  "format": "jpeg",
+  "bytes": 721428,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:16:58.648Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/highlights/emea-art-and-design-it/lh_blog_plane_portrait_elena-salmistraro_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/1ee67ff79ff1b6837df09445824e937e.jpg",
+  "format": "jpeg",
+  "bytes": 385245,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:00.097Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/highlights/emea-art-and-design-uk/lh_blog_plane_portrait_jacob-chan_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0a93dc855c80f18d01275845eeea282c.jpg",
+  "format": "jpeg",
+  "bytes": 485907,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:16:59.601Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/highlights/lufthansa-first-class-collectible-tracksuit/lh_blog_adidas_dfb_wm_tracksuite_plane_first-class_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/e1229cde0b69b5c43d3a5384469c4eb6.jpg",
+  "format": "jpeg",
+  "bytes": 693460,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:16:59.101Z"
+ },
  "https://www.lufthansa.com/content/dam/lufthansa-group/poi/en/images/local_images/blog_article_img/welcome-to-my-world-elyas-mbarek/lh_blog_portrait_elyas-mbarek_16x9.jpg": {
   "status": 200,
   "version": 1,
@@ -3063,6 +3151,72 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:45:48.356Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_02_music_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/2a6f3151f46c116d5fec30db401651ac.jpg",
+  "format": "jpeg",
+  "bytes": 316179,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:03.102Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_03_shopping_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/704e717822b8cf235266141f72c94e5d.jpg",
+  "format": "jpeg",
+  "bytes": 304177,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:03.593Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_04_art_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6b4242f861ba1db0c7ed0e1283c4ba27.jpg",
+  "format": "jpeg",
+  "bytes": 315226,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:04.100Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_05_sports_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/141d4bca4f9ae5625eed7594b635ecac.jpg",
+  "format": "jpeg",
+  "bytes": 288052,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:04.587Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_06_foodies_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/92a8b87afb6cb265b491c06f85994732.jpg",
+  "format": "jpeg",
+  "bytes": 281901,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:05.087Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/de_thumbnails_munich/lh_insights_thumb_muc_07_history_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/843b6e7240330c81e429e5ddc79a577a.jpg",
+  "format": "jpeg",
+  "bytes": 335080,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:05.603Z"
  },
  "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/en/en_thumbnails/lh_insights_thumb_muc_02_music_en.jpg": {
   "status": 200,
@@ -3129,6 +3283,17 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:54:46.635Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/02_master/de/lh_insights_thumb_master_muc_de.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/f619fb2c4f3f0e57ac926ab5df24d7d5.jpg",
+  "format": "jpeg",
+  "bytes": 244127,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T05:17:02.594Z"
  },
  "https://www.lufthansa.com/content/dam/video/c3/audiotravelguide/muc/02_master/en/lh_insights_thumb_master_muc_en.jpg": {
   "status": 200,

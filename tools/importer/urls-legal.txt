@@ -1,5 +1,12 @@
-https://www.lufthansa.com/de/en/sepa-terms-and-conditions-b
-https://www.lufthansa.com/de/en/terms-and-conditions-lh
-https://www.lufthansa.com/de/en/terms-of-service-group
-https://www.lufthansa.com/de/en/terms-of-use
-https://www.lufthansa.com/de/en/travel-id-terms-conditions
+https://www.lufthansa.com/de/de/faq-password-security
+https://www.lufthansa.com/de/de/nutzungsbedingungen-waehrungsumrechnung
+https://www.lufthansa.com/de/de/impressum
+https://www.lufthansa.com/de/de/passenger-rights
+https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-conditions
+https://www.lufthansa.com/de/de/rail-fly-bedingungen
+https://www.lufthansa.com/de/de/sepa-bedingungen
+https://www.lufthansa.com/de/de/sepa-bedingungen-b
+https://www.lufthansa.com/de/de/befoerderungsbedingungen-lh
+https://www.lufthansa.com/de/de/befoerderungsbedingungen-group
+https://www.lufthansa.com/de/de/nutzungsbedingungen
+https://www.lufthansa.com/de/de/travel-id-terms-conditions

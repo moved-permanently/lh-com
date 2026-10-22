@@ -2548,5 +2548,340 @@
   "template": "fleet",
   "status": "ok",
   "at": "2026-10-22T04:49:14.765Z"
+ },
+ "https://www.lufthansa.com/de/de/boeing787": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T04:57:57.206Z"
+ },
+ "https://www.lufthansa.com/de/de/discover-lufthansa/lufthansa-fleet/351": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T04:57:57.209Z"
+ },
+ "https://www.lufthansa.com/de/de/lufthansa-first-class-flotte": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T04:57:57.212Z"
+ },
+ "https://www.lufthansa.com/de/de/sitzplaene": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T04:57:57.215Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/authors/florian-tomberg": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.712Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.714Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.716Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying/anniversary-super-crane-special": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.719Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying/essentials-future-of-flying": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.721Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying/flying-high-christoph-quarch": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.724Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-flying/inflight-entertainment-vr-experience": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.727Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.729Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.732Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T04:58:27.732Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-barcelona-insider-tips": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.639Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-frankfurt-insider-tips": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.642Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-algiers": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.644Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-berlin": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.647Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-barcelona-facts": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.649Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-frankfurt-facts": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.652Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-chiswick-london": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.655Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-district-zurich": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.658Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-algiers": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.660Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-berlin": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.663Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.665Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.668Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/picture-perfect-austin": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.671Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/stop-over-tokyo": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:07:29.674Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/what-i-learned-living-in-barcelona": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.968Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/explore-the-world/what-i-learned-living-in-frankfurt": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.971Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/highlights": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.973Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/highlights/all-it-takes-is-a-yes": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.975Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/highlights/allegris-premium-economy-san-diego": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.980Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/tags": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.982Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/tags/allegris": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.985Z"
+ },
+ "https://www.lufthansa.com/de/de/articles/tags/munich": {
+  "template": "insights",
+  "status": "ok",
+  "at": "2026-10-22T05:16:47.987Z"
+ },
+ "https://www.lufthansa.com/de/de/sitzplatzreservierungen-konditionen": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:16:54.587Z"
+ },
+ "https://www.lufthansa.com/de/de/besondere-befoerderungsbedingungen-bus": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.131Z"
+ },
+ "https://www.lufthansa.com/de/de/geschaeftsbedingungen": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.134Z"
+ },
+ "https://www.lufthansa.com/de/de/common": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.136Z"
+ },
+ "https://www.lufthansa.com/de/de/common/accessibility-statement": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.139Z"
+ },
+ "https://www.lufthansa.com/de/de/common/agb-extra-services-at-online-check-in": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.141Z"
+ },
+ "https://www.lufthansa.com/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.146Z"
+ },
+ "https://www.lufthansa.com/de/de/common/compensation-voucher": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.148Z"
+ },
+ "https://www.lufthansa.com/de/de/common/imprint/lufthansa-insights-imprint": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.151Z"
+ },
+ "https://www.lufthansa.com/de/de/common/privacy-statement/privacy-statement-group": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.153Z"
+ },
+ "https://www.lufthansa.com/de/de/common/seatreservation-condtions/seat-reservations": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.156Z"
+ },
+ "https://www.lufthansa.com/de/de/cookie-policy": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.158Z"
+ },
+ "https://www.lufthansa.com/de/de/datenerfassung-fuer-kanada": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.160Z"
+ },
+ "https://www.lufthansa.com/de/de/datenerfassung-fuer-die-usa": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.162Z"
+ },
+ "https://www.lufthansa.com/de/de/informationen-zum-datenschutz": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.164Z"
+ },
+ "https://www.lufthansa.com/de/de/datenschutz": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.167Z"
+ },
+ "https://www.lufthansa.com/de/de/faq-data-security": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:28:47.169Z"
+ },
+ "https://www.lufthansa.com/de/de/faq-password-security": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.819Z"
+ },
+ "https://www.lufthansa.com/de/de/nutzungsbedingungen-waehrungsumrechnung": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.822Z"
+ },
+ "https://www.lufthansa.com/de/de/impressum": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.825Z"
+ },
+ "https://www.lufthansa.com/de/de/passenger-rights": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.827Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.830Z"
+ },
+ "https://www.lufthansa.com/de/de/rail-fly-bedingungen": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.833Z"
+ },
+ "https://www.lufthansa.com/de/de/sepa-bedingungen": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.835Z"
+ },
+ "https://www.lufthansa.com/de/de/sepa-bedingungen-b": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.837Z"
+ },
+ "https://www.lufthansa.com/de/de/befoerderungsbedingungen-lh": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.840Z"
+ },
+ "https://www.lufthansa.com/de/de/befoerderungsbedingungen-group": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.842Z"
+ },
+ "https://www.lufthansa.com/de/de/nutzungsbedingungen": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.844Z"
+ },
+ "https://www.lufthansa.com/de/de/travel-id-terms-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-22T05:37:24.847Z"
+ },
+ "https://www.lufthansa.com/de/de/anmeldung-tiere-frachtraum": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:37:35.905Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/refund-form": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:37:35.908Z"
  }
 }

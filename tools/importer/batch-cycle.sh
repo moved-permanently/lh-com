@@ -9,8 +9,15 @@
 cd "$(dirname "$0")/../.." || exit 1
 BATCH="${1:-14}"
 timeout 400 node tools/importer/bd-session.mjs --list tools/importer/urls-capture.txt --batch "$BATCH" \
-  --since 2026-10-21T18:46:00Z --format jpg --widths 1440,768,390 --parity-list tools/importer/urls-parity.txt 2>&1 \
-  | grep -E "^bd-session: .*(captured|BLOCKED)|BLOCKED|net-error|error page" | tail -3
+  --since 2026-10-21T18:46:00Z --format jpg --widths 1440,768,390 --parity-list tools/importer/urls-parity.txt \
+  > /tmp/bd-session.log 2>&1
+CAPTURE_EXIT=$?
+grep -E "^bd-session: .*(captured|BLOCKED)|BLOCKED|net-error|error page" /tmp/bd-session.log | tail -3
+CAPTURED=$(grep -c " ok https://" /tmp/bd-session.log)
+# a silent run (e.g. the remote browser did not connect) must not look like success
+if [ "$CAPTURED" = "0" ]; then
+  echo "capture: nothing captured (exit $CAPTURE_EXIT): $(grep -v -i 'endpoint\|wss://' /tmp/bd-session.log | grep -iE 'error|timeout|blocked' | head -2 | cut -c1-160)"
+fi
 for t in $(node -e "console.log(require('./tools/importer/page-templates.json').templates.map((t) => t.name).join(' '))"); do
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done

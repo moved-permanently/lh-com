@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/highlights/allegris-premium-economy-san-diego",
+  "path": "de/de/articles/highlights/allegris-premium-economy-san-diego",
+  "timestamp": "2026-10-22T05:16:36.161Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

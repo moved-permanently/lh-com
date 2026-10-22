@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/discover-lufthansa/lufthansa-fleet/351",
+  "path": "de/de/discover-lufthansa/lufthansa-fleet/351",
+  "timestamp": "2026-10-22T04:57:48.052Z",
+  "title": "Airbus 350-1000 | Lufthansa",
+  "template": "fleet",
+  "blocks": [
+    "carousel-lightbox",
+    "table-striped"
+  ]
+}

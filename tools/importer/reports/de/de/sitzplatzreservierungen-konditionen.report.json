@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/sitzplatzreservierungen-konditionen",
+  "path": "de/de/sitzplatzreservierungen-konditionen",
+  "timestamp": "2026-10-22T05:16:51.832Z",
+  "title": "Bedingungen für Sitzplatzreservierungen | Lufthansa",
+  "template": "legal",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}
