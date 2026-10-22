@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_18318_exports = {};
-  __export(tmp_bundle_info_18318_exports, {
-    default: () => tmp_bundle_info_18318_default
+  var tmp_bundle_info_19878_exports = {};
+  __export(tmp_bundle_info_19878_exports, {
+    default: () => tmp_bundle_info_19878_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -1852,7 +1852,8 @@ var CustomImportScript = (() => {
       {
         "name": "columns-media",
         "instances": [
-          ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))"
+          ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
+          ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))'
         ]
       }
     ],
@@ -1928,7 +1929,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_18318_default = {
+  var tmp_bundle_info_19878_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1958,5 +1959,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_18318_exports);
+  return __toCommonJS(tmp_bundle_info_19878_exports);
 })();

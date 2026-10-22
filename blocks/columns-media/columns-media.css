@@ -89,11 +89,23 @@
   margin-bottom: 0;
 }
 
-/* h3.headline.heading-small (/baggage, /online-check-in); h2 keeps the heading-medium default */
+/* h3.headline.heading-small (/baggage, /online-check-in) imported before the heading markers;
+   h2 keeps the heading-medium default, a marker class ({heading-large}: best-price-alert 01-04) wins */
 .columns-media .columns-media-text h3 {
   margin-bottom: var(--heading-margin-l);
+}
+
+.columns-media .columns-media-text h3:not([class*="heading-"]) {
   font-size: var(--heading-font-size-l);
   font-weight: 300;
+}
+
+/* an image in a text cell (image + headline + text column item): full cell width */
+.columns-media .columns-media-text p > picture,
+.columns-media .columns-media-text p > picture img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* .richtext ul/ol: 18px / 150%, li margin-bottom 1rem */
@@ -102,8 +114,9 @@
 }
 
 /* linked badge images in a text paragraph (app store badges, /online-check-in):
-   full width and stacked on mobile (.col-md-6 image items), 40px high side by side from 768px */
-.columns-media .columns-media-text p:has(> a > picture) {
+   full width and stacked on mobile (.col-md-6 image items), 40px high side by side from 768px;
+   a linked image that opens the cell is the cell's picture (kinder-an-bord 'Fliegen mit Kind') */
+.columns-media .columns-media-text p:not(:first-child):has(> a > picture) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -353,16 +366,16 @@
     display: block;
   }
 
-  .columns-media .columns-media-text p:has(> a > picture) {
+  .columns-media .columns-media-text p:not(:first-child):has(> a > picture) {
     flex-flow: row wrap;
     gap: var(--grid-gutter);
   }
 
-  .columns-media .columns-media-text p > a:has(> picture) {
+  .columns-media .columns-media-text p:not(:first-child) > a:has(> picture) {
     width: auto;
   }
 
-  .columns-media .columns-media-text p > a > picture img {
+  .columns-media .columns-media-text p:not(:first-child) > a > picture img {
     width: auto;
     height: 40px;
   }

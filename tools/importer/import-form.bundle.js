@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_8711_exports = {};
-  __export(tmp_bundle_form_8711_exports, {
-    default: () => tmp_bundle_form_8711_default
+  var tmp_bundle_form_19878_exports = {};
+  __export(tmp_bundle_form_19878_exports, {
+    default: () => tmp_bundle_form_19878_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -259,8 +259,296 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/accordion-columns.js
+  // tools/importer/parsers/columns-media.js
   function parse3(element, { document }) {
+    const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
+    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
+    const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
+    const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
+    const DESKTOP = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block";
+    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const c = node.cloneNode(true);
+      c.querySelectorAll(SKIP).forEach((n) => n.remove());
+      return clean(c.textContent);
+    };
+    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
+    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const trimBreaks = (el) => {
+      while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
+      while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
+    };
+    const tidy = (el) => {
+      el.querySelectorAll(SKIP).forEach((s) => s.remove());
+      el.querySelectorAll("em, i, span").forEach((s) => {
+        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector("img")) s.remove();
+      });
+      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+      el.removeAttribute("class");
+      if (keep.length) el.className = keep.join(" ");
+      return el;
+    };
+    const splitParagraph = (p) => {
+      const groups = [[]];
+      const nodes = [...p.childNodes];
+      for (let i = 0; i < nodes.length; i += 1) {
+        if (isBr2(nodes[i])) {
+          let j = i + 1;
+          while (j < nodes.length && isBlank(nodes[j])) j += 1;
+          if (isBr2(nodes[j])) {
+            while (j < nodes.length && (isBr2(nodes[j]) || isBlank(nodes[j]))) j += 1;
+            groups.push([]);
+            i = j - 1;
+            continue;
+          }
+        }
+        groups[groups.length - 1].push(nodes[i]);
+      }
+      return groups.map((g) => {
+        const np = document.createElement("p");
+        if (p.className) np.className = p.className;
+        g.forEach((n) => np.append(n));
+        trimBreaks(np);
+        return np;
+      }).filter((np) => clean(np.textContent) || np.querySelector("img"));
+    };
+    const richNodes = (scope) => {
+      const rt = scope.querySelector(".richtext") || scope;
+      const out = [];
+      let run = null;
+      const pushP = (p) => {
+        tidy(p);
+        out.push(...splitParagraph(p));
+      };
+      const flush = () => {
+        if (run) pushP(run);
+        run = null;
+      };
+      [...rt.childNodes].forEach((n) => {
+        if (n.nodeType === 8) return;
+        if (n.nodeType === 1 && n.matches(SKIP)) return;
+        if (n.nodeType === 1 && BLOCK_TAGS.test(n.tagName)) {
+          flush();
+          const c = n.cloneNode(true);
+          if (c.tagName === "P") {
+            pushP(c);
+            return;
+          }
+          tidy(c);
+          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          return;
+        }
+        if (isBlank(n) && !run) return;
+        if (!run) run = document.createElement("p");
+        run.append(n.cloneNode(true));
+      });
+      flush();
+      return out;
+    };
+    const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
+    const linkPara = (scope) => {
+      const m = scope.querySelector(MAUI);
+      if (!m) return null;
+      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const href = m.getAttribute("href");
+      if (!label || !href) return null;
+      const a = document.createElement("a");
+      a.setAttribute("href", href);
+      a.textContent = label;
+      const p = document.createElement("p");
+      const type = m.tagName === "MAUI-BUTTON-LINK" ? m.getAttribute("type") : null;
+      if (type === "primary" || type === "secondary") {
+        const wrap = document.createElement(type === "primary" ? "strong" : "em");
+        wrap.append(a);
+        p.append(wrap);
+      } else {
+        p.append(a);
+      }
+      return p;
+    };
+    const keepHeadingStyle = (from, to) => {
+      if (!from || !/^H[1-6]$/.test(to.tagName)) return;
+      const style = [...from.classList].find((c) => /^heading-/.test(c));
+      if (style) to.className = style;
+    };
+    const headingFrom = (scope) => {
+      const h = scope.matches("h1, h2, h3, h4, h5, h6") ? scope : scope.querySelector("h1, h2, h3, h4, h5, h6");
+      const text = visibleText(h || scope);
+      if (!text) return null;
+      const isLabel = h && /(^|\s)copytext/.test(h.getAttribute("class") || "");
+      const out = document.createElement(h && !isLabel ? h.tagName.toLowerCase() : "p");
+      out.textContent = text;
+      keepHeadingStyle(h, out);
+      return out;
+    };
+    const videoPara = (src, label, settings) => {
+      const a = document.createElement("a");
+      a.setAttribute("href", src);
+      a.textContent = label || src;
+      const p = document.createElement("p");
+      p.append(a);
+      if (settings.length) p.append(` {${settings.join(" ")}}`);
+      return p;
+    };
+    const viewerNodes = (comp) => {
+      const host = comp.querySelector("[data-dcep]");
+      let cfg = {};
+      try {
+        cfg = JSON.parse(host.getAttribute("data-dcep"));
+      } catch (e) {
+        cfg = {};
+      }
+      const video = comp.querySelector("video[src], video source[src]");
+      const src = cfg.videoSrc || video && video.getAttribute("src");
+      if (!src) return [];
+      const out = [];
+      const posterImg = comp.querySelector(".vjs-poster img[src]");
+      const poster = cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src");
+      if (poster && !isBroken2(poster)) {
+        const img = document.createElement("img");
+        img.setAttribute("src", poster);
+        img.setAttribute("alt", clean(cfg.alternativeText));
+        out.push(img);
+      }
+      const settings = [];
+      if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+      settings.push("controls", "round-play-button");
+      out.push(videoPara(src, clean(cfg.alternativeText), settings));
+      return out;
+    };
+    const mediaNodes = (comp) => {
+      const out = [];
+      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
+      const video = comp.querySelector("video[src], video source[src]");
+      let image = null;
+      if (img) {
+        image = document.createElement("img");
+        image.setAttribute("src", img.getAttribute("src"));
+        image.setAttribute("alt", img.getAttribute("alt") || "");
+      }
+      if (video) {
+        const src = video.getAttribute("src");
+        if (image) out.push(image);
+        const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
+        const settings = button ? [] : ["autoplay", "muted"];
+        if (!button && video.hasAttribute("loop")) settings.push("loop");
+        if (video.hasAttribute("controls")) settings.push("controls");
+        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
+        return out;
+      }
+      if (!image) return out;
+      const link = img.closest("a[href]");
+      if (link && comp.contains(link)) {
+        const a = document.createElement("a");
+        a.setAttribute("href", link.getAttribute("href"));
+        a.append(image);
+        out.push(a);
+      } else {
+        out.push(image);
+      }
+      return out;
+    };
+    const collect = (node, out) => {
+      [...node.children].forEach((child) => {
+        if (child.matches(SKIP_COMPONENTS)) return;
+        if (child.matches(MOBILE) && child.parentElement && child.parentElement.querySelector(`:scope > :is(${DESKTOP})`)) return;
+        const cl = child.classList;
+        if (cl.contains("headline")) {
+          const h = headingFrom(child);
+          if (h) out.push(h);
+        } else if (cl.contains("text") && child.querySelector(".richtext")) {
+          out.push(...richNodes(child));
+        } else if (cl.contains("link") && child.querySelector(MAUI)) {
+          const p = linkPara(child);
+          if (p) out.push(p);
+        } else if (cl.contains("image") && child.querySelector("img, video")) {
+          out.push(...mediaNodes(child));
+        } else if (cl.contains("videoViewer")) {
+          out.push(...viewerNodes(child));
+        } else {
+          collect(child, out);
+        }
+      });
+      return out;
+    };
+    const finishCell = (nodes) => {
+      const inline = (n) => n.tagName === "IMG" || n.tagName === "A";
+      if (nodes.every(inline) || !nodes.some(inline)) return nodes;
+      const out = [];
+      let p = null;
+      nodes.forEach((n) => {
+        if (inline(n)) {
+          if (!p) {
+            p = document.createElement("p");
+            out.push(p);
+          }
+          p.append(n);
+        } else {
+          p = null;
+          out.push(n);
+        }
+      });
+      return out;
+    };
+    const titles = [];
+    const cells = [];
+    let variants = [];
+    if (element.classList.contains("sidebar") || element.querySelector(":scope > .airem-sidebar")) {
+      variants = ["sidebar"];
+      const media = element.querySelector(".sidebar-content");
+      const text = element.querySelector(".sidebar-aside");
+      const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];
+      if (row.some((c) => c.length)) cells.push(row.map((c) => c.length ? c : ""));
+    } else {
+      const view = element.querySelector(":scope > .column-view") || element.querySelector(".column-view") || element;
+      [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => {
+        d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
+          const t = visibleText(h);
+          if (!t) return;
+          const out = document.createElement(h.tagName.toLowerCase());
+          out.textContent = t;
+          keepHeadingStyle(h, out);
+          titles.push(out);
+        });
+      });
+      const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
+      const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+      if (row.length) cells.push(row);
+      const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
+      if (sliderView) variants.push("slider");
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
+    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const previousSameBlock = () => {
+      const name = headerText(block);
+      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before[before.length - 1];
+      if (!prev) return null;
+      const range = document.createRange();
+      range.setStartAfter(prev);
+      range.setEndBefore(element);
+      const between = range.cloneContents();
+      if (clean(between.textContent)) return null;
+      if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
+      return prev;
+    };
+    if (!titles.length && cells.length) {
+      const prev = previousSameBlock();
+      if (prev) {
+        const rows = [...block.querySelectorAll("tr")].slice(1);
+        const lastRow = [...prev.querySelectorAll("tr")].pop();
+        rows.forEach((r) => lastRow.parentNode.append(r));
+        element.remove();
+        return;
+      }
+    }
+    element.replaceWith(...titles, block);
+  }
+
+  // tools/importer/parsers/accordion-columns.js
+  function parse4(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW = /[​-‍﻿]/g;
     const clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
@@ -1520,6 +1808,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "columns-media",
+        "instances": [
+          ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))'
+        ]
+      },
+      {
         "name": "accordion-columns",
         "instances": [
           ".accordion"
@@ -1577,7 +1871,8 @@ var CustomImportScript = (() => {
   var parsers = {
     "hero-campaign": parse,
     "form": parse2,
-    "accordion-columns": parse3
+    "columns-media": parse3,
+    "accordion-columns": parse4
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -1601,7 +1896,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_8711_default = {
+  var tmp_bundle_form_19878_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1631,5 +1926,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_8711_exports);
+  return __toCommonJS(tmp_bundle_form_19878_exports);
 })();

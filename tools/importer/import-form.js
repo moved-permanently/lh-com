@@ -4,6 +4,7 @@
 
 import heroCampaignParser from './parsers/hero-campaign.js';
 import formParser from './parsers/form.js';
+import columnsMediaParser from './parsers/columns-media.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
@@ -25,6 +26,12 @@ const PAGE_TEMPLATE = {
       "name": "form",
       "instances": [
         ".feedbackforms"
+      ]
+    },
+    {
+      "name": "columns-media",
+      "instances": [
+        ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))"
       ]
     },
     {
@@ -86,6 +93,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'hero-campaign': heroCampaignParser,
   'form': formParser,
+  'columns-media': columnsMediaParser,
   'accordion-columns': accordionColumnsParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
