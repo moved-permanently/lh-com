@@ -1,10 +1,2 @@
-https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof
-https://www.lufthansa.com/gb/en/book-and-manage/stopover/neuschwanstein
-https://www.lufthansa.com/gb/en/book-and-manage/stopover/zugspitze
-https://www.lufthansa.com/gb/en/culinaryjourney
-https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience
-https://www.lufthansa.com/gb/en/discover-lufthansa/take-off
-https://www.lufthansa.com/gb/en/frankfurt-fair
-https://www.lufthansa.com/gb/en/lufthansa-city/culinaryjourney
-https://www.lufthansa.com/gb/en/most-significant-route
-https://www.lufthansa.com/gb/en/munich-fair
+https://www.lufthansa.com/de/en/100-years/fleet
+https://www.lufthansa.com/de/en/most-significant-route

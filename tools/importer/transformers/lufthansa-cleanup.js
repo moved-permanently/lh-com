@@ -625,17 +625,24 @@ function splitBrParagraphs(document) {
       groups[groups.length - 1].push(node);
     }
     if (groups.length < 2) return;
-    const paras = groups.map((group) => {
-      // drop leading/trailing <br> and blank text
+    // drop leading/trailing <br> and blank text of every part
+    const parts = groups.map((group) => {
       while (group.length && (isBr(group[0]) || isBlankText(group[0]))) group.shift();
       while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
-      if (!group.length) return null;
+      return group;
+    }).filter((group) => group.length);
+    // "Intro text:<br><br>" (one part): only the trailing breaks go; nodes are moved only
+    // once there are 2+ parts (moving first and bailing out emptied such paragraphs: D16)
+    if (parts.length < 2) {
+      nodes.forEach((n) => { if (!parts.length || !parts[0].includes(n)) n.remove(); });
+      return;
+    }
+    const paras = parts.map((group) => {
       const np = document.createElement('p');
       if (p.className) np.className = p.className; // text style (copytext-small) for every part
       group.forEach((n) => np.append(n));
       return np;
-    }).filter(Boolean);
-    if (paras.length < 2) return;
+    });
     p.replaceWith(...paras);
     added += paras.length - 1;
   });

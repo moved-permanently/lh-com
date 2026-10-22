@@ -106,5 +106,17 @@
     "change": "D10: flight-search labels from labels/flightmanager+common (importer no longer authors From/To/Date/Submit rows: the snapshot showed built-in texts), only the selected trip type authored, en default Find flights, fields show the airport name only, spacing 1440 options 190/underline 293/stage 335 = live 191/293/335; destination finder slider first 15 offers + finder card like live, untitled conditions Conditions/Konditionen; hero-card-overlay variants right (gb/en card x762-1352) and no-mobile-image, maui-button-link CTA as outlined button, Conditions disclosure row; columns-logos section Payment options 87px below the tiles, accordion 80px below the logos = live. D11 /de/de/fluege: grid from the API is what live shows (586 tiles in the snapshot); no change. Needs re-import (homepage).",
     "commit": "56348c9",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "D16: <br> paragraph splitting no longer empties a paragraph that ends in <br><br> (single part): intro paragraphs such as business-terms-and-conditions \"By linking your Lufthansa profile...\" are kept; affects info, legal, campaign pages",
+    "commit": "pending",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "Recapture: 13 pages with a snapshot but no metadata.json/screenshots (interrupted runs) recaptured in the warm session and re-imported, so their import and parity data are complete",
+    "commit": "pending",
+    "date": "2026-10-22"
   }
 ]

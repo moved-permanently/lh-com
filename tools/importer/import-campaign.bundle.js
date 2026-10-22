@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_226_exports = {};
-  __export(tmp_bundle_campaign_226_exports, {
-    default: () => tmp_bundle_campaign_226_default
+  var tmp_bundle_campaign_1986_exports = {};
+  __export(tmp_bundle_campaign_1986_exports, {
+    default: () => tmp_bundle_campaign_1986_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -1003,16 +1003,23 @@ var CustomImportScript = (() => {
         groups[groups.length - 1].push(node);
       }
       if (groups.length < 2) return;
-      const paras = groups.map((group) => {
+      const parts = groups.map((group) => {
         while (group.length && (isBr(group[0]) || isBlankText(group[0]))) group.shift();
         while (group.length && (isBr(group[group.length - 1]) || isBlankText(group[group.length - 1]))) group.pop();
-        if (!group.length) return null;
+        return group;
+      }).filter((group) => group.length);
+      if (parts.length < 2) {
+        nodes.forEach((n) => {
+          if (!parts.length || !parts[0].includes(n)) n.remove();
+        });
+        return;
+      }
+      const paras = parts.map((group) => {
         const np = document.createElement("p");
         if (p.className) np.className = p.className;
         group.forEach((n) => np.append(n));
         return np;
-      }).filter(Boolean);
-      if (paras.length < 2) return;
+      });
       p.replaceWith(...paras);
       added += paras.length - 1;
     });
@@ -1605,7 +1612,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_226_default = {
+  var tmp_bundle_campaign_1986_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1635,5 +1642,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_226_exports);
+  return __toCommonJS(tmp_bundle_campaign_1986_exports);
 })();

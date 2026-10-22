@@ -2,13 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/stop-over-tokyo",
   "path": "de/de/articles/explore-the-world/stop-over-tokyo",
-  "timestamp": "2026-10-22T05:07:25.427Z",
+  "timestamp": "2026-10-22T16:00:20.019Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "article-header",
     "price-bar",
     "columns-media",
-    "related-articles"
+    "related-articles",
+    "carousel-images"
   ]
 }
