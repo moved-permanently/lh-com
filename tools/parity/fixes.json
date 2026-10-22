@@ -82,5 +82,29 @@
     "change": "E: breadcrumb from page metadata instead of an authored block. Metadata rows Parent (link whose text is the URL; Edge Delivery writes the cell text into <meta name=parent>), Breadcrumb title (only where the live label differs from og:title), Parent title (labels of parents outside the site, A > B; Parent then lists the outside ancestors up to the first in-site page, trail order), Breadcrumb: hidden (hub pages that show no trail but are parents). scripts.js buildBreadcrumb adds the empty block at the start of the first section (AEM) or before the h1 (AirCore); blocks/breadcrumb walks up the parents by fetching their HTML head (no query index: 404 on preview; no sheet: metadata stays the single source), sessionStorage cache, row keeps its height while loading; authored blocks still render. Importer (lufthansa-cleanup convertBreadcrumbs/breadcrumbMetadataRows) writes the rows from the live trail, maps /xx/ placeholder markets, out-of-scope parents absolute; build-breadcrumb-map.js inlines trails of 51 parents without their own trail (homepages: Breadcrumb title Home). Local dev shim: Metadata block -> meta tags on aem up --html-folder. Verified (sandbox + aem.page): dangerous-dogs Home > Gepäck > Reisen mit Tieren > current, amman Travel destinations > Flight Asia > Flight Jordan > Flight Amman, first-class-comfort, eat-see-do-berlin, passenger-duty (Contact outside), positions identical to the authored block at 1440/390; 100-years/campaigns and flights hero/h1 24px higher = live 182.",
     "commit": "8151145, df10769",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "aircore",
+    "change": "D17 AirCore: header (same nav document, globe instead of cart, Login & Registration, logo 140x24 / 169x29 from 1281, 36px burger, 16px Menu; positions = live +-2px at 1440/768/390; AEM header unchanged); footer payment/social band in the 88px grid (137px below the last accordion line, 34px above the footer), Search the page / DE-EN labels, 25% search field, rows = live +-1px; breadcrumb 23px below the stage image (was 65), trail->h1 = live; weather live layout (condition word over 130px icon, Wind then Humidity, Today / 21 Oct., 7 / 16 °C), rows = live +-1px; cards-icon-text title kept when it is the card link, alert icon 48x42 ink; cards-price all tiles on mobile like live (.mobile-hidden has no live rule), parser drops mobile-limit; /lhg/de/en tiles 18px below the intro, full-width tiles, 40px between country groups; route Book return flight 14px/700 small arrow 29px below the h1. test-widgets: weather expects recorded when the market has no recording of its own (new lhg de/de, at/de, gb/en pages).",
+    "commit": "2051675",
+    "date": "2026-10-22"
+  },
+  {
+    "block": "accordion-columns, booking-lookup, form, flight-status",
+    "change": "D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry).",
+    "commit": "6299425",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "insights, campaign",
+    "change": "D9 articles: images 83.333% (1053 at x193), captions {caption} -> p.caption 14px/700 10px under the image (cleanup convertCaptions, live maui-caption), related-articles read the linked pages heads (no query-index, 404 on preview) with authored image/byline fallback, relative links, no _blank, empty byline takes no space; carousel-cards (article) 3 x 336x188 cards in the article column, stacked on mobile; price bar visible from load. D6 new carousel-images block (Lufthansa single-slide swiper: 1050x525 centred slides, captions, arrows from 1025, dots) for campaign and insights; chronicle 3/3/4, new-onboard-experience 6/3 slides. Needs re-import.",
+    "commit": "99d8c36, 0055ac0",
+    "date": "2026-10-22"
+  },
+  {
+    "scope": "homepage",
+    "change": "D10: flight-search labels from labels/flightmanager+common (importer no longer authors From/To/Date/Submit rows: the snapshot showed built-in texts), only the selected trip type authored, en default Find flights, fields show the airport name only, spacing 1440 options 190/underline 293/stage 335 = live 191/293/335; destination finder slider first 15 offers + finder card like live, untitled conditions Conditions/Konditionen; hero-card-overlay variants right (gb/en card x762-1352) and no-mobile-image, maui-button-link CTA as outlined button, Conditions disclosure row; columns-logos section Payment options 87px below the tiles, accordion 80px below the logos = live. D11 /de/de/fluege: grid from the API is what live shows (586 tiles in the snapshot); no change. Needs re-import (homepage).",
+    "commit": "56348c9",
+    "date": "2026-10-22"
   }
 ]
