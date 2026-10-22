@@ -60,3 +60,19 @@ Things that are not obvious from the code and cost time once.
 - Files under `content/` cannot be deleted from the agent. Two stray local files exist and are
   never uploaded (not in scope): `content/drafts/blocktest/t.plain.html`,
   `content/lhg/de/en/zz-test.plain.html`.
+
+## Shop handoff (flight search submit)
+
+- The live flight manager hands off with a POST form navigation, not a GET URL. Captured from one
+  real de/en search (FRA→NYC, 18–25 Nov 2026, 1 adult, Economy, consent declined):
+  `action="https://shop.lufthansa.com/booking/availability?lang=en-GB&portalCountry=DE"`,
+  `method="post"`, `target="_self"`, fields
+  - `lang` = `en-GB`
+  - `portalCountry` = `DE`
+  - `search` = `{"itineraries":[{"departureDateTime":"2026-11-18","originLocationCode":"FRA","destinationLocationCode":"NYC"},{"departureDateTime":"2026-11-25","originLocationCode":"NYC","destinationLocationCode":"FRA"}],"travelers":[{"discounts":[],"passengerTypeCode":"ADT"}],"cabin":"ECONOMY","portalFacts":{"performance":false,"targeting":false,"functional":false}}`
+- `blocks/flight-search/flight-search.js` `buildShopHandoff()` builds the same form: one itinerary
+  for one-way, one `ADT` traveler per adult, cabin from the Cabin row (E→ECONOMY, P/W→PREMIUM_ECONOMY,
+  B/C→BUSINESS, F→FIRST), `portalCountry` from the market. Unverified (no capture): `lang` for
+  de/de (`de-DE`), at/de (`de-AT`), gb/en (`en-GB`); `portalFacts` from the stored consent
+  (C0002 performance, C0004 targeting, C0003 functional, assumed standard OneTrust ids). The
+  nonstop checkbox has no field in the capture and is not sent.

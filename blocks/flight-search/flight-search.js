@@ -117,40 +117,93 @@ export function flightSearchPrimary(settings) {
 }
 
 /**
- * Builds the shop.lufthansa.com URL the search hands off to, like the live flight manager.
- * This function is the single place where the form fields are mapped to the shop's
- * query parameter names and values.
- *
- * UNVERIFIED: no live submit has been captured yet. The real-browser HARs
- * (tools/source-export/har/*) come from an in-page XHR/fetch recorder, which does not see the
- * navigation to shop.lufthansa.com; the only shop URLs in the source export are
- * https://shop.lufthansa.com/booking/api/prefetch (labels/flightmanager,
- * flightmanager.config.flight.b2PrefetchScriptUrl) and the nav links
- * https://shop.lufthansa.com/booking/flight-search[?lang=de]. The parameter names below are
- * placeholders until a capture of a real search (DevTools Network, "Preserve log", the
- * document request to shop.lufthansa.com) gives the scheme.
+ * Shop language per market (the `lang` field and query parameter of the handoff).
+ * de/en: en-GB, captured from a real live search. UNVERIFIED (no capture, chosen by
+ * language-country): de/de de-DE, at/de de-AT, gb/en en-GB.
+ */
+const SHOP_LANG = {
+  'de/en': 'en-GB',
+  'de/de': 'de-DE', // UNVERIFIED
+  'at/de': 'de-AT', // UNVERIFIED
+  'gb/en': 'en-GB', // UNVERIFIED
+};
+
+/** Authored cabin codes (Cabin row) to the shop's cabin values. */
+const SHOP_CABINS = {
+  E: 'ECONOMY',
+  M: 'ECONOMY',
+  P: 'PREMIUM_ECONOMY',
+  W: 'PREMIUM_ECONOMY',
+  N: 'PREMIUM_ECONOMY',
+  B: 'BUSINESS',
+  C: 'BUSINESS',
+  F: 'FIRST',
+};
+
+/** OneTrust categories behind the shop's portalFacts (assumed standard OneTrust ids). */
+const PORTAL_FACT_GROUPS = { performance: 'C0002', targeting: 'C0004', functional: 'C0003' };
+
+/**
+ * The shop handoff, like the live flight manager: a POST form navigation (target _self) to
+ * https://shop.lufthansa.com/booking/availability?lang=..&portalCountry=.. with the fields
+ * lang, portalCountry and search (JSON). Captured from one real de/en search (FRA-NYC,
+ * round trip, 1 adult, Economy, consent declined); see tools/importer/IMPORT-NOTES.md.
+ * This function is the single place where the widget values are mapped to the shop's fields.
+ * The nonstop checkbox has no field in the captured payload and is not sent.
  * @param {Object} query collected form values
  * @param {Object} locale result of getLocale()
- * @returns {string}
+ * @returns {{action: string, fields: Object<string, string>}}
  */
-function buildShopHandoffUrl(query, locale) {
-  const url = new URL('https://shop.lufthansa.com/booking/flight-search');
-  const params = {
-    country: locale.country.toUpperCase(),
-    lang: locale.lang,
-    tripType: query.tripType,
-    origin: query.origin,
-    destination: query.destination,
-    outboundDate: query.departureDate,
-    inboundDate: query.tripType === 'RETURN' ? query.returnDate : '',
-    adults: query.adults,
-    cabinClass: query.cabin,
-    nonstop: query.nonstop ? 'true' : '',
+export function buildShopHandoff(query, locale) {
+  const lang = SHOP_LANG[locale.key] || 'en-GB';
+  const portalCountry = locale.country.toUpperCase();
+  const itineraries = [{
+    departureDateTime: query.departureDate,
+    originLocationCode: query.origin,
+    destinationLocationCode: query.destination,
+  }];
+  if (query.tripType === 'RETURN') {
+    itineraries.push({
+      departureDateTime: query.returnDate,
+      originLocationCode: query.destination,
+      destinationLocationCode: query.origin,
+    });
+  }
+  const adults = Math.max(1, parseInt(query.adults, 10) || 1);
+  const cabinCode = String(query.cabin || 'E').toUpperCase();
+  const groups = query.consentGroups || [];
+  const search = {
+    itineraries,
+    travelers: Array.from({ length: adults }, () => ({ discounts: [], passengerTypeCode: 'ADT' })),
+    cabin: SHOP_CABINS[cabinCode] || (Object.values(SHOP_CABINS).includes(cabinCode) ? cabinCode : 'ECONOMY'),
+    portalFacts: Object.fromEntries(Object.entries(PORTAL_FACT_GROUPS)
+      .map(([fact, group]) => [fact, groups.includes(group)])),
   };
-  Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, value);
+  const action = new URL('https://shop.lufthansa.com/booking/availability');
+  action.searchParams.set('lang', lang);
+  action.searchParams.set('portalCountry', portalCountry);
+  return {
+    action: action.toString(),
+    fields: { lang, portalCountry, search: JSON.stringify(search) },
+  };
+}
+
+/** Submits the handoff as a hidden POST form (method post, target _self). */
+function submitShopHandoff({ action, fields }) {
+  const form = document.createElement('form');
+  form.method = 'post';
+  form.action = action;
+  form.target = '_self';
+  form.hidden = true;
+  Object.entries(fields).forEach(([name, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    input.value = value;
+    form.append(input);
   });
-  return url.toString();
+  document.body.append(form);
+  form.submit();
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -274,7 +327,7 @@ export default function decorate(block) {
 
   const form = el('form', 'flight-search-form');
   form.noValidate = true;
-  // the form never posts anywhere: submit builds the shop handoff URL and navigates
+  // the visible form never posts itself: submit validates, then posts a hidden shop handoff form
 
   // options row: trip type, travellers, nonstop
   const optionsRow = el('div', 'flight-search-options');
@@ -455,7 +508,13 @@ export default function decorate(block) {
       focus.focus();
       return;
     }
-    window.location.assign(buildShopHandoffUrl(query, locale));
+    // consent.js loads lazily: it pulls in aem.js, which the offline widget test cannot run
+    import('../../scripts/consent.js')
+      .then(({ getStoredConsent }) => (getStoredConsent() || {}).groups)
+      .catch(() => [])
+      .then((consentGroups) => {
+        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale));
+      });
   });
 
   content.append(form);
