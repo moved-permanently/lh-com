@@ -100,7 +100,13 @@
   font-weight: 300;
 }
 
-/* an image in a text cell (image + headline + text column item): full cell width */
+/* an image in a text cell (image + headline + text column item): full cell width, 40px to the
+   heading (.image-wrapper margin-bottom 4rem; accessible-travel icon rows: the 1440x180 SVG
+   pictograms are 51px high at 408px) */
+.columns-media .columns-media-text > p:has(> picture, > a > picture):first-child {
+  margin-bottom: 40px;
+}
+
 .columns-media .columns-media-text p > picture,
 .columns-media .columns-media-text p > picture img {
   display: block;

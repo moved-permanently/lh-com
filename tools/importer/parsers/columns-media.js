@@ -341,6 +341,9 @@ export default function parse(element, { document }) {
     if (sliderView) variants.push('slider');
   }
 
+  // nothing to show (empty column view): left as it is, the cleanup drops empty components
+  if (!cells.length && !titles.length) return;
+
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants, cells });
 
   // --- merge into the previous Columns Media table when this is its continuation

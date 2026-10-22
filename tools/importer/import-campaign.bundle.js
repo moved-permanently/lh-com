@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_29668_exports = {};
-  __export(tmp_bundle_campaign_29668_exports, {
-    default: () => tmp_bundle_campaign_29668_default
+  var tmp_bundle_campaign_34396_exports = {};
+  __export(tmp_bundle_campaign_34396_exports, {
+    default: () => tmp_bundle_campaign_34396_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -429,6 +429,7 @@ var CustomImportScript = (() => {
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
     }
+    if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
     const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
@@ -1872,7 +1873,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_29668_default = {
+  var tmp_bundle_campaign_34396_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1902,5 +1903,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_29668_exports);
+  return __toCommonJS(tmp_bundle_campaign_34396_exports);
 })();
