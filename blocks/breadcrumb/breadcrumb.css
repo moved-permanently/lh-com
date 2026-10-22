@@ -89,9 +89,24 @@
 /* AirCore (.breadcrumb a, .breadcrumb span { font-size: 1.4rem; font-weight: 300;
    line-height: 1.8rem; color: var(--primary-brand-color) }, last item bold,
    .breadcrumb-wrapper { padding-top: 1.7rem }). The whole trail shows from 768px; below, only
-   the parent with its lh-arrow-next (4px after the text), flush with the content edge. */
+   the parent with its lh-arrow-next (4px after the text), flush with the content edge.
+   Trail ink to h1 ink: live 51px at 1425, 42px at 753, 43px at 375. */
 body.aircore .breadcrumb nav {
+  margin-bottom: -4px;
   padding-top: 17px;
+}
+
+@media (width >= 1025px) {
+  body.aircore .breadcrumb nav {
+    margin-bottom: 0;
+    padding-bottom: 3px;
+  }
+}
+
+/* AirCore: the trail sits 23px below the stage image (live 1440: image bottom 799, trail ink
+   826), not a section gap below it */
+body.aircore main > .section:has(+ .section > .breadcrumb-wrapper:first-child) {
+  margin-bottom: 6px;
 }
 
 body.aircore .breadcrumb ol {

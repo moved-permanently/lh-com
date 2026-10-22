@@ -1010,3 +1010,62 @@ body.channel-flynet .header .nav-bar {
     padding: 10px 88px;
   }
 }
+
+/* -------------------------------------------------------------- AirCore header ----------- */
+
+/* AirCore pages (/lhg/..., live header.header-content-nav, captures 375/753/1425): logo 24px
+ * high (140x24), 169x29 from 1281px, 2-3px above the bar centre; no cart; the globe
+ * (country/language) button after help from 1281px; heavier burger (36px glyph, 20x15 ink),
+ * "Menu" 16px right after it */
+body.aircore .header .nav-brand img {
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+body.aircore .header .nav-tool-locale {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+body.aircore .header .nav-tool-locale .nav-tool-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body.aircore .header .nav-menu-button {
+  padding: 2px 4px 2px 0;
+}
+
+body.aircore .header .nav-menu-button .lh-icon {
+  width: 36px;
+  height: 36px;
+}
+
+@media (width >= 1025px) {
+  body.aircore .header .nav-menu-button {
+    gap: 0;
+    padding: 0 5px 0 0;
+    font-size: 16px;
+  }
+}
+
+@media (width >= 1281px) {
+  body.aircore .header .nav-brand img {
+    height: 29px;
+    margin-bottom: 6px;
+  }
+
+  body.aircore .header .nav-tool-locale {
+    display: inline-flex;
+  }
+}

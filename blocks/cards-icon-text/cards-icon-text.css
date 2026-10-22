@@ -60,6 +60,22 @@
   object-fit: contain;
 }
 
+/* /icons/alert.svg draws the speech bubble in 80x70 of its 120x120 viewBox, live
+   /aircore/cache/alert.svg fills the box: scaled so the bubble is 48x42 at the card origin
+   (live 1425: ink 88-135 x 42 high, 2px above the title's cap height) */
+.cards-icon-text .cards-icon-text-icon .icon-alert {
+  width: 48px;
+  height: 42px;
+  overflow: visible;
+}
+
+.cards-icon-text .cards-icon-text-icon .icon-alert img {
+  width: 72px;
+  max-width: none;
+  height: 72px;
+  margin: -15px 0 0 -12px;
+}
+
 .cards-icon-text .cards-icon-text-body {
   flex: 1;
   min-width: 0;

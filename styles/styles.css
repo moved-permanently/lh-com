@@ -490,6 +490,19 @@ main p.copytext-large {
   font-size: var(--body-font-size-m);
 }
 
+/* image captions ("{caption}": figcaption.caption > maui-caption, LufthansaText bold, 10px
+   under the image, its .caption padding-bottom 1rem + the image component's margin below) */
+main .default-content-wrapper > p.caption {
+  margin-bottom: 40px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 18px;
+}
+
+main .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+ p.caption) {
+  margin-bottom: 10px;
+}
+
 main p:is(.copytext-small, .copytext-medium, .copytext-large) a:any-link:not(.button) {
   font-weight: 400;
 }
@@ -507,6 +520,22 @@ main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper:is(.copyt
 
 main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper:is(.copytext-small, .copytext-medium, .copytext-large) a:any-link {
   display: inline;
+}
+
+/* AirCore route pages (.reversed-route a.internal): "Book return flight from USA to Germany"
+   right below the h1, 14px bold with a 10x8px arrow 10px before the text (live 1425: cap
+   height 29px below the h1 ink, the next heading's ink 51px below its cap height) */
+body.aircore main .default-content-wrapper > h1 + p.link-wrapper {
+  margin-top: -18px;
+  font-size: var(--body-font-size-xs);
+  line-height: 18px;
+}
+
+body.aircore main :is(.default-content-wrapper) > h1 + p.link-wrapper a:any-link:not(.button)::before {
+  width: 10px;
+  height: 9px;
+  margin: 0 -1px 0 2px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 16'%3E%3Cpath d='M0 8h15.5M9.5 1.5 16 8l-6.5 6.5' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3C/svg%3E");
 }
 
 /* buttons: .btn, .btn-primary, .btn-secondary (maui-button-link type primary / secondary) */
@@ -675,6 +704,20 @@ main > .section > .breadcrumb-wrapper + .article-header-wrapper {
   margin-top: 19px;
 }
 
+/* homepage payment / social logos (.twocolumn, only on the homepages): "Payment options" 87px
+   below the service tiles, the "Popular destinations" accordion 81-84px below the logos (41px
+   below 768px), as measured on the live homepages */
+main > .section.columns-logos-container {
+  padding-top: 40px;
+  margin-bottom: 39px;
+}
+
+@media (width >= 768px) {
+  main > .section.columns-logos-container {
+    margin-bottom: 78px;
+  }
+}
+
 /* default content (.richtext); .section-content > :last-child > :last-child { margin-bottom: 0 },
    a trailing headline keeps its margin to the block that follows */
 main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {
@@ -683,6 +726,11 @@ main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {
 
 main .default-content-wrapper > * + h2 {
   margin-top: var(--section-padding);
+}
+
+/* AirCore route pages: the heading after the return-flight link (see p.link-wrapper above) */
+body.aircore main .default-content-wrapper > h1 + p.link-wrapper + h2 {
+  margin-top: 29px;
 }
 
 main .default-content-wrapper > p > picture,
@@ -724,7 +772,8 @@ main .default-content-wrapper li > ol {
   }
 
   body.aircore main .default-content-wrapper > p.copytext-small,
-  body.aircore main > .section.table-deals-container > .default-content-wrapper > p {
+  body.aircore main > .section.table-deals-container > .default-content-wrapper > p,
+  body.aircore main > .section.link-tiles .default-content-wrapper > p {
     max-width: none;
   }
 }
@@ -736,6 +785,15 @@ main .default-content-wrapper li > ol {
   main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6) {
     box-sizing: border-box;
     max-width: 66.667%;
+    margin-inline: auto;
+  }
+
+  /* images (and their captions) and the "This may also be of interest to you" cards use the
+     article card (.article-content col-md-10 offset-1: 83.333%, the h1 column) */
+  main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption),
+  main:has(.article-header) > .section:has(> .carousel-cards-wrapper > .carousel-cards.article) > .default-content-wrapper > * {
+    box-sizing: border-box;
+    max-width: 83.333%;
     margin-inline: auto;
   }
 }
@@ -794,6 +852,21 @@ main > .section.link-tiles .default-content-wrapper > p > a:hover {
   main > .section.link-tiles .default-content-wrapper > p {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* AirCore destination overview (/lhg/{cc}/{ll}, live 1425): the region tiles 18px below the
+   intro text, the first region heading 34px below the tiles (ink); a country heading 40px
+   below the tile grid of the previous country */
+body.aircore main > .section:has(+ .section.link-tiles) {
+  margin-bottom: 18px;
+}
+
+body.aircore main > .section.link-tiles {
+  margin-bottom: 27px;
+}
+
+body.aircore main .cards-price-wrapper + .default-content-wrapper:has(> h3:first-child) {
+  margin-top: 28px;
 }
 
 /* a headline that ends the default content keeps only its own margin to the block below

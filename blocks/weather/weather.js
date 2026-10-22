@@ -54,10 +54,12 @@ function toUnit(value) {
  * [{"iata":"NYC","date":"2026-10-21","max_celsius":"16","max_fahrenheit":"61","min_celsius":"7",
  *   "min_fahrenheit":"45","symbol":"0","day_word":"Today","symbol_word":"Sunny",
  *   "symbol_path":"/aircore/cache/weather-0.svg"}, ...,
- *  {"iata":"NYC","humidity":"77","wind_direction":"N","wind_speed":"17","humidity_word":"Humidity",
- *   "wind_word":"Wind","temperature_word":"Temperature"}]
- * → { unit, current: { temp, condition, icon, humidity, wind }, days: [{ date, name, min, max,
- *   condition, icon }], labels: { 'humidity label', 'wind label' } }; null without days.
+ *  {"iata":"NYC","humidity":"77","wind_direction":"N","wind_speed":"17","with":"with",
+ *   "humidity_word":"Humidity","wind_word":"Wind","temperature_word":"Temperature"}]
+ *  (day entries also carry "month":"Oct","day":"21")
+ * → { unit, current: { temp, condition, icon, humidity, wind, windDirection }, days: [{ date,
+ *   name, month, day, min, max, condition, icon }], labels: { 'humidity label', 'wind label',
+ *   'wind with label' } }; null without days.
  * Both units come with the answer, so the requested one is used as is.
  */
 function mapLiveWeather(data, unit) {
@@ -68,6 +70,9 @@ function mapLiveWeather(data, unit) {
     return {
       date: day ? new Date(Number(day[1]), Number(day[2]) - 1, Number(day[3])) : null,
       name: d.day_word || '',
+      // short month word of the answer ("Oct", "Okt") for the live "21 Oct." / "21. Okt."
+      month: d.month || '',
+      day: d.day || '',
       min: num(d[`min_${suffix}`]),
       max: num(d[`max_${suffix}`]),
       condition: d.symbol_word || '',
@@ -81,6 +86,7 @@ function mapLiveWeather(data, unit) {
   const labels = {};
   if (extra.humidity_word) labels['humidity label'] = extra.humidity_word;
   if (extra.wind_word) labels['wind label'] = extra.wind_word;
+  if (extra.with) labels['wind with label'] = extra.with;
   return {
     unit,
     current: {
@@ -89,6 +95,7 @@ function mapLiveWeather(data, unit) {
       icon: today.icon,
       humidity: num(extra.humidity),
       wind: num(extra.wind_speed),
+      windDirection: extra.wind_direction || '',
     },
     days,
     labels,
@@ -184,16 +191,14 @@ const DEFAULT_LABELS = {
     'forecast label': 'Forecast',
     'humidity label': 'Humidity',
     'wind label': 'Wind',
-    'min label': 'Min',
-    'max label': 'Max',
+    'wind with label': 'with',
   },
   de: {
-    'today label': 'Heute',
+    'today label': 'heute',
     'forecast label': 'Vorhersage',
     'humidity label': 'Luftfeuchtigkeit',
     'wind label': 'Wind',
-    'min label': 'Min.',
-    'max label': 'Max.',
+    'wind with label': 'mit',
   },
 };
 
@@ -210,22 +215,21 @@ function convert(value, from, to) {
   return to === 'F' ? (value * 9) / 5 + 32 : ((value - 32) * 5) / 9;
 }
 
-function formatTemp(value, unit, locale) {
-  if (value === null) return '';
-  const number = new Intl.NumberFormat(`${locale.lang}-${locale.country.toUpperCase()}`, {
+/** "16" in the page language (rounded), without unit */
+function formatNumber(value, locale) {
+  return new Intl.NumberFormat(`${locale.lang}-${locale.country.toUpperCase()}`, {
     maximumFractionDigits: 0,
   }).format(Math.round(value));
-  return `${number}°${unit}`;
 }
 
-function iconImage(src, alt) {
+function iconImage(src, alt, size) {
   if (!src) return null;
   const img = el('img');
   img.src = src;
   img.alt = alt || '';
   img.loading = 'lazy';
-  img.width = 64;
-  img.height = 64;
+  img.width = size;
+  img.height = size;
   return img;
 }
 
@@ -234,58 +238,84 @@ function isSameDay(a, b) {
     && a.getDate() === b.getDate();
 }
 
-function renderWeather(weather, unit, labels, locale) {
-  const tag = `${locale.lang}-${locale.country.toUpperCase()}`;
-  const dayFormat = new Intl.DateTimeFormat(tag, { weekday: 'short' });
-  const dateFormat = new Intl.DateTimeFormat(tag, { day: 'numeric', month: 'numeric' });
-  const t = (value) => formatTemp(convert(value, weather.unit, unit), unit, locale);
-  const fragment = document.createDocumentFragment();
-
-  const { current } = weather;
-  if (current.temp !== null) {
-    const today = el('div', 'weather-today');
-    today.append(el('h3', 'weather-label', labels['today label']));
-    const main = el('p', 'weather-current');
-    const img = iconImage(current.icon, current.condition);
-    if (img) main.append(img);
-    main.append(el('span', 'weather-temp', t(current.temp)));
-    if (current.condition) main.append(el('span', 'weather-condition', current.condition));
-    today.append(main);
-    const extra = el('dl', 'weather-additional');
-    if (current.humidity !== null) {
-      extra.append(el('dt', '', labels['humidity label']), el('dd', '', `${Math.round(current.humidity)} %`));
-    }
-    if (current.wind !== null) {
-      extra.append(el('dt', '', labels['wind label']), el('dd', '', `${Math.round(current.wind)} km/h`));
-    }
-    if (extra.children.length) today.append(extra);
-    fragment.append(today);
+/** Live day date: "21 Oct." (en), "21. Okt." (de), from the answer's day/month words. */
+function formatDay(day, locale) {
+  if (day.day && day.month) {
+    return locale.lang === 'de' ? `${day.day}. ${day.month}.` : `${day.day} ${day.month}.`;
   }
+  if (!day.date) return '';
+  const tag = `${locale.lang}-${locale.country.toUpperCase()}`;
+  return new Intl.DateTimeFormat(tag, { day: 'numeric', month: 'short' }).format(day.date);
+}
+
+/** One "label / value" pair of the current conditions (live .w-today-additional > div). */
+function conditionItem(label, value) {
+  const item = el('div', 'weather-additional-item');
+  item.append(el('dt', 'weather-label', label), el('dd', '', value));
+  return item;
+}
+
+/*
+ * Live AirCore markup (.weather.weather-wrapper):
+ *  .w-today: [condition word (bold) above the 130px symbol] [Wind "N with 17 km/h"]
+ *            [Humidity "77%"]  (no current temperature)
+ *  .w-forecast: per day name, "21 Oct.", 64px symbol, "7 / 16 °C" (min / max)
+ */
+function renderWeather(weather, unit, labels, locale) {
+  const convertTemp = (value) => convert(value, weather.unit, unit);
+  const fragment = document.createDocumentFragment();
+  const [first] = weather.days;
+  const { current } = weather;
+
+  const condition = current.condition || (first && first.condition) || '';
+  const icon = current.icon || (first && first.icon) || '';
+  const today = el('div', 'weather-today');
+  const now = el('div', 'weather-current');
+  if (condition) now.append(el('p', 'weather-label weather-condition', condition));
+  const img = iconImage(icon, condition, 130);
+  if (img) now.append(img);
+  if (now.children.length) today.append(now);
+  const extra = el('dl', 'weather-additional');
+  if (current.wind !== null) {
+    const speed = `${formatNumber(current.wind, locale)} km/h`;
+    extra.append(conditionItem(
+      labels['wind label'],
+      current.windDirection ? `${current.windDirection} ${labels['wind with label']} ${speed}` : speed,
+    ));
+  }
+  if (current.humidity !== null) {
+    extra.append(conditionItem(labels['humidity label'], `${formatNumber(current.humidity, locale)}%`));
+  }
+  if (extra.children.length) today.append(extra);
+  if (today.children.length) fragment.append(today);
 
   if (weather.days.length) {
-    const forecast = el('div', 'weather-forecast');
-    forecast.append(el('h3', 'weather-label', labels['forecast label']));
     const list = el('ul', 'weather-days');
-    const now = new Date();
+    list.setAttribute('aria-label', labels['forecast label']);
+    const nowDate = new Date();
     weather.days.forEach((day) => {
       const li = el('li', 'weather-day');
       let name = '';
       // the live day words ("Today", "Tomorrow", "Friday") come localized with the answer
       if (day.name) name = day.name;
-      else if (day.date) name = isSameDay(day.date, now) ? labels['today label'] : dayFormat.format(day.date);
-      li.append(el('span', 'weather-day-name', name));
-      if (day.date) li.append(el('span', 'weather-day-date', dateFormat.format(day.date)));
-      const img = iconImage(day.icon, day.condition);
-      if (img) li.append(img);
+      else if (day.date) {
+        const tag = `${locale.lang}-${locale.country.toUpperCase()}`;
+        name = isSameDay(day.date, nowDate) ? labels['today label']
+          : new Intl.DateTimeFormat(tag, { weekday: 'long' }).format(day.date);
+      }
+      li.append(el('span', 'weather-label weather-day-name', name));
+      const date = formatDay(day, locale);
+      if (date) li.append(el('span', 'weather-day-date', date));
+      const dayImg = iconImage(day.icon, day.condition, 64);
+      if (dayImg) li.append(dayImg);
       else if (day.condition) li.append(el('span', 'weather-condition', day.condition));
-      const range = el('span', 'weather-range');
-      const parts = [];
-      if (day.max !== null) parts.push(`${labels['max label']} ${t(day.max)}`);
-      if (day.min !== null) parts.push(`${labels['min label']} ${t(day.min)}`);
-      range.textContent = parts.join(' / ');
-      li.append(range);
+      // live: "7 / 16 °C" (min / max)
+      const values = [day.min, day.max].filter((v) => v !== null)
+        .map((v) => formatNumber(convertTemp(v), locale));
+      li.append(el('span', 'weather-range', `${values.join(' / ')} °${unit}`));
       list.append(li);
     });
+    const forecast = el('div', 'weather-forecast');
     forecast.append(list);
     fragment.append(forecast);
   }

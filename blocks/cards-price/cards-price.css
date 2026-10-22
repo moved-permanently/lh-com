@@ -163,12 +163,9 @@
   margin-top: 4px;
 }
 
-/* mobile-limit (.image-box.mobile-hidden): only the first 4 tiles below the tablet breakpoint */
-@media (width < 768px) {
-  .cards-price.mobile-limit > ul > li:nth-child(n + 5) {
-    display: none;
-  }
-}
+/* the source's .image-box.mobile-hidden has no rule on the live site (inline AirCore CSS):
+   all tiles show at every width (live 375 capture: 17 of 17 on new-york, no "Show more");
+   documents imported earlier still carry the option class mobile-limit, it changes nothing */
 
 @media (width >= 768px) {
   .cards-price > ul > li {

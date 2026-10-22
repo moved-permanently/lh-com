@@ -11,7 +11,8 @@
  *     The H3 country link sits before the wrapper and stays default content.
  *   - destination page: `.image-box-wrapper-city`
  *       > div.image-box[.mobile-hidden] > .box-header (a.clickable-target, .price)
- *     No images; `.mobile-hidden` tiles -> option "mobile-limit".
+ *     No images. `.mobile-hidden` has no rule on the live site (all tiles show on mobile), so
+ *     it is not carried over (formerly option "mobile-limit").
  *
  * Output: one row per tile, 2 cells.
  *   cell 1: image (alt = city name when the source alt is empty) or empty
@@ -24,12 +25,10 @@ export default function parse(element, { document }) {
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
 
   const tiles = [...element.querySelectorAll(':scope > div')];
-  let mobileLimit = false;
   const cells = [];
 
   tiles.forEach((tile) => {
     const box = tile.matches('.image-box') ? tile : (tile.querySelector('.image-box') || tile);
-    if (box.classList.contains('mobile-hidden')) mobileLimit = true;
 
     // link: the tile itself (overview a.image-box) or the label link (destination page)
     const link = box.matches('a[href]') ? box : box.querySelector('a.clickable-target[href], a[href]');
@@ -87,7 +86,7 @@ export default function parse(element, { document }) {
 
   const block = WebImporter.Blocks.createBlock(document, {
     name: 'cards-price',
-    variants: mobileLimit ? ['mobile-limit'] : [],
+    variants: [],
     cells,
   });
   element.replaceWith(block);

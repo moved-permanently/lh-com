@@ -74,7 +74,8 @@ export default function decorate(block) {
     const body = document.createElement('div');
     body.className = 'cards-icon-text-body';
     elements.forEach((el) => {
-      if (link && el.contains(link)) {
+      // the title heading stays even when it is (or holds) the card link
+      if (link && el !== heading && el.contains(link)) {
         const onlyLink = cleanText(el) === cleanText(link);
         // a link repeating the title is not shown twice; the card is the link
         if (onlyLink && titleText && cleanText(link) === titleText) return;

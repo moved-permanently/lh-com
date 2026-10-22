@@ -462,3 +462,58 @@
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------- AirCore ------------ */
+
+/* AirCore (/lhg) footer (live .footer-brand-links, .above-footer-container; 1425/753
+ * captures): the payment options / follow us band in the content grid, its headings 133px
+ * below the closing accordion line of the last section (its 40px block padding + the 48px
+ * section gap + 44px), icons 34px above the dark area; search field a quarter of the width,
+ * 3px higher, 16px search icon; "DE-EN" 14px; logo row 3px lower */
+.footer.footer-aircore .footer-payment-social {
+  padding: 44px 0 31px;
+}
+
+.footer.footer-aircore .footer-payment-social > .section > div {
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--footer-margin);
+}
+
+.footer.footer-aircore .footer-search {
+  margin: 15px 0 50px;
+}
+
+.footer.footer-aircore .footer-search button {
+  top: 14px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.footer.footer-aircore .footer-search button .lh-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.footer.footer-aircore .footer-locale-button {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.footer.footer-aircore .footer-legal {
+  padding: 32px 0 7px;
+}
+
+@media (width >= 768px) {
+  .footer.footer-aircore .footer-legal {
+    padding-left: 12px;
+  }
+}
+
+@media (width >= 1025px) {
+  .footer.footer-aircore .footer-inner {
+    grid-template-columns: 25% minmax(0, 1fr);
+  }
+}

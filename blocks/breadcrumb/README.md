@@ -42,7 +42,7 @@ Rendered as `nav > ol > li` (link or `span[aria-current]` for the current page) 
 - From 1025px: the whole trail, parents regular in whale blue, the current page bold deep blue, 7x10px chevrons with 8px/6px to the texts.
 - 768-1024px: only the parent page, as plain text 5px in (live 768 capture).
 - Below 768px: the parent page as a back link with a left chevron (5px in, 9px to the text).
-- AirCore pages (`body.aircore`): deep blue light (300) links, the whole trail from 768px, below only the parent followed by its right chevron, flush with the content edge.
+- AirCore pages (`body.aircore`): deep blue light (300) links, the whole trail from 768px, below only the parent followed by its right chevron, flush with the content edge. The trail sits 23px below the stage image (the section before it keeps a 6px gap instead of the section gap).
 - `?channel=app`: no breadcrumb (scripts/channel.js).
 
 ## Supported variations

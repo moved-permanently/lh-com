@@ -717,10 +717,12 @@ const gridRecordedInMarket = (market) => Object.keys(index)
   .some((k) => k.startsWith(`${market}|GET /service/api/destinationfinder/destination/finder/`));
 
 /** Which data-lh-source a block must show in a run. */
-function expectedSource(name, run, recorded, { grid = false, market = '' } = {}) {
+function expectedSource(name, run, recorded, { grid = false, market = '', own = true } = {}) {
   const directPrimary = ['flight-search', 'flight-status'].includes(name) || grid;
   const live = run === 'D' || (run === 'C' && directPrimary);
   if (live && grid && recorded) return gridRecordedInMarket(market) ? 'live' : 'recorded';
+  // the stub answers only the market's own recordings; another market's copy is the fallback
+  if (live && recorded && !own) return 'recorded';
   if (live) return recorded ? 'live' : null; // the stub answers live only what is recorded
   return recorded ? 'recorded' : null;
 }
@@ -777,7 +779,9 @@ async function checkDecorate(run, { page, html }, name, blockIndex) {
   const config = readConfigRows(block);
   const recorded = primaryRecorded(name, config, locale);
   const grid = name === 'destination-finder' && block.classList.contains('grid');
-  const expected = expectedSource(name, run, recorded, { grid, market: locale.key });
+  const own = name !== 'weather'
+    || Boolean(index[`${locale.key}|${requestKey('GET', weatherRequest({ location: weatherLocation(config) }, locale).route)}`]);
+  const expected = expectedSource(name, run, recorded, { grid, market: locale.key, own });
   const start = Date.now();
   const result = DECORATE[name](block);
   if (name === 'flight-status') {

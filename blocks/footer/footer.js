@@ -10,13 +10,18 @@ import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
  *  3. legal row: list of links
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:)
- * AirCore pages (/lhg/...) also show the /{cc}/{ll}/fragments/payment-social band above.
+ * AirCore pages (/lhg/...) also show the /{cc}/{ll}/fragments/payment-social band above, and
+ * the AirCore labels: search field "Search the page" (LABELS.aircoreSearch), locale "DE-EN".
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
 
 const LABELS = {
-  en: { search: 'Search', localeCurrent: 'Country and language selection; currently:', newTab: 'opens in a new tab' },
-  de: { search: 'Suchen', localeCurrent: 'Auswahl von Land und Sprache; aktuell:', newTab: 'öffnet in einem neuen Tab' },
+  en: {
+    search: 'Search', localeCurrent: 'Country and language selection; currently:', newTab: 'opens in a new tab', aircoreSearch: 'Search the page',
+  },
+  de: {
+    search: 'Suchen', localeCurrent: 'Auswahl von Land und Sprache; aktuell:', newTab: 'öffnet in einem neuen Tab', aircoreSearch: 'Seite suchen',
+  },
 };
 
 const MOBILE = window.matchMedia('(width < 768px)');
@@ -81,7 +86,7 @@ function classifySections(fragment) {
   };
 }
 
-async function buildSearch(top, labels) {
+async function buildSearch(top, labels, fieldLabel) {
   const para = top && [...top.querySelectorAll('p')].find((p) => {
     const a = p.querySelector('a[href]');
     return a && /search/i.test(a.getAttribute('href'));
@@ -89,7 +94,7 @@ async function buildSearch(top, labels) {
   if (!para) return null;
   const iconName = takeIconName(para) || 'search';
   const a = para.querySelector('a[href]');
-  const label = text(a) || labels.search;
+  const label = fieldLabel || text(a) || labels.search;
   const id = 'footer-search-input';
   const input = el('input', {
     id, type: 'search', name: 'query', placeholder: label, autocomplete: 'off',
@@ -117,11 +122,11 @@ async function buildSearch(top, labels) {
   return form;
 }
 
-async function buildLocale(top, labels) {
+async function buildLocale(top, labels, localeLabel) {
   const para = top && [...top.querySelectorAll('p')].find((p) => !p.querySelector('a[href]'));
   if (!para) return null;
   const iconName = takeIconName(para) || 'globe';
-  const label = text(para);
+  const label = localeLabel || text(para);
   if (!label) return null;
   const button = el(
     'button',
@@ -269,9 +274,10 @@ export default async function decorate(block) {
   } = classifySections(fragment);
 
   const inner = el('div', { className: 'footer-inner' });
+  // AirCore footer labels: "Search the page", "de-en" (shown in capitals)
   const [search, localeEl] = await Promise.all([
-    buildSearch(top, labels),
-    buildLocale(top, labels),
+    buildSearch(top, labels, locale.aircore ? labels.aircoreSearch : null),
+    buildLocale(top, labels, locale.aircore ? `${locale.country}-${locale.lang}` : null),
   ]);
   const columnsEl = buildColumns(columns, labels);
   const legalEl = buildLegal(legal, labels);
