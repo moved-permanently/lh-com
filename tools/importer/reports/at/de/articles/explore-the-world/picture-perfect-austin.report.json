@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/picture-perfect-austin",
+  "path": "at/de/articles/explore-the-world/picture-perfect-austin",
+  "timestamp": "2026-10-22T08:52:24.885Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

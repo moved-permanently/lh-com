@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul",
+  "path": "at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul",
+  "timestamp": "2026-10-22T08:52:21.260Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

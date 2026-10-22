@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/know-before-you-go-berlin",
+  "path": "at/de/articles/explore-the-world/know-before-you-go-berlin",
+  "timestamp": "2026-10-22T08:52:15.759Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}
