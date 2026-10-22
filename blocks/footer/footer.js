@@ -2,6 +2,7 @@ import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
+import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
 
 /*
  * Lufthansa footer. Footer document (/{cc}/{ll}/footer), one section each:
@@ -10,6 +11,7 @@ import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
  *  3. legal row: list of links
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:)
  * AirCore pages (/lhg/...) also show the /{cc}/{ll}/fragments/payment-social band above.
+ * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
 
 const LABELS = {
@@ -256,6 +258,11 @@ export default async function decorate(block) {
     locale.aircore ? loadFragment(`${locale.base}/fragments/payment-social`) : null,
   ]);
   if (!fragment) return;
+  if (getChannel() === 'flynet') {
+    fragment.querySelectorAll('li a[href]').forEach((a) => {
+      if (isFlynetHiddenLink(a.getAttribute('href'))) a.closest('li').remove();
+    });
+  }
 
   const {
     top, columns, legal, logos,

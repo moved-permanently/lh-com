@@ -911,3 +911,102 @@
     animation: none;
   }
 }
+
+/* ------------------------------------------------------- FlyNet channel ----------- */
+
+/* scripts/channel.js: compact brand bar and the sample flight bar (/flight sheet) */
+body.channel-flynet .header .nav-bar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.header .nav-flight {
+  border-top: 1px solid var(--nav-line);
+  background-color: var(--lh-midnight);
+  color: var(--nav-text);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.header .nav-flight-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8px 22px;
+}
+
+.header .nav-flight p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.header .nav-flight-head {
+  width: 100%;
+}
+
+.header .nav-flight-title {
+  font-weight: 700;
+}
+
+.header .nav-flight-sample {
+  border-radius: var(--radius-s);
+  padding: 0 6px;
+  background-color: var(--lh-yellow);
+  color: var(--lh-deepblue);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.header .nav-flight-number {
+  margin-left: auto;
+  color: #fff;
+  font-weight: 700;
+}
+
+.header .nav-flight-times {
+  margin-left: auto;
+}
+
+@media (width >= 768px) {
+  .header .nav-flight {
+    font-size: 14px;
+  }
+
+  .header .nav-flight-inner {
+    flex-wrap: nowrap;
+    gap: 4px 16px;
+    padding: 10px 24px;
+  }
+
+  .header .nav-flight-head {
+    width: auto;
+  }
+
+  .header .nav-flight-number {
+    margin-left: 8px;
+  }
+
+  body.channel-flynet .header .nav-bar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (width >= 1025px) {
+  .header .nav-flight-inner {
+    padding: 10px 80px;
+  }
+}
+
+@media (width >= 1281px) {
+  .header .nav-flight-inner {
+    padding: 10px 88px;
+  }
+}

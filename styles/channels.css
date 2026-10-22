@@ -1,0 +1,51 @@
+/* Channels (scripts/channel.js); loaded only outside the website channel. */
+
+/* ------------------------------------------------------------------ FlyNet -------- */
+
+/* compact and mobile first: Lufthansa's design as migrated, smaller type and spacing;
+   the header is the brand bar plus the sample flight bar */
+body.channel-flynet {
+  --nav-height: 121px;
+  --section-gap: 32px;
+  --spacing-default: 16px;
+  --heading-font-size-xxl: calc(28px + 8 * (100vw - 375px) / 1065);
+  --heading-font-size-xl: calc(24px + 4 * (100vw - 375px) / 1065);
+  --heading-font-size-l: calc(20px + 4 * (100vw - 375px) / 1065);
+  --heading-font-size-m: calc(18px + 2 * (100vw - 375px) / 1065);
+  --heading-margin-xxl: 24px;
+  --heading-margin-xl: 20px;
+  --heading-margin-l: 16px;
+}
+
+@media (width >= 768px) {
+  body.channel-flynet {
+    --nav-height: 111px;
+  }
+}
+
+@media (width >= 1281px) {
+  body.channel-flynet {
+    --nav-height: 115px;
+    --heading-font-size-xxl: 36px;
+    --heading-font-size-xl: 28px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 20px;
+  }
+}
+
+/* ------------------------------------------------------------------ app view ------ */
+
+/* no header, footer, breadcrumb or cookie banner: the app shows its own chrome */
+body.channel-app {
+  --nav-height: 0;
+}
+
+body.channel-app > header,
+body.channel-app > footer {
+  display: none;
+}
+
+/* the breadcrumb row gave the page its top spacing */
+body.channel-app main {
+  padding-top: 24px;
+}

@@ -10,12 +10,14 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  getMetadata,
   readBlockConfig,
   toCamelCase,
   toClassName,
 } from './aem.js';
 import { getLocale } from './locale.js';
 import { initConsent, isAuthoringContext } from './consent.js';
+import { applyChannel } from './channel.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -239,13 +241,18 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   const locale = getLocale();
-  document.documentElement.lang = locale.lang;
+  // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
+  document.documentElement.lang = getMetadata('language') || locale.lang;
   // AirCore pages (/lhg/...) keep the AirCore look of shared blocks (body.aircore scoped rules)
   if (locale.aircore) document.body.classList.add('aircore');
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
+  // channel (website, flynet by page metadata, app by ?channel=app): see scripts/channel.js
+  let channel = 'website';
   if (main) {
     decorateMain(main);
+    channel = applyChannel(main);
+    if (channel !== 'website') await loadCSS(`${window.hlx.codeBasePath}/styles/channels.css`);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
@@ -260,8 +267,8 @@ async function loadEager(doc) {
   }
 
   // cookie banner (OneTrust as on lufthansa.com) right after the first section;
-  // runs once per page and never inside DA authoring
-  initConsent();
+  // runs once per page and never inside DA authoring; the app view leaves consent to the app
+  if (channel !== 'app') initConsent();
 }
 
 /**
@@ -269,7 +276,9 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  loadHeader(doc.querySelector('body > header'));
+  // the app view has no header and footer (removed by applyChannel)
+  const header = doc.querySelector('body > header');
+  if (header) loadHeader(header);
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -278,7 +287,8 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadFooter(doc.querySelector('body > footer'));
+  const footer = doc.querySelector('body > footer');
+  if (footer) loadFooter(footer);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
@@ -297,8 +307,9 @@ function loadDelayed() {
 
 async function loadPage() {
   // the live site sends / to the German homepage for a visitor in Germany (not inside DA)
+  // (keeps the query, e.g. ?channel=app; on lh-flynet this lands on the FlyNet start page)
   if (window.location.pathname === '/' && !isAuthoringContext()) {
-    window.location.replace('/de/de/homepage');
+    window.location.replace(`/de/de/homepage${window.location.search}`);
     return;
   }
   await loadEager(document);

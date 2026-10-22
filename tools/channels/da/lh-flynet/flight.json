@@ -1,0 +1,23 @@
+{
+  "total": 1,
+  "limit": 1,
+  "offset": 0,
+  "data": [
+    {
+      "flight": "LH 400",
+      "from": "Frankfurt (FRA)",
+      "to": "New York (JFK)",
+      "departure": "10:55",
+      "arrival": "13:40"
+    }
+  ],
+  ":colWidths": [
+    100,
+    160,
+    160,
+    100,
+    100
+  ],
+  ":sheetname": "data",
+  ":type": "sheet"
+}

@@ -1,0 +1,17 @@
+{
+  "total": 1,
+  "limit": 1,
+  "offset": 0,
+  "data": [
+    {
+      "URL": "/**",
+      "channel": "flynet"
+    }
+  ],
+  ":colWidths": [
+    200,
+    200
+  ],
+  ":sheetname": "data",
+  ":type": "sheet"
+}

@@ -1,0 +1,50 @@
+/* Channels demo: phone-width frames side by side, scrolling sideways on small screens */
+
+.channels-demo {
+  margin: 0 0 var(--spacing-default);
+}
+
+.channels-demo .channels-demo-list {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0 0 12px;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.channels-demo .channels-demo-item {
+  display: flex;
+  flex: 0 0 390px;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+  scroll-snap-align: start;
+}
+
+.channels-demo .channels-demo-label {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+}
+
+.channels-demo .channels-demo-frame {
+  display: block;
+  box-sizing: border-box;
+  width: 390px;
+  height: 780px;
+  border: 1px solid var(--lh-grey-4);
+  border-radius: var(--radius-l);
+  background-color: var(--lh-white);
+  box-shadow: var(--shadow-2);
+}
+
+.channels-demo .channels-demo-open {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

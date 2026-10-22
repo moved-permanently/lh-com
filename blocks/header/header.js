@@ -4,6 +4,7 @@ import {
   getLocale, LOCALES, LIVE_ORIGIN, getCounterpartPath, getHomepageUrl, isMigratedLocale,
 } from '../../scripts/locale.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
+import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -15,6 +16,9 @@ import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
  *     ":globe: Country | Language" with an optional sub-list of countries; a paragraph
  *     with the menu button label
  * Sections are recognised by their content, the order above is the fallback.
+ * FlyNet channel (scripts/channel.js): no booking, login or flight search links and tools, a
+ * sample flight bar from the site's /flight sheet (columns flight, from, to, departure,
+ * arrival) below the brand bar, and only the locales the FlyNet site holds.
  */
 
 const DESKTOP = window.matchMedia('(width >= 1025px)');
@@ -36,6 +40,9 @@ const LABELS = {
     close: 'Close',
     back: 'Back',
     localeTitle: 'Location and Language',
+    flight: 'Your flight',
+    sample: 'Sample data',
+    to: 'to',
     localeCurrent: 'Country and language selection; currently:',
     otherCountries: 'Other countries',
     location: 'Location',
@@ -48,6 +55,9 @@ const LABELS = {
     close: 'Schließen',
     back: 'Zurück',
     localeTitle: 'Land und Sprache',
+    flight: 'Ihr Flug',
+    sample: 'Beispieldaten',
+    to: 'nach',
     localeCurrent: 'Auswahl von Land und Sprache; aktuell:',
     otherCountries: 'Andere Länder',
     location: 'Land',
@@ -109,8 +119,9 @@ function classifySections(fragment) {
   const menu = sections.find((s) => s !== tools && s.querySelector('li > ul, li > ol')) || sections[2];
   const brand = sections.find((s) => s !== tools && s !== menu && s.querySelector('img'))
     || sections[0];
+  // a nav without quick actions (e.g. FlyNet) must not show the menu as quick actions
   const quick = sections.find((s) => ![tools, menu, brand].includes(s) && s.querySelector('a[href]'))
-    || sections[1];
+    || (![tools, menu, brand].includes(sections[1]) ? sections[1] : null);
   return {
     brand, quick, menu, tools,
   };
@@ -205,14 +216,16 @@ async function countryTarget(href) {
   return getHomepageUrl(country, lang);
 }
 
-function buildLocaleDialog(locale, currentLabel, countries, labels) {
+function buildLocaleDialog(locale, currentLabel, countries, labels, {
+  localeKeys = Object.keys(LOCALES), otherCountries = true,
+} = {}) {
   const titleId = 'nav-locale-title';
   const dialog = el('dialog', { className: 'nav-locale', 'aria-labelledby': titleId });
   const close = el('button', { type: 'button', className: 'nav-locale-close', 'aria-label': labels.close }, uiIcon('close'));
   close.addEventListener('click', () => dialog.close());
 
   const list = el('ul', { className: 'nav-locale-list' });
-  Object.keys(LOCALES).forEach((key) => {
+  localeKeys.forEach((key) => {
     const current = key === locale.key;
     const a = el('a', {
       href: `/${key}/homepage`,
@@ -240,7 +253,7 @@ function buildLocaleDialog(locale, currentLabel, countries, labels) {
       e.preventDefault();
       window.location.href = await countryTarget(select.value);
     });
-  } else {
+  } else if (otherCountries) {
     other = el('p', { className: 'nav-locale-other' }, el('a', { href: `${LIVE_ORIGIN}/` }, labels.otherCountries, uiIcon('arrow-right')));
   }
 
@@ -253,7 +266,7 @@ function buildLocaleDialog(locale, currentLabel, countries, labels) {
     ),
     el('p', { className: 'nav-locale-current' }, `${labels.localeCurrent} `, el('strong', {}, currentLabel)),
     list,
-    other,
+    ...(other ? [other] : []),
   );
   // click on the backdrop closes the dialog
   dialog.addEventListener('click', (e) => {
@@ -463,6 +476,76 @@ function buildFlyout({
   };
 }
 
+/* ---------------------------------------------------------------- flynet ------------- */
+
+/** FlyNet channel: drops the links that book, log in or search flights from the nav. */
+function dropHiddenLinks(fragment) {
+  fragment.querySelectorAll('a[href]').forEach((a) => {
+    if (!isFlynetHiddenLink(a.getAttribute('href'))) return;
+    const li = a.closest('li');
+    if (li) li.remove();
+    else a.remove();
+  });
+  // menu columns and top items left without links
+  fragment.querySelectorAll('li').forEach((li) => {
+    if (subList(li) && !li.querySelector('a[href]')) li.remove();
+  });
+}
+
+/**
+ * The sample flight of the FlyNet channel from the site's /flight sheet (first row), as a bar:
+ * "Your flight · Sample data · LH 400 · Frankfurt (FRA) → New York (JFK) · 10:55 → 13:40".
+ * @returns {Promise<HTMLElement|null>} null when the sheet is missing or empty
+ */
+async function buildFlightBar(labels) {
+  let row;
+  try {
+    const resp = await fetch('/flight.json');
+    if (!resp.ok) return null;
+    const json = await resp.json();
+    const rows = json.data || (json.flight && json.flight.data) || [];
+    row = rows.find((r) => r && (r.flight || r.Flight));
+  } catch (e) {
+    return null;
+  }
+  if (!row) return null;
+  const value = (name) => String(row[name] || row[name[0].toUpperCase() + name.slice(1)] || '').trim();
+  const arrow = () => el('span', { className: 'nav-flight-arrow', 'aria-hidden': 'true' }, '\u2192');
+  const sr = (t) => el('span', { className: 'nav-sr-only' }, ` ${t} `);
+  const titleId = 'nav-flight-title';
+  return el(
+    'section',
+    { className: 'nav-flight', 'aria-labelledby': titleId },
+    el(
+      'div',
+      { className: 'nav-flight-inner' },
+      el(
+        'p',
+        { className: 'nav-flight-head' },
+        el('span', { id: titleId, className: 'nav-flight-title' }, labels.flight),
+        el('span', { className: 'nav-flight-sample' }, labels.sample),
+        el('strong', { className: 'nav-flight-number' }, value('flight')),
+      ),
+      el(
+        'p',
+        { className: 'nav-flight-route' },
+        el('span', {}, value('from')),
+        arrow(),
+        sr(labels.to),
+        el('span', {}, value('to')),
+      ),
+      el(
+        'p',
+        { className: 'nav-flight-times' },
+        el('time', {}, value('departure')),
+        arrow(),
+        sr('–'),
+        el('time', {}, value('arrival')),
+      ),
+    ),
+  );
+}
+
 /* ---------------------------------------------------------------- decorate ----------- */
 
 async function toolLink(tool, className, withLabel) {
@@ -501,6 +584,9 @@ export default async function decorate(block) {
   if (!fragment) return;
 
   const labels = LABELS[locale.lang] || LABELS.en;
+  const flynet = getChannel() === 'flynet';
+  if (flynet) dropHiddenLinks(fragment);
+  const flightBar = flynet ? buildFlightBar(labels) : null;
   const {
     brand, quick, menu, tools,
   } = classifySections(fragment);
@@ -533,7 +619,9 @@ export default async function decorate(block) {
   if (quickList.children.length) quickEl.append(quickList);
 
   // tools
-  const toolItems = tools ? readTools(tools) : [];
+  // FlyNet: no login and no shopping cart
+  const toolItems = (tools ? readTools(tools) : [])
+    .filter((t) => !flynet || !['login', 'cart', 'search'].includes(t.role));
   const menuLabel = text(tools && tools.querySelector('.default-content-wrapper > p')) || labels.menu;
   const byRole = (role) => toolItems.find((t) => t.role === role);
   const localeTool = byRole('locale') || {
@@ -542,8 +630,9 @@ export default async function decorate(block) {
   const { dialog, open: openLocale } = buildLocaleDialog(
     locale,
     localeTool.label,
-    localeTool.countries,
+    flynet ? [] : localeTool.countries,
     labels,
+    flynet ? { localeKeys: FLYNET_LOCALES, otherCountries: false } : {},
   );
 
   const toolsEl = el('div', { className: 'nav-tools' });
@@ -563,7 +652,7 @@ export default async function decorate(block) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
     toolsEl.append(await toolLink(loginTool, 'nav-tool nav-tool-login', true));
   }
-  toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
+  if (toolsEl.children.length) toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
   const menuButton = el(
     'button',
     {
@@ -616,6 +705,8 @@ export default async function decorate(block) {
   const bar = el('div', { className: 'nav-bar' }, brandEl, quickEl, toolsEl);
   const nav = el('nav', { id: 'nav', 'aria-label': labels.nav }, bar, flyout.flyout);
   const navWrapper = el('div', { className: 'nav-wrapper' }, nav);
+  const flight = flightBar ? await flightBar : null;
+  if (flight) navWrapper.append(flight);
 
   // sticky header: hides while scrolling down, comes back when scrolling up
   let lastY = window.scrollY;
