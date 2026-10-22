@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/gb/en/dest/cy/barcelona",
+  "path": "lhg/gb/en/dest/cy/barcelona",
+  "timestamp": "2026-10-22T14:42:07.688Z",
+  "title": "",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}

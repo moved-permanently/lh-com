@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/at/de/dest/c/grossbritannien",
+  "path": "lhg/at/de/dest/c/grossbritannien",
+  "timestamp": "2026-10-22T14:23:14.030Z",
+  "title": "",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

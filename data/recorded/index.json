@@ -1096,6 +1096,46 @@
    "file": "at-de-4858a840.json",
    "recordedAt": "2026-10-22T09:42:43.715Z"
   },
+  "at/de|GET /aircore/geolocation/at/de": {
+   "file": "at-de-78f71c1a.json",
+   "recordedAt": "2026-10-22T14:18:41.977Z"
+  },
+  "at/de|GET /aircore/weather/de/nyc": {
+   "file": "at-de-1faa9ef9.json",
+   "recordedAt": "2026-10-22T14:20:46.192Z"
+  },
+  "at/de|GET /aircore/weather/de/lax": {
+   "file": "at-de-653c6d6a.json",
+   "recordedAt": "2026-10-22T14:21:06.541Z"
+  },
+  "at/de|GET /aircore/weather/de/bcn": {
+   "file": "at-de-63df983c.json",
+   "recordedAt": "2026-10-22T14:21:20.132Z"
+  },
+  "at/de|GET /aircore/weather/de/fco": {
+   "file": "at-de-b282727b.json",
+   "recordedAt": "2026-10-22T14:21:31.844Z"
+  },
+  "at/de|GET /aircore/weather/de/tyo": {
+   "file": "at-de-86dea3ab.json",
+   "recordedAt": "2026-10-22T14:21:46.798Z"
+  },
+  "at/de|GET /aircore/weather/de/lon": {
+   "file": "at-de-6f56150e.json",
+   "recordedAt": "2026-10-22T14:22:01.048Z"
+  },
+  "at/de|GET /aircore/weather/de/par": {
+   "file": "at-de-3e549220.json",
+   "recordedAt": "2026-10-22T14:22:15.734Z"
+  },
+  "at/de|GET /aircore/weather/de/amm": {
+   "file": "at-de-00d46892.json",
+   "recordedAt": "2026-10-22T14:22:29.823Z"
+  },
+  "at/de|GET /aircore/weather/de/pmi": {
+   "file": "at-de-615dc395.json",
+   "recordedAt": "2026-10-22T14:22:43.865Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1399,7 +1439,11 @@
   "gb/en|GET /service/api/labels/flightstatus/lh/en": {
    "file": "gb-en-7156aa34.json",
    "recordedAt": "2026-10-22T12:58:08.750Z"
+  },
+  "gb/en|GET /aircore/geolocation/gb/en": {
+   "file": "gb-en-5fb00556.json",
+   "recordedAt": "2026-10-22T14:54:26.589Z"
   }
  },
- "updatedAt": "2026-10-22T14:06:52.279Z"
+ "updatedAt": "2026-10-22T15:04:14.710Z"
 }

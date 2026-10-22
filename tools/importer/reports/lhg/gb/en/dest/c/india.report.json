@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/gb/en/dest/c/india",
+  "path": "lhg/gb/en/dest/c/india",
+  "timestamp": "2026-10-22T14:41:46.970Z",
+  "title": "",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

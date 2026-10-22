@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/at/de/dest/cy/los-angeles",
+  "path": "lhg/at/de/dest/cy/los-angeles",
+  "timestamp": "2026-10-22T14:23:27.176Z",
+  "title": "",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}

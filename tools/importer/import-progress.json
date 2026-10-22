@@ -6208,5 +6208,190 @@
   "template": "aircore-route",
   "status": "ok",
   "at": "2026-10-22T14:05:13.162Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.916Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/co/europa": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.919Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/co/nord-und-suedamerika": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.921Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/usa": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.923Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/spanien": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.926Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/italien": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.928Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/japan": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.931Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/indien": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.933Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/c/grossbritannien": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:23:19.936Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/new-york": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.044Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/los-angeles": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.047Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/barcelona": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.049Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/rom": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.051Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/tokio": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.054Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/london": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.056Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/paris": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.058Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/amman": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.060Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/palma-de-mallorca": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:23:53.062Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.206Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/co/europe": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.209Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/co/north-and-south-america": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.212Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/c/usa": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.214Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/c/spain": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.217Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/c/italy": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.220Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/c/japan": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.222Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/c/india": {
+  "template": "aircore-destination-overview",
+  "status": "ok",
+  "at": "2026-10-22T14:41:57.225Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/new-york": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.581Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/los-angeles": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.584Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/barcelona": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.586Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/rome": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.590Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/tokyo": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.593Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/paris": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.596Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/amman": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.598Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/palma-de-mallorca": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.601Z"
+ },
+ "https://www.lufthansa.com/lhg/at/de/dest/cy/lissabon": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.604Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/dest/cy/lisbon": {
+  "template": "aircore-destination",
+  "status": "ok",
+  "at": "2026-10-22T14:42:32.607Z"
+ },
+ "https://www.lufthansa.com/lhg/gb/en/o-d/cy-cy/frankfurt-london": {
+  "template": "aircore-route",
+  "status": "ok",
+  "at": "2026-10-22T14:54:57.017Z"
  }
 }

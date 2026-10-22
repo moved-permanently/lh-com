@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/gb/en/o-d/cy-cy/frankfurt-london",
+  "path": "lhg/gb/en/o-d/cy-cy/frankfurt-london",
+  "timestamp": "2026-10-22T14:54:46.293Z",
+  "title": "",
+  "template": "aircore-route",
+  "blocks": [
+    "flight-search"
+  ]
+}
