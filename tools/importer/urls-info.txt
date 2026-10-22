@@ -1,10 +1,5 @@
-https://www.lufthansa.com/de/de/passengers-with-sensory-impairment
-https://www.lufthansa.com/de/de/zahlungsmoeglichkeiten-am-flughafen
-https://www.lufthansa.com/de/de/premium-economy-class
-https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg
-https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay
-https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage
-https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries
-https://www.lufthansa.com/de/de/prepare-for-your-trip/current-travel-information
-https://www.lufthansa.com/de/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system
-https://www.lufthansa.com/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk
+https://www.lufthansa.com/de/de/upgrade-in-die-business-class
+https://www.lufthansa.com/de/de/upgrade-in-die-premium-economy-class
+https://www.lufthansa.com/de/de/upgrades-im-online-check-in
+https://www.lufthansa.com/de/de/rollstuhlbatterien
+https://www.lufthansa.com/de/de/mit-kindern-am-flughafen

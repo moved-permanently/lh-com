@@ -236,6 +236,17 @@
   "checkedAt": "2026-10-22T01:10:07.514Z",
   "rendition": "https://www.lufthansa.com/content/dam/lh/de/moving-images/lh100years_History-Overview.mp4_backup.jpg.transform/lh-dcep-transform-width-2560/img.jpg"
  },
+ "https://www.lufthansa.com/content/dam/lh/en/images/local_images/100-years/cabin-design/fallback_header_2560x1440.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/27a29bc8c51dbbea1e52e993ad7861e9.jpg",
+  "format": "jpeg",
+  "bytes": 358418,
+  "width": 2560,
+  "height": 1440,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T04:31:24.048Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/Airport%20landing.svg": {
   "status": 200,
   "version": 1,
@@ -2482,6 +2493,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:18:31.735Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/202110-A320-neo-nose-DE.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/e2a041a1bbeb9d37757b0fbf45661e87.jpg",
+  "format": "jpeg",
+  "bytes": 203220,
+  "width": 1250,
+  "height": 540,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T04:49:17.443Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/A320_168-tail.png": {
   "status": 200,
   "version": 1,
@@ -2492,6 +2514,83 @@
   "height": 525,
   "hasAlpha": true,
   "checkedAt": "2026-10-22T01:18:32.174Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/A350_48business-nose.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/74671167a716d90de819fdcfc08b8d33.png",
+  "format": "png",
+  "bytes": 452618,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:18.395Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/A350_48business-tail.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/c3904f01d1319722170522501aced5f6.png",
+  "format": "png",
+  "bytes": 547139,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:18.903Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/B747_lower_67business-nose.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6ab027e4a27665b62e7fdefbc0fc9ddd.png",
+  "format": "png",
+  "bytes": 487860,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:19.382Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/B747_lower_67business-tail.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/df3486153ffe90ffb71ca92cf999eb6c.png",
+  "format": "png",
+  "bytes": 617727,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:19.891Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/B747_top_67business-nose.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/3c2f753f06097b7634d97812d1edf935.png",
+  "format": "png",
+  "bytes": 360837,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:20.382Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/B747_top_67business-tail.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/00cde22a727b8b6583867c80131e2a6f.png",
+  "format": "png",
+  "bytes": 193137,
+  "width": 1264,
+  "height": 525,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T04:49:20.864Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/de/DE_Airbus-A320neo-tail.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6c75cdc1bd3e9085430157e4f9d0f6e7.jpg",
+  "format": "jpeg",
+  "bytes": 242656,
+  "width": 1250,
+  "height": 540,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T04:49:17.876Z"
  },
  "https://www.lufthansa.com/content/dam/lh/images/local_variations/seatmaps/en/EN_A350_48business-nose.png": {
   "status": 200,
@@ -3063,6 +3162,17 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T03:20:41.219Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/333f9c0b8e5943aa2829dad02694bc2f.jpg",
+  "format": "jpeg",
+  "bytes": 185114,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T04:13:52.809Z"
  },
  "https://www.lufthansa.com/etc/designs/dcep/clientlib-all/vite/img/member-of-lhg.svg": {
   "status": 200,

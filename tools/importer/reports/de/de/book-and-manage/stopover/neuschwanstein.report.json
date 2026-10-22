@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/book-and-manage/stopover/neuschwanstein",
+  "path": "de/de/book-and-manage/stopover/neuschwanstein",
+  "timestamp": "2026-10-22T04:40:12.347Z",
+  "title": "Neuschwanstein | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

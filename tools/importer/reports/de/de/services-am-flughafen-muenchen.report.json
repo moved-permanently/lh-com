@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/services-am-flughafen-muenchen",
+  "path": "de/de/services-am-flughafen-muenchen",
+  "timestamp": "2026-10-22T04:13:17.359Z",
+  "title": "Services am Flughafen München | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/uebergepaeck",
+  "path": "de/de/uebergepaeck",
+  "timestamp": "2026-10-22T04:22:19.299Z",
+  "title": "Übergepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

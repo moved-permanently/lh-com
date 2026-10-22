@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/tips-senior-travellers",
+  "path": "de/de/tips-senior-travellers",
+  "timestamp": "2026-10-22T04:13:40.248Z",
+  "title": "Ältere Reisende | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "carousel-cards"
+  ]
+}

@@ -2294,6 +2294,356 @@
    "uploaded": "2026-10-22T03:56:25.867Z",
    "mtime": 1792641326050,
    "preview": "2026-10-22T03:56:27.564Z"
+  },
+  "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing": {
+   "uploaded": "2026-10-22T04:05:01.396Z",
+   "mtime": 1792641838912,
+   "preview": "2026-10-22T04:05:04.032Z"
+  },
+  "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing": {
+   "uploaded": "2026-10-22T04:05:05.188Z",
+   "mtime": 1792641840951,
+   "preview": "2026-10-22T04:05:06.934Z"
+  },
+  "/de/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions": {
+   "uploaded": "2026-10-22T04:05:07.940Z",
+   "mtime": 1792641883496,
+   "preview": "2026-10-22T04:05:10.369Z"
+  },
+  "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment": {
+   "uploaded": "2026-10-22T04:05:11.651Z",
+   "mtime": 1792641883565,
+   "preview": "2026-10-22T04:05:13.818Z"
+  },
+  "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment": {
+   "uploaded": "2026-10-22T04:05:15.051Z",
+   "mtime": 1792641847926,
+   "preview": "2026-10-22T04:05:16.901Z"
+  },
+  "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion": {
+   "uploaded": "2026-10-22T04:05:18.207Z",
+   "mtime": 1792641850184,
+   "preview": "2026-10-22T04:05:20.137Z"
+  },
+  "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment": {
+   "uploaded": "2026-10-22T04:05:21.254Z",
+   "mtime": 1792641883718,
+   "preview": "2026-10-22T04:05:23.780Z"
+  },
+  "/de/de/prepare-for-your-trip/travel-classes/economy-basic": {
+   "uploaded": "2026-10-22T04:05:25.060Z",
+   "mtime": 1792641883786,
+   "preview": "2026-10-22T04:05:26.920Z"
+  },
+  "/de/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass": {
+   "uploaded": "2026-10-22T04:05:28.211Z",
+   "mtime": 1792641859503,
+   "preview": "2026-10-22T04:05:30.112Z"
+  },
+  "/de/de/prepare-for-your-trip/travelling-with-children/planning-with-kids": {
+   "uploaded": "2026-10-22T04:05:31.260Z",
+   "mtime": 1792641861640,
+   "preview": "2026-10-22T04:05:33.099Z"
+  },
+  "/de/de/rail-and-fly": {
+   "uploaded": "2026-10-22T04:05:34.337Z",
+   "mtime": 1792641864489,
+   "preview": "2026-10-22T04:05:36.793Z"
+  },
+  "/de/de/rechnungsbeleg": {
+   "uploaded": "2026-10-22T04:05:37.792Z",
+   "mtime": 1792641866900,
+   "preview": "2026-10-22T04:05:39.935Z"
+  },
+  "/de/de/refund": {
+   "uploaded": "2026-10-22T04:05:41.231Z",
+   "mtime": 1792641869372,
+   "preview": "2026-10-22T04:05:43.434Z"
+  },
+  "/de/de/schengen": {
+   "uploaded": "2026-10-22T04:05:44.558Z",
+   "mtime": 1792641884069,
+   "preview": "2026-10-22T04:05:46.666Z"
+  },
+  "/de/de/secure-flight": {
+   "uploaded": "2026-10-22T04:14:08.812Z",
+   "mtime": 1792642385507,
+   "preview": "2026-10-22T04:14:10.551Z"
+  },
+  "/de/de/zeitfenster-sicherheitskontrolle": {
+   "uploaded": "2026-10-22T04:14:12.027Z",
+   "mtime": 1792642389002,
+   "preview": "2026-10-22T04:14:13.649Z"
+  },
+  "/de/de/security-fast-lanes": {
+   "uploaded": "2026-10-22T04:14:14.795Z",
+   "mtime": 1792642432026,
+   "preview": "2026-10-22T04:14:16.685Z"
+  },
+  "/de/de/services-am-flughafen-frankfurt": {
+   "uploaded": "2026-10-22T04:14:18.125Z",
+   "mtime": 1792642432088,
+   "preview": "2026-10-22T04:14:20.269Z"
+  },
+  "/de/de/services-am-flughafen-muenchen": {
+   "uploaded": "2026-10-22T04:14:21.271Z",
+   "mtime": 1792642397338,
+   "preview": "2026-10-22T04:14:22.857Z"
+  },
+  "/de/de/shopping": {
+   "uploaded": "2026-10-22T04:14:24.055Z",
+   "mtime": 1792642432270,
+   "preview": "2026-10-22T04:14:26.219Z"
+  },
+  "/de/de/sixt": {
+   "uploaded": "2026-10-22T04:14:27.318Z",
+   "mtime": 1792642402142,
+   "preview": "2026-10-22T04:14:29.030Z"
+  },
+  "/de/de/sondermahlzeiten": {
+   "uploaded": "2026-10-22T04:14:30.040Z",
+   "mtime": 1792642405093,
+   "preview": "2026-10-22T04:14:31.955Z"
+  },
+  "/de/de/sportgepaeck": {
+   "uploaded": "2026-10-22T04:14:33.263Z",
+   "mtime": 1792642432542,
+   "preview": "2026-10-22T04:14:35.282Z"
+  },
+  "/de/de/support/contact/passenger-duty-united-kingdom": {
+   "uploaded": "2026-10-22T04:14:36.467Z",
+   "mtime": 1792642410264,
+   "preview": "2026-10-22T04:14:38.052Z"
+  },
+  "/de/de/support/feedback-and-contact-airlines": {
+   "uploaded": "2026-10-22T04:14:39.225Z",
+   "mtime": 1792642412387,
+   "preview": "2026-10-22T04:14:41.214Z"
+  },
+  "/de/de/tiere-als-handgepaeck": {
+   "uploaded": "2026-10-22T04:14:42.462Z",
+   "mtime": 1792642414739,
+   "preview": "2026-10-22T04:14:44.598Z"
+  },
+  "/de/de/tiere-als-uebergepaeck": {
+   "uploaded": "2026-10-22T04:14:45.796Z",
+   "mtime": 1792642417398,
+   "preview": "2026-10-22T04:14:48.152Z"
+  },
+  "/de/de/tips-senior-travellers": {
+   "uploaded": "2026-10-22T04:14:49.428Z",
+   "mtime": 1792642432862,
+   "preview": "2026-10-22T04:14:51.789Z"
+  },
+  "/de/de/reisebueros": {
+   "uploaded": "2026-10-22T04:23:02.013Z",
+   "mtime": 1792642922492,
+   "preview": "2026-10-22T04:23:04.032Z"
+  },
+  "/de/de/travel-expense-management": {
+   "uploaded": "2026-10-22T04:23:05.179Z",
+   "mtime": 1792642924407,
+   "preview": "2026-10-22T04:23:07.345Z"
+  },
+  "/de/de/gesund-reisen": {
+   "uploaded": "2026-10-22T04:23:08.610Z",
+   "mtime": 1792642962319,
+   "preview": "2026-10-22T04:23:10.686Z"
+  },
+  "/de/de/travelling-with-animals": {
+   "uploaded": "2026-10-22T04:23:12.010Z",
+   "mtime": 1792642929189,
+   "preview": "2026-10-22T04:23:13.892Z"
+  },
+  "/de/de/fliegen-mit-kindern": {
+   "uploaded": "2026-10-22T04:23:15.103Z",
+   "mtime": 1792642931592,
+   "preview": "2026-10-22T04:23:17.151Z"
+  },
+  "/de/de/reisen-mit-besonderen-anforderungen": {
+   "uploaded": "2026-10-22T04:23:18.440Z",
+   "mtime": 1792642934727,
+   "preview": "2026-10-22T04:23:20.243Z"
+  },
+  "/de/de/traveltricks": {
+   "uploaded": "2026-10-22T04:23:21.716Z",
+   "mtime": 1792642936718,
+   "preview": "2026-10-22T04:23:23.626Z"
+  },
+  "/de/de/uebergepaeck": {
+   "uploaded": "2026-10-22T04:23:24.890Z",
+   "mtime": 1792642966343,
+   "preview": "2026-10-22T04:23:26.794Z"
+  },
+  "/de/de/alleinreisende-kinder": {
+   "uploaded": "2026-10-22T04:23:27.937Z",
+   "mtime": 1792642959370,
+   "preview": "2026-10-22T04:23:29.960Z"
+  },
+  "/de/de/upgrade-business-class-langstrecke": {
+   "uploaded": "2026-10-22T04:23:31.011Z",
+   "mtime": 1792642943967,
+   "preview": "2026-10-22T04:23:32.598Z"
+  },
+  "/de/de/upgrade-first-class": {
+   "uploaded": "2026-10-22T04:23:33.822Z",
+   "mtime": 1792642946051,
+   "preview": "2026-10-22T04:23:36.096Z"
+  },
+  "/de/de/upgrade-informationen": {
+   "uploaded": "2026-10-22T04:23:37.151Z",
+   "mtime": 1792642948809,
+   "preview": "2026-10-22T04:23:38.788Z"
+  },
+  "/de/de/upgrademoeglichkeiten": {
+   "uploaded": "2026-10-22T04:23:40.024Z",
+   "mtime": 1792642966605,
+   "preview": "2026-10-22T04:23:41.816Z"
+  },
+  "/de/de/upgrade-premium-economy-class": {
+   "uploaded": "2026-10-22T04:23:43.089Z",
+   "mtime": 1792642953731,
+   "preview": "2026-10-22T04:23:44.823Z"
+  },
+  "/de/de/upgrade-in-die-business-class": {
+   "uploaded": "2026-10-22T04:31:49.763Z",
+   "mtime": 1792643455175,
+   "preview": "2026-10-22T04:31:51.644Z"
+  },
+  "/de/de/upgrade-in-die-premium-economy-class": {
+   "uploaded": "2026-10-22T04:31:52.926Z",
+   "mtime": 1792643457244,
+   "preview": "2026-10-22T04:31:54.799Z"
+  },
+  "/de/de/upgrades-im-online-check-in": {
+   "uploaded": "2026-10-22T04:31:56.013Z",
+   "mtime": 1792643459387,
+   "preview": "2026-10-22T04:31:57.632Z"
+  },
+  "/de/de/rollstuhlbatterien": {
+   "uploaded": "2026-10-22T04:31:58.994Z",
+   "mtime": 1792643461188,
+   "preview": "2026-10-22T04:32:00.604Z"
+  },
+  "/de/de/mit-kindern-am-flughafen": {
+   "uploaded": "2026-10-22T04:32:01.810Z",
+   "mtime": 1792643489386,
+   "preview": "2026-10-22T04:32:03.870Z"
+  },
+  "/de/de/100-years": {
+   "uploaded": "2026-10-22T04:32:04.966Z",
+   "mtime": 1792643473048,
+   "preview": "2026-10-22T04:32:06.933Z"
+  },
+  "/de/de/100-years/cabin-design": {
+   "uploaded": "2026-10-22T04:32:08.204Z",
+   "mtime": 1792643475746,
+   "preview": "2026-10-22T04:32:10.985Z"
+  },
+  "/de/de/100-years/campaigns": {
+   "uploaded": "2026-10-22T04:32:12.202Z",
+   "mtime": 1792643478958,
+   "preview": "2026-10-22T04:32:14.593Z"
+  },
+  "/de/de/100-years/chronicle": {
+   "uploaded": "2026-10-22T04:40:44.699Z",
+   "mtime": 1792643989696,
+   "preview": "2026-10-22T04:40:47.587Z"
+  },
+  "/de/de/100-years/crane": {
+   "uploaded": "2026-10-22T04:40:48.995Z",
+   "mtime": 1792643992694,
+   "preview": "2026-10-22T04:40:51.399Z"
+  },
+  "/de/de/100-years/destinations": {
+   "uploaded": "2026-10-22T04:40:52.597Z",
+   "mtime": 1792643995328,
+   "preview": "2026-10-22T04:40:54.748Z"
+  },
+  "/de/de/100-years/fleet": {
+   "uploaded": "2026-10-22T04:40:56.050Z",
+   "mtime": 1792643998660,
+   "preview": "2026-10-22T04:40:58.252Z"
+  },
+  "/de/de/100-years/global-network": {
+   "uploaded": "2026-10-22T04:40:59.352Z",
+   "mtime": 1792644000674,
+   "preview": "2026-10-22T04:41:02.669Z"
+  },
+  "/de/de/100-years/history": {
+   "uploaded": "2026-10-22T04:41:03.868Z",
+   "mtime": 1792644018969,
+   "preview": "2026-10-22T04:41:05.759Z"
+  },
+  "/de/de/book-and-manage/stopover": {
+   "uploaded": "2026-10-22T04:41:07.056Z",
+   "mtime": 1792644005908,
+   "preview": "2026-10-22T04:41:09.514Z"
+  },
+  "/de/de/book-and-manage/stopover/bayerischer-hof": {
+   "uploaded": "2026-10-22T04:41:10.797Z",
+   "mtime": 1792644008674,
+   "preview": "2026-10-22T04:41:12.415Z"
+  },
+  "/de/de/book-and-manage/stopover/neuschwanstein": {
+   "uploaded": "2026-10-22T04:41:13.854Z",
+   "mtime": 1792644012337,
+   "preview": "2026-10-22T04:41:15.675Z"
+  },
+  "/de/de/book-and-manage/stopover/zugspitze": {
+   "uploaded": "2026-10-22T04:49:46.865Z",
+   "mtime": 1792644523758,
+   "preview": "2026-10-22T04:49:48.631Z"
+  },
+  "/de/de/culinaryjourney": {
+   "uploaded": "2026-10-22T04:49:49.749Z",
+   "mtime": 1792644526953,
+   "preview": "2026-10-22T04:49:51.502Z"
+  },
+  "/de/de/discover-lufthansa/take-off": {
+   "uploaded": "2026-10-22T04:49:52.809Z",
+   "mtime": 1792644529201,
+   "preview": "2026-10-22T04:49:54.728Z"
+  },
+  "/de/de/frankfurt-fair": {
+   "uploaded": "2026-10-22T04:49:55.941Z",
+   "mtime": 1792644531223,
+   "preview": "2026-10-22T04:49:57.633Z"
+  },
+  "/de/de/lufthansa-city/culinaryjourney": {
+   "uploaded": "2026-10-22T04:49:58.934Z",
+   "mtime": 1792644533345,
+   "preview": "2026-10-22T04:50:00.523Z"
+  },
+  "/de/de/bedeutsamste-strecken": {
+   "uploaded": "2026-10-22T04:50:01.798Z",
+   "mtime": 1792644535562,
+   "preview": "2026-10-22T04:50:03.785Z"
+  },
+  "/de/de/munich-fair": {
+   "uploaded": "2026-10-22T04:50:05.156Z",
+   "mtime": 1792644537419,
+   "preview": "2026-10-22T04:50:06.960Z"
+  },
+  "/de/de/320": {
+   "uploaded": "2026-10-22T04:50:08.023Z",
+   "mtime": 1792644545077,
+   "preview": "2026-10-22T04:50:09.851Z"
+  },
+  "/de/de/32n": {
+   "uploaded": "2026-10-22T04:50:10.949Z",
+   "mtime": 1792644547495,
+   "preview": "2026-10-22T04:50:12.825Z"
+  },
+  "/de/de/359": {
+   "uploaded": "2026-10-22T04:50:14.102Z",
+   "mtime": 1792644549401,
+   "preview": "2026-10-22T04:50:16.629Z"
+  },
+  "/de/de/744": {
+   "uploaded": "2026-10-22T04:50:17.899Z",
+   "mtime": 1792644551737,
+   "preview": "2026-10-22T04:50:20.184Z"
   }
  },
  "media": {

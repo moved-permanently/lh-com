@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/rail-and-fly",
+  "path": "de/de/rail-and-fly",
+  "timestamp": "2026-10-22T04:04:24.512Z",
+  "title": "Zum Flughafen mit Rail&Fly | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

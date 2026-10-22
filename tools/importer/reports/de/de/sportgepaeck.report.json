@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/sportgepaeck",
+  "path": "de/de/sportgepaeck",
+  "timestamp": "2026-10-22T04:13:27.786Z",
+  "title": "Sport- und Sondergepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

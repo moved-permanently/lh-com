@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/100-years/global-network",
+  "path": "de/de/100-years/global-network",
+  "timestamp": "2026-10-22T04:40:00.689Z",
+  "title": "Globales Netzwerk | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-teaser"
+  ]
+}
