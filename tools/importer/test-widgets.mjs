@@ -730,8 +730,8 @@ function renderedSample(name, block) {
       return { ok: prices.length > 0, text: `${prices.length} prices: ${prices.slice(0, 3).join(', ')}` };
     }
     case 'destination-finder': {
-      const prices = block.querySelectorAll('.destination-finder-price').map((p) => p.textContent);
-      return { ok: prices.length > 0, text: `${count('.destination-finder-item')} items: ${prices.slice(0, 3).join(', ')}` };
+      const prices = block.querySelectorAll('.destination-finder-price, .destination-finder-tile-price').map((p) => p.textContent);
+      return { ok: prices.length > 0, text: `${count('.destination-finder-item, .destination-finder-tile-link')} items: ${prices.slice(0, 3).join(', ')}` };
     }
     case 'price-bar': {
       const price = block.querySelector('.price-bar-price');

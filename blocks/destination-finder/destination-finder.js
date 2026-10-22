@@ -717,8 +717,12 @@ function addInfo(group, text, label, id) {
     info.hidden = !info.hidden;
     button.setAttribute('aria-expanded', String(!info.hidden));
   });
+  if (!heading) {
+    group.append(button, info);
+    return;
+  }
   heading.append(button);
-  heading.after(info);
+  heading.parentNode.insertBefore(info, heading.nextSibling);
 }
 
 function choice(type, name, value, text, checked = false) {
@@ -807,8 +811,8 @@ async function decorateGrid(block, uid) {
   status.setAttribute('aria-live', 'polite');
   let announceTimer;
   const announce = (text) => {
-    window.clearTimeout(announceTimer);
-    announceTimer = window.setTimeout(() => { status.textContent = text; }, 300);
+    clearTimeout(announceTimer);
+    announceTimer = setTimeout(() => { status.textContent = text; }, 300);
   };
 
   /* filter column */
