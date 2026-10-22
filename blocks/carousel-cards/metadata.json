@@ -15,7 +15,12 @@
   "contentPattern": {
     "structure": "One row per slide. Cell 1: image. Cell 2: optional eyebrow paragraph, heading, description, CTA link. Optional cell 3: 'wide' for a wide card (default compact). Cells may be missing; a slide without an image renders text only. Optional label rows (2 cells, no image): Carousel label, Previous label, Next label, Slide label ('{n} of {total}'). UI strings have built-in English and German defaults chosen by the page language; any can be overridden with a row of the same name"
   },
-  "options": [],
+  "options": [
+    {
+      "name": "article",
+      "description": "Insights articles: cards in the article column (83.333% from 768px), 1/2/3 per row (mobile/768/1025), 16:9 images, no carousel controls"
+    }
+  ],
   "memberVariantIds": [],
   "usage": {
     "description": "'Current topics and news' sections and any multi-teaser row that overflows the page width.",

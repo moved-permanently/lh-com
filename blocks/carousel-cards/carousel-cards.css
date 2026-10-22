@@ -300,3 +300,60 @@
     display: flex;
   }
 }
+
+/* article variant: Lufthansa Insights ".threecolumn" of a.teaser.card in an article; cards in
+   the article column (col-md-10 offset-1 = 83.333% from 768px), stacked on mobile, two per row
+   from 768px, three from 1025px (.column-view-item gutters 20px), 16:9 images, no carousel */
+.carousel-cards.article .carousel-cards-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+/* .teaser.card { border: .1rem solid #b0b0b0; border-radius: 4px; box-shadow: 0 .1rem .4rem #0003 } */
+.carousel-cards.article .carousel-cards-slide,
+.carousel-cards.article .carousel-cards-slide:hover {
+  border-color: #b0b0b0;
+  border-radius: var(--radius-s);
+  box-shadow: 0 1px 4px #0003;
+}
+
+.carousel-cards.article .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+  aspect-ratio: 16 / 9;
+  border-radius: 0;
+}
+
+/* .teaser.card .card-content { padding: 2rem } */
+.carousel-cards.article .carousel-cards-body {
+  padding: 20px 20px 30px;
+}
+
+/* .teaser.card .teaser-heading: LufthansaHead bold 2rem to 2.4rem (1281px), line-height 110% */
+.carousel-cards.article .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 0;
+  font-family: var(--heading-font-family);
+  font-size: clamp(20px, calc(20px + 4 * (100vw - 375px) / 1065), 24px);
+  line-height: 1.1;
+}
+
+@media (width >= 768px) {
+  .carousel-cards.article {
+    max-width: 83.333%;
+    margin-inline: auto;
+  }
+
+  .carousel-cards.article .carousel-cards-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (width >= 1025px) {
+  .carousel-cards.article .carousel-cards-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

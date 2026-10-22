@@ -119,7 +119,15 @@ export default function decorate(block) {
   block.setAttribute('aria-label', labels['carousel label']);
   decorateExternalLinks(track);
 
-  if (items.length < 2) {
+  // article variant: a grid of cards in the article column, no carousel controls; links to
+  // lufthansa.com pages outside the site open in the same tab, as on the live article
+  const article = block.classList.contains('article');
+  if (article) {
+    track.querySelectorAll('a[target="_blank"]').forEach((a) => {
+      if (/(^|\.)lufthansa\.com$/.test(new URL(a.href).hostname)) a.removeAttribute('target');
+    });
+  }
+  if (items.length < 2 || article) {
     block.replaceChildren(viewport);
     return;
   }

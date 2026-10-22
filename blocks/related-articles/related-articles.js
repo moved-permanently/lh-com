@@ -1,43 +1,42 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
-import { cleanText, decorateExternalLinks } from '../../scripts/block-config.js';
+import { cleanText, keepImageSize } from '../../scripts/block-config.js';
 
-const INDEX_URL = '/query-index.json';
+const CACHE_KEY = 'lh-related-articles:';
+// hosts of this site besides the current origin (links may be authored absolute)
+const SITE_HOST = /^(?:[a-z0-9-]+--)?lh-com--moved-permanently\.aem\.(?:page|live)$/;
+const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '750' }, { width: '600' }];
 
-let indexPromise;
-
-/** Path used to match links and index rows: no trailing slash, no .html. */
-function normalizePath(path) {
-  return (path || '').replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/+$/, '') || '/';
+/**
+ * Local dev server (aem up --html-folder content) serves the documents under a folder prefix
+ * (/content/de/en/...); the linked pages are fetched under the same prefix.
+ */
+function devPrefix() {
+  if (!/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return '';
+  const m = window.location.pathname.match(/^((?:\/[^/]+)*?)(?=\/(?:lhg\/)?[a-z]{2}\/[a-z]{2}(?:\/|$))/);
+  return m ? m[1] : '';
 }
 
-/** Query index rows by normalized path; an empty map when the index is unavailable. */
-function loadIndex() {
-  if (!indexPromise) {
-    indexPromise = (async () => {
-      const byPath = new Map();
-      try {
-        const resp = await fetch(INDEX_URL);
-        if (!resp.ok) return byPath;
-        const json = await resp.json();
-        let rows = [];
-        if (Array.isArray(json)) rows = json;
-        else if (json && Array.isArray(json.data)) rows = json.data;
-        rows.forEach((row) => {
-          if (row && typeof row.path === 'string') byPath.set(normalizePath(row.path), row);
-        });
-      } catch (e) {
-        // no index: the cards keep their link text
-      }
-      return byPath;
-    })();
+/**
+ * Path of a page of this site (no .html, no trailing slash), or null for other sites
+ * (e.g. an article on www.lufthansa.com that is not part of the site).
+ * @param {string} href
+ */
+function sitePath(href) {
+  try {
+    const url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin && !SITE_HOST.test(url.hostname)) return null;
+    const prefix = devPrefix();
+    const pathname = prefix && url.pathname.startsWith(`${prefix}/`) ? url.pathname.slice(prefix.length) : url.pathname;
+    return pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/+$/, '') || '/';
+  } catch {
+    return null;
   }
-  return indexPromise;
 }
 
 /**
  * Date from an ISO string ("2026-08-20"), unix seconds/milliseconds or a spreadsheet serial day.
- * @param {string|number} value
+ * @param {string} value
  * @returns {Date|null}
  */
 function parseDate(value) {
@@ -56,11 +55,11 @@ function parseDate(value) {
 
 /**
  * Publication date as the live article cards print it: the page language's default long date
- * ("August 20, 2026" for en, "20. August 2026" for de), or the indexed text.
+ * ("August 20, 2026" for en, "20. August 2026" for de), or the text as it is.
  */
 function formatDate(value, locale) {
   const date = parseDate(value);
-  const text = typeof value === 'number' ? '' : String(value ?? '').trim();
+  const text = String(value ?? '').trim();
   if (!date) return text;
   try {
     return new Intl.DateTimeFormat(locale.lang, {
@@ -71,103 +70,194 @@ function formatDate(value, locale) {
   }
 }
 
-/** Whether an index image is a real article image (not empty or the default meta image). */
+/** Whether an image URL is a real article image (not empty or the default meta image). */
 function usableImage(src) {
-  return typeof src === 'string' && src.trim() && !/default-meta-image/i.test(src);
+  return typeof src === 'string' && !!src.trim() && !/default-meta-image/i.test(src);
 }
 
-/** Builds a card from an authored link; the index enriches it later. */
-function buildCard(link) {
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  a.className = 'related-articles-card';
-  a.href = link.href;
-  const image = document.createElement('div');
-  image.className = 'related-articles-image';
-  const byline = document.createElement('p');
-  byline.className = 'related-articles-byline';
-  const title = document.createElement('h3');
-  title.className = 'related-articles-title';
-  title.textContent = cleanText(link) || link.href;
-  a.append(image, byline, title);
-  li.append(a);
-  return li;
-}
-
-/** Fills a card with image, byline and title from its query index row. */
-function enrichCard(card, row, locale) {
-  const image = card.querySelector('.related-articles-image');
-  if (usableImage(row.image)) {
-    try {
-      image.replaceChildren(createOptimizedPicture(row.image, '', false, [
-        { media: '(min-width: 600px)', width: '750' },
-        { width: '600' },
-      ]));
-    } catch (e) {
-      // unparseable image path: keep the placeholder
-    }
+/**
+ * Card values of a page from its head: og:image (+ alt), og:title, publication-date,
+ * reading-time and author. The local dev server leaves the Metadata block in the body.
+ * @param {Document} doc
+ */
+function readPage(doc) {
+  const rows = {};
+  doc.querySelectorAll('div.metadata > div').forEach(({ children: [k, v] }) => {
+    if (!k || !v) return;
+    rows[k.textContent.trim().toLowerCase().replace(/[^a-z0-9:]+/g, '-')] = v;
+  });
+  if (Object.keys(rows).length) {
+    const text = (...keys) => keys.map((key) => (rows[key] ? rows[key].textContent.trim() : '')).find(Boolean) || '';
+    const img = (rows.image || rows['og:image'] || doc.createElement('div')).querySelector('img');
+    return {
+      image: img ? img.getAttribute('src') : text('og:image', 'image'),
+      alt: img ? img.getAttribute('alt') || '' : '',
+      title: text('og:title', 'title'),
+      date: text('publication-date'),
+      readingTime: text('reading-time'),
+      author: text('author'),
+    };
   }
-  const parts = [
-    formatDate(row['publication-date'], locale),
-    String(row['reading-time'] ?? '').trim(),
-    String(row.author ?? '').trim(),
-  ].filter((text) => text && text !== '0');
+  return {
+    image: getMetadata('og:image', doc),
+    alt: getMetadata('og:image:alt', doc),
+    title: getMetadata('og:title', doc) || doc.title || '',
+    date: getMetadata('publication-date', doc),
+    readingTime: getMetadata('reading-time', doc),
+    author: getMetadata('author', doc),
+  };
+}
+
+/**
+ * Card values of another page of the site, from the head of its HTML (cached per tab).
+ * @param {string} path
+ * @returns {Promise<Object|null>}
+ */
+async function fetchPage(path) {
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY + path);
+    if (cached) return JSON.parse(cached);
+  } catch { /* no storage */ }
+  try {
+    const resp = await fetch(`${devPrefix()}${path}`, { signal: AbortSignal.timeout(5000) });
+    if (!resp.ok) return null;
+    const html = await resp.text();
+    const local = html.includes('<div class="metadata">');
+    const end = html.search(/<\/head>/i);
+    const doc = new DOMParser().parseFromString(local || end < 0 ? html : `${html.slice(0, end)}</head><body></body></html>`, 'text/html');
+    const page = readPage(doc);
+    try { sessionStorage.setItem(CACHE_KEY + path, JSON.stringify(page)); } catch { /* full */ }
+    return page;
+  } catch {
+    return null;
+  }
+}
+
+/** Picture for an image URL: optimized for media of this site, as it is for other hosts. */
+function buildPicture(src, alt) {
+  try {
+    const url = new URL(src, window.location.href);
+    if (url.origin === window.location.origin || SITE_HOST.test(url.hostname)) {
+      return createOptimizedPicture(url.pathname, alt, false, BREAKPOINTS);
+    }
+    const picture = document.createElement('picture');
+    const img = document.createElement('img');
+    img.src = url.href;
+    img.alt = alt;
+    img.loading = 'lazy';
+    picture.append(img);
+    return picture;
+  } catch {
+    return null;
+  }
+}
+
+function setByline(card, parts) {
   const byline = card.querySelector('.related-articles-byline');
-  byline.replaceChildren(...parts.map((text) => {
+  byline.replaceChildren(...parts.filter((text) => text && text !== '0').map((text) => {
     const span = document.createElement('span');
     span.textContent = text;
     return span;
   }));
-  const title = typeof row.title === 'string' ? row.title.trim() : '';
-  if (title) card.querySelector('.related-articles-title').textContent = title;
 }
 
 /**
- * Related article cards from authored links, enriched with image, date, reading time, author and
- * title from the query index.
+ * Builds a card from an authored link with the row's image and byline ("date | reading time |
+ * author"), if any. Links to pages of the site are relative; other links stay as they are.
+ */
+function buildCard(link, authored) {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  a.className = 'related-articles-card';
+  const path = sitePath(link.href);
+  const href = link.getAttribute('href');
+  if (path && /^https?:/i.test(href)) {
+    const url = new URL(href);
+    a.href = `${path}${url.search}${url.hash}`;
+  } else {
+    a.href = href;
+  }
+  const image = document.createElement('div');
+  image.className = 'related-articles-image';
+  if (authored.img) {
+    image.append(keepImageSize(authored.img, createOptimizedPicture(authored.img.src, authored.img.alt || '', false, BREAKPOINTS)));
+  }
+  const byline = document.createElement('p');
+  byline.className = 'related-articles-byline';
+  const title = document.createElement('h3');
+  title.className = 'related-articles-title';
+  const text = cleanText(link);
+  // a link whose text is its URL: the linked page's title (pages of the site), else the URL
+  if (text && !/^https?:\/\//i.test(text)) title.textContent = text;
+  else if (!path) title.textContent = text || href;
+  a.append(image, byline, title);
+  li.append(a);
+  setByline(li, authored.byline ? authored.byline.split('|').map((s) => s.trim()) : []);
+  return { li, path, hasTitle: !!title.textContent };
+}
+
+/** Fills what the authored card leaves open from the linked page's head. */
+function enrichCard(card, page, locale) {
+  const image = card.li.querySelector('.related-articles-image');
+  if (!image.children.length && usableImage(page.image)) {
+    const picture = buildPicture(page.image, page.alt || '');
+    if (picture) image.append(picture);
+  }
+  const byline = card.li.querySelector('.related-articles-byline');
+  if (!byline.children.length) {
+    setByline(card.li, [formatDate(page.date, locale), page.readingTime, page.author]);
+  }
+  const title = card.li.querySelector('.related-articles-title');
+  if (!title.textContent && page.title) title.textContent = page.title;
+}
+
+/**
+ * The cards of the block: one per link, in authored order, duplicates dropped. A row with a
+ * single link may hold the card's image and a byline paragraph (text without links).
+ */
+function readCards(block) {
+  const seen = new Set();
+  const cards = [];
+  [...block.children].forEach((row) => {
+    const links = [...row.querySelectorAll('a[href]')];
+    const single = links.length === 1;
+    const img = single ? row.querySelector('img') : null;
+    const bylineP = single ? [...row.querySelectorAll('p')].find((p) => !p.querySelector('a, img') && cleanText(p)) : null;
+    links.forEach((link) => {
+      const key = sitePath(link.href) || link.href;
+      if (seen.has(key)) return;
+      seen.add(key);
+      cards.push(buildCard(link, { img, byline: bylineP ? cleanText(bylineP) : '' }));
+    });
+  });
+  return cards;
+}
+
+/**
+ * Related article cards from authored links; image, byline and title that the document does not
+ * hold come from the head of the linked page (pages of the site only).
  * @param {Element} block
  */
 export default function decorate(block) {
   const locale = getLocale();
-  const seen = new Set();
-  const links = [...block.querySelectorAll('a[href]')].filter((a) => {
-    let key;
-    try {
-      const url = new URL(a.href, window.location.href);
-      key = url.origin === window.location.origin ? normalizePath(url.pathname) : url.href;
-    } catch (e) {
-      return false;
-    }
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
+  const cards = readCards(block);
   const list = document.createElement('ul');
   list.className = 'related-articles-list';
-  const cards = links.map((link) => {
-    const card = buildCard(link);
-    list.append(card);
-    return { card, link };
-  });
+  list.append(...cards.map((card) => card.li));
   block.replaceChildren(list);
   if (!cards.length) {
     block.classList.add('related-articles-empty');
     return;
   }
-  decorateExternalLinks(block);
 
   // enrich without holding up the section: the cards are already in place
-  loadIndex().then((index) => {
-    cards.forEach(({ card, link }) => {
-      try {
-        const url = new URL(link.href, window.location.href);
-        if (url.origin !== window.location.origin) return;
-        const row = index.get(normalizePath(url.pathname));
-        if (row) enrichCard(card, row, locale);
-      } catch (e) {
-        // keep the link-text card
-      }
+  cards.forEach((card) => {
+    const complete = card.li.querySelector('.related-articles-image').children.length
+      && card.li.querySelector('.related-articles-byline').children.length && card.hasTitle;
+    if (!card.path || complete) return;
+    fetchPage(card.path).then((page) => {
+      if (page) enrichCard(card, page, locale);
+      else if (!card.hasTitle) card.li.querySelector('.related-articles-title').textContent = card.path;
     });
   });
 }

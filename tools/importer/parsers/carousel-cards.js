@@ -20,7 +20,8 @@
  * a.teaser.card links. Output: 2 columns per row (image | H3, description, CTA); the column
  * title H2 is emitted as default content before the table; the swiper copy below lg is
  * skipped when the desktop grid is present. Without a CTA label (insights) the H3 is linked
- * to the card target.
+ * to the card target. Inside an insights article (.article-details-page) the block gets the
+ * "article" variant (cards in the article column, no carousel).
  */
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
@@ -44,6 +45,7 @@ export default function parse(element, { document }) {
     const MOBILE = '.hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none';
     const hasDesktopTwin = !!element.querySelector('.hidden-md-down a.teaser, .hidden-sm-down a.teaser');
 
+    const isArticle = !!element.closest('.article-details-page, .article-content');
     // column title (".column-view > div:not(.row)") is default content before the block
     const view = element.querySelector(':scope > .column-view') || element.querySelector('.column-view') || element;
     const titles = [];
@@ -54,6 +56,8 @@ export default function parse(element, { document }) {
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
         out.textContent = t;
+        // articles: the size class (h2.heading-small) becomes the cleanup's heading marker
+        if (isArticle && h.className) out.className = h.className;
         titles.push(out);
       }));
 
@@ -99,7 +103,9 @@ export default function parse(element, { document }) {
       rows.push([imageCell, content.length ? content : '']);
     });
 
-    const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', cells: rows });
+    // Lufthansa Insights articles: three cards in the article column, stacked on mobile
+    const variants = isArticle ? ['article'] : [];
+    const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;
   }

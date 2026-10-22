@@ -49,6 +49,11 @@ on AirCore pages: footnotes, disclaimers, small link lists), `{copytext-medium}`
 alone in such a paragraph stays a small text link with an arrow instead of a large
 navigation link.
 
+### Image captions
+
+`{caption}` at the end of the paragraph right after an image makes it the image's caption
+(14px bold, 10px under the image), as on Lufthansa Insights articles.
+
 ### Text width
 
 Running text (paragraphs, lists) uses two thirds of the content width from 1025px (AirCore

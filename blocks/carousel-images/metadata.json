@@ -1,0 +1,30 @@
+{
+  "variantName": "carousel-images",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/100-years/chronicle",
+  "visualCharacteristics": {
+    "purpose": "image carousel, one slide at a time, neighbours peeking in, optional captions",
+    "traits": [
+      "slides (container - 4px) / 1.2 wide, 2:1 images, 20px apart, current slide centred",
+      "track bleeds to the window edges",
+      "caption LufthansaText 14px bold under the image",
+      "next/previous arrows at the window edges from 1025px, dots below"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns. One row per slide: cell 1 the image (with alt text), cell 2 an optional caption (empty for none). Rows without an image are not slides. Optional label rows (2 cells, no image): Carousel label, Previous label, Next label, Slide label ('{n} of {total}'), with English and German defaults by page language. One image: no controls; no image: the block is hidden."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Lufthansa image components inside a single-slide swiper (.carousel:has(.swiper-single-slide)): 100 years pages, campaign pages, Insights articles, class pages.",
+    "pagesUsing": [
+      "/de/en/100-years/chronicle",
+      "/de/en/discover-lufthansa/new-onboard-experience",
+      "/de/en/articles/explore-the-world/stop-over-tokyo"
+    ],
+    "lastUsed": "2026-10-22"
+  },
+  "reuseGuidance": "Use for a row of images shown one at a time. For several teaser cards at once use carousel-cards; for an inline preview that opens a modal gallery use carousel-lightbox."
+}

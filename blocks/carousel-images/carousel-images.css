@@ -1,0 +1,190 @@
+/* carousel-images: Lufthansa .new-carousel > .swiper.swiper-single-slide (slidesPerView 1.2,
+   spaceBetween 20, centred slides) of image components (figure > img + figcaption.caption) */
+.carousel-images {
+  position: relative;
+  container-type: inline-size;
+  margin-bottom: 24px;
+}
+
+/* slide width (container - 0.2 x 20px) / 1.2: 1050px at 1440, 584px at 768, 272px at 375 */
+.carousel-images .carousel-images-viewport {
+  --carousel-images-slide: calc((100cqw - 4px) / 1.2);
+}
+
+/* the swiper bleeds into the page margin (margin -container-offset, padding container-offset);
+   the first slide starts centred, the next one peeks in on the right */
+.carousel-images .carousel-images-track {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  margin: 0 calc(-1 * var(--layout-margin));
+  padding: 5px calc(var(--layout-margin) + (100cqw - var(--carousel-images-slide)) / 2) 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
+
+.carousel-images .carousel-images-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-images .carousel-images-slide {
+  flex: 0 0 var(--carousel-images-slide);
+  min-width: 0;
+  scroll-snap-align: center;
+}
+
+.carousel-images.carousel-images-single .carousel-images-slide {
+  flex-basis: 100cqw;
+}
+
+.carousel-images .carousel-images-figure {
+  margin: 0;
+}
+
+/* images keep their own proportions (1050 x 525 at 1440 for the 2:1 100 years and onboard
+   images, square in Insights articles) */
+.carousel-images .carousel-images-image {
+  overflow: hidden;
+}
+
+.carousel-images .carousel-images-image a,
+.carousel-images .carousel-images-image picture,
+.carousel-images .carousel-images-image img {
+  display: block;
+  width: 100%;
+}
+
+.carousel-images .carousel-images-image img {
+  height: auto;
+}
+
+/* 2:1 reserved until an image without width/height attributes has loaded */
+.carousel-images .carousel-images-image img:not([width]) {
+  aspect-ratio: auto 2 / 1;
+}
+
+/* .caption > maui-caption: LufthansaText bold, 10px under the image */
+.carousel-images .carousel-images-caption {
+  margin: 10px 0 0;
+  padding-bottom: 10px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.carousel-images .carousel-images-caption > :last-child {
+  margin-bottom: 0;
+}
+
+/* .swiper-button-next/-prev (lh-arrow-next): 30 x 70, black 70%, at the window edges, from
+   1025px; vertically centred on the swiper (slides, captions and dots) */
+.carousel-images .carousel-images-prev,
+.carousel-images .carousel-images-next {
+  position: absolute;
+  top: calc(50% - 35px);
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: #000000b3;
+  color: var(--lh-white);
+  cursor: pointer;
+}
+
+.carousel-images .carousel-images-prev {
+  left: calc(-1 * var(--layout-margin));
+}
+
+.carousel-images .carousel-images-next {
+  right: calc(-1 * var(--layout-margin));
+}
+
+.carousel-images .carousel-images-prev::before,
+.carousel-images .carousel-images-next::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 5.4 7.2 6.8l5.2 5.2-5.2 5.2 1.4 1.4 6.6-6.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.carousel-images .carousel-images-prev::before {
+  transform: scaleX(-1);
+}
+
+.carousel-images .carousel-images-prev:focus-visible,
+.carousel-images .carousel-images-next:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.carousel-images .carousel-images-prev:disabled,
+.carousel-images .carousel-images-next:disabled {
+  visibility: hidden;
+}
+
+/* .swiper-pagination-bullet: 60px under the slide (image or caption) */
+.carousel-images .carousel-images-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-images .carousel-images-dots li {
+  display: flex;
+}
+
+.carousel-images .carousel-images-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--lh-grey-7);
+  border-radius: 50%;
+  background-color: var(--lh-white);
+  cursor: pointer;
+}
+
+.carousel-images .carousel-images-dot[aria-current="true"] {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+}
+
+.carousel-images .carousel-images-dot:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* Insights articles: the swiper sits in the article card (.article-content col-md-10
+   offset-1), 864px slides at 1425 */
+@media (width >= 768px) {
+  main:has(.article-header) .carousel-images {
+    max-width: 83.333%;
+    margin-inline: auto;
+  }
+}
+
+@media (width >= 1025px) {
+  .carousel-images .carousel-images-prev,
+  .carousel-images .carousel-images-next {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-images .carousel-images-track {
+    scroll-behavior: auto;
+  }
+}

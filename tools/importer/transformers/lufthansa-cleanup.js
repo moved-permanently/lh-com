@@ -872,6 +872,32 @@ function markParagraphStyles(document) {
   return marked;
 }
 
+/**
+ * Image captions of default content (figure > figcaption.caption > maui-caption): a paragraph
+ * after the image ending in " {caption}" (scripts.js -> p.caption, 14px bold, 10px under the
+ * image). Blocks take their captions in their parsers; empty captions are dropped.
+ */
+function convertCaptions(document) {
+  let converted = 0;
+  document.querySelectorAll('figcaption').forEach((fc) => {
+    if (fc.closest('table')) return; // block cells keep what their parser made of it
+    if (!cleanText(fc)) { fc.remove(); return; }
+    const inner = fc.querySelector('maui-caption') || fc;
+    const p = document.createElement('p');
+    p.append(...inner.childNodes);
+    p.append(document.createTextNode(' {caption}'));
+    const figure = fc.closest('figure');
+    if (figure) {
+      fc.remove();
+      figure.after(p);
+    } else {
+      fc.replaceWith(p);
+    }
+    converted += 1;
+  });
+  return converted;
+}
+
 /* ---------------------------------------------------------- page theme ----------------- */
 
 const THEME_ATTR = 'data-lh-import-theme';
@@ -984,6 +1010,7 @@ export default function transform(hookName, element, payload) {
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);
     markHeadingStyles(document);
+    convertCaptions(document);
     markParagraphStyles(document);
     addPageMetadata(document, payload);
   }

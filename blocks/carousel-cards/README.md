@@ -10,7 +10,7 @@ Single block table. Content: One row per slide. Cell 1: image. Cell 2: optional 
 
 ## Supported variations
 
-No variations.
+- `article` (Carousel Cards (article)): Lufthansa Insights articles ('This may also be of interest to you'). No carousel: the cards sit in the article column (83.333% of the content width, centred, from 768px), stacked on mobile, two per row from 768px, three from 1025px, 20px apart; 16:9 images, 1px #b0b0b0 border, 4px radius, titles LufthansaHead bold 20px to 24px. The importer writes it for the teaser rows inside articles; the heading above keeps its size marker ({heading-small}, 28px light) and takes the same column. Other pages keep the default carousel.
 
 ## Universal Editor fields
 

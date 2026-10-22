@@ -131,36 +131,16 @@ function el(tag, className, text) {
 }
 
 /**
- * Shows the bar once its original position has scrolled out of view above the viewport,
- * and hides it again while the footer is visible so the bar never covers it.
+ * The bar is shown from page load (the live sticky price is in view on the first screen) and
+ * hidden while the footer is visible, so it never covers the footer.
  */
-function observeVisibility(block, sentinel) {
-  let passed = false;
-  let footerVisible = false;
-  const update = () => {
-    const visible = passed && !footerVisible;
-    block.classList.toggle('price-bar-visible', visible);
-  };
-  if (!('IntersectionObserver' in window)) {
-    const onScroll = () => {
-      passed = sentinel.getBoundingClientRect().bottom < 0;
-      update();
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return;
-  }
-  new IntersectionObserver(([entry]) => {
-    passed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-    update();
-  }).observe(sentinel);
+function observeVisibility(block) {
+  block.classList.add('price-bar-visible');
   const footer = document.querySelector('footer');
-  if (footer) {
-    new IntersectionObserver(([entry]) => {
-      footerVisible = entry.isIntersecting;
-      update();
-    }).observe(footer);
-  }
+  if (!footer || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([entry]) => {
+    block.classList.toggle('price-bar-visible', !entry.isIntersecting);
+  }).observe(footer);
 }
 
 export default async function decorate(block) {
@@ -197,11 +177,7 @@ export default async function decorate(block) {
     block.setAttribute('aria-label', settings.title);
   }
 
-  // the bar leaves the flow (fixed); a zero-height marker keeps its place on the page
-  const sentinel = el('div', 'price-bar-sentinel');
-  sentinel.setAttribute('aria-hidden', 'true');
-  block.before(sentinel);
-  observeVisibility(block, sentinel);
+  observeVisibility(block);
 
   if (!settings.destination) return;
   const data = await loadPriceBarData(settings, locale);

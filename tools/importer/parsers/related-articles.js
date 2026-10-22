@@ -4,9 +4,13 @@
 /**
  * Parser for related-articles (Lufthansa Insights ".relatedarticles": a.articles-card links).
  *
- * Output (blocks/related-articles README): 1 column, one row per related article holding a link
- * (href = card target, text = ".card-title"). Card image, date, reading time and author are not
- * authored: the block reads them from the query index of the target page.
+ * Output (blocks/related-articles README): 1 row per related article, 2 columns:
+ *   cell 1: the card image (.card-image img)
+ *   cell 2: link (href = card target, text = ".card-title", the full title from the image alt
+ *           when the source cuts it), then a byline paragraph "date | reading time | author"
+ *           (.article-date, .article-duration, .article-author as printed on the card)
+ * The block reads image, byline and title from the head of the linked page when a cell leaves
+ * them out; articles outside the site (www.lufthansa.com links) only have the authored ones.
  * The section heading (maui-headline.related-articles-headline) is default content and is
  * emitted as an H2 before the block table.
  */
@@ -49,7 +53,23 @@ export default function parse(element, { document }) {
     a.textContent = title;
     const p = document.createElement('p');
     p.append(a);
-    cells.push([p]);
+    const content = [p];
+    const byline = ['.article-date', '.article-duration', '.article-author']
+      .map((sel) => visibleText(card.querySelector(sel))).filter(Boolean);
+    if (byline.length) {
+      const by = document.createElement('p');
+      by.textContent = byline.join(' | ');
+      content.push(by);
+    }
+    const src = card.querySelector('.card-image img[src], img[src]');
+    let imageCell = '';
+    if (src && src.getAttribute('src') && !/^(data|blob):/i.test(src.getAttribute('src'))) {
+      const img = document.createElement('img');
+      img.src = src.getAttribute('src');
+      img.alt = clean(src.getAttribute('alt'));
+      imageCell = img;
+    }
+    cells.push([imageCell, content]);
   });
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'related-articles', cells });

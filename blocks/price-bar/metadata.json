@@ -4,19 +4,19 @@
   "canonicalModel": "standalone",
   "sourceUrl": "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-berlin",
   "visualCharacteristics": {
-    "purpose": "sticky destination bar with the live lowest round-trip price and a link to find flights; appears once the reader scrolls past its position",
+    "purpose": "sticky destination bar with the live lowest round-trip price and a link to find flights; shown from page load, hidden while the footer is in view",
     "traits": [
       "full-width grey bar fixed to the bottom of the viewport",
       "destination title, price label and bold price on the left",
       "secondary button 'Find Flights' on the right (full width below 600px)",
-      "slides in after scrolling past the top of the article, hides while the footer is visible"
+      "visible from page load, hides while the footer is visible"
     ]
   },
   "contentPattern": {
-    "structure": "2 columns, label | value. Rows: Title | Berlin; Destination | BER (IATA code, also 'Berlin (BER)'; without it no price is requested); Origin | optional IATA code (default: the market default airport from /service/api/defaultAirport, else the locale home airport); Price label | Round trip from (defaults: Round trip from / Hin- und Rückflug ab); Link | [Find Flights](/de/en/book-and-manage/offers-and-destination?BpsDestination=BER) (empty query parameters such as OriginCode= are dropped; without a link the locale's offers-and-destination page for the destination is used, labelled by the live stickyprice ctaLabel or Link label: Find flights / Flüge finden); Trip duration | 7; Cabin | E. The price is fetched at runtime (POST /service/api/lhg-fare-teaser/fareteaser/manual via lhFetch, exact request only: the live sticky price request is not captured yet) and shown only when one arrives for this origin and destination; title and link always render. Place the block as the 2nd section (its position decides when the bar appears). Unknown rows are ignored."
+    "structure": "2 columns, label | value. Rows: Title | Berlin; Destination | BER (IATA code, also 'Berlin (BER)'; without it no price is requested); Origin | optional IATA code (default: the market default airport from /service/api/defaultAirport, else the locale home airport); Price label | Round trip from (defaults: Round trip from / Hin- und Rückflug ab); Link | [Find Flights](/de/en/book-and-manage/offers-and-destination?BpsDestination=BER) (empty query parameters such as OriginCode= are dropped; without a link the locale's offers-and-destination page for the destination is used, labelled by the live stickyprice ctaLabel or Link label: Find flights / Flüge finden); Trip duration | 7; Cabin | E. The price is fetched at runtime (POST /service/api/lhg-fare-teaser/fareteaser/manual via lhFetch, exact request only: the live sticky price request is not captured yet) and shown only when one arrives for this origin and destination; title and link always render. The bar is fixed at the bottom of the window from page load and hides while the footer is visible; its place in the document does not matter (the importer puts it in the 2nd section). Unknown rows are ignored."
   },
   "options": [],
   "memberVariantIds": [],
   "usage": "Insights / travel guide articles about one destination (e.g. /de/en/articles/explore-the-world/eat-see-do-berlin), one bar per article.",
-  "reuseGuidance": "Reuse for any single-destination article; author Title, Destination and Link. Request builders and response mappers are in scripts/lh-api.js; the block reads its settings (readPriceBarSettings), lists its requests (priceBarRequests) and loads them (loadPriceBarData); scroll behaviour in observeVisibility."
+  "reuseGuidance": "Reuse for any single-destination article; author Title, Destination and Link. Request builders and response mappers are in scripts/lh-api.js; the block reads its settings (readPriceBarSettings), lists its requests (priceBarRequests) and loads them (loadPriceBarData); show/hide behaviour in observeVisibility."
 }

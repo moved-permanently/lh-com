@@ -41,7 +41,7 @@
   outline-offset: 0;
 }
 
-/* .card-image; the 16:9 box is reserved before the index loads */
+/* .card-image; the 16:9 box is reserved before the linked page's head is read */
 .related-articles .related-articles-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -70,14 +70,24 @@
 }
 
 /* .divider-line.px-2.px-md-3; the divider stays on the line of the part before it */
+.related-articles .related-articles-byline:empty {
+  display: none;
+}
+
 .related-articles .related-articles-byline > :not(:last-child)::after {
   content: '|';
   padding: 0 5px;
 }
 
-/* h4.card-title: LufthansaHead light 2.8rem to 3.6rem, line-height 110% */
+/* h4.card-title: LufthansaHead light 2.8rem to 3.6rem, line-height 110%; the live titles are
+   cut with an ellipsis after about three lines */
 .related-articles .related-articles-title {
+  display: -webkit-box;
   margin: 0 0 24px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   color: inherit;
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
