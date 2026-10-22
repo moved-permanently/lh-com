@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/services-on-board",
+  "path": "gb/en/services-on-board",
+  "timestamp": "2026-10-22T09:52:48.562Z",
+  "title": "Services on board | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}

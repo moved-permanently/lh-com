@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/lufthansa-travel-classes",
+  "path": "gb/en/lufthansa-travel-classes",
+  "timestamp": "2026-10-22T09:52:29.209Z",
+  "title": "Our travel classes | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

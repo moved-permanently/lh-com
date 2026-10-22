@@ -1,6 +1,6 @@
-https://www.lufthansa.com/de/de/book-and-manage/booking-services/manage-my-bookings
-https://www.lufthansa.com/de/de/flugsuche
-https://www.lufthansa.com/de/de/meine-buchungen
-https://www.lufthansa.com/de/de/mein-logbuch
-https://www.lufthansa.com/de/de/online-check-in
-https://www.lufthansa.com/de/de/pre-check-in
+https://www.lufthansa.com/at/de/book-and-manage/booking-services/manage-my-bookings
+https://www.lufthansa.com/at/de/flugsuche
+https://www.lufthansa.com/at/de/meine-buchungen
+https://www.lufthansa.com/at/de/mein-logbuch
+https://www.lufthansa.com/at/de/online-check-in
+https://www.lufthansa.com/at/de/pre-check-in

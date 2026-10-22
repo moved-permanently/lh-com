@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/lounges",
+  "path": "gb/en/lounges",
+  "timestamp": "2026-10-22T09:52:25.914Z",
+  "title": "Lounges | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "columns-media"
+  ]
+}

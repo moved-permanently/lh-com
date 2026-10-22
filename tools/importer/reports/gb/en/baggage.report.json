@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/baggage",
+  "path": "gb/en/baggage",
+  "timestamp": "2026-10-22T09:52:15.888Z",
+  "title": "Baggage | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "columns-media"
+  ]
+}
