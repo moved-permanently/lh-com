@@ -275,7 +275,9 @@ function updateAuthoredLinks(root, state) {
  *   GET /service/api/catalogs/affinities, catalogs/regions
  * plus fareteaser/recommend (origin cities), catalogs/conditions and catalogs/localeData like
  * the slider. Origin, travel class, months and trip type reload; the other filters, the sort
- * order and paging work client-side on the loaded offers.
+ * order and paging work client-side on the loaded offers. destinationfinder/* is called directly
+ * on www.lufthansa.com with the market's X-Portal-* headers (scripts/lh-data.js), the
+ * recordings as fallback; data-lh-source on the block tells which answered.
  * ------------------------------------------------------------------------------------------- */
 
 /** Highlighting order of the live component (priorityOfHighlightingOffers). */

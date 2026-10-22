@@ -3,8 +3,9 @@
  * the live pages make themselves (tools/source-export/api/*.ndjson). Request builders produce
  * exactly the live request (path, query, POST body) so recorded answers match; mappers turn
  * the live response shapes into plain view data. Blocks fetch through lhFetch (scripts/lh-data.js:
- * suggestions, labels, catalogs and defaultAirport directly from www.lufthansa.com, the fare
- * teaser and weather services through lh-proxy, the recordings as fallback).
+ * suggestions, labels, catalogs, defaultAirport and the destinationfinder routes directly from
+ * www.lufthansa.com, the fare teaser and weather services through lh-proxy, the recordings as
+ * fallback).
  */
 import { LIVE_ORIGIN } from './locale.js';
 import { lhFetch, lhRecorded } from './lh-data.js';
@@ -133,7 +134,9 @@ export const DESTINATION_FINDER_CABINS = ['E', 'N', 'B', 'F'];
  * B (business) and F (first) are the option values of the live travel class select and are
  * assumed to be sent the same way. months: first and last travel month as offsets from the
  * current month ("0_11" = the next twelve months, the live default). tripType: RETURN
- * (recorded) or ONEWAY (the live radio value, assumed).
+ * (recorded) or ONEWAY (the live radio value, assumed). Called directly on www.lufthansa.com
+ * with the market's X-Portal-* headers (X-Portal-Site is required: 400 "Invalid site"
+ * without it), the recordings as fallback.
  * @param {{origin: string, cabin?: string, months?: number[], tripType?: string}} options
  */
 export function destinationFinderOffersRequest({

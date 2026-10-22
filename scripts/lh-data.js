@@ -3,9 +3,10 @@
  * price bar, weather, labels). Three sources, in this order:
  *
  * 1. Direct: routes www.lufthansa.com answers with Access-Control-Allow-Origin: * (airport
- *    suggestions, labels, catalogs, defaultAirport, core/feature/list) are called from the
- *    visitor's browser without credentials, with the query and X-Portal-* headers the live page
- *    sends for the market. Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
+ *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*) are
+ *    called from the visitor's browser without credentials, with the query and X-Portal-*
+ *    headers the live page sends for the market (destinationfinder answers 400 "Invalid site"
+ *    without X-Portal-Site). Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
  *    HTML block page, unparsable JSON) falls back to the recordings; lh-proxy is not used.
  * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
  *    foreign origins; /aircore/weather/*, which sends no CORS header) go through the worker.
@@ -18,8 +19,13 @@ import { getLocale, LOCALES, LIVE_ORIGIN } from './locale.js';
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md).
 export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
 
-/** Routes www.lufthansa.com serves cross-origin (ACAO *, preflight passes with X-Portal-*). */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/)/;
+/**
+ * Routes www.lufthansa.com serves cross-origin (ACAO *, preflight passes with X-Portal-*).
+ * destinationfinder/*: GET .../destination/finder/FRA/E with X-Portal: LH, X-Portal-Site: DE,
+ * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
+ * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
+ */
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/)/;
 
 const DIRECT_TIMEOUT_MS = 3000;
 const PROXY_TIMEOUT_MS = 2500;

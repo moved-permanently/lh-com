@@ -12,8 +12,9 @@
  *   B  direct calls get Cloudflare's HTML 403 block page, lh-proxy answers 502
  *   C  direct calls answer 200 with ACAO * (the recorded JSON), lh-proxy answers 502
  *   D  direct calls and lh-proxy answer 200 (the recorded JSON)
- * plus timing checks (proxy 502 after 300 ms, refused-proxy memo, proxy and direct timeouts)
- * and a comparison of every direct request (URL, X-Portal-* headers, credentials) with the
+ * plus timing checks (proxy 502 after 300 ms, refused-proxy memo, proxy and direct timeouts),
+ * the destinationfinder routes (direct, never lh-proxy: direct fails -> recorded, direct ok ->
+ * live, X-Portal-* headers of the market) and a comparison of every direct request (URL, X-Portal-* headers, credentials) with the
  * request the live page sent for that market (tools/source-export/har, api/*.ndjson).
  *
  * Usage: node tools/importer/test-widgets.mjs [--verbose]
@@ -29,7 +30,8 @@ import { getLocale, LIVE_ORIGIN, LOCALES } from '../../scripts/locale.js';
 import { readConfigRows } from '../../scripts/block-config.js';
 import {
   airportSuggestionsRequest, fetchRequest, mapAirportSuggestions, searchAirports,
-  searchAirportsWithSource, formatFare, fareTeaserOffersRequest,
+  searchAirportsWithSource, formatFare, fareTeaserOffersRequest, destinationFinderOffersRequest,
+  fareTeaserManualRequest, mapDestinationFinderOffers,
 } from '../../scripts/lh-api.js';
 import decorateFlightSearch, {
   readFlightSearchSettings, loadFlightSearchData, flightSearchPrimary,
@@ -706,10 +708,19 @@ function primaryRecorded(name, config, locale) {
   return true; // flight-search: labels/flightmanager and defaultAirport are recorded in every market
 }
 
+/**
+ * Whether a grid destination finder's offers (destinationfinder/destination/finder, a direct
+ * route) are recorded in the block's own market: the stub answers a direct call only with that
+ * market's recording, else lhFetch falls back to another market's recording ('recorded').
+ */
+const gridRecordedInMarket = (market) => Object.keys(index)
+  .some((k) => k.startsWith(`${market}|GET /service/api/destinationfinder/destination/finder/`));
+
 /** Which data-lh-source a block must show in a run. */
-function expectedSource(name, run, recorded) {
-  const directPrimary = ['flight-search', 'flight-status'].includes(name);
+function expectedSource(name, run, recorded, { grid = false, market = '' } = {}) {
+  const directPrimary = ['flight-search', 'flight-status'].includes(name) || grid;
   const live = run === 'D' || (run === 'C' && directPrimary);
+  if (live && grid && recorded) return gridRecordedInMarket(market) ? 'live' : 'recorded';
   if (live) return recorded ? 'live' : null; // the stub answers live only what is recorded
   return recorded ? 'recorded' : null;
 }
@@ -765,7 +776,8 @@ async function checkDecorate(run, { page, html }, name, blockIndex) {
   const block = doc.querySelectorAll(`div.${name}`)[blockIndex];
   const config = readConfigRows(block);
   const recorded = primaryRecorded(name, config, locale);
-  const expected = expectedSource(name, run, recorded);
+  const grid = name === 'destination-finder' && block.classList.contains('grid');
+  const expected = expectedSource(name, run, recorded, { grid, market: locale.key });
   const start = Date.now();
   const result = DECORATE[name](block);
   if (name === 'flight-status') {
@@ -942,6 +954,70 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
     true,
     `${live.ms} ms, via ${live.value.via}`,
   );
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* Destination finder (destinationfinder/*): direct call, recordings as fallback, no lh-proxy  */
+/* ------------------------------------------------------------------------------------------- */
+
+{
+  const fraOffers = destinationFinderOffersRequest({ origin: 'FRA', cabin: 'E', months: [0, 11], tripType: 'RETURN' });
+  record(
+    { run: 'G', check: 'destinationfinder routes are direct; fare teaser and weather are not' },
+    isDirectRoute(fraOffers.route) && isDirectRoute('/service/api/destinationfinder/campaign/FRA')
+      && !isDirectRoute(fareTeaserOffersRequest({ origin: 'FRA' }).route)
+      && !isDirectRoute(fareTeaserManualRequest({ travels: [{ origin: 'FRA', destination: 'NYC' }] }).route)
+      && !isDirectRoute('/service/api/lhg-fare-teaser/fareteaser/recommend')
+      && !isDirectRoute('/service/api/aircore/weather/FRA'),
+    true,
+    fraOffers.route,
+  );
+  const offerCount = (value) => mapDestinationFinderOffers(value.data).offers.length;
+  // the proxy answers in every scenario: a destinationfinder call must still never use it
+  await inSequence([['cors', 'direct CORS error'], ['cloudflare', 'direct Cloudflare 403 page']].map(([direct, label]) => async () => {
+    startRun({ direct, proxy: 'ok' });
+    const r = await timed(() => fetchRequest(fraOffers, deEn, { exact: true }));
+    record(
+      { run: 'G', locale: 'de/en', check: `${label} -> recorded, no proxy call` },
+      r.value.source === 'recorded' && r.value.via === 'recording' && offerCount(r.value) > 0
+        && callsOf('proxy') === 0 && callsOf('direct') === 1 && r.ms <= 50,
+      true,
+      `${r.ms} ms, ${offerCount(r.value)} offers via ${r.value.via}, direct ${callsOf('direct')}, proxy ${callsOf('proxy')}`,
+    );
+  }));
+  startRun({ direct: 'hang', proxy: 'ok' });
+  const hung = await timed(() => fetchRequest(fraOffers, deEn, { exact: true }));
+  record(
+    { run: 'G', locale: 'de/en', check: 'direct call hangs -> recorded after the 3 s cap' },
+    hung.value.source === 'recorded' && hung.ms >= 2900 && hung.ms <= 3200 && callsOf('proxy') === 0,
+    true,
+    `${hung.ms} ms, proxy ${callsOf('proxy')}`,
+  );
+  // direct answers: live in every market that has a grid, with that market's X-Portal-* headers
+  const gridMarkets = { 'de/en': 'FRA', 'de/de': 'FRA', 'at/de': 'VIE', 'gb/en': 'LHR' };
+  await inSequence(Object.entries(gridMarkets).map(([market, origin]) => async () => {
+    startRun({ direct: 'ok', proxy: 'ok' });
+    const locale = getLocale(`/${market}/homepage`);
+    const request = destinationFinderOffersRequest({ origin });
+    const from = directCalls.length;
+    const r = await fetchRequest(request, locale, { exact: true }).catch((e) => ({ error: e.message }));
+    const sent = directCalls.slice(from).find((c) => c.href === `${LIVE_ORIGIN}${request.route}`);
+    const headers = sent ? sent.init.headers : {};
+    const sameHeaders = JSON.stringify(headers) === JSON.stringify(portalHeaders(market))
+      && headers['X-Portal-Site'] === locale.country.toUpperCase()
+      && headers['X-Portal-Language'] === locale.lang
+      && headers['X-Portal'] === 'LH';
+    const live = gridRecordedInMarket(market) && isRecorded(market, request);
+    const expect = live ? 'live' : 'recorded or none';
+    const got = r.error ? 'none' : r.source;
+    record(
+      { run: 'G', locale: market, check: `offers/${origin}: direct, market headers, ${expect}` },
+      Boolean(sent) && sameHeaders && sent.init.credentials === 'omit' && sent.init.mode === 'cors'
+        && callsOf('proxy') === 0 && (live ? got === 'live' && r.via === 'direct' : got !== 'live'),
+      true,
+      `${got}${r.via ? ` via ${r.via}` : ''}, sent ${JSON.stringify(headers)} credentials ${sent ? sent.init.credentials : '-'}`,
+    );
+  }));
 }
 
 /* ------------------------------------------------------------------------------------------- */
