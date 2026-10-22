@@ -4,6 +4,7 @@
 
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
+import columnsMediaParser from './parsers/columns-media.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -24,6 +25,12 @@ const PAGE_TEMPLATE = {
       "name": "carousel-cards",
       "instances": [
         ".threecolumn:has(.teaser)"
+      ]
+    },
+    {
+      "name": "columns-media",
+      "instances": [
+        ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))"
       ]
     }
   ],
@@ -61,7 +68,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".container-content > .section:has(.threecolumn .teaser)"
       ],
-      "style": "grey",
+      "style": null,
       "blocks": [
         "carousel-cards"
       ],
@@ -75,6 +82,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'accordion-columns': accordionColumnsParser,
   'carousel-cards': carouselCardsParser,
+  'columns-media': columnsMediaParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

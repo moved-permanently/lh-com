@@ -4,6 +4,7 @@
 
 import carouselLightboxParser from './parsers/carousel-lightbox.js';
 import tableStripedParser from './parsers/table-striped.js';
+import columnsMediaParser from './parsers/columns-media.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -24,6 +25,12 @@ const PAGE_TEMPLATE = {
       "name": "table-striped",
       "instances": [
         "div.table:has(.cms-table-maui-wrapper)"
+      ]
+    },
+    {
+      "name": "columns-media",
+      "instances": [
+        ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))"
       ]
     }
   ],
@@ -88,6 +95,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'carousel-lightbox': carouselLightboxParser,
   'table-striped': tableStripedParser,
+  'columns-media': columnsMediaParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

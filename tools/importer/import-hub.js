@@ -25,6 +25,7 @@ const PAGE_TEMPLATE = {
     {
       "name": "columns-media",
       "instances": [
+        ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
         ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
       ]
     },
@@ -82,7 +83,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".container-content > .section .section-content > .twocolumn:has(.container-gray)"
       ],
-      "style": "grey",
+      "style": null,
       "blocks": [
         "cards-teaser"
       ],
