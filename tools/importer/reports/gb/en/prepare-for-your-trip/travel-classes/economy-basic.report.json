@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/travel-classes/economy-basic",
+  "path": "gb/en/prepare-for-your-trip/travel-classes/economy-basic",
+  "timestamp": "2026-10-22T11:17:55.856Z",
+  "title": "Economy Basic | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

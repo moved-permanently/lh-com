@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/travelling-healthy",
+  "path": "gb/en/travelling-healthy",
+  "timestamp": "2026-10-22T11:27:01.850Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

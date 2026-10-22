@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
+  "path": "gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
+  "timestamp": "2026-10-22T11:08:32.505Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

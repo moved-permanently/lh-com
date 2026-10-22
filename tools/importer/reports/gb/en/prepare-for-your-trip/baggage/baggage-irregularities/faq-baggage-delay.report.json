@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+  "path": "gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+  "timestamp": "2026-10-22T11:08:27.364Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

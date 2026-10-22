@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/passengers-using-wheelchairs",
+  "path": "gb/en/passengers-using-wheelchairs",
+  "timestamp": "2026-10-22T11:08:13.485Z",
+  "title": "Passengers requiring wheelchairs | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}
