@@ -14,6 +14,8 @@
  *    (the element whose parent is .container-content, .section-content, a column item or a grid
  *    column) and a plain <hr> after it, so the grey ends where the live grey ends. Not for grey
  *    boxes inside a block of the template (the parser renders them) or the sticky price bar.
+ *  - full-bleed: a full-width image component (.image-wrapper.full-width-bg, the Lufthansa
+ *    Insights category stage) is a section of its own with style full-bleed, the same way.
  * afterTransform: drops breaks with no content since the previous break (or the page start),
  *   keeping their styles, then inserts a Section Metadata block (styles of the break) at the end
  *   of each styled section, removes the marker attributes, and removes the first section's
@@ -27,11 +29,12 @@
 const MARKER = 'data-excat-section-id';
 const BREAK = 'data-excat-section-break';
 const FIRST = 'data-excat-section-first';
-const GREY = 'data-excat-section-grey';
+const SOURCE_STYLE = 'data-excat-section-source-style';
 const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
 
-const GREY_SOURCE = '.container-gray';
-const GREY_SKIP = '.sticky-price-wrapper, .dcep-sticky-price';
+/** Source backgrounds that become a section style: [selector, style]. */
+const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];
+const STYLE_SKIP = '.sticky-price-wrapper, .dcep-sticky-price';
 const REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
 const MEDIA = 'img, picture, video, iframe, svg, table, input, select, textarea, button';
 
@@ -72,8 +75,8 @@ function createBreak(document) {
   return hr;
 }
 
-/** The components that carry a live grey background (outermost .container-gray, see above). */
-function greyRegions(document, template) {
+/** The components that carry a source style (outermost match of `source`, see above). */
+function styledRegions(document, template, source) {
   const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
   const insideBlock = (el) => blockSelectors.some((sel) => {
     try {
@@ -83,9 +86,9 @@ function greyRegions(document, template) {
     }
   });
   const regions = [];
-  document.querySelectorAll(GREY_SOURCE).forEach((grey) => {
-    if (grey.closest(GREY_SKIP) || (grey.parentElement && grey.parentElement.closest(GREY_SOURCE))) return;
-    let region = grey;
+  document.querySelectorAll(source).forEach((match) => {
+    if (match.closest(STYLE_SKIP) || (match.parentElement && match.parentElement.closest(source))) return;
+    let region = match;
     while (region.parentElement && !region.parentElement.matches(REGION_STOP)) region = region.parentElement;
     if (!region.parentElement || region.matches('main, body') || insideBlock(region)) return;
     if (regions.some((r) => r.contains(region) || region.contains(r))) return;
@@ -120,7 +123,7 @@ function dropEmptyBreaks(document, root) {
       return;
     }
     // prev and hr enclose nothing: keep prev, with the styles of both
-    [MARKER, GREY].forEach((attr) => {
+    [MARKER, SOURCE_STYLE].forEach((attr) => {
       if (!hr.hasAttribute(attr)) return;
       const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(' ');
       prev.setAttribute(attr, merged);
@@ -149,11 +152,13 @@ export default function transform(hookName, element, payload) {
         el.parentNode.insertBefore(hr, el);
       }
     }
-    greyRegions(document, template).forEach((region) => {
-      const start = createBreak(document);
-      start.setAttribute(GREY, 'grey');
-      region.before(start);
-      region.after(createBreak(document));
+    SOURCE_STYLES.forEach(([source, style]) => {
+      styledRegions(document, template, source).forEach((region) => {
+        const start = createBreak(document);
+        start.setAttribute(SOURCE_STYLE, style);
+        region.before(start);
+        region.after(createBreak(document));
+      });
     });
   }
 
@@ -165,10 +170,12 @@ export default function transform(hookName, element, payload) {
         const section = sections.find((s) => s.id === id);
         if (section && hasStyle(section)) styles.push(styleValue(section));
       });
-      if (hr.hasAttribute(GREY) && !styles.some((s) => /\bgrey\b/.test(s))) styles.unshift('grey');
+      (hr.getAttribute(SOURCE_STYLE) || '').split(' ').filter(Boolean).forEach((style) => {
+        if (!styles.some((s) => s.split(/,\s*/).includes(style))) styles.unshift(style);
+      });
       return styles.join(', ');
     };
-    const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${GREY}]`)].filter((hr) => !hr.closest('table'));
+    const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest('table'));
     marked.reverse().forEach((marker) => {
       const style = styleOf(marker);
       if (style) {
@@ -187,7 +194,7 @@ export default function transform(hookName, element, payload) {
         hr.remove();
         return;
       }
-      [MARKER, GREY, BREAK].forEach((attr) => hr.removeAttribute(attr));
+      [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
     });
   }
 }

@@ -4,10 +4,12 @@
  * Text: .campaign-information.section-regular.container-fluid (max 144rem, container offset),
  * vertically centred (top: 50%; translateY(-50%)).
  * Default: .alignment-left with .inspiration-teaser-no-animation and the #6F625A gradient overlay.
- * Option right: .alignment-right.uplift-animation, a white text card on the image.
+ * Option right: .alignment-right, the text at the right end of the content column (421px from
+ * 1025px) with the overlay from the right. Option card: .uplift-animation, a white text card on
+ * the image (no overlay), left or (with right) right. Option narrow: .inspiration-teaser-narrow,
+ * 350px instead of 810px.
  */
 .hero-campaign {
-  --hero-campaign-scrollbar: 0px;
   --hero-campaign-overlay-color: #6f625a;
   --hero-campaign-overlay-direction: bottom;
   --hero-campaign-overlay-start: 70%;
@@ -17,9 +19,9 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  width: calc(100vw - var(--hero-campaign-scrollbar));
+  width: var(--hero-campaign-viewport, 100vw);
   min-height: 810px;
-  margin-inline: calc(50% - 50vw + var(--hero-campaign-scrollbar) / 2);
+  margin-inline: calc(50% - var(--hero-campaign-viewport, 100vw) / 2);
   overflow: hidden;
   color: var(--lh-white);
 }
@@ -53,7 +55,7 @@
 
 /* .inspiration-teaser-no-animation .transparent-overlay: gradient from the overlay colour,
    multiplied onto the image */
-.hero-campaign:not(.right) .hero-campaign-media::after {
+.hero-campaign:not(.card) .hero-campaign-media::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -135,14 +137,14 @@
 }
 
 /* maui-button-link type="secondary" inverted on the image */
-.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary {
+.hero-campaign:not(.card, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary {
   border-color: var(--lh-white);
   background-color: transparent;
   color: var(--lh-white);
 }
 
-.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:hover,
-.hero-campaign:not(.right, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:focus-visible {
+.hero-campaign:not(.card, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:hover,
+.hero-campaign:not(.card, .hero-campaign-no-image) .hero-campaign-cta a.button.secondary:focus-visible {
   border-color: var(--lh-white);
   background-color: var(--lh-white);
   color: var(--lh-deepblue);
@@ -152,7 +154,8 @@
   outline-color: var(--lh-white);
 }
 
-/* option right: .alignment-right.uplift-animation, white card at the right edge;
+/* option right: .alignment-right { align-items: flex-end }; option card: .uplift-animation,
+   white card;
    .headline { padding: 3rem; margin-bottom: -.3rem }, .subheadline { padding: 1.6rem 3rem 2rem;
    margin-bottom: -.3rem }, .information { padding: 0 3rem 3rem; margin-bottom: 2.4rem } below
    768px; text #05164d */
@@ -161,7 +164,7 @@
   justify-content: flex-end;
 }
 
-.hero-campaign.right .hero-campaign-content {
+.hero-campaign.card .hero-campaign-content {
   width: 100%;
   margin-bottom: var(--spacing-default);
   padding: 30px;
@@ -169,22 +172,27 @@
   color: var(--lh-deepblue);
 }
 
-.hero-campaign.right .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+.hero-campaign.card .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
   margin-bottom: 27px;
 }
 
-.hero-campaign.right .hero-campaign-content > .hero-campaign-subtitle {
+.hero-campaign.card .hero-campaign-content > .hero-campaign-subtitle {
   margin-bottom: 17px;
 }
 
 /* the source always renders the .information box; under a subtitle-only stage it holds an
    empty paragraph (2.7rem line + 2rem margin) that is part of the vertically centred box */
-.hero-campaign:not(.right) .hero-campaign-content > .hero-campaign-subtitle:last-child {
+.hero-campaign:not(.card) .hero-campaign-content > .hero-campaign-subtitle:last-child {
   margin-bottom: 63px;
 }
 
-.hero-campaign.right .hero-campaign-cta a.button:focus-visible {
+.hero-campaign.card .hero-campaign-cta a.button:focus-visible {
   outline-color: var(--focus-color);
+}
+
+/* option narrow: .inspiration-teaser-narrow .dcep-moving-image img { height: 35rem } */
+.hero-campaign.narrow {
+  min-height: 350px;
 }
 
 /* no image: plain text on light grey */
@@ -265,11 +273,14 @@
 @media (width >= 768px) {
   /* --transparent-overlay-gradient-start: max(calc(475px + var(--container-offset)), 43%) */
   .hero-campaign {
-    --hero-campaign-overlay-direction: right;
     --hero-campaign-overlay-start: max(calc(475px + var(--layout-margin)), 43%);
   }
 
-  .hero-campaign.right .hero-campaign-content {
+  .hero-campaign:not(.right) {
+    --hero-campaign-overlay-direction: right;
+  }
+
+  .hero-campaign.card .hero-campaign-content {
     margin-bottom: 0;
   }
 }
@@ -279,12 +290,22 @@
     --hero-campaign-overlay-end: 80%;
   }
 
+  /* .alignment-right .headline, .information { max-width: 42.1rem }; overlay from the right */
+  .hero-campaign.right {
+    --hero-campaign-overlay-direction: left;
+  }
+
+  .hero-campaign.right:not(.card) .hero-campaign-content {
+    width: 100%;
+    max-width: 421px;
+  }
+
   .hero-campaign .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
     font-size: 42px;
   }
 
   /* .campaign-information .information { padding-left: 6.4rem } (border-box, max 48.5rem) */
-  .hero-campaign:not(.right) .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
+  .hero-campaign:not(.card) .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
     padding-left: 64px;
   }
 }
@@ -293,4 +314,14 @@
   .hero-campaign {
     --hero-campaign-overlay-end: 65%;
   }
+}
+
+/* the stage's section (.section-wide) ends with a 40px separator: the content below starts
+   64px under the image (my-bookings "Log in now and add baggage", 100-years/campaigns) */
+main > .section > .hero-campaign-wrapper + div {
+  margin-top: 64px;
+}
+
+main > .section:has(> .hero-campaign-wrapper:last-child) {
+  margin-bottom: 64px;
 }

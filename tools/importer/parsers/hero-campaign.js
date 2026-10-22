@@ -9,7 +9,8 @@
  *   row 2: heading (source level: H1 on the page stage, H2/H3 further down), subtitle paragraph
  *          (source h3.subheadline is a tagline, not a heading), text paragraph(s), CTA link
  *          (maui-button-link type=primary = bold link, secondary = italic link)
- * Option "right" when the text block is ".alignment-right" (default left).
+ * Options: "right" when the text block is ".alignment-right" (default left), "card" for the
+ * ".uplift-animation" white card, "narrow" for ".inspiration-teaser-narrow".
  * No label rows: the pause/play labels are block defaults, the source has no authored labels.
  */
 export default function parse(element, { document }) {
@@ -106,7 +107,13 @@ export default function parse(element, { document }) {
   const cells = [];
   if (media.length) cells.push([media]);
   if (text.length) cells.push([text]);
-  const variants = info.classList.contains('alignment-right') ? ['right'] : [];
+  // options: right (.alignment-right: text at the right), card (.uplift-animation: white text
+  // card instead of text on the overlay), narrow (.inspiration-teaser-narrow: 350px high)
+  const teaser = element.querySelector('.cms-inspiration-teaser') || element;
+  const variants = [];
+  if (info.classList.contains('alignment-right')) variants.push('right');
+  if (info.classList.contains('uplift-animation') || teaser.classList.contains('inspiration-teaser-uplift-animation')) variants.push('card');
+  if (teaser.classList.contains('inspiration-teaser-narrow')) variants.push('narrow');
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-campaign', variants, cells });
   element.replaceWith(block);

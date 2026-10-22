@@ -2,8 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/additional-services",
   "path": "de/en/additional-services",
-  "timestamp": "2026-10-22T00:04:47.645Z",
-  "title": "Extra services | Lufthansa",
+  "timestamp": "2026-10-22T16:53:18.796Z",
+  "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media"
+  ]
 }

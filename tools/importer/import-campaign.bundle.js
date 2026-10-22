@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_15764_exports = {};
-  __export(tmp_bundle_campaign_15764_exports, {
-    default: () => tmp_bundle_campaign_15764_default
+  var tmp_bundle_campaign_8711_exports = {};
+  __export(tmp_bundle_campaign_8711_exports, {
+    default: () => tmp_bundle_campaign_8711_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -125,7 +125,11 @@ var CustomImportScript = (() => {
     const cells = [];
     if (media.length) cells.push([media]);
     if (text.length) cells.push([text]);
-    const variants = info.classList.contains("alignment-right") ? ["right"] : [];
+    const teaser = element.querySelector(".cms-inspiration-teaser") || element;
+    const variants = [];
+    if (info.classList.contains("alignment-right")) variants.push("right");
+    if (info.classList.contains("uplift-animation") || teaser.classList.contains("inspiration-teaser-uplift-animation")) variants.push("card");
+    if (teaser.classList.contains("inspiration-teaser-narrow")) variants.push("narrow");
     const block = WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants, cells });
     element.replaceWith(block);
   }
@@ -1430,10 +1434,10 @@ var CustomImportScript = (() => {
   var MARKER = "data-excat-section-id";
   var BREAK = "data-excat-section-break";
   var FIRST = "data-excat-section-first";
-  var GREY = "data-excat-section-grey";
+  var SOURCE_STYLE = "data-excat-section-source-style";
   var FOLLOWING = 4;
-  var GREY_SOURCE = ".container-gray";
-  var GREY_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
+  var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
+  var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
   var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
@@ -1465,7 +1469,7 @@ var CustomImportScript = (() => {
     hr.setAttribute(BREAK, "");
     return hr;
   }
-  function greyRegions(document, template) {
+  function styledRegions(document, template, source) {
     const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
     const insideBlock = (el) => blockSelectors.some((sel) => {
       try {
@@ -1475,9 +1479,9 @@ var CustomImportScript = (() => {
       }
     });
     const regions = [];
-    document.querySelectorAll(GREY_SOURCE).forEach((grey) => {
-      if (grey.closest(GREY_SKIP) || grey.parentElement && grey.parentElement.closest(GREY_SOURCE)) return;
-      let region = grey;
+    document.querySelectorAll(source).forEach((match) => {
+      if (match.closest(STYLE_SKIP) || match.parentElement && match.parentElement.closest(source)) return;
+      let region = match;
       while (region.parentElement && !region.parentElement.matches(REGION_STOP)) region = region.parentElement;
       if (!region.parentElement || region.matches("main, body") || insideBlock(region)) return;
       if (regions.some((r) => r.contains(region) || region.contains(r))) return;
@@ -1507,7 +1511,7 @@ var CustomImportScript = (() => {
         prev = hr;
         return;
       }
-      [MARKER, GREY].forEach((attr) => {
+      [MARKER, SOURCE_STYLE].forEach((attr) => {
         if (!hr.hasAttribute(attr)) return;
         const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(" ");
         prev.setAttribute(attr, merged);
@@ -1534,11 +1538,13 @@ var CustomImportScript = (() => {
           el.parentNode.insertBefore(hr, el);
         }
       }
-      greyRegions(document, template).forEach((region) => {
-        const start = createBreak(document);
-        start.setAttribute(GREY, "grey");
-        region.before(start);
-        region.after(createBreak(document));
+      SOURCE_STYLES.forEach(([source, style]) => {
+        styledRegions(document, template, source).forEach((region) => {
+          const start = createBreak(document);
+          start.setAttribute(SOURCE_STYLE, style);
+          region.before(start);
+          region.after(createBreak(document));
+        });
       });
     }
     if (hookName === "afterTransform") {
@@ -1549,10 +1555,12 @@ var CustomImportScript = (() => {
           const section = sections.find((s) => s.id === id);
           if (section && hasStyle(section)) styles.push(styleValue(section));
         });
-        if (hr.hasAttribute(GREY) && !styles.some((s) => /\bgrey\b/.test(s))) styles.unshift("grey");
+        (hr.getAttribute(SOURCE_STYLE) || "").split(" ").filter(Boolean).forEach((style) => {
+          if (!styles.some((s) => s.split(/,\s*/).includes(style))) styles.unshift(style);
+        });
         return styles.join(", ");
       };
-      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${GREY}]`)].filter((hr) => !hr.closest("table"));
+      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest("table"));
       marked.reverse().forEach((marker) => {
         const style = styleOf(marker);
         if (style) {
@@ -1570,7 +1578,7 @@ var CustomImportScript = (() => {
           hr.remove();
           return;
         }
-        [MARKER, GREY, BREAK].forEach((attr) => hr.removeAttribute(attr));
+        [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
       });
     }
   }
@@ -1779,7 +1787,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_15764_default = {
+  var tmp_bundle_campaign_8711_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1809,5 +1817,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_15764_exports);
+  return __toCommonJS(tmp_bundle_campaign_8711_exports);
 })();

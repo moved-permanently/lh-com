@@ -36,13 +36,106 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_15764_exports = {};
-  __export(tmp_bundle_hub_15764_exports, {
-    default: () => tmp_bundle_hub_15764_default
+  var tmp_bundle_hub_8711_exports = {};
+  __export(tmp_bundle_hub_8711_exports, {
+    default: () => tmp_bundle_hub_8711_default
   });
 
-  // tools/importer/parsers/cards-teaser.js
+  // tools/importer/parsers/hero-campaign.js
   function parse(element, { document }) {
+    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
+    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const c = node.cloneNode(true);
+      c.querySelectorAll(SKIP).forEach((n) => n.remove());
+      return clean(c.textContent);
+    };
+    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
+    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const trimBreaks = (el) => {
+      while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
+      while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
+    };
+    const info = element.querySelector(".campaign-information") || element;
+    const media = [];
+    const img = [...element.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !info.contains(i));
+    if (img) {
+      const image = document.createElement("img");
+      image.setAttribute("src", img.getAttribute("src"));
+      image.setAttribute("alt", img.getAttribute("alt") || "");
+      media.push(image);
+    }
+    const video = element.querySelector("video[src], video source[src]");
+    if (video) {
+      const src = video.getAttribute("src");
+      const a = document.createElement("a");
+      a.setAttribute("href", src);
+      a.textContent = src;
+      const p = document.createElement("p");
+      p.append(a);
+      media.push(p);
+    }
+    const text = [];
+    const HEADINGS = "h1, h2, h3, h4, h5, h6";
+    const heading = [...info.querySelectorAll(HEADINGS)].find((h) => h.matches(".headline:not(.subheadline)")) || [...info.querySelectorAll(HEADINGS)].find((h) => !h.matches(".subheadline"));
+    if (heading && visibleText(heading)) {
+      const h = document.createElement(heading.tagName.toLowerCase());
+      h.textContent = visibleText(heading);
+      text.push(h);
+    }
+    info.querySelectorAll(".subheadline").forEach((sub) => {
+      const t = visibleText(sub);
+      if (!t || sub === heading) return;
+      const p = document.createElement("p");
+      p.textContent = t;
+      text.push(p);
+    });
+    info.querySelectorAll(".information .richtext, .information").forEach((rt) => {
+      if (rt.classList.contains("information") && rt.querySelector(".richtext")) return;
+      [...rt.children].forEach((n) => {
+        if (n.matches(SKIP)) return;
+        const c = n.cloneNode(true);
+        c.querySelectorAll(SKIP).forEach((s) => s.remove());
+        c.removeAttribute("class");
+        if (c.tagName === "P") trimBreaks(c);
+        if (!clean(c.textContent) && !c.querySelector("img")) return;
+        text.push(c);
+      });
+    });
+    info.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href]").forEach((m) => {
+      if (m.closest(".richtext")) return;
+      const label = visibleText(m) || clean(m.getAttribute("label"));
+      if (!label) return;
+      const a = document.createElement("a");
+      a.setAttribute("href", m.getAttribute("href"));
+      a.textContent = label;
+      const p = document.createElement("p");
+      const type = m.tagName === "MAUI-BUTTON-LINK" ? m.getAttribute("type") : null;
+      if (type === "primary" || type === "secondary") {
+        const wrap = document.createElement(type === "primary" ? "strong" : "em");
+        wrap.append(a);
+        p.append(wrap);
+      } else {
+        p.append(a);
+      }
+      text.push(p);
+    });
+    const cells = [];
+    if (media.length) cells.push([media]);
+    if (text.length) cells.push([text]);
+    const teaser = element.querySelector(".cms-inspiration-teaser") || element;
+    const variants = [];
+    if (info.classList.contains("alignment-right")) variants.push("right");
+    if (info.classList.contains("uplift-animation") || teaser.classList.contains("inspiration-teaser-uplift-animation")) variants.push("card");
+    if (teaser.classList.contains("inspiration-teaser-narrow")) variants.push("narrow");
+    const block = WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants, cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/cards-teaser.js
+  function parse2(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -195,7 +288,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -516,7 +609,7 @@ var CustomImportScript = (() => {
     out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
     element.replaceWith(...out);
   }
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
     if (grid) {
       parseGrid(element, grid, document);
@@ -1517,10 +1610,10 @@ var CustomImportScript = (() => {
   var MARKER = "data-excat-section-id";
   var BREAK = "data-excat-section-break";
   var FIRST = "data-excat-section-first";
-  var GREY = "data-excat-section-grey";
+  var SOURCE_STYLE = "data-excat-section-source-style";
   var FOLLOWING = 4;
-  var GREY_SOURCE = ".container-gray";
-  var GREY_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
+  var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
+  var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
   var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
@@ -1552,7 +1645,7 @@ var CustomImportScript = (() => {
     hr.setAttribute(BREAK, "");
     return hr;
   }
-  function greyRegions(document, template) {
+  function styledRegions(document, template, source) {
     const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
     const insideBlock = (el) => blockSelectors.some((sel) => {
       try {
@@ -1562,9 +1655,9 @@ var CustomImportScript = (() => {
       }
     });
     const regions = [];
-    document.querySelectorAll(GREY_SOURCE).forEach((grey) => {
-      if (grey.closest(GREY_SKIP) || grey.parentElement && grey.parentElement.closest(GREY_SOURCE)) return;
-      let region = grey;
+    document.querySelectorAll(source).forEach((match) => {
+      if (match.closest(STYLE_SKIP) || match.parentElement && match.parentElement.closest(source)) return;
+      let region = match;
       while (region.parentElement && !region.parentElement.matches(REGION_STOP)) region = region.parentElement;
       if (!region.parentElement || region.matches("main, body") || insideBlock(region)) return;
       if (regions.some((r) => r.contains(region) || region.contains(r))) return;
@@ -1594,7 +1687,7 @@ var CustomImportScript = (() => {
         prev = hr;
         return;
       }
-      [MARKER, GREY].forEach((attr) => {
+      [MARKER, SOURCE_STYLE].forEach((attr) => {
         if (!hr.hasAttribute(attr)) return;
         const merged = [prev.getAttribute(attr), hr.getAttribute(attr)].filter(Boolean).join(" ");
         prev.setAttribute(attr, merged);
@@ -1621,11 +1714,13 @@ var CustomImportScript = (() => {
           el.parentNode.insertBefore(hr, el);
         }
       }
-      greyRegions(document, template).forEach((region) => {
-        const start = createBreak(document);
-        start.setAttribute(GREY, "grey");
-        region.before(start);
-        region.after(createBreak(document));
+      SOURCE_STYLES.forEach(([source, style]) => {
+        styledRegions(document, template, source).forEach((region) => {
+          const start = createBreak(document);
+          start.setAttribute(SOURCE_STYLE, style);
+          region.before(start);
+          region.after(createBreak(document));
+        });
       });
     }
     if (hookName === "afterTransform") {
@@ -1636,10 +1731,12 @@ var CustomImportScript = (() => {
           const section = sections.find((s) => s.id === id);
           if (section && hasStyle(section)) styles.push(styleValue(section));
         });
-        if (hr.hasAttribute(GREY) && !styles.some((s) => /\bgrey\b/.test(s))) styles.unshift("grey");
+        (hr.getAttribute(SOURCE_STYLE) || "").split(" ").filter(Boolean).forEach((style) => {
+          if (!styles.some((s) => s.split(/,\s*/).includes(style))) styles.unshift(style);
+        });
         return styles.join(", ");
       };
-      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${GREY}]`)].filter((hr) => !hr.closest("table"));
+      const marked = [...document.querySelectorAll(`hr[${MARKER}], hr[${SOURCE_STYLE}]`)].filter((hr) => !hr.closest("table"));
       marked.reverse().forEach((marker) => {
         const style = styleOf(marker);
         if (style) {
@@ -1657,7 +1754,7 @@ var CustomImportScript = (() => {
           hr.remove();
           return;
         }
-        [MARKER, GREY, BREAK].forEach((attr) => hr.removeAttribute(attr));
+        [MARKER, SOURCE_STYLE, BREAK].forEach((attr) => hr.removeAttribute(attr));
       });
     }
   }
@@ -1670,6 +1767,12 @@ var CustomImportScript = (() => {
       "https://www.lufthansa.com/de/en/baggage"
     ],
     "blocks": [
+      {
+        "name": "hero-campaign",
+        "instances": [
+          ".inspirationteaser"
+        ]
+      },
       {
         "name": "cards-teaser",
         "instances": [
@@ -1763,9 +1866,10 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "cards-teaser": parse,
-    "columns-media": parse2,
-    "destination-finder": parse3
+    "hero-campaign": parse,
+    "cards-teaser": parse2,
+    "columns-media": parse3,
+    "destination-finder": parse4
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -1789,7 +1893,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_15764_default = {
+  var tmp_bundle_hub_8711_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1819,5 +1923,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_15764_exports);
+  return __toCommonJS(tmp_bundle_hub_8711_exports);
 })();

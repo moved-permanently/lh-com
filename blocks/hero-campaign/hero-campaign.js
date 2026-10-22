@@ -52,14 +52,18 @@ function afterLoad(callback) {
   else window.addEventListener('load', run, { once: true });
 }
 
-/** Keeps the full-bleed stage from causing a horizontal scrollbar on classic scrollbars. */
+/**
+ * Keeps the full-bleed stage at the layout width (no horizontal overflow under a classic
+ * scrollbar, whether or not the browser's 100vw includes it).
+ */
 function trackScrollbar(block) {
   const update = () => {
-    const sb = window.innerWidth - document.documentElement.clientWidth;
-    block.style.setProperty('--hero-campaign-scrollbar', `${Math.max(sb, 0)}px`);
+    block.style.setProperty('--hero-campaign-viewport', `${document.documentElement.clientWidth}px`);
   };
   update();
   window.addEventListener('resize', update, { passive: true });
+  // the scrollbar appears once the page grows taller than the viewport (no resize event)
+  if (window.ResizeObserver) new ResizeObserver(update).observe(document.body);
 }
 
 /**

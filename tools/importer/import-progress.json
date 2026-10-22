@@ -7,17 +7,17 @@
  "https://www.lufthansa.com/de/en/baggage": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-22T00:05:30.859Z"
+  "at": "2026-10-22T16:45:32.873Z"
  },
  "https://www.lufthansa.com/de/en/flying-with-small-children": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-22T00:07:13.343Z"
+  "at": "2026-10-22T16:45:21.081Z"
  },
  "https://www.lufthansa.com/de/en/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-22T00:11:28.364Z"
+  "at": "2026-10-22T16:54:16.024Z"
  },
  "https://www.lufthansa.com/de/en/359": {
   "template": "fleet",
@@ -27,7 +27,7 @@
  "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-berlin": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-22T00:11:38.704Z"
+  "at": "2026-10-22T16:47:07.778Z"
  },
  "https://www.lufthansa.com/de/en/imprint": {
   "template": "legal",
@@ -42,12 +42,12 @@
  "https://www.lufthansa.com/de/en/online-check-in": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-22T00:11:54.085Z"
+  "at": "2026-10-22T17:19:46.444Z"
  },
  "https://www.lufthansa.com/de/en/timetable-and-flight-status": {
   "template": "flight-status",
   "status": "ok",
-  "at": "2026-10-22T00:11:59.790Z"
+  "at": "2026-10-22T16:35:18.109Z"
  },
  "https://www.lufthansa.com/lhg/de/en": {
   "template": "aircore-destination-overview",
@@ -82,7 +82,7 @@
  "https://www.lufthansa.com/de/en/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-22T00:05:30.859Z"
+  "at": "2026-10-22T16:53:26.128Z"
  },
  "https://www.lufthansa.com/de/en/airport-information": {
   "template": "hub",
@@ -172,7 +172,7 @@
  "https://www.lufthansa.com/de/en/accessible-travel": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-22T00:07:13.346Z"
+  "at": "2026-10-22T16:45:21.080Z"
  },
  "https://www.lufthansa.com/de/en/add-sports-baggage": {
   "template": "info",
@@ -1097,7 +1097,7 @@
  "https://www.lufthansa.com/de/en/100-years/campaigns": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-22T01:10:00.673Z"
+  "at": "2026-10-22T16:54:16.023Z"
  },
  "https://www.lufthansa.com/de/en/100-years/chronicle": {
   "template": "campaign",
@@ -1112,7 +1112,7 @@
  "https://www.lufthansa.com/de/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-22T01:10:00.680Z"
+  "at": "2026-10-22T16:36:48.320Z"
  },
  "https://www.lufthansa.com/de/en/100-years/fleet": {
   "template": "campaign",
@@ -1197,7 +1197,7 @@
  "https://www.lufthansa.com/de/en/boeing787": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-22T01:18:28.359Z"
+  "at": "2026-10-22T16:53:38.111Z"
  },
  "https://www.lufthansa.com/de/en/discover-lufthansa/lufthansa-fleet/351": {
   "template": "fleet",
@@ -1222,7 +1222,7 @@
  "https://www.lufthansa.com/de/en/articles/explore-flying": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-22T01:27:39.456Z"
+  "at": "2026-10-22T16:54:01.665Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history": {
   "template": "insights",
@@ -1342,7 +1342,7 @@
  "https://www.lufthansa.com/de/en/articles/highlights": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-22T01:45:39.970Z"
+  "at": "2026-10-22T16:47:07.777Z"
  },
  "https://www.lufthansa.com/de/en/articles/highlights/all-it-takes-is-a-yes": {
   "template": "insights",
@@ -1522,7 +1522,7 @@
  "https://www.lufthansa.com/de/en/farealert/best-price-alert": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-22T02:12:28.268Z"
+  "at": "2026-10-22T16:53:50.510Z"
  },
  "https://www.lufthansa.com/de/en/feedback-past-flight": {
   "template": "form",
@@ -1552,7 +1552,7 @@
  "https://www.lufthansa.com/de/de/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-22T02:21:22.063Z"
+  "at": "2026-10-22T16:53:26.127Z"
  },
  "https://www.lufthansa.com/de/de/flughafeninformation": {
   "template": "hub",
@@ -1577,7 +1577,7 @@
  "https://www.lufthansa.com/de/en/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-22T02:21:38.862Z"
+  "at": "2026-10-22T16:45:06.254Z"
  },
  "https://www.lufthansa.com/de/en/flight-search": {
   "template": "app-entry",
@@ -1587,7 +1587,7 @@
  "https://www.lufthansa.com/de/en/my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-22T02:21:38.869Z"
+  "at": "2026-10-22T16:53:11.621Z"
  },
  "https://www.lufthansa.com/de/en/my-logbook": {
   "template": "app-entry",

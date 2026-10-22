@@ -701,6 +701,13 @@ body:not(.aircore) main > .section:first-of-type:not(.breadcrumb-container) {
   margin-top: 25px;
 }
 
+/* the breadcrumb at the start of a full-bleed first section (Insights category stage) keeps
+   the content column */
+main > .section.full-bleed > .breadcrumb-wrapper {
+  max-width: var(--content-max-width);
+  padding: 0 var(--layout-margin);
+}
+
 body:not(.aircore) main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
   padding-top: 25px;
 }

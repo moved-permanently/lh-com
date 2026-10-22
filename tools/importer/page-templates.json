@@ -239,6 +239,12 @@
       ],
       "blocks": [
         {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
+        {
           "name": "cards-teaser",
           "instances": [
             ".section-content > .twocolumn:has(.column-view-item > .image + .headline)",
@@ -1013,6 +1019,12 @@
       ],
       "blocks": [
         {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
+        {
           "name": "accordion-columns",
           "instances": [
             ".accordion"
@@ -1375,6 +1387,12 @@
         "https://www.lufthansa.com/gb/en/seat-maps"
       ],
       "blocks": [
+        {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
         {
           "name": "carousel-lightbox",
           "instances": [
@@ -1955,6 +1973,12 @@
       ],
       "blocks": [
         {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
+        {
           "name": "form",
           "instances": [
             ".feedbackforms"
@@ -2045,6 +2069,12 @@
         "https://www.lufthansa.com/gb/en/pre-check-in"
       ],
       "blocks": [
+        {
+          "name": "hero-campaign",
+          "instances": [
+            ".inspirationteaser"
+          ]
+        },
         {
           "name": "columns-media",
           "instances": [
