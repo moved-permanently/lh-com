@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/miles-and-more",
   "path": "de/de/miles-and-more",
-  "timestamp": "2026-10-22T02:30:25.287Z",
-  "title": "Miles & More - Unser Vielfliegerprogramm | Lufthansa",
+  "timestamp": "2026-10-22T19:17:53.143Z",
+  "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "carousel-cards"
+  ]
 }

@@ -2,13 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/explore-flying/anniversary-super-crane-special",
   "path": "de/de/articles/explore-flying/anniversary-super-crane-special",
-  "timestamp": "2026-10-22T04:58:08.552Z",
+  "timestamp": "2026-10-22T19:27:14.089Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "article-header",
     "columns-media",
     "columns-media",
-    "related-articles"
+    "related-articles",
+    "carousel-images"
   ]
 }

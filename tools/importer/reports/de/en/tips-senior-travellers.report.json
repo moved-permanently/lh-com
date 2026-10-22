@@ -2,10 +2,28 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/tips-senior-travellers",
   "path": "de/en/tips-senior-travellers",
-  "timestamp": "2026-10-22T00:51:32.021Z",
-  "title": "Older travellers | Lufthansa",
+  "timestamp": "2026-10-22T18:54:53.577Z",
+  "title": "",
   "template": "info",
   "blocks": [
-    "carousel-cards"
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "carousel-cards",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
   ]
 }

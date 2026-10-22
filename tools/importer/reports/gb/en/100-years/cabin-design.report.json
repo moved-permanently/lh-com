@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/100-years/cabin-design",
   "path": "gb/en/100-years/cabin-design",
-  "timestamp": "2026-10-22T11:43:13.123Z",
-  "title": "Design & Komfort an Bord | Lufthansa",
+  "timestamp": "2026-10-22T19:23:00.959Z",
+  "title": "",
   "template": "campaign",
   "blocks": [
     "hero-campaign",
@@ -28,6 +28,9 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "cards-teaser"
+    "cards-teaser",
+    "carousel-images",
+    "carousel-images",
+    "carousel-images"
   ]
 }

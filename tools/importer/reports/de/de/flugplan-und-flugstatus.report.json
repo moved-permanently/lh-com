@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/flugplan-und-flugstatus",
   "path": "de/de/flugplan-und-flugstatus",
-  "timestamp": "2026-10-22T05:53:30.510Z",
-  "title": "Flugplan & Flugstatus | Lufthansa",
+  "timestamp": "2026-10-22T19:15:45.148Z",
+  "title": "",
   "template": "flight-status",
   "blocks": [
     "flight-status",

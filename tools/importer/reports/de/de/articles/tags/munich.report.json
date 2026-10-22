@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/tags/munich",
   "path": "de/de/articles/tags/munich",
-  "timestamp": "2026-10-22T05:16:43.864Z",
-  "title": "München | Lufthansa",
+  "timestamp": "2026-10-22T19:28:38.443Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/tags/allegris",
   "path": "de/en/articles/tags/allegris",
-  "timestamp": "2026-10-22T01:54:06.366Z",
-  "title": "Allegris | Lufthansa",
+  "timestamp": "2026-10-22T19:27:02.110Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

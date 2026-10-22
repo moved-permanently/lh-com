@@ -2,11 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/my-bookings",
   "path": "de/en/my-bookings",
-  "timestamp": "2026-10-22T16:52:59.904Z",
+  "timestamp": "2026-10-22T18:01:00.634Z",
   "title": "",
   "template": "app-entry",
   "blocks": [
     "hero-campaign",
-    "cards-teaser"
+    "cards-teaser",
+    "cards-teaser",
+    "carousel-cards"
   ]
 }

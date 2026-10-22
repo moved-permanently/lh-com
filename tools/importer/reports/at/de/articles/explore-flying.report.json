@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/articles/explore-flying",
   "path": "at/de/articles/explore-flying",
-  "timestamp": "2026-10-22T08:43:07.935Z",
-  "title": "Lufthansa Insights – Erlebe das Fliegen | Lufthansa",
+  "timestamp": "2026-10-22T19:28:44.008Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

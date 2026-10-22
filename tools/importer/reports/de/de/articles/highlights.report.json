@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/highlights",
   "path": "de/de/articles/highlights",
-  "timestamp": "2026-10-22T05:16:31.461Z",
-  "title": "Highlights | Lufthansa",
+  "timestamp": "2026-10-22T19:28:26.083Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

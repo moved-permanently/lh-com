@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/100-years/chronicle",
   "path": "de/de/100-years/chronicle",
-  "timestamp": "2026-10-22T04:39:49.724Z",
-  "title": "Chronik | Lufthansa",
+  "timestamp": "2026-10-22T19:21:11.491Z",
+  "title": "",
   "template": "campaign",
   "blocks": [
     "hero-campaign",
@@ -51,6 +51,8 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "carousel-images",
+    "carousel-images",
+    "carousel-images"
   ]
 }

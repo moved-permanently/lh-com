@@ -2,13 +2,18 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/boeing787",
   "path": "de/en/boeing787",
-  "timestamp": "2026-10-22T16:53:30.526Z",
+  "timestamp": "2026-10-22T19:24:22.203Z",
   "title": "",
   "template": "fleet",
   "blocks": [
     "hero-campaign",
     "carousel-lightbox",
     "table-striped",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
     "columns-media",
     "columns-media"
   ]

@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/100-years/history/menu-on-board",
   "path": "de/en/100-years/history/menu-on-board",
-  "timestamp": "2026-10-22T00:11:20.013Z",
-  "title": "Menus on Board | Lufthansa",
+  "timestamp": "2026-10-22T19:20:03.836Z",
+  "title": "",
   "template": "campaign",
   "blocks": [
     "hero-campaign",
@@ -13,6 +13,9 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "carousel-images",
+    "carousel-images",
+    "carousel-images"
   ]
 }

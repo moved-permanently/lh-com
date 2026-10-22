@@ -1,0 +1,12 @@
+2026-10-22T19:16Z re-import batch 1 | bundles rebuilt (13, identical to HEAD apart from temp ids, not committed) | homepage 4/4 {de/en 1, de/de 1, at/de 1, gb/en 1}, flight-status 4/4 {de/en 1, de/de 1, at/de 1, gb/en 1} | upload: pending (after all imports) | problems: none
+2026-10-22T19:18Z re-import chunk | hub: 40/40 (28 left) {"de/en":17,"de/de":17,"at/de":6} | upload: pending (after all imports) | problems: none
+2026-10-22T19:19Z re-import chunk | hub: 28/28 (0 left) {"at/de":11,"gb/en":17} | upload: pending (after all imports) | problems: none
+2026-10-22T19:21Z re-import chunk | campaign: 40/40 (44 left) {"de/en":21,"de/de":19} | upload: pending (after all imports) | problems: none
+2026-10-22T19:23Z re-import chunk | campaign: 40/40 (4 left) {"de/de":2,"at/de":21,"gb/en":17} | upload: pending (after all imports) | problems: none
+2026-10-22T19:24Z re-import chunk | campaign: 4/4 (0 left) {"gb/en":4} | upload: pending (after all imports) | problems: none
+2026-10-22T19:25Z re-import chunk | fleet: 32/32 (0 left) {"de/en":8,"de/de":8,"at/de":8,"gb/en":8} | upload: pending (after all imports) | problems: none
+2026-10-22T19:27Z re-import chunk | insights: 40/40 (88 left) {"de/en":32,"de/de":8} | upload: pending (after all imports) | problems: none
+2026-10-22T19:29Z re-import chunk | insights: 40/40 (48 left) {"de/de":24,"at/de":16} | upload: pending (after all imports) | problems: none
+2026-10-22T19:31Z re-import chunk | insights: 40/40 (8 left) {"at/de":16,"gb/en":24} | upload: pending (after all imports) | problems: none
+2026-10-22T19:31Z re-import chunk | insights: 8/8 (0 left) {"gb/en":8} | upload: pending (after all imports) | problems: none
+2026-10-22T19:33Z re-import chunk | legal: 40/40 (76 left) {"de/en":29,"de/de":11} | upload: pending (after all imports) | problems: none

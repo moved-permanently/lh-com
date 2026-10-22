@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/authors/florian-tomberg",
   "path": "gb/en/articles/authors/florian-tomberg",
-  "timestamp": "2026-10-22T12:14:36.675Z",
-  "title": "Florian Tomberg | Lufthansa",
+  "timestamp": "2026-10-22T19:30:15.708Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }

@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/explore-the-world",
   "path": "de/en/articles/explore-the-world",
-  "timestamp": "2026-10-22T01:27:33.712Z",
-  "title": "Lufthansa Insights – Explore the World | Lufthansa",
+  "timestamp": "2026-10-22T19:26:06.341Z",
+  "title": "",
   "template": "insights",
-  "blocks": []
+  "blocks": [
+    "columns-media"
+  ]
 }
