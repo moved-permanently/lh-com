@@ -217,7 +217,8 @@ function convertBreadcrumbs(document, pagePath) {
 
 /**
  * Metadata rows for the breadcrumb (blocks/breadcrumb README):
- * - Parent: link to the parent page (in scope: root-relative path). A parent outside the
+ * - Parent: link to the parent page whose text is its URL (in scope: root-relative path; the
+ *   pipeline puts the cell text into <meta name="parent">). A parent outside the
  *   migrated site cannot be read at runtime, so its own ancestors are listed before it, up to
  *   the first page of the site (trail order, the direct parent last).
  * - Parent title: labels of the outside links of Parent, in order, separated by " > ".
@@ -249,7 +250,8 @@ function breadcrumbMetadataRows(document, payload, pagePath) {
       const p = document.createElement('p');
       const a = document.createElement('a');
       a.setAttribute('href', c.href);
-      a.textContent = c.label;
+      // the link text is the URL: Edge Delivery writes the cell text (not the href) into <meta>
+      a.textContent = c.href;
       p.append(a);
       cell.append(p);
     });

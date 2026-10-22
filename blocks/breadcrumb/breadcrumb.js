@@ -88,12 +88,12 @@ async function fetchPage(path) {
       doc.querySelectorAll('div.metadata > div').forEach(({ children: [k, v] }) => {
         if (!k || !v) return;
         const name = k.textContent.trim().toLowerCase().replace(/[^a-z0-9:]+/g, '-');
-        const links = [...v.querySelectorAll('a[href]')].map((a) => a.getAttribute('href'));
+        const paras = [...v.querySelectorAll('p')].map((p) => p.textContent.trim()).filter(Boolean);
         const attr = name.includes(':') ? 'property' : 'name';
         doc.head.querySelectorAll(`meta[${attr}="${name}"]`).forEach((m) => m.remove());
         const meta = doc.createElement('meta');
         meta.setAttribute(attr, name);
-        meta.content = links.length ? links.join(', ') : v.textContent.trim();
+        meta.content = paras.length ? paras.join(', ') : v.textContent.trim();
         doc.head.prepend(meta);
       });
     }

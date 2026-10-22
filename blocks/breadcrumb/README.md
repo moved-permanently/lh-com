@@ -8,7 +8,7 @@ The trail is not authored in the documents. Each page names its parent in its **
 
 | Metadata row | Value | When |
 | --- | --- | --- |
-| `Parent` | link to the parent page, e.g. `/de/de/travelling-with-animals` | every page that shows a trail |
+| `Parent` | the parent page's URL, e.g. `/de/de/travelling-with-animals` (as a link whose text is the URL: Edge Delivery puts the cell text, not the link target, into `<meta name="parent">`) | every page that shows a trail |
 | `Breadcrumb title` | the page's own label in trails, e.g. `Komfort an Bord` | only where it differs from the page's `og:title` (else its `Title`) |
 | `Parent title` | labels of `Parent` links outside this site, `Flight Asia > Flight Jordan` | only for parents outside the site |
 | `Breadcrumb` | `hidden` | pages that show no trail themselves but are parents (hub pages, e.g. `/de/en/first-class`) |

@@ -262,9 +262,9 @@ export function decorateMain(main) {
 
 /**
  * Local dev server only (aem up --html-folder content): the document's Metadata block is still
- * in <main> there; it becomes <meta> tags as the Edge Delivery pipeline makes them (links: their
- * hrefs, several values joined by ", "), so metadata-driven features (Theme, Parent breadcrumb,
- * channel) work locally too. Never present on aem.page / aem.live.
+ * in <main> there; it becomes <meta> tags as the Edge Delivery pipeline makes them (the cell
+ * text, paragraphs joined by ", "; images their URL), so metadata-driven features (Theme,
+ * Parent breadcrumb, channel) work locally too. Never present on aem.page / aem.live.
  * @param {Element} main
  */
 function applyDocumentMetadata(main) {
@@ -274,12 +274,10 @@ function applyDocumentMetadata(main) {
       if (!k || !v) return;
       const key = k.textContent.trim().toLowerCase();
       const name = key.includes(':') ? key : toClassName(key);
-      const links = [...v.querySelectorAll('a[href]')].map((a) => a.getAttribute('href'));
       const img = v.querySelector('img');
       const paras = [...v.querySelectorAll('p')].map((p) => p.textContent.trim()).filter(Boolean);
       let value = v.textContent.trim();
-      if (links.length) value = links.join(', ');
-      else if (img) value = img.src;
+      if (img) value = img.src;
       else if (paras.length) value = paras.join(', ');
       if (name === 'title') document.title = value;
       // the pipeline derives og:title from Title unless the document has an og:title row
