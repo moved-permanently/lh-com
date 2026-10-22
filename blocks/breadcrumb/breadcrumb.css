@@ -1,6 +1,7 @@
-/* maui-breadcrumb (AEM pages, 1440 capture): 14px/20px items 17px below the header, parents in
-   whale blue, the current page bold deep blue, chevrons between the items. Below 768px only the
-   parent shows, as a back link with a chevron pointing left (live 390 capture). */
+/* maui-breadcrumb (AEM pages, 1440 capture): 14px/20px items 17px below the header, parents
+   regular in whale blue, the current page bold deep blue, 7x10px chevrons with 8px to the text
+   between the items. Below 1025px only the parent shows (live 768 capture: the text alone, 5px
+   in; live 390 capture: a back link with a chevron pointing left, 5px in, 9px to the text). */
 .breadcrumb nav {
   padding-top: 16px;
 }
@@ -29,13 +30,14 @@
   flex: 0 0 auto;
   width: 12px;
   height: 12px;
-  margin: 0 10px;
+  margin: 0 6px 0 8px;
   background-color: var(--lh-deepblue);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m8.6 3.3-1.5 1.5 7.2 7.2-7.2 7.2 1.5 1.5 8.7-8.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 1.5-3 3 7.5 7.5-7.5 7.5 3 3 10.5-10.5z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .breadcrumb a:any-link {
   color: var(--lh-whale-blue);
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -49,7 +51,7 @@
   font-weight: 700;
 }
 
-@media (width < 768px) {
+@media (width < 1025px) {
   .breadcrumb li:not(.breadcrumb-parent) {
     display: none;
   }
@@ -59,18 +61,30 @@
     display: flex;
   }
 
+  .breadcrumb li.breadcrumb-parent {
+    padding-left: 5px;
+  }
+
+  .breadcrumb li.breadcrumb-parent::before {
+    content: none;
+  }
+}
+
+@media (width < 768px) {
   .breadcrumb li.breadcrumb-parent::before {
     content: "";
     width: 12px;
     height: 12px;
-    margin: 0 8px 0 0;
+    margin: 0 9px 0 0;
     background-color: var(--lh-deepblue);
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m15.4 3.3 1.5 1.5L9.7 12l7.2 7.2-1.5 1.5L6.7 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m17 1.5 3 3-7.5 7.5 7.5 7.5-3 3-10.5-10.5z'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 }
 
 /* AirCore (.breadcrumb a, .breadcrumb span { font-size: 1.4rem; font-weight: 300;
-   line-height: 1.8rem }, last item bold, .breadcrumb-wrapper { padding-top: 1.7rem }) */
+   line-height: 1.8rem; color: var(--primary-brand-color) }, last item bold,
+   .breadcrumb-wrapper { padding-top: 1.7rem }). The whole trail shows from 768px; below, only
+   the parent with its lh-arrow-next (4px after the text), flush with the content edge. */
 body.aircore .breadcrumb nav {
   padding-top: 17px;
 }
@@ -78,6 +92,46 @@ body.aircore .breadcrumb nav {
 body.aircore .breadcrumb ol {
   font-weight: 300;
   line-height: 18px;
+}
+
+body.aircore .breadcrumb li,
+body.aircore .breadcrumb a:any-link {
+  color: var(--lh-deepblue);
+  font-weight: 300;
+}
+
+@media (width >= 768px) and (width < 1025px) {
+  body.aircore .breadcrumb li:not(.breadcrumb-parent) {
+    display: flex;
+  }
+
+  body.aircore .breadcrumb li.breadcrumb-parent {
+    padding-left: 0;
+  }
+
+  body.aircore .breadcrumb li + li.breadcrumb-parent::before {
+    content: "";
+  }
+}
+
+@media (width < 768px) {
+  body.aircore .breadcrumb li.breadcrumb-parent {
+    padding-left: 0;
+  }
+
+  body.aircore .breadcrumb li.breadcrumb-parent::before {
+    content: none;
+  }
+
+  body.aircore .breadcrumb li.breadcrumb-parent::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+    background-color: var(--lh-deepblue);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m7 1.5-3 3 7.5 7.5-7.5 7.5 3 3 10.5-10.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
 }
 
 body.aircore .breadcrumb .breadcrumb-current {

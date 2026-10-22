@@ -8,6 +8,12 @@
   {
     "scope": "site",
     "change": "Page start: first section 25px below the header on AEM pages without a leading breadcrumb (.contentpage padding-top 2.5rem, all breakpoints); article pages: breadcrumb 25px lower and 19px to the article stage (inside .contentpage, .pb-7). Verified h1/first text rows = live at 1440/768/390 on additional-services, advance-seat-reservation, terms-of-service-group, lufthansa-travel-classes, eat-see-do-berlin, homepage; breadcrumb pages and AirCore unchanged.",
+    "commit": "aa80c2c",
+    "date": "2026-10-22"
+  },
+  {
+    "block": "breadcrumb",
+    "change": "Parent links regular (400) instead of bold; 7x10px chevrons, 8px/6px to the texts (1440: chevron ink 134-139 vs live 134-140, current 151 = live); below 1025px only the parent (768: text at x30 = live, no chevron), below 768px back link with left chevron 5px in, text at x49 (live 49, was 43); AirCore: deep blue 300 links, full trail from 768px, mobile parent flush at x22 (live 22, was 48) with the arrow after it.",
     "commit": "pending",
     "date": "2026-10-22"
   }
