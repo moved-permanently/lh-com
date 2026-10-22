@@ -172,5 +172,11 @@
     "change": "D3 (2/4) other ratios: AirCore running text with an image floated beside the following text (<img style=float:left width=60%|50%>, 20 aircore-destination pages: new-york, los-angeles, amman, tokyo/tokio, their business-class pages) -> columns-media option ratio-NN (parser float branch: image | the following paragraphs up to an empty paragraph/heading/component, a.btn-primary as bold link -> yellow button); the media cell floats NN% wide at every width, text around it, 50px gap, 20px below, the block keeps to the AirCore text column (75%): /lhg/de/en/dest/cy/new-york 'Lufthansa Premium Economy' image 542x362 at x88 with the text and 'Discover more' button at x896 (1440; live 536 at 1425), 208px floated at 390 like live; cleanup: AirCore p.h3 titles -> h3 {heading-small} (28px/300; was an 18px paragraph), tokyo/business-class 'Lufthansa Business Class' beside its 50% image like live. Insights article closing teasers (7-people, eat-see-do-berlin): block in the article card (83.333%: 1053 at x193), text 80% of its column (image 517, text 413 = live). Already right from D2/D7, need re-import only: boeing787 characteristics (sidebar image 938 | text 306), accessible-travel 'Please tell us in advance' (text 938 | graphic 306), new-onboard-experience intro (video 615 | text 615). Parser dry run over de/en and de/de aircore-destination floats: no text lost. Heights 1440 local: new-york 6388. Needs re-import (aircore-destination, insights; cleanup: all templates).",
     "commit": "pending",
     "date": "2026-10-22"
+  },
+  {
+    "block": "columns-media",
+    "change": "D3 (3/4) swapped ratio on /discover-lufthansa/new-onboard-experience ('The taste of modern First Class', 'Enhancing every moment'; preview text 306 | image 938): no new code, the .sidebar mapping of D2 (eb71b33, option sidebar: first cell 75%, second 25% whatever they hold) already imports them in source order. Verified with a local test import (campaign): text 938 at x88 | image 306x306 at x1046 (1440, = live), stacked text then 346x346 image at 390. The preview still shows the pre-D2 import. Needs re-import (campaign).",
+    "commit": "eb71b33",
+    "date": "2026-10-22"
   }
 ]
