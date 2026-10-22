@@ -10,7 +10,8 @@ import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
  *  1. brand: linked logo image
  *  2. quick actions: list of links (Book, My flights, Check-in, Flight status)
  *  3. mega menu: nested list "top item > column heading > links", optional flyout image
- *  4. tools: list of ":icon: link" items (wheelchair, help, search, cart, login) and
+ *  4. tools: list of ":icon: link" items (wheelchair, help, search, cart, login; search is
+ *     not shown, live has none in the header) and
  *     ":globe: Country | Language" with an optional sub-list of countries; a paragraph
  *     with the menu button label
  * Sections are recognised by their content, the order above is the fallback.
@@ -546,9 +547,9 @@ export default async function decorate(block) {
   );
 
   const toolsEl = el('div', { className: 'nav-tools' });
+  // live has no search button in the bar (search lives in the footer)
   const barTools = [
     ['accessibility', 'nav-tool nav-tool-accessibility'],
-    ['search', 'nav-tool nav-tool-search'],
     ['help', 'nav-tool nav-tool-help'],
     ['cart', 'nav-tool nav-tool-cart'],
   ];
@@ -568,15 +569,17 @@ export default async function decorate(block) {
     {
       type: 'button', className: 'nav-menu-button', 'aria-expanded': 'false', 'aria-controls': 'nav-flyout', 'aria-label': menuLabel,
     },
+    // burger left of the label, as live (lh-iconfont "list-menu")
+    await inlineIcon('list-menu'),
     el('span', { className: 'nav-tool-label', 'aria-hidden': 'true' }, menuLabel),
-    uiIcon('menu'),
   );
   toolsEl.append(menuButton);
 
-  // flyout: mega menu, accessibility/help/other tools, locale selector, login
+  // flyout: mega menu, accessibility/help/cart/other tools, locale selector, login
+  // (live additional links: wheelchair, question, shopping cart, country/language)
   const extras = [];
   await Promise.all(toolItems.map(async (tool) => {
-    if (['search', 'cart', 'login', 'locale'].includes(tool.role)) return null;
+    if (['search', 'login', 'locale'].includes(tool.role)) return null;
     if (!tool.href) return null;
     return toolLink(tool, 'nav-flyout-extra', true);
   })).then((links) => links.filter(Boolean).forEach((a) => extras.push(el('li', {}, a))));
