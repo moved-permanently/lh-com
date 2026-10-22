@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/book-and-manage/stopover/zugspitze",
+  "path": "gb/en/book-and-manage/stopover/zugspitze",
+  "timestamp": "2026-10-22T12:03:54.442Z",
+  "title": "Zugspitze | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/100-years/crane",
+  "path": "gb/en/100-years/crane",
+  "timestamp": "2026-10-22T11:43:20.806Z",
+  "title": "Crane | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

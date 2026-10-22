@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/100-years",
+  "path": "gb/en/100-years",
+  "timestamp": "2026-10-22T11:43:10.520Z",
+  "title": "100 Years Lufthansa | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}

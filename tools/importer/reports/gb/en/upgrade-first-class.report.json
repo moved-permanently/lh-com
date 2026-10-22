@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/upgrade-first-class",
+  "path": "gb/en/upgrade-first-class",
+  "timestamp": "2026-10-22T11:42:38.216Z",
+  "title": "Upgrade to Lufthansa first class | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

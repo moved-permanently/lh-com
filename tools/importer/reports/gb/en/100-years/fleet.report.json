@@ -1,0 +1,28 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/100-years/fleet",
+  "path": "gb/en/100-years/fleet",
+  "timestamp": "2026-10-22T11:56:26.597Z",
+  "title": "Fleet | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

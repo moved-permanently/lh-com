@@ -5278,5 +5278,210 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-22T11:27:20.056Z"
+ },
+ "https://www.lufthansa.com/gb/en/uebergepaeck": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.157Z"
+ },
+ "https://www.lufthansa.com/gb/en/unaccompanied-minors": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.160Z"
+ },
+ "https://www.lufthansa.com/gb/en/unterhaltung-an-bord": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.163Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-business-class-long-haul": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.165Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-first-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.168Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-info": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.171Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-options": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.174Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.176Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-to-business-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.179Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrade-to-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.182Z"
+ },
+ "https://www.lufthansa.com/gb/en/upgrades-at-online-check-in": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.184Z"
+ },
+ "https://www.lufthansa.com/gb/en/wheelchair-batteries": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.187Z"
+ },
+ "https://www.lufthansa.com/gb/en/with-children-at-the-airport": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-22T11:43:06.189Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:43:26.332Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/cabin-design": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:43:26.335Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/campaigns": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:43:26.338Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/chronicle": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:43:26.340Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/crane": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:43:26.343Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/destinations": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:48:14.095Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/fleet": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:56:45.185Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/global-network": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:56:45.185Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/history": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:56:45.185Z"
+ },
+ "https://www.lufthansa.com/gb/en/100-years/history/menu-on-board": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:56:45.185Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/stopover": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T11:56:45.186Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.204Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/stopover/neuschwanstein": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.207Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/stopover/zugspitze": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.209Z"
+ },
+ "https://www.lufthansa.com/gb/en/culinaryjourney": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.212Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.214Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/take-off": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.217Z"
+ },
+ "https://www.lufthansa.com/gb/en/frankfurt-fair": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.221Z"
+ },
+ "https://www.lufthansa.com/gb/en/lufthansa-city/culinaryjourney": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.224Z"
+ },
+ "https://www.lufthansa.com/gb/en/most-significant-route": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.226Z"
+ },
+ "https://www.lufthansa.com/gb/en/munich-fair": {
+  "template": "campaign",
+  "status": "ok",
+  "at": "2026-10-22T12:04:20.229Z"
+ },
+ "https://www.lufthansa.com/gb/en/320": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.930Z"
+ },
+ "https://www.lufthansa.com/gb/en/32n": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.933Z"
+ },
+ "https://www.lufthansa.com/gb/en/359": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.935Z"
+ },
+ "https://www.lufthansa.com/gb/en/744": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.938Z"
+ },
+ "https://www.lufthansa.com/gb/en/boeing787": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.940Z"
+ },
+ "https://www.lufthansa.com/gb/en/discover-lufthansa/lufthansa-fleet/351": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.943Z"
+ },
+ "https://www.lufthansa.com/gb/en/lufthansa-first-class-fleet": {
+  "template": "fleet",
+  "status": "ok",
+  "at": "2026-10-22T12:04:44.945Z"
  }
 }

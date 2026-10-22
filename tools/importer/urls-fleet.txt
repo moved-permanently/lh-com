@@ -1,7 +1,7 @@
-https://www.lufthansa.com/at/de/32n
-https://www.lufthansa.com/at/de/359
-https://www.lufthansa.com/at/de/744
-https://www.lufthansa.com/at/de/boeing787
-https://www.lufthansa.com/at/de/discover-lufthansa/lufthansa-fleet/351
-https://www.lufthansa.com/at/de/lufthansa-first-class-flotte
-https://www.lufthansa.com/at/de/sitzplaene
+https://www.lufthansa.com/gb/en/320
+https://www.lufthansa.com/gb/en/32n
+https://www.lufthansa.com/gb/en/359
+https://www.lufthansa.com/gb/en/744
+https://www.lufthansa.com/gb/en/boeing787
+https://www.lufthansa.com/gb/en/discover-lufthansa/lufthansa-fleet/351
+https://www.lufthansa.com/gb/en/lufthansa-first-class-fleet

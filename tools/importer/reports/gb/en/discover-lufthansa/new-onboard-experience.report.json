@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience",
+  "path": "gb/en/discover-lufthansa/new-onboard-experience",
+  "timestamp": "2026-10-22T12:03:58.945Z",
+  "title": "New Onboard Experience | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

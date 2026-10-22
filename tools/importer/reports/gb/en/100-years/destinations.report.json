@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/100-years/destinations",
+  "path": "gb/en/100-years/destinations",
+  "timestamp": "2026-10-22T11:48:05.567Z",
+  "title": "Destinations | Lufthansa",
+  "template": "campaign",
+  "blocks": [
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "hero-campaign",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}
