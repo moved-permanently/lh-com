@@ -11,3 +11,5 @@
 2026-10-22T22:37:59Z done 98/2681 (failed 0, pending 2583) | call 180 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: lhg/de/de@390 39.33% (diverges y=3200)
 2026-10-22T22:40:50Z done 110/2681 (failed 0, pending 2571) | call 166 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: at/de/articles/authors/florian-tomberg@768 36.41% (diverges y=800)
 2026-10-22T22:43:48Z done 122/2681 (failed 0, pending 2559) | call 126 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: at/de/sitzplatzreservierungen-konditionen@768 49.63% (diverges y=600)
+2026-10-22T22:46:23Z done 134/2681 (failed 0, pending 2547) | call 107 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: at/de/book-and-manage/booking-services/manage-my-bookings@1440 51.95% (diverges y=400)
+2026-10-22T22:49:30Z done 146/2681 (failed 0, pending 2535) | call 137 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: gb/en/airport-information@1440 53.37% (diverges y=400)

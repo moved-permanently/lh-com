@@ -48035,18 +48035,135 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/anmeldung-tiere-frachtraum",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/anmeldung-tiere-frachtraum/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8458,
+          "at": "2026-10-22T22:44:49.936Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 6012,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/anmeldung-tiere-frachtraum/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.18969,
+        "unmaskedRatio": 0.18969,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 8000,
+        "heightB": 6012,
+        "heightDiffRatio": 0.2485,
+        "firstDivergentBand": {
+          "index": 25,
+          "y": 5000,
+          "unmaskedRatio": 0.77781
+        },
+        "worstBands": [
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.93559
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.90987
+          },
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.77781
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08752,
+          0.16279,
+          0.21381,
+          0.14905,
+          0.16801,
+          0.11604,
+          0.11185,
+          0.09055,
+          0.09745,
+          0.10896,
+          0.11475,
+          0.13128,
+          0.09516,
+          0.24965,
+          0.18081,
+          0.15725,
+          0.15275,
+          0.12221,
+          0.13872,
+          0.13853,
+          0.15921,
+          0.25912,
+          0.22449,
+          0.11756,
+          0.12895,
+          0.77781,
+          0.90987,
+          0.93559,
+          0.41769,
+          0.08472,
+          0.07621,
+          0.09868,
+          0.07253,
+          0.04156,
+          0.04731,
+          0.05475,
+          0.11668,
+          0.08808,
+          0.09125,
+          0.0984
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/anmeldung-tiere-frachtraum/390-diff.png",
+        "at": "2026-10-22T22:44:51.495Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/anmeldung-tiere-frachtraum/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/cancellation-and-refund/refund/refund-form@1440": {
       "id": "at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
@@ -48056,18 +48173,116 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7338,
+          "at": "2026-10-22T22:44:58.934Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3365,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 449,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.31981,
+        "unmaskedRatio": 0.31981,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4071,
+        "heightB": 3365,
+        "heightDiffRatio": 0.17342,
+        "firstDivergentBand": {
+          "index": 13,
+          "y": 2600,
+          "unmaskedRatio": 0.683
+        },
+        "worstBands": [
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.99484
+          },
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.98327
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.9586
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02731,
+          0.08162,
+          0.05794,
+          0.08231,
+          0.10918,
+          0.09063,
+          0.09065,
+          0.05687,
+          0.03302,
+          0.05291,
+          0.03689,
+          0.1103,
+          0.03214,
+          0.683,
+          0.93442,
+          0.9586,
+          0.1438,
+          0.98327,
+          0.99484,
+          0.94384,
+          0.01745
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/1440-diff.png",
+        "at": "2026-10-22T22:45:01.139Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/cancellation-and-refund/refund/refund-form@768": {
       "id": "at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
@@ -48077,18 +48292,118 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6868,
+          "at": "2026-10-22T22:45:08.111Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3670,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 1057,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.36163,
+        "unmaskedRatio": 0.36163,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4472,
+        "heightB": 3670,
+        "heightDiffRatio": 0.17934,
+        "firstDivergentBand": {
+          "index": 14,
+          "y": 2800,
+          "unmaskedRatio": 0.46141
+        },
+        "worstBands": [
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.99495
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.97334
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.95234
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02615,
+          0.15194,
+          0.09649,
+          0.15116,
+          0.18037,
+          0.12108,
+          0.13803,
+          0.11325,
+          0.08833,
+          0.06877,
+          0.07001,
+          0.05797,
+          0.12396,
+          0.0536,
+          0.46141,
+          0.92289,
+          0.95234,
+          0.92214,
+          0.52618,
+          0.97334,
+          0.99495,
+          0.87908,
+          0.03527
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/768-diff.png",
+        "at": "2026-10-22T22:45:09.739Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/cancellation-and-refund/refund/refund-form@390": {
       "id": "at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
@@ -48098,18 +48413,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6926,
+          "at": "2026-10-22T22:45:16.760Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5072,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 1433,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.3125,
+        "unmaskedRatio": 0.3125,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5533,
+        "heightB": 5072,
+        "heightDiffRatio": 0.08332,
+        "firstDivergentBand": {
+          "index": 20,
+          "y": 4000,
+          "unmaskedRatio": 0.40617
+        },
+        "worstBands": [
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.9892
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.96819
+          },
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.94611
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08632,
+          0.18084,
+          0.22299,
+          0.134,
+          0.14875,
+          0.17997,
+          0.13797,
+          0.23467,
+          0.15696,
+          0.19421,
+          0.14648,
+          0.18215,
+          0.12161,
+          0.11668,
+          0.10092,
+          0.08471,
+          0.15645,
+          0.14867,
+          0.16539,
+          0.09288,
+          0.40617,
+          0.92252,
+          0.96819,
+          0.57875,
+          0.94611,
+          0.9892,
+          0.81855,
+          0.03509
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/390-diff.png",
+        "at": "2026-10-22T22:45:18.003Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/refund-form/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/booking-services/manage-my-bookings@1440": {
       "id": "at/de/book-and-manage/booking-services/manage-my-bookings",
@@ -48119,18 +48539,103 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/booking-services/manage-my-bookings",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6483,
+          "at": "2026-10-22T22:45:24.612Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1077,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/booking-services/manage-my-bookings/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.51949,
+        "unmaskedRatio": 0.51949,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 1423,
+        "heightB": 1077,
+        "heightDiffRatio": 0.24315,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.96682
+        },
+        "worstBands": [
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.99585
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.96682
+          },
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.71055
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01543,
+          0.03024,
+          0.96682,
+          0.70311,
+          0.27417,
+          0.99585,
+          0.71055,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
+        "at": "2026-10-22T22:45:25.724Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/booking-services/manage-my-bookings@768": {
       "id": "at/de/book-and-manage/booking-services/manage-my-bookings",
@@ -48140,18 +48645,103 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/booking-services/manage-my-bookings",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6167,
+          "at": "2026-10-22T22:45:31.996Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1150,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/booking-services/manage-my-bookings/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.47292,
+        "unmaskedRatio": 0.47292,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 1511,
+        "heightB": 1150,
+        "heightDiffRatio": 0.23891,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.94279
+        },
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.97901
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.94279
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.6734
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02517,
+          0.12945,
+          0.94279,
+          0.62548,
+          0.10513,
+          0.6734,
+          0.97901,
+          0.16667
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
+        "at": "2026-10-22T22:45:32.916Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/book-and-manage/booking-services/manage-my-bookings@390": {
       "id": "at/de/book-and-manage/booking-services/manage-my-bookings",
@@ -48161,18 +48751,104 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/booking-services/manage-my-bookings",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 5835,
+          "at": "2026-10-22T22:45:38.848Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1308,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/book-and-manage/booking-services/manage-my-bookings/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.46182,
+        "unmaskedRatio": 0.46182,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 1654,
+        "heightB": 1308,
+        "heightDiffRatio": 0.20919,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.67789
+        },
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.9782
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.92865
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.67789
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07601,
+          0.10365,
+          0.67789,
+          0.92865,
+          0.09196,
+          0.52281,
+          0.9782,
+          0.43407,
+          0.02212
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
+        "at": "2026-10-22T22:45:39.588Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugsuche@1440": {
       "id": "at/de/flugsuche",
@@ -48182,18 +48858,108 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugsuche",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7665,
+          "at": "2026-10-22T22:45:47.352Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2450,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugsuche/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.43445,
+        "unmaskedRatio": 0.43445,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2114,
+        "heightB": 2450,
+        "heightDiffRatio": 0.13714,
+        "firstDivergentBand": {
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.44629
+        },
+        "worstBands": [
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.88653
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.86774
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.80594
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02473,
+          0.02188,
+          0.14738,
+          0.44629,
+          0.40217,
+          0.52472,
+          0.47885,
+          0.88653,
+          0.86774,
+          0.05947,
+          0.80594,
+          0.65636,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/1440-diff.png",
+        "at": "2026-10-22T22:45:49.043Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugsuche@768": {
       "id": "at/de/flugsuche",
@@ -48203,18 +48969,110 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugsuche",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7123,
+          "at": "2026-10-22T22:45:56.277Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2928,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugsuche/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.4429,
+        "unmaskedRatio": 0.4429,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2672,
+        "heightB": 2928,
+        "heightDiffRatio": 0.08743,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.36761
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.96147
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.95997
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.95428
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02197,
+          0.03788,
+          0.11825,
+          0.07633,
+          0.36761,
+          0.0843,
+          0.56823,
+          0.15516,
+          0.82861,
+          0.95428,
+          0.71062,
+          0.49298,
+          0.95997,
+          0.96147,
+          0.22872
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/768-diff.png",
+        "at": "2026-10-22T22:45:57.550Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugsuche@390": {
       "id": "at/de/flugsuche",
@@ -48224,18 +49082,113 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugsuche",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6568,
+          "at": "2026-10-22T22:46:04.219Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3592,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugsuche/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.21487,
+        "unmaskedRatio": 0.21487,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 3594,
+        "heightB": 3592,
+        "heightDiffRatio": 0.00056,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.48393
+        },
+        "worstBands": [
+          {
+            "y": 800,
+            "unmaskedRatio": 0.48393
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.40559
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.37499
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07413,
+          0.06696,
+          0.05008,
+          0.24467,
+          0.48393,
+          0.25532,
+          0.14467,
+          0.37499,
+          0.21417,
+          0.32328,
+          0.17469,
+          0.40559,
+          0.20909,
+          0.16439,
+          0.1198,
+          0.08405,
+          0.30172,
+          0.175
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/390-diff.png",
+        "at": "2026-10-22T22:46:05.219Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugplan-und-flugstatus@1440": {
       "id": "at/de/flugplan-und-flugstatus",
@@ -48245,18 +49198,111 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugplan-und-flugstatus",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7280,
+          "at": "2026-10-22T22:46:12.600Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3024,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugplan-und-flugstatus/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.19808,
+        "unmaskedRatio": 0.22267,
+        "maskRatio": 0.11044,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3103,
+        "heightB": 3024,
+        "heightDiffRatio": 0.02546,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.32284
+        },
+        "worstBands": [
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.45841
+          },
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.41366
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.35931
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02929,
+          0.03294,
+          0.00034,
+          0.00011,
+          0.17589,
+          0.32284,
+          0.41366,
+          0.35931,
+          0.32874,
+          0.285,
+          0.03796,
+          0.26022,
+          0.19567,
+          0.05389,
+          0.45841,
+          0.24503
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/1440-diff.png",
+        "at": "2026-10-22T22:46:14.613Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugplan-und-flugstatus@768": {
       "id": "at/de/flugplan-und-flugstatus",
@@ -48266,18 +49312,112 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugplan-und-flugstatus",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6835,
+          "at": "2026-10-22T22:46:21.549Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3213,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugplan-und-flugstatus/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.18565,
+        "unmaskedRatio": 0.2089,
+        "maskRatio": 0.1113,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 3289,
+        "heightB": 3213,
+        "heightDiffRatio": 0.02311,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.32904
+        },
+        "worstBands": [
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.63374
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.49926
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.33997
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04512,
+          0.09569,
+          0,
+          0.01376,
+          0.23735,
+          0.23195,
+          0.32904,
+          0.14159,
+          0.31147,
+          0.09299,
+          0.03092,
+          0.08625,
+          0.63374,
+          0.12311,
+          0.06515,
+          0.49926,
+          0.33997
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/768-diff.png",
+        "at": "2026-10-22T22:46:22.996Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/flugplan-und-flugstatus@390": {
       "id": "at/de/flugplan-und-flugstatus",
@@ -48287,18 +49427,115 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flugplan-und-flugstatus",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8453,
+          "at": "2026-10-22T22:47:27.651Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3924,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flugplan-und-flugstatus/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.23889,
+        "unmaskedRatio": 0.25829,
+        "maskRatio": 0.07513,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 3983,
+        "heightB": 3924,
+        "heightDiffRatio": 0.01481,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.59827
+        },
+        "worstBands": [
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.76707
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.71213
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.59827
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07729,
+          0.17288,
+          0.00481,
+          0.03578,
+          0.20084,
+          0.59827,
+          0.16853,
+          0.06157,
+          0.23629,
+          0.76707,
+          0.71213,
+          0.18943,
+          0.21665,
+          0.03935,
+          0.14785,
+          0.33039,
+          0.1374,
+          0.08392,
+          0.49744,
+          0.12004
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/390-diff.png",
+        "at": "2026-10-22T22:47:28.836Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugplan-und-flugstatus/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/additional-services@1440": {
       "id": "gb/en/additional-services",
@@ -48308,18 +49545,134 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/additional-services",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 9456,
+          "at": "2026-10-22T22:47:38.391Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7689,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/additional-services/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.39951,
+        "unmaskedRatio": 0.39951,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4476,
+        "heightB": 7689,
+        "heightDiffRatio": 0.41787,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.86624
+        },
+        "worstBands": [
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.97986
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.96958
+          },
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.96133
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02571,
+          0.09669,
+          0.1112,
+          0.15475,
+          0.03981,
+          0.23577,
+          0.86624,
+          0.40351,
+          0.6605,
+          0.60161,
+          0.77595,
+          0.04057,
+          0.47154,
+          0.8312,
+          0.17862,
+          0.27438,
+          0.73636,
+          0.33223,
+          0.04594,
+          0.95922,
+          0.97986,
+          0.96133,
+          0.80375,
+          0.24794,
+          0.01257,
+          0.02141,
+          0.02447,
+          0.03712,
+          0.0194,
+          0.87172,
+          0.75711,
+          0.0279,
+          0.01741,
+          0.03514,
+          0.00415,
+          0.90403,
+          0.96958,
+          0.81828,
+          0.009
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/1440-diff.png",
+        "at": "2026-10-22T22:47:42.286Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/additional-services@768": {
       "id": "gb/en/additional-services",
@@ -48329,18 +49682,134 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/additional-services",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8705,
+          "at": "2026-10-22T22:47:51.085Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7744,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/additional-services/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.47415,
+        "unmaskedRatio": 0.47415,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 5275,
+        "heightB": 7744,
+        "heightDiffRatio": 0.31883,
+        "firstDivergentBand": {
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.39426
+        },
+        "worstBands": [
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.97246
+          },
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.95745
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.93226
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02813,
+          0.13625,
+          0.18587,
+          0.39426,
+          0.14134,
+          0.07375,
+          0.28605,
+          0.86371,
+          0.92839,
+          0.82079,
+          0.33931,
+          0.88534,
+          0.4676,
+          0.05301,
+          0.29056,
+          0.79876,
+          0.71735,
+          0.56254,
+          0.21068,
+          0.87641,
+          0.52739,
+          0.26997,
+          0.87927,
+          0.89402,
+          0.97246,
+          0.86324,
+          0.05797,
+          0.0657,
+          0.04193,
+          0.69215,
+          0.93226,
+          0.04637,
+          0.02407,
+          0.05392,
+          0.02954,
+          0.7473,
+          0.92315,
+          0.95745,
+          0.44543
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/768-diff.png",
+        "at": "2026-10-22T22:47:53.610Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/additional-services@390": {
       "id": "gb/en/additional-services",
@@ -48350,18 +49819,133 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/additional-services",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8260,
+          "at": "2026-10-22T22:48:01.957Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7498,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/additional-services/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.47981,
+        "unmaskedRatio": 0.47981,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 6116,
+        "heightB": 7498,
+        "heightDiffRatio": 0.18432,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.54147
+        },
+        "worstBands": [
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.95639
+          },
+          {
+            "y": 6800,
+            "unmaskedRatio": 0.92892
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.91555
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07431,
+          0.19588,
+          0.08612,
+          0.21972,
+          0.54147,
+          0.44893,
+          0.11452,
+          0.10063,
+          0.72887,
+          0.84796,
+          0.44285,
+          0.07835,
+          0.1022,
+          0.82388,
+          0.76335,
+          0.32947,
+          0.82577,
+          0.87732,
+          0.86724,
+          0.1036,
+          0.17575,
+          0.82857,
+          0.91555,
+          0.89092,
+          0.16664,
+          0.13335,
+          0.494,
+          0.89631,
+          0.90544,
+          0.6592,
+          0.11989,
+          0.06857,
+          0.11896,
+          0.62233,
+          0.92892,
+          0.95639,
+          0.52997,
+          0.00963
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/390-diff.png",
+        "at": "2026-10-22T22:48:03.607Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/additional-services/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/airport-information@1440": {
       "id": "gb/en/airport-information",
@@ -48371,18 +49955,134 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/airport-information",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 9848,
+          "at": "2026-10-22T22:48:13.562Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7745,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/airport-information/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.53372,
+        "unmaskedRatio": 0.53372,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3253,
+        "heightB": 7745,
+        "heightDiffRatio": 0.57999,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.61255
+        },
+        "worstBands": [
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.97552
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.95863
+          },
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.92804
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02533,
+          0.2085,
+          0.61255,
+          0.75428,
+          0.43429,
+          0.58162,
+          0.65487,
+          0.7109,
+          0.51483,
+          0.38704,
+          0.80113,
+          0.75588,
+          0.31084,
+          0.92804,
+          0.89682,
+          0.92699,
+          0.05364,
+          0.6797,
+          0.76182,
+          0.68338,
+          0.16577,
+          0.80299,
+          0.85946,
+          0.44455,
+          0.26866,
+          0.59614,
+          0.63863,
+          0.30831,
+          0.31841,
+          0.75539,
+          0.82152,
+          0.24995,
+          0.00779,
+          0.04424,
+          0.00812,
+          0.42456,
+          0.95863,
+          0.97552,
+          0.46509
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/1440-diff.png",
+        "at": "2026-10-22T22:48:17.869Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/airport-information@768": {
       "id": "gb/en/airport-information",
@@ -48392,18 +50092,125 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/airport-information",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8156,
+          "at": "2026-10-22T22:48:26.121Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5937,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/airport-information/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.51888,
+        "unmaskedRatio": 0.51888,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 3608,
+        "heightB": 5937,
+        "heightDiffRatio": 0.39229,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.77651
+        },
+        "worstBands": [
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.96909
+          },
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.91901
+          },
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.86841
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03317,
+          0.26957,
+          0.77651,
+          0.37487,
+          0.38692,
+          0.75678,
+          0.16827,
+          0.86373,
+          0.78056,
+          0.3342,
+          0.56655,
+          0.46756,
+          0.49935,
+          0.84596,
+          0.74495,
+          0.85939,
+          0.86594,
+          0.59277,
+          0.67981,
+          0.14519,
+          0.46124,
+          0.86841,
+          0.02611,
+          0.0418,
+          0.0366,
+          0.00802,
+          0.69471,
+          0.91901,
+          0.96909,
+          0.53403
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/768-diff.png",
+        "at": "2026-10-22T22:48:28.343Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/airport-information@390": {
       "id": "gb/en/airport-information",
@@ -48413,18 +50220,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/airport-information",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7387,
+          "at": "2026-10-22T22:48:35.831Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5399,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/airport-information/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.4463,
+        "unmaskedRatio": 0.4463,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5568,
+        "heightB": 5399,
+        "heightDiffRatio": 0.03035,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.69983
+        },
+        "worstBands": [
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.97403
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.84981
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.80683
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07579,
+          0.16796,
+          0.69983,
+          0.16859,
+          0.45973,
+          0.45572,
+          0.27253,
+          0.80683,
+          0.51519,
+          0.49011,
+          0.65299,
+          0.58929,
+          0.84981,
+          0.53721,
+          0.61823,
+          0.45541,
+          0.64069,
+          0.27487,
+          0.44919,
+          0.22523,
+          0.17885,
+          0.18721,
+          0.46463,
+          0.74753,
+          0.11911,
+          0.32321,
+          0.97403,
+          0.0299
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/390-diff.png",
+        "at": "2026-10-22T22:48:37.257Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/airport-information/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/accessible-travel@1440": {
       "id": "gb/en/accessible-travel",
@@ -48434,18 +50346,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/accessible-travel",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8214,
+          "at": "2026-10-22T22:48:45.569Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5391,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/accessible-travel/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.17105,
+        "unmaskedRatio": 0.17105,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 5539,
+        "heightB": 5391,
+        "heightDiffRatio": 0.02672,
+        "firstDivergentBand": {
+          "index": 21,
+          "y": 4200,
+          "unmaskedRatio": 0.38579
+        },
+        "worstBands": [
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.69611
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.62299
+          },
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.56078
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0266,
+          0.0682,
+          0.12073,
+          0.10998,
+          0.06032,
+          0.12354,
+          0.09757,
+          0.09394,
+          0.10572,
+          0.0355,
+          0.03645,
+          0.0629,
+          0.09554,
+          0.12385,
+          0.08765,
+          0.08573,
+          0.06604,
+          0.12996,
+          0.11046,
+          0.04693,
+          0.07906,
+          0.38579,
+          0.62299,
+          0.56078,
+          0.31953,
+          0.0793,
+          0.69611,
+          0.44043
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/1440-diff.png",
+        "at": "2026-10-22T22:48:48.537Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/accessible-travel@768": {
       "id": "gb/en/accessible-travel",
@@ -48455,18 +50472,130 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/accessible-travel",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8715,
+          "at": "2026-10-22T22:48:57.353Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 6600,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/accessible-travel/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.23193,
+        "unmaskedRatio": 0.23193,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 6990,
+        "heightB": 6600,
+        "heightDiffRatio": 0.05579,
+        "firstDivergentBand": {
+          "index": 26,
+          "y": 5200,
+          "unmaskedRatio": 0.50575
+        },
+        "worstBands": [
+          {
+            "y": 6600,
+            "unmaskedRatio": 0.98618
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.85041
+          },
+          {
+            "y": 5800,
+            "unmaskedRatio": 0.56046
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03234,
+          0.13766,
+          0.16378,
+          0.0858,
+          0.12952,
+          0.11392,
+          0.03946,
+          0.05746,
+          0.08627,
+          0.10798,
+          0.01841,
+          0.04888,
+          0.05727,
+          0.12912,
+          0.07552,
+          0.15726,
+          0.14496,
+          0.11371,
+          0.0925,
+          0.13306,
+          0.0927,
+          0.09169,
+          0.14518,
+          0.1626,
+          0.10247,
+          0.28299,
+          0.50575,
+          0.43265,
+          0.53612,
+          0.56046,
+          0.85041,
+          0.3994,
+          0.53023,
+          0.98618,
+          0.5288
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/768-diff.png",
+        "at": "2026-10-22T22:48:59.590Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/accessible-travel@390": {
       "id": "gb/en/accessible-travel",
@@ -48476,18 +50605,131 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/accessible-travel",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7796,
+          "at": "2026-10-22T22:49:07.485Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 10212,
+            "truncated": true,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/accessible-travel/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.1336,
+        "unmaskedRatio": 0.1336,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 7800,
+            "unmaskedRatio": 0.2718
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.23724
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.21564
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08741,
+          0.20504,
+          0.17067,
+          0.10676,
+          0.12315,
+          0.11168,
+          0.10905,
+          0.10335,
+          0.11867,
+          0.10352,
+          0.09143,
+          0.1146,
+          0.10716,
+          0.08341,
+          0.06572,
+          0.11693,
+          0.08608,
+          0.11619,
+          0.06193,
+          0.15556,
+          0.079,
+          0.20021,
+          0.21564,
+          0.20007,
+          0.13511,
+          0.15445,
+          0.15521,
+          0.09436,
+          0.05748,
+          0.13279,
+          0.09619,
+          0.16311,
+          0.23724,
+          0.12977,
+          0.17768,
+          0.14316,
+          0.11763,
+          0.16443,
+          0.18055,
+          0.2718
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/390-diff.png",
+        "at": "2026-10-22T22:49:09.002Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/accessible-travel/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/add-sports-baggage@1440": {
       "id": "gb/en/add-sports-baggage",
@@ -48497,18 +50739,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/add-sports-baggage",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8211,
+          "at": "2026-10-22T22:49:17.313Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5483,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/add-sports-baggage/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.23133,
+        "unmaskedRatio": 0.23133,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4337,
+        "heightB": 5483,
+        "heightDiffRatio": 0.20901,
+        "firstDivergentBand": {
+          "index": 18,
+          "y": 3600,
+          "unmaskedRatio": 0.67167
+        },
+        "worstBands": [
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.96958
+          },
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.95816
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.95001
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.028,
+          0.06359,
+          0.06619,
+          0.03088,
+          0.03378,
+          0.03769,
+          0.05485,
+          0.03551,
+          0.09509,
+          0.02501,
+          0.02903,
+          0.02775,
+          0.02121,
+          0.02649,
+          0.02216,
+          0.06191,
+          0.04448,
+          0.03829,
+          0.67167,
+          0.95001,
+          0.95816,
+          0.29478,
+          0.02653,
+          0.00299,
+          0.93403,
+          0.96958,
+          0.78861,
+          0.00899
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/1440-diff.png",
+        "at": "2026-10-22T22:49:19.930Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/add-sports-baggage@768": {
       "id": "gb/en/add-sports-baggage",
@@ -48518,18 +50865,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/add-sports-baggage",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8657,
+          "at": "2026-10-22T22:49:28.682Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5498,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded"
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/add-sports-baggage/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.26439,
+        "unmaskedRatio": 0.26439,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4587,
+        "heightB": 5498,
+        "heightDiffRatio": 0.1657,
+        "firstDivergentBand": {
+          "index": 19,
+          "y": 3800,
+          "unmaskedRatio": 0.59572
+        },
+        "worstBands": [
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.95302
+          },
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.94249
+          },
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.9405
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03582,
+          0.12999,
+          0.09659,
+          0.07624,
+          0.07448,
+          0.0544,
+          0.07848,
+          0.05216,
+          0.14097,
+          0.09827,
+          0.05565,
+          0.0574,
+          0.03315,
+          0.05139,
+          0.05994,
+          0.05034,
+          0.08495,
+          0.08195,
+          0.0777,
+          0.59572,
+          0.92371,
+          0.9222,
+          0.48661,
+          0.00135,
+          0.9405,
+          0.94249,
+          0.95302,
+          0.2298
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/768-diff.png",
+        "at": "2026-10-22T22:49:30.524Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/add-sports-baggage/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/add-sports-baggage@390": {
       "id": "gb/en/add-sports-baggage",
@@ -69095,5 +71547,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-22T22:43:48.205Z"
+  "updatedAt": "2026-10-22T22:49:30.524Z"
 }
