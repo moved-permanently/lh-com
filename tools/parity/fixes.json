@@ -1,0 +1,8 @@
+[
+  {
+    "block": "flight-search",
+    "change": "Shop handoff is a POST form to https://shop.lufthansa.com/booking/availability?lang=..&portalCountry=.. with fields lang, portalCountry, search (JSON: itineraries, travelers ADT per adult, cabin, portalFacts from consent), as captured from a real de/en search; replaces the placeholder GET URL. lang de-DE/de-AT/gb en-GB unverified.",
+    "commit": "cfc9804",
+    "date": "2026-10-22"
+  }
+]
