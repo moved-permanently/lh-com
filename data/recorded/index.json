@@ -1036,6 +1036,14 @@
    "file": "at-de-bf45fe3e.json",
    "recordedAt": "2026-10-22T07:20:59.655Z"
   },
+  "at/de|GET /service/api/labels/loungefinder/lh/de": {
+   "file": "at-de-47c5f2ee.json",
+   "recordedAt": "2026-10-22T08:00:55.497Z"
+  },
+  "at/de|GET /service/api/catalogs/lounges/cities": {
+   "file": "at-de-fc858297.json",
+   "recordedAt": "2026-10-22T08:00:55.497Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1221,5 +1229,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T07:27:30.828Z"
+ "updatedAt": "2026-10-22T08:05:05.848Z"
 }

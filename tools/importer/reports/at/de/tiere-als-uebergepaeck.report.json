@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/tiere-als-uebergepaeck",
+  "path": "at/de/tiere-als-uebergepaeck",
+  "timestamp": "2026-10-22T08:03:01.543Z",
+  "title": "Tiere als Übergepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

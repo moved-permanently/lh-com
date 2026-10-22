@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/passengers-using-wheelchairs",
+  "path": "at/de/passengers-using-wheelchairs",
+  "timestamp": "2026-10-22T07:46:16.750Z",
+  "title": "Fluggäste mit Rollstuhlbedarf | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

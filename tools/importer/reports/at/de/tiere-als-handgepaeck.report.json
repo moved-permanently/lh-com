@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/tiere-als-handgepaeck",
+  "path": "at/de/tiere-als-handgepaeck",
+  "timestamp": "2026-10-22T08:02:58.353Z",
+  "title": "Tiere als zusätzliches Handgepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

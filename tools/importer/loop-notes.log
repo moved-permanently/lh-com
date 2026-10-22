@@ -1,0 +1,4 @@
+2026-10-22T07:40Z captured 0/? / left 501 (+2 stale) | new per template: info 11/11 | imported {"de/en":293,"aircore":3,"de/de":293,"at/de":118,"gb/en":1} | captured 698 | da-upload: 11 uploaded, 11 previewed, 0 problems | failures: connectOverCDP Timeout
+2026-10-22T07:40Z captured 18/18 / left 483 | new per template: info 18/18 | imported {"de/en":293,"aircore":3,"de/de":293,"at/de":136,"gb/en":1} | captured 716 | da-upload: 18 uploaded, 18 previewed, 0 problems | failures: none
+2026-10-22T07:48Z captured 18/18 / left 465 | new per template: info 18/18 | imported {"de/en":293,"aircore":3,"de/de":293,"at/de":154,"gb/en":1} | captured 734 | da-upload: 18 uploaded, 18 previewed, 0 problems | failures: none
+2026-10-22T07:56Z captured 18/18 / left 447 | new per template: info 18/18 | imported {"de/en":293,"aircore":3,"de/de":293,"at/de":172,"gb/en":1} | captured 752 | da-upload: 18 uploaded, 18 previewed, 0 problems | failures: none

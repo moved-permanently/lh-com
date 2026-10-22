@@ -3579,6 +3579,331 @@
    "uploaded": "2026-10-22T07:25:37.882Z",
    "mtime": 1792653838469,
    "preview": "2026-10-22T07:25:39.592Z"
+  },
+  "/at/de/lufthansa-at-zuerich-airport": {
+   "uploaded": "2026-10-22T07:38:44.469Z",
+   "mtime": 1792654654847,
+   "preview": "2026-10-22T07:38:46.404Z"
+  },
+  "/at/de/lufthansa-aviation-group": {
+   "uploaded": "2026-10-22T07:38:47.849Z",
+   "mtime": 1792654657278,
+   "preview": "2026-10-22T07:38:49.577Z"
+  },
+  "/at/de/lufthansa-business-class-on-long-haul-routes": {
+   "uploaded": "2026-10-22T07:38:50.793Z",
+   "mtime": 1792654659358,
+   "preview": "2026-10-22T07:38:52.622Z"
+  },
+  "/at/de/lufthansa-firmenkunden": {
+   "uploaded": "2026-10-22T07:38:53.800Z",
+   "mtime": 1792654661290,
+   "preview": "2026-10-22T07:38:55.641Z"
+  },
+  "/at/de/lufthansa-express": {
+   "uploaded": "2026-10-22T07:38:56.935Z",
+   "mtime": 1792654663425,
+   "preview": "2026-10-22T07:38:58.705Z"
+  },
+  "/at/de/lufthansa-express-bus": {
+   "uploaded": "2026-10-22T07:39:00.155Z",
+   "mtime": 1792654666673,
+   "preview": "2026-10-22T07:39:02.306Z"
+  },
+  "/at/de/lufthansa-express-rail": {
+   "uploaded": "2026-10-22T07:39:03.681Z",
+   "mtime": 1792654669097,
+   "preview": "2026-10-22T07:39:05.710Z"
+  },
+  "/at/de/lufthansa-first-class-entertainment": {
+   "uploaded": "2026-10-22T07:39:07.068Z",
+   "mtime": 1792654672311,
+   "preview": "2026-10-22T07:39:08.929Z"
+  },
+  "/at/de/lufthansa-group-star-alliance-and-partner-airlines": {
+   "uploaded": "2026-10-22T07:39:10.375Z",
+   "mtime": 1792654675424,
+   "preview": "2026-10-22T07:39:12.819Z"
+  },
+  "/at/de/lufthansa-guide-service": {
+   "uploaded": "2026-10-22T07:39:14.047Z",
+   "mtime": 1792654677622,
+   "preview": "2026-10-22T07:39:15.711Z"
+  },
+  "/at/de/lufthansa-terminal-muenchen": {
+   "uploaded": "2026-10-22T07:39:17.081Z",
+   "mtime": 1792654679662,
+   "preview": "2026-10-22T07:39:18.901Z"
+  },
+  "/at/de/medikamenten-transport": {
+   "uploaded": "2026-10-22T07:47:19.124Z",
+   "mtime": 1792655155736,
+   "preview": "2026-10-22T07:47:21.091Z"
+  },
+  "/at/de/meetings-und-events-teilnehmer": {
+   "uploaded": "2026-10-22T07:47:22.419Z",
+   "mtime": 1792655158558,
+   "preview": "2026-10-22T07:47:24.057Z"
+  },
+  "/at/de/meetings-und-events-individuelle-angebotsanfrage": {
+   "uploaded": "2026-10-22T07:47:25.299Z",
+   "mtime": 1792655160309,
+   "preview": "2026-10-22T07:47:27.026Z"
+  },
+  "/at/de/menues-auf-langstreckenfluegen": {
+   "uploaded": "2026-10-22T07:47:28.194Z",
+   "mtime": 1792655162382,
+   "preview": "2026-10-22T07:47:30.010Z"
+  },
+  "/at/de/menues-reiseklassen": {
+   "uploaded": "2026-10-22T07:47:31.206Z",
+   "mtime": 1792655164122,
+   "preview": "2026-10-22T07:47:33.075Z"
+  },
+  "/at/de/mobility-partner-program-healthcare": {
+   "uploaded": "2026-10-22T07:47:34.413Z",
+   "mtime": 1792655166210,
+   "preview": "2026-10-22T07:47:36.161Z"
+  },
+  "/at/de/onboard-delights": {
+   "uploaded": "2026-10-22T07:47:37.681Z",
+   "mtime": 1792655168206,
+   "preview": "2026-10-22T07:47:39.426Z"
+  },
+  "/at/de/online-check-in-info": {
+   "uploaded": "2026-10-22T07:47:40.722Z",
+   "mtime": 1792655170510,
+   "preview": "2026-10-22T07:47:42.267Z"
+  },
+  "/at/de/partner": {
+   "uploaded": "2026-10-22T07:47:43.447Z",
+   "mtime": 1792655172596,
+   "preview": "2026-10-22T07:47:45.134Z"
+  },
+  "/at/de/passenger-receipt-90": {
+   "uploaded": "2026-10-22T07:47:46.470Z",
+   "mtime": 1792655174727,
+   "preview": "2026-10-22T07:47:47.971Z"
+  },
+  "/at/de/passengers-using-wheelchairs": {
+   "uploaded": "2026-10-22T07:47:49.204Z",
+   "mtime": 1792655207755,
+   "preview": "2026-10-22T07:47:51.274Z"
+  },
+  "/at/de/passengers-with-sensory-impairment": {
+   "uploaded": "2026-10-22T07:47:52.616Z",
+   "mtime": 1792655207822,
+   "preview": "2026-10-22T07:47:54.573Z"
+  },
+  "/at/de/zahlungsmoeglichkeiten-am-flughafen": {
+   "uploaded": "2026-10-22T07:47:56.096Z",
+   "mtime": 1792655181779,
+   "preview": "2026-10-22T07:47:57.571Z"
+  },
+  "/at/de/premium-economy-class": {
+   "uploaded": "2026-10-22T07:47:58.755Z",
+   "mtime": 1792655183858,
+   "preview": "2026-10-22T07:48:00.314Z"
+  },
+  "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
+   "uploaded": "2026-10-22T07:48:01.667Z",
+   "mtime": 1792655186231,
+   "preview": "2026-10-22T07:48:03.274Z"
+  },
+  "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay": {
+   "uploaded": "2026-10-22T07:48:04.451Z",
+   "mtime": 1792655189422,
+   "preview": "2026-10-22T07:48:06.029Z"
+  },
+  "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage": {
+   "uploaded": "2026-10-22T07:48:07.282Z",
+   "mtime": 1792655191442,
+   "preview": "2026-10-22T07:48:08.892Z"
+  },
+  "/at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries": {
+   "uploaded": "2026-10-22T07:48:10.296Z",
+   "mtime": 1792655194706,
+   "preview": "2026-10-22T07:48:12.291Z"
+  },
+  "/at/de/prepare-for-your-trip/current-travel-information": {
+   "uploaded": "2026-10-22T07:55:02.854Z",
+   "mtime": 1792655614718,
+   "preview": "2026-10-22T07:55:04.273Z"
+  },
+  "/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
+   "uploaded": "2026-10-22T07:55:05.598Z",
+   "mtime": 1792655617220,
+   "preview": "2026-10-22T07:55:07.516Z"
+  },
+  "/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk": {
+   "uploaded": "2026-10-22T07:55:08.688Z",
+   "mtime": 1792655619472,
+   "preview": "2026-10-22T07:55:10.312Z"
+  },
+  "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing": {
+   "uploaded": "2026-10-22T07:55:11.520Z",
+   "mtime": 1792655622174,
+   "preview": "2026-10-22T07:55:13.140Z"
+  },
+  "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing": {
+   "uploaded": "2026-10-22T07:55:14.526Z",
+   "mtime": 1792655624626,
+   "preview": "2026-10-22T07:55:16.201Z"
+  },
+  "/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions": {
+   "uploaded": "2026-10-22T07:55:17.400Z",
+   "mtime": 1792655670811,
+   "preview": "2026-10-22T07:55:18.997Z"
+  },
+  "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment": {
+   "uploaded": "2026-10-22T07:55:20.563Z",
+   "mtime": 1792655670881,
+   "preview": "2026-10-22T07:55:22.360Z"
+  },
+  "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment": {
+   "uploaded": "2026-10-22T07:55:24.078Z",
+   "mtime": 1792655631070,
+   "preview": "2026-10-22T07:55:25.892Z"
+  },
+  "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion": {
+   "uploaded": "2026-10-22T07:55:27.241Z",
+   "mtime": 1792655634413,
+   "preview": "2026-10-22T07:55:28.891Z"
+  },
+  "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment": {
+   "uploaded": "2026-10-22T07:55:30.082Z",
+   "mtime": 1792655671031,
+   "preview": "2026-10-22T07:55:32.075Z"
+  },
+  "/at/de/prepare-for-your-trip/travel-classes/economy-basic": {
+   "uploaded": "2026-10-22T07:55:33.360Z",
+   "mtime": 1792655671093,
+   "preview": "2026-10-22T07:55:35.067Z"
+  },
+  "/at/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass": {
+   "uploaded": "2026-10-22T07:55:36.327Z",
+   "mtime": 1792655641810,
+   "preview": "2026-10-22T07:55:37.983Z"
+  },
+  "/at/de/prepare-for-your-trip/travelling-with-children/planning-with-kids": {
+   "uploaded": "2026-10-22T07:55:39.232Z",
+   "mtime": 1792655645210,
+   "preview": "2026-10-22T07:55:40.805Z"
+  },
+  "/at/de/rail-and-fly": {
+   "uploaded": "2026-10-22T07:55:41.962Z",
+   "mtime": 1792655646996,
+   "preview": "2026-10-22T07:55:43.620Z"
+  },
+  "/at/de/rechnungsbeleg": {
+   "uploaded": "2026-10-22T07:55:44.737Z",
+   "mtime": 1792655650047,
+   "preview": "2026-10-22T07:55:46.164Z"
+  },
+  "/at/de/refund": {
+   "uploaded": "2026-10-22T07:55:47.585Z",
+   "mtime": 1792655652330,
+   "preview": "2026-10-22T07:55:49.011Z"
+  },
+  "/at/de/schengen": {
+   "uploaded": "2026-10-22T07:55:50.197Z",
+   "mtime": 1792655671352,
+   "preview": "2026-10-22T07:55:51.819Z"
+  },
+  "/at/de/secure-flight": {
+   "uploaded": "2026-10-22T07:55:53.144Z",
+   "mtime": 1792655658096,
+   "preview": "2026-10-22T07:55:54.548Z"
+  },
+  "/at/de/zeitfenster-sicherheitskontrolle": {
+   "uploaded": "2026-10-22T08:04:04.326Z",
+   "mtime": 1792656152866,
+   "preview": "2026-10-22T08:04:05.977Z"
+  },
+  "/at/de/security-fast-lanes": {
+   "uploaded": "2026-10-22T08:04:07.218Z",
+   "mtime": 1792656211618,
+   "preview": "2026-10-22T08:04:08.788Z"
+  },
+  "/at/de/services-am-flughafen-frankfurt": {
+   "uploaded": "2026-10-22T08:04:09.975Z",
+   "mtime": 1792656211692,
+   "preview": "2026-10-22T08:04:11.891Z"
+  },
+  "/at/de/services-am-flughafen-muenchen": {
+   "uploaded": "2026-10-22T08:04:13.309Z",
+   "mtime": 1792656159325,
+   "preview": "2026-10-22T08:04:14.997Z"
+  },
+  "/at/de/shopping": {
+   "uploaded": "2026-10-22T08:04:16.318Z",
+   "mtime": 1792656211889,
+   "preview": "2026-10-22T08:04:18.291Z"
+  },
+  "/at/de/sixt": {
+   "uploaded": "2026-10-22T08:04:19.737Z",
+   "mtime": 1792656165085,
+   "preview": "2026-10-22T08:04:21.217Z"
+  },
+  "/at/de/sondermahlzeiten": {
+   "uploaded": "2026-10-22T08:04:22.592Z",
+   "mtime": 1792656167067,
+   "preview": "2026-10-22T08:04:24.273Z"
+  },
+  "/at/de/sportgepaeck": {
+   "uploaded": "2026-10-22T08:04:25.533Z",
+   "mtime": 1792656212171,
+   "preview": "2026-10-22T08:04:27.176Z"
+  },
+  "/at/de/support/contact/passenger-duty-united-kingdom": {
+   "uploaded": "2026-10-22T08:04:28.497Z",
+   "mtime": 1792656172273,
+   "preview": "2026-10-22T08:04:30.017Z"
+  },
+  "/at/de/support/feedback-and-contact-airlines": {
+   "uploaded": "2026-10-22T08:04:31.261Z",
+   "mtime": 1792656175542,
+   "preview": "2026-10-22T08:04:33.105Z"
+  },
+  "/at/de/tiere-als-handgepaeck": {
+   "uploaded": "2026-10-22T08:04:34.556Z",
+   "mtime": 1792656178339,
+   "preview": "2026-10-22T08:04:36.381Z"
+  },
+  "/at/de/tiere-als-uebergepaeck": {
+   "uploaded": "2026-10-22T08:04:37.800Z",
+   "mtime": 1792656181528,
+   "preview": "2026-10-22T08:04:39.480Z"
+  },
+  "/at/de/tips-senior-travellers": {
+   "uploaded": "2026-10-22T08:04:40.647Z",
+   "mtime": 1792656212402,
+   "preview": "2026-10-22T08:04:42.581Z"
+  },
+  "/at/de/reisebueros": {
+   "uploaded": "2026-10-22T08:04:43.893Z",
+   "mtime": 1792656187370,
+   "preview": "2026-10-22T08:04:45.495Z"
+  },
+  "/at/de/travel-expense-management": {
+   "uploaded": "2026-10-22T08:04:46.962Z",
+   "mtime": 1792656190268,
+   "preview": "2026-10-22T08:04:48.616Z"
+  },
+  "/at/de/gesund-reisen": {
+   "uploaded": "2026-10-22T08:04:49.866Z",
+   "mtime": 1792656208210,
+   "preview": "2026-10-22T08:04:51.723Z"
+  },
+  "/at/de/travelling-with-animals": {
+   "uploaded": "2026-10-22T08:04:53.095Z",
+   "mtime": 1792656194313,
+   "preview": "2026-10-22T08:04:54.833Z"
+  },
+  "/at/de/fliegen-mit-kindern": {
+   "uploaded": "2026-10-22T08:04:56.134Z",
+   "mtime": 1792656196839,
+   "preview": "2026-10-22T08:04:57.955Z"
   }
  },
  "media": {

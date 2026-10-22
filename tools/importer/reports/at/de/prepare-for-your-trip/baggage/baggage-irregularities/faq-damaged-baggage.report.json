@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+  "path": "at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+  "timestamp": "2026-10-22T07:46:31.456Z",
+  "title": "Häufig gestellte Fragen zu beschädigtem Gepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

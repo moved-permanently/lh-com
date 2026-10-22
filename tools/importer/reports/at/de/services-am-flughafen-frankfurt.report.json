@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/services-am-flughafen-frankfurt",
+  "path": "at/de/services-am-flughafen-frankfurt",
+  "timestamp": "2026-10-22T08:02:37.162Z",
+  "title": "Services am Flughafen Frankfurt | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}
