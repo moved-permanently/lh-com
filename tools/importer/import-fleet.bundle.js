@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_34396_exports = {};
-  __export(tmp_bundle_fleet_34396_exports, {
-    default: () => tmp_bundle_fleet_34396_default
+  var tmp_bundle_fleet_36607_exports = {};
+  __export(tmp_bundle_fleet_36607_exports, {
+    default: () => tmp_bundle_fleet_36607_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -683,6 +683,72 @@ var CustomImportScript = (() => {
         cells: [right ? [text, media] : [media, text]]
       });
       element.replaceWith(floatBlock);
+      return;
+    }
+    const articles = [...element.querySelectorAll(".blog-article-container")];
+    if (element.classList.contains("blogoverview") && articles.length) {
+      const rows = articles.map((art, i) => {
+        const media = [];
+        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken2(x.getAttribute("src")));
+        if (img) {
+          const image = document.createElement("img");
+          image.setAttribute("src", img.getAttribute("src"));
+          image.setAttribute("alt", img.getAttribute("alt") || "");
+          const link = img.closest("a[href]");
+          if (link) {
+            const a = document.createElement("a");
+            a.setAttribute("href", link.getAttribute("href"));
+            a.append(image);
+            media.push(a);
+          } else media.push(image);
+        }
+        const text = [];
+        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean(c.getAttribute("label"))).filter(Boolean);
+        if (tags.length) {
+          const ul = document.createElement("ul");
+          tags.forEach((t) => {
+            const li = document.createElement("li");
+            li.textContent = t;
+            ul.append(li);
+          });
+          text.push(ul);
+        }
+        const title = art.querySelector(".article-title");
+        if (title && visibleText(title)) {
+          const h = document.createElement("h2");
+          h.className = "heading-small";
+          const titleLink = title.closest("a[href]");
+          if (titleLink) {
+            const a = document.createElement("a");
+            a.setAttribute("href", titleLink.getAttribute("href"));
+            a.textContent = visibleText(title);
+            h.append(a);
+          } else h.textContent = visibleText(title);
+          text.push(h);
+        }
+        const info = [...art.querySelectorAll(".blog-article-details-info > div")].map(visibleText).filter((t) => t && t !== "|");
+        if (info.length) {
+          const p = document.createElement("p");
+          const b = document.createElement("strong");
+          b.textContent = info.join(" | ");
+          p.append(b);
+          text.push(p);
+        }
+        art.querySelectorAll(".blog-article-details > p").forEach((p) => {
+          if (!visibleText(p)) return;
+          const desc = tidy(p.cloneNode(true));
+          desc.className = "copytext-medium";
+          text.push(desc);
+        });
+        const more = art.querySelector(".blog-article-details-link");
+        const moreP = more && linkPara(more);
+        if (moreP) text.push(moreP);
+        if (!text.length) return null;
+        if (!media.length) return [text];
+        return i % 2 === 0 ? [text, media] : [media, text];
+      }).filter(Boolean);
+      if (!rows.length) return;
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", variants: ["media-first"], cells: rows }));
       return;
     }
     const titles = [];
@@ -1895,7 +1961,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_34396_default = {
+  var tmp_bundle_fleet_36607_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1925,5 +1991,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_34396_exports);
+  return __toCommonJS(tmp_bundle_fleet_36607_exports);
 })();

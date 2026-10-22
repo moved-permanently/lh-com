@@ -39,7 +39,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "columns-media",
       "instances": [
-        ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+        ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
+        ".blogoverview:has(.blog-article-container)"
       ]
     },
     {

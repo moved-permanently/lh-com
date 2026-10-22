@@ -307,6 +307,74 @@ export default function parse(element, { document }) {
     return;
   }
 
+  // --- Insights category list (.blogoverview: the first page of the article list, alternating
+  // text | image and image | text rows, image above the text on mobile: option media-first);
+  // the search field, category filter and result count are interactive and not imported
+  const articles = [...element.querySelectorAll('.blog-article-container')];
+  if (element.classList.contains('blogoverview') && articles.length) {
+    const rows = articles.map((art, i) => {
+      const media = [];
+      const img = [...art.querySelectorAll('.blog-article-image img')].find((x) => !isBroken(x.getAttribute('src')));
+      if (img) {
+        const image = document.createElement('img');
+        image.setAttribute('src', img.getAttribute('src'));
+        image.setAttribute('alt', img.getAttribute('alt') || '');
+        const link = img.closest('a[href]');
+        if (link) {
+          const a = document.createElement('a');
+          a.setAttribute('href', link.getAttribute('href'));
+          a.append(image);
+          media.push(a);
+        } else media.push(image);
+      }
+      const text = [];
+      const tags = [...art.querySelectorAll('maui-chip[label]')].map((c) => clean(c.getAttribute('label'))).filter(Boolean);
+      if (tags.length) {
+        // the article's tag chips: a list before the title (rendered as chips)
+        const ul = document.createElement('ul');
+        tags.forEach((t) => { const li = document.createElement('li'); li.textContent = t; ul.append(li); });
+        text.push(ul);
+      }
+      const title = art.querySelector('.article-title');
+      if (title && visibleText(title)) {
+        const h = document.createElement('h2');
+        h.className = 'heading-small';
+        const titleLink = title.closest('a[href]');
+        if (titleLink) {
+          const a = document.createElement('a');
+          a.setAttribute('href', titleLink.getAttribute('href'));
+          a.textContent = visibleText(title);
+          h.append(a);
+        } else h.textContent = visibleText(title);
+        text.push(h);
+      }
+      const info = [...art.querySelectorAll('.blog-article-details-info > div')].map(visibleText).filter((t) => t && t !== '|');
+      if (info.length) {
+        const p = document.createElement('p');
+        const b = document.createElement('strong');
+        b.textContent = info.join(' | ');
+        p.append(b);
+        text.push(p);
+      }
+      // the teaser text: 16px
+      art.querySelectorAll('.blog-article-details > p').forEach((p) => {
+        if (!visibleText(p)) return;
+        const desc = tidy(p.cloneNode(true));
+        desc.className = 'copytext-medium';
+        text.push(desc);
+      });
+      const more = art.querySelector('.blog-article-details-link');
+      const moreP = more && linkPara(more);
+      if (moreP) text.push(moreP);
+      if (!text.length) return null;
+      if (!media.length) return [text];
+      return i % 2 === 0 ? [text, media] : [media, text];
+    }).filter(Boolean);
+    if (!rows.length) return;
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants: ['media-first'], cells: rows }));
+    return;
+  }
+
   // --- cells
   const titles = [];
   const cells = [];
