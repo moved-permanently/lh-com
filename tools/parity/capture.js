@@ -20,7 +20,8 @@
  * OneTrust nor the fallback banner shows on the replica; the showcase notice is acknowledged
  * the same way (localStorage 'lh-showcase-acknowledged', scripts/showcase-notice.js).
  * After scrolling it waits for blocks,
- * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the document-coordinate boxes of live-data widgets
+ * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the
+ * document-coordinate boxes of live-data widgets
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out.
  */
 const started = Date.now();
