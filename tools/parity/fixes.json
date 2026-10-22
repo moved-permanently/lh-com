@@ -58,5 +58,11 @@
     "change": "Showcase notice: native <dialog> (showModal) 'Technical showcase' in English on every locale and channel, max 42rem, white, shadow, dimmed backdrop, LufthansaHead/Text, full-width primary button 'I understand'; Escape does not close it (cancel prevented, closedby=none, reopened on any other close). Acknowledgement in localStorage 'lh-showcase-acknowledged' (once per browser; blocked storage still closes it for the page). Not in DA authoring contexts (isAuthoringContext), iframes or /tools/. scripts/showcase-notice.js + styles/showcase-notice.css imported from loadDelayed() 3.5 s after load. Consent banner unchanged and working in both orders. tools/parity/capture.js presets the key. Code only, no re-import.",
     "commit": "90fc441",
     "date": "2026-10-22"
+  },
+  {
+    "block": "destination-finder",
+    "change": "Grid destination finder (destinationfinder/destination/finder and /campaign) moved to the direct-call path in scripts/lh-data.js like suggestions, labels, catalogs and defaultAirport: GET on www.lufthansa.com with the market's X-Portal-* headers (X-Portal-Site required, else 400 'Invalid site'), credentials omit, 3 s timeout, recordings on any failure, never lh-proxy; data-lh-source on the block. Fare teaser and weather stay on lh-proxy then recordings. test-widgets.mjs: new run G (routes direct/not direct, CORS error and Cloudflare 403 -> recorded without proxy call, hang -> recorded after 3 s, direct ok -> live with each market's headers); grid blocks expect live in run C; a grid whose market has no recording of its own expects 'recorded' (stub answers only the market's recordings; was the de/de/fluege run D failure). Remaining 4 failures: gb/en/flights grid queries LON, only LHR recorded (pre-existing).",
+    "commit": "4957a96",
+    "date": "2026-10-22"
   }
 ]
