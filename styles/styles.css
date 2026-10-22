@@ -854,6 +854,15 @@ main > .section.link-tiles .default-content-wrapper > p > a:hover {
   }
 }
 
+/* a wrapper of separator paragraphs only (see "separators" below) */
+main > .section > .default-content-wrapper:not(:has(> :not(p.spacer))) {
+  margin-top: 8px;
+}
+
+main > .section > .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: -16px;
+}
+
 /* AirCore destination overview (/lhg/{cc}/{ll}, live 1425): the region tiles 18px below the
    intro text, the first region heading 34px below the tiles (ink); a country heading 40px
    below the tile grid of the previous country */
@@ -873,6 +882,29 @@ body.aircore main .cards-price-wrapper + .default-content-wrapper:has(> h3:first
    (.headline + component: heading margin-bottom, no extra .mb-default) */
 main > .section > .default-content-wrapper:has(> :last-child:is(h1, h2, h3, h4, h5, h6)) + div {
   margin-top: 0;
+}
+
+/* separators ("{spacer-N}" / "{divider-N}" paragraphs, scripts.js): .separator .hr is a 1px
+   maui-divider (#ccc, transparent with .hr-no-layout) with margin-bottom N (inline style, else
+   2.5rem) after the component's own ~32px spacing. A wrapper of separators only takes their
+   height plus that spacing (8px + the next wrapper's 24px; at the end of a section the 48px
+   section gap minus 16px): timetable-and-flight-status 120px separator = 152px like live. */
+main .default-content-wrapper > p.spacer {
+  box-sizing: content-box;
+  max-width: none;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
+main .default-content-wrapper > p.spacer.divider {
+  height: var(--spacer-size, 25px);
+  border-top: 1px solid var(--border-color);
+}
+
+@media (width < 768px) {
+  main .default-content-wrapper > p.spacer.from-768 {
+    display: none;
+  }
 }
 
 /* utility for screen-reader-only text (.sr-only) */

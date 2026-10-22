@@ -62,6 +62,13 @@ at the end of the last item of a list, lets it run over the whole width; it comb
 size: `{copytext-small full-width}`. On Lufthansa Insights articles the body text is a centred
 column of two thirds of the width from 768px.
 
+### Spacing and dividers
+
+A paragraph with only `{spacer-120}` adds 120px of extra space at that place (Lufthansa
+`.separator` with `margin-bottom: 120px`), `{divider-25}` a thin grey line with 25px below it;
+`{spacer-80 from-768}` only from 768px. The importer writes them for live separators with a line
+or with 50px and more (smaller ones are the normal spacing); delete the paragraph to remove it.
+
 ### Buttons and links
 
 - Bold link alone in a paragraph: primary (yellow) button. Italic link alone in a paragraph:

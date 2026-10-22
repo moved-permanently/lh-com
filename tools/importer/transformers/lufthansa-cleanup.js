@@ -330,8 +330,73 @@ function isEmpty(el) {
   return !el.querySelector(MEDIA);
 }
 
+/**
+ * Separators (.separator > .hr[style="margin-bottom: Npx"] > maui-divider): .hr { margin-bottom:
+ * 2.5rem } unless the inline style sets it, a 1px line unless .hr-no-layout, .hidden-sm-down
+ * hides it below 768px. Those that make a visible difference (a line, or 50px and more of
+ * space; 25-40px is the normal component spacing the replica already has) are kept as an HTML
+ * comment placeholder in beforeTransform (comments do not count for the template selectors'
+ * :nth-child / + / :only-child), which convertSeparators() turns into a "{spacer-120}" or
+ * "{divider-25}" paragraph (scripts.js -> p.spacer, styles.css); the rest is dropped.
+ */
+const SEPARATOR_COMMENT = 'lh-separator';
+const SEPARATOR_MIN_SPACE = 50;
+
+function separatorInfo(sep) {
+  const hr = sep.querySelector('.hr') || sep;
+  const line = hr.classList.contains('hr') && !hr.classList.contains('hr-no-layout');
+  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+  const space = m ? Math.round(parseFloat(m[1])) : 25;
+  const tokens = [`${line ? 'divider' : 'spacer'}-${Math.max(space, 0)}`];
+  if (hr.classList.contains('hidden-sm-down')) tokens.push('from-768');
+  return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(' ') };
+}
+
+function markSeparators(document) {
+  // runs of adjacent separators are kept or dropped together (40px + line + 30px)
+  const runs = [];
+  document.querySelectorAll('.separator').forEach((sep) => {
+    const last = runs[runs.length - 1];
+    if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
+    else runs.push([sep]);
+  });
+  runs.forEach((run) => {
+    const infos = run.map(separatorInfo);
+    const keep = infos.some((i) => i.keep);
+    run.forEach((sep, i) => {
+      if (!sep.isConnected) return;
+      if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
+      else sep.remove();
+    });
+  });
+}
+
+/** afterTransform: separator placeholders -> marker paragraphs (dropped inside block tables). */
+function convertSeparators(document) {
+  const found = [];
+  const walker = document.createTreeWalker(document.body, 128); // NodeFilter.SHOW_COMMENT
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (n.nodeValue.startsWith(`${SEPARATOR_COMMENT} `)) found.push(n);
+  }
+  found.forEach((c) => {
+    const parent = c.parentElement;
+    if (!parent || parent.closest('table')) { c.remove(); return; }
+    const p = document.createElement('p');
+    p.textContent = `{${c.nodeValue.slice(SEPARATOR_COMMENT.length + 1).trim()}}`;
+    // a placeholder inside a paragraph-level element goes after it
+    const textBlock = parent.closest('p, li, h1, h2, h3, h4, h5, h6');
+    if (textBlock) {
+      textBlock.after(p);
+      c.remove();
+    } else {
+      c.replaceWith(p);
+    }
+  });
+  return found.length;
+}
+
 function removeEmptyComponents(document) {
-  removeAll(document, ['.separator']);
+  markSeparators(document);
   // React mount points rendered empty (e.g. <ppfi-web-component><div id="root"></div>)
   document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component')
     .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
@@ -1013,6 +1078,7 @@ export default function transform(hookName, element, payload) {
     unwrapLinksWithoutHref(document);
     removeIconsAndZeroWidth(document);
     splitBrParagraphs(document);
+    convertSeparators(document);
     normalizeImages(document, false);
     rewriteLinks(document, payload);
     stripTrackingAttributes(document);

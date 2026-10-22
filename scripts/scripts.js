@@ -203,6 +203,7 @@ function decorateSectionMetadata(main) {
 const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
 const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|caption)(?: (?:copytext-(?:small|medium|large)|full-width))*)\}\s*$/;
 const LIST_STYLE = /\s*\{(full-width)\}\s*$/;
+const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
 
 /**
  * Removes a trailing style marker from the last text of an element; returns the style or null.
@@ -235,6 +236,16 @@ function decorateTextStyles(main) {
     if (h.id.endsWith(`-${style}`)) h.id = h.id.slice(0, -style.length - 1);
   });
   main.querySelectorAll('p').forEach((p) => {
+    // separator paragraphs: "{spacer-120}" (empty space), "{divider-25}" (1px line + space),
+    // optional "from-768" (hidden on phones), see README "Spacing and dividers"
+    const sep = p.textContent.trim().match(SEPARATOR);
+    if (sep) {
+      p.textContent = '';
+      p.className = `spacer${sep[1] === 'divider' ? ' divider' : ''}${sep[3] ? ' from-768' : ''}`;
+      p.style.setProperty('--spacer-size', `${Math.min(Number(sep[2]), 400)}px`);
+      p.setAttribute('aria-hidden', 'true');
+      return;
+    }
     const style = takeStyleMarker(p, PARAGRAPH_STYLE);
     if (style) p.classList.add(...style.split(' '));
   });

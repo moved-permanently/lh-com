@@ -118,5 +118,11 @@
     "change": "Recapture: 13 pages with a snapshot but no metadata.json/screenshots (interrupted runs) recaptured in the warm session and re-imported, so their import and parity data are complete",
     "commit": "pending",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "site",
+    "change": "D14 separators: live .separator components with a visible line (.hr without .hr-no-layout) or 50px+ inline margin (runs of adjacent separators kept together) are no longer dropped: lufthansa-cleanup keeps an HTML comment placeholder in beforeTransform (template selectors unaffected) and writes a '{spacer-N}' / '{divider-N}' paragraph ('from-768' for .hidden-sm-down) in afterTransform, dropped inside block tables; scripts.js -> p.spacer (--spacer-size), styles.css: N+1px high (divider: 1px #ccc line + N), a separator-only wrapper 8px below the block (-16px at a section end). timetable-and-flight-status 'Advice about text messaging' 153px below the image (live 152, was 48); accessible-travel 40/line/30 run before 'Further information' with the full-width #ccc line; 100-years/destinations 16 x 60px spacers. README 'Spacing and dividers'. Needs re-import (all AEM templates; ~100 de/en pages have such separators).",
+    "commit": "pending",
+    "date": "2026-10-22"
   }
 ]
