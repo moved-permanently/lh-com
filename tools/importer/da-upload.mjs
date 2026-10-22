@@ -27,6 +27,9 @@ const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, '
 const save = () => fs.writeFileSync(stateFile, `${JSON.stringify(state, null, 1)}\n`);
 
 const { default: SCOPE } = await import(path.join(root, 'tools/importer/transformers/scope-paths.js'));
+// documents authors edited in DA: the edits are re-applied to every upload (or the doc is skipped)
+const editsFile = path.join(root, 'tools/importer/author-edits.json');
+const AUTHOR_EDITS = fs.existsSync(editsFile) ? JSON.parse(fs.readFileSync(editsFile, 'utf8')) : {};
 const LOCALE_DOC = /^\/(?:(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)|lhg\/[a-z]{2}\/[a-z]{2}\/fragments\/[a-z0-9-]+)$/;
 const allowed = (p) => SCOPE.has(p) || LOCALE_DOC.test(p);
 
@@ -51,11 +54,23 @@ for (const p of paths) {
   if (!allowed(p)) { failures.push(`${p}: not in scope, skipped`); continue; }
   const file = path.join(root, 'content', `${p}.plain.html`);
   if (!fs.existsSync(file)) { failures.push(`${p}: no local document`); continue; }
+  const edit = AUTHOR_EDITS[p];
+  if (edit?.skip) { failures.push(`${p}: author-owned (author-edits.json), not uploaded`); continue; }
   const stat = fs.statSync(file);
   const known = state.docs[p];
-  const fresh = known && known.uploaded && known.mtime === stat.mtimeMs;
+  const editKey = edit ? JSON.stringify(edit.replace || []) : undefined;
+  const fresh = known && known.uploaded && known.mtime === stat.mtimeMs && known.edits === editKey;
 
   let html = fs.readFileSync(file, 'utf8');
+  if (edit) {
+    const lost = (edit.replace || [])
+      .filter(([from, to]) => !html.includes(from) && !html.includes(to));
+    if (lost.length) {
+      failures.push(`${p}: author edit no longer applies (${lost[0][0].slice(0, 60)}), not uploaded`);
+      continue;
+    }
+    (edit.replace || []).forEach(([from, to]) => { html = html.split(from).join(to); });
+  }
   // local images → uploaded once to DA, referenced from content.da.live
   const media = [...new Set([...html.matchAll(/["(](\/media-da\/[^"')\s]+)/g)].map((m) => m[1]))];
   for (const m of media) {
@@ -82,7 +97,9 @@ for (const p of paths) {
         if (r.status === 401 || r.status === 403) break;
         continue;
       }
-      state.docs[p] = { ...state.docs[p], uploaded: new Date().toISOString(), mtime: stat.mtimeMs };
+      state.docs[p] = {
+        ...state.docs[p], uploaded: new Date().toISOString(), mtime: stat.mtimeMs, edits: editKey,
+      };
       uploaded += 1;
       save();
       await sleep(400);

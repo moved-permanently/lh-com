@@ -60,6 +60,11 @@ Things that are not obvious from the code and cost time once.
 - Files under `content/` cannot be deleted from the agent. Two stray local files exist and are
   never uploaded (not in scope): `content/drafts/blocktest/t.plain.html`,
   `content/lhg/de/en/zz-test.plain.html`.
+- Edits authors make in DA are lost on the next upload of the imported document unless they are
+  listed in `tools/importer/author-edits.json`: `da-upload.mjs` (also in the import loop) applies
+  their `replace` pairs to every upload of that path, refuses the upload when an edit no longer
+  applies, and never uploads paths with `skip: true`. Current entry: Ben's "Entertainment on
+  board" heading on `/de/en/during-your-trip/internet-overview` (channels demo).
 
 ## Shop handoff (flight search submit)
 

@@ -1,0 +1,11 @@
+{
+  "_comment": "Edits authors made in Document Authoring that a re-import must not undo. da-upload.mjs (also in the import loop) applies 'replace' ([from, to] literal strings) to the imported document before it uploads it; if a 'from' is no longer in the import and its 'to' is not there either, the document is not uploaded (problem reported). 'skip': true never uploads the document (author owns it completely). Add every DA edit here before the next upload.",
+  "/de/en/during-your-trip/internet-overview": {
+    "by": "Ben",
+    "date": "2026-10-22",
+    "note": "Channels demo (tools/reports/channels.md step 1): heading 'Entertainment' -> 'Entertainment on board'; DA copy tools/channels/da/lh-com/de/en/during-your-trip/internet-overview.html",
+    "replace": [
+      ["<h3 id=\"entertainment\">Entertainment</h3>", "<h3 id=\"entertainment-on-board\">Entertainment on board</h3>"]
+    ]
+  }
+}

@@ -108,8 +108,9 @@ cached copy, otherwise up to 5 minutes (worker cache).
 - Metadata sheets are replaced, not merged: lh-flynet's sheet must repeat every lh-com row.
 - Merge needs the DA editor: `mergeCopy` loads in the browser with DA's auth and leaves diff
   marks that an author accepts or rejects.
-- The import loop uploads `content/` to lh-com; a re-upload of internet-overview would undo the
-  DA edit of step 1/7 on lh-com (the local `content/` file is not changed).
+- The import loop uploads `content/` to lh-com; `tools/importer/author-edits.json` re-applies
+  the DA edit of step 1/7 on internet-overview to every upload (da-upload.mjs), so a re-import
+  or re-upload keeps "Entertainment on board".
 - The showcase notice acknowledgement is stored per origin: lh-com and lh-flynet are two hosts,
   so it shows once on each.
 - The flight bar shows one fixed sample row; no live flight data.
