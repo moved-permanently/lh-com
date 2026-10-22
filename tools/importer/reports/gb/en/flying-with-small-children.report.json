@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/flying-with-small-children",
+  "path": "gb/en/flying-with-small-children",
+  "timestamp": "2026-10-22T10:35:49.002Z",
+  "title": "Flying with small children | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

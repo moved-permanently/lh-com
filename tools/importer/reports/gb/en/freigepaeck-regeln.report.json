@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/freigepaeck-regeln",
+  "path": "gb/en/freigepaeck-regeln",
+  "timestamp": "2026-10-22T10:35:59.108Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

@@ -1339,7 +1339,11 @@
   "gb/en|GET /service/api/labels/loginoneid/lh/en": {
    "file": "gb-en-d888a78a.json",
    "recordedAt": "2026-10-22T10:08:46.596Z"
+  },
+  "gb/en|GET /service/api/catalogs/countries": {
+   "file": "gb-en-bf45fe3e.json",
+   "recordedAt": "2026-10-22T10:40:40.431Z"
   }
  },
- "updatedAt": "2026-10-22T10:30:27.482Z"
+ "updatedAt": "2026-10-22T10:58:32.536Z"
 }

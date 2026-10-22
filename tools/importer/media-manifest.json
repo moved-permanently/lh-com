@@ -2440,6 +2440,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:10.353Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/sustainability/green-fares/lh_green-fare_header.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0d75552237480ee12677a000c54ac2e8.jpg",
+  "format": "jpeg",
+  "bytes": 98452,
+  "width": 1440,
+  "height": 461,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T10:46:44.216Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/test_app-store-buttons/google-play-badge_lg.svg": {
   "status": 200,
   "version": 1,

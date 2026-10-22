@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/flight-disruptions",
+  "path": "gb/en/flight-disruptions",
+  "timestamp": "2026-10-22T10:35:44.891Z",
+  "title": "Flights delayed and cancelled at short notice | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

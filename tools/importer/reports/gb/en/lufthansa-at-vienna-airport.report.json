@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/lufthansa-at-vienna-airport",
+  "path": "gb/en/lufthansa-at-vienna-airport",
+  "timestamp": "2026-10-22T10:45:38.874Z",
+  "title": "Lufthansa at Vienna Airport | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

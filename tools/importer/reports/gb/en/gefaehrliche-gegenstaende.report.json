@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/gefaehrliche-gegenstaende",
+  "path": "gb/en/gefaehrliche-gegenstaende",
+  "timestamp": "2026-10-22T10:45:10.919Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}
