@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/onboard-delights-faq",
+  "path": "at/de/onboard-delights-faq",
+  "timestamp": "2026-10-22T07:06:00.375Z",
+  "title": "faq | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

@@ -1000,6 +1000,38 @@
    "file": "at-de-db8e27af.json",
    "recordedAt": "2026-10-22T05:51:26.418Z"
   },
+  "at/de|GET /service/api/catalogs/regions": {
+   "file": "at-de-751a8e41.json",
+   "recordedAt": "2026-10-22T06:24:14.161Z"
+  },
+  "at/de|GET /service/api/destinationfinder/campaign/VIE": {
+   "file": "at-de-243005eb.json",
+   "recordedAt": "2026-10-22T06:24:14.161Z"
+  },
+  "at/de|GET /service/api/labels/destinationFinder/lh/de": {
+   "file": "at-de-a1418126.json",
+   "recordedAt": "2026-10-22T06:24:14.161Z"
+  },
+  "at/de|GET /service/api/destinationfinder/destination/finder/VIE/E?months=0_11&tripType=RETURN": {
+   "file": "at-de-cc7dc3c4.json",
+   "recordedAt": "2026-10-22T06:24:14.161Z"
+  },
+  "at/de|GET /service/api/labels/herobanner/lh/de": {
+   "file": "at-de-c3087986.json",
+   "recordedAt": "2026-10-22T06:24:36.406Z"
+  },
+  "at/de|GET /service/api/labels/passengerreceipt/lh/de": {
+   "file": "at-de-2a785f90.json",
+   "recordedAt": "2026-10-22T06:45:14.244Z"
+  },
+  "at/de|GET /service/api/labels/loginoneid/lh/de": {
+   "file": "at-de-f38b10a2.json",
+   "recordedAt": "2026-10-22T06:46:20.400Z"
+  },
+  "at/de|GET /service/api/labels/videoviewer/lh/de": {
+   "file": "at-de-74a1a4f7.json",
+   "recordedAt": "2026-10-22T06:54:23.062Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1185,5 +1217,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T06:15:43.172Z"
+ "updatedAt": "2026-10-22T07:07:47.974Z"
 }

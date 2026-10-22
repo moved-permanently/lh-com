@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/dangerous-dogs",
+  "path": "at/de/dangerous-dogs",
+  "timestamp": "2026-10-22T06:57:03.080Z",
+  "title": "Kampfhundrassen und kurznasige Tiere | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

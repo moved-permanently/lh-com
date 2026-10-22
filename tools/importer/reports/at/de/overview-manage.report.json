@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/overview-manage",
+  "path": "at/de/overview-manage",
+  "timestamp": "2026-10-22T06:28:41.187Z",
+  "title": "Buchungen verwalten | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
+}

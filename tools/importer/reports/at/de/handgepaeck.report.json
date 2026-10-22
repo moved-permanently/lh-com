@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/handgepaeck",
+  "path": "at/de/handgepaeck",
+  "timestamp": "2026-10-22T06:56:43.514Z",
+  "title": "Handgepäck | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

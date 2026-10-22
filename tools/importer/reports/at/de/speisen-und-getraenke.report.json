@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/speisen-und-getraenke",
+  "path": "at/de/speisen-und-getraenke",
+  "timestamp": "2026-10-22T06:28:25.711Z",
+  "title": "Menüs an Bord | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "columns-media",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/cancellations-and-refunds",
+  "path": "at/de/cancellations-and-refunds",
+  "timestamp": "2026-10-22T06:56:40.187Z",
+  "title": "Stornierung und Erstattung | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

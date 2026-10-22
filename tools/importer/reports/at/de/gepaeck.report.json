@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/gepaeck",
+  "path": "at/de/gepaeck",
+  "timestamp": "2026-10-22T06:28:18.417Z",
+  "title": "Gepäck | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "columns-media"
+  ]
+}

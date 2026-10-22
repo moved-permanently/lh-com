@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/fluege",
+  "path": "at/de/fluege",
+  "timestamp": "2026-10-22T06:28:23.716Z",
+  "title": "Angebote & Destinationen: Buchen Sie weltweite Flugziele | Lufthansa",
+  "template": "hub",
+  "blocks": [
+    "destination-finder"
+  ]
+}
