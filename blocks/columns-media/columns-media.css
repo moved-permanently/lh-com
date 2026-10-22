@@ -131,7 +131,7 @@
   line-height: 24px;
 }
 
-.columns-media .columns-media-text p.link-wrapper:has(+ p.link-wrapper) {
+.columns-media .columns-media-text p.link-wrapper:not(.copytext-small, .copytext-medium, .copytext-large):has(+ p.link-wrapper) {
   margin-bottom: 26px;
 }
 
