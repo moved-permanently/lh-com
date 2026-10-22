@@ -1,5 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import { cleanText, decorateExternalLinks } from '../../scripts/block-config.js';
+import { cleanText, decorateExternalLinks, keepImageSize } from '../../scripts/block-config.js';
 
 const PICTURE_BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
@@ -71,7 +71,7 @@ export default function decorate(block) {
     if (img) {
       const media = document.createElement('div');
       media.className = 'cards-price-image';
-      media.append(createOptimizedPicture(img.src, img.alt || '', false, PICTURE_BREAKPOINTS));
+      media.append(keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, PICTURE_BREAKPOINTS)));
       tile.append(media);
     } else {
       li.classList.add('cards-price-text-only');

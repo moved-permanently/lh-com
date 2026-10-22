@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import { keepImageSize } from '../../scripts/block-config.js';
 
 let instanceCount = 0;
 
@@ -21,10 +22,10 @@ export default function decorate(block) {
     // the stage sits near the top of most templates, so load it eagerly there
     const eager = !section || sections.indexOf(section) < 2;
     const optimized = img
-      ? createOptimizedPicture(img.src, img.alt || '', eager, [
+      ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 900px)', width: '2000' },
         { width: '900' },
-      ])
+      ]))
       : picture;
     // paragraphs left empty by the moved picture are dropped below
     picture.remove();

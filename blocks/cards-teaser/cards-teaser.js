@@ -1,5 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import { cleanText, decorateExternalLinks } from '../../scripts/block-config.js';
+import { cleanText, decorateExternalLinks, keepImageSize } from '../../scripts/block-config.js';
 
 const PICTURE_BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
@@ -39,7 +39,7 @@ export default function decorate(block) {
     const img = row.querySelector('picture img, img');
     let picture = null;
     if (img) {
-      picture = createOptimizedPicture(img.src, img.alt || '', false, PICTURE_BREAKPOINTS);
+      picture = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, PICTURE_BREAKPOINTS));
       (img.closest('picture') || img).remove();
     }
     const elements = bodyElements(row);

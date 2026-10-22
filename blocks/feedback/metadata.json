@@ -1,0 +1,21 @@
+{
+  "variantName": "feedback",
+  "baseBlock": "feedback",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/de/fluege",
+  "visualCharacteristics": {
+    "purpose": "'Was this information helpful?' question with Yes / No answers",
+    "traits": [
+      "question as a form label",
+      "answers as one segmented control",
+      "selected answer filled deep blue"
+    ]
+  },
+  "contentPattern": {
+    "structure": "Row 1: question. Row 2: answers (paragraphs, list items or comma-separated)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Page feedback question at the end of service pages.",
+  "reuseGuidance": "Render-only; nothing is sent."
+}

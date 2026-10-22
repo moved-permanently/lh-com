@@ -11,7 +11,10 @@
  *    links, breadcrumbs, sticky header placeholder, a11y live regions, OneTrust, Tealium/utag,
  *    Monetate, Quantum Metric, tracking pixels, tracking iframes, script/noscript/style/link,
  *    location/language and login modals, AirCore loaders and the empty AirCore info banner
- *  - removes screen-reader-only elements (sr-only headings, "opens in a new tab" spans)
+ *  - converts the rendered feedback questionnaire ("Was this information helpful?") into a
+ *    Feedback block
+ *  - removes screen-reader-only elements (sr-only headings, "opens in a new tab" spans) and the
+ *    "external website" tooltips of links and image links
  *  - removes the mobile-only copy of content rendered twice (.hidden-lg-up swiper next to the
  *    .hidden-md-down grid, .d-md-none next to .d-none.d-md-block); the desktop copy stays
  *  - rewrites in-page anchors to the heading ids EDS generates (#americas ->
@@ -212,6 +215,33 @@ function convertBreadcrumbs(document) {
   return converted;
 }
 
+/* ------------------------------------------------- feedback questionnaire ----------------- */
+
+/**
+ * <feedback-questionnaire> (Angular app of the Travel ID feedback API): the rendered first page
+ * ("Fanden Sie diese Informationen nützlich?" maui-label + maui-segmented-control-item Ja/Nein)
+ * becomes a "Feedback" block (question | answers). Questionnaires that rendered nothing go.
+ * Runs before the sr-only cleanup (the app has sr-only status texts).
+ */
+function convertFeedbackQuestionnaires(document) {
+  document.querySelectorAll('feedback-questionnaire').forEach((q) => {
+    const label = q.querySelector('maui-label, label, legend');
+    const question = label ? cleanText(label) : '';
+    const answers = [...q.querySelectorAll('maui-segmented-control-item, [role="radio"]')]
+      .map(cleanText).filter(Boolean);
+    const holder = q.closest('.wrapper') && q.closest('.wrapper').children.length === 1 ? q.closest('.wrapper') : q;
+    if (!question || !answers.length) {
+      holder.remove();
+      return;
+    }
+    const ul = document.createElement('ul');
+    answers.forEach((t) => { const li = document.createElement('li'); li.textContent = t; ul.append(li); });
+    const p = document.createElement('p');
+    p.textContent = question;
+    holder.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'Feedback', cells: [[p], [ul]] }));
+  });
+}
+
 /* ------------------------------------------------------------ sr-only ----------------- */
 
 const SR_ONLY = '.sr-only, .visually-hidden, .ot-sr-only, .screenreader-only, .sr-only-focusable, maui-screen-reader-label';
@@ -220,7 +250,7 @@ function removeScreenReaderOnly(document) {
   // "You are visiting an external website" tooltips attached to links (not info tooltips).
   document.querySelectorAll('maui-tooltip').forEach((tip) => {
     const trigger = tip.querySelector('[slot="trigger"]');
-    if (trigger && (trigger.hasAttribute('href') || trigger.querySelector('[href]'))) {
+    if (trigger && (trigger.tagName === 'A' || trigger.hasAttribute('href') || trigger.querySelector('[href]'))) {
       tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
     }
   });
@@ -460,6 +490,18 @@ function convertMauiLinks(document) {
  * AirCore buttons are plain links with Bootstrap classes (<a class="btn-primary">,
  * <a class="btn btn-secondary">): wrapped in <strong> / <em> like the maui buttons.
  */
+/**
+ * Links without a target (<a slot="trigger"> around an image inside a maui-tooltip) are not
+ * links on the live page: their content stays, the <a> goes (else they become <a href="">).
+ */
+function unwrapLinksWithoutHref(document) {
+  document.querySelectorAll('a:not([href])').forEach((a) => {
+    if (a.closest('table') && !a.querySelector('img, picture')) return;
+    if (!a.childNodes.length) return;
+    a.replaceWith(...a.childNodes);
+  });
+}
+
 function convertClassButtons(document) {
   document.querySelectorAll('a.btn-primary[href], a.btn-secondary[href]').forEach((a) => {
     if (a.closest('strong, em, b, i, table')) return;
@@ -832,6 +874,7 @@ export default function transform(hookName, element, payload) {
     const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document);
+    convertFeedbackQuestionnaires(document);
     removeAll(document, CHROME_SELECTORS);
     removeAirCoreLeftovers(document);
     removeTracking(document);
@@ -847,6 +890,7 @@ export default function transform(hookName, element, payload) {
     removeAll(document, ['script', 'noscript', 'style', 'link', 'iframe[src*="cookielaw"]']);
     convertMauiLinks(document);
     convertClassButtons(document);
+    unwrapLinksWithoutHref(document);
     removeIconsAndZeroWidth(document);
     splitBrParagraphs(document);
     normalizeImages(document, false);

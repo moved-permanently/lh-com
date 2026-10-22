@@ -1,6 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
-import { resolveLabels, cleanText, toConfigKey } from '../../scripts/block-config.js';
+import {
+  resolveLabels, cleanText, toConfigKey, keepImageSize,
+} from '../../scripts/block-config.js';
 
 const DEFAULT_LABELS = {
   en: { 'pause label': 'Pause background video', 'play label': 'Play background video' },
@@ -135,10 +137,10 @@ export default function decorate(block) {
       ? [...section.parentElement.querySelectorAll(':scope > .section')] : [];
     const eager = !section || sections.indexOf(section) < 2;
     const optimized = img && img.src
-      ? createOptimizedPicture(img.src, img.alt || '', eager, [
+      ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 600px)', width: '2000' },
         { width: '750' },
-      ])
+      ]))
       : picture;
     picture.remove();
     media.append(optimized);

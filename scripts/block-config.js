@@ -156,3 +156,21 @@ export function decorateExternalLinks(root) {
     }
   });
 }
+
+/**
+ * Copies the intrinsic size (width / height attributes the pipeline puts on authored images)
+ * from the source image to the image of a picture built by createOptimizedPicture, so a lazy
+ * image reserves its space before it loads (no layout shift).
+ * @param {HTMLImageElement} from
+ * @param {Element} picture
+ * @returns {Element} the picture
+ */
+export function keepImageSize(from, picture) {
+  const img = picture && (picture.tagName === 'IMG' ? picture : picture.querySelector('img'));
+  if (!from || !img) return picture;
+  ['width', 'height'].forEach((a) => {
+    const v = from.getAttribute(a);
+    if (v && !img.hasAttribute(a)) img.setAttribute(a, v);
+  });
+  return picture;
+}

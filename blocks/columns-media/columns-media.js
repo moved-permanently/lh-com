@@ -1,6 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
-import { resolveLabels, cleanText, decorateExternalLinks } from '../../scripts/block-config.js';
+import {
+  resolveLabels, cleanText, decorateExternalLinks, keepImageSize,
+} from '../../scripts/block-config.js';
 
 const DEFAULT_LABELS = {
   en: { 'play video': 'Play video' },
@@ -51,7 +53,7 @@ function isMediaCell(cell) {
 function optimize(picture) {
   const img = picture.querySelector('img');
   if (!img || !img.src) return;
-  const optimized = createOptimizedPicture(img.src, img.alt || '', false, BREAKPOINTS);
+  const optimized = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, BREAKPOINTS));
   const newImg = optimized.querySelector('img');
   if (newImg && img.title) newImg.title = img.title;
   picture.replaceWith(optimized);

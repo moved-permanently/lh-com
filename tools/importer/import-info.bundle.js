@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_31659_exports = {};
-  __export(tmp_bundle_info_31659_exports, {
-    default: () => tmp_bundle_info_31659_default
+  var tmp_bundle_info_38396_exports = {};
+  __export(tmp_bundle_info_38396_exports, {
+    default: () => tmp_bundle_info_38396_default
   });
 
   // tools/importer/parsers/accordion-columns.js
@@ -521,11 +521,32 @@ var CustomImportScript = (() => {
     });
     return converted;
   }
+  function convertFeedbackQuestionnaires(document) {
+    document.querySelectorAll("feedback-questionnaire").forEach((q) => {
+      const label = q.querySelector("maui-label, label, legend");
+      const question = label ? cleanText(label) : "";
+      const answers = [...q.querySelectorAll('maui-segmented-control-item, [role="radio"]')].map(cleanText).filter(Boolean);
+      const holder = q.closest(".wrapper") && q.closest(".wrapper").children.length === 1 ? q.closest(".wrapper") : q;
+      if (!question || !answers.length) {
+        holder.remove();
+        return;
+      }
+      const ul = document.createElement("ul");
+      answers.forEach((t) => {
+        const li = document.createElement("li");
+        li.textContent = t;
+        ul.append(li);
+      });
+      const p = document.createElement("p");
+      p.textContent = question;
+      holder.replaceWith(WebImporter.Blocks.createBlock(document, { name: "Feedback", cells: [[p], [ul]] }));
+    });
+  }
   var SR_ONLY = ".sr-only, .visually-hidden, .ot-sr-only, .screenreader-only, .sr-only-focusable, maui-screen-reader-label";
   function removeScreenReaderOnly(document) {
     document.querySelectorAll("maui-tooltip").forEach((tip) => {
       const trigger = tip.querySelector('[slot="trigger"]');
-      if (trigger && (trigger.hasAttribute("href") || trigger.querySelector("[href]"))) {
+      if (trigger && (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]"))) {
         tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
       }
     });
@@ -700,6 +721,13 @@ var CustomImportScript = (() => {
       el.replaceWith(replacement);
     });
     return links.length;
+  }
+  function unwrapLinksWithoutHref(document) {
+    document.querySelectorAll("a:not([href])").forEach((a) => {
+      if (a.closest("table") && !a.querySelector("img, picture")) return;
+      if (!a.childNodes.length) return;
+      a.replaceWith(...a.childNodes);
+    });
   }
   function convertClassButtons(document) {
     document.querySelectorAll("a.btn-primary[href], a.btn-secondary[href]").forEach((a) => {
@@ -1010,6 +1038,7 @@ var CustomImportScript = (() => {
       const pagePath = currentPagePath(document, payload);
       detectTheme(document);
       convertBreadcrumbs(document);
+      convertFeedbackQuestionnaires(document);
       removeAll(document, CHROME_SELECTORS);
       removeAirCoreLeftovers(document);
       removeTracking(document);
@@ -1024,6 +1053,7 @@ var CustomImportScript = (() => {
       removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
       convertMauiLinks(document);
       convertClassButtons(document);
+      unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
       normalizeImages(document, false);
@@ -1197,7 +1227,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_31659_default = {
+  var tmp_bundle_info_38396_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1227,5 +1257,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_31659_exports);
+  return __toCommonJS(tmp_bundle_info_38396_exports);
 })();

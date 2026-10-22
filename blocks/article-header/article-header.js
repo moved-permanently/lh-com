@@ -1,7 +1,7 @@
 import { createOptimizedPicture, getMetadata, toClassName } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
-  readConfigRows, resolveLabels, cleanText, toConfigKey,
+  readConfigRows, resolveLabels, cleanText, toConfigKey, keepImageSize,
 } from '../../scripts/block-config.js';
 
 const DEFAULT_LABELS = {
@@ -219,10 +219,10 @@ export default function decorate(block) {
   if (picture) {
     const img = picture.querySelector('img');
     const optimized = img && img.src
-      ? createOptimizedPicture(img.src, img.alt || '', true, [
+      ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', true, [
         { media: '(min-width: 600px)', width: '2000' },
         { width: '750' },
-      ])
+      ]))
       : picture;
     picture.remove();
     media.append(optimized);

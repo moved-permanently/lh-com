@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
-  toConfigKey, cleanText, resolveLabels, decorateExternalLinks,
+  toConfigKey, cleanText, resolveLabels, decorateExternalLinks, keepImageSize,
 } from '../../scripts/block-config.js';
 
 /**
@@ -65,7 +65,7 @@ function buildSlide(cells) {
     if (picture && !image.children.length) {
       const img = picture.querySelector('img');
       image.append(img
-        ? createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }])
+        ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]))
         : picture);
       picture.remove();
     }
