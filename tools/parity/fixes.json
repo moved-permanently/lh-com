@@ -70,5 +70,17 @@
     "change": "Channels (C): scripts/channel.js. FlyNet channel switched on only by page metadata channel=flynet (lh-flynet metadata sheet row URL /**): compact header (brand bar + sample flight bar from the /flight sheet, labelled 'Sample data'), no flight-search/booking-lookup/price-bar/fare-teaser/destination-finder blocks, no shop/booking/login/check-in/flight-search links, no login/cart/search tools, de/en + de/de locales only, styles/channels.css (smaller headings/spacing). ?channel=app on any page: no header, footer, breadcrumb or consent banner (showcase notice stays), internal links keep the parameter. header.js: a nav without quick-action section no longer shows the menu as quick actions; no lone divider. 'language' page metadata sets html lang (pages outside the locale trees). New block channels-demo (phone-width iframes side by side). lh-flynet documents, demo page and the Ben-run script in tools/channels/ (DA writes/previews refused to the agent); report tools/reports/channels.md. Website rendering unchanged.",
     "commit": "2e98581",
     "date": "2026-10-22"
+  },
+  {
+    "scope": "channels",
+    "change": "C follow-ups: (a) lh-flynet nav/footer documents (tools/channels/da/lh-flynet/de/{de,en}/{nav,footer}.html) link the lh-com preview media Ben used in DA (https://main--lh-com--moved-permanently.aem.page/de/en/media_1911f0… logo, media_13653b… footer logo, media_156832… group line) instead of content.da.live/media-da. (b) tools/importer/author-edits.json + da-upload.mjs: DA edits re-applied to every upload of the path (loop included), upload refused when an edit no longer applies, skip:true never uploads; entry for Ben s internet-overview heading Entertainment on board.",
+    "commit": "2ddbbbb",
+    "date": "2026-10-22"
+  },
+  {
+    "block": "breadcrumb",
+    "change": "E: breadcrumb from page metadata instead of an authored block. Metadata rows Parent (link whose text is the URL; Edge Delivery writes the cell text into <meta name=parent>), Breadcrumb title (only where the live label differs from og:title), Parent title (labels of parents outside the site, A > B; Parent then lists the outside ancestors up to the first in-site page, trail order), Breadcrumb: hidden (hub pages that show no trail but are parents). scripts.js buildBreadcrumb adds the empty block at the start of the first section (AEM) or before the h1 (AirCore); blocks/breadcrumb walks up the parents by fetching their HTML head (no query index: 404 on preview; no sheet: metadata stays the single source), sessionStorage cache, row keeps its height while loading; authored blocks still render. Importer (lufthansa-cleanup convertBreadcrumbs/breadcrumbMetadataRows) writes the rows from the live trail, maps /xx/ placeholder markets, out-of-scope parents absolute; build-breadcrumb-map.js inlines trails of 51 parents without their own trail (homepages: Breadcrumb title Home). Local dev shim: Metadata block -> meta tags on aem up --html-folder. Verified (sandbox + aem.page): dangerous-dogs Home > Gepäck > Reisen mit Tieren > current, amman Travel destinations > Flight Asia > Flight Jordan > Flight Amman, first-class-comfort, eat-see-do-berlin, passenger-duty (Contact outside), positions identical to the authored block at 1440/390; 100-years/campaigns and flights hero/h1 24px higher = live 182.",
+    "commit": "8151145, df10769",
+    "date": "2026-10-22"
   }
 ]
