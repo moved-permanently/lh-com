@@ -82,6 +82,7 @@ const PAGE_TEMPLATE = {
       "id": "section-2",
       "name": "Title and best offers by origin",
       "selector": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1, #content > h2:has(+ .image-box-wrapper-city), #content > .image-box-wrapper-city"
       ],
       "style": null,
@@ -89,6 +90,7 @@ const PAGE_TEMPLATE = {
         "cards-price"
       ],
       "defaultContent": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1",
         "#content > h2:has(+ .image-box-wrapper-city)"
       ]

@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/flights",
   "path": "de/en/flights",
-  "timestamp": "2026-10-21T22:29:04.966Z",
+  "timestamp": "2026-10-22T00:04:55.864Z",
   "title": "Flight offers and destinations worldwide | Lufthansa",
   "template": "hub",
   "blocks": [
-    "columns-media"
+    "columns-media",
+    "destination-finder"
   ]
 }

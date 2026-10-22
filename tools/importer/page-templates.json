@@ -250,6 +250,12 @@
           "instances": [
             ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
           ]
+        },
+        {
+          "name": "destination-finder",
+          "instances": [
+            ".topoffersdestinationfinder"
+          ]
         }
       ],
       "sections": [
@@ -2256,11 +2262,13 @@
           "id": "section-2",
           "name": "Intro",
           "selector": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1, #content > .content-wrapper"
           ],
           "style": null,
           "blocks": [],
           "defaultContent": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1",
             "#content > .content-wrapper"
           ]
@@ -2438,6 +2446,7 @@
           "id": "section-2",
           "name": "Title and best offers by origin",
           "selector": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1, #content > h2:has(+ .image-box-wrapper-city), #content > .image-box-wrapper-city"
           ],
           "style": null,
@@ -2445,6 +2454,7 @@
             "cards-price"
           ],
           "defaultContent": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1",
             "#content > h2:has(+ .image-box-wrapper-city)"
           ]
@@ -2607,11 +2617,13 @@
           "id": "section-2",
           "name": "Title, return-route link and route copy",
           "selector": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper"
           ],
           "style": null,
           "blocks": [],
           "defaultContent": [
+            "#content > .breadcrumb-wrapper",
             "#content > h1",
             "#content > .reversed-route",
             "#content > .automated-content-wrapper"

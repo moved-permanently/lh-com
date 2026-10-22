@@ -46,11 +46,13 @@ const PAGE_TEMPLATE = {
       "id": "section-2",
       "name": "Intro",
       "selector": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1, #content > .content-wrapper"
       ],
       "style": null,
       "blocks": [],
       "defaultContent": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1",
         "#content > .content-wrapper"
       ]

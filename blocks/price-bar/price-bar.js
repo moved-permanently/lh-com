@@ -6,6 +6,7 @@ import {
   fareTeaserManualRequest, defaultAirportRequest, labelsRequest, catalogRequest, fetchRequest,
   fetchLabels, pickLabels, mapManualOffers, mapDefaultAirport, mapLocaleData, formatFare,
 } from '../../scripts/lh-api.js';
+import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js). The live sticky price (dcep-sticky-price, data-dcep
@@ -204,7 +205,7 @@ export default async function decorate(block) {
 
   if (!settings.destination) return;
   const data = await loadPriceBarData(settings, locale);
-  block.dataset.source = data.sources.fares || 'none';
+  markSource(block, data.sources, ['fares']);
   labels = resolveLabels({
     [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
   }, config, locale.lang);

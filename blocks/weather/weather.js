@@ -1,5 +1,5 @@
 import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
-import { lhFetch } from '../../scripts/lh-data.js';
+import { lhFetch, markSource } from '../../scripts/lh-data.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
@@ -320,7 +320,7 @@ export default async function decorate(block) {
 
   block.setAttribute('aria-busy', 'true');
   const { weather, source } = await loadWeather({ location, unit }, locale);
-  block.dataset.source = source;
+  markSource(block, { weather: source }, ['weather']);
   if (!weather) {
     unavailable();
     return;

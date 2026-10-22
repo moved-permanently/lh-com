@@ -2,7 +2,9 @@
  * Data contract of the lufthansa.com service API used by the widgets, taken from the requests
  * the live pages make themselves (tools/source-export/api/*.ndjson). Request builders produce
  * exactly the live request (path, query, POST body) so recorded answers match; mappers turn
- * the live response shapes into plain view data. Blocks fetch through lhFetch (scripts/lh-data.js).
+ * the live response shapes into plain view data. Blocks fetch through lhFetch (scripts/lh-data.js:
+ * suggestions, labels, catalogs and defaultAirport directly from www.lufthansa.com, the fare
+ * teaser and weather services through lh-proxy, the recordings as fallback).
  */
 import { LIVE_ORIGIN } from './locale.js';
 import { lhFetch, lhRecorded } from './lh-data.js';
@@ -45,7 +47,8 @@ export function airportSuggestionsRequest(term, locale) {
 /**
  * Catalog (no parameters: the live site localizes by market),
  * e.g. GET /service/api/catalogs/conditions
- * @param {'airportnames'|'airlines'|'calendar'|'localeData'|'conditions'|'countryselector'} name
+ * @param {'airportnames'|'airlines'|'calendar'|'localeData'|'conditions'|'countryselector'
+ *   |'affinities'|'regions'} name
  */
 export function catalogRequest(name) {
   return { method: 'GET', route: `/service/api/catalogs/${name}` };
@@ -116,6 +119,35 @@ export function fareTeaserOffersRequest({
       tripType: apiTripType(tripType),
       airlineDestWhitelist: Boolean(airlineDestWhitelist),
     },
+  };
+}
+
+/** Travel class codes of the live destination finder's select (economy recorded). */
+export const DESTINATION_FINDER_CABINS = ['E', 'N', 'B', 'F'];
+
+/**
+ * Every destination with its lowest fare from an origin (the full-page destination finder,
+ * "Best offers"), e.g.
+ * GET /service/api/destinationfinder/destination/finder/FRA/E?months=0_11&tripType=RETURN
+ * Path: origin city code and cabin. Only E (economy) is recorded; N (premium economy),
+ * B (business) and F (first) are the option values of the live travel class select and are
+ * assumed to be sent the same way. months: first and last travel month as offsets from the
+ * current month ("0_11" = the next twelve months, the live default). tripType: RETURN
+ * (recorded) or ONEWAY (the live radio value, assumed).
+ * @param {{origin: string, cabin?: string, months?: number[], tripType?: string}} options
+ */
+export function destinationFinderOffersRequest({
+  origin, cabin = 'E', months = [0, 11], tripType = 'RETURN',
+}) {
+  const [from = 0, to = 11] = months;
+  const params = new URLSearchParams({
+    months: `${from}_${to}`,
+    tripType: apiTripType(tripType) === 'O' ? 'ONEWAY' : 'RETURN',
+  });
+  const cabinCode = DESTINATION_FINDER_CABINS.includes(cabin) ? cabin : 'E';
+  return {
+    method: 'GET',
+    route: `/service/api/destinationfinder/destination/finder/${encodeURIComponent(origin)}/${cabinCode}?${params}`,
   };
 }
 
@@ -248,6 +280,61 @@ export function mapOffers(data) {
       topDeal: Boolean(o.topDeal),
       ...currency,
     }));
+}
+
+/**
+ * {"destinationFinderOffers":[{"city":"SCQ","cityName":"Santiago de Compostela","topDeal":false,
+ *  "cityRegion":"EU","countryName":"Spain","countryCode":"ES","affinities":["HI","NA"],
+ *  "minimumFlightDuration":155?,"price":248.77,"numberOfStopovers":0,"tenantAirlineStopovers":0,
+ *  "isTenantAirlineOperating":true,"isKClass":false}],
+ *  "currencyInfo":{"currency":"EUR","currencySymbol":"€","currencySymbolPrefixed":false},
+ *  "originCityName":"Frankfurt"}
+ * → { originName, offers: [{ code, name, country, countryCode, region, affinities, price,
+ *   stops, tenantOperating, kClass, topDeal, duration, currency, symbol, prefixed }] } in the
+ * service's order; offers without a valid price are left out.
+ */
+export function mapDestinationFinderOffers(data) {
+  const info = (data && data.currencyInfo) || {};
+  const currency = {
+    currency: info.currency || '',
+    symbol: info.currencySymbol || '',
+    prefixed: typeof info.currencySymbolPrefixed === 'boolean' ? info.currencySymbolPrefixed : undefined,
+  };
+  const offers = ((data && Array.isArray(data.destinationFinderOffers)
+    && data.destinationFinderOffers) || [])
+    .filter((o) => o && isCode(o.city))
+    .map((o) => ({
+      code: o.city.toUpperCase(),
+      name: o.cityName || '',
+      country: o.countryName || '',
+      countryCode: (o.countryCode || '').toUpperCase(),
+      region: (o.cityRegion || '').toUpperCase(),
+      affinities: (Array.isArray(o.affinities) ? o.affinities : [])
+        .map((a) => String(a).toUpperCase()),
+      price: Number(o.price),
+      stops: Number.isFinite(Number(o.numberOfStopovers)) ? Number(o.numberOfStopovers) : undefined,
+      tenantOperating: Boolean(o.isTenantAirlineOperating),
+      kClass: Boolean(o.isKClass),
+      topDeal: Boolean(o.topDeal),
+      duration: Number(o.minimumFlightDuration) || undefined,
+      ...currency,
+    }))
+    .filter((o) => Number.isFinite(o.price) && o.price > 0);
+  return { originName: (data && data.originCityName) || '', offers };
+}
+
+/** {"affinities":[{"code":"BE","name":"Beach"}]} → [{ code, name }] (catalogs/affinities) */
+export function mapAffinities(data) {
+  return ((data && data.affinities) || [])
+    .filter((a) => a && a.code && a.name)
+    .map((a) => ({ code: String(a.code).toUpperCase(), name: a.name }));
+}
+
+/** {"regions":[{"code":"EU","region":"Europe"}]} → [{ code, name }] (catalogs/regions) */
+export function mapRegions(data) {
+  return ((data && data.regions) || [])
+    .filter((r) => r && r.code && (r.region || r.name))
+    .map((r) => ({ code: String(r.code).toUpperCase(), name: r.region || r.name }));
 }
 
 /**
@@ -451,18 +538,28 @@ export function filterAirports(airports, term, max = 10) {
 }
 
 /**
- * Airport autocomplete: the live suggestions for the term (proxy or the exact recording),
- * else the known airports of the market filtered client-side.
- * @returns {Promise<Array<{code: string, name: string, label: string}>>}
+ * Airport autocomplete with the source of the answer: the live suggestions for the term
+ * (www.lufthansa.com directly, else the exact recording), else the known airports of the
+ * market filtered client-side (source 'recorded').
+ * @returns {Promise<{list: Array<{code: string, name: string, label: string}>,
+ *   source: 'live'|'recorded'}>}
  */
-export async function searchAirports(term, locale) {
+export async function searchAirportsWithSource(term, locale) {
   try {
     const request = airportSuggestionsRequest(term, locale);
     const { data, source } = await fetchRequest(request, locale, { exact: true });
     const list = mapAirportSuggestions(data);
-    if (list.length || source === 'live') return list;
+    if (list.length || source === 'live') return { list, source };
   } catch (e) {
-    // term never recorded and no proxy: search what the market's recordings know
+    // term never recorded and the site not reachable: search what the recordings know
   }
-  return filterAirports(await knownAirports(locale), term);
+  return { list: filterAirports(await knownAirports(locale), term), source: 'recorded' };
+}
+
+/**
+ * Airport autocomplete (see searchAirportsWithSource).
+ * @returns {Promise<Array<{code: string, name: string, label: string}>>}
+ */
+export async function searchAirports(term, locale) {
+  return (await searchAirportsWithSource(term, locale)).list;
 }

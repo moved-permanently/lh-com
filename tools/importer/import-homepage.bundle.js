@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var import_homepage_exports = {};
-  __export(import_homepage_exports, {
-    default: () => import_homepage_default
+  var tmp_bundle_homepage_165041_exports = {};
+  __export(tmp_bundle_homepage_165041_exports, {
+    default: () => tmp_bundle_homepage_165041_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -465,7 +465,82 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/destination-finder.js
+  function parseGrid(element, finder, document) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean(clone.textContent);
+    };
+    const para = (text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    };
+    const linkPara = (href, label) => {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      p.append(a);
+      return p;
+    };
+    let props = {};
+    try {
+      props = JSON.parse(finder.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      props = {};
+    }
+    const value = (v) => v === null || v === void 0 ? "" : clean(String(v));
+    const cells = [];
+    const addRow = (key, v) => {
+      if (v === null || v === void 0) return;
+      if (typeof v === "string" && !v) return;
+      if (Array.isArray(v) && !v.length) return;
+      cells.push([key, v]);
+    };
+    addRow("Trip duration", value(props.tripDuration));
+    addRow("Highlighted offers", value(props.maxHighlightedOffers));
+    addRow("Highlight priority", value(props.priorityOfHighlightingOffers).split(",").map((s) => s.trim()).filter(Boolean).join(", "));
+    const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
+    const sdsHref = value(props.aiSearchUrl) || sds && sds.getAttribute("href");
+    const sdsLabel = visibleText(sds) || sds && clean(sds.getAttribute("label"));
+    if (sdsHref && sdsLabel) addRow("Smart search", [linkPara(sdsHref, sdsLabel)]);
+    const redirect = value(props.baseRedirectUrl);
+    if (redirect) addRow("Destination page", [linkPara(redirect, redirect.replace(/^.*\//, "") || redirect)]);
+    if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow("Default origin", value(props.preselectedOrigin).toUpperCase());
+    const copies = [...finder.querySelectorAll("maui-copy")].filter((c) => !c.closest("maui-card, .df-filters, maui-modal"));
+    const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
+    const disclaimer = visibleText(disclaimerNode) || clean((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
+    if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
+    const trigger = finder.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    if (triggerLabel) {
+      const p = document.createElement("p");
+      const strong = document.createElement("strong");
+      strong.textContent = triggerLabel;
+      p.append(strong);
+      addRow("Conditions", [p]);
+    }
+    const out = [];
+    const headline = finder.querySelector('maui-headline[type="h1"]') || finder.querySelector("maui-headline");
+    const headingText = visibleText(headline);
+    if (headingText) {
+      const h1 = document.createElement("h1");
+      h1.textContent = headingText;
+      out.push(h1);
+    }
+    out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
+    element.replaceWith(...out);
+  }
   function parse5(element, { document }) {
+    const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
+    if (grid) {
+      parseGrid(element, grid, document);
+      return;
+    }
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -948,13 +1023,9 @@ var CustomImportScript = (() => {
     "footer .footer-brand-links",
     ".above-footer-container",
     ".secondary-footer-container",
-    // skip links, breadcrumbs, a11y live regions, AEM placeholders
+    // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
     ".skiplinks",
     ".skip-links",
-    ".breadcrumb",
-    ".breadcrumbs",
-    ".breadcrumb-wrapper",
-    'nav[aria-label*="readcrumb"]',
     "#sr-log",
     "#a11y-status-message",
     "[data-live-announcer]",
@@ -1022,6 +1093,54 @@ var CustomImportScript = (() => {
       if (TRACKING_URL.test(src) || isHiddenFrame(img) && !img.closest(".container-content")) img.remove();
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
+  }
+  var BREADCRUMB_SOURCES = 'maui-breadcrumb, nav.breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
+  function convertBreadcrumbs(document) {
+    let converted = 0;
+    const sources = [...document.querySelectorAll(BREADCRUMB_SOURCES)].filter((el, i, all) => !all.some((other) => other !== el && other.contains(el)));
+    sources.forEach((source) => {
+      if (!source.isConnected) return;
+      const items = [];
+      const mauiItems = [...source.querySelectorAll("maui-breadcrumb-item")];
+      if (mauiItems.length) {
+        mauiItems.forEach((item) => items.push({ label: cleanText(item) || item.getAttribute("label") || "", href: item.getAttribute("href") }));
+      } else {
+        source.querySelectorAll("li").forEach((li) => {
+          const link = li.querySelector("a[href]");
+          items.push({ label: cleanText(link || li), href: link ? link.getAttribute("href") : null });
+        });
+      }
+      const crumbs = items.filter((c) => c.label);
+      const wrapper = source.closest(".breadcrumb-wrapper, .maui-breadcrumb") || source;
+      if (!crumbs.length) {
+        wrapper.remove();
+        return;
+      }
+      const ul = document.createElement("ul");
+      crumbs.forEach(({ label, href }) => {
+        const li = document.createElement("li");
+        if (href) {
+          const a = document.createElement("a");
+          a.setAttribute("href", href);
+          a.textContent = label;
+          li.append(a);
+        } else {
+          li.textContent = label;
+        }
+        ul.append(li);
+      });
+      const block = WebImporter.Blocks.createBlock(document, { name: "Breadcrumb", cells: [[ul]] });
+      if (wrapper.matches(".breadcrumb-wrapper")) {
+        wrapper.replaceChildren(block);
+      } else {
+        wrapper.replaceWith(block);
+      }
+      converted += 1;
+    });
+    document.querySelectorAll(".breadcrumb-wrapper, .breadcrumb").forEach((el) => {
+      if (el.isConnected && !el.querySelector("table")) el.remove();
+    });
+    return converted;
   }
   var SR_ONLY = ".sr-only, .visually-hidden, .ot-sr-only, .screenreader-only, .sr-only-focusable, maui-screen-reader-label";
   function removeScreenReaderOnly(document) {
@@ -1417,6 +1536,7 @@ var CustomImportScript = (() => {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
       const pagePath = currentPagePath(document, payload);
+      convertBreadcrumbs(document);
       removeAll(document, CHROME_SELECTORS);
       removeAirCoreLeftovers(document);
       removeTracking(document);
@@ -1703,7 +1823,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_homepage_default = {
+  var tmp_bundle_homepage_165041_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1733,5 +1853,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_homepage_exports);
+  return __toCommonJS(tmp_bundle_homepage_165041_exports);
 })();

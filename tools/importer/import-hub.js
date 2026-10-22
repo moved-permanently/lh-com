@@ -4,6 +4,7 @@
 
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
+import destinationFinderParser from './parsers/destination-finder.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -25,6 +26,12 @@ const PAGE_TEMPLATE = {
       "name": "columns-media",
       "instances": [
         ".section-content > .twocolumn:not(:has(.column-view-item > .image + .headline))"
+      ]
+    },
+    {
+      "name": "destination-finder",
+      "instances": [
+        ".topoffersdestinationfinder"
       ]
     }
   ],
@@ -103,6 +110,7 @@ const PAGE_TEMPLATE = {
 const parsers = {
   'cards-teaser': cardsTeaserParser,
   'columns-media': columnsMediaParser,
+  'destination-finder': destinationFinderParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

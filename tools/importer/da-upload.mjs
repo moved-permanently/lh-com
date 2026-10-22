@@ -27,7 +27,7 @@ const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, '
 const save = () => fs.writeFileSync(stateFile, `${JSON.stringify(state, null, 1)}\n`);
 
 const { default: SCOPE } = await import(path.join(root, 'tools/importer/transformers/scope-paths.js'));
-const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)$/;
+const LOCALE_DOC = /^\/(?:(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)|lhg\/[a-z]{2}\/[a-z]{2}\/fragments\/[a-z0-9-]+)$/;
 const allowed = (p) => SCOPE.has(p) || LOCALE_DOC.test(p);
 
 const listFile = opt('list');

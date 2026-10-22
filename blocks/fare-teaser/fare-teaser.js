@@ -7,6 +7,7 @@ import {
   catalogRequest, fetchRequest, fetchLabels, pickLabels, mapManualOffers, mapOffers,
   mapConditions, mapLocaleData, formatFare, destinationImageUrl, fillLabel, htmlToParagraphs,
 } from '../../scripts/lh-api.js';
+import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes).
@@ -280,7 +281,7 @@ export default async function decorate(block) {
   block.setAttribute('aria-busy', 'true');
 
   const data = await loadFareTeaserData(settings, locale);
-  block.dataset.source = data.sources.fares;
+  markSource(block, data.sources, ['fares']);
   block.removeAttribute('aria-busy');
 
   // live labels (fareteaserstatic) between the built-in defaults and the authored rows

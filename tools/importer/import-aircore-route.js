@@ -60,11 +60,13 @@ const PAGE_TEMPLATE = {
       "id": "section-2",
       "name": "Title, return-route link and route copy",
       "selector": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper"
       ],
       "style": null,
       "blocks": [],
       "defaultContent": [
+        "#content > .breadcrumb-wrapper",
         "#content > h1",
         "#content > .reversed-route",
         "#content > .automated-content-wrapper"

@@ -18,8 +18,100 @@
  *
  * The recommended destinations and their prices come from the live API at runtime and are
  * NOT authored. Every value is read from the source, so the parser works for all locales.
+ *
+ * Grid variant (AEM ".topoffersdestinationfinder" > ".dcep-destination-finder", the "Best offers"
+ * page /{cc}/{ll}/flights): filter sidebar + ~590 destination tiles rendered from
+ * GET /service/api/destinationfinder/destination/finder/{origin}/{cabin}. The tiles are live
+ * data (and would exceed the 200 images per document limit), so none is authored. Output:
+ *   <h1>Best offers</h1> (default content) + "Destination Finder (grid)":
+ *   Trip duration      | 14                       (data-dcep.tripDuration)
+ *   Highlighted offers | 6                        (data-dcep.maxHighlightedOffers)
+ *   Highlight priority | topDeal, previouslySeen, kClass (data-dcep.priorityOfHighlightingOffers)
+ *   Smart search       | link                     (data-dcep.aiSearchUrl + button label)
+ *   Destination page   | link                     (data-dcep.baseRedirectUrl)
+ *   Default origin     | FRA                      (data-dcep.preselectedOrigin, when set)
+ *   Disclaimer         | text below the grid
+ *   Conditions         | conditions trigger label (the block loads the text from catalogs/conditions)
  */
+function parseGrid(element, finder, document) {
+  const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
+  const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
+  const visibleText = (node) => {
+    if (!node) return '';
+    const clone = node.cloneNode(true);
+    clone.querySelectorAll(SR_ONLY).forEach((n) => n.remove());
+    return clean(clone.textContent);
+  };
+  const para = (text) => {
+    const p = document.createElement('p');
+    p.textContent = text;
+    return p;
+  };
+  const linkPara = (href, label) => {
+    const p = document.createElement('p');
+    const a = document.createElement('a');
+    a.href = href;
+    a.textContent = label;
+    p.append(a);
+    return p;
+  };
+  let props = {};
+  try { props = JSON.parse(finder.getAttribute('data-dcep') || '{}') || {}; } catch (e) { props = {}; }
+  const value = (v) => (v === null || v === undefined ? '' : clean(String(v)));
+
+  const cells = [];
+  const addRow = (key, v) => {
+    if (v === null || v === undefined) return;
+    if (typeof v === 'string' && !v) return;
+    if (Array.isArray(v) && !v.length) return;
+    cells.push([key, v]);
+  };
+
+  addRow('Trip duration', value(props.tripDuration));
+  addRow('Highlighted offers', value(props.maxHighlightedOffers));
+  addRow('Highlight priority', value(props.priorityOfHighlightingOffers).split(',').map((s) => s.trim()).filter(Boolean).join(', '));
+  const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
+  const sdsHref = value(props.aiSearchUrl) || (sds && sds.getAttribute('href'));
+  const sdsLabel = visibleText(sds) || (sds && clean(sds.getAttribute('label')));
+  if (sdsHref && sdsLabel) addRow('Smart search', [linkPara(sdsHref, sdsLabel)]);
+  const redirect = value(props.baseRedirectUrl);
+  if (redirect) addRow('Destination page', [linkPara(redirect, redirect.replace(/^.*\//, '') || redirect)]);
+  if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow('Default origin', value(props.preselectedOrigin).toUpperCase());
+
+  // disclaimer under the grid ("*The prices incl. ..."), else the price displays' conditions
+  const copies = [...finder.querySelectorAll('maui-copy')].filter((c) => !c.closest('maui-card, .df-filters, maui-modal'));
+  const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
+  const disclaimer = visibleText(disclaimerNode)
+    || clean((finder.querySelector('maui-price-display[conditions]') || { getAttribute: () => '' }).getAttribute('conditions'));
+  if (disclaimer) addRow('Disclaimer', [para(disclaimer)]);
+  const trigger = finder.querySelector('.disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a');
+  const triggerLabel = visibleText(trigger);
+  if (triggerLabel) {
+    const p = document.createElement('p');
+    const strong = document.createElement('strong');
+    strong.textContent = triggerLabel;
+    p.append(strong);
+    addRow('Conditions', [p]);
+  }
+
+  const out = [];
+  const headline = finder.querySelector('maui-headline[type="h1"]') || finder.querySelector('maui-headline');
+  const headingText = visibleText(headline);
+  if (headingText) {
+    const h1 = document.createElement('h1');
+    h1.textContent = headingText;
+    out.push(h1);
+  }
+  out.push(WebImporter.Blocks.createBlock(document, { name: 'Destination Finder (grid)', cells }));
+  element.replaceWith(...out);
+}
+
 export default function parse(element, { document }) {
+  const grid = element.matches('.dcep-destination-finder') ? element : element.querySelector('.dcep-destination-finder');
+  if (grid) {
+    parseGrid(element, grid, document);
+    return;
+  }
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
   const visibleText = (node) => {

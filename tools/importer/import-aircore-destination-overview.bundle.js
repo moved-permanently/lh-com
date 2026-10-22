@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination-overview.js
-  var import_aircore_destination_overview_exports = {};
-  __export(import_aircore_destination_overview_exports, {
-    default: () => import_aircore_destination_overview_default
+  var tmp_bundle_aircore_destination_overview_165041_exports = {};
+  __export(tmp_bundle_aircore_destination_overview_165041_exports, {
+    default: () => tmp_bundle_aircore_destination_overview_165041_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -242,13 +242,9 @@ var CustomImportScript = (() => {
     "footer .footer-brand-links",
     ".above-footer-container",
     ".secondary-footer-container",
-    // skip links, breadcrumbs, a11y live regions, AEM placeholders
+    // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
     ".skiplinks",
     ".skip-links",
-    ".breadcrumb",
-    ".breadcrumbs",
-    ".breadcrumb-wrapper",
-    'nav[aria-label*="readcrumb"]',
     "#sr-log",
     "#a11y-status-message",
     "[data-live-announcer]",
@@ -316,6 +312,54 @@ var CustomImportScript = (() => {
       if (TRACKING_URL.test(src) || isHiddenFrame(img) && !img.closest(".container-content")) img.remove();
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
+  }
+  var BREADCRUMB_SOURCES = 'maui-breadcrumb, nav.breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
+  function convertBreadcrumbs(document) {
+    let converted = 0;
+    const sources = [...document.querySelectorAll(BREADCRUMB_SOURCES)].filter((el, i, all) => !all.some((other) => other !== el && other.contains(el)));
+    sources.forEach((source) => {
+      if (!source.isConnected) return;
+      const items = [];
+      const mauiItems = [...source.querySelectorAll("maui-breadcrumb-item")];
+      if (mauiItems.length) {
+        mauiItems.forEach((item) => items.push({ label: cleanText(item) || item.getAttribute("label") || "", href: item.getAttribute("href") }));
+      } else {
+        source.querySelectorAll("li").forEach((li) => {
+          const link = li.querySelector("a[href]");
+          items.push({ label: cleanText(link || li), href: link ? link.getAttribute("href") : null });
+        });
+      }
+      const crumbs = items.filter((c) => c.label);
+      const wrapper = source.closest(".breadcrumb-wrapper, .maui-breadcrumb") || source;
+      if (!crumbs.length) {
+        wrapper.remove();
+        return;
+      }
+      const ul = document.createElement("ul");
+      crumbs.forEach(({ label, href }) => {
+        const li = document.createElement("li");
+        if (href) {
+          const a = document.createElement("a");
+          a.setAttribute("href", href);
+          a.textContent = label;
+          li.append(a);
+        } else {
+          li.textContent = label;
+        }
+        ul.append(li);
+      });
+      const block = WebImporter.Blocks.createBlock(document, { name: "Breadcrumb", cells: [[ul]] });
+      if (wrapper.matches(".breadcrumb-wrapper")) {
+        wrapper.replaceChildren(block);
+      } else {
+        wrapper.replaceWith(block);
+      }
+      converted += 1;
+    });
+    document.querySelectorAll(".breadcrumb-wrapper, .breadcrumb").forEach((el) => {
+      if (el.isConnected && !el.querySelector("table")) el.remove();
+    });
+    return converted;
   }
   var SR_ONLY = ".sr-only, .visually-hidden, .ot-sr-only, .screenreader-only, .sr-only-focusable, maui-screen-reader-label";
   function removeScreenReaderOnly(document) {
@@ -711,6 +755,7 @@ var CustomImportScript = (() => {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
       const pagePath = currentPagePath(document, payload);
+      convertBreadcrumbs(document);
       removeAll(document, CHROME_SELECTORS);
       removeAirCoreLeftovers(document);
       removeTracking(document);
@@ -843,11 +888,13 @@ var CustomImportScript = (() => {
         "id": "section-2",
         "name": "Intro",
         "selector": [
+          "#content > .breadcrumb-wrapper",
           "#content > h1, #content > .content-wrapper"
         ],
         "style": null,
         "blocks": [],
         "defaultContent": [
+          "#content > .breadcrumb-wrapper",
           "#content > h1",
           "#content > .content-wrapper"
         ]
@@ -967,7 +1014,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_aircore_destination_overview_default = {
+  var tmp_bundle_aircore_destination_overview_165041_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -997,5 +1044,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_aircore_destination_overview_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_overview_165041_exports);
 })();

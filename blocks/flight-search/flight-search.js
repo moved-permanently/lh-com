@@ -5,8 +5,9 @@ import {
 import { createAirportCombobox, airportDisplay } from '../../scripts/airport-combobox.js';
 import {
   labelsRequest, catalogRequest, defaultAirportRequest, fetchRequest, fetchLabels, pickLabels,
-  mapDefaultAirport, mapAirportNames, searchAirports, fillLabel,
+  mapDefaultAirport, mapAirportNames, searchAirportsWithSource, fillLabel,
 } from '../../scripts/lh-api.js';
+import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -108,9 +109,26 @@ export async function loadFlightSearchData(settings, locale) {
 const TRIP_TYPE_CODES = ['RETURN', 'ONEWAY'];
 
 /**
+ * Requests the block's main content comes from (data-lh-source): the live labels and, unless
+ * an origin is authored, the market default airport that prefills the origin.
+ */
+export function flightSearchPrimary(settings) {
+  return settings.origin ? ['labels/flightmanager'] : ['labels/flightmanager', 'defaultAirport'];
+}
+
+/**
  * Builds the shop.lufthansa.com URL the search hands off to, like the live flight manager.
  * This function is the single place where the form fields are mapped to the shop's
  * query parameter names and values.
+ *
+ * UNVERIFIED: no live submit has been captured yet. The real-browser HARs
+ * (tools/source-export/har/*) come from an in-page XHR/fetch recorder, which does not see the
+ * navigation to shop.lufthansa.com; the only shop URLs in the source export are
+ * https://shop.lufthansa.com/booking/api/prefetch (labels/flightmanager,
+ * flightmanager.config.flight.b2PrefetchScriptUrl) and the nav links
+ * https://shop.lufthansa.com/booking/flight-search[?lang=de]. The parameter names below are
+ * placeholders until a capture of a real search (DevTools Network, "Preserve log", the
+ * document request to shop.lufthansa.com) gives the scheme.
  * @param {Object} query collected form values
  * @param {Object} locale result of getLocale()
  * @returns {string}
@@ -294,6 +312,16 @@ export default function decorate(block) {
   }
   if (optionsRow.children.length) form.append(optionsRow);
 
+  // where the data came from (data-lh-source); typed suggestions are listed in the detail
+  const sources = {};
+  const primary = flightSearchPrimary(settings);
+  const suggest = async (term) => {
+    const { list, source } = await searchAirportsWithSource(term, locale);
+    sources.suggestions = source;
+    markSource(block, sources, primary);
+    return list;
+  };
+
   // fields row: origin, swap, destination, dates, submit
   const fields = el('div', 'flight-search-fields');
   let originTouched = false;
@@ -301,7 +329,7 @@ export default function decorate(block) {
     label: text('origin-label', 'from') || labels['from label'],
     name: 'origin',
     value: settings.origin || { code: settings.fallbackOrigin, name: '' },
-    fetchSuggestions: (term) => searchAirports(term, locale),
+    fetchSuggestions: (term) => suggest(term),
     onChange: () => { originTouched = true; },
     noResultsLabel: labels['no results label'],
   });
@@ -310,7 +338,7 @@ export default function decorate(block) {
     label: text('destination-label', 'to') || labels['to label'],
     name: 'destination',
     value: settings.destination,
-    fetchSuggestions: (term) => searchAirports(term, locale),
+    fetchSuggestions: (term) => suggest(term),
     noResultsLabel: labels['no results label'],
   });
   destination.element.classList.add('flight-search-destination');
@@ -442,7 +470,8 @@ export default function decorate(block) {
   if (locale.aircore) adoptStageImage(block);
 
   loadFlightSearchData(settings, locale).then((data) => {
-    block.dataset.source = data.sources['labels/flightmanager'];
+    Object.assign(sources, data.sources);
+    markSource(block, sources, primary);
     labels = resolveLabels({
       [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
     }, config, locale.lang);

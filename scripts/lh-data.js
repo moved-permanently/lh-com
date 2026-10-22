@@ -1,15 +1,32 @@
 /**
  * Live data for the lufthansa.com widgets (flight search, fare teasers, destination finder,
- * labels). Requests go to the lh-proxy worker when it is configured and answers; otherwise
- * they are served from the responses recorded at import time under /data/recorded/.
+ * price bar, weather, labels). Three sources, in this order:
+ *
+ * 1. Direct: routes www.lufthansa.com answers with Access-Control-Allow-Origin: * (airport
+ *    suggestions, labels, catalogs, defaultAirport, core/feature/list) are called from the
+ *    visitor's browser without credentials, with the query and X-Portal-* headers the live page
+ *    sends for the market. Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
+ *    HTML block page, unparsable JSON) falls back to the recordings; lh-proxy is not used.
+ * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
+ *    foreign origins; /aircore/weather/*, which sends no CORS header) go through the worker.
+ *    The recorded answer is looked up at the same time, so a refused proxy (502
+ *    upstream-blocked) costs no extra wait; a refused proxy is remembered for the session.
+ * 3. Recorded: the responses recorded at import time under /data/recorded/.
  */
-import { getLocale, LOCALES } from './locale.js';
+import { getLocale, LOCALES, LIVE_ORIGIN } from './locale.js';
 
-// Origin of the deployed lh-proxy worker, e.g. 'https://lh-proxy.example.workers.dev'.
-// Empty until the worker is deployed (see tools/workers/DEPLOY-PROMPT.md).
+// Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md).
 export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
 
-const PROXY_TIMEOUT_MS = 4000;
+/** Routes www.lufthansa.com serves cross-origin (ACAO *, preflight passes with X-Portal-*). */
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/)/;
+
+const DIRECT_TIMEOUT_MS = 3000;
+const PROXY_TIMEOUT_MS = 2500;
+/** How long a refused proxy or a blocked direct route is skipped (sessionStorage). */
+const BLOCKED_TTL_MS = 10 * 60 * 1000;
+const PROXY_BLOCKED_KEY = 'lh-proxy-blocked';
+const DIRECT_BLOCKED_KEY = 'lh-direct-blocked';
 const RECORDED_BASE = '/data/recorded';
 
 function proxyOrigin() {
@@ -19,6 +36,95 @@ function proxyOrigin() {
   } catch (e) {
     return PROXY_ORIGIN;
   }
+}
+
+/** Whether a route is called directly on www.lufthansa.com (else through lh-proxy). */
+export function isDirectRoute(route) {
+  return DIRECT_ROUTES.test(route);
+}
+
+/**
+ * Request headers the live page sends with every /service/api call of a market (real-browser
+ * HARs, tools/source-export/har/{de-en,de-de,at-de,gb-en}/homepage.har), e.g. for de/en:
+ * X-Portal: LH, X-Portal-Site: DE, X-Portal-Language: en, X-Portal-Taxonomy: '',
+ * X-Portal-CountryId: ''. The live page also sends "line: b" and an Accept-Language built from
+ * navigator.languages; neither is sent here (the cross-origin preflight was verified with the
+ * X-Portal-* headers only, and the browser sends the visitor's own Accept-Language).
+ * @param {string} market locale key, e.g. 'de/en'
+ * @returns {Object<string, string>}
+ */
+export function portalHeaders(market) {
+  const locale = LOCALES[market];
+  if (!locale) return {};
+  return {
+    'X-Portal': 'LH',
+    'X-Portal-Site': locale.country.toUpperCase(),
+    'X-Portal-Language': locale.lang,
+    'X-Portal-Taxonomy': '',
+    'X-Portal-CountryId': '',
+  };
+}
+
+/* Session memo of refused sources: { [key]: { origin, until } } in sessionStorage. */
+function storage() {
+  try {
+    return window.sessionStorage;
+  } catch (e) {
+    return null;
+  }
+}
+
+function isBlocked(key, origin) {
+  try {
+    const memo = JSON.parse(storage().getItem(key) || 'null');
+    return Boolean(memo && memo.origin === origin && memo.until > Date.now());
+  } catch (e) {
+    return false;
+  }
+}
+
+function setBlocked(key, origin, reason) {
+  try {
+    storage().setItem(key, JSON.stringify({ origin, reason, until: Date.now() + BLOCKED_TTL_MS }));
+  } catch (e) {
+    // no sessionStorage (privacy mode, sandboxed frame): every call tries again
+  }
+}
+
+/**
+ * Reads a JSON answer; anything else (Cloudflare's HTML challenge, an empty body, a scalar)
+ * is a failure.
+ */
+async function readJson(resp) {
+  const text = await resp.text();
+  const data = JSON.parse(text);
+  if (!data || typeof data !== 'object') throw new Error('not a JSON object');
+  return data;
+}
+
+/** fetch with a timeout; resolves with the response or { error } (never rejects). */
+async function timedFetch(url, init, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const resp = await fetch(url, { ...init, signal: controller.signal });
+    if (!resp.ok) return { resp, error: `HTTP ${resp.status}` };
+    try {
+      return { resp, data: await readJson(resp) };
+    } catch (e) {
+      return { resp, error: 'not JSON' };
+    }
+  } catch (e) {
+    return { error: controller.signal.aborted ? 'timeout' : `network: ${e.message}` };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/** Cloudflare's block page: an HTML answer with a 403/429/503 status. */
+function isEdgeBlock(resp) {
+  return Boolean(resp && [403, 429, 503].includes(resp.status)
+    && /text\/html/i.test(resp.headers.get('content-type') || ''));
 }
 
 /**
@@ -150,8 +256,43 @@ function acceptLanguage(market) {
   return `${locale.lang}-${locale.country.toUpperCase()},${locale.lang};q=0.9`;
 }
 
+const bodyText = (body) => (typeof body === 'string' ? body : JSON.stringify(body));
+
 /**
- * Fetches a lufthansa.com API route, live through the proxy or from recorded data.
+ * The direct request to www.lufthansa.com: the live URL and the market's X-Portal-* headers,
+ * no cookies. Exported for tools/importer/test-widgets.mjs.
+ * @returns {{url: string, init: RequestInit}}
+ */
+export function directRequest(route, { method = 'GET', body, market } = {}) {
+  const init = {
+    method, mode: 'cors', credentials: 'omit', headers: portalHeaders(market),
+  };
+  if (body !== undefined && body !== null) {
+    init.body = bodyText(body);
+    init.headers['Content-Type'] = 'application/json';
+  }
+  return { url: `${LIVE_ORIGIN}${route}`, init };
+}
+
+/**
+ * The request to lh-proxy (headers within its CORS allowlist: Content-Type, Accept,
+ * Accept-Language, X-LH-Market).
+ */
+function proxyRequest(origin, route, { method, body, market }) {
+  const init = { method, headers: { Accept: 'application/json' } };
+  const language = acceptLanguage(market);
+  if (language) init.headers['Accept-Language'] = language;
+  if (market) init.headers['X-LH-Market'] = market;
+  if (body !== undefined && body !== null) {
+    init.body = bodyText(body);
+    init.headers['Content-Type'] = 'application/json';
+  }
+  return { url: `${origin}${route}`, init };
+}
+
+/**
+ * Fetches a lufthansa.com API route: live (directly or through lh-proxy, see the top of this
+ * file) or from the recordings.
  * @param {string} route path and query on www.lufthansa.com, e.g. '/service/api/defaultAirport'
  * @param {Object} [options]
  * @param {string} [options.method] HTTP method, GET by default
@@ -159,32 +300,71 @@ function acceptLanguage(market) {
  * @param {string} [options.market] locale key, defaults to the current page's locale
  * @param {boolean} [options.exact] recorded fallback only for this exact request (no answer
  *   of the same route for other parameters, e.g. another search term)
- * @returns {Promise<{data: *, source: 'live'|'recorded', recordedAt?: string}>}
+ * @returns {Promise<{data: *, source: 'live'|'recorded', via: 'direct'|'proxy'|'recording',
+ *   recordedAt?: string}>}
  */
 export async function lhFetch(route, {
   method = 'GET', body, market = getLocale().key, exact = false,
 } = {}) {
   const key = requestKey(method, route, body);
-  const origin = proxyOrigin();
-  if (origin) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), PROXY_TIMEOUT_MS);
-    try {
-      const init = { method, signal: controller.signal, headers: { Accept: 'application/json' } };
-      const language = acceptLanguage(market);
-      if (language) init.headers['Accept-Language'] = language;
-      if (market) init.headers['X-LH-Market'] = market;
-      if (body !== undefined) {
-        init.body = typeof body === 'string' ? body : JSON.stringify(body);
-        init.headers['Content-Type'] = 'application/json';
-      }
-      const resp = await fetch(`${origin}${route}`, init);
-      if (resp.ok) return { data: await resp.json(), source: 'live' };
-    } catch (e) {
-      // proxy missing, refused or blocked upstream: fall back to recorded data
-    } finally {
-      clearTimeout(timer);
+  const options = { method, body, market };
+  // the recorded answer is looked up right away: a failing live call costs no extra wait
+  let recordedLookup;
+  const recorded = () => {
+    if (!recordedLookup) {
+      recordedLookup = fetchRecorded(market, key, exact)
+        .then((value) => ({ value }), (error) => ({ error }));
     }
+    return recordedLookup;
+  };
+  const fromRecording = async () => {
+    const { value, error } = await recorded();
+    if (error) throw error;
+    return { ...value, via: 'recording' };
+  };
+
+  if (isDirectRoute(route)) {
+    if (isBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN)) return fromRecording();
+    recorded();
+    const { url, init } = directRequest(route, options);
+    const { data, resp, error } = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
+    if (!error) return { data, source: 'live', via: 'direct' };
+    // CORS or network error, timeout or Cloudflare's block page: the visitor cannot reach the
+    // site directly for now; another status or a bad body only concerns this request
+    if (!resp || isEdgeBlock(resp)) setBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN, error);
+    return fromRecording();
   }
-  return fetchRecorded(market, key, exact);
+
+  const origin = proxyOrigin();
+  if (!origin || isBlocked(PROXY_BLOCKED_KEY, origin)) return fromRecording();
+  recorded();
+  const { url, init } = proxyRequest(origin, route, options);
+  const { data, resp, error } = await timedFetch(url, init, PROXY_TIMEOUT_MS);
+  if (!error) return { data, source: 'live', via: 'proxy' };
+  // 502 upstream-blocked (Cloudflare refuses the worker), 5xx, unreachable or too slow: skip
+  // the proxy for a while; a 4xx (e.g. a route outside its allowlist) only concerns this route
+  if (!resp || resp.status >= 500 || resp.status === 403 || resp.status === 429) {
+    setBlocked(PROXY_BLOCKED_KEY, origin, error);
+  }
+  return fromRecording();
+}
+
+/**
+ * Marks a widget with where its data came from: data-lh-source="live" when every primary
+ * request answered live, else "recorded" when any of its data came from the recordings, else
+ * "none"; data-lh-sources lists every request ("fares:recorded labels/fareteaserstatic:live").
+ * @param {HTMLElement} block
+ * @param {Object<string, string>} sources request name → 'live'|'recorded'|'none'
+ * @param {string[]} primary names of the requests the widget's main content comes from
+ * @returns {string} the data-lh-source value
+ */
+export function markSource(block, sources, primary) {
+  const values = Object.values(sources);
+  const main = primary.map((name) => sources[name] || 'none');
+  let source = 'none';
+  if (main.length && main.every((s) => s === 'live')) source = 'live';
+  else if (values.includes('recorded')) source = 'recorded';
+  block.dataset.lhSource = source;
+  block.dataset.lhSources = Object.entries(sources).map(([name, s]) => `${name}:${s}`).join(' ');
+  return source;
 }

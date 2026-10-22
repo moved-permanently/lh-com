@@ -571,3 +571,618 @@ main > .section > .destination-finder-wrapper {
     --destination-finder-margin: 72px;
   }
 }
+
+/* ---------------------------------------------------------------------------------------------
+   grid mode: dcep-destination-finder ("Best offers"). .df-filters col-md-3 next to
+   .df-result-wrapper col-md-9; a 2/3/4 column grid of square .offer-card tiles.
+   ------------------------------------------------------------------------------------------- */
+main > .section > .destination-finder-wrapper:has(> .destination-finder.grid) {
+  max-width: var(--content-max-width);
+  padding: 0 var(--layout-margin);
+}
+
+.destination-finder.grid {
+  --destination-finder-grid-gap: 12px;
+  --destination-finder-field-font-size: var(--body-font-size-m);
+  --destination-finder-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m4.4 7.6-1.3 1.3L12 17.8l8.9-8.9-1.3-1.3L12 15.2z'/%3E%3C/svg%3E");
+
+  color: var(--lh-deepblue);
+}
+
+.destination-finder.grid[aria-busy="true"]:empty {
+  min-height: 800px;
+}
+
+.destination-finder.grid .destination-finder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* filters: maui-headline h2 format h3, sections with h3 format h5 headings */
+.destination-finder.grid .destination-finder-filters-heading {
+  display: none;
+  margin: 0 0 40px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 300;
+  line-height: var(--heading-line-height);
+}
+
+.destination-finder.grid .destination-finder-filters-heading:focus {
+  outline: none;
+}
+
+.destination-finder.grid .destination-finder-filter {
+  min-width: 0;
+  margin: 0 0 40px;
+  padding: 0;
+  border: 0;
+}
+
+.destination-finder.grid .destination-finder-filter[hidden] {
+  display: none;
+}
+
+.destination-finder.grid .destination-finder-filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+}
+
+/* inputs and selects: .input-wrapper with .half-border underline, 1.2rem labels */
+.destination-finder.grid .destination-finder-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.destination-finder.grid .destination-finder-field + .destination-finder-field {
+  margin-top: 40px;
+}
+
+.destination-finder.grid .destination-finder-field label,
+.destination-finder.grid .airport-combobox label {
+  margin-bottom: 4px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xxs);
+  line-height: 1.4;
+}
+
+.destination-finder.grid .airport-combobox input,
+.destination-finder.grid .destination-finder-field select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 2px solid var(--lh-deepblue);
+  border-radius: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--destination-finder-field-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.destination-finder.grid .destination-finder-field select {
+  padding-right: 28px;
+  appearance: none;
+  background: var(--destination-finder-chevron) right 2px center / 20px no-repeat;
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-hint {
+  margin: 8px 0 0;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+/* selected destinations: removable chips */
+.destination-finder.grid .destination-finder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-finder.grid .destination-finder-tags[hidden] {
+  display: none;
+}
+
+.destination-finder.grid .destination-finder-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 4px 4px 4px 12px;
+  border: 1px solid var(--lh-deepblue);
+  border-radius: 999px;
+  font-size: var(--body-font-size-xs);
+  line-height: 20px;
+}
+
+.destination-finder.grid .destination-finder-tag-remove {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--lh-deepblue);
+  color: var(--lh-white);
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-tag-remove::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m8.2 7 3.8 3.8L15.8 7 17 8.2 13.2 12l3.8 3.8-1.2 1.2-3.8-3.8L8.2 17 7 15.8l3.8-3.8L7 8.2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* budget: maui-slider */
+.destination-finder.grid .destination-finder-range-value {
+  margin: 0 0 16px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.destination-finder.grid .destination-finder-range {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--lh-deepblue);
+}
+
+.destination-finder.grid .destination-finder-range::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--lh-deepblue);
+}
+
+.destination-finder.grid .destination-finder-range::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--lh-deepblue);
+  appearance: none;
+}
+
+.destination-finder.grid .destination-finder-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--lh-deepblue);
+}
+
+.destination-finder.grid .destination-finder-range:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 4px;
+}
+
+.destination-finder.grid .destination-finder-months {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.destination-finder.grid .destination-finder-months .destination-finder-field + .destination-finder-field {
+  margin-top: 0;
+}
+
+/* maui-checkbox and maui-radio */
+.destination-finder.grid .destination-finder-check,
+.destination-finder.grid .destination-finder-radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  color: var(--lh-grey-8);
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-radio + .destination-finder-radio,
+.destination-finder.grid .destination-finder-check + .destination-finder-check {
+  margin-top: 8px;
+}
+
+.destination-finder.grid .destination-finder-check input,
+.destination-finder.grid .destination-finder-radio input {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 2px solid var(--lh-grey-7);
+  border-radius: 3px;
+  background-color: var(--lh-white);
+  appearance: none;
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-radio input {
+  border-color: var(--lh-deepblue);
+  border-radius: 50%;
+}
+
+.destination-finder.grid .destination-finder-check input:checked {
+  border-color: var(--lh-deepblue);
+  background: var(--lh-deepblue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='m9.5 15.6-4-4-1.4 1.4 5.4 5.4L20.1 7.8l-1.4-1.4z'/%3E%3C/svg%3E") center / 18px no-repeat;
+}
+
+.destination-finder.grid .destination-finder-radio input:checked {
+  box-shadow: inset 0 0 0 4px var(--lh-white);
+  background-color: var(--lh-deepblue);
+}
+
+.destination-finder.grid .destination-finder-check input:focus-visible,
+.destination-finder.grid .destination-finder-radio input:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* .df-filters-legal-disclaimer-trigger: info icon */
+.destination-finder.grid .destination-finder-info-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-info-toggle::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m1.3 15h-2.6v-6.5h2.6zM12 9.2a1.6 1.6 0 1 1 0-3.2 1.6 1.6 0 0 1 0 3.2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.destination-finder.grid .destination-finder-info {
+  margin: -4px 0 12px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.destination-finder.grid .destination-finder-info[hidden],
+.destination-finder.grid .destination-finder-more-activities[hidden] {
+  display: none;
+}
+
+.destination-finder.grid .destination-finder-more-activities {
+  margin-top: 8px;
+}
+
+/* link buttons: activities toggle (.activity-filter-toggle-button), reset, mobile filters */
+.destination-finder.grid .destination-finder-activities-toggle,
+.destination-finder.grid .destination-finder-reset,
+.destination-finder.grid .destination-finder-filters-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--lh-whale-blue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.destination-finder.grid .destination-finder-activities-toggle {
+  display: flex;
+  margin: 8px 0 0 auto;
+}
+
+.destination-finder.grid .destination-finder-activities-toggle::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-color: currentcolor;
+  mask: var(--destination-finder-chevron) center / contain no-repeat;
+}
+
+.destination-finder.grid .destination-finder-activities-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.destination-finder.grid .destination-finder-reset[hidden] {
+  display: none;
+}
+
+.destination-finder.grid .destination-finder-filters-toggle {
+  font-size: var(--body-font-size-s);
+}
+
+.destination-finder.grid .destination-finder-activities-toggle:hover,
+.destination-finder.grid .destination-finder-reset:hover,
+.destination-finder.grid .destination-finder-filters-toggle:hover {
+  color: var(--lh-deepblue);
+  text-decoration: underline;
+}
+
+.destination-finder.grid .destination-finder-filters-toggle::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 3h2v4h2v2H9v12H7V9H5V7h2zm8 0h2v10h2v2h-2v6h-2v-6h-2v-2h2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* below 768px the filters other than "where to fly" collapse behind the Filters button */
+.destination-finder.grid .destination-finder-filters-panel {
+  display: none;
+  margin-top: 24px;
+}
+
+.destination-finder.grid .destination-finder-filters-panel.is-open {
+  display: block;
+}
+
+/* results: sort select left, smart destination search right */
+.destination-finder.grid .destination-finder-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.destination-finder.grid .destination-finder-sort select {
+  min-width: 154px;
+}
+
+.destination-finder.grid .destination-finder-smart-search {
+  gap: 10px;
+  order: -1;
+  flex: 1 0 100%;
+}
+
+.destination-finder.grid .destination-finder-smart-search svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.destination-finder.grid .destination-finder-message {
+  margin-bottom: 30px;
+  padding: 24px;
+  border-radius: var(--radius-l);
+  background-color: var(--lh-grey-1);
+}
+
+.destination-finder.grid .destination-finder-message[hidden] {
+  display: none;
+}
+
+.destination-finder.grid .destination-finder-message-heading {
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+.destination-finder.grid .destination-finder-message p {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+}
+
+.destination-finder.grid .destination-finder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--destination-finder-grid-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-finder.grid .destination-finder-grid[aria-busy="true"]:empty {
+  min-height: 600px;
+  border-radius: var(--radius-l);
+  background-color: var(--lh-grey-1);
+}
+
+.destination-finder.grid .destination-finder-grid[aria-busy="true"]:not(:empty) {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* tile: maui-card interactive > maui-image square + maui-badge, padding-container 3 */
+.destination-finder.grid .destination-finder-tile {
+  min-width: 0;
+  margin: 0;
+}
+
+.destination-finder.grid .destination-finder-tile-link:any-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background-color: var(--lh-white);
+  box-shadow: 0 0 0 1px var(--lh-grey-2), var(--shadow-1);
+  color: var(--lh-deepblue);
+  font-weight: 400;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.destination-finder.grid .destination-finder-tile-link:hover {
+  box-shadow: 0 0 0 1px var(--lh-grey-3), var(--shadow-2);
+}
+
+.destination-finder.grid .destination-finder-tile-link:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.destination-finder.grid .destination-finder-tile-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-color: var(--lh-grey-2);
+}
+
+.destination-finder.grid .destination-finder-tile-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destination-finder.grid .destination-finder-tile-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 0 6px;
+  border-radius: 2px;
+  background-color: var(--lh-yellow);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 20px;
+}
+
+.destination-finder.grid .destination-finder-tile-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 10px 10px 16px;
+}
+
+.destination-finder.grid .destination-finder-tile-city {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.destination-finder.grid .destination-finder-tile-country {
+  margin: 4px 0 0;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+}
+
+/* maui-price-display size medium, alignment end */
+.destination-finder.grid .destination-finder-tile-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: auto 0 0;
+  padding-top: 16px;
+  text-align: right;
+}
+
+.destination-finder.grid .destination-finder-tile-price-label {
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+}
+
+.destination-finder.grid .destination-finder-tile-price {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  white-space: nowrap;
+}
+
+.destination-finder.grid .destination-finder-more {
+  margin: 30px 0 0;
+  text-align: center;
+}
+
+.destination-finder.grid .destination-finder-more[hidden] {
+  display: none;
+}
+
+/* below the grid: maui-copy size s disclaimer, "General Conditions" dialog link */
+.destination-finder.grid .destination-finder-footer {
+  display: block;
+  max-width: none;
+  margin: 30px 0 0;
+  padding: 0;
+}
+
+.destination-finder.grid .airport-combobox input:focus-visible,
+.destination-finder.grid .destination-finder-field select:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width >= 768px) {
+  .destination-finder.grid .destination-finder-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 30px;
+  }
+
+  .destination-finder.grid .destination-finder-filters {
+    padding-left: 10px;
+  }
+
+  .destination-finder.grid .destination-finder-filters-heading {
+    display: block;
+  }
+
+  .destination-finder.grid .destination-finder-filters-toggle {
+    display: none;
+  }
+
+  .destination-finder.grid .destination-finder-filters-panel {
+    display: block;
+    margin-top: 0;
+  }
+
+  .destination-finder.grid .destination-finder-smart-search {
+    order: 0;
+    flex: 0 0 auto;
+  }
+
+  .destination-finder.grid .destination-finder-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1025px) {
+  .destination-finder.grid .destination-finder-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

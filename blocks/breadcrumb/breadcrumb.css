@@ -1,0 +1,85 @@
+/* maui-breadcrumb (AEM pages, 1440 capture): 14px/20px items 17px below the header, parents in
+   whale blue, the current page bold deep blue, chevrons between the items. Below 768px only the
+   parent shows, as a back link with a chevron pointing left (live 390 capture). */
+.breadcrumb nav {
+  padding-top: 16px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--body-font-size-xs);
+  line-height: 20px;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--lh-whale-blue);
+}
+
+.breadcrumb li + li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  margin: 0 10px;
+  background-color: var(--lh-deepblue);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m8.6 3.3-1.5 1.5 7.2 7.2-7.2 7.2 1.5 1.5 8.7-8.7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.breadcrumb a:any-link {
+  color: var(--lh-whale-blue);
+  text-decoration: none;
+}
+
+.breadcrumb a:any-link:hover {
+  color: var(--lh-deepblue);
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb-current {
+  color: var(--lh-deepblue);
+  font-weight: 700;
+}
+
+@media (width < 768px) {
+  .breadcrumb li:not(.breadcrumb-parent) {
+    display: none;
+  }
+
+  /* a single crumb (no parent) stays visible */
+  .breadcrumb li:only-child {
+    display: flex;
+  }
+
+  .breadcrumb li.breadcrumb-parent::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    margin: 0 8px 0 0;
+    background-color: var(--lh-deepblue);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m15.4 3.3 1.5 1.5L9.7 12l7.2 7.2-1.5 1.5L6.7 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+
+/* AirCore (.breadcrumb a, .breadcrumb span { font-size: 1.4rem; font-weight: 300;
+   line-height: 1.8rem }, last item bold, .breadcrumb-wrapper { padding-top: 1.7rem }) */
+body.aircore .breadcrumb nav {
+  padding-top: 17px;
+}
+
+body.aircore .breadcrumb ol {
+  font-weight: 300;
+  line-height: 18px;
+}
+
+body.aircore .breadcrumb .breadcrumb-current {
+  font-weight: 700;
+}

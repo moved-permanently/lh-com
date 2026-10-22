@@ -3,14 +3,18 @@ import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
-import { searchAirports } from '../../scripts/lh-api.js';
+import { searchAirportsWithSource } from '../../scripts/lh-api.js';
+import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract. Request building, response mapping and the hand-off URL live here so a
  * captured live request only requires changes in this section.
  * ------------------------------------------------------------------------------------------- */
 
-/* Airport autocomplete: searchAirports (scripts/lh-api.js), shared with flight-search. */
+/*
+ * Airport autocomplete: searchAirportsWithSource (scripts/lh-api.js), shared with flight-search;
+ * the block's only live data. data-lh-source tells where the last suggestions came from.
+ */
 
 /** Tab keys by authored position; "number" is the source's activeTab value. */
 const TAB_KEYS = ['number', 'route', 'airport'];
@@ -187,13 +191,17 @@ function selectField(id, label, options, selected, hint) {
   return { wrap, select };
 }
 
-function airportField(id, label, value, locale, labels) {
+function airportField(id, label, value, locale, labels, block) {
   const wrap = el('div', 'flight-status-field');
   const combobox = createAirportCombobox({
     label,
     name: id,
     value,
-    fetchSuggestions: (term) => searchAirports(term, locale),
+    fetchSuggestions: async (term) => {
+      const { list, source } = await searchAirportsWithSource(term, locale);
+      markSource(block, { suggestions: source }, ['suggestions']);
+      return list;
+    },
     noResultsLabel: labels['no results label'],
   });
   wrap.append(combobox.element);
@@ -345,8 +353,8 @@ export default function decorate(block) {
     },
     route() {
       const form = makeForm('route');
-      const from = airportField(`${id}-origin`, labels['from label'], home, locale, labels);
-      const to = airportField(`${id}-destination`, labels['to label'], null, locale, labels);
+      const from = airportField(`${id}-origin`, labels['from label'], home, locale, labels, block);
+      const to = airportField(`${id}-destination`, labels['to label'], null, locale, labels, block);
       const date = dateField('route');
       form.append(from.wrap, to.wrap, date.wrap, makeSubmit());
       form.addEventListener('submit', (e) => {
@@ -367,7 +375,7 @@ export default function decorate(block) {
     },
     airport() {
       const form = makeForm('airport');
-      const airport = airportField(`${id}-airport`, labels['airport label'], home, locale, labels);
+      const airport = airportField(`${id}-airport`, labels['airport label'], home, locale, labels, block);
       const direction = el('fieldset', 'flight-status-direction');
       direction.append(el('legend', 'flight-status-sr-only', labels['direction label']));
       ['departure', 'arrival'].forEach((value, i) => {

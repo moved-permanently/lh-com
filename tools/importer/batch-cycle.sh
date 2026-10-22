@@ -12,6 +12,7 @@ timeout 490 node tools/importer/bd-session.mjs --list tools/importer/urls-captur
 for t in $(node -e "console.log(require('./tools/importer/page-templates.json').templates.map((t) => t.name).join(' '))"); do
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done
+node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
 node tools/importer/record-live-data.mjs 2>/dev/null | grep -o "index now [0-9]* entries"
 node -e "
 const p = require('./tools/importer/import-progress.json');

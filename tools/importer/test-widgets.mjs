@@ -1,94 +1,269 @@
-/* eslint-disable no-console, import/extensions, max-classes-per-file */
+/* eslint-disable no-console, import/extensions, max-classes-per-file, no-use-before-define */
 /* global globalThis */
 /**
- * Offline test of the live-data widgets against the recorded lufthansa.com responses.
+ * Offline test of the live-data widgets (scripts/lh-data.js) against the recorded
+ * lufthansa.com responses. No browser, no network: fetch is stubbed.
  *
- * For every imported page with a widget block (content/**.plain.html) it reads the block's
- * authored config like the block does (readConfigRows), runs the block's request builders and
- * loaders, and fetches through lhFetch with a fetch stub: the proxy answers 502 (upstream
- * blocked, as today) and /data/recorded/* is served from disk. No browser, no network.
+ * For every imported page with a widget block (content/**.plain.html) it
+ *  - runs the block's loaders (the same request builders and mappers the block uses) and
+ *  - runs the block's decorate() in a minimal DOM and reads data-lh-source / data-lh-sources,
+ * in these runs:
+ *   A  direct www.lufthansa.com calls fail with a CORS TypeError, lh-proxy answers 502
+ *   B  direct calls get Cloudflare's HTML 403 block page, lh-proxy answers 502
+ *   C  direct calls answer 200 with ACAO * (the recorded JSON), lh-proxy answers 502
+ *   D  direct calls and lh-proxy answer 200 (the recorded JSON)
+ * plus timing checks (proxy 502 after 300 ms, refused-proxy memo, proxy and direct timeouts)
+ * and a comparison of every direct request (URL, X-Portal-* headers, credentials) with the
+ * request the live page sent for that market (tools/source-export/har, api/*.ndjson).
  *
  * Usage: node tools/importer/test-widgets.mjs [--verbose]
- * Exit code 1 when a required lookup misses: flight-search labels/catalogs, fare-teaser fares,
- * labels and catalogs in every locale; destination-finder, price-bar and weather wherever the
- * exact request is recorded.
+ * Exit code 1 on a required miss, a wrong data-lh-source, a header mismatch or a slow fallback.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PROXY_ORIGIN, requestKey } from '../../scripts/lh-data.js';
-import { getLocale } from '../../scripts/locale.js';
+import {
+  PROXY_ORIGIN, requestKey, isDirectRoute, portalHeaders,
+} from '../../scripts/lh-data.js';
+import { getLocale, LIVE_ORIGIN, LOCALES } from '../../scripts/locale.js';
 import { readConfigRows } from '../../scripts/block-config.js';
 import {
-  airportSuggestionsRequest, fetchRequest, mapAirportSuggestions, searchAirports, formatFare,
+  airportSuggestionsRequest, fetchRequest, mapAirportSuggestions, searchAirports,
+  searchAirportsWithSource, formatFare, fareTeaserOffersRequest,
 } from '../../scripts/lh-api.js';
-import { readFlightSearchSettings, loadFlightSearchData } from '../../blocks/flight-search/flight-search.js';
-import {
+import decorateFlightSearch, {
+  readFlightSearchSettings, loadFlightSearchData, flightSearchPrimary,
+} from '../../blocks/flight-search/flight-search.js';
+import decorateFareTeaser, {
   readFareTeaserSettings, fareTeaserRequests, loadFareTeaserData,
 } from '../../blocks/fare-teaser/fare-teaser.js';
-import {
+import decorateDestinationFinder, {
   readDestinationFinderSettings, destinationFinderRequests, loadDestinations, loadFinderContext,
 } from '../../blocks/destination-finder/destination-finder.js';
-import { readPriceBarSettings, priceBarRequests, loadPriceBarData } from '../../blocks/price-bar/price-bar.js';
-import { weatherRequest, loadWeather } from '../../blocks/weather/weather.js';
+import decoratePriceBar, {
+  readPriceBarSettings, priceBarRequests, loadPriceBarData,
+} from '../../blocks/price-bar/price-bar.js';
+import decorateWeather, { weatherRequest, loadWeather } from '../../blocks/weather/weather.js';
+import decorateFlightStatus from '../../blocks/flight-status/flight-status.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const verbose = process.argv.includes('--verbose');
-const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'weather'];
+const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'weather', 'flight-status'];
+const PREVIEW_ORIGIN = 'https://main--lh-com--moved-permanently.aem.page';
+const sleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
 /* ------------------------------------------------------------------------------------------- */
-/* Minimal DOM for .plain.html block tables (what readConfigRows and the settings use)         */
+/* Minimal DOM: enough for readConfigRows and the widgets' decorate()                          */
 /* ------------------------------------------------------------------------------------------- */
 
 const VOID = new Set(['img', 'source', 'br', 'hr', 'meta', 'link', 'input', 'wbr']);
 const ENTITIES = {
-  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
 };
 const decode = (s) => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => {
   if (e[0] === '#') return String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
   return ENTITIES[e.toLowerCase()] ?? m;
 });
+const kebab = (s) => s.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`);
 
-class TextNode {
-  constructor(text) { this.nodeType = 3; this.text = text; }
+class BaseNode {
+  constructor(nodeType) {
+    this.nodeType = nodeType;
+    this.parentNode = null;
+  }
 
-  get textContent() { return this.text; }
+  get parentElement() { return this.parentNode && this.parentNode.nodeType === 1 ? this.parentNode : null; }
+
+  get nextElementSibling() {
+    if (!this.parentNode) return null;
+    const siblings = this.parentNode.children;
+    return siblings[siblings.indexOf(this) + 1] || null;
+  }
+
+  remove() { if (this.parentNode) this.parentNode.removeChild(this); }
+
+  before(...nodes) { nodes.forEach((n) => this.parentNode.insertBefore(toNode(n), this)); }
+
+  replaceWith(...nodes) {
+    this.before(...nodes);
+    this.remove();
+  }
 }
 
-class Element {
-  constructor(tagName, attrs = {}) {
-    this.nodeType = 1;
+class TextNode extends BaseNode {
+  constructor(text) {
+    super(3);
+    this.data = String(text);
+  }
+
+  get textContent() { return this.data; }
+
+  set textContent(value) { this.data = String(value); }
+}
+
+const toNode = (n) => (typeof n === 'string' ? new TextNode(n) : n);
+
+const SIMPLE = /^([a-z0-9]*)((?:\.[\w-]+)*)((?:\[[\w-]+(?:="[^"]*")?\])*)(:checked)?$/i;
+
+class Element extends BaseNode {
+  constructor(tagName, attrs = {}, nodeType = 1) {
+    super(nodeType);
     this.tagName = tagName.toUpperCase();
-    this.attrs = attrs;
+    this.attrs = { ...attrs };
     this.childNodes = [];
+    this.listeners = {};
+    const el = this;
+    this.dataset = new Proxy({}, {
+      get: (t, key) => (typeof key === 'string' ? el.attrs[`data-${kebab(key)}`] : undefined),
+      set: (t, key, value) => {
+        el.attrs[`data-${kebab(key)}`] = String(value);
+        return true;
+      },
+    });
   }
 
   get children() { return this.childNodes.filter((n) => n.nodeType === 1); }
 
+  get firstElementChild() { return this.children[0] || null; }
+
   get textContent() { return this.childNodes.map((n) => n.textContent).join(''); }
+
+  set textContent(value) { this.replaceChildren(...(value === '' || value === null || value === undefined ? [] : [String(value)])); }
+
+  get className() { return this.attrs.class || ''; }
+
+  set className(value) { this.attrs.class = String(value); }
+
+  get id() { return this.attrs.id || ''; }
+
+  set id(value) { this.attrs.id = String(value); }
+
+  get href() {
+    if (!('href' in this.attrs)) return '';
+    try {
+      return new URL(this.attrs.href, window.location.href).toString();
+    } catch (e) {
+      return this.attrs.href;
+    }
+  }
+
+  set href(value) { this.attrs.href = String(value); }
+
+  get classList() {
+    const list = () => this.className.split(/\s+/).filter(Boolean);
+    const write = (l) => { this.className = [...new Set(l)].join(' '); };
+    return {
+      contains: (c) => list().includes(c),
+      add: (...c) => write([...list(), ...c]),
+      remove: (...c) => write(list().filter((x) => !c.includes(x))),
+      toggle: (c, force) => {
+        const on = force === undefined ? !list().includes(c) : Boolean(force);
+        if (on) write([...list(), c]); else write(list().filter((x) => x !== c));
+        return on;
+      },
+    };
+  }
 
   getAttribute(name) { return name in this.attrs ? this.attrs[name] : null; }
 
-  get classList() {
-    const list = (this.attrs.class || '').split(/\s+/).filter(Boolean);
-    return { contains: (c) => list.includes(c) };
+  setAttribute(name, value) { this.attrs[name] = String(value); }
+
+  removeAttribute(name) { delete this.attrs[name]; }
+
+  hasAttribute(name) { return name in this.attrs; }
+
+  appendChild(node) {
+    if (node.nodeType === 11) {
+      [...node.childNodes].forEach((n) => this.appendChild(n));
+      return node;
+    }
+    node.remove();
+    node.parentNode = this;
+    this.childNodes.push(node);
+    return node;
   }
 
-  matches(selector) {
+  insertBefore(node, ref) {
+    if (node.nodeType === 11) {
+      [...node.childNodes].forEach((n) => this.insertBefore(n, ref));
+      return node;
+    }
+    node.remove();
+    const i = ref ? this.childNodes.indexOf(ref) : -1;
+    node.parentNode = this;
+    if (i < 0) this.childNodes.push(node); else this.childNodes.splice(i, 0, node);
+    return node;
+  }
+
+  removeChild(node) {
+    const i = this.childNodes.indexOf(node);
+    if (i >= 0) this.childNodes.splice(i, 1);
+    node.parentNode = null;
+    return node;
+  }
+
+  append(...nodes) { nodes.forEach((n) => this.appendChild(toNode(n))); }
+
+  prepend(...nodes) {
+    const first = this.childNodes[0] || null;
+    nodes.forEach((n) => this.insertBefore(toNode(n), first));
+  }
+
+  replaceChildren(...nodes) {
+    [...this.childNodes].forEach((n) => this.removeChild(n));
+    this.append(...nodes);
+  }
+
+  addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); }
+
+  dispatch(type, extra = {}) {
+    const event = {
+      type, target: this, preventDefault() {}, ...extra,
+    };
+    (this.listeners[type] || []).forEach((fn) => fn(event));
+  }
+
+  focus() { document.activeElement = this; }
+
+  select() {}
+
+  scrollBy() {}
+
+  scrollIntoView() {}
+
+  getBoundingClientRect() {
+    return {
+      top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0,
+    };
+  }
+
+  matchesSimple(selector) {
+    const m = selector.match(SIMPLE);
+    if (!m) return false;
+    const [, tag, classes, attrs, checked] = m;
+    if (tag && this.tagName !== tag.toUpperCase()) return false;
+    if (classes && !classes.split('.').filter(Boolean).every((c) => this.classList.contains(c))) return false;
+    if (attrs) {
+      const ok = [...attrs.matchAll(/\[([\w-]+)(?:="([^"]*)")?\]/g)]
+        .every(([, name, value]) => name in this.attrs
+          && (value === undefined || this.attrs[name] === value));
+      if (!ok) return false;
+    }
+    return !checked || Boolean(this.checked);
+  }
+
+  matches(selector, scope) {
     return selector.split(',').map((s) => s.trim()).some((s) => {
-      const m = s.match(/^([a-z0-9]*)(?:\.([\w-]+))?(?:\[([\w-]+)\])?$/i);
-      if (!m) return false;
-      const [, tag, cls, attr] = m;
-      return (!tag || this.tagName === tag.toUpperCase())
-        && (!cls || this.classList.contains(cls))
-        && (!attr || attr in this.attrs);
+      const child = s.match(/^:scope\s*>\s*(.+)$/);
+      if (child) return this.parentNode === scope && this.matchesSimple(child[1]);
+      return this.matchesSimple(s);
     });
   }
 
   querySelectorAll(selector) {
     const found = [];
     const visit = (node) => node.children.forEach((child) => {
-      if (child.matches(selector)) found.push(child);
+      if (child.matches(selector, this)) found.push(child);
       visit(child);
     });
     visit(this);
@@ -96,6 +271,15 @@ class Element {
   }
 
   querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
+
+  closest(selector) {
+    let node = this;
+    while (node && node.nodeType === 1) {
+      if (node.matches(selector)) return node;
+      node = node.parentNode;
+    }
+    return null;
+  }
 }
 
 function parseHtml(html) {
@@ -107,7 +291,7 @@ function parseHtml(html) {
   while ((m = re.exec(html))) {
     const [, close, open, attrText, selfClose, text] = m;
     const top = stack[stack.length - 1];
-    if (text !== undefined) top.childNodes.push(new TextNode(decode(text)));
+    if (text !== undefined) top.appendChild(new TextNode(decode(text)));
     else if (close) {
       const i = stack.map((e) => e.tagName).lastIndexOf(close.toUpperCase());
       if (i > 0) stack.length = i;
@@ -118,31 +302,88 @@ function parseHtml(html) {
         return a;
       });
       const el = new Element(open, attrs);
-      top.childNodes.push(el);
+      top.appendChild(el);
       if (!selfClose && !VOID.has(open.toLowerCase())) stack.push(el);
     }
   }
   return doc;
 }
 
+const memoryStorage = () => {
+  const map = new Map();
+  return {
+    getItem: (k) => (map.has(k) ? map.get(k) : null),
+    setItem: (k, v) => map.set(k, String(v)),
+    removeItem: (k) => map.delete(k),
+    clear: () => map.clear(),
+  };
+};
+
+globalThis.Node = { ELEMENT_NODE: 1, TEXT_NODE: 3 };
+globalThis.document = {
+  activeElement: null,
+  createElement: (tag) => new Element(tag),
+  createTextNode: (text) => new TextNode(text),
+  createDocumentFragment: () => new Element('#fragment', {}, 11),
+  querySelector: () => null,
+};
+globalThis.DOMParser = class {
+  // eslint-disable-next-line class-methods-use-this
+  parseFromString(html) { return { body: parseHtml(html) }; }
+};
+globalThis.window = {
+  location: {},
+  localStorage: memoryStorage(),
+  sessionStorage: memoryStorage(),
+  addEventListener() {},
+};
+
+function setPage(page) {
+  const url = new URL(page, PREVIEW_ORIGIN);
+  window.location = {
+    pathname: url.pathname,
+    href: url.href,
+    origin: url.origin,
+    assign(href) { this.assigned = href; },
+  };
+}
+
 /* ------------------------------------------------------------------------------------------- */
-/* fetch stub: proxy 502, recorded data from disk                                               */
+/* Live reference: what the live page sent (HAR headers, HAR + ndjson URLs) per market          */
 /* ------------------------------------------------------------------------------------------- */
 
-const calls = [];
-globalThis.fetch = async (url, init = {}) => {
-  const href = String(url);
-  calls.push(`${init.method || 'GET'} ${href}`);
-  if (href.startsWith(PROXY_ORIGIN)) {
-    return new Response(JSON.stringify({ error: 'upstream-blocked' }), { status: 502 });
-  }
-  if (href.startsWith('/data/recorded/')) {
-    const file = path.join(root, href.split('?')[0]);
-    if (!fs.existsSync(file)) return new Response('not found', { status: 404 });
-    return new Response(fs.readFileSync(file), { status: 200, headers: { 'Content-Type': 'application/json' } });
-  }
-  throw new TypeError(`network access blocked in test: ${href}`);
-};
+const srcDir = path.join(root, 'tools/source-export');
+const liveRequests = {}; // market → Map(url → headers or null)
+Object.keys(LOCALES).forEach((market) => { liveRequests[market] = new Map(); });
+const marketOfFolder = (name) => name.replace('-', '/');
+fs.readdirSync(path.join(srcDir, 'har')).forEach((folder) => {
+  const market = marketOfFolder(folder);
+  if (!liveRequests[market]) return;
+  fs.readdirSync(path.join(srcDir, 'har', folder)).filter((f) => f.endsWith('.har')).forEach((f) => {
+    const har = JSON.parse(fs.readFileSync(path.join(srcDir, 'har', folder, f), 'utf8'));
+    har.log.entries.forEach(({ request }) => {
+      if (!request.url.startsWith(`${LIVE_ORIGIN}/service/api/`)) return;
+      const headers = Object.fromEntries(request.headers
+        .filter((h) => /^x-portal/i.test(h.name)).map((h) => [h.name, h.value]));
+      if (!liveRequests[market].has(request.url)) liveRequests[market].set(request.url, headers);
+    });
+  });
+});
+fs.readdirSync(path.join(srcDir, 'api')).filter((f) => f.endsWith('.ndjson')).forEach((f) => {
+  const market = marketOfFolder(f.replace('.ndjson', ''));
+  if (!liveRequests[market]) return;
+  fs.readFileSync(path.join(srcDir, 'api', f), 'utf8').split('\n').filter(Boolean).forEach((line) => {
+    const { url } = JSON.parse(line);
+    const href = new URL(url, LIVE_ORIGIN).toString();
+    if (!liveRequests[market].has(href)) liveRequests[market].set(href, null);
+  });
+});
+/** The X-Portal-* headers the live page sent with its /service/api GETs in a market (HAR). */
+const marketHeaders = (market) => [...liveRequests[market].values()].find(Boolean) || null;
+
+/* ------------------------------------------------------------------------------------------- */
+/* fetch stub                                                                                   */
+/* ------------------------------------------------------------------------------------------- */
 
 const index = JSON.parse(fs.readFileSync(path.join(root, 'data/recorded/index.json'), 'utf8')).entries;
 /** Whether the exact request is recorded (in the market or, like lhFetch, any market). */
@@ -150,27 +391,97 @@ const isRecorded = (market, request) => {
   const key = requestKey(request.method, request.route, request.body);
   return Boolean(index[`${market}|${key}`] || Object.keys(index).some((k) => k.endsWith(`|${key}`)));
 };
+const recordedFile = (market, method, route, body) => {
+  const hit = index[`${market}|${requestKey(method, route, body)}`];
+  return hit ? fs.readFileSync(path.join(root, 'data/recorded', hit.file)) : null;
+};
+
+const CLOUDFLARE_403 = '<!DOCTYPE html><html lang="en-US"><head><title>Attention Required! | Cloudflare</title></head><body><h1>Sorry, you have been blocked</h1><p>Cloudflare Ray ID: 8d2f0c1a2b3c4d5e</p></body></html>';
+
+/** What the stub does: direct 'cors' | 'cloudflare' | 'ok' | 'hang'; proxy '502' | 'ok' | 'hang'. */
+let scenario = { direct: 'cors', proxy: '502', proxyDelay: 0 };
+let calls = [];
+const directCalls = [];
+
+const hang = (signal) => new Promise((resolve, reject) => {
+  signal.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')));
+});
+const jsonResponse = (body, status, headers = {}) => new Response(body, {
+  status, headers: { 'Content-Type': 'application/json', ...headers },
+});
+
+globalThis.fetch = async (url, init = {}) => {
+  const href = String(url);
+  const method = init.method || 'GET';
+  if (href.startsWith('/data/recorded/')) {
+    calls.push({ kind: 'recorded', href });
+    const file = path.join(root, href.split('?')[0]);
+    if (!fs.existsSync(file)) return new Response('not found', { status: 404 });
+    return jsonResponse(fs.readFileSync(file), 200);
+  }
+  if (href.startsWith(`${LIVE_ORIGIN}/`)) {
+    const headers = init.headers || {};
+    const market = `${String(headers['X-Portal-Site'] || '').toLowerCase()}/${headers['X-Portal-Language'] || ''}`;
+    calls.push({ kind: 'direct', href });
+    directCalls.push({
+      href, init, market, page: currentPage,
+    });
+    if (scenario.direct === 'cors') throw new TypeError('Failed to fetch (CORS: blocked by test)');
+    if (scenario.direct === 'cloudflare') {
+      return new Response(CLOUDFLARE_403, { status: 403, headers: { 'Content-Type': 'text/html; charset=UTF-8', 'cf-ray': '8d2f0c1a2b3c4d5e-FRA' } });
+    }
+    if (scenario.direct === 'hang') return hang(init.signal);
+    const { pathname, search } = new URL(href);
+    const body = LOCALES[market] && recordedFile(market, method, `${pathname}${search}`, init.body);
+    return body
+      ? jsonResponse(body, 200, { 'Access-Control-Allow-Origin': '*' })
+      : jsonResponse('{"error":"not recorded"}', 404, { 'Access-Control-Allow-Origin': '*' });
+  }
+  if (href.startsWith(PROXY_ORIGIN)) {
+    calls.push({ kind: 'proxy', href });
+    if (scenario.proxyDelay) await sleep(scenario.proxyDelay);
+    if (scenario.proxy === 'hang') return hang(init.signal);
+    if (scenario.proxy === '502') {
+      return jsonResponse(JSON.stringify({ error: 'upstream-blocked', status: 403 }), 502, { 'x-lh-proxy-upstream-status': '403' });
+    }
+    const { pathname, search } = new URL(href);
+    const market = (init.headers || {})['X-LH-Market'];
+    const body = recordedFile(market, method, `${pathname}${search}`, init.body);
+    return body ? jsonResponse(body, 200) : jsonResponse('{"error":"not recorded"}', 404);
+  }
+  throw new TypeError(`network access blocked in test: ${href}`);
+};
+
+let currentPage = '';
+function startRun(next) {
+  scenario = { proxyDelay: 0, ...next };
+  window.sessionStorage.clear();
+  calls = [];
+}
 
 /* ------------------------------------------------------------------------------------------- */
-/* Checks per widget                                                                           */
+/* Results                                                                                      */
 /* ------------------------------------------------------------------------------------------- */
 
 const rows = [];
 let failures = 0;
 
 /**
- * @param {Object} row { page, locale, block, check }
- * @param {boolean} hit data arrived and mapped
+ * @param {Object} row { run, page, locale, block, check }
+ * @param {boolean} hit data arrived and mapped (or the expectation held)
  * @param {boolean} required a miss fails the run
  * @param {string} sample short sample of the mapped data
  */
 function record(row, hit, required, sample = '') {
-  const result = hit ? 'hit' : 'miss';
   if (!hit && required) failures += 1;
   rows.push({
-    ...row, result: !hit && required ? 'MISS (required)' : result, sample,
+    ...row, result: (!hit && required && 'FAIL') || (hit ? 'ok' : 'miss'), sample,
   });
 }
+
+/* ------------------------------------------------------------------------------------------- */
+/* Loader checks per widget (fallback runs: every answer must come from the recordings)        */
+/* ------------------------------------------------------------------------------------------- */
 
 async function checkFlightSearch(base, config, locale) {
   const settings = readFlightSearchSettings(config, locale);
@@ -186,7 +497,7 @@ async function checkFlightSearch(base, config, locale) {
     { ...base, check: 'labels/common' },
     data.sources['labels/common'] === 'recorded',
     false,
-    data.labels['from label'] ? `from "${data.labels['from label']}"` : 'not recorded for this language',
+    data.labels['from label'] ? `from "${data.labels['from label']}"` : 'not recorded for this market',
   );
   record(
     { ...base, check: 'defaultAirport' },
@@ -211,15 +522,15 @@ async function checkFlightSearch(base, config, locale) {
     isRecorded(locale.key, request),
     list.slice(0, 3).map((a) => a.label).join(' | '),
   );
-  const offlineTerm = 'Frankf';
-  const offline = await searchAirports(offlineTerm, locale);
+  const offline = await searchAirports(OFFLINE_TERM, locale);
   record(
-    { ...base, check: `suggestions "${offlineTerm}" (offline filter)` },
-    !isRecorded(locale.key, airportSuggestionsRequest(offlineTerm, locale)) && offline.length > 0,
+    { ...base, check: `suggestions "${OFFLINE_TERM}" (offline filter)` },
+    !isRecorded(locale.key, airportSuggestionsRequest(OFFLINE_TERM, locale)) && offline.length > 0,
     true,
     offline.slice(0, 3).map((a) => a.label).join(' | '),
   );
 }
+const OFFLINE_TERM = 'Frankf';
 
 async function checkFareTeaser(base, config, locale) {
   const settings = readFareTeaserSettings(config, locale);
@@ -323,15 +634,16 @@ async function checkPriceBar(base, config, locale) {
   record(
     { ...base, check: 'labels/stickyprice' },
     data.sources['labels/stickyprice'] === 'recorded',
-    true,
-    `link "${data.labels['link label'] || ''}"`,
+    locale.lang === 'en',
+    data.labels['link label'] ? `link "${data.labels['link label']}"` : 'not recorded for this language',
   );
   record({ ...base, check: 'defaultAirport' }, settings.origin || data.sources.defaultAirport === 'recorded', true, `origin ${data.origin}`);
 }
 
+const weatherLocation = (config) => (((config.location || {}).text || '').match(/[A-Z]{3}/) || [''])[0];
+
 async function checkWeather(base, config, locale) {
-  const text = (k) => (config[k] || {}).text || '';
-  const location = (text('location').match(/[A-Z]{3}/) || [''])[0];
+  const location = weatherLocation(config);
   const request = weatherRequest({ location }, locale);
   const { weather, source } = await loadWeather({ location, unit: 'C' }, locale);
   record(
@@ -342,14 +654,148 @@ async function checkWeather(base, config, locale) {
   );
 }
 
+async function checkFlightStatus(base, config, locale) {
+  const term = FLIGHT_STATUS_TERM[locale.lang];
+  const { list, source } = await searchAirportsWithSource(term, locale);
+  record(
+    { ...base, check: `suggestions "${term}"` },
+    source === 'recorded' && list.length > 0,
+    true,
+    list.slice(0, 3).map((a) => a.label).join(' | '),
+  );
+}
+const FLIGHT_STATUS_TERM = { en: 'Frankfurt', de: 'Frankfurt' };
+
 const CHECKS = {
   'flight-search': checkFlightSearch,
   'fare-teaser': checkFareTeaser,
   'destination-finder': checkDestinationFinder,
   'price-bar': checkPriceBar,
   weather: checkWeather,
+  'flight-status': checkFlightStatus,
 };
 
+/* ------------------------------------------------------------------------------------------- */
+/* decorate() checks: data-lh-source on the block and the rendered data                         */
+/* ------------------------------------------------------------------------------------------- */
+
+const DECORATE = {
+  'flight-search': decorateFlightSearch,
+  'fare-teaser': decorateFareTeaser,
+  'destination-finder': decorateDestinationFinder,
+  'price-bar': decoratePriceBar,
+  weather: decorateWeather,
+  'flight-status': decorateFlightStatus,
+};
+
+/** Whether the block's primary data is recorded (so the fallback can show it). */
+function primaryRecorded(name, config, locale) {
+  if (name === 'fare-teaser') return isRecorded(locale.key, fareTeaserRequests(readFareTeaserSettings(config, locale), locale).fares);
+  if (name === 'destination-finder') {
+    const settings = readDestinationFinderSettings(config, locale);
+    return isRecorded(locale.key, destinationFinderRequests(settings, locale).offers);
+  }
+  if (name === 'price-bar') {
+    const settings = readPriceBarSettings(config);
+    const recordedDefault = recordedFile(locale.key, 'GET', '/service/api/defaultAirport');
+    const origin = settings.origin || (recordedDefault && JSON.parse(recordedDefault).marketDefaultAirport.iataCode) || locale.homeAirport;
+    return Boolean(settings.destination) && isRecorded(locale.key, priceBarRequests(settings, locale, origin).fares);
+  }
+  if (name === 'weather') return isRecorded(locale.key, weatherRequest({ location: weatherLocation(config) }, locale));
+  if (name === 'flight-status') return isRecorded(locale.key, airportSuggestionsRequest(FLIGHT_STATUS_TERM[locale.lang], locale));
+  return true; // flight-search: labels/flightmanager and defaultAirport are recorded in every market
+}
+
+/** Which data-lh-source a block must show in a run. */
+function expectedSource(name, run, recorded) {
+  const directPrimary = ['flight-search', 'flight-status'].includes(name);
+  const live = run === 'D' || (run === 'C' && directPrimary);
+  if (live) return recorded ? 'live' : null; // the stub answers live only what is recorded
+  return recorded ? 'recorded' : null;
+}
+
+/** What the block rendered, as a short text (and whether it shows data). */
+function renderedSample(name, block) {
+  const count = (sel) => block.querySelectorAll(sel).length;
+  switch (name) {
+    case 'flight-search': {
+      const field = block.querySelector('.flight-search-origin');
+      const input = field && field.querySelector('input');
+      const submit = block.querySelector('.flight-search-submit');
+      const value = input ? input.value : '';
+      return { ok: Boolean(value), text: `origin "${value}", submit "${submit ? submit.textContent : ''}"` };
+    }
+    case 'fare-teaser': {
+      const prices = block.querySelectorAll('.fare-teaser-price').map((p) => p.textContent).filter(Boolean);
+      return { ok: prices.length > 0, text: `${prices.length} prices: ${prices.slice(0, 3).join(', ')}` };
+    }
+    case 'destination-finder': {
+      const prices = block.querySelectorAll('.destination-finder-price').map((p) => p.textContent);
+      return { ok: prices.length > 0, text: `${count('.destination-finder-item')} items: ${prices.slice(0, 3).join(', ')}` };
+    }
+    case 'price-bar': {
+      const price = block.querySelector('.price-bar-price');
+      return { ok: Boolean(price && price.textContent), text: `price "${price ? price.textContent : ''}"` };
+    }
+    case 'weather':
+      return { ok: block.classList.contains('weather-loaded'), text: `${count('.weather-day')} days, ${(block.querySelector('.weather-temp') || { textContent: '' }).textContent}` };
+    case 'flight-status': {
+      const options = block.querySelectorAll('li[role="option"]').map((li) => li.textContent);
+      return { ok: options.length > 0, text: `${options.length} suggestions: ${options.slice(0, 2).join(' | ')}` };
+    }
+    default: return { ok: false, text: '' };
+  }
+}
+
+async function waitFor(test, timeoutMs = 8000) {
+  const start = Date.now();
+  while (!test()) {
+    if (Date.now() - start > timeoutMs) return false;
+    // eslint-disable-next-line no-await-in-loop
+    await sleep(5);
+  }
+  return true;
+}
+
+async function checkDecorate(run, { page, html }, name, blockIndex) {
+  const locale = getLocale(page);
+  setPage(page);
+  currentPage = page;
+  const doc = parseHtml(html);
+  const block = doc.querySelectorAll(`div.${name}`)[blockIndex];
+  const config = readConfigRows(block);
+  const recorded = primaryRecorded(name, config, locale);
+  const expected = expectedSource(name, run, recorded);
+  const start = Date.now();
+  const result = DECORATE[name](block);
+  if (name === 'flight-status') {
+    // type into the first airport field (route tab) like a visitor
+    const input = block.querySelector('input[role="combobox"]');
+    input.value = FLIGHT_STATUS_TERM[locale.lang];
+    input.focus();
+    input.dispatch('input');
+  }
+  await result;
+  const marked = await waitFor(() => block.hasAttribute('data-lh-source')
+    && (name !== 'flight-status' || block.querySelectorAll('li[role="option"]').length > 0
+      || block.getAttribute('data-lh-source') === 'none'));
+  // the last renders run right after the marker
+  await sleep(1);
+  const source = block.getAttribute('data-lh-source');
+  const rendered = renderedSample(name, block);
+  const ok = marked && (expected ? source === expected && rendered.ok : true);
+  record(
+    {
+      run, locale: locale.key, page, block: name, check: `data-lh-source=${source || '(unset)'}${expected ? ` (expect ${expected})` : ' (primary not recorded)'}`,
+    },
+    ok,
+    Boolean(expected),
+    `${rendered.text}; ${Date.now() - start} ms; ${block.getAttribute('data-lh-sources') || ''}`,
+  );
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* Pages                                                                                        */
 /* ------------------------------------------------------------------------------------------- */
 
 function walk(dir) {
@@ -362,31 +808,207 @@ function walk(dir) {
 
 const contentDir = path.join(root, 'content');
 const pages = walk(contentDir)
-  .map((file) => ({ file, html: fs.readFileSync(file, 'utf8') }))
+  .map((file) => ({
+    file,
+    html: fs.readFileSync(file, 'utf8'),
+    page: `/${path.relative(contentDir, file).replace(/\\/g, '/').replace(/\.plain\.html$/, '')}`,
+  }))
   .filter(({ html }) => WIDGETS.some((w) => html.includes(`class="${w}`)));
-
-// one check after the other: the table follows page and block order
-const jobs = pages.flatMap(({ file, html }) => {
-  const page = `/${path.relative(contentDir, file).replace(/\\/g, '/').replace(/\.plain\.html$/, '')}`;
-  const locale = getLocale(page);
-  const doc = parseHtml(html);
-  return WIDGETS.flatMap((name) => doc.querySelectorAll(`div.${name}`).map((block) => () => CHECKS[name](
-    { locale: locale.key, page, block: name },
-    readConfigRows(block),
-    locale,
-  )));
+const blocks = pages.flatMap((p) => {
+  const doc = parseHtml(p.html);
+  return WIDGETS.flatMap((name) => doc.querySelectorAll(`div.${name}`).map((b, i) => ({
+    ...p, name, index: i, config: readConfigRows(b),
+  })));
 });
-await jobs.reduce((done, job) => done.then(job), Promise.resolve());
 
-const cols = ['locale', 'page', 'block', 'check', 'result', 'sample'];
+const inSequence = (jobs) => jobs.reduce((done, job) => done.then(job), Promise.resolve());
+
+async function loaderRun(run) {
+  await inSequence(blocks.map((b) => () => {
+    const locale = getLocale(b.page);
+    currentPage = b.page;
+    return CHECKS[b.name]({
+      run, locale: locale.key, page: b.page, block: b.name,
+    }, b.config, locale);
+  }));
+}
+
+const decorateRun = (run) => inSequence(blocks.map((b) => () => checkDecorate(run, b, b.name, b.index)));
+
+const proxyCallsToDirectRoutes = () => calls.filter((c) => c.kind === 'proxy'
+  && isDirectRoute(c.href.slice(PROXY_ORIGIN.length))).length;
+const summary = {};
+const summarize = (run) => {
+  summary[run] = {
+    direct: calls.filter((c) => c.kind === 'direct').length,
+    proxy: calls.filter((c) => c.kind === 'proxy').length,
+    recorded: calls.filter((c) => c.kind === 'recorded').length,
+    proxyDirectRoutes: proxyCallsToDirectRoutes(),
+  };
+  if (summary[run].proxyDirectRoutes) {
+    record({ run, check: 'direct routes never go through lh-proxy' }, false, true, `${summary[run].proxyDirectRoutes} calls`);
+  }
+};
+
+// A: CORS TypeError on direct calls, proxy 502
+startRun({ direct: 'cors', proxy: '502' });
+await loaderRun('A');
+await decorateRun('A');
+summarize('A');
+
+// B: Cloudflare HTML 403 on direct calls, proxy 502
+startRun({ direct: 'cloudflare', proxy: '502' });
+await loaderRun('B');
+await decorateRun('B');
+summarize('B');
+
+// C: direct calls answer (ACAO *), proxy 502
+startRun({ direct: 'ok', proxy: '502' });
+await decorateRun('C');
+summarize('C');
+
+// D: direct calls and proxy answer
+startRun({ direct: 'ok', proxy: 'ok' });
+await decorateRun('D');
+summarize('D');
+
+/* ------------------------------------------------------------------------------------------- */
+/* Timing: the fallback adds no visible delay                                                   */
+/* ------------------------------------------------------------------------------------------- */
+
+currentPage = '';
+const deEn = getLocale('/de/en/homepage');
+const offersFra = fareTeaserOffersRequest({ origin: 'FRA', tripType: 'R' });
+async function timed(fn) {
+  const start = performance.now();
+  const value = await fn();
+  return { value, ms: Math.round(performance.now() - start) };
+}
+const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
+
+{
+  // warm the recorded index (one fetch per page view in the browser, done long before)
+  startRun({ direct: 'cors', proxy: '502' });
+  await fetchRequest(offersFra, deEn, { exact: true });
+
+  startRun({ direct: 'cors', proxy: '502', proxyDelay: 300 });
+  const slow502 = await timed(() => fetchRequest(offersFra, deEn, { exact: true }));
+  record(
+    { run: 'T', locale: 'de/en', check: 'proxy 502 after 300 ms -> recorded within 350 ms' },
+    slow502.value.source === 'recorded' && slow502.ms <= 350,
+    true,
+    `${slow502.ms} ms, source ${slow502.value.source}, proxy calls ${callsOf('proxy')}`,
+  );
+  const memoBefore = callsOf('proxy');
+  const memo = await timed(() => fetchRequest(offersFra, deEn, { exact: true }));
+  record(
+    { run: 'T', locale: 'de/en', check: 'refused proxy remembered -> no proxy call' },
+    memo.value.source === 'recorded' && callsOf('proxy') === memoBefore,
+    true,
+    `${memo.ms} ms, proxy calls during the request ${callsOf('proxy') - memoBefore}, memo ${window.sessionStorage.getItem('lh-proxy-blocked')}`,
+  );
+
+  startRun({ direct: 'cors', proxy: 'hang' });
+  const hung = await timed(() => fetchRequest(offersFra, deEn, { exact: true }));
+  record(
+    { run: 'T', locale: 'de/en', check: 'proxy hangs -> recorded after the 2.5 s cap' },
+    hung.value.source === 'recorded' && hung.ms >= 2400 && hung.ms <= 2700,
+    true,
+    `${hung.ms} ms`,
+  );
+
+  const labelsRoute = { method: 'GET', route: '/service/api/labels/flightmanager/lh/en' };
+  startRun({ direct: 'cors', proxy: '502' });
+  const cors = await timed(() => fetchRequest(labelsRoute, deEn));
+  record(
+    { run: 'T', locale: 'de/en', check: 'direct CORS error -> recorded at once' },
+    cors.value.source === 'recorded' && cors.ms <= 50,
+    true,
+    `${cors.ms} ms`,
+  );
+  startRun({ direct: 'hang', proxy: '502' });
+  const directHung = await timed(() => fetchRequest(labelsRoute, deEn));
+  record(
+    { run: 'T', locale: 'de/en', check: 'direct call hangs -> recorded after the 3 s cap' },
+    directHung.value.source === 'recorded' && directHung.ms >= 2900 && directHung.ms <= 3200,
+    true,
+    `${directHung.ms} ms`,
+  );
+  startRun({ direct: 'ok', proxy: '502' });
+  const live = await timed(() => fetchRequest(labelsRoute, deEn));
+  record(
+    { run: 'T', locale: 'de/en', check: 'direct call answers -> live, no proxy call' },
+    live.value.source === 'live' && live.value.via === 'direct' && callsOf('proxy') === 0,
+    true,
+    `${live.ms} ms, via ${live.value.via}`,
+  );
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* Direct requests = the live page's requests (URL, X-Portal-* headers, no credentials)         */
+/* ------------------------------------------------------------------------------------------- */
+
+const headerStats = { calls: 0, sameUrl: 0, notCaptured: new Set() };
+directCalls.forEach(({
+  href, init, market, page,
+}) => {
+  if (!page) return; // timing checks
+  const pageMarket = getLocale(page).key;
+  headerStats.calls += 1;
+  const sent = Object.fromEntries(Object.entries(init.headers || {}).filter(([k]) => /^x-portal/i.test(k)));
+  const live = liveRequests[pageMarket].get(href);
+  const expectedHeaders = live || marketHeaders(pageMarket);
+  const sameHeaders = JSON.stringify(Object.entries(sent).sort())
+    === JSON.stringify(Object.entries(expectedHeaders || {}).sort());
+  const noCookies = init.credentials === 'omit' && init.mode === 'cors';
+  const noOtherHeaders = Object.keys(init.headers || {}).every((k) => /^x-portal/i.test(k));
+  if (liveRequests[pageMarket].has(href)) headerStats.sameUrl += 1;
+  else headerStats.notCaptured.add(`${pageMarket} ${href.replace(LIVE_ORIGIN, '')}`);
+  if (!sameHeaders || !noCookies || !noOtherHeaders || market !== pageMarket) {
+    record(
+      { run: 'H', locale: pageMarket, page, check: `direct ${href.replace(LIVE_ORIGIN, '')}` },
+      false,
+      true,
+      `sent ${JSON.stringify(init.headers)} credentials ${init.credentials}; live ${JSON.stringify(expectedHeaders)}`,
+    );
+  }
+});
+// the request builders give exactly the live URL wherever the live page made the request
+const unexpected = [...headerStats.notCaptured].filter((u) => !u.includes(`query=${OFFLINE_TERM}`));
+record(
+  { run: 'H', check: 'direct request headers = live X-Portal-* headers of the market' },
+  headerStats.calls > 0 && !rows.some((r) => r.run === 'H' && r.result === 'FAIL'),
+  true,
+  `${headerStats.calls} direct calls, credentials omit, X-Portal-* only: ${Object.keys(LOCALES).map((m) => `${m} ${JSON.stringify(portalHeaders(m))}`).join('; ')}`,
+);
+record(
+  { run: 'H', check: 'direct request URL = a URL the live page requested' },
+  headerStats.sameUrl > 0,
+  true,
+  `${headerStats.sameUrl}/${headerStats.calls} identical; never requested by the live page: ${unexpected.join(', ') || '-'} (plus the deliberately unrecorded term "${OFFLINE_TERM}")`,
+);
+
+/* ------------------------------------------------------------------------------------------- */
+/* Output                                                                                       */
+/* ------------------------------------------------------------------------------------------- */
+
+const cols = ['run', 'locale', 'page', 'block', 'check', 'result', 'sample'];
+// run B repeats run A's loader table: printed only where it differs (or with --verbose)
+const loaderKey = (r) => `${r.page}|${r.block}|${r.check}|${r.result}|${r.sample}`;
+const loaderA = new Set(rows.filter((r) => r.run === 'A' && !r.check.startsWith('data-lh-source')).map(loaderKey));
+const printed = rows.filter((r) => verbose || r.run !== 'B' || r.check.startsWith('data-lh-source') || !loaderA.has(loaderKey(r)));
 const width = Object.fromEntries(cols.map((c) => [c, Math.min(
-  c === 'sample' ? 90 : 48,
-  Math.max(c.length, ...rows.map((r) => String(r[c]).length)),
+  { sample: 110, check: 52, page: 40 }[c] || 20,
+  Math.max(c.length, ...printed.map((r) => String(r[c] ?? '').length)),
 )]));
-const line = (r) => cols.map((c) => String(r[c]).slice(0, width[c]).padEnd(width[c])).join(' | ');
+const line = (r) => cols.map((c) => String(r[c] ?? '').slice(0, width[c]).padEnd(width[c])).join(' | ');
 console.log(line(Object.fromEntries(cols.map((c) => [c, c]))));
 console.log(cols.map((c) => '-'.repeat(width[c])).join('-|-'));
-rows.forEach((r) => console.log(line(r)));
-const proxied = calls.filter((c) => c.includes(PROXY_ORIGIN)).length;
-console.log(`\n${pages.length} pages, ${rows.length} checks, ${rows.filter((r) => r.result === 'hit').length} hits, ${failures} required misses; ${proxied} proxy calls answered 502, ${calls.length - proxied} recorded files read`);
+printed.forEach((r) => console.log(line(r)));
+console.log('');
+rows.filter((r) => r.run === 'H').forEach((r) => console.log(`${r.check}: ${r.result}\n  ${r.sample}`));
+const sameAsA = rows.filter((r) => r.run === 'B' && !r.check.startsWith('data-lh-source')).length;
+console.log(`\nrun B loader checks: ${sameAsA}, ${rows.filter((r) => r.run === 'B' && !r.check.startsWith('data-lh-source') && loaderA.has(loaderKey(r))).length} identical to run A (not repeated above)`);
+Object.entries(summary).forEach(([run, s]) => console.log(`run ${run}: ${s.direct} direct calls, ${s.proxy} proxy calls, ${s.recorded} recorded files read, ${s.proxyDirectRoutes} direct routes sent to the proxy`));
+console.log(`${pages.length} pages, ${blocks.length} widget blocks, ${rows.length} checks, ${rows.filter((r) => r.result === 'ok').length} ok, ${rows.filter((r) => r.result === 'miss').length} optional misses, ${failures} failures`);
 process.exit(failures ? 1 : 0);

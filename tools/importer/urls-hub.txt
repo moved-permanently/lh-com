@@ -4,7 +4,6 @@ https://www.lufthansa.com/de/en/airport-information
 https://www.lufthansa.com/de/en/digital-self-services
 https://www.lufthansa.com/de/en/flights
 https://www.lufthansa.com/de/en/food-and-beverages
-https://www.lufthansa.com/de/de/speisen-und-getraenke
 https://www.lufthansa.com/de/en/lounges
 https://www.lufthansa.com/de/en/lufthansa-travel-classes
 https://www.lufthansa.com/de/en/meetings-and-events
@@ -15,5 +14,6 @@ https://www.lufthansa.com/de/en/overview-special-request
 https://www.lufthansa.com/de/en/overview-travel-information
 https://www.lufthansa.com/de/en/services-at-the-airport
 https://www.lufthansa.com/de/en/services-on-board
-https://www.lufthansa.com/de/de/services-an-bord
 https://www.lufthansa.com/de/en/special-needs
+https://www.lufthansa.com/de/de/speisen-und-getraenke
+https://www.lufthansa.com/de/de/services-an-bord

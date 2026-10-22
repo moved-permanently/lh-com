@@ -69,13 +69,9 @@ const CHROME_SELECTORS = [
   'footer .footer-brand-links',
   '.above-footer-container',
   '.secondary-footer-container',
-  // skip links, breadcrumbs, a11y live regions, AEM placeholders
+  // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
   '.skiplinks',
   '.skip-links',
-  '.breadcrumb',
-  '.breadcrumbs',
-  '.breadcrumb-wrapper',
-  'nav[aria-label*="readcrumb"]',
   '#sr-log',
   '#a11y-status-message',
   '[data-live-announcer]',
@@ -147,6 +143,68 @@ function removeTracking(document) {
     if (TRACKING_URL.test(src) || (isHiddenFrame(img) && !img.closest('.container-content'))) img.remove();
     else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
   });
+}
+
+/* ------------------------------------------------------------ breadcrumbs ------------- */
+
+const BREADCRUMB_SOURCES = 'maui-breadcrumb, nav.breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
+
+/**
+ * Breadcrumbs as the live pages show them ("Home > Airport information > Boarding"), as a
+ * "Breadcrumb" block: one cell with a list of links, the last item is the current page.
+ * AEM pages: <maui-breadcrumb><maui-breadcrumb-item href>label</maui-breadcrumb-item>...;
+ * AirCore: .breadcrumb-wrapper > nav.breadcrumb > ol > li > a | span.current. The AirCore
+ * .breadcrumb-wrapper stays as the block's container so the template's section selectors can
+ * start a section at it. Breadcrumbs without items are removed. Runs before parsers.
+ */
+function convertBreadcrumbs(document) {
+  let converted = 0;
+  const sources = [...document.querySelectorAll(BREADCRUMB_SOURCES)]
+    .filter((el, i, all) => !all.some((other) => other !== el && other.contains(el)));
+  sources.forEach((source) => {
+    if (!source.isConnected) return;
+    const items = [];
+    const mauiItems = [...source.querySelectorAll('maui-breadcrumb-item')];
+    if (mauiItems.length) {
+      mauiItems.forEach((item) => items.push({ label: cleanText(item) || item.getAttribute('label') || '', href: item.getAttribute('href') }));
+    } else {
+      source.querySelectorAll('li').forEach((li) => {
+        const link = li.querySelector('a[href]');
+        items.push({ label: cleanText(link || li), href: link ? link.getAttribute('href') : null });
+      });
+    }
+    const crumbs = items.filter((c) => c.label);
+    const wrapper = source.closest('.breadcrumb-wrapper, .maui-breadcrumb') || source;
+    if (!crumbs.length) {
+      wrapper.remove();
+      return;
+    }
+    const ul = document.createElement('ul');
+    crumbs.forEach(({ label, href }) => {
+      const li = document.createElement('li');
+      if (href) {
+        const a = document.createElement('a');
+        a.setAttribute('href', href);
+        a.textContent = label;
+        li.append(a);
+      } else {
+        li.textContent = label;
+      }
+      ul.append(li);
+    });
+    const block = WebImporter.Blocks.createBlock(document, { name: 'Breadcrumb', cells: [[ul]] });
+    if (wrapper.matches('.breadcrumb-wrapper')) {
+      wrapper.replaceChildren(block);
+    } else {
+      wrapper.replaceWith(block);
+    }
+    converted += 1;
+  });
+  // leftovers (empty AirCore wrappers, AEM .breadcrumb containers without a list)
+  document.querySelectorAll('.breadcrumb-wrapper, .breadcrumb').forEach((el) => {
+    if (el.isConnected && !el.querySelector('table')) el.remove();
+  });
+  return converted;
 }
 
 /* ------------------------------------------------------------ sr-only ----------------- */
@@ -651,6 +709,7 @@ export default function transform(hookName, element, payload) {
 
   if (hookName === 'beforeTransform') {
     const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
+    convertBreadcrumbs(document);
     removeAll(document, CHROME_SELECTORS);
     removeAirCoreLeftovers(document);
     removeTracking(document);
