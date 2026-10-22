@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/uebergepaeck",
+  "path": "de/en/uebergepaeck",
+  "timestamp": "2026-10-22T01:00:21.465Z",
+  "title": "Excess baggage | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

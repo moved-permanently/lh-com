@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/travelling-healthy",
+  "path": "de/en/travelling-healthy",
+  "timestamp": "2026-10-22T00:51:41.167Z",
+  "title": "A healthy journey | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "carousel-cards"
+  ]
+}

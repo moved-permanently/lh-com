@@ -439,6 +439,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:09.302Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-key-activities.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/c4ed78f2cf7e3e7af294fdb30565aed4.svg",
+  "format": "svg",
+  "bytes": 1181,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:42:59.908Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-personalization.svg": {
   "status": 200,
   "version": 1,
@@ -460,6 +471,17 @@
   "height": 300,
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:46:55.781Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-shopping%20bag.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/a875cd93f8d61b8a6eeb9e20e8f4d96c.svg",
+  "format": "svg",
+  "bytes": 906,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:42:59.425Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/lh-icon-transport-animals.svg": {
   "status": 200,
@@ -884,6 +906,61 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:46:48.866Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_icon_mileage-accrual.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/abed8ff7370bc7bd470c1dd3aec6c7c5.svg",
+  "format": "svg",
+  "bytes": 1765,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:42:58.917Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_senior_travellers_icon_01.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0ffda7b90bd905b9a571191bdb82556c.svg",
+  "format": "svg",
+  "bytes": 2319,
+  "width": 1440,
+  "height": 540,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:52:00.339Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_senior_travellers_icon_02.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/34fd902abf995d68279971333fa67370.svg",
+  "format": "svg",
+  "bytes": 2081,
+  "width": 1440,
+  "height": 540,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:52:00.859Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_senior_travellers_icon_03.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6738cdda6df29c89e620aebd6743c6b0.svg",
+  "format": "svg",
+  "bytes": 2990,
+  "width": 1440,
+  "height": 540,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:52:01.359Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_senior_travellers_icon_04.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/e74eae64919a04166d9b58fc7043391f.svg",
+  "format": "svg",
+  "bytes": 2988,
+  "width": 1440,
+  "height": 540,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:52:01.837Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/lounge.svg": {
   "status": 200,
   "version": 1,
@@ -1093,6 +1170,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:46:58.292Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/train-side-a.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0b08ce8a04992f581683610345cd88a6.svg",
+  "format": "svg",
+  "bytes": 553,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:42:56.707Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/upgrade.svg": {
   "status": 200,
   "version": 1,
@@ -1164,6 +1252,46 @@
    "reason": "wider-than-2560"
   }
  },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify/2024/q2/1094_20a_03005.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/543129959ae0bc80e22b52f61661f993.jpg",
+  "format": "jpeg",
+  "bytes": 470034,
+  "width": 3000,
+  "height": 2001,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:42:57.786Z",
+  "converted": {
+   "local": "/media-da/5eafdf2c4ee490431990dd073c1f4291.jpg",
+   "bytes": 329222,
+   "width": 2560,
+   "height": 1708,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify/2024/q2/1094_41c_05828.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/582a87892fbc4d3a7659f82c7d7239bc.jpg",
+  "format": "jpeg",
+  "bytes": 417265,
+  "width": 3000,
+  "height": 2001,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:52:02.389Z",
+  "converted": {
+   "local": "/media-da/e207080ac8e23599963347bacba70a85.jpg",
+   "bytes": 294421,
+   "width": 2560,
+   "height": 1708,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
  "https://www.lufthansa.com/content/dam/lh/images/frontify/2024/q2/1094_79e_11769.jpg": {
   "status": 200,
   "version": 1,
@@ -1217,6 +1345,26 @@
   "converted": {
    "local": "/media-da/1eda1a4c45ca77526aca5175746381ed.jpg",
    "bytes": 347292,
+   "width": 2560,
+   "height": 1708,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify/2024/q2/1095_37b_001037.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/1a3d0d53cdb396b4dbc1a31c43ef48ff.jpg",
+  "format": "jpeg",
+  "bytes": 475766,
+  "width": 3000,
+  "height": 2001,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:52:03.052Z",
+  "converted": {
+   "local": "/media-da/0843eeea46472f83c4de364cdd886b39.jpg",
+   "bytes": 324971,
    "width": 2560,
    "height": 1708,
    "format": "jpeg",
@@ -1381,6 +1529,46 @@
    "reason": "wider-than-2560"
   }
  },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/4/c-1553463103-1094_20a_03005.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/c3842fe0a3593c67181c2b0e6502a89e.jpg",
+  "format": "jpeg",
+  "bytes": 1542319,
+  "width": 2997,
+  "height": 1285,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:42:58.406Z",
+  "converted": {
+   "local": "/media-da/9b2f471d49a0890a355db98dcf816eb0.jpg",
+   "bytes": 212090,
+   "width": 2560,
+   "height": 1098,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/4/c-989789894-378737.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/bfbcf42a086a25afeae45ba526d719d3.jpg",
+  "format": "jpeg",
+  "bytes": 1013227,
+  "width": 2998,
+  "height": 1285,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T01:01:01.016Z",
+  "converted": {
+   "local": "/media-da/eec7d2a79666a463e2caed64919e8bb1.jpg",
+   "bytes": 163626,
+   "width": 2560,
+   "height": 1097,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
  "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/7/c-630818968-417944.jpg": {
   "status": 200,
   "version": 1,
@@ -1391,6 +1579,26 @@
   "height": 460,
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:47:00.817Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/7/c-700804023-1095_37d_001941.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/7fd308e7643143b4edc9453060dc648e.jpg",
+  "format": "jpeg",
+  "bytes": 759378,
+  "width": 2997,
+  "height": 959,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:43:00.460Z",
+  "converted": {
+   "local": "/media-da/170fb332d13426110f233f8a85047da1.jpg",
+   "bytes": 146377,
+   "width": 2560,
+   "height": 819,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
  },
  "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/8/c-1629214970-1094_26c_01959.jpg": {
   "status": 200,
@@ -1549,6 +1757,26 @@
    "reason": "wider-than-2560"
   }
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/baggage/baggage-calculator/baggage-verteilerseite-uebergepaeck.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/e828edf43dd37ca08c04a6138120d430.jpg",
+  "format": "jpeg",
+  "bytes": 331208,
+  "width": 2605,
+  "height": 1117,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T01:00:59.960Z",
+  "converted": {
+   "local": "/media-da/62b908dc4ea7dd35267def03ba5a3e45.jpg",
+   "bytes": 47547,
+   "width": 2560,
+   "height": 1098,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/baggage/baggage-irregularities/lh_gepaeckunregelmaessigkeiten_1440x461.jpg": {
   "status": 200,
   "version": 1,
@@ -1570,6 +1798,26 @@
   "height": 1027,
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:47:00.320Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/baggage/dangerous-goods/LH_sport-baggage_1440x460.png": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/42479576496a54659b83aaeb44c8b792.png",
+  "format": "png",
+  "bytes": 153561,
+  "width": 6000,
+  "height": 1917,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-22T00:51:58.575Z",
+  "converted": {
+   "local": "/media-da/0b28efd112fefdf6335e60fd2c6f64d3.jpg",
+   "bytes": 40025,
+   "width": 2560,
+   "height": 818,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
  },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/entry-regulations/lhg-passport-biometric-image.jpg": {
   "status": 200,
@@ -1768,11 +2016,71 @@
   "checkedAt": "2026-10-21T23:47:01.783Z",
   "rendition": "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-1194800323-81750.transform/lh-dcep-transform-width-2560/img.jpg"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-1415939599-4045411.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6baf91e8d33cb7dc140da8a155a766e5.jpg",
+  "format": "jpeg",
+  "bytes": 1110323,
+  "width": 2997,
+  "height": 959,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T01:01:00.438Z",
+  "converted": {
+   "local": "/media-da/633bc47b67f3048e3b0b0bb879d33baf.jpg",
+   "bytes": 166116,
+   "width": 2560,
+   "height": 819,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
  "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-2060092150-3176504": {
   "status": 403,
   "error": "HTTP 403",
   "checkedAt": "2026-10-21T23:47:24.090Z",
   "rendition": "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-2060092150-3176504.transform/lh-dcep-transform-width-2560/img.jpg"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-402578817-6138182.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/905bd2985619ef437a0e2fa28776dc4f.jpg",
+  "format": "jpeg",
+  "bytes": 1691336,
+  "width": 2997,
+  "height": 960,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T00:42:57.246Z",
+  "converted": {
+   "local": "/media-da/60efaa69918fabc09d848ece1abbd421.jpg",
+   "bytes": 259022,
+   "width": 2560,
+   "height": 820,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-664679985-4045353.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/ec1e9d6218dbb4ebfba8ad982a35bdd1.jpg",
+  "format": "jpeg",
+  "bytes": 1178404,
+  "width": 2994,
+  "height": 958,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T01:01:01.626Z",
+  "converted": {
+   "local": "/media-da/cb7b365b7cd43906f493017b4cbafa27.jpg",
+   "bytes": 157693,
+   "width": 2560,
+   "height": 819,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
  },
  "https://www.lufthansa.com/content/dam/lh/images/pixels_variations/c-697033103-6179126.jpg": {
   "status": 200,

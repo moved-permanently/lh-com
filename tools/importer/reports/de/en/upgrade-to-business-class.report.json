@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/upgrade-to-business-class",
+  "path": "de/en/upgrade-to-business-class",
+  "timestamp": "2026-10-22T01:00:39.477Z",
+  "title": "Upgrade to Lufthansa Business Class | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}

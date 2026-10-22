@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/tiere-als-uebergepaeck",
+  "path": "de/en/tiere-als-uebergepaeck",
+  "timestamp": "2026-10-22T00:51:29.627Z",
+  "title": "Animals as excess baggage | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

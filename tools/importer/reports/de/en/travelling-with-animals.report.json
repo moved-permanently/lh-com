@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/travelling-with-animals",
+  "path": "de/en/travelling-with-animals",
+  "timestamp": "2026-10-22T00:51:43.834Z",
+  "title": "Travelling with animals | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

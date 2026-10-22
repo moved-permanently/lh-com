@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/sports-baggage",
+  "path": "de/en/sports-baggage",
+  "timestamp": "2026-10-22T00:51:20.867Z",
+  "title": "Sports baggage and special baggage | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

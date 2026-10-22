@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/security-fast-lanes",
+  "path": "de/en/security-fast-lanes",
+  "timestamp": "2026-10-22T00:42:35.541Z",
+  "title": "Security Fast Lanes | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
+  ]
+}

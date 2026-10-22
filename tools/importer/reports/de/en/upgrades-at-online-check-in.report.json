@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/upgrades-at-online-check-in",
+  "path": "de/en/upgrades-at-online-check-in",
+  "timestamp": "2026-10-22T01:00:44.370Z",
+  "title": "Fixed price upgrades when you check in online | Lufthansa",
+  "template": "info",
+  "blocks": [
+    "accordion-columns"
+  ]
+}
