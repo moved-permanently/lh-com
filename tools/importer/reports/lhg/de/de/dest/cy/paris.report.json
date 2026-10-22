@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/cy/paris",
+  "path": "lhg/de/de/dest/cy/paris",
+  "timestamp": "2026-10-22T13:46:17.167Z",
+  "title": "Flug nach Paris (PAR) buchen | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "accordion-columns",
+    "table-deals",
+    "cards-icon-text",
+    "weather",
+    "accordion-side-by-side"
+  ]
+}

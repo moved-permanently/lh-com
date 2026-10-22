@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/cy/new-york/business-class",
+  "path": "lhg/de/de/dest/cy/new-york/business-class",
+  "timestamp": "2026-10-22T14:04:35.858Z",
+  "title": "",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "accordion-columns",
+    "accordion-columns",
+    "cards-icon-text",
+    "weather"
+  ]
+}

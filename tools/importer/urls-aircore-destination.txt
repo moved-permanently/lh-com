@@ -1,12 +1,2 @@
-https://www.lufthansa.com/lhg/de/en/dest/cy/los-angeles
-https://www.lufthansa.com/lhg/de/en/dest/cy/barcelona
-https://www.lufthansa.com/lhg/de/en/dest/cy/rome
-https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo
-https://www.lufthansa.com/lhg/de/en/dest/cy/london
-https://www.lufthansa.com/lhg/de/en/dest/cy/paris
-https://www.lufthansa.com/lhg/de/en/dest/cy/amman
-https://www.lufthansa.com/lhg/de/en/dest/cy/palma-de-mallorca
-https://www.lufthansa.com/lhg/de/en/dest/cy/lisbon
-https://www.lufthansa.com/lhg/de/en/from/cy/frankfurt
-https://www.lufthansa.com/lhg/de/en/from/cy/munich
-https://www.lufthansa.com/lhg/de/en/from/cy/berlin
+https://www.lufthansa.com/lhg/de/de/dest/cy/new-york/business-class
+https://www.lufthansa.com/lhg/de/de/dest/cy/tokio/business-class

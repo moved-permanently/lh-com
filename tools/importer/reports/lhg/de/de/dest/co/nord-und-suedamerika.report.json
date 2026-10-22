@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/co/nord-und-suedamerika",
+  "path": "lhg/de/de/dest/co/nord-und-suedamerika",
+  "timestamp": "2026-10-22T13:35:46.697Z",
+  "title": "Flug nach Nord- und Südamerika buchen | Lufthansa",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

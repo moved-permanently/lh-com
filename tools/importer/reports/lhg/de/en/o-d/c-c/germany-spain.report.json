@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-spain",
+  "path": "lhg/de/en/o-d/c-c/germany-spain",
+  "timestamp": "2026-10-22T13:22:29.051Z",
+  "title": "Flights from Germany to Spain | Lufthansa",
+  "template": "aircore-route",
+  "blocks": [
+    "flight-search",
+    "cards-icon-text",
+    "accordion-columns",
+    "accordion-side-by-side"
+  ]
+}

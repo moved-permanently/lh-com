@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/c/usa",
+  "path": "lhg/de/de/dest/c/usa",
+  "timestamp": "2026-10-22T13:35:51.546Z",
+  "title": "Flug in die USA buchen | Lufthansa",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

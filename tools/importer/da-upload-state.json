@@ -611,9 +611,10 @@
    "preview": "2026-10-22T00:27:03.175Z"
   },
   "/de/en/during-your-trip/internet-overview": {
-   "uploaded": "2026-10-22T00:27:05.774Z",
+   "uploaded": "2026-10-22T13:23:58.486Z",
    "mtime": 1792627942807,
-   "preview": "2026-10-22T00:27:08.248Z"
+   "preview": "2026-10-22T13:24:00.451Z",
+   "edits": "[[\"<h3 id=\\\"entertainment\\\">Entertainment</h3>\",\"<h3 id=\\\"entertainment-on-board\\\">Entertainment on board</h3>\"]]"
   },
   "/de/en/economy-class": {
    "uploaded": "2026-10-22T00:27:09.705Z",
@@ -1936,9 +1937,9 @@
    "preview": "2026-10-22T03:03:47.375Z"
   },
   "/de/de/dangerous-dogs": {
-   "uploaded": "2026-10-22T03:03:48.592Z",
-   "mtime": 1792638158581,
-   "preview": "2026-10-22T03:03:50.865Z"
+   "uploaded": "2026-10-22T13:57:30.846Z",
+   "mtime": 1792677382503,
+   "preview": "2026-10-22T13:57:32.730Z"
   },
   "/de/de/digitale-gepaeckservices": {
    "uploaded": "2026-10-22T03:03:51.996Z",
@@ -6041,9 +6042,9 @@
    "preview": "2026-10-22T13:14:34.753Z"
   },
   "/lhg/de/en/dest/cy/amman": {
-   "uploaded": "2026-10-22T13:14:36.211Z",
-   "mtime": 1792674749102,
-   "preview": "2026-10-22T13:14:38.456Z"
+   "uploaded": "2026-10-22T13:57:26.834Z",
+   "mtime": 1792677369576,
+   "preview": "2026-10-22T13:57:29.190Z"
   },
   "/lhg/de/en/dest/cy/palma-de-mallorca": {
    "uploaded": "2026-10-22T13:14:39.654Z",
@@ -6069,6 +6070,276 @@
    "uploaded": "2026-10-22T13:14:53.629Z",
    "mtime": 1792674765880,
    "preview": "2026-10-22T13:14:55.784Z"
+  },
+  "/lhg/de/en/dest/cy/new-york/business-class": {
+   "uploaded": "2026-10-22T13:24:08.078Z",
+   "mtime": 1792675329840,
+   "preview": "2026-10-22T13:24:10.242Z"
+  },
+  "/lhg/de/en/dest/cy/tokyo/business-class": {
+   "uploaded": "2026-10-22T13:24:11.553Z",
+   "mtime": 1792675333243,
+   "preview": "2026-10-22T13:24:13.802Z"
+  },
+  "/lhg/de/en/o-d/c-c/germany-spain": {
+   "uploaded": "2026-10-22T13:24:15.254Z",
+   "mtime": 1792675349038,
+   "preview": "2026-10-22T13:24:17.092Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/frankfurt-new-york": {
+   "uploaded": "2026-10-22T13:24:19.258Z",
+   "mtime": 1792675436148,
+   "preview": "2026-10-22T13:24:21.491Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/munich-los-angeles": {
+   "uploaded": "2026-10-22T13:24:22.900Z",
+   "mtime": 1792675436358,
+   "preview": "2026-10-22T13:24:24.783Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/frankfurt-tokyo": {
+   "uploaded": "2026-10-22T13:24:26.114Z",
+   "mtime": 1792675436216,
+   "preview": "2026-10-22T13:24:28.104Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/munich-barcelona": {
+   "uploaded": "2026-10-22T13:24:29.292Z",
+   "mtime": 1792675436285,
+   "preview": "2026-10-22T13:24:31.305Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/frankfurt-london": {
+   "uploaded": "2026-10-22T13:24:32.667Z",
+   "mtime": 1792675436081,
+   "preview": "2026-10-22T13:24:34.374Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/berlin-rome": {
+   "uploaded": "2026-10-22T13:24:35.635Z",
+   "mtime": 1792675435945,
+   "preview": "2026-10-22T13:24:37.740Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/frankfurt-amman": {
+   "uploaded": "2026-10-22T13:24:38.974Z",
+   "mtime": 1792675436012,
+   "preview": "2026-10-22T13:24:40.645Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/munich-new-york": {
+   "uploaded": "2026-10-22T13:26:04.162Z",
+   "mtime": 1792675556973,
+   "preview": "2026-10-22T13:26:06.052Z"
+  },
+  "/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca": {
+   "uploaded": "2026-10-22T13:26:07.335Z",
+   "mtime": 1792675556762,
+   "preview": "2026-10-22T13:26:09.357Z"
+  },
+  "/lhg/de/de": {
+   "uploaded": "2026-10-22T13:37:31.116Z",
+   "mtime": 1792676242886,
+   "preview": "2026-10-22T13:37:33.060Z"
+  },
+  "/lhg/de/de/dest/co/europa": {
+   "uploaded": "2026-10-22T13:37:34.595Z",
+   "mtime": 1792676143949,
+   "preview": "2026-10-22T13:37:37.062Z"
+  },
+  "/lhg/de/de/dest/co/nord-und-suedamerika": {
+   "uploaded": "2026-10-22T13:37:38.333Z",
+   "mtime": 1792676146687,
+   "preview": "2026-10-22T13:37:40.121Z"
+  },
+  "/lhg/de/de/dest/c/usa": {
+   "uploaded": "2026-10-22T13:37:41.623Z",
+   "mtime": 1792676151496,
+   "preview": "2026-10-22T13:37:47.710Z"
+  },
+  "/lhg/de/de/dest/c/spanien": {
+   "uploaded": "2026-10-22T13:37:49.037Z",
+   "mtime": 1792676154080,
+   "preview": "2026-10-22T13:37:51.173Z"
+  },
+  "/lhg/de/de/dest/c/italien": {
+   "uploaded": "2026-10-22T13:37:52.471Z",
+   "mtime": 1792676156324,
+   "preview": "2026-10-22T13:37:54.944Z"
+  },
+  "/lhg/de/de/dest/c/japan": {
+   "uploaded": "2026-10-22T13:37:56.300Z",
+   "mtime": 1792676158792,
+   "preview": "2026-10-22T13:37:58.720Z"
+  },
+  "/lhg/de/de/dest/c/indien": {
+   "uploaded": "2026-10-22T13:38:00.054Z",
+   "mtime": 1792676162021,
+   "preview": "2026-10-22T13:38:02.387Z"
+  },
+  "/lhg/de/de/dest/c/grossbritannien": {
+   "uploaded": "2026-10-22T13:38:03.906Z",
+   "mtime": 1792676164516,
+   "preview": "2026-10-22T13:38:06.115Z"
+  },
+  "/lhg/de/de/dest/cy/new-york": {
+   "uploaded": "2026-10-22T13:38:07.446Z",
+   "mtime": 1792676177685,
+   "preview": "2026-10-22T13:38:09.490Z"
+  },
+  "/lhg/de/de/dest/cy/los-angeles": {
+   "uploaded": "2026-10-22T13:38:10.979Z",
+   "mtime": 1792676181398,
+   "preview": "2026-10-22T13:38:12.869Z"
+  },
+  "/lhg/de/de/dest/cy/barcelona": {
+   "uploaded": "2026-10-22T13:38:14.190Z",
+   "mtime": 1792676183725,
+   "preview": "2026-10-22T13:38:16.531Z"
+  },
+  "/lhg/de/de/fragments/home-africa": {
+   "uploaded": "2026-10-22T13:38:18.156Z",
+   "mtime": 1792676242765,
+   "preview": "2026-10-22T13:38:22.070Z"
+  },
+  "/lhg/de/de/fragments/home-americas-1": {
+   "uploaded": "2026-10-22T13:38:23.395Z",
+   "mtime": 1792676242812,
+   "preview": "2026-10-22T13:38:28.553Z"
+  },
+  "/lhg/de/de/fragments/home-americas-2": {
+   "uploaded": "2026-10-22T13:38:29.937Z",
+   "mtime": 1792676242836,
+   "preview": "2026-10-22T13:38:35.818Z"
+  },
+  "/lhg/de/de/fragments/home-asia": {
+   "uploaded": "2026-10-22T13:38:37.470Z",
+   "mtime": 1792676242789,
+   "preview": "2026-10-22T13:38:42.042Z"
+  },
+  "/lhg/de/de/fragments/home-europe-1": {
+   "uploaded": "2026-10-22T13:38:43.449Z",
+   "mtime": 1792676242716,
+   "preview": "2026-10-22T13:38:48.086Z"
+  },
+  "/lhg/de/de/dest/cy/rom": {
+   "uploaded": "2026-10-22T13:48:08.771Z",
+   "mtime": 1792676769077,
+   "preview": "2026-10-22T13:48:11.010Z"
+  },
+  "/lhg/de/de/dest/cy/tokio": {
+   "uploaded": "2026-10-22T13:48:12.401Z",
+   "mtime": 1792676771613,
+   "preview": "2026-10-22T13:48:14.320Z"
+  },
+  "/lhg/de/de/dest/cy/london": {
+   "uploaded": "2026-10-22T13:48:15.880Z",
+   "mtime": 1792676774232,
+   "preview": "2026-10-22T13:48:17.793Z"
+  },
+  "/lhg/de/de/dest/cy/paris": {
+   "uploaded": "2026-10-22T13:48:19.050Z",
+   "mtime": 1792676777154,
+   "preview": "2026-10-22T13:48:21.252Z"
+  },
+  "/lhg/de/de/dest/cy/amman": {
+   "uploaded": "2026-10-22T13:48:22.521Z",
+   "mtime": 1792676779932,
+   "preview": "2026-10-22T13:48:24.579Z"
+  },
+  "/lhg/de/de/dest/cy/palma-de-mallorca": {
+   "uploaded": "2026-10-22T13:48:26.006Z",
+   "mtime": 1792676782193,
+   "preview": "2026-10-22T13:48:27.981Z"
+  },
+  "/lhg/de/de/dest/cy/lissabon": {
+   "uploaded": "2026-10-22T13:48:29.163Z",
+   "mtime": 1792676784464,
+   "preview": "2026-10-22T13:48:31.168Z"
+  },
+  "/lhg/de/de/from/cy/frankfurt": {
+   "uploaded": "2026-10-22T13:48:32.574Z",
+   "mtime": 1792676787662,
+   "preview": "2026-10-22T13:48:34.662Z"
+  },
+  "/lhg/de/de/from/cy/muenchen": {
+   "uploaded": "2026-10-22T13:48:35.909Z",
+   "mtime": 1792676790198,
+   "preview": "2026-10-22T13:48:37.899Z"
+  },
+  "/lhg/de/de/from/cy/berlin": {
+   "uploaded": "2026-10-22T13:48:39.226Z",
+   "mtime": 1792676792505,
+   "preview": "2026-10-22T13:48:41.539Z"
+  },
+  "/lhg/de/de/o-d/c-c/deutschland-usa": {
+   "uploaded": "2026-10-22T13:48:43.025Z",
+   "mtime": 1792676806888,
+   "preview": "2026-10-22T13:48:44.546Z"
+  },
+  "/lhg/de/de/o-d/c-c/deutschland-spanien": {
+   "uploaded": "2026-10-22T13:48:45.706Z",
+   "mtime": 1792676810382,
+   "preview": "2026-10-22T13:48:47.587Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/frankfurt-new-york": {
+   "uploaded": "2026-10-22T13:48:48.927Z",
+   "mtime": 1792676880326,
+   "preview": "2026-10-22T13:48:50.741Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/muenchen-los-angeles": {
+   "uploaded": "2026-10-22T13:48:51.975Z",
+   "mtime": 1792676880452,
+   "preview": "2026-10-22T13:48:53.937Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/frankfurt-tokio": {
+   "uploaded": "2026-10-22T13:48:55.423Z",
+   "mtime": 1792676880387,
+   "preview": "2026-10-22T13:48:57.338Z"
+  },
+  "/lhg/de/de/fragments/home-europe-2": {
+   "uploaded": "2026-10-22T13:48:59.087Z",
+   "mtime": 1792676242739,
+   "preview": "2026-10-22T13:49:03.077Z"
+  },
+  "/lhg/de/de/fragments/home-oceania": {
+   "uploaded": "2026-10-22T13:49:04.313Z",
+   "mtime": 1792676242860,
+   "preview": "2026-10-22T13:49:06.186Z"
+  },
+  "/lhg/de/de/dest/cy/new-york/business-class": {
+   "uploaded": "2026-10-22T14:06:17.953Z",
+   "mtime": 1792677875823,
+   "preview": "2026-10-22T14:06:20.149Z"
+  },
+  "/lhg/de/de/dest/cy/tokio/business-class": {
+   "uploaded": "2026-10-22T14:06:21.659Z",
+   "mtime": 1792677878504,
+   "preview": "2026-10-22T14:06:23.371Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/muenchen-barcelona": {
+   "uploaded": "2026-10-22T14:06:24.744Z",
+   "mtime": 1792677969167,
+   "preview": "2026-10-22T14:06:26.568Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/frankfurt-london": {
+   "uploaded": "2026-10-22T14:06:28.344Z",
+   "mtime": 1792677968930,
+   "preview": "2026-10-22T14:06:30.228Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/berlin-rom": {
+   "uploaded": "2026-10-22T14:06:31.370Z",
+   "mtime": 1792677968790,
+   "preview": "2026-10-22T14:06:33.222Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/frankfurt-amman": {
+   "uploaded": "2026-10-22T14:06:34.329Z",
+   "mtime": 1792677968857,
+   "preview": "2026-10-22T14:06:36.548Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/muenchen-new-york": {
+   "uploaded": "2026-10-22T14:06:37.745Z",
+   "mtime": 1792677969278,
+   "preview": "2026-10-22T14:06:39.847Z"
+  },
+  "/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca": {
+   "uploaded": "2026-10-22T14:06:41.125Z",
+   "mtime": 1792677969104,
+   "preview": "2026-10-22T14:06:43.057Z"
   }
  },
  "media": {
@@ -6248,6 +6519,9 @@
   },
   "/media-da/c08ef369f6b84eaa0d29778271b93562.jpg": {
    "at": "2026-10-22T02:48:55.101Z"
+  },
+  "/media-da/1bc971b65b02726cdf7bd2fa04dd4ba8.jpg": {
+   "at": "2026-10-22T13:24:18.179Z"
   }
  }
 }

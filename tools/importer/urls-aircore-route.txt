@@ -1,1 +1,6 @@
-https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-usa
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-barcelona
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-london
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/berlin-rom
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-amman
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-new-york
+https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca

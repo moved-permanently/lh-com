@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/c/spanien",
+  "path": "lhg/de/de/dest/c/spanien",
+  "timestamp": "2026-10-22T13:35:54.096Z",
+  "title": "Flug nach Spanien buchen | Lufthansa",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

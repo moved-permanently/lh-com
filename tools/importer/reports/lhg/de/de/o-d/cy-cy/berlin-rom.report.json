@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/berlin-rom",
+  "path": "lhg/de/de/o-d/cy-cy/berlin-rom",
+  "timestamp": "2026-10-22T14:04:58.752Z",
+  "title": "",
+  "template": "aircore-route",
+  "blocks": [
+    "flight-search"
+  ]
+}

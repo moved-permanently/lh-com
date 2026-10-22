@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/dest/co/europa",
+  "path": "lhg/de/de/dest/co/europa",
+  "timestamp": "2026-10-22T13:35:43.983Z",
+  "title": "Flug nach Europa buchen | Lufthansa",
+  "template": "aircore-destination-overview",
+  "blocks": [
+    "flight-search"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo/business-class",
+  "path": "lhg/de/en/dest/cy/tokyo/business-class",
+  "timestamp": "2026-10-22T13:22:13.263Z",
+  "title": "Book a business class flight to Tokyo (TYO) | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "accordion-columns",
+    "accordion-columns",
+    "cards-icon-text",
+    "weather"
+  ]
+}

@@ -21,6 +21,59 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:47:32.136Z"
  },
+ "https://www.lufthansa.com/aircore/media/am/eyJpZGVudGlmaWVyIjo4ODA4MDIsInR5cGUiOiJhc3NldCJ9.webp": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/eafe629ec929eb7563c1c4998b67f812.webp",
+  "format": "webp",
+  "bytes": 472438,
+  "width": 1987,
+  "height": 1508,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T13:23:54.727Z"
+ },
+ "https://www.lufthansa.com/aircore/media/an/eyJpZGVudGlmaWVyIjo4ODA4NDAsInR5cGUiOiJhc3NldCJ9.webp": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/df00395fc5010e218ecf39d81d9b32d5.webp",
+  "format": "webp",
+  "bytes": 407040,
+  "width": 2120,
+  "height": 1414,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T13:23:54.231Z"
+ },
+ "https://www.lufthansa.com/aircore/media/cm/eyJpZGVudGlmaWVyIjo1MTc2MTksInR5cGUiOiJhc3NldCJ9.webp": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/d832a06a719ac188d516a70c266cfc77.jpg",
+  "format": "jpeg",
+  "bytes": 985732,
+  "width": 4096,
+  "height": 2732,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T13:23:55.460Z",
+  "converted": {
+   "local": "/media-da/1bc971b65b02726cdf7bd2fa04dd4ba8.jpg",
+   "bytes": 264668,
+   "width": 2560,
+   "height": 1708,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/aircore/media/cm/eyJpZGVudGlmaWVyIjo4Mjc2MTIsInR5cGUiOiJhc3NldCJ9.webp": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/c9452a1587c1da6c9261b9730d531929.webp",
+  "format": "webp",
+  "bytes": 101356,
+  "width": 2400,
+  "height": 1601,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T13:23:53.709Z"
+ },
  "https://www.lufthansa.com/aircore/media/cn/eyJpZGVudGlmaWVyIjo1MTc4NjEsInR5cGUiOiJhc3NldCJ9.webp": {
   "status": 200,
   "version": 1,
@@ -31,6 +84,17 @@
   "height": 1601,
   "hasAlpha": false,
   "checkedAt": "2026-10-21T23:47:31.647Z"
+ },
+ "https://www.lufthansa.com/aircore/media/uo/eyJpZGVudGlmaWVyIjo2NTU4ODIsInR5cGUiOiJhc3NldCJ9.webp": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/30ec17869beeeb93b6ec3356d1e32bbf.webp",
+  "format": "webp",
+  "bytes": 176562,
+  "width": 2400,
+  "height": 1601,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-22T13:23:53.307Z"
  },
  "https://www.lufthansa.com/content/dam/lh/article-images/asia/lh_blog_mumbai_bandra_overview_gettyimages521360052_1920x1080.jpg": {
   "status": 200,

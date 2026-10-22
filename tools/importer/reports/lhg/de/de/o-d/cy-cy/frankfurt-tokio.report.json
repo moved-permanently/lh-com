@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-tokio",
+  "path": "lhg/de/de/o-d/cy-cy/frankfurt-tokio",
+  "timestamp": "2026-10-22T13:47:00.099Z",
+  "title": "Direktflug von Frankfurt nach Tokio (FRA-TYO) buchen | Lufthansa",
+  "template": "aircore-route",
+  "blocks": [
+    "flight-search"
+  ]
+}

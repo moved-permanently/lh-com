@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/lhg/de/de/from/cy/muenchen",
+  "path": "lhg/de/de/from/cy/muenchen",
+  "timestamp": "2026-10-22T13:46:30.210Z",
+  "title": "Flüge ab München (MUC) buchen | Lufthansa",
+  "template": "aircore-destination",
+  "blocks": [
+    "flight-search",
+    "cards-price",
+    "accordion-columns",
+    "cards-icon-text"
+  ]
+}
