@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/de/en/passengers-using-wheelchairs",
+    "locale": "de/en",
+    "template": "info",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/en/book-and-manage/stopover",
+    "locale": "de/en",
+    "template": "campaign",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/en/register-animal-cabin",
+    "locale": "de/en",
+    "template": "form",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/fluege",
+    "locale": "de/de",
+    "template": "hub",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/sportgepaeck-hinzufuegen",
+    "locale": "de/de",
+    "template": "info",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
+    "locale": "de/de",
+    "template": "info",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/fliegen-mit-kleinkind",
+    "locale": "de/de",
+    "template": "info",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/lounge-begleitung",
+    "locale": "de/de",
+    "template": "info",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/744",
+    "locale": "de/de",
+    "template": "fleet",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  },
+  {
+    "path": "/de/de/articles/explore-the-world/stop-over-tokyo",
+    "locale": "de/de",
+    "template": "insights",
+    "reason": "never captured (no metadata.json, not in bd-session-state)"
+  }
+]

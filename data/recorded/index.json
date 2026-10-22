@@ -992,6 +992,14 @@
    "file": "gb-en-bcf47298.json",
    "recordedAt": "2026-10-21T18:30:06.496Z"
   },
+  "at/de|GET /service/api/labels/common/lh/de": {
+   "file": "at-de-648c185d.json",
+   "recordedAt": "2026-10-22T05:51:26.418Z"
+  },
+  "at/de|GET /service/api/labels/searchBar/lh/de": {
+   "file": "at-de-db8e27af.json",
+   "recordedAt": "2026-10-22T05:51:26.418Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1047,6 +1055,30 @@
   "de/de|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
    "file": "de-de-18ef474e.json",
    "recordedAt": "2026-10-22T05:12:56.511Z"
+  },
+  "de/de|GET /service/api/catalogs/feedbackForm": {
+   "file": "de-de-574b86b9.json",
+   "recordedAt": "2026-10-22T05:44:15.843Z"
+  },
+  "de/de|GET /service/api/labels/voucherExchange/lh/de": {
+   "file": "de-de-becb4e9d.json",
+   "recordedAt": "2026-10-22T05:44:15.843Z"
+  },
+  "de/de|GET /service/api/labels/feedbackform/lh/de": {
+   "file": "de-de-53afbefd.json",
+   "recordedAt": "2026-10-22T05:44:15.843Z"
+  },
+  "de/de|GET /service/api/labels/quickactions/lh/de": {
+   "file": "de-de-6bd42732.json",
+   "recordedAt": "2026-10-22T05:48:30.750Z"
+  },
+  "de/de|GET /service/api/labels/checkin/lh/de": {
+   "file": "de-de-5e3323d5.json",
+   "recordedAt": "2026-10-22T05:49:58.690Z"
+  },
+  "de/de|GET /service/api/labels/flightstatus/lh/de": {
+   "file": "de-de-4858a840.json",
+   "recordedAt": "2026-10-22T05:50:57.736Z"
   },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
@@ -1153,5 +1185,5 @@
    "recordedAt": "2026-10-22T02:15:19.558Z"
   }
  },
- "updatedAt": "2026-10-22T05:38:51.954Z"
+ "updatedAt": "2026-10-22T06:15:43.172Z"
 }

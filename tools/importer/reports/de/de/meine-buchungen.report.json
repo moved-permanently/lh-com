@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/meine-buchungen",
+  "path": "de/de/meine-buchungen",
+  "timestamp": "2026-10-22T05:53:15.292Z",
+  "title": "Flug ansehen & bearbeiten | Lufthansa",
+  "template": "app-entry",
+  "blocks": [
+    "cards-teaser"
+  ]
+}

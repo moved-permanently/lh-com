@@ -1,10 +1,2 @@
-https://www.lufthansa.com/de/de/lounges
-https://www.lufthansa.com/de/de/lufthansa-reiseklassen
-https://www.lufthansa.com/de/de/meetings-and-events
-https://www.lufthansa.com/de/de/miles-and-more
-https://www.lufthansa.com/de/de/overview-flights
-https://www.lufthansa.com/de/de/overview-manage
-https://www.lufthansa.com/de/de/overview-special-request
-https://www.lufthansa.com/de/de/overview-travel-information
-https://www.lufthansa.com/de/de/services-am-flughafen
-https://www.lufthansa.com/de/de/betreuungsbedarf
+https://www.lufthansa.com/at/de/additional-services
+https://www.lufthansa.com/at/de/flughafeninformation

@@ -16,6 +16,8 @@ helix-importer-ui
 tools/source-export/*
 !tools/source-export/har/
 tools/importer/bd-snapshots/
+# parity screenshots and diffs (GBs, reproducible); state/progress.json stays tracked
+tools/reports/parity/shots/
 migration-work/scrape-check/
 migration-work/images/
 migration-work/templates/*/images/

@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/flugsuche",
+  "path": "de/de/flugsuche",
+  "timestamp": "2026-10-22T05:53:12.393Z",
+  "title": "Flugsuche | Lufthansa",
+  "template": "app-entry",
+  "blocks": [
+    "columns-media"
+  ]
+}

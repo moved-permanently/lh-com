@@ -2979,6 +2979,86 @@
    "uploaded": "2026-10-22T05:38:43.001Z",
    "mtime": 1792647452830,
    "preview": "2026-10-22T05:38:44.919Z"
+  },
+  "/at/de/additional-services": {
+   "uploaded": "2026-10-22T05:54:04.866Z",
+   "mtime": 1792648353601,
+   "preview": "2026-10-22T05:54:07.388Z"
+  },
+  "/at/de/flughafeninformation": {
+   "uploaded": "2026-10-22T05:54:08.477Z",
+   "mtime": 1792648355679,
+   "preview": "2026-10-22T05:54:10.327Z"
+  },
+  "/de/de/farealert/best-price-alert": {
+   "uploaded": "2026-10-22T05:54:11.518Z",
+   "mtime": 1792648364828,
+   "preview": "2026-10-22T05:54:14.075Z"
+  },
+  "/de/de/feedback": {
+   "uploaded": "2026-10-22T05:54:15.111Z",
+   "mtime": 1792648366846,
+   "preview": "2026-10-22T05:54:17.321Z"
+  },
+  "/de/de/feedback-past-flight": {
+   "uploaded": "2026-10-22T05:54:18.355Z",
+   "mtime": 1792648370525,
+   "preview": "2026-10-22T05:54:20.397Z"
+  },
+  "/de/de/feedback/feedbackai": {
+   "uploaded": "2026-10-22T05:54:21.475Z",
+   "mtime": 1792648372640,
+   "preview": "2026-10-22T05:54:23.318Z"
+  },
+  "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage": {
+   "uploaded": "2026-10-22T05:54:24.419Z",
+   "mtime": 1792648374975,
+   "preview": "2026-10-22T05:54:26.382Z"
+  },
+  "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
+   "uploaded": "2026-10-22T05:54:27.553Z",
+   "mtime": 1792648378356,
+   "preview": "2026-10-22T05:54:29.394Z"
+  },
+  "/de/de/register-animal-cabin": {
+   "uploaded": "2026-10-22T05:54:30.518Z",
+   "mtime": 1792648381457,
+   "preview": "2026-10-22T05:54:32.465Z"
+  },
+  "/de/de/book-and-manage/booking-services/manage-my-bookings": {
+   "uploaded": "2026-10-22T05:54:33.563Z",
+   "mtime": 1792648389547,
+   "preview": "2026-10-22T05:54:35.245Z"
+  },
+  "/de/de/flugsuche": {
+   "uploaded": "2026-10-22T05:54:36.440Z",
+   "mtime": 1792648392383,
+   "preview": "2026-10-22T05:54:38.260Z"
+  },
+  "/de/de/meine-buchungen": {
+   "uploaded": "2026-10-22T05:54:39.320Z",
+   "mtime": 1792648395281,
+   "preview": "2026-10-22T05:54:41.360Z"
+  },
+  "/de/de/mein-logbuch": {
+   "uploaded": "2026-10-22T05:54:42.548Z",
+   "mtime": 1792648397965,
+   "preview": "2026-10-22T05:54:44.412Z"
+  },
+  "/de/de/online-check-in": {
+   "uploaded": "2026-10-22T05:54:45.514Z",
+   "mtime": 1792648400751,
+   "preview": "2026-10-22T05:54:47.582Z"
+  },
+  "/de/de/pre-check-in": {
+   "uploaded": "2026-10-22T05:54:48.708Z",
+   "mtime": 1792648403484,
+   "preview": "2026-10-22T05:54:50.689Z"
+  },
+  "/de/de/flugplan-und-flugstatus": {
+   "uploaded": "2026-10-22T05:54:51.883Z",
+   "mtime": 1792648410495,
+   "preview": "2026-10-22T05:54:54.010Z"
   }
  },
  "media": {

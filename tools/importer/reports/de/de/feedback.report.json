@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/feedback",
+  "path": "de/de/feedback",
+  "timestamp": "2026-10-22T05:52:46.859Z",
+  "title": "Feedback- und weitere Kontaktformulare | Lufthansa",
+  "template": "form",
+  "blocks": [
+    "form",
+    "accordion-columns"
+  ]
+}

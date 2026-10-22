@@ -2883,5 +2883,85 @@
   "template": "form",
   "status": "ok",
   "at": "2026-10-22T05:37:35.908Z"
+ },
+ "https://www.lufthansa.com/at/de/additional-services": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-22T05:52:40.283Z"
+ },
+ "https://www.lufthansa.com/at/de/flughafeninformation": {
+  "template": "hub",
+  "status": "ok",
+  "at": "2026-10-22T05:52:40.286Z"
+ },
+ "https://www.lufthansa.com/de/de/farealert/best-price-alert": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.566Z"
+ },
+ "https://www.lufthansa.com/de/de/feedback": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.569Z"
+ },
+ "https://www.lufthansa.com/de/de/feedback-past-flight": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.571Z"
+ },
+ "https://www.lufthansa.com/de/de/feedback/feedbackai": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.574Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.576Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.579Z"
+ },
+ "https://www.lufthansa.com/de/de/register-animal-cabin": {
+  "template": "form",
+  "status": "ok",
+  "at": "2026-10-22T05:53:04.582Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/booking-services/manage-my-bookings": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.580Z"
+ },
+ "https://www.lufthansa.com/de/de/flugsuche": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.583Z"
+ },
+ "https://www.lufthansa.com/de/de/meine-buchungen": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.585Z"
+ },
+ "https://www.lufthansa.com/de/de/mein-logbuch": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.588Z"
+ },
+ "https://www.lufthansa.com/de/de/online-check-in": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.591Z"
+ },
+ "https://www.lufthansa.com/de/de/pre-check-in": {
+  "template": "app-entry",
+  "status": "ok",
+  "at": "2026-10-22T05:53:26.593Z"
+ },
+ "https://www.lufthansa.com/de/de/flugplan-und-flugstatus": {
+  "template": "flight-status",
+  "status": "ok",
+  "at": "2026-10-22T05:53:33.613Z"
  }
 }

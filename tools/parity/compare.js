@@ -3,13 +3,25 @@
  * Pixel-compares two screenshots.
  *
  * node tools/parity/compare.js --a src.png --b eds.png --out diff.png
- *   [--threshold 0.1] [--band 200]
+ *   [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]
  *
  * Both images are padded with white to the larger width/height, so a page that is too short or too
- * long shows up as mismatch at the bottom. Prints and writes <out>.json:
- * {mismatchRatio, width, height, heightA, heightB, bands: [{y, ratio}]} where each band is a 200 px
- * horizontal strip; high bands locate the broken section.
- * Also usable as a module: const { compareImages } = require('./compare.js').
+ * long shows up as mismatch at the bottom.
+ * --mask (repeatable): a JSON file with boxes in document coordinates, either an array of
+ *   {x, y, width, height} or an object with "liveBoxes" or "boxes" (so capture.js's <out>.json can
+ *   be passed as is). The boxes are painted the same grey in BOTH images before diffing, so
+ *   live/recorded data (fares, weather, flight search) never counts as mismatch; in the diff
+ *   image they are tinted blue.
+ * Prints and writes <out>.json:
+ *   mismatchRatio    mismatched / all pixels (masked pixels count as matching)
+ *   unmaskedRatio    mismatched / unmasked pixels (the number to judge parity by)
+ *   maskedPixels, maskRatio, maskBoxes
+ *   bands            [{index, y, ratio, unmaskedRatio}] per --band px horizontal strip
+ *   worstBands       top 3 bands by unmaskedRatio
+ *   heightDiffRatio  |heightA - heightB| / max(heightA, heightB)
+ *   firstDivergentBand {index, y, unmaskedRatio} of the first band above --diverge (where the
+ *                    layout starts to diverge), or null
+ * Also usable as a module: const { compareImages, comparePngs } = require('./compare.js').
  */
 const fs = require('fs');
 const path = require('path');
@@ -18,6 +30,9 @@ const pixelmatch = require('pixelmatch').default;
 const { getArgs, writeJsonAtomic, mkdirp } = require('./lib.js');
 
 const DIFF_COLOR = [255, 0, 0];
+const MASK_COLOR = [128, 128, 128];
+const MASK_TINT = [0, 90, 255];
+const DIVERGE_THRESHOLD = 0.3;
 
 /** Reads a PNG or JPEG (live captures are JPEG) into {width, height, data}. */
 function readImage(file) {
@@ -31,28 +46,90 @@ function readImage(file) {
   return PNG.sync.read(buf);
 }
 
-function pad(img, width, height) {
-  if (img.width === width && img.height === height) return img;
+/** Returns an image of exactly width x height: a padded copy, or a copy of the pixels. */
+function padCopy(img, width, height) {
   const out = new PNG({ width, height });
+  if (img.width === width && img.height === height) {
+    Buffer.from(img.data.buffer, img.data.byteOffset, img.data.length).copy(out.data);
+    return out;
+  }
   out.data.fill(255); // opaque white
   PNG.bitblt(img, out, 0, 0, img.width, img.height, 0, 0);
   return out;
 }
 
+/**
+ * Reads mask boxes from a JSON file: an array of boxes or {liveBoxes|boxes: [...]}.
+ * @param {string} file
+ * @returns {{x: number, y: number, width: number, height: number}[]}
+ */
+function loadMask(file) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+  let boxes = [];
+  if (Array.isArray(data)) boxes = data;
+  else if (data && Array.isArray(data.liveBoxes)) boxes = data.liveBoxes;
+  else if (data && Array.isArray(data.boxes)) boxes = data.boxes;
+  return boxes.filter((b) => b && [b.x, b.y, b.width, b.height].every(Number.isFinite)
+    && b.width > 0 && b.height > 0);
+}
+
+/** Marks the boxes (clipped to the image) in a width*height byte map; returns the map. */
+function maskMap(boxes, width, height) {
+  const map = new Uint8Array(width * height);
+  boxes.forEach((b) => {
+    const x0 = Math.max(0, Math.floor(b.x));
+    const y0 = Math.max(0, Math.floor(b.y));
+    const x1 = Math.min(width, Math.ceil(b.x + b.width));
+    const y1 = Math.min(height, Math.ceil(b.y + b.height));
+    for (let y = y0; y < y1; y += 1) map.fill(1, y * width + x0, y * width + Math.max(x0, x1));
+  });
+  return map;
+}
+
+function paint(img, map, [r, g, b]) {
+  for (let p = 0; p < map.length; p += 1) {
+    if (map[p]) {
+      const i = p * 4;
+      img.data[i] = r;
+      img.data[i + 1] = g;
+      img.data[i + 2] = b;
+      img.data[i + 3] = 255;
+    }
+  }
+}
+
+function tint(img, map, [r, g, b], alpha = 0.35) {
+  for (let p = 0; p < map.length; p += 1) {
+    if (map[p]) {
+      const i = p * 4;
+      img.data[i] = Math.round(img.data[i] * (1 - alpha) + r * alpha);
+      img.data[i + 1] = Math.round(img.data[i + 1] * (1 - alpha) + g * alpha);
+      img.data[i + 2] = Math.round(img.data[i + 2] * (1 - alpha) + b * alpha);
+    }
+  }
+}
+
 const round = (n) => Math.round(n * 1e5) / 1e5;
 
 /**
- * Compares two decoded PNGs.
- * @param {PNG} imgA source image
- * @param {PNG} imgB EDS image
- * @param {Object} [opts] {threshold=0.1, bandHeight=200}
+ * Compares two decoded images (the inputs are not modified).
+ * @param {{width, height, data}} imgA source image
+ * @param {{width, height, data}} imgB EDS image
+ * @param {Object} [opts] {threshold=0.1, bandHeight=200, masks=[], divergeThreshold=0.3}
  * @returns {{result: Object, diff: PNG}} metrics and the diff image
  */
-function comparePngs(imgA, imgB, { threshold = 0.1, bandHeight = 200 } = {}) {
+function comparePngs(imgA, imgB, {
+  threshold = 0.1, bandHeight = 200, masks = [], divergeThreshold = DIVERGE_THRESHOLD,
+} = {}) {
   const width = Math.max(imgA.width, imgB.width);
   const height = Math.max(imgA.height, imgB.height);
-  const a = pad(imgA, width, height);
-  const b = pad(imgB, width, height);
+  const a = padCopy(imgA, width, height);
+  const b = padCopy(imgB, width, height);
+  const map = masks.length ? maskMap(masks, width, height) : null;
+  if (map) {
+    paint(a, map, MASK_COLOR);
+    paint(b, map, MASK_COLOR);
+  }
   const diff = new PNG({ width, height });
   const mismatched = pixelmatch(a.data, b.data, diff.data, width, height, {
     threshold, diffColor: DIFF_COLOR, includeAA: false,
@@ -60,45 +137,77 @@ function comparePngs(imgA, imgB, { threshold = 0.1, bandHeight = 200 } = {}) {
 
   // unchanged pixels are drawn as grey (r = g = b), so pure red marks exactly the mismatches
   const bands = [];
-  for (let y0 = 0; y0 < height; y0 += bandHeight) {
+  let maskedPixels = 0;
+  for (let y0 = 0, index = 0; y0 < height; y0 += bandHeight, index += 1) {
     const y1 = Math.min(height, y0 + bandHeight);
     let count = 0;
-    for (let i = y0 * width * 4, end = y1 * width * 4; i < end; i += 4) {
+    let masked = 0;
+    for (let p = y0 * width, end = y1 * width; p < end; p += 1) {
+      const i = p * 4;
       if (diff.data[i] === 255 && diff.data[i + 1] === 0 && diff.data[i + 2] === 0) count += 1;
+      if (map && map[p]) masked += 1;
     }
-    bands.push({ y: y0, ratio: round(count / ((y1 - y0) * width)) });
+    maskedPixels += masked;
+    const area = (y1 - y0) * width;
+    bands.push({
+      index,
+      y: y0,
+      ratio: round(count / area),
+      unmaskedRatio: area > masked ? round(count / (area - masked)) : 0,
+    });
   }
+  if (map) tint(diff, map, MASK_TINT);
 
+  const total = width * height;
+  const divergent = bands.find((x) => x.unmaskedRatio > divergeThreshold);
   const result = {
-    mismatchRatio: round(mismatched / (width * height)),
+    mismatchRatio: round(mismatched / total),
+    unmaskedRatio: total > maskedPixels ? round(mismatched / (total - maskedPixels)) : 0,
     mismatchedPixels: mismatched,
+    maskedPixels,
+    maskRatio: round(maskedPixels / total),
+    maskBoxes: masks.length,
     width,
     height,
     widthA: imgA.width,
     widthB: imgB.width,
     heightA: imgA.height,
     heightB: imgB.height,
+    heightDiffRatio: round(Math.abs(imgA.height - imgB.height)
+      / Math.max(imgA.height, imgB.height, 1)),
+    firstDivergentBand: divergent
+      ? { index: divergent.index, y: divergent.y, unmaskedRatio: divergent.unmaskedRatio } : null,
     threshold,
     bandHeight,
-    worstBands: [...bands].sort((x, y) => y.ratio - x.ratio).slice(0, 3).filter((x) => x.ratio > 0),
+    divergeThreshold,
+    worstBands: [...bands].sort((x, y) => y.unmaskedRatio - x.unmaskedRatio)
+      .slice(0, 3).filter((x) => x.unmaskedRatio > 0),
     bands,
   };
   return { result, diff };
 }
 
 /**
- * Compares two PNG files and writes the diff PNG plus <out>.json.
- * @param {{a: string, b: string, out: string, threshold?: number, bandHeight?: number}} opts
+ * Compares two image files and writes the diff PNG plus <out>.json.
+ * @param {{a: string, b: string, out: string, masks?: string[], threshold?: number,
+ *   bandHeight?: number, divergeThreshold?: number}} opts masks: mask JSON files
  * @returns {Object} metrics (also written to <out>.json)
  */
 function compareImages({
-  a, b, out, threshold, bandHeight,
+  a, b, out, masks = [], threshold, bandHeight, divergeThreshold,
 }) {
   const imgA = readImage(a);
   const imgB = readImage(b);
-  const { result, diff } = comparePngs(imgA, imgB, { threshold, bandHeight });
+  const boxes = masks.flatMap(loadMask);
+  const { result, diff } = comparePngs(imgA, imgB, {
+    threshold, bandHeight, divergeThreshold, masks: boxes,
+  });
   const full = {
-    a: path.resolve(a), b: path.resolve(b), diff: path.resolve(out), ...result,
+    a: path.resolve(a),
+    b: path.resolve(b),
+    diff: path.resolve(out),
+    maskFiles: masks.map((m) => path.resolve(m)),
+    ...result,
   };
   mkdirp(path.dirname(path.resolve(out)));
   fs.writeFileSync(out, PNG.sync.write(diff));
@@ -106,25 +215,32 @@ function compareImages({
   return full;
 }
 
-module.exports = { compareImages, comparePngs };
+module.exports = {
+  compareImages, comparePngs, readImage, loadMask, DIVERGE_THRESHOLD,
+};
 
 if (require.main === module) {
   const args = getArgs({
     a: { type: 'string' },
     b: { type: 'string' },
     out: { type: 'string' },
+    mask: { type: 'string', multiple: true },
     threshold: { type: 'string', default: '0.1' },
     band: { type: 'string', default: '200' },
-  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--threshold 0.1] [--band 200]');
+    diverge: { type: 'string', default: String(DIVERGE_THRESHOLD) },
+  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]');
   try {
     const res = compareImages({
       a: args.a,
       b: args.b,
       out: args.out,
+      masks: args.mask || [],
       threshold: Number(args.threshold),
       bandHeight: Number(args.band),
+      divergeThreshold: Number(args.diverge),
     });
-    console.log(JSON.stringify(res));
+    const { bands, ...summary } = res;
+    console.log(JSON.stringify(summary));
   } catch (e) {
     console.error(`compare failed: ${e.message}`);
     process.exit(1);

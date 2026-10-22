@@ -1,2 +1,7 @@
-https://www.lufthansa.com/de/de/anmeldung-tiere-frachtraum
-https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/refund-form
+https://www.lufthansa.com/de/de/farealert/best-price-alert
+https://www.lufthansa.com/de/de/feedback
+https://www.lufthansa.com/de/de/feedback-past-flight
+https://www.lufthansa.com/de/de/feedback/feedbackai
+https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage
+https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition
+https://www.lufthansa.com/de/de/register-animal-cabin
