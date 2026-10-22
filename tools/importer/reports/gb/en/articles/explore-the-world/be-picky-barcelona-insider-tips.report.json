@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+  "path": "gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+  "timestamp": "2026-10-22T12:23:42.473Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

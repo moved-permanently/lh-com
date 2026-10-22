@@ -1343,7 +1343,27 @@
   "gb/en|GET /service/api/catalogs/countries": {
    "file": "gb-en-bf45fe3e.json",
    "recordedAt": "2026-10-22T10:40:40.431Z"
+  },
+  "gb/en|GET /service/api/labels/blogOverview/lh/en": {
+   "file": "gb-en-360a917f.json",
+   "recordedAt": "2026-10-22T12:09:18.047Z"
+  },
+  "gb/en|GET /service/api/labels/relatedarticles/lh/en": {
+   "file": "gb-en-fc1ca956.json",
+   "recordedAt": "2026-10-22T12:10:42.071Z"
+  },
+  "gb/en|GET /service/api/labels/socialShare/lh/en": {
+   "file": "gb-en-c11a8f88.json",
+   "recordedAt": "2026-10-22T12:10:42.071Z"
+  },
+  "gb/en|GET /service/api/labels/stickyprice/lh/en": {
+   "file": "gb-en-7a4939ee.json",
+   "recordedAt": "2026-10-22T12:13:56.298Z"
+  },
+  "gb/en|POST /service/api/lhg-fare-teaser/fareteaser/manual#b43dfd8f": {
+   "file": "gb-en-18ef474e.json",
+   "recordedAt": "2026-10-22T12:28:35.930Z"
   }
  },
- "updatedAt": "2026-10-22T12:06:45.837Z"
+ "updatedAt": "2026-10-22T12:45:01.820Z"
 }

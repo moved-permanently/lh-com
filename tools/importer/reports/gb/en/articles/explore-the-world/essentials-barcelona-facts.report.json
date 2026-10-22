@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-barcelona-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-barcelona-facts",
+  "timestamp": "2026-10-22T12:23:53.475Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

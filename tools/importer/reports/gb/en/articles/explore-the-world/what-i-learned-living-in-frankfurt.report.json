@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/what-i-learned-living-in-frankfurt",
+  "path": "gb/en/articles/explore-the-world/what-i-learned-living-in-frankfurt",
+  "timestamp": "2026-10-22T12:24:21.220Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

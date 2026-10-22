@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/in-my-hood-district-zurich",
+  "path": "gb/en/articles/explore-the-world/in-my-hood-district-zurich",
+  "timestamp": "2026-10-22T12:24:01.344Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}
