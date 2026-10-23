@@ -30,3 +30,5 @@
 2026-10-22T23:50:44Z done 166/2681 (failed 0, pending 2515) | call 195 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: gb/en/articles/explore-flying@390 52.19% (diverges y=200)
 2026-10-22T23:54:39Z done 178/2681 (failed 0, pending 2503) | call 192 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: gb/en/book-and-manage/booking-services/manage-my-bookings@1440 51.91% (diverges y=400)
 2026-10-22T23:58:03Z done 190/2681 (failed 0, pending 2491) | call 200 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: gb/en/book-and-manage/booking-services/manage-my-bookings@768 49.01% (diverges y=400)
+2026-10-23T00:02:25Z done 201/2681 (failed 0, pending 2480) | call 234 s, 11 captures (11 ok, 0 failed), 11 compares | failures: none | worst: lhg/at/de/dest/co/europa@768 72.41% (diverges y=0)
+2026-10-23T00:06:35Z done 212/2681 (failed 0, pending 2469) | call 232 s, 11 captures (11 ok, 0 failed), 11 compares | failures: none | worst: lhg/gb/en/dest/co/europe@768 71% (diverges y=800)
