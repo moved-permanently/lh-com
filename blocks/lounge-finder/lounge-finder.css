@@ -26,16 +26,24 @@
   line-height: 1.25;
 }
 
-/* .row: city and status col-lg-4 col-xl-3, the button col-lg-4 col-xl-6 right-aligned */
+/* .lounge-finder-wrapper mx-auto: below 1025px a centred 350px column (heading at x202 of 753px) */
+.lounge-finder .lounge-finder-form {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* .row: city and status col-lg-4 col-xl-3, the button col-lg-4 col-xl-6 right-aligned.
+   Live keeps 45px under each field (.selectable, room for the hint) and mt-3 above the button:
+   field lines 111px apart at 768px, button 53px under the status line, 86px of grey under the
+   field lines from 1025px (bottom 45px + py-8) */
 .lounge-finder .lounge-finder-fields {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 350px;
 }
 
 .lounge-finder .lounge-finder-field {
   position: relative;
+  margin-bottom: 45px;
   padding-top: 26px;
 }
 
@@ -155,6 +163,7 @@
 .lounge-finder .lounge-finder-actions {
   display: flex;
   align-items: flex-end;
+  margin-top: 8px;
 }
 
 .lounge-finder .lounge-finder-submit {
@@ -403,10 +412,18 @@
 }
 
 @media (width >= 1025px) {
+  .lounge-finder .lounge-finder-form {
+    max-width: none;
+  }
+
+  /* field lines 101px under the heading centre at 1440 (live) */
+  .lounge-finder .lounge-finder-heading {
+    margin-bottom: 16px;
+  }
+
   .lounge-finder .lounge-finder-fields {
     flex-direction: row;
     align-items: flex-end;
-    max-width: none;
     gap: 0 20px;
   }
 
@@ -415,9 +432,11 @@
     flex: 0 0 calc((100% - 40px) / 3);
   }
 
+  /* the button bottom on the field lines, the 45px under all of them */
   .lounge-finder .lounge-finder-actions {
     flex: 1;
     justify-content: flex-end;
+    margin: 0 0 45px;
   }
 
   .lounge-finder .lounge-finder-submit {
