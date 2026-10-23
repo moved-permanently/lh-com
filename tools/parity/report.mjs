@@ -13,6 +13,7 @@
  *        "change": "what was changed", "commit": "abc1234", "date": "2026-10-23" }]
  *     an entry with none of page/template/block is site-wide.
  *   tools/parity/impossible.md       "Genuinely impossible gaps", included verbatim
+ *   tools/parity/unmapped-widgets.md "Unmapped widgets", included verbatim (unmapped-widgets.mjs)
  *   tools/importer/reports/{path}.report.json  blocks per page (to match block fixes)
  *   data/recorded/index.json         recording dates for the live-data section
  *
@@ -43,6 +44,7 @@ const { values: args } = parseArgs({
     out: { type: 'string', default: path.join(ROOT, 'tools/reports/parity-report') },
     fixes: { type: 'string', default: path.join(ROOT, 'tools/parity/fixes.json') },
     impossible: { type: 'string', default: path.join(ROOT, 'tools/parity/impossible.md') },
+    unmapped: { type: 'string', default: path.join(ROOT, 'tools/parity/unmapped-widgets.md') },
   },
 });
 
@@ -66,6 +68,7 @@ const progress = readJson(args.progress, { items: {} });
 const skipped = readJson(args.jobs.replace(/\.json$/, '.skipped.json'), []);
 const fixes = readJson(args.fixes, []);
 const impossible = fs.existsSync(args.impossible) ? fs.readFileSync(args.impossible, 'utf8').trim() : '';
+const unmapped = fs.existsSync(args.unmapped) ? fs.readFileSync(args.unmapped, 'utf8').trim() : '';
 const recorded = readJson(path.join(ROOT, 'data/recorded/index.json'), { entries: {} }).entries || {};
 
 const blocksOf = (pagePath) => (readJson(path.join(ROOT, `tools/importer/reports${pagePath}.report.json`), {}).blocks || []);
@@ -270,6 +273,7 @@ const report = {
   pages,
   siteWideFixes: fixes.filter((f) => fixKind(f) === 'site').map(fixLine),
   impossible: impossible || null,
+  unmappedWidgets: unmapped || null,
   liveData,
   skipped,
 };
@@ -347,6 +351,9 @@ md.push('');
 
 md.push('## Genuinely impossible gaps', '');
 md.push(impossible ? impossible.replace(/^#\s.*\n+/, '') : 'None recorded yet (tools/parity/impossible.md).', '');
+
+md.push('## Unmapped widgets', '');
+md.push(unmapped ? unmapped.replace(/^#\s.*\n+/, '') : 'Not scanned yet (node tools/parity/unmapped-widgets.mjs).', '');
 
 md.push('## Live data on the replica', '');
 md.push(`The replica's widgets (flight search, fare teasers, destination finder, price bar, weather, flight status, deal prices) show data recorded as of the import date, ${liveData.recordedFrom ? `${liveData.recordedFrom.slice(0, 10)} to ${liveData.recordedTo.slice(0, 10)}` : '2026-10-21/22'} (${liveData.recordings} recorded responses, data/recorded/), wherever the live call is not possible.`);

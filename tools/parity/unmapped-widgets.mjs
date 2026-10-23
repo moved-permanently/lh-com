@@ -7,15 +7,19 @@
  * legends, options, tabs, placeholders); a paragraph of the document without a link or image
  * whose text is one of those texts, or only a run of them ("Travel Class or ...Travel Class
  * or ..."), is dead label text. A component with at least MIN_DEAD such paragraphs on a page
- * is listed.
+ * is listed. Paragraphs inside blocks (authored settings) do not count. A KNOWN widget whose
+ * block is missing from the document and that left no dead text is listed as dropped.
  *
  * node tools/parity/unmapped-widgets.mjs [--out tools/parity/unmapped-widgets.md]
  * report.mjs includes the output as the section "Unmapped widgets".
  * Needs jsdom (NODE_PATH=/usr/local/lib/node_modules when it is not installed in the repo).
+ * Snapshots are parsed in child processes of CHUNK pages each (jsdom keeps memory of closed
+ * windows).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
@@ -34,18 +38,27 @@ const CHROME = /^dcep-(country-and-language-selection|shopping-cart|login-portle
 const WEB_COMPONENTS = ['feedback-questionnaire', 'culinary-hub', 'passenger-receipt-portal', 'ppfi-web-component'];
 /** Out of scope here: app shells built elsewhere, the receipt download form (left alone). */
 const SKIP_PATH = /^\/[a-z]{2}\/[a-z]{2}\/(login|profile\/|book-and-manage\/pax-receipt|.*rechnungsbeleg)/;
-const CONTROLS = 'label, button, maui-button, legend, option, [role="tab"], [role="combobox"], maui-checkbox, maui-radio, maui-select, maui-input';
-/** Blocks the importer writes for a widget, or that another agent builds (README / commits). */
+/** Control texts, plus loader texts ("Loading...") and the Google map attribution of a widget. */
+const CONTROLS = 'label, button, maui-button, legend, option, [role="tab"], [role="combobox"], maui-checkbox, maui-radio, maui-select, maui-input, maui-loader, .loading-text, .gm-style-cc';
+/**
+ * Block the importer writes (or should write) for a widget, and the work item that maps it. A
+ * known widget on a page whose document has no such block and no dead text was dropped without
+ * a trace (listed separately).
+ */
 const KNOWN = {
-  'dcep-lounge-finder': 'lounge-finder (A1, mapped)',
-  'dcep-flight-manager': 'flight-search (homepage only; B2)',
-  'dcep-quick-actions': 'booking-lookup (B3)',
-  'dcep-login-form': 'carousel-cards via .loginform:has(.login-oneid-card) (B4)',
-  'dcep-fare-teaser-static': 'fare-teaser (B5)',
-  'dcep-meili-car-rental': 'car-rental (block by the other agent, not mapped yet)',
-  'dcep-poi-mapping': 'poi-map (block by the other agent, not mapped yet)',
-  'dcep-ejournals': 'ejournals (block by the other agent, not mapped yet)',
+  'dcep-lounge-finder': { block: 'lounge-finder', planned: 'lounge-finder (A1, mapped in hub/info)' },
+  'dcep-flight-manager': { block: 'flight-search', planned: 'flight-search (mapped in homepage only; B2)' },
+  'dcep-quick-actions': { block: 'booking-lookup', planned: 'booking-lookup (B3; mapped in app-entry)' },
+  'dcep-login-form': { block: 'carousel-cards', planned: 'carousel-cards via .loginform:has(.login-oneid-card) (B4; mapped in app-entry)' },
+  'dcep-fare-teaser-static': { block: 'fare-teaser', planned: 'fare-teaser (B5; mapped in homepage)' },
+  'dcep-meili-car-rental': { block: 'car-rental', planned: 'car-rental (block exists, not mapped; open, no item)' },
+  'dcep-poi-mapping': { block: 'poi-map', planned: 'poi-map (block exists, not mapped; open, no item)' },
+  'dcep-ejournals': { block: 'ejournals', planned: 'ejournals (block exists, not mapped; open, no item)' },
+  'dcep-author-slider': { planned: 'loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup' },
+  'dcep-blog-overview': { planned: 'loader text only; open, no item: drop .loading-text in the cleanup' },
+  'form#new_form.cmp-form': { planned: 'form block (blocks/form, other agent) is mapped only for .feedbackforms; AEM cmp-form not mapped: open, no item (C)' },
 };
+const planned = (name) => (KNOWN[name] && KNOWN[name].planned) || 'open, no item';
 
 const norm = (s) => (s || '').replace(/[\u200b-\u200d\ufeff]/g, '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 
@@ -88,6 +101,20 @@ function widgets(doc) {
   return candidates.filter((el) => !candidates.some((o) => o !== el && o.contains(el)));
 }
 
+/**
+ * Whether the widget's settings hide every part (data-dcep hide* flags all true: the homepage
+ * dcep-quick-actions shows nothing on the live page either).
+ */
+function allHidden(el) {
+  try {
+    const flags = Object.entries(JSON.parse(el.getAttribute('data-dcep') || '{}'))
+      .filter(([k]) => /^hide[A-Z]/.test(k));
+    return flags.length > 0 && flags.every(([, v]) => v === true);
+  } catch (e) {
+    return false;
+  }
+}
+
 function controlTexts(el) {
   const texts = new Set();
   el.querySelectorAll(CONTROLS).forEach((c) => {
@@ -112,45 +139,122 @@ function isDead(text, controls) {
   return hit && !norm(rest).replace(/[|:*•·,()\-–]/g, '').trim();
 }
 
-const results = {};
-const t0 = Date.now();
-let pages = 0;
-walk(SNAP).forEach((file) => {
-  const pagePath = `/${path.relative(SNAP, file).replace(/\.html$/, '')}`;
-  if (SKIP_PATH.test(pagePath)) return;
-  const plain = path.join(ROOT, 'content', `${pagePath}.plain.html`);
-  if (!fs.existsSync(plain)) return;
-  const raw = fs.readFileSync(file, 'utf8');
-  if (!/data-dcep=|<form[\s>]|<(feedback-questionnaire|culinary-hub|passenger-receipt-portal|ppfi-web-component)[\s>]/.test(raw)) return;
-  // every jsdom window is closed right after its document is read (also on errors)
-  const found = withDocument(raw, (snap) => widgets(snap)
-    .map((el) => ({ name: componentName(el), controls: controlTexts(el) }))
-    .filter((w) => w.controls.length));
-  if (!found.length) return;
-  pages += 1;
-  const paras = withDocument(fs.readFileSync(plain, 'utf8'), (doc) => [...doc.querySelectorAll('p')]
-    .filter((p) => !p.querySelector('a, img, picture')).map((p) => norm(p.textContent)));
-  found.forEach((w) => {
-    const dead = paras.filter((t) => isDead(t, w.controls));
-    if (dead.length < MIN_DEAD) return;
-    const r = results[w.name] || (results[w.name] = { pages: [], samples: new Set() });
-    if (!r.pages.includes(pagePath)) r.pages.push(pagePath);
-    dead.slice(0, 6).forEach((t) => { if (r.samples.size < 6) r.samples.add(t.length > 70 ? `${t.slice(0, 67)}...` : t); });
+/** Scans `files` (snapshot paths) in this process: { pagePath: [{ name, dead: [...] }] }. */
+function scan(files) {
+  const out = {};
+  files.forEach((file) => {
+    const pagePath = `/${path.relative(SNAP, file).replace(/\.html$/, '')}`;
+    // scripts, styles and inline SVGs carry no control texts and make up most of the DOM
+    const raw = fs.readFileSync(file, 'utf8')
+      .replace(/<(script|style|svg|noscript)\b[\s\S]*?<\/\1>/gi, '');
+    // every jsdom window is closed right after its document is read (also on errors)
+    const found = withDocument(raw, (snap) => widgets(snap)
+      .map((el) => ({ name: componentName(el), controls: controlTexts(el), hidden: allHidden(el) }))
+      // known widgets without controls (fare teaser) still count for "dropped"
+      .filter((w) => w.controls.length || (KNOWN[w.name] && KNOWN[w.name].block)));
+    if (!found.length) return;
+    const plain = path.join(ROOT, 'content', `${pagePath}.plain.html`);
+    // paragraphs of the default content only: block cells (div[class]) hold authored settings
+    const { paras, blocks } = withDocument(fs.readFileSync(plain, 'utf8'), (doc) => ({
+      paras: [...doc.querySelectorAll('p')]
+        .filter((p) => !p.closest('div[class]') && !p.querySelector('a, img, picture'))
+        .map((p) => norm(p.textContent)),
+      blocks: [...new Set([...doc.querySelectorAll('div[class]')].map((d) => d.classList[0]))],
+    }));
+    out[pagePath] = found.map((w) => ({
+      name: w.name,
+      dead: paras.filter((t) => isDead(t, w.controls)),
+      hidden: w.hidden,
+      hasBlock: !!(KNOWN[w.name] && KNOWN[w.name].block && blocks.includes(KNOWN[w.name].block)),
+    }));
   });
-});
+  return out;
+}
 
-const rows = Object.entries(results).sort((a, b) => b[1].pages.length - a[1].pages.length);
+if (argv.includes('--worker')) {
+  // child mode: file list on stdin, result as JSON on stdout
+  process.stdout.write(JSON.stringify(scan(JSON.parse(fs.readFileSync(0, 'utf8')))));
+  process.exit(0);
+}
+
+const t0 = Date.now();
+const files = walk(SNAP).filter((file) => {
+  const pagePath = `/${path.relative(SNAP, file).replace(/\.html$/, '')}`;
+  if (SKIP_PATH.test(pagePath)) return false;
+  if (!fs.existsSync(path.join(ROOT, 'content', `${pagePath}.plain.html`))) return false;
+  return /data-dcep=|<form[\s>]|<(feedback-questionnaire|culinary-hub|passenger-receipt-portal|ppfi-web-component)[\s>]/
+    .test(fs.readFileSync(file, 'utf8'));
+});
+// jsdom keeps memory of closed windows; a fresh process per chunk keeps the heap small
+const CHUNK = 60;
+const scanned = {};
+for (let i = 0; i < files.length; i += CHUNK) {
+  const res = spawnSync(process.execPath, [fileURLToPath(import.meta.url), '--worker'], {
+    input: JSON.stringify(files.slice(i, i + CHUNK)),
+    env: process.env,
+    maxBuffer: 64 * 1024 * 1024,
+    encoding: 'utf8',
+  });
+  if (res.status !== 0) {
+    console.error(res.stderr);
+    process.exit(1);
+  }
+  Object.assign(scanned, JSON.parse(res.stdout));
+}
+
+const pages = Object.keys(scanned).length;
+/** Widgets of one name on one page are merged (two POI maps on first-class are one row). */
+const merged = Object.entries(scanned).flatMap(([page, list]) => {
+  const byWidget = {};
+  list.forEach((w) => {
+    const m = byWidget[w.name] || (byWidget[w.name] = {
+      page, name: w.name, dead: [], hasBlock: w.hasBlock, hidden: true,
+    });
+    m.hidden = m.hidden && w.hidden;
+    m.dead.push(...w.dead.filter((t) => !m.dead.includes(t)));
+  });
+  return Object.values(byWidget);
+});
+const byPage = (a, b) => a.name.localeCompare(b.name) || a.page.localeCompare(b.page);
+/** Dead label text: at least MIN_DEAD different dead paragraphs of the widget. */
+const hits = merged.filter((w) => w.dead.length >= MIN_DEAD).sort(byPage);
+/** Known widget without its block and without dead text: dropped from the import. */
+const dropped = merged.filter((w) => w.dead.length < MIN_DEAD
+  && KNOWN[w.name] && KNOWN[w.name].block && !w.hasBlock && !w.hidden).sort(byPage);
+const group = (list) => {
+  const by = {};
+  list.forEach((h) => { (by[h.name] ||= []).push(h); });
+  return Object.entries(by).sort((a, b) => b[1].length - a[1].length);
+};
+const rows = group(hits);
+const short = (t) => `"${(t.length > 70 ? `${t.slice(0, 67)}...` : t).replace(/\|/g, '/')}"`;
 const md = [
   '# Unmapped widgets',
   '',
-  `Live widgets whose form labels and button texts were imported as plain paragraphs (generated by tools/parity/unmapped-widgets.mjs on ${new Date().toISOString().slice(0, 10)} from the raw snapshots and content/**/*.plain.html; ${pages} pages with widgets scanned; login/profile app shells and the receipt download form excluded). Each is a defect to fix in the importer (a block mapping), not a gap by design.`,
+  `Live widgets whose form labels, button texts, loader texts or map attributions were imported as plain paragraphs of the default content (generated by tools/parity/unmapped-widgets.mjs on ${new Date().toISOString().slice(0, 10)} from the raw snapshots and content/**/*.plain.html; ${pages} pages with widgets scanned; login/profile app shells and the receipt download form excluded). "Planned" names the work item that maps the widget, or "open" when none does yet.`,
   '',
-  '| Component | Pages | Planned | Dead texts (sample) | Pages (first 8) |',
-  '| --- | --- | --- | --- | --- |',
-  ...rows.map(([name, r]) => `| \`${name}\` | ${r.pages.length} | ${KNOWN[name] || '-'} | ${[...r.samples].map((s) => `"${s.replace(/\|/g, '/')}"`).join(', ')} | ${r.pages.sort().slice(0, 8).join(', ')}${r.pages.length > 8 ? ', ...' : ''} |`),
+  '| Component | Pages | Planned | Dead texts (sample) |',
+  '| --- | ---: | --- | --- |',
+  ...rows.map(([name, list]) => `| \`${name}\` | ${list.length} | ${planned(name)} | ${[...new Set(list.flatMap((h) => h.dead))].slice(0, 6).map(short).join(', ')} |`),
+  '',
+  '### Per page',
+  '',
+  '| Page | Component | Dead texts (sample) | Planned |',
+  '| --- | --- | --- | --- |',
+  ...hits.map((h) => `| ${h.page} | \`${h.name}\` | ${h.dead.slice(0, 4).map(short).join(', ')} | ${planned(h.name)} |`),
+  '',
+  '### Dropped widgets',
+  '',
+  'Known widgets on the live page whose block is missing from the document and whose texts left no dead paragraphs (the widget is simply absent on the preview). Heuristic: a page with the block for another instance counts as mapped; widgets whose data-dcep hides every part (hide* all true: the homepage quick actions) are not a gap and not listed.',
+  '',
+  '| Component | Pages | Planned | Pages |',
+  '| --- | ---: | --- | --- |',
+  ...group(dropped).map(([name, list]) => `| \`${name}\` | ${list.length} | ${planned(name)} | ${list.map((h) => h.page).join(', ')} |`),
   '',
 ];
-if (!rows.length) md.splice(4, 2, 'None found.');
+if (!dropped.length) md.splice(md.length - 3, 3, 'None found.', '');
+if (!rows.length) md.splice(4, md.indexOf('### Dropped widgets') - 4, 'None found.', '');
 fs.writeFileSync(OUT, md.join('\n'));
-console.log(`unmapped-widgets: ${pages} pages with widgets, ${rows.length} components with dead label text -> ${path.relative(ROOT, OUT)} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
-rows.forEach(([name, r]) => console.log(`  ${name}: ${r.pages.length} pages; ${[...r.samples].slice(0, 3).join(' | ')}`));
+console.log(`unmapped-widgets: ${pages} pages with widgets, ${rows.length} components on ${hits.length} page rows, ${dropped.length} dropped -> ${path.relative(ROOT, OUT)} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+rows.forEach(([name, list]) => console.log(`  ${name}: ${list.length} pages; ${[...new Set(list.flatMap((h) => h.dead))].slice(0, 3).join(' | ')}`));
+group(dropped).forEach(([name, list]) => console.log(`  dropped ${name}: ${list.length} pages`));
