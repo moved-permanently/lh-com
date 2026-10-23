@@ -3,7 +3,8 @@
  * price bar, weather, labels). Three sources, in this order:
  *
  * 1. Direct: routes www.lufthansa.com answers with Access-Control-Allow-Origin: * (airport
- *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*) are
+ *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*;
+ *    pointsOfInterest/* untested) are
  *    called from the visitor's browser without credentials, with the query and X-Portal-*
  *    headers the live page sends for the market (destinationfinder answers 400 "Invalid site"
  *    without X-Portal-Site). Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
@@ -24,8 +25,11 @@ export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
  * destinationfinder/*: GET .../destination/finder/FRA/E with X-Portal: LH, X-Portal-Site: DE,
  * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
  * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
+ * pointsOfInterest/{id} (poi-map): the same /service/api base and X-Portal-* headers as the live
+ * PointsOfInterest component; its CORS answer is untested, a refusal falls back to the
+ * recordings like every direct route.
  */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/)/;
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|pointsOfInterest\/)/;
 
 const DIRECT_TIMEOUT_MS = 3000;
 const PROXY_TIMEOUT_MS = 2500;
@@ -192,7 +196,9 @@ export function requestKey(method, route, body) {
     }
     bodyHash = `#${fnv1a(canonical)}`;
   }
-  return `${method.toUpperCase()} ${url.pathname}${query}${bodyHash}`;
+  // a base64 path parameter (pointsOfInterest/{id}) matches with "=" or "%3D" alike
+  const pathname = url.pathname.replace(/%3D/gi, '=');
+  return `${method.toUpperCase()} ${pathname}${query}${bodyHash}`;
 }
 
 let recordedIndex;

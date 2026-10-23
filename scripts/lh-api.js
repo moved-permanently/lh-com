@@ -192,6 +192,62 @@ export function loungesRequest({ status, city }) {
 }
 
 /**
+ * Id of a POI map: the live data-dcep id is the base64 of the component's JCR path
+ * (/content/lh/markets/de/en/.../poimapping). Accepts the path (encoded here) or the id.
+ * @param {string} text authored Source value
+ * @returns {string} base64 id or ''
+ */
+export function poiMapId(text) {
+  const value = String(text || '').trim();
+  if (value.startsWith('/content/')) {
+    try {
+      return btoa(value);
+    } catch (e) {
+      return '';
+    }
+  }
+  return /^[A-Za-z0-9+/]+={0,2}$/.test(value) ? value : '';
+}
+
+/**
+ * Points of a POI map (saga fetchPointOfInterest, API pointsOfInterest_id_get of the live
+ * bundle): GET /service/api/pointsOfInterest/{id}, id = the base64 data-dcep id. "=" is sent
+ * unencoded (apicase path parameters); lhFetch matches recordings with "=" or "%3D".
+ * @param {string} id
+ */
+export function pointsOfInterestRequest(id) {
+  return {
+    method: 'GET',
+    route: `/service/api/pointsOfInterest/${encodeURIComponent(id).replace(/%3D/g, '=')}`,
+  };
+}
+
+/**
+ * {"pointsOfInterest":[{"lat":41.38,"lng":2.17,"title":"Parc de la Ciutadella","link":"https://…"?,
+ *  "linkLabel":"…"?, "linkExternal":true?, "topDeal":false?}]} (fields read by the live
+ * selectors; no answer recorded yet) → [{ lat, lng, title, link, linkLabel, linkExternal }];
+ * points without valid coordinates are left out, one point per position (the live key).
+ */
+export function mapPointsOfInterest(data) {
+  const list = data && Array.isArray(data.pointsOfInterest) ? data.pointsOfInterest : [];
+  const seen = new Set();
+  return list.map((p) => ({
+    lat: Number(p && p.lat),
+    lng: Number(p && p.lng),
+    title: p && typeof p.title === 'string' ? p.title.trim() : '',
+    link: p && typeof p.link === 'string' ? p.link.trim() : '',
+    linkLabel: p && typeof p.linkLabel === 'string' ? p.linkLabel.trim() : '',
+    linkExternal: Boolean(p && p.linkExternal),
+  })).filter((p) => {
+    const key = `${p.lat}-${p.lng}`;
+    if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng) || Math.abs(p.lat) > 90
+      || Math.abs(p.lng) > 180 || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
  * Fetches a request built above.
  * @param {{method: string, route: string, body?: Object}} request
  * @param {Object} locale result of getLocale()

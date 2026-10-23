@@ -1,0 +1,22 @@
+{
+  "variantName": "poi-map",
+  "baseBlock": "poi-map",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+  "visualCharacteristics": {
+    "purpose": "500px map of points of interest with location pins, zoom buttons and a title / 'Visit website' bubble per pin on hover or focus",
+    "traits": [
+      "light map (OpenStreetMap tiles softened towards Lufthansa's lightened Google style), attribution bottom right",
+      "two dark translucent 40px zoom squares bottom right",
+      "deep blue location pins; white bubble with a heading-font title and an optional service link",
+      "optional caption under the map and an aside column beside it from 768px"
+    ]
+  },
+  "contentPattern": {
+    "structure": "Rows: Source | live JCR path or base64 id (points from GET /service/api/pointsOfInterest/{id}); or point rows Title | Lat, Lng | Link; optional Caption | rich text, Aside | rich content, Tiles | osm|carto; label rows Zoom in label, Zoom out label, Visit website label."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "12 pages x 4 locales (articles/explore-the-world and four of its articles, 100-years/destinations, three stopover partner pages, first-class): the .poimapping component.",
+  "reuseGuidance": "Reuse for any map of a few points; author Source (live data) or point rows. Request and mapper: scripts/lh-api.js pointsOfInterestRequest, mapPointsOfInterest, poiMapId; the block exports readPoiMapRows, readPoiMapSettings, loadPoiMap, fitBounds, project, drawMap for tools/importer/test-widgets.mjs."
+}

@@ -51,6 +51,8 @@ import decorateLoungeFinder, {
   readLoungeFinderSettings, loadLoungeFinderContext, loadLounges, loungeStatuses,
 } from '../../blocks/lounge-finder/lounge-finder.js';
 import { loungesRequest } from '../../scripts/lh-api.js';
+import decoratePoiMap, { fitBounds, TILE_SOURCES } from '../../blocks/poi-map/poi-map.js';
+import { pointsOfInterestRequest } from '../../scripts/lh-api.js';
 import decorateCarRental, {
   readCarRentalSettings, TIMING as CAR_RENTAL_TIMING,
 } from '../../blocks/car-rental/car-rental.js';
@@ -1352,6 +1354,125 @@ const textOf = (node) => (node ? node.textContent : '');
   );
   delete document.head;
   document.querySelector = docQuery;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* POI map: GET pointsOfInterest/{id} direct (synthetic answer: none is recorded yet), the      */
+/* labels/common labels, authored points, fit and zoom, the bubble on hover / focus.            */
+/* ------------------------------------------------------------------------------------------- */
+
+{
+  const BCN_PATH = '/content/lh/markets/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/jcr:content/articlecontentfragment/par5/twocolumn/col1/poimapping';
+  const BCN_ID = 'L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJhcmNlbG9uYS1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW4vY29sMS9wb2ltYXBwaW5n';
+  const BERLIN_ID = 'L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJlcmxpbi1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW5fY29weS9jb2wxL3BvaW1hcHBpbmc=';
+  const POI_FIXTURE = JSON.stringify({
+    pointsOfInterest: [
+      {
+        lat: 41.3851, lng: 2.1801, title: 'Demasié: Carrer de la Princesa, 28', link: 'https://www.demasie.cat/', linkExternal: true,
+      },
+      { lat: 41.3881, lng: 2.1873, title: 'Parc de la Ciutadella' },
+      {
+        lat: 41.3953, lng: 2.1619, title: 'Casa Milà: Pg. de Gràcia, 92', link: '/de/en/articles/explore-the-world', linkLabel: 'Read more',
+      },
+      { lat: 'x', lng: 2, title: 'broken' },
+    ],
+  });
+  const poiBlock = (rows) => `<div class="poi-map">${rows.map((cells) => `<div>${cells.map((c) => `<div>${c}</div>`).join('')}</div>`).join('')}</div>`;
+  const runPoi = async (page, html) => {
+    setPage(page);
+    currentPage = page;
+    const block = parseHtml(html).querySelector('div.poi-map');
+    await decoratePoiMap(block);
+    return block;
+  };
+  const bcnUrl = `${LIVE_ORIGIN}${pointsOfInterestRequest(BCN_ID).route}`;
+  record(
+    { run: 'P', check: 'pointsOfInterest: direct route, "=" and "%3D" give one key' },
+    isDirectRoute(pointsOfInterestRequest(BCN_ID).route)
+      && requestKey('GET', `/service/api/pointsOfInterest/${BERLIN_ID}`) === requestKey('GET', `/service/api/pointsOfInterest/${BERLIN_ID.replace(/=/g, '%3D')}`)
+      && pointsOfInterestRequest(BERLIN_ID).route.endsWith('L3BvaW1hcHBpbmc='),
+    true,
+    pointsOfInterestRequest(BERLIN_ID).route.slice(-40),
+  );
+
+  // live answer (synthetic), Source row = the decoded JCR path
+  stubResponses.set(bcnUrl, POI_FIXTURE);
+  startRun({ direct: 'ok', proxy: '502' });
+  const before = directCalls.length;
+  const live = await runPoi('/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day', poiBlock([['Source', BCN_PATH]]));
+  const sent = directCalls.slice(before).find((c) => c.href === bcnUrl);
+  const markers = live.querySelectorAll('.poi-map-marker');
+  const tiles = live.querySelectorAll('img');
+  markers[0].dispatch('mouseenter');
+  const bubble = markers[0].querySelector('.poi-map-bubble');
+  markers[2].dispatch('focusin');
+  const internal = markers[2].querySelector('.poi-map-bubble');
+  record(
+    { run: 'P', locale: 'de/en', block: 'poi-map', check: 'direct answer -> pins, bubble with link' },
+    live.getAttribute('data-lh-source') === 'live' && Boolean(sent)
+      && JSON.stringify(sent.init.headers) === JSON.stringify(portalHeaders('de/en'))
+      && markers.length === 3 && tiles.length > 0 && tiles.every((t) => t.src.startsWith('https://tile.openstreetmap.org/'))
+      && !markers[0].querySelector('.poi-map-bubble') // the first bubble closed when the third opened
+      && Boolean(bubble) && bubble.tagName === 'A' && bubble.target === '_blank'
+      && textOf(bubble.querySelector('.poi-map-link')) === 'Visit website'
+      && Boolean(internal) && !internal.target && textOf(internal.querySelector('.poi-map-link')) === 'Read more'
+      && document.activeElement === internal
+      && textOf(live.querySelector('.poi-map-attribution')).includes('OpenStreetMap'),
+    true,
+    `${markers.length} pins, ${tiles.length} tiles (${tiles[0] ? tiles[0].src.split('/').slice(3, 4) : '-'}), bubble "${textOf(bubble)}"; ${live.getAttribute('data-lh-sources')}`,
+  );
+  // zoom buttons: one level in / out, the tiles follow
+  const zoomOf = () => Number((live.querySelector('img') || { src: '' }).src.split('/')[3]);
+  const z0 = zoomOf();
+  live.querySelector('.poi-map-zoom-in').dispatch('click');
+  const z1 = zoomOf();
+  live.querySelector('.poi-map-zoom-out').dispatch('click');
+  live.querySelector('.poi-map-zoom-out').dispatch('click');
+  record(
+    { run: 'P', locale: 'de/en', block: 'poi-map', check: 'zoom in / out' },
+    z1 === z0 + 1 && zoomOf() === z0 - 1 && textOf(live.querySelector('.poi-map-zoom-in')) === 'Zoom in',
+    true,
+    `fit ${z0}, in ${z1}, out twice ${zoomOf()}`,
+  );
+  stubResponses.clear();
+
+  // direct call fails, nothing recorded -> no map (block hidden), source none
+  startRun({ direct: 'cors', proxy: '502' });
+  const none = await runPoi('/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day', poiBlock([['Source', BERLIN_ID]]));
+  record(
+    { run: 'P', locale: 'de/de', block: 'poi-map', check: 'direct fails, not recorded -> hidden' },
+    none.hidden === true && none.getAttribute('data-lh-source') === 'none'
+      && String(none.getAttribute('data-lh-sources')).includes('points:none'),
+    true,
+    none.getAttribute('data-lh-sources'),
+  );
+
+  // authored points: no request for the points, German labels from labels/common
+  startRun({ direct: 'cors', proxy: '502' });
+  const callsBefore = directCalls.length;
+  const authored = await runPoi('/de/de/book-and-manage/stopover/zugspitze', poiBlock([
+    ['Zugspitze', '47.4211, 10.9853', '<a href="https://zugspitze.de/">https://zugspitze.de/</a>'],
+  ]));
+  authored.querySelector('.poi-map-marker').dispatch('mouseenter');
+  const pointCalls = directCalls.slice(callsBefore).filter((c) => c.href.includes('/pointsOfInterest/'));
+  record(
+    { run: 'P', locale: 'de/de', block: 'poi-map', check: 'authored point -> no request, one pin, max zoom' },
+    authored.getAttribute('data-lh-source') === 'authored' && pointCalls.length === 0
+      && authored.querySelectorAll('.poi-map-marker').length === 1
+      && textOf(authored.querySelector('.poi-map-link')) === 'Website besuchen'
+      && Number(authored.querySelector('img').src.split('/')[3]) === TILE_SOURCES.osm.maxZoom,
+    true,
+    `${authored.getAttribute('data-lh-sources')}, link "${textOf(authored.querySelector('.poi-map-link'))}", zoom ${authored.querySelector('img').src.split('/')[3]}`,
+  );
+  // the fit: Barcelona's points fit at a city zoom, a world spread at the minimum
+  const city = fitBounds(JSON.parse(POI_FIXTURE).pointsOfInterest.slice(0, 3), 600, 500, 19);
+  const world = fitBounds([{ lat: 40.7, lng: -74 }, { lat: 35.7, lng: 139.7 }, { lat: -33.9, lng: 151.2 }], 600, 500, 19);
+  record(
+    { run: 'P', check: 'fitBounds: city zoom 13-16, world 2' },
+    city.zoom >= 13 && city.zoom <= 16 && world.zoom === 2,
+    true,
+    `city ${city.zoom}, world ${world.zoom}`,
+  );
 }
 
 /* ------------------------------------------------------------------------------------------- */
