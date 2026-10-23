@@ -2,6 +2,14 @@
    partner theme it injects into #mli-root); the rules below only reserve its space and draw
    the look-alike of the empty search form shown when the app cannot run. */
 
+/* Meili's partner theme is sized in rem for the Lufthansa root (html { font-size: 62.5% }, 1rem =
+   10px): at the browser's 16px every Meili box is 1.6x (page 5517 px instead of 3719 at 1440)
+   and the promo footer's -8.8rem margins overflow the page by 53 px. The site's own CSS uses px
+   only, so the Lufthansa root size is set on the pages with this block. */
+:root:has(.car-rental) {
+  font-size: 62.5%;
+}
+
 .car-rental {
   --car-rental-line: var(--lh-grey-3);
 

@@ -19,6 +19,10 @@
  * (localStorage 'lh-consent' = {groups: ['C0001'], source: 'fallback', date}), so neither
  * OneTrust nor the fallback banner shows on the replica; the showcase notice is acknowledged
  * the same way (localStorage 'lh-showcase-acknowledged', scripts/showcase-notice.js).
+ * User agent: a desktop Chrome one of the launched version (desktopUserAgent()), as a visitor's.
+ *   Headless chromium says "HeadlessChrome", and some partner APIs refuse it (Meili's
+ *   car-api-gw and tagging-app send no CORS headers then, so the car-rental pages lost their
+ *   partner content in the capture only).
  * After scrolling it waits for blocks,
  * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the
  * document-coordinate boxes of live-data widgets
@@ -358,6 +362,12 @@ function collectMetrics() {
 }
 /* eslint-enable no-undef */
 
+/** "Mozilla/5.0 (X11; Linux x86_64) ... Chrome/145.0.0.0 Safari/537.36" for version 145.x */
+function desktopUserAgent(version) {
+  const major = String(version).split('.')[0];
+  return `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
+}
+
 async function main() {
   writeJsonAtomic(inflightFile, {
     url, width, out, pid: process.pid, startedAt: new Date(started).toISOString(),
@@ -372,7 +382,9 @@ async function main() {
     ignoreDefaultArgs: withScrollbar ? ['--hide-scrollbars'] : [],
   });
   const context = await browser.newContext({
-    viewport: { width, height: VIEWPORT_HEIGHT }, deviceScaleFactor: 1,
+    viewport: { width, height: VIEWPORT_HEIGHT },
+    deviceScaleFactor: 1,
+    userAgent: desktopUserAgent(browser.version()),
   });
   await context.addInitScript(initScript, {
     key: CONSENT_KEY, groups: CONSENT_GROUPS, showcaseKey: SHOWCASE_KEY, scrollbar: withScrollbar,

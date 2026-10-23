@@ -7,7 +7,7 @@ html.showcase-notice-open {
 dialog.showcase-notice {
   box-sizing: border-box;
   width: calc(100% - 32px);
-  max-width: 42rem;
+  max-width: 672px;
   max-height: calc(100% - 32px);
   margin: auto;
   border: 0;
