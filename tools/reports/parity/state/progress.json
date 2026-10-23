@@ -100452,11 +100452,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 9417,
-          "at": "2026-10-23T08:16:17.166Z",
+          "ms": 23320,
+          "at": "2026-10-23T14:52:39.005Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 11327,
+            "scrollHeight": 9502,
             "truncated": true,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -100465,7 +100465,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 4,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -100493,7 +100493,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -100502,10 +100502,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43629,
-        "unmaskedRatio": 0.43629,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.42547,
+        "unmaskedRatio": 0.44935,
+        "maskRatio": 0.05314,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 6696,
@@ -100518,16 +100518,16 @@
         },
         "worstBands": [
           {
-            "y": 6200,
-            "unmaskedRatio": 0.99297
-          },
-          {
-            "y": 6400,
-            "unmaskedRatio": 0.97784
-          },
-          {
             "y": 6000,
-            "unmaskedRatio": 0.88265
+            "unmaskedRatio": 0.88194
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.85325
+          },
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.83693
           }
         ],
         "bandHeight": 200,
@@ -100552,29 +100552,29 @@
           0.80414,
           0.76123,
           0.48123,
-          0.30582,
-          0.4191,
-          0.44869,
-          0.29426,
-          0.44098,
-          0.56178,
-          0.83559,
-          0.80841,
-          0.32691,
-          0.69444,
-          0.88265,
-          0.99297,
-          0.97784,
-          0.76362,
-          0.68533,
-          0.74084,
-          0.30348,
-          0.0135,
-          0.2107,
-          0.74172
+          0.34378,
+          0,
+          0,
+          0.41237,
+          0.76834,
+          0.73367,
+          0.85325,
+          0.81711,
+          0.31258,
+          0.76912,
+          0.88194,
+          0.76628,
+          0.71285,
+          0.23669,
+          0.79898,
+          0.83693,
+          0.83638,
+          0.04009,
+          0.21542,
+          0.81455
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
-        "at": "2026-10-23T08:16:21.862Z",
+        "at": "2026-10-23T14:52:44.073Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
@@ -100591,12 +100591,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8628,
-          "at": "2026-10-23T08:16:30.632Z",
+          "ms": 20774,
+          "at": "2026-10-23T14:53:05.020Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9504,
-            "truncated": true,
+            "scrollHeight": 7815,
+            "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
             "contentWidth": 753,
@@ -100632,7 +100632,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -100641,15 +100641,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39012,
-        "unmaskedRatio": 0.39012,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.43402,
+        "unmaskedRatio": 0.46921,
+        "maskRatio": 0.075,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 6255,
-        "heightB": 8000,
-        "heightDiffRatio": 0.21813,
+        "heightB": 7815,
+        "heightDiffRatio": 0.19962,
         "firstDivergentBand": {
           "index": 8,
           "y": 1600,
@@ -100657,16 +100657,16 @@
         },
         "worstBands": [
           {
-            "y": 5600,
-            "unmaskedRatio": 0.9622
-          },
-          {
-            "y": 7000,
-            "unmaskedRatio": 0.92078
-          },
-          {
             "y": 7400,
-            "unmaskedRatio": 0.91991
+            "unmaskedRatio": 0.94843
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.93861
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.90331
           }
         ],
         "bandHeight": 200,
@@ -100688,32 +100688,32 @@
           0.79888,
           0.59833,
           0.19744,
-          0.21421,
-          0.11514,
-          0.39147,
-          0.3266,
-          0.42506,
-          0.25414,
-          0.368,
-          0.37163,
-          0.86948,
-          0.40234,
-          0.7443,
-          0.9622,
-          0.91055,
-          0.59461,
-          0.50431,
-          0.0198,
-          0.02173,
-          0.71106,
-          0.92078,
-          0.35884,
-          0.91991,
-          0.46884,
-          0.02081
+          0.1385,
+          0,
+          0,
+          0.42078,
+          0.74909,
+          0.72851,
+          0.37008,
+          0.23053,
+          0.87207,
+          0.84987,
+          0.81727,
+          0.84966,
+          0.82851,
+          0.72892,
+          0.08111,
+          0.90331,
+          0.43762,
+          0.15378,
+          0.68807,
+          0.93861,
+          0.94843,
+          0.8359,
+          0.0286
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/768-diff.png",
-        "at": "2026-10-23T08:16:33.421Z",
+        "at": "2026-10-23T14:53:07.924Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/768-diff.png",
@@ -100730,12 +100730,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8014,
-          "at": "2026-10-23T08:16:41.579Z",
+          "ms": 20232,
+          "at": "2026-10-23T14:53:28.319Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9481,
-            "truncated": true,
+            "scrollHeight": 7628,
+            "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
             "contentWidth": 375,
@@ -100743,7 +100743,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 1,
+            "pendingImages": 5,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -100771,7 +100771,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -100780,15 +100780,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.40443,
-        "unmaskedRatio": 0.40443,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.31833,
+        "unmaskedRatio": 0.33721,
+        "maskRatio": 0.05601,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 7549,
-        "heightB": 8000,
-        "heightDiffRatio": 0.05638,
+        "heightB": 7628,
+        "heightDiffRatio": 0.01036,
         "firstDivergentBand": {
           "index": 5,
           "y": 1000,
@@ -100796,16 +100796,16 @@
         },
         "worstBands": [
           {
-            "y": 6800,
-            "unmaskedRatio": 0.88987
+            "y": 1600,
+            "unmaskedRatio": 0.77281
           },
           {
-            "y": 7200,
-            "unmaskedRatio": 0.83601
+            "y": 5200,
+            "unmaskedRatio": 0.7666
           },
           {
-            "y": 7000,
-            "unmaskedRatio": 0.82913
+            "y": 5400,
+            "unmaskedRatio": 0.75459
           }
         ],
         "bandHeight": 200,
@@ -100828,31 +100828,30 @@
           0.54372,
           0.59648,
           0.26117,
-          0.22005,
-          0.44257,
-          0.30731,
-          0.33699,
-          0.53131,
-          0.54043,
-          0.27799,
-          0.44143,
-          0.35555,
-          0.63485,
-          0.71585,
-          0.23867,
-          0.15355,
-          0.75971,
-          0.67099,
-          0.72015,
-          0.88987,
-          0.82913,
-          0.83601,
-          0.06331,
-          0.02881,
-          0.65392
+          0.22373,
+          0.24847,
+          0,
+          0.16041,
+          0.6318,
+          0.42721,
+          0.11225,
+          0.25749,
+          0.7666,
+          0.75459,
+          0.60217,
+          0.17148,
+          0.68345,
+          0.54095,
+          0.54089,
+          0.41155,
+          0.05179,
+          0.0718,
+          0.15015,
+          0.04052,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/390-diff.png",
-        "at": "2026-10-23T08:16:43.413Z",
+        "at": "2026-10-23T14:53:30.148Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/highlights/all-it-takes-is-a-yes/390-diff.png",
@@ -197390,11 +197389,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14743,
-          "at": "2026-10-23T09:43:50.596Z",
+          "ms": 22122,
+          "at": "2026-10-23T14:53:52.448Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 11462,
+            "scrollHeight": 9637,
             "truncated": true,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -197403,7 +197402,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 4,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -197429,9 +197428,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5399
+              "svgAnimations": 0
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -197440,10 +197439,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43341,
-        "unmaskedRatio": 0.43341,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.41912,
+        "unmaskedRatio": 0.44264,
+        "maskRatio": 0.05314,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 6750,
@@ -197456,16 +197455,16 @@
         },
         "worstBands": [
           {
-            "y": 6400,
-            "unmaskedRatio": 0.98366
-          },
-          {
             "y": 6200,
-            "unmaskedRatio": 0.98176
+            "unmaskedRatio": 0.87818
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.87247
+            "y": 5200,
+            "unmaskedRatio": 0.84501
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.84074
           }
         ],
         "bandHeight": 200,
@@ -197491,28 +197490,28 @@
           0.75867,
           0.71845,
           0.36002,
-          0.31061,
-          0.48246,
-          0.2752,
-          0.46618,
-          0.45093,
-          0.82771,
-          0.83389,
-          0.37129,
-          0.80189,
-          0.75742,
-          0.98176,
-          0.98366,
-          0.87247,
-          0.67759,
-          0.69765,
-          0.73743,
-          0.01521,
-          0.02283,
-          0.4626
+          0.04083,
+          0,
+          0.29927,
+          0.69627,
+          0.76541,
+          0.84501,
+          0.83616,
+          0.35651,
+          0.79065,
+          0.72663,
+          0.87818,
+          0.71952,
+          0.56409,
+          0.41711,
+          0.82756,
+          0.84074,
+          0.59249,
+          0.01412,
+          0.44504
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
-        "at": "2026-10-23T09:43:55.269Z",
+        "at": "2026-10-23T14:53:57.457Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
@@ -197529,11 +197528,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14144,
-          "at": "2026-10-23T09:44:09.595Z",
+          "ms": 21115,
+          "at": "2026-10-23T14:54:18.767Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9711,
+            "scrollHeight": 8023,
             "truncated": true,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -197568,9 +197567,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5244
+              "svgAnimations": 0
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -197579,10 +197578,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.40359,
-        "unmaskedRatio": 0.40359,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.45543,
+        "unmaskedRatio": 0.49144,
+        "maskRatio": 0.07326,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 6536,
@@ -197595,16 +197594,16 @@
         },
         "worstBands": [
           {
-            "y": 5800,
-            "unmaskedRatio": 0.96524
-          },
-          {
             "y": 7600,
-            "unmaskedRatio": 0.92253
+            "unmaskedRatio": 0.96133
           },
           {
-            "y": 3000,
-            "unmaskedRatio": 0.86661
+            "y": 7800,
+            "unmaskedRatio": 0.95784
+          },
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.93126
           }
         ],
         "bandHeight": 200,
@@ -197626,32 +197625,32 @@
           0.40375,
           0.86661,
           0.29241,
-          0.1627,
-          0.2895,
-          0.106,
-          0.46667,
-          0.3671,
-          0.35476,
-          0.27114,
-          0.43757,
-          0.21673,
-          0.8618,
-          0.43264,
-          0.70284,
-          0.96524,
-          0.72331,
-          0.73908,
-          0.25165,
-          0.01944,
-          0.15597,
-          0.84568,
-          0.71055,
-          0.56584,
-          0.92253,
-          0.21008
+          0.17727,
+          0,
+          0,
+          0,
+          0.2365,
+          0.74664,
+          0.69963,
+          0.34582,
+          0.20027,
+          0.8794,
+          0.87914,
+          0.64949,
+          0.84326,
+          0.84689,
+          0.89394,
+          0.42622,
+          0.91411,
+          0.30242,
+          0.26226,
+          0.72449,
+          0.93126,
+          0.96133,
+          0.95784
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/768-diff.png",
-        "at": "2026-10-23T09:44:12.544Z",
+        "at": "2026-10-23T14:54:21.726Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/768-diff.png",
@@ -197668,11 +197667,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13368,
-          "at": "2026-10-23T09:44:26.099Z",
+          "ms": 20266,
+          "at": "2026-10-23T14:54:42.181Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9935,
+            "scrollHeight": 8149,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -197681,7 +197680,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 1,
+            "pendingImages": 5,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -197707,9 +197706,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5377
+              "svgAnimations": 0
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -197718,10 +197717,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39263,
-        "unmaskedRatio": 0.39263,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.30021,
+        "unmaskedRatio": 0.31964,
+        "maskRatio": 0.06079,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
@@ -197734,16 +197733,16 @@
         },
         "worstBands": [
           {
-            "y": 7200,
-            "unmaskedRatio": 0.89177
+            "y": 5600,
+            "unmaskedRatio": 0.76128
           },
           {
-            "y": 7600,
-            "unmaskedRatio": 0.86771
+            "y": 5800,
+            "unmaskedRatio": 0.73481
           },
           {
-            "y": 7400,
-            "unmaskedRatio": 0.82111
+            "y": 6000,
+            "unmaskedRatio": 0.72116
           }
         ],
         "bandHeight": 200,
@@ -197768,29 +197767,29 @@
           0.66613,
           0.57468,
           0.20644,
-          0.24607,
-          0.41316,
-          0.35203,
-          0.29036,
-          0.59395,
-          0.51208,
-          0.2568,
-          0.467,
-          0.22736,
-          0.57603,
-          0.74503,
-          0.22143,
-          0.28344,
-          0.7796,
-          0.53463,
-          0.66185,
-          0.89177,
-          0.82111,
-          0.86771,
-          0.41681
+          0.21715,
+          0.25808,
+          0,
+          0.28627,
+          0.62736,
+          0.41121,
+          0.11185,
+          0.20364,
+          0.76128,
+          0.73481,
+          0.72116,
+          0.16795,
+          0.54104,
+          0.71261,
+          0.38933,
+          0.24153,
+          0.06179,
+          0.07628,
+          0.08597,
+          0.27573
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/390-diff.png",
-        "at": "2026-10-23T09:44:27.968Z",
+        "at": "2026-10-23T14:54:44.070Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/highlights/all-it-takes-is-a-yes/390-diff.png",
@@ -235184,18 +235183,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/articles/highlights/all-it-takes-is-a-yes",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/articles/highlights/all-it-takes-is-a-yes/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 22214,
+          "at": "2026-10-23T14:55:06.490Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 9637,
+            "truncated": true,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 0
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/articles/highlights/all-it-takes-is-a-yes/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.4198,
+        "unmaskedRatio": 0.44336,
+        "maskRatio": 0.05314,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 6709,
+        "heightB": 8000,
+        "heightDiffRatio": 0.16137,
+        "firstDivergentBand": {
+          "index": 10,
+          "y": 2000,
+          "unmaskedRatio": 0.74309
+        },
+        "worstBands": [
+          {
+            "y": 6200,
+            "unmaskedRatio": 0.87818
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.84501
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.84074
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02336,
+          0.07285,
+          0.04801,
+          0.11135,
+          0.17261,
+          0.10974,
+          0.06185,
+          0.08436,
+          0.0366,
+          0.08368,
+          0.74309,
+          0.71758,
+          0.54185,
+          0.20684,
+          0.45059,
+          0.12059,
+          0.11743,
+          0.76711,
+          0.75847,
+          0.71845,
+          0.36002,
+          0.04083,
+          0,
+          0.29927,
+          0.69627,
+          0.76541,
+          0.84501,
+          0.83616,
+          0.35651,
+          0.79065,
+          0.72659,
+          0.87818,
+          0.71952,
+          0.59251,
+          0.41711,
+          0.82756,
+          0.84074,
+          0.59249,
+          0.01412,
+          0.44504
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
+        "at": "2026-10-23T14:55:11.516Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/articles/highlights/all-it-takes-is-a-yes/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/articles/highlights/allegris-premium-economy-san-diego@1440": {
       "id": "at/de/articles/highlights/allegris-premium-economy-san-diego",
@@ -259124,5 +259241,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-23T14:36:02.186Z"
+  "updatedAt": "2026-10-23T14:55:11.516Z"
 }
