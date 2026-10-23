@@ -459,6 +459,13 @@
     margin-bottom: 24px;
   }
 
+  /* the 2.4rem is the nonstop checkbox's margin; without it (no Nonstop label: de/de, at/de,
+     gb/en homepages) the row ends with .triptype-dropdown-wrapper .selectable { margin-bottom: 2rem }
+     (live 1440/768: From label 4px higher than on de/en) */
+  .flight-search .flight-search-options:not(:has(.flight-search-nonstop)) {
+    margin-bottom: 20px;
+  }
+
   .flight-search .flight-search-trip-type {
     margin: 0;
   }

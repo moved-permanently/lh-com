@@ -7,7 +7,19 @@
   --flight-status-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath fill='%2305164d' d='M0 1.9 1.9 0 8 6.1 14.1 0 16 1.9l-8 8z'/%3E%3C/svg%3E");
 
   position: relative;
+
+  /* below the divider: .hr margin-bottom 2.5rem (.mb-md-10: 8rem from 768px), then the
+     transparent .separator .hr-no-layout of all four flight status pages (1px + 2.5rem; not
+     imported): the text after it 64px (390) / 110px (768, 1440) below the line, as live */
+  margin-bottom: 59px;
   color: var(--lh-deepblue);
+}
+
+/* the "My bookings" text section: the column view below it (.onecolumn > .twocolumn
+   .column-view:only-child, padding 3.2rem each) starts 92-93px below the link at every width
+   (live), the section gap gave 53px */
+main > .section.flight-status-container + .section {
+  margin-bottom: 88px;
 }
 
 /* maui-divider after the search form (.hr) */
@@ -294,9 +306,9 @@
 }
 
 @media (width >= 768px) {
-  /* .hr.mb-md-10 */
+  /* .hr.mb-md-10 (8rem) + the 26px separator */
   .flight-status {
-    margin-bottom: 60px;
+    margin-bottom: 106px;
   }
 
   .flight-status::after {
