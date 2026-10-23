@@ -22,6 +22,7 @@
  *    #north-and-south-america, /de/en/baggage#baggage-types -> #types-of-baggage)
  *  - jump links (maui-navigation-link variant="anchor-down") of link lists and column views
  *    become a Jump Links block
+ *  - Insights article author quotes (.dcep-author-quote) become a <blockquote>
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
  *  - normalizes images (AEM and AirCore): largest srcset/<source> rendition, absolute
@@ -432,6 +433,35 @@ function convertSeparators(document) {
     }
   });
   return found.length;
+}
+
+/**
+ * Insights author quotes (.authorquote > .dcep-author-quote: .quote-text and .subline-text)
+ * become a <blockquote> with the quote and the subline as paragraphs (styles.css: article
+ * quotes). Only on article pages (.article-details-page); quotes of other templates stay text
+ * until they are styled there.
+ */
+function convertAuthorQuotes(document) {
+  let converted = 0;
+  document.querySelectorAll('.article-details-page .dcep-author-quote').forEach((quote) => {
+    const bq = document.createElement('blockquote');
+    ['.quote-text', '.subline-text'].forEach((sel) => {
+      const src = quote.querySelector(sel);
+      if (!src || !cleanText(src)) return;
+      const paras = [...src.querySelectorAll('p')].filter((p) => cleanText(p));
+      if (paras.length) {
+        bq.append(...paras);
+        return;
+      }
+      const p = document.createElement('p');
+      p.append(...src.childNodes);
+      bq.append(p);
+    });
+    if (!bq.children.length) return;
+    (quote.closest('.authorquote') || quote).replaceWith(bq);
+    converted += 1;
+  });
+  return converted;
 }
 
 function removeEmptyComponents(document) {
@@ -1191,6 +1221,7 @@ export default function transform(hookName, element, payload) {
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
+    convertAuthorQuotes(document);
     removeEmptyComponents(document);
     normalizeImages(document, true);
   }
