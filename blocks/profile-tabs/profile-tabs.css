@@ -1,0 +1,109 @@
+/* live maui-tab-control-responsive: from 768px tabs over the content width (as wide as their
+   labels allow, 64px, 18px labels, the active one bold over a 4px bar on a 1px grey line),
+   the panel 20px below; below 768px an accordion with 1px grey lines */
+.profile-tabs {
+  --profile-tabs-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 1.9 1.9 0 8 6.1 14.1 0 16 1.9l-8 8z'/%3E%3C/svg%3E");
+
+  font-family: var(--body-font-family);
+}
+
+.profile-tabs-list {
+  display: none;
+}
+
+.profile-tabs-item {
+  border-bottom: 1px solid var(--lh-grey-4);
+}
+
+.profile-tabs-list + .profile-tabs-item {
+  border-top: 1px solid var(--lh-grey-4);
+}
+
+.profile-tabs-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 13px 20px;
+  background: none;
+  color: var(--lh-deepblue);
+  font-family: inherit;
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-tabs-toggle::after {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 10px;
+  margin: 0 4px;
+  background: currentcolor;
+  mask: var(--profile-tabs-chevron) center / contain no-repeat;
+  transition: transform 0.2s ease-in-out;
+}
+
+.profile-tabs-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.profile-tabs-panel {
+  padding: 0 20px 20px;
+}
+
+@media (width >= 768px) {
+  .profile-tabs-list {
+    display: flex;
+    border-bottom: 1px solid var(--lh-grey-4);
+  }
+
+  .profile-tabs-list [role="tab"] {
+    position: relative;
+    flex: 1 1 auto;
+    margin: 0;
+    border: 0;
+    padding: 20px;
+    background: var(--lh-white);
+    color: var(--lh-grey-7);
+    font-family: inherit;
+    font-size: var(--body-font-size-m);
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .profile-tabs-list [role="tab"][aria-selected="true"] {
+    color: var(--lh-deepblue);
+    font-weight: 700;
+  }
+
+  .profile-tabs-list [role="tab"][aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 4px;
+    background: var(--lh-deepblue);
+  }
+
+  .profile-tabs-item,
+  .profile-tabs-list + .profile-tabs-item {
+    border: 0;
+  }
+
+  .profile-tabs-toggle {
+    display: none;
+  }
+
+  .profile-tabs-panel {
+    padding: 20px 0 0;
+  }
+}
