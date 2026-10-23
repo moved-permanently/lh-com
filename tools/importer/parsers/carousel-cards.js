@@ -21,7 +21,8 @@ import { viewerNodes } from './media-nodes.js';
  * ".carousel" swipers of them): 2 columns per row (image | heading linked to the card target,
  * description). The card's ".teaser-link-text" is display:none on live and is not imported.
  * Heading level as in the source (h3-h6; h1/h2 card titles become h3). The column title is
- * emitted as default content before the table; a swiper copy below lg is skipped when the
+ * emitted as default content before the table, with its size class (h2.heading-small, which
+ * the cleanup marks as {heading-small}); a swiper copy below lg is skipped when the
  * desktop grid is present. Options: column views "grid" (cards in rows, stacked on mobile;
  * ".fourcolumn" adds "four-up", ".twocolumn" "two-up"); a ".swiper-multi-slide" carousel "four-up" (4 per view);
  * inside an insights article (.article-details-page) "article" (cards in the article column).
@@ -157,8 +158,10 @@ export default function parse(element, { document }) {
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
         out.textContent = t;
-        // articles: the size class (h2.heading-small) becomes the cleanup's heading marker
-        if (isArticle && h.className) out.className = h.className;
+        // the size class (h2.heading-small) becomes the cleanup's heading marker when it is not
+        // the level's default ("This may also be of interest to you": 28px light, not 36px)
+        const size = [...h.classList].find((c) => /^heading-/.test(c));
+        if (size) out.className = size;
         titles.push(out);
       }));
 
