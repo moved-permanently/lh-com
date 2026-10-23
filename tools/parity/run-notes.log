@@ -99,3 +99,8 @@
 2026-10-23T03:30:18Z no summary (exit 3)
 2026-10-23T03:31:30Z 3 calls refused (exit 3): batch.lock pid 241679 is the killed runner, now a zombie that kill(pid,0) still reports alive; run-batch.js isAlive now treats zombie (/proc state Z) as dead
 2026-10-23T03:35:44Z done 953/2681 (failed 0, pending 1728) | call 223 s, 9 captures (9 ok, 0 failed), 9 compares | failures: none | worst: de/en/articles/explore-the-world/picture-perfect-austin@390 56.45% (diverges y=200)
+2026-10-23T03:40:30Z done 965/2681 (failed 0, pending 1716) | call 187 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/articles/highlights@768 52.92% (diverges y=200)
+2026-10-23T03:44:45Z done 977/2681 (failed 0, pending 1704) | call 150 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/articles/tags/munich@1440 55.83% (diverges y=400)
+2026-10-23T03:48:17Z done 989/2681 (failed 0, pending 1692) | call 109 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/advance-seat-reservations-terms-and-conditions@390 50.74% (diverges y=800)
+2026-10-23T03:51:55Z done 1001/2681 (failed 0, pending 1680) | call 116 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/common/compensation-voucher@390 25.3% (diverges y=5600)
+2026-10-23T03:55:39Z done 1013/2681 (failed 0, pending 1668) | call 122 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/common/seatreservation-condtions/seat-reservations@768 22.13% (diverges y=2400)
