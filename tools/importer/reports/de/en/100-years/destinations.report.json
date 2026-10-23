@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/100-years/destinations",
   "path": "de/en/100-years/destinations",
-  "timestamp": "2026-10-23T02:26:06.236Z",
+  "timestamp": "2026-10-23T16:12:30.811Z",
   "title": "",
   "template": "campaign",
   "blocks": [
+    "poi-map",
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",

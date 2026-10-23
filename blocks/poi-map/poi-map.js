@@ -454,7 +454,8 @@ function whenNear(block, fn) {
 /**
  * Map of points of interest with pins, zoom buttons and a bubble per point.
  * @param {Element} block
- * @returns {Promise<void>} resolves when the map is drawn or the block hidden
+ * @returns {Promise<void>} resolves when the map is drawn or the block hidden (at once in a
+ *   browser with IntersectionObserver: the map waits for the visible section)
  */
 export default function decorate(block) {
   instanceCount += 1;
@@ -518,5 +519,9 @@ export default function decorate(block) {
       drawMap(view, result.points, labels, settings.tiles);
       resolve();
     });
+    // with an IntersectionObserver the section is still hidden (aem.js shows it once its blocks
+    // are decorated) and a hidden block never comes near the viewport: waiting here kept this
+    // section and every later one hidden. The map loads once the section shows.
+    if (typeof window.IntersectionObserver === 'function') resolve();
   });
 }

@@ -597,7 +597,7 @@
  "https://www.lufthansa.com/de/en/first-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:37:23.424Z"
+  "at": "2026-10-23T16:13:40.750Z"
  },
  "https://www.lufthansa.com/de/en/first-class-lounges": {
   "template": "info",
@@ -1112,7 +1112,7 @@
  "https://www.lufthansa.com/de/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T16:13:21.071Z"
  },
  "https://www.lufthansa.com/de/en/100-years/fleet": {
   "template": "campaign",
@@ -1137,17 +1137,17 @@
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.284Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/neuschwanstein": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.297Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/zugspitze": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.300Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/en/culinaryjourney": {
   "template": "campaign",
@@ -1252,17 +1252,17 @@
  "https://www.lufthansa.com/de/en/articles/explore-the-world": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.604Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.618Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.564Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips": {
   "template": "insights",
@@ -1292,12 +1292,12 @@
  "https://www.lufthansa.com/de/en/articles/explore-the-world/in-my-hood-chiswick-london": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/in-my-hood-district-zurich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/know-before-you-go-algiers": {
   "template": "insights",
@@ -1312,12 +1312,12 @@
  "https://www.lufthansa.com/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:24.998Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.011Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/en/articles/explore-the-world/picture-perfect-austin": {
   "template": "insights",
@@ -1937,7 +1937,7 @@
  "https://www.lufthansa.com/de/de/first-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:37:23.427Z"
+  "at": "2026-10-23T16:13:40.750Z"
  },
  "https://www.lufthansa.com/de/de/first-class-lounges": {
   "template": "info",
@@ -2462,7 +2462,7 @@
  "https://www.lufthansa.com/de/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/de/100-years/fleet": {
   "template": "campaign",
@@ -2487,17 +2487,17 @@
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.287Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/neuschwanstein": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.300Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/zugspitze": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.300Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/de/de/culinaryjourney": {
   "template": "campaign",
@@ -2607,17 +2607,17 @@
  "https://www.lufthansa.com/de/de/articles/explore-the-world": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.608Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.622Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.567Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-barcelona-insider-tips": {
   "template": "insights",
@@ -2652,12 +2652,12 @@
  "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-chiswick-london": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-district-zurich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-algiers": {
   "template": "insights",
@@ -2672,12 +2672,12 @@
  "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.001Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.011Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/de/de/articles/explore-the-world/picture-perfect-austin": {
   "template": "insights",
@@ -3357,7 +3357,7 @@
  "https://www.lufthansa.com/at/de/first-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:37:23.430Z"
+  "at": "2026-10-23T16:13:40.754Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-first-class-komfort": {
   "template": "info",
@@ -3912,7 +3912,7 @@
  "https://www.lufthansa.com/at/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/at/de/100-years/fleet": {
   "template": "campaign",
@@ -3942,17 +3942,17 @@
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.290Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/neuschwanstein": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.300Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/zugspitze": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/at/de/culinaryjourney": {
   "template": "campaign",
@@ -4067,17 +4067,17 @@
  "https://www.lufthansa.com/at/de/articles/explore-the-world": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.611Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.557Z"
+  "at": "2026-10-23T16:15:09.625Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.571Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-barcelona-insider-tips": {
   "template": "insights",
@@ -4112,12 +4112,12 @@
  "https://www.lufthansa.com/at/de/articles/explore-the-world/in-my-hood-chiswick-london": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/in-my-hood-district-zurich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:24.962Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/know-before-you-go-algiers": {
   "template": "insights",
@@ -4132,12 +4132,12 @@
  "https://www.lufthansa.com/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.004Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.011Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/at/de/articles/explore-the-world/picture-perfect-austin": {
   "template": "insights",
@@ -4817,7 +4817,7 @@
  "https://www.lufthansa.com/gb/en/first-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:37:23.434Z"
+  "at": "2026-10-23T16:13:40.758Z"
  },
  "https://www.lufthansa.com/gb/en/first-class-comfort": {
   "template": "info",
@@ -5372,7 +5372,7 @@
  "https://www.lufthansa.com/gb/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/fleet": {
   "template": "campaign",
@@ -5402,17 +5402,17 @@
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.293Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/neuschwanstein": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.300Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/zugspitze": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T16:13:21.072Z"
  },
  "https://www.lufthansa.com/gb/en/culinaryjourney": {
   "template": "campaign",
@@ -5527,17 +5527,17 @@
  "https://www.lufthansa.com/gb/en/articles/explore-the-world": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:45:36.068Z"
+  "at": "2026-10-23T16:15:09.615Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.561Z"
+  "at": "2026-10-23T16:15:09.628Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.574Z"
+  "at": "2026-10-23T16:15:09.632Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips": {
   "template": "insights",
@@ -5572,12 +5572,12 @@
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/in-my-hood-chiswick-london": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:50:29.605Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/in-my-hood-district-zurich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:24.966Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/know-before-you-go-algiers": {
   "template": "insights",
@@ -5592,12 +5592,12 @@
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.007Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-food-trends-istanbul": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:55:25.011Z"
+  "at": "2026-10-23T16:15:09.633Z"
  },
  "https://www.lufthansa.com/gb/en/articles/explore-the-world/picture-perfect-austin": {
   "template": "insights",

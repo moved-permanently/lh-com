@@ -1039,6 +1039,13 @@
       ],
       "blocks": [
         {
+          "name": "poi-map",
+          "instances": [
+            ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
+            ".poimapping"
+          ]
+        },
+        {
           "name": "form-core",
           "instances": [
             "form.cmp-form"
@@ -1238,6 +1245,13 @@
         "https://www.lufthansa.com/gb/en/munich-fair"
       ],
       "blocks": [
+        {
+          "name": "poi-map",
+          "instances": [
+            ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
+            ".poimapping"
+          ]
+        },
         {
           "name": "flight-search",
           "instances": [
@@ -1685,6 +1699,13 @@
         "https://www.lufthansa.com/gb/en/articles/tags/munich"
       ],
       "blocks": [
+        {
+          "name": "poi-map",
+          "instances": [
+            ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
+            ".poimapping"
+          ]
+        },
         {
           "name": "fare-teaser",
           "instances": [

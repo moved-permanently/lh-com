@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof",
   "path": "at/de/book-and-manage/stopover/bayerischer-hof",
-  "timestamp": "2026-10-23T02:29:26.207Z",
+  "timestamp": "2026-10-23T16:12:45.344Z",
   "title": "",
   "template": "campaign",
   "blocks": [
+    "poi-map",
     "columns-media",
     "columns-media"
   ]

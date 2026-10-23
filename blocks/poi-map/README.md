@@ -149,6 +149,12 @@ The 52 answers to record (GET, from the page of the map, with that market's X-Po
 - https://www.lufthansa.com/service/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uXzgxMzExNjQxOS9jb2wxL3BvaW1hcHBpbmc%3D
 - https://www.lufthansa.com/service/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uL2NvbDEvcG9pbWFwcGluZ19jb3B5
 
+Status 2026-10-23: `node tools/importer/bd-record-api.mjs --set poi` (the 52 URLs above, Referer = the
+map's page) stops before the first request: the Bright Data Browser API refuses
+`page.setExtraHTTPHeaders` with the X-Portal-* headers ("Overriding X-Portal, ... headers forbidden"),
+so nothing is recorded yet and the maps stay hidden (the direct call from aem.page / localhost
+fails CORS). Parser: `tools/importer/parsers/poi-map.js` (mapped first in campaign, info, insights).
+
 `pointsOfInterest` is recordable now (`RECORDABLE` of tools/importer/record-live-data.mjs) and a direct route (`DIRECT_ROUTES` of scripts/lh-data.js); lh-proxy is not involved. Check the first recorded answer against `mapPointsOfInterest` (the shape comes from the live selectors; no real answer has been seen yet) and whether the direct call from aem.page passes CORS (if not, visitors get the recordings).
 
 ## Universal Editor fields

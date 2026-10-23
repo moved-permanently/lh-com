@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
   "path": "gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
-  "timestamp": "2026-10-23T05:54:22.539Z",
+  "timestamp": "2026-10-23T16:14:46.237Z",
   "title": "",
   "template": "insights",
   "blocks": [
+    "poi-map",
+    "poi-map",
     "article-header",
     "price-bar",
     "columns-media",

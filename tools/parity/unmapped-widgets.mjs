@@ -52,7 +52,7 @@ const KNOWN = {
   'dcep-login-form': { block: 'carousel-cards', planned: 'carousel-cards via .loginform:has(.login-oneid-card) (B4 done: app-entry, info)' },
   'dcep-fare-teaser-static': { block: 'fare-teaser', planned: 'fare-teaser (B5 done: homepage, insights)' },
   'dcep-meili-car-rental': { block: 'car-rental', planned: 'car-rental (B6 done: mapped in info)' },
-  'dcep-poi-mapping': { block: 'poi-map', planned: 'poi-map (block exists, not mapped; open, no item)' },
+  'dcep-poi-mapping': { block: 'poi-map', planned: 'poi-map (B8 done: mapped in campaign, info, insights; points not recorded: Bright Data refuses the X-Portal-* headers)' },
   'dcep-ejournals': { block: 'ejournals', planned: 'ejournals (block exists, not mapped; open, no item)' },
   'dcep-author-slider': { planned: 'loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup' },
   'dcep-blog-overview': { planned: 'loader text only; open, no item: drop .loading-text in the cleanup' },

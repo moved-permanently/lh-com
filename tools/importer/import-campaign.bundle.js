@@ -36,13 +36,74 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_16139_exports = {};
-  __export(tmp_bundle_campaign_16139_exports, {
-    default: () => tmp_bundle_campaign_16139_default
+  var tmp_bundle_campaign_51169_exports = {};
+  __export(tmp_bundle_campaign_51169_exports, {
+    default: () => tmp_bundle_campaign_51169_default
   });
 
-  // tools/importer/parsers/flight-search.js
+  // tools/importer/parsers/poi-map.js
+  function decodeId(id) {
+    const raw = String(id || "").trim();
+    if (!raw) return "";
+    try {
+      const s = typeof atob === "function" ? atob(decodeURIComponent(raw)) : Buffer.from(decodeURIComponent(raw), "base64").toString("utf8");
+      return /^\/content\//.test(s) ? s : raw;
+    } catch (e) {
+      return raw;
+    }
+  }
+  function idOf(poimapping) {
+    const host = poimapping.matches(".dcep-poi-mapping") ? poimapping : poimapping.querySelector(".dcep-poi-mapping");
+    if (!host) return "";
+    try {
+      const cfg = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+      return decodeId(cfg.id);
+    } catch (e) {
+      return "";
+    }
+  }
+  function contentOf(container, skip) {
+    return [...container.childNodes].filter((n) => {
+      if (skip && (n === skip || n.nodeType === 1 && n.contains(skip))) return false;
+      if (n.nodeType === 3) return n.textContent.trim();
+      if (n.nodeType !== 1) return false;
+      return n.textContent.replace(/[\s\u00A0\u200B]/g, "") || n.querySelector("img, picture, a[href], maui-navigation-link, maui-link");
+    });
+  }
   function parse(element, { document }) {
+    const isTwoColumn = element.matches(".twocolumn");
+    const poimapping = element.matches(".poimapping") ? element : element.querySelector(".poimapping");
+    if (!poimapping) return;
+    const source = idOf(poimapping);
+    const cells = [];
+    if (source) cells.push(["Source", source]);
+    if (isTwoColumn) {
+      const columns = [...element.querySelectorAll(".column-view-item")].filter((c) => !c.parentElement.closest(".column-view-item"));
+      const mapCol = columns.find((c) => c.contains(poimapping));
+      const other = columns.filter((c) => c !== mapCol);
+      if (mapCol) {
+        let wrapper = poimapping;
+        while (wrapper.parentElement && wrapper.parentElement !== mapCol) wrapper = wrapper.parentElement;
+        const caption = contentOf(mapCol, wrapper);
+        if (caption.length) cells.push(["Caption", caption]);
+      }
+      const aside = other.flatMap((c) => contentOf(c));
+      if (aside.length) cells.push(["Aside", aside]);
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "poi-map", cells }));
+      return;
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "poi-map", cells });
+    const sidebar = poimapping.parentElement && poimapping.parentElement.closest(".sidebar");
+    if (sidebar) {
+      poimapping.remove();
+      sidebar.after(block);
+      return;
+    }
+    poimapping.replaceWith(block);
+  }
+
+  // tools/importer/parsers/flight-search.js
+  function parse2(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -159,7 +220,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -322,7 +383,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -731,7 +792,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -909,7 +970,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -939,7 +1000,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1346,11 +1407,23 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+    return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -1415,7 +1488,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -1804,6 +1877,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -1985,6 +2062,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -2186,6 +2264,13 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "poi-map",
+        "instances": [
+          ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
+          ".poimapping"
+        ]
+      },
+      {
         "name": "flight-search",
         "instances": [
           ".redesignedflightmanager"
@@ -2369,12 +2454,13 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "flight-search": parse,
-    "hero-campaign": parse2,
-    "columns-media": parse3,
-    "cards-teaser": parse4,
-    "carousel-images": parse5,
-    "carousel-cards": parse6
+    "poi-map": parse,
+    "flight-search": parse2,
+    "hero-campaign": parse3,
+    "columns-media": parse4,
+    "cards-teaser": parse5,
+    "carousel-images": parse6,
+    "carousel-cards": parse7
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2398,7 +2484,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_16139_default = {
+  var tmp_bundle_campaign_51169_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2428,5 +2514,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_16139_exports);
+  return __toCommonJS(tmp_bundle_campaign_51169_exports);
 })();

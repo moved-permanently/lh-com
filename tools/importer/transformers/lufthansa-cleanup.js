@@ -348,11 +348,14 @@ const MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, i
 // a video viewer whose player had not loaded yet in the snapshot (a maui-loader only) still has
 // its video in data-dcep (columns-media parser)
 const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+// widgets whose snapshot caught them before they rendered (an empty .dcep-poi-mapping when the
+// map had not loaded) keep their data-dcep config for their parser (poi-map: the id)
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {
   if (el.textContent.replace(/\u00A0/g, ' ').trim()) return false;
-  return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+  return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
 }
 
 /**

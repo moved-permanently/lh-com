@@ -15,11 +15,13 @@
  * Status 2026-10-23: the Bright Data Browser API forbids overriding the X-Portal-* headers
  * (Network.setExtraHTTPHeaders: "Overriding X-Portal, X-Portal-Site, ... headers forbidden",
  * docs.brightdata.com/products/scraping-browser/error-codes#access-and-permissions), so the run
- * stops before the first API URL; nothing was requested or recorded.
+ * stops before the first API URL; nothing was requested or recorded (lounges, and again for
+ * --set poi: 0 of 52 requested).
  *
- * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --list urls.txt | --url <url> ...)
+ * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --set poi | --list urls.txt | --url <url> ...)
  *          [--locale de/en] [--referer <url>] [--min-delay 5000] [--max-delay 10000]
  *   --set lounges   the 36 lounge finder answers (blocks/lounge-finder/README.md "Recording")
+ *   --set poi       the 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording")
  *   --list/--url    URLs of one market (--locale, default de/en)
  */
 import fs from 'node:fs';
@@ -54,9 +56,29 @@ function loungeJobs() {
   }))));
 }
 
+/**
+ * The 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording"): every URL listed there,
+ * with the market and the map's page (Referer) from the decoded JCR path of its id.
+ */
+function poiJobs() {
+  const readme = fs.readFileSync(path.join(root, 'blocks/poi-map/README.md'), 'utf8');
+  const urls = [...new Set(readme.match(/https:\/\/www\.lufthansa\.com\/service\/api\/pointsOfInterest\/[A-Za-z0-9+/=%]+/g) || [])];
+  return urls.map((url) => {
+    const id = decodeURIComponent(url.split('/pointsOfInterest/')[1]);
+    const jcr = Buffer.from(id, 'base64').toString('utf8');
+    const m = jcr.match(/^\/content\/lh\/markets\/([a-z]{2})\/([a-z]{2})\/(.+?)\/jcr:content\//);
+    if (!m) throw new Error(`poi: cannot read the JCR path of ${url}`);
+    // the first-class page lives under prepare-for-your-trip/travel-classes/ in AEM only
+    const page = m[3].replace(/^prepare-for-your-trip\/travel-classes\/first-class$/, 'first-class');
+    return { locale: `${m[1]}/${m[2]}`, url, referer: `${LIVE}/${m[1]}/${m[2]}/${page}` };
+  });
+}
+
 let jobs;
 if (opt('set') === 'lounges') {
   jobs = loungeJobs();
+} else if (opt('set') === 'poi') {
+  jobs = poiJobs();
 } else {
   const locale = opt('locale', 'de/en');
   const list = opt('list');
