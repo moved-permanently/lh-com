@@ -365,9 +365,16 @@ function markSeparators(document) {
     if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
     else runs.push([sep]);
   });
+  // right after a grey band (a component holding .container-gray, the end of a grey section)
+  // every separator counts: the section gap replaces the component spacing, not the separator
+  // (my-bookings login strip, 40px separator: 74px to the teasers)
+  const afterGrey = (sep) => {
+    const prev = sep.previousElementSibling;
+    return !!prev && (prev.matches('.container-gray') || !!prev.querySelector('.container-gray'));
+  };
   runs.forEach((run) => {
     const infos = run.map(separatorInfo);
-    const keep = infos.some((i) => i.keep);
+    const keep = infos.some((i) => i.keep) || afterGrey(run[0]);
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
       if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_82911_exports = {};
-  __export(tmp_bundle_campaign_82911_exports, {
-    default: () => tmp_bundle_campaign_82911_default
+  var tmp_bundle_campaign_157291_exports = {};
+  __export(tmp_bundle_campaign_157291_exports, {
+    default: () => tmp_bundle_campaign_157291_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -618,6 +618,7 @@ var CustomImportScript = (() => {
       if (style) out.className = style;
       return out;
     };
+    const overlay = !!element.querySelector(".column-view-item > .stage .stage-teaser");
     const view = element.querySelector(":scope > .column-view") || element;
     const titles = [];
     [...view.children].filter((d) => !d.classList.contains("row")).forEach((d) => {
@@ -626,6 +627,8 @@ var CustomImportScript = (() => {
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
         out.textContent = t;
+        const style = overlay && [...h.classList].find((c) => /^heading-/.test(c));
+        if (style) out.className = style;
         titles.push(out);
       });
     });
@@ -647,6 +650,25 @@ var CustomImportScript = (() => {
         } else if (comp.classList.contains("headline")) {
           const h = headingFrom(comp);
           if (h) body.push(h);
+        } else if (comp.classList.contains("stage") && comp.querySelector(".stage-teaser")) {
+          const img = imageFrom(comp);
+          if (img && !media) media = img;
+          const head = visibleText(comp.querySelector(".stage-teaser-headline"));
+          if (head) {
+            const h = document.createElement("h3");
+            h.textContent = head;
+            body.push(h);
+          }
+          const link = comp.querySelector("a.stage-teaser-link[href], a[href]");
+          const sub = visibleText(comp.querySelector(".stage-teaser-subheadline"));
+          if (link && (sub || head)) {
+            const a = document.createElement("a");
+            a.setAttribute("href", link.getAttribute("href"));
+            a.textContent = sub || head;
+            const p = document.createElement("p");
+            p.append(a);
+            body.push(p);
+          }
         } else if (comp.classList.contains("link")) {
           const p = linkPara(comp);
           if (p) body.push(p);
@@ -658,6 +680,7 @@ var CustomImportScript = (() => {
       cells.push([media || "", body.length ? body : ""]);
     });
     const variants = element.classList.contains("threecolumn") ? ["three-up"] : [];
+    if (overlay) variants.push("overlay");
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
     const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
@@ -955,9 +978,13 @@ var CustomImportScript = (() => {
       if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
       else runs.push([sep]);
     });
+    const afterGrey = (sep) => {
+      const prev = sep.previousElementSibling;
+      return !!prev && (prev.matches(".container-gray") || !!prev.querySelector(".container-gray"));
+    };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
-      const keep = infos.some((i) => i.keep);
+      const keep = infos.some((i) => i.keep) || afterGrey(run[0]);
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
         if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
@@ -1649,12 +1676,16 @@ var CustomImportScript = (() => {
     });
     return regions;
   }
+  var SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
   function contentBetween(document, root, from, to) {
     const range = document.createRange();
     if (from) range.setStartAfter(from);
     else range.setStart(root, 0);
     range.setEndBefore(to);
     const frag = range.cloneContents();
+    frag.querySelectorAll("p").forEach((p) => {
+      if (SPACER.test(p.textContent.trim())) p.remove();
+    });
     if ((frag.textContent || "").replace(/[\s ​]/g, "")) return true;
     return !!frag.querySelector(MEDIA2);
   }
@@ -1705,6 +1736,15 @@ var CustomImportScript = (() => {
           region.before(start);
           region.after(createBreak(document));
         });
+      });
+      const padded = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
+      const grey = (s) => !!s.querySelector(":scope > .container-gray");
+      const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
+      aemSections.forEach((s, i) => {
+        if (!i) return;
+        const hr = createBreak(document);
+        if (padded(s) && !grey(s) && padded(aemSections[i - 1])) hr.setAttribute(SOURCE_STYLE, "padded");
+        s.before(hr);
       });
     }
     if (hookName === "afterTransform") {
@@ -1948,7 +1988,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_82911_default = {
+  var tmp_bundle_campaign_157291_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1978,5 +2018,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_82911_exports);
+  return __toCommonJS(tmp_bundle_campaign_157291_exports);
 })();

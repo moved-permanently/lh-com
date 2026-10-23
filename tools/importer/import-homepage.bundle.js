@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_82911_exports = {};
-  __export(tmp_bundle_homepage_82911_exports, {
-    default: () => tmp_bundle_homepage_82911_default
+  var tmp_bundle_homepage_157291_exports = {};
+  __export(tmp_bundle_homepage_157291_exports, {
+    default: () => tmp_bundle_homepage_157291_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -438,6 +438,33 @@ var CustomImportScript = (() => {
       });
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["grid"], cells: rows });
       element.replaceWith(...intro, block2);
+      return;
+    }
+    const authors = [...element.querySelectorAll("a.author-slider-link")].filter((a) => !a.closest(".swiper-slide-duplicate"));
+    if (authors.length) {
+      const rows = authors.map((card) => {
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        let imageCell = "";
+        if (img) {
+          imageCell = document.createElement("img");
+          imageCell.src = img.getAttribute("src");
+          imageCell.alt = img.getAttribute("alt") || "";
+        }
+        const content = [];
+        const name = visibleText(card.querySelector(".author-name"));
+        if (name) {
+          const h = document.createElement("h3");
+          const a = document.createElement("a");
+          a.href = card.getAttribute("href");
+          a.textContent = name;
+          h.append(a);
+          content.push(h);
+        }
+        const description = visibleText(card.querySelector(".author-description"));
+        if (description) content.push(para(description));
+        return imageCell || content.length ? [imageCell, content.length ? content : ""] : null;
+      }).filter(Boolean);
+      if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: rows }));
       return;
     }
     if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
@@ -1315,9 +1342,13 @@ var CustomImportScript = (() => {
       if (last && last[last.length - 1].nextElementSibling === sep) last.push(sep);
       else runs.push([sep]);
     });
+    const afterGrey = (sep) => {
+      const prev = sep.previousElementSibling;
+      return !!prev && (prev.matches(".container-gray") || !!prev.querySelector(".container-gray"));
+    };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
-      const keep = infos.some((i) => i.keep);
+      const keep = infos.some((i) => i.keep) || afterGrey(run[0]);
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
         if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
@@ -2009,12 +2040,16 @@ var CustomImportScript = (() => {
     });
     return regions;
   }
+  var SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
   function contentBetween(document, root, from, to) {
     const range = document.createRange();
     if (from) range.setStartAfter(from);
     else range.setStart(root, 0);
     range.setEndBefore(to);
     const frag = range.cloneContents();
+    frag.querySelectorAll("p").forEach((p) => {
+      if (SPACER.test(p.textContent.trim())) p.remove();
+    });
     if ((frag.textContent || "").replace(/[\s ​]/g, "")) return true;
     return !!frag.querySelector(MEDIA2);
   }
@@ -2065,6 +2100,15 @@ var CustomImportScript = (() => {
           region.before(start);
           region.after(createBreak(document));
         });
+      });
+      const padded = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
+      const grey = (s) => !!s.querySelector(":scope > .container-gray");
+      const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
+      aemSections.forEach((s, i) => {
+        if (!i) return;
+        const hr = createBreak(document);
+        if (padded(s) && !grey(s) && padded(aemSections[i - 1])) hr.setAttribute(SOURCE_STYLE, "padded");
+        s.before(hr);
       });
     }
     if (hookName === "afterTransform") {
@@ -2297,7 +2341,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_82911_default = {
+  var tmp_bundle_homepage_157291_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2327,5 +2371,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_82911_exports);
+  return __toCommonJS(tmp_bundle_homepage_157291_exports);
 })();

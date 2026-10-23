@@ -77,3 +77,6 @@ gb/en/articles/explore-flying
 gb/en/articles/explore-the-world
 gb/en/articles/highlights
 gb/en/articles/tags
+de/en/boeing787
+de/en/my-bookings
+de/en/100-years

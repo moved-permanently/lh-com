@@ -873,6 +873,12 @@ main > .section.grey + .section.grey {
   margin-top: calc(-1 * var(--section-gap));
 }
 
+/* padded: a Lufthansa AEM section after another one (.section-padding-y-regular: 2rem, 4rem
+   from 768px above and below); the importer writes it at the source's section boundaries */
+main > .section.padded {
+  padding: var(--section-padding) 0;
+}
+
 /* full-bleed: .section-wide, no side paddings */
 main > .section.full-bleed > div {
   max-width: none;
@@ -942,6 +948,16 @@ body.aircore main .cards-price-wrapper + .default-content-wrapper:has(> h3:first
 /* a headline that ends the default content keeps only its own margin to the block below
    (.headline + component: heading margin-bottom, no extra .mb-default) */
 main > .section > .default-content-wrapper:has(> :last-child:is(h1, h2, h3, h4, h5, h6)) + div {
+  margin-top: 0;
+}
+
+/* separators right after a grey band open the next section: the component spacing (32px) plus
+   the separator, as after the live band (my-bookings login strip + 40px separator: 74px) */
+main > .section.grey + .section > .default-content-wrapper:first-child:not(:has(> :not(p.spacer))) {
+  margin-top: -16px;
+}
+
+main > .section.grey + .section > .default-content-wrapper:first-child:not(:has(> :not(p.spacer))) + div {
   margin-top: 0;
 }
 
