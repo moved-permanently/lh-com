@@ -42963,11 +42963,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8456,
-          "at": "2026-10-23T01:18:06.180Z",
+          "ms": 10409,
+          "at": "2026-10-23T20:10:13.745Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4033,
+            "scrollHeight": 3016,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -42979,7 +42979,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -42993,7 +42993,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -43004,7 +43005,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -43013,60 +43014,51 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.40451,
-        "unmaskedRatio": 0.40451,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.0326,
+        "unmaskedRatio": 0.07493,
+        "maskRatio": 0.56495,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2997,
-        "heightB": 4033,
-        "heightDiffRatio": 0.25688,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.81696
-        },
+        "heightB": 3016,
+        "heightDiffRatio": 0.0063,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3600,
-            "unmaskedRatio": 0.97262
+            "y": 2200,
+            "unmaskedRatio": 0.16176
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.96287
+            "y": 2800,
+            "unmaskedRatio": 0.13121
           },
           {
-            "y": 2600,
-            "unmaskedRatio": 0.95322
+            "y": 2400,
+            "unmaskedRatio": 0.08853
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02219,
-          0.29815,
-          0.81696,
-          0.78632,
-          0.26996,
-          0.04338,
-          0.06789,
-          0.06375,
-          0.04873,
-          0.08708,
-          0.05106,
-          0.4185,
-          0.93242,
-          0.95322,
-          0.56393,
-          0.02362,
-          0.20245,
-          0.96287,
-          0.97262,
-          0.57176,
+          0.01745,
+          0.01875,
+          0.07199,
+          0.0544,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.08826,
+          0.16176,
+          0.08853,
+          0.03652,
+          0.13121,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/1440-diff.png",
-        "at": "2026-10-23T01:18:08.509Z",
+        "at": "2026-10-23T20:10:15.653Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/1440-diff.png",
@@ -43083,11 +43075,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7818,
-          "at": "2026-10-23T01:18:16.434Z",
+          "ms": 7531,
+          "at": "2026-10-23T20:10:23.370Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4067,
+            "scrollHeight": 3388,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -43099,7 +43091,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -43113,7 +43105,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -43124,7 +43117,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -43133,60 +43126,52 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.41316,
-        "unmaskedRatio": 0.41316,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.03707,
+        "unmaskedRatio": 0.09961,
+        "maskRatio": 0.62785,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3375,
-        "heightB": 4067,
-        "heightDiffRatio": 0.17015,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.86661
-        },
+        "heightB": 3388,
+        "heightDiffRatio": 0.00384,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3400,
-            "unmaskedRatio": 0.94919
+            "y": 400,
+            "unmaskedRatio": 0.26542
           },
           {
-            "y": 3600,
-            "unmaskedRatio": 0.94292
+            "y": 2400,
+            "unmaskedRatio": 0.16669
           },
           {
-            "y": 3800,
-            "unmaskedRatio": 0.92582
+            "y": 2800,
+            "unmaskedRatio": 0.15588
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03068,
-          0.19536,
-          0.86661,
-          0.43251,
-          0.04153,
-          0.22531,
-          0.02711,
-          0.1145,
-          0.10998,
-          0.11791,
-          0.11411,
-          0.16687,
-          0.14359,
-          0.65529,
-          0.90667,
-          0.91536,
-          0.51201,
-          0.94919,
-          0.94292,
-          0.92582,
-          0.02464
+          0.02373,
+          0.01198,
+          0.26542,
+          0.02656,
+          0,
+          0.0026,
+          0,
+          0,
+          0.00219,
+          0,
+          0.00052,
+          0.0025,
+          0.16669,
+          0.09647,
+          0.15588,
+          0.06306,
+          0.1557
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/768-diff.png",
-        "at": "2026-10-23T01:18:18.034Z",
+        "at": "2026-10-23T20:10:24.722Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/768-diff.png",
@@ -43203,11 +43188,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7750,
-          "at": "2026-10-23T01:18:25.896Z",
+          "ms": 7607,
+          "at": "2026-10-23T20:10:32.484Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 5122,
+            "scrollHeight": 4368,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -43219,7 +43204,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -43233,7 +43218,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -43244,7 +43230,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -43253,65 +43239,62 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.33108,
-        "unmaskedRatio": 0.33108,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.06343,
+        "unmaskedRatio": 0.15851,
+        "maskRatio": 0.59981,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 4425,
-        "heightB": 5122,
-        "heightDiffRatio": 0.13608,
+        "heightB": 4368,
+        "heightDiffRatio": 0.01288,
         "firstDivergentBand": {
-          "index": 18,
-          "y": 3600,
-          "unmaskedRatio": 0.80169
+          "index": 17,
+          "y": 3400,
+          "unmaskedRatio": 0.38073
         },
         "worstBands": [
           {
-            "y": 4400,
-            "unmaskedRatio": 0.95271
+            "y": 3400,
+            "unmaskedRatio": 0.38073
           },
           {
-            "y": 4000,
-            "unmaskedRatio": 0.9444
+            "y": 4200,
+            "unmaskedRatio": 0.30631
           },
           {
-            "y": 4600,
-            "unmaskedRatio": 0.93585
+            "y": 3600,
+            "unmaskedRatio": 0.1828
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07713,
-          0.23429,
-          0.25891,
-          0.29532,
-          0.06841,
-          0.18792,
-          0.11077,
-          0.06392,
-          0.15637,
-          0.18636,
-          0.16257,
-          0.15621,
-          0.16641,
-          0.16499,
-          0.19063,
-          0.18459,
-          0.11803,
-          0.15,
-          0.80169,
-          0.87557,
-          0.9444,
-          0.75959,
-          0.95271,
-          0.93585,
-          0.27624,
+          0.00852,
+          0.06875,
+          0.0933,
+          0,
+          0,
+          0.00989,
+          0,
+          0,
+          0.00216,
+          0.00125,
+          0.00182,
+          0.00011,
+          0,
+          0.0033,
+          0.00443,
+          0.15425,
+          0.38073,
+          0.1828,
+          0.10912,
+          0.17519,
+          0.30631,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/390-diff.png",
-        "at": "2026-10-23T01:18:27.045Z",
+        "at": "2026-10-23T20:10:33.598Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/europcar/390-diff.png",
@@ -50317,11 +50300,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8365,
-          "at": "2026-10-23T01:34:20.343Z",
+          "ms": 9578,
+          "at": "2026-10-23T20:10:43.351Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3890,
+            "scrollHeight": 3009,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -50333,7 +50316,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -50347,7 +50330,9 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons",
+              "Nunito Sans"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -50358,7 +50343,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -50367,59 +50352,51 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4087,
-        "unmaskedRatio": 0.4087,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.02871,
+        "unmaskedRatio": 0.0741,
+        "maskRatio": 0.61258,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2985,
-        "heightB": 3890,
-        "heightDiffRatio": 0.23265,
-        "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.71701
-        },
+        "heightB": 3009,
+        "heightDiffRatio": 0.00798,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3400,
-            "unmaskedRatio": 0.96958
+            "y": 2200,
+            "unmaskedRatio": 0.25854
           },
           {
-            "y": 2600,
-            "unmaskedRatio": 0.9526
+            "y": 2800,
+            "unmaskedRatio": 0.10089
           },
           {
             "y": 2400,
-            "unmaskedRatio": 0.9423
+            "unmaskedRatio": 0.09157
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.01796,
-          0.0837,
-          0.25611,
-          0.71701,
-          0.62807,
-          0.4289,
-          0.04436,
-          0.04238,
-          0.03035,
-          0.06682,
-          0.03654,
-          0.48606,
-          0.9423,
-          0.9526,
-          0.50874,
-          0.01,
-          0.87004,
-          0.96958,
-          0.85328,
-          0.00968
+          0.01637,
+          0,
+          0.05673,
+          0.07349,
+          0.06506,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.25854,
+          0.09157,
+          0.038,
+          0.10089,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/1440-diff.png",
-        "at": "2026-10-23T01:34:22.650Z",
+        "at": "2026-10-23T20:10:45.132Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/1440-diff.png",
@@ -50436,11 +50413,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7994,
-          "at": "2026-10-23T01:34:30.760Z",
+          "ms": 7871,
+          "at": "2026-10-23T20:10:53.192Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3750,
+            "scrollHeight": 3130,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -50452,7 +50429,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -50466,7 +50443,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -50477,7 +50455,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -50486,58 +50464,51 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43535,
-        "unmaskedRatio": 0.43535,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.02141,
+        "unmaskedRatio": 0.0626,
+        "maskRatio": 0.65801,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3136,
-        "heightB": 3750,
-        "heightDiffRatio": 0.16373,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.47049
-        },
+        "heightB": 3130,
+        "heightDiffRatio": 0.00191,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3400,
-            "unmaskedRatio": 0.96909
+            "y": 400,
+            "unmaskedRatio": 0.21333
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.93088
+            "y": 600,
+            "unmaskedRatio": 0.19865
           },
           {
-            "y": 3200,
-            "unmaskedRatio": 0.91901
+            "y": 2600,
+            "unmaskedRatio": 0.10359
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02727,
-          0.15262,
-          0.47049,
-          0.81396,
-          0.18419,
-          0.18662,
-          0.06227,
-          0.05372,
-          0.08298,
-          0.0679,
-          0.11845,
-          0.13074,
-          0.83047,
-          0.90659,
-          0.93088,
-          0.88412,
-          0.91901,
-          0.96909,
-          0.49528
+          0.02357,
+          0.00156,
+          0.21333,
+          0.19865,
+          0,
+          0,
+          0.0024,
+          0.00198,
+          0,
+          0,
+          0,
+          0,
+          0.0685,
+          0.10359,
+          0.06275,
+          0.07743
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/768-diff.png",
-        "at": "2026-10-23T01:34:32.227Z",
+        "at": "2026-10-23T20:10:54.466Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/768-diff.png",
@@ -50554,11 +50525,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7642,
-          "at": "2026-10-23T01:34:39.981Z",
+          "ms": 7624,
+          "at": "2026-10-23T20:11:02.269Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4423,
+            "scrollHeight": 3837,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -50570,7 +50541,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -50584,7 +50555,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -50595,7 +50567,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -50604,62 +50576,59 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.31544,
-        "unmaskedRatio": 0.31544,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.07032,
+        "unmaskedRatio": 0.19412,
+        "maskRatio": 0.63774,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3856,
-        "heightB": 4423,
-        "heightDiffRatio": 0.12819,
+        "heightB": 3837,
+        "heightDiffRatio": 0.00493,
         "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.50909
+          "index": 14,
+          "y": 2800,
+          "unmaskedRatio": 0.57369
         },
         "worstBands": [
           {
-            "y": 3800,
-            "unmaskedRatio": 0.94655
+            "y": 2800,
+            "unmaskedRatio": 0.57369
           },
           {
-            "y": 3200,
-            "unmaskedRatio": 0.88347
+            "y": 3600,
+            "unmaskedRatio": 0.43885
           },
           {
-            "y": 4000,
-            "unmaskedRatio": 0.71587
+            "y": 3000,
+            "unmaskedRatio": 0.29943
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07713,
-          0.1892,
-          0.18937,
-          0.50909,
-          0.23113,
-          0.068,
-          0.18511,
-          0.11643,
-          0.09964,
-          0.09487,
-          0.12885,
-          0.12177,
-          0.17839,
-          0.11371,
-          0.22685,
-          0.70963,
-          0.88347,
-          0.60429,
-          0.57604,
-          0.94655,
-          0.71587,
-          0.01055,
-          0
+          0.00193,
+          0.03614,
+          0.18011,
+          0,
+          0,
+          0.01159,
+          0,
+          0,
+          0.00386,
+          0,
+          0.00159,
+          0.00125,
+          0,
+          0.57369,
+          0.29943,
+          0.13164,
+          0.27205,
+          0.43885,
+          0.02214
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/390-diff.png",
-        "at": "2026-10-23T01:34:41.156Z",
+        "at": "2026-10-23T20:11:03.339Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/hertz/390-diff.png",
@@ -51032,11 +51001,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7716,
-          "at": "2026-10-23T16:03:27.523Z",
+          "ms": 8950,
+          "at": "2026-10-23T20:11:12.478Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1670,
+            "scrollHeight": 2299,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -51063,8 +51032,7 @@
             "loadedWebfonts": [
               "LufthansaHead",
               "LufthansaText",
-              "meili-icons",
-              "Nunito Sans"
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -51084,32 +51052,28 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51074,
-        "unmaskedRatio": 0.55237,
-        "maskRatio": 0.07537,
+        "mismatchRatio": 0.06641,
+        "unmaskedRatio": 0.09694,
+        "maskRatio": 0.31491,
         "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2291,
-        "heightB": 1670,
-        "heightDiffRatio": 0.27106,
-        "firstDivergentBand": {
-          "index": 5,
-          "y": 1000,
-          "unmaskedRatio": 0.94341
-        },
+        "heightB": 2299,
+        "heightDiffRatio": 0.00348,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1800,
-            "unmaskedRatio": 0.99558
+            "y": 400,
+            "unmaskedRatio": 0.17626
           },
           {
-            "y": 2000,
-            "unmaskedRatio": 0.99199
+            "y": 2200,
+            "unmaskedRatio": 0.14351
           },
           {
-            "y": 1000,
-            "unmaskedRatio": 0.94341
+            "y": 1600,
+            "unmaskedRatio": 0.14298
           }
         ],
         "bandHeight": 200,
@@ -51118,17 +51082,17 @@
           0.08575,
           0.17626,
           0.10458,
-          0.04484,
-          0.94341,
-          0.85376,
-          0.70936,
-          0.9129,
-          0.99558,
-          0.99199,
-          0.14656
+          0,
+          0,
+          0.06105,
+          0.00146,
+          0.14298,
+          0.05749,
+          0.12331,
+          0.14351
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/1440-diff.png",
-        "at": "2026-10-23T16:03:29.327Z",
+        "at": "2026-10-23T20:11:14.105Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/1440-diff.png",
@@ -51145,11 +51109,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7475,
-          "at": "2026-10-23T16:03:36.993Z",
+          "ms": 7542,
+          "at": "2026-10-23T20:11:21.818Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1722,
+            "scrollHeight": 3566,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -51176,8 +51140,7 @@
             "loadedWebfonts": [
               "LufthansaHead",
               "LufthansaText",
-              "meili-icons",
-              "Nunito Sans"
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -51197,32 +51160,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51595,
-        "unmaskedRatio": 0.57326,
-        "maskRatio": 0.09997,
+        "mismatchRatio": 0.07772,
+        "unmaskedRatio": 0.18239,
+        "maskRatio": 0.57388,
         "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3643,
-        "heightB": 1722,
-        "heightDiffRatio": 0.52731,
+        "heightB": 3566,
+        "heightDiffRatio": 0.02114,
         "firstDivergentBand": {
-          "index": 5,
-          "y": 1000,
-          "unmaskedRatio": 0.92772
+          "index": 14,
+          "y": 2800,
+          "unmaskedRatio": 0.40802
         },
         "worstBands": [
           {
-            "y": 3200,
-            "unmaskedRatio": 0.99264
+            "y": 2800,
+            "unmaskedRatio": 0.40802
           },
           {
-            "y": 3000,
-            "unmaskedRatio": 0.96915
+            "y": 3400,
+            "unmaskedRatio": 0.38959
           },
           {
-            "y": 1000,
-            "unmaskedRatio": 0.92772
+            "y": 2400,
+            "unmaskedRatio": 0.28281
           }
         ],
         "bandHeight": 200,
@@ -51231,24 +51194,24 @@
           0.1201,
           0.20752,
           0,
-          0.0772,
-          0.92772,
-          0.92489,
-          0.90769,
-          0.70419,
-          0.08853,
-          0.73017,
-          0.34862,
-          0.38949,
-          0.87675,
-          0.34748,
-          0.96915,
-          0.99264,
-          0.82118,
+          0,
+          0.00281,
+          0.02677,
+          0.27948,
+          0.12979,
+          0.16979,
+          0.27125,
+          0.00052,
+          0.28281,
+          0.14958,
+          0.40802,
+          0.1307,
+          0.08749,
+          0.38959,
           0.05661
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/768-diff.png",
-        "at": "2026-10-23T16:03:38.766Z",
+        "at": "2026-10-23T20:11:23.304Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/768-diff.png",
@@ -51265,11 +51228,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7285,
-          "at": "2026-10-23T16:03:46.233Z",
+          "ms": 7719,
+          "at": "2026-10-23T20:11:31.210Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1856,
+            "scrollHeight": 3351,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -51316,32 +51279,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.45772,
-        "unmaskedRatio": 0.51826,
-        "maskRatio": 0.11681,
+        "mismatchRatio": 0.1099,
+        "unmaskedRatio": 0.21825,
+        "maskRatio": 0.49644,
         "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3476,
-        "heightB": 1856,
-        "heightDiffRatio": 0.46605,
+        "heightB": 3351,
+        "heightDiffRatio": 0.03596,
         "firstDivergentBand": {
-          "index": 5,
-          "y": 1000,
-          "unmaskedRatio": 0.82932
+          "index": 12,
+          "y": 2400,
+          "unmaskedRatio": 0.49176
         },
         "worstBands": [
           {
-            "y": 3000,
-            "unmaskedRatio": 0.97703
+            "y": 3200,
+            "unmaskedRatio": 0.53668
           },
           {
-            "y": 1400,
-            "unmaskedRatio": 0.95336
+            "y": 2400,
+            "unmaskedRatio": 0.49176
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.95203
+            "y": 2600,
+            "unmaskedRatio": 0.3436
           }
         ],
         "bandHeight": 200,
@@ -51351,22 +51314,22 @@
           0.19823,
           0,
           0,
-          0.82932,
-          0.90917,
-          0.95336,
-          0.49284,
-          0.30592,
-          0.26993,
-          0.26944,
-          0.38592,
-          0.67629,
-          0.95203,
-          0.97703,
-          0.55363,
+          0.00989,
+          0,
+          0.2158,
+          0.01739,
+          0.22875,
+          0.00057,
+          0.21489,
+          0.49176,
+          0.3436,
+          0.1326,
+          0.14183,
+          0.53668,
           0.01575
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/390-diff.png",
-        "at": "2026-10-23T16:03:47.288Z",
+        "at": "2026-10-23T20:11:32.227Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lh-rentalcar/390-diff.png",
@@ -70294,11 +70257,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7366,
-          "at": "2026-10-23T02:20:32.480Z",
+          "ms": 8270,
+          "at": "2026-10-23T20:11:40.681Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4857,
+            "scrollHeight": 3743,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -70310,7 +70273,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -70324,7 +70287,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -70335,7 +70299,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -70344,64 +70308,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32723,
-        "unmaskedRatio": 0.32723,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.02287,
+        "unmaskedRatio": 0.06814,
+        "maskRatio": 0.66433,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3737,
-        "heightB": 4857,
-        "heightDiffRatio": 0.2306,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.57935
-        },
+        "heightB": 3743,
+        "heightDiffRatio": 0.0016,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 4400,
-            "unmaskedRatio": 0.97414
+            "y": 3600,
+            "unmaskedRatio": 0.23038
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.97222
+            "y": 3200,
+            "unmaskedRatio": 0.10418
           },
           {
-            "y": 4200,
-            "unmaskedRatio": 0.96291
+            "y": 3000,
+            "unmaskedRatio": 0.07779
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02232,
-          0.12433,
-          0.57935,
-          0.46226,
-          0.56135,
-          0.06682,
-          0.03532,
-          0.02993,
-          0.05808,
-          0.04706,
-          0.06681,
-          0.07738,
-          0.03328,
-          0.04969,
-          0.11077,
-          0.68901,
-          0.93126,
-          0.97222,
-          0.29504,
-          0.01642,
-          0.09093,
-          0.96291,
-          0.97414,
-          0.69021,
-          0
+          0.01644,
+          0,
+          0.06173,
+          0.06926,
+          0.01384,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.00065,
+          0.07779,
+          0.10418,
+          0.05475,
+          0.23038
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/1440-diff.png",
-        "at": "2026-10-23T02:20:35.014Z",
+        "at": "2026-10-23T20:11:42.744Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/1440-diff.png",
@@ -70415,9 +70369,53 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/en/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7919,
+          "at": "2026-10-23T20:11:50.843Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4164,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 64,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/sixt/screenshot-768.jpg",
@@ -70425,9 +70423,67 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.03201,
+        "unmaskedRatio": 0.11539,
+        "maskRatio": 0.72262,
+        "maskBoxes": 1,
+        "cropA": {
+          "top": 0,
+          "right": 15,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4194,
+        "heightB": 4164,
+        "heightDiffRatio": 0.00715,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.22457
+          },
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.21909
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.16104
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02357,
+          0,
+          0.16104,
+          0.14885,
+          0,
+          0,
+          0.0026,
+          0,
+          0,
+          0,
+          0,
+          0.00219,
+          0.00458,
+          0,
+          0,
+          0,
+          0.00208,
+          0.22457,
+          0.14599,
+          0.06602,
+          0.21909
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/768-diff.png",
+        "at": "2026-10-23T20:11:52.342Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/en/sixt@390": {
       "id": "de/en/sixt",
@@ -70437,9 +70493,53 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/en/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8282,
+          "at": "2026-10-23T20:12:00.789Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5575,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 66,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/sixt/screenshot-390.jpg",
@@ -70447,9 +70547,79 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.05763,
+        "unmaskedRatio": 0.19945,
+        "maskRatio": 0.71104,
+        "maskBoxes": 1,
+        "cropA": {
+          "top": 0,
+          "right": 15,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5616,
+        "heightB": 5575,
+        "heightDiffRatio": 0.0073,
+        "firstDivergentBand": {
+          "index": 23,
+          "y": 4600,
+          "unmaskedRatio": 0.87422
+        },
+        "worstBands": [
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.87422
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.6414
+          },
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.24697
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07704,
+          0.01284,
+          0.00148,
+          0.15398,
+          0.01057,
+          0,
+          0.00932,
+          0.00205,
+          0,
+          0,
+          0.005,
+          0.00375,
+          0.00125,
+          0.00182,
+          0.00136,
+          0.0075,
+          0,
+          0.00136,
+          0,
+          0,
+          0.00239,
+          0.00352,
+          0.00023,
+          0.87422,
+          0.11951,
+          0.11204,
+          0.6414,
+          0.24697,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/390-diff.png",
+        "at": "2026-10-23T20:12:01.995Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/sixt/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/en/special-meals@1440": {
       "id": "de/en/special-meals",
@@ -138264,11 +138434,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13430,
-          "at": "2026-10-23T05:34:35.180Z",
+          "ms": 13378,
+          "at": "2026-10-23T20:12:15.544Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4051,
+            "scrollHeight": 2982,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -138280,7 +138450,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -138294,7 +138464,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -138303,9 +138474,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5924
+              "svgAnimations": 5436
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -138314,60 +138485,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.40247,
-        "unmaskedRatio": 0.40247,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.04194,
+        "unmaskedRatio": 0.10293,
+        "maskRatio": 0.59256,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2925,
-        "heightB": 4051,
-        "heightDiffRatio": 0.27796,
+        "heightB": 2982,
+        "heightDiffRatio": 0.01911,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.81645
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.3322
         },
         "worstBands": [
           {
-            "y": 3600,
-            "unmaskedRatio": 0.97265
+            "y": 2200,
+            "unmaskedRatio": 0.3322
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.96381
+            "y": 2800,
+            "unmaskedRatio": 0.13957
           },
           {
-            "y": 2600,
-            "unmaskedRatio": 0.93519
+            "y": 2400,
+            "unmaskedRatio": 0.08668
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.0237,
-          0.3,
-          0.81645,
-          0.78632,
-          0.27551,
-          0.05305,
-          0.08182,
-          0.06474,
-          0.06836,
-          0.05294,
-          0.09098,
-          0.71774,
-          0.91526,
-          0.93519,
-          0.24156,
-          0.02329,
-          0.10736,
-          0.96381,
-          0.97265,
-          0.66136,
-          0
+          0.0148,
+          0.01875,
+          0.07199,
+          0.0544,
+          0,
+          0.00054,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.3322,
+          0.08668,
+          0.04779,
+          0.13957
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/1440-diff.png",
-        "at": "2026-10-23T05:34:37.575Z",
+        "at": "2026-10-23T20:12:18.132Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/1440-diff.png",
@@ -138384,11 +138549,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13410,
-          "at": "2026-10-23T05:34:51.116Z",
+          "ms": 12900,
+          "at": "2026-10-23T20:12:31.201Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4207,
+            "scrollHeight": 3444,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -138400,7 +138565,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -138414,7 +138579,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -138423,9 +138589,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6274
+              "svgAnimations": 5441
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -138434,61 +138600,53 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.42971,
-        "unmaskedRatio": 0.42971,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.04314,
+        "unmaskedRatio": 0.12336,
+        "maskRatio": 0.65027,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3420,
-        "heightB": 4207,
-        "heightDiffRatio": 0.18707,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.77965
-        },
+        "heightB": 3444,
+        "heightDiffRatio": 0.00697,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3800,
-            "unmaskedRatio": 0.97972
+            "y": 2600,
+            "unmaskedRatio": 0.26555
           },
           {
-            "y": 3600,
-            "unmaskedRatio": 0.93991
+            "y": 3200,
+            "unmaskedRatio": 0.25712
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.92078
+            "y": 400,
+            "unmaskedRatio": 0.2449
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03195,
-          0.19459,
-          0.77965,
-          0.5343,
-          0.05954,
-          0.22631,
-          0.04482,
-          0.09552,
-          0.12245,
-          0.14814,
-          0.08654,
-          0.16912,
-          0.14925,
-          0.70331,
-          0.92078,
-          0.89835,
-          0.59838,
-          0.84627,
-          0.93991,
-          0.97972,
-          0.51011,
-          0
+          0.02307,
+          0,
+          0.2449,
+          0.05948,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.00177,
+          0.00063,
+          0.05152,
+          0.26555,
+          0.12037,
+          0.04206,
+          0.25712,
+          0.03456
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/768-diff.png",
-        "at": "2026-10-23T05:34:52.757Z",
+        "at": "2026-10-23T20:12:32.578Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/768-diff.png",
@@ -138505,11 +138663,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13956,
-          "at": "2026-10-23T05:35:06.838Z",
+          "ms": 12923,
+          "at": "2026-10-23T20:12:45.651Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 5338,
+            "scrollHeight": 4540,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -138521,7 +138679,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -138535,7 +138693,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -138544,9 +138703,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6048
+              "svgAnimations": 4917
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -138555,66 +138714,62 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.35533,
-        "unmaskedRatio": 0.35533,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.06433,
+        "unmaskedRatio": 0.18816,
+        "maskRatio": 0.65812,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 4544,
-        "heightB": 5338,
-        "heightDiffRatio": 0.14874,
+        "heightB": 4540,
+        "heightDiffRatio": 0.00088,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.38029
+          "index": 18,
+          "y": 3600,
+          "unmaskedRatio": 0.46537
         },
         "worstBands": [
           {
-            "y": 4800,
-            "unmaskedRatio": 0.94799
+            "y": 4200,
+            "unmaskedRatio": 0.65873
           },
           {
-            "y": 4600,
-            "unmaskedRatio": 0.93828
+            "y": 3600,
+            "unmaskedRatio": 0.46537
           },
           {
             "y": 3800,
-            "unmaskedRatio": 0.91803
+            "unmaskedRatio": 0.12127
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07755,
-          0.25387,
-          0.38029,
-          0.44949,
-          0.08427,
-          0.14288,
-          0.20136,
-          0.08212,
-          0.1018,
-          0.17949,
-          0.17756,
-          0.15476,
-          0.18996,
-          0.14869,
-          0.15203,
-          0.13343,
-          0.21324,
-          0.19609,
-          0.5174,
-          0.91803,
-          0.86637,
-          0.82565,
-          0.74872,
-          0.93828,
-          0.94799,
-          0.39859,
-          0.00576
+          0,
+          0.10455,
+          0.05739,
+          0,
+          0,
+          0.00091,
+          0,
+          0.00193,
+          0.00591,
+          0.00409,
+          0.00091,
+          0.00159,
+          0,
+          0.00352,
+          0.00182,
+          0.00205,
+          0.0011,
+          0.46537,
+          0.12127,
+          0.09167,
+          0.65873,
+          0.03489
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/390-diff.png",
-        "at": "2026-10-23T05:35:08.105Z",
+        "at": "2026-10-23T20:12:46.724Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/europcar/390-diff.png",
@@ -145560,11 +145715,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13571,
-          "at": "2026-10-23T05:57:17.833Z",
+          "ms": 13263,
+          "at": "2026-10-23T20:13:00.231Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4077,
+            "scrollHeight": 3081,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -145576,7 +145731,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -145590,7 +145745,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -145599,9 +145755,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6396
+              "svgAnimations": 5380
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -145610,60 +145766,51 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39452,
-        "unmaskedRatio": 0.39452,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.02719,
+        "unmaskedRatio": 0.07133,
+        "maskRatio": 0.61875,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3060,
-        "heightB": 4077,
-        "heightDiffRatio": 0.24945,
-        "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.63476
-        },
+        "heightB": 3081,
+        "heightDiffRatio": 0.00682,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3600,
-            "unmaskedRatio": 0.96906
-          },
-          {
-            "y": 2600,
-            "unmaskedRatio": 0.96116
+            "y": 2200,
+            "unmaskedRatio": 0.25645
           },
           {
             "y": 2400,
-            "unmaskedRatio": 0.9528
+            "unmaskedRatio": 0.12782
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.1112
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.01696,
-          0.09332,
-          0.25183,
-          0.63476,
-          0.61851,
-          0.51241,
-          0.09033,
-          0.04395,
-          0.045,
-          0.07209,
-          0.04428,
-          0.13655,
-          0.9528,
-          0.96116,
-          0.83691,
-          0.01593,
-          0.01273,
-          0.93657,
-          0.96906,
-          0.79332,
-          0.01008
+          0.0144,
+          0,
+          0.04855,
+          0.0731,
+          0.07259,
+          0.00125,
+          0.00054,
+          0,
+          0,
+          0,
+          0,
+          0.25645,
+          0.12782,
+          0.05156,
+          0.1112,
+          0.02685
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/1440-diff.png",
-        "at": "2026-10-23T05:57:20.205Z",
+        "at": "2026-10-23T20:13:02.038Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/1440-diff.png",
@@ -145680,11 +145827,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13069,
-          "at": "2026-10-23T05:57:33.433Z",
+          "ms": 12999,
+          "at": "2026-10-23T20:13:15.221Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3984,
+            "scrollHeight": 3306,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -145696,7 +145843,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -145710,7 +145857,9 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons",
+              "Nunito Sans"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -145719,9 +145868,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6419
+              "svgAnimations": 5415
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -145730,59 +145879,52 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4409,
-        "unmaskedRatio": 0.4409,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.02868,
+        "unmaskedRatio": 0.08265,
+        "maskRatio": 0.65295,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3318,
-        "heightB": 3984,
-        "heightDiffRatio": 0.16717,
-        "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.81055
-        },
+        "heightB": 3306,
+        "heightDiffRatio": 0.00362,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3600,
-            "unmaskedRatio": 0.98066
+            "y": 600,
+            "unmaskedRatio": 0.26583
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.94479
+            "y": 400,
+            "unmaskedRatio": 0.14969
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.94284
+            "y": 2600,
+            "unmaskedRatio": 0.14347
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.0275,
-          0.14937,
-          0.29576,
-          0.81055,
-          0.41438,
-          0.05015,
-          0.22904,
-          0.03691,
-          0.11964,
-          0.06051,
-          0.16144,
-          0.12989,
-          0.37658,
-          0.88108,
-          0.94479,
-          0.92514,
-          0.84131,
-          0.94284,
-          0.98066,
-          0.44033
+          0.02307,
+          0.00052,
+          0.14969,
+          0.26583,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.00198,
+          0.09081,
+          0.14347,
+          0.08181,
+          0.07671,
+          0.129
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/768-diff.png",
-        "at": "2026-10-23T05:57:35.012Z",
+        "at": "2026-10-23T20:13:16.578Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/768-diff.png",
@@ -145799,11 +145941,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13071,
-          "at": "2026-10-23T05:57:48.224Z",
+          "ms": 12873,
+          "at": "2026-10-23T20:13:29.618Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4876,
+            "scrollHeight": 4249,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -145815,7 +145957,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaText",
                 "webfont": true
               },
               "h2": {
@@ -145829,7 +145971,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -145838,9 +145981,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6103
+              "svgAnimations": 5201
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -145849,64 +145992,61 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32439,
-        "unmaskedRatio": 0.32439,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.06387,
+        "unmaskedRatio": 0.1791,
+        "maskRatio": 0.6434,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 4331,
-        "heightB": 4876,
-        "heightDiffRatio": 0.11177,
+        "heightB": 4249,
+        "heightDiffRatio": 0.01893,
         "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.30509
+          "index": 17,
+          "y": 3400,
+          "unmaskedRatio": 0.40032
         },
         "worstBands": [
           {
-            "y": 4400,
-            "unmaskedRatio": 0.93684
+            "y": 4000,
+            "unmaskedRatio": 0.58473
           },
           {
-            "y": 3800,
-            "unmaskedRatio": 0.93537
+            "y": 3400,
+            "unmaskedRatio": 0.40032
           },
           {
-            "y": 4200,
-            "unmaskedRatio": 0.93188
+            "y": 3200,
+            "unmaskedRatio": 0.18578
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07755,
-          0.19688,
-          0.20235,
-          0.30509,
-          0.61792,
-          0.0964,
-          0.06611,
-          0.26413,
-          0.07879,
-          0.11516,
-          0.10328,
-          0.15687,
-          0.07196,
-          0.20751,
-          0.14984,
-          0.13516,
-          0.21195,
-          0.65651,
-          0.87613,
-          0.93537,
-          0.27932,
-          0.93188,
-          0.93684,
-          0.23553,
-          0
+          0,
+          0.00114,
+          0.15205,
+          0.06398,
+          0,
+          0,
+          0.00091,
+          0,
+          0,
+          0.00375,
+          0.00273,
+          0,
+          0,
+          0,
+          0,
+          0.18578,
+          0.40032,
+          0.12752,
+          0.08677,
+          0.58473,
+          0.03471
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/390-diff.png",
-        "at": "2026-10-23T05:57:49.405Z",
+        "at": "2026-10-23T20:13:30.666Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hertz/390-diff.png",
@@ -146280,11 +146420,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14876,
-          "at": "2026-10-23T06:00:05.764Z",
+          "ms": 13477,
+          "at": "2026-10-23T20:13:44.329Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4999,
+            "scrollHeight": 2326,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -146296,7 +146436,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaHead",
                 "webfont": true
               },
               "h2": {
@@ -146310,7 +146450,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -146319,9 +146460,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6153
+              "svgAnimations": 5837
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -146330,32 +146471,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4626,
-        "unmaskedRatio": 0.4626,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.08843,
+        "unmaskedRatio": 0.12742,
+        "maskRatio": 0.30599,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2366,
-        "heightB": 4999,
-        "heightDiffRatio": 0.52671,
+        "heightB": 2326,
+        "heightDiffRatio": 0.01691,
         "firstDivergentBand": {
-          "index": 6,
-          "y": 1200,
-          "unmaskedRatio": 0.47529
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.43646
         },
         "worstBands": [
           {
-            "y": 4600,
-            "unmaskedRatio": 0.98046
+            "y": 2200,
+            "unmaskedRatio": 0.43646
           },
           {
-            "y": 1800,
-            "unmaskedRatio": 0.9755
+            "y": 400,
+            "unmaskedRatio": 0.18008
           },
           {
-            "y": 4400,
-            "unmaskedRatio": 0.95502
+            "y": 1600,
+            "unmaskedRatio": 0.18007
           }
         ],
         "bandHeight": 200,
@@ -146363,31 +146504,18 @@
           0.01607,
           0.07074,
           0.18008,
-          0.09874,
-          0.07054,
-          0.05389,
-          0.47529,
-          0.23228,
-          0.55051,
-          0.9755,
-          0.94296,
-          0.60725,
-          0.48769,
-          0.08128,
-          0.22446,
-          0.72472,
-          0.81973,
-          0.05012,
-          0.62527,
-          0.80874,
-          0.75111,
-          0.31288,
-          0.95502,
-          0.98046,
-          0.4697
+          0.10785,
+          0,
+          0.00054,
+          0.05145,
+          0.01216,
+          0.18007,
+          0.09129,
+          0.04276,
+          0.43646
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/1440-diff.png",
-        "at": "2026-10-23T06:00:08.567Z",
+        "at": "2026-10-23T20:13:45.929Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/1440-diff.png",
@@ -146404,11 +146532,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13338,
-          "at": "2026-10-23T06:00:22.053Z",
+          "ms": 13190,
+          "at": "2026-10-23T20:13:59.287Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4403,
+            "scrollHeight": 3656,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -146420,7 +146548,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaHead",
                 "webfont": true
               },
               "h2": {
@@ -146434,7 +146562,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -146443,9 +146572,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6406
+              "svgAnimations": 5175
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -146454,62 +146583,58 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.54328,
-        "unmaskedRatio": 0.54328,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.07289,
+        "unmaskedRatio": 0.16659,
+        "maskRatio": 0.56245,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3757,
-        "heightB": 4403,
-        "heightDiffRatio": 0.14672,
+        "heightB": 3656,
+        "heightDiffRatio": 0.02688,
         "firstDivergentBand": {
-          "index": 7,
-          "y": 1400,
-          "unmaskedRatio": 0.70914
+          "index": 14,
+          "y": 2800,
+          "unmaskedRatio": 0.44358
         },
         "worstBands": [
           {
-            "y": 4000,
-            "unmaskedRatio": 0.97831
+            "y": 2800,
+            "unmaskedRatio": 0.44358
           },
           {
             "y": 3600,
-            "unmaskedRatio": 0.94817
+            "unmaskedRatio": 0.40209
           },
           {
-            "y": 2200,
-            "unmaskedRatio": 0.94451
+            "y": 2000,
+            "unmaskedRatio": 0.28833
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02885,
           0.13165,
-          0.19586,
-          0.07335,
-          0.12487,
-          0.1494,
-          0.03127,
-          0.70914,
-          0.62963,
-          0.11107,
-          0.73259,
-          0.94451,
-          0.55629,
-          0.86855,
-          0.90074,
-          0.94003,
-          0.62309,
-          0.64893,
-          0.94817,
-          0.9207,
-          0.97831,
-          0.71337,
-          0
+          0.20752,
+          0,
+          0,
+          0,
+          0.00292,
+          0.27896,
+          0.15521,
+          0.10906,
+          0.28833,
+          0.04271,
+          0.22,
+          0.20656,
+          0.44358,
+          0.1212,
+          0.07657,
+          0.0662,
+          0.40209
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/768-diff.png",
-        "at": "2026-10-23T06:00:23.884Z",
+        "at": "2026-10-23T20:14:00.796Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/768-diff.png",
@@ -146526,11 +146651,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 12860,
-          "at": "2026-10-23T06:00:36.885Z",
+          "ms": 12942,
+          "at": "2026-10-23T20:14:13.894Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4291,
+            "scrollHeight": 3522,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -146542,7 +146667,7 @@
             "pendingImages": 1,
             "fonts": {
               "h1": {
-                "used": "lufthansahead",
+                "used": "LufthansaHead",
                 "webfont": true
               },
               "h2": {
@@ -146556,7 +146681,8 @@
             },
             "loadedWebfonts": [
               "LufthansaHead",
-              "LufthansaText"
+              "LufthansaText",
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -146565,9 +146691,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6392
+              "svgAnimations": 5416
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -146576,61 +146702,58 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.44156,
-        "unmaskedRatio": 0.44156,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.11655,
+        "unmaskedRatio": 0.23071,
+        "maskRatio": 0.49483,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3671,
-        "heightB": 4291,
-        "heightDiffRatio": 0.14449,
+        "heightB": 3522,
+        "heightDiffRatio": 0.04059,
         "firstDivergentBand": {
-          "index": 8,
-          "y": 1600,
-          "unmaskedRatio": 0.62352
+          "index": 13,
+          "y": 2600,
+          "unmaskedRatio": 0.59242
         },
         "worstBands": [
           {
-            "y": 3800,
-            "unmaskedRatio": 0.94799
+            "y": 2600,
+            "unmaskedRatio": 0.59242
           },
           {
-            "y": 3600,
-            "unmaskedRatio": 0.93163
+            "y": 3400,
+            "unmaskedRatio": 0.5062
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.91196
+            "y": 3200,
+            "unmaskedRatio": 0.35527
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07425,
           0.17609,
-          0.17711,
-          0.10556,
-          0.06613,
-          0.19355,
-          0.14428,
-          0.07481,
-          0.62352,
-          0.09629,
-          0.53193,
-          0.47427,
-          0.78284,
-          0.46448,
-          0.91196,
-          0.76907,
-          0.828,
-          0.70237,
-          0.93163,
-          0.94799,
-          0.394,
-          0.00782
+          0.18572,
+          0,
+          0,
+          0.00091,
+          0,
+          0.04795,
+          0.18477,
+          0.06773,
+          0.15989,
+          0.04443,
+          0.17182,
+          0.59242,
+          0.16776,
+          0.09901,
+          0.35527,
+          0.5062,
+          0.01754
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/390-diff.png",
-        "at": "2026-10-23T06:00:37.973Z",
+        "at": "2026-10-23T20:14:14.950Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/mietwagenangebote/390-diff.png",
@@ -164643,11 +164766,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 12887,
-          "at": "2026-10-23T16:04:00.353Z",
+          "ms": 13059,
+          "at": "2026-10-23T20:14:28.186Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1102,
+            "scrollHeight": 3743,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -164683,7 +164806,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5935
+              "svgAnimations": 5094
             },
             "liveBoxes": 1
           }
@@ -164694,58 +164817,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.29636,
-        "unmaskedRatio": 0.31064,
-        "maskRatio": 0.04597,
+        "mismatchRatio": 0.02306,
+        "unmaskedRatio": 0.06869,
+        "maskRatio": 0.66433,
         "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3737,
-        "heightB": 1102,
-        "heightDiffRatio": 0.70511,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.59722
-        },
+        "heightB": 3743,
+        "heightDiffRatio": 0.0016,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 3400,
-            "unmaskedRatio": 0.98664
+            "y": 3600,
+            "unmaskedRatio": 0.23081
           },
           {
             "y": 3200,
-            "unmaskedRatio": 0.98121
+            "unmaskedRatio": 0.09795
           },
           {
-            "y": 800,
-            "unmaskedRatio": 0.79521
+            "y": 3000,
+            "unmaskedRatio": 0.09084
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.0144,
-          0.03834,
-          0.59722,
-          0.60757,
-          0.79521,
-          0.0722,
-          0.03562,
-          0.0326,
-          0.06192,
-          0.04453,
-          0.05718,
-          0.05817,
-          0.02413,
-          0.03347,
-          0.11032,
-          0.72205,
-          0.98121,
-          0.98664,
-          0.43185
+          0,
+          0.06173,
+          0.06926,
+          0.01384,
+          0.00054,
+          0,
+          0,
+          0.00063,
+          0,
+          0.00082,
+          0,
+          0,
+          0,
+          0.0002,
+          0.09084,
+          0.09795,
+          0.05382,
+          0.23081
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/1440-diff.png",
-        "at": "2026-10-23T16:04:02.431Z",
+        "at": "2026-10-23T20:14:30.261Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/1440-diff.png",
@@ -164759,9 +164878,53 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13032,
+          "at": "2026-10-23T20:14:43.486Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4301,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 64,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5167
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/sixt/screenshot-768.jpg",
@@ -164769,9 +164932,68 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.0212,
+        "unmaskedRatio": 0.0746,
+        "maskRatio": 0.71582,
+        "maskBoxes": 1,
+        "cropA": {
+          "top": 0,
+          "right": 15,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4328,
+        "heightB": 4301,
+        "heightDiffRatio": 0.00624,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 600,
+            "unmaskedRatio": 0.18385
+          },
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.13082
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.12885
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02307,
+          0,
+          0.12885,
+          0.18385,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.0024,
+          0.00219,
+          0.10484,
+          0.13082,
+          0.08157,
+          0.06789,
+          0.12023
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/768-diff.png",
+        "at": "2026-10-23T20:14:45.036Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/sixt@390": {
       "id": "de/de/sixt",
@@ -164781,9 +165003,53 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 12746,
+          "at": "2026-10-23T20:14:57.969Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5839,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 66,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 4640
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/sixt/screenshot-390.jpg",
@@ -164791,9 +165057,80 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.06119,
+        "unmaskedRatio": 0.21209,
+        "maskRatio": 0.7115,
+        "maskBoxes": 1,
+        "cropA": {
+          "top": 0,
+          "right": 15,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5889,
+        "heightB": 5839,
+        "heightDiffRatio": 0.00849,
+        "firstDivergentBand": {
+          "index": 24,
+          "y": 4800,
+          "unmaskedRatio": 0.79649
+        },
+        "worstBands": [
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.79649
+          },
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.6036
+          },
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.44833
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07745,
+          0,
+          0.00193,
+          0.09114,
+          0.07852,
+          0,
+          0,
+          0.00091,
+          0,
+          0,
+          0.00011,
+          0.00284,
+          0.00261,
+          0.00102,
+          0,
+          0.00557,
+          0.00545,
+          0.0008,
+          0,
+          0,
+          0.00045,
+          0,
+          0.0008,
+          0.0008,
+          0.79649,
+          0.24565,
+          0.11607,
+          0.44833,
+          0.6036,
+          0.01831
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/390-diff.png",
+        "at": "2026-10-23T20:14:59.268Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sixt/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/sondermahlzeiten@1440": {
       "id": "de/de/sondermahlzeiten",
@@ -221754,11 +222091,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 12993,
-          "at": "2026-10-23T16:04:45.123Z",
+          "ms": 12895,
+          "at": "2026-10-23T20:15:12.317Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1162,
+            "scrollHeight": 2982,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -221785,8 +222122,7 @@
             "loadedWebfonts": [
               "LufthansaHead",
               "LufthansaText",
-              "meili-icons",
-              "Nunito Sans"
+              "meili-icons"
             ],
             "consentBannerVisible": false,
             "showcaseNoticeVisible": false,
@@ -221795,7 +222131,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5707
+              "svgAnimations": 5357
             },
             "liveBoxes": 1
           }
@@ -221806,54 +222142,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4338,
-        "unmaskedRatio": 0.46087,
-        "maskRatio": 0.05873,
+        "mismatchRatio": 0.04161,
+        "unmaskedRatio": 0.10212,
+        "maskRatio": 0.59256,
         "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2925,
-        "heightB": 1162,
-        "heightDiffRatio": 0.60274,
+        "heightB": 2982,
+        "heightDiffRatio": 0.01911,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.37423
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.32798
         },
         "worstBands": [
           {
-            "y": 2600,
-            "unmaskedRatio": 0.98794
+            "y": 2200,
+            "unmaskedRatio": 0.32798
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.13957
           },
           {
             "y": 2400,
-            "unmaskedRatio": 0.97946
-          },
-          {
-            "y": 800,
-            "unmaskedRatio": 0.95582
+            "unmaskedRatio": 0.08668
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01406,
-          0.37423,
-          0.84657,
-          0.93523,
-          0.95582,
-          0.24236,
-          0.0791,
-          0.06302,
-          0.05818,
-          0.05025,
-          0.0694,
-          0.75552,
-          0.97946,
-          0.98794,
-          0.36194
+          0.01875,
+          0.07199,
+          0.0544,
+          0,
+          0.00054,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.32798,
+          0.08668,
+          0.04779,
+          0.13957
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/europcar/1440-diff.png",
-        "at": "2026-10-23T16:04:46.981Z",
+        "at": "2026-10-23T20:15:14.086Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/europcar/1440-diff.png",
@@ -222308,18 +222644,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/hertz",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/hertz/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13325,
+          "at": "2026-10-23T20:15:27.576Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3081,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5350
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/hertz/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.02712,
+        "unmaskedRatio": 0.07114,
+        "maskRatio": 0.61875,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3060,
+        "heightB": 3081,
+        "heightDiffRatio": 0.00682,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.25645
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.12735
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.1112
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01368,
+          0,
+          0.04855,
+          0.0731,
+          0.07259,
+          0.00125,
+          0.00054,
+          0,
+          0,
+          0,
+          0,
+          0.25645,
+          0.12735,
+          0.05156,
+          0.1112,
+          0.02685
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/hertz/1440-diff.png",
+        "at": "2026-10-23T20:15:29.347Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/hertz/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/hotelangebote@1440": {
       "id": "at/de/hotelangebote",
@@ -222350,18 +222777,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/mietwagenangebote",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/mietwagenangebote/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13388,
+          "at": "2026-10-23T20:15:42.909Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2326,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaHead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5648
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/mietwagenangebote/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.08825,
+        "unmaskedRatio": 0.12716,
+        "maskRatio": 0.30599,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2366,
+        "heightB": 2326,
+        "heightDiffRatio": 0.01691,
+        "firstDivergentBand": {
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.43646
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.43646
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.18008
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.17854
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01541,
+          0.07074,
+          0.18008,
+          0.10785,
+          0,
+          0.00054,
+          0.05145,
+          0.01216,
+          0.17854,
+          0.09129,
+          0.04276,
+          0.43646
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/mietwagenangebote/1440-diff.png",
+        "at": "2026-10-23T20:15:44.466Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/mietwagenangebote/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/lounge-begleitung@1440": {
       "id": "at/de/lounge-begleitung",
@@ -223568,18 +224086,112 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/sixt/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13005,
+          "at": "2026-10-23T20:15:57.657Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3743,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5175
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/sixt/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.02299,
+        "unmaskedRatio": 0.0685,
+        "maskRatio": 0.66433,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3737,
+        "heightB": 3743,
+        "heightDiffRatio": 0.0016,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.23081
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.09795
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.08952
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0144,
+          0,
+          0.06173,
+          0.06926,
+          0.01384,
+          0.00054,
+          0,
+          0,
+          0.00063,
+          0,
+          0.00082,
+          0,
+          0,
+          0,
+          0.0002,
+          0.08952,
+          0.09795,
+          0.05382,
+          0.23081
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/sixt/1440-diff.png",
+        "at": "2026-10-23T20:15:59.681Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/sixt/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "at/de/sondermahlzeiten@1440": {
       "id": "at/de/sondermahlzeiten",
@@ -227958,18 +228570,112 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/europcar",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/europcar/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13342,
+          "at": "2026-10-23T20:16:13.225Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2850,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5420
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/europcar/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.0298,
+        "unmaskedRatio": 0.0741,
+        "maskRatio": 0.59786,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2825,
+        "heightB": 2850,
+        "heightDiffRatio": 0.00877,
+        "firstDivergentBand": {
+          "index": 10,
+          "y": 2000,
+          "unmaskedRatio": 0.33496
+        },
+        "worstBands": [
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.33496
+          },
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.11201
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.08684
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01483,
+          0.01875,
+          0.07199,
+          0.0544,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.33496,
+          0.08684,
+          0.04418,
+          0.11201,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/europcar/1440-diff.png",
+        "at": "2026-10-23T20:16:14.942Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/europcar/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/exclusive-charter@1440": {
       "id": "gb/en/exclusive-charter",
@@ -228524,18 +229230,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/hertz",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/hertz/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13121,
+          "at": "2026-10-23T20:16:28.252Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3009,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5274
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/hertz/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.02864,
+        "unmaskedRatio": 0.07393,
+        "maskRatio": 0.61258,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2985,
+        "heightB": 3009,
+        "heightDiffRatio": 0.00798,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.2598
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.10038
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.09208
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01447,
+          0,
+          0.05673,
+          0.07349,
+          0.06506,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.2598,
+          0.09208,
+          0.038,
+          0.10038,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/hertz/1440-diff.png",
+        "at": "2026-10-23T20:16:29.990Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/hertz/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/hotel-offers@1440": {
       "id": "gb/en/hotel-offers",
@@ -228566,18 +229363,105 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/lh-rentalcar",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/lh-rentalcar/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13328,
+          "at": "2026-10-23T20:16:43.480Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2299,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaHead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5024
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/lh-rentalcar/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.06634,
+        "unmaskedRatio": 0.09683,
+        "maskRatio": 0.31491,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2291,
+        "heightB": 2299,
+        "heightDiffRatio": 0.00348,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 400,
+            "unmaskedRatio": 0.17626
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.14489
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.1428
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01509,
+          0.08575,
+          0.17626,
+          0.10458,
+          0,
+          0,
+          0.06105,
+          0.00146,
+          0.14489,
+          0.05749,
+          0.12331,
+          0.1428
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/lh-rentalcar/1440-diff.png",
+        "at": "2026-10-23T20:16:45.030Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/lh-rentalcar/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/lounge-companions@1440": {
       "id": "gb/en/lounge-companions",
@@ -229784,18 +230668,112 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/sixt",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/sixt/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13115,
+          "at": "2026-10-23T20:16:58.339Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3743,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "LufthansaText",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText",
+              "meili-icons"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5062
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/sixt/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.02285,
+        "unmaskedRatio": 0.06806,
+        "maskRatio": 0.66433,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3737,
+        "heightB": 3743,
+        "heightDiffRatio": 0.0016,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.22985
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.10418
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.07957
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01454,
+          0,
+          0.06173,
+          0.06926,
+          0.01384,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.00065,
+          0.07957,
+          0.10418,
+          0.05475,
+          0.22985
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/sixt/1440-diff.png",
+        "at": "2026-10-23T20:17:00.347Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/sixt/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/special-meals@1440": {
       "id": "gb/en/special-meals",
@@ -250826,5 +251804,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T18:51:34.951Z"
+  "updatedAt": "2026-10-23T20:17:07.415Z"
 }

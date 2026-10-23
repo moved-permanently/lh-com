@@ -356,5 +356,12 @@
   "change": "C5 at/de stage card: the live .mst-card.non-inverted (promotionTeaser.isInverted false, Starlink teaser) is a white card with dark blue text; the replica showed the navy card. New variant Hero Card Overlay (light) (parser: .non-inverted or isInverted false; CSS: white card, #05164d text, normal blue links). Harness: the 15 px scrollbar strip of viewport-wide live screenshots is detected (build-jobs.mjs scrollbarStrip, strip-cache.json; 109 page-widths) and cropped before the compare (srcCrop.right, compare.js --crop-a), contentWidth is the width without it. Re-imported, uploaded and previewed. Spot-check unmasked mismatch 1440/768/390 before -> after: at/de/homepage 33.9/26.2/26.0 -> 31.4/20.6/21.1 (stage card now white as live; remaining: destination slider and quick-link rows, footer).",
   "commit": "635c09a",
   "date": "2026-10-23"
+ },
+ {
+  "page": "/{de/de,de/en,at/de,gb/en}/{sixt,hertz,europcar}, /{de/de,at/de}/mietwagenangebote, /{de/en,gb/en}/lh-rentalcar (16 pages)",
+  "block": "car-rental",
+  "change": "B6 follow-up: (1) the capture browser sent HeadlessChrome as user agent and Meili car-api-gw / tagging-app answer that without CORS headers, so the B6 spot-check measured a page visitors never see; capture.js now sends a desktop Chrome user agent and every Meili call answers 200 (aem.page and localhost). (2) Meili partner theme is sized in rem for the Lufthansa root (html font-size 62.5%); at 16px every Meili box was 1.6x (de/de/sixt 1440: page 5517 px vs live 3719, promo footer 1546 px at left -53, 547 px tall, 53 px sideways scroll). car-rental.css sets :root:has(.car-rental) { font-size: 62.5% } (site CSS is px only; the showcase notice max-width moved from 42rem to 672px). CSS only, no re-import; all 32 page-widths of the 16 pages re-captured. Unmasked mismatch 1440/768/390 before -> after: de/de/sixt 31.1/-/- -> 6.9/7.5/21.2 (page 3743 vs live 3737; promo footer 1440 at left 0, 294 px), de/en/hertz 40.9/43.5/31.5 -> 7.4/6.3/19.4, de/de/mietwagenangebote 46.3/54.3/44.2 -> 12.7/16.7/23.1, de/en/lh-rentalcar 55.2/57.3/51.8 -> 9.7/18.2/21.8; remaining 390 drift is Meili content of the day vs the capture day.",
+  "commit": "c374f2a",
+  "date": "2026-10-23"
  }
 ]
