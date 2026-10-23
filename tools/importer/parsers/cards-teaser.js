@@ -8,7 +8,8 @@
  * Output (blocks/cards-teaser README): 2 columns, one row per card.
  *   cell 1: image (src + alt)
  *   cell 2: heading (source level kept), description paragraph(s), CTA link as last paragraph
- * A ".threecolumn" source adds the option "three-up" (Cards Teaser (three-up)). Column views of
+ * A ".threecolumn" source adds the option "three-up" (Cards Teaser (three-up)), a ".fourcolumn"
+ * the option "four-up" (hub /at/de/flughafeninformation). Column views of
  * stage teasers (".stage .stage-teaser", Insights "Explore more") add the option "overlay":
  * image | headline as h3, subheadline as the CTA link to the tile's target.
  *
@@ -177,7 +178,9 @@ export default function parse(element, { document }) {
     cells.push([media || '', body.length ? body : '']);
   });
 
-  const variants = element.classList.contains('threecolumn') ? ['three-up'] : [];
+  let variants = [];
+  if (element.classList.contains('threecolumn')) variants = ['three-up'];
+  else if (element.classList.contains('fourcolumn')) variants = ['four-up'];
   if (overlay) variants.push('overlay');
   const block = WebImporter.Blocks.createBlock(document, { name: 'cards-teaser', variants, cells });
 

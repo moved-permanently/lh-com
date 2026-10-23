@@ -2,7 +2,8 @@
  * cards-teaser: Lufthansa .twocolumn / .threecolumn column-view of image + headline + richtext +
  * maui-navigation-link (variant hyper) items.
  * Grid: .row { margin: 0 -1rem } with .col-md-6.col-lg { padding: 0 1rem } = 20px gutter,
- * 2 per row from 768px (.col-md-6), three-up 3 per row from 1025px (.col-lg).
+ * 2 per row from 768px (.col-md-6), three-up 3 / four-up (.fourcolumn) 4 per row from 1025px
+ * (.col-lg).
  * Vertical rhythm measured on /de/en/baggage, /de/en/online-check-in, /de/en/overview-flights:
  * .image .image-wrapper { margin-bottom: 4rem }, .column-view-item { margin-bottom: 1rem / 2rem },
  * each source row is its own column-view (66px from the last link to the next image).
@@ -27,7 +28,7 @@
   margin-top: 36px;
 }
 
-.cards-teaser:not(.three-up) > ul > li:nth-child(2n + 3) {
+.cards-teaser:not(.three-up, .four-up) > ul > li:nth-child(2n + 3) {
   margin-top: 66px;
 }
 
@@ -41,6 +42,12 @@
    the wrapper's 24px) */
 .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser {
   margin-top: 91px;
+}
+
+/* four-up (.fourcolumn) right after a 2-up grid (/at/de/flughafeninformation): 82px from the
+   last link line to the images */
+.cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser.four-up {
+  margin-top: 82px;
 }
 
 .cards-teaser .cards-teaser-image picture,
@@ -123,12 +130,13 @@
   }
 
   .cards-teaser > ul > li + li,
-  .cards-teaser:not(.three-up) > ul > li:nth-child(2n + 3) {
+  .cards-teaser:not(.three-up, .four-up) > ul > li:nth-child(2n + 3) {
     margin-top: 0;
   }
 
-  /* three-up wraps inside one column-view at tablet: link margin 2.4rem + item margin 2rem */
-  .cards-teaser.three-up > ul {
+  /* three-up / four-up wrap inside one column-view at tablet: link margin 2.4rem + item
+     margin 2rem */
+  .cards-teaser:is(.three-up, .four-up) > ul {
     row-gap: 46px;
   }
 }
@@ -136,6 +144,11 @@
 @media (width >= 1025px) {
   .cards-teaser.three-up > ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 66px;
+  }
+
+  .cards-teaser.four-up > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     row-gap: 66px;
   }
 }

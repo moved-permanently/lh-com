@@ -34,8 +34,9 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-teaser",
       "instances": [
-        ".section-content > .twocolumn:has(.column-view-item > .image + .headline)",
-        ".section-content > .threecolumn:has(.column-view-item > .image + .headline)"
+        ":is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)",
+        ":is(.section-content, .container-content) > .threecolumn:has(.column-view-item > .image + .headline)",
+        ":is(.section-content, .container-content) > .fourcolumn:has(.column-view-item > .image + .headline)"
       ]
     },
     {
