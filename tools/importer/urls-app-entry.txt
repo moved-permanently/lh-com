@@ -1,4 +1,4 @@
-https://www.lufthansa.com/de/en/flight-search
-https://www.lufthansa.com/de/de/flugsuche
-https://www.lufthansa.com/at/de/flugsuche
-https://www.lufthansa.com/gb/en/flight-search
+https://www.lufthansa.com/de/en/book-and-manage/booking-services/manage-my-bookings
+https://www.lufthansa.com/de/de/book-and-manage/booking-services/manage-my-bookings
+https://www.lufthansa.com/at/de/book-and-manage/booking-services/manage-my-bookings
+https://www.lufthansa.com/gb/en/book-and-manage/booking-services/manage-my-bookings

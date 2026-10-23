@@ -47,7 +47,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "booking-lookup",
       "instances": [
-        ".tabs:has(.checkinpassengerreceiptentry)"
+        ".tabs:has(.checkinpassengerreceiptentry)",
+        ".quickaction:has(> .dcep-quick-actions)"
       ]
     },
     {

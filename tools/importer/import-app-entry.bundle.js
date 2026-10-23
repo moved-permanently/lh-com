@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_16139_exports = {};
-  __export(tmp_bundle_app_entry_16139_exports, {
-    default: () => tmp_bundle_app_entry_16139_default
+  var tmp_bundle_app_entry_23089_exports = {};
+  __export(tmp_bundle_app_entry_23089_exports, {
+    default: () => tmp_bundle_app_entry_23089_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -888,6 +888,32 @@ var CustomImportScript = (() => {
       }
       return a;
     };
+    const quickActions = element.matches(".dcep-quick-actions") ? element : element.querySelector(".dcep-quick-actions");
+    if (quickActions) {
+      const rows = [];
+      const add = (k, v) => {
+        if (v) rows.push([k, v]);
+      };
+      const panel = quickActions.querySelector('maui-tab-control-panel, [role="tabpanel"]');
+      add("Tab", attr(panel, "name"));
+      const login = quickActions.querySelector("maui-navigation-link[href], a[href]");
+      if (login) {
+        const a = linkEl(login);
+        if (a) add("Login link", a);
+      }
+      const inputs = [...quickActions.querySelectorAll("maui-input")];
+      const last2 = inputs.find((i) => /family-name/.test(attr(i, "autocomplete")) || /last|nach/i.test(attr(i, "label")));
+      const code = inputs.find((i) => i !== last2);
+      add("Reference label", attr(code, "label"));
+      add("Reference pattern", attr(code, "pattern"));
+      add("Reference error", attr(code, "errormessage"));
+      add("Last name label", attr(last2, "label"));
+      add("Last name error", attr(last2, "errormessage"));
+      add("Tour operator label", attr(quickActions.querySelector("maui-checkbox"), "label"));
+      add("Submit label", visibleText(quickActions.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]')));
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "booking-lookup (my-bookings)", cells: rows }));
+      return;
+    }
     const panels = [...element.querySelectorAll('maui-tab-control-panel-responsive, maui-tab-control-panel, [role="tabpanel"]')].filter((p) => !p.parentElement.closest('maui-tab-control-panel-responsive, maui-tab-control-panel, [role="tabpanel"]'));
     const formPanel = panels.find((p) => p.querySelector(".checkinpassengerreceiptentry, .dcep-checkin, form")) || panels[0] || element;
     const tabName = (p) => attr(p, "name") || attr(p, "label") || attr(p, "aria-label") || attr(p, "heading");
@@ -2464,7 +2490,8 @@ var CustomImportScript = (() => {
       {
         "name": "booking-lookup",
         "instances": [
-          ".tabs:has(.checkinpassengerreceiptentry)"
+          ".tabs:has(.checkinpassengerreceiptentry)",
+          ".quickaction:has(> .dcep-quick-actions)"
         ]
       },
       {
@@ -2596,7 +2623,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_16139_default = {
+  var tmp_bundle_app_entry_23089_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2626,5 +2653,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_16139_exports);
+  return __toCommonJS(tmp_bundle_app_entry_23089_exports);
 })();

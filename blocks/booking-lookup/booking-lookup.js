@@ -1,4 +1,4 @@
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, cleanText, toConfigKey, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -216,11 +216,162 @@ function adoptSections(block, panel) {
   }
 }
 
+/**
+ * My bookings (dcep-quick-actions with only the My bookings tab): texts of the live tab
+ * (labels/quickactions, bookingQuery, tourOperatorQuery as recorded); authored rows win.
+ */
+const MY_BOOKINGS_LABELS = {
+  en: {
+    'tab label': 'My bookings',
+    'reference label': 'Booking code',
+    'reference error': 'Please provide booking code',
+    'last name label': 'Last name',
+    'last name error': 'Please enter your last name as booked.',
+    'tour operator label': 'I have a tour operator code',
+    'first name label': 'First name',
+    'first name error': 'Please enter your first name as booked.',
+    'tour operator code label': 'Tour operator trip code',
+    'tour operator code hint': 'Please provide tour operator trip code',
+    'tour operator code error': 'Please provide tour operator trip code',
+    'tour operator code info': 'You received your trip code from your travel agency or tour operator. Please enter it here (up to 12 characters).',
+    'submit label': 'Find Bookings',
+  },
+  de: {
+    'tab label': 'Meine Buchungen',
+    'reference label': 'Buchungscode',
+    'reference error': 'Bitte geben Sie einen Buchungscode ein.',
+    'last name label': 'Nachname',
+    'last name error': 'Bitte geben Sie Ihren Nachnamen wie gebucht ein.',
+    'tour operator label': 'Ich habe einen Reisecode eines Reiseveranstalters',
+    'first name label': 'Vorname',
+    'first name error': 'Bitte geben Sie Ihren auf der Buchung angegebenen Vornamen ein.',
+    'tour operator code label': 'Reisecode des Reiseveranstalters',
+    'tour operator code hint': 'Bitte geben Sie den 5-12-stelligen Code ein',
+    'tour operator code error': 'Bitte geben Sie den Reisecode des Reiseveranstalters an',
+    'tour operator code info': 'Sie haben Ihren Reisecode von Ihrem Reisebüro oder Reiseveranstalter erhalten. Bitte geben Sie diesen hier ein (bis zu 12 Zeichen).',
+    'submit label': 'Anzeigen',
+  },
+};
+
+/** The live page of the current replica page (same path on www.lufthansa.com). */
+function livePageUrl() {
+  return `${LIVE_ORIGIN}${window.location.pathname.replace(/^\/content\//, '/')}`;
+}
+
+/**
+ * Variant my-bookings: one "My bookings" tab (accordion row below 768px) with the Travel ID
+ * login link, booking code + last name, the tour operator checkbox (switches to last name,
+ * first name and tour operator trip code) and "Find Bookings". The live tab logs in with the
+ * booking code and last name and posts to the booking deeplink its booking service returns
+ * (tour operator: the Travel ID upcoming-trips API); neither can be called from here, so a
+ * valid search opens the live page, without any of the entered data in the URL.
+ */
+function decorateMyBookings(block, id, locale, config) {
+  const labels = resolveLabels(MY_BOOKINGS_LABELS, config, locale.lang);
+  const tabLabel = (pick(config, 'tab') || {}).text || labels['tab label'];
+  const loginRow = pick(config, 'login-link', 'login');
+  const referencePattern = toRegExp((pick(config, 'reference-pattern') || {}).text, '^[A-Z0-9]{6}$');
+
+  const panel = el('div', 'booking-lookup-panel booking-lookup-form-panel');
+  panel.id = `${id}-panel-0`;
+  if (loginRow && loginRow.link) {
+    const login = el('p', 'booking-lookup-login');
+    login.append(loginRow.link);
+    panel.append(login);
+  }
+
+  const form = el('form', 'booking-lookup-form');
+  form.noValidate = true;
+  form.setAttribute('aria-label', tabLabel);
+  const field = (name, label, error, { autocomplete = 'off', maxLength } = {}) => createField(id, {
+    name, label, autocomplete, maxLength, error,
+  });
+  const reference = field('reference', labels['reference label'], labels['reference error'], { maxLength: 6 });
+  reference.input.autocapitalize = 'characters';
+  reference.input.spellcheck = false;
+  const lastName = field('lastName', labels['last name label'], labels['last name error'], { autocomplete: 'family-name', maxLength: 31 });
+  const toLastName = field('toLastName', labels['last name label'], labels['last name error'], { autocomplete: 'family-name', maxLength: 31 });
+  const toFirstName = field('toFirstName', labels['first name label'], labels['first name error'], { autocomplete: 'given-name', maxLength: 26 });
+  const toCode = field('tourOperatorCode', labels['tour operator code label'], labels['tour operator code error'], { maxLength: 12 });
+  const hint = el('p', 'booking-lookup-hint', labels['tour operator code hint']);
+  toCode.wrap.append(hint);
+  toCode.input.title = labels['tour operator code info'];
+
+  const bookingFields = el('div', 'booking-lookup-fields');
+  bookingFields.append(reference.wrap, lastName.wrap);
+  const tourFields = el('div', 'booking-lookup-fields');
+  tourFields.append(toLastName.wrap, toFirstName.wrap, toCode.wrap);
+  tourFields.hidden = true;
+
+  const checkboxLabel = el('label', 'booking-lookup-checkbox');
+  const checkbox = el('input');
+  checkbox.type = 'checkbox';
+  checkbox.name = 'tourOperator';
+  checkboxLabel.append(checkbox, el('span', '', labels['tour operator label']));
+  checkbox.addEventListener('change', () => {
+    bookingFields.hidden = checkbox.checked;
+    tourFields.hidden = !checkbox.checked;
+  });
+
+  const submit = el('button', 'booking-lookup-submit button', labels['submit label']);
+  submit.type = 'submit';
+  const actions = el('div', 'booking-lookup-actions');
+  actions.append(submit);
+  form.append(bookingFields, tourFields, checkboxLabel, actions);
+  panel.append(form);
+
+  const filled = (f) => () => f.input.value.trim() !== '';
+  const bookingChecks = [
+    [reference, () => referencePattern.test(reference.input.value.replace(/\s+/g, '').toUpperCase())],
+    [lastName, filled(lastName)],
+  ];
+  const tourChecks = [
+    [toLastName, filled(toLastName)],
+    [toFirstName, filled(toFirstName)],
+    [toCode, () => /^[A-Za-z0-9]{5,12}$/.test(toCode.input.value.trim())],
+  ];
+  [...bookingChecks, ...tourChecks].forEach(([f, valid]) => {
+    f.input.addEventListener('input', () => {
+      if (f.input.hasAttribute('aria-invalid') && valid()) f.setError(false);
+    });
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let firstInvalid = null;
+    (checkbox.checked ? tourChecks : bookingChecks).forEach(([f, valid]) => {
+      const ok = valid();
+      f.setError(!ok);
+      if (!ok && !firstInvalid) firstInvalid = f.input;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+    window.location.assign(livePageUrl());
+  });
+
+  const tablist = buildTabs(id, [{ label: tabLabel }], [panel], tabLabel);
+  // below 768px the single tab is an accordion row that opens and closes its panel
+  const tab = tablist.querySelector('.booking-lookup-tab');
+  tab.setAttribute('aria-expanded', 'true');
+  tab.addEventListener('click', () => {
+    if (!window.matchMedia('(width < 768px)').matches) return;
+    const open = tab.getAttribute('aria-expanded') !== 'true';
+    tab.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  });
+  block.replaceChildren(tablist, panel);
+}
+
 export default function decorate(block) {
   instance += 1;
   const id = `booking-lookup-${instance}`;
   const locale = getLocale();
   const config = readConfigRows(block);
+  if (block.classList.contains('my-bookings')) {
+    decorateMyBookings(block, id, locale, config);
+    return;
+  }
   const labels = applyErrorList(resolveLabels(DEFAULT_LABELS, config, locale.lang), config);
   const tabs = readTabs(block);
   const notice = (pick(config, 'login-notice', 'notice') || {}).cell;

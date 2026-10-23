@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/book-and-manage/booking-services/manage-my-bookings",
   "path": "at/de/book-and-manage/booking-services/manage-my-bookings",
-  "timestamp": "2026-10-23T03:01:58.819Z",
+  "timestamp": "2026-10-23T14:15:45.582Z",
   "title": "",
   "template": "app-entry",
-  "blocks": []
+  "blocks": [
+    "booking-lookup"
+  ]
 }

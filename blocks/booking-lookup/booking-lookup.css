@@ -335,3 +335,148 @@
     margin: 0;
   }
 }
+
+/* variant my-bookings: dcep-quick-actions (maui-tab-control contained) with only the My bookings
+   tab: the tab as wide as its label with the my-bookings icon, Travel ID login link, booking
+   code and last name (335px, stacked), tour operator checkbox, "Find Bookings" */
+.booking-lookup.my-bookings .booking-lookup-tab {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px 16px;
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.booking-lookup.my-bookings .booking-lookup-tab::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.6'%3E%3Cpath d='M5 6.5h9.5v13H5zM8 10h3.5M8 13h3.5M8 16h2'/%3E%3Ccircle cx='17' cy='6.5' r='3.5' fill='%23000' stroke='none'/%3E%3Cpath d='M15.5 6.6 16.6 7.7 18.6 5.5' stroke='%23fff' stroke-width='1.2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.booking-lookup.my-bookings .booking-lookup-panel {
+  padding-top: 40px;
+}
+
+/* maui-navigation-link size large with the arrow-up-right prefix icon */
+.booking-lookup .booking-lookup-login {
+  margin: 0 0 25px;
+}
+
+.booking-lookup .booking-lookup-login a:any-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.booking-lookup .booking-lookup-login a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 16px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.6'%3E%3Cpath d='M4 12 12 4M5.5 4H12v6.5'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+}
+
+.booking-lookup .booking-lookup-login a:hover {
+  color: var(--link-hover-color);
+}
+
+.booking-lookup .booking-lookup-fields {
+  display: contents;
+}
+
+.booking-lookup .booking-lookup-fields[hidden] {
+  display: none;
+}
+
+.booking-lookup.my-bookings .booking-lookup-field:first-child {
+  margin-bottom: 0;
+}
+
+.booking-lookup .booking-lookup-hint {
+  margin: 7px 0 0;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+}
+
+.booking-lookup .booking-lookup-field:has(input[aria-invalid="true"]) .booking-lookup-hint {
+  display: none;
+}
+
+/* maui-checkbox (mb-3 mt-2): 24px box, 2px #333 border, 16px #666 label */
+.booking-lookup .booking-lookup-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 22px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.booking-lookup .booking-lookup-checkbox input {
+  appearance: none;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 2px solid var(--lh-grey-8);
+  border-radius: 3px;
+  background: var(--lh-white) center / 16px 16px no-repeat;
+  cursor: pointer;
+}
+
+.booking-lookup .booking-lookup-checkbox input:checked {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 8.3 3.2 3.2L13 4.6' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.booking-lookup .booking-lookup-checkbox input:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width < 768px) {
+  /* the accordion spans the viewport (live header text at x20, panel content at x40, borders
+     edge to edge); the row has no icon */
+  .booking-lookup.my-bookings {
+    margin-inline: calc(-1 * var(--layout-margin));
+  }
+
+  .booking-lookup.my-bookings .booking-lookup-tab {
+    padding: 11px 56px 11px 20px;
+    font-size: var(--body-font-size-m);
+    line-height: 27px;
+  }
+
+  .booking-lookup.my-bookings .booking-lookup-tabs ~ .booking-lookup-panel {
+    padding: 22px 40px 20px;
+  }
+
+  /* maui-button width auto */
+  .booking-lookup.my-bookings .booking-lookup-submit {
+    width: auto;
+  }
+
+  .booking-lookup.my-bookings .booking-lookup-tab::before {
+    content: none;
+  }
+
+  .booking-lookup.my-bookings .booking-lookup-tab[aria-expanded="false"]::after {
+    transform: none;
+  }
+}

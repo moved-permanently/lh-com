@@ -56,8 +56,37 @@ export default function parse(element, { document }) {
     return a;
   };
 
+  // --- My bookings (".quickaction > .dcep-quick-actions" with only the My bookings tab, manage
+  // bookings pages): variant my-bookings. Rows: Tab (panel name), Login link (Travel ID login),
+  // Reference label / pattern / error (booking code maui-input), Last name label / error,
+  // Tour operator label (maui-checkbox), Submit label.
+  const quickActions = element.matches('.dcep-quick-actions') ? element : element.querySelector('.dcep-quick-actions');
+  if (quickActions) {
+    const rows = [];
+    const add = (k, v) => { if (v) rows.push([k, v]); };
+    const panel = quickActions.querySelector('maui-tab-control-panel, [role="tabpanel"]');
+    add('Tab', attr(panel, 'name'));
+    const login = quickActions.querySelector('maui-navigation-link[href], a[href]');
+    if (login) {
+      const a = linkEl(login);
+      if (a) add('Login link', a);
+    }
+    const inputs = [...quickActions.querySelectorAll('maui-input')];
+    const last = inputs.find((i) => /family-name/.test(attr(i, 'autocomplete')) || /last|nach/i.test(attr(i, 'label')));
+    const code = inputs.find((i) => i !== last);
+    add('Reference label', attr(code, 'label'));
+    add('Reference pattern', attr(code, 'pattern'));
+    add('Reference error', attr(code, 'errormessage'));
+    add('Last name label', attr(last, 'label'));
+    add('Last name error', attr(last, 'errormessage'));
+    add('Tour operator label', attr(quickActions.querySelector('maui-checkbox'), 'label'));
+    add('Submit label', visibleText(quickActions.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]')));
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'booking-lookup (my-bookings)', cells: rows }));
+    return;
+  }
+
   // --- tab panels
-  const panels = [...element.querySelectorAll('maui-tab-control-panel-responsive, maui-tab-control-panel, [role="tabpanel"]')]
+  const panels =[...element.querySelectorAll('maui-tab-control-panel-responsive, maui-tab-control-panel, [role="tabpanel"]')]
     .filter((p) => !p.parentElement.closest('maui-tab-control-panel-responsive, maui-tab-control-panel, [role="tabpanel"]'));
   const formPanel = panels.find((p) => p.querySelector('.checkinpassengerreceiptentry, .dcep-checkin, form')) || panels[0] || element;
   const tabName = (p) => attr(p, 'name') || attr(p, 'label') || attr(p, 'aria-label') || attr(p, 'heading');

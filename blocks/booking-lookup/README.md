@@ -14,7 +14,7 @@ Tabs share the width equally (50/50 with two tabs); below 768px they become acco
 
 ## Supported variations
 
-No variations.
+- `my-bookings`: the manage bookings tab (live dcep-quick-actions with only "My bookings", /de/en/book-and-manage/booking-services/manage-my-bookings). One tab with the my-bookings icon (an accordion row across the viewport below 768px that opens and closes), the Travel ID login link, Booking code and Last name, the checkbox "I have a tour operator code" (switches to Last name, First name, Tour operator trip code with its hint and info text), the yellow "Find Bookings" button. Rows (all optional, the importer writes the ones the snapshot shows): Tab | My bookings; Login link | link; Reference label | Booking code; Reference pattern | ^[A-Z0-9]{6}$; Reference error; Last name label; Last name error; Tour operator label; First name label; First name error; Tour operator code label; Tour operator code hint; Tour operator code error; Tour operator code info; Submit label. Defaults: the recorded live labels (quickactions, bookingQuery, tourOperatorQuery; English and German). Hand-off: the live tab logs in with booking code and last name and posts to the booking deeplink its service returns (tour operator: the Travel ID upcoming-trips API); neither can be called from the replica, so a valid search opens the same page on www.lufthansa.com, with none of the entered data in the URL.
 
 ## Universal Editor fields
 

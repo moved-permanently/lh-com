@@ -1577,7 +1577,7 @@
  "https://www.lufthansa.com/de/en/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.474Z"
+  "at": "2026-10-23T14:16:00.129Z"
  },
  "https://www.lufthansa.com/de/en/flight-search": {
   "template": "app-entry",
@@ -2932,7 +2932,7 @@
  "https://www.lufthansa.com/de/de/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.483Z"
+  "at": "2026-10-23T14:16:00.129Z"
  },
  "https://www.lufthansa.com/de/de/flugsuche": {
   "template": "app-entry",
@@ -4382,7 +4382,7 @@
  "https://www.lufthansa.com/at/de/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.496Z"
+  "at": "2026-10-23T14:16:00.129Z"
  },
  "https://www.lufthansa.com/at/de/flugsuche": {
   "template": "app-entry",
@@ -5842,7 +5842,7 @@
  "https://www.lufthansa.com/gb/en/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T14:16:00.129Z"
  },
  "https://www.lufthansa.com/gb/en/flight-search": {
   "template": "app-entry",
