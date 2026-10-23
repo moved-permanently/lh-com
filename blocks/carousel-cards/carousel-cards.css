@@ -520,3 +520,40 @@
 .carousel-cards.authors {
   margin-bottom: 93px;
 }
+
+/* video cards (Lufthansa video viewers in a .swiper-multi-slide, /articles/tags/munich
+   'Dive Deeper'): the 16:9 poster with the 90px round play button, no card border or shadow */
+.carousel-cards .carousel-cards-slide.carousel-cards-video,
+.carousel-cards .carousel-cards-slide.carousel-cards-video:hover {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.carousel-cards .carousel-cards-video .media-video {
+  height: 100%;
+}
+
+.carousel-cards .carousel-cards-video .media-video :is(picture, img, video) {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the viewer keeps .video-viewer.mb-default (margin-bottom 2.4rem) under the poster: dots 40px
+   below the cards, 70px from the dots to the next heading; 53px from the text above from 768px
+   (live 1440, 768, 390) */
+.carousel-cards .carousel-cards-slide.carousel-cards-video:not(.carousel-cards-wide) .carousel-cards-image {
+  margin-bottom: 24px;
+  border-radius: 0;
+}
+
+.carousel-cards:has(.carousel-cards-video) {
+  padding-bottom: 39px;
+}
+
+@media (width >= 768px) {
+  .carousel-cards:has(.carousel-cards-video) {
+    padding-top: 16px;
+  }
+}

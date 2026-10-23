@@ -2,12 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-business-class-on-long-haul-routes",
   "path": "de/de/lufthansa-business-class-on-long-haul-routes",
-  "timestamp": "2026-10-23T03:48:58.175Z",
+  "timestamp": "2026-10-23T10:58:43.638Z",
   "title": "",
   "template": "info",
   "blocks": [
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "columns-media",
+    "embed"
   ]
 }

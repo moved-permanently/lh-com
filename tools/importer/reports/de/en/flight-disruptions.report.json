@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/flight-disruptions",
   "path": "de/en/flight-disruptions",
-  "timestamp": "2026-10-23T03:40:37.134Z",
+  "timestamp": "2026-10-23T10:55:30.008Z",
   "title": "",
   "template": "info",
   "blocks": [
@@ -13,6 +13,7 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "embed"
   ]
 }

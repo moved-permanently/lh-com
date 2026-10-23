@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/articles/tags/munich",
   "path": "at/de/articles/tags/munich",
-  "timestamp": "2026-10-23T05:59:33.602Z",
+  "timestamp": "2026-10-23T10:59:11.751Z",
   "title": "",
   "template": "insights",
   "blocks": [
+    "carousel-cards",
     "cards-teaser",
     "columns-media",
     "columns-media",

@@ -322,7 +322,7 @@
  "https://www.lufthansa.com/de/en/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:18:59.177Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/de/doctor-on-board": {
   "template": "info",
@@ -352,7 +352,7 @@
  "https://www.lufthansa.com/de/de/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:18:59.180Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/en/100-years/history/menu-on-board": {
   "template": "campaign",
@@ -627,7 +627,7 @@
  "https://www.lufthansa.com/de/en/flight-disruptions": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:42:14.598Z"
+  "at": "2026-10-23T10:56:51.516Z"
  },
  "https://www.lufthansa.com/de/en/fly-more-sustainabl": {
   "template": "info",
@@ -727,7 +727,7 @@
  "https://www.lufthansa.com/de/en/lufthansa-business-class-on-long-haul-routes": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.247Z"
+  "at": "2026-10-23T10:59:00.992Z"
  },
  "https://www.lufthansa.com/de/en/lufthansa-corporate-customers": {
   "template": "info",
@@ -747,7 +747,7 @@
  "https://www.lufthansa.com/de/en/lufthansa-express-rail": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.251Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/en/lufthansa-group-star-alliance-and-partner-airlines": {
   "template": "info",
@@ -1017,7 +1017,7 @@
  "https://www.lufthansa.com/de/en/travelling-with-children": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/en/travelling-with-special-requirements": {
   "template": "info",
@@ -1027,7 +1027,7 @@
  "https://www.lufthansa.com/de/en/traveltricks": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/en/uebergepaeck": {
   "template": "info",
@@ -1367,7 +1367,7 @@
  "https://www.lufthansa.com/de/en/articles/tags/munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:59:44.076Z"
+  "at": "2026-10-23T10:59:22.230Z"
  },
  "https://www.lufthansa.com/de/en/advance-seat-reservations-terms-and-conditions": {
   "template": "legal",
@@ -1967,7 +1967,7 @@
  "https://www.lufthansa.com/de/de/flugunregelmaessigkeiten": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:42:14.602Z"
+  "at": "2026-10-23T10:56:51.520Z"
  },
  "https://www.lufthansa.com/de/de/nachhaltiger-fliegen": {
   "template": "info",
@@ -2072,7 +2072,7 @@
  "https://www.lufthansa.com/de/de/lufthansa-business-class-on-long-haul-routes": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.250Z"
+  "at": "2026-10-23T10:59:00.992Z"
  },
  "https://www.lufthansa.com/de/de/lufthansa-firmenkunden": {
   "template": "info",
@@ -2092,7 +2092,7 @@
  "https://www.lufthansa.com/de/de/lufthansa-express-rail": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.251Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/de/lufthansa-group-star-alliance-and-partner-airlines": {
   "template": "info",
@@ -2362,7 +2362,7 @@
  "https://www.lufthansa.com/de/de/fliegen-mit-kindern": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/de/reisen-mit-besonderen-anforderungen": {
   "template": "info",
@@ -2372,7 +2372,7 @@
  "https://www.lufthansa.com/de/de/traveltricks": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/de/de/uebergepaeck": {
   "template": "info",
@@ -2727,7 +2727,7 @@
  "https://www.lufthansa.com/de/de/articles/tags/munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:59:44.076Z"
+  "at": "2026-10-23T10:59:22.230Z"
  },
  "https://www.lufthansa.com/de/de/sitzplatzreservierungen-konditionen": {
   "template": "legal",
@@ -3392,7 +3392,7 @@
  "https://www.lufthansa.com/at/de/flugunregelmaessigkeiten": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:42:14.605Z"
+  "at": "2026-10-23T10:56:51.523Z"
  },
  "https://www.lufthansa.com/at/de/nachhaltiger-fliegen": {
   "template": "info",
@@ -3497,7 +3497,7 @@
  "https://www.lufthansa.com/at/de/lufthansa-business-class-on-long-haul-routes": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.250Z"
+  "at": "2026-10-23T10:59:00.992Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-firmenkunden": {
   "template": "info",
@@ -3517,7 +3517,7 @@
  "https://www.lufthansa.com/at/de/lufthansa-express-rail": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.251Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-first-class-entertainment": {
   "template": "info",
@@ -3807,7 +3807,7 @@
  "https://www.lufthansa.com/at/de/fliegen-mit-kindern": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/at/de/reisen-mit-besonderen-anforderungen": {
   "template": "info",
@@ -3817,7 +3817,7 @@
  "https://www.lufthansa.com/at/de/traveltricks": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/at/de/uebergepaeck": {
   "template": "info",
@@ -3832,7 +3832,7 @@
  "https://www.lufthansa.com/at/de/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:18:59.183Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/at/de/upgrade-business-class-langstrecke": {
   "template": "info",
@@ -4187,7 +4187,7 @@
  "https://www.lufthansa.com/at/de/articles/tags/munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:59:44.076Z"
+  "at": "2026-10-23T10:59:22.230Z"
  },
  "https://www.lufthansa.com/at/de/sitzplatzreservierungen-konditionen": {
   "template": "legal",
@@ -4852,7 +4852,7 @@
  "https://www.lufthansa.com/gb/en/flight-disruptions": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:42:14.608Z"
+  "at": "2026-10-23T10:56:51.527Z"
  },
  "https://www.lufthansa.com/gb/en/fly-more-sustainabl": {
   "template": "info",
@@ -4957,7 +4957,7 @@
  "https://www.lufthansa.com/gb/en/lufthansa-business-class-on-long-haul-routes": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.250Z"
+  "at": "2026-10-23T10:59:00.992Z"
  },
  "https://www.lufthansa.com/gb/en/lufthansa-corporate-customers": {
   "template": "info",
@@ -4977,7 +4977,7 @@
  "https://www.lufthansa.com/gb/en/lufthansa-express-rail": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:49:59.251Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/gb/en/lufthansa-first-class-entertainment": {
   "template": "info",
@@ -5267,7 +5267,7 @@
  "https://www.lufthansa.com/gb/en/travelling-with-children": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.598Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/gb/en/travelling-with-special-requirements": {
   "template": "info",
@@ -5277,7 +5277,7 @@
  "https://www.lufthansa.com/gb/en/traveltricks": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.599Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/gb/en/uebergepaeck": {
   "template": "info",
@@ -5292,7 +5292,7 @@
  "https://www.lufthansa.com/gb/en/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:18:59.186Z"
+  "at": "2026-10-23T10:56:51.538Z"
  },
  "https://www.lufthansa.com/gb/en/upgrade-business-class-long-haul": {
   "template": "info",
@@ -5647,7 +5647,7 @@
  "https://www.lufthansa.com/gb/en/articles/tags/munich": {
   "template": "insights",
   "status": "ok",
-  "at": "2026-10-23T05:59:44.076Z"
+  "at": "2026-10-23T10:59:22.230Z"
  },
  "https://www.lufthansa.com/gb/en/advance-seat-reservations-terms-and-conditions": {
   "template": "legal",

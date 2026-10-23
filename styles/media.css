@@ -1,0 +1,124 @@
+/* videos and embeds in blocks (scripts/media.js) */
+
+/* click-to-play video: .moving-image .on-image-button-wrapper { padding: 1.5rem },
+   .on-image-button { 4rem x 4rem; background: #0009; border-radius: 0; color: #fff } */
+.media-video {
+  position: relative;
+}
+
+.media-video:not(:has(picture, video)) {
+  aspect-ratio: 16 / 9;
+  background-color: var(--lh-grey-7);
+}
+
+.media-video picture,
+.media-video img,
+.media-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.media-video video {
+  object-fit: cover;
+}
+
+.media-video-play {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: #0009;
+  color: var(--lh-white);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* lh-play icon, 18px (.on-image-button maui-icon --maui-icon-size-override: 18px) */
+.media-video-play::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 18px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5v17L20.5 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.media-video-play:hover,
+.media-video-play:focus-visible {
+  color: var(--lh-grey-4);
+}
+
+.media-video-play:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* video viewer (video.js .vjs-big-play-button, Lufthansa override): 90px white round play icon
+   in the middle of the poster, no fill; focus .2rem rgb(9 104 246) at .2rem
+   (/de/en/discover-lufthansa/new-onboard-experience intro) */
+.media-video-round .media-video-play {
+  inset: calc(50% - 45px) auto auto calc(50% - 45px);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.media-video-round .media-video-play::before {
+  width: 100%;
+  height: 100%;
+  background-color: var(--lh-white);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m2.798 8.374-4.105 2.698A.44.44 0 0 1 6 10.698V5.302c0-.356.396-.569.693-.374l4.105 2.698a.448.448 0 0 1 0 .748'/%3E%3C/svg%3E");
+}
+
+.media-video-round .media-video-play:hover,
+.media-video-round .media-video-play:focus-visible {
+  color: var(--lh-white);
+}
+
+.media-video-round .media-video-play:focus-visible {
+  outline: 2px solid rgb(9 104 246);
+}
+
+/* embeds: Lufthansa .video-player (YouTube: 16:9 over the full width) and .iframe-wrapper
+   (in-flight entertainment widget: max-width 1240px, height 520px inline) */
+.media-embed {
+  position: relative;
+  width: 100%;
+}
+
+.media-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-embed-youtube {
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+}
+
+.media-embed-inflight-entertainment {
+  max-width: 1240px;
+  height: 520px;
+}
+
+/* in running content (accordion panels): .video-player / .iframe-wrapper margin-bottom 4rem */
+:is(p, ul, ol) + :is(.media-embed, .media-video) {
+  margin-top: 24px;
+}
+
+.media-embed:not(:last-child),
+.media-video:not(:last-child) {
+  margin-bottom: 40px;
+}

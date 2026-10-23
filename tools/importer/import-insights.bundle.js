@@ -36,31 +36,31 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_202263_exports = {};
-  __export(tmp_bundle_insights_202263_exports, {
-    default: () => tmp_bundle_insights_202263_default
+  var tmp_bundle_insights_415817_exports = {};
+  __export(tmp_bundle_insights_415817_exports, {
+    default: () => tmp_bundle_insights_415817_default
   });
 
   // tools/importer/parsers/article-header.js
   function parse(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
     };
     const page = element.closest(".article-details-page") || element.parentElement || document.body;
     const content = page.querySelector(".article-content") || page;
-    const img = [...element.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+    const img = [...element.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
     let image = null;
     if (img) {
       image = document.createElement("img");
@@ -85,7 +85,7 @@ var CustomImportScript = (() => {
           c.querySelectorAll(SKIP).forEach((s) => s.remove());
           c.removeAttribute("class");
           if (c.tagName === "P") trimBreaks(c);
-          if (clean(c.textContent)) text.push(c);
+          if (clean2(c.textContent)) text.push(c);
         });
       } else if (visibleText(description) && description !== intro) {
         const p = document.createElement("p");
@@ -93,7 +93,7 @@ var CustomImportScript = (() => {
         text.push(p);
       }
     }
-    const tags = [...content.querySelectorAll(".chip-wrapper maui-chip, maui-chip")].map((c) => clean(c.getAttribute("label")) || visibleText(c)).filter(Boolean);
+    const tags = [...content.querySelectorAll(".chip-wrapper maui-chip, maui-chip")].map((c) => clean2(c.getAttribute("label")) || visibleText(c)).filter(Boolean);
     const details = intro && intro.querySelector(".article-details") || content.querySelector(".article-details");
     const dateText = visibleText(details && details.querySelector(".article-date"));
     const readingTime = visibleText(details && details.querySelector(".article-duration"));
@@ -181,12 +181,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/price-bar.js
   function parse2(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
     const config = (el) => {
       if (!el) return {};
@@ -196,12 +196,12 @@ var CustomImportScript = (() => {
         return {};
       }
     };
-    const iata = (v) => /^[A-Z]{3}$/.test(clean(v).toUpperCase()) ? clean(v).toUpperCase() : "";
+    const iata = (v) => /^[A-Z]{3}$/.test(clean2(v).toUpperCase()) ? clean2(v).toUpperCase() : "";
     const root = element.matches("[data-dcep]") ? element : element.querySelector("[data-dcep]") || element;
     const cfg = config(root);
     const title = visibleText(element.querySelector(".sticky-price-title"));
     const priceDisplay = element.querySelector("maui-price-display");
-    const priceLabel = clean(priceDisplay && priceDisplay.getAttribute("label")) || clean(cfg.priceLabel);
+    const priceLabel = clean2(priceDisplay && priceDisplay.getAttribute("label")) || clean2(cfg.priceLabel);
     const links = [...element.querySelectorAll("maui-button-link[href], maui-navigation-link[href], a[href]")];
     const linkEl = links.find((l) => !l.closest(".d-md-none, .hidden-lg-up")) || links[0];
     let href = linkEl ? linkEl.getAttribute("href") : "";
@@ -229,14 +229,14 @@ var CustomImportScript = (() => {
     if (href) {
       const a = document.createElement("a");
       a.setAttribute("href", href);
-      a.textContent = visibleText(linkEl) || clean(linkEl.getAttribute("label")) || href;
+      a.textContent = visibleText(linkEl) || clean2(linkEl.getAttribute("label")) || href;
       cells.push(["Link", a]);
     }
     const block = WebImporter.Blocks.createBlock(document, { name: "price-bar", cells });
-    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const articleHeader = [...document.querySelectorAll("table")].find((t) => !element.contains(t) && headerText(t) === "article header");
     let prev = element.previousSibling;
-    while (prev && prev.nodeType === 3 && !clean(prev.nodeValue)) prev = prev.previousSibling;
+    while (prev && prev.nodeType === 3 && !clean2(prev.nodeValue)) prev = prev.previousSibling;
     const sectionBreak = prev && prev.nodeType === 1 && prev.tagName === "HR" ? prev : null;
     if (articleHeader && articleHeader.parentNode) {
       element.remove();
@@ -250,17 +250,87 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/parsers/media-nodes.js
+  var ZW = /[​-‍﻿]/g;
+  var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+  var isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+  function videoPara(document, src, label, settings) {
+    const a = document.createElement("a");
+    a.setAttribute("href", src);
+    a.textContent = label || src;
+    const p = document.createElement("p");
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(" ")}}`);
+    return p;
+  }
+  function viewerNodes(comp, document) {
+    const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host.getAttribute("data-dcep"));
+    } catch (e) {
+      cfg = {};
+    }
+    const video = comp.querySelector("video[src], video source[src]");
+    const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector(".vjs-poster img[src]");
+    const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement("img");
+      img.setAttribute("src", poster);
+      img.setAttribute("alt", clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+    settings.push("controls", "round-play-button");
+    out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
+    return out;
+  }
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
+
   // tools/importer/parsers/carousel-cards.js
   function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
       const p = document.createElement("p");
       p.textContent = text;
@@ -294,7 +364,7 @@ var CustomImportScript = (() => {
         });
         const BUTTONS = "maui-button-link, maui-button, a[href]";
         [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
-          const label = visibleText(btn) || clean(btn.getAttribute("label"));
+          const label = visibleText(btn) || clean2(btn.getAttribute("label"));
           if (!label) return;
           const a = document.createElement("a");
           a.href = btn.getAttribute("href") || "#booking-code";
@@ -312,10 +382,16 @@ var CustomImportScript = (() => {
       element.replaceWith(...intro, block2);
       return;
     }
+    const viewers = [...element.querySelectorAll(".swiper-slide .videoViewer")].filter((v) => !v.closest(".swiper-slide-duplicate"));
+    if (viewers.length && !element.querySelector("a.teaser, .wide-teaser, .compact-teaser")) {
+      const rows = viewers.map((v) => viewerNodes(v, document)).filter((n) => n.length).map((n) => [n]);
+      if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up"], cells: rows }));
+      return;
+    }
     const authors = [...element.querySelectorAll("a.author-slider-link")].filter((a) => !a.closest(".swiper-slide-duplicate"));
     if (authors.length) {
       const rows = authors.map((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           imageCell = document.createElement("img");
@@ -356,7 +432,7 @@ var CustomImportScript = (() => {
       const cards = [...element.querySelectorAll("a.teaser")].filter((a) => !a.closest(".swiper-slide-duplicate") && !(hasDesktopTwin && a.closest(MOBILE)));
       const rows = [];
       cards.forEach((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           const image = document.createElement("img");
@@ -398,7 +474,7 @@ var CustomImportScript = (() => {
     const cells = [];
     teasers.forEach((teaser) => {
       const wide = teaser.classList.contains("wide-teaser");
-      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       let imageCell = "";
       if (img) {
         const image = document.createElement("img");
@@ -441,16 +517,16 @@ var CustomImportScript = (() => {
   function parse4(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const imageFrom = (scope) => {
-      const img = [...scope.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const img = [...scope.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       if (!img) return null;
       const out = document.createElement("img");
       out.setAttribute("src", img.getAttribute("src"));
@@ -459,7 +535,7 @@ var CustomImportScript = (() => {
     };
     const trimTrailingBreaks = (el) => {
       let last = el.lastChild;
-      while (last && (last.nodeType === 3 && !clean(last.nodeValue) || last.nodeType === 1 && last.tagName === "BR")) {
+      while (last && (last.nodeType === 3 && !clean2(last.nodeValue) || last.nodeType === 1 && last.tagName === "BR")) {
         const prev = last.previousSibling;
         last.remove();
         last = prev;
@@ -472,7 +548,7 @@ var CustomImportScript = (() => {
       const flush = () => {
         if (run) {
           trimTrailingBreaks(run);
-          if (clean(run.textContent) || run.querySelector("img")) out.push(run);
+          if (clean2(run.textContent) || run.querySelector("img")) out.push(run);
         }
         run = null;
       };
@@ -483,10 +559,10 @@ var CustomImportScript = (() => {
           const c = n.cloneNode(true);
           c.querySelectorAll(SKIP).forEach((s) => s.remove());
           if (c.tagName === "P") trimTrailingBreaks(c);
-          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean2(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
-        if (n.nodeType === 3 && !clean(n.nodeValue) && !run) return;
+        if (n.nodeType === 3 && !clean2(n.nodeValue) && !run) return;
         if (!run) run = document.createElement("p");
         run.append(n.cloneNode(true));
       });
@@ -497,7 +573,7 @@ var CustomImportScript = (() => {
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -588,7 +664,7 @@ var CustomImportScript = (() => {
     const variants = element.classList.contains("threecolumn") ? ["three-up"] : [];
     if (overlay) variants.push("overlay");
     const block = WebImporter.Blocks.createBlock(document, { name: "cards-teaser", variants, cells });
-    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -598,7 +674,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean(between.textContent)) return null;
+      if (clean2(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -622,16 +698,16 @@ var CustomImportScript = (() => {
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
     const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
     const DESKTOP = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
@@ -639,7 +715,7 @@ var CustomImportScript = (() => {
     const tidy = (el) => {
       el.querySelectorAll(SKIP).forEach((s) => s.remove());
       el.querySelectorAll("em, i, span").forEach((s) => {
-        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector("img")) s.remove();
+        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean2(s.textContent) && !s.querySelector("img")) s.remove();
       });
       const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
       el.removeAttribute("class");
@@ -668,7 +744,7 @@ var CustomImportScript = (() => {
         g.forEach((n) => np.append(n));
         trimBreaks(np);
         return np;
-      }).filter((np) => clean(np.textContent) || np.querySelector("img"));
+      }).filter((np) => clean2(np.textContent) || np.querySelector("img"));
     };
     const richNodes = (scope) => {
       const rt = scope.querySelector(".richtext") || scope;
@@ -693,7 +769,7 @@ var CustomImportScript = (() => {
             return;
           }
           tidy(c);
-          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean2(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
         if (isBlank(n) && !run) return;
@@ -707,7 +783,7 @@ var CustomImportScript = (() => {
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -739,7 +815,7 @@ var CustomImportScript = (() => {
       keepHeadingStyle(h, out);
       return out;
     };
-    const videoPara = (src, label, settings) => {
+    const videoPara2 = (src, label, settings) => {
       const a = document.createElement("a");
       a.setAttribute("href", src);
       a.textContent = label || src;
@@ -748,7 +824,7 @@ var CustomImportScript = (() => {
       if (settings.length) p.append(` {${settings.join(" ")}}`);
       return p;
     };
-    const viewerNodes = (comp) => {
+    const viewerNodes2 = (comp) => {
       const host = comp.querySelector("[data-dcep]");
       let cfg = {};
       try {
@@ -757,26 +833,26 @@ var CustomImportScript = (() => {
         cfg = {};
       }
       const video = comp.querySelector("video[src], video source[src]");
-      const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+      const src = clean2(cfg.videoSrc || video && video.getAttribute("src"));
       if (!src) return [];
       const out = [];
       const posterImg = comp.querySelector(".vjs-poster img[src]");
-      const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
-      if (poster && !isBroken2(poster)) {
+      const poster = clean2(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+      if (poster && !isBroken3(poster)) {
         const img = document.createElement("img");
         img.setAttribute("src", poster);
-        img.setAttribute("alt", clean(cfg.alternativeText));
+        img.setAttribute("alt", clean2(cfg.alternativeText));
         out.push(img);
       }
       const settings = [];
       if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
       settings.push("controls", "round-play-button");
-      out.push(videoPara(src, clean(cfg.alternativeText), settings));
+      out.push(videoPara2(src, clean2(cfg.alternativeText), settings));
       return out;
     };
     const mediaNodes = (comp) => {
       const out = [];
-      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
+      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
       const video = comp.querySelector("video[src], video source[src]");
       let image = null;
       if (img) {
@@ -791,7 +867,7 @@ var CustomImportScript = (() => {
         const settings = button ? [] : ["autoplay", "muted"];
         if (!button && video.hasAttribute("loop")) settings.push("loop");
         if (video.hasAttribute("controls")) settings.push("controls");
-        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
+        out.push(videoPara2(src, clean2(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -822,7 +898,12 @@ var CustomImportScript = (() => {
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
         } else if (cl.contains("videoViewer")) {
-          out.push(...viewerNodes(child));
+          out.push(...viewerNodes2(child));
+        } else if (cl.contains("video") && child.querySelector(":scope > .video-player iframe") || cl.contains("iframe") && child.querySelector(":scope > .iframe-wrapper iframe")) {
+          embedNodes(child, document).forEach((n) => {
+            n.setAttribute("data-lh-embed", "");
+            out.push(n);
+          });
         } else {
           collect(child, out);
         }
@@ -850,7 +931,7 @@ var CustomImportScript = (() => {
     };
     if (element.matches(".videoViewer, .image")) {
       if (!element.isConnected || !element.parentElement || element.parentElement.closest("table, .inspirationteaser, .stage, .carousel, .slideshow, .accordion, .teaser")) return;
-      const media = element.classList.contains("videoViewer") ? viewerNodes(element) : mediaNodes(element);
+      const media = element.classList.contains("videoViewer") ? viewerNodes2(element) : mediaNodes(element);
       if (!media.some((n) => n.tagName === "P")) return;
       element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", cells: [[media]] }));
       return;
@@ -860,13 +941,13 @@ var CustomImportScript = (() => {
       const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
       const pct = parseInt(floated.getAttribute("width") || "", 10);
       const media = [];
-      if (!isBroken2(floated.getAttribute("src"))) {
+      if (!isBroken3(floated.getAttribute("src"))) {
         const img = document.createElement("img");
         img.setAttribute("src", floated.getAttribute("src"));
         img.setAttribute("alt", floated.getAttribute("alt") || "");
         media.push(img);
       }
-      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean(el.textContent) && !el.querySelector("img");
+      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean2(el.textContent) && !el.querySelector("img");
       const text = [];
       for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
         n.remove();
@@ -894,7 +975,7 @@ var CustomImportScript = (() => {
     if (element.classList.contains("blogoverview") && articles.length) {
       const rows = articles.map((art, i) => {
         const media = [];
-        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken2(x.getAttribute("src")));
+        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken3(x.getAttribute("src")));
         if (img) {
           const image = document.createElement("img");
           image.setAttribute("src", img.getAttribute("src"));
@@ -908,7 +989,7 @@ var CustomImportScript = (() => {
           } else media.push(image);
         }
         const text = [];
-        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean(c.getAttribute("label"))).filter(Boolean);
+        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean2(c.getAttribute("label"))).filter(Boolean);
         if (tags.length) {
           const ul = document.createElement("ul");
           tags.forEach((t) => {
@@ -978,14 +1059,16 @@ var CustomImportScript = (() => {
         });
       });
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
-      const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+      const collected = items.map((it) => finishCell(collect(it, [])));
+      const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches("p[data-lh-embed]")));
+      const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => c.length ? c : "") : collected.filter((c) => c.length);
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
-    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -995,7 +1078,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean(between.textContent)) return null;
+      if (clean2(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -1015,16 +1098,16 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/related-articles.js
   function parse6(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
     const before = [];
     const headline = element.querySelector(".related-articles-headline, maui-headline, h2, h3");
-    const headlineText = visibleText(headline) || clean(headline && (headline.getAttribute("text") || headline.getAttribute("headline")));
+    const headlineText = visibleText(headline) || clean2(headline && (headline.getAttribute("text") || headline.getAttribute("headline")));
     if (headlineText) {
       const h = document.createElement("h2");
       h.textContent = headlineText;
@@ -1036,11 +1119,11 @@ var CustomImportScript = (() => {
       const href = card.getAttribute("href");
       if (!href || seen.has(href)) return;
       seen.add(href);
-      let title = visibleText(card.querySelector(".card-title, h2, h3, h4, h5")) || clean(card.getAttribute("title")) || visibleText(card) || href;
+      let title = visibleText(card.querySelector(".card-title, h2, h3, h4, h5")) || clean2(card.getAttribute("title")) || visibleText(card) || href;
       const truncated = title.match(/^(.*?)\s*(…|\.\.\.)$/);
       if (truncated && truncated[1]) {
         const img = card.querySelector("img[alt]");
-        const alt = clean(img && img.getAttribute("alt"));
+        const alt = clean2(img && img.getAttribute("alt"));
         if (alt && alt.startsWith(truncated[1])) title = alt;
       }
       const a = document.createElement("a");
@@ -1060,7 +1143,7 @@ var CustomImportScript = (() => {
       if (src && src.getAttribute("src") && !/^(data|blob):/i.test(src.getAttribute("src"))) {
         const img = document.createElement("img");
         img.src = src.getAttribute("src");
-        img.alt = clean(src.getAttribute("alt"));
+        img.alt = clean2(src.getAttribute("alt"));
         imageCell = img;
       }
       cells.push([imageCell, content]);
@@ -1071,19 +1154,19 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/carousel-images.js
   function parse7(element, { document }) {
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
-    const isBroken2 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
     const cells = [];
     slides.forEach((slide) => {
-      const source = [...slide.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const source = [...slide.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       if (!source) return;
       const img = document.createElement("img");
       img.src = source.getAttribute("src");
-      img.alt = clean(source.getAttribute("alt"));
+      img.alt = clean2(source.getAttribute("alt"));
       let captionCell = "";
       const figcaption = slide.querySelector("figcaption, .caption");
-      if (figcaption && clean(figcaption.textContent)) {
+      if (figcaption && clean2(figcaption.textContent)) {
         const inner = figcaption.querySelector("maui-caption") || figcaption;
         const p = document.createElement("p");
         [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
@@ -1167,7 +1250,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -1664,7 +1747,7 @@ var CustomImportScript = (() => {
     const m = url.match(/lh-dcep-transform-width-(\d+)/);
     return m ? parseInt(m[1], 10) : 0;
   }
-  function isBroken(url) {
+  function isBroken2(url) {
     return !url || /(^|\/)undefined(\.transform|$|\/)/.test(url) || url === "about:blank";
   }
   function absoluteImageUrl(url) {
@@ -1692,7 +1775,7 @@ var CustomImportScript = (() => {
   function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
-      if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
+      if (url && !isBroken2(url)) candidates.push({ url, w: w || transformWidth(url) });
     };
     const picture = img.closest("picture");
     if (picture) {
@@ -2167,7 +2250,8 @@ var CustomImportScript = (() => {
         "name": "carousel-cards",
         "instances": [
           ".threecolumn:has(.teaser)",
-          ".authorslider"
+          ".authorslider",
+          ".carousel:has(.swiper-multi-slide .videoViewer)"
         ]
       },
       {
@@ -2322,7 +2406,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_202263_default = {
+  var tmp_bundle_insights_415817_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2352,5 +2436,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_202263_exports);
+  return __toCommonJS(tmp_bundle_insights_415817_exports);
 })();

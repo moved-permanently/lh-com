@@ -253,84 +253,18 @@
   }
 }
 
-/* click-to-play video: .moving-image .on-image-button-wrapper { padding: 1.5rem },
-   .on-image-button { 4rem x 4rem; background: #0009; border-radius: 0; color: #fff } */
-.columns-media .columns-media-video {
-  position: relative;
-}
+/* videos and embeds: styles/media.css (scripts/media.js) */
 
-.columns-media .columns-media-video:not(:has(picture, video)) {
-  aspect-ratio: 16 / 9;
-  background-color: var(--lh-grey-7);
-}
+/* an empty column beside a YouTube player keeps its place from 768px (the player takes one
+   column, /lufthansa-business-class-on-long-haul-routes); stacked, it is not there */
+@media (width < 768px) {
+  .columns-media .columns-media-row > div:empty {
+    display: none;
+  }
 
-.columns-media .columns-media-play {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background-color: #0009;
-  color: var(--lh-white);
-  cursor: pointer;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* lh-play icon, 18px (.on-image-button maui-icon --maui-icon-size-override: 18px) */
-.columns-media .columns-media-play::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 18px;
-  height: 18px;
-  background-color: currentcolor;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5v17L20.5 12z'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
-.columns-media .columns-media-play:hover,
-.columns-media .columns-media-play:focus-visible {
-  color: var(--lh-grey-4);
-}
-
-.columns-media .columns-media-play:focus-visible {
-  outline: 2px solid var(--focus-color);
-  outline-offset: 2px;
-}
-
-.columns-media .columns-media-video video {
-  object-fit: cover;
-}
-
-/* video viewer (video.js .vjs-big-play-button, Lufthansa override): 90px white round play icon
-   in the middle of the poster, no fill; focus .2rem rgb(9 104 246) at .2rem
-   (/de/en/discover-lufthansa/new-onboard-experience intro) */
-.columns-media .columns-media-video-round .columns-media-play {
-  inset: calc(50% - 45px) auto auto calc(50% - 45px);
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.columns-media .columns-media-video-round .columns-media-play::before {
-  width: 100%;
-  height: 100%;
-  background-color: var(--lh-white);
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m2.798 8.374-4.105 2.698A.44.44 0 0 1 6 10.698V5.302c0-.356.396-.569.693-.374l4.105 2.698a.448.448 0 0 1 0 .748'/%3E%3C/svg%3E");
-}
-
-.columns-media .columns-media-video-round .columns-media-play:hover,
-.columns-media .columns-media-video-round .columns-media-play:focus-visible {
-  color: var(--lh-white);
-}
-
-.columns-media .columns-media-video-round .columns-media-play:focus-visible {
-  outline: 2px solid rgb(9 104 246);
+  .columns-media .columns-media-row > div:has(+ div:empty:last-child) {
+    margin-bottom: 0;
+  }
 }
 
 /* Insights articles: the closing teaser column view sits in the article card (.article-content

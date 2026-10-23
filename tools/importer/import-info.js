@@ -6,6 +6,7 @@ import heroCampaignParser from './parsers/hero-campaign.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
+import embedParser from './parsers/embed.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -39,10 +40,17 @@ const PAGE_TEMPLATE = {
       "name": "columns-media",
       "instances": [
         ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
-        ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
+        ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
         ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
         ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
         ".videoViewer, .image:has(video)"
+      ]
+    },
+    {
+      "name": "embed",
+      "instances": [
+        ".video:has(> .video-player iframe)",
+        ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])"
       ]
     }
   ],
@@ -96,6 +104,7 @@ const parsers = {
   'accordion-columns': accordionColumnsParser,
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
+  'embed': embedParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

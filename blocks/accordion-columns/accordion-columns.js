@@ -1,6 +1,7 @@
 import { decorateIcons } from '../../scripts/aem.js';
 import { stripZeroWidth, decorateExternalLinks } from '../../scripts/block-config.js';
 import { takeIconName } from '../../scripts/lh-icons.js';
+import { decorateMedia } from '../../scripts/media.js';
 
 const HEADINGS = 'h2, h3, h4, h5, h6';
 
@@ -54,10 +55,11 @@ function buildPanel(nodes, single) {
 /**
  * Accordion whose panels split their content into columns at each heading.
  * One row per item: cell 1 title, cell 2 content. A single-cell row uses its first element
- * as the title.
+ * as the title. Videos (poster + .mp4 link) and embed links (YouTube, in-flight entertainment
+ * widget) in a panel become players (scripts/media.js).
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   // faq: questions and answers (headings inside an answer stay in the one text column)
   const single = block.classList.contains('faq');
   const items = [];
@@ -100,4 +102,5 @@ export default function decorate(block) {
   block.replaceChildren(...items);
   cleanTextNodes(block);
   decorateExternalLinks(block);
+  await decorateMedia(block);
 }

@@ -35,7 +35,8 @@ const PAGE_TEMPLATE = {
       "name": "carousel-cards",
       "instances": [
         ".threecolumn:has(.teaser)",
-        ".authorslider"
+        ".authorslider",
+        ".carousel:has(.swiper-multi-slide .videoViewer)"
       ]
     },
     {

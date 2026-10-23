@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
+import { viewerNodes, embedNodes } from './media-nodes.js';
 
 /**
  * Parser for accordion-columns (Lufthansa ".accordion" = <maui-collapsible> of
@@ -9,6 +10,11 @@
  *   cell 1: title (maui-collapsible-item "headline" attribute)
  *   cell 2: panel content; each column (.column-view-item) contributes its heading (H3) followed
  *           by its links as a <ul>. Other rich text (paragraphs, lists) is kept as is.
+ *
+ * Videos in a panel (.videoViewer: poster image + link to the .mp4 with
+ * "{controls round-play-button}") and embeds (.video YouTube player, .iframe in-flight
+ * entertainment widget: a paragraph with the link) stay in place; the block shows the players
+ * (scripts/media.js; /flight-disruptions chat assistant videos and YouTube video).
  *
  * Source links carry an icon <em class="lh lh-arrow-right">, zero-width characters and an
  * sr-only "opens in a new tab" span; those are dropped.
@@ -127,10 +133,15 @@ export default function parse(element, { document }) {
     const columns = [...panel.querySelectorAll('.column-view-item')];
     const parts = columns.length ? columns : [panel];
     parts.forEach((part) => {
-      part.querySelectorAll('h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]').forEach((node) => {
+      part.querySelectorAll('h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)').forEach((node) => {
         // only outermost nodes: rich text containers are converted as a whole
         if (node.parentElement && node.parentElement.closest('.richtext, ul, ol') && part.contains(node.parentElement.closest('.richtext, ul, ol'))) return;
-        if (/^H[1-6]$/.test(node.tagName)) {
+        if (node.parentElement && node.parentElement.closest('.videoViewer, .video-player, .iframe-wrapper')) return;
+        if (node.matches('.videoViewer')) {
+          content.push(...viewerNodes(node, document));
+        } else if (node.matches('.video, .iframe')) {
+          content.push(...embedNodes(node, document));
+        } else if (/^H[1-6]$/.test(node.tagName)) {
           const text = visibleText(node);
           if (!text) return;
           const h = document.createElement(columns.length ? 'h3' : node.tagName);

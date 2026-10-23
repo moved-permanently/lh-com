@@ -3502,6 +3502,50 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T04:13:52.809Z"
  },
+ "https://www.lufthansa.com/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2020-lh-chat-assistant-rebooking-en-thumbnail.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/6400c9a948b686bc3af98be0f630da47.jpg",
+  "format": "jpeg",
+  "bytes": 146030,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-23T11:08:46.152Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-thumbnail.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/9f01223061019cf2e1f4650b0510a1a7.jpg",
+  "format": "jpeg",
+  "bytes": 147552,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-23T11:08:18.848Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-thumbnail.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/224f88dbe1c41447d6e5c73b302a4304.jpg",
+  "format": "jpeg",
+  "bytes": 153121,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-23T11:08:19.301Z"
+ },
+ "https://www.lufthansa.com/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-thumbnail.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/3c1567268ee4d7f2c50cc3ed349faca0.jpg",
+  "format": "jpeg",
+  "bytes": 141570,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-23T11:08:46.596Z"
+ },
  "https://www.lufthansa.com/etc/designs/dcep/clientlib-all/vite/img/member-of-lhg.svg": {
   "status": 200,
   "version": 1,

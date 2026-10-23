@@ -2,13 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/travelling-with-children",
   "path": "de/en/travelling-with-children",
-  "timestamp": "2026-10-23T04:14:38.878Z",
+  "timestamp": "2026-10-23T10:56:07.660Z",
   "title": "",
   "template": "info",
   "blocks": [
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "embed"
   ]
 }

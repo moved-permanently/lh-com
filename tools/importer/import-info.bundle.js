@@ -36,31 +36,31 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_202263_exports = {};
-  __export(tmp_bundle_info_202263_exports, {
-    default: () => tmp_bundle_info_202263_default
+  var tmp_bundle_info_415817_exports = {};
+  __export(tmp_bundle_info_415817_exports, {
+    default: () => tmp_bundle_info_415817_default
   });
 
   // tools/importer/parsers/hero-campaign.js
   function parse(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
     };
     const info = element.querySelector(".campaign-information") || element;
     const media = [];
-    const img = [...element.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !info.contains(i));
+    const img = [...element.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !info.contains(i));
     if (img) {
       const image = document.createElement("img");
       image.setAttribute("src", img.getAttribute("src"));
@@ -100,13 +100,13 @@ var CustomImportScript = (() => {
         c.querySelectorAll(SKIP).forEach((s) => s.remove());
         c.removeAttribute("class");
         if (c.tagName === "P") trimBreaks(c);
-        if (!clean(c.textContent) && !c.querySelector("img")) return;
+        if (!clean2(c.textContent) && !c.querySelector("img")) return;
         text.push(c);
       });
     });
     info.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href]").forEach((m) => {
       if (m.closest(".richtext")) return;
-      const label = visibleText(m) || clean(m.getAttribute("label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label"));
       if (!label) return;
       const a = document.createElement("a");
       a.setAttribute("href", m.getAttribute("href"));
@@ -134,16 +134,86 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/media-nodes.js
+  var ZW = /[​-‍﻿]/g;
+  var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+  var isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+  function videoPara(document, src, label, settings) {
+    const a = document.createElement("a");
+    a.setAttribute("href", src);
+    a.textContent = label || src;
+    const p = document.createElement("p");
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(" ")}}`);
+    return p;
+  }
+  function viewerNodes(comp, document) {
+    const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host.getAttribute("data-dcep"));
+    } catch (e) {
+      cfg = {};
+    }
+    const video = comp.querySelector("video[src], video source[src]");
+    const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector(".vjs-poster img[src]");
+    const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement("img");
+      img.setAttribute("src", poster);
+      img.setAttribute("alt", clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+    settings.push("controls", "round-play-button");
+    out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
+    return out;
+  }
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
+
   // tools/importer/parsers/accordion-columns.js
   function parse2(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const ZW = /[​-‍﻿]/g;
-    const clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+    const ZW2 = /[​-‍﻿]/g;
+    const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -199,7 +269,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean(clone.textContent);
+          const onlyLinks = links.length && !clean2(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -228,7 +298,7 @@ var CustomImportScript = (() => {
             const walker = document.createTreeWalker(p, 4);
             let node = walker.nextNode();
             while (node) {
-              node.textContent = node.textContent.replace(ZW, "");
+              node.textContent = node.textContent.replace(ZW2, "");
               node = walker.nextNode();
             }
             out.push(p);
@@ -242,9 +312,14 @@ var CustomImportScript = (() => {
       const columns = [...panel.querySelectorAll(".column-view-item")];
       const parts = columns.length ? columns : [panel];
       parts.forEach((part) => {
-        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]").forEach((node) => {
+        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)").forEach((node) => {
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
-          if (/^H[1-6]$/.test(node.tagName)) {
+          if (node.parentElement && node.parentElement.closest(".videoViewer, .video-player, .iframe-wrapper")) return;
+          if (node.matches(".videoViewer")) {
+            content.push(...viewerNodes(node, document));
+          } else if (node.matches(".video, .iframe")) {
+            content.push(...embedNodes(node, document));
+          } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
             const h = document.createElement(columns.length ? "h3" : node.tagName);
@@ -315,7 +390,7 @@ var CustomImportScript = (() => {
           } else if (!/^(data|blob):/i.test(iconSrc)) {
             const img = document.createElement("img");
             img.src = iconSrc;
-            img.alt = clean(icon.getAttribute("alt"));
+            img.alt = clean2(icon.getAttribute("alt"));
             titleCell.push(img, " ");
           }
         }
@@ -350,7 +425,7 @@ var CustomImportScript = (() => {
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
     items.forEach((item) => {
-      const title = clean(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -362,14 +437,14 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/carousel-cards.js
   function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
       const p = document.createElement("p");
       p.textContent = text;
@@ -403,7 +478,7 @@ var CustomImportScript = (() => {
         });
         const BUTTONS = "maui-button-link, maui-button, a[href]";
         [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
-          const label = visibleText(btn) || clean(btn.getAttribute("label"));
+          const label = visibleText(btn) || clean2(btn.getAttribute("label"));
           if (!label) return;
           const a = document.createElement("a");
           a.href = btn.getAttribute("href") || "#booking-code";
@@ -421,10 +496,16 @@ var CustomImportScript = (() => {
       element.replaceWith(...intro, block2);
       return;
     }
+    const viewers = [...element.querySelectorAll(".swiper-slide .videoViewer")].filter((v) => !v.closest(".swiper-slide-duplicate"));
+    if (viewers.length && !element.querySelector("a.teaser, .wide-teaser, .compact-teaser")) {
+      const rows = viewers.map((v) => viewerNodes(v, document)).filter((n) => n.length).map((n) => [n]);
+      if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up"], cells: rows }));
+      return;
+    }
     const authors = [...element.querySelectorAll("a.author-slider-link")].filter((a) => !a.closest(".swiper-slide-duplicate"));
     if (authors.length) {
       const rows = authors.map((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           imageCell = document.createElement("img");
@@ -465,7 +546,7 @@ var CustomImportScript = (() => {
       const cards = [...element.querySelectorAll("a.teaser")].filter((a) => !a.closest(".swiper-slide-duplicate") && !(hasDesktopTwin && a.closest(MOBILE)));
       const rows = [];
       cards.forEach((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           const image = document.createElement("img");
@@ -507,7 +588,7 @@ var CustomImportScript = (() => {
     const cells = [];
     teasers.forEach((teaser) => {
       const wide = teaser.classList.contains("wide-teaser");
-      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       let imageCell = "";
       if (img) {
         const image = document.createElement("img");
@@ -553,16 +634,16 @@ var CustomImportScript = (() => {
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
     const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
     const DESKTOP = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
@@ -570,7 +651,7 @@ var CustomImportScript = (() => {
     const tidy = (el) => {
       el.querySelectorAll(SKIP).forEach((s) => s.remove());
       el.querySelectorAll("em, i, span").forEach((s) => {
-        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector("img")) s.remove();
+        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean2(s.textContent) && !s.querySelector("img")) s.remove();
       });
       const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
       el.removeAttribute("class");
@@ -599,7 +680,7 @@ var CustomImportScript = (() => {
         g.forEach((n) => np.append(n));
         trimBreaks(np);
         return np;
-      }).filter((np) => clean(np.textContent) || np.querySelector("img"));
+      }).filter((np) => clean2(np.textContent) || np.querySelector("img"));
     };
     const richNodes = (scope) => {
       const rt = scope.querySelector(".richtext") || scope;
@@ -624,7 +705,7 @@ var CustomImportScript = (() => {
             return;
           }
           tidy(c);
-          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean2(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
         if (isBlank(n) && !run) return;
@@ -638,7 +719,7 @@ var CustomImportScript = (() => {
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -670,7 +751,7 @@ var CustomImportScript = (() => {
       keepHeadingStyle(h, out);
       return out;
     };
-    const videoPara = (src, label, settings) => {
+    const videoPara2 = (src, label, settings) => {
       const a = document.createElement("a");
       a.setAttribute("href", src);
       a.textContent = label || src;
@@ -679,7 +760,7 @@ var CustomImportScript = (() => {
       if (settings.length) p.append(` {${settings.join(" ")}}`);
       return p;
     };
-    const viewerNodes = (comp) => {
+    const viewerNodes2 = (comp) => {
       const host = comp.querySelector("[data-dcep]");
       let cfg = {};
       try {
@@ -688,26 +769,26 @@ var CustomImportScript = (() => {
         cfg = {};
       }
       const video = comp.querySelector("video[src], video source[src]");
-      const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+      const src = clean2(cfg.videoSrc || video && video.getAttribute("src"));
       if (!src) return [];
       const out = [];
       const posterImg = comp.querySelector(".vjs-poster img[src]");
-      const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
-      if (poster && !isBroken2(poster)) {
+      const poster = clean2(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+      if (poster && !isBroken3(poster)) {
         const img = document.createElement("img");
         img.setAttribute("src", poster);
-        img.setAttribute("alt", clean(cfg.alternativeText));
+        img.setAttribute("alt", clean2(cfg.alternativeText));
         out.push(img);
       }
       const settings = [];
       if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
       settings.push("controls", "round-play-button");
-      out.push(videoPara(src, clean(cfg.alternativeText), settings));
+      out.push(videoPara2(src, clean2(cfg.alternativeText), settings));
       return out;
     };
     const mediaNodes = (comp) => {
       const out = [];
-      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
+      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
       const video = comp.querySelector("video[src], video source[src]");
       let image = null;
       if (img) {
@@ -722,7 +803,7 @@ var CustomImportScript = (() => {
         const settings = button ? [] : ["autoplay", "muted"];
         if (!button && video.hasAttribute("loop")) settings.push("loop");
         if (video.hasAttribute("controls")) settings.push("controls");
-        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
+        out.push(videoPara2(src, clean2(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -753,7 +834,12 @@ var CustomImportScript = (() => {
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
         } else if (cl.contains("videoViewer")) {
-          out.push(...viewerNodes(child));
+          out.push(...viewerNodes2(child));
+        } else if (cl.contains("video") && child.querySelector(":scope > .video-player iframe") || cl.contains("iframe") && child.querySelector(":scope > .iframe-wrapper iframe")) {
+          embedNodes(child, document).forEach((n) => {
+            n.setAttribute("data-lh-embed", "");
+            out.push(n);
+          });
         } else {
           collect(child, out);
         }
@@ -781,7 +867,7 @@ var CustomImportScript = (() => {
     };
     if (element.matches(".videoViewer, .image")) {
       if (!element.isConnected || !element.parentElement || element.parentElement.closest("table, .inspirationteaser, .stage, .carousel, .slideshow, .accordion, .teaser")) return;
-      const media = element.classList.contains("videoViewer") ? viewerNodes(element) : mediaNodes(element);
+      const media = element.classList.contains("videoViewer") ? viewerNodes2(element) : mediaNodes(element);
       if (!media.some((n) => n.tagName === "P")) return;
       element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", cells: [[media]] }));
       return;
@@ -791,13 +877,13 @@ var CustomImportScript = (() => {
       const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
       const pct = parseInt(floated.getAttribute("width") || "", 10);
       const media = [];
-      if (!isBroken2(floated.getAttribute("src"))) {
+      if (!isBroken3(floated.getAttribute("src"))) {
         const img = document.createElement("img");
         img.setAttribute("src", floated.getAttribute("src"));
         img.setAttribute("alt", floated.getAttribute("alt") || "");
         media.push(img);
       }
-      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean(el.textContent) && !el.querySelector("img");
+      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean2(el.textContent) && !el.querySelector("img");
       const text = [];
       for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
         n.remove();
@@ -825,7 +911,7 @@ var CustomImportScript = (() => {
     if (element.classList.contains("blogoverview") && articles.length) {
       const rows = articles.map((art, i) => {
         const media = [];
-        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken2(x.getAttribute("src")));
+        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken3(x.getAttribute("src")));
         if (img) {
           const image = document.createElement("img");
           image.setAttribute("src", img.getAttribute("src"));
@@ -839,7 +925,7 @@ var CustomImportScript = (() => {
           } else media.push(image);
         }
         const text = [];
-        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean(c.getAttribute("label"))).filter(Boolean);
+        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean2(c.getAttribute("label"))).filter(Boolean);
         if (tags.length) {
           const ul = document.createElement("ul");
           tags.forEach((t) => {
@@ -909,14 +995,16 @@ var CustomImportScript = (() => {
         });
       });
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
-      const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+      const collected = items.map((it) => finishCell(collect(it, [])));
+      const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches("p[data-lh-embed]")));
+      const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => c.length ? c : "") : collected.filter((c) => c.length);
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
-    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -926,7 +1014,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean(between.textContent)) return null;
+      if (clean2(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -941,6 +1029,17 @@ var CustomImportScript = (() => {
       }
     }
     element.replaceWith(...titles, block);
+  }
+
+  // tools/importer/parsers/embed.js
+  function parse5(element, { document }) {
+    if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
+    const href = embedUrl(element);
+    if (!href) return;
+    const link = document.createElement("a");
+    link.setAttribute("href", href);
+    link.textContent = href;
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "embed", cells: [[link]] }));
   }
 
   // tools/importer/transformers/lufthansa-cleanup.js
@@ -1011,7 +1110,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -1508,7 +1607,7 @@ var CustomImportScript = (() => {
     const m = url.match(/lh-dcep-transform-width-(\d+)/);
     return m ? parseInt(m[1], 10) : 0;
   }
-  function isBroken(url) {
+  function isBroken2(url) {
     return !url || /(^|\/)undefined(\.transform|$|\/)/.test(url) || url === "about:blank";
   }
   function absoluteImageUrl(url) {
@@ -1536,7 +1635,7 @@ var CustomImportScript = (() => {
   function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
-      if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
+      if (url && !isBroken2(url)) candidates.push({ url, w: w || transformWidth(url) });
     };
     const picture = img.closest("picture");
     if (picture) {
@@ -2018,10 +2117,17 @@ var CustomImportScript = (() => {
         "name": "columns-media",
         "instances": [
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
-          ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ".videoViewer, .image:has(video)"
+        ]
+      },
+      {
+        "name": "embed",
+        "instances": [
+          ".video:has(> .video-player iframe)",
+          '.iframe:has(> .iframe-wrapper iframe[src*="lufthansa-inflightentertainment.com"])'
         ]
       }
     ],
@@ -2073,7 +2179,8 @@ var CustomImportScript = (() => {
     "hero-campaign": parse,
     "accordion-columns": parse2,
     "carousel-cards": parse3,
-    "columns-media": parse4
+    "columns-media": parse4,
+    "embed": parse5
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2097,7 +2204,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_202263_default = {
+  var tmp_bundle_info_415817_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2127,5 +2234,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_202263_exports);
+  return __toCommonJS(tmp_bundle_info_415817_exports);
 })();

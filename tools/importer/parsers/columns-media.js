@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
+import { embedNodes } from './media-nodes.js';
 
 /**
  * Parser for columns-media (text beside media). Sources:
@@ -238,6 +239,11 @@ export default function parse(element, { document }) {
         out.push(...mediaNodes(child));
       } else if (cl.contains('videoViewer')) {
         out.push(...viewerNodes(child));
+      } else if ((cl.contains('video') && child.querySelector(':scope > .video-player iframe'))
+        || (cl.contains('iframe') && child.querySelector(':scope > .iframe-wrapper iframe'))) {
+        // YouTube player / in-flight entertainment widget: a paragraph with the link (the block
+        // shows the player, scripts/media.js)
+        embedNodes(child, document).forEach((n) => { n.setAttribute('data-lh-embed', ''); out.push(n); });
       } else {
         collect(child, out);
       }
@@ -413,7 +419,12 @@ export default function parse(element, { document }) {
     });
     const items = [...view.querySelectorAll('.column-view-item')]
       .filter((it) => it.closest('.column-view') === view && !it.closest(MOBILE));
-    const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+    const collected = items.map((it) => finishCell(collect(it, [])));
+    // a YouTube player in one column of a column view whose other column is empty keeps the
+    // empty column (live: the player takes its column only, /lufthansa-business-class-on-long-haul-routes)
+    const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches('p[data-lh-embed]')));
+    const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => (c.length ? c : ''))
+      : collected.filter((c) => c.length);
     if (row.length) cells.push(row);
     // an image column view with carousel behaviour in a column (app teaser: photo + QR code):
     // a slider with dots below 1025px (option slider)

@@ -2,13 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/fliegen-mit-kindern",
   "path": "de/de/fliegen-mit-kindern",
-  "timestamp": "2026-10-23T04:14:41.497Z",
+  "timestamp": "2026-10-23T10:56:10.896Z",
   "title": "",
   "template": "info",
   "blocks": [
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "embed"
   ]
 }

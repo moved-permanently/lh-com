@@ -1,0 +1,9 @@
+/* embed: Lufthansa .video-player / .iframe-wrapper { margin-bottom: 4rem } (player styles:
+   styles/media.css) */
+.embed {
+  margin-bottom: 40px;
+}
+
+.embed .media-embed {
+  margin: 0;
+}

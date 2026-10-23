@@ -8,6 +8,8 @@ Model: `standalone`
 
 Single block table. Content: One row per item. Cell 1: title. Cell 2: content; each heading (of the first heading level used, usually H3) starts a column, followed by its list of links. Content before the first heading spans all columns. A single-cell row uses its first element as the title. Zero-width characters are removed.
 
+Videos and embeds in a panel: a poster image paragraph followed by a paragraph with a link to an .mp4 file (and its settings marker, as in columns-media: `{controls round-play-button}` for a Lufthansa video viewer) is a click-to-play video over the panel width; a YouTube or in-flight entertainment widget link alone in its paragraph is the player (blocks/embed; scripts/media.js). The importer keeps them in place (/de/en/flight-disruptions chat assistant videos and meal voucher YouTube video).
+
 ## Supported variations
 
 Options (combinable, written by the importer from the source): `accordion-columns (faq, limited-width, spaced)`.

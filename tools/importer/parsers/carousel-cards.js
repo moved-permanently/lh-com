@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
+import { viewerNodes } from './media-nodes.js';
 
 /**
  * Parser for carousel-cards (Lufthansa ".carousel" / ".new-carousel" swiper of teasers).
@@ -24,6 +25,10 @@
  * desktop grid is present. Options: column views "grid" (cards in rows, stacked on mobile;
  * ".fourcolumn" adds "four-up"); a ".swiper-multi-slide" carousel "four-up" (4 per view);
  * inside an insights article (.article-details-page) "article" (cards in the article column).
+ *
+ * Video viewers in a multi-slide swiper (".carousel" > .swiper-multi-slide > .videoViewer,
+ * /articles/tags/munich 'Dive Deeper'): carousel "four-up", one row per video, one cell: poster
+ * image + link to the .mp4 with "{controls round-play-button}" (the block shows the video card).
  *
  * Login cards (".loginform" .login-oneid-card: title, text, button): text-only rows in a
  * "grid" block; the intro paragraph is default content before it. maui-button-link primary =
@@ -91,6 +96,15 @@ export default function parse(element, { document }) {
     });
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants: ['grid'], cells: rows });
     element.replaceWith(...intro, block);
+    return;
+  }
+
+  // video viewers in a multi-slide swiper: video cards, four per view
+  const viewers = [...element.querySelectorAll('.swiper-slide .videoViewer')]
+    .filter((v) => !v.closest('.swiper-slide-duplicate'));
+  if (viewers.length && !element.querySelector('a.teaser, .wide-teaser, .compact-teaser')) {
+    const rows = viewers.map((v) => viewerNodes(v, document)).filter((n) => n.length).map((n) => [n]);
+    if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants: ['four-up'], cells: rows }));
     return;
   }
 

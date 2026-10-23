@@ -16,6 +16,8 @@ Single block table. Content: One row per slide. Cell 1: image. Cell 2: optional 
 
 - `authors` (Carousel Cards (four-up, authors)): Lufthansa Insights author slider ('Our Authors' on /de/en/articles/explore-flying, explore-the-world, authors pages). With `four-up`: the square portrait 10px inside the card, the author name (linked heading) LufthansaHead bold 20px to 24px with 20px above and below, the description LufthansaHead 16px to 18px; 24px from the cards to the dots, 93px below the block (/explore-flying 1440: cards 297x453, 'Explore more' 99px below the dots, as on live).
 
+Video cards: a row whose cell holds a poster image and a link to an .mp4 file (settings marker as in columns-media, `{controls round-play-button}`) is a video card: the 16:9 poster with the 90px round play button, no border or text, played in place with controls. With `four-up` (Lufthansa video viewers in a multi-slide swiper, /articles/tags/munich 'Dive Deeper' six episodes): 297x167 cards at 1440 four per view + peek, dots 40px below the cards, 70px to the next heading, 53px below the text above from 768px.
+
 The importer writes `grid` / `grid, four-up` / `four-up` for a.teaser.card column views and multi-slide swipers (heading linked to the card target, source heading level, h1/h2 card titles as h3; the hidden "Explore the aircraft" link text is not imported) and `grid` for the my-bookings login cards (title, text, bold link = yellow Login button, italic link = outlined "Enter booking code" button; that button opens a booking code dialog on live which the replica does not have, so it links to #booking-code).
 
 ## Universal Editor fields

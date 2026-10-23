@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/flugunregelmaessigkeiten",
   "path": "at/de/flugunregelmaessigkeiten",
-  "timestamp": "2026-10-23T03:40:43.659Z",
+  "timestamp": "2026-10-23T10:55:35.835Z",
   "title": "",
   "template": "info",
   "blocks": [
@@ -13,6 +13,7 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "embed"
   ]
 }

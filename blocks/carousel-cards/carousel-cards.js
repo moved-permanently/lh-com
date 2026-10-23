@@ -3,6 +3,7 @@ import { getLocale } from '../../scripts/locale.js';
 import {
   toConfigKey, cleanText, resolveLabels, decorateExternalLinks, keepImageSize,
 } from '../../scripts/block-config.js';
+import { isVideoLink, buildVideo, loadMediaStyles } from '../../scripts/media.js';
 
 /**
  * UI strings; authors override any of them with a two-cell row such as
@@ -55,6 +56,20 @@ function buildSlide(cells) {
   const image = el('div', 'carousel-cards-image');
   const body = el('div', 'carousel-cards-body');
 
+  // video card (Lufthansa video viewer in a multi-slide swiper, /articles/tags/munich): the
+  // poster with the round play button takes the image place (scripts/media.js)
+  const videoLink = cells.map((c) => [...c.querySelectorAll('a[href]')].find(isVideoLink)).find(Boolean);
+  if (videoLink) {
+    const picture = cells.map((c) => c.querySelector('picture')).find(Boolean);
+    const img = picture && picture.querySelector('img');
+    const poster = img
+      ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, [{ width: '750' }]))
+      : null;
+    if (picture) picture.remove();
+    image.append(buildVideo(videoLink, poster));
+    li.classList.add('carousel-cards-video');
+  }
+
   cells.forEach((cell) => {
     const token = cleanText(cell).toLowerCase();
     if (WIDTH_TOKENS.includes(token) && !cell.querySelector('picture, img, a')) {
@@ -94,7 +109,7 @@ function buildSlide(cells) {
 
   if (image.children.length) li.append(image);
   else li.classList.add('carousel-cards-text-only');
-  li.append(body);
+  if (body.children.length || !videoLink) li.append(body);
   return li;
 }
 
@@ -105,7 +120,7 @@ function slidesPerView(block, track, items) {
   return Math.max(1, Math.floor((track.clientWidth + gap) / (items[0].offsetWidth + gap)));
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
   instanceCount += 1;
   const uid = `carousel-cards-${instanceCount}`;
   const { config, slides } = readRows(block);
@@ -137,8 +152,10 @@ export default function decorate(block) {
       if (/(^|\.)lufthansa\.com$/.test(new URL(a.href).hostname)) a.removeAttribute('target');
     });
   }
+  const media = track.querySelector('.media-video') ? loadMediaStyles() : null;
   if (items.length < 2 || grid) {
     block.replaceChildren(viewport);
+    await media;
     return;
   }
 
@@ -228,4 +245,5 @@ export default function decorate(block) {
   viewport.append(nav);
   block.replaceChildren(viewport, dots);
   update();
+  await media;
 }

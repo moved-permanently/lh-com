@@ -1,0 +1,21 @@
+{
+  "variantName": "embed",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/lufthansa-express-rail",
+  "visualCharacteristics": {
+    "purpose": "an embedded third-party player: YouTube video or Lufthansa in-flight entertainment widget",
+    "traits": [
+      "YouTube: 16:9 player over the content width (youtube-nocookie.com)",
+      "in-flight entertainment widget: 520px high, at most 1240px wide",
+      "40px below"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row, one cell: the link to the video or widget. A link text other than the URL is the player title"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Lufthansa video component (.video .video-player, YouTube iframe) and iframe component with the in-flight entertainment widget (.iframe .iframe-wrapper).",
+  "reuseGuidance": "Inside accordion-columns panels and columns-media cells the same link alone in a paragraph becomes the player; use this block elsewhere. Videos hosted as .mp4 files are columns-media (poster + link)."
+}

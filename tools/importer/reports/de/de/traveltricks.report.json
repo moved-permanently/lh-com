@@ -2,11 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/traveltricks",
   "path": "de/de/traveltricks",
-  "timestamp": "2026-10-23T04:15:03.132Z",
+  "timestamp": "2026-10-23T10:56:20.533Z",
   "title": "",
   "template": "info",
   "blocks": [
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "columns-media",
+    "embed"
   ]
 }
