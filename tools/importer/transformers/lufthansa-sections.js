@@ -14,6 +14,8 @@
  *    (the element whose parent is .container-content, .section-content, a column item or a grid
  *    column) and a plain <hr> after it, so the grey ends where the live grey ends. Not for grey
  *    boxes inside a block of the template (the parser renders them) or the sticky price bar.
+ *    A grey band that is one column view also gets column-band or column-view (its 3.2rem
+ *    padding), and flush when its AEM section has no .mb-default (greyStyles).
  *  - full-bleed: a full-width image component (.image-wrapper.full-width-bg, the Lufthansa
  *    Insights category stage) is a section of its own with style full-bleed, the same way.
  *  - padded: an AEM section (.container-content > .section) that is padded on live
@@ -103,6 +105,46 @@ function styledRegions(document, template, source) {
   return regions;
 }
 
+/** A Lufthansa column view of its own (.column > .column-view:only-child). */
+function ownColumnView(el) {
+  return !!el && el.classList.contains('column') && el.children.length === 1
+    && el.firstElementChild.classList.contains('column-view');
+}
+
+function meaningful(el) {
+  return !!((el.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || el.querySelector(MEDIA));
+}
+
+/**
+ * Extra styles of a grey region. Live pads a column view 3.2rem above and below
+ * (.section-content .column > .column-view:only-child) inside the band:
+ *  - column-band: the band is the column view itself (.column-view.container-gray): 32px, no
+ *    section padding (/de/en/doctor-on-board "Doctor on Board courses");
+ *  - column-view: the band is a padded AEM section (.section-padding-y-regular) whose only
+ *    component is one column view: the section padding + 32px (teaser bands "This may also be of
+ *    interest to you", /de/en/flying-with-small-children; /de/en/economy-class image | text);
+ *  - flush: the band's AEM section has no .mb-default, so a band that ends the page touches the
+ *    footer.
+ */
+function greyStyles(region) {
+  const grey = region.matches('.container-gray') ? region : region.querySelector('.container-gray');
+  const styles = [];
+  if (!grey) return styles;
+  if (grey.classList.contains('column-view')) {
+    const column = grey.parentElement;
+    if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains('section-content')) styles.push('column-band');
+  } else {
+    const content = grey.querySelector('.section-content');
+    const parts = content ? [...content.children].filter(meaningful) : [];
+    if (parts.length === 1 && ownColumnView(parts[0])) {
+      styles.push(content.classList.contains('section-padding-y-regular') ? 'column-view' : 'column-band');
+    }
+  }
+  const aem = region.closest('.container-content > .section');
+  if (aem && !aem.querySelector(':scope > .mb-default')) styles.push('flush');
+  return styles;
+}
+
 /** "{spacer-40}" paragraphs (lufthansa-cleanup separators) do not make a section of their own. */
 const SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
 
@@ -165,7 +207,7 @@ export default function transform(hookName, element, payload) {
     SOURCE_STYLES.forEach(([source, style]) => {
       styledRegions(document, template, source).forEach((region) => {
         const start = createBreak(document);
-        start.setAttribute(SOURCE_STYLE, style);
+        start.setAttribute(SOURCE_STYLE, [style, ...(style === 'grey' ? greyStyles(region) : [])].join(' '));
         region.before(start);
         region.after(createBreak(document));
       });

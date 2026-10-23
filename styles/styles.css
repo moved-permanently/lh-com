@@ -929,8 +929,31 @@ main > .section.highlight {
   background-color: var(--lh-grey-1);
 }
 
+/* a grey band that ends the page: 24px to the footer (the band's .mb-default), none with flush
+   (no .mb-default: the live band touches the footer, /de/en/flying-with-small-children) */
+main > .section.grey:last-child {
+  margin-bottom: var(--spacing-default);
+}
+
+main > .section.grey.flush:last-child {
+  margin-bottom: 0;
+}
+
 main > .section.grey + .section.grey {
   margin-top: calc(-1 * var(--section-gap));
+}
+
+/* grey bands that are one Lufthansa column view (importer, lufthansa-sections greyStyles): its
+   .section-content .column > .column-view:only-child { padding: 3.2rem 0 } (every width) lies
+   inside the grey. column-view: a padded grey AEM section around it, 2rem / 4rem + 32px
+   (/de/en/flying-with-small-children teaser band: title 77px, cards 72px from the band edges);
+   column-band: the column view is the band itself, 32px (/de/en/doctor-on-board courses) */
+main > .section.grey.column-view {
+  padding: calc(var(--section-padding) + 32px) 0;
+}
+
+main > .section.grey.column-band {
+  padding: 32px 0;
 }
 
 /* padded: a Lufthansa AEM section after another one (.section-padding-y-regular: 2rem, 4rem
