@@ -425,3 +425,13 @@
     padding-inline: 40px;
   }
 }
+
+/* {limited-width} text (Lufthansa .richtext.limited-width { width: 66% } from 1025px, also in a
+   column): two thirds of its cell (/de/de/additional-services intro 608px in the 922px sidebar
+   column, wrapping after "Entspannung") */
+@media (width >= 1025px) {
+  .columns-media .columns-media-text > :is(p, ul, ol).limited-width {
+    box-sizing: border-box;
+    max-width: 66%;
+  }
+}

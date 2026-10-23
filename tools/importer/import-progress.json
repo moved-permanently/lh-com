@@ -82,12 +82,12 @@
  "https://www.lufthansa.com/de/en/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.119Z"
+  "at": "2026-10-23T11:43:42.024Z"
  },
  "https://www.lufthansa.com/de/en/airport-information": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.131Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/en/digital-self-services": {
   "template": "hub",
@@ -107,7 +107,7 @@
  "https://www.lufthansa.com/de/en/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.163Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/en/lufthansa-travel-classes": {
   "template": "hub",
@@ -117,7 +117,7 @@
  "https://www.lufthansa.com/de/en/meetings-and-events": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.164Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/en/miles-and-more": {
   "template": "hub",
@@ -1552,12 +1552,12 @@
  "https://www.lufthansa.com/de/de/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.122Z"
+  "at": "2026-10-23T11:43:42.024Z"
  },
  "https://www.lufthansa.com/de/de/flughafeninformation": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.134Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/de/gepaeck": {
   "template": "hub",
@@ -1602,7 +1602,7 @@
  "https://www.lufthansa.com/de/de/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.163Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/de/lufthansa-reiseklassen": {
   "template": "hub",
@@ -1612,7 +1612,7 @@
  "https://www.lufthansa.com/de/de/meetings-and-events": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.164Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/de/miles-and-more": {
   "template": "hub",
@@ -2887,12 +2887,12 @@
  "https://www.lufthansa.com/at/de/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.125Z"
+  "at": "2026-10-23T11:43:42.027Z"
  },
  "https://www.lufthansa.com/at/de/flughafeninformation": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.137Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/de/de/farealert/best-price-alert": {
   "template": "form",
@@ -2987,7 +2987,7 @@
  "https://www.lufthansa.com/at/de/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.163Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-reiseklassen": {
   "template": "hub",
@@ -2997,7 +2997,7 @@
  "https://www.lufthansa.com/at/de/meetings-and-events": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.164Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/at/de/miles-and-more": {
   "template": "hub",
@@ -4417,12 +4417,12 @@
  "https://www.lufthansa.com/gb/en/additional-services": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.128Z"
+  "at": "2026-10-23T11:43:42.030Z"
  },
  "https://www.lufthansa.com/gb/en/airport-information": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.140Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/gb/en/baggage": {
   "template": "hub",
@@ -4447,7 +4447,7 @@
  "https://www.lufthansa.com/gb/en/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:16:29.163Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/gb/en/lufthansa-travel-classes": {
   "template": "hub",
@@ -4457,7 +4457,7 @@
  "https://www.lufthansa.com/gb/en/meetings-and-events": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T02:20:06.522Z"
+  "at": "2026-10-23T11:43:42.031Z"
  },
  "https://www.lufthansa.com/gb/en/miles-and-more": {
   "template": "hub",

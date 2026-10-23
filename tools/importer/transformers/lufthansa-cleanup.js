@@ -977,7 +977,8 @@ function markHeadingStyles(document) {
  * print count as copytext-small. p.copytext-large is the default size (18px) but has regular instead of bold
  * links, so it is marked only when it holds a link. Paragraphs and lists of a full-width text
  * component (.richtext without .limited-width) get "full-width" ("{copytext-small full-width}";
- * lists at the end of their last item).
+ * lists at the end of their last item). Text of a .richtext.limited-width in a block cell
+ * (class kept by the columns-media parser) gets "limited-width" (66% of the column from 1025px).
  */
 function markParagraphStyles(document) {
   let marked = 0;
@@ -1005,18 +1006,21 @@ function markParagraphStyles(document) {
     let style = p.classList.contains('footnote') ? 'copytext-small'
       : ['copytext-small', 'copytext-medium', 'copytext-large'].find((c) => p.classList.contains(c));
     if (style === 'copytext-large' && !p.querySelector('a[href]')) style = null;
-    const tokens = [style, isFull(p) ? 'full-width' : null].filter(Boolean);
+    // .limited-width kept by a parser (text of a .richtext.limited-width in a block cell)
+    const width = (isFull(p) && 'full-width') || (p.classList.contains('limited-width') && 'limited-width') || null;
+    const tokens = [style, width].filter(Boolean);
     if (!tokens.length) return;
     p.append(document.createTextNode(` {${tokens.join(' ')}}`));
     marked += 1;
   });
   // lists: the marker goes at the end of the last item
   document.querySelectorAll('ul, ol').forEach((list) => {
-    if (!isFull(list)) return;
+    const width = (isFull(list) && 'full-width') || (list.classList.contains('limited-width') && 'limited-width');
+    if (!width) return;
     const items = [...list.children].filter((li) => li.tagName === 'LI');
     const last = items[items.length - 1];
     if (!last || marker(last)) return;
-    last.append(document.createTextNode(' {full-width}'));
+    last.append(document.createTextNode(` {${width}}`));
     marked += 1;
   });
   return marked;

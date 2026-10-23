@@ -48,7 +48,7 @@ export default function parse(element, { document }) {
       if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector('img')) s.remove();
     });
     // text styles stay (the cleanup turns them into "{copytext-small}" markers)
-    const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+    const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
     el.removeAttribute('class');
     if (keep.length) el.className = keep.join(' ');
     return el;
@@ -102,6 +102,11 @@ export default function parse(element, { document }) {
       run.append(n.cloneNode(true));
     });
     flush();
+    // .richtext.limited-width: 66% of its column from 1025px on live (the cleanup writes the
+    // "{limited-width}" marker; /de/de/additional-services intro)
+    if (rt.classList && rt.classList.contains('limited-width')) {
+      out.forEach((n) => { if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add('limited-width'); });
+    }
     return out;
   };
 

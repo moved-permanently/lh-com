@@ -60,7 +60,10 @@ Running text (paragraphs, lists) uses two thirds of the content width from 1025p
 pages: the AirCore text column, 893px at 1425px). `{full-width}` at the end of a paragraph, or
 at the end of the last item of a list, lets it run over the whole width; it combines with a
 size: `{copytext-small full-width}`. On Lufthansa Insights articles the body text is a centred
-column of two thirds of the width from 768px.
+column of two thirds of the width from 768px. Inside a Columns Media cell the text uses the whole cell;
+`{limited-width}` at the end of a paragraph (or of the last item of a list) there keeps it to two
+thirds of the cell from 1025px (Lufthansa `.richtext.limited-width` in a column: the
+/de/de/additional-services intro beside the jump links).
 
 ### Spacing and dividers
 
