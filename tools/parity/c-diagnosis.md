@@ -687,10 +687,13 @@ This is part of "mobile is worse" and of every height deficit below.
     That gives 56 after text (24 + 32), 64 after a heading (32 + 32), 32 to the next component
     (8 + 24) and 56 at the end of a section (8 + 48). Merged rows keep the 66 px gap (live 64).
 - **Fix, part 2 (importer + CSS, implemented):**
-  - `tools/importer/transformers/lufthansa-sections.js`: a grey region that is one top-level
-    column view (the column view itself grey, or the grey AEM section's only component) gets the
-    extra style `column-view`.
-  - `styles/styles.css`: `main > .section.grey.column-view { padding: calc(var(--section-padding) + 32px) 0 }`.
+  - `tools/importer/transformers/lufthansa-sections.js` (`greyStyles`): a grey region that is a
+    padded grey AEM section whose only component is one column view gets the extra style
+    `column-view`; a grey column view itself (`.column-view.container-gray`) gets `column-band`.
+  - `styles/styles.css`: `main > .section.grey.column-view { padding: calc(var(--section-padding) + 32px) 0 }`
+    (teaser bands: 72 like live, were 40) and `main > .section.grey.column-band { padding: 32px 0 }`.
+    In those bands live has only the column view's 32 inside the grey: de/en/doctor-on-board
+    content 38 / 35 px from the band edges live, 47 / 43 in the replica, so it was 8 px too much.
 - **Hand-over (not implemented):**
   - one-column views flattened into default content (262 pages, 744 views);
   - titled two-column views, whose title is default content before the block (97 pages, 140);
@@ -742,6 +745,13 @@ This is part of "mobile is worse" and of every height deficit below.
   - `styles/styles.css`: on `main:has(.subpage-nav)` from 768px, everything else ends 25 % + 10 px
     before the column's right edge, and running text loses its 66 % limit (the live 75 % wins
     over `.limited-width`).
+  - Only for templates that map the block. Campaign (frankfurt-fair, munich-fair ×4), fleet
+    (lufthansa-first-class-fleet ×4) and app-entry (my-logbook, pre-check-in ×4) have the same
+    nav on 20 pages; they import as before until they map `subpage-nav` (hand-over).
+  - The nav links are AEM paths (`/de/en/during-your-trip/lounges/admission-rules`). The new
+    `tools/importer/build-aem-path-map.js` writes `parsers/aem-path-map.js` (729 AEM → public
+    paths from the snapshots' canonical link and `logoutResource`), which `aem-paths.js` uses.
+    This also helps profile-nav and hero-banner.
 - **Spot-check:** de/en/upgrade-info at 1440 (image 927 wide, nav at x 1050) and 390 (bordered
   list after the text, 20 px above the footer); gb/en/tiere-als-uebergepaeck.
 
@@ -783,8 +793,8 @@ This is part of "mobile is worse" and of every height deficit below.
   first-class stage at 210 live, 147 replica). C1.7 mapped it in the hub only.
 - **Fix (implemented):** profile-nav for `.subnav-wrapper maui-sub-navigation` in info (parser and
   block from C1.7).
-- **Pages:** first-, business-, premium-economy-, economy-class, the first-class sub-pages,
-  internet-overview, lhg-wifi, flynet (×4 locales).
+- **Pages:** first-class, business-class, premium-economy-class, economy-class, flynet,
+  during-your-trip/internet-overview, during-your-trip/lhg-wifi (×4 locales).
 - **Spot-check:** de/en/first-class 1440 (stage at 210).
 
 ### C4-6 Single-slide image carousels stacked (12 pages)
@@ -862,3 +872,23 @@ This is part of "mobile is worse" and of every height deficit below.
 
 Scratch scripts are in /tmp/c4: `causes.js` (per-cause page lists → `causes-info.json`),
 `cvctx.js`, `greycv.js`, `lastgrey.js`, `tables.js`, `ink.cjs`, `bands.cjs` and `sbs.sh`.
+
+### C4 implemented (code committed locally, not pushed)
+| commit | cause | files | needs |
+|---|---|---|---|
+| d90b4aa | C4-4 3/4-cell rows two per row at 768 | `blocks/columns-media/columns-media.css`, README | nothing (CSS) |
+| a26bad4 | C4-1 part 1, columns-media `padded` | `parsers/columns-media.js`, `blocks/columns-media/*` | info re-import |
+| 987cfe5 | C4-1 part 2 + C4-9, grey `column-view` / `column-band` / `flush` | `transformers/lufthansa-sections.js`, `styles/styles.css` | info re-import (24 px end-of-page rule works now) |
+| 708f1b6 | C4-3 tables | `page-templates.json`, `import-info.js` | info re-import |
+| 1549ed7 | C4-5 travel-class sub-navigation | `page-templates.json`, `import-info.js`, profile-nav README | info re-import |
+| c1c5dcb | C4-6 single-slide carousels | `page-templates.json`, `import-info.js` | info re-import |
+| 763dbbb | C4-7 teaser band title size | `parsers/carousel-cards.js` | info re-import |
+| d47513c | C4-8 author quotes | `transformers/lufthansa-cleanup.js`, `scripts/scripts.js`, `styles/styles.css`, README | info re-import |
+| 060af30, 981e2b9 | C4-2 sub-page navigation | new `blocks/subpage-nav`, `parsers/subpage-nav.js`, `parsers/aem-paths.js` + `aem-path-map.js`, `build-aem-path-map.js`, cleanup, `styles/styles.css`, `page-templates.json`, `import-info.js` | info re-import |
+
+Re-import lists (paths, one per line) are in `/tmp/c4/reimport-<template>.txt`:
+- info: 485 pages, required.
+- The shared parser and transformer changes alter other templates on their next import:
+  hub 38, campaign 64, fleet 20, legal 14, form 4, app-entry 16. These lists are a superset taken
+  from the snapshot structure.
+- Bundles are not rebuilt: `build-bundles.mjs` first.
