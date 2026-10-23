@@ -11,7 +11,10 @@
  * jobs.json: [{ id, srcUrl?, srcPng?, edsUrl, widths?: [1440, 768, 390], contentWidth? }]
  *   srcPng: a path (cwd-relative) that may contain "{width}", or an object { "1440": path, ... }.
  *   contentWidth: { "1440": 1425, ... } layout width of the source screenshot, passed to
- *   capture.js --content-width (build-jobs.mjs fills it in). Extra job fields are ignored.
+ *   capture.js --content-width (build-jobs.mjs fills it in).
+ *   srcCrop: { "1440": { right: 15, top: 98 } } px cut off the source image before the compare
+ *   (compare.js --crop-a: scrollbar strip, live-only banner); a changed crop redoes the compare.
+ *   Extra job fields are ignored.
  *   Without srcUrl/srcPng only the EDS page is captured (metrics, no diff).
  *
  * --budget: no capture or compare is started once this call would likely run past it (estimate:
@@ -110,6 +113,13 @@ function contentWidthFor(job, width) {
   return w > 0 && w <= width ? w : width;
 }
 
+/** "top=98,right=15" of the job's srcCrop for this width, or '' (no crop). */
+function srcCropFor(job, width) {
+  const c = job.srcCrop && job.srcCrop[width];
+  if (!c) return '';
+  return ['top', 'right', 'bottom', 'left'].filter((k) => Number(c[k]) > 0).map((k) => `${k}=${Number(c[k])}`).join(',');
+}
+
 function srcPngFor(job, width) {
   if (!job.srcPng) return null;
   const p = typeof job.srcPng === 'string' ? job.srcPng.replace('{width}', width) : job.srcPng[width];
@@ -140,9 +150,11 @@ function itemFor(job, width) {
   });
   if (srcPng) {
     const exists = fs.existsSync(srcPng);
-    if (!item.captures.src || item.captures.src.out !== srcPng) item.compare = null;
+    const crop = srcCropFor(job, width);
+    if (!item.captures.src || item.captures.src.out !== srcPng
+      || (item.captures.src.crop || '') !== crop) item.compare = null;
     item.captures.src = {
-      out: srcPng, status: exists ? 'provided' : 'missing', error: exists ? undefined : 'srcPng not found',
+      out: srcPng, crop: crop || undefined, status: exists ? 'provided' : 'missing', error: exists ? undefined : 'srcPng not found',
     };
   } else if (!job.srcUrl) {
     delete item.captures.src;
@@ -318,6 +330,7 @@ function runCompare(item) {
   const masks = maskFiles(item);
   const res = spawnSync(process.execPath, [
     path.join(__dirname, 'compare.js'), '--a', item.captures.src.out, '--b', item.captures.eds.out, '--out', item.diff,
+    ...(item.captures.src.crop ? ['--crop-a', item.captures.src.crop] : []),
     ...masks.flatMap((m) => ['--mask', m]),
   ], { encoding: 'utf8', timeout: 180000, killSignal: 'SIGTERM' });
   const r = res.status === 0 ? readJson(`${item.diff}.json`, null) : null;
@@ -335,6 +348,7 @@ function runCompare(item) {
     unmaskedRatio: r.unmaskedRatio,
     maskRatio: r.maskRatio,
     maskBoxes: r.maskBoxes,
+    cropA: r.cropA || undefined,
     widthA: r.widthA,
     widthB: r.widthB,
     heightA: r.heightA,
@@ -381,7 +395,7 @@ queue.forEach((item) => {
   });
   const { src } = item.captures;
   if (src && src.status === 'missing' && fs.existsSync(src.out)) {
-    item.captures.src = { out: src.out, status: 'provided' };
+    item.captures.src = { out: src.out, crop: src.crop, status: 'provided' };
     changed = true;
   }
   const caps = Object.values(item.captures);

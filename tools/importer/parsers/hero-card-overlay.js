@@ -123,11 +123,13 @@ export default function parse(element, { document }) {
   }
 
   // Variants: card on the right (.mst-card.align-self-end, promotionTeaser.alignment "right");
-  // no image below 768px (promotionTeaser.displayImageOnMobile false: the live stage shows the
+  // white card ("light"); no image below 768px (promotionTeaser.displayImageOnMobile false: the live stage shows the
   // card alone on phones).
   const variants = [];
   if (card.classList.contains('align-self-end') || clean(teaser.alignment).toLowerCase() === 'right') variants.push('right');
   if (teaser.displayImageOnMobile === false) variants.push('no mobile image');
+  // white card with dark blue text (.mst-card.non-inverted, promotionTeaser.isInverted false: at/de)
+  if (card.classList.contains('non-inverted') || teaser.isInverted === false) variants.push('light');
   const name = variants.length ? `Hero Card Overlay (${variants.join(', ')})` : 'hero-card-overlay';
   const block = WebImporter.Blocks.createBlock(document, { name, cells });
   element.replaceWith(block);

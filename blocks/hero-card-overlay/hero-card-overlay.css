@@ -166,6 +166,35 @@ main > .section > .hero-card-overlay-wrapper {
   margin: 0 0 8px;
 }
 
+/* light: .mst-card.non-inverted (promotionTeaser.isInverted false, at/de): .non-inverted
+   { background-color: #fff }, .display-text and .mst-title #05164d, links not inverted */
+.hero-card-overlay.light .hero-card-overlay-card {
+  background-color: var(--lh-white);
+  color: var(--lh-deepblue);
+}
+
+.hero-card-overlay.light .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--lh-deepblue);
+}
+
+.hero-card-overlay.light .hero-card-overlay-card a:focus-visible {
+  outline-color: var(--focus-color);
+}
+
+.hero-card-overlay.light .hero-card-overlay-card a:any-link:not(.button),
+.hero-card-overlay.light .hero-card-overlay-conditions summary {
+  color: var(--link-color);
+}
+
+.hero-card-overlay.light .hero-card-overlay-card a:not(.button):hover,
+.hero-card-overlay.light .hero-card-overlay-conditions summary:hover {
+  color: var(--link-hover-color);
+}
+
+.hero-card-overlay.light .hero-card-overlay-conditions summary:focus-visible {
+  outline-color: var(--focus-color);
+}
+
 /* no-mobile-image: promotionTeaser displayImageOnMobile false, the card alone below 768px */
 @media (width < 768px) {
   .hero-card-overlay.no-mobile-image .hero-card-overlay-media {

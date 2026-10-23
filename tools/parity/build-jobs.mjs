@@ -18,9 +18,17 @@
  * file. Pages without a faithful capture are skipped and listed in <out without .json>.skipped.json.
  *
  * Each job: { id, path, locale, template, priority, edsUrl, widths, srcPng: {width: file},
- *   contentWidth: {width: px} } where contentWidth is the width of the live screenshot. The live
- * browser showed a classic 15 px scrollbar, so a "1440" capture is usually 1425 px of layout;
- * capture.js reproduces that layout width (see --content-width there).
+ *   contentWidth: {width: px}, srcCrop?: {width: {top?, right?}} } where contentWidth is the
+ * layout width of the live screenshot. The live browser showed a classic 15 px scrollbar, so a
+ * "1440" capture is usually 1425 px of layout; capture.js reproduces that layout width (see
+ * --content-width there).
+ * Scrollbar strip: some live screenshots are as wide as the viewport but end in a 15 px strip
+ * where the scrollbar was (blank on every row, even where the navy header or a full-bleed image
+ * reaches the edge of the layout): the layout was 15 px narrower. scrollbarStrip() looks for it in
+ * every screenshot as wide as its viewport (cached in tools/parity/strip-cache.json by file, size
+ * and mtime); such a width gets contentWidth = image width - 15 and srcCrop.right = 15, and
+ * compare.js (--crop-a, passed on by run-batch.js) cuts the strip off the live image before
+ * diffing.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -111,14 +119,109 @@ for (const [url, entry] of Object.entries(progress)) {
   }
 }
 
-// layout width of every live screenshot (header read only)
-await Promise.all(candidates.map(async (job) => {
+// ---- scrollbar strip ----
+const STRIP = 15;
+const stripCacheFile = path.join(ROOT, 'tools/parity/strip-cache.json');
+const stripCache = readJson(stripCacheFile, {});
+
+/**
+ * Looks for the scrollbar strip in a live screenshot of the viewport width `nominal` (one that is
+ * narrower was clipped to the layout already). Reads the luma of the right STRIP + 2 columns:
+ * the strip is "blank" in a row when the columns from the first 8 px (JPEG block) boundary inside
+ * it to the edge are within 24 of their median (the page background). Decided by the navy header
+ * when there is one (the first run of rows starting in the top 200 px whose two columns left of
+ * the strip are dark, 8 rows trimmed at each end): strip when >= 90 % of them are blank there
+ * (the header ends 15 px before the edge). Full-bleed 100vw images can still paint under the
+ * strip, so other rows only decide without a header: strip when >= 98 % of all rows are blank
+ * there and >= 75 % of the rows whose layout ends in non-background (footer, images) are.
+ */
+async function scrollbarStrip(file0, nominal) {
+  const file = path.join(ROOT, file0);
+  const st = fs.statSync(file);
+  const key = `v3:${st.size}:${Math.round(st.mtimeMs)}`; // bump v when the rule changes
+  if (stripCache[file0] && stripCache[file0].key === key) return stripCache[file0];
+  const { width: iw, height } = await sharp(file).metadata();
+  if (iw !== nominal) {
+    stripCache[file0] = {
+      key, width: iw, strip: 0, why: 'narrower than the viewport',
+    };
+    return stripCache[file0];
+  }
+  const w = STRIP + 2;
+  const { data } = await sharp(file, { sequentialRead: true })
+    .extract({
+      left: iw - w, top: 0, width: w, height,
+    })
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const luma = (x, y) => {
+    const i = (y * w + x) * 3;
+    return 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+  };
+  const x0 = Math.ceil((iw - STRIP + 1) / 8) * 8 - (iw - w); // first block boundary in the strip
+  const sample = [];
+  for (let y = 0; y < height; y += 1) sample.push(luma(w - 1, y));
+  const med = sample.sort((a, b) => a - b)[Math.floor(height / 2)];
+  const near = (v) => Math.abs(v - med) <= 24;
+  let uniform = 0;
+  let edge = 0;
+  let edgeUniform = 0;
+  const blank = [];
+  for (let y = 0; y < height; y += 1) {
+    let ok = true;
+    for (let x = x0; x < w && ok; x += 1) ok = near(luma(x, y));
+    blank.push(ok);
+    if (ok) uniform += 1;
+    if (!near(luma(0, y))) {
+      edge += 1;
+      if (ok) edgeUniform += 1;
+    }
+  }
+  // the header: the first run of dark rows starting in the top 200 px, without 8 rows at each
+  // end (JPEG ringing)
+  const dark = (y) => luma(0, y) < 60 && luma(1, y) < 60;
+  let h0 = 0;
+  while (h0 < Math.min(200, height) && !dark(h0)) h0 += 1;
+  let h1 = h0;
+  while (h1 < height && dark(h1)) h1 += 1;
+  let header = 0;
+  let headerUniform = 0;
+  for (let y = h0 + 8; y < h1 - 8; y += 1) {
+    header += 1;
+    if (blank[y]) headerUniform += 1;
+  }
+  const r = (n) => Math.round(n * 1000) / 1000;
+  const res = {
+    key,
+    width: iw,
+    uniform: r(uniform / height),
+    edge: r(edge / height),
+    edgeUniform: edge ? r(edgeUniform / edge) : 0,
+    headerRows: header,
+    headerUniform: header ? r(headerUniform / header) : 0,
+  };
+  const found = header >= 10 ? res.headerUniform >= 0.9
+    : res.uniform >= 0.98 && res.edge >= 0.01 && res.edgeUniform >= 0.75;
+  res.strip = found ? STRIP : 0;
+  stripCache[file0] = res;
+  return res;
+}
+
+// layout width of every live screenshot (image width minus a scrollbar strip)
+// one file at a time: sharp reads the whole height of every screenshot
+await candidates.reduce((prev, job) => prev.then(() => {
   job.contentWidth = {};
-  await Promise.all(job.widths.map(async (w) => {
-    const { width } = await sharp(path.join(ROOT, job.srcPng[w])).metadata();
-    job.contentWidth[w] = width;
-  }));
-}));
+  return job.widths.reduce((p, w) => p.then(async () => {
+    const { width, strip } = await scrollbarStrip(job.srcPng[w], w);
+    job.contentWidth[w] = width - strip;
+    if (strip) {
+      job.srcCrop = job.srcCrop || {};
+      job.srcCrop[w] = { right: strip };
+    }
+  }), Promise.resolve());
+}), Promise.resolve());
+fs.writeFileSync(stripCacheFile, `${JSON.stringify(stripCache, null, 1)}\n`);
 
 // ---- priorities ----
 const isHome = (job) => job.template === 'homepage' || /\/homepage$/.test(job.path);
@@ -158,6 +261,7 @@ const jobs = candidates
     widths: job.widths,
     srcPng: job.srcPng,
     contentWidth: job.contentWidth,
+    ...(job.srcCrop ? { srcCrop: job.srcCrop } : {}),
   }));
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
@@ -174,6 +278,7 @@ console.log('pages by locale:', count(jobs, (j) => j.locale));
 console.log('page-widths by locale@width:', count(items, (it) => `${it.locale}@${it.width}`));
 console.log('pages by priority:', count(jobs, (j) => j.priority));
 console.log('live content widths:', count(items, (it) => `${it.width}->${it.contentWidth[it.width]}`));
+console.log('scrollbar strip cropped:', count(items.filter((it) => it.srcCrop && it.srcCrop[it.width]), (it) => `${it.width} ${path.extname(it.srcPng[it.width]).slice(1)}`));
 if (nonNominal.length) console.log(`${nonNominal.length} page-widths have an unusual live width (viewport adjusted at capture)`);
 console.log(`skipped: ${skipped.length} -> ${rel(skippedFile)}`);
 skipped.forEach((s) => console.log(`  ${s.path} (${s.template}): ${s.reason}`));

@@ -19,7 +19,12 @@
     "contentWidth": {
       "390": 381,
       "768": 753,
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -42,7 +47,12 @@
     "contentWidth": {
       "390": 381,
       "768": 753,
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -65,7 +75,12 @@
     "contentWidth": {
       "390": 381,
       "768": 753,
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -88,7 +103,12 @@
     "contentWidth": {
       "390": 381,
       "768": 753,
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -477,9 +497,20 @@
       "1440": "tools/source-export/pages/de/de/articles/authors/florian-tomberg/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -500,9 +531,14 @@
       "1440": "tools/source-export/pages/de/de/sitzplatzreservierungen-konditionen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -684,9 +720,14 @@
       "1440": "tools/source-export/pages/at/de/flughafeninformation/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -891,9 +932,14 @@
       "1440": "tools/source-export/pages/at/de/sitzplatzreservierungen-konditionen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -914,9 +960,14 @@
       "1440": "tools/source-export/pages/at/de/besondere-befoerderungsbedingungen-bus/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -1305,9 +1356,14 @@
       "1440": "tools/source-export/pages/gb/en/besondere-befoerderungsbedingungen-bus/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -1696,9 +1752,17 @@
       "1440": "tools/source-export/pages/de/en/digital-self-services/screenshot.png"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
+      "390": 375,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -3490,9 +3554,14 @@
       "1440": "tools/source-export/pages/de/en/child-restraint-systems/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -5606,9 +5675,17 @@
       "1440": "tools/source-export/pages/de/en/sixt/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
+      "390": 375,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -6435,8 +6512,13 @@
     },
     "contentWidth": {
       "390": 376,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -7538,9 +7620,14 @@
       "1440": "tools/source-export/pages/de/en/besondere-befoerderungsbedingungen-bus/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -8067,9 +8154,14 @@
       "1440": "tools/source-export/pages/de/en/terms-and-conditions-lh/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -8366,9 +8458,14 @@
       "1440": "tools/source-export/pages/de/de/flughafeninformation/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -9034,8 +9131,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -9309,9 +9411,14 @@
       "1440": "tools/source-export/pages/de/de/book-and-manage/flights/lufthansa-voucher/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -9586,8 +9693,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -9654,9 +9766,17 @@
       "1440": "tools/source-export/pages/de/de/sicherheit-fuer-kleinkinder-an-bord/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
+      "390": 375,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -9769,9 +9889,14 @@
       "1440": "tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -10000,8 +10125,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10230,8 +10360,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10598,8 +10733,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10621,8 +10761,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10644,8 +10789,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10667,8 +10817,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10690,8 +10845,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10874,8 +11034,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -10897,8 +11062,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -11126,9 +11296,14 @@
       "1440": "tools/source-export/pages/de/de/zahlungsmoeglichkeiten-am-flughafen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -11310,9 +11485,14 @@
       "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -11656,8 +11836,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -11702,8 +11887,13 @@
     },
     "contentWidth": {
       "390": 380,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -11793,9 +11983,17 @@
       "1440": "tools/source-export/pages/de/de/sixt/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
+      "390": 375,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12185,8 +12383,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12208,8 +12411,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12231,8 +12439,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12253,9 +12466,14 @@
       "1440": "tools/source-export/pages/de/de/upgrademoeglichkeiten/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -12277,8 +12495,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12300,8 +12523,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12322,9 +12550,14 @@
       "1440": "tools/source-export/pages/de/de/upgrade-in-die-premium-economy-class/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -12368,9 +12601,14 @@
       "1440": "tools/source-export/pages/de/de/rollstuhlbatterien/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -12530,8 +12768,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12576,8 +12819,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12621,9 +12869,14 @@
       "1440": "tools/source-export/pages/de/de/book-and-manage/stopover/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -12645,8 +12898,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -12920,9 +13178,20 @@
       "1440": "tools/source-export/pages/de/de/boeing787/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -12966,9 +13235,14 @@
       "1440": "tools/source-export/pages/de/de/lufthansa-first-class-flotte/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 755,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13012,9 +13286,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13035,9 +13320,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13058,9 +13354,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/anniversary-super-crane-special/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13081,9 +13388,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/essentials-future-of-flying/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13104,9 +13422,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/flying-high-christoph-quarch/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13127,9 +13456,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-flying/inflight-entertainment-vr-experience/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13173,9 +13513,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13196,9 +13547,20 @@
       "1440": "tools/source-export/pages/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      },
+      "768": {
+        "right": 15
+      },
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -13725,9 +14087,14 @@
       "1440": "tools/source-export/pages/de/de/besondere-befoerderungsbedingungen-bus/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13748,9 +14115,14 @@
       "1440": "tools/source-export/pages/de/de/geschaeftsbedingungen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13794,9 +14166,14 @@
       "1440": "tools/source-export/pages/de/de/common/accessibility-statement/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13840,9 +14217,14 @@
       "1440": "tools/source-export/pages/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13863,9 +14245,14 @@
       "1440": "tools/source-export/pages/de/de/common/compensation-voucher/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -13978,9 +14365,14 @@
       "1440": "tools/source-export/pages/de/de/datenerfassung-fuer-kanada/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14001,9 +14393,14 @@
       "1440": "tools/source-export/pages/de/de/datenerfassung-fuer-die-usa/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14116,9 +14513,14 @@
       "1440": "tools/source-export/pages/de/de/nutzungsbedingungen-waehrungsumrechnung/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14208,9 +14610,14 @@
       "1440": "tools/source-export/pages/de/de/rail-fly-bedingungen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14277,9 +14684,14 @@
       "1440": "tools/source-export/pages/de/de/befoerderungsbedingungen-lh/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14300,9 +14712,14 @@
       "1440": "tools/source-export/pages/de/de/befoerderungsbedingungen-group/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14323,9 +14740,14 @@
       "1440": "tools/source-export/pages/de/de/nutzungsbedingungen/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14346,9 +14768,14 @@
       "1440": "tools/source-export/pages/de/de/travel-id-terms-conditions/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14507,9 +14934,14 @@
       "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition/screenshot.jpg"
     },
     "contentWidth": {
-      "390": 390,
+      "390": 375,
       "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "390": {
+        "right": 15
+      }
     }
   },
   {
@@ -14600,8 +15032,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -14646,8 +15083,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -15888,8 +16330,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -15911,8 +16358,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -15934,8 +16386,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16003,8 +16460,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16026,8 +16488,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16049,8 +16516,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16072,8 +16544,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16095,8 +16572,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16118,8 +16600,13 @@
     },
     "contentWidth": {
       "390": 375,
-      "768": 768,
+      "768": 753,
       "1440": 1425
+    },
+    "srcCrop": {
+      "768": {
+        "right": 15
+      }
     }
   },
   {
@@ -16544,7 +17031,12 @@
       "1440": "tools/source-export/pages/at/de/baggage-irregularities/screenshot.jpg"
     },
     "contentWidth": {
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {
@@ -16918,7 +17410,12 @@
       "1440": "tools/source-export/pages/at/de/handgepaeck/screenshot.jpg"
     },
     "contentWidth": {
-      "1440": 1440
+      "1440": 1425
+    },
+    "srcCrop": {
+      "1440": {
+        "right": 15
+      }
     }
   },
   {

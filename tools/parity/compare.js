@@ -3,8 +3,14 @@
  * Pixel-compares two screenshots.
  *
  * node tools/parity/compare.js --a src.png --b eds.png --out diff.png
- *   [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]
+ *   [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200]
+ *   [--diverge 0.3]
  *
+ * --crop-a: px cut off the source image before anything else (top, right, bottom, left): the
+ *   15 px scrollbar strip of live screenshots that are as wide as the viewport (build-jobs.mjs
+ *   srcCrop.right), a banner the live capture has and the replica must not (srcCrop.top: the
+ *   German-IP geo banner of the AirCore AT/GB captures). Mask boxes are in the cropped
+ *   coordinates (those of the replica).
  * Both images are padded with white to the larger width/height, so a page that is too short or too
  * long shows up as mismatch at the bottom.
  * --mask (repeatable): a JSON file with boxes in document coordinates, either an array of
@@ -44,6 +50,37 @@ function readImage(file) {
     return { width: img.width, height: img.height, data: Buffer.from(img.data) };
   }
   return PNG.sync.read(buf);
+}
+
+/**
+ * Parses "top=98,right=15" (or an object) into {top, right, bottom, left}; null when all are 0.
+ */
+function parseCrop(spec) {
+  if (!spec) return null;
+  const obj = typeof spec === 'string'
+    ? Object.fromEntries(spec.split(',').filter(Boolean).map((kv) => kv.split('=').map((x) => x.trim())))
+    : spec;
+  const crop = {};
+  ['top', 'right', 'bottom', 'left'].forEach((k) => {
+    const n = Number(obj[k] || 0);
+    if (!Number.isInteger(n) || n < 0) throw new Error(`invalid crop ${k}=${obj[k]}`);
+    crop[k] = n;
+  });
+  Object.keys(obj).forEach((k) => {
+    if (!(k in crop)) throw new Error(`invalid crop key ${k}`);
+  });
+  return Object.values(crop).some((n) => n > 0) ? crop : null;
+}
+
+/** Returns a copy of img without crop.{top,right,bottom,left} px (img itself when no crop). */
+function cropImage(img, crop) {
+  if (!crop) return img;
+  const width = img.width - crop.left - crop.right;
+  const height = img.height - crop.top - crop.bottom;
+  if (width < 1 || height < 1) throw new Error(`crop leaves nothing of ${img.width}x${img.height}`);
+  const out = new PNG({ width, height });
+  PNG.bitblt(img, out, crop.left, crop.top, width, height, 0, 0);
+  return out;
 }
 
 /** Returns an image of exactly width x height: a padded copy, or a copy of the pixels. */
@@ -190,13 +227,15 @@ function comparePngs(imgA, imgB, {
 /**
  * Compares two image files and writes the diff PNG plus <out>.json.
  * @param {{a: string, b: string, out: string, masks?: string[], threshold?: number,
- *   bandHeight?: number, divergeThreshold?: number}} opts masks: mask JSON files
+ *   bandHeight?: number, divergeThreshold?: number, cropA?: string|Object}} opts masks: mask
+ *   JSON files; cropA: px cut off the source image ("top=98,right=15" or {top, right, ...})
  * @returns {Object} metrics (also written to <out>.json)
  */
 function compareImages({
-  a, b, out, masks = [], threshold, bandHeight, divergeThreshold,
+  a, b, out, masks = [], threshold, bandHeight, divergeThreshold, cropA,
 }) {
-  const imgA = readImage(a);
+  const crop = parseCrop(cropA);
+  const imgA = cropImage(readImage(a), crop);
   const imgB = readImage(b);
   const boxes = masks.flatMap(loadMask);
   const { result, diff } = comparePngs(imgA, imgB, {
@@ -207,6 +246,7 @@ function compareImages({
     b: path.resolve(b),
     diff: path.resolve(out),
     maskFiles: masks.map((m) => path.resolve(m)),
+    cropA: crop,
     ...result,
   };
   mkdirp(path.dirname(path.resolve(out)));
@@ -216,7 +256,7 @@ function compareImages({
 }
 
 module.exports = {
-  compareImages, comparePngs, readImage, loadMask, DIVERGE_THRESHOLD,
+  compareImages, comparePngs, readImage, loadMask, parseCrop, cropImage, DIVERGE_THRESHOLD,
 };
 
 if (require.main === module) {
@@ -224,17 +264,19 @@ if (require.main === module) {
     a: { type: 'string' },
     b: { type: 'string' },
     out: { type: 'string' },
+    'crop-a': { type: 'string' },
     mask: { type: 'string', multiple: true },
     threshold: { type: 'string', default: '0.1' },
     band: { type: 'string', default: '200' },
     diverge: { type: 'string', default: String(DIVERGE_THRESHOLD) },
-  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]');
+  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]');
   try {
     const res = compareImages({
       a: args.a,
       b: args.b,
       out: args.out,
       masks: args.mask || [],
+      cropA: args['crop-a'],
       threshold: Number(args.threshold),
       bandHeight: Number(args.band),
       divergeThreshold: Number(args.diverge),
