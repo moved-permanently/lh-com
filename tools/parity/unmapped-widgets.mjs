@@ -47,16 +47,16 @@ const CONTROLS = 'label, button, maui-button, legend, option, [role="tab"], [rol
  */
 const KNOWN = {
   'dcep-lounge-finder': { block: 'lounge-finder', planned: 'lounge-finder (A1, mapped in hub/info)' },
-  'dcep-flight-manager': { block: 'flight-search', planned: 'flight-search (mapped in homepage only; B2)' },
-  'dcep-quick-actions': { block: 'booking-lookup', planned: 'booking-lookup (B3; mapped in app-entry)' },
-  'dcep-login-form': { block: 'carousel-cards', planned: 'carousel-cards via .loginform:has(.login-oneid-card) (B4; mapped in app-entry)' },
-  'dcep-fare-teaser-static': { block: 'fare-teaser', planned: 'fare-teaser (B5; mapped in homepage)' },
+  'dcep-flight-manager': { block: 'flight-search', planned: 'flight-search (B2 done: mapped in homepage, app-entry, campaign, info)' },
+  'dcep-quick-actions': { block: 'booking-lookup', planned: 'booking-lookup my-bookings (B3 done, app-entry)' },
+  'dcep-login-form': { block: 'carousel-cards', planned: 'carousel-cards via .loginform:has(.login-oneid-card) (B4 done: app-entry, info)' },
+  'dcep-fare-teaser-static': { block: 'fare-teaser', planned: 'fare-teaser (B5 done: homepage, insights)' },
   'dcep-meili-car-rental': { block: 'car-rental', planned: 'car-rental (block exists, not mapped; open, no item)' },
   'dcep-poi-mapping': { block: 'poi-map', planned: 'poi-map (block exists, not mapped; open, no item)' },
   'dcep-ejournals': { block: 'ejournals', planned: 'ejournals (block exists, not mapped; open, no item)' },
   'dcep-author-slider': { planned: 'loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup' },
   'dcep-blog-overview': { planned: 'loader text only; open, no item: drop .loading-text in the cleanup' },
-  'form#new_form.cmp-form': { planned: 'form block (blocks/form, other agent) is mapped only for .feedbackforms; AEM cmp-form not mapped: open, no item (C)' },
+  'form#new_form.cmp-form': { planned: 'Form (core) variant of the form block (B7, other agent, fd551b0); open until its pages are re-imported' },
 };
 const planned = (name) => (KNOWN[name] && KNOWN[name].planned) || 'open, no item';
 
