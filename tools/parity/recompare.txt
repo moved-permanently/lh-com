@@ -337,3 +337,10 @@ de/en/book-and-manage/booking-services/manage-my-bookings
 de/de/book-and-manage/booking-services/manage-my-bookings
 at/de/book-and-manage/booking-services/manage-my-bookings
 gb/en/book-and-manage/booking-services/manage-my-bookings
+de/de/homepage
+at/de/homepage
+gb/en/homepage
+de/de/flugplan-und-flugstatus
+at/de/flugplan-und-flugstatus
+de/en/timetable-and-flight-status
+gb/en/timetable-and-flight-status
