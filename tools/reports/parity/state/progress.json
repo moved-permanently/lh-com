@@ -7436,11 +7436,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13181,
-          "at": "2026-10-22T23:19:18.046Z",
+          "ms": 14296,
+          "at": "2026-10-23T14:24:30.540Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1077,
+            "scrollHeight": 1425,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -7475,7 +7475,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 7129
+              "svgAnimations": 6970
             },
             "liveBoxes": 0
           }
@@ -7486,47 +7486,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51996,
-        "unmaskedRatio": 0.51996,
+        "mismatchRatio": 0.06049,
+        "unmaskedRatio": 0.06049,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 1423,
-        "heightB": 1077,
-        "heightDiffRatio": 0.24315,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.96648
-        },
+        "heightB": 1425,
+        "heightDiffRatio": 0.0014,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1000,
-            "unmaskedRatio": 0.99585
-          },
-          {
-            "y": 400,
-            "unmaskedRatio": 0.96648
-          },
-          {
             "y": 1200,
-            "unmaskedRatio": 0.71055
+            "unmaskedRatio": 0.23762
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.07134
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.03161
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01871,
-          0.03024,
-          0.96648,
-          0.70311,
-          0.27459,
-          0.99585,
-          0.71055,
+          0.02781,
+          0.01473,
+          0.0292,
+          0.07134,
+          0.03161,
+          0.23762,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
-        "at": "2026-10-22T23:19:19.192Z",
+        "at": "2026-10-23T14:24:31.791Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
@@ -7543,11 +7539,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13186,
-          "at": "2026-10-22T23:19:54.342Z",
+          "ms": 13116,
+          "at": "2026-10-23T14:24:45.114Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1150,
+            "scrollHeight": 1498,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -7582,7 +7578,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 7144
+              "svgAnimations": 7116
             },
             "liveBoxes": 0
           }
@@ -7593,47 +7589,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.47298,
-        "unmaskedRatio": 0.47298,
+        "mismatchRatio": 0.05595,
+        "unmaskedRatio": 0.05595,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 1511,
-        "heightB": 1150,
-        "heightDiffRatio": 0.23891,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.94214
-        },
+        "heightB": 1498,
+        "heightDiffRatio": 0.0086,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1200,
-            "unmaskedRatio": 0.97901
+            "y": 800,
+            "unmaskedRatio": 0.1104
           },
           {
-            "y": 400,
-            "unmaskedRatio": 0.94214
+            "y": 1200,
+            "unmaskedRatio": 0.0669
           },
           {
             "y": 1000,
-            "unmaskedRatio": 0.6734
+            "unmaskedRatio": 0.06509
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02517,
-          0.12967,
-          0.94214,
-          0.62548,
-          0.10597,
-          0.6734,
-          0.97901,
-          0.16667
+          0.06348,
+          0.03699,
+          0.03588,
+          0.1104,
+          0.06509,
+          0.0669,
+          0.03387
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
-        "at": "2026-10-22T23:19:55.230Z",
+        "at": "2026-10-23T14:24:46.063Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
@@ -7650,11 +7642,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13186,
-          "at": "2026-10-22T23:20:08.517Z",
+          "ms": 12984,
+          "at": "2026-10-23T14:24:59.205Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1308,
+            "scrollHeight": 1659,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -7689,7 +7681,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 7074
+              "svgAnimations": 7154
             },
             "liveBoxes": 0
           }
@@ -7700,48 +7692,44 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.46187,
-        "unmaskedRatio": 0.46187,
+        "mismatchRatio": 0.11502,
+        "unmaskedRatio": 0.11502,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
         "widthB": 375,
         "heightA": 1654,
-        "heightB": 1308,
-        "heightDiffRatio": 0.20919,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.67789
-        },
+        "heightB": 1659,
+        "heightDiffRatio": 0.00301,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1200,
-            "unmaskedRatio": 0.97813
+            "y": 1400,
+            "unmaskedRatio": 0.22435
           },
           {
-            "y": 600,
-            "unmaskedRatio": 0.92865
+            "y": 800,
+            "unmaskedRatio": 0.14969
           },
           {
-            "y": 400,
-            "unmaskedRatio": 0.67789
+            "y": 1000,
+            "unmaskedRatio": 0.12189
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07601,
-          0.10365,
-          0.67789,
-          0.92865,
-          0.09273,
-          0.52255,
-          0.97813,
-          0.43407,
-          0.02212
+          0.10375,
+          0.07207,
+          0.10384,
+          0.14969,
+          0.12189,
+          0.09651,
+          0.22435,
+          0.02025
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
-        "at": "2026-10-22T23:20:09.264Z",
+        "at": "2026-10-23T14:25:00.013Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
@@ -116742,11 +116730,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6145,
-          "at": "2026-10-23T04:24:39.730Z",
+          "ms": 6334,
+          "at": "2026-10-23T14:25:49.463Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1077,
+            "scrollHeight": 1425,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -116792,47 +116780,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51941,
-        "unmaskedRatio": 0.51941,
+        "mismatchRatio": 0.06043,
+        "unmaskedRatio": 0.06043,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 1423,
-        "heightB": 1077,
-        "heightDiffRatio": 0.24315,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.96472
-        },
+        "heightB": 1425,
+        "heightDiffRatio": 0.0014,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1000,
-            "unmaskedRatio": 0.99569
-          },
-          {
-            "y": 400,
-            "unmaskedRatio": 0.96472
-          },
-          {
             "y": 1200,
-            "unmaskedRatio": 0.71046
+            "unmaskedRatio": 0.23849
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.07453
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.03281
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.0177,
-          0.02717,
-          0.96472,
-          0.70381,
-          0.27604,
-          0.99569,
-          0.71046,
+          0.02545,
+          0.01435,
+          0.0272,
+          0.07453,
+          0.03281,
+          0.23849,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
-        "at": "2026-10-23T04:24:40.908Z",
+        "at": "2026-10-23T14:25:50.651Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
@@ -116849,11 +116833,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 5881,
-          "at": "2026-10-23T04:24:46.909Z",
+          "ms": 5897,
+          "at": "2026-10-23T14:25:56.743Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1084,
+            "scrollHeight": 1432,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -116899,47 +116883,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.49008,
-        "unmaskedRatio": 0.49008,
+        "mismatchRatio": 0.05786,
+        "unmaskedRatio": 0.05786,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 1445,
-        "heightB": 1084,
-        "heightDiffRatio": 0.24983,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.94432
-        },
+        "heightB": 1432,
+        "heightDiffRatio": 0.009,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1000,
-            "unmaskedRatio": 0.96361
-          },
-          {
-            "y": 400,
-            "unmaskedRatio": 0.94432
+            "y": 800,
+            "unmaskedRatio": 0.10821
           },
           {
             "y": 1200,
-            "unmaskedRatio": 0.75322
+            "unmaskedRatio": 0.08959
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.07766
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02446,
-          0.11231,
-          0.94432,
-          0.62799,
-          0.11477,
-          0.96361,
-          0.75322,
-          0.00074
+          0.04869,
+          0.03113,
+          0.03735,
+          0.10821,
+          0.07766,
+          0.08959,
+          0.00419
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
-        "at": "2026-10-23T04:24:47.811Z",
+        "at": "2026-10-23T14:25:57.666Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
@@ -116956,11 +116936,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 5942,
-          "at": "2026-10-23T04:24:53.876Z",
+          "ms": 5830,
+          "at": "2026-10-23T14:26:03.676Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1201,
+            "scrollHeight": 1538,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -117006,47 +116986,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.46548,
-        "unmaskedRatio": 0.46548,
+        "mismatchRatio": 0.10229,
+        "unmaskedRatio": 0.10229,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
         "widthB": 375,
         "heightA": 1549,
-        "heightB": 1201,
-        "heightDiffRatio": 0.22466,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.95165
-        },
+        "heightB": 1538,
+        "heightDiffRatio": 0.0071,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 400,
-            "unmaskedRatio": 0.95165
-          },
-          {
             "y": 1200,
-            "unmaskedRatio": 0.88883
+            "unmaskedRatio": 0.16543
           },
           {
-            "y": 1000,
-            "unmaskedRatio": 0.79961
+            "y": 600,
+            "unmaskedRatio": 0.15801
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.11043
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07565,
-          0.10991,
-          0.95165,
-          0.63752,
-          0.11785,
-          0.79961,
-          0.88883,
-          0.03238
+          0.10296,
+          0.05435,
+          0.15801,
+          0.11043,
+          0.08277,
+          0.16543,
+          0.0572
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
-        "at": "2026-10-23T04:24:54.578Z",
+        "at": "2026-10-23T14:26:04.511Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
@@ -225356,11 +225332,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13932,
-          "at": "2026-10-22T23:54:38.517Z",
+          "ms": 13241,
+          "at": "2026-10-23T14:25:13.435Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1077,
+            "scrollHeight": 1425,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -225395,7 +225371,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6961
+              "svgAnimations": 7083
             },
             "liveBoxes": 0
           }
@@ -225406,47 +225382,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51914,
-        "unmaskedRatio": 0.51914,
+        "mismatchRatio": 0.06024,
+        "unmaskedRatio": 0.06024,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 1423,
-        "heightB": 1077,
-        "heightDiffRatio": 0.24315,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.9637
-        },
+        "heightB": 1425,
+        "heightDiffRatio": 0.0014,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1000,
-            "unmaskedRatio": 0.99571
-          },
-          {
-            "y": 400,
-            "unmaskedRatio": 0.9637
-          },
-          {
             "y": 1200,
-            "unmaskedRatio": 0.71046
+            "unmaskedRatio": 0.2381
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.07606
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.03281
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01529,
-          0.02735,
-          0.9637,
-          0.70381,
-          0.27735,
-          0.99571,
-          0.71046,
+          0.02542,
+          0.01435,
+          0.0272,
+          0.07606,
+          0.03281,
+          0.2381,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
-        "at": "2026-10-22T23:54:39.639Z",
+        "at": "2026-10-23T14:25:14.622Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/1440-diff.png",
@@ -225463,11 +225435,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13437,
-          "at": "2026-10-22T23:55:00.799Z",
+          "ms": 13070,
+          "at": "2026-10-23T14:25:27.877Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1084,
+            "scrollHeight": 1432,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -225502,7 +225474,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 7061
+              "svgAnimations": 7148
             },
             "liveBoxes": 0
           }
@@ -225513,47 +225485,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.49008,
-        "unmaskedRatio": 0.49008,
+        "mismatchRatio": 0.05815,
+        "unmaskedRatio": 0.05815,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 1445,
-        "heightB": 1084,
-        "heightDiffRatio": 0.24983,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.9424
-        },
+        "heightB": 1432,
+        "heightDiffRatio": 0.009,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 1000,
-            "unmaskedRatio": 0.96338
-          },
-          {
-            "y": 400,
-            "unmaskedRatio": 0.9424
+            "y": 800,
+            "unmaskedRatio": 0.11118
           },
           {
             "y": 1200,
-            "unmaskedRatio": 0.75322
+            "unmaskedRatio": 0.0892
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.07766
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02396,
-          0.11231,
-          0.9424,
-          0.62799,
-          0.11742,
-          0.96338,
-          0.75322,
-          0.00074
+          0.04869,
+          0.03113,
+          0.03735,
+          0.11118,
+          0.07766,
+          0.0892,
+          0.00443
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
-        "at": "2026-10-22T23:55:01.620Z",
+        "at": "2026-10-23T14:25:28.797Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/768-diff.png",
@@ -225570,11 +225538,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13460,
-          "at": "2026-10-22T23:55:15.181Z",
+          "ms": 13165,
+          "at": "2026-10-23T14:25:42.136Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 1201,
+            "scrollHeight": 1538,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -225609,7 +225577,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 7036
+              "svgAnimations": 7054
             },
             "liveBoxes": 0
           }
@@ -225620,47 +225588,43 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.46559,
-        "unmaskedRatio": 0.46559,
+        "mismatchRatio": 0.10298,
+        "unmaskedRatio": 0.10298,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
         "widthB": 375,
         "heightA": 1549,
-        "heightB": 1201,
-        "heightDiffRatio": 0.22466,
-        "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.95165
-        },
+        "heightB": 1538,
+        "heightDiffRatio": 0.0071,
+        "firstDivergentBand": null,
         "worstBands": [
           {
-            "y": 400,
-            "unmaskedRatio": 0.95165
-          },
-          {
             "y": 1200,
-            "unmaskedRatio": 0.88883
+            "unmaskedRatio": 0.16543
           },
           {
-            "y": 1000,
-            "unmaskedRatio": 0.79924
+            "y": 600,
+            "unmaskedRatio": 0.15801
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.11043
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07499,
-          0.10991,
-          0.95165,
-          0.63944,
-          0.11785,
-          0.79924,
-          0.88883,
-          0.03238
+          0.10296,
+          0.05435,
+          0.15801,
+          0.11043,
+          0.09105,
+          0.16543,
+          0.05423
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
-        "at": "2026-10-22T23:55:15.865Z",
+        "at": "2026-10-23T14:25:42.949Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png",
@@ -259051,5 +259015,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-23T14:06:26.706Z"
+  "updatedAt": "2026-10-23T14:26:04.511Z"
 }

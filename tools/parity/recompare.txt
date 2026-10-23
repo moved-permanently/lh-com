@@ -333,3 +333,7 @@ de/en/hotel-offers
 de/de/hotelangebote
 at/de/hotelangebote
 gb/en/hotel-offers
+de/en/book-and-manage/booking-services/manage-my-bookings
+de/de/book-and-manage/booking-services/manage-my-bookings
+at/de/book-and-manage/booking-services/manage-my-bookings
+gb/en/book-and-manage/booking-services/manage-my-bookings

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T14:07:58.370Z",
+  "generatedAt": "2026-10-23T14:26:38.276Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -11,16 +11,16 @@
     "de/en": {
       "pages": 328,
       "pass": 1,
-      "review": 41,
-      "fail": 271,
+      "review": 42,
+      "fail": 270,
       "pending": 15,
       "error": 0
     },
     "de/de": {
       "pages": 328,
       "pass": 0,
-      "review": 34,
-      "fail": 261,
+      "review": 35,
+      "fail": 260,
       "pending": 33,
       "error": 0
     },
@@ -35,8 +35,8 @@
     "gb/en": {
       "pages": 311,
       "pass": 0,
-      "review": 2,
-      "fail": 22,
+      "review": 3,
+      "fail": 21,
       "pending": 287,
       "error": 0
     }
@@ -119,14 +119,6 @@
       "maxUnmasked": 0.61274
     },
     {
-      "template": "app-entry",
-      "width": 768,
-      "pageWidths": 16,
-      "meanUnmasked": 0.36529187500000004,
-      "medianUnmasked": 0.38370000000000004,
-      "maxUnmasked": 0.50307
-    },
-    {
       "template": "hub",
       "width": 1440,
       "pageWidths": 39,
@@ -160,19 +152,11 @@
     },
     {
       "template": "app-entry",
-      "width": 1440,
+      "width": 768,
       "pageWidths": 16,
-      "meanUnmasked": 0.330174375,
-      "medianUnmasked": 0.337125,
-      "maxUnmasked": 0.51996
-    },
-    {
-      "template": "app-entry",
-      "width": 390,
-      "pageWidths": 16,
-      "meanUnmasked": 0.30026625,
-      "medianUnmasked": 0.25461500000000004,
-      "maxUnmasked": 0.46559
+      "meanUnmasked": 0.285218125,
+      "medianUnmasked": 0.29895499999999997,
+      "maxUnmasked": 0.50307
     },
     {
       "template": "info",
@@ -215,6 +199,14 @@
       "maxUnmasked": 0.6619
     },
     {
+      "template": "app-entry",
+      "width": 1440,
+      "pageWidths": 16,
+      "meanUnmasked": 0.24408999999999997,
+      "medianUnmasked": 0.176525,
+      "maxUnmasked": 0.51949
+    },
+    {
       "template": "aircore-destination",
       "width": 768,
       "pageWidths": 16,
@@ -245,6 +237,14 @@
       "meanUnmasked": 0.23427454545454546,
       "medianUnmasked": 0.210605,
       "maxUnmasked": 0.41631
+    },
+    {
+      "template": "app-entry",
+      "width": 390,
+      "pageWidths": 16,
+      "meanUnmasked": 0.233225625,
+      "medianUnmasked": 0.190385,
+      "maxUnmasked": 0.46182
     },
     {
       "template": "aircore-destination",
@@ -3000,7 +3000,8 @@
         "2026-10-22 [block carousel-cards, cards-teaser] Item 2 Insights 'Our Authors' and 'Explore more' (were stacked default content). The author slider (.authorslider) is mapped to carousel-cards four-up with the new option authors (parser branch: image | linked author name h3, description): the square portrait 10px inside the card, name LufthansaHead bold 20-24px with 20px above/below, description LufthansaHead 16-18px, 24px to the dots, 93px below; column views of stage teasers (.stage .stage-teaser: 'Explore more', highlights 'Mehr entdecken' three tiles) are mapped to cards-teaser with the new option overlay (image | headline h3, subheadline as the CTA link; white text on the live dark vertical gradient, 20/40px from the top left, the whole tile links, 20px gutter, three-up for three tiles; 'Explore more' keeps {heading-small}). /de/en/articles/explore-flying 1440 local (live): cards 297x453 at x88/405/723 (297.75x453), dots 31px below (31), 'Explore more' 99px below the dots (99), tiles 615x264 at x88/723 33px below the heading (616x262, 33), title text at x128 (x128); 768: 2 cards + peek, tiles 343x147 side by side; 390: one card per view, tiles stacked 20px apart (live 21). Page height 1440: 8777 (preview before) -> 5316 local (live 5521; the rest is the result count/search row and pagination, not imported). Also checked highlights (3 tiles 403x173 at 1440 = live 404x172, 39px below the heading = live 38) and explore-the-world (authors + tiles). Re-imported, uploaded and previewed the 32 insights pages with author slider or stage teasers (4 locales). Open: footer 49px below the tiles (live 41 at 1440, 21 at 390). (759a7d4)",
         "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
         "2026-10-23 [block cards-teaser] Item 2 gap above the footer after 'Explore more' (Insights category pages): cards-teaser overlay tiles whose wrapper ends the section get a negative bottom margin that collapses with the 48px section gap (-7px from 768px, -27px below), so the footer starts 41px (21px) below the tiles as on live. CSS only, no re-import. White rows between the tiles and the footer in the screenshots (live / preview before / now): explore-flying 1440 40 / 47 / 41, 768 41 / 48 / 41, 390 20 / 48 / 20; at/de/articles/explore-flying and de/de/articles/highlights 41 at 1440 and 768, 20 at 390 (highlights 390 capture ends at 8000px). Spot-check unmasked mismatch 1440/768/390 before -> after (the pages diverge far above the footer): de/en/articles/explore-flying 28.0/26.6/52.2 -> 28.1/26.9/52.9, at/de/articles/explore-flying 30.6/27.2/53.4 -> 30.7/26.9/53.8, de/de/articles/highlights 48.9/51.6/48.3 -> 49.0/51.5/48.6. (a76687d)",
-        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)"
+        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
@@ -4982,7 +4983,7 @@
       "locale": "de/de",
       "template": "app-entry",
       "priority": 1,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -4993,26 +4994,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.51996,
-          "mismatchRatio": 0.51996,
+          "unmaskedRatio": 0.06049,
+          "mismatchRatio": 0.06049,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1423,
-          "heightEds": 1077,
-          "heightDiffRatio": 0.24315,
-          "firstDivergentY": 400,
+          "heightEds": 1425,
+          "heightDiffRatio": 0.0014,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.99585
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.96648
-            },
-            {
               "y": 1200,
-              "unmaskedRatio": 0.71055
+              "unmaskedRatio": 0.23762
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.07134
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.03161
             }
           ],
           "capturedWidth": 1425,
@@ -5043,26 +5044,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.47298,
-          "mismatchRatio": 0.47298,
+          "unmaskedRatio": 0.05595,
+          "mismatchRatio": 0.05595,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1511,
-          "heightEds": 1150,
-          "heightDiffRatio": 0.23891,
-          "firstDivergentY": 400,
+          "heightEds": 1498,
+          "heightDiffRatio": 0.0086,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1200,
-              "unmaskedRatio": 0.97901
+              "y": 800,
+              "unmaskedRatio": 0.1104
             },
             {
-              "y": 400,
-              "unmaskedRatio": 0.94214
+              "y": 1200,
+              "unmaskedRatio": 0.0669
             },
             {
               "y": 1000,
-              "unmaskedRatio": 0.6734
+              "unmaskedRatio": 0.06509
             }
           ],
           "capturedWidth": 753,
@@ -5093,26 +5094,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.46187,
-          "mismatchRatio": 0.46187,
+          "unmaskedRatio": 0.11502,
+          "mismatchRatio": 0.11502,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1654,
-          "heightEds": 1308,
-          "heightDiffRatio": 0.20919,
-          "firstDivergentY": 400,
+          "heightEds": 1659,
+          "heightDiffRatio": 0.00301,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1200,
-              "unmaskedRatio": 0.97813
+              "y": 1400,
+              "unmaskedRatio": 0.22435
             },
             {
-              "y": 600,
-              "unmaskedRatio": 0.92865
+              "y": 800,
+              "unmaskedRatio": 0.14969
             },
             {
-              "y": 400,
-              "unmaskedRatio": 0.67789
+              "y": 1000,
+              "unmaskedRatio": 0.12189
             }
           ],
           "capturedWidth": 375,
@@ -5140,11 +5141,12 @@
           "diff": "tools/reports/parity/shots/de/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
+      ],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 346 px shorter (24.3%)",
-        "layout diverges at y≈400 px at 768; replica 361 px shorter (23.9%)",
-        "layout diverges at y≈400 px at 390; replica 346 px shorter (20.9%)"
+        "11.5% of unmasked pixels differ at 390, most around y≈1400 px"
       ]
     },
     {
@@ -8520,7 +8522,10 @@
           "diff": "tools/reports/parity/shots/at/de/book-and-manage/booking-services/manage-my-bookings/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
+      ],
       "remains": [
         "layout diverges at y≈400 px at 1440; replica 346 px shorter (24.3%)",
         "layout diverges at y≈400 px at 768; replica 361 px shorter (23.9%)",
@@ -11394,7 +11399,7 @@
       "locale": "gb/en",
       "template": "app-entry",
       "priority": 2,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -11405,26 +11410,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.51914,
-          "mismatchRatio": 0.51914,
+          "unmaskedRatio": 0.06024,
+          "mismatchRatio": 0.06024,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1423,
-          "heightEds": 1077,
-          "heightDiffRatio": 0.24315,
-          "firstDivergentY": 400,
+          "heightEds": 1425,
+          "heightDiffRatio": 0.0014,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.99571
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.9637
-            },
-            {
               "y": 1200,
-              "unmaskedRatio": 0.71046
+              "unmaskedRatio": 0.2381
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.07606
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.03281
             }
           ],
           "capturedWidth": 1425,
@@ -11455,26 +11460,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.49008,
-          "mismatchRatio": 0.49008,
+          "unmaskedRatio": 0.05815,
+          "mismatchRatio": 0.05815,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1445,
-          "heightEds": 1084,
-          "heightDiffRatio": 0.24983,
-          "firstDivergentY": 400,
+          "heightEds": 1432,
+          "heightDiffRatio": 0.009,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.96338
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.9424
+              "y": 800,
+              "unmaskedRatio": 0.11118
             },
             {
               "y": 1200,
-              "unmaskedRatio": 0.75322
+              "unmaskedRatio": 0.0892
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.07766
             }
           ],
           "capturedWidth": 753,
@@ -11505,26 +11510,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.46559,
-          "mismatchRatio": 0.46559,
+          "unmaskedRatio": 0.10298,
+          "mismatchRatio": 0.10298,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1549,
-          "heightEds": 1201,
-          "heightDiffRatio": 0.22466,
-          "firstDivergentY": 400,
+          "heightEds": 1538,
+          "heightDiffRatio": 0.0071,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 400,
-              "unmaskedRatio": 0.95165
-            },
-            {
               "y": 1200,
-              "unmaskedRatio": 0.88883
+              "unmaskedRatio": 0.16543
             },
             {
-              "y": 1000,
-              "unmaskedRatio": 0.79924
+              "y": 600,
+              "unmaskedRatio": 0.15801
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.11043
             }
           ],
           "capturedWidth": 375,
@@ -11552,11 +11557,12 @@
           "diff": "tools/reports/parity/shots/gb/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
+      ],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 346 px shorter (24.3%)",
-        "layout diverges at y≈400 px at 768; replica 361 px shorter (25.0%)",
-        "layout diverges at y≈400 px at 390; replica 348 px shorter (22.5%)"
+        "10.3% of unmasked pixels differ at 390, most around y≈1200 px"
       ]
     },
     {
@@ -65926,7 +65932,7 @@
       "locale": "de/en",
       "template": "app-entry",
       "priority": 3,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -65937,26 +65943,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.51941,
-          "mismatchRatio": 0.51941,
+          "unmaskedRatio": 0.06043,
+          "mismatchRatio": 0.06043,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1423,
-          "heightEds": 1077,
-          "heightDiffRatio": 0.24315,
-          "firstDivergentY": 400,
+          "heightEds": 1425,
+          "heightDiffRatio": 0.0014,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.99569
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.96472
-            },
-            {
               "y": 1200,
-              "unmaskedRatio": 0.71046
+              "unmaskedRatio": 0.23849
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.07453
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.03281
             }
           ],
           "capturedWidth": 1425,
@@ -65987,26 +65993,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.49008,
-          "mismatchRatio": 0.49008,
+          "unmaskedRatio": 0.05786,
+          "mismatchRatio": 0.05786,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1445,
-          "heightEds": 1084,
-          "heightDiffRatio": 0.24983,
-          "firstDivergentY": 400,
+          "heightEds": 1432,
+          "heightDiffRatio": 0.009,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.96361
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.94432
+              "y": 800,
+              "unmaskedRatio": 0.10821
             },
             {
               "y": 1200,
-              "unmaskedRatio": 0.75322
+              "unmaskedRatio": 0.08959
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.07766
             }
           ],
           "capturedWidth": 753,
@@ -66037,26 +66043,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.46548,
-          "mismatchRatio": 0.46548,
+          "unmaskedRatio": 0.10229,
+          "mismatchRatio": 0.10229,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 1549,
-          "heightEds": 1201,
-          "heightDiffRatio": 0.22466,
-          "firstDivergentY": 400,
+          "heightEds": 1538,
+          "heightDiffRatio": 0.0071,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 400,
-              "unmaskedRatio": 0.95165
-            },
-            {
               "y": 1200,
-              "unmaskedRatio": 0.88883
+              "unmaskedRatio": 0.16543
             },
             {
-              "y": 1000,
-              "unmaskedRatio": 0.79961
+              "y": 600,
+              "unmaskedRatio": 0.15801
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.11043
             }
           ],
           "capturedWidth": 375,
@@ -66084,11 +66090,12 @@
           "diff": "tools/reports/parity/shots/de/en/book-and-manage/booking-services/manage-my-bookings/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
+      ],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 346 px shorter (24.3%)",
-        "layout diverges at y≈400 px at 768; replica 361 px shorter (25.0%)",
-        "layout diverges at y≈400 px at 390; replica 348 px shorter (22.5%)"
+        "10.2% of unmasked pixels differ at 390, most around y≈1200 px"
       ]
     },
     {
@@ -113514,7 +113521,8 @@
         "2026-10-22 [block carousel-cards, cards-teaser] Item 2 Insights 'Our Authors' and 'Explore more' (were stacked default content). The author slider (.authorslider) is mapped to carousel-cards four-up with the new option authors (parser branch: image | linked author name h3, description): the square portrait 10px inside the card, name LufthansaHead bold 20-24px with 20px above/below, description LufthansaHead 16-18px, 24px to the dots, 93px below; column views of stage teasers (.stage .stage-teaser: 'Explore more', highlights 'Mehr entdecken' three tiles) are mapped to cards-teaser with the new option overlay (image | headline h3, subheadline as the CTA link; white text on the live dark vertical gradient, 20/40px from the top left, the whole tile links, 20px gutter, three-up for three tiles; 'Explore more' keeps {heading-small}). /de/en/articles/explore-flying 1440 local (live): cards 297x453 at x88/405/723 (297.75x453), dots 31px below (31), 'Explore more' 99px below the dots (99), tiles 615x264 at x88/723 33px below the heading (616x262, 33), title text at x128 (x128); 768: 2 cards + peek, tiles 343x147 side by side; 390: one card per view, tiles stacked 20px apart (live 21). Page height 1440: 8777 (preview before) -> 5316 local (live 5521; the rest is the result count/search row and pagination, not imported). Also checked highlights (3 tiles 403x173 at 1440 = live 404x172, 39px below the heading = live 38) and explore-the-world (authors + tiles). Re-imported, uploaded and previewed the 32 insights pages with author slider or stage teasers (4 locales). Open: footer 49px below the tiles (live 41 at 1440, 21 at 390). (759a7d4)",
         "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
         "2026-10-23 [block cards-teaser] Item 2 gap above the footer after 'Explore more' (Insights category pages): cards-teaser overlay tiles whose wrapper ends the section get a negative bottom margin that collapses with the 48px section gap (-7px from 768px, -27px below), so the footer starts 41px (21px) below the tiles as on live. CSS only, no re-import. White rows between the tiles and the footer in the screenshots (live / preview before / now): explore-flying 1440 40 / 47 / 41, 768 41 / 48 / 41, 390 20 / 48 / 20; at/de/articles/explore-flying and de/de/articles/highlights 41 at 1440 and 768, 20 at 390 (highlights 390 capture ends at 8000px). Spot-check unmasked mismatch 1440/768/390 before -> after (the pages diverge far above the footer): de/en/articles/explore-flying 28.0/26.6/52.2 -> 28.1/26.9/52.9, at/de/articles/explore-flying 30.6/27.2/53.4 -> 30.7/26.9/53.8, de/de/articles/highlights 48.9/51.6/48.3 -> 49.0/51.5/48.6. (a76687d)",
-        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)"
+        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
@@ -126034,7 +126042,8 @@
         "2026-10-22 [block carousel-cards, cards-teaser] Item 2 Insights 'Our Authors' and 'Explore more' (were stacked default content). The author slider (.authorslider) is mapped to carousel-cards four-up with the new option authors (parser branch: image | linked author name h3, description): the square portrait 10px inside the card, name LufthansaHead bold 20-24px with 20px above/below, description LufthansaHead 16-18px, 24px to the dots, 93px below; column views of stage teasers (.stage .stage-teaser: 'Explore more', highlights 'Mehr entdecken' three tiles) are mapped to cards-teaser with the new option overlay (image | headline h3, subheadline as the CTA link; white text on the live dark vertical gradient, 20/40px from the top left, the whole tile links, 20px gutter, three-up for three tiles; 'Explore more' keeps {heading-small}). /de/en/articles/explore-flying 1440 local (live): cards 297x453 at x88/405/723 (297.75x453), dots 31px below (31), 'Explore more' 99px below the dots (99), tiles 615x264 at x88/723 33px below the heading (616x262, 33), title text at x128 (x128); 768: 2 cards + peek, tiles 343x147 side by side; 390: one card per view, tiles stacked 20px apart (live 21). Page height 1440: 8777 (preview before) -> 5316 local (live 5521; the rest is the result count/search row and pagination, not imported). Also checked highlights (3 tiles 403x173 at 1440 = live 404x172, 39px below the heading = live 38) and explore-the-world (authors + tiles). Re-imported, uploaded and previewed the 32 insights pages with author slider or stage teasers (4 locales). Open: footer 49px below the tiles (live 41 at 1440, 21 at 390). (759a7d4)",
         "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
         "2026-10-23 [block cards-teaser] Item 2 gap above the footer after 'Explore more' (Insights category pages): cards-teaser overlay tiles whose wrapper ends the section get a negative bottom margin that collapses with the 48px section gap (-7px from 768px, -27px below), so the footer starts 41px (21px) below the tiles as on live. CSS only, no re-import. White rows between the tiles and the footer in the screenshots (live / preview before / now): explore-flying 1440 40 / 47 / 41, 768 41 / 48 / 41, 390 20 / 48 / 20; at/de/articles/explore-flying and de/de/articles/highlights 41 at 1440 and 768, 20 at 390 (highlights 390 capture ends at 8000px). Spot-check unmasked mismatch 1440/768/390 before -> after (the pages diverge far above the footer): de/en/articles/explore-flying 28.0/26.6/52.2 -> 28.1/26.9/52.9, at/de/articles/explore-flying 30.6/27.2/53.4 -> 30.7/26.9/53.8, de/de/articles/highlights 48.9/51.6/48.3 -> 49.0/51.5/48.6. (a76687d)",
-        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)"
+        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
       ],
       "remains": []
     },
@@ -133439,7 +133448,8 @@
         "2026-10-22 [block carousel-cards, cards-teaser] Item 2 Insights 'Our Authors' and 'Explore more' (were stacked default content). The author slider (.authorslider) is mapped to carousel-cards four-up with the new option authors (parser branch: image | linked author name h3, description): the square portrait 10px inside the card, name LufthansaHead bold 20-24px with 20px above/below, description LufthansaHead 16-18px, 24px to the dots, 93px below; column views of stage teasers (.stage .stage-teaser: 'Explore more', highlights 'Mehr entdecken' three tiles) are mapped to cards-teaser with the new option overlay (image | headline h3, subheadline as the CTA link; white text on the live dark vertical gradient, 20/40px from the top left, the whole tile links, 20px gutter, three-up for three tiles; 'Explore more' keeps {heading-small}). /de/en/articles/explore-flying 1440 local (live): cards 297x453 at x88/405/723 (297.75x453), dots 31px below (31), 'Explore more' 99px below the dots (99), tiles 615x264 at x88/723 33px below the heading (616x262, 33), title text at x128 (x128); 768: 2 cards + peek, tiles 343x147 side by side; 390: one card per view, tiles stacked 20px apart (live 21). Page height 1440: 8777 (preview before) -> 5316 local (live 5521; the rest is the result count/search row and pagination, not imported). Also checked highlights (3 tiles 403x173 at 1440 = live 404x172, 39px below the heading = live 38) and explore-the-world (authors + tiles). Re-imported, uploaded and previewed the 32 insights pages with author slider or stage teasers (4 locales). Open: footer 49px below the tiles (live 41 at 1440, 21 at 390). (759a7d4)",
         "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
         "2026-10-23 [block cards-teaser] Item 2 gap above the footer after 'Explore more' (Insights category pages): cards-teaser overlay tiles whose wrapper ends the section get a negative bottom margin that collapses with the 48px section gap (-7px from 768px, -27px below), so the footer starts 41px (21px) below the tiles as on live. CSS only, no re-import. White rows between the tiles and the footer in the screenshots (live / preview before / now): explore-flying 1440 40 / 47 / 41, 768 41 / 48 / 41, 390 20 / 48 / 20; at/de/articles/explore-flying and de/de/articles/highlights 41 at 1440 and 768, 20 at 390 (highlights 390 capture ends at 8000px). Spot-check unmasked mismatch 1440/768/390 before -> after (the pages diverge far above the footer): de/en/articles/explore-flying 28.0/26.6/52.2 -> 28.1/26.9/52.9, at/de/articles/explore-flying 30.6/27.2/53.4 -> 30.7/26.9/53.8, de/de/articles/highlights 48.9/51.6/48.3 -> 49.0/51.5/48.6. (a76687d)",
-        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)"
+        "2026-10-23 [block columns-media] Item 3 /de/de/additional-services hub intro and stage. Cause of the intro width: the paragraph is a .richtext.limited-width inside the sidebar column (.airem-sidebar .sidebar-content, 75%); live index.css sets .limited-width { width: 66% } from 1025px everywhere, so it is 66% of the 922px column (608px, wraps after 'Entspannung'), while the columns-media text cell ran over the whole cell (890px). Fix: the columns-media parser keeps limited-width on the paragraphs/lists of such rich text, the cleanup writes the new marker {limited-width} (with the copytext markers), scripts.js turns it into p.limited-width / ul.limited-width, columns-media.css limits them to 66% of the cell from 1025px (README authoring conventions + block README). Local and preview (live): de/de and at/de 1440 text 612px box, right edge x689, 2 lines (live wraps after 'Entspannung' at x688); 768 and 390 unchanged (rule from 1025px; 519/331px, 3/4 lines). Stage: the de/de snapshot and its live captures (2026-10-22, all three widths) have no .inspiration-teaser-narrow: the stages there are full 810px images with the heading at y~775 and the subline at x152, exactly as the replica renders them; at/de and gb/en (and de/en has none either) have .inspiration-teaser-narrow on all five stages and are already imported as hero-campaign narrow (350px band, heading centred, no subline: at/de 1440 hero 1425x350, h2 at y602), so no change there. Hub dry run: only the 4 additional-services pages change (flughafeninformation's limited-width text is default content = 66% already; meetings-and-events threecolumn is another block); re-imported, uploaded and previewed those 4. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 55.4/54.5/57.1 -> 55.4/54.5/57.1, de/de 55.9/56.0/56.7 -> 55.9/56.0/56.7, at/de 39.8/48.4/45.1 -> 39.8/48.4/45.1 (the diff is dominated by the service icon rows below each stage, three icons + labels per row on live, stacked big icons on the replica, and by the page height 6776 vs 8000). Other templates get {limited-width} with their next bundle rebuild and import. (9f95930)",
+        "2026-10-23 [block booking-lookup] B3 manage bookings: '.quickaction:has(> .dcep-quick-actions)' is mapped in app-entry (parser branch in parsers/booking-lookup.js) to the new variant booking-lookup (my-bookings): live dcep-quick-actions with only My bookings (hideMyBookings false, the rest hidden). Rows from the snapshot: Tab, Login link (Travel ID authorize link, 'Log in to see all your bookings' / 'Nach Login werden Ihre Buchungen angezeigt'), Reference label/pattern/error (Booking code, ^[A-Z0-9]{6}$), Last name label/error, Tour operator label, Submit label (Find Bookings / Anzeigen). Block: one tab with the my-bookings icon (16px, 20px 20px 16px, 4px bar, 1px base line), login link with the arrow-up-right icon, 335px stacked fields (82px pitch like the check-in variant), 24px checkbox that switches to Last name, First name, Tour operator trip code (+ hint and info; texts from the recorded tourOperatorQuery labels), auto-width yellow button; below 768px an accordion row across the viewport that opens and closes, panel content at x40. Hand-off (live chunks 692ce6fa/fd7d0f06, read once): the live tab dispatches loginFkLnAndNavigate (filekey login, then a POST to the booking deeplink its service returns; tour operator: POST to the Travel ID upcoming-trips API), none reachable from the replica, so a valid search opens the same page on www.lufthansa.com, with no entered data in the URL. The preview showed only the heading, the login link and 'Find Bookings'. Re-imported, uploaded and previewed the 4 pages. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en 51.9/49.0/46.5 -> 6.0/5.8/10.2, de/de 52.0/47.3/46.2 -> 6.1/5.6/11.5, gb/en 51.9/49.0/46.6 -> 6.0/5.8/10.3 (390: the live login link wraps after 'your'). (8280702)"
       ],
       "remains": []
     },
