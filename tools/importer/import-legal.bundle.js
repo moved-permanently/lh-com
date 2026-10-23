@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_157291_exports = {};
-  __export(tmp_bundle_legal_157291_exports, {
-    default: () => tmp_bundle_legal_157291_default
+  var tmp_bundle_legal_202263_exports = {};
+  __export(tmp_bundle_legal_202263_exports, {
+    default: () => tmp_bundle_legal_202263_default
   });
 
   // tools/importer/parsers/columns-media.js
@@ -1440,9 +1440,9 @@ var CustomImportScript = (() => {
       const grey = (s) => !!s.querySelector(":scope > .container-gray");
       const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
       aemSections.forEach((s, i) => {
-        if (!i) return;
+        if (!i || !padded(s) || grey(s) || !padded(aemSections[i - 1])) return;
         const hr = createBreak(document);
-        if (padded(s) && !grey(s) && padded(aemSections[i - 1])) hr.setAttribute(SOURCE_STYLE, "padded");
+        hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
       });
     }
@@ -1590,7 +1590,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_157291_default = {
+  var tmp_bundle_legal_202263_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1620,5 +1620,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_157291_exports);
+  return __toCommonJS(tmp_bundle_legal_202263_exports);
 })();

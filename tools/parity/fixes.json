@@ -230,6 +230,12 @@
   {
     "block": "jump-links",
     "change": "Item 6 jump links of a column view (option columns) 72px (ink) below the content before them, as on live at every width (were 33-34px on new-onboard-experience, 57-58px on 100-years/chronicle), wrapped items 60px apart below 768px and 70px at two per row (live; were 30px). CSS only (jump-links.css: margin-top 63px collapsing with the wrapper's 24px, 62px opening a section, 0 in a padded section; row-gap 36px / 46px). Local (live): new-onboard-experience 1440 intro video end -> links 72 (72), 768 73 (72), 390 73 (72) with rows 60 apart (60); chronicle 1440 72 (72), 768 71 (72), 390 71 (72). No re-import.",
+    "commit": "f291e71",
+    "date": "2026-10-23"
+  },
+  {
+    "scope": "site",
+    "change": "Item 3 follow-up: only AEM sections that are padded on live (.section-padding-y-regular) open a section (style padded, after another padded one, not grey); unpadded AEM sections (section-regular only: /additional-services stages and tiles, many hub/info pages) are spaced like components on live and stay in one section (060b14b had split them, adding 24px per boundary on the hub/campaign/fleet/app-entry pages uploaded in that run). boeing787 (146/136 at 1440) and my-bookings (74) unchanged; /de/de/additional-services back to its previous structure. Re-import of all non-AirCore templates restarted (hub, campaign, fleet, app-entry, info, homepage, legal, form, flight-status, insights; 4 locales), changed pages uploaded/previewed per template and added to recompare.txt.",
     "commit": "pending",
     "date": "2026-10-23"
   }

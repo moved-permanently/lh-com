@@ -16,9 +16,9 @@
  *    boxes inside a block of the template (the parser renders them) or the sticky price bar.
  *  - full-bleed: a full-width image component (.image-wrapper.full-width-bg, the Lufthansa
  *    Insights category stage) is a section of its own with style full-bleed, the same way.
- *  - padded: every AEM section (.container-content > .section) after the first starts a
- *    section; style padded (live .section-padding-y-regular) when it and the one before it
- *    are padded on live and it is not grey.
+ *  - padded: an AEM section (.container-content > .section) that is padded on live
+ *    (.section-padding-y-regular), not grey, right after another padded one starts a section
+ *    with style padded.
  * afterTransform: drops breaks with no content since the previous break (or the page start),
  *   keeping their styles, then inserts a Section Metadata block (styles of the break) at the end
  *   of each styled section, removes the marker attributes, and removes the first section's
@@ -167,19 +167,20 @@ export default function transform(hookName, element, payload) {
         region.after(createBreak(document));
       });
     });
-    // AEM sections (.container-content > .section): live pads each one 20px (40px from 768px)
-    // above and below (.section-padding-y-regular), so the space between two of them is larger
-    // than between the components of one. Every one after the first opens a section; style
-    // padded when it and the one before it are padded on live (after an unpadded stage the
-    // stage's own spacing already covers it) and it is not grey (the grey style has the padding)
+    // AEM sections (.container-content > .section): live pads most of them 20px (40px from
+    // 768px) above and below (.section-padding-y-regular), so the space between two of them is
+    // larger than between the components of one. Such a section after another padded one opens
+    // a section with style padded (not after an unpadded stage, whose own spacing covers it;
+    // not when grey, the grey style has the padding). Unpadded AEM sections (section-regular
+    // only, /additional-services) are spaced like components on live and stay together.
     const padded = (s) => !!s.querySelector(':scope > div > .section-padding-y-regular');
     const grey = (s) => !!s.querySelector(':scope > .container-gray');
     const aemSections = [...document.querySelectorAll('.container-content > .section')]
       .filter((s) => (s.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || s.querySelector(MEDIA));
     aemSections.forEach((s, i) => {
-      if (!i) return;
+      if (!i || !padded(s) || grey(s) || !padded(aemSections[i - 1])) return;
       const hr = createBreak(document);
-      if (padded(s) && !grey(s) && padded(aemSections[i - 1])) hr.setAttribute(SOURCE_STYLE, 'padded');
+      hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);
     });
   }
