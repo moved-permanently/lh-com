@@ -53,6 +53,7 @@ import decorateLoungeFinder, {
 import { loungesRequest } from '../../scripts/lh-api.js';
 import decoratePoiMap, { fitBounds, TILE_SOURCES } from '../../blocks/poi-map/poi-map.js';
 import { pointsOfInterestRequest } from '../../scripts/lh-api.js';
+import decorateEjournals from '../../blocks/ejournals/ejournals.js';
 import decorateCarRental, {
   readCarRentalSettings, TIMING as CAR_RENTAL_TIMING,
 } from '../../blocks/car-rental/car-rental.js';
@@ -1473,6 +1474,46 @@ const textOf = (node) => (node ? node.textContent : '');
     true,
     `city ${city.zoom}, world ${world.zoom}`,
   );
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* eJournals (logged-out view, render-only): labels per language, live login and live page      */
+/* ------------------------------------------------------------------------------------------- */
+
+{
+  const LIVE_LOGIN_DE_EN = 'https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/en/unterhaltung-an-bord&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=en';
+  const runEjournals = async (market) => {
+    const page = `/${market}/unterhaltung-an-bord`;
+    setPage(page);
+    currentPage = page;
+    const block = parseHtml('<div class="ejournals"></div>').querySelector('div.ejournals');
+    await decorateEjournals(block);
+    return block;
+  };
+  const expected = {
+    'de/en': ['Log in with your profile to select a booking.', 'Go to login', 'Booking code or ticket number', 'To free download'],
+    'de/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum kostenlosen Download'],
+    'at/de': ['Melden Sie sich mit Ihrem Profil an, um eine Buchung auszuwählen.', 'Zum Login', 'Buchungscode oder Ticketnummer', 'Zum kostenlosen Download'],
+    'gb/en': ['Log in with your profile to select a booking.', 'Go to login', 'Booking code or ticket number', 'To free download'],
+  };
+  await inSequence(Object.keys(expected).map((market) => async () => {
+    startRun({ direct: 'cors', proxy: '502' });
+    const block = await runEjournals(market);
+    const login = block.querySelector('.ejournals-login');
+    const input = block.querySelector('input');
+    const texts = [textOf(block.querySelector('.ejournals-notice-copy')), textOf(login), textOf(block.querySelector('label')), textOf(block.querySelector('.ejournals-submit'))];
+    const [cc, ll] = market.split('/');
+    record(
+      { run: 'J', locale: market, block: 'ejournals', check: 'logged-out view: labels, live login, live page' },
+      JSON.stringify(texts) === JSON.stringify(expected[market])
+        && login.href.includes(`state=/${market}/unterhaltung-an-bord&`) && login.href.endsWith(`country=${cc.toUpperCase()}&lang=${ll}`)
+        && (market !== 'de/en' || login.href === LIVE_LOGIN_DE_EN)
+        && block.querySelector('form').getAttribute('action') === `${LIVE_ORIGIN}/${market}/unterhaltung-an-bord#login`
+        && !input.hasAttribute('name') && input.maxLength === 13,
+      true,
+      `${texts.join(' | ')}; ${block.getAttribute('data-lh-sources')}`,
+    );
+  }));
 }
 
 /* ------------------------------------------------------------------------------------------- */

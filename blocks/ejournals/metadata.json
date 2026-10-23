@@ -1,0 +1,21 @@
+{
+  "variantName": "ejournals",
+  "baseBlock": "ejournals",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/unterhaltung-an-bord",
+  "visualCharacteristics": {
+    "purpose": "logged-out view of the eJournals download: login notice with 'Go to login', booking code field and 'To free download' button, all leading to lufthansa.com",
+    "traits": [
+      "light grey info box with an info icon, copy and a bold arrow link",
+      "underlined 335px text field with the label inside",
+      "yellow primary button, full width below 768px"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, all optional: Login link | link (default: live Travel ID login returning to the page), Live page | link (default: www.lufthansa.com + path + #login), Notice label, Login label, Field label, Submit label (defaults: labels/common, labels/ejournals, built-in en/de)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{de/de,de/en,at/de,gb/en}/unterhaltung-an-bord: the .ejournals component after the 'Login' heading.",
+  "reuseGuidance": "Author an empty block. Render-only: no request but the label bundles; the live app does the booking lookup after the hand-off."
+}

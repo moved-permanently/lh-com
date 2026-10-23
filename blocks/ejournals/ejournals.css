@@ -1,0 +1,145 @@
+/* ejournals: the booking selection container of the dcep apps as online-check-in shows it
+   (maui-notification info, the .input field, maui-button primary); same look as booking-lookup */
+.ejournals {
+  --ejournals-field-height: 58px;
+  --ejournals-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E");
+  --ejournals-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0m1 6.4H7V12.8h2zM8 2.9a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3'/%3E%3C/svg%3E");
+
+  color: var(--lh-deepblue);
+}
+
+/* maui-notification type info: #f5f5f5 box, 16px info icon, action link below the copy */
+.ejournals .ejournals-notice {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 20px 18px 17px 49px;
+  background-color: var(--lh-grey-1);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.ejournals .ejournals-notice::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 18px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--lh-deepblue);
+  mask: var(--ejournals-info) center / contain no-repeat;
+}
+
+.ejournals .ejournals-notice-copy {
+  margin: 0;
+}
+
+/* maui-navigation-link variant hyper, slot action: 14px bold, arrow-right */
+.ejournals .ejournals-login:any-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 13px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.ejournals .ejournals-login:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: var(--ejournals-arrow) center / contain no-repeat;
+}
+
+.ejournals .ejournals-login:hover {
+  color: var(--link-hover-color);
+}
+
+.ejournals .ejournals-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* .input: 33.5rem wide, 58px field, label inside, 2px #333 underline with the .half-border
+   tick at the right end */
+.ejournals .ejournals-field {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 335px;
+  margin-bottom: 43px;
+}
+
+.ejournals .ejournals-field::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--ejournals-field-height) - 20px);
+  right: 0;
+  width: 2px;
+  height: 20px;
+  background-color: var(--lh-grey-8);
+}
+
+.ejournals .ejournals-field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xxs);
+  line-height: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out, line-height 0.2s ease-in-out;
+}
+
+.ejournals .ejournals-field:has(> input:placeholder-shown:not(:focus)) label {
+  top: 24px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+.ejournals .ejournals-field input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: var(--ejournals-field-height);
+  margin: 0;
+  padding: 24px 0 5px;
+  border: 0;
+  border-bottom: 2px solid var(--lh-grey-8);
+  border-radius: 0;
+  background: transparent;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+/* the label stands in for the placeholder */
+.ejournals .ejournals-field input::placeholder {
+  color: transparent;
+}
+
+.ejournals .ejournals-actions {
+  width: 100%;
+}
+
+/* maui-button primary size medium: as wide as its label from 768px, full width below */
+.ejournals .ejournals-submit {
+  min-width: 0;
+}
+
+.ejournals input:focus-visible,
+.ejournals .ejournals-submit:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
