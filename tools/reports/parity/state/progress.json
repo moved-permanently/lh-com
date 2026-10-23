@@ -8108,8 +8108,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14512,
-          "at": "2026-10-23T07:18:38.748Z",
+          "ms": 16076,
+          "at": "2026-10-23T11:51:27.351Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7689,
@@ -8147,7 +8147,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5346
+              "svgAnimations": 5332
             },
             "liveBoxes": 0
           }
@@ -8158,8 +8158,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.398,
-        "unmaskedRatio": 0.398,
+        "mismatchRatio": 0.39795,
+        "unmaskedRatio": 0.39795,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
@@ -8189,7 +8189,7 @@
         "bandHeight": 200,
         "bandRatios": [
           0.0146,
-          0.0619,
+          0.06029,
           0.11107,
           0.15466,
           0.03981,
@@ -8229,7 +8229,7 @@
           0.009
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/1440-diff.png",
-        "at": "2026-10-23T07:18:42.713Z",
+        "at": "2026-10-23T11:51:31.614Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/1440-diff.png",
@@ -8246,8 +8246,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13754,
-          "at": "2026-10-23T07:18:56.600Z",
+          "ms": 14036,
+          "at": "2026-10-23T11:51:45.859Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7785,
@@ -8285,7 +8285,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5308
+              "svgAnimations": 5301
             },
             "liveBoxes": 0
           }
@@ -8367,7 +8367,7 @@
           0.55147
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/768-diff.png",
-        "at": "2026-10-23T07:18:59.179Z",
+        "at": "2026-10-23T11:51:48.480Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/768-diff.png",
@@ -8384,8 +8384,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13383,
-          "at": "2026-10-23T07:19:12.688Z",
+          "ms": 13729,
+          "at": "2026-10-23T11:52:02.365Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7676,
@@ -8423,7 +8423,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5374
+              "svgAnimations": 5313
             },
             "liveBoxes": 0
           }
@@ -8505,7 +8505,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/390-diff.png",
-        "at": "2026-10-23T07:19:14.368Z",
+        "at": "2026-10-23T11:52:04.154Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/additional-services/390-diff.png",
@@ -8919,8 +8919,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 10081,
-          "at": "2026-10-23T07:32:52.369Z",
+          "ms": 10284,
+          "at": "2026-10-23T11:52:14.619Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9989,
@@ -8969,8 +8969,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.55439,
-        "unmaskedRatio": 0.55439,
+        "mismatchRatio": 0.55438,
+        "unmaskedRatio": 0.55438,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
@@ -9000,7 +9000,7 @@
         "bandHeight": 200,
         "bandRatios": [
           0.0108,
-          0.05992,
+          0.05929,
           0.07163,
           0.18645,
           0.18688,
@@ -9041,7 +9041,7 @@
           0.9266
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/1440-diff.png",
-        "at": "2026-10-23T07:32:57.704Z",
+        "at": "2026-10-23T11:52:19.982Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/1440-diff.png",
@@ -9058,8 +9058,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8730,
-          "at": "2026-10-23T07:33:06.570Z",
+          "ms": 9391,
+          "at": "2026-10-23T11:52:29.566Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 10044,
@@ -9180,7 +9180,7 @@
           0.89736
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/768-diff.png",
-        "at": "2026-10-23T07:33:09.497Z",
+        "at": "2026-10-23T11:52:32.622Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/768-diff.png",
@@ -9197,8 +9197,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8112,
-          "at": "2026-10-23T07:33:17.734Z",
+          "ms": 8570,
+          "at": "2026-10-23T11:52:41.355Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9798,
@@ -9319,7 +9319,7 @@
           0.94803
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/390-diff.png",
-        "at": "2026-10-23T07:33:19.541Z",
+        "at": "2026-10-23T11:52:43.246Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/additional-services/390-diff.png",
@@ -115124,8 +115124,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15496,
-          "at": "2026-10-23T08:19:20.999Z",
+          "ms": 15812,
+          "at": "2026-10-23T11:52:59.211Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9989,
@@ -115163,7 +115163,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5330
+              "svgAnimations": 5390
             },
             "liveBoxes": 0
           }
@@ -115174,8 +115174,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.55941,
-        "unmaskedRatio": 0.55941,
+        "mismatchRatio": 0.55937,
+        "unmaskedRatio": 0.55937,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
@@ -115205,7 +115205,7 @@
         "bandHeight": 200,
         "bandRatios": [
           0.0146,
-          0.0619,
+          0.06029,
           0.07285,
           0.18881,
           0.19381,
@@ -115246,7 +115246,7 @@
           0.93052
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/1440-diff.png",
-        "at": "2026-10-23T08:19:26.225Z",
+        "at": "2026-10-23T11:53:04.412Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/1440-diff.png",
@@ -115263,8 +115263,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14257,
-          "at": "2026-10-23T08:19:40.618Z",
+          "ms": 14558,
+          "at": "2026-10-23T11:53:19.160Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 10085,
@@ -115302,7 +115302,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5269
+              "svgAnimations": 5385
             },
             "liveBoxes": 0
           }
@@ -115385,7 +115385,7 @@
           0.90272
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/768-diff.png",
-        "at": "2026-10-23T08:19:43.839Z",
+        "at": "2026-10-23T11:53:22.425Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/768-diff.png",
@@ -115402,8 +115402,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13939,
-          "at": "2026-10-23T08:19:57.933Z",
+          "ms": 13889,
+          "at": "2026-10-23T11:53:36.500Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9976,
@@ -115441,7 +115441,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5357
+              "svgAnimations": 5178
             },
             "liveBoxes": 0
           }
@@ -115524,7 +115524,7 @@
           0.94761
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/390-diff.png",
-        "at": "2026-10-23T08:19:59.867Z",
+        "at": "2026-10-23T11:53:38.513Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/additional-services/390-diff.png",
@@ -258940,5 +258940,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-23T11:31:12.890Z"
+  "updatedAt": "2026-10-23T11:53:38.513Z"
 }
