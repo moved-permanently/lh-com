@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/sixt",
   "path": "de/en/sixt",
-  "timestamp": "2026-10-23T04:10:18.499Z",
+  "timestamp": "2026-10-23T15:50:53.916Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "car-rental"
+  ]
 }

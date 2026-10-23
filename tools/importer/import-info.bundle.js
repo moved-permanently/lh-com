@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_36469_exports = {};
-  __export(tmp_bundle_info_36469_exports, {
-    default: () => tmp_bundle_info_36469_default
+  var tmp_bundle_info_46358_exports = {};
+  __export(tmp_bundle_info_46358_exports, {
+    default: () => tmp_bundle_info_46358_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -428,8 +428,42 @@ var CustomImportScript = (() => {
     form.replaceWith(block);
   }
 
+  // tools/importer/parsers/car-rental.js
+  var DEFAULT_SCRIPT = "https://direct-ux.meili.travel/index.js";
+  function parse2(element, { document, params, url }) {
+    const host = element.matches(".dcep-meili-car-rental") ? element : element.querySelector(".dcep-meili-car-rental");
+    let config = {};
+    try {
+      config = JSON.parse(host && host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      config = {};
+    }
+    const ptid = typeof config.ptid === "string" || typeof config.ptid === "number" ? String(config.ptid).trim() : "";
+    const script = typeof config.meiliUrl === "string" ? config.meiliUrl.trim() : "";
+    const cells = [];
+    if (ptid) cells.push(["Partner ID", ptid]);
+    if (script && script !== DEFAULT_SCRIPT) cells.push(["Script", script]);
+    let pagePath = "";
+    try {
+      pagePath = new URL(params && params.originalURL || url).pathname.replace(/\.html?$/, "").replace(/\/$/, "");
+    } catch (e) {
+      pagePath = "";
+    }
+    if (pagePath) {
+      const live = `https://www.lufthansa.com${pagePath}`;
+      const a = document.createElement("a");
+      a.setAttribute("href", live);
+      a.setAttribute("data-live-link", "true");
+      a.textContent = live;
+      cells.push(["Fallback link", a]);
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "car-rental", cells });
+    const outer = element.closest(".meilicarrental") || element;
+    outer.replaceWith(block);
+  }
+
   // tools/importer/parsers/flight-search.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -546,7 +580,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -709,7 +743,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -939,7 +973,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1132,7 +1166,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -1541,7 +1575,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -1553,7 +1587,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -2252,6 +2286,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -2641,6 +2679,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "car-rental",
+        "instances": [
+          ".meilicarrental:has(> .dcep-meili-car-rental)"
+        ]
+      },
+      {
         "name": "flight-search",
         "instances": [
           ".redesignedflightmanager"
@@ -2736,13 +2780,14 @@ var CustomImportScript = (() => {
   };
   var parsers = {
     "form-core": parse,
-    "flight-search": parse2,
-    "hero-campaign": parse3,
-    "accordion-columns": parse4,
-    "carousel-cards": parse5,
-    "columns-media": parse6,
-    "embed": parse7,
-    "lounge-finder": parse8
+    "car-rental": parse2,
+    "flight-search": parse3,
+    "hero-campaign": parse4,
+    "accordion-columns": parse5,
+    "carousel-cards": parse6,
+    "columns-media": parse7,
+    "embed": parse8,
+    "lounge-finder": parse9
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2766,7 +2811,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_36469_default = {
+  var tmp_bundle_info_46358_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2796,5 +2841,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_36469_exports);
+  return __toCommonJS(tmp_bundle_info_46358_exports);
 })();

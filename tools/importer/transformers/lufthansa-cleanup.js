@@ -936,6 +936,12 @@ function rewriteHref(href, origins) {
 function rewriteLinks(document, payload) {
   const origins = sourceOrigins(payload);
   document.querySelectorAll('[href]').forEach((el) => {
+    // links a parser wrote to the live page on purpose (car-rental Fallback link: the same
+    // path on www.lufthansa.com, where the real widget runs) stay absolute
+    if (el.hasAttribute('data-live-link')) {
+      el.removeAttribute('data-live-link');
+      return;
+    }
     const next = rewriteHref(el.getAttribute('href'), origins);
     if (next !== null && next !== el.getAttribute('href')) el.setAttribute('href', next);
   });

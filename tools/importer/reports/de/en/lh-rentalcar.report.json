@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lh-rentalcar",
   "path": "de/en/lh-rentalcar",
-  "timestamp": "2026-10-23T03:45:34.394Z",
+  "timestamp": "2026-10-23T15:51:23.150Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "car-rental"
+  ]
 }

@@ -1045,6 +1045,12 @@
           ]
         },
         {
+          "name": "car-rental",
+          "instances": [
+            ".meilicarrental:has(> .dcep-meili-car-rental)"
+          ]
+        },
+        {
           "name": "flight-search",
           "instances": [
             ".redesignedflightmanager"

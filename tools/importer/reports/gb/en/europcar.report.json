@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/europcar",
   "path": "gb/en/europcar",
-  "timestamp": "2026-10-23T03:31:39.644Z",
+  "timestamp": "2026-10-23T15:51:20.996Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "car-rental"
+  ]
 }

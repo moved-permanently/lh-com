@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/mietwagenangebote",
   "path": "at/de/mietwagenangebote",
-  "timestamp": "2026-10-23T03:45:39.991Z",
+  "timestamp": "2026-10-23T15:51:30.415Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "car-rental"
+  ]
 }

@@ -251,7 +251,8 @@ function whenNear(block, fn) {
  * Meili car rental search: mounts Meili's app as the live page does, with a look-alike of the
  * empty search form (opening the live page) when the app cannot run.
  * @param {Element} block
- * @returns {Promise<void>} resolves when the app mounted or the fallback is shown
+ * @returns {Promise<void>} resolves when the app mounted or the fallback is shown (at once in a
+ *   browser with IntersectionObserver: the mount waits for the visible section)
  */
 export default function decorate(block) {
   const locale = getLocale();
@@ -325,5 +326,9 @@ export default function decorate(block) {
         poll();
       });
     });
+    // with an IntersectionObserver the section is still hidden (aem.js shows it once its blocks
+    // are decorated) and a hidden block never comes near the viewport: waiting here would keep
+    // the section, and the page, hidden for good. The app mounts after the section shows.
+    if (typeof window.IntersectionObserver === 'function') resolve();
   });
 }
