@@ -1111,6 +1111,12 @@
           ]
         },
         {
+          "name": "table-striped",
+          "instances": [
+            "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+          ]
+        },
+        {
           "name": "carousel-cards",
           "instances": [
             ".threecolumn:has(.teaser)",

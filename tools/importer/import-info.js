@@ -8,6 +8,7 @@ import carRentalParser from './parsers/car-rental.js';
 import flightSearchParser from './parsers/flight-search.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
+import tableStripedParser from './parsers/table-striped.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
@@ -57,6 +58,12 @@ const PAGE_TEMPLATE = {
       "name": "accordion-columns",
       "instances": [
         ".accordion"
+      ]
+    },
+    {
+      "name": "table-striped",
+      "instances": [
+        "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
       ]
     },
     {
@@ -143,6 +150,7 @@ const parsers = {
   'flight-search': flightSearchParser,
   'hero-campaign': heroCampaignParser,
   'accordion-columns': accordionColumnsParser,
+  'table-striped': tableStripedParser,
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'embed': embedParser,
