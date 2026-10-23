@@ -248120,12 +248120,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15462,
-          "at": "2026-10-23T00:06:14.496Z",
+          "ms": 15632,
+          "at": "2026-10-23T17:08:56.648Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 25419,
-            "truncated": true,
+            "scrollHeight": 7917,
+            "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
             "contentWidth": 1425,
@@ -248133,7 +248133,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 20,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -248159,9 +248159,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5224
+              "svgAnimations": 4975
             },
-            "liveBoxes": 1
+            "liveBoxes": 6
           }
         },
         "src": {
@@ -248170,15 +248170,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.22027,
-        "unmaskedRatio": 0.24066,
-        "maskRatio": 0.08475,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.24191,
+        "unmaskedRatio": 0.26536,
+        "maskRatio": 0.08837,
+        "maskBoxes": 6,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7642,
-        "heightB": 8000,
-        "heightDiffRatio": 0.04475,
+        "heightB": 7917,
+        "heightDiffRatio": 0.03474,
         "firstDivergentBand": {
           "index": 0,
           "y": 0,
@@ -248190,12 +248190,12 @@
             "unmaskedRatio": 1
           },
           {
-            "y": 7200,
-            "unmaskedRatio": 0.9916
+            "y": 7000,
+            "unmaskedRatio": 0.97312
           },
           {
-            "y": 7000,
-            "unmaskedRatio": 0.98064
+            "y": 7600,
+            "unmaskedRatio": 0.96166
           }
         ],
         "bandHeight": 200,
@@ -248204,45 +248204,45 @@
           1,
           0,
           0,
-          0.0489,
-          0.08382,
-          0.07822,
-          0.05944,
-          0.03642,
-          0.02404,
-          0.06757,
-          0.08664,
-          0.04642,
-          0.01263,
-          0.03208,
-          0.04426,
-          0.03648,
-          0.03714,
-          0.01237,
-          0.07228,
-          0.08254,
-          0.07808,
-          0.06232,
-          0.45724,
-          0.92413,
-          0.92639,
-          0.92024,
-          0.51908,
-          0.05151,
-          0.02555,
-          0.0612,
-          0.05262,
-          0.05931,
-          0.05984,
-          0.03382,
-          0.98064,
-          0.9916,
-          0.82208,
-          0.00786,
-          0.00159
+          0.04724,
+          0.0848,
+          0.07867,
+          0.05932,
+          0.03626,
+          0.02429,
+          0.06758,
+          0.1221,
+          0.05951,
+          0.03158,
+          0.02132,
+          0.05574,
+          0.05224,
+          0.04606,
+          0.01428,
+          0.07829,
+          0.09204,
+          0.08516,
+          0.07495,
+          0.44969,
+          0.81476,
+          0.75623,
+          0.74393,
+          0.83758,
+          0.88009,
+          0.11889,
+          0.07085,
+          0.09574,
+          0.09192,
+          0.09779,
+          0.06702,
+          0.97312,
+          0.26387,
+          0.2214,
+          0.96166,
+          0.15214
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
-        "at": "2026-10-23T00:06:18.353Z",
+        "at": "2026-10-23T17:09:00.868Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
@@ -248259,12 +248259,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14082,
-          "at": "2026-10-23T00:06:32.542Z",
+          "ms": 13381,
+          "at": "2026-10-23T17:09:14.434Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 25461,
-            "truncated": true,
+            "scrollHeight": 7967,
+            "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
             "contentWidth": 753,
@@ -248272,7 +248272,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 20,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -248298,9 +248298,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5210
+              "svgAnimations": 5199
             },
-            "liveBoxes": 1
+            "liveBoxes": 6
           }
         },
         "src": {
@@ -248309,15 +248309,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.17433,
-        "unmaskedRatio": 0.18788,
-        "maskRatio": 0.07212,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.27945,
+        "unmaskedRatio": 0.30212,
+        "maskRatio": 0.07501,
+        "maskBoxes": 6,
         "widthA": 753,
         "widthB": 753,
         "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
+        "heightB": 7967,
+        "heightDiffRatio": 0.00413,
         "firstDivergentBand": {
           "index": 0,
           "y": 0,
@@ -248329,12 +248329,12 @@
             "unmaskedRatio": 1
           },
           {
-            "y": 5800,
-            "unmaskedRatio": 0.92973
+            "y": 7600,
+            "unmaskedRatio": 0.92297
           },
           {
             "y": 6200,
-            "unmaskedRatio": 0.92892
+            "unmaskedRatio": 0.91809
           }
         ],
         "bandHeight": 200,
@@ -248343,45 +248343,45 @@
           1,
           0,
           0.37477,
-          0.21269,
-          0.13965,
-          0.05143,
-          0.07692,
-          0.04485,
-          0.05499,
-          0.07112,
-          0.15243,
-          0.07244,
-          0.04305,
-          0.04376,
-          0.04619,
-          0.0378,
-          0.03358,
-          0.03549,
-          0.03729,
-          0.04084,
-          0.01448,
-          0.11014,
-          0.08978,
-          0.09015,
-          0.09924,
-          0.07087,
-          0.10123,
-          0.29363,
-          0.92973,
-          0.9171,
-          0.92892,
-          0.68915,
-          0.06748,
-          0.0297,
-          0.10552,
-          0.08561,
-          0.09479,
-          0.10243,
-          0.04456
+          0.21335,
+          0.14163,
+          0.05554,
+          0.07607,
+          0.04371,
+          0.06641,
+          0.06439,
+          0.20508,
+          0.08913,
+          0.04435,
+          0.0392,
+          0.06035,
+          0.04088,
+          0.04136,
+          0.03824,
+          0.04861,
+          0.04124,
+          0.02597,
+          0.1221,
+          0.11189,
+          0.10309,
+          0.11027,
+          0.2878,
+          0.75243,
+          0.78778,
+          0.87629,
+          0.91434,
+          0.91809,
+          0.69097,
+          0.1152,
+          0.08329,
+          0.12903,
+          0.71249,
+          0.89367,
+          0.92297,
+          0.40312
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
-        "at": "2026-10-23T00:06:34.914Z",
+        "at": "2026-10-23T17:09:17.081Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
@@ -248398,11 +248398,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14237,
-          "at": "2026-10-23T00:07:36.994Z",
+          "ms": 13156,
+          "at": "2026-10-23T17:09:30.426Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 28047,
+            "scrollHeight": 10435,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -248411,7 +248411,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 20,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -248437,9 +248437,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5197
+              "svgAnimations": 5168
             },
-            "liveBoxes": 1
+            "liveBoxes": 6
           }
         },
         "src": {
@@ -248448,10 +248448,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.10588,
-        "unmaskedRatio": 0.11769,
-        "maskRatio": 0.10038,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.13597,
+        "unmaskedRatio": 0.15191,
+        "maskRatio": 0.10495,
+        "maskBoxes": 6,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
@@ -248468,12 +248468,12 @@
             "unmaskedRatio": 0.87563
           },
           {
-            "y": 200,
-            "unmaskedRatio": 0.53022
+            "y": 7200,
+            "unmaskedRatio": 0.85044
           },
           {
-            "y": 1400,
-            "unmaskedRatio": 0.22096
+            "y": 200,
+            "unmaskedRatio": 0.53022
           }
         ],
         "bandHeight": 200,
@@ -248483,44 +248483,44 @@
           0,
           0,
           0,
-          0.16311,
-          0.04768,
-          0.22096,
-          0.1712,
-          0.13439,
-          0.04685,
-          0.08276,
-          0.10867,
-          0.11249,
-          0.10204,
-          0.10737,
-          0.13403,
-          0.16019,
-          0.09195,
-          0.07792,
-          0.05592,
-          0.07269,
-          0.07083,
-          0.04577,
-          0.05169,
-          0.04891,
-          0.05363,
-          0.04873,
-          0.04664,
-          0.05195,
-          0.06583,
-          0.1028,
-          0.12088,
-          0.07441,
-          0.09123,
-          0.09307,
-          0.10013,
-          0.06813,
-          0.13049,
-          0.0964
+          0.15529,
+          0.05079,
+          0.22285,
+          0.16765,
+          0.13017,
+          0.04552,
+          0.06551,
+          0.11148,
+          0.08781,
+          0.08243,
+          0.07708,
+          0.10931,
+          0.20041,
+          0.10302,
+          0.09844,
+          0.07259,
+          0.08887,
+          0.07239,
+          0.04708,
+          0.0512,
+          0.05387,
+          0.05607,
+          0.05211,
+          0.04611,
+          0.06244,
+          0.08451,
+          0.11972,
+          0.15788,
+          0.10375,
+          0.12517,
+          0.25291,
+          0.85044,
+          0.16839,
+          0.14464,
+          0.1524
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
-        "at": "2026-10-23T00:07:38.541Z",
+        "at": "2026-10-23T17:09:32.059Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
@@ -256347,18 +256347,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 9128,
+          "at": "2026-10-23T17:09:41.625Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7821,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/en/o-d/cy-cy/frankfurt-new-york/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.26925,
+        "unmaskedRatio": 0.2957,
+        "maskRatio": 0.08945,
+        "maskBoxes": 6,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 7398,
+        "heightB": 7821,
+        "heightDiffRatio": 0.05409,
+        "firstDivergentBand": {
+          "index": 22,
+          "y": 4400,
+          "unmaskedRatio": 0.9235
+        },
+        "worstBands": [
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.97297
+          },
+          {
+            "y": 6800,
+            "unmaskedRatio": 0.96906
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.9235
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02791,
+          0,
+          0,
+          0,
+          0.09282,
+          0.09617,
+          0.04856,
+          0.071,
+          0.02889,
+          0.0425,
+          0.04142,
+          0.12892,
+          0.05427,
+          0.03561,
+          0.02502,
+          0.0538,
+          0.0476,
+          0.05553,
+          0.10646,
+          0.07968,
+          0.09107,
+          0.19621,
+          0.9235,
+          0.77528,
+          0.78203,
+          0.76284,
+          0.89413,
+          0.72286,
+          0.08153,
+          0.07621,
+          0.08983,
+          0.08999,
+          0.0721,
+          0.27503,
+          0.96906,
+          0.73353,
+          0.41305,
+          0.97297,
+          0.58676,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/1440-diff.png",
+        "at": "2026-10-23T17:09:45.762Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/en/o-d/cy-cy/frankfurt-new-york@768": {
       "id": "lhg/de/en/o-d/cy-cy/frankfurt-new-york",
@@ -256368,18 +256486,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8175,
+          "at": "2026-10-23T17:09:54.120Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7838,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/en/o-d/cy-cy/frankfurt-new-york/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.27608,
+        "unmaskedRatio": 0.29847,
+        "maskRatio": 0.07501,
+        "maskBoxes": 6,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 8000,
+        "heightB": 7838,
+        "heightDiffRatio": 0.02025,
+        "firstDivergentBand": {
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.3146
+        },
+        "worstBands": [
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.95039
+          },
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.92096
+          },
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.91504
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03223,
+          0,
+          0,
+          0.3146,
+          0.12295,
+          0.13752,
+          0.07084,
+          0.08185,
+          0.04108,
+          0.07513,
+          0.0757,
+          0.16599,
+          0.10224,
+          0.04836,
+          0.04277,
+          0.06146,
+          0.04062,
+          0.03618,
+          0.0416,
+          0.09807,
+          0.09058,
+          0.08403,
+          0.1354,
+          0.08572,
+          0.43496,
+          0.83265,
+          0.74306,
+          0.92096,
+          0.91504,
+          0.90997,
+          0.42449,
+          0.13813,
+          0.06774,
+          0.13463,
+          0.10146,
+          0.4364,
+          0.88578,
+          0.95039,
+          0.7478,
+          0.58916
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/768-diff.png",
+        "at": "2026-10-23T17:09:56.694Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/en/o-d/cy-cy/frankfurt-new-york@390": {
       "id": "lhg/de/en/o-d/cy-cy/frankfurt-new-york",
@@ -256389,18 +256625,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7832,
+          "at": "2026-10-23T17:10:04.681Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 9996,
+            "truncated": true,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/en/o-d/cy-cy/frankfurt-new-york/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.16241,
+        "unmaskedRatio": 0.18146,
+        "maskRatio": 0.10495,
+        "maskBoxes": 6,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 33,
+          "y": 6600,
+          "unmaskedRatio": 0.80872
+        },
+        "worstBands": [
+          {
+            "y": 7600,
+            "unmaskedRatio": 0.90487
+          },
+          {
+            "y": 7800,
+            "unmaskedRatio": 0.87229
+          },
+          {
+            "y": 6600,
+            "unmaskedRatio": 0.80872
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0616,
+          0,
+          0,
+          0,
+          0.10166,
+          0.10671,
+          0.10028,
+          0.22083,
+          0.18295,
+          0.13449,
+          0.06151,
+          0.07172,
+          0.11452,
+          0.07923,
+          0.11245,
+          0.09836,
+          0.11573,
+          0.22315,
+          0.0999,
+          0.07794,
+          0.05917,
+          0.10232,
+          0.06519,
+          0.04713,
+          0.05133,
+          0.05699,
+          0.0614,
+          0.09028,
+          0.12117,
+          0.16001,
+          0.11356,
+          0.12975,
+          0.16471,
+          0.80872,
+          0.29872,
+          0.11633,
+          0.14579,
+          0.26936,
+          0.90487,
+          0.87229
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/390-diff.png",
+        "at": "2026-10-23T17:10:06.310Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/en/o-d/cy-cy/munich-los-angeles@1440": {
       "id": "lhg/de/en/o-d/cy-cy/munich-los-angeles",
@@ -258615,18 +258969,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/o-d/cy-cy/frankfurt-london",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14263,
+          "at": "2026-10-23T17:10:20.768Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 8061,
+            "truncated": true,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 4431
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/o-d/cy-cy/frankfurt-london/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.26219,
+        "unmaskedRatio": 0.28731,
+        "maskRatio": 0.08745,
+        "maskBoxes": 6,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 7618,
+        "heightB": 8000,
+        "heightDiffRatio": 0.04775,
+        "firstDivergentBand": {
+          "index": 23,
+          "y": 4600,
+          "unmaskedRatio": 0.7897
+        },
+        "worstBands": [
+          {
+            "y": 7600,
+            "unmaskedRatio": 0.97265
+          },
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.97005
+          },
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.88088
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02701,
+          0,
+          0,
+          0,
+          0.08212,
+          0.0939,
+          0.04991,
+          0.06822,
+          0.03308,
+          0.03729,
+          0.04933,
+          0.11593,
+          0.05213,
+          0.03648,
+          0.02477,
+          0.05171,
+          0.04808,
+          0.04808,
+          0.01639,
+          0.09678,
+          0.06846,
+          0.10355,
+          0.05182,
+          0.7897,
+          0.81468,
+          0.79102,
+          0.7572,
+          0.86428,
+          0.88088,
+          0.1901,
+          0.07921,
+          0.09762,
+          0.08067,
+          0.07257,
+          0.195,
+          0.97005,
+          0.81226,
+          0.31269,
+          0.97265,
+          0.66636
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/1440-diff.png",
+        "at": "2026-10-23T17:10:24.969Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/o-d/cy-cy/frankfurt-london@768": {
       "id": "lhg/de/de/o-d/cy-cy/frankfurt-london",
@@ -258636,18 +259108,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/o-d/cy-cy/frankfurt-london",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/768-eds.png",
           "contentWidth": 768,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13650,
+          "at": "2026-10-23T17:10:38.808Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 8336,
+            "truncated": true,
+            "viewportWidth": 768,
+            "clientWidth": 768,
+            "contentWidth": 768,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 4482
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/o-d/cy-cy/frankfurt-london/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.22087,
+        "unmaskedRatio": 0.23901,
+        "maskRatio": 0.07588,
+        "maskBoxes": 6,
+        "widthA": 768,
+        "widthB": 768,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 26,
+          "y": 5200,
+          "unmaskedRatio": 0.3626
+        },
+        "worstBands": [
+          {
+            "y": 7600,
+            "unmaskedRatio": 0.94461
+          },
+          {
+            "y": 7800,
+            "unmaskedRatio": 0.92051
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.91535
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04801,
+          0,
+          0,
+          0.26456,
+          0.12034,
+          0.1309,
+          0.07228,
+          0.08166,
+          0.04738,
+          0.07451,
+          0.09785,
+          0.15565,
+          0.0817,
+          0.04963,
+          0.04835,
+          0.0494,
+          0.04541,
+          0.03941,
+          0.0368,
+          0.04122,
+          0.03465,
+          0.07926,
+          0.08948,
+          0.05979,
+          0.17382,
+          0.08915,
+          0.3626,
+          0.72588,
+          0.64891,
+          0.86802,
+          0.91535,
+          0.7387,
+          0.11936,
+          0.09921,
+          0.15146,
+          0.12271,
+          0.11132,
+          0.26031,
+          0.94461,
+          0.92051
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/768-diff.png",
+        "at": "2026-10-23T17:10:41.374Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/o-d/cy-cy/frankfurt-london@390": {
       "id": "lhg/de/de/o-d/cy-cy/frankfurt-london",
@@ -258657,18 +259247,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/o-d/cy-cy/frankfurt-london",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13239,
+          "at": "2026-10-23T17:10:54.788Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 10797,
+            "truncated": true,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5241
+            },
+            "liveBoxes": 6
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/o-d/cy-cy/frankfurt-london/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.11253,
+        "unmaskedRatio": 0.12573,
+        "maskRatio": 0.10495,
+        "maskBoxes": 6,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 37,
+          "y": 7400,
+          "unmaskedRatio": 0.81244
+        },
+        "worstBands": [
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.81244
+          },
+          {
+            "y": 7600,
+            "unmaskedRatio": 0.2914
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.21027
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.06097,
+          0,
+          0,
+          0,
+          0.06161,
+          0.10479,
+          0.09187,
+          0.21027,
+          0.18648,
+          0.14381,
+          0.07827,
+          0.07249,
+          0.10652,
+          0.13471,
+          0.08899,
+          0.08455,
+          0.07855,
+          0.18555,
+          0.11691,
+          0.0856,
+          0.07346,
+          0.08111,
+          0.06793,
+          0.04833,
+          0.04285,
+          0.04305,
+          0.04929,
+          0.04573,
+          0.04888,
+          0.04313,
+          0.06517,
+          0.1308,
+          0.13441,
+          0.115,
+          0.10989,
+          0.12465,
+          0.18127,
+          0.81244,
+          0.2914,
+          0.17888
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/390-diff.png",
+        "at": "2026-10-23T17:10:56.306Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/frankfurt-london/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/o-d/cy-cy/berlin-rom@1440": {
       "id": "lhg/de/de/o-d/cy-cy/berlin-rom",
@@ -259782,5 +260490,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T16:36:53.716Z"
+  "updatedAt": "2026-10-23T17:10:56.306Z"
 }
