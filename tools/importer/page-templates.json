@@ -257,6 +257,12 @@
           ]
         },
         {
+          "name": "hero-banner",
+          "instances": [
+            ".herobanner:has(.dcep-hero-banner)"
+          ]
+        },
+        {
           "name": "cards-teaser",
           "instances": [
             ":is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)",

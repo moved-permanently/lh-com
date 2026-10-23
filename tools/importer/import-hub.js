@@ -5,6 +5,7 @@
 import profileNavParser from './parsers/profile-nav.js';
 import formCoreParser from './parsers/form-core.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
+import heroBannerParser from './parsers/hero-banner.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import cardsIconParser from './parsers/cards-icon.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
@@ -39,6 +40,12 @@ const PAGE_TEMPLATE = {
       "name": "hero-campaign",
       "instances": [
         ".inspirationteaser"
+      ]
+    },
+    {
+      "name": "hero-banner",
+      "instances": [
+        ".herobanner:has(.dcep-hero-banner)"
       ]
     },
     {
@@ -175,6 +182,7 @@ const parsers = {
   'profile-nav': profileNavParser,
   'form-core': formCoreParser,
   'hero-campaign': heroCampaignParser,
+  'hero-banner': heroBannerParser,
   'cards-teaser': cardsTeaserParser,
   'cards-icon': cardsIconParser,
   'carousel-cards': carouselCardsParser,

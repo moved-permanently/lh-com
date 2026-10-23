@@ -1,0 +1,31 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/de/speisen-und-getraenke",
+  "visualCharacteristics": {
+    "purpose": "full-bleed row of expanding image panes, one per topic, the active one wide with headline, text and button",
+    "traits": [
+      "full-bleed, 100vh high within 60vh to 90vh (80vh from 1281px)",
+      "panes side by side from 768px, stacked below; active pane 5 shares (4 at tablet), others 1",
+      "first pane active; click or mouse hover makes a pane active, 0.5s flex transition",
+      "overlay colour multiplied onto every image",
+      "tab label at the bottom left of every pane; headline, text and white outlined button on the active pane"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One row per pane. Cell 1: image. Cell 2: H2 tab label, H3 headline, optional text, link (button). Optional config row Overlay | colour"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Travel class panes on the hub pages food-and-beverages / speisen-und-getraenke and lufthansa-travel-classes / lufthansa-reiseklassen (Lufthansa .herobanner).",
+    "pagesUsing": [
+      "/de/de/speisen-und-getraenke",
+      "/de/de/lufthansa-reiseklassen"
+    ],
+    "reuseCount": 8,
+    "lastUsed": "2026-10-23"
+  },
+  "reuseGuidance": "Use for a small number (3 to 5) of image topics that expand on interaction. For a single full-bleed stage use hero-campaign; for a row of static image teasers use cards-teaser."
+}
