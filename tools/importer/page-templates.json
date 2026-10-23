@@ -297,6 +297,12 @@
           "instances": [
             ".accordion"
           ]
+        },
+        {
+          "name": "cards-icon-text",
+          "instances": [
+            ".onecolumn .column-view-item > :is(.threecolumn, .twocolumn):has(a.teaser.partner)"
+          ]
         }
       ],
       "sections": [

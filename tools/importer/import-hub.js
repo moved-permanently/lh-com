@@ -11,6 +11,7 @@ import columnsMediaParser from './parsers/columns-media.js';
 import destinationFinderParser from './parsers/destination-finder.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
+import cardsIconTextParser from './parsers/cards-icon-text.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -79,6 +80,12 @@ const PAGE_TEMPLATE = {
       "name": "accordion-columns",
       "instances": [
         ".accordion"
+      ]
+    },
+    {
+      "name": "cards-icon-text",
+      "instances": [
+        ".onecolumn .column-view-item > :is(.threecolumn, .twocolumn):has(a.teaser.partner)"
       ]
     }
   ],
@@ -164,6 +171,7 @@ const parsers = {
   'destination-finder': destinationFinderParser,
   'lounge-finder': loungeFinderParser,
   'accordion-columns': accordionColumnsParser,
+  'cards-icon-text': cardsIconTextParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

@@ -10,7 +10,9 @@ Single block table. Content: 2 columns, one row per card. Cell 1: icon (:icon-na
 
 ## Supported variations
 
-No variations.
+| Variation | Option class |
+| --- | --- |
+| Partner tiles (Lufthansa a.teaser.partner, /digital-self-services): 48px icon image left of a deep-blue title (LufthansaHead bold 20px to 24px) and a 16px description, both 51px from the card edge; equal columns 20px apart: 1 per row, 2 from 768px, 3 from 1025px (a source row of 2 tiles fills the first two columns) | `partner` |
 
 ## Universal Editor fields
 
