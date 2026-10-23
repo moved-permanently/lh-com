@@ -437,15 +437,18 @@ function convertSeparators(document) {
 }
 
 /**
- * Insights author quotes (.authorquote > .dcep-author-quote: .quote-text and .subline-text)
- * become a <blockquote> with the quote and the subline as paragraphs (styles.css: article
- * quotes). Only on article pages (.article-details-page); quotes of other templates stay text
- * until they are styled there.
+ * Author quotes (.authorquote > .dcep-author-quote: .quote-text and .subline-text) become a
+ * <blockquote> with the quote and the subline as paragraphs (styles.css: author quotes). The
+ * blockquote keeps the class authorquote, so the template selectors that leave column views
+ * with a quote alone (:has(.authorquote)) match as before. Outside articles a quote in a
+ * .section-narrow (72rem, centred) gets " {narrow}" after its first paragraph (scripts.js
+ * PARAGRAPH_STYLE; /de/en/first-class).
  */
 function convertAuthorQuotes(document) {
   let converted = 0;
-  document.querySelectorAll('.article-details-page .dcep-author-quote').forEach((quote) => {
+  document.querySelectorAll('.dcep-author-quote').forEach((quote) => {
     const bq = document.createElement('blockquote');
+    bq.className = 'authorquote';
     ['.quote-text', '.subline-text'].forEach((sel) => {
       const src = quote.querySelector(sel);
       if (!src || !cleanText(src)) return;
@@ -459,6 +462,9 @@ function convertAuthorQuotes(document) {
       bq.append(p);
     });
     if (!bq.children.length) return;
+    if (!quote.closest('.article-details-page') && quote.closest('.section-narrow')) {
+      bq.firstElementChild.append(document.createTextNode(' {narrow}'));
+    }
     (quote.closest('.authorquote') || quote).replaceWith(bq);
     converted += 1;
   });

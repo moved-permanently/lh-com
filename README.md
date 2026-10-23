@@ -57,6 +57,13 @@ navigation link.
 `{parallax}` at the end of an image paragraph (after the image) shows the image in a 500px
 high window, cropped to fill it (Lufthansa Insights parallax images, `.parallax-content`).
 
+### Quotes
+
+A quote (a blockquote: the quote paragraph, then an optional source line) is set in 28-36px bold
+LufthansaHead with the source in 16px light below, at most 622px wide, 60px (80px from 768px)
+above and below (Lufthansa author quotes, `.author-quote`). `{narrow}` at the end of the quote
+paragraph centres it like a Lufthansa narrow section (720px with the side margins: /de/en/first-class).
+
 ### Text width
 
 Running text (paragraphs, lists) uses two thirds of the content width from 1025px (AirCore
