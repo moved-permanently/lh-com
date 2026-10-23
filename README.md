@@ -87,6 +87,10 @@ to get the normal section spacing.
 - Links in running text get a small arrow before the text (→ on lufthansa.com, ↗ to other
   sites, ↓ to a place on the same page), as on the live site; not on AirCore pages.
 
+Section style `centered` centres the section's default content (the AirCore "Best price alert"
+button); `new-tab` opens every link of the section in a new tab (`target="_blank"`,
+`rel="nofollow noopener"`, as on live). The AirCore route importer writes both for the price alert.
+
 ### Breadcrumb
 
 Not authored in the page: the Metadata block names the page's parent (`Parent`: a link) and,

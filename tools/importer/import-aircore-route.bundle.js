@@ -36,22 +36,22 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-route.js
-  var tmp_bundle_aircore_route_202263_exports = {};
-  __export(tmp_bundle_aircore_route_202263_exports, {
-    default: () => tmp_bundle_aircore_route_202263_default
+  var tmp_bundle_aircore_route_59468_exports = {};
+  __export(tmp_bundle_aircore_route_59468_exports, {
+    default: () => tmp_bundle_aircore_route_59468_default
   });
 
   // tools/importer/parsers/flight-search.js
   function parse(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
+    const attr = (node, name2) => clean2(node ? node.getAttribute(name2) : "");
     if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
       parseAirCore();
       return;
@@ -74,8 +74,8 @@ var CustomImportScript = (() => {
       const airport = (input) => {
         const code = attr(input, "data-value");
         if (!/^[A-Za-z]{3}$/.test(code)) return "";
-        const name = attr(input, "value");
-        return name && name.toUpperCase() !== code.toUpperCase() ? `${name} (${code.toUpperCase()})` : code.toUpperCase();
+        const name2 = attr(input, "value");
+        return name2 && name2.toUpperCase() !== code.toUpperCase() ? `${name2} (${code.toUpperCase()})` : code.toUpperCase();
       };
       const fromInput = element.querySelector("#flightFrom-input");
       const toInput = element.querySelector("#flightTo-input");
@@ -125,9 +125,9 @@ var CustomImportScript = (() => {
     const destinationField = airportFields.find((f) => f !== originField);
     const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), "value");
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
-    addRow("Default origin", withCode(clean(props.prefilledOrigin)) || withCode(fieldValue(originField)));
-    addRow("Default destination", withCode(clean(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
-    if (/^[A-Za-z]$/.test(clean(props.prefilledCabinClass))) addRow("Cabin", clean(props.prefilledCabinClass).toUpperCase());
+    addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
+    addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
       const a = document.createElement("a");
@@ -135,13 +135,262 @@ var CustomImportScript = (() => {
       a.textContent = visibleText(wwf);
       addRow("Where we fly", a);
     }
-    const block = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells });
+    const activeLabel = visibleText(element.querySelector('.tab-nav .tab-link.tab-active, .tab-nav [role="tab"][aria-selected="true"]'));
+    if (tabs.length > 1 && activeLabel && activeLabel !== tabs[0]) addRow("Active tab", activeLabel);
+    const hotel = element.querySelector('.tab-content[id$="-hotel-section"], [role="tabpanel"][id$="-hotel-section"]');
+    if (hotel) {
+      const [location, checkIn, checkOut] = [...hotel.querySelectorAll("maui-input")];
+      addRow("Location label", attr(location, "label"));
+      addRow("Location hint", attr(location, "hint"));
+      addRow("Location error", attr(location, "errormessage"));
+      addRow("Check-in label", attr(checkIn, "label"));
+      addRow("Check-in hint", attr(checkIn, "hint"));
+      addRow("Check-out label", attr(checkOut, "label"));
+      addRow("Check-out hint", attr(checkOut, "hint"));
+      addRow("Hotel footnote", visibleText(hotel.querySelector(".footnote")));
+      addRow("Hotel submit label", visibleText(hotel.querySelector('maui-button[behavior="submit"], button[type="submit"]')));
+      addRow("Hotel external note", visibleText(hotel.querySelector('maui-tooltip [slot="box"]')));
+      addRow("Close label", attr(hotel.querySelector(".btn-close [aria-label]"), "aria-label"));
+    }
+    const standalone = element.querySelector(".flm-standalone") && !element.querySelector(".flma-hp-evolution-design");
+    const name = standalone ? "flight-search (standalone)" : "flight-search";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/table-price-months.js
+  var LIVE = "https://www.lufthansa.com";
+  function parse2(element, { document, params, url }) {
+    const section = element.matches("section.best-price-per-month") ? element : element.querySelector("section.best-price-per-month");
+    if (!section) return;
+    const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const text = (root, sel) => {
+      const n = root && root.querySelector(sel);
+      return n ? clean2(n.textContent) : "";
+    };
+    let lang = "en";
+    try {
+      const m = new URL(params && params.originalURL || url).pathname.match(/^\/(?:lhg\/)?[a-z]{2}\/([a-z]{2})\//);
+      if (m) lang = m[1];
+    } catch (e) {
+    }
+    const rows = [];
+    const heading = text(section, ".bppm-headline");
+    const subhead = text(section, ".bppm-subhead");
+    if (heading) rows.push(["Heading", heading]);
+    if (subhead) rows.push(["Subhead", subhead]);
+    const track = section.querySelector(".bppm-track");
+    const columns = track ? [...track.children].filter((c) => c.matches(".bppm-column")) : [];
+    columns.forEach((col) => {
+      const year = col.classList.contains("has-year") ? text(col, ".bppm-year") : "";
+      const card = col.querySelector(".bppm-card");
+      const month = text(col, ".bppm-month");
+      const date = text(col, ".bppm-date");
+      let price = "";
+      if (card && !card.classList.contains("bppm-card--empty") && card.getAttribute("href")) {
+        const a = document.createElement("a");
+        const href = card.getAttribute("href");
+        a.setAttribute("href", /^https?:/.test(href) ? href : `${LIVE}${href}`);
+        a.textContent = clean2(`${text(card, ".bppm-from")} ${text(card, ".bppm-price")}`);
+        price = [a];
+        if (card.classList.contains("is-best")) {
+          const badge = text(card, ".bppm-badge-inner, .bppm-badge") || clean2(section.getAttribute("data-best-price-label"));
+          if (badge) {
+            const strong = document.createElement("strong");
+            strong.textContent = badge;
+            price.push(document.createTextNode(" "), strong);
+          }
+        }
+      }
+      if (!month && !date && !price) return;
+      rows.push([year, month, date, price]);
+    });
+    const bestLabel = clean2(section.getAttribute("data-best-price-label"));
+    if (bestLabel && bestLabel !== (lang === "de" ? "Bestpreis" : "Best price")) rows.push(["Best price label", bestLabel]);
+    const arrow = (sel) => {
+      const b = section.querySelector(sel);
+      return b ? clean2(b.getAttribute("aria-label")) : "";
+    };
+    const prev = arrow(".bppm-arrow-prev");
+    const next = arrow(".bppm-arrow-next");
+    if (prev && prev !== "Previous slide") rows.push(["Previous label", prev]);
+    if (next && next !== "Next slide") rows.push(["Next label", next]);
+    const block = WebImporter.Blocks.createBlock(document, { name: "table-price-months", cells: rows });
+    const wrapper = section.closest(".best-price-per-month-wrapper") || section;
+    wrapper.replaceWith(block);
+  }
+
+  // tools/importer/parsers/table-flightplan.js
+  var DEFAULTS = {
+    en: {
+      weekdays: "Mo, Tu, We, Th, Fr, Sa, Su",
+      duration: "Flight duration:",
+      operated: "Operated by:",
+      more: "Show more",
+      less: "Show less",
+      disclaimer: "Please note that the flight schedule changes regularly."
+    },
+    de: {
+      weekdays: "Mo, Di, Mi, Do, Fr, Sa, So",
+      duration: "Flugdauer:",
+      operated: "Durchgef\xFChrt von:",
+      more: "Mehr anzeigen",
+      less: "Weniger anzeigen",
+      disclaimer: "Bitte beachten Sie, dass sich der Flugplan regelm\xE4\xDFig \xE4ndert."
+    }
+  };
+  function parse3(element, { document, params, url }) {
+    const wrapper = element.matches(".fp.flight-table-wrapper") ? element : element.querySelector(".fp.flight-table-wrapper");
+    if (!wrapper) return;
+    const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const text = (n) => n ? clean2(n.textContent) : "";
+    let lang = "en";
+    try {
+      const m = new URL(params && params.originalURL || url).pathname.match(/^\/(?:lhg\/)?[a-z]{2}\/([a-z]{2})\//);
+      if (m && DEFAULTS[m[1]]) lang = m[1];
+    } catch (e) {
+    }
+    const def = DEFAULTS[lang];
+    const rows = [];
+    let durationLabel = "";
+    let operatedLabel = "";
+    let weekdays = [];
+    const tabLabel = (li) => {
+      const parts = [[]];
+      li.childNodes.forEach((n) => {
+        if (n.nodeType === 1 && n.matches('.lh, [class*="lh-airplane"]')) parts.push([]);
+        else parts[parts.length - 1].push(n.textContent);
+      });
+      const texts = parts.map((p) => clean2(p.join(" "))).filter(Boolean);
+      return texts.length >= 2 ? `${texts[0]} \u2192 ${texts[texts.length - 1]}` : texts[0] || "";
+    };
+    const flightRow = (row) => {
+      const times = row.querySelector(".times");
+      const ends = times ? [...times.children].filter((c) => !c.matches(".icon")) : [];
+      const dep = text(ends[0]);
+      const arr = text(ends[ends.length - 1]);
+      const info = row.querySelector(".flight-info > div") || row.querySelector(".flight-info");
+      const infoParts = info ? [...info.children] : [];
+      const durText = text(infoParts[0]);
+      const dm = durText.match(/^(.*?:)\s*(\d{1,2}:\d{2}.*)$/);
+      if (dm && !durationLabel) durationLabel = clean2(dm[1]);
+      const duration = dm ? clean2(dm[2]) : durText;
+      const flight = text(infoParts[infoParts.length - 1]);
+      const opText = text(row.querySelector(".operated"));
+      const om = opText.match(/^(.*?:)\s*(.*)$/);
+      if (om && !operatedLabel) operatedLabel = clean2(om[1]);
+      const operated = om ? clean2(om[2]) : opText;
+      const items = [...row.querySelectorAll(".flight-schedule > div > div")];
+      const labelOf = (item) => {
+        const day = item.querySelector("[data-weekday]");
+        if (day) return text(day);
+        const c = item.cloneNode(true);
+        c.querySelectorAll(".lh").forEach((n) => n.remove());
+        return clean2(c.textContent.replace(/(^|\s)-(\s|$)/g, " "));
+      };
+      if (!weekdays.length) weekdays = items.map(labelOf).filter(Boolean);
+      const days = items.filter((item) => item.querySelector('.lh-airplane-outbound, [class*="lh-airplane"]')).map(labelOf).filter(Boolean);
+      if (!dep && !arr && !flight) return null;
+      return [dep, arr, flight, duration, operated, days.join(", ")];
+    };
+    const tabs = [...wrapper.querySelectorAll(".fp-nav .fp-nav-element")];
+    const panels = [...wrapper.querySelectorAll(".fp-tab")];
+    if (tabs.length) {
+      tabs.forEach((li, i) => {
+        const id = li.getAttribute("aria-controls") || li.getAttribute("data-target");
+        const panel = id && wrapper.querySelector(`#${id}`) || panels[i];
+        rows.push(["Tab", tabLabel(li)]);
+        if (panel) panel.querySelectorAll(".fp-row").forEach((r) => {
+          const cells = flightRow(r);
+          if (cells) rows.push(cells);
+        });
+      });
+    } else {
+      wrapper.querySelectorAll(".fp-row").forEach((r) => {
+        const cells = flightRow(r);
+        if (cells) rows.push(cells);
+      });
+    }
+    const readMore = wrapper.querySelector(".read-more[data-visible-count]");
+    const visible = readMore ? clean2(readMore.getAttribute("data-visible-count")) : "";
+    if (visible && visible !== "6") rows.push(["Visible rows", visible]);
+    if (weekdays.length === 7 && weekdays.join(", ") !== def.weekdays) rows.push(["Weekdays", weekdays.join(", ")]);
+    if (durationLabel && durationLabel !== def.duration) rows.push(["Duration label", durationLabel]);
+    if (operatedLabel && operatedLabel !== def.operated) rows.push(["Operated by label", operatedLabel]);
+    const more = text(wrapper.querySelector(".toggle-more"));
+    const less = text(wrapper.querySelector(".toggle-less"));
+    if (more && more !== def.more) rows.push(["Show more label", more]);
+    if (less && less !== def.less) rows.push(["Show less label", less]);
+    const disclaimer = text(wrapper.querySelector(".fp-disclaimer"));
+    if (disclaimer && disclaimer !== def.disclaimer) rows.push(["Disclaimer", disclaimer]);
+    const block = WebImporter.Blocks.createBlock(document, { name: "table-flightplan", cells: rows });
+    const out = [];
+    const heading = element.querySelector("h2#flightplan-section, h2");
+    if (heading && element !== wrapper && !wrapper.contains(heading)) {
+      const h2 = document.createElement("h2");
+      h2.textContent = text(heading);
+      out.push(h2);
+    }
+    out.push(block);
+    element.replaceWith(...out);
+  }
+
+  // tools/importer/parsers/table-deals.js
+  function parse4(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const text = (root, selector) => {
+      const node = root.querySelector(selector);
+      return clean2(node && node.textContent);
+    };
+    const intro = [];
+    const heading = element.querySelector(":scope > h1, :scope > h2, :scope > h3");
+    if (heading && clean2(heading.textContent)) {
+      const h = document.createElement(heading.tagName);
+      h.textContent = clean2(heading.textContent);
+      intro.push(h);
+    }
+    [...element.children].forEach((child) => {
+      if (child === heading || child.matches(".last-minute-deals__list, button, h1, h2, h3")) return;
+      const t = clean2(child.textContent);
+      if (!t) return;
+      const p = document.createElement("p");
+      p.innerHTML = child.innerHTML;
+      p.querySelectorAll("i.lh, em.lh, span.lh").forEach((n) => n.remove());
+      intro.push(p);
+    });
+    const offers = [...element.querySelectorAll(".last-minute-deals__offer")];
+    const cells = [];
+    offers.forEach((offer) => {
+      const link = offer.querySelector("a[href]");
+      const origin = text(offer, ".last-minute-deals__route--origin .last-minute-deals__route-name, .last-minute-deals__route--origin");
+      const destination = text(offer, ".last-minute-deals__route--destination .last-minute-deals__route-name, .last-minute-deals__route--destination");
+      const date = text(offer, "time");
+      const priceLabel = text(offer, ".last-minute-deals__price-label");
+      const priceValue = text(offer, ".last-minute-deals__price-value");
+      const price = clean2(`${priceLabel} ${priceValue}`) || text(offer, ".last-minute-deals__price");
+      if (!origin && !destination && !price) return;
+      let priceCell = price;
+      if (link && link.getAttribute("href")) {
+        const a = document.createElement("a");
+        a.href = link.getAttribute("href");
+        a.textContent = price || clean2(link.textContent);
+        priceCell = a;
+      }
+      cells.push([origin, destination, date, priceCell]);
+    });
+    const shown = offers.filter((o) => !o.hasAttribute("hidden")).length;
+    const visible = shown > 0 && shown < offers.length ? shown : 5;
+    cells.push(["Visible rows", String(visible)]);
+    const more = text(element, ".last-minute-deals__load-more, button");
+    if (more) cells.push(["Show more label", more]);
+    const block = WebImporter.Blocks.createBlock(document, { name: "table-deals", cells });
+    if (intro.length) element.before(...intro);
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse2(element, { document }) {
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+  function parse5(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     let units = [...element.querySelectorAll(".icon-wrapper")];
     if (!units.length) units = [...element.querySelectorAll(":scope > a, :scope > div")];
     const cells = [];
@@ -160,13 +409,13 @@ var CustomImportScript = (() => {
         } else if (!/^(data|blob):/i.test(src)) {
           const image = document.createElement("img");
           image.src = src;
-          image.alt = clean(img.getAttribute("alt"));
+          image.alt = clean2(img.getAttribute("alt"));
           iconCell = image;
         }
       }
       const content = [];
       const headingEl = body && body.querySelector("h1, h2, h3, h4, h5, h6");
-      const title = clean(headingEl && headingEl.textContent);
+      const title = clean2(headingEl && headingEl.textContent);
       const href = link && link.getAttribute("href");
       if (title) {
         const h3 = document.createElement("h3");
@@ -184,7 +433,7 @@ var CustomImportScript = (() => {
         [...body.childNodes].forEach((child) => {
           if (child === headingEl || child.nodeType === 1 && child.matches(".icon-wrapper")) return;
           if (child.nodeType !== 1 && child.nodeType !== 3) return;
-          const t = clean(child.textContent);
+          const t = clean2(child.textContent);
           if (!t) return;
           const p = document.createElement("p");
           p.textContent = t;
@@ -195,7 +444,7 @@ var CustomImportScript = (() => {
         const p = document.createElement("p");
         const a = document.createElement("a");
         a.href = href;
-        a.textContent = clean(link.textContent) || href;
+        a.textContent = clean2(link.textContent) || href;
         p.append(a);
         content.push(p);
       }
@@ -206,16 +455,86 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/media-nodes.js
+  var ZW = /[​-‍﻿]/g;
+  var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+  var isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+  function videoPara(document, src, label, settings) {
+    const a = document.createElement("a");
+    a.setAttribute("href", src);
+    a.textContent = label || src;
+    const p = document.createElement("p");
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(" ")}}`);
+    return p;
+  }
+  function viewerNodes(comp, document) {
+    const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host.getAttribute("data-dcep"));
+    } catch (e) {
+      cfg = {};
+    }
+    const video = comp.querySelector("video[src], video source[src]");
+    const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector(".vjs-poster img[src]");
+    const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement("img");
+      img.setAttribute("src", poster);
+      img.setAttribute("alt", clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+    settings.push("controls", "round-play-button");
+    out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
+    return out;
+  }
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
+
   // tools/importer/parsers/accordion-columns.js
-  function parse3(element, { document }) {
+  function parse6(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const ZW = /[​-‍﻿]/g;
-    const clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+    const ZW2 = /[​-‍﻿]/g;
+    const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -271,7 +590,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean(clone.textContent);
+          const onlyLinks = links.length && !clean2(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -300,7 +619,7 @@ var CustomImportScript = (() => {
             const walker = document.createTreeWalker(p, 4);
             let node = walker.nextNode();
             while (node) {
-              node.textContent = node.textContent.replace(ZW, "");
+              node.textContent = node.textContent.replace(ZW2, "");
               node = walker.nextNode();
             }
             out.push(p);
@@ -314,9 +633,14 @@ var CustomImportScript = (() => {
       const columns = [...panel.querySelectorAll(".column-view-item")];
       const parts = columns.length ? columns : [panel];
       parts.forEach((part) => {
-        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]").forEach((node) => {
+        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)").forEach((node) => {
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
-          if (/^H[1-6]$/.test(node.tagName)) {
+          if (node.parentElement && node.parentElement.closest(".videoViewer, .video-player, .iframe-wrapper")) return;
+          if (node.matches(".videoViewer")) {
+            content.push(...viewerNodes(node, document));
+          } else if (node.matches(".video, .iframe")) {
+            content.push(...embedNodes(node, document));
+          } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
             const h = document.createElement(columns.length ? "h3" : node.tagName);
@@ -387,7 +711,7 @@ var CustomImportScript = (() => {
           } else if (!/^(data|blob):/i.test(iconSrc)) {
             const img = document.createElement("img");
             img.src = iconSrc;
-            img.alt = clean(icon.getAttribute("alt"));
+            img.alt = clean2(icon.getAttribute("alt"));
             titleCell.push(img, " ");
           }
         }
@@ -422,7 +746,7 @@ var CustomImportScript = (() => {
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
     items.forEach((item) => {
-      const title = clean(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -432,13 +756,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-side-by-side.js
-  function parse4(element, { document }) {
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+  function parse7(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const textOf = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll("i.lh, em.lh, .sr-only, .visually-hidden").forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     let items = [...element.querySelectorAll(":scope > div")].filter((d) => d.querySelector(".accordion-header, .accordion-panel"));
     if (!items.length) items = [...element.querySelectorAll(":scope > div")];
@@ -551,7 +875,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -698,11 +1022,23 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+    return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -767,7 +1103,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -1048,7 +1384,7 @@ var CustomImportScript = (() => {
     const m = url.match(/lh-dcep-transform-width-(\d+)/);
     return m ? parseInt(m[1], 10) : 0;
   }
-  function isBroken(url) {
+  function isBroken2(url) {
     return !url || /(^|\/)undefined(\.transform|$|\/)/.test(url) || url === "about:blank";
   }
   function absoluteImageUrl(url) {
@@ -1076,7 +1412,7 @@ var CustomImportScript = (() => {
   function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
-      if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
+      if (url && !isBroken2(url)) candidates.push({ url, w: w || transformWidth(url) });
     };
     const picture = img.closest("picture");
     if (picture) {
@@ -1156,6 +1492,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -1218,17 +1558,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -1335,6 +1677,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -1542,21 +1885,42 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "table-price-months",
+        "instances": [
+          "#content section.best-price-per-month"
+        ]
+      },
+      {
+        "name": "table-flightplan",
+        "instances": [
+          "#content .column.event:has(.fp.flight-table-wrapper)"
+        ]
+      },
+      {
+        "name": "table-deals",
+        "instances": [
+          "#content section.last-minute-deals"
+        ]
+      },
+      {
         "name": "cards-icon-text",
         "instances": [
-          "#content > .icon-links"
+          "#content > .icon-links",
+          "#content > .container > .icon-links"
         ]
       },
       {
         "name": "accordion-columns",
         "instances": [
-          "#content > .faq"
+          "#content > .faq",
+          "#content > .container > .faq-wrapper > .faq"
         ]
       },
       {
         "name": "accordion-side-by-side",
         "instances": [
-          "#content > .internal-links"
+          "#content > .internal-links",
+          "#content > .container > .internal-links"
         ]
       }
     ],
@@ -1576,52 +1940,117 @@ var CustomImportScript = (() => {
         ]
       },
       {
-        "id": "section-2",
-        "name": "Title, return-route link and route copy",
+        "id": "section-1b",
+        "name": "Hero offer card (cy-cy)",
         "selector": [
-          "#content > .breadcrumb-wrapper",
-          "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper"
+          "main > section.hero-full-width .hero-image > .container:has(.hero-teaser-box)"
         ],
         "style": null,
         "blocks": [],
         "defaultContent": [
+          "main > section.hero-full-width .hero-teaser-box"
+        ]
+      },
+      {
+        "id": "section-2",
+        "name": "Title, return-route link, route copy (cy-cy: info cards, fare chart, last-minute deals)",
+        "selector": [
+          "#content > .breadcrumb-wrapper",
+          "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper",
+          "#content > .container:has(.automated-content-wrapper)"
+        ],
+        "style": null,
+        "blocks": [
+          "table-price-months",
+          "table-deals"
+        ],
+        "defaultContent": [
           "#content > .breadcrumb-wrapper",
           "#content > h1",
           "#content > .reversed-route",
-          "#content > .automated-content-wrapper"
+          "#content > .automated-content-wrapper",
+          "#content > .container > .mb-10 .automated-content-wrapper",
+          "#content > .container > .mb-10 .routes-wrapper",
+          "#content > .container > .mb-10 .flight-info-cards-wrapper"
+        ]
+      },
+      {
+        "id": "section-2b",
+        "name": "Best price alert (cy-cy)",
+        "selector": [
+          "#content > .container > .mb-10:has(> .price-alert-wrapper)"
+        ],
+        "style": "centered, new-tab",
+        "blocks": [],
+        "defaultContent": [
+          "#content .price-alert-wrapper"
+        ]
+      },
+      {
+        "id": "section-2c",
+        "name": "Flightplan and flight benefits (cy-cy)",
+        "selector": [
+          "#content > .container > .column.event:has(.fp.flight-table-wrapper)",
+          "#content > .container > .mb-10:has(> .flight-benefits-wrapper)"
+        ],
+        "style": null,
+        "blocks": [
+          "table-flightplan"
+        ],
+        "defaultContent": [
+          "#content > .container > .column.event > h2#flightplan-section",
+          "#content .flight-benefits-wrapper"
+        ]
+      },
+      {
+        "id": "section-2d",
+        "name": "Visual split image (cy-cy)",
+        "selector": [
+          "#content > .mb-10:has(.ond-visual-split)"
+        ],
+        "style": "full-bleed",
+        "blocks": [],
+        "defaultContent": [
+          "#content .ond-visual-split-image"
         ]
       },
       {
         "id": "section-3",
         "name": "Entry regulations link",
         "selector": [
-          "#content > .icon-links"
+          "#content > .icon-links",
+          "#content > .container:has(> .icon-links)"
         ],
         "style": null,
         "blocks": [
           "cards-icon-text"
         ],
-        "defaultContent": []
+        "defaultContent": [
+          "#content > .container:has(> .icon-links) > .mb-8 > h2"
+        ]
       },
       {
         "id": "section-4",
         "name": "FAQ",
         "selector": [
-          "#content > h2:has(+ .faq), #content > .faq"
+          "#content > h2:has(+ .faq), #content > .faq",
+          "#content .faq-wrapper"
         ],
         "style": null,
         "blocks": [
           "accordion-columns"
         ],
         "defaultContent": [
-          "#content > h2:has(+ .faq)"
+          "#content > h2:has(+ .faq)",
+          "#content .faq-wrapper > h2"
         ]
       },
       {
         "id": "section-5",
         "name": "Discover our destinations",
         "selector": [
-          "#content > h2:has(+ .internal-links), #content > .internal-links"
+          "#content > h2:has(+ .internal-links), #content > .internal-links",
+          "#content > .container:has(> .internal-links)"
         ],
         "style": null,
         "blocks": [
@@ -1635,9 +2064,12 @@ var CustomImportScript = (() => {
   };
   var parsers = {
     "flight-search": parse,
-    "cards-icon-text": parse2,
-    "accordion-columns": parse3,
-    "accordion-side-by-side": parse4
+    "table-price-months": parse2,
+    "table-flightplan": parse3,
+    "table-deals": parse4,
+    "cards-icon-text": parse5,
+    "accordion-columns": parse6,
+    "accordion-side-by-side": parse7
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -1661,7 +2093,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_route_202263_default = {
+  var tmp_bundle_aircore_route_59468_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1691,5 +2123,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_route_202263_exports);
+  return __toCommonJS(tmp_bundle_aircore_route_59468_exports);
 })();

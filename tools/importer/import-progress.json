@@ -5992,47 +5992,47 @@
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-new-york": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.244Z"
+  "at": "2026-10-23T16:58:31.009Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-los-angeles": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.251Z"
+  "at": "2026-10-23T16:58:31.020Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-tokyo": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.255Z"
+  "at": "2026-10-23T16:58:31.026Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-barcelona": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.033Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-london": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.039Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/berlin-rome": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.047Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-amman": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.053Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-new-york": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.059Z"
  },
  "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.064Z"
  },
  "https://www.lufthansa.com/lhg/de/de": {
   "template": "aircore-destination-overview",
@@ -6157,17 +6157,17 @@
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-new-york": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.018Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-los-angeles": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.259Z"
+  "at": "2026-10-23T16:58:31.023Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-tokio": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.030Z"
  },
  "https://www.lufthansa.com/lhg/de/de/dest/cy/new-york/business-class": {
   "template": "aircore-destination",
@@ -6182,32 +6182,32 @@
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-barcelona": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.035Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-london": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.042Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/berlin-rom": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.050Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-amman": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.056Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-new-york": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.062Z"
  },
  "https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.068Z"
  },
  "https://www.lufthansa.com/lhg/at/de": {
   "template": "aircore-destination-overview",
@@ -6392,6 +6392,6 @@
  "https://www.lufthansa.com/lhg/gb/en/o-d/cy-cy/frankfurt-london": {
   "template": "aircore-route",
   "status": "ok",
-  "at": "2026-10-22T19:46:20.260Z"
+  "at": "2026-10-23T16:58:31.045Z"
  }
 }

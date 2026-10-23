@@ -257,6 +257,18 @@ function decorateTextStyles(main) {
 }
 
 /**
+ * Section style "new-tab": every link of the section opens in a new tab, as the AirCore
+ * "Best price alert" button (target="_blank" rel="nofollow" on live).
+ * @param {Element} main The main element
+ */
+function decorateNewTabSections(main) {
+  main.querySelectorAll(':scope > .section.new-tab a[href]').forEach((a) => {
+    a.target = '_blank';
+    a.rel = 'nofollow noopener';
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -269,6 +281,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  decorateNewTabSections(main);
 }
 
 /**

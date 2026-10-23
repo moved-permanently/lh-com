@@ -2,10 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
   "path": "lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
-  "timestamp": "2026-10-22T19:45:33.483Z",
+  "timestamp": "2026-10-23T16:58:16.804Z",
   "title": "",
   "template": "aircore-route",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "table-price-months",
+    "table-deals",
+    "cards-icon-text",
+    "accordion-columns",
+    "accordion-side-by-side"
   ]
 }

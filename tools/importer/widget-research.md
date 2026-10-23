@@ -372,3 +372,10 @@ from `.read-more[data-visible-count]`. Never use the row aria-label.
 
 Template: point the cy-cy selectors at `#content .container > .mb-10 > …` (or a separate cy-cy
 template) and add `section.last-minute-deals` → `table-deals`.
+
+Done (B11, 2026-10-23): the aircore-route template maps `section.best-price-per-month` →
+table-price-months, the flight plan column → table-flightplan, `section.last-minute-deals` →
+table-deals, and the cy-cy `.icon-links`, `.faq-wrapper > .faq`, `.internal-links` under
+`#content > .container`; cy-cy section breaks: hero offer card, title + fares + deals, price
+alert (section style `centered, new-tab`), flight plan + benefits, visual split (full-bleed),
+useful information, FAQ, top connections. The c-c pages keep their output.

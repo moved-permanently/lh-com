@@ -2,10 +2,15 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/berlin-rome",
   "path": "lhg/de/en/o-d/cy-cy/berlin-rome",
-  "timestamp": "2026-10-22T19:45:25.032Z",
+  "timestamp": "2026-10-23T16:57:59.550Z",
   "title": "",
   "template": "aircore-route",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "table-price-months",
+    "table-deals",
+    "cards-icon-text",
+    "accordion-columns",
+    "accordion-side-by-side"
   ]
 }

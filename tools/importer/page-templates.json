@@ -2864,21 +2864,42 @@
           ]
         },
         {
+          "name": "table-price-months",
+          "instances": [
+            "#content section.best-price-per-month"
+          ]
+        },
+        {
+          "name": "table-flightplan",
+          "instances": [
+            "#content .column.event:has(.fp.flight-table-wrapper)"
+          ]
+        },
+        {
+          "name": "table-deals",
+          "instances": [
+            "#content section.last-minute-deals"
+          ]
+        },
+        {
           "name": "cards-icon-text",
           "instances": [
-            "#content > .icon-links"
+            "#content > .icon-links",
+            "#content > .container > .icon-links"
           ]
         },
         {
           "name": "accordion-columns",
           "instances": [
-            "#content > .faq"
+            "#content > .faq",
+            "#content > .container > .faq-wrapper > .faq"
           ]
         },
         {
           "name": "accordion-side-by-side",
           "instances": [
-            "#content > .internal-links"
+            "#content > .internal-links",
+            "#content > .container > .internal-links"
           ]
         }
       ],
@@ -2898,52 +2919,117 @@
           ]
         },
         {
-          "id": "section-2",
-          "name": "Title, return-route link and route copy",
+          "id": "section-1b",
+          "name": "Hero offer card (cy-cy)",
           "selector": [
-            "#content > .breadcrumb-wrapper",
-            "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper"
+            "main > section.hero-full-width .hero-image > .container:has(.hero-teaser-box)"
           ],
           "style": null,
           "blocks": [],
           "defaultContent": [
+            "main > section.hero-full-width .hero-teaser-box"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Title, return-route link, route copy (cy-cy: info cards, fare chart, last-minute deals)",
+          "selector": [
+            "#content > .breadcrumb-wrapper",
+            "#content > h1, #content > .reversed-route, #content > .automated-content-wrapper",
+            "#content > .container:has(.automated-content-wrapper)"
+          ],
+          "style": null,
+          "blocks": [
+            "table-price-months",
+            "table-deals"
+          ],
+          "defaultContent": [
             "#content > .breadcrumb-wrapper",
             "#content > h1",
             "#content > .reversed-route",
-            "#content > .automated-content-wrapper"
+            "#content > .automated-content-wrapper",
+            "#content > .container > .mb-10 .automated-content-wrapper",
+            "#content > .container > .mb-10 .routes-wrapper",
+            "#content > .container > .mb-10 .flight-info-cards-wrapper"
+          ]
+        },
+        {
+          "id": "section-2b",
+          "name": "Best price alert (cy-cy)",
+          "selector": [
+            "#content > .container > .mb-10:has(> .price-alert-wrapper)"
+          ],
+          "style": "centered, new-tab",
+          "blocks": [],
+          "defaultContent": [
+            "#content .price-alert-wrapper"
+          ]
+        },
+        {
+          "id": "section-2c",
+          "name": "Flightplan and flight benefits (cy-cy)",
+          "selector": [
+            "#content > .container > .column.event:has(.fp.flight-table-wrapper)",
+            "#content > .container > .mb-10:has(> .flight-benefits-wrapper)"
+          ],
+          "style": null,
+          "blocks": [
+            "table-flightplan"
+          ],
+          "defaultContent": [
+            "#content > .container > .column.event > h2#flightplan-section",
+            "#content .flight-benefits-wrapper"
+          ]
+        },
+        {
+          "id": "section-2d",
+          "name": "Visual split image (cy-cy)",
+          "selector": [
+            "#content > .mb-10:has(.ond-visual-split)"
+          ],
+          "style": "full-bleed",
+          "blocks": [],
+          "defaultContent": [
+            "#content .ond-visual-split-image"
           ]
         },
         {
           "id": "section-3",
           "name": "Entry regulations link",
           "selector": [
-            "#content > .icon-links"
+            "#content > .icon-links",
+            "#content > .container:has(> .icon-links)"
           ],
           "style": null,
           "blocks": [
             "cards-icon-text"
           ],
-          "defaultContent": []
+          "defaultContent": [
+            "#content > .container:has(> .icon-links) > .mb-8 > h2"
+          ]
         },
         {
           "id": "section-4",
           "name": "FAQ",
           "selector": [
-            "#content > h2:has(+ .faq), #content > .faq"
+            "#content > h2:has(+ .faq), #content > .faq",
+            "#content .faq-wrapper"
           ],
           "style": null,
           "blocks": [
             "accordion-columns"
           ],
           "defaultContent": [
-            "#content > h2:has(+ .faq)"
+            "#content > h2:has(+ .faq)",
+            "#content .faq-wrapper > h2"
           ]
         },
         {
           "id": "section-5",
           "name": "Discover our destinations",
           "selector": [
-            "#content > h2:has(+ .internal-links), #content > .internal-links"
+            "#content > h2:has(+ .internal-links), #content > .internal-links",
+            "#content > .container:has(> .internal-links)"
           ],
           "style": null,
           "blocks": [

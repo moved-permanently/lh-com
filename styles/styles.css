@@ -921,6 +921,12 @@ main > .section.link-tiles .default-content-wrapper > p > a:hover {
   }
 }
 
+/* section style "centered": the default content of the section is centred (AirCore "Best price
+   alert" button: .ond-redesign .price-alert-wrapper { display: flex; justify-content: center }) */
+main > .section.centered > .default-content-wrapper {
+  text-align: center;
+}
+
 /* a wrapper of separator paragraphs only (see "separators" below) */
 main > .section > .default-content-wrapper:not(:has(> :not(p.spacer))) {
   margin-top: 8px;
