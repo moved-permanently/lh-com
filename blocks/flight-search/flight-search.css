@@ -839,3 +839,355 @@ body.aircore .flight-search .flight-search-submit {
     aspect-ratio: 3 / 1;
   }
 }
+
+/* standalone design (every page but the homepage: .flightmanager-container > .flm-standalone >
+   .tab-content-wrapper): a white card (box-shadow 0 .1rem .4rem #0003, radius .3rem) with the
+   tab bar; .flm-standalone padding 1rem 0 (2.2rem 0 1rem from 376px, 0 from 768px) and
+   .flightmanager-container margin-bottom 2rem */
+.flight-search.standalone {
+  margin: 10px 0 30px;
+  border-radius: 3px;
+  padding: 0;
+  background-color: var(--lh-white);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+}
+
+/* .tab-nav.px-7 > .tab-links.small-tabs; .tab-nav::after 1px #ccc line, .tab-nav-wrapper
+   margin-bottom .1rem (the line sits in that margin) */
+.flight-search .flight-search-tabs[role="tablist"] {
+  position: relative;
+  display: flex;
+  margin-bottom: 1px;
+  padding: 0 20px;
+  box-shadow: 0 1px 0 var(--lh-grey-4);
+}
+
+/* .small-tabs .tab-link: 1.6rem/150%, padding 1.4rem 0 (2rem 2rem 1.6rem from 768px), #666;
+   active bold #05164d with the .progress bar (.4rem #05164d) */
+.flight-search .flight-search-tab {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 0;
+  background: transparent;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.flight-search .flight-search-tab:hover {
+  background-color: var(--lh-grey-1);
+}
+
+.flight-search .flight-search-tab[aria-selected="true"] {
+  color: var(--lh-deepblue);
+  font-weight: 700;
+}
+
+.flight-search .flight-search-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--lh-deepblue);
+}
+
+/* maui-icon size medium (24px): airplane-outbound, car-front, hotel */
+.flight-search .flight-search-tab::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: var(--flight-search-tab-icon) center / contain no-repeat;
+}
+
+.flight-search .flight-search-tab-flight,
+.flight-search .flight-search-tab-holiday,
+.flight-search .flight-search-tab-other {
+  --flight-search-tab-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 10.6h6.1L5.4 4.5h2.2l5.6 6.1h6.1c.9 0 1.6.6 1.6 1.4s-.7 1.4-1.6 1.4h-6.1l-5.6 6.1H5.4l3.2-6.1H2.5L1.4 12z'/%3E%3C/svg%3E");
+}
+
+.flight-search .flight-search-tab-car {
+  --flight-search-tab-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M5 10l1.6-4.5A2 2 0 0 1 8.5 4h7a2 2 0 0 1 1.9 1.5L19 10h1v8h-2v2h-2v-2H8v2H6v-2H4v-8zm2.1 0h9.8l-1.2-3.5a.8.8 0 0 0-.7-.5H9a.8.8 0 0 0-.7.5zM6 13v2h2.5v-2zm9.5 0v2H18v-2z'/%3E%3C/svg%3E");
+}
+
+.flight-search .flight-search-tab-hotel {
+  --flight-search-tab-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M2 6h2v7h7V9h8a3 3 0 0 1 3 3v6h-2v-2H4v2H2zm5 1.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4z'/%3E%3C/svg%3E");
+}
+
+/* .sr-only-sm: icon only below 768px */
+.flight-search .flight-search-tab-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* .tab-content padding 2rem 0 + .tab-content-padding-x 0 2rem */
+.flight-search .flight-search-panel {
+  padding: 20px;
+}
+
+/* the card ends 2rem below the fields (no form margin) */
+.flight-search.standalone .flight-search-panel > .flight-search-form {
+  margin-bottom: 0;
+}
+
+.flight-search .flight-search-panel[hidden] {
+  display: none;
+}
+
+/* hotel tab: .row.row-margin-top (2rem) of three .col-md-4 maui-inputs, then .footnote and the
+   button */
+.flight-search .flight-search-hotel-form {
+  position: relative;
+  margin: 0;
+}
+
+.flight-search .flight-search-hotel-fields {
+  display: grid;
+  gap: 0 20px;
+  margin-top: 20px;
+}
+
+/* maui-input: 1.2rem label line, input 1.8rem with a .2rem #333 underline, 1.2rem hint below */
+.flight-search .flight-search-hotel-field {
+  position: relative;
+  min-width: 0;
+  margin-bottom: 25px;
+  padding-top: 18px;
+}
+
+.flight-search .flight-search-hotel-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xxs);
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.15s linear;
+}
+
+.flight-search .flight-search-hotel-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 41px;
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid var(--flight-search-line);
+  border-radius: 0;
+  padding: 6px 0;
+  background: transparent;
+  color: var(--lh-deepblue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+.flight-search .flight-search-hotel-input:focus {
+  outline: 2px solid var(--flight-search-line);
+  outline-offset: 0;
+  border-bottom-color: transparent;
+  padding-inline: 10px;
+}
+
+/* empty Location: the label sits in the field like a placeholder; .half-border at the right end */
+.flight-search .flight-search-hotel-location:not(:focus-within):has(input:placeholder-shown) .flight-search-hotel-label {
+  top: 24px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+  pointer-events: none;
+}
+
+.flight-search .flight-search-hotel-location::after {
+  content: "";
+  position: absolute;
+  top: 39px;
+  right: 0;
+  width: 2px;
+  height: 20px;
+  background-color: var(--flight-search-line);
+}
+
+.flight-search .flight-search-hotel-location:focus-within::after,
+.flight-search .flight-search-hotel-location:has(input:not(:placeholder-shown))::after {
+  content: none;
+}
+
+/* .input.date-input (max-width 33.5rem) with the datepicker icon */
+.flight-search .flight-search-hotel-check-in,
+.flight-search .flight-search-hotel-check-out {
+  max-width: 335px;
+}
+
+.flight-search .flight-search-hotel-input[type="date"] {
+  cursor: pointer;
+}
+
+@supports selector(::-webkit-calendar-picker-indicator) {
+  .flight-search .flight-search-hotel-check-in::before,
+  .flight-search .flight-search-hotel-check-out::before {
+    content: "";
+    position: absolute;
+    top: 31px;
+    right: 14px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--link-color);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 0h1.5v2h7V0H13v2h3v14H0V2h3zM1.5 5.5v9h13v-9zM3 7h2.5v2H3zm3.5 0H9v2H6.5zM10 7h3v4h-3zm1 1v2h1V8zM3 10h2.5v2H3zm3.5 0H9v2H6.5z' fill-rule='evenodd'/%3E%3C/svg%3E") center / contain no-repeat;
+    pointer-events: none;
+  }
+
+  .flight-search .flight-search-hotel-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.flight-search .flight-search-hotel-hint {
+  margin: 4px 0 0;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xxs);
+  line-height: 18px;
+}
+
+.flight-search .flight-search-hotel-error {
+  width: fit-content;
+  margin: 4px 0 0;
+  padding: 1px 5px;
+  background-color: var(--lh-red);
+  color: var(--lh-white);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.flight-search .flight-search-hotel-error[hidden] {
+  display: none;
+}
+
+.flight-search .flight-search-hotel-field.invalid .flight-search-hotel-input {
+  border-bottom-color: var(--lh-red);
+}
+
+/* .footnote: 1.4rem/150% #000245, margin-bottom 1.8rem */
+.flight-search .flight-search-hotel-footnote {
+  margin: 0 0 18px;
+  color: #000245;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.flight-search .flight-search-hotel-submit {
+  width: 100%;
+  margin: 0;
+}
+
+/* .btn-close-top (top -2rem), maui-link-button variant close; hidden below 768px */
+.flight-search .flight-search-close {
+  display: none;
+}
+
+.flight-search.flight-search-closed .flight-search-tab:hover {
+  background-color: var(--lh-grey-1);
+}
+
+@media (width >= 376px) {
+  .flight-search.standalone {
+    margin-top: 22px;
+  }
+}
+
+@media (width >= 768px) {
+  .flight-search.standalone {
+    margin: 0 0 20px;
+  }
+
+  /* the homepage stage spacing does not apply to the card */
+  body:not(.aircore) main > .section.flight-search-container:has(.flight-search.standalone) {
+    margin-bottom: 0;
+  }
+
+  .flight-search .flight-search-tab {
+    flex: 0 0 auto;
+    padding: 20px 20px 16px;
+  }
+
+  .flight-search .flight-search-tab-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  .flight-search .flight-search-hotel-fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .flight-search .flight-search-hotel-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .flight-search .flight-search-hotel-submit {
+    justify-self: end;
+    width: auto;
+  }
+
+  .flight-search .flight-search-close {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--link-color);
+    cursor: pointer;
+  }
+
+  .flight-search .flight-search-close::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: currentcolor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .flight-search .flight-search-close:hover {
+    color: var(--lh-deepblue);
+  }
+}

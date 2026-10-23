@@ -34,7 +34,7 @@ import {
   fareTeaserManualRequest, mapDestinationFinderOffers,
 } from '../../scripts/lh-api.js';
 import decorateFlightSearch, {
-  readFlightSearchSettings, loadFlightSearchData, flightSearchPrimary,
+  readFlightSearchSettings, loadFlightSearchData, flightSearchPrimary, tabKind,
 } from '../../blocks/flight-search/flight-search.js';
 import decorateFareTeaser, {
   readFareTeaserSettings, fareTeaserRequests, loadFareTeaserData,
@@ -765,7 +765,10 @@ function primaryRecorded(name, config, locale) {
   }
   if (name === 'weather') return isRecorded(locale.key, weatherRequest({ location: weatherLocation(config) }, locale));
   if (name === 'flight-status') return isRecorded(locale.key, airportSuggestionsRequest(FLIGHT_STATUS_TERM[locale.lang], locale));
-  return true; // flight-search: labels/flightmanager and defaultAirport are recorded in every market
+  // flight-search: labels/flightmanager and defaultAirport are recorded in every market; a block
+  // with only a hotel tab loads no live data
+  const { tabs } = readFlightSearchSettings(config, locale);
+  return !tabs.length || tabs.some((t) => tabKind(t) === 'flight');
 }
 
 /**

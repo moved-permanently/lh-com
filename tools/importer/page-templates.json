@@ -1033,6 +1033,12 @@
       ],
       "blocks": [
         {
+          "name": "flight-search",
+          "instances": [
+            ".redesignedflightmanager"
+          ]
+        },
+        {
           "name": "hero-campaign",
           "instances": [
             ".inspirationteaser"
@@ -1213,6 +1219,12 @@
         "https://www.lufthansa.com/gb/en/munich-fair"
       ],
       "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".redesignedflightmanager"
+          ]
+        },
         {
           "name": "hero-campaign",
           "instances": [
@@ -2140,6 +2152,12 @@
         "https://www.lufthansa.com/gb/en/pre-check-in"
       ],
       "blocks": [
+        {
+          "name": "flight-search",
+          "instances": [
+            ".redesignedflightmanager"
+          ]
+        },
         {
           "name": "hero-campaign",
           "instances": [

@@ -36,13 +36,130 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_434976_exports = {};
-  __export(tmp_bundle_info_434976_exports, {
-    default: () => tmp_bundle_info_434976_default
+  var tmp_bundle_info_16139_exports = {};
+  __export(tmp_bundle_info_16139_exports, {
+    default: () => tmp_bundle_info_16139_default
   });
 
-  // tools/importer/parsers/hero-campaign.js
+  // tools/importer/parsers/flight-search.js
   function parse(element, { document }) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean2(clone.textContent);
+    };
+    const attr = (node, name2) => clean2(node ? node.getAttribute(name2) : "");
+    if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
+      parseAirCore();
+      return;
+    }
+    function parseAirCore() {
+      const rows = [];
+      const add = (key, value) => {
+        if (value) rows.push([key, value]);
+      };
+      const options = [...element.querySelectorAll('#tripType-listbox li[role="option"]')].filter((li) => !li.matches('.multicity, [data-value="multi"], [data-url]'));
+      const tripTypes2 = [...new Set(options.map(visibleText).filter(Boolean))];
+      const tripInput = element.querySelector("#tripType-input");
+      const selected = options.find((li) => li.classList.contains("selected"));
+      const selectedTrip2 = visibleText(selected) || attr(tripInput, "value");
+      if (!tripTypes2.length && selectedTrip2) tripTypes2.push(selectedTrip2);
+      add("Trip types", tripTypes2.join(", "));
+      if (tripTypes2.length > 1) add("Default trip type", selectedTrip2);
+      add("Traveller label", visibleText(element.querySelector("#travelerClass") || element.querySelector(".travelerClass")));
+      add("Nonstop label", visibleText(element.querySelector(".btn-nonstop-only .custom-control-description")));
+      const airport = (input) => {
+        const code = attr(input, "data-value");
+        if (!/^[A-Za-z]{3}$/.test(code)) return "";
+        const name2 = attr(input, "value");
+        return name2 && name2.toUpperCase() !== code.toUpperCase() ? `${name2} (${code.toUpperCase()})` : code.toUpperCase();
+      };
+      const fromInput = element.querySelector("#flightFrom-input");
+      const toInput = element.querySelector("#flightTo-input");
+      add("From label", visibleText(element.querySelector('label[for="flightFrom-input"]')) || attr(fromInput, "placeholder"));
+      add("Default origin", airport(fromInput));
+      add("To label", visibleText(element.querySelector('label[for="flightTo-input"]')) || attr(toInput, "placeholder"));
+      add("Default destination", airport(toInput));
+      const dateLabel = element.querySelector("#displayDateLabel");
+      add("Date label", attr(dateLabel, "data-translation-rt") || visibleText(dateLabel));
+      add("Submit label", visibleText(element.querySelector("#searchFlights")));
+      const travelerEl = element.querySelector("#travelerClass[data-compartment], .travelerClass[data-compartment]");
+      const cabin = attr(travelerEl, "data-compartment").toUpperCase();
+      if (/^[A-Z]$/.test(cabin) && cabin !== "E") add("Cabin", cabin);
+      const adults = parseInt(attr(travelerEl, "data-adults"), 10);
+      if (adults > 1) add("Adults", String(adults));
+      const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells: rows });
+      element.replaceWith(aircoreBlock);
+    }
+    let props = {};
+    const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
+    if (propsHost) {
+      try {
+        props = JSON.parse(propsHost.getAttribute("data-dcep")) || {};
+      } catch (e) {
+        props = {};
+      }
+    }
+    const cells = [];
+    const addRow = (key, value) => {
+      if (value === null || value === void 0) return;
+      if (typeof value === "string" && !value) return;
+      cells.push([key, value]);
+    };
+    const tabs = [...element.querySelectorAll('.tab-nav .tab-link, .tab-nav [role="tab"]')].filter((t, i, all) => all.indexOf(t) === i).map((t) => visibleText(t) || attr(t, "aria-label")).filter(Boolean);
+    addRow("Tabs", [...new Set(tabs)].join(", "));
+    const tripWrapper = element.querySelector(".triptype-dropdown-wrapper");
+    const tripButton = tripWrapper && tripWrapper.querySelector("button.dropdown-button, button");
+    const selectedTrip = visibleText(tripButton && (tripButton.querySelector(".dropdown-content") || tripButton));
+    let tripTypes = tripWrapper ? [...tripWrapper.querySelectorAll('ul li, [role="option"]')].map(visibleText).filter(Boolean) : [];
+    if (!tripTypes.length && selectedTrip) tripTypes = [selectedTrip];
+    addRow("Trip types", [...new Set(tripTypes)].join(", "));
+    if (tripTypes.length > 1) addRow("Default trip type", selectedTrip);
+    addRow("Traveller label", visibleText(element.querySelector(".travel-details-opener")));
+    addRow("Nonstop label", visibleText(element.querySelector(".btn-nonstop-only .custom-control-description")));
+    const airportFields = [...element.querySelectorAll(".autocomplete-airport")];
+    const originField = element.querySelector(".retracted-field-origin .autocomplete-airport") || airportFields[0];
+    const destinationField = airportFields.find((f) => f !== originField);
+    const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), "value");
+    const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
+    addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
+    addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
+    const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
+    if (wwf && visibleText(wwf)) {
+      const a = document.createElement("a");
+      a.href = wwf.getAttribute("href");
+      a.textContent = visibleText(wwf);
+      addRow("Where we fly", a);
+    }
+    const activeLabel = visibleText(element.querySelector('.tab-nav .tab-link.tab-active, .tab-nav [role="tab"][aria-selected="true"]'));
+    if (tabs.length > 1 && activeLabel && activeLabel !== tabs[0]) addRow("Active tab", activeLabel);
+    const hotel = element.querySelector('.tab-content[id$="-hotel-section"], [role="tabpanel"][id$="-hotel-section"]');
+    if (hotel) {
+      const [location, checkIn, checkOut] = [...hotel.querySelectorAll("maui-input")];
+      addRow("Location label", attr(location, "label"));
+      addRow("Location hint", attr(location, "hint"));
+      addRow("Location error", attr(location, "errormessage"));
+      addRow("Check-in label", attr(checkIn, "label"));
+      addRow("Check-in hint", attr(checkIn, "hint"));
+      addRow("Check-out label", attr(checkOut, "label"));
+      addRow("Check-out hint", attr(checkOut, "hint"));
+      addRow("Hotel footnote", visibleText(hotel.querySelector(".footnote")));
+      addRow("Hotel submit label", visibleText(hotel.querySelector('maui-button[behavior="submit"], button[type="submit"]')));
+      addRow("Hotel external note", visibleText(hotel.querySelector('maui-tooltip [slot="box"]')));
+      addRow("Close label", attr(hotel.querySelector(".btn-close [aria-label]"), "aria-label"));
+    }
+    const standalone = element.querySelector(".flm-standalone") && !element.querySelector(".flma-hp-evolution-design");
+    const name = standalone ? "flight-search (standalone)" : "flight-search";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/hero-campaign.js
+  function parse2(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -205,7 +322,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -435,7 +552,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -628,7 +745,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -1037,7 +1154,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -1049,7 +1166,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -2119,6 +2236,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "flight-search",
+        "instances": [
+          ".redesignedflightmanager"
+        ]
+      },
+      {
         "name": "hero-campaign",
         "instances": [
           ".inspirationteaser"
@@ -2206,12 +2329,13 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "hero-campaign": parse,
-    "accordion-columns": parse2,
-    "carousel-cards": parse3,
-    "columns-media": parse4,
-    "embed": parse5,
-    "lounge-finder": parse6
+    "flight-search": parse,
+    "hero-campaign": parse2,
+    "accordion-columns": parse3,
+    "carousel-cards": parse4,
+    "columns-media": parse5,
+    "embed": parse6,
+    "lounge-finder": parse7
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2235,7 +2359,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_434976_default = {
+  var tmp_bundle_info_16139_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2265,5 +2389,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_434976_exports);
+  return __toCommonJS(tmp_bundle_info_16139_exports);
 })();

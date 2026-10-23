@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/flugsuche",
   "path": "at/de/flugsuche",
-  "timestamp": "2026-10-23T03:02:09.631Z",
+  "timestamp": "2026-10-23T13:45:21.864Z",
   "title": "",
   "template": "app-entry",
   "blocks": [
+    "flight-search",
     "columns-media",
     "cards-teaser"
   ]

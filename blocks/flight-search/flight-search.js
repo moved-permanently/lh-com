@@ -1,4 +1,4 @@
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
@@ -253,6 +253,59 @@ const DEFAULT_LABELS = {
   },
 };
 
+/**
+ * Hotel tab (Booking.com) texts: the live hotel tab's built-in texts (dcep bundle, chunk of the
+ * HotelTab component), which the live page shows in every market; the tooltip and the close
+ * button follow the page language. Authored rows of the same name win.
+ */
+const HOTEL_LABELS_EN = {
+  'location label': 'Location',
+  'location hint': 'City name',
+  'location error': 'Please enter a destination.',
+  'check-in label': 'Check-In',
+  'check-in hint': 'Date of arrival',
+  'check-in error': 'The check-in date is required.',
+  'check-out label': 'Check-Out',
+  'check-out hint': 'Date of departure',
+  'check-out error': 'The check-out date is required.',
+  'check-out order error': 'Check-Out has to be after Check-In.',
+  'hotel footnote': 'The contract for your accommodation is directly with our hotel partner Booking.com and separate to the Lufthansa flight booking.',
+  'hotel submit label': 'Search hotel',
+  'hotel external note': 'Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies.',
+  'close label': 'Close',
+};
+const HOTEL_LABELS = {
+  en: HOTEL_LABELS_EN,
+  de: {
+    ...HOTEL_LABELS_EN,
+    'hotel external note': 'Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.',
+    'close label': 'Schließen',
+  },
+};
+
+/**
+ * Kind of a tab by its label: the live flight manager's tabs (Flights / Flüge, Rental car /
+ * Mietwagen, Flug & Hotel, Hotel). Only the flight and hotel tabs have a form here; other tabs
+ * open the page on the live site.
+ * @param {string} label
+ * @returns {'flight'|'hotel'|'holiday'|'car'|'other'}
+ */
+export function tabKind(label) {
+  const text = (label || '').toLowerCase();
+  if (/holiday|urlaub|(flug|flight)\s*[&+]\s*hotel/.test(text)) return 'holiday';
+  if (/hotel/.test(text)) return 'hotel';
+  if (/car\b|mietwagen|auto/.test(text)) return 'car';
+  if (/flight|fl[uü]ge?\b/.test(text)) return 'flight';
+  return 'other';
+}
+
+/** The live page of the current replica page (same path on www.lufthansa.com). */
+function livePageUrl(config) {
+  const authored = config['live-page'] && config['live-page'].link;
+  if (authored) return authored.href;
+  return `${LIVE_ORIGIN}${window.location.pathname.replace(/^\/content\//, '/')}`;
+}
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -324,6 +377,115 @@ function adoptStageImage(block) {
   if (section) section.classList.add('full-bleed');
 }
 
+const DAY_MS = 86400000;
+
+/**
+ * Hotel tab: Location, Check-In (today), Check-Out (tomorrow), like the live tab's initial
+ * values; footnote and "Search hotel". The live tab posts the search to its booking service,
+ * which answers with the Booking.com address for a new window; that service is not reachable
+ * from here, so a valid search opens the live page in a new tab (nothing is sent).
+ * @param {Object} config result of readConfigRows
+ * @param {Object} locale result of getLocale()
+ * @param {function} onClose the close button's handler
+ * @returns {HTMLElement} the panel
+ */
+function buildHotelPanel(config, locale, onClose) {
+  const labels = resolveLabels(HOTEL_LABELS, config, locale.lang);
+  const panel = el('div', 'flight-search-panel flight-search-hotel');
+  const form = el('form', 'flight-search-hotel-form');
+  form.noValidate = true;
+  const uid = Math.random().toString(36).slice(2, 8);
+  const fields = el('div', 'flight-search-hotel-fields');
+  const field = (name, input) => {
+    const wrap = el('div', `flight-search-hotel-field flight-search-hotel-${name}`);
+    input.classList.add('flight-search-hotel-input');
+    input.id = `flight-search-hotel-${name}-${uid}`;
+    const label = el('label', 'flight-search-hotel-label', labels[`${name} label`]);
+    label.htmlFor = input.id;
+    const hint = el('p', 'flight-search-hotel-hint', labels[`${name} hint`]);
+    hint.id = `${input.id}-hint`;
+    const error = el('p', 'flight-search-hotel-error');
+    error.id = `${input.id}-error`;
+    error.hidden = true;
+    input.setAttribute('aria-describedby', `${hint.id} ${error.id}`);
+    wrap.append(label, input, hint, error);
+    fields.append(wrap);
+    return { wrap, input, error };
+  };
+  const cityInput = el('input');
+  cityInput.type = 'text';
+  cityInput.name = 'cityName';
+  cityInput.autocomplete = 'off';
+  cityInput.required = true;
+  // an empty placeholder lets the CSS show the label in the empty field (:placeholder-shown)
+  cityInput.placeholder = ' ';
+  const city = field('location', cityInput);
+  const dateInput = (name, date) => {
+    const input = el('input');
+    input.type = 'date';
+    input.name = name;
+    input.required = true;
+    input.value = isoDate(date);
+    input.min = isoDate(new Date());
+    return input;
+  };
+  const today = new Date();
+  const checkIn = field('check-in', dateInput('checkInDate', today));
+  const checkOut = field('check-out', dateInput('checkOutDate', new Date(today.getTime() + DAY_MS)));
+  checkOut.input.min = checkOut.input.value;
+  checkIn.input.addEventListener('change', () => {
+    if (!checkIn.input.value) return;
+    const next = isoDate(new Date(new Date(`${checkIn.input.value}T12:00`).getTime() + DAY_MS));
+    checkOut.input.min = next;
+    if (!checkOut.input.value || checkOut.input.value < next) checkOut.input.value = next;
+  });
+  form.append(fields);
+
+  const footer = el('div', 'flight-search-hotel-footer');
+  footer.append(el('p', 'flight-search-hotel-footnote', labels['hotel footnote']));
+  const submit = el('button', 'flight-search-hotel-submit button primary', labels['hotel submit label']);
+  submit.type = 'submit';
+  // the live "external website" tooltip of the button
+  submit.title = labels['hotel external note'];
+  const note = el('span', 'flight-search-sr-only', labels['hotel external note']);
+  note.id = `flight-search-hotel-note-${uid}`;
+  submit.setAttribute('aria-describedby', note.id);
+  footer.append(submit, note);
+  form.append(footer);
+
+  const close = el('button', 'flight-search-close');
+  close.type = 'button';
+  close.setAttribute('aria-label', labels['close label']);
+  close.title = labels['close label'];
+  close.addEventListener('click', onClose);
+  form.append(close);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const checks = [
+      [city, !cityInput.value.trim() && labels['location error']],
+      [checkIn, !checkIn.input.value && labels['check-in error']],
+      [checkOut, (!checkOut.input.value && labels['check-out error'])
+        || (checkIn.input.value && checkOut.input.value <= checkIn.input.value
+          && labels['check-out order error'])],
+    ];
+    checks.forEach(([f, message]) => {
+      f.error.textContent = message || '';
+      f.error.hidden = !message;
+      f.wrap.classList.toggle('invalid', Boolean(message));
+      f.input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    });
+    const invalid = checks.find(([, message]) => message);
+    if (invalid) {
+      invalid[0].input.focus();
+      return;
+    }
+    window.open(livePageUrl(config), '_blank', 'noopener');
+  });
+  panel.append(form);
+  return panel;
+}
+
 export default function decorate(block) {
   const locale = getLocale();
   const config = readConfigRows(block);
@@ -339,8 +501,14 @@ export default function decorate(block) {
   };
 
   const content = document.createDocumentFragment();
+  // standalone design (every page but the homepage): a card with a tab bar; a hotel tab or
+  // further tabs (cash-and-miles: Flights, Rental car, Hotel) get the tab bar in any design
+  const tabKinds = settings.tabs.map(tabKind);
+  const hasFlight = !settings.tabs.length || tabKinds.includes('flight');
+  const tabbed = settings.tabs.length > 0
+    && (block.classList.contains('standalone') || tabKinds.some((k) => k !== 'flight'));
 
-  if (settings.tabs.length) {
+  if (settings.tabs.length && !tabbed) {
     const tabBar = el('div', 'flight-search-tabs');
     tabBar.append(el('span', 'flight-search-tab', settings.tabs[0]));
     content.append(tabBar);
@@ -546,16 +714,79 @@ export default function decorate(block) {
       });
   });
 
-  content.append(form);
-
+  const flightContent = [form];
   if (links && links.querySelector('a[href]')) {
     const linkRow = el('div', 'flight-search-links');
     linkRow.append(...links.childNodes);
-    content.append(linkRow);
+    flightContent.push(linkRow);
+  }
+
+  if (!tabbed) {
+    content.append(...flightContent);
+  } else {
+    const uid = Math.random().toString(36).slice(2, 8);
+    const panels = {};
+    if (hasFlight) {
+      panels.flight = el('div', 'flight-search-panel flight-search-flight');
+      panels.flight.append(...flightContent);
+    }
+    const tabBar = el('div', 'flight-search-tabs');
+    tabBar.setAttribute('role', 'tablist');
+    const tabButtons = [];
+    // i < 0: every panel closed (the hotel tab's close button), the tabs open them again
+    const select = (i) => {
+      tabButtons.forEach((tab, j) => {
+        tab.setAttribute('aria-selected', String(j === i));
+        tab.tabIndex = j === i || (i < 0 && j === 0) ? 0 : -1;
+      });
+      Object.entries(panels).forEach(([kind, panel]) => {
+        panel.hidden = i < 0 || tabKinds[i] !== kind;
+      });
+      block.classList.toggle('flight-search-closed', i < 0);
+    };
+    if (tabKinds.includes('hotel')) panels.hotel = buildHotelPanel(config, locale, () => select(-1));
+    settings.tabs.forEach((label, i) => {
+      const kind = tabKinds[i];
+      const tab = el('button', `flight-search-tab flight-search-tab-${kind}`);
+      tab.type = 'button';
+      tab.setAttribute('role', 'tab');
+      tab.id = `flight-search-tab-${kind}-${uid}`;
+      tab.append(el('span', 'flight-search-tab-label', label));
+      const panel = panels[kind];
+      if (panel && !panel.id) {
+        panel.id = `flight-search-panel-${kind}-${uid}`;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tab.id);
+        tab.setAttribute('aria-controls', panel.id);
+      }
+      // tabs without a form here (rental car) open the page on the live site
+      tab.addEventListener('click', () => {
+        if (panel) select(i);
+        else window.open(livePageUrl(config), '_blank', 'noopener');
+      });
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const next = tabButtons[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabButtons.length)
+          % tabButtons.length];
+        next.focus();
+      });
+      tabButtons.push(tab);
+      tabBar.append(tab);
+    });
+    content.append(tabBar, ...Object.values(panels));
+    const authoredActive = text('active-tab').toLowerCase();
+    const active = settings.tabs.findIndex((l) => l.toLowerCase() === authoredActive);
+    select(active >= 0 && panels[tabKinds[active]] ? active : tabKinds.findIndex((k) => panels[k]));
   }
 
   block.replaceChildren(content);
   if (locale.aircore) adoptStageImage(block);
+
+  if (!hasFlight) {
+    // hotel only: no live data (the live hotel tab shows its built-in texts)
+    markSource(block, {}, []);
+    return;
+  }
 
   loadFlightSearchData(settings, locale).then((data) => {
     Object.assign(sources, data.sources);

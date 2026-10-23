@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/hotel-offers",
   "path": "de/en/hotel-offers",
-  "timestamp": "2026-10-23T03:45:23.864Z",
+  "timestamp": "2026-10-23T13:41:52.194Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "flight-search",
     "columns-media",
     "columns-media",
     "columns-media",

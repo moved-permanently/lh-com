@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/book-and-manage/stopover",
   "path": "gb/en/book-and-manage/stopover",
-  "timestamp": "2026-10-23T02:29:17.524Z",
+  "timestamp": "2026-10-23T13:45:51.624Z",
   "title": "",
   "template": "campaign",
   "blocks": [
+    "flight-search",
     "hero-campaign",
     "columns-media",
     "columns-media",

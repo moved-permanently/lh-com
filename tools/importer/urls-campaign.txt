@@ -1,4 +1,4 @@
-https://www.lufthansa.com/gb/en/frankfurt-fair
-https://www.lufthansa.com/gb/en/lufthansa-city/culinaryjourney
-https://www.lufthansa.com/gb/en/most-significant-route
-https://www.lufthansa.com/gb/en/munich-fair
+https://www.lufthansa.com/de/en/book-and-manage/stopover
+https://www.lufthansa.com/de/de/book-and-manage/stopover
+https://www.lufthansa.com/at/de/book-and-manage/stopover
+https://www.lufthansa.com/gb/en/book-and-manage/stopover

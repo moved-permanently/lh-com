@@ -482,7 +482,7 @@
  "https://www.lufthansa.com/de/en/cash-and-miles": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.406Z"
+  "at": "2026-10-23T13:42:07.233Z"
  },
  "https://www.lufthansa.com/de/en/check-in-baggage": {
   "template": "info",
@@ -682,7 +682,7 @@
  "https://www.lufthansa.com/de/en/hotel-offers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:46:28.056Z"
+  "at": "2026-10-23T13:42:07.233Z"
  },
  "https://www.lufthansa.com/de/en/lh-rentalcar": {
   "template": "info",
@@ -1132,7 +1132,7 @@
  "https://www.lufthansa.com/de/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.261Z"
+  "at": "2026-10-23T13:45:59.120Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -1582,7 +1582,7 @@
  "https://www.lufthansa.com/de/en/flight-search": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T13:45:37.100Z"
  },
  "https://www.lufthansa.com/de/en/my-bookings": {
   "template": "app-entry",
@@ -1822,7 +1822,7 @@
  "https://www.lufthansa.com/de/de/cash-and-miles": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.406Z"
+  "at": "2026-10-23T13:46:24.807Z"
  },
  "https://www.lufthansa.com/de/de/check-in-baggage": {
   "template": "info",
@@ -2027,7 +2027,7 @@
  "https://www.lufthansa.com/de/de/hotelangebote": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:46:28.059Z"
+  "at": "2026-10-23T13:46:24.816Z"
  },
  "https://www.lufthansa.com/de/de/mietwagenangebote": {
   "template": "info",
@@ -2482,7 +2482,7 @@
  "https://www.lufthansa.com/de/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.267Z"
+  "at": "2026-10-23T13:45:59.120Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -2937,7 +2937,7 @@
  "https://www.lufthansa.com/de/de/flugsuche": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T13:45:37.100Z"
  },
  "https://www.lufthansa.com/de/de/meine-buchungen": {
   "template": "app-entry",
@@ -3212,7 +3212,7 @@
  "https://www.lufthansa.com/at/de/cash-and-miles": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.406Z"
+  "at": "2026-10-23T13:46:24.811Z"
  },
  "https://www.lufthansa.com/at/de/check-in-baggage": {
   "template": "info",
@@ -3452,7 +3452,7 @@
  "https://www.lufthansa.com/at/de/hotelangebote": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:46:28.059Z"
+  "at": "2026-10-23T13:46:24.816Z"
  },
  "https://www.lufthansa.com/at/de/mietwagenangebote": {
   "template": "info",
@@ -3937,7 +3937,7 @@
  "https://www.lufthansa.com/at/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.274Z"
+  "at": "2026-10-23T13:45:59.120Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -4387,7 +4387,7 @@
  "https://www.lufthansa.com/at/de/flugsuche": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T13:45:37.100Z"
  },
  "https://www.lufthansa.com/at/de/meine-buchungen": {
   "template": "app-entry",
@@ -4672,7 +4672,7 @@
  "https://www.lufthansa.com/gb/en/cash-and-miles": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:28:35.321Z"
+  "at": "2026-10-23T13:46:24.816Z"
  },
  "https://www.lufthansa.com/gb/en/check-in-baggage": {
   "template": "info",
@@ -4912,7 +4912,7 @@
  "https://www.lufthansa.com/gb/en/hotel-offers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:46:28.060Z"
+  "at": "2026-10-23T13:46:24.816Z"
  },
  "https://www.lufthansa.com/gb/en/lh-rentalcar": {
   "template": "info",
@@ -5397,7 +5397,7 @@
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.280Z"
+  "at": "2026-10-23T13:45:59.120Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -5847,7 +5847,7 @@
  "https://www.lufthansa.com/gb/en/flight-search": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T13:45:37.100Z"
  },
  "https://www.lufthansa.com/gb/en/my-bookings": {
   "template": "app-entry",

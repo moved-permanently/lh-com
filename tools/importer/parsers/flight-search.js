@@ -18,6 +18,12 @@
  *   .btn-nonstop-only .custom-control-description -> Nonstop label
  *   origin input value or data-dcep.prefilledOrigin (only when it contains an IATA code)
  *   .flma-where-we-fly-wrapper link            -> Where we fly
+ *   .tab-link.tab-active (not the first tab)   -> Active tab
+ *   hotel tab panel maui-input label/hint/errormessage, .footnote, submit, tooltip box
+ *                                              -> Location/Check-in/Check-out label and hint,
+ *                                                 Location error, Hotel footnote, Hotel submit
+ *                                                 label, Hotel external note, Close label
+ *   .flm-standalone (not the homepage design)  -> variant "standalone"
  * Not authored: From/To/Date/Submit labels and the date error (the snapshot shows the built-in
  * texts, the live site and the block use labels/flightmanager and labels/common).
  */
@@ -161,6 +167,33 @@ export default function parse(element, { document }) {
     addRow('Where we fly', a);
   }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'flight-search', cells });
+  // Active tab (activeTab of the component): only written when it is not the first tab.
+  const activeLabel = visibleText(element.querySelector('.tab-nav .tab-link.tab-active, .tab-nav [role="tab"][aria-selected="true"]'));
+  if (tabs.length > 1 && activeLabel && activeLabel !== tabs[0]) addRow('Active tab', activeLabel);
+
+  // Hotel tab (Booking.com), rendered only when it is the active tab (hotel-offers): the texts of
+  // its maui-input fields, footnote, submit button and "external website" tooltip. The live page
+  // shows these built-in texts, not the labels/flightmanager hotel labels.
+  const hotel = element.querySelector('.tab-content[id$="-hotel-section"], [role="tabpanel"][id$="-hotel-section"]');
+  if (hotel) {
+    const [location, checkIn, checkOut] = [...hotel.querySelectorAll('maui-input')];
+    addRow('Location label', attr(location, 'label'));
+    addRow('Location hint', attr(location, 'hint'));
+    addRow('Location error', attr(location, 'errormessage'));
+    addRow('Check-in label', attr(checkIn, 'label'));
+    addRow('Check-in hint', attr(checkIn, 'hint'));
+    addRow('Check-out label', attr(checkOut, 'label'));
+    addRow('Check-out hint', attr(checkOut, 'hint'));
+    addRow('Hotel footnote', visibleText(hotel.querySelector('.footnote')));
+    addRow('Hotel submit label', visibleText(hotel.querySelector('maui-button[behavior="submit"], button[type="submit"]')));
+    addRow('Hotel external note', visibleText(hotel.querySelector('maui-tooltip [slot="box"]')));
+    addRow('Close label', attr(hotel.querySelector('.btn-close [aria-label]'), 'aria-label'));
+  }
+
+  // Standalone design (.flm-standalone: every page but the homepage, whose stage uses the
+  // hp-evolution design): a card with the tab bar.
+  const standalone = element.querySelector('.flm-standalone') && !element.querySelector('.flma-hp-evolution-design');
+  const name = standalone ? 'flight-search (standalone)' : 'flight-search';
+  const block = WebImporter.Blocks.createBlock(document, { name, cells });
   element.replaceWith(block);
 }
