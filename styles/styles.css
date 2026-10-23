@@ -882,7 +882,7 @@ main:has(.article-header) .default-content-wrapper > blockquote {
 }
 
 /* .quote-text: LufthansaHead bold 2.8-3.6rem, line-height 110% */
-main:has(.article-header) .default-content-wrapper > blockquote > p:first-child {
+main:has(.article-header) .default-content-wrapper > blockquote > :first-child {
   margin: 0;
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -891,7 +891,7 @@ main:has(.article-header) .default-content-wrapper > blockquote > p:first-child 
 }
 
 /* .subline-text: LufthansaText light 1.6rem, line-height 150%, 1rem above */
-main:has(.article-header) .default-content-wrapper > blockquote > p + p {
+main:has(.article-header) .default-content-wrapper > blockquote > * + * {
   margin: 10px 0 0;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
