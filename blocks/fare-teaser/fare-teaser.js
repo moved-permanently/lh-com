@@ -23,6 +23,33 @@ const LIVE_LABELS = {
 const LABEL_BUNDLES = ['fareteaserstatic'];
 
 /**
+ * One Destinations entry: a destination ("New York (NYC)", "NYC") or a route with its own
+ * origin ("Munich (MUC) - New York (NYC)", "MUC-NYC"; teasers with routes from several
+ * origins). Names in brackets are kept as authored.
+ * @param {string} value
+ * @returns {{destination: string, destinationName: string, origin?: string, originName?: string}}
+ */
+export function parseFareRoute(value) {
+  const codes = [...value.matchAll(/\(([A-Za-z]{3})\)/g)].map((m) => m[1].toUpperCase());
+  if (codes.length >= 2) {
+    const [from, to] = value.split(/\)\s*[-–>]\s*/);
+    return {
+      origin: codes[0],
+      originName: parseAirportName(`${from})`),
+      destination: codes[1],
+      destinationName: parseAirportName(to || ''),
+    };
+  }
+  const bare = value.trim().match(/^([A-Za-z]{3})\s*[-–>]\s*([A-Za-z]{3})$/);
+  if (bare) {
+    return {
+      origin: bare[1].toUpperCase(), originName: '', destination: bare[2].toUpperCase(), destinationName: '',
+    };
+  }
+  return { destination: parseAirportCode(value), destinationName: parseAirportName(value) };
+}
+
+/**
  * Settings of an authored block (the live component's data-dcep): origin, the routes, trip
  * duration, cabin, trip type and the months the fares are searched in.
  * @param {Object} config result of readConfigRows
@@ -40,10 +67,7 @@ export function readFareTeaserSettings(config, locale) {
     origin: parseAirportCode(originValue) || locale.homeAirport,
     originName: parseAirportCode(originValue) ? parseAirportName(originValue) : '',
     destinations: (pick(config, 'destinations', 'destination') || { list: [] }).list
-      .map((value) => ({
-        destination: parseAirportCode(value),
-        destinationName: parseAirportName(value),
-      }))
+      .map(parseFareRoute)
       .filter((d) => d.destination),
     tripDuration: parseInt(text('trip-duration', 'duration'), 10) || 7,
     cabin: (text('cabin') || 'E').toUpperCase(),
@@ -62,7 +86,7 @@ export function fareTeaserRequests(settings, locale) {
   const fares = settings.destinations.length
     ? fareTeaserManualRequest({
       travels: settings.destinations.map((d) => ({
-        destination: d.destination, origin: settings.origin,
+        destination: d.destination, origin: d.origin || settings.origin,
       })),
       cabin: settings.cabin,
       tripType: settings.tripType,
@@ -100,8 +124,8 @@ export async function loadFareTeaserData(settings, locale) {
   const [offers, live, conditions, localeData] = await Promise.all([
     // exact: a recording for another cabin, trip type or months must not show its prices
     settle('fares', fetchRequest(requests.fares, locale, { exact: true }), (data) => (manual
-      ? mapManualOffers(data).filter((o) => o.origin === settings.origin
-        && settings.destinations.some((d) => d.destination === o.destination))
+      ? mapManualOffers(data).filter((o) => settings.destinations
+        .some((d) => d.destination === o.destination && (d.origin || settings.origin) === o.origin))
       : mapOffers(data).map((o) => ({
         origin: settings.origin,
         originName: '',
@@ -262,12 +286,13 @@ export default async function decorate(block) {
   const settings = readFareTeaserSettings(config, locale);
   const conditionsCell = (pick(config, 'conditions', 'conditions-label') || {}).cell;
 
+  // a route's own origin (several origins) wins over the Origin row
   const routeFor = (d) => ({
-    origin: settings.origin,
-    originName: settings.originName,
     tripDuration: settings.tripDuration,
     cabin: settings.cabin,
     ...d,
+    origin: d.origin || settings.origin,
+    originName: d.origin ? d.originName : settings.originName,
   });
   const list = el('ul', 'fare-teaser-list');
   list.append(...settings.destinations
@@ -301,20 +326,20 @@ export default async function decorate(block) {
       list.append(li);
     });
   } else {
-    settings.destinations.forEach((d) => {
-      const offer = data.offers.find((o) => o.destination === d.destination);
-      const li = list.querySelector(`[data-destination="${d.destination}"]`);
-      if (offer && li) applyOffer(li, offer, routeFor(d), labels, locale, data.localeData);
+    settings.destinations.forEach((d, i) => {
+      const route = routeFor(d);
+      const offer = data.offers.find((o) => o.destination === d.destination
+        && o.origin === route.origin);
+      const li = list.children[i];
+      if (offer && li) applyOffer(li, offer, route, labels, locale, data.localeData);
     });
   }
 
-  // the origin is the same for every route: name all teasers once the service names it
-  const namedOrigin = !settings.originName && data.offers.find((o) => o.originName);
-  if (namedOrigin) {
-    list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
-      if (span.textContent === settings.origin) span.textContent = namedOrigin.originName;
-    });
-  }
+  // teasers without a fare still show the origin's name once the service names it
+  list.querySelectorAll('.fare-teaser-origin').forEach((span) => {
+    const named = data.offers.find((o) => o.origin === span.textContent && o.originName);
+    if (named) span.textContent = named.originName;
+  });
 
   fillConditions(footer, data.conditions);
 

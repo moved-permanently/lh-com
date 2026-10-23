@@ -36,13 +36,159 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_415817_exports = {};
-  __export(tmp_bundle_insights_415817_exports, {
-    default: () => tmp_bundle_insights_415817_default
+  var tmp_bundle_insights_28420_exports = {};
+  __export(tmp_bundle_insights_28420_exports, {
+    default: () => tmp_bundle_insights_28420_default
   });
 
-  // tools/importer/parsers/article-header.js
+  // tools/importer/parsers/fare-teaser.js
   function parse(element, { document }) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean2(clone.textContent);
+    };
+    const attr = (node, name) => clean2(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean2(v)) ? clean2(v).toUpperCase() : "";
+    let props = {};
+    const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
+    if (propsHost) {
+      try {
+        props = JSON.parse(propsHost.getAttribute("data-dcep")) || {};
+      } catch (e) {
+        props = {};
+      }
+    }
+    const routes = [...element.querySelectorAll(".fareteaser-recommendation")].map((card) => {
+      const link = card.querySelector("a[href]");
+      let params = new URLSearchParams();
+      let url = null;
+      if (link) {
+        try {
+          url = new URL(link.getAttribute("href"), "https://www.lufthansa.com/");
+          params = url.searchParams;
+        } catch (e) {
+        }
+      }
+      return {
+        url,
+        origin: code(params.get("OriginCode")),
+        originName: visibleText(card.querySelector(".fareteaser-recommendation-origin")),
+        destination: code(params.get("DestinationCode")),
+        destinationName: visibleText(card.querySelector(".fareteaser-recommendation-destination")),
+        tripDuration: clean2(params.get("TripDuration")),
+        cabin: clean2(params.get("Cabin"))
+      };
+    });
+    const manual = Array.isArray(props.fareTeaserManualTravels) ? props.fareTeaserManualTravels : [];
+    const named = (c, name) => c ? name ? `${name} (${c})` : c : "";
+    const cells = [];
+    const addRow = (key, value) => {
+      if (value === null || value === void 0) return;
+      if (typeof value === "string" && !value) return;
+      if (Array.isArray(value) && !value.length) return;
+      cells.push([key, value]);
+    };
+    const originCode = code(manual[0] && manual[0].origin) || (routes.find((r) => r.origin) || {}).origin || "";
+    const originRoute = routes.find((r) => r.origin === originCode && r.originName);
+    addRow("Origin", named(originCode, originRoute && originRoute.originName));
+    const destCodes = manual.length ? manual.map((t) => code(t.destination)).filter(Boolean) : routes.map((r) => r.destination).filter(Boolean);
+    const origins = [...new Set(manual.map((t) => code(t.origin)).filter(Boolean))];
+    let destinations;
+    if (origins.length > 1) {
+      destinations = manual.filter((t) => code(t.origin) && code(t.destination)).map((t) => {
+        const o = code(t.origin);
+        const d = code(t.destination);
+        const r = routes.find((x) => x.origin === o && x.destination === d) || routes.find((x) => x.destination === d) || {};
+        const originName = (routes.find((x) => x.origin === o && x.originName) || {}).originName;
+        return `${named(o, originName)} - ${named(d, r.destinationName)}`;
+      });
+    } else {
+      destinations = [...new Set(destCodes)].map((c) => {
+        const r = routes.find((x) => x.destination === c);
+        return named(c, r && r.destinationName);
+      });
+    }
+    addRow("Destinations", destinations.join(", "));
+    const firstRoute = routes.find((r) => r.url) || {};
+    addRow("Trip duration", clean2(String(props.tripDuration || "")) || firstRoute.tripDuration || "");
+    addRow("Cabin", clean2(props.cabin) || firstRoute.cabin || "");
+    const tripType = clean2(props.tripType).toUpperCase();
+    if (tripType === "O") addRow("Trip type", "One way");
+    const months = clean2(String(props.travelMonths || "")).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
+    addRow("Travel months", months.join(","));
+    addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
+    if (firstRoute.url && !/^\/[a-z]{2}\/[a-z]{2}\/book-and-manage\/destination$/.test(firstRoute.url.pathname.replace(/\.html$/, ""))) {
+      let pattern = `${firstRoute.url.origin}${firstRoute.url.pathname}${firstRoute.url.search}`;
+      const swap = (value, token) => {
+        if (value) pattern = pattern.split(`=${encodeURIComponent(value)}`).join(`=${token}`);
+      };
+      swap(firstRoute.origin, "{origin}");
+      swap(firstRoute.destination, "{destination}");
+      swap(firstRoute.tripDuration, "{duration}");
+      swap(firstRoute.cabin, "{cabin}");
+      if (pattern.includes("{origin}") || pattern.includes("{destination}")) addRow("Link", pattern);
+    }
+    const conditions = [];
+    const footerText = clean2(props.footerText);
+    if (footerText) {
+      const p = document.createElement("p");
+      p.textContent = footerText;
+      conditions.push(p);
+    }
+    const trigger = element.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    const triggerHref = trigger && trigger.getAttribute("href");
+    if (triggerLabel) {
+      const p = document.createElement("p");
+      if (triggerHref && !triggerHref.startsWith("#")) {
+        const a = document.createElement("a");
+        a.href = triggerHref;
+        a.textContent = triggerLabel;
+        p.append(a);
+      } else {
+        const strong = document.createElement("strong");
+        strong.textContent = triggerLabel;
+        p.append(strong);
+      }
+      conditions.push(p);
+    }
+    if (trigger) {
+      const dialogs = [...document.querySelectorAll("maui-modal")].filter((m) => !element.contains(m) && m.querySelector(":scope > .richtext") && !m.querySelector("maui-button, maui-button-link, form, input"));
+      const owners = [...document.querySelectorAll(".disclaimerandconditions")].map((d) => d.closest('[class*="fareteaser"].section, .section') || d).filter((o, i, all) => all.indexOf(o) === i);
+      const index = Math.max(0, owners.findIndex((o) => o === element || o.contains(element) || element.contains(o)));
+      const dialog = dialogs[Math.min(index, dialogs.length - 1)];
+      if (dialog) {
+        dialog.querySelectorAll(".richtext p, .richtext li").forEach((node) => {
+          const text = visibleText(node);
+          if (!text) return;
+          const p = document.createElement("p");
+          p.innerHTML = node.innerHTML;
+          p.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+          conditions.push(p);
+        });
+      }
+    }
+    addRow("Conditions", conditions);
+    const headline = element.querySelector("maui-headline, h2, h3");
+    const headingText = visibleText(headline) || clean2(props.headline);
+    const block = WebImporter.Blocks.createBlock(document, { name: "fare-teaser", cells });
+    if (headingText) {
+      const type = attr(headline, "type").toLowerCase();
+      const level = /^h[1-6]$/.test(type) ? type : headline && /^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : "h2";
+      const heading = document.createElement(level);
+      heading.textContent = headingText;
+      element.replaceWith(heading, block);
+    } else {
+      element.replaceWith(block);
+    }
+  }
+
+  // tools/importer/parsers/article-header.js
+  function parse2(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -179,7 +325,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/price-bar.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -321,7 +467,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -514,7 +660,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -692,7 +838,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -717,7 +863,7 @@ var CustomImportScript = (() => {
       el.querySelectorAll("em, i, span").forEach((s) => {
         if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean2(s.textContent) && !s.querySelector("img")) s.remove();
       });
-      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
       el.removeAttribute("class");
       if (keep.length) el.className = keep.join(" ");
       return el;
@@ -777,6 +923,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -1096,7 +1247,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/related-articles.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1153,7 +1304,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -1917,17 +2068,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -2235,6 +2388,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "fare-teaser",
+        "instances": [
+          ".fareteaserstatic"
+        ]
+      },
+      {
         "name": "article-header",
         "instances": [
           ".article-details-page > .article-feature-image"
@@ -2376,13 +2535,14 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "article-header": parse,
-    "price-bar": parse2,
-    "carousel-cards": parse3,
-    "cards-teaser": parse4,
-    "columns-media": parse5,
-    "related-articles": parse6,
-    "carousel-images": parse7
+    "fare-teaser": parse,
+    "article-header": parse2,
+    "price-bar": parse3,
+    "carousel-cards": parse4,
+    "cards-teaser": parse5,
+    "columns-media": parse6,
+    "related-articles": parse7,
+    "carousel-images": parse8
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2406,7 +2566,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_415817_default = {
+  var tmp_bundle_insights_28420_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2436,5 +2596,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_415817_exports);
+  return __toCommonJS(tmp_bundle_insights_28420_exports);
 })();

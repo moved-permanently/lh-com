@@ -1668,6 +1668,12 @@
       ],
       "blocks": [
         {
+          "name": "fare-teaser",
+          "instances": [
+            ".fareteaserstatic"
+          ]
+        },
+        {
           "name": "article-header",
           "instances": [
             ".article-details-page > .article-feature-image"

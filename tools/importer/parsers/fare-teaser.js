@@ -81,10 +81,25 @@ export default function parse(element, { document }) {
   const destCodes = manual.length
     ? manual.map((t) => code(t.destination)).filter(Boolean)
     : routes.map((r) => r.destination).filter(Boolean);
-  const destinations = [...new Set(destCodes)].map((c) => {
-    const r = routes.find((x) => x.destination === c);
-    return named(c, r && r.destinationName);
-  });
+  // routes from several origins (articles/highlights/all-it-takes-is-a-yes: MUC and FRA): every
+  // entry names its origin, "Munich (MUC) - New York (NYC)", in the order of the live request
+  const origins = [...new Set(manual.map((t) => code(t.origin)).filter(Boolean))];
+  let destinations;
+  if (origins.length > 1) {
+    destinations = manual.filter((t) => code(t.origin) && code(t.destination)).map((t) => {
+      const o = code(t.origin);
+      const d = code(t.destination);
+      const r = routes.find((x) => x.origin === o && x.destination === d)
+        || routes.find((x) => x.destination === d) || {};
+      const originName = (routes.find((x) => x.origin === o && x.originName) || {}).originName;
+      return `${named(o, originName)} - ${named(d, r.destinationName)}`;
+    });
+  } else {
+    destinations = [...new Set(destCodes)].map((c) => {
+      const r = routes.find((x) => x.destination === c);
+      return named(c, r && r.destinationName);
+    });
+  }
   addRow('Destinations', destinations.join(', '));
 
   const firstRoute = routes.find((r) => r.url) || {};

@@ -36,22 +36,22 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_202263_exports = {};
-  __export(tmp_bundle_homepage_202263_exports, {
-    default: () => tmp_bundle_homepage_202263_default
+  var tmp_bundle_homepage_28420_exports = {};
+  __export(tmp_bundle_homepage_28420_exports, {
+    default: () => tmp_bundle_homepage_28420_default
   });
 
   // tools/importer/parsers/flight-search.js
   function parse(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
+    const attr = (node, name2) => clean2(node ? node.getAttribute(name2) : "");
     if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
       parseAirCore();
       return;
@@ -74,8 +74,8 @@ var CustomImportScript = (() => {
       const airport = (input) => {
         const code = attr(input, "data-value");
         if (!/^[A-Za-z]{3}$/.test(code)) return "";
-        const name = attr(input, "value");
-        return name && name.toUpperCase() !== code.toUpperCase() ? `${name} (${code.toUpperCase()})` : code.toUpperCase();
+        const name2 = attr(input, "value");
+        return name2 && name2.toUpperCase() !== code.toUpperCase() ? `${name2} (${code.toUpperCase()})` : code.toUpperCase();
       };
       const fromInput = element.querySelector("#flightFrom-input");
       const toInput = element.querySelector("#flightTo-input");
@@ -125,9 +125,9 @@ var CustomImportScript = (() => {
     const destinationField = airportFields.find((f) => f !== originField);
     const fieldValue = (field) => attr(field && field.querySelector('input:not([type="hidden"])'), "value");
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
-    addRow("Default origin", withCode(clean(props.prefilledOrigin)) || withCode(fieldValue(originField)));
-    addRow("Default destination", withCode(clean(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
-    if (/^[A-Za-z]$/.test(clean(props.prefilledCabinClass))) addRow("Cabin", clean(props.prefilledCabinClass).toUpperCase());
+    addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
+    addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
       const a = document.createElement("a");
@@ -135,23 +135,42 @@ var CustomImportScript = (() => {
       a.textContent = visibleText(wwf);
       addRow("Where we fly", a);
     }
-    const block = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells });
+    const activeLabel = visibleText(element.querySelector('.tab-nav .tab-link.tab-active, .tab-nav [role="tab"][aria-selected="true"]'));
+    if (tabs.length > 1 && activeLabel && activeLabel !== tabs[0]) addRow("Active tab", activeLabel);
+    const hotel = element.querySelector('.tab-content[id$="-hotel-section"], [role="tabpanel"][id$="-hotel-section"]');
+    if (hotel) {
+      const [location, checkIn, checkOut] = [...hotel.querySelectorAll("maui-input")];
+      addRow("Location label", attr(location, "label"));
+      addRow("Location hint", attr(location, "hint"));
+      addRow("Location error", attr(location, "errormessage"));
+      addRow("Check-in label", attr(checkIn, "label"));
+      addRow("Check-in hint", attr(checkIn, "hint"));
+      addRow("Check-out label", attr(checkOut, "label"));
+      addRow("Check-out hint", attr(checkOut, "hint"));
+      addRow("Hotel footnote", visibleText(hotel.querySelector(".footnote")));
+      addRow("Hotel submit label", visibleText(hotel.querySelector('maui-button[behavior="submit"], button[type="submit"]')));
+      addRow("Hotel external note", visibleText(hotel.querySelector('maui-tooltip [slot="box"]')));
+      addRow("Close label", attr(hotel.querySelector(".btn-close [aria-label]"), "aria-label"));
+    }
+    const standalone = element.querySelector(".flm-standalone") && !element.querySelector(".flma-hp-evolution-design");
+    const name = standalone ? "flight-search (standalone)" : "flight-search";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/hero-card-overlay.js
   function parse2(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const cells = [];
-    const img = [...element.querySelectorAll(".mst-bg-img img, .moving-image img, img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(".mst-card"));
+    const img = [...element.querySelectorAll(".mst-bg-img img, .moving-image img, img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(".mst-card"));
     if (img) {
       const image = document.createElement("img");
       image.src = img.getAttribute("src");
@@ -219,10 +238,10 @@ var CustomImportScript = (() => {
       strong.textContent = triggerLabel;
       title.append(strong);
       conditions.push(title);
-      if (clean(terms.headline)) {
+      if (clean2(terms.headline)) {
         const headline = document.createElement("p");
         const b = document.createElement("strong");
-        b.textContent = clean(terms.headline);
+        b.textContent = clean2(terms.headline);
         headline.append(b);
         conditions.push(headline);
       }
@@ -237,7 +256,7 @@ var CustomImportScript = (() => {
       cells.push(["Conditions", conditions]);
     }
     const variants = [];
-    if (card.classList.contains("align-self-end") || clean(teaser.alignment).toLowerCase() === "right") variants.push("right");
+    if (card.classList.contains("align-self-end") || clean2(teaser.alignment).toLowerCase() === "right") variants.push("right");
     if (teaser.displayImageOnMobile === false) variants.push("no mobile image");
     const name = variants.length ? `Hero Card Overlay (${variants.join(", ")})` : "hero-card-overlay";
     const block = WebImporter.Blocks.createBlock(document, { name, cells });
@@ -247,15 +266,15 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/fare-teaser.js
   function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
-    const code = (v) => /^[A-Za-z]{3}$/.test(clean(v)) ? clean(v).toUpperCase() : "";
+    const attr = (node, name) => clean2(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean2(v)) ? clean2(v).toUpperCase() : "";
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -282,8 +301,8 @@ var CustomImportScript = (() => {
         originName: visibleText(card.querySelector(".fareteaser-recommendation-origin")),
         destination: code(params.get("DestinationCode")),
         destinationName: visibleText(card.querySelector(".fareteaser-recommendation-destination")),
-        tripDuration: clean(params.get("TripDuration")),
-        cabin: clean(params.get("Cabin"))
+        tripDuration: clean2(params.get("TripDuration")),
+        cabin: clean2(params.get("Cabin"))
       };
     });
     const manual = Array.isArray(props.fareTeaserManualTravels) ? props.fareTeaserManualTravels : [];
@@ -299,17 +318,29 @@ var CustomImportScript = (() => {
     const originRoute = routes.find((r) => r.origin === originCode && r.originName);
     addRow("Origin", named(originCode, originRoute && originRoute.originName));
     const destCodes = manual.length ? manual.map((t) => code(t.destination)).filter(Boolean) : routes.map((r) => r.destination).filter(Boolean);
-    const destinations = [...new Set(destCodes)].map((c) => {
-      const r = routes.find((x) => x.destination === c);
-      return named(c, r && r.destinationName);
-    });
+    const origins = [...new Set(manual.map((t) => code(t.origin)).filter(Boolean))];
+    let destinations;
+    if (origins.length > 1) {
+      destinations = manual.filter((t) => code(t.origin) && code(t.destination)).map((t) => {
+        const o = code(t.origin);
+        const d = code(t.destination);
+        const r = routes.find((x) => x.origin === o && x.destination === d) || routes.find((x) => x.destination === d) || {};
+        const originName = (routes.find((x) => x.origin === o && x.originName) || {}).originName;
+        return `${named(o, originName)} - ${named(d, r.destinationName)}`;
+      });
+    } else {
+      destinations = [...new Set(destCodes)].map((c) => {
+        const r = routes.find((x) => x.destination === c);
+        return named(c, r && r.destinationName);
+      });
+    }
     addRow("Destinations", destinations.join(", "));
     const firstRoute = routes.find((r) => r.url) || {};
-    addRow("Trip duration", clean(String(props.tripDuration || "")) || firstRoute.tripDuration || "");
-    addRow("Cabin", clean(props.cabin) || firstRoute.cabin || "");
-    const tripType = clean(props.tripType).toUpperCase();
+    addRow("Trip duration", clean2(String(props.tripDuration || "")) || firstRoute.tripDuration || "");
+    addRow("Cabin", clean2(props.cabin) || firstRoute.cabin || "");
+    const tripType = clean2(props.tripType).toUpperCase();
     if (tripType === "O") addRow("Trip type", "One way");
-    const months = clean(String(props.travelMonths || "")).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
+    const months = clean2(String(props.travelMonths || "")).split(/\s*,\s*/).filter((m) => /^(?:[1-9]|1[0-2])$/.test(m));
     addRow("Travel months", months.join(","));
     addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
     if (firstRoute.url && !/^\/[a-z]{2}\/[a-z]{2}\/book-and-manage\/destination$/.test(firstRoute.url.pathname.replace(/\.html$/, ""))) {
@@ -324,7 +355,7 @@ var CustomImportScript = (() => {
       if (pattern.includes("{origin}") || pattern.includes("{destination}")) addRow("Link", pattern);
     }
     const conditions = [];
-    const footerText = clean(props.footerText);
+    const footerText = clean2(props.footerText);
     if (footerText) {
       const p = document.createElement("p");
       p.textContent = footerText;
@@ -365,7 +396,7 @@ var CustomImportScript = (() => {
     }
     addRow("Conditions", conditions);
     const headline = element.querySelector("maui-headline, h2, h3");
-    const headingText = visibleText(headline) || clean(props.headline);
+    const headingText = visibleText(headline) || clean2(props.headline);
     const block = WebImporter.Blocks.createBlock(document, { name: "fare-teaser", cells });
     if (headingText) {
       const type = attr(headline, "type").toLowerCase();
@@ -378,17 +409,87 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/parsers/media-nodes.js
+  var ZW = /[​-‍﻿]/g;
+  var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+  var isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+  function videoPara(document, src, label, settings) {
+    const a = document.createElement("a");
+    a.setAttribute("href", src);
+    a.textContent = label || src;
+    const p = document.createElement("p");
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(" ")}}`);
+    return p;
+  }
+  function viewerNodes(comp, document) {
+    const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host.getAttribute("data-dcep"));
+    } catch (e) {
+      cfg = {};
+    }
+    const video = comp.querySelector("video[src], video source[src]");
+    const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector(".vjs-poster img[src]");
+    const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement("img");
+      img.setAttribute("src", poster);
+      img.setAttribute("alt", clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+    settings.push("controls", "round-play-button");
+    out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
+    return out;
+  }
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
+
   // tools/importer/parsers/carousel-cards.js
   function parse4(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
       const p = document.createElement("p");
       p.textContent = text;
@@ -422,7 +523,7 @@ var CustomImportScript = (() => {
         });
         const BUTTONS = "maui-button-link, maui-button, a[href]";
         [...card.querySelectorAll(BUTTONS)].filter((b) => !b.parentElement.closest(BUTTONS)).forEach((btn) => {
-          const label = visibleText(btn) || clean(btn.getAttribute("label"));
+          const label = visibleText(btn) || clean2(btn.getAttribute("label"));
           if (!label) return;
           const a = document.createElement("a");
           a.href = btn.getAttribute("href") || "#booking-code";
@@ -440,10 +541,16 @@ var CustomImportScript = (() => {
       element.replaceWith(...intro, block2);
       return;
     }
+    const viewers = [...element.querySelectorAll(".swiper-slide .videoViewer")].filter((v) => !v.closest(".swiper-slide-duplicate"));
+    if (viewers.length && !element.querySelector("a.teaser, .wide-teaser, .compact-teaser")) {
+      const rows = viewers.map((v) => viewerNodes(v, document)).filter((n) => n.length).map((n) => [n]);
+      if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up"], cells: rows }));
+      return;
+    }
     const authors = [...element.querySelectorAll("a.author-slider-link")].filter((a) => !a.closest(".swiper-slide-duplicate"));
     if (authors.length) {
       const rows = authors.map((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           imageCell = document.createElement("img");
@@ -484,7 +591,7 @@ var CustomImportScript = (() => {
       const cards = [...element.querySelectorAll("a.teaser")].filter((a) => !a.closest(".swiper-slide-duplicate") && !(hasDesktopTwin && a.closest(MOBILE)));
       const rows = [];
       cards.forEach((card) => {
-        const img = [...card.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...card.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         let imageCell = "";
         if (img) {
           const image = document.createElement("img");
@@ -526,7 +633,7 @@ var CustomImportScript = (() => {
     const cells = [];
     teasers.forEach((teaser) => {
       const wide = teaser.classList.contains("wide-teaser");
-      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const img = [...teaser.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       let imageCell = "";
       if (img) {
         const image = document.createElement("img");
@@ -568,12 +675,12 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/destination-finder.js
   function parseGrid(element, finder, document) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     const para = (text) => {
       const p = document.createElement("p");
@@ -594,7 +701,7 @@ var CustomImportScript = (() => {
     } catch (e) {
       props = {};
     }
-    const value = (v) => v === null || v === void 0 ? "" : clean(String(v));
+    const value = (v) => v === null || v === void 0 ? "" : clean2(String(v));
     const cells = [];
     const addRow = (key, v) => {
       if (v === null || v === void 0) return;
@@ -607,14 +714,14 @@ var CustomImportScript = (() => {
     addRow("Highlight priority", value(props.priorityOfHighlightingOffers).split(",").map((s) => s.trim()).filter(Boolean).join(", "));
     const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
     const sdsHref = value(props.aiSearchUrl) || sds && sds.getAttribute("href");
-    const sdsLabel = visibleText(sds) || sds && clean(sds.getAttribute("label"));
+    const sdsLabel = visibleText(sds) || sds && clean2(sds.getAttribute("label"));
     if (sdsHref && sdsLabel) addRow("Smart search", [linkPara(sdsHref, sdsLabel)]);
     const redirect = value(props.baseRedirectUrl);
     if (redirect) addRow("Destination page", [linkPara(redirect, redirect.replace(/^.*\//, "") || redirect)]);
     if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow("Default origin", value(props.preselectedOrigin).toUpperCase());
     const copies = [...finder.querySelectorAll("maui-copy")].filter((c) => !c.closest("maui-card, .df-filters, maui-modal"));
     const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
-    const disclaimer = visibleText(disclaimerNode) || clean((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
+    const disclaimer = visibleText(disclaimerNode) || clean2((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
     if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
     const trigger = finder.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
     const triggerLabel = visibleText(trigger);
@@ -643,16 +750,16 @@ var CustomImportScript = (() => {
       return;
     }
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
-    const code = (v) => /^[A-Za-z]{3}$/.test(clean(v)) ? clean(v).toUpperCase() : "";
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const attr = (node, name) => clean2(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean2(v)) ? clean2(v).toUpperCase() : "";
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const para = (text) => {
       const p = document.createElement("p");
       p.textContent = text;
@@ -694,7 +801,7 @@ var CustomImportScript = (() => {
     if (headline) {
       const clone = headline.cloneNode(true);
       clone.querySelectorAll(`.inlinetextautocomplete, .selectable, input, label, button, ${SR_ONLY2}`).forEach((n) => n.remove());
-      headingText = clean(clone.textContent);
+      headingText = clean2(clone.textContent);
     }
     addRow("Heading", headingText);
     const originInput = element.querySelector('.inlinetextautocomplete input:not([type="hidden"]), .autocomplete-airport input:not([type="hidden"])');
@@ -710,13 +817,13 @@ var CustomImportScript = (() => {
     const tripTypes = [...new Set(chips)];
     addRow("Trip types", tripTypes.join(", "));
     if (props.isOneWayDefault === true && tripTypes[1]) addRow("Default trip type", tripTypes[1]);
-    addRow("Trip duration", clean(firstQuery.get("TripDuration")));
+    addRow("Trip duration", clean2(firstQuery.get("TripDuration")));
     if (props.airlineWhitelistingEnabled === true) addRow("Airline whitelist", "yes");
     addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
     const finder = cards.find((a) => a.getAttribute("data-testid") === "destination-finder-card") || cards.find((a) => !a.querySelector("maui-price-display, .ftde-card-price"));
     if (finder) {
       const content = [];
-      const img = [...finder.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+      const img = [...finder.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       if (img) {
         const image = document.createElement("img");
         image.src = img.getAttribute("src");
@@ -774,14 +881,14 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/cards-icon.js
   function parse6(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     let tiles = [...element.querySelectorAll(".icon-teaser")];
     if (!tiles.length) tiles = [...element.querySelectorAll("li, .teasericon")];
     const cells = [];
@@ -790,11 +897,11 @@ var CustomImportScript = (() => {
       const label = visibleText(tile.querySelector(".headline, .teaser-headline, h3, h4")) || visibleText(link);
       let iconCell = "";
       const mauiIcon = tile.querySelector('maui-icon[use], [class*="icon-"][use]');
-      const iconName = mauiIcon ? clean(mauiIcon.getAttribute("use")).toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
+      const iconName = mauiIcon ? clean2(mauiIcon.getAttribute("use")).toLowerCase().replace(/[^a-z0-9-]/g, "-") : "";
       if (iconName) {
         iconCell = `:${iconName}:`;
       } else {
-        const img = [...tile.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...tile.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         if (img) {
           const image = document.createElement("img");
           image.src = img.getAttribute("src");
@@ -820,14 +927,14 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/columns-logos.js
   function parse7(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     let columns = [...element.querySelectorAll(".column-view-item")];
     if (!columns.length) columns = [...element.querySelectorAll(".imagelinklist, .link-list")];
     const row = [];
@@ -846,7 +953,7 @@ var CustomImportScript = (() => {
       const linkSources = items.length ? items.map((li) => li.querySelector("maui-navigation-link[href], a[href], [href]") || li) : [...column.querySelectorAll("maui-navigation-link[href], a[href]")];
       linkSources.forEach((source) => {
         const href = source.getAttribute && source.getAttribute("href");
-        const img = [...source.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")));
+        const img = [...source.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
         const label = visibleText(source);
         if (!img && !label) return;
         const li = document.createElement("li");
@@ -854,14 +961,14 @@ var CustomImportScript = (() => {
         if (img) {
           item = document.createElement("img");
           item.src = img.getAttribute("src");
-          item.alt = clean(img.getAttribute("alt")) || clean(img.getAttribute("title")) || label;
+          item.alt = clean2(img.getAttribute("alt")) || clean2(img.getAttribute("title")) || label;
         } else {
           item = document.createTextNode(label);
         }
         if (href) {
           const a = document.createElement("a");
           a.href = href;
-          const title = img && (clean(img.getAttribute("title")) || clean(img.getAttribute("alt")));
+          const title = img && (clean2(img.getAttribute("title")) || clean2(img.getAttribute("alt")));
           if (title) a.title = title;
           a.append(item);
           li.append(a);
@@ -881,13 +988,13 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/accordion-columns.js
   function parse8(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const ZW = /[​-‍﻿]/g;
-    const clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+    const ZW2 = /[​-‍﻿]/g;
+    const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -943,7 +1050,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean(clone.textContent);
+          const onlyLinks = links.length && !clean2(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -972,7 +1079,7 @@ var CustomImportScript = (() => {
             const walker = document.createTreeWalker(p, 4);
             let node = walker.nextNode();
             while (node) {
-              node.textContent = node.textContent.replace(ZW, "");
+              node.textContent = node.textContent.replace(ZW2, "");
               node = walker.nextNode();
             }
             out.push(p);
@@ -986,9 +1093,14 @@ var CustomImportScript = (() => {
       const columns = [...panel.querySelectorAll(".column-view-item")];
       const parts = columns.length ? columns : [panel];
       parts.forEach((part) => {
-        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]").forEach((node) => {
+        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)").forEach((node) => {
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
-          if (/^H[1-6]$/.test(node.tagName)) {
+          if (node.parentElement && node.parentElement.closest(".videoViewer, .video-player, .iframe-wrapper")) return;
+          if (node.matches(".videoViewer")) {
+            content.push(...viewerNodes(node, document));
+          } else if (node.matches(".video, .iframe")) {
+            content.push(...embedNodes(node, document));
+          } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
             const h = document.createElement(columns.length ? "h3" : node.tagName);
@@ -1059,7 +1171,7 @@ var CustomImportScript = (() => {
           } else if (!/^(data|blob):/i.test(iconSrc)) {
             const img = document.createElement("img");
             img.src = iconSrc;
-            img.alt = clean(icon.getAttribute("alt"));
+            img.alt = clean2(icon.getAttribute("alt"));
             titleCell.push(img, " ");
           }
         }
@@ -1094,7 +1206,7 @@ var CustomImportScript = (() => {
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
     items.forEach((item) => {
-      const title = clean(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -1171,7 +1283,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -1668,7 +1780,7 @@ var CustomImportScript = (() => {
     const m = url.match(/lh-dcep-transform-width-(\d+)/);
     return m ? parseInt(m[1], 10) : 0;
   }
-  function isBroken(url) {
+  function isBroken2(url) {
     return !url || /(^|\/)undefined(\.transform|$|\/)/.test(url) || url === "about:blank";
   }
   function absoluteImageUrl(url) {
@@ -1696,7 +1808,7 @@ var CustomImportScript = (() => {
   function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
-      if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
+      if (url && !isBroken2(url)) candidates.push({ url, w: w || transformWidth(url) });
     };
     const picture = img.closest("picture");
     if (picture) {
@@ -1838,17 +1950,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -2341,7 +2455,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_202263_default = {
+  var tmp_bundle_homepage_28420_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2371,5 +2485,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_202263_exports);
+  return __toCommonJS(tmp_bundle_homepage_28420_exports);
 })();
