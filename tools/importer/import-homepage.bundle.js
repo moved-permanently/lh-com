@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_28420_exports = {};
-  __export(tmp_bundle_homepage_28420_exports, {
-    default: () => tmp_bundle_homepage_28420_default
+  var tmp_bundle_homepage_1538_exports = {};
+  __export(tmp_bundle_homepage_1538_exports, {
+    default: () => tmp_bundle_homepage_1538_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -258,6 +258,7 @@ var CustomImportScript = (() => {
     const variants = [];
     if (card.classList.contains("align-self-end") || clean2(teaser.alignment).toLowerCase() === "right") variants.push("right");
     if (teaser.displayImageOnMobile === false) variants.push("no mobile image");
+    if (card.classList.contains("non-inverted") || teaser.isInverted === false) variants.push("light");
     const name = variants.length ? `Hero Card Overlay (${variants.join(", ")})` : "hero-card-overlay";
     const block = WebImporter.Blocks.createBlock(document, { name, cells });
     element.replaceWith(block);
@@ -1430,11 +1431,23 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+    return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -1499,7 +1512,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -1888,6 +1901,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -2069,6 +2086,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -2455,7 +2473,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_28420_default = {
+  var tmp_bundle_homepage_1538_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2485,5 +2503,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_28420_exports);
+  return __toCommonJS(tmp_bundle_homepage_1538_exports);
 })();
