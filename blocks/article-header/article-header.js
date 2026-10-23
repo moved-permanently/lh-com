@@ -274,6 +274,9 @@ export default function decorate(block) {
     block.style.setProperty('--article-header-scrollbar', `${Math.max(sb, 0)}px`);
   };
   updateScrollbar();
-  window.addEventListener('resize', updateScrollbar, { passive: true });
+  // the scrollbar appears after decorate (body still hidden) without a resize event; the root's
+  // box narrows by the scrollbar width then, and on every window resize
+  if (window.ResizeObserver) new ResizeObserver(updateScrollbar).observe(document.documentElement);
+  else window.addEventListener('resize', updateScrollbar, { passive: true });
   if (!media.children.length) block.classList.add('article-header-no-image');
 }
