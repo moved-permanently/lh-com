@@ -627,3 +627,238 @@ On de/en eat-see-do-berlin at 1440, causes 1-4 add up to -65 -21 -31 +8 +8 = -10
 - **Site-wide, 390 only:** the header is 140 px against live 144 (`--nav-height: 140px`, `styles/styles.css` line 104). Everything at 390 sits 4 px high, which explains part of the y=200 bands at 390 on every template.
 
 **Scratch scripts:** /tmp/c3rows.js, /tmp/c3col.js, /tmp/c3count.js, /tmp/c3fb.js, /tmp/c3unstyled.js, /tmp/c3twocol.js, /tmp/c3gal.js.
+## C4 Info (676 pages, template `info`)
+
+Code-only, 2026-10-23: shots, live screenshots, raw snapshots, `content/*.plain.html` and the live CSS
+(`tools/source-export/static/app.8c42f486.css`, `index.KLnJf0H_.css`) read as files. Nothing was
+captured, imported or previewed. Coordinates are page pixels (1440 = the 1425 px live layout).
+
+**Sample.** 354 of the 676 pages have compares (1009 page-widths; at/de and gb/en only 24). I read
+side by side and measured ink rows on: the two examples (de/de kinder-an-bord 1440/390, de/en
+flying-with-small-children 1440), the worst (de/de first-class-terminal, de/en economy-class,
+first-class, business-class, pax-receipt, travelling-with-special-requirements@768, shopping,
+traveltricks, lounge-companions, cash-and-miles), the median band (upgrade-info, admission-rules,
+get-your-guide, internet-overview, menus-on-long-haul-flights) and at/de, gb/en first-class. The
+structural counts below come from scanning all 676 snapshots (`/tmp/c4/causes.js`).
+
+**Staleness.** 427 of the 1009 info shots are older than the current content (imported 10-23
+03:09-05:00, a few later); 752 are older than the latest preview (10-23 17:00-18:30). Every cause
+below was checked against the current content and code, not only the shot.
+
+**Harness, all widths: the replica is laid out 15 px wider than live.** In every info shot, old
+and new (de/en europcar 10-23 20:10 too), the replica content runs 88-1352 at 1440 (1264 px), 24-744
+at 768 and 22-368 at 390, against 88-1337 / 24-729 / 22-353 live; the header ink ends at 1339 vs
+1325 (de/de kinder-an-bord). `contentWidthMatched` is true in the metrics, so the layout widens
+during the full-page screenshot (no scrollbar while the viewport is the page height) despite the
+`overflow-y: scroll` style in `capture.js`. Text wraps into fewer lines in the replica, worst at
+390, where the column is 4.5 % wider (345 vs 331 px): kinder-an-bord 390, row 1 text 6 vs 7 lines.
+This is part of "mobile is worse" and of every height deficit below.
+- **Hand-over (harness):** check `document.documentElement.clientWidth` right before
+  `page.screenshot`, or shoot viewport-height tiles instead of `fullPage`.
+
+### C4-1 Column-view padding is missing (429 pages, 1751 column views; the main y≈400-1200 cause)
+- **Cause:** live `.section-content .column>.column-view:only-child { padding-top: 3.2rem;
+  padding-bottom: 3.2rem }` at every width (specificity 0,4,0 beats the `:first-child` /
+  `:last-child` zero rules). Every one/two/three/four-column view in an AEM section has 32 px above
+  and below its content, and its last component has no margin. The replica has nothing for it:
+  - columns-media from a top-level `.twocolumn`/`.threecolumn`/`.fourcolumn`: wrapper margin 24
+    only;
+  - a `.onecolumn` is flattened into default content: `* + h2 { margin-top: 40px }` (20 below
+    768) is all the space it gets, and inside the column the same rule adds 16 px too much;
+  - grey bands that are one column view: section padding 40 only.
+- **Evidence:**
+  - kinder-an-bord 1440: intro text ink bottom 396 → first image 456 live, 424 replica (−32);
+    the same at 390: 475 → 539 live, 471 → 503 (−32). Rows to rows are fine (64 live, block gap
+    66). Last link → footer: 32 + 5 live, 47 + 5 replica.
+  - flying-with-small-children 1440, image → onecolumn h2: 804 → 883 live, 809 → 857 (−26 with
+    the 5 px taller replica image); onecolumn end → accordion −24; grey teaser band: title 77 px
+    and cards' end 72 px from the band edges live, 47 / 40 replica.
+  - economy-class grey band (one `.twocolumn` in a grey AEM section): content 72 / 70 px from
+    the band edges live, 40 / 40 replica.
+  - get-your-guide: image 674 → text 754 live, 678 → 710 replica (−48: `.image-wrapper`
+    margin 4rem + 32 vs 24); mid-column h2 after a list: 33 live, 50 replica (+17).
+  - admission-rules (six onecolumns): first text 314 live, 282 replica.
+  - C7 measured the same 31 px on fleet (h2 → first columns-media row 72 vs 41).
+- **Fix, part 1 (importer + block, implemented):**
+  - `tools/importer/parsers/columns-media.js`: option `padded` when the source is a top-level
+    column view (`.section-content > .column > .column-view:only-child`), without a column title,
+    not grey, not an article.
+  - `blocks/columns-media/columns-media.css`: `.columns-media.padded { padding: 32px 0 8px }`.
+    That gives 56 after text (24 + 32), 64 after a heading (32 + 32), 32 to the next component
+    (8 + 24) and 56 at the end of a section (8 + 48). Merged rows keep the 66 px gap (live 64).
+- **Fix, part 2 (importer + CSS, implemented):**
+  - `tools/importer/transformers/lufthansa-sections.js`: a grey region that is one top-level
+    column view (the column view itself grey, or the grey AEM section's only component) gets the
+    extra style `column-view`.
+  - `styles/styles.css`: `main > .section.grey.column-view { padding: calc(var(--section-padding) + 32px) 0 }`.
+- **Hand-over (not implemented):**
+  - one-column views flattened into default content (262 pages, 744 views);
+  - titled two-column views, whose title is default content before the block (97 pages, 140);
+  - column views of `.container-content` (no `.section-content`: `.column-view` padding 4rem/2rem,
+    from 768px).
+
+  These need either a section per column view or a start/end marker on the first and last
+  element. Both change many tuned spacings (`* + h2`, padded sections) and need a browser pass.
+  Expected live values: text → onecolumn 56, image → onecolumn 72, onecolumn → onecolumn 64,
+  inside a column h2 after text 24, last column → next 32.
+- **Pages:**
+  - part 1: 247 pages (620 untitled column views that are not grey);
+  - part 2: 142 pages (180 grey regions: a top-level grey column view or a grey AEM section of
+    one column view; teaser bands "This may also be of interest to you", grey image/text rows).
+  - Other templates get both on their next import (part 1 / part 2 pages): hub 24 / 18,
+    campaign 48 / 24, fleet 20 / 20 (the C7 31 px), legal 12 / 2, form 4 / 0, app-entry 8 / 8.
+    Insights articles are excluded; flight-status is not affected (its column views are nested in
+    a onecolumn, C6 compensates there).
+- **Spot-check:** de/de/kinder-an-bord 1440 (first image at 456, footer 37 px under the last
+  link) and 390 (image at 539); de/en/flying-with-small-children 1440 (band title 77 px under the
+  band top).
+
+### C4-2 The sub-page navigation is lost: content is full width, its links end the page (180 pages)
+- **Cause:** `.contentpage-wrapper.has-subnav` pages have
+  `.content-wrapper > .container-subnav > nav.subpage`: "More information around this topic",
+  the parent page's title and its child pages, the current one bold without a link. The cleanup
+  removes the nav's `<header>` (the chrome selector `header`), and the remaining `<ul>` becomes a
+  bullet list after the content.
+- **Live CSS:**
+  - from 768px: `.container-subnav { position: absolute; inset: -20px 0 auto auto; width: 25%;
+    padding-left: 10px }`, `.subpage { padding: 15px; margin-bottom: 2rem }`;
+  - every component is `width: 75%; padding-right: 10px`, a column view row 75%;
+  - `.subpage header span` 16px/150%, `h2` LufthansaHead 300 22-28px with 1rem above;
+  - `li { padding: 2.4rem 1rem 1rem; border-bottom: 1px solid #ccc }`, the first li 1rem on top;
+  - `a` 18px/150% regular with a chevron; `.active span` bold, no chevron.
+  - Below 768px the nav follows the content, with no padding.
+- **Evidence (de/en/upgrade-info, 1440):**
+  - live image 88-1014 x 275-570 (927 = 75 % − 10) and nav text x 1060-1307 from y 276;
+  - replica image 88-1351 x 275-678, so 108 px taller, every text line wider, and 8 bullet
+    links at the end (y 1490-1770);
+  - at 390, live list rows are 62 / 89 px with chevrons at x 338.
+  - 180 pages have the nav; no stage, teaser band or padded section among them. Median at 1440 is
+    28.6 % with the nav against 19.1 % without it.
+- **Fix (implemented):**
+  - new parser `tools/importer/parsers/subpage-nav.js` (eyebrow, title, list; the current page
+    `<strong>`), mapped as `.container-subnav:has(nav.subpage)` in info, in its own last section;
+  - new block `blocks/subpage-nav` (box, chevrons, from 768px absolute at the content's top
+    right, 20 px above the first element after the h1);
+  - `styles/styles.css`: on `main:has(.subpage-nav)` from 768px, everything else ends 25 % + 10 px
+    before the column's right edge, and running text loses its 66 % limit (the live 75 % wins
+    over `.limited-width`).
+- **Spot-check:** de/en/upgrade-info at 1440 (image 927 wide, nav at x 1050) and 390 (bordered
+  list after the text, 20 px above the footer); gb/en/tiere-als-uebergepaeck.
+
+### C4-3 Tables are flattened into paragraphs (64 pages, 108 tables)
+- **Cause:** info maps no `div.table` (`.cms-table-maui-wrapper > maui-table`). Only fleet maps it,
+  to table-striped. The rows become runs of text and stray footnote digits ("✓ ✓ First Class
+  passengers ... 1").
+- **Evidence:**
+  - de/en/admission-rules 1440: "Lounge access on departure" with an 8-row zebra table
+    (`maui-table equalcolumns`, header row #f5f5f5, 91 px rows) from 1084 to 1881 live; the
+    replica has 28 short paragraphs (993-1890), and the page is 7798 vs 7261 px.
+  - lounge-companions: three tables of two rows, rendered as one line each.
+  - Live h2 → table is 65 px, the same as fleet's 67 that table-striped already uses.
+- **Fix (implemented):** `page-templates.json` info: `table-striped` for
+  `div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)`, listed after
+  accordion-columns. 156 more tables sit in accordion panels on 24 pages (collapsed on live; the
+  accordion parser still flattens them, hand-over). The header row is kept as the first, grey row,
+  as live draws it.
+- **Spot-check:** de/en/admission-rules 1440 (table 1084-1881), de/en/lounge-companions.
+
+### C4-4 Three- and four-column rows are three/four wide at 768 (163 pages; CSS only)
+- **Cause:** every `.threecolumn`/`.fourcolumn` item is `col-md-6 col-lg`, so 2 per row from
+  768px and all in one row only from 1025px. `columns-media` uses `repeat(--columns-media-cols)`
+  from 768px.
+- **Evidence (travelling-with-special-requirements 768):**
+  - live: 2 per row (images x 24-366 and 388-729); the third item at y 869 under the first, 44 px
+    after the link above (link `.maui-link` 2.4rem + item 2rem);
+  - replica: 3 per row, 3226 → 2226 px.
+- **Fix (implemented):** `blocks/columns-media/columns-media.css`: rows with 3+ cells
+  `repeat(2, …)` and row-gap 44px from 768px, `--columns-media-cols` from 1025px.
+- **Pages:** 163 info, 4 hub, 4 form (current content, no re-import needed).
+- **Spot-check:** de/en/travelling-with-special-requirements 768,
+  de/en/during-your-trip/internet-overview 768.
+
+### C4-5 Travel-class sub-navigation missing (28 pages)
+- **Evidence:** `.subnav-wrapper maui-sub-navigation` (Lufthansa Travel Classes | First | Business
+  | Premium Economy | Economy, or Internet | Wi-Fi | FlyNet): live grey bar 122-185 at 1440,
+  active underline at 182-185, x 88-321. Content starts 63 px lower than in the replica (de/en
+  first-class stage at 210 live, 147 replica). C1.7 mapped it in the hub only.
+- **Fix (implemented):** profile-nav for `.subnav-wrapper maui-sub-navigation` in info (parser and
+  block from C1.7).
+- **Pages:** first-, business-, premium-economy-, economy-class, the first-class sub-pages,
+  internet-overview, lhg-wifi, flynet (×4 locales).
+- **Spot-check:** de/en/first-class 1440 (stage at 210).
+
+### C4-6 Single-slide image carousels stacked (12 pages)
+- **Evidence:** business-class, economy-class and first-class-terminal ×4 have one `.carousel
+  .swiper-single-slide`: on live, 4 collage slides one at a time with dots. The replica stacks all
+  4 (economy-class 1440: about 590 px live, about 2600 px replica).
+- **Fix (implemented):** `carousel-images` for `.carousel:has(.swiper-single-slide)` in info, the
+  same selector as campaign and insights. columns-media already excludes `.carousel`.
+- **Spot-check:** de/en/economy-class 1440.
+
+### C4-7 Teaser band titles lose their size class (60 pages)
+- **Evidence:** "This may also be of interest to you" is `h2.heading-small` (28px light). The
+  carousel-cards parser keeps the class only on article pages, so the replica draws a 36px
+  heading-medium: ink 26 px tall, x 88-495 live; 32 px, x 88-610 replica (flying-with-small-children).
+- **Fix (implemented):** `parsers/carousel-cards.js` always keeps the `heading-*` class of the
+  column title. The cleanup's marker writes `{heading-small}` only when it differs from the level's
+  default.
+- **Pages:** 60 info (h2.heading-small 34, h3.heading-small 26); hub 4 (h3.heading-medium) on its
+  next import.
+
+### C4-8 Author quotes outside articles imported as one body line (20 pages)
+- **Evidence:** `.section-narrow .dcep-author-quote` (de/en first-class: "In Lufthansa First
+  Class, a world awaits you ..."):
+  - live: LufthansaHead bold 36px, 4 lines at x 441-980 (y 2298-2449) in the 720 px narrow
+    section, 128 / 116 px from the images around it;
+  - replica: one 18px line at x 89, about 280 px shorter.
+  - C3-7 converts quotes on article pages only.
+- **Fix (implemented):** the cleanup converts every `.dcep-author-quote` to a `<blockquote>`.
+  `styles.css` styles non-article quotes as `.author-quote` in `.section-narrow`: max-width
+  min(622px, 720px − 2 × margin), centred like the narrow section, 60px (80px from 768px) above
+  and below.
+- **Pages:** first-class, first-class-terminal, carbon-offsetting climate-protection-projects and
+  saf, child-in-businessclass ×4. Campaign's 20 quote pages get it on their next import.
+
+### C4-9 Grey band at the end of the page: 48 px white before the footer (77 pages)
+- **Evidence:** flying-with-small-children 1440: live band 2145-2709 with the footer at 2710; the
+  replica band ends 2630, then 48 px of white. 77 info pages end with a grey band without
+  `.mb-default` (flush), 28 with it (24 px).
+- **Fix (implemented):** the sections transformer adds `flush` to a grey region whose AEM section
+  has no `.mb-default`. `styles.css`: `main > .section.grey:last-child { margin-bottom: 24px }`,
+  `.grey.flush:last-child { margin-bottom: 0 }`. The 24 px rule works without a re-import on every
+  template (info 105, campaign 24, hub 6, fleet 4, app-entry 4, legal 2 pages end grey).
+
+### C4-10 Smaller causes (not implemented)
+- **25 px separators dropped (C2-5):** 351 pages, 1348 separators. Before an h2 the
+  `* + h2` 40 px hides most of it (get-your-guide button → h2: 56 live, 46 replica). Before text
+  it costs 26 px. This needs the same re-verification as C2-5.
+- **Image before a column view:** `.image .image-wrapper { margin-bottom: 4rem }` against the
+  replica's 24px (116 pages, title-intro-image-body layout; part of the C4-1 hand-over).
+- **Passenger receipt form** (`passenger-receipt-portal`, 4 pages: pax-receipt, rechnungsbeleg):
+  the form is not imported (an app widget, 500 px). The first AEM section is padded (h1 40 px
+  lower on live).
+- **Nested icon rows** (shopping ×4, passengers-with-sensory-impairment ×4): a `.fourcolumn` in a
+  `.fourcolumn` with 1/4-width SVG icons is excluded from columns-media, so the icons render
+  content-wide (shopping 1.35x).
+- **Image + headline carousels without teasers** (traveltricks ×4) and onboard-delights ×4 are
+  stacked full width.
+- 390 header 140 vs 144 (site-wide, known).
+
+### Which pages each cause affects (info)
+| cause | pages | needs |
+|---|---|---|
+| C4-1 column-view padding (all) | 429 | part 1 + 2 re-import, rest hand-over |
+| — part 1 untitled columns-media | 247 | re-import |
+| — part 2 grey band = one column view | 142 | re-import |
+| C4-2 sub-page navigation | 180 | re-import |
+| C4-3 tables | 64 | re-import |
+| C4-4 3/4-cell rows at 768 | 163 | none (CSS) |
+| C4-5 travel-class sub-navigation | 28 | re-import |
+| C4-6 single-slide carousels | 12 | re-import |
+| C4-7 teaser band title size | 60 | re-import |
+| C4-8 author quotes | 20 | re-import |
+| C4-9 last grey band | 77 flush / 28 | CSS now (24 px), re-import for 0 |
+| harness 15 px wider layout | all | capture fix |
+
+Scratch scripts are in /tmp/c4: `causes.js` (per-cause page lists → `causes-info.json`),
+`cvctx.js`, `greycv.js`, `lastgrey.js`, `tables.js`, `ink.cjs`, `bands.cjs` and `sbs.sh`.
