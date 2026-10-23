@@ -1,0 +1,38 @@
+{
+  "variantName": "table-price-months",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-london",
+  "visualCharacteristics": {
+    "purpose": "lowest round-trip fare per month for the next 12 months, frozen at import, each month linking to the deep link of its cheapest date",
+    "traits": [
+      "white 86px cards with 1px #dcdcdc border, 8px radius and a light shadow in a horizontal slider, years above the first card of each year",
+      "card height follows the price: the cheapest month is 60px lower than the dearest",
+      "bold 'from' and price at the top, month and date at the bottom, yellow 'Best price' badge on the cheapest month(s)",
+      "dark translucent arrow bars with white chevrons at the slider's edges, hidden at the ends",
+      "below 768px a list: grey date box, price, yellow bar at the right whose row width follows the price"
+    ]
+  },
+  "contentPattern": {
+    "structure": "No header row. Month rows with 4 cells: Year (on the first month of a year, else empty) | Month (Oct.) | Date (28 Oct.) | Price (link 'from 220 €' to the deep link, optionally followed by a bold 'Best price' badge; no link = grey empty card). Optional 2-cell option rows: Heading, Subhead, Best price label, Previous label, Next label. Without a bold badge the cheapest month(s) get it; bar heights are computed from the prices."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "'Lowest available fares' section of the AirCore route pages (section.best-price-per-month).",
+    "pagesUsing": [
+      "/lhg/de/en/o-d/cy-cy/frankfurt-london",
+      "/lhg/de/en/o-d/cy-cy/berlin-rome",
+      "/lhg/de/en/o-d/cy-cy/frankfurt-amman",
+      "/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
+      "/lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
+      "/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
+      "/lhg/de/en/o-d/cy-cy/munich-barcelona",
+      "/lhg/de/en/o-d/cy-cy/munich-los-angeles",
+      "/lhg/de/en/o-d/cy-cy/munich-new-york"
+    ],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-23"
+  },
+  "reuseGuidance": "Use for a frozen fare-per-month chart with links. For live fares use price-bar or fare-teaser; for a list of linked deals table-deals. Exports readMonths, barScale and priceValue for tests."
+}
