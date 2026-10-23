@@ -54,6 +54,9 @@ navigation link.
 `{caption}` at the end of the paragraph right after an image makes it the image's caption
 (14px bold, 10px under the image), as on Lufthansa Insights articles.
 
+`{parallax}` at the end of an image paragraph (after the image) shows the image in a 500px
+high window, cropped to fill it (Lufthansa Insights parallax images, `.parallax-content`).
+
 ### Text width
 
 Running text (paragraphs, lists) uses two thirds of the content width from 1025px (AirCore

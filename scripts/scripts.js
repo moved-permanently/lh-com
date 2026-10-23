@@ -201,7 +201,7 @@ function decorateSectionMetadata(main) {
 }
 
 const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
-const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width|caption|indent-\d{1,3})(?: (?:copytext-(?:small|medium|large)|full-width|limited-width|indent-\d{1,3}))*)\}\s*$/;
+const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|indent-\d{1,3})(?: (?:copytext-(?:small|medium|large)|full-width|limited-width|indent-\d{1,3}))*)\}\s*$/;
 const LIST_STYLE = /\s*\{(full-width|limited-width)\}\s*$/;
 const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
 

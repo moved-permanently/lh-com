@@ -872,6 +872,14 @@ main .default-content-wrapper > p.indent {
   }
 }
 
+/* {parallax} image paragraphs: live .parallax .parallax-content { height: 50rem } at every
+   width, the image cropped to fill it */
+main .default-content-wrapper > p.parallax img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
 /* Insights author quotes (.authorquote .author-quote { margin: 6rem 0, 8rem from 768px;
    max-width: 62.2rem } with .mx-* 16/20/40px): the article card (8.333% from 768px) + the mx */
 main:has(.article-header) .default-content-wrapper > blockquote {

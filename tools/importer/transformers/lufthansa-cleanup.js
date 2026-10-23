@@ -22,7 +22,8 @@
  *    #north-and-south-america, /de/en/baggage#baggage-types -> #types-of-baggage)
  *  - jump links (maui-navigation-link variant="anchor-down") of link lists and column views
  *    become a Jump Links block
- *  - Insights article author quotes (.dcep-author-quote) become a <blockquote>
+ *  - Insights article author quotes (.dcep-author-quote) become a <blockquote>; parallax images
+ *    get a "{parallax}" paragraph marker
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
  *  - normalizes images (AEM and AirCore): largest srcset/<source> rendition, absolute
@@ -462,6 +463,25 @@ function convertAuthorQuotes(document) {
     converted += 1;
   });
   return converted;
+}
+
+/**
+ * Parallax images (.dcep-moving-image with "isParallaxEnabled": true in its data-dcep; live shows
+ * them in a 50rem window, .parallax .parallax-content { height: 50rem }): " {parallax}" after the
+ * image, so its paragraph gets class parallax (scripts.js PARAGRAPH_STYLE, styles.css). Only
+ * default content (images in a block cell are the parser's).
+ */
+function markParallaxImages(document) {
+  let marked = 0;
+  document.querySelectorAll('.dcep-moving-image[data-dcep]').forEach((comp) => {
+    if (!/"isParallaxEnabled"\s*:\s*true/.test(comp.getAttribute('data-dcep') || '')) return;
+    if (comp.closest('table, .column-view-item, .sidebar, .carousel, .teaser')) return;
+    const img = comp.querySelector('img');
+    if (!img) return;
+    img.after(document.createTextNode(' {parallax}'));
+    marked += 1;
+  });
+  return marked;
 }
 
 function removeEmptyComponents(document) {
@@ -1222,6 +1242,7 @@ export default function transform(hookName, element, payload) {
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
     convertAuthorQuotes(document);
+    markParallaxImages(document);
     removeEmptyComponents(document);
     normalizeImages(document, true);
   }
