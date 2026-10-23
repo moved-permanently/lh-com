@@ -1,0 +1,21 @@
+{
+  "variantName": "car-rental",
+  "baseBlock": "car-rental",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/de/sixt",
+  "visualCharacteristics": {
+    "purpose": "Meili car rental search (promo, search form, partner texts) mounted from Meili's script; a look-alike of the empty search form opening the live page when the app cannot run",
+    "traits": [
+      "Meili renders everything inside #mli-root with Lufthansa colours and fonts",
+      "fallback: white box with thin grey lines: drop-off checkbox, location field with search icon, pick-up and drop-off date and time, age and miles checkboxes, 'I live in' and a yellow Search button",
+      "fallback stacks its fields below 768px"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, all optional: Partner ID | 105.14 (data-dcep ptid; default by page name), Script | https://direct-ux.meili.travel/index.js (meili.travel only), Locale | de-DE (default: page locale), Fallback link | live page link (default: www.lufthansa.com + page path). Text rows override the fallback form's labels (Submit label, Location label, ...)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/{sixt,hertz,europcar} and /{de/de,at/de}/mietwagenangebote, /{de/en,gb/en}/lh-rentalcar (16 pages): the only content of the page.",
+  "reuseGuidance": "Reuse unchanged; author Partner ID and Fallback link. One block per page (Meili mounts into #mli-root by id). Exports readCarRentalSettings, buildFallbackForm, defaultDates and TIMING for tools/importer/test-widgets.mjs."
+}

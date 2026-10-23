@@ -51,6 +51,9 @@ import decorateLoungeFinder, {
   readLoungeFinderSettings, loadLoungeFinderContext, loadLounges, loungeStatuses,
 } from '../../blocks/lounge-finder/lounge-finder.js';
 import { loungesRequest } from '../../scripts/lh-api.js';
+import decorateCarRental, {
+  readCarRentalSettings, TIMING as CAR_RENTAL_TIMING,
+} from '../../blocks/car-rental/car-rental.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const verbose = process.argv.includes('--verbose');
@@ -1244,6 +1247,111 @@ const textOf = (node) => (node ? node.textContent : '');
   );
   stubResponses.clear();
   window.location.search = '';
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* Car rental (Meili): #mli-root as the live component, the fallback form when the script fails */
+/* or the app does not mount, a mount replacing it. No network: the script tag is simulated.    */
+/* ------------------------------------------------------------------------------------------- */
+
+{
+  const scripts = [];
+  let scriptOutcome = 'error'; // 'error' | 'load' | 'mount'
+  const docQuery = document.querySelector;
+  document.head = {
+    append(script) {
+      scripts.push(script);
+      setTimeout(() => {
+        if (scriptOutcome === 'error') script.onerror(new Error('blocked'));
+        else {
+          script.onload();
+          if (scriptOutcome === 'mount') {
+            const rootEl = currentCarRoot();
+            if (rootEl) rootEl.classList.add('mli-loaded');
+          }
+        }
+      }, 5);
+    },
+  };
+  let carBlock = null;
+  const currentCarRoot = () => carBlock && carBlock.querySelectorAll('div').find((d) => d.id === 'mli-root');
+  CAR_RENTAL_TIMING.mount = 150;
+  CAR_RENTAL_TIMING.poll = 10;
+  CAR_RENTAL_TIMING.late = 400;
+  const runCarRental = async (page, html, outcome) => {
+    setPage(page);
+    scriptOutcome = outcome;
+    carBlock = parseHtml(html).querySelector('div.car-rental');
+    await decorateCarRental(carBlock);
+    return carBlock;
+  };
+  const carHtml = (rows) => `<div class="car-rental">${rows.map(([k, v]) => `<div><div>${k}</div><div>${v}</div></div>`).join('')}</div>`;
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const pickUpDe = new Intl.DateTimeFormat('de-DE', { weekday: 'short', day: 'numeric', month: 'short' }).format(tomorrow);
+
+  // script blocked: fallback form, German labels, today's default dates, action = live page
+  const failed = await runCarRental('/de/de/sixt', carHtml([['Partner ID', '105.14'], ['Fallback link', '<a href="https://www.lufthansa.com/de/de/sixt">https://www.lufthansa.com/de/de/sixt</a>']]), 'error');
+  const root = currentCarRoot();
+  const form = failed.querySelector('form');
+  const dateValues = failed.querySelectorAll('.car-rental-date').map((b) => textOf(b.querySelector('.car-rental-field-value')));
+  record(
+    { run: 'R', locale: 'de/de', block: 'car-rental', check: 'script error -> fallback form to the live page' },
+    Boolean(root) && root.getAttribute('data-ptid') === '105.14' && root.getAttribute('data-locale') === 'de-DE'
+      && scripts.length === 1 && scripts[0].src === 'https://direct-ux.meili.travel/index.js'
+      && Boolean(form) && form.getAttribute('action') === 'https://www.lufthansa.com/de/de/sixt'
+      && failed.getAttribute('data-lh-source') === 'none' && failed.getAttribute('data-state') === 'fallback'
+      && textOf(failed.querySelector('.car-rental-submit')) === 'Suchen'
+      && dateValues[0] === pickUpDe && !dateValues.includes('Fr., 23. Okt.')
+      && failed.querySelectorAll('button').every((b) => b.type === 'submit'),
+    true,
+    `root ${root ? `${root.getAttribute('data-ptid')} ${root.getAttribute('data-locale')}` : 'missing'}, action ${form ? form.getAttribute('action') : '-'}, dates ${dateValues.join(' / ')}; ${failed.getAttribute('data-lh-sources')}`,
+  );
+
+  // script loads, app never mounts: fallback after the mount timeout; ptid by page name, en-GB
+  scripts.length = 0;
+  const silent = await runCarRental('/gb/en/hertz', '<div class="car-rental"></div>', 'load');
+  const silentRoot = currentCarRoot();
+  record(
+    { run: 'R', locale: 'gb/en', block: 'car-rental', check: 'no mount within the timeout -> fallback' },
+    Boolean(silentRoot) && silentRoot.getAttribute('data-ptid') === '105.13' && silentRoot.getAttribute('data-locale') === 'en-GB'
+      && silent.getAttribute('data-lh-sources') === 'meili:timeout'
+      && silent.querySelector('form').getAttribute('action') === 'https://www.lufthansa.com/gb/en/hertz'
+      && textOf(silent.querySelector('.car-rental-submit')) === 'Search',
+    true,
+    `ptid ${silentRoot ? silentRoot.getAttribute('data-ptid') : '-'}, ${silent.getAttribute('data-lh-sources')}, submit "${textOf(silent.querySelector('.car-rental-submit'))}"`,
+  );
+  // ... and a late mount removes the fallback again
+  silentRoot.classList.add('mli-loaded');
+  await waitFor(() => silent.getAttribute('data-state') === 'mounted', 1000);
+  record(
+    { run: 'R', locale: 'gb/en', block: 'car-rental', check: 'late mount -> fallback removed' },
+    silent.getAttribute('data-lh-source') === 'live' && !silent.querySelector('form'),
+    true,
+    `${silent.getAttribute('data-state')}, ${silent.getAttribute('data-lh-sources')}`,
+  );
+
+  // the app mounts: no fallback, live
+  scripts.length = 0;
+  const live = await runCarRental('/at/de/mietwagenangebote', '<div class="car-rental"></div>', 'mount');
+  const liveRoot = currentCarRoot();
+  record(
+    { run: 'R', locale: 'at/de', block: 'car-rental', check: 'app mounts -> live, no fallback' },
+    live.getAttribute('data-lh-source') === 'live' && !live.querySelector('form')
+      && liveRoot.getAttribute('data-ptid') === '105.11' && liveRoot.getAttribute('data-locale') === 'de-AT',
+    true,
+    `${live.getAttribute('data-state')}, ${liveRoot.getAttribute('data-ptid')} ${liveRoot.getAttribute('data-locale')}`,
+  );
+  // a foreign script row is ignored
+  const settings = readCarRentalSettings(readConfigRows(parseHtml(carHtml([['Script', 'https://evil.example/x.js']])).querySelector('div.car-rental')), getLocale('/de/en/sixt'), '/de/en/sixt');
+  record(
+    { run: 'R', locale: 'de/en', block: 'car-rental', check: 'only meili.travel scripts' },
+    settings.script === 'https://direct-ux.meili.travel/index.js' && settings.locale === 'en-DE' && settings.ptid === '105.14',
+    true,
+    JSON.stringify(settings),
+  );
+  delete document.head;
+  document.querySelector = docQuery;
 }
 
 /* ------------------------------------------------------------------------------------------- */
