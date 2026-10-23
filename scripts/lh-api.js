@@ -155,6 +155,43 @@ export function destinationFinderOffersRequest({
 }
 
 /**
+ * Options of the live lounge finder's "Travel Class or Frequent Flyer Status" select, in the
+ * live order (initialState.statuses of the LoungeFinder app, 4ca8ff36.chunk.js): travel classes
+ * First, Business, Economy, then the frequent flyer statuses HON Circle, Senator, Frequent
+ * Traveller, Star Alliance Gold. ECO is offered only with the feature switch
+ * TEX-APEX-DHTE-22006-lounge-purchase (on in core/feature/list/lh/DE, 2026-10-21) and then
+ * searches purchasable lounges (see the lounge-finder block).
+ */
+export const LOUNGE_STATUSES = [
+  { id: 'FIR', group: 'class' },
+  { id: 'BUS', group: 'class' },
+  { id: 'ECO', group: 'class' },
+  { id: 'HON', group: 'card' },
+  { id: 'SEN', group: 'card' },
+  { id: 'FTL', group: 'card' },
+  { id: 'STA', group: 'card' },
+];
+
+/** Cities the lounge finder offers: GET /service/api/catalogs/lounges/cities */
+export function loungeCitiesRequest() {
+  return catalogRequest('lounges/cities');
+}
+
+/**
+ * Lounges of a city for a travel class or status (catalogs_lounges_customerStatus_citycode_get
+ * of d9631429.chunk.js), e.g. GET /service/api/catalogs/lounges/SEN/FRA
+ * Path: status (FIR, BUS, HON, SEN, FTL, STA; the Economy flow asks for BUS) and the city code
+ * of catalogs/lounges/cities. No query, no body; localized by the X-Portal-* headers.
+ * @param {{status: string, city: string}} options
+ */
+export function loungesRequest({ status, city }) {
+  return {
+    method: 'GET',
+    route: `/service/api/catalogs/lounges/${encodeURIComponent(String(status).toUpperCase())}/${encodeURIComponent(String(city).toUpperCase())}`,
+  };
+}
+
+/**
  * Fetches a request built above.
  * @param {{method: string, route: string, body?: Object}} request
  * @param {Object} locale result of getLocale()
@@ -338,6 +375,96 @@ export function mapRegions(data) {
   return ((data && data.regions) || [])
     .filter((r) => r && r.code && (r.region || r.name))
     .map((r) => ({ code: String(r.code).toUpperCase(), name: r.region || r.name }));
+}
+
+/** {"cities":[{"code":"ABV","city":"Abuja"}]} → [{ code, name }] (catalogs/lounges/cities) */
+export function mapLoungeCities(data) {
+  return ((data && data.cities) || [])
+    .filter((c) => c && isCode(c.code) && c.city)
+    .map((c) => ({ code: c.code.toUpperCase(), name: c.city }));
+}
+
+/** Image width of the live lounge card (MauiImage size S) and its srcset widths. */
+const LOUNGE_IMAGE_WIDTHS = [2560, 1440, 720, 360, 180];
+
+/**
+ * Square lounge image as the live app builds it from imageBaseUrl (data-dcep):
+ * {base}/{loungeid}-square.jpg.transform/lh-dcep-transform-width-{width}/img.jpg, on
+ * www.lufthansa.com; {base}/fallback-square.jpg... when the lounge has no image (404).
+ * @param {string} base e.g. /content/dam/lh/images/lounges
+ * @param {string} id loungeid or 'fallback'
+ * @param {number} [width]
+ */
+export function loungeImageUrl(base, id, width) {
+  if (!id) return '';
+  const root = String(base || '/content/dam/lh/images/lounges').replace(/\/+$/, '');
+  const path = `${root}/${String(id).toLowerCase()}-square.jpg`;
+  const url = width ? `${path}.transform/lh-dcep-transform-width-${width}/img.jpg` : path;
+  return /^https?:/.test(url) ? url : `${LIVE_ORIGIN}${url}`;
+}
+
+/** srcset of a lounge image (every live width). */
+export function loungeImageSrcset(base, id) {
+  return LOUNGE_IMAGE_WIDTHS.map((w) => `${loungeImageUrl(base, id, w)} ${w}w`).join(', ');
+}
+
+const loungeText = (v) => (typeof v === 'string' || typeof v === 'number' ? String(v).trim() : '');
+
+/**
+ * Opening hours of the week (loungeOpeningHours: seven lists, Monday first, of
+ * {"from":"05:30","to":"22:00"}) → seven lists of { from, to } sorted by start; [] = closed.
+ * Anything else (missing, not seven entries) → [] (the card then shows openingHours text).
+ */
+function mapOpeningWeek(week) {
+  if (!Array.isArray(week) || week.length !== 7) return [];
+  return week.map((day) => (Array.isArray(day) ? day : [])
+    .map((t) => ({ from: loungeText(t && t.from), to: loungeText(t && t.to) }))
+    .filter((t) => t.from || t.to)
+    .sort((a, b) => (a.from > b.from ? 1 : -1)));
+}
+
+/**
+ * Lounges answer (shape from the live LoungeFinder selectors, 4ca8ff36.chunk.js; no answer
+ * recorded yet):
+ * {"lounges":[{"loungeid":"14072","loungename":"Lufthansa Senator Lounge","category":
+ *  "SENATOR_LOUNGE","airportname":"Frankfurt/Main","loungeLocation":{"terminal":"Terminal 1",
+ *  "level":"Level 3","gateInfo":"near gate A26"},"plainLocation":"...","openingHours":"...",
+ *  "loungeOpeningHours":[[{"from":"05:00","to":"22:30"}],...7 days, Monday first],
+ *  "loungeDescription":"...","loungefeatures":["WLAN","SHOWER",...]}]}
+ * → [{ id, name, category, airportName, location: {terminal, level, gateInfo} | string,
+ *   openingHours, week, description, features, image, srcset, fallbackImage }]
+ * The live app reads the first property of the answer as the list; so does this mapper.
+ * @param {Object} data
+ * @param {string} [imageBase] data-dcep imageBaseUrl
+ */
+export function mapLounges(data, imageBase) {
+  const list = data && (Array.isArray(data.lounges) ? data.lounges
+    : Object.values(data).find(Array.isArray));
+  return (list || []).filter((l) => l && typeof l === 'object' && (l.loungeid || l.loungename))
+    .map((l) => {
+      const where = l.loungeLocation || {};
+      const located = ['terminal', 'level', 'gateInfo'].some((k) => loungeText(where[k]));
+      const id = loungeText(l.loungeid);
+      return {
+        id,
+        name: loungeText(l.loungename),
+        category: loungeText(l.category).toUpperCase(),
+        airportName: loungeText(l.airportname),
+        location: located ? {
+          terminal: loungeText(where.terminal),
+          level: loungeText(where.level),
+          gateInfo: loungeText(where.gateInfo),
+        } : loungeText(l.plainLocation),
+        openingHours: loungeText(l.openingHours),
+        week: mapOpeningWeek(l.loungeOpeningHours),
+        description: loungeText(l.loungeDescription),
+        features: (Array.isArray(l.loungefeatures) ? l.loungefeatures : [])
+          .map((f) => loungeText(f).toUpperCase()).filter(Boolean),
+        image: id ? loungeImageUrl(imageBase, id, 720) : '',
+        srcset: id ? loungeImageSrcset(imageBase, id) : '',
+        fallbackImage: loungeImageUrl(imageBase, 'fallback', 720),
+      };
+    });
 }
 
 /**

@@ -1,0 +1,21 @@
+{
+  "variantName": "lounge-finder",
+  "baseBlock": "lounge-finder",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/de/lounges",
+  "visualCharacteristics": {
+    "purpose": "live lounge search: city autocomplete, travel class or frequent flyer status select and a search button in a grey band; results as lounge cards",
+    "traits": [
+      "bold heading 'Finden Sie Ihre Lounge' above a row of two underlined fields and a yellow button on the right",
+      "white result cards: square image left (on top below 1025px), category badge, name, location, opening hours table, hint",
+      "amenities with icons next to the details from 1025px, behind a 'View amenities' toggle below"
+    ]
+  },
+  "contentPattern": {
+    "structure": "2 columns, label | value, all rows optional: Image base | /content/dam/lh/images/lounges (data-dcep imageBaseUrl); Lounge purchase | off (removes Economy). UI strings come from GET /service/api/labels/loungefinder/lh/{lang} with English/German defaults; any can be overridden with a row of the same name (Heading, Submit label, No results label, ...). Cities: GET /service/api/catalogs/lounges/cities. Search: GET /service/api/catalogs/lounges/{status}/{city}; Economy: Yilu products plus .../BUS/{city}."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/lounges and /{cc}/{ll}/tips-senior-travellers: the .loungefinder component, in its own grey section.",
+  "reuseGuidance": "Reuse unchanged; author an empty block. Requests and mappers are in scripts/lh-api.js (loungeCitiesRequest, loungesRequest, mapLoungeCities, mapLounges, loungeImageUrl); the block exports readLoungeFinderSettings, loadLoungeFinderContext and loadLounges for tools/importer/test-widgets.mjs."
+}

@@ -47,10 +47,14 @@ import decoratePriceBar, {
 } from '../../blocks/price-bar/price-bar.js';
 import decorateWeather, { weatherRequest, loadWeather } from '../../blocks/weather/weather.js';
 import decorateFlightStatus from '../../blocks/flight-status/flight-status.js';
+import decorateLoungeFinder, {
+  readLoungeFinderSettings, loadLoungeFinderContext, loadLounges, loungeStatuses,
+} from '../../blocks/lounge-finder/lounge-finder.js';
+import { loungesRequest } from '../../scripts/lh-api.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const verbose = process.argv.includes('--verbose');
-const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'weather', 'flight-status'];
+const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'weather', 'flight-status', 'lounge-finder'];
 const PREVIEW_ORIGIN = 'https://main--lh-com--moved-permanently.aem.page';
 const sleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
@@ -402,6 +406,12 @@ const CLOUDFLARE_403 = '<!DOCTYPE html><html lang="en-US"><head><title>Attention
 
 /** What the stub does: direct 'cors' | 'cloudflare' | 'ok' | 'hang'; proxy '502' | 'ok' | 'hang'. */
 let scenario = { direct: 'cors', proxy: '502', proxyDelay: 0 };
+/**
+ * Answers for requests no recording has (synthetic fixtures of the lounge finder checks):
+ * URL → JSON text. Direct www.lufthansa.com calls use them only when direct calls answer;
+ * other hosts (Yilu) answer them, every other foreign host fails like a blocked network.
+ */
+const stubResponses = new Map();
 let calls = [];
 const directCalls = [];
 
@@ -433,6 +443,7 @@ globalThis.fetch = async (url, init = {}) => {
       return new Response(CLOUDFLARE_403, { status: 403, headers: { 'Content-Type': 'text/html; charset=UTF-8', 'cf-ray': '8d2f0c1a2b3c4d5e-FRA' } });
     }
     if (scenario.direct === 'hang') return hang(init.signal);
+    if (stubResponses.has(href)) return jsonResponse(stubResponses.get(href), 200, { 'Access-Control-Allow-Origin': '*' });
     const { pathname, search } = new URL(href);
     const body = LOCALES[market] && recordedFile(market, method, `${pathname}${search}`, init.body);
     return body
@@ -450,6 +461,10 @@ globalThis.fetch = async (url, init = {}) => {
     const market = (init.headers || {})['X-LH-Market'];
     const body = recordedFile(market, method, `${pathname}${search}`, init.body);
     return body ? jsonResponse(body, 200) : jsonResponse('{"error":"not recorded"}', 404);
+  }
+  if (stubResponses.has(href)) {
+    calls.push({ kind: 'foreign', href });
+    return jsonResponse(stubResponses.get(href), 200, { 'Access-Control-Allow-Origin': '*' });
   }
   throw new TypeError(`network access blocked in test: ${href}`);
 };
@@ -668,6 +683,43 @@ async function checkFlightStatus(base, config, locale) {
 }
 const FLIGHT_STATUS_TERM = { en: 'Frankfurt', de: 'Frankfurt' };
 
+/** Home city of a market's lounge searches (catalogs/lounges/{status}/{city}). */
+const LOUNGE_HOME_CITY = {
+  'de/en': 'FRA', 'de/de': 'FRA', 'at/de': 'VIE', 'gb/en': 'LON',
+};
+/** The lounge finder's heading in the page language (recorded labels/loungefinder). */
+const LOUNGE_HEADING = { de: 'Finden Sie Ihre Lounge', en: 'Find your airport lounge' };
+
+async function checkLoungeFinder(base, config, locale) {
+  const settings = readLoungeFinderSettings(config);
+  const context = await loadLoungeFinderContext(locale);
+  const heading = context.labels['loungefinder.form.headline.redesignHeadlineText'];
+  record(
+    { ...base, check: `labels/loungefinder/lh/${locale.lang}` },
+    context.sources.labels === 'recorded' && heading === LOUNGE_HEADING[locale.lang],
+    true,
+    `${Object.keys(context.labels).length} labels, heading "${heading || ''}", submit "${context.labels['loungefinder.form.submit.cta'] || ''}"`,
+  );
+  record(
+    { ...base, check: 'catalogs/lounges/cities' },
+    context.sources.cities === 'recorded' && context.cities.length > 0,
+    true,
+    `${context.cities.length} cities: ${context.cities.slice(0, 3).map((c) => `${c.name} (${c.code})`).join(', ')}`,
+  );
+  // every status of the select for the market's home city: recorded or a known gap
+  const city = LOUNGE_HOME_CITY[locale.key];
+  await inSequence(loungeStatuses(settings).filter((st) => st.id !== 'ECO').map(({ id }) => async () => {
+    const request = loungesRequest({ status: id, city });
+    const found = await loadLounges({ status: id, city }, locale, settings);
+    record(
+      { ...base, check: `lounges/${id}/${city}` },
+      found.sources.lounges === 'recorded' && found.lounges.length > 0,
+      isRecorded(locale.key, request),
+      isRecorded(locale.key, request) ? `${found.lounges.length} lounges` : 'not recorded yet',
+    );
+  }));
+}
+
 const CHECKS = {
   'flight-search': checkFlightSearch,
   'fare-teaser': checkFareTeaser,
@@ -675,6 +727,7 @@ const CHECKS = {
   'price-bar': checkPriceBar,
   weather: checkWeather,
   'flight-status': checkFlightStatus,
+  'lounge-finder': checkLoungeFinder,
 };
 
 /* ------------------------------------------------------------------------------------------- */
@@ -688,6 +741,7 @@ const DECORATE = {
   'price-bar': decoratePriceBar,
   weather: decorateWeather,
   'flight-status': decorateFlightStatus,
+  'lounge-finder': decorateLoungeFinder,
 };
 
 /** Whether the block's primary data is recorded (so the fallback can show it). */
@@ -718,7 +772,7 @@ const gridRecordedInMarket = (market) => Object.keys(index)
 
 /** Which data-lh-source a block must show in a run. */
 function expectedSource(name, run, recorded, { grid = false, market = '', own = true } = {}) {
-  const directPrimary = ['flight-search', 'flight-status'].includes(name) || grid;
+  const directPrimary = ['flight-search', 'flight-status', 'lounge-finder'].includes(name) || grid;
   const live = run === 'D' || (run === 'C' && directPrimary);
   if (live && grid && recorded) return gridRecordedInMarket(market) ? 'live' : 'recorded';
   // the stub answers only the market's own recordings; another market's copy is the fallback
@@ -755,6 +809,11 @@ function renderedSample(name, block) {
     case 'flight-status': {
       const options = block.querySelectorAll('li[role="option"]').map((li) => li.textContent);
       return { ok: options.length > 0, text: `${options.length} suggestions: ${options.slice(0, 2).join(' | ')}` };
+    }
+    case 'lounge-finder': {
+      const title = block.querySelector('.lounge-finder-heading');
+      const options = block.querySelectorAll('option').filter((o) => o.value);
+      return { ok: Boolean(title && title.textContent) && options.length > 0, text: `heading "${title ? title.textContent : ''}", ${options.length} statuses` };
     }
     default: return { ok: false, text: '' };
   }
@@ -1022,6 +1081,169 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
       `${got}${r.via ? ` via ${r.via}` : ''}, sent ${JSON.stringify(headers)} credentials ${sent ? sent.init.credentials : '-'}`,
     );
   }));
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/* Lounge finder: form labels per market, a search (recorded / synthetic answer / none), the    */
+/* Economy flow (Yilu products). The lounge answers are not recorded yet: the fixtures below    */
+/* are synthetic, in the shape the live app reads (4ca8ff36.chunk.js), to test the rendering.   */
+/* ------------------------------------------------------------------------------------------- */
+
+const LOUNGE_BLOCK = '<div class="lounge-finder"><div><div>Image base</div><div>/content/dam/lh/images/lounges</div></div></div>';
+const loungeWeek = (weekday, weekend) => [...Array(5).fill([weekday]), ...Array(2).fill([weekend])];
+const LOUNGE_FIXTURE = JSON.stringify({
+  lounges: [{
+    loungeid: '14072',
+    loungename: 'Lufthansa Senator Lounge',
+    category: 'SENATOR_LOUNGE',
+    airportname: 'Frankfurt/Main',
+    loungeLocation: { terminal: 'Terminal 1', level: 'Level 3', gateInfo: 'Gate A26' },
+    loungeOpeningHours: loungeWeek({ from: '05:30', to: '22:00' }, { from: '06:00', to: '21:00' }),
+    loungeDescription: '',
+    loungefeatures: ['WLAN', 'SHOWER', 'FAX_MACHINE'],
+  }, {
+    loungeid: '99999',
+    loungename: 'Lufthansa Business Lounge',
+    category: 'BUSINESS_LOUNGE',
+    airportname: 'Frankfurt/Main',
+    plainLocation: 'Concourse B',
+    openingHours: '24h',
+    loungeOpeningHours: [],
+    loungefeatures: [],
+  }],
+});
+const YILU_FIXTURE = JSON.stringify({ items: [{ item: { productId: '106', regularPrice: 35, currency: 'EUR' } }] });
+
+/** Decorates a synthetic lounge finder on a market page, optionally searching city/status. */
+async function runLoungeFinder(market, { city, status } = {}) {
+  const page = `/${market}/lounges`;
+  setPage(page);
+  if (city && status) window.location.search = `?city=${city}&status=${status}`;
+  currentPage = page;
+  const block = parseHtml(LOUNGE_BLOCK).querySelector('div.lounge-finder');
+  decorateLoungeFinder(block);
+  await waitFor(() => block.hasAttribute('data-lh-source'));
+  if (city && status) {
+    block.querySelector('form').dispatch('submit');
+    await waitFor(() => block.hasAttribute('data-lh-searched')
+      && !block.querySelector('.lounge-finder-results').hasAttribute('aria-busy'));
+  }
+  await sleep(1);
+  return block;
+}
+
+const textOf = (node) => (node ? node.textContent : '');
+
+{
+  // labels per market: at/de is German (its live snapshot showed the app's English fallback texts)
+  await inSequence(Object.keys(LOCALES).map((market) => async () => {
+    startRun({ direct: 'cors', proxy: '502' });
+    const locale = getLocale(`/${market}/lounges`);
+    const block = await runLoungeFinder(market);
+    const heading = textOf(block.querySelector('.lounge-finder-heading'));
+    const options = block.querySelectorAll('option').filter((o) => o.value).map((o) => o.value);
+    const groups = block.querySelectorAll('optgroup').map((g) => g.label);
+    record(
+      { run: 'L', locale: market, block: 'lounge-finder', check: 'form labels (direct fails -> recorded)' },
+      heading === LOUNGE_HEADING[locale.lang] && block.getAttribute('data-lh-source') === 'recorded'
+        && options.join() === 'FIR,BUS,ECO,HON,SEN,FTL,STA' && groups.length === 2,
+      true,
+      `"${heading}", submit "${textOf(block.querySelector('.lounge-finder-submit'))}", groups ${groups.join(' / ')}, ${options.join(',')}; ${block.getAttribute('data-lh-sources')}`,
+    );
+  }));
+
+  // a search without any answer: the "no lounge" message, data-lh-source none
+  startRun({ direct: 'cors', proxy: '502' });
+  const none = await runLoungeFinder('at/de', { city: 'VIE', status: 'SEN' });
+  record(
+    { run: 'L', locale: 'at/de', block: 'lounge-finder', check: 'SEN/VIE not recorded -> no-lounge label' },
+    textOf(none.querySelector('.lounge-finder-empty')).startsWith('Leider haben wir keine Informationen')
+      && String(none.getAttribute('data-lh-sources')).includes('lounges:none')
+      && none.getAttribute('data-lh-source') !== 'live',
+    true,
+    `"${textOf(none.querySelector('.lounge-finder-empty'))}"; ${none.getAttribute('data-lh-sources')}`,
+  );
+
+  // a direct answer (synthetic fixture): cards, grouped opening hours, German feature labels
+  const senFra = `${LIVE_ORIGIN}${loungesRequest({ status: 'SEN', city: 'FRA' }).route}`;
+  stubResponses.set(senFra, LOUNGE_FIXTURE);
+  startRun({ direct: 'ok', proxy: '502' });
+  const found = await runLoungeFinder('de/de', { city: 'FRA', status: 'SEN' });
+  const cards = found.querySelectorAll('.lounge-finder-card');
+  // the test DOM matches single selectors only: descend step by step
+  const inside = (root, ...selectors) => selectors.reduce((nodes, sel) => nodes
+    .flatMap((n) => n.querySelectorAll(sel)), [root]);
+  const rowsText = inside(cards[0] || found, '.lounge-finder-hours', 'tr').map((tr) => tr.children.map((td) => td.textContent).join(' '));
+  const amenities = inside(found, '.lounge-finder-amenities-list', 'li').map((li) => li.textContent);
+  const [img] = inside(found, '.lounge-finder-image', 'img');
+  record(
+    { run: 'L', locale: 'de/de', block: 'lounge-finder', check: 'SEN/FRA direct answer -> cards' },
+    cards.length === 2 && found.getAttribute('data-lh-source') === 'live'
+      && textOf(found.querySelector('.lounge-finder-results-heading')) === 'Ergebnisse (2)'
+      && rowsText[0] === 'Montag - Freitag 05:30 - 22:00' && rowsText[1] === 'Wochenende 06:00 - 21:00'
+      && amenities.join() === 'W-LAN,Dusche,Faxgerät'
+      && textOf(found.querySelector('.lounge-finder-badge')) === 'Senator Lounge'
+      && Boolean(img) && img.src === `${LIVE_ORIGIN}/content/dam/lh/images/lounges/14072-square.jpg.transform/lh-dcep-transform-width-720/img.jpg`
+      && textOf(inside(cards[1] || found, '.lounge-finder-hours', 'p')[0]) === '24h',
+    true,
+    `${cards.length} cards, ${rowsText.join(' | ')}; ${amenities.join(', ')}; ${found.getAttribute('data-lh-sources')}`,
+  );
+  // the same search with the direct call failing: no recording -> no-lounge label
+  startRun({ direct: 'cors', proxy: '502' });
+  const offline = await runLoungeFinder('de/de', { city: 'FRA', status: 'SEN' });
+  record(
+    { run: 'L', locale: 'de/de', block: 'lounge-finder', check: 'SEN/FRA direct fails, not recorded -> none' },
+    !offline.querySelector('.lounge-finder-card')
+      && String(offline.getAttribute('data-lh-sources')).includes('lounges:none'),
+    true,
+    `"${textOf(offline.querySelector('.lounge-finder-empty')).slice(0, 40)}..."`,
+  );
+
+  // Economy: Yilu products + BUS lounges -> only purchasable lounges, price and purchase link
+  const busFra = `${LIVE_ORIGIN}${loungesRequest({ status: 'BUS', city: 'FRA' }).route}`;
+  const yiluFra = 'https://amp.yiluhub.com/product/v1/products?storeId=6662ff1e7d41365f96988306&airport=FRA';
+  stubResponses.set(busFra, LOUNGE_FIXTURE);
+  stubResponses.set(yiluFra, YILU_FIXTURE);
+  startRun({ direct: 'ok', proxy: '502' });
+  const eco = await runLoungeFinder('de/en', { city: 'FRA', status: 'ECO' });
+  const purchase = eco.querySelector('.lounge-finder-purchase');
+  const buy = purchase && purchase.querySelector('a');
+  record(
+    { run: 'L', locale: 'de/en', block: 'lounge-finder', check: 'ECO/FRA: Yilu products -> purchase link' },
+    eco.querySelectorAll('.lounge-finder-card').length === 1 && Boolean(buy)
+      && buy.href.startsWith('https://lufthansa.travelintegration.com/lounges/product?loungeId=106&airportIataCode=FRA')
+      && textOf(purchase.querySelector('p')) === 'from 35 EUR'
+      && eco.getAttribute('data-lh-source') === 'live',
+    true,
+    `${textOf(purchase && purchase.querySelector('p'))}, ${buy ? buy.href.slice(0, 90) : 'no link'}; ${eco.getAttribute('data-lh-sources')}`,
+  );
+  // Yilu unreachable: no purchasable lounge is known -> no-lounge label, products none
+  stubResponses.delete(yiluFra);
+  startRun({ direct: 'ok', proxy: '502' });
+  const ecoOffline = await runLoungeFinder('de/en', { city: 'FRA', status: 'ECO' });
+  record(
+    { run: 'L', locale: 'de/en', block: 'lounge-finder', check: 'ECO/FRA: Yilu fails -> no-lounge label' },
+    !ecoOffline.querySelector('.lounge-finder-card')
+      && textOf(ecoOffline.querySelector('.lounge-finder-empty')).startsWith('Unfortunately, no lounge')
+      && String(ecoOffline.getAttribute('data-lh-sources')).includes('products:none'),
+    true,
+    ecoOffline.getAttribute('data-lh-sources'),
+  );
+  // a missing city or status: the required labels, no request
+  startRun({ direct: 'ok', proxy: '502' });
+  const empty = await runLoungeFinder('de/de');
+  const before = callsOf('direct');
+  empty.querySelector('form').dispatch('submit');
+  await sleep(1);
+  const errors = empty.querySelectorAll('.lounge-finder-error').filter((e) => !e.hidden).map((e) => e.textContent);
+  record(
+    { run: 'L', locale: 'de/de', block: 'lounge-finder', check: 'submit without city and status -> errors' },
+    errors.join() === 'Stadt ist erforderlich,Reiseklasse oder Reisestatus ist erforderlich' && callsOf('direct') === before,
+    true,
+    errors.join(' | '),
+  );
+  stubResponses.clear();
+  window.location.search = '';
 }
 
 /* ------------------------------------------------------------------------------------------- */
