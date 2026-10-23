@@ -162,7 +162,8 @@ function pageStatus(widths) {
 }
 
 // fixes.json entries also use "scope": a template name (or a comma list of them) counts as
-// "template", anything else ("site", "channels", "aircore") as site-wide; "block" may be a list
+// "template", anything else ("site", "channels", "aircore") as site-wide; "block" and "page" may
+// be comma lists
 const listOf = (v) => String(v || '').split(',').map((s) => s.trim()).filter(Boolean);
 const templateNames = new Set(jobs.map((j) => j.template));
 const fixTemplates = (f) => (f.template ? listOf(f.template)
@@ -170,7 +171,7 @@ const fixTemplates = (f) => (f.template ? listOf(f.template)
 const fixKind = (f) => (f.page && 'page') || (fixTemplates(f).length && 'template')
   || (f.block && 'block') || 'site';
 function fixesFor(job, blocks) {
-  return fixes.filter((f) => (f.page && normPath(f.page) === job.path)
+  return fixes.filter((f) => (f.page && listOf(f.page).some((pg) => normPath(pg) === job.path))
     || fixTemplates(f).includes(job.template)
     || (f.block && listOf(f.block).some((b) => blocks.includes(b))))
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
