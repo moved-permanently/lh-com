@@ -135,9 +135,13 @@ const EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brig
 /**
  * The sub-page navigation (.container-subnav > nav.subpage) has its eyebrow ("More information
  * around this topic") and title in a <header>, which the chrome selector 'header' would take:
- * it becomes div.subpage-header for the subpage-nav parser.
+ * it becomes div.subpage-header for the subpage-nav parser. Only for templates that map the block
+ * (info); elsewhere (campaign *-fair, fleet first-class fleet, app-entry logbook/pre-check-in) the
+ * header still goes, until they map it too.
  */
-function keepSubpageNavHeader(document) {
+function keepSubpageNavHeader(document, payload) {
+  const template = (payload && payload.template) || {};
+  if (!(template.blocks || []).some((b) => b.name === 'subpage-nav')) return;
   document.querySelectorAll('.container-subnav nav.subpage > header').forEach((header) => {
     const div = document.createElement('div');
     div.className = 'subpage-header';
@@ -1253,7 +1257,7 @@ export default function transform(hookName, element, payload) {
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document, pagePath);
     convertFeedbackQuestionnaires(document);
-    keepSubpageNavHeader(document); // before the chrome removal takes every <header>
+    keepSubpageNavHeader(document, payload); // before the chrome removal takes every <header>
     removeAll(document, CHROME_SELECTORS);
     removeAirCoreLeftovers(document);
     removeTracking(document);
