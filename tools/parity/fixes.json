@@ -235,8 +235,8 @@
   },
   {
     "scope": "site",
-    "change": "Item 3 follow-up: only AEM sections that are padded on live (.section-padding-y-regular) open a section (style padded, after another padded one, not grey); unpadded AEM sections (section-regular only: /additional-services stages and tiles, many hub/info pages) are spaced like components on live and stay in one section (060b14b had split them, adding 24px per boundary on the hub/campaign/fleet/app-entry pages uploaded in that run). boeing787 (146/136 at 1440) and my-bookings (74) unchanged; /de/de/additional-services back to its previous structure. Re-import of all non-AirCore templates restarted (hub, campaign, fleet, app-entry, info, homepage, legal, form, flight-status, insights; 4 locales), changed pages uploaded/previewed per template and added to recompare.txt.",
-    "commit": "pending",
+    "change": "Item 3 follow-up: only AEM sections that are padded on live (.section-padding-y-regular) open a section (style padded, after another padded one, not grey); unpadded AEM sections (section-regular only: /additional-services stages and tiles, many hub/info pages) are spaced like components on live and stay in one section (060b14b had split them, adding 24px per boundary on the hub/campaign/fleet/app-entry pages uploaded in that run). boeing787 (146/136 at 1440) and my-bookings (74) unchanged; /de/de/additional-services back to its previous structure. Re-imported all non-AirCore templates (hub 68, campaign 88, fleet 32, app-entry 24, info 676, homepage 4, legal 116, form 36, flight-status 4, insights 128; 4 locales) with items 1-6; changed pages uploaded and previewed (hub 11, campaign 52, fleet 22, app-entry 3, info 132 + 8, insights 12; homepage, legal, form, flight-status unchanged), 0 upload problems, postprocess-media 0 failing; all listed in recompare.txt.",
+    "commit": "cf32a95",
     "date": "2026-10-23"
   }
 ]
