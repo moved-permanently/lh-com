@@ -117063,11 +117063,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6428,
-          "at": "2026-10-23T04:25:01.135Z",
+          "ms": 6536,
+          "at": "2026-10-23T14:05:23.002Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 2396,
+            "scrollHeight": 2096,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -117104,7 +117104,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -117113,51 +117113,50 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.41995,
-        "unmaskedRatio": 0.41995,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.1203,
+        "unmaskedRatio": 0.13219,
+        "maskRatio": 0.08991,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2060,
-        "heightB": 2396,
-        "heightDiffRatio": 0.14023,
+        "heightB": 2096,
+        "heightDiffRatio": 0.01718,
         "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.44493
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.4659
         },
         "worstBands": [
           {
-            "y": 2000,
-            "unmaskedRatio": 0.97375
+            "y": 1000,
+            "unmaskedRatio": 0.4659
           },
           {
             "y": 1400,
-            "unmaskedRatio": 0.87634
+            "unmaskedRatio": 0.19982
           },
           {
-            "y": 1600,
-            "unmaskedRatio": 0.62834
+            "y": 600,
+            "unmaskedRatio": 0.16265
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01662,
-          0.02078,
-          0.14224,
-          0.44493,
-          0.40821,
-          0.50459,
-          0.47669,
-          0.87634,
-          0.62834,
-          0.15044,
-          0.97375,
-          0.39602
+          0.01311,
+          0.05686,
+          0.16265,
+          0.13579,
+          0.4659,
+          0.15371,
+          0.19982,
+          0.04213,
+          0.04191,
+          0.00678
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/1440-diff.png",
-        "at": "2026-10-23T04:25:02.843Z",
+        "at": "2026-10-23T14:05:24.624Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/1440-diff.png",
@@ -117174,11 +117173,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7415,
-          "at": "2026-10-23T04:25:10.398Z",
+          "ms": 6329,
+          "at": "2026-10-23T14:05:31.133Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 2754,
+            "scrollHeight": 2524,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -117215,7 +117214,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -117224,53 +117223,52 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.47446,
-        "unmaskedRatio": 0.47446,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.35404,
+        "unmaskedRatio": 0.39589,
+        "maskRatio": 0.10572,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 2503,
-        "heightB": 2754,
-        "heightDiffRatio": 0.09114,
+        "heightB": 2524,
+        "heightDiffRatio": 0.00832,
         "firstDivergentBand": {
-          "index": 4,
-          "y": 800,
-          "unmaskedRatio": 0.35718
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.40829
         },
         "worstBands": [
           {
-            "y": 2400,
-            "unmaskedRatio": 0.96903
-          },
-          {
-            "y": 1800,
-            "unmaskedRatio": 0.96002
+            "y": 2200,
+            "unmaskedRatio": 0.96125
           },
           {
             "y": 1600,
-            "unmaskedRatio": 0.95853
+            "unmaskedRatio": 0.94552
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.59544
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02399,
-          0.03554,
-          0.11082,
-          0.07414,
-          0.35718,
-          0.07993,
-          0.55787,
-          0.46333,
-          0.95853,
-          0.96002,
-          0.63745,
-          0.91907,
-          0.96903,
-          0.5019
+          0.02441,
+          0.00021,
+          0.40829,
+          0.05326,
+          0.59544,
+          0.06833,
+          0.54991,
+          0.94552,
+          0.22744,
+          0.37281,
+          0.96125,
+          0.40597
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/768-diff.png",
-        "at": "2026-10-23T04:25:11.622Z",
+        "at": "2026-10-23T14:05:32.441Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/768-diff.png",
@@ -117287,11 +117285,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6780,
-          "at": "2026-10-23T04:25:18.520Z",
+          "ms": 6597,
+          "at": "2026-10-23T14:05:39.224Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3416,
+            "scrollHeight": 3407,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -117328,7 +117326,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -117337,57 +117335,57 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.19222,
-        "unmaskedRatio": 0.19222,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.14713,
+        "unmaskedRatio": 0.16785,
+        "maskRatio": 0.12344,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3418,
-        "heightB": 3416,
-        "heightDiffRatio": 0.00059,
+        "heightB": 3407,
+        "heightDiffRatio": 0.00322,
         "firstDivergentBand": {
           "index": 4,
           "y": 800,
-          "unmaskedRatio": 0.37556
+          "unmaskedRatio": 0.48059
         },
         "worstBands": [
           {
-            "y": 2200,
-            "unmaskedRatio": 0.48536
-          },
-          {
-            "y": 1800,
-            "unmaskedRatio": 0.41281
-          },
-          {
             "y": 800,
-            "unmaskedRatio": 0.37556
+            "unmaskedRatio": 0.48059
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.39305
+          },
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.20604
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07471,
-          0.06912,
-          0.03384,
-          0.22715,
-          0.37556,
-          0.16317,
-          0.12448,
-          0.26024,
-          0.12803,
-          0.41281,
-          0.12939,
-          0.48536,
-          0.11341,
-          0.23749,
-          0.13465,
-          0.10253,
-          0.21253,
-          0.00533
+          0.07142,
+          0,
+          0.01609,
+          0.48059,
+          0.16032,
+          0.12047,
+          0.16033,
+          0.09828,
+          0.163,
+          0.12341,
+          0.39305,
+          0.10268,
+          0.20604,
+          0.12419,
+          0.11132,
+          0.15584,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/390-diff.png",
-        "at": "2026-10-23T04:25:19.484Z",
+        "at": "2026-10-23T14:05:40.288Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flight-search/390-diff.png",
@@ -148446,11 +148444,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13757,
-          "at": "2026-10-23T05:58:03.304Z",
+          "ms": 13952,
+          "at": "2026-10-23T14:05:54.437Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3327,
+            "scrollHeight": 3310,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -148485,9 +148483,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6668
+              "svgAnimations": 6481
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -148496,32 +148494,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.27551,
-        "unmaskedRatio": 0.27551,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.25392,
+        "unmaskedRatio": 0.27319,
+        "maskRatio": 0.07057,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3453,
-        "heightB": 3327,
-        "heightDiffRatio": 0.03649,
+        "heightB": 3310,
+        "heightDiffRatio": 0.04141,
         "firstDivergentBand": {
-          "index": 6,
-          "y": 1200,
-          "unmaskedRatio": 0.35578
+          "index": 9,
+          "y": 1800,
+          "unmaskedRatio": 0.40028
         },
         "worstBands": [
           {
             "y": 3200,
-            "unmaskedRatio": 0.72557
+            "unmaskedRatio": 0.8076
           },
           {
             "y": 2600,
-            "unmaskedRatio": 0.67598
+            "unmaskedRatio": 0.71793
           },
           {
             "y": 2000,
-            "unmaskedRatio": 0.43834
+            "unmaskedRatio": 0.44231
           }
         ],
         "bandHeight": 200,
@@ -148529,24 +148527,24 @@
           0.01695,
           0.11268,
           0.23697,
-          0.17397,
-          0.03912,
-          0.10039,
-          0.35578,
-          0.19407,
-          0.273,
-          0.42627,
-          0.43834,
-          0.41052,
-          0.43601,
-          0.67598,
-          0.08067,
-          0.05406,
-          0.72557,
+          0.19362,
+          0.00037,
+          0.04065,
+          0.18688,
+          0.10791,
+          0.22093,
+          0.40028,
+          0.44231,
+          0.36986,
+          0.42016,
+          0.71793,
+          0.07986,
+          0.05282,
+          0.8076,
           0.02405
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/1440-diff.png",
-        "at": "2026-10-23T05:58:05.584Z",
+        "at": "2026-10-23T14:05:56.823Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/1440-diff.png",
@@ -148563,11 +148561,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13213,
-          "at": "2026-10-23T05:58:18.929Z",
+          "ms": 13350,
+          "at": "2026-10-23T14:06:10.336Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3379,
+            "scrollHeight": 3324,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -148602,9 +148600,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6607
+              "svgAnimations": 6632
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -148613,15 +148611,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.27056,
-        "unmaskedRatio": 0.27056,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.28619,
+        "unmaskedRatio": 0.31,
+        "maskRatio": 0.07682,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3510,
-        "heightB": 3379,
-        "heightDiffRatio": 0.03732,
+        "heightB": 3324,
+        "heightDiffRatio": 0.05299,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -148629,16 +148627,16 @@
         },
         "worstBands": [
           {
-            "y": 2600,
-            "unmaskedRatio": 0.67265
-          },
-          {
             "y": 3200,
-            "unmaskedRatio": 0.60198
+            "unmaskedRatio": 0.85144
           },
           {
-            "y": 2000,
-            "unmaskedRatio": 0.48699
+            "y": 2600,
+            "unmaskedRatio": 0.63576
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.62153
           }
         ],
         "bandHeight": 200,
@@ -148646,24 +148644,24 @@
           0.03373,
           0.17422,
           0.34324,
-          0.04487,
-          0.10009,
-          0.31175,
-          0.12647,
-          0.09234,
-          0.32507,
-          0.36448,
-          0.48699,
-          0.41548,
-          0.36813,
-          0.67265,
-          0.12092,
-          0.06373,
-          0.60198,
+          0.00064,
+          0.0362,
+          0.22686,
+          0.10067,
+          0.09053,
+          0.33744,
+          0.37682,
+          0.48398,
+          0.43259,
+          0.62153,
+          0.63576,
+          0.11433,
+          0.07843,
+          0.85144,
           0.18586
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/768-diff.png",
-        "at": "2026-10-23T05:58:20.539Z",
+        "at": "2026-10-23T14:06:11.932Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/768-diff.png",
@@ -148680,11 +148678,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13143,
-          "at": "2026-10-23T05:58:33.834Z",
+          "ms": 13175,
+          "at": "2026-10-23T14:06:25.290Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 4389,
+            "scrollHeight": 4588,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -148719,9 +148717,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6400
+              "svgAnimations": 6139
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -148730,15 +148728,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.44361,
-        "unmaskedRatio": 0.44361,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.38267,
+        "unmaskedRatio": 0.42695,
+        "maskRatio": 0.1037,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 4792,
-        "heightB": 4389,
-        "heightDiffRatio": 0.0841,
+        "heightB": 4588,
+        "heightDiffRatio": 0.04257,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -148747,15 +148745,15 @@
         "worstBands": [
           {
             "y": 4400,
-            "unmaskedRatio": 0.9896
+            "unmaskedRatio": 0.98651
           },
           {
-            "y": 4200,
-            "unmaskedRatio": 0.9648
+            "y": 1400,
+            "unmaskedRatio": 0.72021
           },
           {
-            "y": 3600,
-            "unmaskedRatio": 0.90183
+            "y": 3800,
+            "unmaskedRatio": 0.6704
           }
         ],
         "bandHeight": 200,
@@ -148763,30 +148761,30 @@
           0.07425,
           0.17583,
           0.61892,
-          0.25068,
-          0.06595,
-          0.32212,
-          0.40256,
-          0.56212,
-          0.175,
-          0.33651,
-          0.40715,
-          0.18325,
-          0.81016,
-          0.16936,
-          0.50483,
-          0.48336,
-          0.10796,
-          0.84077,
-          0.90183,
-          0.67769,
-          0.45909,
-          0.9648,
-          0.9896,
+          0.54085,
+          0,
+          0.00205,
+          0.43395,
+          0.72021,
+          0.17492,
+          0.17072,
+          0.29176,
+          0.45384,
+          0.4196,
+          0.66368,
+          0.47972,
+          0.34796,
+          0.46267,
+          0.58715,
+          0.57132,
+          0.6704,
+          0.10669,
+          0.44797,
+          0.98651,
           0.15115
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/390-diff.png",
-        "at": "2026-10-23T05:58:35.107Z",
+        "at": "2026-10-23T14:06:26.706Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/hotelangebote/390-diff.png",
@@ -219243,11 +219241,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13493,
-          "at": "2026-10-22T23:39:34.225Z",
+          "ms": 14287,
+          "at": "2026-10-23T14:04:45.478Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 2450,
+            "scrollHeight": 2150,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -219282,9 +219280,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6823
+              "svgAnimations": 6645
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -219293,52 +219291,50 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43354,
-        "unmaskedRatio": 0.43354,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.12346,
+        "unmaskedRatio": 0.13532,
+        "maskRatio": 0.08765,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2114,
-        "heightB": 2450,
-        "heightDiffRatio": 0.13714,
+        "heightB": 2150,
+        "heightDiffRatio": 0.01674,
         "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.44629
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.5015
         },
         "worstBands": [
           {
+            "y": 1000,
+            "unmaskedRatio": 0.5015
+          },
+          {
             "y": 1400,
-            "unmaskedRatio": 0.88653
+            "unmaskedRatio": 0.25195
           },
           {
-            "y": 1600,
-            "unmaskedRatio": 0.86774
-          },
-          {
-            "y": 2000,
-            "unmaskedRatio": 0.80594
+            "y": 600,
+            "unmaskedRatio": 0.16646
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01352,
-          0.02188,
-          0.14738,
-          0.44629,
-          0.40217,
-          0.52472,
-          0.47885,
-          0.88653,
-          0.86774,
-          0.05947,
-          0.80594,
-          0.65636,
-          0
+          0.01074,
+          0.05865,
+          0.16646,
+          0.12662,
+          0.5015,
+          0.11008,
+          0.25195,
+          0.06186,
+          0.03969,
+          0.02211
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/1440-diff.png",
-        "at": "2026-10-22T23:39:35.975Z",
+        "at": "2026-10-23T14:04:47.208Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/1440-diff.png",
@@ -219355,11 +219351,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14224,
-          "at": "2026-10-22T23:40:36.274Z",
+          "ms": 13084,
+          "at": "2026-10-23T14:05:00.474Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 2928,
+            "scrollHeight": 2698,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -219394,9 +219390,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6574
+              "svgAnimations": 6540
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -219405,54 +219401,53 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4429,
-        "unmaskedRatio": 0.4429,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.33057,
+        "unmaskedRatio": 0.36685,
+        "maskRatio": 0.0989,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 2672,
-        "heightB": 2928,
-        "heightDiffRatio": 0.08743,
+        "heightB": 2698,
+        "heightDiffRatio": 0.00964,
         "firstDivergentBand": {
-          "index": 4,
-          "y": 800,
-          "unmaskedRatio": 0.36761
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.41033
         },
         "worstBands": [
           {
-            "y": 2600,
-            "unmaskedRatio": 0.96147
-          },
-          {
             "y": 2400,
-            "unmaskedRatio": 0.95997
+            "unmaskedRatio": 0.95284
           },
           {
-            "y": 1800,
-            "unmaskedRatio": 0.95428
+            "y": 1600,
+            "unmaskedRatio": 0.82643
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.60375
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02197,
-          0.03788,
-          0.11825,
-          0.07633,
-          0.36761,
-          0.0843,
-          0.56823,
-          0.15516,
-          0.82861,
-          0.95428,
-          0.71062,
-          0.49298,
-          0.95997,
-          0.96147,
-          0.22872
+          0.01912,
+          0.00021,
+          0.41033,
+          0.06228,
+          0.60375,
+          0.07072,
+          0.33825,
+          0.82643,
+          0.58531,
+          0.07062,
+          0.50139,
+          0.95284,
+          0.01552
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/768-diff.png",
-        "at": "2026-10-22T23:40:37.583Z",
+        "at": "2026-10-23T14:05:01.777Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/768-diff.png",
@@ -219469,11 +219464,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13605,
-          "at": "2026-10-22T23:40:51.279Z",
+          "ms": 13137,
+          "at": "2026-10-23T14:05:15.138Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3592,
+            "scrollHeight": 3595,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -219508,9 +219503,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6487
+              "svgAnimations": 6604
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -219519,57 +219514,57 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.21488,
-        "unmaskedRatio": 0.21488,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.18707,
+        "unmaskedRatio": 0.21266,
+        "maskRatio": 0.12031,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3594,
-        "heightB": 3592,
-        "heightDiffRatio": 0.00056,
+        "heightB": 3595,
+        "heightDiffRatio": 0.00028,
         "firstDivergentBand": {
           "index": 4,
           "y": 800,
-          "unmaskedRatio": 0.48393
+          "unmaskedRatio": 0.47085
         },
         "worstBands": [
           {
             "y": 800,
-            "unmaskedRatio": 0.48393
+            "unmaskedRatio": 0.47085
           },
           {
             "y": 2200,
-            "unmaskedRatio": 0.40559
+            "unmaskedRatio": 0.37072
           },
           {
             "y": 1400,
-            "unmaskedRatio": 0.37499
+            "unmaskedRatio": 0.35163
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07416,
-          0.06696,
-          0.05008,
-          0.24467,
-          0.48393,
-          0.25532,
-          0.14467,
-          0.37499,
-          0.21417,
-          0.32328,
-          0.17469,
-          0.40559,
-          0.20909,
-          0.16439,
-          0.1198,
-          0.08405,
-          0.30172,
-          0.175
+          0.05729,
+          0,
+          0.08908,
+          0.47085,
+          0.25512,
+          0.14395,
+          0.35163,
+          0.2116,
+          0.25987,
+          0.16477,
+          0.37072,
+          0.19471,
+          0.14735,
+          0.12252,
+          0.08416,
+          0.29584,
+          0.17147
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/390-diff.png",
-        "at": "2026-10-22T23:40:52.224Z",
+        "at": "2026-10-23T14:05:16.300Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flugsuche/390-diff.png",
@@ -259056,5 +259051,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-23T12:33:07.791Z"
+  "updatedAt": "2026-10-23T14:06:26.706Z"
 }

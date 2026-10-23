@@ -321,3 +321,15 @@ de/en/lounges
 de/de/lounges
 at/de/lounges
 gb/en/lounges
+de/en/flight-search
+de/de/flugsuche
+at/de/flugsuche
+gb/en/flight-search
+de/en/cash-and-miles
+de/de/cash-and-miles
+at/de/cash-and-miles
+gb/en/cash-and-miles
+de/en/hotel-offers
+de/de/hotelangebote
+at/de/hotelangebote
+gb/en/hotel-offers
