@@ -17,6 +17,7 @@
  *     the preview's half width. Full-width slideshows keep their headings as default content.
  *   cell 1: image (src + alt), cell 2: caption (".lightbox-description") or empty
  * Label row "Close label" is added when the modal carries a visible close-button text.
+ * Option "half": the slideshow shares its column view with another slideshow (/744 decks).
  */
 export default function parse(element, { document }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
@@ -113,6 +114,16 @@ export default function parse(element, { document }) {
   const close = modal && visibleText(modal.querySelector('.modal-close-button-text, .lightbox-close'));
   if (close && cells.length > (intro.length ? 1 : 0)) cells.push(['Close label', close]);
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', cells });
+  // two slideshows side by side in one column view (/744 main deck | upper deck): option half
+  // (counted once per column view: the first slideshow is a table when the second is parsed)
+  let half = false;
+  if (column && layout && column.parentElement) {
+    const row = column.parentElement;
+    if (!row.hasAttribute('data-lh-slideshows')) {
+      row.setAttribute('data-lh-slideshows', [...row.children].filter((c) => c.querySelector('.slideshow')).length);
+    }
+    half = Number(row.getAttribute('data-lh-slideshows')) > 1;
+  }
+  const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', variants: half ? ['half'] : [], cells });
   element.replaceWith(block);
 }

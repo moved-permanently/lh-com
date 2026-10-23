@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_164380_exports = {};
-  __export(tmp_bundle_fleet_164380_exports, {
-    default: () => tmp_bundle_fleet_164380_default
+  var tmp_bundle_fleet_177160_exports = {};
+  __export(tmp_bundle_fleet_177160_exports, {
+    default: () => tmp_bundle_fleet_177160_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -225,7 +225,15 @@ var CustomImportScript = (() => {
     }
     const close = modal && visibleText(modal.querySelector(".modal-close-button-text, .lightbox-close"));
     if (close && cells.length > (intro.length ? 1 : 0)) cells.push(["Close label", close]);
-    const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", cells });
+    let half = false;
+    if (column && layout && column.parentElement) {
+      const row = column.parentElement;
+      if (!row.hasAttribute("data-lh-slideshows")) {
+        row.setAttribute("data-lh-slideshows", [...row.children].filter((c) => c.querySelector(".slideshow")).length);
+      }
+      half = Number(row.getAttribute("data-lh-slideshows")) > 1;
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", variants: half ? ["half"] : [], cells });
     element.replaceWith(block);
   }
 
@@ -2014,7 +2022,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_164380_default = {
+  var tmp_bundle_fleet_177160_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2044,5 +2052,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_164380_exports);
+  return __toCommonJS(tmp_bundle_fleet_177160_exports);
 })();

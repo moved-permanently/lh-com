@@ -97,7 +97,27 @@ function readRows(block) {
  * carousel.
  * @param {Element} block
  */
+/**
+ * Option half: this block and the half block right after it share one row from 768px (two
+ * slideshows of one Lufthansa column view). The first of the two wraps both wrappers in
+ * div.carousel-lightbox-pair.
+ * @param {Element} block
+ */
+function pairHalves(block) {
+  const wrapper = block.parentElement;
+  const isHalf = (w) => w && w.classList.contains('carousel-lightbox-wrapper')
+    && !!w.querySelector(':scope > .carousel-lightbox.half');
+  if (!isHalf(wrapper) || wrapper.parentElement.classList.contains('carousel-lightbox-pair')) return;
+  const next = wrapper.nextElementSibling;
+  if (!isHalf(next)) return;
+  const pair = document.createElement('div');
+  pair.className = 'carousel-lightbox-pair';
+  wrapper.before(pair);
+  pair.append(wrapper, next);
+}
+
 export default function decorate(block) {
+  if (block.classList.contains('half')) pairHalves(block);
   instanceCount += 1;
   const uid = `carousel-lightbox-${instanceCount}`;
   const { config, slides, intro } = readRows(block);

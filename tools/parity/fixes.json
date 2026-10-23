@@ -218,6 +218,12 @@
   {
     "block": "carousel-cards",
     "change": "Item 4 stopover campaign page teaser cards (campaign template had no carousel-cards mapping; cards were stray default content): '.fourcolumn:has(a.teaser.card)' 'A Stopover in Munich in just a few clicks' -> carousel-cards grid four-up (4 step cards with the icons), '.carousel:has(.swiper-multi-slide a.teaser.card)' 'Hotels and shopping' / 'Activities and attractions' -> four-up carousels (5 cards, 4 per view + peek, arrows, dots), '.threecolumn:has(a.teaser.card)' 'Mobility and services' -> grid (3 cards), as on live. Parser fix (all templates): a swiper has no column title, so the card titles of a multi-slide carousel are no longer also written as headings before the block (they were duplicated: /boeing787 and the other fleet pages 'Other Aircraft Types' h4 titles twice). /de/en/book-and-manage/stopover 1440 local: step cards 297x562 at x88/405/723/1040 (live 297 wide, 4 in a row), carousels 297x588/615 four per view + peek (live 4 + peek, 2 dots), Mobility 3 x 403x614; 768: 2 per row / 2 per view + peek; 390: stacked / 1 per view. The stopover offer pages (bayerischer-hof, neuschwanstein, zugspitze) have no teaser cards. Re-imported, uploaded and previewed with the campaign template run (4 locales); fleet pages re-imported again for the title fix.",
+    "commit": "de04186",
+    "date": "2026-10-23"
+  },
+  {
+    "block": "carousel-lightbox",
+    "change": "Item 5 /744 seat maps side by side from 768px (were stacked): the parser writes the new option half when a slideshow shares its column view with another slideshow (counted once per column view); the block JS wraps two consecutive half blocks in div.carousel-lightbox-pair, a flex row from 768px (20px gutter), the preview over the full half; stacked below 768px as before. Local (live): 1440 main deck | upper deck 614px each at x88 / x722, deck labels 70px below the h3 (70), next heading 126px below the maps (127); 768: 343px each, 70 (69), 129 (127); 390 stacked, next heading 66px below (66, was 101). Other fleet pages (/359, /boeing787) have single slideshows: unchanged. Re-imported, uploaded and previewed /744 in 4 locales (fleet template re-run).",
     "commit": "pending",
     "date": "2026-10-23"
   }

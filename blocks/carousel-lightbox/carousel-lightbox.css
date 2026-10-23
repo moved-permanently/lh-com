@@ -314,3 +314,31 @@
 .carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox:not(:has(.carousel-lightbox-intro)) {
   margin-top: 40px;
 }
+
+/* half: two slideshows of one column view side by side from 768px (/744 main deck | upper
+   deck: 614px each, 20px apart at 1440, 343px at 768; deck label 70px below the h3, next
+   heading 127px below the maps as on live), stacked 40px apart below (next heading 66px) */
+.carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox.half {
+  margin-bottom: 60px;
+}
+
+@media (width >= 768px) {
+  .carousel-lightbox-pair {
+    display: flex;
+    gap: var(--grid-gutter);
+  }
+
+  .carousel-lightbox-pair > .carousel-lightbox-wrapper {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .carousel-lightbox.half .carousel-lightbox-inline {
+    width: 100%;
+  }
+
+  .carousel-lightbox-pair > .carousel-lightbox-wrapper > .carousel-lightbox.carousel-lightbox {
+    margin-top: 40px;
+    margin-bottom: 70px;
+  }
+}
