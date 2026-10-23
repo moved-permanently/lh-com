@@ -210,22 +210,25 @@ export function poiMapId(text) {
 }
 
 /**
- * Points of a POI map (saga fetchPointOfInterest, API pointsOfInterest_id_get of the live
- * bundle): GET /service/api/pointsOfInterest/{id}, id = the base64 data-dcep id. "=" is sent
- * unencoded (apicase path parameters); lhFetch matches recordings with "=" or "%3D".
+ * Points of a POI map (saga fetchPointOfInterest of the live bundle): GET
+ * /service/secured/api/pointsOfInterest/{id}, id = the base64 data-dcep id
+ * (/service/api/pointsOfInterest answers 404). www.lufthansa.com answers it with the points only
+ * same-origin with the market's X-Portal-* headers (204 without a body from aem.page), so the
+ * answers are recorded (tools/importer/bd-record-api.mjs --set poi) and lhFetch reads only the
+ * recordings for this route. "=" is kept unencoded; recordings match with "=" or "%3D".
  * @param {string} id
  */
 export function pointsOfInterestRequest(id) {
   return {
     method: 'GET',
-    route: `/service/api/pointsOfInterest/${encodeURIComponent(id).replace(/%3D/g, '=')}`,
+    route: `/service/secured/api/pointsOfInterest/${encodeURIComponent(id).replace(/%3D/g, '=')}`,
   };
 }
 
 /**
  * {"pointsOfInterest":[{"lat":41.38,"lng":2.17,"title":"Parc de la Ciutadella","link":"https://…"?,
  *  "linkLabel":"…"?, "linkExternal":true?, "topDeal":false?}]} (fields read by the live
- * selectors; no answer recorded yet) → [{ lat, lng, title, link, linkLabel, linkExternal }];
+ * selectors; 52 answers recorded 2026-10-23) → [{ lat, lng, title, link, linkLabel, linkExternal }];
  * points without valid coordinates are left out, one point per position (the live key).
  */
 export function mapPointsOfInterest(data) {

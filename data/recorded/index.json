@@ -1136,6 +1136,214 @@
    "file": "at-de-615dc395.json",
    "recordedAt": "2026-10-22T14:22:43.865Z"
   },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS8xMDAteWVhcnMvZGVzdGluYXRpb25zL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uXzY2NjA2NzU5Ni9zZWN0aW9uLXBhcnN5cy9wb2ltYXBwaW5n": {
+   "file": "at-de-7fc06f01.json",
+   "recordedAt": "2026-10-23T20:21:35.045Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9qY3I6Y29udGVudC9wYXIvcG9pbWFwcGluZ19jb3B5": {
+   "file": "at-de-19016e00.json",
+   "recordedAt": "2026-10-23T20:21:35.572Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJhcmNlbG9uYS1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW4vY29sMS9wb2ltYXBwaW5n": {
+   "file": "at-de-48b4e2ca.json",
+   "recordedAt": "2026-10-23T20:21:40.609Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJlcmxpbi1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW5fY29weS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "at-de-0ea136ac.json",
+   "recordedAt": "2026-10-23T20:21:50.665Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWNoaXN3aWNrLWxvbmRvbi9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjMvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "at-de-3ddd41f7.json",
+   "recordedAt": "2026-10-23T20:22:00.200Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWRpc3RyaWN0LXp1cmljaC9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjUvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "at-de-2d799f77.json",
+   "recordedAt": "2026-10-23T20:22:06.428Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtY2FzcGFyLXBsYXV0ei1tdW5pY2gvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMDMyMTA1OTMvY29sMS9wb2ltYXBwaW5n": {
+   "file": "at-de-925d5a1e.json",
+   "recordedAt": "2026-10-23T20:22:16.136Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtZm9vZC10cmVuZHMtaXN0YW5idWwvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMTIxNzAzMjg1L2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "at-de-5a55b64a.json",
+   "recordedAt": "2026-10-23T20:22:25.562Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvYmF5ZXJpc2NoZXItaG9mL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uX2NvcHkvc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "at-de-c809adf0.json",
+   "recordedAt": "2026-10-23T20:22:32.765Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvbmV1c2Nod2Fuc3RlaW4vamNyOmNvbnRlbnQvcGFyL3NlY3Rpb24vc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "at-de-412671ae.json",
+   "recordedAt": "2026-10-23T20:22:40.722Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvenVnc3BpdHplL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uL3NlY3Rpb24tcGFyc3lzL3NpZGViYXJfY29weS9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "at-de-9dcd381b.json",
+   "recordedAt": "2026-10-23T20:22:46.864Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzExNjY0ODAxNDYvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uXzgxMzExNjQxOS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "at-de-d69412ec.json",
+   "recordedAt": "2026-10-23T20:22:55.289Z"
+  },
+  "at/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9hdC9kZS9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzExNjY0ODAxNDYvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uL2NvbDEvcG9pbWFwcGluZ19jb3B5": {
+   "file": "at-de-00bbc1a1.json",
+   "recordedAt": "2026-10-23T20:23:02.520Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS8xMDAteWVhcnMvZGVzdGluYXRpb25zL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uXzY2NjA2NzU5Ni9zZWN0aW9uLXBhcnN5cy9wb2ltYXBwaW5n": {
+   "file": "de-de-2131e2d6.json",
+   "recordedAt": "2026-10-23T20:23:32.897Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9qY3I6Y29udGVudC9wYXIvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-de-24717563.json",
+   "recordedAt": "2026-10-23T20:23:33.519Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJhcmNlbG9uYS1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW4vY29sMS9wb2ltYXBwaW5n": {
+   "file": "de-de-ce7d4a79.json",
+   "recordedAt": "2026-10-23T20:23:41.997Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJlcmxpbi1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW5fY29weS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "de-de-bc31b9ef.json",
+   "recordedAt": "2026-10-23T20:23:49.864Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWNoaXN3aWNrLWxvbmRvbi9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjMvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-de-14a7370c.json",
+   "recordedAt": "2026-10-23T20:23:59.856Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWRpc3RyaWN0LXp1cmljaC9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjUvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-de-e1596fa0.json",
+   "recordedAt": "2026-10-23T20:24:08.728Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtY2FzcGFyLXBsYXV0ei1tdW5pY2gvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMDMyMTA1OTMvY29sMS9wb2ltYXBwaW5n": {
+   "file": "de-de-55fea5c5.json",
+   "recordedAt": "2026-10-23T20:31:29.085Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtZm9vZC10cmVuZHMtaXN0YW5idWwvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMTIxNzAzMjg1L2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-de-ce5f96b9.json",
+   "recordedAt": "2026-10-23T20:31:29.380Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvYmF5ZXJpc2NoZXItaG9mL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uX2NvcHkvc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-de-376d688b.json",
+   "recordedAt": "2026-10-23T20:31:35.508Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvbmV1c2Nod2Fuc3RlaW4vamNyOmNvbnRlbnQvcGFyL3NlY3Rpb24vc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-de-237dad51.json",
+   "recordedAt": "2026-10-23T20:31:44.286Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvenVnc3BpdHplL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uL3NlY3Rpb24tcGFyc3lzL3NpZGViYXJfY29weS9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-de-5be59054.json",
+   "recordedAt": "2026-10-23T20:31:50.793Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzExNjY0ODAxNDYvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uXzgxMzExNjQxOS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "de-de-ac4a09e3.json",
+   "recordedAt": "2026-10-23T20:31:56.738Z"
+  },
+  "de/de|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9kZS9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzExNjY0ODAxNDYvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uL2NvbDEvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-de-523539c6.json",
+   "recordedAt": "2026-10-23T20:32:04.077Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi8xMDAteWVhcnMvZGVzdGluYXRpb25zL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uXzY2NjA2NzU5Ni9zZWN0aW9uLXBhcnN5cy9wb2ltYXBwaW5n": {
+   "file": "de-en-a04a0bd9.json",
+   "recordedAt": "2026-10-23T20:32:27.919Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9qY3I6Y29udGVudC9wYXIvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-en-3a75aa58.json",
+   "recordedAt": "2026-10-23T20:32:28.245Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJhcmNlbG9uYS1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW4vY29sMS9wb2ltYXBwaW5n": {
+   "file": "de-en-357eb932.json",
+   "recordedAt": "2026-10-23T20:32:37.805Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJlcmxpbi1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW5fY29weS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "de-en-5156d1d4.json",
+   "recordedAt": "2026-10-23T20:32:45.870Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWNoaXN3aWNrLWxvbmRvbi9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjMvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-en-ade5f2ef.json",
+   "recordedAt": "2026-10-23T20:32:54.359Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWRpc3RyaWN0LXp1cmljaC9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjUvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-en-def1e2ff.json",
+   "recordedAt": "2026-10-23T20:33:01.038Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtY2FzcGFyLXBsYXV0ei1tdW5pY2gvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMDMyMTA1OTMvY29sMS9wb2ltYXBwaW5n": {
+   "file": "de-en-180e7096.json",
+   "recordedAt": "2026-10-23T20:33:09.618Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtZm9vZC10cmVuZHMtaXN0YW5idWwvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMTIxNzAzMjg1L2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "de-en-ebb6e362.json",
+   "recordedAt": "2026-10-23T20:33:16.546Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvYmF5ZXJpc2NoZXItaG9mL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uX2NvcHkvc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-en-14eb1428.json",
+   "recordedAt": "2026-10-23T20:33:26.354Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvbmV1c2Nod2Fuc3RlaW4vamNyOmNvbnRlbnQvcGFyL3NlY3Rpb24vc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-en-b2cfbc36.json",
+   "recordedAt": "2026-10-23T20:33:34.650Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvenVnc3BpdHplL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uL3NlY3Rpb24tcGFyc3lzL3NpZGViYXJfY29weS9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-en-d4360d83.json",
+   "recordedAt": "2026-10-23T20:33:40.512Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uXzgxMzExNjQxOS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "de-en-e1522cf3.json",
+   "recordedAt": "2026-10-23T20:33:49.079Z"
+  },
+  "de/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9kZS9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uL2NvbDEvcG9pbWFwcGluZ19jb3B5": {
+   "file": "de-en-0f8db836.json",
+   "recordedAt": "2026-10-23T20:33:56.142Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi8xMDAteWVhcnMvZGVzdGluYXRpb25zL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uXzY2NjA2NzU5Ni9zZWN0aW9uLXBhcnN5cy9wb2ltYXBwaW5n": {
+   "file": "gb-en-84d8c3ef.json",
+   "recordedAt": "2026-10-23T20:34:16.960Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9qY3I6Y29udGVudC9wYXIvcG9pbWFwcGluZ19jb3B5": {
+   "file": "gb-en-50f51106.json",
+   "recordedAt": "2026-10-23T20:34:17.469Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJhcmNlbG9uYS1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW4vY29sMS9wb2ltYXBwaW5n": {
+   "file": "gb-en-f7531750.json",
+   "recordedAt": "2026-10-23T20:34:25.544Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9hLXBlcmZlY3QtZGF5LWJlcmxpbi1pbi1vbmUtZGF5L2pjcjpjb250ZW50L2FydGljbGVjb250ZW50ZnJhZ21lbnQvcGFyNS90d29jb2x1bW5fY29weS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "gb-en-a99bc4a2.json",
+   "recordedAt": "2026-10-23T20:34:31.963Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWNoaXN3aWNrLWxvbmRvbi9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjMvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "gb-en-eb884451.json",
+   "recordedAt": "2026-10-23T20:34:39.564Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9pbi1teS1ob29kLWRpc3RyaWN0LXp1cmljaC9qY3I6Y29udGVudC9hcnRpY2xlY29udGVudGZyYWdtZW50L3BhcjUvdHdvY29sdW1uL2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "gb-en-0dff7699.json",
+   "recordedAt": "2026-10-23T20:34:46.342Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtY2FzcGFyLXBsYXV0ei1tdW5pY2gvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMDMyMTA1OTMvY29sMS9wb2ltYXBwaW5n": {
+   "file": "gb-en-dab52530.json",
+   "recordedAt": "2026-10-23T20:34:53.757Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9hcnRpY2xlcy9leHBsb3JlLXRoZS13b3JsZC9vbi10aGUtc2NlbmUtZm9vZC10cmVuZHMtaXN0YW5idWwvamNyOmNvbnRlbnQvYXJ0aWNsZWNvbnRlbnRmcmFnbWVudC9wYXIyL3R3b2NvbHVtbl8yMTIxNzAzMjg1L2NvbDEvcG9pbWFwcGluZw==": {
+   "file": "gb-en-08260988.json",
+   "recordedAt": "2026-10-23T20:34:59.644Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvYmF5ZXJpc2NoZXItaG9mL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uX2NvcHkvc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "gb-en-1f4156d6.json",
+   "recordedAt": "2026-10-23T20:35:07.537Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvbmV1c2Nod2Fuc3RlaW4vamNyOmNvbnRlbnQvcGFyL3NlY3Rpb24vc2VjdGlvbi1wYXJzeXMvc2lkZWJhci9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "gb-en-06b86578.json",
+   "recordedAt": "2026-10-23T20:35:16.271Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9ib29rLWFuZC1tYW5hZ2Uvc3RvcG92ZXIvenVnc3BpdHplL2pjcjpjb250ZW50L3Bhci9zZWN0aW9uL3NlY3Rpb24tcGFyc3lzL3NpZGViYXJfY29weS9zaWRlYmFyLWNvbnRlbnQvcG9pbWFwcGluZ19jb3B5": {
+   "file": "gb-en-aa79a4c5.json",
+   "recordedAt": "2026-10-23T20:35:24.609Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uXzgxMzExNjQxOS9jb2wxL3BvaW1hcHBpbmc=": {
+   "file": "gb-en-6380bd4d.json",
+   "recordedAt": "2026-10-23T20:35:33.232Z"
+  },
+  "gb/en|GET /service/secured/api/pointsOfInterest/L2NvbnRlbnQvbGgvbWFya2V0cy9nYi9lbi9wcmVwYXJlLWZvci15b3VyLXRyaXAvdHJhdmVsLWNsYXNzZXMvZmlyc3QtY2xhc3MvamNyOmNvbnRlbnQvcGFyL3NlY3Rpb25fMTUwMTM1OTAxX2NvXzE2NTIwMTI3ODQvc2VjdGlvbi1wYXJzeXMvdGFic19jb3B5X2NvcHkvb25lY29sdW1uL2NvbDEvcG9pbWFwcGluZ19jb3B5": {
+   "file": "gb-en-e5be5f2c.json",
+   "recordedAt": "2026-10-23T20:35:39.263Z"
+  },
   "de/de|GET /service/api/labels/searchBar/lh/de": {
    "file": "de-de-db8e27af.json",
    "recordedAt": "2026-10-21T19:58:41.130Z"
@@ -1223,6 +1431,34 @@
   "de/de|GET /service/api/labels/fareteaserdynamicevo/lh/en": {
    "file": "de-de-4c3f04bf.json",
    "recordedAt": "2026-10-22T14:01:07.326Z"
+  },
+  "de/de|GET /service/api/catalogs/regions": {
+   "file": "de-de-751a8e41.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/catalogs/affinities": {
+   "file": "de-de-7c94c7ac.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/destinationfinder/campaign/FRA": {
+   "file": "de-de-787b3bd4.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/labels/fareAlert/lh/de": {
+   "file": "de-de-18a4fb78.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/labels/favourites/lh/de": {
+   "file": "de-de-2e33f388.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/labels/destinationFinder/lh/de": {
+   "file": "de-de-a1418126.json",
+   "recordedAt": "2026-10-22T15:54:28.044Z"
+  },
+  "de/de|GET /service/api/destinationfinder/destination/finder/FRA/E?months=0_11&tripType=RETURN": {
+   "file": "de-de-13de00e7.json",
+   "recordedAt": "2026-10-22T15:54:28.045Z"
   },
   "de/en|GET /service/api/labels/common/lh/en": {
    "file": "de-en-7b8e7b29.json",
@@ -1445,5 +1681,5 @@
    "recordedAt": "2026-10-22T14:54:26.589Z"
   }
  },
- "updatedAt": "2026-10-22T15:04:14.710Z"
+ "updatedAt": "2026-10-23T20:36:39.257Z"
 }

@@ -18,10 +18,20 @@
  * stops before the first API URL; nothing was requested or recorded (lounges, and again for
  * --set poi: 0 of 52 requested).
  *
+ *
+ * --set poi runs in-page instead (Ben's instruction, 2026-10-23): the session loads one map page
+ * per market on www.lufthansa.com and, from that page (same origin, no CORS), calls
+ * fetch('/service/secured/api/pointsOfInterest/' + id, { credentials: 'omit', headers:
+ * { 'X-Portal': 'LH', 'X-Portal-Site': <country>, 'X-Portal-Language': <lang> } }) for each of
+ * the market's maps (page.evaluate), one call every 5-10 s. That is the route the live client
+ * calls (/service/api/pointsOfInterest answers 404); without the X-Portal headers it answers 200
+ * with an empty list, from aem.page 204 without a body, so poi-map uses only these recordings.
+ *
  * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --set poi | --list urls.txt | --url <url> ...)
  *          [--locale de/en] [--referer <url>] [--min-delay 5000] [--max-delay 10000]
  *   --set lounges   the 36 lounge finder answers (blocks/lounge-finder/README.md "Recording")
- *   --set poi       the 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording")
+ *   --set poi       the 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording"),
+ *                   in-page fetch from a map page of the same market
  *   --list/--url    URLs of one market (--locale, default de/en)
  */
 import fs from 'node:fs';
@@ -70,8 +80,13 @@ function poiJobs() {
     if (!m) throw new Error(`poi: cannot read the JCR path of ${url}`);
     // the first-class page lives under prepare-for-your-trip/travel-classes/ in AEM only
     const page = m[3].replace(/^prepare-for-your-trip\/travel-classes\/first-class$/, 'first-class');
-    return { locale: `${m[1]}/${m[2]}`, url, referer: `${LIVE}/${m[1]}/${m[2]}/${page}` };
-  });
+    return {
+      locale: `${m[1]}/${m[2]}`,
+      url: url.replace('/service/api/pointsOfInterest/', '/service/secured/api/pointsOfInterest/'),
+      referer: `${LIVE}/${m[1]}/${m[2]}/${page}`,
+      inPage: true,
+    };
+  }).sort((a, b) => a.locale.localeCompare(b.locale)); // one market page per market
 }
 
 let jobs;
@@ -139,7 +154,71 @@ try {
   await sleep(minDelay + Math.random() * (maxDelay - minDelay));
 
   fs.mkdirSync(outDir, { recursive: true });
-  for (const job of jobs) {
+  let marketPage = null;
+  // answers saved by an earlier run are not requested again (a dropped session resumes)
+  const saved = new Set(fs.readdirSync(outDir).filter((f) => f.endsWith('.ndjson'))
+    .flatMap((f) => fs.readFileSync(path.join(outDir, f), 'utf8').split('\n').filter(Boolean))
+    .map((line) => { try { return JSON.parse(line).url; } catch (e) { return null; } }));
+  for (const job of jobs.filter((j) => j.inPage)) {
+    if (stopped) break;
+    if (saved.has(job.url)) {
+      counts.skipped += 1;
+      console.log(`already recorded: ${job.locale} ${job.url.slice(0, 110)}…`);
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+    const callStart = Date.now();
+    // one loaded www page of the job's market (the first map page of that market)
+    if (!marketPage || marketPage.locale !== job.locale) {
+      console.log(`bd-record-api: loading ${job.referer} for ${job.locale}`);
+      const r = await open(page, job.referer);
+      for (let i = 0; i < 60 && CHALLENGE.test(await page.title().catch(() => 'just a moment')); i += 1) await sleep(1000);
+      await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+      const title = await page.title().catch(() => '');
+      if (CHALLENGE.test(title) || r.status === 403) {
+        stopped = `Cloudflare challenge or 403 on ${job.referer} (${r.status}, title "${title}")`;
+        break;
+      }
+      marketPage = { locale: job.locale };
+      await sleep(minDelay + Math.random() * (maxDelay - minDelay));
+    }
+    const [country, lang] = job.locale.split('/');
+    const { pathname } = new URL(job.url);
+    const r = await page.evaluate(async ({ route, headers }) => {
+      try {
+        const resp = await fetch(route, { credentials: 'omit', headers });
+        return { status: resp.status, type: resp.headers.get('content-type') || '', text: await resp.text() };
+      } catch (e) {
+        return { status: null, type: '', text: String(e && e.message) };
+      }
+    }, { route: pathname, headers: { 'X-Portal': 'LH', 'X-Portal-Site': country.toUpperCase(), 'X-Portal-Language': lang } })
+      .catch((e) => ({ status: null, type: '', text: e.message.split('\n')[0] }));
+    if (r.status === null && /has been closed/.test(r.text)) {
+      stopped = 'the Bright Data session was closed';
+      break;
+    }
+    const html = /html/.test(r.type) || /^\s*</.test(r.text || '');
+    if (r.status === 403 || (html && /cloudflare|cf-chl|challenge-platform|just a moment/i.test(r.text || ''))) {
+      stopped = `${r.status} ${html ? 'HTML ' : ''}answer to the in-page fetch of ${pathname}: ${(r.text || '').replace(/\s+/g, ' ').slice(0, 160)}`;
+      break;
+    }
+    let data = null;
+    try { data = JSON.parse(r.text); } catch (e) { data = null; }
+    if (r.status === 200 && data) {
+      fs.appendFileSync(path.join(outDir, `${job.locale.replace('/', '-')}.ndjson`), `${JSON.stringify({
+        method: 'GET', url: job.url, status: 200, text: r.text, locale: job.locale, referer: job.referer, recordedAt: new Date().toISOString(),
+      })}\n`);
+      counts.saved += 1;
+      const n = Array.isArray(data.pointsOfInterest) ? data.pointsOfInterest.length : '?';
+      console.log(`200 ${job.locale} ${pathname.slice(0, 80)}… ${n} points (${r.text.length} B)`);
+    } else {
+      counts.skipped += 1;
+      console.log(`${r.status} ${job.locale} ${pathname.slice(0, 80)}… not saved (${r.type || 'no type'}): ${(r.text || '').replace(/\s+/g, ' ').slice(0, 160)}`);
+    }
+    await sleep(Math.max(0, callStart + minDelay + Math.random() * (maxDelay - minDelay) - Date.now()));
+  }
+  for (const job of jobs.filter((j) => !j.inPage)) {
+    if (stopped) break;
     const navStart = Date.now();
     try {
       await page.setExtraHTTPHeaders(portalHeaders(job.locale));

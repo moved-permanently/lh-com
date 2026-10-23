@@ -8,7 +8,7 @@ Model: `standalone`. Rows (all optional, but without Source or point rows the bl
 
 | Row | Value |
 | --- | --- |
-| Source | the live component's JCR path (`/content/lh/markets/de/en/.../poimapping`, the decoded data-dcep id) or the base64 id itself; the points come from GET /service/api/pointsOfInterest/{id} |
+| Source | the live component's JCR path (`/content/lh/markets/de/en/.../poimapping`, the decoded data-dcep id) or the base64 id itself; the points come from the recorded answers of GET /service/secured/api/pointsOfInterest/{id} |
 | *Title* \| *Lat, Lng* \| *Link* | an authored point (3 cells: "Parc de la Ciutadella \| 41.3881, 2.1873 \| https://…"; link optional); when the block has point rows, they are the points and nothing is requested |
 | Caption | rich text under the map (live: the text under the map in the same column, "For more information about our tips, please click on the points on the map above.") |
 | Aside | rich content beside the map, two equal columns from 768px (live: the other column of the `.twocolumn` around the map, e.g. "Our recommendations" and its list) |
@@ -18,7 +18,7 @@ Label rows (override): Zoom in label, Zoom out label, Visit website label, Map l
 
 ## Behaviour
 
-- Points: authored point rows, else GET `/service/api/pointsOfInterest/{id}` (scripts/lh-api.js `pointsOfInterestRequest`, `mapPointsOfInterest`; `pointsOfInterest/` is a direct route of scripts/lh-data.js: called on www.lufthansa.com with the market's X-Portal-* headers and no cookies, the exact recording as fallback; "=" of the id is sent unencoded like the live apicase client, recordings match with "=" or "%3D"). Answer `{"pointsOfInterest":[{"lat","lng","title","link"?,"linkLabel"?,"linkExternal"?}]}`; points without valid coordinates are left out, one per position.
+- Points: authored point rows, else the recorded answer of GET `/service/secured/api/pointsOfInterest/{id}` (scripts/lh-api.js `pointsOfInterestRequest`, `mapPointsOfInterest`; a recorded-only route of scripts/lh-data.js: never called live, because www.lufthansa.com answers it with the points only to same-origin calls with the market's X-Portal: LH / X-Portal-Site / X-Portal-Language headers (an empty list without them) and with 204 and no body to aem.page; the old `/service/api/pointsOfInterest/{id}` answers 404 even on www; recordings match "=" and "%3D" alike). Answer `{"pointsOfInterest":[{"lat","lng","title","link"?,"linkLabel"?,"linkExternal"?}]}`; points without valid coordinates are left out, one per position.
 - No points (no answer, nothing recorded): the block is hidden (the live component then leaves an empty 500px box); with an Aside only the aside stays. `data-lh-source`: live / recorded / none for the points (labels/common in `data-lh-sources`), `authored` for point rows.
 - Map: loaded when the block comes within 300px of the viewport. First view = the live `fitBounds` over all points (highest zoom at which all fit, 48px kept above for the pins, 24px elsewhere; a single point gets the tile source's maximum zoom, 19 for OSM, live shows zoom 20 there); zoom 2 … 19 with the buttons (40px squares, black 60 %, white plus / minus, 10px apart, 34px from the bottom, 20px from the right, sr-only labels); drag with mouse or pen to pan (touch scrolls the page; the buttons zoom).
 - Pins: deep blue location pin (24px, tip on the point), focusable (`role=group`, `aria-label` = title). Hover or focus opens the bubble (white, 4px radius, soft shadow, at most 300px wide, its tip at 25 % of its width, the live `translate(-25%, -100%)`): title (LufthansaHead bold 20–24px) and, with a link, "Visit website" (or the point's linkLabel; 14px bold service link with ↗). With a link the whole bubble is the link and gets the focus (live), new tab when `linkExternal` or the link leaves lufthansa.com; Escape closes it. Opening one bubble closes the others; the map pans so an open bubble stays inside.
@@ -39,7 +39,7 @@ Source: `.poimapping > .dcep-poi-mapping` (13 maps per market on 12 pages; /{cc}
 
 ## Recording (for the browser agent)
 
-The 52 answers to record (GET, from the page of the map, with that market's X-Portal-* headers; the id is market-specific; whether the live client sends "=" or "%3D" does not matter for the key). Marker counts are the pins in the snapshot (0 = not loaded at capture time).
+Recorded 2026-10-23, all 52 with status 200 (`node tools/importer/bd-record-api.mjs --set poi`, then `node tools/importer/record-live-data.mjs`): in the warm Bright Data session, from one loaded www.lufthansa.com map page per market, `fetch('/service/secured/api/pointsOfInterest/' + id, { credentials: 'omit', headers: { 'X-Portal': 'LH', 'X-Portal-Site': <country>, 'X-Portal-Language': <lang> } })` (page.evaluate, same origin), one call every 5-10 s. Zugspitze: lat 47.489864, lng 11.096861. The URLs below are the old /service/api form; the script calls the secured route with the same id. The id is market-specific; "=" or "%3D" does not matter for the key. Marker counts are the pins in the snapshot (0 = not loaded at capture time).
 
 | Page | JCR path | Pins |
 | --- | --- | --- |

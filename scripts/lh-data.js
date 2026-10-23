@@ -2,9 +2,10 @@
  * Live data for the lufthansa.com widgets (flight search, fare teasers, destination finder,
  * price bar, weather, labels). Three sources, in this order:
  *
+ * 0. Recorded only: /service/secured/api/pointsOfInterest/* (poi-map) answers its points only to
+ *    same-origin calls on www.lufthansa.com (204 without a body from aem.page): recordings only.
  * 1. Direct: routes www.lufthansa.com answers with Access-Control-Allow-Origin: * (airport
- *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*;
- *    pointsOfInterest/* untested) are
+ *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*) are
  *    called from the visitor's browser without credentials, with the query and X-Portal-*
  *    headers the live page sends for the market (destinationfinder answers 400 "Invalid site"
  *    without X-Portal-Site). Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
@@ -25,11 +26,16 @@ export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
  * destinationfinder/*: GET .../destination/finder/FRA/E with X-Portal: LH, X-Portal-Site: DE,
  * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
  * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
- * pointsOfInterest/{id} (poi-map): the same /service/api base and X-Portal-* headers as the live
- * PointsOfInterest component; its CORS answer is untested, a refusal falls back to the
- * recordings like every direct route.
  */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|pointsOfInterest\/)/;
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/)/;
+
+/**
+ * Routes served from the recordings only. pointsOfInterest/{id} (poi-map): the live client calls
+ * GET /service/secured/api/pointsOfInterest/{id}; www answers 200 with the points to same-origin
+ * calls with X-Portal: LH, X-Portal-Site, X-Portal-Language (an empty list without them) and
+ * 204 without a body to aem.page (Ben, 2026-10-23), so a live call can never succeed here.
+ */
+const RECORDED_ONLY_ROUTES = /^\/service\/secured\/api\/pointsOfInterest\//;
 
 const DIRECT_TIMEOUT_MS = 3000;
 const PROXY_TIMEOUT_MS = 2500;
@@ -334,6 +340,8 @@ export async function lhFetch(route, {
     if (error) throw error;
     return { ...value, via: 'recording' };
   };
+
+  if (RECORDED_ONLY_ROUTES.test(route)) return fromRecording();
 
   if (isDirectRoute(route)) {
     if (isBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN)) return fromRecording();

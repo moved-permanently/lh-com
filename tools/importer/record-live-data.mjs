@@ -23,9 +23,9 @@ const src = path.resolve(root, args.src || 'tools/source-export');
 const out = path.resolve(root, args.out || 'data/recorded');
 
 const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
-// the lh-proxy allowlist plus the direct-only routes (pointsOfInterest: called directly by the
-// poi-map block, never through lh-proxy)
-const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder|pointsOfInterest)|aircore\/(weather|geolocation))(\/|$)/;
+// the lh-proxy allowlist plus the recorded-only route of the poi-map block
+// (/service/secured/api/pointsOfInterest, recorded in-page by bd-record-api.mjs --set poi)
+const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|service\/secured\/api\/pointsOfInterest|aircore\/(weather|geolocation))(\/|$)/;
 
 function walk(dir, ext) {
   if (!fs.existsSync(dir)) return [];

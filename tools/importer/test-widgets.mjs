@@ -1361,7 +1361,7 @@ const textOf = (node) => (node ? node.textContent : '');
 }
 
 /* ------------------------------------------------------------------------------------------- */
-/* POI map: GET pointsOfInterest/{id} direct (synthetic answer: none is recorded yet), the      */
+/* POI map: GET secured/api/pointsOfInterest/{id} from the recordings only (never live), the     */
 /* labels/common labels, authored points, fit and zoom, the bubble on hover / focus.            */
 /* ------------------------------------------------------------------------------------------- */
 
@@ -1389,38 +1389,35 @@ const textOf = (node) => (node ? node.textContent : '');
     await decoratePoiMap(block);
     return block;
   };
-  const bcnUrl = `${LIVE_ORIGIN}${pointsOfInterestRequest(BCN_ID).route}`;
+  const poiRoute = pointsOfInterestRequest(BERLIN_ID).route;
   record(
-    { run: 'P', check: 'pointsOfInterest: direct route, "=" and "%3D" give one key' },
-    isDirectRoute(pointsOfInterestRequest(BCN_ID).route)
-      && requestKey('GET', `/service/api/pointsOfInterest/${BERLIN_ID}`) === requestKey('GET', `/service/api/pointsOfInterest/${BERLIN_ID.replace(/=/g, '%3D')}`)
-      && pointsOfInterestRequest(BERLIN_ID).route.endsWith('L3BvaW1hcHBpbmc='),
+    { run: 'P', check: 'pointsOfInterest: secured route, recorded only, "=" and "%3D" give one key' },
+    !isDirectRoute(poiRoute) && poiRoute.startsWith('/service/secured/api/pointsOfInterest/')
+      && requestKey('GET', `/service/secured/api/pointsOfInterest/${BERLIN_ID}`) === requestKey('GET', `/service/secured/api/pointsOfInterest/${BERLIN_ID.replace(/=/g, '%3D')}`)
+      && poiRoute.endsWith('L3BvaW1hcHBpbmc='),
     true,
-    pointsOfInterestRequest(BERLIN_ID).route.slice(-40),
+    poiRoute.slice(-40),
   );
 
-  // live answer (synthetic), Source row = the decoded JCR path
-  stubResponses.set(bcnUrl, POI_FIXTURE);
+  // the recorded answer (2026-10-23, 8 points), Source row = the decoded JCR path; no live call
   startRun({ direct: 'ok', proxy: '502' });
   const before = directCalls.length;
   const live = await runPoi('/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day', poiBlock([['Source', BCN_PATH]]));
-  const sent = directCalls.slice(before).find((c) => c.href === bcnUrl);
+  const sent = directCalls.slice(before).filter((c) => c.href.includes('/pointsOfInterest/'));
   const markers = live.querySelectorAll('.poi-map-marker');
   const tiles = live.querySelectorAll('img');
   markers[0].dispatch('mouseenter');
   const bubble = markers[0].querySelector('.poi-map-bubble');
   markers[2].dispatch('focusin');
-  const internal = markers[2].querySelector('.poi-map-bubble');
+  const third = markers[2].querySelector('.poi-map-bubble');
   record(
-    { run: 'P', locale: 'de/en', block: 'poi-map', check: 'direct answer -> pins, bubble with link' },
-    live.getAttribute('data-lh-source') === 'live' && Boolean(sent)
-      && JSON.stringify(sent.init.headers) === JSON.stringify(portalHeaders('de/en'))
-      && markers.length === 3 && tiles.length > 0 && tiles.every((t) => t.src.startsWith('https://tile.openstreetmap.org/'))
+    { run: 'P', locale: 'de/en', block: 'poi-map', check: 'recorded answer -> pins, bubble with link, no live call' },
+    live.getAttribute('data-lh-source') === 'recorded' && sent.length === 0
+      && markers.length === 8 && tiles.length > 0 && tiles.every((t) => t.src.startsWith('https://tile.openstreetmap.org/'))
       && !markers[0].querySelector('.poi-map-bubble') // the first bubble closed when the third opened
       && Boolean(bubble) && bubble.tagName === 'A' && bubble.target === '_blank'
-      && textOf(bubble.querySelector('.poi-map-link')) === 'Visit website'
-      && Boolean(internal) && !internal.target && textOf(internal.querySelector('.poi-map-link')) === 'Read more'
-      && document.activeElement === internal
+      && textOf(bubble.querySelector('.poi-map-link')) === 'More information'
+      && Boolean(third) && document.activeElement === third
       && textOf(live.querySelector('.poi-map-attribution')).includes('OpenStreetMap'),
     true,
     `${markers.length} pins, ${tiles.length} tiles (${tiles[0] ? tiles[0].src.split('/').slice(3, 4) : '-'}), bubble "${textOf(bubble)}"; ${live.getAttribute('data-lh-sources')}`,
@@ -1438,13 +1435,12 @@ const textOf = (node) => (node ? node.textContent : '');
     true,
     `fit ${z0}, in ${z1}, out twice ${zoomOf()}`,
   );
-  stubResponses.clear();
-
-  // direct call fails, nothing recorded -> no map (block hidden), source none
-  startRun({ direct: 'cors', proxy: '502' });
-  const none = await runPoi('/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day', poiBlock([['Source', BERLIN_ID]]));
+  // a map without a recording -> no map (block hidden), source none
+  startRun({ direct: 'ok', proxy: '502' });
+  const UNRECORDED_ID = Buffer.from('/content/lh/markets/de/de/articles/none/jcr:content/par/poimapping').toString('base64');
+  const none = await runPoi('/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day', poiBlock([['Source', UNRECORDED_ID]]));
   record(
-    { run: 'P', locale: 'de/de', block: 'poi-map', check: 'direct fails, not recorded -> hidden' },
+    { run: 'P', locale: 'de/de', block: 'poi-map', check: 'not recorded -> hidden' },
     none.hidden === true && none.getAttribute('data-lh-source') === 'none'
       && String(none.getAttribute('data-lh-sources')).includes('points:none'),
     true,
