@@ -66,10 +66,14 @@ function shotFile(dir, width) {
   return found.sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)[0];
 }
 
+// app shells (login, profile) are built outside this migration; Ben adds them to the jobs himself
+const EXCLUDED = /^\/[a-z]{2}\/[a-z]{2}\/(login|profile)(\/|$)/;
+
 const skipped = [];
 const candidates = [];
 for (const [url, entry] of Object.entries(progress)) {
   const pagePath = new URL(url).pathname.replace(/\/+$/, '');
+  if (EXCLUDED.test(pagePath)) continue; // eslint-disable-line no-continue
   // AirCore pages live under /lhg/{country}/{lang}/...; they belong to that locale
   const segs = pagePath.split('/').slice(1);
   const locale = (segs[0] === 'lhg' ? segs.slice(1, 3) : segs.slice(0, 2)).join('/');
