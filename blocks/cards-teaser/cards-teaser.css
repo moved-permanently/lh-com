@@ -247,3 +247,16 @@
     font-size: 28px;
   }
 }
+
+/* tiles that end their section (Insights "Explore more" above the footer): the live column view
+   leaves 21px below the tiles, 41px from 768px, instead of the 48px section gap
+   (/de/en/articles/explore-flying, explore-the-world, highlights) */
+.cards-teaser-wrapper:last-child > .cards-teaser.overlay {
+  margin-bottom: -27px;
+}
+
+@media (width >= 768px) {
+  .cards-teaser-wrapper:last-child > .cards-teaser.overlay {
+    margin-bottom: -7px;
+  }
+}
