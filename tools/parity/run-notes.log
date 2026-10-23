@@ -92,3 +92,10 @@
 2026-10-23T03:05:33Z done 901/2681 (failed 0, pending 1780) | call 150 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/articles/explore-flying@390 52.18% (diverges y=200)
 2026-10-23T03:09:12Z done 913/2681 (failed 0, pending 1768) | call 203 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/articles/explore-the-world@390 46.42% (diverges y=200)
 2026-10-23T03:14:46Z done 924/2681 (failed 0, pending 1757) | call 230 s, 11 captures (11 ok, 0 failed), 11 compares | failures: none | worst: de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips@390 51.28% (diverges y=200)
+2026-10-23T03:19:57Z done 936/2681 (failed 0, pending 1745) | call 210 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/en/articles/explore-the-world/in-my-hood-chiswick-london@390 44.13% (diverges y=200)
+2026-10-23T03:24:50Z call killed by the tool timeout after ~290 s (past its 240 s budget, last capture slow); its finished captures are in progress.json, the in-flight one is retried; loop now starts a 2nd call only within 200 s
+2026-10-23T03:26:53Z no summary (exit 3)
+2026-10-23T03:28:35Z no summary (exit 3)
+2026-10-23T03:30:18Z no summary (exit 3)
+2026-10-23T03:31:30Z 3 calls refused (exit 3): batch.lock pid 241679 is the killed runner, now a zombie that kill(pid,0) still reports alive; run-batch.js isAlive now treats zombie (/proc state Z) as dead
+2026-10-23T03:35:44Z done 953/2681 (failed 0, pending 1728) | call 223 s, 9 captures (9 ok, 0 failed), 9 compares | failures: none | worst: de/en/articles/explore-the-world/picture-perfect-austin@390 56.45% (diverges y=200)

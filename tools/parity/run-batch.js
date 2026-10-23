@@ -68,9 +68,15 @@ const lockFile = path.join(stateDir, 'batch.lock');
 function isAlive(pid) {
   try {
     process.kill(pid, 0);
-    return true;
   } catch (e) {
     return e.code === 'EPERM';
+  }
+  // a killed runner whose parent never reaped it is a zombie: signalable, but not running
+  try {
+    const stat = fs.readFileSync(`/proc/${pid}/stat`, 'utf8');
+    return stat.slice(stat.lastIndexOf(')') + 2, stat.lastIndexOf(')') + 3) !== 'Z';
+  } catch (e) {
+    return true; // no procfs: trust the signal check
   }
 }
 mkdirp(stateDir);
