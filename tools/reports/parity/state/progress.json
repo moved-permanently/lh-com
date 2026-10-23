@@ -93389,11 +93389,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 21426,
-          "at": "2026-10-23T03:07:53.687Z",
+          "ms": 22115,
+          "at": "2026-10-23T16:27:45.591Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7024,
+            "scrollHeight": 7010,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -93430,7 +93430,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 1
+            "liveBoxes": 2
           }
         },
         "src": {
@@ -93439,15 +93439,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43871,
-        "unmaskedRatio": 0.44399,
-        "maskRatio": 0.01188,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.43349,
+        "unmaskedRatio": 0.46297,
+        "maskRatio": 0.06369,
+        "maskBoxes": 2,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7578,
-        "heightB": 7024,
-        "heightDiffRatio": 0.07311,
+        "heightB": 7010,
+        "heightDiffRatio": 0.07495,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -93464,7 +93464,7 @@
           },
           {
             "y": 6400,
-            "unmaskedRatio": 0.91512
+            "unmaskedRatio": 0.9118
           }
         ],
         "bandHeight": 200,
@@ -93481,35 +93481,35 @@
           0.57645,
           0.41439,
           0.54255,
+          0.56183,
+          0,
+          0,
+          0.08662,
+          0.34555,
+          0.35287,
+          0.60332,
+          0.43744,
+          0.38711,
+          0.49131,
           0.57423,
-          0.14332,
-          0.04696,
-          0.0829,
-          0.30169,
-          0.39243,
-          0.61013,
-          0.41482,
-          0.38717,
-          0.49219,
-          0.57676,
-          0.70092,
-          0.14315,
-          0.11153,
-          0.15877,
-          0.34786,
-          0.09924,
-          0.49385,
-          0.43301,
-          0.5138,
-          0.91512,
-          0.88563,
-          0.76771,
+          0.70117,
+          0.13532,
+          0.12371,
+          0.17385,
+          0.32129,
+          0.10476,
+          0.5136,
+          0.41841,
+          0.57947,
+          0.9118,
+          0.8899,
+          0.71847,
           0.97933,
           0.99347,
           0.55432
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/1440-diff.png",
-        "at": "2026-10-23T03:07:58.538Z",
+        "at": "2026-10-23T16:27:50.763Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/1440-diff.png",
@@ -93526,11 +93526,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 21244,
-          "at": "2026-10-23T03:08:19.902Z",
+          "ms": 20754,
+          "at": "2026-10-23T16:28:11.694Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7689,
+            "scrollHeight": 7457,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -93567,7 +93567,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 1
+            "liveBoxes": 2
           }
         },
         "src": {
@@ -93576,15 +93576,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.25439,
-        "unmaskedRatio": 0.25728,
-        "maskRatio": 0.01125,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.29269,
+        "unmaskedRatio": 0.31225,
+        "maskRatio": 0.06263,
+        "maskBoxes": 2,
         "widthA": 753,
         "widthB": 753,
         "heightA": 8000,
-        "heightB": 7689,
-        "heightDiffRatio": 0.03888,
+        "heightB": 7457,
+        "heightDiffRatio": 0.06788,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -93592,16 +93592,16 @@
         },
         "worstBands": [
           {
-            "y": 1400,
-            "unmaskedRatio": 0.64274
+            "y": 7400,
+            "unmaskedRatio": 0.98408
+          },
+          {
+            "y": 6800,
+            "unmaskedRatio": 0.87726
           },
           {
             "y": 7600,
-            "unmaskedRatio": 0.60871
-          },
-          {
-            "y": 2000,
-            "unmaskedRatio": 0.60647
+            "unmaskedRatio": 0.67373
           }
         ],
         "bandHeight": 200,
@@ -93616,39 +93616,39 @@
           0.64274,
           0.29155,
           0.43505,
-          0.60647,
-          0.05999,
-          0.05831,
-          0.08578,
-          0.08724,
-          0.20564,
-          0.55165,
-          0.25761,
-          0.15904,
-          0.10843,
-          0.25102,
-          0.41674,
-          0.20109,
-          0.13483,
-          0.1187,
-          0.11085,
-          0.12734,
-          0.12661,
-          0.21052,
-          0.16418,
-          0.1039,
-          0.45612,
-          0.41825,
-          0.41697,
-          0.28247,
-          0.59383,
-          0.11989,
-          0.0791,
-          0.60871,
+          0.60435,
+          0,
+          0,
+          0.1204,
+          0.30484,
+          0.4364,
+          0.29602,
+          0.07262,
+          0.14185,
+          0.30979,
+          0.40947,
+          0.09079,
+          0.146,
+          0.12306,
+          0.1166,
+          0.12182,
+          0.13629,
+          0.25838,
+          0.15691,
+          0.16546,
+          0.30433,
+          0.27197,
+          0.52497,
+          0.28059,
+          0.87726,
+          0.55839,
+          0.2071,
+          0.98408,
+          0.67373,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/768-diff.png",
-        "at": "2026-10-23T03:08:22.668Z",
+        "at": "2026-10-23T16:28:14.612Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/768-diff.png",
@@ -93665,11 +93665,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20735,
-          "at": "2026-10-23T03:08:43.519Z",
+          "ms": 20471,
+          "at": "2026-10-23T16:28:35.285Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9442,
+            "scrollHeight": 9344,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -93706,7 +93706,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 1
+            "liveBoxes": 2
           }
         },
         "src": {
@@ -93715,10 +93715,10 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.41786,
-        "unmaskedRatio": 0.42536,
-        "maskRatio": 0.01762,
-        "maskBoxes": 1,
+        "mismatchRatio": 0.40291,
+        "unmaskedRatio": 0.43387,
+        "maskRatio": 0.07136,
+        "maskBoxes": 2,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
@@ -93731,16 +93731,16 @@
         },
         "worstBands": [
           {
-            "y": 4600,
-            "unmaskedRatio": 0.90488
-          },
-          {
-            "y": 3000,
-            "unmaskedRatio": 0.86565
-          },
-          {
             "y": 4400,
-            "unmaskedRatio": 0.82103
+            "unmaskedRatio": 0.84155
+          },
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.79575
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.78671
           }
         ],
         "bandHeight": 200,
@@ -93755,39 +93755,39 @@
           0.65785,
           0.41785,
           0.59096,
-          0.74289,
-          0.11889,
-          0.08217,
-          0.15835,
-          0.13737,
-          0.86565,
-          0.42067,
-          0.64129,
-          0.63628,
-          0.59149,
-          0.64096,
-          0.41288,
-          0.82103,
-          0.90488,
-          0.45139,
-          0.18591,
-          0.77957,
-          0.69605,
-          0.56056,
-          0.62207,
-          0.2478,
-          0.18571,
-          0.18628,
-          0.1714,
-          0.70299,
-          0.23239,
-          0.12257,
-          0.21656,
-          0.19683,
-          0.62601
+          0.65457,
+          0.00364,
+          0.00277,
+          0.17405,
+          0.38567,
+          0.59901,
+          0.67341,
+          0.45185,
+          0.79575,
+          0.57636,
+          0.65184,
+          0.41667,
+          0.84155,
+          0.70304,
+          0.35532,
+          0.18909,
+          0.78671,
+          0.69311,
+          0.5692,
+          0.63887,
+          0.25024,
+          0.19752,
+          0.19272,
+          0.206,
+          0.62289,
+          0.20568,
+          0.12712,
+          0.21808,
+          0.36941,
+          0.48011
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/390-diff.png",
-        "at": "2026-10-23T03:08:45.412Z",
+        "at": "2026-10-23T16:28:37.302Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day/390-diff.png",
@@ -142044,11 +142044,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 16086,
-          "at": "2026-10-23T08:41:12.119Z",
+          "ms": 16003,
+          "at": "2026-10-23T16:28:53.501Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 25056,
+            "scrollHeight": 24212,
             "truncated": true,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -142057,7 +142057,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 37,
+            "pendingImages": 19,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -142083,7 +142083,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5403
+              "svgAnimations": 5258
             },
             "liveBoxes": 0
           }
@@ -142166,7 +142166,7 @@
           0.59921
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/1440-diff.png",
-        "at": "2026-10-23T08:41:17.688Z",
+        "at": "2026-10-23T16:28:59.171Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/1440-diff.png",
@@ -142183,11 +142183,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15007,
-          "at": "2026-10-23T08:41:32.861Z",
+          "ms": 14560,
+          "at": "2026-10-23T16:29:13.886Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 25487,
+            "scrollHeight": 24643,
             "truncated": true,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -142196,7 +142196,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 38,
+            "pendingImages": 20,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -142222,7 +142222,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5368
+              "svgAnimations": 5266
             },
             "liveBoxes": 0
           }
@@ -142305,7 +142305,7 @@
           0.55533
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/768-diff.png",
-        "at": "2026-10-23T08:41:36.056Z",
+        "at": "2026-10-23T16:29:17.338Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/768-diff.png",
@@ -142322,11 +142322,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14261,
-          "at": "2026-10-23T08:41:50.470Z",
+          "ms": 14133,
+          "at": "2026-10-23T16:29:31.651Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 26480,
+            "scrollHeight": 25574,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -142335,7 +142335,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 38,
+            "pendingImages": 20,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -142361,7 +142361,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5345
+              "svgAnimations": 5271
             },
             "liveBoxes": 0
           }
@@ -142444,7 +142444,7 @@
           0.2604
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/390-diff.png",
-        "at": "2026-10-23T08:41:52.495Z",
+        "at": "2026-10-23T16:29:33.694Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/first-class/390-diff.png",
@@ -240457,18 +240457,133 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/100-years/destinations",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/100-years/destinations/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 15547,
+          "at": "2026-10-23T16:29:49.417Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 16808,
+            "truncated": true,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 10,
+            "fonts": {
+              "h1": null,
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5197
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/100-years/destinations/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.44134,
+        "unmaskedRatio": 0.44134,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.45113
+        },
+        "worstBands": [
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.94894
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.90019
+          },
+          {
+            "y": 6600,
+            "unmaskedRatio": 0.78274
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0152,
+          0.04873,
+          0.0945,
+          0.1163,
+          0.28613,
+          0.45113,
+          0.45012,
+          0.417,
+          0.07647,
+          0.37291,
+          0.32127,
+          0.1897,
+          0.36844,
+          0.52452,
+          0.5738,
+          0.22967,
+          0.08063,
+          0.11635,
+          0.50808,
+          0.51093,
+          0.4874,
+          0.3892,
+          0.46184,
+          0.50185,
+          0.48567,
+          0.45276,
+          0.49631,
+          0.73467,
+          0.94894,
+          0.73473,
+          0.90019,
+          0.78093,
+          0.75896,
+          0.78274,
+          0.58633,
+          0.33834,
+          0.29031,
+          0.55759,
+          0.57107,
+          0.64207
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/100-years/destinations/1440-diff.png",
+        "at": "2026-10-23T16:29:54.707Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/100-years/destinations/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/100-years/fleet@1440": {
       "id": "gb/en/100-years/fleet",
@@ -259667,5 +259782,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T16:04:46.981Z"
+  "updatedAt": "2026-10-23T16:29:54.707Z"
 }
