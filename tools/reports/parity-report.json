@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T15:44:30.535Z",
+  "generatedAt": "2026-10-23T16:07:45.173Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -28,8 +28,8 @@
       "pages": 312,
       "pass": 1,
       "review": 2,
-      "fail": 22,
-      "pending": 287,
+      "fail": 23,
+      "pending": 286,
       "error": 0
     },
     "gb/en": {
@@ -43,7 +43,7 @@
   },
   "pageWidths": {
     "total": 2683,
-    "compared": 1971
+    "compared": 1972
   },
   "templateGroups": [
     {
@@ -162,7 +162,7 @@
       "template": "info",
       "width": 390,
       "pageWidths": 342,
-      "meanUnmasked": 0.26948187134502927,
+      "meanUnmasked": 0.2697284502923977,
       "medianUnmasked": 0.27212000000000003,
       "maxUnmasked": 0.57451
     },
@@ -170,7 +170,7 @@
       "template": "info",
       "width": 768,
       "pageWidths": 341,
-      "meanUnmasked": 0.26865882697947213,
+      "meanUnmasked": 0.2688651612903227,
       "medianUnmasked": 0.24939,
       "maxUnmasked": 0.63235
     },
@@ -193,9 +193,9 @@
     {
       "template": "info",
       "width": 1440,
-      "pageWidths": 344,
-      "meanUnmasked": 0.24859595930232567,
-      "medianUnmasked": 0.22369499999999998,
+      "pageWidths": 345,
+      "meanUnmasked": 0.24939742028985518,
+      "medianUnmasked": 0.22379,
       "maxUnmasked": 0.6619
     },
     {
@@ -2823,7 +2823,8 @@
       ],
       "fixed": [
         "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
-        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)"
+        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
       ],
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 180 px shorter (5.9%)",
@@ -16361,7 +16362,9 @@
           "diff": "tools/reports/parity/shots/de/en/special-needs/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈3000 px at 1440; replica 1544 px shorter (29.1%)",
         "layout diverges at y≈3200 px at 768; replica 2301 px shorter (37.4%)",
@@ -16889,7 +16892,9 @@
           "diff": "tools/reports/parity/shots/de/en/add-sports-baggage/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈3600 px at 1440; replica 1146 px taller (20.9%)",
         "layout diverges at y≈3800 px at 768; replica 911 px taller (16.6%)",
@@ -33883,7 +33888,8 @@
       ],
       "fixed": [
         "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
-        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)"
+        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
       ],
       "remains": [
         "layout diverges at y≈6600 px at 768",
@@ -34441,26 +34447,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.47259,
-          "mismatchRatio": 0.47259,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.55237,
+          "mismatchRatio": 0.51074,
+          "maskRatio": 0.07537,
+          "maskBoxes": 1,
           "heightSrc": 2291,
-          "heightEds": 4891,
-          "heightDiffRatio": 0.53159,
-          "firstDivergentY": 1200,
+          "heightEds": 1670,
+          "heightDiffRatio": 0.27106,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 2000,
-              "unmaskedRatio": 0.97851
-            },
-            {
-              "y": 4400,
-              "unmaskedRatio": 0.97398
-            },
-            {
               "y": 1800,
-              "unmaskedRatio": 0.96749
+              "unmaskedRatio": 0.99558
+            },
+            {
+              "y": 2000,
+              "unmaskedRatio": 0.99199
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.94341
             }
           ],
           "capturedWidth": 1425,
@@ -34470,7 +34476,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaHead",
               "webfont": true
             },
             "h2": {
@@ -34491,26 +34497,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.51482,
-          "mismatchRatio": 0.51482,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.57326,
+          "mismatchRatio": 0.51595,
+          "maskRatio": 0.09997,
+          "maskBoxes": 1,
           "heightSrc": 3643,
-          "heightEds": 4283,
-          "heightDiffRatio": 0.14943,
-          "firstDivergentY": 1400,
+          "heightEds": 1722,
+          "heightDiffRatio": 0.52731,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 4000,
-              "unmaskedRatio": 0.95641
+              "y": 3200,
+              "unmaskedRatio": 0.99264
             },
             {
-              "y": 3800,
-              "unmaskedRatio": 0.94701
+              "y": 3000,
+              "unmaskedRatio": 0.96915
             },
             {
-              "y": 2200,
-              "unmaskedRatio": 0.93382
+              "y": 1000,
+              "unmaskedRatio": 0.92772
             }
           ],
           "capturedWidth": 753,
@@ -34520,7 +34526,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaHead",
               "webfont": true
             },
             "h2": {
@@ -34541,26 +34547,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.45455,
-          "mismatchRatio": 0.45455,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.51826,
+          "mismatchRatio": 0.45772,
+          "maskRatio": 0.11681,
+          "maskBoxes": 1,
           "heightSrc": 3476,
-          "heightEds": 4115,
-          "heightDiffRatio": 0.15529,
-          "firstDivergentY": 1400,
+          "heightEds": 1856,
+          "heightDiffRatio": 0.46605,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 3600,
-              "unmaskedRatio": 0.95969
+              "y": 3000,
+              "unmaskedRatio": 0.97703
             },
             {
-              "y": 3400,
-              "unmaskedRatio": 0.92737
+              "y": 1400,
+              "unmaskedRatio": 0.95336
             },
             {
-              "y": 2600,
-              "unmaskedRatio": 0.91523
+              "y": 2800,
+              "unmaskedRatio": 0.95203
             }
           ],
           "capturedWidth": 375,
@@ -34570,7 +34576,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaHead",
               "webfont": true
             },
             "h2": {
@@ -34590,9 +34596,9 @@
       ],
       "fixed": [],
       "remains": [
-        "layout diverges at y≈1200 px at 1440; replica 2600 px taller (53.2%)",
-        "layout diverges at y≈1400 px at 768; replica 640 px taller (14.9%)",
-        "layout diverges at y≈1400 px at 390; replica 639 px taller (15.5%)"
+        "layout diverges at y≈1000 px at 1440; replica 621 px shorter (27.1%)",
+        "layout diverges at y≈1000 px at 768; replica 1921 px shorter (52.7%)",
+        "layout diverges at y≈1000 px at 390; replica 1620 px shorter (46.6%)"
       ]
     },
     {
@@ -63853,7 +63859,9 @@
           "diff": "tools/reports/parity/shots/de/en/anmeldung-tiere-frachtraum/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈3200 px at 1440; replica 2567 px shorter (39.8%)",
         "layout diverges at y≈3400 px at 768; replica 3564 px shorter (46.3%)",
@@ -64023,7 +64031,9 @@
           "diff": "tools/reports/parity/shots/de/en/book-and-manage/cancellation-and-refund/refund/refund-form/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈3600 px at 1440",
         "horizontal overflow 218 px at 1440",
@@ -64370,7 +64380,9 @@
           "diff": "tools/reports/parity/shots/de/en/feedback-past-flight/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈5200 px at 1440; replica 2019 px taller (25.2%)",
         "horizontal overflow 218 px at 1440",
@@ -64896,7 +64908,9 @@
           "diff": "tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈1400 px at 1440; replica 2012 px shorter (47.8%)",
         "layout diverges at y≈1400 px at 768; replica 2681 px shorter (54.8%)",
@@ -65066,7 +65080,9 @@
           "diff": "tools/reports/parity/shots/de/en/register-animal-cabin/390-diff.png"
         }
       ],
-      "fixed": [],
+      "fixed": [
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
+      ],
       "remains": [
         "layout diverges at y≈2800 px at 1440; replica 1984 px shorter (35.9%)",
         "layout diverges at y≈3000 px at 768; replica 2680 px shorter (41.3%)",
@@ -91707,26 +91723,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.32619,
-          "mismatchRatio": 0.32619,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.31064,
+          "mismatchRatio": 0.29636,
+          "maskRatio": 0.04597,
+          "maskBoxes": 1,
           "heightSrc": 3737,
-          "heightEds": 4938,
-          "heightDiffRatio": 0.24322,
+          "heightEds": 1102,
+          "heightDiffRatio": 0.70511,
           "firstDivergentY": 400,
           "worstBands": [
             {
               "y": 3400,
-              "unmaskedRatio": 0.97561
+              "unmaskedRatio": 0.98664
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.96775
+              "y": 3200,
+              "unmaskedRatio": 0.98121
             },
             {
-              "y": 4400,
-              "unmaskedRatio": 0.95209
+              "y": 800,
+              "unmaskedRatio": 0.79521
             }
           ],
           "capturedWidth": 1425,
@@ -91736,7 +91752,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaText",
               "webfont": true
             },
             "h2": {
@@ -91757,26 +91773,26 @@
           "width": 768,
           "contentWidth": 768,
           "state": "done",
-          "unmaskedRatio": 0.36305,
-          "mismatchRatio": 0.36305,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.37497,
+          "mismatchRatio": 0.34346,
+          "maskRatio": 0.08405,
+          "maskBoxes": 1,
           "heightSrc": 4328,
-          "heightEds": 4976,
-          "heightDiffRatio": 0.13023,
+          "heightEds": 1381,
+          "heightDiffRatio": 0.68091,
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 4600,
-              "unmaskedRatio": 0.98104
+              "y": 3800,
+              "unmaskedRatio": 0.97212
             },
             {
-              "y": 4400,
-              "unmaskedRatio": 0.94352
+              "y": 4000,
+              "unmaskedRatio": 0.96972
             },
             {
-              "y": 3600,
-              "unmaskedRatio": 0.92625
+              "y": 1000,
+              "unmaskedRatio": 0.96677
             }
           ],
           "capturedWidth": 768,
@@ -91786,7 +91802,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaText",
               "webfont": true
             },
             "h2": {
@@ -91807,26 +91823,26 @@
           "width": 390,
           "contentWidth": 390,
           "state": "done",
-          "unmaskedRatio": 0.28221,
-          "mismatchRatio": 0.28221,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.30283,
+          "mismatchRatio": 0.27997,
+          "maskRatio": 0.07548,
+          "maskBoxes": 1,
           "heightSrc": 5889,
-          "heightEds": 6426,
-          "heightDiffRatio": 0.08357,
-          "firstDivergentY": 800,
+          "heightEds": 1552,
+          "heightDiffRatio": 0.73646,
+          "firstDivergentY": 600,
           "worstBands": [
             {
-              "y": 5800,
-              "unmaskedRatio": 0.95464
-            },
-            {
-              "y": 6000,
-              "unmaskedRatio": 0.93271
-            },
-            {
               "y": 5400,
-              "unmaskedRatio": 0.86967
+              "unmaskedRatio": 0.95147
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.9354
+            },
+            {
+              "y": 5200,
+              "unmaskedRatio": 0.91724
             }
           ],
           "capturedWidth": 390,
@@ -91836,7 +91852,7 @@
           "failedImages": 0,
           "fonts": {
             "h1": {
-              "used": "lufthansahead",
+              "used": "LufthansaText",
               "webfont": true
             },
             "h2": {
@@ -91856,9 +91872,9 @@
       ],
       "fixed": [],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 1201 px taller (24.3%)",
-        "layout diverges at y≈400 px at 768; replica 648 px taller (13.0%)",
-        "layout diverges at y≈800 px at 390; replica 537 px taller (8.4%)"
+        "layout diverges at y≈400 px at 1440; replica 2635 px shorter (70.5%)",
+        "layout diverges at y≈400 px at 768; replica 2947 px shorter (68.1%)",
+        "layout diverges at y≈600 px at 390; replica 4337 px shorter (73.6%)"
       ]
     },
     {
@@ -111998,7 +112014,8 @@
       ],
       "fixed": [
         "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
-        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)"
+        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
       ],
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 180 px shorter (5.9%)",
@@ -120765,19 +120782,66 @@
       "locale": "at/de",
       "template": "info",
       "priority": 4,
-      "status": "pending",
-      "widthsChecked": [],
+      "status": "fail",
+      "widthsChecked": [
+        1440
+      ],
       "widths": [
         {
           "width": 1440,
           "contentWidth": 1425,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.46087,
+          "mismatchRatio": 0.4338,
+          "maskRatio": 0.05873,
+          "maskBoxes": 1,
+          "heightSrc": 2925,
+          "heightEds": 1162,
+          "heightDiffRatio": 0.60274,
+          "firstDivergentY": 200,
+          "worstBands": [
+            {
+              "y": 2600,
+              "unmaskedRatio": 0.98794
+            },
+            {
+              "y": 2400,
+              "unmaskedRatio": 0.97946
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.95582
+            }
+          ],
+          "capturedWidth": 1425,
+          "contentWidthMatched": true,
+          "clientWidth": 1425,
+          "overflowPx": 0,
+          "failedImages": 0,
+          "fonts": {
+            "h1": {
+              "used": "LufthansaText",
+              "webfont": true
+            },
+            "h2": {
+              "used": "lufthansahead",
+              "webfont": true
+            },
+            "body": {
+              "used": "lufthansatext",
+              "webfont": true
+            }
+          },
+          "consentBannerVisible": false,
+          "showcaseNoticeVisible": false,
+          "truncated": false,
           "diff": "tools/reports/parity/shots/at/de/europcar/1440-diff.png"
         }
       ],
       "fixed": [],
-      "remains": []
+      "remains": [
+        "layout diverges at y≈200 px at 1440; replica 1763 px shorter (60.3%)"
+      ]
     },
     {
       "path": "/at/de/exclusive-charter",
@@ -126031,7 +126095,8 @@
       ],
       "fixed": [
         "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
-        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)"
+        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
       ],
       "remains": []
     },
@@ -133636,7 +133701,8 @@
       ],
       "fixed": [
         "2026-10-22 [block accordion-columns, booking-lookup, form, flight-status] D8 accordion-columns options from the source: faq (no column view: single-column Q&A, bullets, 66% answers), limited-width (maui-limited-width, 2/3 grid), spaced (inside a text column: +40px above from 768 / below); bid-upgrade 69/72 like live 68/72, timetable/feedback 843px. D12 booking-lookup hidden tab panel no longer display:grid (+321px), tabs 50/50, label-wide submit, How to get your boarding pass (section style in-booking-lookup) moved into the form tab as on live. D13 feedback: topic choice shows the topic sections (catalog feedbackForm modules A/O/G/J/I, labels feedbackform + common, live else recorded); never submits. D14 flight-status date Thu 22/10/2026 / Do. 22.10.2026, Search button label-wide (118px), mobile tabs equal width. Needs re-import (info, form, flight-status, app-entry). (6299425)",
-        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)"
+        "2026-10-23 [block carousel-cards, accordion-columns, columns-media, embed] Item 1 videos and embeds the importer dropped or left empty. New scripts/media.js + styles/media.css (the click-to-play video of columns-media moved there: poster + .mp4 link + settings marker; embeds: a YouTube link alone in its paragraph -> youtube-nocookie.com/embed player 16:9 over its column, the Lufthansa in-flight entertainment widget URL (id/type/lang as on live) -> 520px high, max 1240px wide), used by columns-media (media cell, or after the text of a text cell), carousel-cards (video cards), accordion-columns (panels) and the new embed block (one cell with the URL). (a) /articles/tags/munich six-video multi-slide swiper -> carousel-cards four-up video cards (insights selector .carousel:has(.swiper-multi-slide .videoViewer)): 297x168 at x88/405/723/1040 + peek at 1440 (live 297x167), 53px below the text (53), dots 40px below the cards (40), 67px to the next heading (71); 768 two per view 348x198, 53/40/70 (live 52/42/71); 390 one per view, 37/40/69 (28/41/70); the round play button plays in place. (b) /flight-disruptions accordion panels: the two chat-assistant video viewers (poster + {controls round-play-button}) and the meal-voucher YouTube video stay in their answers (809px panel column at 1440, 24px below the text). (c) embed block (info selectors .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe[src*=lufthansa-inflightentertainment.com])): lufthansa-express-rail YouTube 1249x703 at x88, 40px below; unterhaltung-an-bord 'In-flight entertainment highlights' widget id 9933 1240x520 at x88; travelling-with-children / fliegen-mit-kindern id 10391 1240x520 (705x520 at 768, 331x520 at 390). Column views with a YouTube player are columns-media now (the info twocolumn selector no longer excludes .video): traveltricks 'Like a snap' text | video 615x346 at x723 (1440), 343 wide at 768, stacked at 390; lufthansa-business-class-on-long-haul-routes video | empty column, 615x346 at x88 (an empty column beside a player keeps its place from 768px, hidden below). Cleanup keeps lufthansa-inflightentertainment.com iframes. Re-imported, uploaded and previewed 28 pages (flight-disruptions, express-rail, traveltricks, business-class-on-long-haul-routes, unterhaltung-an-bord, travelling-with-children and articles/tags/munich in 4 locales); postprocess-media 0 failing. Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/articles/tags/munich 55.8/40.6/32.7 -> 51.8/48.6/33.1 (diverges at y=200-400, above the carousel: the Audio Travel Guide video is stacked over its text instead of beside it at 768), de/de/unterhaltung-an-bord pending (de/en 37.2/40.2/31.1) -> 32.7/35.6/28.3 (tabs flattened: 6747 vs 3010 px high), gb/en/flight-disruptions pending -> 16.2 (1440 only). Open: the widget answers with CSP frame-ancestors https://*.lufthansa.com, so browsers refuse to show it on aem.page / aem.live (an empty frame at live size); the eJournals iframe (box.media-carrier.de) on unterhaltung-an-bord is not embedded. (823f08e)",
+        "2026-10-23 [page] B7 AEM core forms (form.cmp-form): new parser tools/importer/parsers/form-core.js writes one 'Form (core)' block per form from the raw snapshot, as in blocks/form/README 'Import' (bands as step rows, sub-sections as fieldset/end with hidden for collapse/d-none, repeatable sections as one fieldset with repeat/add/remove/remaining and base names, text/email/tel/date/textarea/select/region/radio/checkbox/stepper/autocomplete/file/note/submit rows with the live labels, hints, optional marks, data-cmp-* messages, patterns, masks and toggles); never writes the action, the hidden inputs or any POST URL. Mapped first in form, hub (special-needs/betreuungsbedarf) and info (add-sports-baggage, group-travel, passenger-receipt-90). lufthansa-cleanup beforeTransform: single-cell layout tables (table.rte-forcedborder of add-sports-baggage/sportgepaeck-hinzufuegen) are unwrapped to their content (they had become blocks named after the conditions text), and empty-component removal skips form.cmp-form (bands with only fields have no text). blocks/form: note paragraphs read their {copytext-small} marker themselves (a one-paragraph cell has no <p> when scripts.js runs). at/de/feedback-past-flight re-captured (the old snapshot had no form; 1 page + homepage warm-up through the Bright Data session), its parity job now uses the new 1440/768/390 screenshots. Re-imported, uploaded and previewed the 36 pages (0 problems). Local check (de/en/group-travel): 36 fields, form without action/method, empty submit shows 16 inline messages, no POST and no navigation (only lazy GETs). Spot-check unmasked mismatch 1440/768/390 before -> after: de/en/group-travel 18.1/21.1/20.0 -> 4.9/8.5/15.1, de/de/sportgepaeck-hinzufuegen 23.5/26.7/16.5 -> 14.8/16.2/22.6 (390: replica 5448 vs live 5770 px tall), at/de/feedback-past-flight (no earlier compare) 3.9/7.8/7.8. (0a85991)"
       ],
       "remains": []
     },
@@ -134600,7 +134666,7 @@
     "2026-10-23 [site] tools/importer/da-upload.mjs: problems printed as they happen; SIGTERM/SIGINT (timeout 540 in the loop) and the new --budget <s> save the state and print the summary with the problems (budget exits 0, no new document in the last min(30s, budget/10)); curl failures/kills reported instead of crashing. A preview older than the last upload or failed (now recorded as previewError + previewErrorAt) is retried on the next run although the upload is unchanged. /{cc}/{ll}/login and /{cc}/{ll}/profile/* refused explicitly (app shells built elsewhere). DA_UPLOAD_STATE selects another state file. Tested offline with a fake curl: immediate problem lines and summary on SIGTERM, failed preview retried next run, stale preview re-previewed, login/profile refused. No upload or preview run. (pending)"
   ],
   "impossible": "# Genuinely impossible gaps\n\nDifferences between www.lufthansa.com and the replica (https://main--lh-com--moved-permanently.aem.page) that cannot be closed by design. They are not counted as defects; where they show up in a screenshot they are masked (live-data widgets) or explain a residual mismatch.\n\n## Live data that changes by date (masked)\n\n- Prices, fares and deals (fare teasers, price bar, deal tables, AirCore route/destination prices incl. last-minute deals), airport suggestions, default departure airport, flight status and weather differ by the day and hour they are shown. The replica shows what was recorded at import time (2026-10-21/22) wherever the live call is not possible, so the values in the live screenshot and the replica differ even when the widget is identical. The widgets (`.flight-search`, `.fare-teaser`, `.destination-finder`, `.price-bar`, `.weather`, `.flight-status`, `.table-deals .table-deals-price`, `[data-lh-source]`) are painted the same grey in both screenshots before diffing; their frame and position still count where they shift the layout.\n- Which data is live at all depends on Lufthansa: the direct calls from the visitor's browser (airport suggestions, labels, catalogs, defaultAirport, core/feature/list, destination finder) only work while Lufthansa keeps CORS open for them and the visitor passes their bot protection; otherwise the recording is shown. Fare teasers and weather always come from the recordings, because lh-proxy is blocked upstream.\n\n## Flows that hand off to the live site\n\n- Shop / booking flow: \"Find flights\" and fare teasers post to shop.lufthansa.com (booking availability); the booking pages themselves are not part of the replica. The handoff's lang/portalCountry was taken from a real de/en search; the values used for de/de, at/de and gb/en are unverified.\n- Login, Travel ID / My account: the login layer and account pages are Lufthansa's identity service (once.lufthansa.com); the replica links there. The /{country}/{lang}/login and /profile/* app shells are built outside this migration and are excluded from the parity jobs.\n- Online check-in, pre-check-in and My Flights / Manage my bookings: the booking lookup and check-in forms submit to the live check-in and booking-management applications; only the entry pages are replicated.\n- Flight status and timetable results beyond the recorded data link to the live flight-status application.\n\n## Forms never submit\n\n- Feedback (/feedback, /feedback-past-flight, /feedback/feedbackai), refund forms, pet/cargo registration and other forms are rendered with the same fields and layout but do not submit anywhere: the live back ends (case management, Medallia/feedback services) cannot be called from the replica origin, and sending test data to them would be wrong. Validation messages and confirmation screens after submit therefore cannot be compared.\n\n## Only reachable on board\n\n- FlyNet (/flynet): the real onboard portal (internet packages, onboard login, the live flight map) is only reachable from the aircraft Wi-Fi, so there is no reference capture. The replica has the information page (compared like any other page) and a FlyNet-style channel (page metadata `channel: flynet` on the lh-flynet site, scripts/channel.js) that is a stand-in, not a copy, and is not part of this comparison.\n\n## Pages that are 404 on the live site\n\n- /{country}/{lang}/lufthansa-city/menu-card answers 404 on www.lufthansa.com in all locales (de/en, de/de, at/de, gb/en); there is no reference to compare against, so the page is not in the parity job list. (/lufthansa-city/culinaryjourney exists and is compared.)\n\n## Other gaps by design\n\n- Consent: the live screenshots were taken after the OneTrust dialog was dismissed; the replica stores \"necessary only\" (C0001) before load (scripts/consent.js fallback) and the showcase notice is acknowledged. Neither dialog is in either screenshot, but anything the live site only shows after full consent (personalised teasers, third-party embeds) can differ.\n- Personalisation and A/B tests: the live site varies teasers, the default departure airport and some campaign slots by visitor (geo-IP, cookies, tests). The live screenshot shows one variant; the replica always shows the imported one.\n- Animated content: auto-rotating carousels, hero videos and count-up animations are captured at whatever frame they were in; slide position and video frame can differ between the two screenshots.\n- App view (?channel=app): the replica drops header, footer, breadcrumb and cookie banner on the assumption that the app's web view handles navigation and consent itself (scripts/channel.js); there is no live counterpart to compare and it cannot be verified without the app. Not part of the visual comparison.",
-  "unmappedWidgets": "# Unmapped widgets\n\nLive widgets whose form labels, button texts, loader texts or map attributions were imported as plain paragraphs of the default content (generated by tools/parity/unmapped-widgets.mjs on 2026-10-23 from the raw snapshots and content/**/*.plain.html; 878 pages with widgets scanned; login/profile app shells and the receipt download form excluded). \"Planned\" names the work item that maps the widget, or \"open\" when none does yet.\n\n| Component | Pages | Planned | Dead texts (sample) |\n| --- | ---: | --- | --- |\n| `dcep-meili-car-rental` | 16 | car-rental (block exists, not mapped; open, no item) | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\", \"RückgabeUhrzeit\", \"Ich möchte Miles einlösen\" |\n| `dcep-poi-mapping` | 9 | poi-map (block exists, not mapped; open, no item) | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Loading...\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" |\n| `dcep-author-slider` | 1 | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup | \"Loading...\" |\n| `dcep-blog-overview` | 1 | loader text only; open, no item: drop .loading-text in the cleanup | \"Loading...\" |\n\n### Per page\n\n| Page | Component | Dead texts (sample) | Planned |\n| --- | --- | --- | --- |\n| /de/de/articles/explore-the-world | `dcep-author-slider` | \"Loading...\", \"Loading...\" | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup |\n| /de/de/articles/explore-the-world | `dcep-blog-overview` | \"Loading...\", \"Loading...\" | loader text only; open, no item: drop .loading-text in the cleanup |\n| /at/de/europcar | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /at/de/hertz | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /at/de/mietwagenangebote | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /at/de/sixt | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/de/europcar | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/de/hertz | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/de/mietwagenangebote | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/de/sixt | `dcep-meili-car-rental` | \"Abhol- und Rückgabeort\", \"Nach Standort suchen ...\", \"AbholungUhrzeit\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/en/europcar | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/en/hertz | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/en/lh-rentalcar | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /de/en/sixt | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /gb/en/europcar | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /gb/en/hertz | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /gb/en/lh-rentalcar | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /gb/en/sixt | `dcep-meili-car-rental` | \"Pick-up & drop-off location\", \"Search for location...\", \"Pick upTime\", \"10:00\" | car-rental (block exists, not mapped; open, no item) |\n| /at/de/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /at/de/articles/explore-the-world | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /at/de/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n| /de/de/articles/explore-the-world | `dcep-poi-mapping` | \"Loading...\", \"Loading...\" | poi-map (block exists, not mapped; open, no item) |\n| /de/de/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n| /de/en/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /de/en/articles/explore-the-world | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /gb/en/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /gb/en/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n\n### Dropped widgets\n\nKnown widgets on the live page whose block is missing from the document and whose texts left no dead paragraphs (the widget is simply absent on the preview). Heuristic: a page with the block for another instance counts as mapped; widgets whose data-dcep hides every part (hide* all true: the homepage quick actions) are not a gap and not listed.\n\n| Component | Pages | Planned | Pages |\n| --- | ---: | --- | --- |\n| `dcep-poi-mapping` | 39 | poi-map (block exists, not mapped; open, no item) | /at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /at/de/articles/explore-the-world/in-my-hood-chiswick-london, /at/de/articles/explore-the-world/in-my-hood-district-zurich, /at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul, /at/de/book-and-manage/stopover/bayerischer-hof, /at/de/book-and-manage/stopover/neuschwanstein, /at/de/book-and-manage/stopover/zugspitze, /de/de/100-years/destinations, /de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /de/de/articles/explore-the-world/in-my-hood-chiswick-london, /de/de/articles/explore-the-world/in-my-hood-district-zurich, /de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /de/de/articles/explore-the-world/on-the-scene-food-trends-istanbul, /de/de/book-and-manage/stopover/bayerischer-hof, /de/de/book-and-manage/stopover/neuschwanstein, /de/de/book-and-manage/stopover/zugspitze, /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /de/en/articles/explore-the-world/in-my-hood-chiswick-london, /de/en/articles/explore-the-world/in-my-hood-district-zurich, /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul, /de/en/book-and-manage/stopover/bayerischer-hof, /de/en/book-and-manage/stopover/neuschwanstein, /de/en/book-and-manage/stopover/zugspitze, /de/en/first-class, /gb/en/articles/explore-the-world, /gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /gb/en/articles/explore-the-world/in-my-hood-chiswick-london, /gb/en/articles/explore-the-world/in-my-hood-district-zurich, /gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /gb/en/articles/explore-the-world/on-the-scene-food-trends-istanbul, /gb/en/book-and-manage/stopover/bayerischer-hof, /gb/en/book-and-manage/stopover/neuschwanstein, /gb/en/book-and-manage/stopover/zugspitze |",
+  "unmappedWidgets": "# Unmapped widgets\n\nLive widgets whose form labels, button texts, loader texts or map attributions were imported as plain paragraphs of the default content (generated by tools/parity/unmapped-widgets.mjs on 2026-10-23 from the raw snapshots and content/**/*.plain.html; 878 pages with widgets scanned; login/profile app shells and the receipt download form excluded). \"Planned\" names the work item that maps the widget, or \"open\" when none does yet.\n\n| Component | Pages | Planned | Dead texts (sample) |\n| --- | ---: | --- | --- |\n| `dcep-poi-mapping` | 9 | poi-map (block exists, not mapped; open, no item) | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Loading...\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" |\n| `dcep-author-slider` | 1 | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup | \"Loading...\" |\n| `dcep-blog-overview` | 1 | loader text only; open, no item: drop .loading-text in the cleanup | \"Loading...\" |\n\n### Per page\n\n| Page | Component | Dead texts (sample) | Planned |\n| --- | --- | --- | --- |\n| /de/de/articles/explore-the-world | `dcep-author-slider` | \"Loading...\", \"Loading...\" | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup |\n| /de/de/articles/explore-the-world | `dcep-blog-overview` | \"Loading...\", \"Loading...\" | loader text only; open, no item: drop .loading-text in the cleanup |\n| /at/de/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /at/de/articles/explore-the-world | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /at/de/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n| /de/de/articles/explore-the-world | `dcep-poi-mapping` | \"Loading...\", \"Loading...\" | poi-map (block exists, not mapped; open, no item) |\n| /de/de/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Kurzbefehle\", \"KartendatenKartendaten ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n| /de/en/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /de/en/articles/explore-the-world | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /gb/en/100-years/destinations | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\" | poi-map (block exists, not mapped; open, no item) |\n| /gb/en/first-class | `dcep-poi-mapping` | \"Zoom inZoom out\", \"Keyboard shortcuts\", \"Map DataMap data ©2026 Google\", \"Zoom inZoom out\" | poi-map (block exists, not mapped; open, no item) |\n\n### Dropped widgets\n\nKnown widgets on the live page whose block is missing from the document and whose texts left no dead paragraphs (the widget is simply absent on the preview). Heuristic: a page with the block for another instance counts as mapped; widgets whose data-dcep hides every part (hide* all true: the homepage quick actions) are not a gap and not listed.\n\n| Component | Pages | Planned | Pages |\n| --- | ---: | --- | --- |\n| `dcep-poi-mapping` | 39 | poi-map (block exists, not mapped; open, no item) | /at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /at/de/articles/explore-the-world/in-my-hood-chiswick-london, /at/de/articles/explore-the-world/in-my-hood-district-zurich, /at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul, /at/de/book-and-manage/stopover/bayerischer-hof, /at/de/book-and-manage/stopover/neuschwanstein, /at/de/book-and-manage/stopover/zugspitze, /de/de/100-years/destinations, /de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /de/de/articles/explore-the-world/in-my-hood-chiswick-london, /de/de/articles/explore-the-world/in-my-hood-district-zurich, /de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /de/de/articles/explore-the-world/on-the-scene-food-trends-istanbul, /de/de/book-and-manage/stopover/bayerischer-hof, /de/de/book-and-manage/stopover/neuschwanstein, /de/de/book-and-manage/stopover/zugspitze, /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /de/en/articles/explore-the-world/in-my-hood-chiswick-london, /de/en/articles/explore-the-world/in-my-hood-district-zurich, /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul, /de/en/book-and-manage/stopover/bayerischer-hof, /de/en/book-and-manage/stopover/neuschwanstein, /de/en/book-and-manage/stopover/zugspitze, /de/en/first-class, /gb/en/articles/explore-the-world, /gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day, /gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day, /gb/en/articles/explore-the-world/in-my-hood-chiswick-london, /gb/en/articles/explore-the-world/in-my-hood-district-zurich, /gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich, /gb/en/articles/explore-the-world/on-the-scene-food-trends-istanbul, /gb/en/book-and-manage/stopover/bayerischer-hof, /gb/en/book-and-manage/stopover/neuschwanstein, /gb/en/book-and-manage/stopover/zugspitze |",
   "liveData": {
     "recordings": 361,
     "recordedFrom": "2026-10-21T18:23:55.592Z",

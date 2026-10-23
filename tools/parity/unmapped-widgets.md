@@ -4,7 +4,6 @@ Live widgets whose form labels, button texts, loader texts or map attributions w
 
 | Component | Pages | Planned | Dead texts (sample) |
 | --- | ---: | --- | --- |
-| `dcep-meili-car-rental` | 16 | car-rental (block exists, not mapped; open, no item) | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00", "RückgabeUhrzeit", "Ich möchte Miles einlösen" |
 | `dcep-poi-mapping` | 9 | poi-map (block exists, not mapped; open, no item) | "Zoom inZoom out", "Kurzbefehle", "KartendatenKartendaten ©2026 Google", "Loading...", "Keyboard shortcuts", "Map DataMap data ©2026 Google" |
 | `dcep-author-slider` | 1 | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup | "Loading..." |
 | `dcep-blog-overview` | 1 | loader text only; open, no item: drop .loading-text in the cleanup | "Loading..." |
@@ -15,22 +14,6 @@ Live widgets whose form labels, button texts, loader texts or map attributions w
 | --- | --- | --- | --- |
 | /de/de/articles/explore-the-world | `dcep-author-slider` | "Loading...", "Loading..." | loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup |
 | /de/de/articles/explore-the-world | `dcep-blog-overview` | "Loading...", "Loading..." | loader text only; open, no item: drop .loading-text in the cleanup |
-| /at/de/europcar | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /at/de/hertz | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /at/de/mietwagenangebote | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /at/de/sixt | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/de/europcar | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/de/hertz | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/de/mietwagenangebote | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/de/sixt | `dcep-meili-car-rental` | "Abhol- und Rückgabeort", "Nach Standort suchen ...", "AbholungUhrzeit", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/en/europcar | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/en/hertz | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/en/lh-rentalcar | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /de/en/sixt | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /gb/en/europcar | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /gb/en/hertz | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /gb/en/lh-rentalcar | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
-| /gb/en/sixt | `dcep-meili-car-rental` | "Pick-up & drop-off location", "Search for location...", "Pick upTime", "10:00" | car-rental (block exists, not mapped; open, no item) |
 | /at/de/100-years/destinations | `dcep-poi-mapping` | "Zoom inZoom out", "Kurzbefehle", "KartendatenKartendaten ©2026 Google" | poi-map (block exists, not mapped; open, no item) |
 | /at/de/articles/explore-the-world | `dcep-poi-mapping` | "Zoom inZoom out", "Kurzbefehle", "KartendatenKartendaten ©2026 Google" | poi-map (block exists, not mapped; open, no item) |
 | /at/de/first-class | `dcep-poi-mapping` | "Zoom inZoom out", "Kurzbefehle", "KartendatenKartendaten ©2026 Google", "Zoom inZoom out" | poi-map (block exists, not mapped; open, no item) |
