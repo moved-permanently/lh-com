@@ -1074,6 +1074,12 @@
       ],
       "blocks": [
         {
+          "name": "profile-nav",
+          "instances": [
+            ".subnav-wrapper maui-sub-navigation"
+          ]
+        },
+        {
           "name": "poi-map",
           "instances": [
             ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
