@@ -839,6 +839,18 @@ main .default-content-wrapper li > ol {
   }
 }
 
+/* {indent-N}: <p style="margin-left: 80.0px"> in a text component (/100-years intro: x168 at
+   1440, 744px wide, ending at two thirds of the content like the other running text) */
+main .default-content-wrapper > p.indent {
+  margin-left: var(--indent);
+}
+
+@media (width >= 1025px) {
+  main .default-content-wrapper > p.indent:not(.full-width) {
+    max-width: calc(66% - var(--indent));
+  }
+}
+
 /* Lufthansa Insights articles (.article-content .article-limited-width / h3 / .text:
    margin-inline 10%, max-width 80% of the article card = two thirds of the content width,
    centred, from 768px): the article body sections after the article header */

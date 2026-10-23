@@ -201,7 +201,7 @@ function decorateSectionMetadata(main) {
 }
 
 const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
-const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width|caption)(?: (?:copytext-(?:small|medium|large)|full-width|limited-width))*)\}\s*$/;
+const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width|caption|indent-\d{1,3})(?: (?:copytext-(?:small|medium|large)|full-width|limited-width|indent-\d{1,3}))*)\}\s*$/;
 const LIST_STYLE = /\s*\{(full-width|limited-width)\}\s*$/;
 const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
 
@@ -247,7 +247,15 @@ function decorateTextStyles(main) {
       return;
     }
     const style = takeStyleMarker(p, PARAGRAPH_STYLE);
-    if (style) p.classList.add(...style.split(' '));
+    if (!style) return;
+    style.split(' ').forEach((token) => {
+      // "indent-80": the source's inline margin-left (<p style="margin-left: 80px">)
+      const indent = token.match(/^indent-(\d{1,3})$/);
+      if (indent) {
+        p.classList.add('indent');
+        p.style.setProperty('--indent', `${indent[1]}px`);
+      } else p.classList.add(token);
+    });
   });
   main.querySelectorAll('ul, ol').forEach((list) => {
     const last = [...list.children].filter((li) => li.tagName === 'LI').pop();

@@ -64,6 +64,9 @@ column of two thirds of the width from 768px. Inside a Columns Media cell the te
 `{limited-width}` at the end of a paragraph (or of the last item of a list) there keeps it to two
 thirds of the cell from 1025px (Lufthansa `.richtext.limited-width` in a column: the
 /de/de/additional-services intro beside the jump links).
+`{indent-80}` at the end of a paragraph indents it by 80px (any value up to 999); from 1025px
+the paragraph still ends at two thirds of the width (the /100-years intro). It combines with the
+other markers: `{full-width indent-40}`.
 
 ### Spacing and dividers
 

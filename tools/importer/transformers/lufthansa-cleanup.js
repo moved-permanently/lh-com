@@ -1014,6 +1014,7 @@ function markHeadingStyles(document) {
  * component (.richtext without .limited-width) get "full-width" ("{copytext-small full-width}";
  * lists at the end of their last item). Text of a .richtext.limited-width in a block cell
  * (class kept by the columns-media parser) gets "limited-width" (66% of the column from 1025px).
+ * A default-content .richtext paragraph with an inline margin-left of N px gets "indent-N".
  */
 function markParagraphStyles(document) {
   let marked = 0;
@@ -1043,7 +1044,12 @@ function markParagraphStyles(document) {
     if (style === 'copytext-large' && !p.querySelector('a[href]')) style = null;
     // .limited-width kept by a parser (text of a .richtext.limited-width in a block cell)
     const width = (isFull(p) && 'full-width') || (p.classList.contains('limited-width') && 'limited-width') || null;
-    const tokens = [style, width].filter(Boolean);
+    // an inline indent of a default-content text paragraph (<p style="margin-left: 80.0px">,
+    // /100-years intro; 40px on /assistenzhunde): "indent-80", scripts.js sets --indent
+    const m = !p.closest('table') && p.closest('.richtext')
+      && (p.getAttribute('style') || '').match(/margin-left:\s*(\d{1,3})(?:\.\d+)?px/i);
+    const indent = m && +m[1] > 0 ? `indent-${m[1]}` : null;
+    const tokens = [style, width, indent].filter(Boolean);
     if (!tokens.length) return;
     p.append(document.createTextNode(` {${tokens.join(' ')}}`));
     marked += 1;
