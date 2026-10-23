@@ -229,7 +229,8 @@ export function pointsOfInterestRequest(id) {
  * {"pointsOfInterest":[{"lat":41.38,"lng":2.17,"title":"Parc de la Ciutadella","link":"https://…"?,
  *  "linkLabel":"…"?, "linkExternal":true?, "topDeal":false?}]} (fields read by the live
  * selectors; 52 answers recorded 2026-10-23)
- * → [{ lat, lng, title, link, linkLabel, linkExternal }]; points without valid coordinates are left out, one point per position (the live key).
+ * → [{ lat, lng, title, link, linkLabel, linkExternal }]; points without valid coordinates are
+ * left out, one point per position (the live key).
  */
 export function mapPointsOfInterest(data) {
   const list = data && Array.isArray(data.pointsOfInterest) ? data.pointsOfInterest : [];
