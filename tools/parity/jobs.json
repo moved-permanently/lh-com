@@ -13145,14 +13145,14 @@
       390
     ],
     "srcPng": {
-      "390": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot-390.jpg",
-      "768": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot-768.jpg",
-      "1440": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot.jpg"
+      "390": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot-390.png",
+      "768": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot-768.png",
+      "1440": "tools/source-export/pages/de/de/articles/explore-the-world/screenshot.png"
     },
     "contentWidth": {
-      "390": 390,
-      "768": 768,
-      "1440": 1440
+      "390": 377,
+      "768": 753,
+      "1440": 1425
     }
   },
   {
