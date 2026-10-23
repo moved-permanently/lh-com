@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/sportgepaeck-hinzufuegen",
   "path": "at/de/sportgepaeck-hinzufuegen",
-  "timestamp": "2026-10-23T03:09:35.211Z",
+  "timestamp": "2026-10-23T15:16:17.819Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

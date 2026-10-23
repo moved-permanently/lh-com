@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/passenger-receipt-90",
   "path": "de/en/passenger-receipt-90",
-  "timestamp": "2026-10-23T03:56:24.634Z",
+  "timestamp": "2026-10-23T15:16:30.338Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

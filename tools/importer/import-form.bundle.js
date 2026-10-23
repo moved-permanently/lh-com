@@ -36,31 +36,418 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_202263_exports = {};
-  __export(tmp_bundle_form_202263_exports, {
-    default: () => tmp_bundle_form_202263_default
+  var tmp_bundle_form_36469_exports = {};
+  __export(tmp_bundle_form_36469_exports, {
+    default: () => tmp_bundle_form_36469_default
   });
 
-  // tools/importer/parsers/hero-campaign.js
+  // tools/importer/parsers/form-core.js
+  var HEADER = [
+    "Label",
+    "Type",
+    "Name",
+    "Required",
+    "Options",
+    "Help text",
+    "Placeholder",
+    "Validation message",
+    "Constraint message",
+    "Rules"
+  ];
+  var COLUMNS = [
+    "label",
+    "type",
+    "name",
+    "required",
+    "options",
+    "help",
+    "placeholder",
+    "message",
+    "constraint",
+    "rules"
+  ];
   function parse(element, { document }) {
+    const form = element.matches("form") ? element : element.querySelector("form.cmp-form");
+    if (!form) return;
+    const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const text = (el) => el ? clean2(el.textContent) : "";
+    const attr = (el, name) => el ? clean2(el.getAttribute(name)) : "";
+    const has = (el, name) => !!el && el.hasAttribute(name) && el.getAttribute(name) !== "false";
+    const rows = [];
+    const done = /* @__PURE__ */ new Set();
+    const cell = (value) => {
+      if (value == null || value === "") return "";
+      if (typeof value !== "string" && !Array.isArray(value)) return value;
+      const lines = (Array.isArray(value) ? value : [value]).map((l) => String(l)).filter((l) => l !== "");
+      if (!lines.length) return "";
+      const nodes = [];
+      lines.forEach((l, i) => {
+        if (i) nodes.push(document.createElement("br"));
+        nodes.push(document.createTextNode(l));
+      });
+      return nodes;
+    };
+    const add = (row) => rows.push(COLUMNS.map((c) => cell(row[c])));
+    const wrapperOf = (field) => field.closest(".cmp-form-text, [data-cmp-type]");
+    const requiredOf = (field, wrapper) => {
+      if (has(field, "required") || wrapper && has(wrapper, "data-cmp-required")) return "yes";
+      return attr(field, "optional");
+    };
+    const messageOf = (field, wrapper, fieldFirst) => {
+      const own = attr(field, "data-customerror");
+      const wrap = attr(wrapper, "data-cmp-required-message");
+      return fieldFirst ? own || wrap : wrap || own;
+    };
+    let repeatSuffix = null;
+    const nameOf = (field) => {
+      const n = attr(field, "name");
+      return repeatSuffix && n.endsWith(repeatSuffix) ? n.slice(0, -repeatSuffix.length) : n;
+    };
+    function textField(field, type) {
+      const wrapper = wrapperOf(field);
+      const rules = [];
+      const pattern = attr(field, "pattern") || attr(wrapper, "data-cmp-pattern");
+      if (pattern) rules.push(`pattern=${pattern}`);
+      const maxlength = attr(field, "maxlength");
+      if (maxlength) rules.push(`maxlength=${maxlength}`);
+      const inputmode = attr(field, "inputmode");
+      if (inputmode && inputmode !== "text") rules.push(`inputmode=${inputmode}`);
+      if (attr(field, "type") === "pnr") rules.push("uppercase");
+      return {
+        label: attr(field, "label"),
+        type,
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules
+      };
+    }
+    function input(field) {
+      const t = attr(field, "type");
+      add(textField(field, t === "email" ? "email" : t === "tel" ? "tel" : "text"));
+    }
+    function date(masked) {
+      const field = masked.querySelector("maui-input");
+      if (!field) return;
+      const row = textField(field, "date");
+      const mask = attr(masked, "mask");
+      row.rules = mask ? [`mask=${mask}`] : [];
+      add(row);
+    }
+    function street(box) {
+      const field = box.querySelector('input:not([type="hidden"])');
+      if (!field) return;
+      const wrapper = wrapperOf(box);
+      add({
+        label: text(box.querySelector("label")) || attr(field, "placeholder"),
+        type: "text",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message")
+      });
+    }
+    function textarea(field) {
+      const wrapper = wrapperOf(field);
+      const rowCount = attr(field, "rows");
+      add({
+        label: attr(field, "label"),
+        type: "textarea",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage") || attr(field, "customerrormessage"),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules: rowCount ? [`rows=${rowCount}`] : []
+      });
+    }
+    function select(field) {
+      const wrapper = wrapperOf(field);
+      const options = [...field.querySelectorAll("maui-option")].filter((o) => !o.hasAttribute("disabled")).map((o) => `${clean2(o.getAttribute("optionvalue") || "")}=${text(o)}${o.hasAttribute("selected") ? " {selected}" : ""}`);
+      add({
+        label: attr(field, "buttontriggerlabel") || attr(field, "label"),
+        type: "select",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        options,
+        help: attr(field, "hint"),
+        message: messageOf(field, wrapper, true)
+      });
+    }
+    function region(box) {
+      const field = box.querySelector("maui-select");
+      if (!field) return;
+      const country = box.closest(".countrydropdown");
+      const countrySelect = country && country.querySelector("maui-select.forms-country-dropdown-select");
+      add({
+        label: attr(field, "buttontriggerlabel"),
+        type: "region",
+        name: nameOf(field),
+        required: has(box, "data-cmp-required") || has(field, "required") ? "yes" : "",
+        placeholder: attr(field, "data-empty-option"),
+        message: attr(field, "data-customerror") || attr(box, "data-cmp-required-message"),
+        rules: countrySelect ? [`country=${nameOf(countrySelect)}`] : []
+      });
+    }
+    function radio(group) {
+      const wrapper = wrapperOf(group);
+      const radios = [...group.querySelectorAll("maui-radio")];
+      const required = has(group, "required") || radios.some((r) => has(r, "required")) || wrapper && has(wrapper, "data-cmp-required");
+      add({
+        label: attr(group, "label"),
+        type: "radio",
+        name: nameOf(group) || nameOf(radios[0] || group),
+        required: required ? "yes" : attr(group, "optional"),
+        options: radios.map((r) => `${clean2(r.getAttribute("value") || "")}=${text(r) || attr(r, "label")}`),
+        help: attr(group, "hint"),
+        message: messageOf(group, wrapper, true) || attr(radios[0], "data-customerror")
+      });
+    }
+    function checkbox(box) {
+      const boxes = [...box.querySelectorAll("maui-checkbox")];
+      if (!boxes.length) return;
+      const wrapper = box.matches("[data-cmp-type]") ? box : wrapperOf(box);
+      const targets = [...new Set(boxes.map((b) => attr(b, "data-target")).filter(Boolean))];
+      const required = boxes.some((b) => has(b, "required")) || wrapper && has(wrapper, "data-cmp-required");
+      const heading = box.querySelector(".form-group-headline");
+      add({
+        label: text(heading),
+        type: "checkbox",
+        name: nameOf(boxes[0]),
+        required: required ? "yes" : "",
+        options: boxes.map((b) => `${clean2(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}`),
+        message: attr(boxes[0], "data-customerror") || attr(wrapper, "data-cmp-required-message"),
+        rules: targets.length ? [`toggles=${targets.join(", ")}`] : []
+      });
+    }
+    function stepper(field) {
+      const wrapper = wrapperOf(field);
+      const rules = [];
+      ["min", "max"].forEach((k) => {
+        if (attr(field, k)) rules.push(`${k}=${attr(field, k)}`);
+      });
+      if (attr(field, "selected")) rules.push(`value=${attr(field, "selected")}`);
+      add({
+        label: attr(field, "label"),
+        type: "stepper",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage"),
+        rules
+      });
+    }
+    function autocomplete(field) {
+      const wrapper = wrapperOf(field);
+      add({
+        label: attr(field, "buttontriggerlabel") || attr(field, "label"),
+        type: "autocomplete",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(field, "data-customerror") || attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage")
+      });
+    }
+    function file(zone) {
+      let config = {};
+      try {
+        config = JSON.parse(zone.getAttribute("data-forms-filedrop") || "{}") || {};
+      } catch (e) {
+        config = {};
+      }
+      const hidden = zone.querySelector('input[name$="-fileIds"]');
+      const optional = config.optional === true || config.optional === "true";
+      const rules = [];
+      if (config.acceptedFiles) rules.push(`accept=${clean2(config.acceptedFiles)}`);
+      if (config.maxFiles) rules.push(`max-files=${clean2(config.maxFiles)}`);
+      if (config.maxFileSize) rules.push(`max-size=${clean2(config.maxFileSize)}`);
+      if (config.notAllowedCharacters) rules.push(`not-allowed=${clean2(config.notAllowedCharacters)}`);
+      add({
+        label: text(zone.querySelector(".filedrop-desc > div:first-child")),
+        type: "file",
+        name: hidden ? attr(hidden, "name").replace(/-fileIds$/, "") : "",
+        required: optional ? text(zone.querySelector(".hint")) || "optional" : "yes",
+        help: text(zone.querySelector("p.footnote, #forms-filedrop-hint")),
+        placeholder: text(zone.querySelector("maui-button")),
+        message: clean2(config.requiredError),
+        rules
+      });
+    }
+    function note(rt) {
+      const div = document.createElement("div");
+      const clone = rt.cloneNode(true);
+      clone.querySelectorAll(".sr-only, .visually-hidden, script, style").forEach((n) => n.remove());
+      clone.querySelectorAll("table").forEach((t) => {
+        const cells2 = t.querySelectorAll("td, th");
+        if (cells2.length === 1) t.replaceWith(...cells2[0].childNodes);
+      });
+      div.append(...clone.childNodes);
+      if (!clean2(div.textContent) && !div.querySelector("img, a[href]")) return;
+      const content = [...div.childNodes].filter((n) => n.nodeType === 1 || clean2(n.textContent));
+      rows.push(COLUMNS.map((c) => c === "label" ? content : c === "type" ? cell("note") : ""));
+    }
+    function fieldset(sub) {
+      const fs = sub.querySelector(":scope > fieldset") || sub.querySelector("fieldset");
+      const name = (sub.id || "").replace(/^subsection-/, "");
+      if (!fs) return;
+      const hidden = sub.classList.contains("collapse") || sub.classList.contains("d-none");
+      add({ label: text(fs.querySelector("legend")), type: "fieldset", name, rules: hidden ? ["hidden"] : [] });
+      [...fs.children].forEach((c) => {
+        if (c.tagName !== "LEGEND") visit(c);
+      });
+      add({ type: "end" });
+    }
+    function repeatable(sub) {
+      const sets = [...sub.querySelectorAll(":scope > fieldset")];
+      if (!sets.length) return;
+      const n = sets.length;
+      const legend = text(sets[0].querySelector("legend"));
+      const add_ = text(sub.querySelector(".forms-repeat-add"));
+      const removeBtn = sub.querySelector("button.forms-repeat-hide[aria-label], .forms-repeat-hide[aria-label]");
+      const remainingEl = sub.querySelector("p.forms-repeat-remaining, .forms-repeat-remaining");
+      let remaining = "";
+      if (remainingEl) {
+        const counter = remainingEl.querySelector(".forms-repeat-counter");
+        if (counter) {
+          const c = remainingEl.cloneNode(true);
+          c.querySelector(".forms-repeat-counter").replaceWith(document.createTextNode("{n}"));
+          remaining = text(c);
+        } else {
+          const t = text(remainingEl);
+          const re = new RegExp(`(^|[^0-9])${n - 1}(?![0-9])`);
+          remaining = re.test(t) ? t.replace(re, "$1{n}") : t;
+        }
+      }
+      const rules = [`repeat=${n}`];
+      if (add_) rules.push(`add=${add_}`);
+      if (removeBtn) rules.push(`remove=${attr(removeBtn, "aria-label")}`);
+      if (remaining) rules.push(`remaining=${remaining}`);
+      add({
+        label: legend.replace(/(\d+)(?!.*\d)/, "{n}"),
+        type: "fieldset",
+        name: (sub.id || "").replace(/^subsection-/, ""),
+        rules
+      });
+      repeatSuffix = "_1";
+      [...sets[0].children].forEach((c) => {
+        if (c.tagName === "LEGEND" || c.matches(".forms-repeat-hide, button")) return;
+        visit(c);
+      });
+      repeatSuffix = null;
+      add({ type: "end" });
+    }
+    function visit(el) {
+      if (!el || el.nodeType !== 1) return;
+      if (el.matches("input, template, script, style, .forms-repeat-add, .forms-repeat-remaining, .forms-repeat-hide")) return;
+      if (el.matches(".form-section") && el.querySelector(":scope .form-section-headline")) {
+        const description = el.querySelector(".form-section-description");
+        const help = description ? document.createElement("div") : null;
+        if (help) help.append(...description.cloneNode(true).childNodes);
+        rows.push(COLUMNS.map((c) => {
+          if (c === "label") return cell(text(el.querySelector(".form-section-headline")));
+          if (c === "type") return cell("step");
+          if (c === "help") return help && clean2(help.textContent) ? [...help.childNodes] : "";
+          return "";
+        }));
+        const content = el.querySelector(".form-section-content") || el;
+        [...content.children].forEach(visit);
+        return;
+      }
+      if (el.matches('div.forms-repeatable-section[id^="subsection-"]')) {
+        repeatable(el);
+        return;
+      }
+      if (el.matches('div[id^="subsection-"]')) {
+        fieldset(el);
+        return;
+      }
+      if (el.matches(".richtext")) {
+        note(el);
+        return;
+      }
+      if (el.matches('[data-cmp-type="checkbox"]')) {
+        checkbox(el);
+        return;
+      }
+      if (el.matches(".forms-region-dropdown-wrapper")) {
+        region(el);
+        return;
+      }
+      if (el.matches("maui-radio-group")) {
+        radio(el);
+        return;
+      }
+      if (el.matches("maui-select")) {
+        select(el);
+        return;
+      }
+      if (el.matches("maui-masked-input")) {
+        date(el);
+        return;
+      }
+      if (el.matches("maui-textarea")) {
+        textarea(el);
+        return;
+      }
+      if (el.matches("maui-stepper")) {
+        stepper(el);
+        return;
+      }
+      if (el.matches("maui-autocomplete")) {
+        autocomplete(el);
+        return;
+      }
+      if (el.matches(".streetAddress")) {
+        street(el);
+        return;
+      }
+      if (el.matches("maui-input")) {
+        input(el);
+        return;
+      }
+      if (el.matches("section.forms-filedrop")) {
+        file(el);
+        return;
+      }
+      if (el.matches("maui-checkbox") && !done.has(el.parentElement)) {
+        done.add(el.parentElement);
+        checkbox(el.parentElement);
+        return;
+      }
+      if (el.matches('#submit-btn, maui-button[behavior="submit"], button[type="submit"]')) {
+        add({ label: text(el) || attr(el, "label"), type: "submit" });
+        return;
+      }
+      [...el.children].forEach(visit);
+    }
+    [...form.children].forEach(visit);
+    const cells = [HEADER, ...rows];
+    const block = WebImporter.Blocks.createBlock(document, { name: "Form", variants: ["core"], cells });
+    form.replaceWith(block);
+  }
+
+  // tools/importer/parsers/hero-campaign.js
+  function parse2(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
     };
     const info = element.querySelector(".campaign-information") || element;
     const media = [];
-    const img = [...element.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !info.contains(i));
+    const img = [...element.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !info.contains(i));
     if (img) {
       const image = document.createElement("img");
       image.setAttribute("src", img.getAttribute("src"));
@@ -100,13 +487,13 @@ var CustomImportScript = (() => {
         c.querySelectorAll(SKIP).forEach((s) => s.remove());
         c.removeAttribute("class");
         if (c.tagName === "P") trimBreaks(c);
-        if (!clean(c.textContent) && !c.querySelector("img")) return;
+        if (!clean2(c.textContent) && !c.querySelector("img")) return;
         text.push(c);
       });
     });
     info.querySelectorAll("maui-button-link[href], maui-navigation-link[href], maui-link[href]").forEach((m) => {
       if (m.closest(".richtext")) return;
-      const label = visibleText(m) || clean(m.getAttribute("label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label"));
       if (!label) return;
       const a = document.createElement("a");
       a.setAttribute("href", m.getAttribute("href"));
@@ -135,18 +522,18 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/form.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
     const attr = (el, ...names) => {
       for (const n of names) {
-        const v = clean(el.getAttribute(n));
+        const v = clean2(el.getAttribute(n));
         if (v) return v;
       }
       return "";
@@ -179,8 +566,8 @@ var CustomImportScript = (() => {
         return p;
       });
     };
-    const HEADER = ["Label", "Type", "Name", "Required", "Options", "Help text", "Placeholder"];
-    const cells = [HEADER];
+    const HEADER2 = ["Label", "Type", "Name", "Required", "Options", "Help text", "Placeholder"];
+    const cells = [HEADER2];
     const row = (r) => cells.push([r.label || "", r.type, r.name || "", r.required ? "yes" : "", r.options || "", r.help || "", r.placeholder || ""]);
     const FIELD = 'maui-select, select, maui-input, maui-textarea, textarea, input:not([type="hidden"]):not([type="submit"]):not([type="button"]), maui-checkbox, maui-radio-group, maui-radio-button-group, button[type="submit"], maui-button[type="submit"]';
     const fieldRows = (scope) => {
@@ -259,23 +646,93 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/media-nodes.js
+  var ZW = /[​-‍﻿]/g;
+  var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+  var isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+  function videoPara(document, src, label, settings) {
+    const a = document.createElement("a");
+    a.setAttribute("href", src);
+    a.textContent = label || src;
+    const p = document.createElement("p");
+    p.append(a);
+    if (settings.length) p.append(` {${settings.join(" ")}}`);
+    return p;
+  }
+  function viewerNodes(comp, document) {
+    const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host.getAttribute("data-dcep"));
+    } catch (e) {
+      cfg = {};
+    }
+    const video = comp.querySelector("video[src], video source[src]");
+    const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+    if (!src) return [];
+    const out = [];
+    const posterImg = comp.querySelector(".vjs-poster img[src]");
+    const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+    if (poster && !isBroken(poster)) {
+      const img = document.createElement("img");
+      img.setAttribute("src", poster);
+      img.setAttribute("alt", clean(cfg.alternativeText));
+      out.push(img);
+    }
+    const settings = [];
+    if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
+    settings.push("controls", "round-play-button");
+    out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
+    return out;
+  }
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
+
   // tools/importer/parsers/columns-media.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
     const MOBILE = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none";
     const DESKTOP = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block";
-    const clean = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const c = node.cloneNode(true);
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      return clean(c.textContent);
+      return clean2(c.textContent);
     };
-    const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
-    const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
+    const isBlank = (n) => n && n.nodeType === 3 && !clean2(n.nodeValue);
     const trimBreaks = (el) => {
       while (el.lastChild && (isBr2(el.lastChild) || isBlank(el.lastChild))) el.lastChild.remove();
       while (el.firstChild && (isBr2(el.firstChild) || isBlank(el.firstChild))) el.firstChild.remove();
@@ -283,9 +740,9 @@ var CustomImportScript = (() => {
     const tidy = (el) => {
       el.querySelectorAll(SKIP).forEach((s) => s.remove());
       el.querySelectorAll("em, i, span").forEach((s) => {
-        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector("img")) s.remove();
+        if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean2(s.textContent) && !s.querySelector("img")) s.remove();
       });
-      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
       el.removeAttribute("class");
       if (keep.length) el.className = keep.join(" ");
       return el;
@@ -312,7 +769,7 @@ var CustomImportScript = (() => {
         g.forEach((n) => np.append(n));
         trimBreaks(np);
         return np;
-      }).filter((np) => clean(np.textContent) || np.querySelector("img"));
+      }).filter((np) => clean2(np.textContent) || np.querySelector("img"));
     };
     const richNodes = (scope) => {
       const rt = scope.querySelector(".richtext") || scope;
@@ -337,7 +794,7 @@ var CustomImportScript = (() => {
             return;
           }
           tidy(c);
-          if (clean(c.textContent) || c.querySelector("img")) out.push(c);
+          if (clean2(c.textContent) || c.querySelector("img")) out.push(c);
           return;
         }
         if (isBlank(n) && !run) return;
@@ -345,13 +802,18 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
     const linkPara = (scope) => {
       const m = scope.querySelector(MAUI);
       if (!m) return null;
-      const label = visibleText(m) || clean(m.getAttribute("label") || m.getAttribute("aria-label"));
+      const label = visibleText(m) || clean2(m.getAttribute("label") || m.getAttribute("aria-label"));
       const href = m.getAttribute("href");
       if (!label || !href) return null;
       const a = document.createElement("a");
@@ -383,7 +845,7 @@ var CustomImportScript = (() => {
       keepHeadingStyle(h, out);
       return out;
     };
-    const videoPara = (src, label, settings) => {
+    const videoPara2 = (src, label, settings) => {
       const a = document.createElement("a");
       a.setAttribute("href", src);
       a.textContent = label || src;
@@ -392,7 +854,7 @@ var CustomImportScript = (() => {
       if (settings.length) p.append(` {${settings.join(" ")}}`);
       return p;
     };
-    const viewerNodes = (comp) => {
+    const viewerNodes2 = (comp) => {
       const host = comp.querySelector("[data-dcep]");
       let cfg = {};
       try {
@@ -401,26 +863,26 @@ var CustomImportScript = (() => {
         cfg = {};
       }
       const video = comp.querySelector("video[src], video source[src]");
-      const src = clean(cfg.videoSrc || video && video.getAttribute("src"));
+      const src = clean2(cfg.videoSrc || video && video.getAttribute("src"));
       if (!src) return [];
       const out = [];
       const posterImg = comp.querySelector(".vjs-poster img[src]");
-      const poster = clean(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
-      if (poster && !isBroken2(poster)) {
+      const poster = clean2(cfg.thumbnailSrc || posterImg && posterImg.getAttribute("src"));
+      if (poster && !isBroken3(poster)) {
         const img = document.createElement("img");
         img.setAttribute("src", poster);
-        img.setAttribute("alt", clean(cfg.alternativeText));
+        img.setAttribute("alt", clean2(cfg.alternativeText));
         out.push(img);
       }
       const settings = [];
       if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
       settings.push("controls", "round-play-button");
-      out.push(videoPara(src, clean(cfg.alternativeText), settings));
+      out.push(videoPara2(src, clean2(cfg.alternativeText), settings));
       return out;
     };
     const mediaNodes = (comp) => {
       const out = [];
-      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
+      const img = [...comp.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
       const video = comp.querySelector("video[src], video source[src]");
       let image = null;
       if (img) {
@@ -435,7 +897,7 @@ var CustomImportScript = (() => {
         const settings = button ? [] : ["autoplay", "muted"];
         if (!button && video.hasAttribute("loop")) settings.push("loop");
         if (video.hasAttribute("controls")) settings.push("controls");
-        out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
+        out.push(videoPara2(src, clean2(button && button.getAttribute("aria-label")), settings));
         return out;
       }
       if (!image) return out;
@@ -466,7 +928,12 @@ var CustomImportScript = (() => {
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
         } else if (cl.contains("videoViewer")) {
-          out.push(...viewerNodes(child));
+          out.push(...viewerNodes2(child));
+        } else if (cl.contains("video") && child.querySelector(":scope > .video-player iframe") || cl.contains("iframe") && child.querySelector(":scope > .iframe-wrapper iframe")) {
+          embedNodes(child, document).forEach((n) => {
+            n.setAttribute("data-lh-embed", "");
+            out.push(n);
+          });
         } else {
           collect(child, out);
         }
@@ -494,7 +961,7 @@ var CustomImportScript = (() => {
     };
     if (element.matches(".videoViewer, .image")) {
       if (!element.isConnected || !element.parentElement || element.parentElement.closest("table, .inspirationteaser, .stage, .carousel, .slideshow, .accordion, .teaser")) return;
-      const media = element.classList.contains("videoViewer") ? viewerNodes(element) : mediaNodes(element);
+      const media = element.classList.contains("videoViewer") ? viewerNodes2(element) : mediaNodes(element);
       if (!media.some((n) => n.tagName === "P")) return;
       element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", cells: [[media]] }));
       return;
@@ -504,13 +971,13 @@ var CustomImportScript = (() => {
       const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
       const pct = parseInt(floated.getAttribute("width") || "", 10);
       const media = [];
-      if (!isBroken2(floated.getAttribute("src"))) {
+      if (!isBroken3(floated.getAttribute("src"))) {
         const img = document.createElement("img");
         img.setAttribute("src", floated.getAttribute("src"));
         img.setAttribute("alt", floated.getAttribute("alt") || "");
         media.push(img);
       }
-      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean(el.textContent) && !el.querySelector("img");
+      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean2(el.textContent) && !el.querySelector("img");
       const text = [];
       for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
         n.remove();
@@ -538,7 +1005,7 @@ var CustomImportScript = (() => {
     if (element.classList.contains("blogoverview") && articles.length) {
       const rows = articles.map((art, i) => {
         const media = [];
-        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken2(x.getAttribute("src")));
+        const img = [...art.querySelectorAll(".blog-article-image img")].find((x) => !isBroken3(x.getAttribute("src")));
         if (img) {
           const image = document.createElement("img");
           image.setAttribute("src", img.getAttribute("src"));
@@ -552,7 +1019,7 @@ var CustomImportScript = (() => {
           } else media.push(image);
         }
         const text = [];
-        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean(c.getAttribute("label"))).filter(Boolean);
+        const tags = [...art.querySelectorAll("maui-chip[label]")].map((c) => clean2(c.getAttribute("label"))).filter(Boolean);
         if (tags.length) {
           const ul = document.createElement("ul");
           tags.forEach((t) => {
@@ -622,14 +1089,16 @@ var CustomImportScript = (() => {
         });
       });
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
-      const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+      const collected = items.map((it) => finishCell(collect(it, [])));
+      const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches("p[data-lh-embed]")));
+      const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => c.length ? c : "") : collected.filter((c) => c.length);
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
-    const headerText = (t) => clean((t.querySelector("tr") || t).textContent).toLowerCase();
+    const headerText = (t) => clean2((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -639,7 +1108,7 @@ var CustomImportScript = (() => {
       range.setStartAfter(prev);
       range.setEndBefore(element);
       const between = range.cloneContents();
-      if (clean(between.textContent)) return null;
+      if (clean2(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
       return prev;
     };
@@ -657,15 +1126,15 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const ZW = /[​-‍﻿]/g;
-    const clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
+    const ZW2 = /[​-‍﻿]/g;
+    const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
       if (!node) return "";
       const clone = node.cloneNode(true);
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean(clone.textContent);
+      return clean2(clone.textContent);
     };
     const makeLink = (source) => {
       const label = visibleText(source);
@@ -721,7 +1190,7 @@ var CustomImportScript = (() => {
           const clone = child.cloneNode(true);
           clone.querySelectorAll("a, br").forEach((n) => n.remove());
           clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-          const onlyLinks = links.length && !clean(clone.textContent);
+          const onlyLinks = links.length && !clean2(clone.textContent);
           if (onlyLinks) {
             const list = document.createElement("ul");
             links.forEach((l) => {
@@ -750,7 +1219,7 @@ var CustomImportScript = (() => {
             const walker = document.createTreeWalker(p, 4);
             let node = walker.nextNode();
             while (node) {
-              node.textContent = node.textContent.replace(ZW, "");
+              node.textContent = node.textContent.replace(ZW2, "");
               node = walker.nextNode();
             }
             out.push(p);
@@ -764,9 +1233,14 @@ var CustomImportScript = (() => {
       const columns = [...panel.querySelectorAll(".column-view-item")];
       const parts = columns.length ? columns : [panel];
       parts.forEach((part) => {
-        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href]").forEach((node) => {
+        part.querySelectorAll("h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)").forEach((node) => {
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
-          if (/^H[1-6]$/.test(node.tagName)) {
+          if (node.parentElement && node.parentElement.closest(".videoViewer, .video-player, .iframe-wrapper")) return;
+          if (node.matches(".videoViewer")) {
+            content.push(...viewerNodes(node, document));
+          } else if (node.matches(".video, .iframe")) {
+            content.push(...embedNodes(node, document));
+          } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
             const h = document.createElement(columns.length ? "h3" : node.tagName);
@@ -837,7 +1311,7 @@ var CustomImportScript = (() => {
           } else if (!/^(data|blob):/i.test(iconSrc)) {
             const img = document.createElement("img");
             img.src = iconSrc;
-            img.alt = clean(icon.getAttribute("alt"));
+            img.alt = clean2(icon.getAttribute("alt"));
             titleCell.push(img, " ");
           }
         }
@@ -872,7 +1346,7 @@ var CustomImportScript = (() => {
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
     items.forEach((item) => {
-      const title = clean(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
+      const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
@@ -949,7 +1423,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -1096,6 +1570,17 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
   function isEmpty(el) {
@@ -1165,7 +1650,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -1446,7 +1931,7 @@ var CustomImportScript = (() => {
     const m = url.match(/lh-dcep-transform-width-(\d+)/);
     return m ? parseInt(m[1], 10) : 0;
   }
-  function isBroken(url) {
+  function isBroken2(url) {
     return !url || /(^|\/)undefined(\.transform|$|\/)/.test(url) || url === "about:blank";
   }
   function absoluteImageUrl(url) {
@@ -1474,7 +1959,7 @@ var CustomImportScript = (() => {
   function bestImageSource(img, keepInline) {
     const candidates = [];
     const add = (url, w) => {
-      if (url && !isBroken(url)) candidates.push({ url, w: w || transformWidth(url) });
+      if (url && !isBroken2(url)) candidates.push({ url, w: w || transformWidth(url) });
     };
     const picture = img.closest("picture");
     if (picture) {
@@ -1616,17 +2101,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -1733,6 +2220,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -1934,6 +2422,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "form-core",
+        "instances": [
+          "form.cmp-form"
+        ]
+      },
+      {
         "name": "hero-campaign",
         "instances": [
           ".inspirationteaser"
@@ -2010,10 +2504,11 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "hero-campaign": parse,
-    "form": parse2,
-    "columns-media": parse3,
-    "accordion-columns": parse4
+    "form-core": parse,
+    "hero-campaign": parse2,
+    "form": parse3,
+    "columns-media": parse4,
+    "accordion-columns": parse5
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2037,7 +2532,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_202263_default = {
+  var tmp_bundle_form_36469_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2067,5 +2562,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_202263_exports);
+  return __toCommonJS(tmp_bundle_form_36469_exports);
 })();

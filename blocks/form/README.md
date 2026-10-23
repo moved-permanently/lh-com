@@ -122,7 +122,8 @@ them). `Form` (feedback) keeps its behaviour: messages on submit, re-checked onc
 
 ## Import (for the `form-core` parser)
 
-Source: `form.cmp-form` (one per page, `action` on www.lufthansa.com) → one block `Form (core)`
+Parser: `tools/importer/parsers/form-core.js` (block `form-core`, mapped first in the form, hub and
+info templates). Source: `form.cmp-form` (one per page, `action` on www.lufthansa.com) → one block `Form (core)`
 replacing the whole form (all `.form-section` bands are rows of the block, not page sections).
 Read the raw snapshots (`tools/importer/bd-snapshots/...`, attributes such as `data-cmp-*`, `hint`,
 `optional`, `data-target` are not in cleaned.html). Header row:
@@ -180,6 +181,9 @@ replace every source table with exactly one cell (`table` whose rows/cells are 1
 content (or `note` content inside the Form (core) block). Source tables with more cells must go
 through a table block parser (e.g. table-striped), never stay as bare tables. Then re-import the
 four pages.
+
+Done: `unwrapSingleCellTables()` in `lufthansa-cleanup.js` (only these four snapshots have such tables);
+the empty-component cleanup also leaves `form.cmp-form` alone (a band with only fields has no text).
 
 ## Supported variations
 

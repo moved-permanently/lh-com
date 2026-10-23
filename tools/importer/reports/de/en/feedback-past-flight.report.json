@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/feedback-past-flight",
   "path": "de/en/feedback-past-flight",
-  "timestamp": "2026-10-23T05:32:31.268Z",
+  "timestamp": "2026-10-23T15:14:53.371Z",
   "title": "",
   "template": "form",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

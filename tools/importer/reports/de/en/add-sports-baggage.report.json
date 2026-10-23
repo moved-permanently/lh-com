@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/add-sports-baggage",
   "path": "de/en/add-sports-baggage",
-  "timestamp": "2026-10-23T03:09:30.486Z",
+  "timestamp": "2026-10-23T15:16:08.094Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

@@ -56,7 +56,7 @@ const KNOWN = {
   'dcep-ejournals': { block: 'ejournals', planned: 'ejournals (block exists, not mapped; open, no item)' },
   'dcep-author-slider': { planned: 'loader text only (the slider is imported as carousel-cards); open, no item: drop .loading-text in the cleanup' },
   'dcep-blog-overview': { planned: 'loader text only; open, no item: drop .loading-text in the cleanup' },
-  'form#new_form.cmp-form': { planned: 'Form (core) variant of the form block (B7, other agent, fd551b0); open until its pages are re-imported' },
+  'form#new_form.cmp-form': { block: 'form', planned: 'Form (core) variant of the form block (B7 done: form-core parser mapped in form, hub, info)' },
 };
 const planned = (name) => (KNOWN[name] && KNOWN[name].planned) || 'open, no item';
 

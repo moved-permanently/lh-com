@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/special-needs",
   "path": "de/en/special-needs",
-  "timestamp": "2026-10-23T02:19:48.595Z",
+  "timestamp": "2026-10-23T15:15:47.630Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

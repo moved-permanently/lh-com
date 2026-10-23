@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/group-travel",
   "path": "de/de/group-travel",
-  "timestamp": "2026-10-23T03:44:55.052Z",
+  "timestamp": "2026-10-23T15:16:22.715Z",
   "title": "Gruppenreisen | Lufthansa",
   "template": "info",
   "blocks": [
+    "form-core",
     "accordion-columns"
   ]
 }

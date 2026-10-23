@@ -36,13 +36,400 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_25782_exports = {};
-  __export(tmp_bundle_info_25782_exports, {
-    default: () => tmp_bundle_info_25782_default
+  var tmp_bundle_info_36469_exports = {};
+  __export(tmp_bundle_info_36469_exports, {
+    default: () => tmp_bundle_info_36469_default
   });
 
-  // tools/importer/parsers/flight-search.js
+  // tools/importer/parsers/form-core.js
+  var HEADER = [
+    "Label",
+    "Type",
+    "Name",
+    "Required",
+    "Options",
+    "Help text",
+    "Placeholder",
+    "Validation message",
+    "Constraint message",
+    "Rules"
+  ];
+  var COLUMNS = [
+    "label",
+    "type",
+    "name",
+    "required",
+    "options",
+    "help",
+    "placeholder",
+    "message",
+    "constraint",
+    "rules"
+  ];
   function parse(element, { document }) {
+    const form = element.matches("form") ? element : element.querySelector("form.cmp-form");
+    if (!form) return;
+    const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const text = (el) => el ? clean2(el.textContent) : "";
+    const attr = (el, name) => el ? clean2(el.getAttribute(name)) : "";
+    const has = (el, name) => !!el && el.hasAttribute(name) && el.getAttribute(name) !== "false";
+    const rows = [];
+    const done = /* @__PURE__ */ new Set();
+    const cell = (value) => {
+      if (value == null || value === "") return "";
+      if (typeof value !== "string" && !Array.isArray(value)) return value;
+      const lines = (Array.isArray(value) ? value : [value]).map((l) => String(l)).filter((l) => l !== "");
+      if (!lines.length) return "";
+      const nodes = [];
+      lines.forEach((l, i) => {
+        if (i) nodes.push(document.createElement("br"));
+        nodes.push(document.createTextNode(l));
+      });
+      return nodes;
+    };
+    const add = (row) => rows.push(COLUMNS.map((c) => cell(row[c])));
+    const wrapperOf = (field) => field.closest(".cmp-form-text, [data-cmp-type]");
+    const requiredOf = (field, wrapper) => {
+      if (has(field, "required") || wrapper && has(wrapper, "data-cmp-required")) return "yes";
+      return attr(field, "optional");
+    };
+    const messageOf = (field, wrapper, fieldFirst) => {
+      const own = attr(field, "data-customerror");
+      const wrap = attr(wrapper, "data-cmp-required-message");
+      return fieldFirst ? own || wrap : wrap || own;
+    };
+    let repeatSuffix = null;
+    const nameOf = (field) => {
+      const n = attr(field, "name");
+      return repeatSuffix && n.endsWith(repeatSuffix) ? n.slice(0, -repeatSuffix.length) : n;
+    };
+    function textField(field, type) {
+      const wrapper = wrapperOf(field);
+      const rules = [];
+      const pattern = attr(field, "pattern") || attr(wrapper, "data-cmp-pattern");
+      if (pattern) rules.push(`pattern=${pattern}`);
+      const maxlength = attr(field, "maxlength");
+      if (maxlength) rules.push(`maxlength=${maxlength}`);
+      const inputmode = attr(field, "inputmode");
+      if (inputmode && inputmode !== "text") rules.push(`inputmode=${inputmode}`);
+      if (attr(field, "type") === "pnr") rules.push("uppercase");
+      return {
+        label: attr(field, "label"),
+        type,
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules
+      };
+    }
+    function input(field) {
+      const t = attr(field, "type");
+      add(textField(field, t === "email" ? "email" : t === "tel" ? "tel" : "text"));
+    }
+    function date(masked) {
+      const field = masked.querySelector("maui-input");
+      if (!field) return;
+      const row = textField(field, "date");
+      const mask = attr(masked, "mask");
+      row.rules = mask ? [`mask=${mask}`] : [];
+      add(row);
+    }
+    function street(box) {
+      const field = box.querySelector('input:not([type="hidden"])');
+      if (!field) return;
+      const wrapper = wrapperOf(box);
+      add({
+        label: text(box.querySelector("label")) || attr(field, "placeholder"),
+        type: "text",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message")
+      });
+    }
+    function textarea(field) {
+      const wrapper = wrapperOf(field);
+      const rowCount = attr(field, "rows");
+      add({
+        label: attr(field, "label"),
+        type: "textarea",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage") || attr(field, "customerrormessage"),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules: rowCount ? [`rows=${rowCount}`] : []
+      });
+    }
+    function select(field) {
+      const wrapper = wrapperOf(field);
+      const options = [...field.querySelectorAll("maui-option")].filter((o) => !o.hasAttribute("disabled")).map((o) => `${clean2(o.getAttribute("optionvalue") || "")}=${text(o)}${o.hasAttribute("selected") ? " {selected}" : ""}`);
+      add({
+        label: attr(field, "buttontriggerlabel") || attr(field, "label"),
+        type: "select",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        options,
+        help: attr(field, "hint"),
+        message: messageOf(field, wrapper, true)
+      });
+    }
+    function region(box) {
+      const field = box.querySelector("maui-select");
+      if (!field) return;
+      const country = box.closest(".countrydropdown");
+      const countrySelect = country && country.querySelector("maui-select.forms-country-dropdown-select");
+      add({
+        label: attr(field, "buttontriggerlabel"),
+        type: "region",
+        name: nameOf(field),
+        required: has(box, "data-cmp-required") || has(field, "required") ? "yes" : "",
+        placeholder: attr(field, "data-empty-option"),
+        message: attr(field, "data-customerror") || attr(box, "data-cmp-required-message"),
+        rules: countrySelect ? [`country=${nameOf(countrySelect)}`] : []
+      });
+    }
+    function radio(group) {
+      const wrapper = wrapperOf(group);
+      const radios = [...group.querySelectorAll("maui-radio")];
+      const required = has(group, "required") || radios.some((r) => has(r, "required")) || wrapper && has(wrapper, "data-cmp-required");
+      add({
+        label: attr(group, "label"),
+        type: "radio",
+        name: nameOf(group) || nameOf(radios[0] || group),
+        required: required ? "yes" : attr(group, "optional"),
+        options: radios.map((r) => `${clean2(r.getAttribute("value") || "")}=${text(r) || attr(r, "label")}`),
+        help: attr(group, "hint"),
+        message: messageOf(group, wrapper, true) || attr(radios[0], "data-customerror")
+      });
+    }
+    function checkbox(box) {
+      const boxes = [...box.querySelectorAll("maui-checkbox")];
+      if (!boxes.length) return;
+      const wrapper = box.matches("[data-cmp-type]") ? box : wrapperOf(box);
+      const targets = [...new Set(boxes.map((b) => attr(b, "data-target")).filter(Boolean))];
+      const required = boxes.some((b) => has(b, "required")) || wrapper && has(wrapper, "data-cmp-required");
+      const heading = box.querySelector(".form-group-headline");
+      add({
+        label: text(heading),
+        type: "checkbox",
+        name: nameOf(boxes[0]),
+        required: required ? "yes" : "",
+        options: boxes.map((b) => `${clean2(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}`),
+        message: attr(boxes[0], "data-customerror") || attr(wrapper, "data-cmp-required-message"),
+        rules: targets.length ? [`toggles=${targets.join(", ")}`] : []
+      });
+    }
+    function stepper(field) {
+      const wrapper = wrapperOf(field);
+      const rules = [];
+      ["min", "max"].forEach((k) => {
+        if (attr(field, k)) rules.push(`${k}=${attr(field, k)}`);
+      });
+      if (attr(field, "selected")) rules.push(`value=${attr(field, "selected")}`);
+      add({
+        label: attr(field, "label"),
+        type: "stepper",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage"),
+        rules
+      });
+    }
+    function autocomplete(field) {
+      const wrapper = wrapperOf(field);
+      add({
+        label: attr(field, "buttontriggerlabel") || attr(field, "label"),
+        type: "autocomplete",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        help: attr(field, "hint"),
+        message: attr(field, "data-customerror") || attr(wrapper, "data-cmp-required-message") || attr(field, "errormessage")
+      });
+    }
+    function file(zone) {
+      let config = {};
+      try {
+        config = JSON.parse(zone.getAttribute("data-forms-filedrop") || "{}") || {};
+      } catch (e) {
+        config = {};
+      }
+      const hidden = zone.querySelector('input[name$="-fileIds"]');
+      const optional = config.optional === true || config.optional === "true";
+      const rules = [];
+      if (config.acceptedFiles) rules.push(`accept=${clean2(config.acceptedFiles)}`);
+      if (config.maxFiles) rules.push(`max-files=${clean2(config.maxFiles)}`);
+      if (config.maxFileSize) rules.push(`max-size=${clean2(config.maxFileSize)}`);
+      if (config.notAllowedCharacters) rules.push(`not-allowed=${clean2(config.notAllowedCharacters)}`);
+      add({
+        label: text(zone.querySelector(".filedrop-desc > div:first-child")),
+        type: "file",
+        name: hidden ? attr(hidden, "name").replace(/-fileIds$/, "") : "",
+        required: optional ? text(zone.querySelector(".hint")) || "optional" : "yes",
+        help: text(zone.querySelector("p.footnote, #forms-filedrop-hint")),
+        placeholder: text(zone.querySelector("maui-button")),
+        message: clean2(config.requiredError),
+        rules
+      });
+    }
+    function note(rt) {
+      const div = document.createElement("div");
+      const clone = rt.cloneNode(true);
+      clone.querySelectorAll(".sr-only, .visually-hidden, script, style").forEach((n) => n.remove());
+      clone.querySelectorAll("table").forEach((t) => {
+        const cells2 = t.querySelectorAll("td, th");
+        if (cells2.length === 1) t.replaceWith(...cells2[0].childNodes);
+      });
+      div.append(...clone.childNodes);
+      if (!clean2(div.textContent) && !div.querySelector("img, a[href]")) return;
+      const content = [...div.childNodes].filter((n) => n.nodeType === 1 || clean2(n.textContent));
+      rows.push(COLUMNS.map((c) => c === "label" ? content : c === "type" ? cell("note") : ""));
+    }
+    function fieldset(sub) {
+      const fs = sub.querySelector(":scope > fieldset") || sub.querySelector("fieldset");
+      const name = (sub.id || "").replace(/^subsection-/, "");
+      if (!fs) return;
+      const hidden = sub.classList.contains("collapse") || sub.classList.contains("d-none");
+      add({ label: text(fs.querySelector("legend")), type: "fieldset", name, rules: hidden ? ["hidden"] : [] });
+      [...fs.children].forEach((c) => {
+        if (c.tagName !== "LEGEND") visit(c);
+      });
+      add({ type: "end" });
+    }
+    function repeatable(sub) {
+      const sets = [...sub.querySelectorAll(":scope > fieldset")];
+      if (!sets.length) return;
+      const n = sets.length;
+      const legend = text(sets[0].querySelector("legend"));
+      const add_ = text(sub.querySelector(".forms-repeat-add"));
+      const removeBtn = sub.querySelector("button.forms-repeat-hide[aria-label], .forms-repeat-hide[aria-label]");
+      const remainingEl = sub.querySelector("p.forms-repeat-remaining, .forms-repeat-remaining");
+      let remaining = "";
+      if (remainingEl) {
+        const counter = remainingEl.querySelector(".forms-repeat-counter");
+        if (counter) {
+          const c = remainingEl.cloneNode(true);
+          c.querySelector(".forms-repeat-counter").replaceWith(document.createTextNode("{n}"));
+          remaining = text(c);
+        } else {
+          const t = text(remainingEl);
+          const re = new RegExp(`(^|[^0-9])${n - 1}(?![0-9])`);
+          remaining = re.test(t) ? t.replace(re, "$1{n}") : t;
+        }
+      }
+      const rules = [`repeat=${n}`];
+      if (add_) rules.push(`add=${add_}`);
+      if (removeBtn) rules.push(`remove=${attr(removeBtn, "aria-label")}`);
+      if (remaining) rules.push(`remaining=${remaining}`);
+      add({
+        label: legend.replace(/(\d+)(?!.*\d)/, "{n}"),
+        type: "fieldset",
+        name: (sub.id || "").replace(/^subsection-/, ""),
+        rules
+      });
+      repeatSuffix = "_1";
+      [...sets[0].children].forEach((c) => {
+        if (c.tagName === "LEGEND" || c.matches(".forms-repeat-hide, button")) return;
+        visit(c);
+      });
+      repeatSuffix = null;
+      add({ type: "end" });
+    }
+    function visit(el) {
+      if (!el || el.nodeType !== 1) return;
+      if (el.matches("input, template, script, style, .forms-repeat-add, .forms-repeat-remaining, .forms-repeat-hide")) return;
+      if (el.matches(".form-section") && el.querySelector(":scope .form-section-headline")) {
+        const description = el.querySelector(".form-section-description");
+        const help = description ? document.createElement("div") : null;
+        if (help) help.append(...description.cloneNode(true).childNodes);
+        rows.push(COLUMNS.map((c) => {
+          if (c === "label") return cell(text(el.querySelector(".form-section-headline")));
+          if (c === "type") return cell("step");
+          if (c === "help") return help && clean2(help.textContent) ? [...help.childNodes] : "";
+          return "";
+        }));
+        const content = el.querySelector(".form-section-content") || el;
+        [...content.children].forEach(visit);
+        return;
+      }
+      if (el.matches('div.forms-repeatable-section[id^="subsection-"]')) {
+        repeatable(el);
+        return;
+      }
+      if (el.matches('div[id^="subsection-"]')) {
+        fieldset(el);
+        return;
+      }
+      if (el.matches(".richtext")) {
+        note(el);
+        return;
+      }
+      if (el.matches('[data-cmp-type="checkbox"]')) {
+        checkbox(el);
+        return;
+      }
+      if (el.matches(".forms-region-dropdown-wrapper")) {
+        region(el);
+        return;
+      }
+      if (el.matches("maui-radio-group")) {
+        radio(el);
+        return;
+      }
+      if (el.matches("maui-select")) {
+        select(el);
+        return;
+      }
+      if (el.matches("maui-masked-input")) {
+        date(el);
+        return;
+      }
+      if (el.matches("maui-textarea")) {
+        textarea(el);
+        return;
+      }
+      if (el.matches("maui-stepper")) {
+        stepper(el);
+        return;
+      }
+      if (el.matches("maui-autocomplete")) {
+        autocomplete(el);
+        return;
+      }
+      if (el.matches(".streetAddress")) {
+        street(el);
+        return;
+      }
+      if (el.matches("maui-input")) {
+        input(el);
+        return;
+      }
+      if (el.matches("section.forms-filedrop")) {
+        file(el);
+        return;
+      }
+      if (el.matches("maui-checkbox") && !done.has(el.parentElement)) {
+        done.add(el.parentElement);
+        checkbox(el.parentElement);
+        return;
+      }
+      if (el.matches('#submit-btn, maui-button[behavior="submit"], button[type="submit"]')) {
+        add({ label: text(el) || attr(el, "label"), type: "submit" });
+        return;
+      }
+      [...el.children].forEach(visit);
+    }
+    [...form.children].forEach(visit);
+    const cells = [HEADER, ...rows];
+    const block = WebImporter.Blocks.createBlock(document, { name: "Form", variants: ["core"], cells });
+    form.replaceWith(block);
+  }
+
+  // tools/importer/parsers/flight-search.js
+  function parse2(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -159,7 +546,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -322,7 +709,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -552,7 +939,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -745,7 +1132,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -1154,7 +1541,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -1166,7 +1553,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -1396,6 +1783,17 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
   function isEmpty(el) {
@@ -1465,7 +1863,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -2035,6 +2433,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -2236,6 +2635,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "form-core",
+        "instances": [
+          "form.cmp-form"
+        ]
+      },
+      {
         "name": "flight-search",
         "instances": [
           ".redesignedflightmanager"
@@ -2330,13 +2735,14 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "flight-search": parse,
-    "hero-campaign": parse2,
-    "accordion-columns": parse3,
-    "carousel-cards": parse4,
-    "columns-media": parse5,
-    "embed": parse6,
-    "lounge-finder": parse7
+    "form-core": parse,
+    "flight-search": parse2,
+    "hero-campaign": parse3,
+    "accordion-columns": parse4,
+    "carousel-cards": parse5,
+    "columns-media": parse6,
+    "embed": parse7,
+    "lounge-finder": parse8
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2360,7 +2766,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_25782_default = {
+  var tmp_bundle_info_36469_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2390,5 +2796,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_25782_exports);
+  return __toCommonJS(tmp_bundle_info_36469_exports);
 })();

@@ -690,6 +690,23 @@ function renderField(row, ctx) {
 function renderNote(row) {
   const note = richContent(row.labelCell, 'p', 'form-note');
   if (!note) return null;
+  // a one-paragraph cell arrives without its <p> (aem.js wraps the text later), so scripts.js
+  // never saw the marker: "Travel dates in 28 days at the earliest. {copytext-small}"
+  (note.tagName === 'P' ? [note] : [...note.querySelectorAll('p')]).forEach((p) => {
+    const lastText = (node) => {
+      for (let c = node.lastChild; c; c = c.previousSibling) {
+        if (c.nodeType === 3 && c.nodeValue.trim()) return c;
+        const inner = c.nodeType === 1 ? lastText(c) : null;
+        if (inner) return inner;
+      }
+      return null;
+    };
+    const last = lastText(p);
+    const m = last && last.nodeValue.match(/\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/);
+    if (!m) return;
+    last.nodeValue = last.nodeValue.slice(0, m.index);
+    p.classList.add(...m[1].split(' '));
+  });
   const wrapper = el('div', 'form-field form-field-note');
   wrapper.append(note);
   const help = richContent(row.helpCell, 'p', 'form-help');

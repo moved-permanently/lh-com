@@ -20652,13 +20652,19 @@
     "priority": 4,
     "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/feedback-past-flight",
     "widths": [
-      1440
+      1440,
+      768,
+      390
     ],
     "srcPng": {
-      "1440": "tools/source-export/pages/at/de/feedback-past-flight/screenshot.jpg"
+      "390": "tools/source-export/pages/at/de/feedback-past-flight/screenshot-390.png",
+      "768": "tools/source-export/pages/at/de/feedback-past-flight/screenshot-768.png",
+      "1440": "tools/source-export/pages/at/de/feedback-past-flight/screenshot.png"
     },
     "contentWidth": {
-      "1440": 1440
+      "390": 375,
+      "768": 753,
+      "1440": 1425
     }
   },
   {

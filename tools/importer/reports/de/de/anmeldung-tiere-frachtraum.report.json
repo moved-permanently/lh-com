@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/anmeldung-tiere-frachtraum",
   "path": "de/de/anmeldung-tiere-frachtraum",
-  "timestamp": "2026-10-23T05:31:56.308Z",
+  "timestamp": "2026-10-23T15:14:34.630Z",
   "title": "",
   "template": "form",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

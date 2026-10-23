@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/register-animal-cabin",
   "path": "de/en/register-animal-cabin",
-  "timestamp": "2026-10-23T05:33:09.492Z",
+  "timestamp": "2026-10-23T15:15:13.664Z",
   "title": "",
   "template": "form",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }

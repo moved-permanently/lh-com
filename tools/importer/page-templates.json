@@ -239,6 +239,12 @@
       ],
       "blocks": [
         {
+          "name": "form-core",
+          "instances": [
+            "form.cmp-form"
+          ]
+        },
+        {
           "name": "hero-campaign",
           "instances": [
             ".inspirationteaser"
@@ -1032,6 +1038,12 @@
         "https://www.lufthansa.com/gb/en/with-children-at-the-airport"
       ],
       "blocks": [
+        {
+          "name": "form-core",
+          "instances": [
+            "form.cmp-form"
+          ]
+        },
         {
           "name": "flight-search",
           "instances": [
@@ -2053,6 +2065,12 @@
         "https://www.lufthansa.com/gb/en/register-animal-cabin"
       ],
       "blocks": [
+        {
+          "name": "form-core",
+          "instances": [
+            "form.cmp-form"
+          ]
+        },
         {
           "name": "hero-campaign",
           "instances": [

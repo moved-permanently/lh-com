@@ -322,6 +322,26 @@ function removeScreenReaderOnly(document) {
   });
 }
 
+/* ------------------------------------------------- single-cell layout tables ----------------- */
+
+/**
+ * A source table with exactly one cell (rich-text layout table, `table.rte-forcedborder` around
+ * the conditions lists of add-sports-baggage / sportgepaeck-hinzufuegen) is replaced by the
+ * cell's content: left as a table it became a block named after its text in DA, with no rows.
+ * Tables with more cells go through a table parser.
+ */
+function unwrapSingleCellTables(document) {
+  let unwrapped = 0;
+  [...document.querySelectorAll('table')].reverse().forEach((table) => {
+    if (!table.isConnected || table.querySelector('table')) return;
+    const cells = table.querySelectorAll('td, th');
+    if (cells.length !== 1 || table.querySelectorAll('tr').length !== 1) return;
+    table.replaceWith(...cells[0].childNodes);
+    unwrapped += 1;
+  });
+  return unwrapped;
+}
+
 /* ------------------------------------------------- empty AEM components ----------------- */
 
 const MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
@@ -414,9 +434,11 @@ function removeEmptyComponents(document) {
     .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
   // AEM component wrappers: <div class="{component} section"> (flashteasercore, quickaction, ...)
   const scope = document.querySelector('.container-content, .contentpage, main') || document.body;
+  // not inside AEM core forms: their fields (maui-input, maui-checkbox ...) carry their texts in
+  // attributes, so a band with only fields looks empty (the form-core parser reads them)
   [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')]
     .reverse()
-    .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
+    .forEach((el) => { if (el.isConnected && !el.closest('form.cmp-form') && isEmpty(el)) el.remove(); });
 }
 
 /* -------------------------------------------- AirCore leftovers ----------------- */
@@ -1146,6 +1168,7 @@ export default function transform(hookName, element, payload) {
     removeAirCoreLeftovers(document);
     removeTracking(document);
     removeScreenReaderOnly(document);
+    unwrapSingleCellTables(document);
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);

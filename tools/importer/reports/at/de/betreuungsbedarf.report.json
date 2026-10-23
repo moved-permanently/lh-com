@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/betreuungsbedarf",
   "path": "at/de/betreuungsbedarf",
-  "timestamp": "2026-10-23T02:19:53.096Z",
+  "timestamp": "2026-10-23T15:15:55.890Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "form-core"
+  ]
 }
