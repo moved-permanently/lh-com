@@ -2,12 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/speisen-und-getraenke",
   "path": "at/de/speisen-und-getraenke",
-  "timestamp": "2026-10-23T02:15:46.011Z",
+  "timestamp": "2026-10-23T21:51:50.369Z",
   "title": "",
   "template": "hub",
   "blocks": [
     "hero-campaign",
+    "hero-banner",
+    "carousel-cards",
     "columns-media",
-    "columns-media"
+    "accordion-columns"
   ]
 }

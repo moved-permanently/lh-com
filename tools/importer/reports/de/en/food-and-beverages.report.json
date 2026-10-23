@@ -2,12 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/food-and-beverages",
   "path": "de/en/food-and-beverages",
-  "timestamp": "2026-10-23T02:15:40.456Z",
+  "timestamp": "2026-10-23T21:51:42.487Z",
   "title": "",
   "template": "hub",
   "blocks": [
     "hero-campaign",
+    "hero-banner",
+    "carousel-cards",
     "columns-media",
-    "columns-media"
+    "accordion-columns"
   ]
 }

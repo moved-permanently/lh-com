@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/meetings-and-events",
   "path": "de/de/meetings-and-events",
-  "timestamp": "2026-10-23T11:43:25.317Z",
+  "timestamp": "2026-10-23T21:52:14.821Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "cards-teaser",
+    "columns-media"
+  ]
 }

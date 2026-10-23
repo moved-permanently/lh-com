@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/airport-information",
   "path": "de/en/airport-information",
-  "timestamp": "2026-10-23T11:43:00.667Z",
+  "timestamp": "2026-10-23T21:50:25.401Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
 }

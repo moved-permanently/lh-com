@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-travel-classes",
   "path": "de/en/lufthansa-travel-classes",
-  "timestamp": "2026-10-23T02:16:03.226Z",
+  "timestamp": "2026-10-23T21:51:52.184Z",
   "title": "",
   "template": "hub",
   "blocks": [
+    "profile-nav",
+    "hero-banner",
     "carousel-cards",
     "columns-media",
     "columns-media"

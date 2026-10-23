@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-route.js
-  var tmp_bundle_aircore_route_59468_exports = {};
-  __export(tmp_bundle_aircore_route_59468_exports, {
-    default: () => tmp_bundle_aircore_route_59468_default
+  var tmp_bundle_aircore_route_42061_exports = {};
+  __export(tmp_bundle_aircore_route_42061_exports, {
+    default: () => tmp_bundle_aircore_route_42061_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -391,6 +391,46 @@ var CustomImportScript = (() => {
   // tools/importer/parsers/cards-icon-text.js
   function parse5(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const partners = [...element.querySelectorAll("a.teaser.partner")];
+    if (partners.length) {
+      const rows = [];
+      partners.forEach((card) => {
+        let iconCell = "";
+        const img = card.querySelector("img.icon-svg, .image-wrapper img, img");
+        const src = img && img.getAttribute("src");
+        if (src && !/^(data|blob):/i.test(src)) {
+          iconCell = document.createElement("img");
+          iconCell.src = src;
+          iconCell.alt = clean2(img.getAttribute("alt"));
+        }
+        const content = [];
+        const title = clean2((card.querySelector(".teaser-heading-text") || card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6") || {}).textContent);
+        const href = card.getAttribute("href");
+        if (title) {
+          const h3 = document.createElement("h3");
+          if (href) {
+            const a = document.createElement("a");
+            a.href = href;
+            a.textContent = title;
+            h3.append(a);
+          } else {
+            h3.textContent = title;
+          }
+          content.push(h3);
+        }
+        card.querySelectorAll(".teaser-description p").forEach((d) => {
+          const t = clean2(d.textContent);
+          if (!t || content.some((c) => c.textContent === t)) return;
+          const p = document.createElement("p");
+          p.textContent = t;
+          content.push(p);
+        });
+        if (!iconCell && !content.length) return;
+        rows.push([iconCell, content.length ? content : ""]);
+      });
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
+      return;
+    }
     let units = [...element.querySelectorAll(".icon-wrapper")];
     if (!units.length) units = [...element.querySelectorAll(":scope > a, :scope > div")];
     const cells = [];
@@ -576,7 +616,7 @@ var CustomImportScript = (() => {
           const list = document.createElement(tag);
           child.querySelectorAll(":scope > li").forEach((li) => {
             const item = document.createElement("li");
-            const a = li.querySelector("a[href]");
+            const a = li.querySelector("a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]");
             const link = a && makeLink(a);
             if (link) item.append(link);
             else if (visibleText(li)) item.textContent = visibleText(li);
@@ -742,7 +782,12 @@ var CustomImportScript = (() => {
     const options = [];
     if (items.length && !items.some((item) => item.querySelector(".column-view-item"))) options.push("faq");
     if (element.closest("maui-limited-width") || element.querySelector("maui-limited-width maui-collapsible, maui-limited-width .accordionitem")) options.push("limited-width");
-    if (element.parentElement && element.parentElement.closest(".column-view-item")) options.push("spaced");
+    const columnItem = element.parentElement && element.parentElement.closest(".column-view-item");
+    const columnView = columnItem && columnItem.closest(".column-view");
+    const columnCount = columnView ? [...columnView.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === columnView).length : 0;
+    const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean2(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
+    if (aloneInColumn && columnCount > 1) options.push("column");
+    else if (columnItem) options.push("spaced");
     const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
     items.forEach((item) => {
@@ -833,6 +878,9 @@ var CustomImportScript = (() => {
     "footer .footer-brand-links",
     ".above-footer-container",
     ".secondary-footer-container",
+    // the Cognigy chat assistant window, open in some snapshots (body > div > div > .webchat-root
+    // #webchatWindow: "Lufthansa Chat Assistant / Hi, I'm Elisa", /de/en/overview-travel-information)
+    ".webchat-root",
     // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
     ".skiplinks",
     ".skip-links",
@@ -1095,6 +1143,40 @@ var CustomImportScript = (() => {
       }
     });
     return found.length;
+  }
+  function convertAuthorQuotes(document) {
+    let converted = 0;
+    document.querySelectorAll(".article-details-page .dcep-author-quote").forEach((quote) => {
+      const bq = document.createElement("blockquote");
+      [".quote-text", ".subline-text"].forEach((sel) => {
+        const src = quote.querySelector(sel);
+        if (!src || !cleanText(src)) return;
+        const paras = [...src.querySelectorAll("p")].filter((p2) => cleanText(p2));
+        if (paras.length) {
+          bq.append(...paras);
+          return;
+        }
+        const p = document.createElement("p");
+        p.append(...src.childNodes);
+        bq.append(p);
+      });
+      if (!bq.children.length) return;
+      (quote.closest(".authorquote") || quote).replaceWith(bq);
+      converted += 1;
+    });
+    return converted;
+  }
+  function markParallaxImages(document) {
+    let marked = 0;
+    document.querySelectorAll(".dcep-moving-image[data-dcep]").forEach((comp) => {
+      if (!/"isParallaxEnabled"\s*:\s*true/.test(comp.getAttribute("data-dcep") || "")) return;
+      if (comp.closest("table, .column-view-item, .sidebar, .carousel, .teaser")) return;
+      const img = comp.querySelector("img");
+      if (!img) return;
+      img.after(document.createTextNode(" {parallax}"));
+      marked += 1;
+    });
+    return marked;
   }
   function removeEmptyComponents(document) {
     markSeparators(document);
@@ -1559,7 +1641,9 @@ var CustomImportScript = (() => {
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
       const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
-      const tokens = [style, width].filter(Boolean);
+      const m = !p.closest("table") && p.closest(".richtext") && (p.getAttribute("style") || "").match(/margin-left:\s*(\d{1,3})(?:\.\d+)?px/i);
+      const indent = m && +m[1] > 0 ? `indent-${m[1]}` : null;
+      const tokens = [style, width, indent].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
@@ -1681,6 +1765,8 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
+      convertAuthorQuotes(document);
+      markParallaxImages(document);
       removeEmptyComponents(document);
       normalizeImages(document, true);
     }
@@ -1712,7 +1798,7 @@ var CustomImportScript = (() => {
   var FOLLOWING = 4;
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
-  var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
+  var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
   var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
     const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
@@ -1832,6 +1918,18 @@ var CustomImportScript = (() => {
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
+      });
+      const stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
+      aemSections.forEach((s, i) => {
+        if (!stage(s)) return;
+        const next = aemSections[i + 1];
+        const styles = ["stage"];
+        if (!s.querySelector(":scope > .mb-default")) styles.push("flush");
+        if (next && padded(next) && !grey(next)) styles.push("before-padded");
+        const start = createBreak(document);
+        start.setAttribute(SOURCE_STYLE, styles.join(" "));
+        s.before(start);
+        if (next) next.before(createBreak(document));
       });
     }
     if (hookName === "afterTransform") {
@@ -2093,7 +2191,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_route_59468_default = {
+  var tmp_bundle_aircore_route_42061_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2123,5 +2221,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_route_59468_exports);
+  return __toCommonJS(tmp_bundle_aircore_route_42061_exports);
 })();

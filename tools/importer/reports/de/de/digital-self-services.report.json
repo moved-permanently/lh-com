@@ -2,8 +2,18 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/digital-self-services",
   "path": "de/de/digital-self-services",
-  "timestamp": "2026-10-23T02:15:21.546Z",
+  "timestamp": "2026-10-23T21:50:58.843Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "cards-teaser",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text",
+    "cards-icon-text"
+  ]
 }

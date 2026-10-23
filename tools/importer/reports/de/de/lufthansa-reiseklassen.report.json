@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-reiseklassen",
   "path": "de/de/lufthansa-reiseklassen",
-  "timestamp": "2026-10-23T02:16:05.987Z",
+  "timestamp": "2026-10-23T21:51:56.990Z",
   "title": "",
   "template": "hub",
   "blocks": [
+    "profile-nav",
+    "hero-banner",
     "carousel-cards",
     "columns-media",
     "columns-media"

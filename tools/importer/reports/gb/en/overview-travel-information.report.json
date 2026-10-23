@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/overview-travel-information",
   "path": "gb/en/overview-travel-information",
-  "timestamp": "2026-10-23T02:19:26.464Z",
+  "timestamp": "2026-10-23T21:50:43.762Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
 }

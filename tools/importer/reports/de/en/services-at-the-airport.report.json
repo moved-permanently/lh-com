@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/services-at-the-airport",
   "path": "de/en/services-at-the-airport",
-  "timestamp": "2026-10-23T02:19:29.498Z",
+  "timestamp": "2026-10-23T21:50:45.890Z",
   "title": "",
   "template": "hub",
-  "blocks": []
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser"
+  ]
 }

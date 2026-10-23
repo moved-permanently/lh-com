@@ -4517,12 +4517,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15063,
-          "at": "2026-10-23T07:15:16.052Z",
+          "ms": 15102,
+          "at": "2026-10-23T21:57:17.588Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9485,
-            "truncated": true,
+            "scrollHeight": 5148,
+            "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
             "contentWidth": 1425,
@@ -4556,7 +4556,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5394
+              "svgAnimations": 5739
             },
             "liveBoxes": 0
           }
@@ -4567,32 +4567,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.35514,
-        "unmaskedRatio": 0.35514,
+        "mismatchRatio": 0.22372,
+        "unmaskedRatio": 0.22372,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 5273,
-        "heightB": 8000,
-        "heightDiffRatio": 0.34088,
+        "heightB": 5148,
+        "heightDiffRatio": 0.02371,
         "firstDivergentBand": {
           "index": 6,
           "y": 1200,
-          "unmaskedRatio": 0.52422
+          "unmaskedRatio": 0.47868
         },
         "worstBands": [
           {
-            "y": 4800,
-            "unmaskedRatio": 0.91921
-          },
-          {
-            "y": 4600,
-            "unmaskedRatio": 0.91195
-          },
-          {
             "y": 5000,
-            "unmaskedRatio": 0.90135
+            "unmaskedRatio": 0.77141
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.6005
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.56161
           }
         ],
         "bandHeight": 200,
@@ -4602,44 +4602,31 @@
           0.06568,
           0.06783,
           0.06024,
-          0.05448,
-          0.52422,
-          0.56991,
-          0.40354,
-          0.56525,
-          0.61675,
-          0.07753,
-          0.76564,
-          0.74812,
-          0.77009,
-          0.7428,
-          0.76886,
-          0.68599,
-          0.7862,
-          0.82562,
-          0.246,
-          0.40036,
-          0.76167,
-          0.91195,
-          0.91921,
-          0.90135,
-          0.01937,
-          0.1941,
-          0.45484,
-          0.06013,
-          0.0171,
-          0.02089,
-          0.02001,
-          0.02954,
-          0.02049,
-          0.01314,
-          0.01963,
-          0.02322,
-          0.02098,
-          0.01688
+          0.08388,
+          0.47868,
+          0.22622,
+          0.28427,
+          0.50657,
+          0.0442,
+          0.09938,
+          0.28878,
+          0.44561,
+          0.24442,
+          0.53485,
+          0.56161,
+          0.0717,
+          0.07739,
+          0.08002,
+          0.08745,
+          0.08589,
+          0.6005,
+          0.05371,
+          0.03842,
+          0.77141,
+          0.00999
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/1440-diff.png",
-        "at": "2026-10-23T07:15:20.751Z",
+        "at": "2026-10-23T21:57:20.576Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/1440-diff.png",
@@ -4656,12 +4643,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13997,
-          "at": "2026-10-23T07:15:34.881Z",
+          "ms": 13429,
+          "at": "2026-10-23T21:57:34.193Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 8747,
-            "truncated": true,
+            "scrollHeight": 5520,
+            "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
             "contentWidth": 753,
@@ -4695,7 +4682,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5365
+              "svgAnimations": 5725
             },
             "liveBoxes": 0
           }
@@ -4706,32 +4693,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32966,
-        "unmaskedRatio": 0.32966,
+        "mismatchRatio": 0.23761,
+        "unmaskedRatio": 0.23761,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 5685,
-        "heightB": 8000,
-        "heightDiffRatio": 0.28938,
+        "heightB": 5520,
+        "heightDiffRatio": 0.02902,
         "firstDivergentBand": {
           "index": 6,
           "y": 1200,
-          "unmaskedRatio": 0.46319
+          "unmaskedRatio": 0.48448
         },
         "worstBands": [
           {
-            "y": 5200,
-            "unmaskedRatio": 0.89328
+            "y": 5400,
+            "unmaskedRatio": 0.82214
           },
           {
-            "y": 2000,
-            "unmaskedRatio": 0.87448
+            "y": 3400,
+            "unmaskedRatio": 0.56833
           },
           {
-            "y": 2200,
-            "unmaskedRatio": 0.86904
+            "y": 3200,
+            "unmaskedRatio": 0.54826
           }
         ],
         "bandHeight": 200,
@@ -4741,44 +4728,33 @@
           0.11208,
           0.0921,
           0.05066,
-          0.09663,
-          0.46319,
-          0.62392,
-          0.61394,
-          0.82315,
-          0.87448,
-          0.86904,
-          0.41246,
-          0.41996,
-          0.84201,
-          0.67399,
-          0.2426,
-          0.81269,
-          0.69222,
-          0.0845,
-          0.09232,
-          0.34053,
-          0.23275,
-          0.17291,
-          0.44751,
-          0.86715,
-          0.89328,
-          0.81122,
-          0.05343,
-          0.03005,
-          0.0295,
-          0.0344,
-          0.03405,
-          0.03757,
-          0.03378,
-          0.02737,
-          0.05105,
-          0.03927,
-          0.04776,
-          0.0728
+          0.09999,
+          0.48448,
+          0.25602,
+          0.20104,
+          0.33254,
+          0.4312,
+          0.09254,
+          0.16987,
+          0.4408,
+          0.22556,
+          0.21473,
+          0.54826,
+          0.56833,
+          0.09525,
+          0.10313,
+          0.10793,
+          0.12851,
+          0.14074,
+          0.34864,
+          0.50864,
+          0.07765,
+          0.05627,
+          0.82214,
+          0.01625
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/768-diff.png",
-        "at": "2026-10-23T07:15:37.396Z",
+        "at": "2026-10-23T21:57:36.029Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/768-diff.png",
@@ -4795,12 +4771,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13524,
-          "at": "2026-10-23T07:15:51.048Z",
+          "ms": 13284,
+          "at": "2026-10-23T21:57:49.480Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 11032,
-            "truncated": true,
+            "scrollHeight": 7148,
+            "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
             "contentWidth": 375,
@@ -4834,7 +4810,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5303
+              "svgAnimations": 5538
             },
             "liveBoxes": 0
           }
@@ -4845,32 +4821,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.33695,
-        "unmaskedRatio": 0.33695,
+        "mismatchRatio": 0.36411,
+        "unmaskedRatio": 0.36411,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
         "widthB": 375,
         "heightA": 7431,
-        "heightB": 8000,
-        "heightDiffRatio": 0.07112,
+        "heightB": 7148,
+        "heightDiffRatio": 0.03808,
         "firstDivergentBand": {
-          "index": 7,
-          "y": 1400,
-          "unmaskedRatio": 0.49625
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.3728
         },
         "worstBands": [
           {
             "y": 7000,
-            "unmaskedRatio": 0.87613
-          },
-          {
-            "y": 1800,
-            "unmaskedRatio": 0.86593
+            "unmaskedRatio": 0.95965
           },
           {
             "y": 6800,
-            "unmaskedRatio": 0.84847
+            "unmaskedRatio": 0.93847
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.85633
           }
         ],
         "bandHeight": 200,
@@ -4880,44 +4856,42 @@
           0.26567,
           0.21017,
           0.22703,
-          0.09109,
-          0.14312,
-          0.49625,
-          0.58445,
-          0.86593,
-          0.77725,
-          0.49389,
-          0.64855,
-          0.27008,
-          0.64145,
-          0.09265,
-          0.15644,
-          0.35083,
-          0.511,
-          0.23471,
-          0.62429,
-          0.67341,
-          0.64039,
-          0.2094,
-          0.0896,
-          0.12399,
-          0.11241,
-          0.14339,
-          0.13288,
-          0.14475,
-          0.12285,
-          0.14144,
-          0.12555,
-          0.84177,
-          0.84847,
-          0.87613,
-          0.34629,
-          0.04137,
-          0.04171,
-          0.03696
+          0.1168,
+          0.3728,
+          0.35136,
+          0.30533,
+          0.38313,
+          0.55364,
+          0.32283,
+          0.10753,
+          0.11731,
+          0.09324,
+          0.11732,
+          0.3624,
+          0.71321,
+          0.52356,
+          0.7492,
+          0.60155,
+          0.81615,
+          0.64771,
+          0.21875,
+          0.10464,
+          0.16016,
+          0.12869,
+          0.16711,
+          0.17271,
+          0.17436,
+          0.28212,
+          0.85515,
+          0.85633,
+          0.12292,
+          0.93847,
+          0.95965,
+          0.32904,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/390-diff.png",
-        "at": "2026-10-23T07:15:52.625Z",
+        "at": "2026-10-23T21:57:51.623Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/speisen-und-getraenke/390-diff.png",
@@ -7870,11 +7844,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15759,
-          "at": "2026-10-22T23:25:33.433Z",
+          "ms": 13572,
+          "at": "2026-10-23T21:58:05.354Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7799,
+            "scrollHeight": 3259,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -7909,7 +7883,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5370
+              "svgAnimations": 6581
             },
             "liveBoxes": 0
           }
@@ -7920,78 +7894,56 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.53164,
-        "unmaskedRatio": 0.53164,
+        "mismatchRatio": 0.28538,
+        "unmaskedRatio": 0.28538,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3307,
-        "heightB": 7799,
-        "heightDiffRatio": 0.57597,
+        "heightB": 3259,
+        "heightDiffRatio": 0.01451,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
-          "unmaskedRatio": 0.61255
+          "unmaskedRatio": 0.50131
         },
         "worstBands": [
           {
-            "y": 7400,
-            "unmaskedRatio": 0.97265
+            "y": 1600,
+            "unmaskedRatio": 0.67612
           },
           {
-            "y": 7200,
-            "unmaskedRatio": 0.96415
+            "y": 1400,
+            "unmaskedRatio": 0.6415
           },
           {
-            "y": 3000,
-            "unmaskedRatio": 0.95365
+            "y": 1000,
+            "unmaskedRatio": 0.60618
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.0165,
-          0.21831,
-          0.61255,
-          0.7537,
-          0.44482,
-          0.58271,
-          0.66544,
-          0.69442,
-          0.68353,
-          0.36993,
-          0.79398,
-          0.76311,
-          0.22333,
-          0.77255,
-          0.90173,
-          0.95365,
-          0.15215,
-          0.6797,
-          0.76182,
-          0.68338,
-          0.16821,
-          0.80299,
-          0.85946,
-          0.44567,
-          0.26967,
-          0.59614,
-          0.63863,
-          0.30916,
-          0.21443,
-          0.75464,
-          0.81849,
-          0.35463,
-          0.01208,
-          0.04279,
-          0.019,
-          0.16,
-          0.96415,
-          0.97265,
-          0.60439
+          0.18551,
+          0.50131,
+          0.32808,
+          0.23846,
+          0.60618,
+          0.15402,
+          0.6415,
+          0.67612,
+          0.10764,
+          0.09374,
+          0.08888,
+          0.23125,
+          0.20708,
+          0.05637,
+          0.43965,
+          0.27391
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/1440-diff.png",
-        "at": "2026-10-22T23:25:38.313Z",
+        "at": "2026-10-23T21:58:07.659Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/1440-diff.png",
@@ -8008,11 +7960,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14222,
-          "at": "2026-10-22T23:25:52.631Z",
+          "ms": 13214,
+          "at": "2026-10-23T21:58:21.073Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 6137,
+            "scrollHeight": 3733,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -8047,7 +7999,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5897
+              "svgAnimations": 6370
             },
             "liveBoxes": 0
           }
@@ -8058,70 +8010,58 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.50566,
-        "unmaskedRatio": 0.50566,
+        "mismatchRatio": 0.43967,
+        "unmaskedRatio": 0.43967,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3782,
-        "heightB": 6137,
-        "heightDiffRatio": 0.38374,
+        "heightB": 3733,
+        "heightDiffRatio": 0.01296,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.75264
+          "index": 1,
+          "y": 200,
+          "unmaskedRatio": 0.30259
         },
         "worstBands": [
           {
-            "y": 5800,
-            "unmaskedRatio": 0.98086
+            "y": 3400,
+            "unmaskedRatio": 0.96993
           },
           {
-            "y": 2800,
-            "unmaskedRatio": 0.9573
+            "y": 3200,
+            "unmaskedRatio": 0.95682
           },
           {
-            "y": 5400,
-            "unmaskedRatio": 0.95084
+            "y": 2600,
+            "unmaskedRatio": 0.91902
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02673,
-          0.26311,
-          0.75264,
-          0.35649,
-          0.30369,
-          0.79554,
-          0.26039,
-          0.32273,
-          0.87683,
-          0.22744,
-          0.47357,
-          0.53485,
-          0.67519,
-          0.93057,
-          0.9573,
-          0.9159,
-          0.93752,
-          0.04289,
-          0.58243,
-          0.52509,
-          0.03772,
-          0.8426,
-          0.47551,
-          0.02286,
-          0.0667,
-          0.03328,
-          0.03,
-          0.95084,
-          0.94985,
-          0.98086,
-          0.533
+          0.30259,
+          0.47831,
+          0.18646,
+          0.20791,
+          0.47003,
+          0.17456,
+          0.62141,
+          0.16417,
+          0.64314,
+          0.17177,
+          0.11546,
+          0.65495,
+          0.91902,
+          0.75226,
+          0.33602,
+          0.95682,
+          0.96993,
+          0.1787
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/768-diff.png",
-        "at": "2026-10-22T23:25:54.926Z",
+        "at": "2026-10-23T21:58:22.705Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/768-diff.png",
@@ -8135,9 +8075,52 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/at/de/flughafeninformation",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13300,
+          "at": "2026-10-23T21:58:36.189Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5946,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 52,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5881
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/flughafeninformation/screenshot-390.jpg",
@@ -8145,9 +8128,80 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.22888,
+        "unmaskedRatio": 0.22888,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "cropA": {
+          "top": 0,
+          "right": 15,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5900,
+        "heightB": 5946,
+        "heightDiffRatio": 0.00774,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.54532
+        },
+        "worstBands": [
+          {
+            "y": 400,
+            "unmaskedRatio": 0.54532
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.48247
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.41624
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07407,
+          0.19391,
+          0.54532,
+          0.19104,
+          0.20616,
+          0.40977,
+          0.22187,
+          0.13852,
+          0.41624,
+          0.11752,
+          0.24939,
+          0.15268,
+          0.39751,
+          0.14317,
+          0.48247,
+          0.13876,
+          0.33348,
+          0.18777,
+          0.24955,
+          0.205,
+          0.18723,
+          0.169,
+          0.23755,
+          0.1462,
+          0.10545,
+          0.4054,
+          0.1478,
+          0.07041,
+          0.25344,
+          0.03814
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/390-diff.png",
+        "at": "2026-10-23T21:58:37.610Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/flughafeninformation/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/en/additional-services@1440": {
       "id": "de/en/additional-services",
@@ -10383,11 +10437,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8508,
-          "at": "2026-10-23T07:34:02.807Z",
+          "ms": 7496,
+          "at": "2026-10-23T21:59:25.032Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 6286,
+            "scrollHeight": 3136,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -10433,71 +10487,56 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.53865,
-        "unmaskedRatio": 0.53865,
+        "mismatchRatio": 0.37044,
+        "unmaskedRatio": 0.37044,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3288,
-        "heightB": 6286,
-        "heightDiffRatio": 0.47693,
+        "heightB": 3136,
+        "heightDiffRatio": 0.04623,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
-          "unmaskedRatio": 0.65807
+          "unmaskedRatio": 0.40365
         },
         "worstBands": [
           {
-            "y": 6000,
-            "unmaskedRatio": 0.96877
+            "y": 3000,
+            "unmaskedRatio": 0.85704
           },
           {
-            "y": 5800,
-            "unmaskedRatio": 0.94946
+            "y": 2000,
+            "unmaskedRatio": 0.72992
           },
           {
-            "y": 600,
-            "unmaskedRatio": 0.82838
+            "y": 2400,
+            "unmaskedRatio": 0.64474
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02628,
-          0.04559,
-          0.65807,
-          0.82838,
-          0.81294,
-          0.76249,
-          0.58704,
-          0.28097,
-          0.6255,
-          0.70344,
-          0.79911,
-          0.61646,
-          0.11261,
-          0.78698,
-          0.80247,
-          0.72026,
-          0.35858,
-          0.07105,
-          0.64211,
-          0.68644,
-          0.78529,
-          0.54596,
-          0.38353,
-          0.22835,
-          0.39135,
-          0.22983,
-          0.70147,
-          0.04005,
-          0.73968,
-          0.94946,
-          0.96877,
-          0.09151
+          0.01708,
+          0.09344,
+          0.40365,
+          0.22078,
+          0.24001,
+          0.46565,
+          0.35205,
+          0.41948,
+          0.35442,
+          0.45405,
+          0.72992,
+          0.6292,
+          0.64474,
+          0.11214,
+          0.04773,
+          0.85704,
+          0.11056
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/1440-diff.png",
-        "at": "2026-10-23T07:34:06.577Z",
+        "at": "2026-10-23T21:59:27.142Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/1440-diff.png",
@@ -10514,11 +10553,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7761,
-          "at": "2026-10-23T07:34:14.466Z",
+          "ms": 6998,
+          "at": "2026-10-23T21:59:34.322Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 5416,
+            "scrollHeight": 3604,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -10564,67 +10603,58 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.59251,
-        "unmaskedRatio": 0.59251,
+        "mismatchRatio": 0.38009,
+        "unmaskedRatio": 0.38009,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3771,
-        "heightB": 5416,
-        "heightDiffRatio": 0.30373,
+        "heightB": 3604,
+        "heightDiffRatio": 0.04429,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
-          "unmaskedRatio": 0.69255
+          "unmaskedRatio": 0.37938
         },
         "worstBands": [
           {
-            "y": 5000,
-            "unmaskedRatio": 0.96461
+            "y": 2000,
+            "unmaskedRatio": 0.84149
           },
           {
-            "y": 4800,
-            "unmaskedRatio": 0.92827
+            "y": 2200,
+            "unmaskedRatio": 0.71149
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.91524
+            "y": 2800,
+            "unmaskedRatio": 0.66408
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02746,
-          0.08186,
-          0.69255,
-          0.84272,
-          0.73258,
-          0.9091,
-          0.73238,
-          0.88548,
-          0.48587,
-          0.44821,
-          0.81365,
-          0.53971,
-          0.09117,
-          0.65885,
-          0.84873,
-          0.75782,
-          0.8838,
-          0.91524,
-          0.40861,
-          0.7012,
-          0.2044,
-          0.33857,
-          0.09428,
-          0.45146,
-          0.92827,
-          0.96461,
-          0.60668,
-          0
+          0.01793,
+          0.13815,
+          0.37938,
+          0.17829,
+          0.25169,
+          0.28311,
+          0.55018,
+          0.23981,
+          0.39129,
+          0.3759,
+          0.84149,
+          0.71149,
+          0.43228,
+          0.36036,
+          0.66408,
+          0.29744,
+          0.07993,
+          0.60085,
+          0.43625
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/768-diff.png",
-        "at": "2026-10-23T07:34:16.524Z",
+        "at": "2026-10-23T21:59:35.822Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/768-diff.png",
@@ -10641,11 +10671,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7320,
-          "at": "2026-10-23T07:34:23.977Z",
+          "ms": 6879,
+          "at": "2026-10-23T21:59:42.872Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 5448,
+            "scrollHeight": 4538,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -10691,67 +10721,63 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.58157,
-        "unmaskedRatio": 0.58157,
+        "mismatchRatio": 0.37719,
+        "unmaskedRatio": 0.37719,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
         "widthB": 375,
         "heightA": 4689,
-        "heightB": 5448,
-        "heightDiffRatio": 0.13932,
+        "heightB": 4538,
+        "heightDiffRatio": 0.0322,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.34825
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.47375
         },
         "worstBands": [
           {
-            "y": 5000,
-            "unmaskedRatio": 0.96289
+            "y": 3000,
+            "unmaskedRatio": 0.85212
           },
           {
-            "y": 4800,
-            "unmaskedRatio": 0.9464
+            "y": 3400,
+            "unmaskedRatio": 0.80723
           },
           {
-            "y": 4200,
-            "unmaskedRatio": 0.87928
+            "y": 2400,
+            "unmaskedRatio": 0.78723
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.07457,
-          0.10185,
-          0.34825,
-          0.81953,
-          0.83721,
-          0.87101,
-          0.6086,
-          0.59687,
-          0.77213,
-          0.06757,
-          0.49,
-          0.80367,
-          0.45927,
-          0.75399,
-          0.11059,
-          0.61263,
-          0.53948,
-          0.79935,
-          0.16799,
-          0.6716,
-          0.85307,
-          0.87928,
-          0.54305,
-          0.41223,
-          0.9464,
-          0.96289,
-          0.73137,
-          0.03089
+          0.06892,
+          0.11097,
+          0.24292,
+          0.22119,
+          0.18979,
+          0.25004,
+          0.47375,
+          0.62516,
+          0.10929,
+          0.06639,
+          0.21315,
+          0.73577,
+          0.78723,
+          0.71767,
+          0.42628,
+          0.85212,
+          0.57515,
+          0.80723,
+          0.25688,
+          0.41381,
+          0.08569,
+          0.07537,
+          0.53312,
+          0.01187
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/390-diff.png",
-        "at": "2026-10-23T07:34:25.297Z",
+        "at": "2026-10-23T21:59:44.032Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lufthansa-travel-classes/390-diff.png",
@@ -255416,5 +255442,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T21:47:16.330Z"
+  "updatedAt": "2026-10-23T21:59:44.032Z"
 }

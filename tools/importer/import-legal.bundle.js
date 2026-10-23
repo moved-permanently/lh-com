@@ -36,10 +36,42 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_202263_exports = {};
-  __export(tmp_bundle_legal_202263_exports, {
-    default: () => tmp_bundle_legal_202263_default
+  var tmp_bundle_legal_42061_exports = {};
+  __export(tmp_bundle_legal_42061_exports, {
+    default: () => tmp_bundle_legal_42061_default
   });
+
+  // tools/importer/parsers/media-nodes.js
+  function embedUrl(comp) {
+    const iframe = comp.matches("iframe") ? comp : comp.querySelector("iframe[src]");
+    if (!iframe) return "";
+    let url;
+    try {
+      url = new URL(iframe.getAttribute("src"), "https://www.lufthansa.com/");
+    } catch (e) {
+      return "";
+    }
+    if (/(^|\.)youtube(-nocookie)?\.com$/.test(url.hostname)) {
+      const m = url.pathname.match(/^\/embed\/([\w-]+)/);
+      if (!m) return "";
+      const out = new URL(`https://www.youtube-nocookie.com/embed/${m[1]}`);
+      const start = parseInt(url.searchParams.get("start") || "", 10);
+      if (start > 0) out.searchParams.set("start", start);
+      return out.href;
+    }
+    if (url.hostname === "www.lufthansa-inflightentertainment.com" && /\/widgets\/?$/.test(url.pathname)) return url.href;
+    return "";
+  }
+  function embedNodes(comp, document) {
+    const href = embedUrl(comp);
+    if (!href) return [];
+    const a = document.createElement("a");
+    a.setAttribute("href", href);
+    a.textContent = href;
+    const p = document.createElement("p");
+    p.append(a);
+    return [p];
+  }
 
   // tools/importer/parsers/columns-media.js
   function parse(element, { document }) {
@@ -55,6 +87,7 @@ var CustomImportScript = (() => {
       c.querySelectorAll(SKIP).forEach((n) => n.remove());
       return clean(c.textContent);
     };
+    const ARTICLE = !!element.closest(".article-details-page");
     const isBroken2 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
     const isBlank = (n) => n && n.nodeType === 3 && !clean(n.nodeValue);
@@ -67,7 +100,7 @@ var CustomImportScript = (() => {
       el.querySelectorAll("em, i, span").forEach((s) => {
         if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean(s.textContent) && !s.querySelector("img")) s.remove();
       });
-      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
       el.removeAttribute("class");
       if (keep.length) el.className = keep.join(" ");
       return el;
@@ -127,6 +160,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -200,7 +238,22 @@ var CustomImportScript = (() => {
       out.push(videoPara(src, clean(cfg.alternativeText), settings));
       return out;
     };
+    const captionPara = (comp) => {
+      if (!ARTICLE) return null;
+      const fc = comp.querySelector("figcaption");
+      const text = fc && visibleText(fc.querySelector("maui-caption") || fc);
+      if (!text) return null;
+      const p = document.createElement("p");
+      p.textContent = `${text} {caption}`;
+      return p;
+    };
     const mediaNodes = (comp) => {
+      const out = mediaOnly(comp);
+      const caption = out.length && captionPara(comp);
+      if (caption) out.push(caption);
+      return out;
+    };
+    const mediaOnly = (comp) => {
       const out = [];
       const img = [...comp.querySelectorAll("img")].find((i) => !isBroken2(i.getAttribute("src")) && !i.closest(SKIP_COMPONENTS));
       const video = comp.querySelector("video[src], video source[src]");
@@ -213,9 +266,10 @@ var CustomImportScript = (() => {
       if (video) {
         const src = video.getAttribute("src");
         if (image) out.push(image);
-        const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
+        const moving = !!video.closest(".dcep-moving-image");
+        const button = !moving && comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
         const settings = button ? [] : ["autoplay", "muted"];
-        if (!button && video.hasAttribute("loop")) settings.push("loop");
+        if (!button && (moving || video.hasAttribute("loop"))) settings.push("loop");
         if (video.hasAttribute("controls")) settings.push("controls");
         out.push(videoPara(src, clean(button && button.getAttribute("aria-label")), settings));
         return out;
@@ -249,6 +303,11 @@ var CustomImportScript = (() => {
           out.push(...mediaNodes(child));
         } else if (cl.contains("videoViewer")) {
           out.push(...viewerNodes(child));
+        } else if (cl.contains("video") && child.querySelector(":scope > .video-player iframe") || cl.contains("iframe") && child.querySelector(":scope > .iframe-wrapper iframe")) {
+          embedNodes(child, document).forEach((n) => {
+            n.setAttribute("data-lh-embed", "");
+            out.push(n);
+          });
         } else {
           collect(child, out);
         }
@@ -404,10 +463,14 @@ var CustomImportScript = (() => {
         });
       });
       const items = [...view.querySelectorAll(".column-view-item")].filter((it) => it.closest(".column-view") === view && !it.closest(MOBILE));
-      const row = items.map((it) => finishCell(collect(it, []))).filter((c) => c.length);
+      const collected = items.map((it) => finishCell(collect(it, [])));
+      const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches("p[data-lh-embed]")));
+      const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => c.length ? c : "") : collected.filter((c) => c.length);
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
+      const stacked = ARTICLE && items.some((it) => [...it.querySelectorAll(".image")].filter((img) => img.closest(".column-view-item") === it && !img.parentElement.closest(".image") && img.querySelector("img, video")).length > 1);
+      if (stacked) variants.push("stacked");
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
@@ -464,6 +527,9 @@ var CustomImportScript = (() => {
     "footer .footer-brand-links",
     ".above-footer-container",
     ".secondary-footer-container",
+    // the Cognigy chat assistant window, open in some snapshots (body > div > div > .webchat-root
+    // #webchatWindow: "Lufthansa Chat Assistant / Hi, I'm Elisa", /de/en/overview-travel-information)
+    ".webchat-root",
     // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
     ".skiplinks",
     ".skip-links",
@@ -506,7 +572,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -653,11 +719,23 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+    return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -715,6 +793,40 @@ var CustomImportScript = (() => {
     });
     return found.length;
   }
+  function convertAuthorQuotes(document) {
+    let converted = 0;
+    document.querySelectorAll(".article-details-page .dcep-author-quote").forEach((quote) => {
+      const bq = document.createElement("blockquote");
+      [".quote-text", ".subline-text"].forEach((sel) => {
+        const src = quote.querySelector(sel);
+        if (!src || !cleanText(src)) return;
+        const paras = [...src.querySelectorAll("p")].filter((p2) => cleanText(p2));
+        if (paras.length) {
+          bq.append(...paras);
+          return;
+        }
+        const p = document.createElement("p");
+        p.append(...src.childNodes);
+        bq.append(p);
+      });
+      if (!bq.children.length) return;
+      (quote.closest(".authorquote") || quote).replaceWith(bq);
+      converted += 1;
+    });
+    return converted;
+  }
+  function markParallaxImages(document) {
+    let marked = 0;
+    document.querySelectorAll(".dcep-moving-image[data-dcep]").forEach((comp) => {
+      if (!/"isParallaxEnabled"\s*:\s*true/.test(comp.getAttribute("data-dcep") || "")) return;
+      if (comp.closest("table, .column-view-item, .sidebar, .carousel, .teaser")) return;
+      const img = comp.querySelector("img");
+      if (!img) return;
+      img.after(document.createTextNode(" {parallax}"));
+      marked += 1;
+    });
+    return marked;
+  }
   function removeEmptyComponents(document) {
     markSeparators(document);
     document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component').forEach((el) => {
@@ -722,7 +834,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -1111,6 +1223,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -1173,17 +1289,21 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const m = !p.closest("table") && p.closest(".richtext") && (p.getAttribute("style") || "").match(/margin-left:\s*(\d{1,3})(?:\.\d+)?px/i);
+      const indent = m && +m[1] > 0 ? `indent-${m[1]}` : null;
+      const tokens = [style, width, indent].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -1290,9 +1410,12 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
+      convertAuthorQuotes(document);
+      markParallaxImages(document);
       removeEmptyComponents(document);
       normalizeImages(document, true);
     }
@@ -1324,7 +1447,7 @@ var CustomImportScript = (() => {
   var FOLLOWING = 4;
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
-  var REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
+  var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
   var MEDIA2 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
   function nextBreak(document, marker) {
     const after = (list) => [...list].find((hr) => hr !== marker && marker.compareDocumentPosition(hr) & FOLLOWING && !hr.closest("table"));
@@ -1444,6 +1567,18 @@ var CustomImportScript = (() => {
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
+      });
+      const stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
+      aemSections.forEach((s, i) => {
+        if (!stage(s)) return;
+        const next = aemSections[i + 1];
+        const styles = ["stage"];
+        if (!s.querySelector(":scope > .mb-default")) styles.push("flush");
+        if (next && padded(next) && !grey(next)) styles.push("before-padded");
+        const start = createBreak(document);
+        start.setAttribute(SOURCE_STYLE, styles.join(" "));
+        s.before(start);
+        if (next) next.before(createBreak(document));
       });
     }
     if (hookName === "afterTransform") {
@@ -1590,7 +1725,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_202263_default = {
+  var tmp_bundle_legal_42061_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1620,5 +1755,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_202263_exports);
+  return __toCommonJS(tmp_bundle_legal_42061_exports);
 })();

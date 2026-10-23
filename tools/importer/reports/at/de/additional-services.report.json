@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/additional-services",
   "path": "at/de/additional-services",
-  "timestamp": "2026-10-23T11:42:55.102Z",
+  "timestamp": "2026-10-23T21:51:37.297Z",
   "title": "",
   "template": "hub",
   "blocks": [
@@ -11,6 +11,11 @@
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",
+    "cards-icon",
+    "cards-icon",
+    "cards-icon",
+    "cards-icon",
+    "cards-icon",
     "columns-media"
   ]
 }
