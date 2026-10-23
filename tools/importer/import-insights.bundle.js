@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_157291_exports = {};
-  __export(tmp_bundle_insights_157291_exports, {
-    default: () => tmp_bundle_insights_157291_default
+  var tmp_bundle_insights_164380_exports = {};
+  __export(tmp_bundle_insights_164380_exports, {
+    default: () => tmp_bundle_insights_164380_default
   });
 
   // tools/importer/parsers/article-header.js
@@ -345,7 +345,7 @@ var CustomImportScript = (() => {
       const isArticle = !!element.closest(".article-details-page, .article-content");
       const view = element.querySelector(":scope > .column-view") || element.querySelector(".column-view") || element;
       const titles = [];
-      [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
+      [...element.matches(".carousel") && view === element ? [] : view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => d.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((h) => {
         const t = visibleText(h);
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
@@ -2322,7 +2322,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_157291_default = {
+  var tmp_bundle_insights_164380_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2352,5 +2352,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_157291_exports);
+  return __toCommonJS(tmp_bundle_insights_164380_exports);
 })();

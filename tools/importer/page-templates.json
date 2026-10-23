@@ -1219,6 +1219,14 @@
           "instances": [
             ".carousel:has(.swiper-single-slide)"
           ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            ".threecolumn:has(a.teaser.card)",
+            ".fourcolumn:has(a.teaser.card)",
+            ".carousel:has(.swiper-multi-slide a.teaser.card)"
+          ]
         }
       ],
       "sections": [

@@ -132,10 +132,11 @@ export default function parse(element, { document }) {
     const hasDesktopTwin = !!element.querySelector('.hidden-md-down a.teaser, .hidden-sm-down a.teaser');
 
     const isArticle = !!element.closest('.article-details-page, .article-content');
-    // column title (".column-view > div:not(.row)") is default content before the block
+    // column title (".column-view > div:not(.row)") is default content before the block; a
+    // swiper (".carousel") has none: its children are the slides (card titles stay in the cards)
     const view = element.querySelector(':scope > .column-view') || element.querySelector('.column-view') || element;
     const titles = [];
-    [...view.children]
+    [...(element.matches('.carousel') && view === element ? [] : view.children)]
       .filter((d) => !d.classList.contains('row') && !d.classList.contains('carousel'))
       .forEach((d) => d.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
         const t = visibleText(h);
