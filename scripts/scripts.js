@@ -312,6 +312,16 @@ function applyDocumentMetadata(main) {
       if (img) value = img.src;
       else if (paras.length) value = paras.join(', ');
       if (name === 'title') document.title = value;
+      // the pipeline writes Tags as one <meta property="article:tag"> per tag, no name="tags"
+      if (name === 'tags') {
+        value.split(',').map((t) => t.trim()).filter(Boolean).forEach((tag) => {
+          const meta = document.createElement('meta');
+          meta.setAttribute('property', 'article:tag');
+          meta.setAttribute('content', tag);
+          document.head.append(meta);
+        });
+        return;
+      }
       // the pipeline derives og:title from Title unless the document has an og:title row
       (name === 'title' ? [name, 'og:title'] : [name]).forEach((n) => {
         const attr = n.includes(':') ? 'property' : 'name';

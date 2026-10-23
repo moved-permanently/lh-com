@@ -113,7 +113,9 @@ async function copyText(text) {
 }
 
 function buildTags(labels, locale) {
-  const tags = getMetadata('tags').split(',').map((t) => t.trim()).filter(Boolean);
+  // the pipeline writes the Tags row as one <meta property="article:tag"> per tag (no name="tags")
+  const tags = (getMetadata('article:tag') || getMetadata('tags'))
+    .split(',').map((t) => t.trim()).filter(Boolean);
   const unique = [...new Map(tags.map((t) => [tagSlug(t), t])).entries()].filter(([slug]) => slug);
   if (!unique.length) return null;
   const list = document.createElement('ul');
