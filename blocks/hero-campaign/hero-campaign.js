@@ -74,6 +74,8 @@ function trackScrollbar(block) {
  * @param {Object} labels
  */
 function addBackgroundVideo(block, media, src, labels) {
+  // kept when the video fails (e.g. a browser without H.264): the stage still had one
+  block.dataset.backgroundVideo = 'true';
   const img = media.querySelector('img');
   const video = document.createElement('video');
   video.id = `hero-campaign-video-${instanceCount}`;

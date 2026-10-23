@@ -50,8 +50,10 @@ const LIVE_SELECTORS = [
   '.table-deals .table-deals-price',
   '[data-lh-source]',
   // a stage with a playing background video: both sides play the same mp4, but each capture
-  // catches another frame (c-diagnosis C2-1); replica blocks/hero-campaign, live .dcep-moving-image
-  '.hero-campaign:has(> .hero-campaign-media > video)',
+  // catches another frame (c-diagnosis C2-1); replica blocks/hero-campaign (data-background-video
+  // stays when headless chromium, without H.264, drops the video and shows the poster), live
+  // .dcep-moving-image
+  '.hero-campaign[data-background-video]',
   '.cms-inspiration-teaser:has(video)',
 ];
 /** What scripts/consent.js stores after "reject all" in the fallback banner. */
