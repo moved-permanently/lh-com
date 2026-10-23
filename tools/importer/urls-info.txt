@@ -1,6 +1,8 @@
-https://www.lufthansa.com/de/de/cash-and-miles
-https://www.lufthansa.com/at/de/cash-and-miles
-https://www.lufthansa.com/gb/en/cash-and-miles
-https://www.lufthansa.com/de/de/hotelangebote
-https://www.lufthansa.com/at/de/hotelangebote
-https://www.lufthansa.com/gb/en/hotel-offers
+https://www.lufthansa.com/de/en/book-and-manage/rebook/voluntary-rebooking
+https://www.lufthansa.com/de/en/book-and-manage/rebook/involuntary-rebooking
+https://www.lufthansa.com/de/de/book-and-manage/rebook/voluntary-rebooking
+https://www.lufthansa.com/de/de/book-and-manage/rebook/involuntary-rebooking
+https://www.lufthansa.com/at/de/book-and-manage/rebook/voluntary-rebooking
+https://www.lufthansa.com/at/de/book-and-manage/rebook/involuntary-rebooking
+https://www.lufthansa.com/gb/en/book-and-manage/rebook/voluntary-rebooking
+https://www.lufthansa.com/gb/en/book-and-manage/rebook/involuntary-rebooking

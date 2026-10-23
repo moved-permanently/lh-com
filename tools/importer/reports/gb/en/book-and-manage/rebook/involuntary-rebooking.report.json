@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/book-and-manage/rebook/involuntary-rebooking",
   "path": "gb/en/book-and-manage/rebook/involuntary-rebooking",
-  "timestamp": "2026-10-23T03:25:29.408Z",
+  "timestamp": "2026-10-23T14:28:32.538Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
+    "carousel-cards",
     "columns-media",
     "columns-media",
     "columns-media"

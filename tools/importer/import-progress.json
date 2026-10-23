@@ -447,12 +447,12 @@
  "https://www.lufthansa.com/de/en/book-and-manage/rebook/involuntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.356Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/rebook/voluntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.379Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/de/en/business-class": {
   "template": "info",
@@ -1787,12 +1787,12 @@
  "https://www.lufthansa.com/de/de/book-and-manage/rebook/involuntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.362Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/rebook/voluntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.382Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/de/de/business-class": {
   "template": "info",
@@ -3177,12 +3177,12 @@
  "https://www.lufthansa.com/at/de/book-and-manage/rebook/involuntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.369Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/rebook/voluntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.385Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/at/de/business-class": {
   "template": "info",
@@ -4637,12 +4637,12 @@
  "https://www.lufthansa.com/gb/en/book-and-manage/rebook/involuntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.376Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/rebook/voluntary-rebooking": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.388Z"
+  "at": "2026-10-23T14:28:45.328Z"
  },
  "https://www.lufthansa.com/gb/en/business-class": {
   "template": "info",

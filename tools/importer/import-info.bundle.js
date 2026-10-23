@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_16139_exports = {};
-  __export(tmp_bundle_info_16139_exports, {
-    default: () => tmp_bundle_info_16139_default
+  var tmp_bundle_info_25782_exports = {};
+  __export(tmp_bundle_info_25782_exports, {
+    default: () => tmp_bundle_info_25782_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -2257,7 +2257,8 @@ var CustomImportScript = (() => {
         "name": "carousel-cards",
         "instances": [
           ".threecolumn:has(.teaser)",
-          ".fourcolumn:has(a.teaser.card)"
+          ".fourcolumn:has(a.teaser.card)",
+          ".loginform:has(.login-oneid-card)"
         ]
       },
       {
@@ -2359,7 +2360,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_16139_default = {
+  var tmp_bundle_info_25782_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2389,5 +2390,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_16139_exports);
+  return __toCommonJS(tmp_bundle_info_25782_exports);
 })();
