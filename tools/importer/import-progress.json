@@ -17,7 +17,7 @@
  "https://www.lufthansa.com/de/en/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.493Z"
+  "at": "2026-10-23T22:03:26.836Z"
  },
  "https://www.lufthansa.com/de/en/359": {
   "template": "fleet",
@@ -357,22 +357,22 @@
  "https://www.lufthansa.com/de/en/100-years/history/menu-on-board": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.226Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/de/100-years/history/menu-on-board": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.237Z"
+  "at": "2026-10-23T22:03:26.822Z"
  },
  "https://www.lufthansa.com/de/de/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T22:03:26.831Z"
  },
  "https://www.lufthansa.com/de/en/boarding": {
   "template": "info",
@@ -1092,47 +1092,47 @@
  "https://www.lufthansa.com/de/en/100-years/cabin-design": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.507Z"
+  "at": "2026-10-23T22:03:26.839Z"
  },
  "https://www.lufthansa.com/de/en/100-years/campaigns": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.522Z"
+  "at": "2026-10-23T22:03:26.842Z"
  },
  "https://www.lufthansa.com/de/en/100-years/chronicle": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.535Z"
+  "at": "2026-10-23T22:03:26.844Z"
  },
  "https://www.lufthansa.com/de/en/100-years/crane": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.543Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T16:13:21.071Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/100-years/fleet": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/100-years/global-network": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/100-years/history": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T13:45:59.120Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -1182,12 +1182,12 @@
  "https://www.lufthansa.com/de/en/320": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.093Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/en/32n": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.105Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/en/744": {
   "template": "fleet",
@@ -1197,12 +1197,12 @@
  "https://www.lufthansa.com/de/en/boeing787": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.122Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/en/discover-lufthansa/lufthansa-fleet/351": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/en/lufthansa-first-class-fleet": {
   "template": "fleet",
@@ -1212,7 +1212,7 @@
  "https://www.lufthansa.com/de/en/seat-maps": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/en/articles/authors/florian-tomberg": {
   "template": "insights",
@@ -1522,7 +1522,7 @@
  "https://www.lufthansa.com/de/en/farealert/best-price-alert": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T05:33:25.752Z"
+  "at": "2026-10-23T22:04:56.239Z"
  },
  "https://www.lufthansa.com/de/en/feedback-past-flight": {
   "template": "form",
@@ -1587,7 +1587,7 @@
  "https://www.lufthansa.com/de/en/my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T22:05:14.865Z"
  },
  "https://www.lufthansa.com/de/en/my-logbook": {
   "template": "app-entry",
@@ -1677,7 +1677,7 @@
  "https://www.lufthansa.com/de/de/advice-for-travellers-with-special-needs-to-and-from-the-usa": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:10:57.021Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/de/de/affiliatemarketing": {
   "template": "info",
@@ -1697,7 +1697,7 @@
  "https://www.lufthansa.com/de/de/assistenzhunde": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:16:26.871Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/de/de/automatic-check-in": {
   "template": "info",
@@ -1737,7 +1737,7 @@
  "https://www.lufthansa.com/de/de/book-and-manage/flights/air-baltic": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:21:45.575Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/flights/ana": {
   "template": "info",
@@ -1767,7 +1767,7 @@
  "https://www.lufthansa.com/de/de/book-and-manage/flights/wetlease-hub": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:21:45.659Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/pax-receipt": {
   "template": "info",
@@ -2437,52 +2437,52 @@
  "https://www.lufthansa.com/de/de/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.497Z"
+  "at": "2026-10-23T22:01:52.295Z"
  },
  "https://www.lufthansa.com/de/de/100-years/cabin-design": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.511Z"
+  "at": "2026-10-23T22:01:52.295Z"
  },
  "https://www.lufthansa.com/de/de/100-years/campaigns": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.525Z"
+  "at": "2026-10-23T22:01:52.295Z"
  },
  "https://www.lufthansa.com/de/de/100-years/chronicle": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.539Z"
+  "at": "2026-10-23T22:01:52.295Z"
  },
  "https://www.lufthansa.com/de/de/100-years/crane": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.543Z"
+  "at": "2026-10-23T22:01:52.295Z"
  },
  "https://www.lufthansa.com/de/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T16:13:21.072Z"
+  "at": "2026-10-23T22:01:52.296Z"
  },
  "https://www.lufthansa.com/de/de/100-years/fleet": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.296Z"
  },
  "https://www.lufthansa.com/de/de/100-years/global-network": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.296Z"
  },
  "https://www.lufthansa.com/de/de/100-years/history": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.818Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T13:45:59.120Z"
+  "at": "2026-10-23T22:03:26.827Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -2532,12 +2532,12 @@
  "https://www.lufthansa.com/de/de/320": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.096Z"
+  "at": "2026-10-23T22:04:37.635Z"
  },
  "https://www.lufthansa.com/de/de/32n": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.108Z"
+  "at": "2026-10-23T22:04:37.635Z"
  },
  "https://www.lufthansa.com/de/de/359": {
   "template": "fleet",
@@ -2552,12 +2552,12 @@
  "https://www.lufthansa.com/de/de/boeing787": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.122Z"
+  "at": "2026-10-23T22:04:37.636Z"
  },
  "https://www.lufthansa.com/de/de/discover-lufthansa/lufthansa-fleet/351": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/de/lufthansa-first-class-flotte": {
   "template": "fleet",
@@ -2567,7 +2567,7 @@
  "https://www.lufthansa.com/de/de/sitzplaene": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/de/de/articles/authors/florian-tomberg": {
   "template": "insights",
@@ -2897,7 +2897,7 @@
  "https://www.lufthansa.com/de/de/farealert/best-price-alert": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T05:33:25.758Z"
+  "at": "2026-10-23T22:04:56.239Z"
  },
  "https://www.lufthansa.com/de/de/feedback": {
   "template": "form",
@@ -2942,7 +2942,7 @@
  "https://www.lufthansa.com/de/de/meine-buchungen": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T22:05:14.865Z"
  },
  "https://www.lufthansa.com/de/de/mein-logbuch": {
   "template": "app-entry",
@@ -3067,7 +3067,7 @@
  "https://www.lufthansa.com/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:10:57.021Z"
+  "at": "2026-10-23T23:39:49.251Z"
  },
  "https://www.lufthansa.com/at/de/affiliatemarketing": {
   "template": "info",
@@ -3087,7 +3087,7 @@
  "https://www.lufthansa.com/at/de/assistenzhunde": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:16:26.874Z"
+  "at": "2026-10-23T23:39:49.254Z"
  },
  "https://www.lufthansa.com/at/de/automatic-check-in": {
   "template": "info",
@@ -3127,7 +3127,7 @@
  "https://www.lufthansa.com/at/de/book-and-manage/flights/air-baltic": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:21:45.579Z"
+  "at": "2026-10-23T23:39:49.261Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/flights/ana": {
   "template": "info",
@@ -3157,7 +3157,7 @@
  "https://www.lufthansa.com/at/de/book-and-manage/flights/wetlease-hub": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:21:45.659Z"
+  "at": "2026-10-23T23:39:49.263Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/pax-receipt": {
   "template": "info",
@@ -3187,7 +3187,7 @@
  "https://www.lufthansa.com/at/de/business-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:26:53.398Z"
+  "at": "2026-10-23T23:39:49.266Z"
  },
  "https://www.lufthansa.com/at/de/business-class-auf-kurz-und-mittelstrecken": {
   "template": "info",
@@ -3237,7 +3237,7 @@
  "https://www.lufthansa.com/at/de/kindermenues-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:28:35.370Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/dangerous-dogs": {
   "template": "info",
@@ -3287,7 +3287,7 @@
  "https://www.lufthansa.com/at/de/discover-lufthansa/miles-and-more-credit-card": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:30:18.261Z"
+  "at": "2026-10-23T23:39:49.271Z"
  },
  "https://www.lufthansa.com/at/de/doctor-on-board": {
   "template": "info",
@@ -3307,17 +3307,17 @@
  "https://www.lufthansa.com/at/de/during-your-trip/internet-overview": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:32:01.396Z"
+  "at": "2026-10-23T23:39:49.276Z"
  },
  "https://www.lufthansa.com/at/de/during-your-trip/lhg-wifi": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:32:01.410Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/economy-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:32:01.423Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/electronic-bag-tags": {
   "template": "info",
@@ -3357,7 +3357,7 @@
  "https://www.lufthansa.com/at/de/first-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T16:13:40.754Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-first-class-komfort": {
   "template": "info",
@@ -3377,7 +3377,7 @@
  "https://www.lufthansa.com/at/de/first-class-terminal": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:37:23.442Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/first-class-valet-parking-service": {
   "template": "info",
@@ -3407,7 +3407,7 @@
  "https://www.lufthansa.com/at/de/flynet": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:42:14.641Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/fmg-valet-parking-service": {
   "template": "info",
@@ -3572,7 +3572,7 @@
  "https://www.lufthansa.com/at/de/onboard-delights": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:57:22.368Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/online-check-in-info": {
   "template": "info",
@@ -3592,12 +3592,12 @@
  "https://www.lufthansa.com/at/de/passengers-using-wheelchairs": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:57:22.408Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/passengers-with-sensory-impairment": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:57:22.409Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/zahlungsmoeglichkeiten-am-flughafen": {
   "template": "info",
@@ -3607,7 +3607,7 @@
  "https://www.lufthansa.com/at/de/premium-economy-class": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T03:57:22.409Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
   "template": "info",
@@ -3662,22 +3662,22 @@
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:04:43.126Z"
+  "at": "2026-10-23T23:39:49.278Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:04:43.140Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:04:43.150Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:04:43.151Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/travel-classes/economy-basic": {
   "template": "info",
@@ -3742,7 +3742,7 @@
  "https://www.lufthansa.com/at/de/shopping": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:11:51.459Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/sixt": {
   "template": "info",
@@ -3752,7 +3752,7 @@
  "https://www.lufthansa.com/at/de/sondermahlzeiten": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:11:51.484Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/sportgepaeck": {
   "template": "info",
@@ -3782,7 +3782,7 @@
  "https://www.lufthansa.com/at/de/tips-senior-travellers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T12:02:07.511Z"
+  "at": "2026-10-23T23:39:49.279Z"
  },
  "https://www.lufthansa.com/at/de/reisebueros": {
   "template": "info",
@@ -3887,57 +3887,57 @@
  "https://www.lufthansa.com/at/de/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.500Z"
+  "at": "2026-10-23T22:01:52.289Z"
  },
  "https://www.lufthansa.com/at/de/100-years/cabin-design": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.514Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/campaigns": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.528Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/chronicle": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.543Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/crane": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T16:13:21.072Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/fleet": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/global-network": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/history": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:01:52.292Z"
  },
  "https://www.lufthansa.com/at/de/100-years/history/menu-on-board": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.246Z"
+  "at": "2026-10-23T22:01:52.293Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T13:45:59.120Z"
+  "at": "2026-10-23T22:01:52.293Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -3962,7 +3962,7 @@
  "https://www.lufthansa.com/at/de/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T22:01:52.293Z"
  },
  "https://www.lufthansa.com/at/de/discover-lufthansa/take-off": {
   "template": "campaign",
@@ -3992,12 +3992,12 @@
  "https://www.lufthansa.com/at/de/320": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.099Z"
+  "at": "2026-10-23T22:04:37.630Z"
  },
  "https://www.lufthansa.com/at/de/32n": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.110Z"
+  "at": "2026-10-23T22:04:37.630Z"
  },
  "https://www.lufthansa.com/at/de/359": {
   "template": "fleet",
@@ -4012,12 +4012,12 @@
  "https://www.lufthansa.com/at/de/boeing787": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.122Z"
+  "at": "2026-10-23T22:04:37.630Z"
  },
  "https://www.lufthansa.com/at/de/discover-lufthansa/lufthansa-fleet/351": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.633Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-first-class-flotte": {
   "template": "fleet",
@@ -4027,7 +4027,7 @@
  "https://www.lufthansa.com/at/de/sitzplaene": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.633Z"
  },
  "https://www.lufthansa.com/at/de/articles/authors/florian-tomberg": {
   "template": "insights",
@@ -4347,7 +4347,7 @@
  "https://www.lufthansa.com/at/de/farealert/best-price-alert": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T05:33:25.763Z"
+  "at": "2026-10-23T22:04:56.239Z"
  },
  "https://www.lufthansa.com/at/de/feedback": {
   "template": "form",
@@ -4392,7 +4392,7 @@
  "https://www.lufthansa.com/at/de/meine-buchungen": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T22:05:14.864Z"
  },
  "https://www.lufthansa.com/at/de/mein-logbuch": {
   "template": "app-entry",
@@ -5347,57 +5347,57 @@
  "https://www.lufthansa.com/gb/en/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.504Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/cabin-design": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.518Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/campaigns": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.532Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/chronicle": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.543Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/crane": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T16:13:21.072Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/fleet": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/global-network": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:26:53.544Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/history": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.217Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/history/menu-on-board": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.254Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T13:45:59.120Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -5422,7 +5422,7 @@
  "https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-23T02:30:35.301Z"
+  "at": "2026-10-23T22:03:26.845Z"
  },
  "https://www.lufthansa.com/gb/en/discover-lufthansa/take-off": {
   "template": "campaign",
@@ -5452,12 +5452,12 @@
  "https://www.lufthansa.com/gb/en/320": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.102Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/gb/en/32n": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.113Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/gb/en/359": {
   "template": "fleet",
@@ -5472,12 +5472,12 @@
  "https://www.lufthansa.com/gb/en/boeing787": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/gb/en/discover-lufthansa/lufthansa-fleet/351": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/gb/en/lufthansa-first-class-fleet": {
   "template": "fleet",
@@ -5487,7 +5487,7 @@
  "https://www.lufthansa.com/gb/en/seat-maps": {
   "template": "fleet",
   "status": "ok",
-  "at": "2026-10-23T02:53:33.123Z"
+  "at": "2026-10-23T22:04:37.638Z"
  },
  "https://www.lufthansa.com/gb/en/articles/authors/florian-tomberg": {
   "template": "insights",
@@ -5807,7 +5807,7 @@
  "https://www.lufthansa.com/gb/en/farealert/best-price-alert": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T05:33:25.768Z"
+  "at": "2026-10-23T22:04:56.239Z"
  },
  "https://www.lufthansa.com/gb/en/feedback": {
   "template": "form",
@@ -5852,7 +5852,7 @@
  "https://www.lufthansa.com/gb/en/my-bookings": {
   "template": "app-entry",
   "status": "ok",
-  "at": "2026-10-23T03:03:03.507Z"
+  "at": "2026-10-23T22:05:14.865Z"
  },
  "https://www.lufthansa.com/gb/en/my-logbook": {
   "template": "app-entry",
