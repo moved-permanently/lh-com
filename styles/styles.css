@@ -714,8 +714,9 @@ body:not(.aircore) main > .section:first-of-type:not(.breadcrumb-container) {
 }
 
 /* the breadcrumb at the start of a full-bleed first section (Insights category stage) keeps
-   the content column */
-main > .section.full-bleed > .breadcrumb-wrapper {
+   the content column; so does the article header panel (live .article-content sits in
+   .container-content), whose feature image breaks out by itself (.article-header-media) */
+main > .section.full-bleed > :is(.breadcrumb-wrapper, .article-header-wrapper) {
   max-width: var(--content-max-width);
   padding: 0 var(--layout-margin);
 }
