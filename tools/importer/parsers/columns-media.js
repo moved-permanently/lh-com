@@ -12,7 +12,8 @@ import { embedNodes } from './media-nodes.js';
  *
  * Output (blocks/columns-media README): 2 columns, one row per text/media pair. A media cell
  * holds images (linked images keep their link), or a poster image plus a link to the .mp4
- * (link text = the source play button's aria-label). A text cell holds headings (source level;
+ * (link text = the source play button's aria-label; a moving image always {autoplay muted loop},
+ * whatever its play toggle). A text cell holds headings (source level;
  * AEM "copytext" headings are labels and become paragraphs), paragraphs (<br><br> split into
  * paragraphs), lists and links (primary maui-button-link = bold link, secondary = italic link).
  *
@@ -205,10 +206,14 @@ export default function parse(element, { document }) {
     if (video) {
       const src = video.getAttribute('src');
       if (image) out.push(image);
-      const button = comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
+      // a moving image (.dcep-moving-image) always plays by itself on live, muted and looped;
+      // newer snapshots show a play/pause toggle on the same component with the same config
+      // (at/de/100-years waving flag), so the toggle is ignored there
+      const moving = !!video.closest('.dcep-moving-image');
+      const button = !moving && comp.querySelector('[aria-label].moving-image-play-button, .on-image-button[aria-label], [role="button"][aria-label]');
       // moving image without play button: plays by itself, muted, without controls
       const settings = button ? [] : ['autoplay', 'muted'];
-      if (!button && video.hasAttribute('loop')) settings.push('loop');
+      if (!button && (moving || video.hasAttribute('loop'))) settings.push('loop');
       if (video.hasAttribute('controls')) settings.push('controls');
       out.push(videoPara(src, clean(button && button.getAttribute('aria-label')), settings));
       return out;
