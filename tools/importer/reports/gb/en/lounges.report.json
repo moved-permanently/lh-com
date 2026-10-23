@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/lounges",
   "path": "gb/en/lounges",
-  "timestamp": "2026-10-23T11:43:20.921Z",
+  "timestamp": "2026-10-23T12:01:37.059Z",
   "title": "",
   "template": "hub",
   "blocks": [
-    "columns-media"
+    "columns-media",
+    "lounge-finder"
   ]
 }

@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/tips-senior-travellers",
   "path": "de/de/tips-senior-travellers",
-  "timestamp": "2026-10-23T04:11:37.776Z",
+  "timestamp": "2026-10-23T12:01:54.986Z",
   "title": "",
   "template": "info",
   "blocks": [
@@ -24,6 +24,7 @@
     "columns-media",
     "columns-media",
     "columns-media",
-    "columns-media"
+    "columns-media",
+    "lounge-finder"
   ]
 }

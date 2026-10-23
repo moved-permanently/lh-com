@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_415817_exports = {};
-  __export(tmp_bundle_info_415817_exports, {
-    default: () => tmp_bundle_info_415817_default
+  var tmp_bundle_info_434976_exports = {};
+  __export(tmp_bundle_info_434976_exports, {
+    default: () => tmp_bundle_info_434976_default
   });
 
   // tools/importer/parsers/hero-campaign.js
@@ -653,7 +653,7 @@ var CustomImportScript = (() => {
       el.querySelectorAll("em, i, span").forEach((s) => {
         if ([...s.classList].some((c) => /^lh(-|$)/.test(c)) && !clean2(s.textContent) && !s.querySelector("img")) s.remove();
       });
-      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote)$/.test(c));
+      const keep = [...el.classList].filter((c) => /^(copytext-(small|medium|large)|footnote|limited-width)$/.test(c));
       el.removeAttribute("class");
       if (keep.length) el.className = keep.join(" ");
       return el;
@@ -713,6 +713,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -1040,6 +1045,23 @@ var CustomImportScript = (() => {
     link.setAttribute("href", href);
     link.textContent = href;
     element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "embed", cells: [[link]] }));
+  }
+
+  // tools/importer/parsers/lounge-finder.js
+  var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
+  function parse6(element, { document }) {
+    const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
+    let config = {};
+    try {
+      config = JSON.parse(host && host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      config = {};
+    }
+    const imageBase = typeof config.imageBaseUrl === "string" ? config.imageBaseUrl.trim().replace(/\/$/, "") : "";
+    const cells = [];
+    if (imageBase && imageBase !== DEFAULT_IMAGE_BASE) cells.push(["Image base", imageBase]);
+    const block = WebImporter.Blocks.createBlock(document, { name: "lounge-finder", cells });
+    element.replaceWith(block);
   }
 
   // tools/importer/transformers/lufthansa-cleanup.js
@@ -1777,17 +1799,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -2129,6 +2153,12 @@ var CustomImportScript = (() => {
           ".video:has(> .video-player iframe)",
           '.iframe:has(> .iframe-wrapper iframe[src*="lufthansa-inflightentertainment.com"])'
         ]
+      },
+      {
+        "name": "lounge-finder",
+        "instances": [
+          ".loungefinder:has(> .dcep-lounge-finder)"
+        ]
       }
     ],
     "sections": [
@@ -2180,7 +2210,8 @@ var CustomImportScript = (() => {
     "accordion-columns": parse2,
     "carousel-cards": parse3,
     "columns-media": parse4,
-    "embed": parse5
+    "embed": parse5,
+    "lounge-finder": parse6
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2204,7 +2235,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_415817_default = {
+  var tmp_bundle_info_434976_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2234,5 +2265,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_415817_exports);
+  return __toCommonJS(tmp_bundle_info_434976_exports);
 })();

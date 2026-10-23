@@ -7,6 +7,7 @@ import cardsTeaserParser from './parsers/cards-teaser.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import destinationFinderParser from './parsers/destination-finder.js';
+import loungeFinderParser from './parsers/lounge-finder.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -49,6 +50,12 @@ const PAGE_TEMPLATE = {
       "name": "destination-finder",
       "instances": [
         ".topoffersdestinationfinder"
+      ]
+    },
+    {
+      "name": "lounge-finder",
+      "instances": [
+        ".loungefinder:has(> .dcep-lounge-finder)"
       ]
     }
   ],
@@ -130,6 +137,7 @@ const parsers = {
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'destination-finder': destinationFinderParser,
+  'lounge-finder': loungeFinderParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

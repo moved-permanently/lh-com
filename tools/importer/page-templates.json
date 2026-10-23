@@ -271,6 +271,12 @@
           "instances": [
             ".topoffersdestinationfinder"
           ]
+        },
+        {
+          "name": "lounge-finder",
+          "instances": [
+            ".loungefinder:has(> .dcep-lounge-finder)"
+          ]
         }
       ],
       "sections": [
@@ -1060,6 +1066,12 @@
           "instances": [
             ".video:has(> .video-player iframe)",
             ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])"
+          ]
+        },
+        {
+          "name": "lounge-finder",
+          "instances": [
+            ".loungefinder:has(> .dcep-lounge-finder)"
           ]
         }
       ],

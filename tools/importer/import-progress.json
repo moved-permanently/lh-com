@@ -107,7 +107,7 @@
  "https://www.lufthansa.com/de/en/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T11:43:42.031Z"
+  "at": "2026-10-23T12:01:47.440Z"
  },
  "https://www.lufthansa.com/de/en/lufthansa-travel-classes": {
   "template": "hub",
@@ -992,7 +992,7 @@
  "https://www.lufthansa.com/de/en/tips-senior-travellers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:11:51.505Z"
+  "at": "2026-10-23T12:02:07.511Z"
  },
  "https://www.lufthansa.com/de/en/travel-agencies": {
   "template": "info",
@@ -1602,7 +1602,7 @@
  "https://www.lufthansa.com/de/de/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T11:43:42.031Z"
+  "at": "2026-10-23T12:01:47.440Z"
  },
  "https://www.lufthansa.com/de/de/lufthansa-reiseklassen": {
   "template": "hub",
@@ -2337,7 +2337,7 @@
  "https://www.lufthansa.com/de/de/tips-senior-travellers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:11:51.505Z"
+  "at": "2026-10-23T12:02:07.511Z"
  },
  "https://www.lufthansa.com/de/de/reisebueros": {
   "template": "info",
@@ -2987,7 +2987,7 @@
  "https://www.lufthansa.com/at/de/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T11:43:42.031Z"
+  "at": "2026-10-23T12:01:47.440Z"
  },
  "https://www.lufthansa.com/at/de/lufthansa-reiseklassen": {
   "template": "hub",
@@ -3782,7 +3782,7 @@
  "https://www.lufthansa.com/at/de/tips-senior-travellers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:11:51.505Z"
+  "at": "2026-10-23T12:02:07.511Z"
  },
  "https://www.lufthansa.com/at/de/reisebueros": {
   "template": "info",
@@ -4447,7 +4447,7 @@
  "https://www.lufthansa.com/gb/en/lounges": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T11:43:42.031Z"
+  "at": "2026-10-23T12:01:47.440Z"
  },
  "https://www.lufthansa.com/gb/en/lufthansa-travel-classes": {
   "template": "hub",
@@ -5242,7 +5242,7 @@
  "https://www.lufthansa.com/gb/en/tips-senior-travellers": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-23T04:15:33.556Z"
+  "at": "2026-10-23T12:02:07.512Z"
  },
  "https://www.lufthansa.com/gb/en/travel-agencies": {
   "template": "info",

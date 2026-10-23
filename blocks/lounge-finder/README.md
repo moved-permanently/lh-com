@@ -35,6 +35,7 @@ Source: `.loungefinder > .dcep-lounge-finder` (8 pages: /{de/de,de/en,at/de,gb/e
 - Replace the whole rendered form (everything inside `.loungefinder`: the error box, the headline, field labels, button text) with one `lounge-finder` block. Write none of its text: the labels come at runtime per language, so the frozen English of the at/de/lounges snapshot disappears.
 - Rows: write `Image base | {imageBaseUrl}` only when imageBaseUrl differs from `/content/dam/lh/images/lounges` (currently never), i.e. an empty block (one row `Lounge finder` header only) is the normal output. If the importer cannot write an empty block, write `Image base | /content/dam/lh/images/lounges`.
 - Section: the `.loungefinder` component gets its own section with `style | grey` (as the current static import does), placed where the live component is (after the intro image and the separator).
+- Implemented in `tools/importer/parsers/lounge-finder.js`, mapped as `.loungefinder:has(> .dcep-lounge-finder)` in the hub (lounges) and info (tips-senior-travellers) templates; the grey section comes from the sections transformer (the `.container-gray` inside the component).
 
 ## Recording (for the browser agent)
 

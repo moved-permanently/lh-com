@@ -7,6 +7,7 @@ import accordionColumnsParser from './parsers/accordion-columns.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
+import loungeFinderParser from './parsers/lounge-finder.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -51,6 +52,12 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".video:has(> .video-player iframe)",
         ".iframe:has(> .iframe-wrapper iframe[src*=\"lufthansa-inflightentertainment.com\"])"
+      ]
+    },
+    {
+      "name": "lounge-finder",
+      "instances": [
+        ".loungefinder:has(> .dcep-lounge-finder)"
       ]
     }
   ],
@@ -105,6 +112,7 @@ const parsers = {
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'embed': embedParser,
+  'lounge-finder': loungeFinderParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 
