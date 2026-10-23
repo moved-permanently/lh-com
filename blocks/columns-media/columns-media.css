@@ -198,6 +198,29 @@
   min-width: 0;
 }
 
+/* image captions ("{caption}": Insights figcaption.caption > maui-caption, LufthansaText bold,
+   10px under the image, as in default content) */
+.columns-media .columns-media-row p.caption {
+  margin: 10px 0 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 18px;
+}
+
+/* option stacked (Insights galleries: several image components in one column item): one under
+   the other, the next image 40px below the caption (.image .image-wrapper margin-bottom 4rem;
+   picture-perfect-austin right column 722-1232 at 1440, two 1920x823 images with captions) */
+.columns-media.stacked .columns-media-multi {
+  flex-direction: column;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.columns-media.stacked .columns-media-multi > * {
+  flex: none;
+  width: 100%;
+}
+
 /* option slider (column view with carousel behaviour): below 1025px the strip is a swiper, one
    image per view, dots 68px under the image (.image-wrapper margin 4rem + pagination 2rem) and
    45px above the end of the grey band; 68px between the text above and the slider

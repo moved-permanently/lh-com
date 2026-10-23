@@ -15,10 +15,10 @@ const DEFAULT_LABELS = {
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
-/** Text of a cell outside of links (video settings markers are not text). */
+/** Text of a cell outside of links and image captions (video settings markers are not text). */
 function textOutsideLinks(cell) {
   const clone = cell.cloneNode(true);
-  clone.querySelectorAll('a').forEach((a) => a.remove());
+  clone.querySelectorAll('a, p.caption').forEach((el) => el.remove());
   return cleanText(clone).replace(VIDEO_MARKERS, '').trim();
 }
 
@@ -101,7 +101,8 @@ function buildSlider(strip, labels) {
 /**
  * Two-column text and media rows.
  * Each row has (usually) two cells; a cell holding only pictures or links to media is a media
- * cell, any other cell is a text cell. Media cells accept several images (shown side by side),
+ * cell, any other cell is a text cell (image captions, p.caption, count as media). Media cells
+ * accept several images (shown side by side, option stacked: one under the other),
  * a linked image, or a poster image plus an .mp4 link (click-to-play video).
  * @param {Element} block
  */
@@ -138,7 +139,16 @@ export default async function decorate(block) {
           strip.className = 'columns-media-multi';
           cell.querySelectorAll('picture').forEach((pic) => {
             const link = pic.closest('a');
-            strip.append(link && link.querySelectorAll('picture').length === 1 ? link : pic);
+            const media = link && link.querySelectorAll('picture').length === 1 ? link : pic;
+            // "{caption}" paragraph right after the image's paragraph: image and caption together
+            const para = pic.closest('p');
+            const caption = para && para.nextElementSibling;
+            if (caption && caption.matches('p.caption')) {
+              const item = document.createElement('div');
+              item.className = 'columns-media-item';
+              item.append(media, caption);
+              strip.append(item);
+            } else strip.append(media);
           });
           cell.prepend(strip);
           if (block.classList.contains('slider')) buildSlider(strip, labels);

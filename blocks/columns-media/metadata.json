@@ -13,7 +13,8 @@
       "poster image with a play button bottom-left that starts an inline video",
       "option wide-media: media column 75%, text 25%",
       "option sidebar: first cell 75%, second 25% (Lufthansa .airem-sidebar), 40px above / 46px below",
-      "option slider: several images in a media cell become slides with dots below 1025px"
+      "option slider: several images in a media cell become slides with dots below 1025px",
+      "option stacked: several images in a media cell one under the other, each with its {caption} paragraph"
     ]
   },
   "contentPattern": {
@@ -31,6 +32,10 @@
     {
       "class": "slider",
       "label": "Slider (images as slides with dots below 1025px)"
+    },
+    {
+      "class": "stacked",
+      "label": "Stacked (several images in a media cell one under the other, with captions)"
     }
   ],
   "memberVariantIds": [],

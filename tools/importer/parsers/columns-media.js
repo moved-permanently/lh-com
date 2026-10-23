@@ -18,6 +18,11 @@ import { embedNodes } from './media-nodes.js';
  * paragraphs), lists and links (primary maui-button-link = bold link, secondary = italic link).
  *
  * Column title (".column-view > div:not(.row) > h2") is default content before the table.
+ * Insights articles (.article-details-page): an image's caption (figcaption > maui-caption) follows
+ * it as "<p>… {caption}</p>"; a column item with several image components (live: stacked in
+ * their column) gives option stacked (picture-perfect-austin galleries). Other templates keep
+ * dropping captions and side-by-side images (photo + QR code, 100-years, fleet cabins).
+ *
  * When several column views form one block (flight-status: 3 x .twocolumn in a .onecolumn) and
  * this instance has no own column title, its rows are appended to the previous Columns Media
  * table of the same variant, provided nothing but empty wrappers sits between the two.
@@ -35,6 +40,7 @@ export default function parse(element, { document }) {
     c.querySelectorAll(SKIP).forEach((n) => n.remove());
     return clean(c.textContent);
   };
+  const ARTICLE = !!element.closest('.article-details-page');
   const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
 
   const isBr = (n) => n && n.nodeType === 1 && n.tagName === 'BR';
@@ -192,8 +198,26 @@ export default function parse(element, { document }) {
     return out;
   };
 
-  /** Media of an AEM image component: [img] | [a > img] | [poster img, a(.mp4)]. */
+  /** Article image caption: "<p>text {caption}</p>" (the cleanup's marker for figcaptions). */
+  const captionPara = (comp) => {
+    if (!ARTICLE) return null;
+    const fc = comp.querySelector('figcaption');
+    const text = fc && visibleText(fc.querySelector('maui-caption') || fc);
+    if (!text) return null;
+    const p = document.createElement('p');
+    p.textContent = `${text} {caption}`;
+    return p;
+  };
+
+  /** Media of an AEM image component: [img] | [a > img] | [poster img, a(.mp4)], then the caption. */
   const mediaNodes = (comp) => {
+    const out = mediaOnly(comp);
+    const caption = out.length && captionPara(comp);
+    if (caption) out.push(caption);
+    return out;
+  };
+
+  const mediaOnly = (comp) => {
     const out = [];
     const img = [...comp.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')) && !i.closest(SKIP_COMPONENTS));
     const video = comp.querySelector('video[src], video source[src]');
@@ -441,6 +465,11 @@ export default function parse(element, { document }) {
     const sliderView = items.some((it) => [...it.querySelectorAll('.column-view > .carousel')]
       .some((c) => c.querySelectorAll('.hidden-md-down .image img').length > 1));
     if (sliderView) variants.push('slider');
+    // article galleries: several image components in one column item are stacked on live
+    const stacked = ARTICLE && items.some((it) => [...it.querySelectorAll('.image')]
+      .filter((img) => img.closest('.column-view-item') === it && !img.parentElement.closest('.image')
+        && img.querySelector('img, video')).length > 1);
+    if (stacked) variants.push('stacked');
   }
 
   // nothing to show (empty column view): left as it is, the cleanup drops empty components
