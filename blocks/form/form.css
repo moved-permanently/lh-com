@@ -117,20 +117,20 @@
   line-height: 27px;
 }
 
-.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select) {
+.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) {
   max-width: var(--form-field-max-width);
   min-height: calc(var(--form-field-height) + var(--form-field-reserve));
   margin-bottom: 0;
 }
 
-.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select) > .form-control {
+.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-control {
   height: var(--form-field-height);
   padding: 24px 0 5px;
   border-bottom: 2px solid var(--lh-grey-8);
 }
 
 /* floated label: 12px at the top of the field */
-.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select) > .form-label {
+.form :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-label {
   position: absolute;
   top: 0;
   left: 0;
@@ -142,8 +142,9 @@
   transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out, line-height 0.2s ease-in-out;
 }
 
-/* empty, unfocused maui-input: the label sits where the value goes */
-.form .form-field:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus)) > .form-label {
+/* empty, unfocused maui-input: the label sits where the value goes (:where: same specificity
+   as the floated-label rule, so variants can override it) */
+.form .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label {
   top: 24px;
   font-size: var(--body-font-size-m);
   line-height: 27px;
@@ -177,7 +178,7 @@
   cursor: pointer;
 }
 
-.form select.form-control:has(option[value=""]:checked) {
+.form select.form-control:where(:has(option[value=""]:checked)) {
   color: var(--lh-grey-7);
 }
 
@@ -409,5 +410,540 @@
   .form .form-field-file,
   .form .form-actions {
     grid-column: 1 / -1;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------
+   Variant core (Form (core)): lufthansa.com AEM core forms (form.cmp-form, form-container,
+   form-section, container-white p-7 card, .form-text-align 33.5rem fields, maui-* controls)
+   ------------------------------------------------------------------------------------------ */
+.form.core {
+  --form-control-border: #52627c; /* maui checkbox / radio outline, --maui-color-interaction */
+  --form-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.4' d='M1.5 6l4.5 4.5L14.5 1.5'/%3E%3C/svg%3E");
+  --form-icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M7 0h2v7h7v2H9v7H7V9H0V7h7z'/%3E%3C/svg%3E");
+  --form-icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 7h16v2H0z'/%3E%3C/svg%3E");
+  --form-icon-delete: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 18'%3E%3Cpath d='M5 0h6v2h5v2H0V2h5zM1.5 5h13l-1 13h-11zm3 2v9h1.5V7zm3 0v9h1.5V7zm3 0v9H12V7z'/%3E%3C/svg%3E");
+  --form-icon-upload: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'%3E%3Cpath fill='%2305164d' d='M0 0h24v2.5H0zM12 5l9 9-1.8 1.8-5.9-5.9V28h-2.6V9.9l-5.9 5.9L3 14z'/%3E%3C/svg%3E");
+  --form-icon-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M0 0h8l2 2h10v14H0z'/%3E%3C/svg%3E");
+}
+
+/* the button sits below the last band: .form-section padding-bottom 4rem + 3rem */
+.form.core .form-form {
+  padding-bottom: 40px;
+}
+
+/* .container-white.p-7: one field column */
+.form.core .form-step-card {
+  padding: 30px 20px;
+}
+
+.form.core .form-fields {
+  display: block;
+  padding: 0;
+}
+
+.form.core .form-field {
+  margin-bottom: 24px;
+}
+
+.form.core .form-field[hidden],
+.form.core .form-subsection[hidden],
+.form.core .form-repeat-add[hidden],
+.form.core .form-repeat-remaining[hidden],
+.form.core .form-repeat-remove[hidden],
+.form.core .form-help[hidden],
+.form.core .form-filedrop-zone[hidden],
+.form.core .form-filedrop-list-title[hidden] {
+  display: none;
+}
+
+/* .form-text-align / .form-dropdown-align: margin-bottom 2.4rem, max-width 33.5rem */
+.form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete, .form-field-textarea) {
+  max-width: var(--form-field-max-width);
+  min-height: 0;
+  margin-bottom: 24px;
+}
+
+/* maui-autocomplete: select-like trigger with a chevron */
+.form.core .form-field-autocomplete > .form-control {
+  padding-right: 34px;
+  background: var(--form-chevron) right 9px top 33px / 16px 10px no-repeat;
+}
+
+/* in-field labels leave room for the optional mark */
+.form.core .form-field-has-optional > .form-label {
+  right: 70px;
+}
+
+/* maui optional mark: right in the field, on the value line */
+.form.core .form-optional {
+  position: absolute;
+  top: 26px;
+  right: 20px;
+  color: var(--lh-grey-8);
+  font-size: var(--body-font-size-xxs);
+  line-height: 24px;
+  pointer-events: none;
+}
+
+.form.core .form-field-select .form-optional,
+.form.core .form-field-region .form-optional {
+  right: 40px;
+}
+
+/* maui-select without a value: the trigger label sits where the value goes */
+.form.core .form-field-empty > .form-label {
+  top: 24px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+.form.core .form-field-empty > select.form-control {
+  color: transparent;
+}
+
+.form.core .form-field-empty > select.form-control:focus-visible {
+  color: var(--lh-grey-7);
+}
+
+/* maui-masked-input: the mask (DD/MM/YYYY) stands in the field instead of the label */
+.form.core .form-label-masked {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* maui-textarea: 2px box, label inside */
+.form.core .form-field-textarea > textarea.form-control {
+  min-height: 0;
+  margin: 0;
+  padding: 28px 12px 10px;
+  border: 2px solid var(--lh-grey-8);
+}
+
+.form.core .form-field-textarea > .form-label {
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  right: 14px;
+  pointer-events: none;
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+}
+
+.form.core .form-field-textarea:where(:has(> .form-control:placeholder-shown:not(:focus))) > .form-label {
+  top: 16px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+.form.core .form-field-invalid > textarea.form-control {
+  border-color: var(--lh-red);
+}
+
+/* maui-stepper: label above, 124 x 40 box with − value + */
+.form.core .form-field-stepper {
+  margin-bottom: 8px;
+}
+
+.form.core .form-field-stepper > .form-label {
+  margin-bottom: 6px;
+  font-size: var(--body-font-size-xs);
+  line-height: 18px;
+}
+
+.form.core .form-stepper {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 124px;
+  height: 40px;
+  border: 2px solid var(--lh-grey-8);
+}
+
+.form.core .form-stepper > .form-control {
+  width: 40px;
+  height: 36px;
+  padding: 0;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-m);
+  text-align: center;
+}
+
+.form.core .form-stepper-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lh-grey-8);
+  cursor: pointer;
+}
+
+.form.core .form-stepper-button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: var(--form-icon-plus) center / contain no-repeat;
+}
+
+.form.core .form-stepper-decrease::before {
+  mask-image: var(--form-icon-minus);
+}
+
+.form.core .form-stepper-button:disabled {
+  color: var(--lh-grey-4);
+  cursor: default;
+}
+
+/* sub-sections: legend h3.heading-copytext-large (2.4rem bold) */
+.form.core .form-subsection {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form.core .form-subsection-title {
+  float: left; /* lets the legend take part in the layout like a block */
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 0;
+  color: var(--lh-deepblue);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.form.core .form-subsection-title:focus {
+  outline: none;
+}
+
+.form.core .form-subsection-fields {
+  clear: both;
+}
+
+/* repeatable sections: delete icon by the legend, "+ add another ..." link button, counter */
+.form.core .form-repeat-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background-color: var(--lh-deepblue);
+  mask: var(--form-icon-delete) center / 16px 18px no-repeat;
+  cursor: pointer;
+}
+
+.form.core .form-repeat-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--link-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.form.core .form-repeat-add::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: var(--form-icon-plus) center / contain no-repeat;
+}
+
+.form.core .form-repeat-add:hover {
+  color: var(--link-hover-color);
+}
+
+.form.core .form-repeat-remaining {
+  margin: 0 0 24px;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+/* radio groups (maui-radio-group label 1.8rem) and checkbox groups (h3.form-group-headline 1.6rem) */
+.form.core .form-group > legend {
+  margin-bottom: 20px;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.form.core .form-group-checkbox > legend {
+  margin-bottom: 18px;
+  font-size: var(--body-font-size-s);
+}
+
+.form.core .form-options {
+  gap: 25px;
+}
+
+.form.core .form-option {
+  gap: 10px;
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* maui-checkbox / maui-radio: 24px outline boxes */
+.form.core input[type="checkbox"],
+.form.core input[type="radio"] {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  margin: 0;
+  border: 2px solid var(--form-control-border);
+  border-radius: 2px;
+  background: var(--background-color) center / 14px 11px no-repeat;
+  appearance: none;
+}
+
+.form.core input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form.core input[type="checkbox"]:checked {
+  border-color: var(--lh-deepblue);
+  background-color: var(--lh-deepblue);
+  background-image: var(--form-icon-check);
+}
+
+.form.core input[type="radio"]:checked {
+  border-color: var(--lh-deepblue);
+  background: radial-gradient(circle, var(--lh-deepblue) 0 5px, var(--background-color) 6px);
+}
+
+.form.core .form-field-invalid :is(input[type="checkbox"], input[type="radio"]) {
+  border-color: var(--lh-red);
+}
+
+/* richtext inside the card: copytext 1.8rem */
+.form.core .form-field-note {
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.form.core .form-field-note ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.form.core .form-field-note li + li {
+  margin-top: 10px;
+}
+
+/* file drop zone (.filedrop-zone .zone-border: 2px dashes #b0b0b0, padding 2rem 2rem 0) */
+.form.core .form-field-file {
+  max-width: none;
+}
+
+.form.core .form-filedrop-zone {
+  position: relative;
+  padding: 20px 20px 0;
+  border-radius: 4px;
+  background-image: linear-gradient(90deg, #b0b0b0 50%, transparent 50%), linear-gradient(90deg, #b0b0b0 50%, transparent 50%), linear-gradient(0deg, #b0b0b0 50%, transparent 50%), linear-gradient(0deg, #b0b0b0 50%, transparent 50%);
+  background-position: left top, right bottom, left bottom, right top;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+}
+
+.form.core .form-filedrop-active,
+.form.core .form-field-invalid .form-filedrop-zone {
+  background-image: linear-gradient(90deg, var(--lh-red) 50%, transparent 50%), linear-gradient(90deg, var(--lh-red) 50%, transparent 50%), linear-gradient(0deg, var(--lh-red) 50%, transparent 50%), linear-gradient(0deg, var(--lh-red) 50%, transparent 50%);
+}
+
+.form.core .form-filedrop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.form.core .form-filedrop-icon {
+  display: none;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 20px;
+  background: var(--form-icon-upload) center / 24px 28px no-repeat;
+}
+
+.form.core .form-filedrop-desc {
+  display: none;
+  color: var(--lh-deepblue);
+}
+
+.form.core .form-filedrop-prompt {
+  padding-bottom: 20px;
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.form.core .form-filedrop-or {
+  padding-bottom: 20px;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+/* maui-button type secondary, icon-folder */
+.form.core .form-filedrop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 100px;
+  max-width: 400px;
+  min-height: 50px;
+  padding: 11px 30px;
+  border: 2px solid var(--lh-deepblue);
+  border-radius: var(--radius-s);
+  background: var(--background-color);
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form.core .form-filedrop-button::before {
+  content: "";
+  width: 18px;
+  height: 15px;
+  background-color: currentcolor;
+  mask: var(--form-icon-folder) center / contain no-repeat;
+}
+
+.form.core .form-filedrop-button:hover {
+  background-color: var(--lh-grey-1);
+}
+
+/* p.footnote: 1.4rem, margin-top 1rem, padding-bottom 1.8rem */
+.form.core .form-filedrop-hint {
+  margin: 10px 0 0;
+  padding-bottom: 18px;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.form.core .form-filedrop-input {
+  display: none;
+}
+
+.form.core .form-filedrop-optional {
+  margin: 4px 0 0;
+  color: var(--lh-grey-8);
+  font-size: var(--body-font-size-xxs);
+  line-height: 18px;
+}
+
+.form.core .form-field-invalid .form-filedrop-optional {
+  display: none;
+}
+
+.form.core .form-filedrop-list-title {
+  margin: 30px 0 10px;
+  color: var(--lh-deepblue);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.form.core .form-filedrop-list {
+  max-width: var(--form-field-max-width);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form.core .form-filedrop-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.form.core .form-filedrop-name {
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.form.core .form-filedrop-size {
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+.form.core .form-filedrop-error {
+  color: var(--lh-red);
+  font-size: var(--body-font-size-xxs);
+  line-height: 1.5;
+}
+
+.form.core .form-filedrop-remove {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background-color: var(--lh-deepblue);
+  mask: var(--form-icon-delete) center / 16px 18px no-repeat;
+  cursor: pointer;
+}
+
+/* submit (maui-button primary #submit-btn) below the last band, right-aligned */
+.form.core .form-form > .form-actions {
+  justify-content: flex-end;
+  margin: 30px 0 0;
+}
+
+@media (width >= 768px) {
+  /* the card stays in the right 7/12 even when a band has no headline */
+  .form.core .form-step .form-step-card {
+    grid-column: 6 / -1;
+  }
+
+  .form.core .form-filedrop-zone {
+    padding: 20px 20px 0;
+  }
+
+  .form.core .form-filedrop-content {
+    margin: 20px 20px 10px;
+  }
+
+  .form.core .form-filedrop-icon,
+  .form.core .form-filedrop-desc {
+    display: block;
+  }
+
+  .form.core .form-form > .form-actions .button {
+    width: auto;
+  }
+}
+
+@media (width >= 1025px) {
+  /* one field column (the default form block shows two) */
+  .form.core .form-fields {
+    display: block;
   }
 }
