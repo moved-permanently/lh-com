@@ -19,6 +19,8 @@
  *  - padded: an AEM section (.container-content > .section) that is padded on live
  *    (.section-padding-y-regular), not grey, right after another padded one starts a section
  *    with style padded.
+ *  - stage: an AEM section holding a stage (.inspirationteaser) is a section of its own with
+ *    style stage (+ flush without .mb-default, + before-padded before a padded AEM section).
  * afterTransform: drops breaks with no content since the previous break (or the page start),
  *   keeping their styles, then inserts a Section Metadata block (styles of the break) at the end
  *   of each styled section, removes the marker attributes, and removes the first section's
@@ -182,6 +184,24 @@ export default function transform(hookName, element, payload) {
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);
+    });
+    // a stage (.inspirationteaser) is an AEM section of its own, style stage: the space under
+    // it is what live adds up (hero-campaign.css): .mb-default (24px; style flush when the
+    // wrapper has none), separators in the stage section ({spacer-N} right after the hero) and,
+    // style before-padded, the top padding of the next AEM section when that one is padded
+    // (.section-padding-y-regular) and not grey. A break after it, so the next AEM section
+    // never shares the stage's section.
+    const stage = (s) => !!s.querySelector(':scope > div > .section-content > .inspirationteaser');
+    aemSections.forEach((s, i) => {
+      if (!stage(s)) return;
+      const next = aemSections[i + 1];
+      const styles = ['stage'];
+      if (!s.querySelector(':scope > .mb-default')) styles.push('flush');
+      if (next && padded(next) && !grey(next)) styles.push('before-padded');
+      const start = createBreak(document);
+      start.setAttribute(SOURCE_STYLE, styles.join(' '));
+      s.before(start);
+      if (next) next.before(createBreak(document));
     });
   }
 

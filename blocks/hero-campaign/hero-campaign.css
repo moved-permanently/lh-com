@@ -325,3 +325,30 @@ main > .section > .hero-campaign-wrapper + div {
 main > .section:has(> .hero-campaign-wrapper:last-child) {
   margin-bottom: 64px;
 }
+
+/* section style stage (the importer: a stage is an AEM section of its own): what live adds up
+   under the stage. Separators of the stage section sit directly under it; the section ends with
+   .mb-default (24px; none with flush) plus, with before-padded, the top padding of the next AEM
+   section (.section-padding-y-regular: 20px, 40px from 768px). 100-years 64px at 1440 / 44px at
+   390, cabin-design 61px (60px separator, flush), destinations 61 + 24 + 40px. Pages imported
+   before the style keep the 64px rules above. */
+main > .section.stage > .hero-campaign-wrapper + div,
+main > .section.stage > .hero-campaign-wrapper + .default-content-wrapper:last-child {
+  margin-top: 0;
+}
+
+main > .section.stage:has(> .hero-campaign-wrapper) {
+  margin-bottom: var(--spacing-default);
+}
+
+main > .section.stage.before-padded:has(> .hero-campaign-wrapper) {
+  margin-bottom: calc(var(--spacing-default) + var(--section-padding));
+}
+
+main > .section.stage.flush:has(> .hero-campaign-wrapper) {
+  margin-bottom: 0;
+}
+
+main > .section.stage.flush.before-padded:has(> .hero-campaign-wrapper) {
+  margin-bottom: var(--section-padding);
+}
