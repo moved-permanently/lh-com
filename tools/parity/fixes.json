@@ -224,6 +224,12 @@
   {
     "block": "carousel-lightbox",
     "change": "Item 5 /744 seat maps side by side from 768px (were stacked): the parser writes the new option half when a slideshow shares its column view with another slideshow (counted once per column view); the block JS wraps two consecutive half blocks in div.carousel-lightbox-pair, a flex row from 768px (20px gutter), the preview over the full half; stacked below 768px as before. Local (live): 1440 main deck | upper deck 614px each at x88 / x722, deck labels 70px below the h3 (70), next heading 126px below the maps (127); 768: 343px each, 70 (69), 129 (127); 390 stacked, next heading 66px below (66, was 101). Other fleet pages (/359, /boeing787) have single slideshows: unchanged. Re-imported, uploaded and previewed /744 in 4 locales (fleet template re-run).",
+    "commit": "f291e71",
+    "date": "2026-10-23"
+  },
+  {
+    "block": "jump-links",
+    "change": "Item 6 jump links of a column view (option columns) 72px (ink) below the content before them, as on live at every width (were 33-34px on new-onboard-experience, 57-58px on 100-years/chronicle), wrapped items 60px apart below 768px and 70px at two per row (live; were 30px). CSS only (jump-links.css: margin-top 63px collapsing with the wrapper's 24px, 62px opening a section, 0 in a padded section; row-gap 36px / 46px). Local (live): new-onboard-experience 1440 intro video end -> links 72 (72), 768 73 (72), 390 73 (72) with rows 60 apart (60); chronicle 1440 72 (72), 768 71 (72), 390 71 (72). No re-import.",
     "commit": "pending",
     "date": "2026-10-23"
   }

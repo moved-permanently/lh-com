@@ -5,8 +5,8 @@
  * lines 30px apart, 31px more below the list than a paragraph (the list's 40px separator)
  * (/de/en/baggage: rows and the next heading = live at 1440/768/390, /de/en/flight-disruptions).
  * columns: the links of a column view, one .col-md-6.col-lg item each (20px gutter): stacked
- * below 768px, two per row from 768px, all in one row from 1025px
- * (/de/en/discover-lufthansa/new-onboard-experience, /de/en/100-years/chronicle).
+ * below 768px, two per row from 768px, all in one row from 1025px, 72px below the content
+ * before them (/de/en/discover-lufthansa/new-onboard-experience, /de/en/100-years/chronicle).
  */
 .jump-links .jump-links-list {
   display: flex;
@@ -45,14 +45,32 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* columns: the column view starts 72px (ink) below the content before it on every width, its
+   items wrap 60px apart below 768px and 70px at two per row (live new-onboard-experience,
+   100-years/chronicle); the margin collapses with the wrapper's 24px (63px) or, opening a
+   section, with the section gap (62px); a padded section has the space already */
+.jump-links.columns {
+  margin-top: 63px;
+}
+
+main > .section > .jump-links-wrapper:first-child > .jump-links.columns {
+  margin-top: 62px;
+}
+
+main > .section.padded > .jump-links-wrapper:first-child > .jump-links.columns {
+  margin-top: 0;
+}
+
 .jump-links.columns .jump-links-list {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  row-gap: 36px;
 }
 
 @media (width >= 768px) {
   .jump-links.columns .jump-links-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 46px;
   }
 }
 
