@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { AEM_PATHS } from './aem-path-map.js';
 
 /**
  * Public paths for AEM content paths that Lufthansa components carry in their markup
@@ -12,6 +13,8 @@
  *   /{cc}/{ll}/prepare-for-your-trip/travel-classes/first-class (business-class,
  *     premium-economy-class, economy-class)              -> /{cc}/{ll}/first-class
  *   /{cc}/{ll}/during-your-trip/internet-on-board        -> /{cc}/{ll}/flynet
+ *   any other AEM path of a snapshotted page              -> its public path (aem-path-map.js,
+ *     /de/en/during-your-trip/lounges/admission-rules -> /de/en/admission-rules)
  * Anything else is returned unchanged (query and hash are kept).
  */
 const CLASSES = /^\/([a-z]{2})\/([a-z]{2})\/prepare-for-your-trip\/travel-classes\/(first-class|business-class|premium-economy-class|economy-class)$/;
@@ -28,5 +31,6 @@ export function publicPath(href) {
   if (x) path = `/${x[1]}/${x[2]}/${x[3]}`;
   else if ((x = path.match(CLASSES_HUB))) path = `/${x[1]}/${x[2]}/${x[2] === 'de' ? 'lufthansa-reiseklassen' : 'lufthansa-travel-classes'}`;
   else if ((x = path.match(FLYNET))) path = `/${x[1]}/${x[2]}/flynet`;
+  else if (Object.prototype.hasOwnProperty.call(AEM_PATHS, path)) path = AEM_PATHS[path];
   return `${path || '/'}${rest}`;
 }

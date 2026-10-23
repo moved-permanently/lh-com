@@ -132,6 +132,20 @@ const TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|go
 
 const EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
 
+/**
+ * The sub-page navigation (.container-subnav > nav.subpage) has its eyebrow ("More information
+ * around this topic") and title in a <header>, which the chrome selector 'header' would take:
+ * it becomes div.subpage-header for the subpage-nav parser.
+ */
+function keepSubpageNavHeader(document) {
+  document.querySelectorAll('.container-subnav nav.subpage > header').forEach((header) => {
+    const div = document.createElement('div');
+    div.className = 'subpage-header';
+    div.append(...header.childNodes);
+    header.replaceWith(div);
+  });
+}
+
 function removeAll(root, selectors) {
   selectors.forEach((sel) => {
     let nodes = [];
@@ -1239,6 +1253,7 @@ export default function transform(hookName, element, payload) {
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document, pagePath);
     convertFeedbackQuestionnaires(document);
+    keepSubpageNavHeader(document); // before the chrome removal takes every <header>
     removeAll(document, CHROME_SELECTORS);
     removeAirCoreLeftovers(document);
     removeTracking(document);

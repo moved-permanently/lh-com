@@ -1080,6 +1080,12 @@
           ]
         },
         {
+          "name": "subpage-nav",
+          "instances": [
+            ".container-subnav:has(nav.subpage)"
+          ]
+        },
+        {
           "name": "poi-map",
           "instances": [
             ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",

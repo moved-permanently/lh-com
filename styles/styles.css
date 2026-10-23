@@ -852,6 +852,27 @@ main .default-content-wrapper > p.indent {
   }
 }
 
+/* pages with the Lufthansa sub-page navigation (block subpage-nav, .has-subnav): from 768px the
+   content keeps 75% of the column (live: components width 75% + padding-right 10px, column-view
+   rows 75%; the 75% wins over .limited-width, so running text drops its two thirds) and the nav
+   takes the rest at the top right; the page title keeps the full width (/de/en/upgrade-info:
+   image 88-1014 at 1440) */
+@media (width >= 768px) {
+  main:has(.subpage-nav) > .section:not(.subpage-nav-container) > .default-content-wrapper > :not(h1) {
+    margin-right: calc(25% + 10px);
+  }
+
+  main:has(.subpage-nav) > .section:not(.subpage-nav-container) > div:not(.default-content-wrapper, .breadcrumb-wrapper, .hero-campaign-wrapper, .hero-banner-wrapper) > * {
+    margin-right: 25%;
+  }
+}
+
+@media (width >= 1025px) {
+  main:has(.subpage-nav) .default-content-wrapper > :is(p, ul, ol) {
+    max-width: none;
+  }
+}
+
 /* Lufthansa Insights articles (.article-content .article-limited-width / h3 / .text:
    margin-inline 10%, max-width 80% of the article card = two thirds of the content width,
    centred, from 768px): the article body sections after the article header */

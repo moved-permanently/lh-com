@@ -1,0 +1,29 @@
+{
+  "variantName": "subpage-nav",
+  "baseBlock": "navigation",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/upgrade-info",
+  "visualCharacteristics": {
+    "purpose": "sub-page navigation of a topic: eyebrow, topic title and its pages, the current page bold",
+    "traits": [
+      "from 768px at the top right of the content, 25% of the column; the rest of the page 75%",
+      "below 768px after the content",
+      "rows with a 1px grey line, 18px text and a chevron; the current page bold without chevron"
+    ]
+  },
+  "contentPattern": {
+    "structure": "One cell: optional eyebrow paragraph, optional heading (topic), a list of links (the current page as plain or bold text)"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "description": "Info pages with the Lufthansa sub-page navigation (nav.subpage in .container-subnav, .has-subnav), 180 pages.",
+    "pagesUsing": [
+      "/de/en/upgrade-info",
+      "/de/en/lounge-companions"
+    ],
+    "reuseCount": 180,
+    "lastUsed": "2026-10-23"
+  },
+  "reuseGuidance": "Use for the list of sibling pages of a topic beside the content. For a tab bar under the header use profile-nav."
+}
