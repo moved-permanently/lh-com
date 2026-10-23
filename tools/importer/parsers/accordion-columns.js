@@ -73,7 +73,8 @@ export default function parse(element, { document }) {
         const list = document.createElement(tag);
         child.querySelectorAll(':scope > li').forEach((li) => {
           const item = document.createElement('li');
-          const a = li.querySelector('a[href]');
+          // links are still Lufthansa link components when parsers run (/articles/tags lists)
+          const a = li.querySelector('a[href], maui-navigation-link[href], maui-link[href], maui-button-link[href]');
           const link = a && makeLink(a);
           if (link) item.append(link);
           else if (visibleText(li)) item.textContent = visibleText(li);
@@ -263,11 +264,23 @@ export default function parse(element, { document }) {
    *   spaced        the accordion is part of a text column (.column-view-item > .accordion, after
    *                 a headline/text): 40px above and below from 768px, 20px below on mobile;
    *                 section-level accordions (.section-content > .accordion) have no such margin
+   *   column        the accordion is alone in its column of a column view with several columns
+   *                 (/articles/tags, /articles/explore-the-world: one accordion per .threecolumn
+   *                 item): consecutive column accordions share a row (the block groups them);
+   *                 instead of spaced
    */
   const options = [];
   if (items.length && !items.some((item) => item.querySelector('.column-view-item'))) options.push('faq');
   if (element.closest('maui-limited-width') || element.querySelector('maui-limited-width maui-collapsible, maui-limited-width .accordionitem')) options.push('limited-width');
-  if (element.parentElement && element.parentElement.closest('.column-view-item')) options.push('spaced');
+  const columnItem = element.parentElement && element.parentElement.closest('.column-view-item');
+  const columnView = columnItem && columnItem.closest('.column-view');
+  const columnCount = columnView ? [...columnView.querySelectorAll('.column-view-item')]
+    .filter((it) => it.closest('.column-view') === columnView).length : 0;
+  const aloneInColumn = !!columnItem && [...columnItem.children]
+    .filter((c) => c !== element && !c.contains(element) && !c.matches('.separator') && (clean(c.textContent) || c.querySelector('img, video, iframe')))
+    .length === 0;
+  if (aloneInColumn && columnCount > 1) options.push('column');
+  else if (columnItem) options.push('spaced');
   const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
 
   const cells = [];

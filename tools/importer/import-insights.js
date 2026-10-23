@@ -11,6 +11,7 @@ import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import relatedArticlesParser from './parsers/related-articles.js';
 import carouselImagesParser from './parsers/carousel-images.js';
+import accordionColumnsParser from './parsers/accordion-columns.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -51,7 +52,8 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".threecolumn:has(.teaser)",
         ".authorslider",
-        ".carousel:has(.swiper-multi-slide .videoViewer)"
+        ".carousel:has(.swiper-multi-slide .videoViewer)",
+        ".carousel:has(.swiper-multi-slide a.teaser.card)"
       ]
     },
     {
@@ -65,6 +67,7 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
         ".blogoverview:has(.blog-article-container)",
+        ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
         ".videoViewer, .image:has(video)"
       ]
     },
@@ -78,6 +81,12 @@ const PAGE_TEMPLATE = {
       "name": "carousel-images",
       "instances": [
         ".carousel:has(.swiper-single-slide)"
+      ]
+    },
+    {
+      "name": "accordion-columns",
+      "instances": [
+        ".accordion"
       ]
     }
   ],
@@ -214,6 +223,7 @@ const parsers = {
   'columns-media': columnsMediaParser,
   'related-articles': relatedArticlesParser,
   'carousel-images': carouselImagesParser,
+  'accordion-columns': accordionColumnsParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

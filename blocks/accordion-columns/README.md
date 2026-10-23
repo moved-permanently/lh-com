@@ -12,10 +12,11 @@ Videos and embeds in a panel: a poster image paragraph followed by a paragraph w
 
 ## Supported variations
 
-Options (combinable, written by the importer from the source): `accordion-columns (faq, limited-width, spaced)`.
+Options (combinable, written by the importer from the source): `accordion-columns (faq, limited-width, spaced)`, `accordion-columns (faq, column)`.
 
 - `faq`: questions and answers. The panel is not split into columns at headings: headings inside an answer stay in one text column; answers (and their headings and lists, which keep their bullets) use 66% of the width from 1025px. The importer sets it for every lufthansa.com accordion whose panels hold no column view (link columns such as the homepage "Popular destinations" keep the column layout).
 - `limited-width`: the accordion uses two thirds of the content width from 1025px (lufthansa.com `maui-limited-width`, e.g. feedback, timetable-and-flight-status).
+- `column`: the accordion is alone in one column of a column view with several columns (Lufthansa Insights /articles/tags 'Destinations' and /articles/explore-the-world: North America | Europe | Asia). Consecutive column accordions (block after block, nothing between them) share a row: stacked 10px apart on mobile, 2 per row from 768px, all of them side by side (up to 4 per row) from 1025px, 20px apart; answers use the whole column. The importer writes it instead of `spaced`.
 - `spaced`: the accordion is part of a text column (after a headline or text in the same column on lufthansa.com): 40px more space below it (all widths, none when it is the last element of its section) and above it (from 768px).
 
 ## Universal Editor fields

@@ -53,6 +53,30 @@ function buildPanel(nodes, single) {
 }
 
 /**
+ * Option column: the accordion is one column of a Lufthansa column view (/articles/tags
+ * 'Destinations': North America | Europe | Asia). A run of consecutive column accordions is
+ * wrapped in div.accordion-columns-row, which lays them out side by side (CSS).
+ * @param {Element} block
+ */
+function groupColumns(block) {
+  const isColumn = (el) => !!el && el.classList.contains('accordion-columns-wrapper')
+    && !!el.querySelector(':scope > .accordion-columns.column');
+  let first = block.parentElement;
+  if (!isColumn(first) || first.parentElement.classList.contains('accordion-columns-row')) return;
+  while (isColumn(first.previousElementSibling)) first = first.previousElementSibling;
+  const run = [first];
+  for (let next = first.nextElementSibling; isColumn(next); next = next.nextElementSibling) {
+    run.push(next);
+  }
+  if (run.length < 2) return;
+  const row = document.createElement('div');
+  row.className = 'accordion-columns-row';
+  row.style.setProperty('--accordion-columns-count', Math.min(run.length, 4));
+  first.before(row);
+  row.append(...run);
+}
+
+/**
  * Accordion whose panels split their content into columns at each heading.
  * One row per item: cell 1 title, cell 2 content. A single-cell row uses its first element
  * as the title. Videos (poster + .mp4 link) and embed links (YouTube, in-flight entertainment
@@ -60,6 +84,7 @@ function buildPanel(nodes, single) {
  * @param {Element} block
  */
 export default async function decorate(block) {
+  if (block.classList.contains('column')) groupColumns(block);
   // faq: questions and answers (headings inside an answer stay in the one text column)
   const single = block.classList.contains('faq');
   const items = [];
