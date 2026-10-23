@@ -1,0 +1,133 @@
+{
+  "config": {
+    "loginHosts": ["lufthansa.com"],
+    "scriptOrigin": "https://www.lufthansa.com",
+    "travelIdApi": "https://api.travelid.lufthansa.com",
+    "loginStatusPath": "/v1/user/me/loginstatus",
+    "profileApi": "/service/secured/api/core/user/profile",
+    "authorize": {
+      "url": "{travelIdApi}/oauth2/authorize",
+      "clientId": "yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO",
+      "redirectUri": "https://www.lufthansa.com",
+      "scope": "AUTHENTICATED IDENTIFIED urn:milesandmore:tech:background:v1:active urn:milesandmore:oauth:multifactorauthentication",
+      "extra": "principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login"
+    },
+    "maui": {
+      "css": "/digitalhangar/design-system/releases/v1.38.0/standalone/css/lufthansa.css",
+      "js": "/digitalhangar/design-system/releases/v1.38.0/standalone/packages/maui-design-system.js"
+    },
+    "portal": { "X-Portal": "LH", "X-Line": "g" },
+    "labels": {
+      "en": {
+        "common.misc.loader.forcedOneIdLoginText": "Please log in to view this page",
+        "common.misc.loader.forcedOneIdLoginButton": "Log in now",
+        "common.misc.loader.label": "Loading …"
+      },
+      "de": {
+        "common.misc.loader.forcedOneIdLoginText": "Bitte loggen Sie sich ein.",
+        "common.misc.loader.forcedOneIdLoginButton": "Jetzt einloggen",
+        "common.misc.loader.label": "Wird geladen..."
+      }
+    }
+  },
+  "apps": {
+    "login-gate": { "view": "gate" },
+    "account-statement": { "view": "gate" },
+    "fare-alert-overview": { "view": "none" },
+    "hero-banner": {
+      "tag": "hero-banner-react",
+      "script": "/digitalhangar/customer-cockpit/hero-banner-react/hero-banner-react-1.26.4.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "loggedOut": "public",
+      "maui": true,
+      "schema": "ProfilePPL",
+      "id": "1"
+    },
+    "my-trips": {
+      "tag": "my-trips",
+      "script": "/digitalhangar/travel-insights/my-trips/my-trips-0.17.8.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": { "data-api-gateway": "{travelIdApi}" }
+    },
+    "past-trips": {
+      "tag": "past-trips",
+      "script": "/digitalhangar/travel-insights/past-trips/past-trips-1.4.7.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": { "data-api-gateway": "{travelIdApi}" }
+    },
+    "upgrade-alert": {
+      "tag": "upgrade-alert",
+      "script": "/digitalhangar/redemption-program/upgrade-alert/upgrade-alert-3.0.18.js",
+      "module": true,
+      "wrapper": true,
+      "loginRequired": false,
+      "loggedOut": "lufthansa-host",
+      "schema": "ProfilePPL",
+      "id": "upgrade-alert",
+      "attributes": { "data-api-gateway": "{travelIdApi}" }
+    },
+    "sdui-profile": {
+      "tag": "sdui-react",
+      "script": "/digitalhangar/sdui/sdui-react/sdui-react-0.78.3.js",
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": {
+        "data-api-gateway": "{travelIdApi}/ui-services/v1/me/profile",
+        "data-translation-labels": "https://www.lufthansa.com/service/api/labels/common"
+      }
+    },
+    "sdui-statement": {
+      "tag": "sdui-react",
+      "script": "/digitalhangar/sdui/sdui-react/sdui-react-0.99.1.js",
+      "module": true,
+      "wrapper": true,
+      "loginRequired": true,
+      "schema": "ProfilePPL",
+      "attributes": {
+        "data-api-gateway": "{travelIdApi}/ui-services/v1/me/statement-ui-printer/table?renderVersion=v2",
+        "options": "{\"customerHeaders\":{\"X-Language-Country\":\"en-de\"}}"
+      },
+      "locales": {
+        "de/en": { "id": "test6" },
+        "gb/en": {
+          "id": "test6",
+          "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"en-gb\"}}" }
+        },
+        "de/de": {
+          "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"de-de\"}}" }
+        },
+        "at/de": {
+          "attributes": { "options": "{\"customerHeaders\":{\"X-Language-Country\":\"de-at\"}}" }
+        }
+      }
+    },
+    "airport-services": {
+      "tag": "airport-services",
+      "script": "/digitalhangar/redemption-program/airport-services/airport-services-1.0.22.js",
+      "module": true,
+      "loggedOut": "lufthansa-host",
+      "attributes": { "data-public-endpoint": "" },
+      "locales": {
+        "de/de": { "script": "/digitalhangar/redemption-program/airport-services/airport-services-1.1.1.js" },
+        "at/de": { "script": "/digitalhangar/redemption-program/airport-services/airport-services-1.1.1.js" }
+      }
+    },
+    "web-self-service": {
+      "tag": "web-self-service",
+      "script": "/digitalhangar/customer-cockpit/web-self-service/web-self-service-2.0.0.js",
+      "loggedOut": "public",
+      "attributes": { "data-public-endpoint": "" }
+    },
+    "sfad-frontend": {
+      "tag": "sfad-frontend",
+      "script": "/digitalhangar/loyalty-20status/sfad-frontend/sfad-frontend-latest.js",
+      "loggedOut": "public"
+    }
+  }
+}

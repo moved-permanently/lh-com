@@ -1,0 +1,42 @@
+/* the apps size themselves; an app that renders nothing takes no space (live: 0px tall) */
+.lh-app-wrapper:has(> .lh-app-empty) {
+  display: none;
+}
+
+main > .section > .lh-app-wrapper,
+main > .section > .lh-app-wrapper + div {
+  margin-top: 0;
+}
+
+/* pages that end with an app: the footer follows 10px below it, as on live */
+main > .section.lh-app-container:last-child {
+  margin-bottom: 0;
+}
+
+/* gate (dcep-forced-login, logged out): 18px/27px text, 10px under each paragraph, then
+   maui-button-link size small (30px, 14px bold label, 30px side padding) */
+.lh-app .lh-app-gate p,
+.lh-app .lh-app-loader {
+  margin: 0 0 10px;
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+}
+
+.lh-app .lh-app-gate a.button.small {
+  width: auto;
+  min-width: 0;
+  min-height: 30px;
+  padding: 4px 30px;
+  font-size: var(--body-font-size-xs);
+  line-height: 18px;
+}
+
+/* hero-banner-react sizes its spacing in rem for live's 10px root font size (3.2rem = 32px) */
+.lh-app hero-banner-react .hero-banner {
+  margin-bottom: 24px;
+  padding-bottom: 32px;
+}
+
+.lh-app hero-banner-react .hero-banner-left {
+  margin-bottom: 32px;
+}
