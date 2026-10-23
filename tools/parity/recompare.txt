@@ -317,3 +317,7 @@ de/en/unterhaltung-an-bord
 de/de/unterhaltung-an-bord
 at/de/unterhaltung-an-bord
 gb/en/unterhaltung-an-bord
+de/en/lounges
+de/de/lounges
+at/de/lounges
+gb/en/lounges
