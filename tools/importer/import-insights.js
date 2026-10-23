@@ -172,6 +172,34 @@ const PAGE_TEMPLATE = {
       "defaultContent": [
         ".relatedarticles .related-articles-headline"
       ]
+    },
+    {
+      "id": "section-8",
+      "name": "Author intro (h1 and bio, .author-content)",
+      "selector": [
+        ".author-details-page .author-content"
+      ],
+      "style": "author",
+      "blocks": [],
+      "defaultContent": [
+        ".author-details-page .author-content"
+      ]
+    },
+    {
+      "id": "section-9",
+      "name": "Author articles and author slider",
+      "selector": [
+        ".author-details-page > div:has(> .separator)",
+        ".author-details-page > div:has(> .blogoverview)"
+      ],
+      "style": null,
+      "blocks": [
+        "columns-media",
+        "carousel-cards"
+      ],
+      "defaultContent": [
+        ".author-details-page > div > .headline"
+      ]
     }
   ]
 };

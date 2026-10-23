@@ -40,7 +40,8 @@ const FOLLOWING = 4; // Node.DOCUMENT_POSITION_FOLLOWING
 /** Source backgrounds that become a section style: [selector, style]. */
 const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];
 const STYLE_SKIP = '.sticky-price-wrapper, .dcep-sticky-price';
-const REGION_STOP = '.section-content, .container-content, .column-view-item, [class*="col-"], .contentpage, main, body';
+// .author-details-page: only the author banner (.author-feature-image) is full-bleed, not the page
+const REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, main, body';
 const MEDIA = 'img, picture, video, iframe, svg, table, input, select, textarea, button';
 
 /** First section break after `marker` in document order (inserted <hr>, else any <hr> outside a block table). */

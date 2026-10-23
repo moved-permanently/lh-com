@@ -898,6 +898,33 @@ main > .section.full-bleed > div {
   padding: 0;
 }
 
+/* author: Insights author page intro (.author-details-page .author-content { padding: 6rem 0 },
+   from 768px margin- and padding-inline 4.1667%, so the h1 starts 8.333% into the column and
+   the bio (.richtext 10%/80% of that) 16.667%); 60px from the banner and to the divider below,
+   here 12px + the 48px section gaps */
+main > .section.author {
+  padding: 12px 0;
+}
+
+/* .author-headline: LufthansaHead bold 2.2-2.8rem, from 768px 2.8-3.6rem, line-height 110%;
+   .author-title { margin-bottom: 4rem } */
+main > .section.author > .default-content-wrapper > h1 {
+  margin: 0 0 40px;
+  font-size: var(--heading-font-size-l);
+  line-height: 1.1;
+}
+
+@media (width >= 768px) {
+  main > .section.author > .default-content-wrapper > h1 {
+    margin-inline: 8.333%;
+    font-size: var(--heading-font-size-xl);
+  }
+
+  main > .section.author > .default-content-wrapper > p {
+    margin-inline: 16.667%;
+  }
+}
+
 /* link-tiles: AirCore .jumpmarks */
 main > .section.link-tiles .default-content-wrapper > p {
   display: grid;
