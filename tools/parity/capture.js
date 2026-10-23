@@ -25,7 +25,7 @@
  *   partner content in the capture only).
  * After scrolling it waits for blocks,
  * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the
- * document-coordinate boxes of live-data widgets
+ * document-coordinate boxes of live-data widgets and of video stages
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out.
  */
 const started = Date.now();
@@ -39,7 +39,7 @@ const {
 
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
-/** Widgets whose content is live (or recorded) data; masked before diffing. */
+/** Widgets whose content is live (or recorded) data or a video frame; masked before diffing. */
 const LIVE_SELECTORS = [
   '.flight-search',
   '.fare-teaser',
@@ -49,6 +49,10 @@ const LIVE_SELECTORS = [
   '.flight-status',
   '.table-deals .table-deals-price',
   '[data-lh-source]',
+  // a stage with a playing background video: both sides play the same mp4, but each capture
+  // catches another frame (c-diagnosis C2-1); replica blocks/hero-campaign, live .dcep-moving-image
+  '.hero-campaign:has(> .hero-campaign-media > video)',
+  '.cms-inspiration-teaser:has(video)',
 ];
 /** What scripts/consent.js stores after "reject all" in the fallback banner. */
 const CONSENT_KEY = 'lh-consent';
