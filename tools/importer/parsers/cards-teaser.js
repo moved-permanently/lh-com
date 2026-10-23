@@ -122,7 +122,9 @@ export default function parse(element, { document }) {
   // --- column title (default content before the block)
   const view = element.querySelector(':scope > .column-view') || element;
   const titles = [];
-  [...view.children].filter((d) => !d.classList.contains('row')).forEach((d) => {
+  // a column view with carousel behaviour (.carousel: desktop grid + swiper copy, hub
+  // /meetings-and-events steps) holds the cards, not a title
+  [...view.children].filter((d) => !d.classList.contains('row') && !d.classList.contains('carousel')).forEach((d) => {
     d.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
       const t = visibleText(h);
       if (!t) return;

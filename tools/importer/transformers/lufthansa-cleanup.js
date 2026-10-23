@@ -10,7 +10,8 @@
  *    footer (incl. the AirCore payment/follow-us band; it becomes a shared fragment), skip
  *    links, breadcrumbs (kept as metadata), sticky header placeholder, a11y live regions, OneTrust, Tealium/utag,
  *    Monetate, Quantum Metric, tracking pixels, tracking iframes, script/noscript/style/link,
- *    location/language and login modals, AirCore loaders and the empty AirCore info banner
+ *    location/language and login modals, the open chat assistant window (.webchat-root), AirCore
+ *    loaders and the empty AirCore info banner
  *  - converts the rendered feedback questionnaire ("Was this information helpful?") into a
  *    Feedback block
  *  - removes screen-reader-only elements (sr-only headings, "opens in a new tab" spans) and the
@@ -80,6 +81,9 @@ const CHROME_SELECTORS = [
   'footer .footer-brand-links',
   '.above-footer-container',
   '.secondary-footer-container',
+  // the Cognigy chat assistant window, open in some snapshots (body > div > div > .webchat-root
+  // #webchatWindow: "Lufthansa Chat Assistant / Hi, I'm Elisa", /de/en/overview-travel-information)
+  '.webchat-root',
   // skip links, a11y live regions, AEM placeholders (breadcrumbs: convertBreadcrumbs)
   '.skiplinks',
   '.skip-links',

@@ -1,6 +1,6 @@
 # profile-nav
 
-Sub-navigation of the profile pages (Overview, Bookings, Profile, Miles & More): live `maui-sub-navigation` between header and content on `/{cc}/{ll}/profile/travel-cockpit`, `bookinglist`, `my-account` and `account-statement`.
+Sub-navigation of the profile pages (Overview, Bookings, Profile, Miles & More): live `maui-sub-navigation` between header and content on `/{cc}/{ll}/profile/travel-cockpit`, `bookinglist`, `my-account` and `account-statement`. Also the travel classes sub-navigation (Lufthansa Reiseklassen | First Class | Business Class | Premium Economy Class | Economy Class) on the hub pages `/{cc}/{ll}/lufthansa-reiseklassen` and `lufthansa-travel-classes`: the importer writes it from `.subnav-wrapper maui-sub-navigation` with the tab hrefs mapped from AEM paths to the public pages (`/de/de/prepare-for-your-trip/travel-classes/first-class` -> `/de/de/first-class`).
 
 ## Authoring (Document Authoring)
 
