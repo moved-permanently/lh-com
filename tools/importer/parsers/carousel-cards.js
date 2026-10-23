@@ -23,7 +23,7 @@ import { viewerNodes } from './media-nodes.js';
  * Heading level as in the source (h3-h6; h1/h2 card titles become h3). The column title is
  * emitted as default content before the table; a swiper copy below lg is skipped when the
  * desktop grid is present. Options: column views "grid" (cards in rows, stacked on mobile;
- * ".fourcolumn" adds "four-up"); a ".swiper-multi-slide" carousel "four-up" (4 per view);
+ * ".fourcolumn" adds "four-up", ".twocolumn" "two-up"); a ".swiper-multi-slide" carousel "four-up" (4 per view);
  * inside an insights article (.article-details-page) "article" (cards in the article column).
  *
  * Video viewers in a multi-slide swiper (".carousel" > .swiper-multi-slide > .videoViewer,
@@ -203,7 +203,9 @@ export default function parse(element, { document }) {
     let variants = [];
     if (isArticle) variants = ['article'];
     else if (element.querySelector('.swiper-multi-slide')) variants = ['four-up'];
-    else if (!element.matches('.carousel')) variants = element.matches('.fourcolumn') ? ['grid', 'four-up'] : ['grid'];
+    else if (element.matches('.fourcolumn')) variants = ['grid', 'four-up'];
+    else if (element.matches('.twocolumn')) variants = ['grid', 'two-up'];
+    else if (!element.matches('.carousel')) variants = ['grid'];
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;
