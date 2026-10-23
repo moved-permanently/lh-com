@@ -50,6 +50,8 @@ Recorded already (data/recorded/index.json): labels/loungefinder/lh/{de,en} and 
 
 That is 6 statuses × (FRA + MUC for de/de and de/en, VIE for at/de, LON for gb/en) = 36 requests. Economy (ECO) needs no catalogs URL of its own: it uses …/BUS/{city} (above) plus the Yilu product answer, which the recorder (record-live-data.mjs, lufthansa.com routes only) cannot store. Each answer is `{"lounges":[...]}`; check the shape against `mapLounges` (scripts/lh-api.js) once recorded: the fields were taken from the live selectors, no real answer has been seen yet. An empty city (`{"lounges":[]}`) is a valid answer worth recording too (the no-lounge message).
 
+Recorder: `node tools/importer/bd-record-api.mjs --set lounges` (one warm Bright Data session, the 36 URLs as page navigations with the market's X-Portal-* headers, output tools/source-export/api/bd-record-api/{cc}-{ll}.ndjson, then `node tools/importer/record-live-data.mjs`). Not recorded yet: on 2026-10-23 the Bright Data Browser API refused `setExtraHTTPHeaders` for the X-Portal-* headers ("headers forbidden"), so the run stopped before the first API URL. The results still come only from a direct live call (CORS permitting) or show the no-lounge message.
+
 ## Universal Editor fields
 
 N/A (Document Authoring project)
