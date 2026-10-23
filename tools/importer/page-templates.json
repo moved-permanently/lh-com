@@ -1111,6 +1111,12 @@
           ]
         },
         {
+          "name": "carousel-images",
+          "instances": [
+            ".carousel:has(.swiper-single-slide)"
+          ]
+        },
+        {
           "name": "accordion-columns",
           "instances": [
             ".accordion"

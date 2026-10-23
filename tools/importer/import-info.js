@@ -8,6 +8,7 @@ import formCoreParser from './parsers/form-core.js';
 import carRentalParser from './parsers/car-rental.js';
 import flightSearchParser from './parsers/flight-search.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
+import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import tableStripedParser from './parsers/table-striped.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
@@ -59,6 +60,12 @@ const PAGE_TEMPLATE = {
       "name": "hero-campaign",
       "instances": [
         ".inspirationteaser"
+      ]
+    },
+    {
+      "name": "carousel-images",
+      "instances": [
+        ".carousel:has(.swiper-single-slide)"
       ]
     },
     {
@@ -157,6 +164,7 @@ const parsers = {
   'car-rental': carRentalParser,
   'flight-search': flightSearchParser,
   'hero-campaign': heroCampaignParser,
+  'carousel-images': carouselImagesParser,
   'accordion-columns': accordionColumnsParser,
   'table-striped': tableStripedParser,
   'carousel-cards': carouselCardsParser,
