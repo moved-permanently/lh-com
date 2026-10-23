@@ -210,6 +210,45 @@ const summary = Object.fromEntries(locales.map((loc) => {
 const allWidths = pages.flatMap((p) => p.widths);
 const pageWidths = { total: allWidths.length, compared: allWidths.filter((w) => w.state === 'done').length };
 
+// ---- template groups and worst page-widths (compared widths only) ----
+const median = (xs) => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+const comparedRows = pages.flatMap((p) => p.widths.filter((w) => w.state === 'done')
+  .map((w) => ({ page: p, w })));
+const groupMap = {};
+comparedRows.forEach(({ page, w }) => {
+  const key = `${page.template}@${w.width}`;
+  (groupMap[key] ||= { template: page.template, width: w.width, ratios: [] }).ratios.push(w.unmaskedRatio || 0);
+});
+const templateGroups = Object.values(groupMap).map((g) => ({
+  template: g.template,
+  width: g.width,
+  pageWidths: g.ratios.length,
+  meanUnmasked: g.ratios.reduce((a, b) => a + b, 0) / g.ratios.length,
+  medianUnmasked: median(g.ratios),
+  maxUnmasked: Math.max(...g.ratios),
+})).sort((a, b) => b.meanUnmasked - a.meanUnmasked);
+const WORST_N = 20;
+const worstPageWidths = [...comparedRows]
+  .sort((a, b) => (b.w.unmaskedRatio || 0) - (a.w.unmaskedRatio || 0))
+  .slice(0, WORST_N)
+  .map(({ page, w }) => ({
+    path: page.path,
+    template: page.template,
+    width: w.width,
+    unmaskedRatio: w.unmaskedRatio,
+    mismatchRatio: w.mismatchRatio,
+    firstDivergentY: w.firstDivergentY,
+    worstBands: w.worstBands,
+    heightSrc: w.heightSrc,
+    heightEds: w.heightEds,
+    heightDiffRatio: w.heightDiffRatio,
+    diff: w.diff,
+  }));
+
 const recordedAt = Object.values(recorded).map((e) => e.recordedAt).filter(Boolean).sort();
 const liveData = {
   recordings: Object.keys(recorded).length,
@@ -226,6 +265,8 @@ const report = {
   },
   summary,
   pageWidths,
+  templateGroups,
+  worstPageWidths,
   pages,
   siteWideFixes: fixes.filter((f) => fixKind(f) === 'site').map(fixLine),
   impossible: impossible || null,
@@ -252,6 +293,17 @@ locales.forEach((loc) => md.push(`| ${loc} | ${summary[loc].pages} | ${statuses.
 md.push('');
 md.push(`Status: **pass** = unmasked mismatch <= ${pct(PASS_MAX)} at every width, no horizontal overflow, no failed images; **review** = worst width <= ${pct(REVIEW_MAX)}; **fail** = worse; **pending** = not every width compared yet (the provisional status of the compared widths is given in brackets); **error** = a capture or compare gave up after a retry.`, '');
 md.push('Unmasked mismatch: share of differing pixels outside the live-data widgets, which are painted the same grey in both screenshots (selectors under "Live data"). "Diverges" is the first 200 px band where more than 30% of the pixels differ, i.e. where the layout stops lining up.', '');
+
+md.push('## Template groups', '');
+md.push('Unmasked mismatch per template and width over the compared page-widths, worst mean first.', '');
+md.push('| Template | Width | Page-widths | Mean | Median | Max |', '|---|---:|---:|---:|---:|---:|');
+templateGroups.forEach((g) => md.push(`| ${g.template} | ${g.width} | ${g.pageWidths} | ${pct(g.meanUnmasked)} | ${pct(g.medianUnmasked)} | ${pct(g.maxUnmasked)} |`));
+md.push('');
+
+md.push(`## ${WORST_N} worst page-widths`, '');
+md.push('| Page | Template | Width | Unmasked | Diverges at | Worst bands (y: share) | Height live / replica |', '|---|---|---:|---:|---|---|---|');
+worstPageWidths.forEach((x) => md.push(`| ${esc(x.path)} | ${x.template} | ${x.width} | ${pct(x.unmaskedRatio)} | ${x.firstDivergentY === null ? '–' : `y≈${x.firstDivergentY}`} | ${(x.worstBands || []).map((b) => `${b.y}: ${pct(b.unmaskedRatio)}`).join(', ')} | ${x.heightSrc} / ${x.heightEds} |`));
+md.push('');
 
 md.push('## Pages', '');
 md.push(`| Page | Template | Status | ${WIDTHS.join(' | ')} | Diverges at | Overflow | Failed images |`, `|---|---|---|${WIDTHS.map(() => '---:').join('|')}|---|---|---|`);
@@ -297,9 +349,11 @@ md.push('## Genuinely impossible gaps', '');
 md.push(impossible ? impossible.replace(/^#\s.*\n+/, '') : 'None recorded yet (tools/parity/impossible.md).', '');
 
 md.push('## Live data on the replica', '');
-md.push(`The replica's widgets (flight search, fare teasers, destination finder, price bar, weather, flight status, deal prices) show data recorded at import time, ${liveData.recordedFrom ? `${liveData.recordedFrom.slice(0, 10)} to ${liveData.recordedTo.slice(0, 10)}` : '2026-10-21/22'} (${liveData.recordings} recorded responses, data/recorded/), wherever the live call is not possible.`);
-md.push('- Direct live calls (airport suggestions, labels, catalogs, default airport) go from the visitor\'s browser to www.lufthansa.com. They only work as long as Lufthansa keeps those routes open for cross-origin requests (CORS) and the visitor passes Lufthansa\'s bot protection; otherwise the recording is shown.');
+md.push(`The replica's widgets (flight search, fare teasers, destination finder, price bar, weather, flight status, deal prices) show data recorded as of the import date, ${liveData.recordedFrom ? `${liveData.recordedFrom.slice(0, 10)} to ${liveData.recordedTo.slice(0, 10)}` : '2026-10-21/22'} (${liveData.recordings} recorded responses, data/recorded/), wherever the live call is not possible.`);
+md.push('- Direct live calls (airport suggestions, labels, catalogs, defaultAirport, core/feature/list, destination finder) go from the visitor\'s browser to www.lufthansa.com. They only work as long as Lufthansa keeps those routes open for cross-origin requests (CORS) and the visitor passes Lufthansa\'s bot protection; otherwise the recording is shown.');
 md.push('- Fare teasers and weather always come from the recordings: lh-proxy is blocked upstream, and the live routes refuse foreign origins.');
+md.push('- Shop handoff: "Find flights" posts to shop.lufthansa.com/booking/availability; the lang/portalCountry values were captured from a real de/en search, those for de/de, at/de and gb/en (de-DE, de-AT, en-GB) are unverified.');
+md.push('- App view (?channel=app) drops header, footer, breadcrumb and consent banner on the assumption that the app\'s web view handles navigation and consent; not verifiable without the app and not part of this comparison.');
 md.push(`- These widgets are masked in the comparison (${liveData.maskedSelectors.map((s) => `\`${s}\``).join(', ')}), because live prices, dates and weather change by the minute; their frame and position still count wherever they shift the surrounding layout.`);
 md.push('');
 

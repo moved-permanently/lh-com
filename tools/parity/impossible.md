@@ -5,11 +5,12 @@ Differences between www.lufthansa.com and the replica (https://main--lh-com--mov
 ## Live data that changes by date (masked)
 
 - Prices, fares and deals (fare teasers, price bar, deal tables, AirCore route/destination prices incl. last-minute deals), airport suggestions, default departure airport, flight status and weather differ by the day and hour they are shown. The replica shows what was recorded at import time (2026-10-21/22) wherever the live call is not possible, so the values in the live screenshot and the replica differ even when the widget is identical. The widgets (`.flight-search`, `.fare-teaser`, `.destination-finder`, `.price-bar`, `.weather`, `.flight-status`, `.table-deals .table-deals-price`, `[data-lh-source]`) are painted the same grey in both screenshots before diffing; their frame and position still count where they shift the layout.
+- Which data is live at all depends on Lufthansa: the direct calls from the visitor's browser (airport suggestions, labels, catalogs, defaultAirport, core/feature/list, destination finder) only work while Lufthansa keeps CORS open for them and the visitor passes their bot protection; otherwise the recording is shown. Fare teasers and weather always come from the recordings, because lh-proxy is blocked upstream.
 
 ## Flows that hand off to the live site
 
-- Shop / booking flow: "Find flights" and fare teasers post to shop.lufthansa.com (booking availability); the booking pages themselves are not part of the replica.
-- Login, Travel ID / My account: the login layer and account pages are Lufthansa's identity service (once.lufthansa.com); the replica links there.
+- Shop / booking flow: "Find flights" and fare teasers post to shop.lufthansa.com (booking availability); the booking pages themselves are not part of the replica. The handoff's lang/portalCountry was taken from a real de/en search; the values used for de/de, at/de and gb/en are unverified.
+- Login, Travel ID / My account: the login layer and account pages are Lufthansa's identity service (once.lufthansa.com); the replica links there. The /{country}/{lang}/login and /profile/* app shells are built outside this migration and are excluded from the parity jobs.
 - Online check-in, pre-check-in and My Flights / Manage my bookings: the booking lookup and check-in forms submit to the live check-in and booking-management applications; only the entry pages are replicated.
 - Flight status and timetable results beyond the recorded data link to the live flight-status application.
 
