@@ -154,7 +154,7 @@
   padding-right: 3px;
 }
 
-.cards-icon-text.partner .cards-icon-text-title {
+.cards-icon-text.partner .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
   color: var(--lh-deepblue);
   font-size: calc(20px + 4 * (100vw - 375px) / 1065);
   line-height: 110%;
@@ -178,7 +178,7 @@
 }
 
 @media (width >= 1281px) {
-  .cards-icon-text.partner .cards-icon-text-title {
+  .cards-icon-text.partner .cards-icon-text-card .cards-icon-text-body > .cards-icon-text-title {
     font-size: 24px;
   }
 }
