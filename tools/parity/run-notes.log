@@ -124,3 +124,5 @@
 2026-10-23T05:04:45Z done 1229/2681 (failed 0, pending 1452) | call 180 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/de/book-and-manage/pax-receipt@1440 53.85% (diverges y=800)
 2026-10-23T05:08:53Z done 1241/2681 (failed 0, pending 1440) | call 202 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/de/business-class@1440 56.97% (diverges y=400)
 2026-10-23T05:12:59Z done 1253/2681 (failed 0, pending 1428) | call 191 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/de/cash-and-miles@1440 48.83% (diverges y=400)
+2026-10-23T05:17:54Z done 1265/2681 (failed 0, pending 1416) | call 193 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/de/dangerous-dogs@390 38.41% (diverges y=3000)
+2026-10-23T05:22:53Z done 1277/2681 (failed 0, pending 1404) | call 192 s, 12 captures (12 ok, 0 failed), 12 compares | failures: none | worst: de/de/digital-travel-companion@390 32.56% (diverges y=1000)

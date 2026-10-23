@@ -134815,18 +134815,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/online-check-in-mit-der-ganzen-familie",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14812,
+          "at": "2026-10-23T05:15:03.607Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2434,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6734
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/online-check-in-mit-der-ganzen-familie/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.25355,
+        "unmaskedRatio": 0.25355,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2540,
+        "heightB": 2434,
+        "heightDiffRatio": 0.04173,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.56594
+        },
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.56594
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.44467
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.40438
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02769,
+          0.069,
+          0.20144,
+          0.25553,
+          0.10127,
+          0.23839,
+          0.56594,
+          0.33805,
+          0.30119,
+          0.3304,
+          0.07551,
+          0.40438,
+          0.44467
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/1440-diff.png",
+        "at": "2026-10-23T05:15:05.534Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/online-check-in-mit-der-ganzen-familie@768": {
       "id": "de/de/online-check-in-mit-der-ganzen-familie",
@@ -134836,18 +134927,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/online-check-in-mit-der-ganzen-familie",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13164,
+          "at": "2026-10-23T05:15:18.835Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2413,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6861
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/online-check-in-mit-der-ganzen-familie/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.25042,
+        "unmaskedRatio": 0.25042,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2533,
+        "heightB": 2413,
+        "heightDiffRatio": 0.04737,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.3306
+        },
+        "worstBands": [
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.68491
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.50216
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.3306
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0335,
+          0.11665,
+          0.3306,
+          0.15906,
+          0.23552,
+          0.68491,
+          0.19906,
+          0.19444,
+          0.50216,
+          0.12147,
+          0.0748,
+          0.30998,
+          0.31496
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/768-diff.png",
+        "at": "2026-10-23T05:15:20.093Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/online-check-in-mit-der-ganzen-familie@390": {
       "id": "de/de/online-check-in-mit-der-ganzen-familie",
@@ -134857,18 +135039,113 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/online-check-in-mit-der-ganzen-familie",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13417,
+          "at": "2026-10-23T05:15:33.643Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3232,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6632
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/online-check-in-mit-der-ganzen-familie/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.3383,
+        "unmaskedRatio": 0.3383,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 3394,
+        "heightB": 3232,
+        "heightDiffRatio": 0.04773,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.40572
+        },
+        "worstBands": [
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.88041
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.78327
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.69897
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08452,
+          0.21373,
+          0.27119,
+          0.16027,
+          0.25777,
+          0.40572,
+          0.59087,
+          0.18797,
+          0.23531,
+          0.78327,
+          0.30985,
+          0.27593,
+          0.69897,
+          0.119,
+          0.10125,
+          0.88041,
+          0.16992
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/390-diff.png",
+        "at": "2026-10-23T05:15:34.678Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/online-check-in-mit-der-ganzen-familie/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/sicherheit-fuer-kleinkinder-an-bord@1440": {
       "id": "de/de/sicherheit-fuer-kleinkinder-an-bord",
@@ -134878,18 +135155,111 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/sicherheit-fuer-kleinkinder-an-bord",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14161,
+          "at": "2026-10-23T05:15:48.976Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2881,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6532
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/sicherheit-fuer-kleinkinder-an-bord/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.21516,
+        "unmaskedRatio": 0.21516,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2946,
+        "heightB": 2881,
+        "heightDiffRatio": 0.02206,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.59048
+        },
+        "worstBands": [
+          {
+            "y": 600,
+            "unmaskedRatio": 0.63573
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.59048
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.45946
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02565,
+          0.16865,
+          0.59048,
+          0.63573,
+          0.14236,
+          0.08005,
+          0.11928,
+          0.15651,
+          0.09505,
+          0.12633,
+          0.09103,
+          0.32202,
+          0.07644,
+          0.20428,
+          0.45946
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/1440-diff.png",
+        "at": "2026-10-23T05:15:50.954Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/sicherheit-fuer-kleinkinder-an-bord@768": {
       "id": "de/de/sicherheit-fuer-kleinkinder-an-bord",
@@ -134899,18 +135269,116 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/sicherheit-fuer-kleinkinder-an-bord",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/768-eds.png",
           "contentWidth": 768,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13545,
+          "at": "2026-10-23T05:16:04.633Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3309,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 768,
+            "contentWidth": 768,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6640
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/sicherheit-fuer-kleinkinder-an-bord/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.36612,
+        "unmaskedRatio": 0.36612,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 768,
+        "widthB": 768,
+        "heightA": 3805,
+        "heightB": 3309,
+        "heightDiffRatio": 0.13035,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.63201
+        },
+        "worstBands": [
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.97628
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.92695
+          },
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.90558
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04113,
+          0.15404,
+          0.63201,
+          0.27237,
+          0.16488,
+          0.11482,
+          0.12961,
+          0.14714,
+          0.16233,
+          0.15154,
+          0.16352,
+          0.07482,
+          0.35208,
+          0.90558,
+          0.92695,
+          0.22529,
+          0.83046,
+          0.97628,
+          0.54069,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/768-diff.png",
+        "at": "2026-10-23T05:16:06.337Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/sicherheit-fuer-kleinkinder-an-bord@390": {
       "id": "de/de/sicherheit-fuer-kleinkinder-an-bord",
@@ -134920,18 +135388,123 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/sicherheit-fuer-kleinkinder-an-bord",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/390-eds.png",
           "contentWidth": 390,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13516,
+          "at": "2026-10-23T05:16:20.015Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4886,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 390,
+            "contentWidth": 390,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 82,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6148
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/sicherheit-fuer-kleinkinder-an-bord/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.28942,
+        "unmaskedRatio": 0.28942,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 390,
+        "widthB": 390,
+        "heightA": 5314,
+        "heightB": 4886,
+        "heightDiffRatio": 0.08054,
+        "firstDivergentBand": {
+          "index": 20,
+          "y": 4000,
+          "unmaskedRatio": 0.6154
+        },
+        "worstBands": [
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.93647
+          },
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.92367
+          },
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.71512
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.10879,
+          0.17658,
+          0.27541,
+          0.2631,
+          0.19979,
+          0.21518,
+          0.1594,
+          0.17826,
+          0.13179,
+          0.20205,
+          0.175,
+          0.17831,
+          0.19467,
+          0.16064,
+          0.16994,
+          0.11759,
+          0.2019,
+          0.21737,
+          0.15867,
+          0.16797,
+          0.6154,
+          0.92367,
+          0.36656,
+          0.46678,
+          0.93647,
+          0.71512,
+          0.02368
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/390-diff.png",
+        "at": "2026-10-23T05:16:21.322Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/sicherheit-fuer-kleinkinder-an-bord/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/dangerous-dogs@1440": {
       "id": "de/de/dangerous-dogs",
@@ -134941,18 +135514,110 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/dangerous-dogs",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13492,
+          "at": "2026-10-23T05:16:34.955Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2536,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6902
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/dangerous-dogs/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.14693,
+        "unmaskedRatio": 0.14693,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2621,
+        "heightB": 2536,
+        "heightDiffRatio": 0.03243,
+        "firstDivergentBand": {
+          "index": 9,
+          "y": 1800,
+          "unmaskedRatio": 0.42472
+        },
+        "worstBands": [
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.60958
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.42472
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.12532
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02215,
+          0.07411,
+          0.0938,
+          0.12532,
+          0.10071,
+          0.09487,
+          0.09211,
+          0.08843,
+          0.06605,
+          0.42472,
+          0.09113,
+          0.04248,
+          0.60958,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/1440-diff.png",
+        "at": "2026-10-23T05:16:36.735Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/dangerous-dogs@768": {
       "id": "de/de/dangerous-dogs",
@@ -134962,18 +135627,112 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/dangerous-dogs",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13515,
+          "at": "2026-10-23T05:16:50.386Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2986,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6643
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/dangerous-dogs/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.17241,
+        "unmaskedRatio": 0.17241,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 3111,
+        "heightB": 2986,
+        "heightDiffRatio": 0.04018,
+        "firstDivergentBand": {
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.53531
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.53531
+          },
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.47623
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.1844
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03079,
+          0.14492,
+          0.12106,
+          0.1626,
+          0.1699,
+          0.12886,
+          0.1294,
+          0.10712,
+          0.1379,
+          0.14801,
+          0.09149,
+          0.53531,
+          0.12983,
+          0.06605,
+          0.47623,
+          0.1844
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/768-diff.png",
+        "at": "2026-10-23T05:16:52.128Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/dangerous-dogs@390": {
       "id": "de/de/dangerous-dogs",
@@ -134983,18 +135742,119 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/dangerous-dogs",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13346,
+          "at": "2026-10-23T05:17:05.871Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4002,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6384
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/dangerous-dogs/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.38405,
+        "unmaskedRatio": 0.38405,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 4574,
+        "heightB": 4002,
+        "heightDiffRatio": 0.12505,
+        "firstDivergentBand": {
+          "index": 15,
+          "y": 3000,
+          "unmaskedRatio": 0.61745
+        },
+        "worstBands": [
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.99035
+          },
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.97935
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.94679
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07988,
+          0.1814,
+          0.09653,
+          0.18521,
+          0.16676,
+          0.20556,
+          0.18349,
+          0.18628,
+          0.15789,
+          0.17231,
+          0.14463,
+          0.18145,
+          0.19377,
+          0.16475,
+          0.17416,
+          0.61745,
+          0.90041,
+          0.93735,
+          0.87228,
+          0.94679,
+          0.97935,
+          0.99035,
+          0.07485
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/390-diff.png",
+        "at": "2026-10-23T05:17:07.136Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/dangerous-dogs/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digitale-gepaeckservices@1440": {
       "id": "de/de/digitale-gepaeckservices",
@@ -135004,18 +135864,117 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digitale-gepaeckservices",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13790,
+          "at": "2026-10-23T05:17:21.088Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4155,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6312
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digitale-gepaeckservices/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.32206,
+        "unmaskedRatio": 0.32206,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3715,
+        "heightB": 4155,
+        "heightDiffRatio": 0.1059,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.49314
+        },
+        "worstBands": [
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.98392
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.98254
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.79582
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01749,
+          0.17752,
+          0.49314,
+          0.19681,
+          0.13605,
+          0.06771,
+          0.05628,
+          0.07428,
+          0.09156,
+          0.0399,
+          0.0628,
+          0.0386,
+          0.24482,
+          0.32291,
+          0.42451,
+          0.79582,
+          0.98392,
+          0.48465,
+          0.77262,
+          0.98254,
+          0.29269
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/1440-diff.png",
+        "at": "2026-10-23T05:17:23.726Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digitale-gepaeckservices@768": {
       "id": "de/de/digitale-gepaeckservices",
@@ -135025,18 +135984,116 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digitale-gepaeckservices",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14195,
+          "at": "2026-10-23T05:17:38.099Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3987,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6401
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digitale-gepaeckservices/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.16696,
+        "unmaskedRatio": 0.16696,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 3955,
+        "heightB": 3987,
+        "heightDiffRatio": 0.00803,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.33588
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.41448
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.35161
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.33588
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02571,
+          0.28367,
+          0.33588,
+          0.14008,
+          0.14785,
+          0.12214,
+          0.09163,
+          0.15212,
+          0.05807,
+          0.09977,
+          0.08659,
+          0.07236,
+          0.29487,
+          0.41448,
+          0.14059,
+          0.35161,
+          0.15812,
+          0.09935,
+          0.05261,
+          0.21486
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/768-diff.png",
+        "at": "2026-10-23T05:17:39.641Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digitale-gepaeckservices@390": {
       "id": "de/de/digitale-gepaeckservices",
@@ -135046,18 +136103,122 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digitale-gepaeckservices",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13239,
+          "at": "2026-10-23T05:17:53.030Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4649,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6111
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digitale-gepaeckservices/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.30048,
+        "unmaskedRatio": 0.30048,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5019,
+        "heightB": 4649,
+        "heightDiffRatio": 0.07372,
+        "firstDivergentBand": {
+          "index": 16,
+          "y": 3200,
+          "unmaskedRatio": 0.37011
+        },
+        "worstBands": [
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.98132
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.9564
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.93299
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07481,
+          0.14433,
+          0.14536,
+          0.14476,
+          0.18523,
+          0.1826,
+          0.19731,
+          0.15056,
+          0.20371,
+          0.14073,
+          0.19095,
+          0.16391,
+          0.10997,
+          0.16599,
+          0.11351,
+          0.24596,
+          0.37011,
+          0.09651,
+          0.366,
+          0.93299,
+          0.79188,
+          0.20239,
+          0.9564,
+          0.98132,
+          0.28339,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/390-diff.png",
+        "at": "2026-10-23T05:17:54.394Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digitale-gepaeckservices/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digital-travel-companion@1440": {
       "id": "de/de/digital-travel-companion",
@@ -135067,18 +136228,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digital-travel-companion",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 15793,
+          "at": "2026-10-23T05:20:04.141Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 11483,
+            "truncated": true,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 4,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 4648
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digital-travel-companion/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.26509,
+        "unmaskedRatio": 0.26509,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4851,
+        "heightB": 8000,
+        "heightDiffRatio": 0.39363,
+        "firstDivergentBand": {
+          "index": 10,
+          "y": 2000,
+          "unmaskedRatio": 0.30279
+        },
+        "worstBands": [
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.95334
+          },
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.83449
+          },
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.81891
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01584,
+          0.05795,
+          0.13807,
+          0.10745,
+          0.06201,
+          0.21553,
+          0.21262,
+          0.21661,
+          0.17453,
+          0.28373,
+          0.30279,
+          0.27822,
+          0.1202,
+          0.41147,
+          0.37295,
+          0.18078,
+          0.34345,
+          0.49956,
+          0.42569,
+          0.58589,
+          0.30788,
+          0.81891,
+          0.95334,
+          0.83449,
+          0.11911,
+          0.08012,
+          0.16928,
+          0.12007,
+          0.0498,
+          0.10531,
+          0.05948,
+          0.26794,
+          0.20233,
+          0.2122,
+          0.25425,
+          0.08397,
+          0.21372,
+          0.33831,
+          0.16252,
+          0.2454
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/1440-diff.png",
+        "at": "2026-10-23T05:20:08.103Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digital-travel-companion@768": {
       "id": "de/de/digital-travel-companion",
@@ -135088,18 +136367,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digital-travel-companion",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13625,
+          "at": "2026-10-23T05:20:21.871Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 9087,
+            "truncated": true,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5202
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digital-travel-companion/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.24129,
+        "unmaskedRatio": 0.24129,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4972,
+        "heightB": 8000,
+        "heightDiffRatio": 0.3785,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.3138
+        },
+        "worstBands": [
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.93165
+          },
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.90584
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.8534
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02371,
+          0.13261,
+          0.16118,
+          0.1089,
+          0.3138,
+          0.38588,
+          0.43744,
+          0.37778,
+          0.2079,
+          0.19733,
+          0.20967,
+          0.07736,
+          0.07343,
+          0.25639,
+          0.19084,
+          0.18112,
+          0.25442,
+          0.35149,
+          0.90584,
+          0.8534,
+          0.93165,
+          0.32841,
+          0.13304,
+          0.08989,
+          0.10161,
+          0.13979,
+          0.21922,
+          0.276,
+          0.03948,
+          0.33899,
+          0.21129,
+          0.13493,
+          0.19265,
+          0.07974,
+          0.05406,
+          0.18317,
+          0.11315,
+          0.05231,
+          0.3146,
+          0.01705
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/768-diff.png",
+        "at": "2026-10-23T05:20:24.284Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/digital-travel-companion@390": {
       "id": "de/de/digital-travel-companion",
@@ -135109,18 +136506,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/digital-travel-companion",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13376,
+          "at": "2026-10-23T05:20:37.806Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 8923,
+            "truncated": true,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5355
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/digital-travel-companion/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.32557,
+        "unmaskedRatio": 0.32557,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 6301,
+        "heightB": 8000,
+        "heightDiffRatio": 0.21238,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.48529
+        },
+        "worstBands": [
+          {
+            "y": 5800,
+            "unmaskedRatio": 0.88749
+          },
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.87527
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.65441
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07944,
+          0.19044,
+          0.14728,
+          0.17617,
+          0.2088,
+          0.48529,
+          0.49535,
+          0.56984,
+          0.42925,
+          0.10999,
+          0.38243,
+          0.48313,
+          0.22109,
+          0.18647,
+          0.21361,
+          0.21916,
+          0.52159,
+          0.53077,
+          0.30427,
+          0.17923,
+          0.26103,
+          0.17908,
+          0.16473,
+          0.25427,
+          0.54911,
+          0.20105,
+          0.58451,
+          0.65243,
+          0.87527,
+          0.88749,
+          0.65441,
+          0.14167,
+          0.05623,
+          0.09508,
+          0.10513,
+          0.03245,
+          0.17651,
+          0.43856,
+          0.02639,
+          0.55365
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/390-diff.png",
+        "at": "2026-10-23T05:20:39.456Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/digital-travel-companion/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge@1440": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
@@ -135130,18 +136645,108 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13213,
+          "at": "2026-10-23T05:21:40.640Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2088,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6899
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.23771,
+        "unmaskedRatio": 0.23771,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2306,
+        "heightB": 2088,
+        "heightDiffRatio": 0.09454,
+        "firstDivergentBand": {
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.89417
+        },
+        "worstBands": [
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.98085
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.89417
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.26714
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01871,
+          0.08465,
+          0.05721,
+          0.05044,
+          0.02768,
+          0.04562,
+          0.04102,
+          0.89417,
+          0.18408,
+          0.21473,
+          0.98085,
+          0.26714
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/1440-diff.png",
+        "at": "2026-10-23T05:21:42.283Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge@768": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
@@ -135151,18 +136756,109 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13203,
+          "at": "2026-10-23T05:21:55.623Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2242,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6907
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.25945,
+        "unmaskedRatio": 0.25945,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2518,
+        "heightB": 2242,
+        "heightDiffRatio": 0.10961,
+        "firstDivergentBand": {
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.60906
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.97187
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.63957
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.60906
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02665,
+          0.11691,
+          0.12991,
+          0.074,
+          0.06665,
+          0.06913,
+          0.0772,
+          0.60906,
+          0.63957,
+          0.10333,
+          0.25054,
+          0.97187,
+          0.22316
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/768-diff.png",
+        "at": "2026-10-23T05:21:56.820Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge@390": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
@@ -135172,18 +136868,111 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/390-eds.png",
           "contentWidth": 390,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13022,
+          "at": "2026-10-23T05:22:09.985Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2833,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 390,
+            "contentWidth": 390,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 28,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6659
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.18671,
+        "unmaskedRatio": 0.18671,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 390,
+        "widthB": 390,
+        "heightA": 2986,
+        "heightB": 2833,
+        "heightDiffRatio": 0.05124,
+        "firstDivergentBand": {
+          "index": 10,
+          "y": 2000,
+          "unmaskedRatio": 0.52223
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.66419
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.52223
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.19621
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.10359,
+          0.19344,
+          0.15953,
+          0.19621,
+          0.1016,
+          0.08176,
+          0.05758,
+          0.09501,
+          0.05236,
+          0.16576,
+          0.52223,
+          0.15663,
+          0.12731,
+          0.66419,
+          0.11878
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/390-diff.png",
+        "at": "2026-10-23T05:22:10.925Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/faq-saf@1440": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/faq-saf",
@@ -135193,18 +136982,101 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/faq-saf",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13115,
+          "at": "2026-10-23T05:22:24.185Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1775,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 7128
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/faq-saf/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.10322,
+        "unmaskedRatio": 0.10322,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 1760,
+        "heightB": 1775,
+        "heightDiffRatio": 0.00845,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.19155
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.15886
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.12323
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02964,
+          0.09631,
+          0.12323,
+          0.15886,
+          0.10235,
+          0.11576,
+          0.08972,
+          0.03258,
+          0.19155
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/1440-diff.png",
+        "at": "2026-10-23T05:22:25.519Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/faq-saf@768": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/faq-saf",
@@ -135214,18 +137086,102 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/faq-saf",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13082,
+          "at": "2026-10-23T05:22:38.737Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1940,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6866
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/faq-saf/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.13767,
+        "unmaskedRatio": 0.13767,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 1940,
+        "heightB": 1940,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 200,
+            "unmaskedRatio": 0.20734
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.20087
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.18232
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02981,
+          0.20734,
+          0.15883,
+          0.20087,
+          0.18232,
+          0.16905,
+          0.11556,
+          0.09683,
+          0.05352,
+          0.17326
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/768-diff.png",
+        "at": "2026-10-23T05:22:39.768Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/faq-saf@390": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/faq-saf",
@@ -135235,18 +137191,110 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/faq-saf",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 12866,
+          "at": "2026-10-23T05:22:52.774Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2565,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6876
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/faq-saf/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.24126,
+        "unmaskedRatio": 0.24126,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 2608,
+        "heightB": 2565,
+        "heightDiffRatio": 0.01649,
+        "firstDivergentBand": {
+          "index": 8,
+          "y": 1600,
+          "unmaskedRatio": 0.5244
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.60017
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.5244
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.24791
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08165,
+          0.20232,
+          0.23732,
+          0.21773,
+          0.24791,
+          0.21917,
+          0.19949,
+          0.17512,
+          0.5244,
+          0.13348,
+          0.08565,
+          0.60017,
+          0.22156,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/390-diff.png",
+        "at": "2026-10-23T05:22:53.656Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/faq-saf/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/saf@1440": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/saf",
@@ -162411,18 +164459,120 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13612,
+          "at": "2026-10-23T05:20:53.211Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4693,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5995
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.10414,
+        "unmaskedRatio": 0.10414,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4625,
+        "heightB": 4693,
+        "heightDiffRatio": 0.01449,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.30156
+        },
+        "worstBands": [
+          {
+            "y": 600,
+            "unmaskedRatio": 0.54316
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.30156
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.14511
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02025,
+          0.09256,
+          0.30156,
+          0.54316,
+          0.09657,
+          0.14486,
+          0.10105,
+          0.14511,
+          0.09375,
+          0.0812,
+          0.10333,
+          0.09413,
+          0.04975,
+          0.04299,
+          0.03796,
+          0.04893,
+          0.04368,
+          0.08618,
+          0.12637,
+          0.0845,
+          0.04156,
+          0.03409,
+          0.03011,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/1440-diff.png",
+        "at": "2026-10-23T05:20:55.806Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects@768": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
@@ -162432,18 +164582,122 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14653,
+          "at": "2026-10-23T05:21:10.601Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5038,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6044
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.17531,
+        "unmaskedRatio": 0.17531,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4928,
+        "heightB": 5038,
+        "heightDiffRatio": 0.02183,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.37139
+        },
+        "worstBands": [
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.48531
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.37139
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.36175
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02943,
+          0.1989,
+          0.37139,
+          0.36175,
+          0.13003,
+          0.23754,
+          0.1739,
+          0.21971,
+          0.16275,
+          0.10357,
+          0.13812,
+          0.19139,
+          0.15661,
+          0.04088,
+          0.05482,
+          0.05645,
+          0.07281,
+          0.13537,
+          0.11029,
+          0.17693,
+          0.31331,
+          0.34497,
+          0.10285,
+          0.04709,
+          0.48531,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/768-diff.png",
+        "at": "2026-10-23T05:21:12.482Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects@390": {
       "id": "de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
@@ -162453,18 +164707,132 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13096,
+          "at": "2026-10-23T05:21:25.724Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7186,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5649
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.17999,
+        "unmaskedRatio": 0.17999,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 6966,
+        "heightB": 7186,
+        "heightDiffRatio": 0.03062,
+        "firstDivergentBand": {
+          "index": 30,
+          "y": 6000,
+          "unmaskedRatio": 0.53445
+        },
+        "worstBands": [
+          {
+            "y": 6600,
+            "unmaskedRatio": 0.60031
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.53445
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.24395
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.08165,
+          0.19313,
+          0.16556,
+          0.16469,
+          0.24395,
+          0.15185,
+          0.21372,
+          0.21707,
+          0.23612,
+          0.18761,
+          0.19688,
+          0.21347,
+          0.21424,
+          0.13784,
+          0.15936,
+          0.13437,
+          0.16871,
+          0.18091,
+          0.17111,
+          0.13744,
+          0.15019,
+          0.08875,
+          0.08068,
+          0.11383,
+          0.07324,
+          0.13797,
+          0.19207,
+          0.24172,
+          0.20483,
+          0.22408,
+          0.53445,
+          0.13773,
+          0.08724,
+          0.60031,
+          0.03011,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/390-diff.png",
+        "at": "2026-10-23T05:21:27.285Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "de/de/fliegen-mit-kleinkind@1440": {
       "id": "de/de/fliegen-mit-kleinkind",
@@ -184961,5 +187329,5 @@
       "status": "pending"
     }
   },
-  "updatedAt": "2026-10-23T05:12:59.422Z"
+  "updatedAt": "2026-10-23T05:22:53.656Z"
 }
