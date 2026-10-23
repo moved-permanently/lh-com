@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/c/italy",
   "path": "lhg/gb/en/dest/c/italy",
-  "timestamp": "2026-10-22T19:42:04.978Z",
+  "timestamp": "2026-10-23T17:17:24.953Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

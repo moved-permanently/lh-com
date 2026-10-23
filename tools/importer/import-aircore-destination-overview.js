@@ -23,7 +23,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "cards-price",
       "instances": [
-        ".sitemap-background .image-box-wrapper"
+        ".sitemap-background .image-box-wrapper",
+        "#content > .image-box-wrapper"
       ]
     }
   ],

@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/c/usa",
   "path": "lhg/gb/en/dest/c/usa",
-  "timestamp": "2026-10-22T19:41:59.176Z",
+  "timestamp": "2026-10-23T17:17:03.041Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

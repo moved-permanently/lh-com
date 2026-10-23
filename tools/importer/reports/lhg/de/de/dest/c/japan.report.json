@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/de/dest/c/japan",
   "path": "lhg/de/de/dest/c/japan",
-  "timestamp": "2026-10-22T19:41:16.764Z",
+  "timestamp": "2026-10-23T17:17:30.684Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

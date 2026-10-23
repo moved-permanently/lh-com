@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/dest/co/north-and-south-america",
   "path": "lhg/de/en/dest/co/north-and-south-america",
-  "timestamp": "2026-10-22T19:40:38.314Z",
+  "timestamp": "2026-10-23T17:16:41.475Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

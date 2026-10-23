@@ -249371,11 +249371,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 9977,
-          "at": "2026-10-23T10:22:34.534Z",
+          "ms": 11516,
+          "at": "2026-10-23T17:24:24.304Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 60185,
+            "scrollHeight": 15327,
             "truncated": true,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -249384,7 +249384,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 119,
+            "pendingImages": 19,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -249421,8 +249421,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.53272,
-        "unmaskedRatio": 0.58205,
+        "mismatchRatio": 0.40012,
+        "unmaskedRatio": 0.43717,
         "maskRatio": 0.08475,
         "maskBoxes": 1,
         "widthA": 1425,
@@ -249433,20 +249433,20 @@
         "firstDivergentBand": {
           "index": 5,
           "y": 1000,
-          "unmaskedRatio": 0.65711
+          "unmaskedRatio": 0.35449
         },
         "worstBands": [
           {
-            "y": 2800,
-            "unmaskedRatio": 0.74691
+            "y": 6200,
+            "unmaskedRatio": 0.66054
           },
           {
-            "y": 2200,
-            "unmaskedRatio": 0.73721
+            "y": 6800,
+            "unmaskedRatio": 0.64256
           },
           {
-            "y": 4000,
-            "unmaskedRatio": 0.72558
+            "y": 7400,
+            "unmaskedRatio": 0.6228
           }
         ],
         "bandHeight": 200,
@@ -249455,45 +249455,45 @@
           0,
           0,
           0,
-          0.15379,
-          0.65711,
-          0.6044,
-          0.62254,
-          0.68951,
-          0.59449,
-          0.60259,
-          0.73721,
-          0.59502,
-          0.61712,
-          0.74691,
-          0.60361,
-          0.55695,
-          0.67014,
-          0.61503,
-          0.66035,
-          0.72558,
-          0.36093,
-          0.6381,
-          0.69,
-          0.61243,
-          0.55681,
-          0.59051,
-          0.61771,
-          0.6341,
-          0.56867,
-          0.58684,
-          0.66542,
-          0.57815,
-          0.45669,
-          0.63613,
-          0.44453,
-          0.47593,
-          0.66828,
-          0.44347,
-          0.61474
+          0.08574,
+          0.35449,
+          0.18572,
+          0.25537,
+          0.46195,
+          0.2458,
+          0.23871,
+          0.43532,
+          0.31589,
+          0.31739,
+          0.48444,
+          0.3696,
+          0.34598,
+          0.4661,
+          0.39396,
+          0.44808,
+          0.48649,
+          0.4056,
+          0.50662,
+          0.5301,
+          0.44231,
+          0.54923,
+          0.48537,
+          0.4651,
+          0.57766,
+          0.49107,
+          0.51631,
+          0.66054,
+          0.53262,
+          0.51339,
+          0.64256,
+          0.48424,
+          0.52804,
+          0.6228,
+          0.56118,
+          0.58206
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/1440-diff.png",
-        "at": "2026-10-23T10:22:40.322Z",
+        "at": "2026-10-23T17:24:30.015Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/1440-diff.png",
@@ -249510,11 +249510,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 9219,
-          "at": "2026-10-23T10:22:49.727Z",
+          "ms": 10077,
+          "at": "2026-10-23T17:24:40.272Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 59804,
+            "scrollHeight": 21687,
             "truncated": true,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -249523,7 +249523,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 119,
+            "pendingImages": 60,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -249560,8 +249560,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.72279,
-        "unmaskedRatio": 0.77898,
+        "mismatchRatio": 0.4592,
+        "unmaskedRatio": 0.49489,
         "maskRatio": 0.07212,
         "maskBoxes": 1,
         "widthA": 753,
@@ -249576,16 +249576,16 @@
         },
         "worstBands": [
           {
-            "y": 3800,
-            "unmaskedRatio": 0.9343
+            "y": 7000,
+            "unmaskedRatio": 0.78982
           },
           {
-            "y": 2000,
-            "unmaskedRatio": 0.91394
+            "y": 6400,
+            "unmaskedRatio": 0.77692
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.91002
+            "y": 7600,
+            "unmaskedRatio": 0.76254
           }
         ],
         "bandHeight": 200,
@@ -249594,45 +249594,45 @@
           0,
           0,
           0.30087,
-          0.59299,
-          0.88606,
-          0.85473,
-          0.89669,
-          0.81339,
-          0.80432,
-          0.91394,
-          0.90526,
-          0.82122,
-          0.84768,
-          0.86363,
-          0.85099,
-          0.57048,
-          0.91002,
-          0.88484,
-          0.9343,
-          0.5209,
-          0.78841,
-          0.85211,
-          0.88665,
-          0.84977,
-          0.60533,
-          0.88811,
-          0.90697,
-          0.68205,
-          0.85407,
-          0.75994,
-          0.75746,
-          0.82487,
-          0.57993,
-          0.82772,
-          0.87447,
-          0.86304,
-          0.41351,
-          0.78879,
-          0.86542
+          0.50758,
+          0.41546,
+          0.5105,
+          0.29159,
+          0.28248,
+          0.40137,
+          0.2364,
+          0.26793,
+          0.23301,
+          0.18463,
+          0.18508,
+          0.45262,
+          0.35234,
+          0.36437,
+          0.50166,
+          0.38654,
+          0.49033,
+          0.55891,
+          0.53392,
+          0.5543,
+          0.62202,
+          0.57161,
+          0.47426,
+          0.59784,
+          0.5603,
+          0.71069,
+          0.62838,
+          0.60373,
+          0.77692,
+          0.59854,
+          0.66755,
+          0.78982,
+          0.67971,
+          0.72906,
+          0.76254,
+          0.71222
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/768-diff.png",
-        "at": "2026-10-23T10:22:53.483Z",
+        "at": "2026-10-23T17:24:43.752Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/768-diff.png",
@@ -249649,11 +249649,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8718,
-          "at": "2026-10-23T10:23:02.383Z",
+          "ms": 8427,
+          "at": "2026-10-23T17:24:52.348Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 44200,
+            "scrollHeight": 27494,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -249662,7 +249662,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 120,
+            "pendingImages": 73,
             "fonts": {
               "h1": {
                 "used": "lufthansahead",
@@ -249699,8 +249699,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.61129,
-        "unmaskedRatio": 0.6795,
+        "mismatchRatio": 0.51729,
+        "unmaskedRatio": 0.57501,
         "maskRatio": 0.10038,
         "maskBoxes": 1,
         "widthA": 375,
@@ -249709,22 +249709,22 @@
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 5,
-          "y": 1000,
-          "unmaskedRatio": 0.31389
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.33773
         },
         "worstBands": [
           {
-            "y": 2600,
-            "unmaskedRatio": 0.90495
+            "y": 4200,
+            "unmaskedRatio": 0.73876
           },
           {
-            "y": 6400,
-            "unmaskedRatio": 0.89944
+            "y": 4400,
+            "unmaskedRatio": 0.73176
           },
           {
-            "y": 1600,
-            "unmaskedRatio": 0.88327
+            "y": 4000,
+            "unmaskedRatio": 0.72836
           }
         ],
         "bandHeight": 200,
@@ -249734,44 +249734,44 @@
           0,
           0,
           0.10947,
-          0.31389,
-          0.86783,
-          0.52152,
-          0.88327,
-          0.70531,
-          0.64216,
-          0.86031,
-          0.50977,
-          0.90495,
-          0.52597,
-          0.73203,
-          0.70623,
-          0.56772,
-          0.82564,
-          0.49645,
-          0.83504,
-          0.46027,
-          0.86496,
-          0.69076,
-          0.61499,
-          0.86689,
-          0.51392,
-          0.85621,
-          0.52215,
-          0.78909,
-          0.74487,
-          0.59007,
-          0.89944,
-          0.52737,
-          0.85652,
-          0.50716,
-          0.85288,
-          0.75619,
-          0.68801,
-          0.87749
+          0.12481,
+          0.33773,
+          0.35453,
+          0.44972,
+          0.48999,
+          0.48911,
+          0.49811,
+          0.52239,
+          0.59993,
+          0.62193,
+          0.66715,
+          0.61683,
+          0.64879,
+          0.65305,
+          0.68641,
+          0.72836,
+          0.73876,
+          0.73176,
+          0.67432,
+          0.7196,
+          0.70993,
+          0.72751,
+          0.71097,
+          0.65036,
+          0.6546,
+          0.65627,
+          0.70629,
+          0.61527,
+          0.57708,
+          0.57847,
+          0.54836,
+          0.55824,
+          0.6126,
+          0.51852,
+          0.43951
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/390-diff.png",
-        "at": "2026-10-23T10:23:04.612Z",
+        "at": "2026-10-23T17:24:54.440Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/dest/c/usa/390-diff.png",
@@ -257268,18 +257268,134 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/dest/co/europa",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14125,
+          "at": "2026-10-23T17:25:08.777Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7559,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5260
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/dest/co/europa/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.25439,
+        "unmaskedRatio": 0.27946,
+        "maskRatio": 0.08969,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 6657,
+        "heightB": 7559,
+        "heightDiffRatio": 0.11933,
+        "firstDivergentBand": {
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.3167
+        },
+        "worstBands": [
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.98151
+          },
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.9555
+          },
+          {
+            "y": 6200,
+            "unmaskedRatio": 0.94724
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02701,
+          0,
+          0,
+          0,
+          0.07818,
+          0.18807,
+          0.18793,
+          0.18115,
+          0.27616,
+          0.24761,
+          0.19773,
+          0.3167,
+          0.37053,
+          0.19926,
+          0.38414,
+          0.24439,
+          0.08901,
+          0.06467,
+          0.12756,
+          0.10667,
+          0.0957,
+          0.12935,
+          0.09521,
+          0.11431,
+          0.05813,
+          0.10078,
+          0.06832,
+          0.06642,
+          0.08197,
+          0.05353,
+          0.88617,
+          0.94724,
+          0.8326,
+          0.02048,
+          0.50445,
+          0.9555,
+          0.98151,
+          0.43627
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/1440-diff.png",
+        "at": "2026-10-23T17:25:12.783Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/dest/co/europa@768": {
       "id": "lhg/de/de/dest/co/europa",
@@ -257289,18 +257405,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/dest/co/europa",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/768-eds.png",
           "contentWidth": 753,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13932,
+          "at": "2026-10-23T17:25:26.903Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 9458,
+            "truncated": true,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5337
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/dest/co/europa/screenshot-768.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.23269,
+        "unmaskedRatio": 0.25078,
+        "maskRatio": 0.07212,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.45109
+        },
+        "worstBands": [
+          {
+            "y": 7800,
+            "unmaskedRatio": 0.92714
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.5011
+          },
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.49367
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03169,
+          0,
+          0,
+          0.28054,
+          0.45109,
+          0.30845,
+          0.4031,
+          0.30331,
+          0.21871,
+          0.26819,
+          0.14244,
+          0.09265,
+          0.16874,
+          0.18373,
+          0.17871,
+          0.30851,
+          0.37497,
+          0.21858,
+          0.42001,
+          0.5011,
+          0.28412,
+          0.49367,
+          0.30992,
+          0.11776,
+          0.11371,
+          0.17953,
+          0.1936,
+          0.13225,
+          0.21159,
+          0.1922,
+          0.14046,
+          0.18251,
+          0.10596,
+          0.14225,
+          0.14927,
+          0.07825,
+          0.12942,
+          0.0894,
+          0.43142,
+          0.92714
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/768-diff.png",
+        "at": "2026-10-23T17:25:29.848Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/dest/co/europa@390": {
       "id": "lhg/de/de/dest/co/europa",
@@ -257310,18 +257544,136 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/de/de/dest/co/europa",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/390-eds.png",
           "contentWidth": 375,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13413,
+          "at": "2026-10-23T17:25:43.445Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 13097,
+            "truncated": true,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 18,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5329
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/de/de/dest/co/europa/screenshot-390.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.40902,
+        "unmaskedRatio": 0.45465,
+        "maskRatio": 0.10038,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 8000,
+        "heightB": 8000,
+        "heightDiffRatio": 0,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.34029
+        },
+        "worstBands": [
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.73833
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.73813
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.73508
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.06097,
+          0,
+          0,
+          0,
+          0.09492,
+          0.34029,
+          0.33084,
+          0.40543,
+          0.52887,
+          0.46028,
+          0.5404,
+          0.54912,
+          0.56625,
+          0.60319,
+          0.71351,
+          0.64297,
+          0.67663,
+          0.70443,
+          0.73295,
+          0.73813,
+          0.73833,
+          0.72991,
+          0.73508,
+          0.72999,
+          0.73417,
+          0.69848,
+          0.68532,
+          0.34975,
+          0.19661,
+          0.17675,
+          0.19561,
+          0.23729,
+          0.19147,
+          0.19784,
+          0.16756,
+          0.15451,
+          0.20725,
+          0.20576,
+          0.21509,
+          0.21091
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/390-diff.png",
+        "at": "2026-10-23T17:25:45.348Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/dest/co/europa/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/de/dest/co/nord-und-suedamerika@1440": {
       "id": "lhg/de/de/dest/co/nord-und-suedamerika",
@@ -259974,18 +260326,133 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/lhg/gb/en/dest/c/spain",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/dest/c/spain/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13971,
+          "at": "2026-10-23T17:25:59.512Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7362,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5021
+            },
+            "liveBoxes": 1
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/gb/en/dest/c/spain/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.22039,
+        "unmaskedRatio": 0.24275,
+        "maskRatio": 0.09209,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 5540,
+        "heightB": 7362,
+        "heightDiffRatio": 0.24749,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.35385
+        },
+        "worstBands": [
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.98244
+          },
+          {
+            "y": 6800,
+            "unmaskedRatio": 0.95171
+          },
+          {
+            "y": 5200,
+            "unmaskedRatio": 0.94153
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02673,
+          0,
+          0,
+          0,
+          0.08633,
+          0.35385,
+          0.22458,
+          0.29692,
+          0.37072,
+          0.08561,
+          0.1016,
+          0.10384,
+          0.09711,
+          0.09219,
+          0.13713,
+          0.06179,
+          0.08894,
+          0.08076,
+          0.0312,
+          0.07551,
+          0.08527,
+          0.07957,
+          0.05127,
+          0.02706,
+          0.51629,
+          0.93851,
+          0.94153,
+          0.32729,
+          0.02102,
+          0.01876,
+          0.00851,
+          0.00794,
+          0.00994,
+          0.54886,
+          0.95171,
+          0.98244,
+          0.36073
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/dest/c/spain/1440-diff.png",
+        "at": "2026-10-23T17:26:03.243Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/dest/c/spain/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/gb/en/dest/c/italy@1440": {
       "id": "lhg/gb/en/dest/c/italy",
@@ -260490,5 +260957,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T17:10:56.306Z"
+  "updatedAt": "2026-10-23T17:26:03.243Z"
 }

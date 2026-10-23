@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/co/europe",
   "path": "lhg/gb/en/dest/co/europe",
-  "timestamp": "2026-10-22T19:41:53.228Z",
+  "timestamp": "2026-10-23T17:16:38.699Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

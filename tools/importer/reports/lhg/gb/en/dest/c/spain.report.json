@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en/dest/c/spain",
   "path": "lhg/gb/en/dest/c/spain",
-  "timestamp": "2026-10-22T19:42:01.679Z",
+  "timestamp": "2026-10-23T17:17:14.166Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

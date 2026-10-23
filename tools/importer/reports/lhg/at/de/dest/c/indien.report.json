@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/at/de/dest/c/indien",
   "path": "lhg/at/de/dest/c/indien",
-  "timestamp": "2026-10-22T19:41:45.143Z",
+  "timestamp": "2026-10-23T17:17:43.237Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

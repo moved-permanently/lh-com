@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/united-kingdom",
   "path": "lhg/de/en/dest/c/united-kingdom",
-  "timestamp": "2026-10-22T19:40:54.777Z",
+  "timestamp": "2026-10-23T17:17:48.615Z",
   "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
-    "flight-search"
+    "flight-search",
+    "cards-price"
   ]
 }

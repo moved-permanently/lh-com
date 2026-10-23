@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination-overview.js
-  var tmp_bundle_aircore_destination_overview_202263_exports = {};
-  __export(tmp_bundle_aircore_destination_overview_202263_exports, {
-    default: () => tmp_bundle_aircore_destination_overview_202263_default
+  var tmp_bundle_aircore_destination_overview_62579_exports = {};
+  __export(tmp_bundle_aircore_destination_overview_62579_exports, {
+    default: () => tmp_bundle_aircore_destination_overview_62579_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -51,7 +51,7 @@ var CustomImportScript = (() => {
       clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
       return clean(clone.textContent);
     };
-    const attr = (node, name) => clean(node ? node.getAttribute(name) : "");
+    const attr = (node, name2) => clean(node ? node.getAttribute(name2) : "");
     if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
       parseAirCore();
       return;
@@ -74,8 +74,8 @@ var CustomImportScript = (() => {
       const airport = (input) => {
         const code = attr(input, "data-value");
         if (!/^[A-Za-z]{3}$/.test(code)) return "";
-        const name = attr(input, "value");
-        return name && name.toUpperCase() !== code.toUpperCase() ? `${name} (${code.toUpperCase()})` : code.toUpperCase();
+        const name2 = attr(input, "value");
+        return name2 && name2.toUpperCase() !== code.toUpperCase() ? `${name2} (${code.toUpperCase()})` : code.toUpperCase();
       };
       const fromInput = element.querySelector("#flightFrom-input");
       const toInput = element.querySelector("#flightTo-input");
@@ -135,7 +135,26 @@ var CustomImportScript = (() => {
       a.textContent = visibleText(wwf);
       addRow("Where we fly", a);
     }
-    const block = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells });
+    const activeLabel = visibleText(element.querySelector('.tab-nav .tab-link.tab-active, .tab-nav [role="tab"][aria-selected="true"]'));
+    if (tabs.length > 1 && activeLabel && activeLabel !== tabs[0]) addRow("Active tab", activeLabel);
+    const hotel = element.querySelector('.tab-content[id$="-hotel-section"], [role="tabpanel"][id$="-hotel-section"]');
+    if (hotel) {
+      const [location, checkIn, checkOut] = [...hotel.querySelectorAll("maui-input")];
+      addRow("Location label", attr(location, "label"));
+      addRow("Location hint", attr(location, "hint"));
+      addRow("Location error", attr(location, "errormessage"));
+      addRow("Check-in label", attr(checkIn, "label"));
+      addRow("Check-in hint", attr(checkIn, "hint"));
+      addRow("Check-out label", attr(checkOut, "label"));
+      addRow("Check-out hint", attr(checkOut, "hint"));
+      addRow("Hotel footnote", visibleText(hotel.querySelector(".footnote")));
+      addRow("Hotel submit label", visibleText(hotel.querySelector('maui-button[behavior="submit"], button[type="submit"]')));
+      addRow("Hotel external note", visibleText(hotel.querySelector('maui-tooltip [slot="box"]')));
+      addRow("Close label", attr(hotel.querySelector(".btn-close [aria-label]"), "aria-label"));
+    }
+    const standalone = element.querySelector(".flm-standalone") && !element.querySelector(".flma-hp-evolution-design");
+    const name = standalone ? "flight-search (standalone)" : "flight-search";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
     element.replaceWith(block);
   }
 
@@ -267,7 +286,7 @@ var CustomImportScript = (() => {
     "template"
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
-  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com)/i;
+  var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -414,11 +433,23 @@ var CustomImportScript = (() => {
       el.remove();
     });
   }
+  function unwrapSingleCellTables(document) {
+    let unwrapped = 0;
+    [...document.querySelectorAll("table")].reverse().forEach((table) => {
+      if (!table.isConnected || table.querySelector("table")) return;
+      const cells = table.querySelectorAll("td, th");
+      if (cells.length !== 1 || table.querySelectorAll("tr").length !== 1) return;
+      table.replaceWith(...cells[0].childNodes);
+      unwrapped += 1;
+    });
+    return unwrapped;
+  }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
-    return !el.matches(VIDEO_CONFIG) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}`);
+    return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
   }
   var SEPARATOR_COMMENT = "lh-separator";
   var SEPARATOR_MIN_SPACE = 50;
@@ -483,7 +514,7 @@ var CustomImportScript = (() => {
     });
     const scope = document.querySelector(".container-content, .contentpage, main") || document.body;
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
-      if (el.isConnected && isEmpty(el)) el.remove();
+      if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
   function removeAirCoreLeftovers(document) {
@@ -872,6 +903,10 @@ var CustomImportScript = (() => {
   function rewriteLinks(document, payload) {
     const origins = sourceOrigins(payload);
     document.querySelectorAll("[href]").forEach((el) => {
+      if (el.hasAttribute("data-live-link")) {
+        el.removeAttribute("data-live-link");
+        return;
+      }
       const next = rewriteHref(el.getAttribute("href"), origins);
       if (next !== null && next !== el.getAttribute("href")) el.setAttribute("href", next);
     });
@@ -934,17 +969,19 @@ var CustomImportScript = (() => {
       if (!cleanText(p) || marker(p)) return;
       let style = p.classList.contains("footnote") ? "copytext-small" : ["copytext-small", "copytext-medium", "copytext-large"].find((c) => p.classList.contains(c));
       if (style === "copytext-large" && !p.querySelector("a[href]")) style = null;
-      const tokens = [style, isFull(p) ? "full-width" : null].filter(Boolean);
+      const width = isFull(p) && "full-width" || p.classList.contains("limited-width") && "limited-width" || null;
+      const tokens = [style, width].filter(Boolean);
       if (!tokens.length) return;
       p.append(document.createTextNode(` {${tokens.join(" ")}}`));
       marked += 1;
     });
     document.querySelectorAll("ul, ol").forEach((list) => {
-      if (!isFull(list)) return;
+      const width = isFull(list) && "full-width" || list.classList.contains("limited-width") && "limited-width";
+      if (!width) return;
       const items = [...list.children].filter((li) => li.tagName === "LI");
       const last = items[items.length - 1];
       if (!last || marker(last)) return;
-      last.append(document.createTextNode(" {full-width}"));
+      last.append(document.createTextNode(` {${width}}`));
       marked += 1;
     });
     return marked;
@@ -1051,6 +1088,7 @@ var CustomImportScript = (() => {
       removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
+      unwrapSingleCellTables(document);
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
@@ -1260,7 +1298,8 @@ var CustomImportScript = (() => {
       {
         "name": "cards-price",
         "instances": [
-          ".sitemap-background .image-box-wrapper"
+          ".sitemap-background .image-box-wrapper",
+          "#content > .image-box-wrapper"
         ]
       }
     ],
@@ -1409,7 +1448,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_destination_overview_202263_default = {
+  var tmp_bundle_aircore_destination_overview_62579_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1439,5 +1478,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_destination_overview_202263_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_overview_62579_exports);
 })();
