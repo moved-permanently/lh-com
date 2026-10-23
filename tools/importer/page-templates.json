@@ -259,6 +259,12 @@
           ]
         },
         {
+          "name": "cards-icon",
+          "instances": [
+            ":is(.threecolumn, .fourcolumn):has(a.teaser.usp)"
+          ]
+        },
+        {
           "name": "carousel-cards",
           "instances": [
             ".threecolumn:has(a.teaser.card)"

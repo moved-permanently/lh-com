@@ -89,3 +89,72 @@
     width: 236px;
   }
 }
+
+/*
+ * option usp: Lufthansa a.teaser.usp service tiles (hub /additional-services). No box: an 88px
+ * icon (.teaser.usp .image-wrapper { width: 8.8rem; height: 8.8rem; margin: 0 auto }) centred
+ * over a regular LufthansaHead label (.teaser .teaser-heading 2rem to 2.4rem / 110%,
+ * .teaser.usp .teaser-heading { font-weight: 400; margin-bottom: 1rem }), .teaser.usp
+ * { padding-top: .6rem }. Equal columns 20px apart (col-md-6 col-lg): 1 per row, 2 from 768px,
+ * 3 (four-up 4) from 1025px; rows 30px apart (20px from 768px): live pitch 157 / 148.
+ */
+.cards-icon.usp > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px 20px;
+}
+
+.cards-icon.usp > ul > li {
+  width: auto;
+}
+
+.cards-icon.usp .cards-icon-tile,
+.cards-icon.usp a.cards-icon-tile:hover {
+  padding: 6px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.cards-icon.usp .cards-icon-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.cards-icon.usp .cards-icon-icon .icon,
+.cards-icon.usp .cards-icon-icon picture,
+.cards-icon.usp .cards-icon-icon > img {
+  width: 88px;
+  height: 88px;
+}
+
+.cards-icon.usp .cards-icon-label {
+  margin-bottom: 10px;
+  font-size: calc(20px + 4 * (100vw - 375px) / 1065);
+  font-weight: 400;
+  line-height: 110%;
+}
+
+@media (width >= 768px) {
+  .cards-icon.usp > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 20px;
+  }
+}
+
+@media (width >= 1025px) {
+  .cards-icon.usp > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cards-icon.usp.four-up > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1281px) {
+  .cards-icon.usp .cards-icon-label {
+    font-size: 24px;
+  }
+}

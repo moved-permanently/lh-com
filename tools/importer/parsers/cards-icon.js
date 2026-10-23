@@ -11,6 +11,10 @@
  * Repeating unit: .icon-teaser (inside .teasericon; the whole tile is the <a>).
  * Icon names are the source design-system names (e.g. "hotel", "car-rental"); the matching
  * SVGs live in /icons/{name}.svg.
+ *
+ * Service tiles (hub /additional-services: ".threecolumn" / ".fourcolumn" of a.teaser.usp, the
+ * whole tile is the link, h3.teaser-heading holds .image-wrapper img + .teaser-heading-text):
+ * same rows (image | linked label), option "usp" (".fourcolumn" adds "four-up").
  */
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
@@ -24,7 +28,12 @@ export default function parse(element, { document }) {
   const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
 
   let tiles = [...element.querySelectorAll('.icon-teaser')];
+  // service tiles (hub /additional-services): a.teaser.usp > h3 > .image-wrapper img + label
+  if (!tiles.length) tiles = [...element.querySelectorAll('a.teaser.usp')];
   if (!tiles.length) tiles = [...element.querySelectorAll('li, .teasericon')];
+  const usp = tiles.length > 0 && tiles[0].matches('a.teaser.usp');
+  let variants = [];
+  if (usp) variants = element.matches('.fourcolumn') ? ['usp', 'four-up'] : ['usp'];
 
   const cells = [];
   tiles.forEach((tile) => {
@@ -60,6 +69,6 @@ export default function parse(element, { document }) {
     cells.push([iconCell, labelCell]);
   });
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-icon', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-icon', variants, cells });
   element.replaceWith(block);
 }

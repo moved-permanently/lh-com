@@ -10,7 +10,10 @@ Single block table. Content: One row per tile. Cell 1: icon (:icon-name: token o
 
 ## Supported variations
 
-No variations.
+| Variation | Option class |
+| --- | --- |
+| Service tiles (Lufthansa a.teaser.usp, /additional-services): no box, 88px icon image centred over a regular label (20px to 24px), equal columns 20px apart: 1 per row, 2 from 768px, 3 from 1025px | `usp` |
+| Four per row from 1025px (with `usp`) | `four-up` |
 
 ## Universal Editor fields
 

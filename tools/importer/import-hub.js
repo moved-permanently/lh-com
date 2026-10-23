@@ -5,6 +5,7 @@
 import formCoreParser from './parsers/form-core.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
+import cardsIconParser from './parsers/cards-icon.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import destinationFinderParser from './parsers/destination-finder.js';
@@ -37,6 +38,12 @@ const PAGE_TEMPLATE = {
         ":is(.section-content, .container-content) > .twocolumn:has(.column-view-item > .image + .headline)",
         ":is(.section-content, .container-content) > .threecolumn:has(.column-view-item > .image + .headline)",
         ":is(.section-content, .container-content) > .fourcolumn:has(.column-view-item > .image + .headline)"
+      ]
+    },
+    {
+      "name": "cards-icon",
+      "instances": [
+        ":is(.threecolumn, .fourcolumn):has(a.teaser.usp)"
       ]
     },
     {
@@ -143,6 +150,7 @@ const parsers = {
   'form-core': formCoreParser,
   'hero-campaign': heroCampaignParser,
   'cards-teaser': cardsTeaserParser,
+  'cards-icon': cardsIconParser,
   'carousel-cards': carouselCardsParser,
   'columns-media': columnsMediaParser,
   'destination-finder': destinationFinderParser,
