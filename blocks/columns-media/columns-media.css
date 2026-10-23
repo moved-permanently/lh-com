@@ -358,6 +358,17 @@
   }
 }
 
+/* three- and four-column views: their items are .col-md-6.col-lg, so two per row from 768px and
+   all in one row only from 1025px; 44px from the end of one item to the item below it
+   (.maui-link margin 2.4rem + item margin 2rem; /de/en/travelling-with-special-requirements at
+   768: images at x24 and x388, the third item under the first) */
+@media (width >= 768px) and (width < 1025px) {
+  .columns-media:not(.sidebar, .media-first, [class*="ratio-"]) .columns-media-row:has(> :nth-child(3)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 44px;
+  }
+}
+
 /* option ratio-NN (AirCore running text: <img style="float: left; margin: 0 5rem 2rem 0"
    width="60%">): the media cell floats NN% wide beside the text at every width, the text wraps
    around it, 50px to the text, 20px below the image; a media cell authored after the text
