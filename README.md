@@ -68,6 +68,13 @@ A paragraph with only `{spacer-120}` adds 120px of extra space at that place (Lu
 `.separator` with `margin-bottom: 120px`), `{divider-25}` a thin grey line with 25px below it;
 `{spacer-80 from-768}` only from 768px. The importer writes them for live separators with a line
 or with 50px and more (smaller ones are the normal spacing); delete the paragraph to remove it.
+Right after a grey band the importer keeps every separator (the band ends a section, so the
+separator's space is not part of the normal spacing).
+
+Section style `padded` (Section Metadata) adds 20px (40px from 768px) above and below the
+section, as the padding of the Lufthansa page sections: the importer writes it for every live
+section after another padded one (/de/en/boeing787 'Seat maps of the Boeing 787-9'); remove it
+to get the normal section spacing.
 
 ### Buttons and links
 
