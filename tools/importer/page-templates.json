@@ -290,6 +290,12 @@
           "instances": [
             ".loungefinder:has(> .dcep-lounge-finder)"
           ]
+        },
+        {
+          "name": "accordion-columns",
+          "instances": [
+            ".accordion"
+          ]
         }
       ],
       "sections": [

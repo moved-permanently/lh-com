@@ -10,6 +10,7 @@ import carouselCardsParser from './parsers/carousel-cards.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import destinationFinderParser from './parsers/destination-finder.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
+import accordionColumnsParser from './parsers/accordion-columns.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -71,6 +72,12 @@ const PAGE_TEMPLATE = {
       "name": "lounge-finder",
       "instances": [
         ".loungefinder:has(> .dcep-lounge-finder)"
+      ]
+    },
+    {
+      "name": "accordion-columns",
+      "instances": [
+        ".accordion"
       ]
     }
   ],
@@ -155,6 +162,7 @@ const parsers = {
   'columns-media': columnsMediaParser,
   'destination-finder': destinationFinderParser,
   'lounge-finder': loungeFinderParser,
+  'accordion-columns': accordionColumnsParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 
