@@ -69,6 +69,14 @@ Things that are not obvious from the code and cost time once.
   their `replace` pairs to every upload of that path, refuses the upload when an edit no longer
   applies, and never uploads paths with `skip: true`. Current entry: Ben's "Entertainment on
   board" heading on `/de/en/during-your-trip/internet-overview` (channels demo).
+- `da-upload.mjs` runs are cut by `timeout` (SIGTERM). It prints every problem the moment it
+  happens and, on SIGTERM/SIGINT or when `--budget <seconds>` is nearly used (no new document in
+  the last min(30 s, budget/10)), saves the state and prints the summary with the problems (budget:
+  exit 0). A preview counts as done only when it succeeded after the last upload
+  (`preview >= uploaded`, no `previewError`); failed previews are kept in the state
+  (`previewError`, `previewErrorAt`) and retried on the next run even if the upload is unchanged.
+  `/{cc}/{ll}/login` and `/{cc}/{ll}/profile/*` (app shells, built elsewhere) are always refused.
+  Offline test: a fake `curl` script first on `PATH` and `DA_UPLOAD_STATE=/tmp/copy.json`.
 
 ## Shop handoff (flight search submit)
 
