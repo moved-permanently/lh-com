@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/100-years/fleet",
   "path": "gb/en/100-years/fleet",
-  "timestamp": "2026-10-22T19:23:13.940Z",
+  "timestamp": "2026-10-23T02:26:25.322Z",
   "title": "",
   "template": "campaign",
   "blocks": [
     "hero-campaign",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",

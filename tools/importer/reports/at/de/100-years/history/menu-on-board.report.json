@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/100-years/history/menu-on-board",
   "path": "at/de/100-years/history/menu-on-board",
-  "timestamp": "2026-10-22T19:22:28.873Z",
+  "timestamp": "2026-10-23T02:29:03.483Z",
   "title": "",
   "template": "campaign",
   "blocks": [
     "hero-campaign",
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",
