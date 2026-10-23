@@ -23,6 +23,11 @@ import { embedNodes } from './media-nodes.js';
  * their column) gives option stacked (picture-perfect-austin galleries). Other templates keep
  * dropping captions and side-by-side images (photo + QR code, 100-years, fleet cabins).
  *
+ * Option padded: the column view is a component of its own in an AEM section
+ * (.section-content > .column > .column-view:only-child, live padding 3.2rem top and bottom), has
+ * no column title, is not grey and not in an article; nested column views (flight-status) do not
+ * get it.
+ *
  * When several column views form one block (flight-status: 3 x .twocolumn in a .onecolumn) and
  * this instance has no own column title, its rows are appended to the previous Columns Media
  * table of the same variant, provided nothing but empty wrappers sits between the two.
@@ -470,6 +475,15 @@ export default function parse(element, { document }) {
       .filter((img) => img.closest('.column-view-item') === it && !img.parentElement.closest('.image')
         && img.querySelector('img, video')).length > 1);
     if (stacked) variants.push('stacked');
+    // a column view of its own in an AEM section (.section-content > .column >
+    // .column-view:only-child) has 3.2rem above and below on live at every width: option padded
+    // (block CSS). Not with a column title (default content before the block, the space belongs
+    // above it), in a grey band (the section style column-view has it) or in an article.
+    const own = element.classList.contains('column') && element.children.length === 1
+      && element.firstElementChild === view && !!element.parentElement
+      && element.parentElement.classList.contains('section-content');
+    if (own && !titles.length && !ARTICLE && !element.closest('.container-gray')
+      && !view.classList.contains('container-gray')) variants.push('padded');
   }
 
   // nothing to show (empty column view): left as it is, the cleanup drops empty components

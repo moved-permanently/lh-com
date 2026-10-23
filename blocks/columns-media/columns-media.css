@@ -59,6 +59,16 @@
   margin-bottom: 40px;
 }
 
+/* option padded (a Lufthansa column view of its own in an AEM section:
+   .section-content .column > .column-view:only-child { padding: 3.2rem 0 } at every width, its
+   last component without margin): 32px above the first row (56px after text, 64px after a
+   heading); below the last row 8px + the next wrapper's 24px = 32px, at the end of a section
+   8px + the 48px section gap (live 32px + .mb-default 2.4rem) (/de/de/kinder-an-bord: intro
+   text to the first image 60px, footer 37px below the last link) */
+.columns-media.padded {
+  padding: 32px 0 8px;
+}
+
 .columns-media.sidebar .columns-media-row > div:empty {
   display: none;
 }

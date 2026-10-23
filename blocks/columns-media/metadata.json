@@ -14,7 +14,8 @@
       "option wide-media: media column 75%, text 25%",
       "option sidebar: first cell 75%, second 25% (Lufthansa .airem-sidebar), 40px above / 46px below",
       "option slider: several images in a media cell become slides with dots below 1025px",
-      "option stacked: several images in a media cell one under the other, each with its {caption} paragraph"
+      "option stacked: several images in a media cell one under the other, each with its {caption} paragraph",
+      "option padded: 32px above the first row and 32px to the next component (Lufthansa column view)"
     ]
   },
   "contentPattern": {
@@ -36,6 +37,10 @@
     {
       "class": "stacked",
       "label": "Stacked (several images in a media cell one under the other, with captions)"
+    },
+    {
+      "class": "padded",
+      "label": "Padded (column-view spacing: 32px above, 32px to the next component)"
     }
   ],
   "memberVariantIds": [],
