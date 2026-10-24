@@ -26,9 +26,9 @@ Widget links in the panels become widgets (`buildWidgetAutoBlocks`); the block l
 
 | Variation | Option class |
 | --- | --- |
-| Tabs of page content (Lufthansa `.tabs.panelcontainer`: image, heading, text per tab; /de/en/onboard-delights "Fresh on board") | `content` |
+| Tabs of page content (Lufthansa `.tabs.panelcontainer`: image, heading, text per tab, /de/en/onboard-delights "Fresh on board"; or text only, /de/en/lufthansa-am-flughafen-frankfurt, /de/en/payment-options-at-the-airport) | `content` |
 
-Option `content`: the panel's image runs over the panel width with 40px to the heading below it, a paragraph ending in `{limited-width}` takes two thirds of the width from 1025px; from 768px the image starts 52px under the tab bar and the panel ends 7px under its last line; below 768px the first panel is open on load (as live), its image 23px under the header, 51px from the last line to the next header. The importer writes the live `navigation-id` as the deep link id (cell 3: `1`, `2`, `3`).
+Option `content`: the panel's image runs over the panel width with 40px to the heading below it, a paragraph ending in `{limited-width}` takes two thirds of the width from 1025px; from 768px the image starts 52px under the tab bar and the panel ends 7px under its last line; below 768px the first panel is open on load (as live), its image 23px under the header, 51px from the last line to the next header. The importer writes the live `navigation-id` as the deep link id (cell 3: `1`, `2`, `3`). Text tabs (no image first) start 42px under the header below 768px. `{spacer-25}` paragraphs in a panel add a separator's space (1px + 25px) between its topics, as in default content; the importer writes them for the live separators between a panel's components.
 
 ## Universal Editor fields
 

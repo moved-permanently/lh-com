@@ -85,6 +85,37 @@
   margin-bottom: 0;
 }
 
+/* text tabs (the panel starts with a heading or text, /de/en/lufthansa-am-flughafen-frankfurt,
+   /de/en/payment-options-at-the-airport): below 768px the content starts 42px under the header
+   (the image tabs' 23px come after a -2rem separator; 390: header to the "Check-in and gate
+   areas" ink 47px, to the first airport 50px); from 768px 52px as the image (bar to the heading
+   ink 60px, to the first airport 61px) */
+@media (width < 768px) {
+  .profile-tabs.content .profile-tabs-panel:not(:has(> p:first-child > :is(picture, img))) {
+    padding-top: 42px;
+  }
+}
+
+/* separators between a panel's topics ("{spacer-25}", importer): 1px + their space after the
+   component spacing, as in default content (Frankfurt "To the Lufthansa app" to the next heading
+   63px of ink at 1440) */
+.profile-tabs .profile-tabs-panel > p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
+.profile-tabs .profile-tabs-panel > p.spacer.divider {
+  height: var(--spacer-size, 25px);
+  border-top: 1px solid var(--lh-grey-4);
+}
+
+@media (width < 768px) {
+  .profile-tabs .profile-tabs-panel > p.spacer.from-768 {
+    display: none;
+  }
+}
+
 @media (width >= 768px) {
   .profile-tabs-list {
     display: flex;

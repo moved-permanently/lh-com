@@ -31,7 +31,8 @@ const PAGE_TEMPLATE = {
     {
       "name": "profile-tabs",
       "instances": [
-        ".tabs.panelcontainer:has(maui-tab-control-panel-responsive .image img):not(:has(.accordion, .table, .teaser, .twocolumn, .threecolumn, .fourcolumn, .carousel, .videoViewer, .video, .sidebar, .poimapping, .imagelinklist, .experiencefragment, form, iframe))"
+        ".tabs.panelcontainer:has(maui-tab-control-panel-responsive .image img):not(:has(.accordion, .table, .teaser, .twocolumn, .threecolumn, .fourcolumn, .carousel, .videoViewer, .video, .sidebar, .poimapping, .imagelinklist, .experiencefragment, form, iframe))",
+        ".tabs.panelcontainer:has(maui-tab-control-panel-responsive :is(.headline, .text)):not(:has(.image img)):not(:has(.accordion, .table, .teaser, .twocolumn, .threecolumn, .fourcolumn, .carousel, .videoViewer, .video, .sidebar, .poimapping, .imagelinklist, .experiencefragment, form, iframe))"
       ]
     },
     {

@@ -13,7 +13,12 @@
  * level, the Lufthansa size class kept: the cleanup writes "{heading-small}"), rich text
  * (paragraphs and lists; .richtext.limited-width as class limited-width, the cleanup writes
  * "{limited-width}") and links (maui link components: primary = bold link, secondary = italic
- * link). Separators and empty components are dropped.
+ * link). Separators between content become "{spacer-N}" / "{divider-N}" paragraphs (live .hr:
+ * 1px + margin-bottom N, else 2.5rem; .hr-no-layout transparent; .hidden-sm-down "from-768"),
+ * as default content (lufthansa-cleanup): text-only tabs separate their topics with them
+ * (/de/en/lufthansa-am-flughafen-frankfurt "Departures": link to the next heading 63px). A
+ * separator under 10px, at the start or at the end of a panel is dropped (live: the last
+ * component has no margin), as are empty components.
  */
 export default function parse(element, { document }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
@@ -65,9 +70,28 @@ export default function parse(element, { document }) {
     return p;
   };
 
+  const SEPARATOR_MARK = /^\{(spacer|divider)-\d+( from-768)?\}$/;
+  const separatorPara = (sep) => {
+    const hr = sep.querySelector('.hr') || sep;
+    const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    const space = m ? Math.round(parseFloat(m[1])) : 25;
+    const line = hr.classList.contains('hr') && !hr.classList.contains('hr-no-layout');
+    if (space < 10 && !line) return null;
+    const p = document.createElement('p');
+    const hidden = hr.classList.contains('hidden-sm-down') ? ' from-768' : '';
+    p.textContent = `{${line ? 'divider' : 'spacer'}-${Math.max(space, 0)}${hidden}}`;
+    return p;
+  };
+  const isMark = (n) => n.tagName === 'P' && SEPARATOR_MARK.test(n.textContent);
+
   const collect = (root, out) => {
     [...root.children].forEach((child) => {
-      if (child.matches(SKIP) || child.classList.contains('separator')) return;
+      if (child.matches(SKIP)) return;
+      if (child.classList.contains('separator')) {
+        const p = separatorPara(child);
+        if (p) out.push(p);
+        return;
+      }
       const cl = child.classList;
       if (cl.contains('image')) {
         const img = [...child.querySelectorAll('img')].find((i) => {
@@ -119,6 +143,8 @@ export default function parse(element, { document }) {
     const label = clean(panel.getAttribute('name'));
     const content = [];
     collect(panel, content);
+    while (content.length && isMark(content[0])) content.shift();
+    while (content.length && isMark(content[content.length - 1])) content.pop();
     if (!label || !content.length) return null;
     return [label, content, clean(panel.getAttribute('navigation-id'))];
   }).filter(Boolean);
