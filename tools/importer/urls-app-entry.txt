@@ -1,4 +1,4 @@
-https://www.lufthansa.com/at/de/online-check-in
-https://www.lufthansa.com/de/de/online-check-in
-https://www.lufthansa.com/de/en/online-check-in
-https://www.lufthansa.com/gb/en/online-check-in
+https://www.lufthansa.com/at/de/flugsuche
+https://www.lufthansa.com/de/de/flugsuche
+https://www.lufthansa.com/de/en/flight-search
+https://www.lufthansa.com/gb/en/flight-search

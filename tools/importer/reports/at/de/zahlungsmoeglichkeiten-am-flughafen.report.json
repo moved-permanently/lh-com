@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/zahlungsmoeglichkeiten-am-flughafen",
   "path": "at/de/zahlungsmoeglichkeiten-am-flughafen",
-  "timestamp": "2026-10-24T02:50:37.546Z",
+  "timestamp": "2026-10-24T08:31:17.875Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "profile-tabs",
     "columns-media"
   ]
 }

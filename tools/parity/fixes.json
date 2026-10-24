@@ -491,5 +491,32 @@
   "change": "Item 1 (after tables, around headings): two live rules. (a) 40px from a table to what follows (live table component, measured 40px at 1440 and 768 on admission-rules; the replica had the 24px block gap): table-striped margin-bottom 40px when something follows (CSS). (b) live .limited-width { width: 66% } from 1025px also applies to headline components (h2.headline.heading-medium.limited-width): long headings wrap to two lines on live (Access to the Star Alliance partner lounges on departure, Entry to the Lufthansa Group contract lounges on departure, Access regulations for unaccompanied children...); the cleanup now writes {limited-width} on such headings, scripts.js/styles.css keep them to 66%. Re-imported, uploaded and previewed the 156 pages. Spot-check unmasked 1440/768/390 before -> after: de/en/admission-rules 8.8/8.2/8.8 -> 4.3/6.8/8.0 (page 7218 vs live 7261, was 7036), de/de 10.2/10.3/13.7 -> 5.7/9.0/13.4, at/de 10.2 -> 5.7, gb/en 9.9 -> 5.4.",
   "commit": "031a170",
   "date": "2026-10-24"
+ },
+ {
+  "page": "14 pages (app-entry, campaign, hub, info: flight-search x4, onboard-delights x4, new-onboard-experience, ...)",
+  "block": "flight-search, columns-media",
+  "change": "Item 2 (C2-5 separators still missing): the cleanup keeps the 10-49px separators where the replica has no stand-in: between two blocks (flight-search card to the grey SIXT band 43px live, 17), after a sidebar only beyond the 25px its CSS holds ({spacer-15}), under a heading that ends its section before a block ({spacer-0}, onboard-delights Fresh on board h2 to tabs 91px live, 65); a separator with an invalid inline margin (live 'margin-bottom: 100pxpx', ignored by browsers, onboard-delights) keeps the default instead of {spacer-100}; below 768px the separator after the flight-search card replaces the section gap (gb/en 390: 101px -> 56, live 53). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/onboard-delights 30.2/26.9/22.2 -> 20.2/24.6/21.1, de/de/onboard-delights 27.3/25.4/20.9 -> 22.1/23.6/23.2, gb/en/flight-search 42.7/46.5/18.9 -> 16.3/39.8/19.4.",
+  "commit": "48e076d, a4b393a, b448931",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/{de/en,gb/en}/lufthansa-am-flughafen-frankfurt, /{de/en,gb/en}/payment-options-at-the-airport, /{de/de,at/de}/zahlungsmoeglichkeiten-am-flughafen (+ de/de, at/de Frankfurt page)",
+  "block": "profile-tabs",
+  "change": "Item 3: the text-only tab controls mapped to profile-tabs option content like the image tabs (second info instance), the panel's separators as {spacer-N}, text panels 42px under the tab header below 768px; lists in text panels spaced as live .richtext (li 10px, list 24px: airports 37px apart, were 27). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/lufthansa-am-flughafen-frankfurt 24.3/27.4/33.7 -> 19.4/16.4/24.4, de/de/zahlungsmoeglichkeiten-am-flughafen 19.1/22.8/- -> 8.4/13.1/12.5, gb/en/lufthansa-am-flughafen-frankfurt (1440, no earlier) 19.4.",
+  "commit": "40a1abb, daadf15",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "55 info pages ending in a column view of a live section with .mb-default",
+  "change": "Item 4: (a) such a page kept 0px below its last column; the cleanup now marks it {column-end column-spaced} and styles.css keeps 24px (lounge-companions last text to footer 61px of ink, live 61, was 37). (b) a table opening a column ~30px low: no such page found in the 676 info snapshots (admission-rules table starts within 1-7px of live at all widths); the nearest difference, green-fare's white table header row with a line, is a table-striped header option, not done. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/lounge-companions 43.5/39.6/32.9 -> 6.4/8.3/13.3, de/de/lounge-begleitung 43.3/42.4/34.0 -> 6.2/8.2/12.1, gb/en/lounge-companions (1440, no earlier) 6.4.",
+  "commit": "7a97449",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/{de/en,de/de,at/de,gb/en}/100-years/cabin-design, /{...}/100-years/campaigns",
+  "block": "columns-media",
+  "change": "Item 5: the year-number images (jahreszahlen_*.jpg, each locale's own variant) sit alone in one column of a two-column view; the parser dropped the empty column, so they ran the full content width (about 2x live). It keeps the empty cells beside a lone image: half the width from 768px, full width below, as live. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/100-years/cabin-design 32.8/32.6/33.9 -> 24.5/26.1/33.1, de/de 40.0/28.8/38.6 -> 25.1/21.9/34.3 (1440 was 34.8 before C2), gb/en 37.5/33.6/37.9 -> 27.2/23.7/34.5.",
+  "commit": "b1f8c5b",
+  "date": "2026-10-24"
  }
 ]

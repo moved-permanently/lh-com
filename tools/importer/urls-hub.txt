@@ -1,8 +1,2 @@
-https://www.lufthansa.com/at/de/gepaeck
-https://www.lufthansa.com/at/de/miles-and-more
-https://www.lufthansa.com/de/de/gepaeck
-https://www.lufthansa.com/de/de/miles-and-more
-https://www.lufthansa.com/de/en/baggage
-https://www.lufthansa.com/de/en/miles-and-more
-https://www.lufthansa.com/gb/en/baggage
-https://www.lufthansa.com/gb/en/miles-and-more
+https://www.lufthansa.com/de/en/flights
+https://www.lufthansa.com/gb/en/flights

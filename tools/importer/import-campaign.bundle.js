@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_149203_exports = {};
-  __export(tmp_bundle_campaign_149203_exports, {
-    default: () => tmp_bundle_campaign_149203_default
+  var tmp_bundle_campaign_162782_exports = {};
+  __export(tmp_bundle_campaign_162782_exports, {
+    default: () => tmp_bundle_campaign_162782_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2345,7 +2345,7 @@ var CustomImportScript = (() => {
   function separatorInfo(sep) {
     const hr = sep.querySelector(".hr") || sep;
     const line = hr.classList.contains("hr") && !hr.classList.contains("hr-no-layout");
-    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px\s*(?:;|!|$)/i);
     const space = m ? Math.round(parseFloat(m[1])) : 25;
     const tokens = [`${line ? "divider" : "spacer"}-${Math.max(space, 0)}`];
     if (hr.classList.contains("hidden-sm-down")) tokens.push("from-768");
@@ -2364,7 +2364,7 @@ var CustomImportScript = (() => {
   var SEPARATOR_AS_IS_TEMPLATES = ["homepage", "flight-status"];
   function separatorSpace(sep) {
     const hr = sep.querySelector(".hr") || sep;
-    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px\s*(?:;|!|$)/i);
     return m ? Math.round(parseFloat(m[1])) : 25;
   }
   function isUntitledColumnView(el) {
@@ -3669,7 +3669,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_149203_default = {
+  var tmp_bundle_campaign_162782_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3699,5 +3699,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_149203_exports);
+  return __toCommonJS(tmp_bundle_campaign_162782_exports);
 })();

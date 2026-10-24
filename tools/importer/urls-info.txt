@@ -1,10 +1,4 @@
-https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay
-https://www.lufthansa.com/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system
-https://www.lufthansa.com/gb/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk
-https://www.lufthansa.com/gb/en/prepare-for-your-trip/travel-classes/economy-basic
-https://www.lufthansa.com/gb/en/rail-and-fly
-https://www.lufthansa.com/gb/en/shopping
-https://www.lufthansa.com/gb/en/travel-expense-management
-https://www.lufthansa.com/gb/en/unterhaltung-an-bord
-https://www.lufthansa.com/gb/en/upgrade-info
-https://www.lufthansa.com/gb/en/upgrade-options
+https://www.lufthansa.com/de/en/onboard-delights
+https://www.lufthansa.com/de/de/onboard-delights
+https://www.lufthansa.com/at/de/onboard-delights
+https://www.lufthansa.com/gb/en/onboard-delights
