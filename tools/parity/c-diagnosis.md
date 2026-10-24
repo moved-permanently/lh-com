@@ -655,6 +655,12 @@ during the full-page screenshot (no scrollbar while the viewport is the page hei
 This is part of "mobile is worse" and of every height deficit below.
 - **Hand-over (harness):** check `document.documentElement.clientWidth` right before
   `page.screenshot`, or shoot viewport-height tiles instead of `fullPage`.
+- **Done (2026-10-24):** confirmed on a fresh shot (de/en/lufthansa-travel-classes, header ink 1339 vs
+  1325 live). capture.js now pins the root to the matched layout width for the full-page
+  screenshot (`html { width: 1425px }`) and moves fixed right-anchored elements (the header bar) in
+  by the scrollbar width: kinder-an-bord 1440 content ink 88-1336 (live 88-1336), header 1324 (live
+  1325); 390 22-352 (live 22-352). Every replica shot taken before is 15 px too wide; the final
+  full run re-takes them.
 
 ### C4-1 Column-view padding is missing (429 pages, 1751 column views; the main y≈400-1200 cause)
 - **Cause:** live `.section-content .column>.column-view:only-child { padding-top: 3.2rem;

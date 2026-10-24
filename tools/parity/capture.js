@@ -421,6 +421,22 @@ async function main() {
   });
   // the clip is the layout width, so a visible scrollbar is never part of the image
   const shotWidth = Math.min(metrics.clientWidth, layout.viewportWidth);
+  // The full-page screenshot stretches the viewport to the document height, and chromium then
+  // drops the scrollbar even with overflow-y: scroll: the layout widened by 15 px during the shot
+  // (header ink 1339 vs live 1325 at 1440; c-diagnosis C4 harness note). The root keeps the
+  // matched layout width instead; vw units and media queries still see the viewport, as live.
+  // Fixed elements anchored to the right edge (the header bar: inset 0 0 auto) keep it too.
+  if (withScrollbar) {
+    await page.addStyleTag({ content: `html { width: ${shotWidth}px !important; }` }).catch(() => {});
+    await page.evaluate((gutter) => {
+      document.querySelectorAll('body *').forEach((el) => {
+        const cs = getComputedStyle(el);
+        if (cs.position !== 'fixed' || cs.right === 'auto') return;
+        el.style.setProperty('right', `calc(${cs.right} + ${gutter}px)`, 'important');
+      });
+    }, layout.viewportWidth - shotWidth).catch(() => {});
+    await sleep(300);
+  }
   await page.screenshot({
     path: out,
     fullPage: true,
