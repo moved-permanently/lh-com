@@ -20,8 +20,10 @@ function cleanTextNodes(root) {
 }
 
 /**
- * Header-less striped table: every authored row is a data row, any number of columns.
- * A short text first cell becomes a row header.
+ * Striped table, any number of columns. A short text first cell becomes a row header.
+ * Option "header": the first authored row is the column header row (thead, th scope col),
+ * drawn white with a line under it as the Lufthansa maui-table-head (/green-fare); else every
+ * authored row is a data row.
  * @param {Element} block
  */
 export default function decorate(block) {
@@ -32,6 +34,23 @@ export default function decorate(block) {
 
   const table = document.createElement('table');
   const tbody = document.createElement('tbody');
+  if (block.classList.contains('header') && rows.length > 1) {
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr');
+    const cells = rows.shift();
+    cells.forEach((cell, i) => {
+      const th = document.createElement('th');
+      th.scope = 'col';
+      th.append(...cell.childNodes);
+      if (th.children.length === 1 && th.firstElementChild.tagName === 'P') {
+        th.firstElementChild.replaceWith(...th.firstElementChild.childNodes);
+      }
+      if (i === cells.length - 1 && cells.length < columns) th.colSpan = columns - cells.length + 1;
+      tr.append(th);
+    });
+    thead.append(tr);
+    table.append(thead);
+  }
   rows.forEach((cells) => {
     const tr = document.createElement('tr');
     cells.forEach((cell, i) => {

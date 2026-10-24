@@ -2103,6 +2103,12 @@
             ".section-content > .twocolumn",
             ".videoViewer, .image:has(video)"
           ]
+        },
+        {
+          "name": "table-striped",
+          "instances": [
+            "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+          ]
         }
       ],
       "sections": [

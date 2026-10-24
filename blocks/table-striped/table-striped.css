@@ -79,3 +79,43 @@
 .table-striped td ol {
   padding-left: 20px;
 }
+
+/* option header: the Lufthansa maui-table-head (/de/en/green-fare at 1440): column titles in
+   20px light on white, a 1px line under them (text ink to line 34px), 40px of white before the
+   first (grey) row; the table starts 40px under its heading (heading ink to the titles' ink
+   69px); row headers bold (maui-table-cell type="emphasized") */
+.table-striped.header {
+  margin-top: 40px;
+}
+
+.table-striped.header table {
+  border-collapse: separate;
+}
+
+.table-striped.header thead th {
+  padding: 20px 20px 30px;
+  border-bottom: 1px solid var(--lh-grey-4);
+  background-color: var(--background-color);
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.table-striped.header tbody tr:nth-child(odd),
+.table-striped.header tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+
+.table-striped.header tbody tr:nth-child(odd) > * {
+  background-color: var(--light-color);
+  background-clip: padding-box;
+}
+
+.table-striped.header tbody tr:first-child > * {
+  border-top: 40px solid transparent;
+}
+
+.table-striped.header tbody th {
+  font-weight: 700;
+}

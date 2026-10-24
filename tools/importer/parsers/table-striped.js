@@ -5,8 +5,10 @@
  * Parser for table-striped (Lufthansa AEM "div.table" with a <maui-table> in light DOM; fleet
  * technical data). Also accepts a plain <table> inside the component.
  *
- * Output (blocks/table-striped README): one row per table row, no header row (every row is
- * data). Header rows (maui-table-head / thead) are kept as the first data rows. Rows are padded
+ * Output (blocks/table-striped README): one row per table row. A table with a column header row
+ * (maui-table-head / thead: /green-fare "Service | Economy Comfort Green | ...") gets the option
+ * "header" (its first row is drawn as live's white header row with a line under it); otherwise
+ * every row is data. Rows are padded
  * with empty cells to the widest row. A non-empty <maui-table-caption> / <caption> is emitted as
  * a paragraph before the block (default content).
  */
@@ -42,6 +44,9 @@ export default function parse(element, { document }) {
     before.push(p);
   }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'table-striped', cells });
+  const head = element.querySelector('maui-table-head, thead');
+  const hasHeader = !!head && !!head.querySelector('maui-table-row, tr');
+  const name = hasHeader ? 'Table Striped (header)' : 'table-striped';
+  const block = WebImporter.Blocks.createBlock(document, { name, cells });
   element.replaceWith(...before, block);
 }
