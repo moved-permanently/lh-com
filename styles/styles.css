@@ -1202,6 +1202,13 @@ main:has(.column-start, .column-start-outer) > .section > .default-content-wrapp
   margin-top: 0;
 }
 
+/* a page whose content ends with a column view: its padding is the space to the footer (live:
+   most such AEM sections have no .mb-default; /de/en/book-and-manage/additional-services/
+   get-your-guide last text 36px of ink above the footer, was 52) */
+main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child)):has(> .default-content-wrapper:last-child > :is(.column-end, .column-end-outer):last-child) {
+  margin-bottom: 0;
+}
+
 /* a padded first section (the page title in a padded AEM section, /de/en/book-and-manage/
    pax-receipt): the breadcrumb (outside the AEM section on live) stays at the top, the padding
    goes between it and the title */
