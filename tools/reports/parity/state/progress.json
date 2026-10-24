@@ -15545,11 +15545,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8468,
-          "at": "2026-10-24T03:53:29.411Z",
+          "ms": 8824,
+          "at": "2026-10-24T06:10:27.547Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7572,
+            "scrollHeight": 7036,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -15595,32 +15595,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.10498,
-        "unmaskedRatio": 0.10498,
+        "mismatchRatio": 0.08754,
+        "unmaskedRatio": 0.08754,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7261,
-        "heightB": 7572,
-        "heightDiffRatio": 0.04107,
+        "heightB": 7036,
+        "heightDiffRatio": 0.03099,
         "firstDivergentBand": {
-          "index": 33,
-          "y": 6600,
-          "unmaskedRatio": 0.91439
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.86001
         },
         "worstBands": [
           {
-            "y": 7200,
-            "unmaskedRatio": 0.97691
+            "y": 7000,
+            "unmaskedRatio": 0.88916
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.91439
+            "y": 6400,
+            "unmaskedRatio": 0.86001
           },
           {
-            "y": 7400,
-            "unmaskedRatio": 0.52622
+            "y": 6800,
+            "unmaskedRatio": 0.24209
           }
         ],
         "bandHeight": 200,
@@ -15641,31 +15641,30 @@
           0.01779,
           0.03109,
           0.00715,
-          0.02618,
-          0.04907,
-          0.04781,
-          0.04285,
-          0.01204,
-          0.00556,
-          0.01288,
-          0.04291,
-          0.06815,
-          0.02119,
-          0.06097,
-          0.02586,
-          0.03057,
-          0.0161,
-          0.01841,
-          0.03998,
-          0.10478,
-          0.91439,
-          0.46258,
-          0.13203,
-          0.97691,
-          0.52622
+          0.05111,
+          0.07279,
+          0.03664,
+          0.01218,
+          0.01159,
+          0.00534,
+          0.02478,
+          0.07508,
+          0.04112,
+          0.03959,
+          0.058,
+          0.02117,
+          0.0219,
+          0.01857,
+          0.03789,
+          0.19563,
+          0.86001,
+          0.04897,
+          0.24209,
+          0.88916,
+          0.01195
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/1440-diff.png",
-        "at": "2026-10-24T03:53:32.374Z",
+        "at": "2026-10-24T06:10:30.517Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/1440-diff.png",
@@ -15682,12 +15681,12 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8275,
-          "at": "2026-10-24T03:53:40.828Z",
+          "ms": 7672,
+          "at": "2026-10-24T06:10:38.364Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 8947,
-            "truncated": true,
+            "scrollHeight": 7119,
+            "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
             "contentWidth": 753,
@@ -15732,32 +15731,32 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.11177,
-        "unmaskedRatio": 0.11177,
+        "mismatchRatio": 0.08204,
+        "unmaskedRatio": 0.08204,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 7262,
-        "heightB": 8000,
-        "heightDiffRatio": 0.09225,
+        "heightB": 7119,
+        "heightDiffRatio": 0.01969,
         "firstDivergentBand": {
-          "index": 33,
-          "y": 6600,
-          "unmaskedRatio": 0.89459
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.60665
         },
         "worstBands": [
           {
-            "y": 6800,
-            "unmaskedRatio": 0.94143
-          },
-          {
-            "y": 6600,
-            "unmaskedRatio": 0.89459
-          },
-          {
             "y": 7000,
-            "unmaskedRatio": 0.81069
+            "unmaskedRatio": 0.61714
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.60665
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.14843
           }
         ],
         "bandHeight": 200,
@@ -15770,41 +15769,38 @@
           0.01928,
           0.01915,
           0.01645,
-          0.01324,
-          0.08605,
-          0.13509,
-          0.07757,
-          0.03301,
-          0.02286,
-          0.02847,
-          0.03217,
-          0.09384,
-          0.04643,
-          0.02899,
-          0.01037,
-          0.01909,
-          0.02873,
-          0.08439,
-          0.08208,
-          0.06724,
-          0.02216,
-          0.07528,
-          0.02855,
-          0.08321,
-          0.04533,
-          0.02232,
-          0.09151,
-          0.27594,
-          0.89459,
-          0.94143,
-          0.81069,
-          0.01396,
-          0.01185,
-          0.01017,
-          0.01105
+          0.01187,
+          0.14843,
+          0.14412,
+          0.03196,
+          0.01727,
+          0.02386,
+          0.03173,
+          0.05438,
+          0.12599,
+          0.0789,
+          0.03724,
+          0.0109,
+          0.01218,
+          0.00934,
+          0.08853,
+          0.0737,
+          0.07633,
+          0.05229,
+          0.09321,
+          0.04333,
+          0.04099,
+          0.02119,
+          0.01426,
+          0.1102,
+          0.60665,
+          0.08469,
+          0.06831,
+          0.61714,
+          0.02228
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/768-diff.png",
-        "at": "2026-10-24T03:53:42.786Z",
+        "at": "2026-10-24T06:10:40.178Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/768-diff.png",
@@ -15821,11 +15817,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7895,
-          "at": "2026-10-24T03:53:50.860Z",
+          "ms": 7750,
+          "at": "2026-10-24T06:10:48.071Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 16745,
+            "scrollHeight": 8333,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -15834,7 +15830,7 @@
             "horizontalOverflow": false,
             "overflowPx": 0,
             "failedImages": 0,
-            "pendingImages": 4,
+            "pendingImages": 1,
             "fonts": {
               "h1": {
                 "used": "lufthansahead-digital-assistant",
@@ -15871,8 +15867,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.10576,
-        "unmaskedRatio": 0.10576,
+        "mismatchRatio": 0.08769,
+        "unmaskedRatio": 0.08769,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
@@ -15881,22 +15877,22 @@
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 38,
-          "y": 7600,
-          "unmaskedRatio": 0.85156
+          "index": 37,
+          "y": 7400,
+          "unmaskedRatio": 0.37329
         },
         "worstBands": [
           {
-            "y": 7800,
-            "unmaskedRatio": 0.93652
+            "y": 7400,
+            "unmaskedRatio": 0.37329
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.19132
           },
           {
             "y": 7600,
-            "unmaskedRatio": 0.85156
-          },
-          {
-            "y": 3600,
-            "unmaskedRatio": 0.16143
+            "unmaskedRatio": 0.16871
           }
         ],
         "bandHeight": 200,
@@ -15910,40 +15906,40 @@
           0.02328,
           0.01855,
           0.02268,
-          0.02679,
-          0.10043,
-          0.11913,
-          0.10805,
-          0.03887,
-          0.02284,
-          0.02877,
-          0.07312,
-          0.07903,
-          0.16143,
-          0.14575,
-          0.08061,
-          0.03308,
-          0.01908,
-          0.01847,
-          0.01409,
-          0.04589,
-          0.04305,
-          0.09189,
-          0.087,
-          0.05011,
-          0.05768,
-          0.09184,
-          0.03925,
-          0.03127,
-          0.04427,
-          0.02575,
-          0.06364,
-          0.08847,
-          0.85156,
-          0.93652
+          0.04835,
+          0.16089,
+          0.19132,
+          0.15893,
+          0.06301,
+          0.02272,
+          0.02499,
+          0.02935,
+          0.03385,
+          0.15601,
+          0.13599,
+          0.12085,
+          0.04703,
+          0.01835,
+          0.02013,
+          0.01813,
+          0.08493,
+          0.10121,
+          0.13041,
+          0.11032,
+          0.05995,
+          0.11127,
+          0.11153,
+          0.05957,
+          0.03843,
+          0.05841,
+          0.02832,
+          0.12833,
+          0.37329,
+          0.16871,
+          0.08016
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/390-diff.png",
-        "at": "2026-10-24T03:53:52.120Z",
+        "at": "2026-10-24T06:10:49.376Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/admission-rules/390-diff.png",
@@ -121553,11 +121549,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14062,
-          "at": "2026-10-23T04:40:39.300Z",
+          "ms": 13525,
+          "at": "2026-10-24T06:11:03.075Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7798,
+            "scrollHeight": 7040,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -121592,7 +121588,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5360
+              "svgAnimations": 5632
             },
             "liveBoxes": 0
           }
@@ -121603,78 +121599,76 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.17889,
-        "unmaskedRatio": 0.17889,
+        "mismatchRatio": 0.10174,
+        "unmaskedRatio": 0.10174,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7267,
-        "heightB": 7798,
-        "heightDiffRatio": 0.06809,
+        "heightB": 7040,
+        "heightDiffRatio": 0.03124,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.42234
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.89434
         },
         "worstBands": [
           {
-            "y": 7400,
-            "unmaskedRatio": 0.98254
+            "y": 7000,
+            "unmaskedRatio": 0.92868
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.97307
+            "y": 6400,
+            "unmaskedRatio": 0.89434
           },
           {
-            "y": 7200,
-            "unmaskedRatio": 0.9477
+            "y": 6800,
+            "unmaskedRatio": 0.23742
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02023,
-          0.08592,
-          0.42234,
-          0.27985,
-          0.18987,
-          0.02496,
-          0.02624,
-          0.00959,
-          0.01209,
-          0.02683,
-          0.10978,
-          0.09231,
-          0.04753,
-          0.03329,
-          0.03603,
-          0.00765,
-          0.03517,
-          0.06014,
-          0.06068,
-          0.04641,
-          0.05306,
-          0.00849,
-          0.02849,
-          0.09938,
-          0.08324,
-          0.04414,
-          0.10614,
-          0.0278,
-          0.03359,
-          0.02466,
-          0.0174,
-          0.06606,
-          0.09145,
-          0.97307,
-          0.941,
-          0.5581,
-          0.9477,
-          0.98254,
-          0.26448
+          0.01764,
+          0.07474,
+          0.01416,
+          0.00546,
+          0.06173,
+          0.01944,
+          0.02975,
+          0.01319,
+          0.01232,
+          0.04113,
+          0.14722,
+          0.07512,
+          0.02038,
+          0.03095,
+          0.04844,
+          0.01048,
+          0.06077,
+          0.10068,
+          0.0526,
+          0.02062,
+          0.01718,
+          0.00772,
+          0.03496,
+          0.09962,
+          0.07618,
+          0.0491,
+          0.09267,
+          0.03202,
+          0.03379,
+          0.02599,
+          0.03364,
+          0.20694,
+          0.89434,
+          0.06309,
+          0.23742,
+          0.92868,
+          0.01983
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/1440-diff.png",
-        "at": "2026-10-23T04:40:42.988Z",
+        "at": "2026-10-24T06:11:06.520Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/1440-diff.png",
@@ -121691,11 +121685,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13115,
-          "at": "2026-10-23T04:40:56.232Z",
+          "ms": 13286,
+          "at": "2026-10-24T06:11:19.972Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7928,
+            "scrollHeight": 7209,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -121730,7 +121724,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5394
+              "svgAnimations": 5397
             },
             "liveBoxes": 0
           }
@@ -121741,79 +121735,76 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.21908,
-        "unmaskedRatio": 0.21908,
+        "mismatchRatio": 0.10329,
+        "unmaskedRatio": 0.10329,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 753,
         "widthB": 753,
         "heightA": 7348,
-        "heightB": 7928,
-        "heightDiffRatio": 0.07316,
+        "heightB": 7209,
+        "heightDiffRatio": 0.01892,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.53062
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.60297
         },
         "worstBands": [
           {
-            "y": 7600,
-            "unmaskedRatio": 0.97053
+            "y": 6400,
+            "unmaskedRatio": 0.60297
           },
           {
-            "y": 7400,
-            "unmaskedRatio": 0.95546
+            "y": 7200,
+            "unmaskedRatio": 0.39115
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.94593
+            "y": 7000,
+            "unmaskedRatio": 0.35088
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03232,
-          0.17467,
-          0.53062,
-          0.25365,
-          0.07477,
-          0.02648,
-          0.02165,
-          0.02393,
-          0.01995,
-          0.13994,
-          0.20192,
-          0.10852,
-          0.05386,
-          0.02926,
-          0.02762,
-          0.05003,
-          0.11546,
-          0.11726,
-          0.0771,
-          0.08374,
-          0.04155,
-          0.01392,
-          0.10033,
-          0.14882,
-          0.11689,
-          0.07154,
-          0.17265,
-          0.05592,
-          0.06236,
-          0.03515,
-          0.03173,
-          0.08125,
-          0.22471,
-          0.94593,
-          0.92354,
-          0.7075,
-          0.69492,
-          0.95546,
-          0.97053,
-          0.26099
+          0.02918,
+          0.14746,
+          0.02139,
+          0.05217,
+          0.06884,
+          0.02365,
+          0.02945,
+          0.02928,
+          0.01534,
+          0.20616,
+          0.21426,
+          0.06191,
+          0.02085,
+          0.03035,
+          0.03837,
+          0.08377,
+          0.16428,
+          0.13634,
+          0.04339,
+          0.02117,
+          0.01987,
+          0.0158,
+          0.09233,
+          0.15148,
+          0.11793,
+          0.06647,
+          0.14013,
+          0.06667,
+          0.06492,
+          0.03598,
+          0.02819,
+          0.1282,
+          0.60297,
+          0.1178,
+          0.06833,
+          0.35088,
+          0.39115
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/768-diff.png",
-        "at": "2026-10-23T04:40:58.531Z",
+        "at": "2026-10-24T06:11:22.183Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/768-diff.png",
@@ -121830,11 +121821,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13812,
-          "at": "2026-10-23T04:41:12.471Z",
+          "ms": 13252,
+          "at": "2026-10-24T06:11:35.633Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9703,
+            "scrollHeight": 8528,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -121869,7 +121860,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5269
+              "svgAnimations": 5405
             },
             "liveBoxes": 0
           }
@@ -121880,8 +121871,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.1512,
-        "unmaskedRatio": 0.1512,
+        "mismatchRatio": 0.13672,
+        "unmaskedRatio": 0.13672,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 375,
@@ -121892,67 +121883,67 @@
         "firstDivergentBand": {
           "index": 3,
           "y": 600,
-          "unmaskedRatio": 0.72512
+          "unmaskedRatio": 0.52504
         },
         "worstBands": [
           {
-            "y": 7800,
-            "unmaskedRatio": 0.81432
+            "y": 7600,
+            "unmaskedRatio": 0.60192
           },
           {
             "y": 600,
-            "unmaskedRatio": 0.72512
+            "unmaskedRatio": 0.52504
           },
           {
             "y": 2200,
-            "unmaskedRatio": 0.26344
+            "unmaskedRatio": 0.24363
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.09236,
-          0.14617,
-          0.22599,
-          0.72512,
-          0.119,
-          0.10108,
-          0.05683,
-          0.03303,
-          0.03511,
-          0.03212,
-          0.15545,
-          0.26344,
-          0.25781,
-          0.13951,
-          0.11052,
-          0.07441,
-          0.05313,
-          0.04473,
-          0.10063,
-          0.14705,
-          0.08787,
-          0.14736,
-          0.11661,
-          0.07436,
-          0.10604,
-          0.04615,
-          0.14033,
-          0.16156,
-          0.23031,
-          0.1346,
-          0.07215,
-          0.22349,
-          0.16211,
-          0.11697,
-          0.08084,
-          0.06169,
-          0.06192,
-          0.13715,
-          0.15884,
-          0.81432
+          0.0878,
+          0.13029,
+          0.2152,
+          0.52504,
+          0.12644,
+          0.08359,
+          0.03828,
+          0.0414,
+          0.03509,
+          0.04253,
+          0.2046,
+          0.24363,
+          0.20571,
+          0.10608,
+          0.04643,
+          0.04308,
+          0.02863,
+          0.04785,
+          0.15951,
+          0.20245,
+          0.13507,
+          0.12792,
+          0.06208,
+          0.0192,
+          0.02969,
+          0.05189,
+          0.17227,
+          0.19784,
+          0.19873,
+          0.10347,
+          0.09048,
+          0.22793,
+          0.11195,
+          0.09791,
+          0.07939,
+          0.05943,
+          0.10183,
+          0.16152,
+          0.60192,
+          0.22476
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/390-diff.png",
-        "at": "2026-10-23T04:41:13.997Z",
+        "at": "2026-10-24T06:11:37.299Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/admission-rules/390-diff.png",
@@ -222251,11 +222242,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14905,
-          "at": "2026-10-24T03:45:43.962Z",
+          "ms": 13742,
+          "at": "2026-10-24T06:11:51.222Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7767,
+            "scrollHeight": 7040,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -222290,7 +222281,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5279
+              "svgAnimations": 5642
             },
             "liveBoxes": 0
           }
@@ -222301,78 +222292,76 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.19986,
-        "unmaskedRatio": 0.19986,
+        "mismatchRatio": 0.10167,
+        "unmaskedRatio": 0.10167,
         "maskRatio": 0,
         "maskBoxes": 0,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7267,
-        "heightB": 7767,
-        "heightDiffRatio": 0.06437,
+        "heightB": 7040,
+        "heightDiffRatio": 0.03124,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.53188
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.89468
         },
         "worstBands": [
           {
-            "y": 7400,
-            "unmaskedRatio": 0.98259
+            "y": 7000,
+            "unmaskedRatio": 0.92868
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.97298
+            "y": 6400,
+            "unmaskedRatio": 0.89468
           },
           {
-            "y": 7200,
-            "unmaskedRatio": 0.94805
+            "y": 6800,
+            "unmaskedRatio": 0.23742
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.01741,
-          0.11226,
-          0.53188,
-          0.56645,
-          0.42264,
-          0.0346,
-          0.02621,
-          0.01494,
-          0.01286,
-          0.02888,
-          0.13244,
-          0.08364,
-          0.036,
-          0.02784,
-          0.04631,
-          0.01571,
-          0.03671,
-          0.0601,
-          0.06322,
-          0.04124,
-          0.04457,
-          0.00754,
-          0.02193,
-          0.05509,
-          0.08798,
-          0.06371,
-          0.08669,
-          0.04775,
-          0.05092,
-          0.03227,
-          0.01513,
-          0.0647,
-          0.09555,
-          0.97298,
-          0.93251,
-          0.51352,
-          0.94805,
-          0.98259,
-          0.51119
+          0.0172,
+          0.07474,
+          0.01416,
+          0.00546,
+          0.06173,
+          0.01944,
+          0.02975,
+          0.01319,
+          0.01232,
+          0.04113,
+          0.14722,
+          0.07512,
+          0.02038,
+          0.03095,
+          0.04844,
+          0.01048,
+          0.06077,
+          0.10068,
+          0.0526,
+          0.02062,
+          0.01718,
+          0.00772,
+          0.03496,
+          0.09962,
+          0.07618,
+          0.0491,
+          0.09267,
+          0.03202,
+          0.03379,
+          0.02599,
+          0.03364,
+          0.20694,
+          0.89468,
+          0.06045,
+          0.23742,
+          0.92868,
+          0.01983
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/admission-rules/1440-diff.png",
-        "at": "2026-10-24T03:45:47.622Z",
+        "at": "2026-10-24T06:11:54.660Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/admission-rules/1440-diff.png",
@@ -230119,18 +230108,133 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/admission-rules",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/admission-rules/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13542,
+          "at": "2026-10-24T06:12:08.399Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 7036,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5454
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/admission-rules/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.09867,
+        "unmaskedRatio": 0.09867,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 7261,
+        "heightB": 7036,
+        "heightDiffRatio": 0.03099,
+        "firstDivergentBand": {
+          "index": 32,
+          "y": 6400,
+          "unmaskedRatio": 0.86712
+        },
+        "worstBands": [
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.88682
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.86712
+          },
+          {
+            "y": 6800,
+            "unmaskedRatio": 0.25223
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01508,
+          0.06822,
+          0.01405,
+          0.00546,
+          0.05988,
+          0.0188,
+          0.03043,
+          0.01493,
+          0.00896,
+          0.03826,
+          0.15212,
+          0.04854,
+          0.02157,
+          0.02836,
+          0.04619,
+          0.01017,
+          0.06352,
+          0.08857,
+          0.05513,
+          0.01712,
+          0.01792,
+          0.00729,
+          0.03217,
+          0.09614,
+          0.06486,
+          0.04774,
+          0.09121,
+          0.02953,
+          0.03278,
+          0.02661,
+          0.04629,
+          0.20419,
+          0.86712,
+          0.06773,
+          0.25223,
+          0.88682,
+          0.02089
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/admission-rules/1440-diff.png",
+        "at": "2026-10-24T06:12:11.791Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/admission-rules/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/advance-seat-reservation@1440": {
       "id": "gb/en/advance-seat-reservation",
@@ -255636,5 +255740,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-24T05:26:26.066Z"
+  "updatedAt": "2026-10-24T06:12:11.791Z"
 }
