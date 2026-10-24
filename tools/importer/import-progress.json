@@ -17,7 +17,7 @@
  "https://www.lufthansa.com/de/en/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:03:11.678Z"
+  "at": "2026-10-24T06:15:52.904Z"
  },
  "https://www.lufthansa.com/de/en/359": {
   "template": "fleet",
@@ -262,7 +262,7 @@
  "https://www.lufthansa.com/de/en/onboard-delights": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:13:13.780Z"
+  "at": "2026-10-24T06:16:26.564Z"
  },
  "https://www.lufthansa.com/de/de/kinder-an-bord": {
   "template": "info",
@@ -292,7 +292,7 @@
  "https://www.lufthansa.com/de/de/onboard-delights": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:58:34.451Z"
+  "at": "2026-10-24T06:16:26.564Z"
  },
  "https://www.lufthansa.com/de/en/doctor-on-board": {
   "template": "info",
@@ -2437,7 +2437,7 @@
  "https://www.lufthansa.com/de/de/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:01:24.874Z"
+  "at": "2026-10-24T06:15:52.904Z"
  },
  "https://www.lufthansa.com/de/de/100-years/cabin-design": {
   "template": "campaign",
@@ -3572,7 +3572,7 @@
  "https://www.lufthansa.com/at/de/onboard-delights": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:46:28.180Z"
+  "at": "2026-10-24T06:16:26.564Z"
  },
  "https://www.lufthansa.com/at/de/online-check-in-info": {
   "template": "info",
@@ -3887,7 +3887,7 @@
  "https://www.lufthansa.com/at/de/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:01:24.830Z"
+  "at": "2026-10-24T06:15:52.904Z"
  },
  "https://www.lufthansa.com/at/de/100-years/cabin-design": {
   "template": "campaign",
@@ -5032,7 +5032,7 @@
  "https://www.lufthansa.com/gb/en/onboard-delights": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:25:41.710Z"
+  "at": "2026-10-24T06:16:26.564Z"
  },
  "https://www.lufthansa.com/gb/en/online-check-in-info": {
   "template": "info",
@@ -5347,7 +5347,7 @@
  "https://www.lufthansa.com/gb/en/100-years": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T01:03:11.710Z"
+  "at": "2026-10-24T06:15:52.904Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/cabin-design": {
   "template": "campaign",

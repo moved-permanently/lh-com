@@ -1,8 +1,4 @@
-https://www.lufthansa.com/de/en/frankfurt-fair
-https://www.lufthansa.com/de/de/frankfurt-fair
-https://www.lufthansa.com/at/de/frankfurt-fair
-https://www.lufthansa.com/gb/en/frankfurt-fair
-https://www.lufthansa.com/de/en/munich-fair
-https://www.lufthansa.com/de/de/munich-fair
-https://www.lufthansa.com/at/de/munich-fair
-https://www.lufthansa.com/gb/en/munich-fair
+https://www.lufthansa.com/de/en/100-years
+https://www.lufthansa.com/de/de/100-years
+https://www.lufthansa.com/at/de/100-years
+https://www.lufthansa.com/gb/en/100-years

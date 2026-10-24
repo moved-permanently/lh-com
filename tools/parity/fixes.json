@@ -463,5 +463,19 @@
   "change": "Open item: admission-rules was ~300px taller than live because live's maui-table scrolls inside an ~840px box (scrollbar included; the arrival and companion tables show their first rows only, at 1440 and 768), while table-striped showed every row. table-striped now has max-height 840px with overflow auto (CSS only). Spot-check unmasked 1440/768/390 before -> after: de/en 15.0/19.7/13.1 -> 8.8/8.2/8.8, de/de 17.9/21.9/15.1 -> 10.2/10.3/13.7, at/de (1440) 20.0 -> 10.2, gb/en (1440) -> 9.9. The page is now ~225px shorter than live (7036 vs 7261): the row bands match, the spacing after each table and around the h2s is 15-20px smaller (left open).",
   "commit": "3271acd",
   "date": "2026-10-24"
+ },
+ {
+  "page": "/{de/en,de/de,at/de,gb/en}/100-years",
+  "block": "columns-media",
+  "change": "Open item C2-4: a sidebar that is the only content of its own one-column view gets padded (+ before-padded when the next live section is padded); from 768px a sidebar image cell keeps live's 40px below the image (72 sidebar pages, CSS). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after (before = 2026-10-23 shots, 15px-wide harness): de/en/100-years 39.5/41.9/42.3 -> 25.4/30.0/27.1, gb/en/100-years 43.3/26.2/41.2 -> 27.8/27.8/29.2.",
+  "commit": "ad58bc4",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/{de/en,de/de,at/de,gb/en}/onboard-delights",
+  "block": "profile-tabs, columns-media",
+  "change": "Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport).",
+  "commit": "ba440f7",
+  "date": "2026-10-24"
  }
 ]

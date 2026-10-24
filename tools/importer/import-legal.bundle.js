@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_91180_exports = {};
-  __export(tmp_bundle_legal_91180_exports, {
-    default: () => tmp_bundle_legal_91180_default
+  var tmp_bundle_legal_131377_exports = {};
+  __export(tmp_bundle_legal_131377_exports, {
+    default: () => tmp_bundle_legal_131377_default
   });
 
   // tools/importer/parsers/media-nodes.js
@@ -484,6 +484,19 @@ var CustomImportScript = (() => {
       const text = element.querySelector(".sidebar-aside");
       const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];
       if (row.some((c) => c.length)) cells.push(row.map((c) => c.length ? c : ""));
+      const item = element.parentElement;
+      const sideView = item && item.classList.contains("column-view-item") && item.children.length === 1 && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement.parentElement;
+      const oneColumn = sideView && sideView.classList.contains("column-view") && sideView.parentElement;
+      const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
+      if (ownSidebar) {
+        variants.push("padded");
+        const meaningful2 = (el) => !!clean(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+        const isLast = [...oneColumn.parentElement.children].filter(meaningful2).pop() === oneColumn;
+        const aem = oneColumn.closest(".container-content > .section");
+        let next = aem && aem.nextElementSibling;
+        while (next && !(next.classList.contains("section") && meaningful2(next))) next = next.nextElementSibling;
+        if (isLast && next && next.querySelector(":scope > div > .section-padding-y-regular") && !next.querySelector(":scope > .container-gray")) variants.push("before-padded");
+      }
     } else {
       const view = element.querySelector(":scope > .column-view") || element.querySelector(".column-view") || element;
       [...view.children].filter((d) => !d.classList.contains("row") && !d.classList.contains("carousel")).forEach((d) => {
@@ -506,8 +519,12 @@ var CustomImportScript = (() => {
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
-      const stacked = ARTICLE && items.some((it) => [...it.querySelectorAll(".image")].filter((img) => img.closest(".column-view-item") === it && !img.parentElement.closest(".image") && img.querySelector("img, video")).length > 1);
+      const stacked = (ARTICLE || !sliderView) && items.some((it) => [...it.querySelectorAll(".image")].filter((img) => img.closest(".column-view-item") === it && !img.parentElement.closest(".image") && img.querySelector("img, video")).length > 1);
       if (stacked) variants.push("stacked");
+      const textItem = (it) => !!it.querySelector(".headline, .text");
+      if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector(".image img"))) {
+        variants.push("cell-slider");
+      }
       const own = element.classList.contains("column") && element.children.length === 1 && element.firstElementChild === view && !!element.parentElement && element.parentElement.classList.contains("section-content");
       if (own && !titles.length && !ARTICLE && !element.closest(".container-gray") && !view.classList.contains("container-gray")) variants.push("padded");
     }
@@ -1932,7 +1949,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_91180_default = {
+  var tmp_bundle_legal_131377_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1962,5 +1979,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_91180_exports);
+  return __toCommonJS(tmp_bundle_legal_131377_exports);
 })();
