@@ -15,8 +15,8 @@
  *    column) and a plain <hr> after it, so the grey ends where the live grey ends. Not for grey
  *    boxes inside a block of the template (the parser renders them) or the sticky price bar.
  *    A grey band of column views only also gets column-band or column-view (their 3.2rem
- *    padding), flush when its AEM section has no .mb-default, spaced for the space live has
- *    below it (greyStyles).
+ *    padding), flush when its AEM section has no .mb-default, spaced / before-column for the
+ *    space live has below it (greyStyles).
  *  - full-bleed: a full-width image component (.image-wrapper.full-width-bg, the Lufthansa
  *    Insights category stage) is a section of its own with style full-bleed, the same way.
  *  - padded: an AEM section (.container-content > .section) that is padded on live
@@ -116,6 +116,13 @@ function meaningful(el) {
   return !!((el.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || el.querySelector(MEDIA));
 }
 
+/** A column view with a title of its own (default content before the block in the replica). */
+function titledColumnView(el) {
+  if (!ownColumnView(el) || el.firstElementChild.classList.contains('container-gray')) return false;
+  return [...el.firstElementChild.children].some((d) => !d.matches('.row, .carousel')
+    && d.querySelector('h1, h2, h3, h4, h5, h6') && meaningful(d));
+}
+
 // the cleanup (first transformer) has replaced the separators it keeps by comment placeholders
 const SEPARATOR_NODE = (n) => n.nodeType === 8 && /^lh-separator /.test(n.nodeValue || '');
 
@@ -139,13 +146,17 @@ function firstComponent(node) {
  *    top, the last button 73px above its end);
  *  - flush: the band's AEM section has no .mb-default, so a band that ends the page touches the
  *    footer.
- * Below the band live has what follows it, the replica the section gap (48px); where that is
- * the whole space below it is written:
+ * Below the band live has what follows it, the replica the section gap (48px); two cases where
+ * that is the whole space below are written (templates without column markers for the second):
  *  - spaced: the band is a whole AEM section with .mb-default and the next AEM section (unpadded,
  *    not grey) starts with a headline or text: 2.4rem (onboard-delights band -> "Fresh on board"
- *    32px of ink live, 56 in the replica).
+ *    32px of ink live, 56 in the replica);
+ *  - before-column: the band is a component of an AEM section whose next component is a titled
+ *    column view: that view's 3.2rem padding (flight-search SIXT band -> "This might also be of
+ *    interest to you" 38px of ink live, 56 in the replica). On info pages the title's
+ *    "{column-start}" marker has that padding already.
  */
-function greyStyles(region) {
+function greyStyles(region, template) {
   const grey = region.matches('.container-gray') ? region : region.querySelector('.container-gray');
   const styles = [];
   if (!grey) return styles;
@@ -171,6 +182,10 @@ function greyStyles(region) {
     if (first && first.nodeType === 1 && !inner.matches('.container-gray')
       && !content.classList.contains('section-padding-y-regular')
       && first.matches('.headline, .text') && !first.querySelector('.container-gray')) styles.push('spaced');
+  } else if (!whole && region.parentElement && region.parentElement.matches('.section-content')
+    && template.name !== 'info') {
+    const next = firstComponent(region.nextSibling);
+    if (next && next.nodeType === 1 && titledColumnView(next)) styles.push('before-column');
   }
   return styles;
 }
@@ -238,7 +253,7 @@ export default function transform(hookName, element, payload) {
     SOURCE_STYLES.forEach(([source, style]) => {
       styledRegions(document, template, source).forEach((region) => {
         const start = createBreak(document);
-        start.setAttribute(SOURCE_STYLE, [style, ...(style === 'grey' ? greyStyles(region) : [])].join(' '));
+        start.setAttribute(SOURCE_STYLE, [style, ...(style === 'grey' ? greyStyles(region, template) : [])].join(' '));
         region.before(start);
         region.after(createBreak(document));
       });

@@ -1144,6 +1144,28 @@ main > .section.flight-search-container > .flight-search-wrapper + .default-cont
   }
 }
 
+/* the page title alone in the section above the card (app-entry flight search): live
+   h1.heading-large keeps only its own margin above the flight manager, no section gap (h1 ink to
+   the card 41px at 1440, 34 at 768; were 50 / 48); below 768px .flm-standalone adds its
+   padding-top 2.2rem (1rem below 376px) to it, not collapsed (54px at 390, was 49) */
+main > .section:has(> .default-content-wrapper:last-child > h1:only-child):has(+ .section.flight-search-container > .flight-search-wrapper:first-child > .flight-search.standalone) {
+  margin-bottom: 0;
+}
+
+main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section.flight-search-container:has(> .flight-search-wrapper:first-child > .flight-search.standalone) {
+  padding-top: 10px;
+}
+
+main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section.flight-search-container > .flight-search-wrapper:first-child > .flight-search.standalone {
+  margin-top: 0;
+}
+
+@media (width >= 376px) {
+  main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section.flight-search-container:has(> .flight-search-wrapper:first-child > .flight-search.standalone) {
+    padding-top: 22px;
+  }
+}
+
 @media (width >= 768px) {
   .flight-search.standalone {
     margin: 0 0 20px;
@@ -1152,6 +1174,11 @@ main > .section.flight-search-container > .flight-search-wrapper + .default-cont
   /* the homepage stage spacing does not apply to the card */
   body:not(.aircore) main > .section.flight-search-container:has(.flight-search.standalone) {
     margin-bottom: 0;
+  }
+
+  /* .flm-standalone has no padding from 768px: the title's margin is the whole space */
+  main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section.flight-search-container:has(> .flight-search-wrapper:first-child > .flight-search.standalone) {
+    padding-top: 0;
   }
 
   .flight-search .flight-search-tab {

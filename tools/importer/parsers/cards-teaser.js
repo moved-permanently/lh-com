@@ -130,9 +130,11 @@ export default function parse(element, { document }) {
       if (!t) return;
       const out = document.createElement(h.tagName.toLowerCase());
       out.textContent = t;
-      // overlay tiles (Insights "Explore more", h2.heading-small): the size class becomes the
-      // cleanup's heading marker
-      const style = overlay && [...h.classList].find((c) => /^heading-/.test(c));
+      // the size class (overlay tiles: Insights "Explore more" h2.heading-small; flight-search
+      // and digital-self-services "This might also be of interest to you" h2.heading-small,
+      // 28px light at 1440 / 22px at 390 on live, were 36 / 28) becomes the cleanup's heading
+      // marker when it differs from the level's size
+      const style = [...h.classList].find((c) => /^heading-/.test(c));
       if (style) out.className = style;
       titles.push(out);
     });

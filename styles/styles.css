@@ -1033,9 +1033,16 @@ main > .section.grey.column-band {
 
 /* what live has below a grey band instead of the section gap (importer, lufthansa-sections
    greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
-   text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56) */
+   text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56);
+   before-column, a grey component before a titled column view of the same AEM section: that
+   view's 3.2rem padding (flight-search SIXT band -> "This might also be of interest to you" 38px
+   of ink, was 56) */
 main > .section.grey.spaced {
   margin-bottom: var(--spacing-default);
+}
+
+main > .section.grey.before-column {
+  margin-bottom: 32px;
 }
 
 /* padded: a Lufthansa AEM section after another one (.section-padding-y-regular: 2rem, 4rem

@@ -117,7 +117,9 @@ to get the normal section spacing.
 
 Below a `grey` section the normal section spacing (48px) applies, unless: `spaced` gives 24px (a
 live grey section before an unpadded one that starts with a heading or text, onboard-delights
-"Fresh on board"). The importer writes it; remove it to get the 48px.
+"Fresh on board"), `before-column` 32px (a grey band before a titled column view of the same live
+section, the flight search pages' "This might also be of interest to you"). The importer writes
+both; remove them to get the 48px.
 
 Page metadata `Theme: flow-spacing` (the importer writes it on info pages) spaces default content
 as lufthansa.com spaces its components: headings add no space of their own above (text → heading
