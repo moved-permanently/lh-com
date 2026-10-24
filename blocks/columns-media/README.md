@@ -19,6 +19,7 @@ Single block table. Content: 2 columns, one or more rows (one row per text/media
 | Floated media cell NN% wide, text around it (AirCore) | `ratio-NN`, e.g. `ratio-60` |
 | Several images in a media cell one under the other (Insights galleries) | `stacked` |
 | Column-view spacing: 32px above, 32px to the next component (Lufthansa column view in an AEM section) | `padded` |
+| Images of a column view nested in each cell (icons: an image opening a text cell is one of N nested columns wide, the whole cell below 768px, half from 768px; 32px above, 52px (62px on mobile) to the text; empty cells keep their column: /de/en/shopping, passengers-with-sensory-impairment app badges) | `nested-2`, `nested-3`, `nested-4` |
 
 ## Universal Editor fields
 

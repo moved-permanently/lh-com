@@ -13,6 +13,7 @@ import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import tableStripedParser from './parsers/table-striped.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
+import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
@@ -96,11 +97,18 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "cards-teaser",
+      "instances": [
+        ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .carousel .column-view-item > .image + .headline):not(:has(.teaser, .table, .accordion, .tabs, form, iframe))"
+      ]
+    },
+    {
       "name": "columns-media",
       "instances": [
         ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
         ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
         ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
+        ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
         ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
         ".videoViewer, .image:has(video)"
       ]
@@ -176,6 +184,7 @@ const parsers = {
   'accordion-columns': accordionColumnsParser,
   'table-striped': tableStripedParser,
   'carousel-cards': carouselCardsParser,
+  'cards-teaser': cardsTeaserParser,
   'columns-media': columnsMediaParser,
   'embed': embedParser,
   'lounge-finder': loungeFinderParser,

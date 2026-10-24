@@ -26,6 +26,20 @@
   min-width: 0;
 }
 
+/* option nested-N (a three- or four-column view whose items hold an N-column view of images:
+   /de/en/shopping icons in the first quarter of each item, passengers-with-sensory-impairment
+   app badges in a two-column item): the nested view's 3.2rem padding above the images (and below
+   an image-only cell), an image that opens a text cell one nested column wide (.col-md-6.col-lg:
+   the whole cell below 768px, half from 768px, 1/N from 1025px, 20px gutters), then the nested
+   item's 1rem / 2rem margin and the padding to the text (62px, 52px from 768px) */
+.columns-media[class*="nested-"] .columns-media-row > div {
+  padding-top: 32px;
+}
+
+.columns-media[class*="nested-"] .columns-media-row > .columns-media-media {
+  padding-bottom: 32px;
+}
+
 .columns-media .columns-media-row > .columns-media-media:not(:last-child) {
   margin-bottom: 50px;
 }
@@ -152,6 +166,28 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* option nested-N: see above */
+.columns-media[class*="nested-"] .columns-media-text > p:has(> picture, > a > picture):first-child {
+  margin-bottom: 62px;
+}
+
+@media (width >= 768px) {
+  .columns-media[class*="nested-"] .columns-media-text > p:has(> picture, > a > picture):first-child {
+    width: calc((100% - 20px) / 2);
+    margin-bottom: 52px;
+  }
+}
+
+@media (width >= 1025px) {
+  .columns-media.nested-3 .columns-media-text > p:has(> picture, > a > picture):first-child {
+    width: calc((100% - 40px) / 3);
+  }
+
+  .columns-media.nested-4 .columns-media-text > p:has(> picture, > a > picture):first-child {
+    width: calc((100% - 60px) / 4);
+  }
 }
 
 /* an icon in a heading: a Lufthansa teaser without a target (a.teaser.partner, legal

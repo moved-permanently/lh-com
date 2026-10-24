@@ -15,7 +15,8 @@
       "option sidebar: first cell 75%, second 25% (Lufthansa .airem-sidebar), 40px above / 46px below",
       "option slider: several images in a media cell become slides with dots below 1025px",
       "option stacked: several images in a media cell one under the other, each with its {caption} paragraph",
-      "option padded: 32px above the first row and 32px to the next component (Lufthansa column view)"
+      "option padded: 32px above the first row and 32px to the next component (Lufthansa column view)",
+      "option nested-N: an image opening a text cell is one column of an N-column view nested in the cell (icons), empty cells keep their column"
     ]
   },
   "contentPattern": {
@@ -41,6 +42,10 @@
     {
       "class": "padded",
       "label": "Padded (column-view spacing: 32px above, 32px to the next component)"
+    },
+    {
+      "class": "nested-4",
+      "label": "Nested icons (an image opening a text cell a quarter of the cell wide from 1025px; also nested-2, nested-3)"
     }
   ],
   "memberVariantIds": [],

@@ -27,6 +27,9 @@ import { embedNodes } from './media-nodes.js';
  * their column) gives option stacked (picture-perfect-austin galleries). Other templates keep
  * dropping captions and side-by-side images (photo + QR code, 100-years, fleet cabins).
  *
+ * Option nested-N: a three- or four-column view whose items hold an N-column view of images only
+ * (shopping icons, app badges); empty items are kept as empty cells.
+ *
  * Option padded: the column view is a component of its own in an AEM section
  * (.section-content > .column > .column-view:only-child, live padding 3.2rem top and bottom), has
  * no column title, is not grey and not in an article; nested column views (flight-status) do not
@@ -508,7 +511,16 @@ export default function parse(element, { document }) {
     // a YouTube player in one column of a column view whose other column is empty keeps the
     // empty column (live: the player takes its column only, /lufthansa-business-class-on-long-haul-routes)
     const hasEmbed = collected.some((c) => c.some((n) => n.matches && n.matches('p[data-lh-embed]')));
-    const row = hasEmbed && collected.some((c) => c.length) ? collected.map((c) => (c.length ? c : ''))
+    // a three- or four-column view whose items hold an N-column view of images only (icons in
+    // the first quarter of a four-column item, /de/en/shopping; app badges in a two-column item,
+    // /de/en/passengers-with-sensory-impairment): option nested-N sizes those images as one
+    // nested column; empty items keep their column as on live
+    const NESTED = ['twocolumn', 'threecolumn', 'fourcolumn'];
+    const nestedView = element.matches('.threecolumn, .fourcolumn') && items.map((it) => [...it.children]
+      .find((c) => NESTED.some((k) => c.classList.contains(k)) && c.querySelector('.image img')
+        && !c.querySelector('.text, .headline, .link, .teaser'))).find(Boolean);
+    if (nestedView) variants.push(`nested-${NESTED.findIndex((k) => nestedView.classList.contains(k)) + 2}`);
+    const row = (hasEmbed || nestedView) && collected.some((c) => c.length) ? collected.map((c) => (c.length ? c : ''))
       : collected.filter((c) => c.length);
     if (row.length) cells.push(row);
     // an image column view with carousel behaviour in a column (app teaser: photo + QR code):
