@@ -428,14 +428,33 @@
   "page": "261 scope pages (pages.csv x4, AirCore): 200 Description, 20 og:description, 4 og:title, 4 Keywords, 4 Robots (feedback), 1 Canonical (/de/de/rechnungsbeleg), 56 Image",
   "block": "metadata",
   "change": "Head item 1: page metadata from the live head (tools/importer/head-metadata.mjs, post-import step in batch-cycle.sh, report tools/reports/head-metadata.md): Description as live (empty row where live has none, else EDS took the first paragraph, e.g. a video URL), og:title/og:description only where live differs from title/description, Keywords, Robots only with noindex (115 values without noindex listed, not set: 107 AirCore index, follow, 8 no index, no follow), Canonical where it points elsewhere, Image = live og:image; no hreflang rows; /metadata.json untouched. Uploaded and previewed; 259 of 261 preview heads match live, 2 differ only by a trailing comma EDS trims from the keywords (gepaeck de/de, at/de). Head spot-check de/en/feedback (robots noindex,nofollow, description empty, og:description), de/de/rechnungsbeleg (canonical https://www.lufthansa.com/xx/de/book-and-manage/pax-receipt), at/de/gepaeck (keywords); the page layout is unchanged (parity 1440: 13.8 / 42.2 / 13.4).",
-  "commit": "head-1",
+  "commit": "c1c59f7",
   "date": "2026-10-24"
  },
  {
   "page": "23 AirCore route pages (lhg o-d/c-c and o-d/cy-cy: de/en 11, de/de 11, gb/en frankfurt-london)",
   "block": "metadata",
   "change": "Head item 2: the live JSON-LD (recorded with bd-record-head.mjs in the warm session: on live it is in the server HTML body, not the head) as one json-ld metadata value per page, {\"@context\":\"https://schema.org\",\"@graph\":[BreadcrumbList, Flight x0-24, FAQPage, Product]} (tools/importer/build-aircore-jsonld.mjs -> aircore-jsonld.json, written by head-metadata.mjs); the Offer price/currency (and the same price in the FAQ answers) are those the page shows (import time), e.g. frankfurt-new-york 545 EUR (live now 528), munich-new-york 622 (522), germany-usa 458 (423); <, >, & are JSON-escaped because the pipeline HTML-escaped them in the script. Uploaded and previewed: all 23 render one application/ld+json script that parses and equals the value; no hreflang rendered; the live alternates (4-5 per page, not 3) are in the new hreflang column of tools/migration-scope/aircore.csv. Layout unchanged.",
-  "commit": "head-2",
+  "commit": "b0a2f93",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/llms.txt, /de/llms.txt",
+  "change": "Head item 3: www's /llms.txt (3915 B) and /de/llms.txt (26178 B) copied verbatim into the code repo (llms.txt, de/llms.txt); on preview both answer 200 text/plain and are byte-identical to www.",
+  "commit": "0919e3e",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "not-found page (404.html), all paths",
+  "change": "Head item 4: live's not-found page per market recorded through the warm session (bd-record-404.mjs, /{cc}/{ll}/zz-not-found-check, all 404); 404.html + scripts/not-found.js now follow the locale of the path: English (de/en, gb/en) Page not found | Lufthansa, apology, search field (hands the term to the live site search), Go to Homepage, Book flights, Online check-in, My bookings, feedback text, Help & contact; German (de/de, at/de) Seite konnte nicht gefunden werden | Lufthansa, Zur Startseite, Flüge buchen, Zum Online Check-in, Zu Meine Buchungen (new tab, as live), feedback text, Zu Hilfe & Kontakt; links to the locale's pages, help-and-contact (not migrated) to www. Checked on preview for de/en, de/de, at/de (status 404, lang, title, links); layout as live at 1440.",
+  "commit": "5f03df8",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "72 de/de and 72 at/de pages whose slug differs from de/en (pages.csv)",
+  "block": "metadata",
+  "change": "Head item 5: metadata primary-language-url = the de/en path of the same pages.csv row (head-metadata.mjs). Uploaded and previewed; all 144 preview heads carry the expected value, no other page has one. Spot-check de/de/flugsuche (/de/en/flight-search), at/de/meine-buchungen (/de/en/my-bookings); de/en/flight-search unchanged; layout unchanged.",
+  "commit": "item-5",
   "date": "2026-10-24"
  }
 ]

@@ -21,6 +21,8 @@
  *   already holds that image (or its local resized copy, media-manifest.json).
  * - JSON-LD (AirCore route pages): the "json-ld" row from tools/importer/aircore-jsonld.json
  *   (recorded by tools/importer/bd-record-head.mjs), one JSON value ("@graph" for several).
+ * - primary-language-url: on the de/de and at/de pages whose slug differs from de/en in
+ *   pages.csv, the de/en path of the same row.
  * No hreflang rows are written (live has no hreflang links in the head of these pages; the
  * AirCore alternates are recorded in tools/migration-scope/aircore.csv only).
  *
@@ -91,6 +93,17 @@ const imageKey = (u0) => {
   const u = localToSrc[u0] || u0 || '';
   return u.replace(/^https?:\/\/[^/]+/, '').replace(/\.transform\/[^/]+\/img\.[a-z]+$/, '').replace(/[?#].*$/, '');
 };
+// primary-language-url: de/de and at/de pages whose slug differs from de/en (pages.csv row) name
+// their de/en page
+const primaryLanguage = {};
+fs.readFileSync(path.join(root, 'tools/migration-scope/pages.csv'), 'utf8').trim().split('\n').slice(1)
+  .forEach((l) => {
+    const [, deEn, deDe, atDe] = l.split(',').map((s) => (s || '').trim());
+    if (!deEn) return;
+    const slug = deEn.slice('/de/en'.length);
+    if (deDe && deDe.slice('/de/de'.length) !== slug) primaryLanguage[deDe] = deEn;
+    if (atDe && atDe.slice('/at/de'.length) !== slug) primaryLanguage[atDe] = deEn;
+  });
 const jsonldFile = path.join(root, 'tools/importer/aircore-jsonld.json');
 const jsonld = fs.existsSync(jsonldFile) ? JSON.parse(fs.readFileSync(jsonldFile, 'utf8')) : {};
 
@@ -167,6 +180,7 @@ pathsToDo.forEach((p) => {
       set('Image', `<picture><img src="${escape(live['og:image'])}" alt=""></picture>`);
     }
   }
+  set('primary-language-url', primaryLanguage[p] ? escape(primaryLanguage[p]) : null);
   // <, > and & as JSON escapes: the pipeline HTML-escapes them inside the script element
   // (an FAQ answer's <a href> came out as "&#x3c;a href")
   if (jsonld[p]) {

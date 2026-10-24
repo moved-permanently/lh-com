@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T04:59:16.628Z",
+  "generatedAt": "2026-10-24T05:26:32.230Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -27,9 +27,9 @@
     "at/de": {
       "pages": 312,
       "pass": 3,
-      "review": 9,
+      "review": 10,
       "fail": 27,
-      "pending": 273,
+      "pending": 272,
       "error": 0
     },
     "gb/en": {
@@ -43,7 +43,7 @@
   },
   "pageWidths": {
     "total": 2683,
-    "compared": 1929
+    "compared": 1930
   },
   "templateGroups": [
     {
@@ -154,7 +154,7 @@
       "template": "app-entry",
       "width": 768,
       "pageWidths": 14,
-      "meanUnmasked": 0.27285571428571426,
+      "meanUnmasked": 0.26614785714285716,
       "medianUnmasked": 0.29895499999999997,
       "maxUnmasked": 0.47292
     },
@@ -191,14 +191,6 @@
       "maxUnmasked": 0.2872
     },
     {
-      "template": "app-entry",
-      "width": 1440,
-      "pageWidths": 16,
-      "meanUnmasked": 0.24408999999999997,
-      "medianUnmasked": 0.176525,
-      "maxUnmasked": 0.51949
-    },
-    {
       "template": "aircore-destination",
       "width": 768,
       "pageWidths": 15,
@@ -215,20 +207,20 @@
       "maxUnmasked": 0.6619
     },
     {
+      "template": "app-entry",
+      "width": 390,
+      "pageWidths": 16,
+      "meanUnmasked": 0.234771875,
+      "medianUnmasked": 0.1985,
+      "maxUnmasked": 0.46182
+    },
+    {
       "template": "aircore-destination",
       "width": 1440,
       "pageWidths": 16,
       "meanUnmasked": 0.23381687499999998,
       "medianUnmasked": 0.20669500000000002,
       "maxUnmasked": 0.45278
-    },
-    {
-      "template": "app-entry",
-      "width": 390,
-      "pageWidths": 16,
-      "meanUnmasked": 0.233225625,
-      "medianUnmasked": 0.190385,
-      "maxUnmasked": 0.46182
     },
     {
       "template": "aircore-route",
@@ -269,6 +261,14 @@
       "meanUnmasked": 0.2178925,
       "medianUnmasked": 0.220385,
       "maxUnmasked": 0.22272
+    },
+    {
+      "template": "app-entry",
+      "width": 1440,
+      "pageWidths": 17,
+      "meanUnmasked": 0.21608588235294113,
+      "medianUnmasked": 0.15935,
+      "maxUnmasked": 0.51949
     },
     {
       "template": "fleet",
@@ -67277,26 +67277,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.13219,
-          "mismatchRatio": 0.1203,
-          "maskRatio": 0.08991,
+          "unmaskedRatio": 0.1048,
+          "mismatchRatio": 0.0953,
+          "maskRatio": 0.0906,
           "maskBoxes": 1,
           "heightSrc": 2060,
-          "heightEds": 2096,
-          "heightDiffRatio": 0.01718,
-          "firstDivergentY": 1000,
+          "heightEds": 2080,
+          "heightDiffRatio": 0.00962,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.4659
-            },
-            {
-              "y": 1400,
-              "unmaskedRatio": 0.19982
-            },
-            {
               "y": 600,
-              "unmaskedRatio": 0.16265
+              "unmaskedRatio": 0.22522
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.16481
+            },
+            {
+              "y": 1200,
+              "unmaskedRatio": 0.14938
             }
           ],
           "capturedWidth": 1425,
@@ -67327,26 +67327,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.39589,
-          "mismatchRatio": 0.35404,
-          "maskRatio": 0.10572,
+          "unmaskedRatio": 0.38024,
+          "mismatchRatio": 0.33979,
+          "maskRatio": 0.10639,
           "maskBoxes": 1,
           "heightSrc": 2503,
-          "heightEds": 2524,
-          "heightDiffRatio": 0.00832,
+          "heightEds": 2508,
+          "heightDiffRatio": 0.00199,
           "firstDivergentY": 600,
           "worstBands": [
             {
               "y": 2200,
-              "unmaskedRatio": 0.96125
+              "unmaskedRatio": 0.95354
             },
             {
               "y": 1600,
-              "unmaskedRatio": 0.94552
+              "unmaskedRatio": 0.95048
             },
             {
-              "y": 1000,
-              "unmaskedRatio": 0.59544
+              "y": 1400,
+              "unmaskedRatio": 0.58839
             }
           ],
           "capturedWidth": 753,
@@ -67377,26 +67377,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.16785,
-          "mismatchRatio": 0.14713,
-          "maskRatio": 0.12344,
+          "unmaskedRatio": 0.17636,
+          "mismatchRatio": 0.15467,
+          "maskRatio": 0.12297,
           "maskBoxes": 1,
           "heightSrc": 3418,
-          "heightEds": 3407,
-          "heightDiffRatio": 0.00322,
+          "heightEds": 3431,
+          "heightDiffRatio": 0.00379,
           "firstDivergentY": 800,
           "worstBands": [
             {
-              "y": 800,
-              "unmaskedRatio": 0.48059
-            },
-            {
               "y": 2200,
-              "unmaskedRatio": 0.39305
+              "unmaskedRatio": 0.36692
             },
             {
-              "y": 2600,
-              "unmaskedRatio": 0.20604
+              "y": 800,
+              "unmaskedRatio": 0.34836
+            },
+            {
+              "y": 1800,
+              "unmaskedRatio": 0.32065
             }
           ],
           "capturedWidth": 375,
@@ -67450,7 +67450,7 @@
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
       ],
       "remains": [
-        "layout diverges at y≈1000 px at 1440",
+        "10.5% of unmasked pixels differ at 1440, most around y≈600 px",
         "layout diverges at y≈600 px at 768",
         "layout diverges at y≈800 px at 390"
       ]
@@ -112428,26 +112428,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.42022,
-          "mismatchRatio": 0.42022,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.10592,
+          "mismatchRatio": 0.09632,
+          "maskRatio": 0.0906,
+          "maskBoxes": 1,
           "heightSrc": 2060,
-          "heightEds": 2396,
-          "heightDiffRatio": 0.14023,
-          "firstDivergentY": 600,
+          "heightEds": 2080,
+          "heightDiffRatio": 0.00962,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2000,
-              "unmaskedRatio": 0.97419
+              "y": 600,
+              "unmaskedRatio": 0.22971
             },
             {
-              "y": 1400,
-              "unmaskedRatio": 0.87652
+              "y": 1000,
+              "unmaskedRatio": 0.16648
             },
             {
-              "y": 1600,
-              "unmaskedRatio": 0.62454
+              "y": 1200,
+              "unmaskedRatio": 0.16009
             }
           ],
           "capturedWidth": 1425,
@@ -112478,26 +112478,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.44793,
-          "mismatchRatio": 0.44793,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.36967,
+          "mismatchRatio": 0.33214,
+          "maskRatio": 0.10153,
+          "maskBoxes": 1,
           "heightSrc": 2622,
-          "heightEds": 2874,
-          "heightDiffRatio": 0.08768,
-          "firstDivergentY": 800,
+          "heightEds": 2628,
+          "heightDiffRatio": 0.00228,
+          "firstDivergentY": 600,
           "worstBands": [
             {
-              "y": 2400,
-              "unmaskedRatio": 0.96789
-            },
-            {
               "y": 1600,
-              "unmaskedRatio": 0.95651
+              "unmaskedRatio": 0.94527
             },
             {
-              "y": 1800,
-              "unmaskedRatio": 0.95416
+              "y": 2200,
+              "unmaskedRatio": 0.71904
+            },
+            {
+              "y": 2400,
+              "unmaskedRatio": 0.71347
             }
           ],
           "capturedWidth": 753,
@@ -112528,26 +112528,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.1922,
-          "mismatchRatio": 0.1922,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.20843,
+          "mismatchRatio": 0.18295,
+          "maskRatio": 0.12225,
+          "maskBoxes": 1,
           "heightSrc": 3518,
-          "heightEds": 3511,
-          "heightDiffRatio": 0.00199,
+          "heightEds": 3538,
+          "heightDiffRatio": 0.00565,
           "firstDivergentY": 800,
           "worstBands": [
             {
               "y": 800,
-              "unmaskedRatio": 0.48393
+              "unmaskedRatio": 0.39183
             },
             {
-              "y": 1400,
-              "unmaskedRatio": 0.37499
+              "y": 1800,
+              "unmaskedRatio": 0.38785
             },
             {
               "y": 2200,
-              "unmaskedRatio": 0.36519
+              "unmaskedRatio": 0.34923
             }
           ],
           "capturedWidth": 375,
@@ -112601,8 +112601,8 @@
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
       ],
       "remains": [
-        "layout diverges at y≈600 px at 1440; replica 336 px taller (14.0%)",
-        "layout diverges at y≈800 px at 768; replica 252 px taller (8.8%)",
+        "10.6% of unmasked pixels differ at 1440, most around y≈600 px",
+        "layout diverges at y≈600 px at 768",
         "layout diverges at y≈800 px at 390"
       ]
     },
@@ -128713,14 +128713,59 @@
       "locale": "at/de",
       "template": "app-entry",
       "priority": 4,
-      "status": "pending",
-      "widthsChecked": [],
+      "status": "review",
+      "widthsChecked": [
+        1440
+      ],
       "widths": [
         {
           "width": 1440,
           "contentWidth": 1425,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.10971,
+          "mismatchRatio": 0.10971,
+          "maskRatio": 0,
+          "maskBoxes": 0,
+          "heightSrc": 3484,
+          "heightEds": 3531,
+          "heightDiffRatio": 0.01331,
+          "firstDivergentY": 3400,
+          "worstBands": [
+            {
+              "y": 3400,
+              "unmaskedRatio": 0.34371
+            },
+            {
+              "y": 2800,
+              "unmaskedRatio": 0.27471
+            },
+            {
+              "y": 1800,
+              "unmaskedRatio": 0.26015
+            }
+          ],
+          "capturedWidth": 1425,
+          "contentWidthMatched": true,
+          "clientWidth": 1425,
+          "overflowPx": 0,
+          "failedImages": 0,
+          "fonts": {
+            "h1": {
+              "used": "lufthansahead",
+              "webfont": true
+            },
+            "h2": {
+              "used": "lufthansahead",
+              "webfont": true
+            },
+            "body": {
+              "used": "lufthansatext",
+              "webfont": true
+            }
+          },
+          "consentBannerVisible": false,
+          "showcaseNoticeVisible": false,
+          "truncated": false,
           "diff": "tools/reports/parity/shots/at/de/meine-buchungen/1440-diff.png"
         }
       ],
@@ -128736,7 +128781,9 @@
         "2026-10-24 [page] C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6. (4ec7488)",
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)"
       ],
-      "remains": []
+      "remains": [
+        "layout diverges at y≈3400 px at 1440"
+      ]
     },
     {
       "path": "/at/de/mein-logbuch",
