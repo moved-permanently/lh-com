@@ -17,6 +17,11 @@
  *          [--parity-list urls-parity.txt] [--since 2026-10-21T18:46:00Z]
  * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
  * parity check, so a page is never loaded again just for a screenshot.
+ * --shots-only: a recapture for the parity check (pages whose screenshots were faulty: missed lazy
+ *   images at 768/390, an unstyled render): only the screenshots are replaced; the import input
+ *   (snapshot, cleaned.html, metadata.json) stays as captured, the new rendered HTML goes to
+ *   tools/source-export/recapture/{path}.html and the time to {page dir}/recapture.json.
+ *   Implies --force for the listed URLs (still one page every 5-10 s).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -58,7 +63,13 @@ async function quickScroll(page) {
     for (let y = 0; y < end; y += step) {
       window.scrollTo(0, y);
       // eslint-disable-next-line no-await-in-loop
-      await new Promise((r) => { setTimeout(r, 120); });
+      await new Promise((r) => { setTimeout(r, 250); });
+    }
+    // the images this width asked for (responsive sources), at most 6 s
+    const until = Date.now() + 6000;
+    while (Date.now() < until && [...document.images].some((im) => !im.complete)) {
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => { setTimeout(r, 200); });
     }
     window.scrollTo(0, 0);
   }, MAX_HEIGHT).catch(() => {});
@@ -89,7 +100,12 @@ const captured = (url) => fs.existsSync(snapshotOf(url)) || ['404', 'error-page'
 // long redo list advances instead of starting over
 const since = opt('since') ? Date.parse(opt('since')) : null;
 const stale = (u) => since !== null && state.pages[u]?.status === 'ok' && Date.parse(state.pages[u].at) < since;
-const pending = urls.filter((u) => has('force') || !captured(u) || stale(u)).slice(0, batch);
+const shotsOnly = has('shots-only');
+const recaptured = (u) => {
+  const f = path.join(pagesDir, new URL(u).pathname.replace(/^\/|\/$/g, '') || 'index', 'recapture.json');
+  return fs.existsSync(f) && since !== null && Date.parse(JSON.parse(fs.readFileSync(f, 'utf8')).at) >= since;
+};
+const pending = urls.filter((u) => (shotsOnly ? !recaptured(u) : has('force') || !captured(u) || stale(u))).slice(0, batch);
 if (!pending.length) {
   console.log(`bd-session: nothing to do (${urls.length} URLs already captured)`);
   process.exit(0);
@@ -208,9 +224,12 @@ try {
       fs.mkdirSync(dir, { recursive: true });
 
       const raw = stripScripts(await page.content());
-      const snap = snapshotOf(url);
+      const snap = shotsOnly
+        ? path.join(root, 'tools/source-export/recapture', `${pathname.replace(/\/$/, '') || '/index'}.html`)
+        : snapshotOf(url);
       fs.mkdirSync(path.dirname(snap), { recursive: true });
       fs.writeFileSync(snap, raw);
+      if (shotsOnly) await quickScroll(page);
       lap('snapshot');
 
       const pageWidths = widthsFor(url);
@@ -238,7 +257,7 @@ try {
         .map((l) => ({ hreflang: l.getAttribute('hreflang'), href: l.href }))).catch(() => []);
       // last: extractCleanedHTML mutates the live page (removes <style>, strips attributes), so
       // anything that renders or reads the page must happen before it
-      fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
+      if (!shotsOnly) fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
 
       let model = null;
       if (has('model') && !pathname.startsWith('/lhg/')) {
@@ -252,20 +271,26 @@ try {
       }
 
       const paths = generateDocumentPathInfo(url);
-      fs.writeFileSync(path.join(dir, 'metadata.json'), JSON.stringify({
-        url,
-        source: 'bd-session',
-        timestamp: new Date().toISOString(),
-        paths,
-        screenshot: path.join(dir, 'screenshot.png'),
-        html: { filePath: path.join(dir, 'cleaned.html') },
-        rawHtml: { filePath: snap, size: raw.length },
-        metadata: await extractMetadata(page).catch(() => ({})),
-        images: { mapping: {} },
-        alternates,
-        scripts,
-        screenshots: pageWidths,
-      }, null, 2));
+      if (shotsOnly) {
+        fs.writeFileSync(path.join(dir, 'recapture.json'), `${JSON.stringify({
+          url, at: new Date().toISOString(), widths: pageWidths, html: path.relative(root, snap),
+        }, null, 1)}\n`);
+      } else {
+        fs.writeFileSync(path.join(dir, 'metadata.json'), JSON.stringify({
+          url,
+          source: 'bd-session',
+          timestamp: new Date().toISOString(),
+          paths,
+          screenshot: path.join(dir, 'screenshot.png'),
+          html: { filePath: path.join(dir, 'cleaned.html') },
+          rawHtml: { filePath: snap, size: raw.length },
+          metadata: await extractMetadata(page).catch(() => ({})),
+          images: { mapping: {} },
+          alternates,
+          scripts,
+          screenshots: pageWidths,
+        }, null, 2));
+      }
       const recorded = (await Promise.all(pageResponses)).filter(Boolean);
       if (recorded.length) {
         const locale = (pathname.replace(/^\/lhg/, '').match(/^\/([a-z]{2}\/[a-z]{2})\//) || [])[1] || null;
