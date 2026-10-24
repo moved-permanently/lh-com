@@ -1,4 +1,8 @@
-https://www.lufthansa.com/gb/en/common/accessibility-statement
-https://www.lufthansa.com/gb/en/general-conditions-currency-conversion
-https://www.lufthansa.com/gb/en/sepa-terms-and-conditions-b
-https://www.lufthansa.com/gb/en/terms-and-conditions-lh
+https://www.lufthansa.com/de/en/cookie-policy
+https://www.lufthansa.com/de/de/cookie-policy
+https://www.lufthansa.com/at/de/cookie-policy
+https://www.lufthansa.com/gb/en/cookie-policy
+https://www.lufthansa.com/de/en/data-collection-usa
+https://www.lufthansa.com/de/de/datenerfassung-fuer-die-usa
+https://www.lufthansa.com/at/de/datenerfassung-fuer-die-usa
+https://www.lufthansa.com/gb/en/data-collection-usa

@@ -1,4 +1,2 @@
-https://www.lufthansa.com/at/de/articles/tags/munich
-https://www.lufthansa.com/de/de/articles/tags/munich
-https://www.lufthansa.com/de/en/articles/tags/munich
-https://www.lufthansa.com/gb/en/articles/tags/munich
+https://www.lufthansa.com/de/en/articles/tags/allegris
+https://www.lufthansa.com/gb/en/articles/tags/allegris

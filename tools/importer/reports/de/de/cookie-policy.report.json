@@ -2,8 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/cookie-policy",
   "path": "de/de/cookie-policy",
-  "timestamp": "2026-10-23T05:18:30.207Z",
+  "timestamp": "2026-10-24T10:18:14.575Z",
   "title": "",
   "template": "legal",
-  "blocks": []
+  "blocks": [
+    "table-striped",
+    "table-striped",
+    "table-striped",
+    "table-striped",
+    "table-striped"
+  ]
 }

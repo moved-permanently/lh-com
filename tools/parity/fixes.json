@@ -518,5 +518,25 @@
   "change": "Item 5: the year-number images (jahreszahlen_*.jpg, each locale's own variant) sit alone in one column of a two-column view; the parser dropped the empty column, so they ran the full content width (about 2x live). It keeps the empty cells beside a lone image: half the width from 768px, full width below, as live. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/100-years/cabin-design 32.8/32.6/33.9 -> 24.5/26.1/33.1, de/de 40.0/28.8/38.6 -> 25.1/21.9/34.3 (1440 was 34.8 before C2), gb/en 37.5/33.6/37.9 -> 27.2/23.7/34.5.",
   "commit": "b1f8c5b",
   "date": "2026-10-24"
+ },
+ {
+  "page": "green-fare, flynet, tiere-als-handgepaeck (info x4), cookie-policy, data-collection-usa / datenerfassung-fuer-die-usa (legal x4)",
+  "block": "table-striped, columns-media",
+  "change": "Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3.",
+  "commit": "50afcc4, 94552d5",
+  "date": "2026-10-25"
+ },
+ {
+  "page": "/{de/en,de/de,at/de,gb/en}/onboard-delights; 50 stage / grey-band pages; every info page (Theme flow-spacing, 253 pages re-imported)",
+  "change": "Item 1b: onboard-delights was ~250px taller: the 40px separator at the end of the stage section was dropped (live keeps it: the inline margin beats the last-child rule; 30 stage pages), headings after text had 17px too much (* + h2 40px; live none), the separator after the Pre-order button was dropped, a grey band of two column views lacked its 32px column padding, and the band to the next heading had the 48px section gap instead of 24px. Fix (cleanup, sections, styles): stage-end separators kept as {spacer-N}, page Theme flow-spacing on info pages (the running-text spacing the column-marked pages use: in-flow separators kept, no heading margin above), column-view/column-band on grey bands of column views, new section style spaced. Spot-check unmasked 1440/768/390 before -> after: de/en/onboard-delights 20.2/24.6/21.1 -> 12.0/20.2/15.1 (1440 height 7547 computed vs live 7524), de/de 22.1/23.6/23.2 -> 15.2/21.5/17.9, gb/en (1440) 14.1, de/en/food-and-beverages 35.4/35.9/32.3 -> 17.4/17.8/25.3; flow-spacing sample (add-sports-baggage 22.1/24.6/20.1 -> 11.5/10.8/15.6, hearing-impairment de/de 17.6/29.3/15.5 -> 10.3/15.0/13.2).",
+  "commit": "7fae99e",
+  "date": "2026-10-25"
+ },
+ {
+  "page": "/{de/en,gb/en}/flight-search, /{de/de,at/de}/flugsuche, hub digital-self-services x4, lounges x2",
+  "block": "flight-search, cards-teaser",
+  "change": "Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2.",
+  "commit": "bba462c",
+  "date": "2026-10-25"
  }
 ]

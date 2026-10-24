@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/data-collection-usa",
   "path": "gb/en/data-collection-usa",
-  "timestamp": "2026-10-23T05:18:57.767Z",
+  "timestamp": "2026-10-24T10:18:30.279Z",
   "title": "",
   "template": "legal",
-  "blocks": []
+  "blocks": [
+    "table-striped"
+  ]
 }
