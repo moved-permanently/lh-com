@@ -84,6 +84,15 @@ function groupColumns(block) {
  * @param {Element} block
  */
 export default async function decorate(block) {
+  // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
+  // paragraph of its own right after it; it goes back into the heading
+  block.querySelectorAll(':is(h2, h3, h4, h5, h6) + p').forEach((p) => {
+    const picture = p.querySelector(':scope > picture:only-child');
+    const img = picture && picture.querySelector('img');
+    if (!img || p.textContent.trim() || !/\.svg(?:$|[?#])/i.test(img.getAttribute('src') || '')) return;
+    p.previousElementSibling.prepend(picture);
+    p.remove();
+  });
   if (block.classList.contains('column')) groupColumns(block);
   // faq: questions and answers (headings inside an answer stay in the one text column)
   const single = block.classList.contains('faq');

@@ -112,6 +112,16 @@ export default async function decorate(block) {
   const ratio = [...block.classList].map((c) => c.match(/^ratio-(\d{1,2})$/)).find(Boolean);
   if (ratio) block.style.setProperty('--columns-media-first', `${ratio[1]}%`);
 
+  // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
+  // paragraph of its own right after it; it goes back into the heading
+  block.querySelectorAll(':is(h3, h4) + p').forEach((p) => {
+    const picture = p.querySelector(':scope > picture:only-child');
+    const img = picture && picture.querySelector('img');
+    if (!img || cleanText(p) || !/\.svg(?:$|[?#])/i.test(img.getAttribute('src') || '')) return;
+    p.previousElementSibling.prepend(picture);
+    p.remove();
+  });
+
   [...block.children].forEach((row) => {
     const cells = [...row.children];
     if (!cells.length || (!cleanText(row) && !row.querySelector('picture, img, a'))) {
