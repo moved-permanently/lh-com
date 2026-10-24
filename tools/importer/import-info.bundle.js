@@ -36,10 +36,840 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_42061_exports = {};
-  __export(tmp_bundle_info_42061_exports, {
-    default: () => tmp_bundle_info_42061_default
+  var tmp_bundle_info_70643_exports = {};
+  __export(tmp_bundle_info_70643_exports, {
+    default: () => tmp_bundle_info_70643_default
   });
+
+  // tools/importer/parsers/aem-path-map.js
+  var AEM_PATHS = {
+    "/at/de/discover-lufthansa/lufthansa-fleet/320": "/at/de/320",
+    "/at/de/discover-lufthansa/lufthansa-fleet/32N": "/at/de/32n",
+    "/at/de/discover-lufthansa/lufthansa-fleet/359": "/at/de/359",
+    "/at/de/discover-lufthansa/lufthansa-fleet/744": "/at/de/744",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs": "/at/de/accessible-travel",
+    "/at/de/book-and-manage/additional-services": "/at/de/additional-services",
+    "/at/de/during-your-trip/lounges/admission-rules": "/at/de/admission-rules",
+    "/at/de/support/contact/adresses": "/at/de/adressen-weltweit",
+    "/at/de/book-and-manage/advance-seat-reservation": "/at/de/advance-seat-reservation",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa": "/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "/at/de/business-services/affiliate-marketing": "/at/de/affiliatemarketing",
+    "/at/de/prepare-for-your-trip/all-check-in": "/at/de/all-check-in",
+    "/at/de/prepare-for-your-trip/travelling-with-children/unaccompanied-minors": "/at/de/alleinreisende-kinder",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold": "/at/de/anmeldung-tiere-frachtraum",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/arrival-services": "/at/de/arrival-services",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs": "/at/de/assistenzhunde",
+    "/at/de/prepare-for-your-trip/all-check-in/automatic-check-in": "/at/de/automatic-check-in",
+    "/at/de/prepare-for-your-trip/baggage/baggage-irregularities": "/at/de/baggage-irregularities",
+    "/at/de/book-and-manage/timetable-and-flight-status/most-significant-route": "/at/de/bedeutsamste-strecken",
+    "/at/de/common/terms-and-conditions": "/at/de/befoerderungsbedingungen-group",
+    "/at/de/common/terms-and-conditions/terms-of-service": "/at/de/befoerderungsbedingungen-lh",
+    "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus/terms-of-transport": "/at/de/besondere-befoerderungsbedingungen-bus",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form": "/at/de/betreuungsbedarf",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/bid-upgrade": "/at/de/bid-upgrade",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/boarding": "/at/de/boarding",
+    "/at/de/discover-lufthansa/lufthansa-fleet/787": "/at/de/boeing787",
+    "/at/de/prepare-for-your-trip/travel-classes/business-class/business-class-short-haul": "/at/de/business-class-auf-kurz-und-mittelstrecken",
+    "/at/de/prepare-for-your-trip/travel-classes/business-class": "/at/de/business-class",
+    "/at/de/book-and-manage/cancellation-and-refund": "/at/de/cancellations-and-refunds",
+    "/at/de/common/payment-options/cash-and-miles": "/at/de/cash-and-miles",
+    "/at/de/prepare-for-your-trip/all-check-in/check-in-baggage": "/at/de/check-in-baggage",
+    "/at/de/common/privacy-statement/cookie-policy": "/at/de/cookie-policy",
+    "/at/de/during-your-trip/food-and-beverages/culinary-journey": "/at/de/culinaryjourney",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/dangerous-dogs": "/at/de/dangerous-dogs",
+    "/at/de/prepare-for-your-trip/entry-regulations/data-collection-usa": "/at/de/datenerfassung-fuer-die-usa",
+    "/at/de/prepare-for-your-trip/entry-regulations/data-collection-canada": "/at/de/datenerfassung-fuer-kanada",
+    "/at/de/common/privacy-statement": "/at/de/datenschutz",
+    "/at/de/book-and-manage/digital-self-services": "/at/de/digital-self-services",
+    "/at/de/book-and-manage/digital-self-services/digital-travel-companion": "/at/de/digital-travel-companion",
+    "/at/de/prepare-for-your-trip/baggage/digital-baggage-services": "/at/de/digitale-gepaeckservices",
+    "/at/de/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news": "/at/de/doctor-on-board-news",
+    "/at/de/prepare-for-your-trip/special-travel-needs/doctor-on-board": "/at/de/doctor-on-board",
+    "/at/de/prepare-for-your-trip/travel-classes/economy-class": "/at/de/economy-class",
+    "/at/de/prepare-for-your-trip/baggage/digital-baggage-services/electronic-bag-tags": "/at/de/electronic-bag-tags",
+    "/at/de/prepare-for-your-trip/entry-regulations": "/at/de/entryprocesses",
+    "/at/de/prepare-for-your-trip/travel-classes/europe-fares": "/at/de/europa-tarife-economy-class",
+    "/at/de/discover-lufthansa/partners/rental-cars/europcar": "/at/de/europcar",
+    "/at/de/book-and-manage/exclusive-charter": "/at/de/exclusive-charter",
+    "/at/de/common/faq-data-security": "/at/de/faq-data-security",
+    "/at/de/support/faq/faq-ejournals": "/at/de/faq-ejournals",
+    "/at/de/common/faq-password-security": "/at/de/faq-password-security",
+    "/at/de/support/feedback-past-flight": "/at/de/feedback-past-flight",
+    "/at/de/support/feedback": "/at/de/feedback",
+    "/at/de/prepare-for-your-trip/airport-information/frankfurt-airport/valet-parking-service": "/at/de/fia-valet-service",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/first-class-lounges": "/at/de/first-class-lounges",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/personal-assistant": "/at/de/first-class-personal-assistant",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/first-class-terminal": "/at/de/first-class-terminal",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/valet-parking-service": "/at/de/first-class-valet-parking-service",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class": "/at/de/first-class",
+    "/at/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-babies": "/at/de/fliegen-mit-baby",
+    "/at/de/prepare-for-your-trip/travelling-with-children": "/at/de/fliegen-mit-kindern",
+    "/at/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-small-kids": "/at/de/fliegen-mit-kleinkind",
+    "/at/de/book-and-manage/offers-and-destination": "/at/de/fluege",
+    "/at/de/prepare-for-your-trip/airport-information": "/at/de/flughafeninformation",
+    "/at/de/book-and-manage/timetable-and-flight-status": "/at/de/flugplan-und-flugstatus",
+    "/at/de/book-and-manage/flights": "/at/de/flugsuche",
+    "/at/de/book-and-manage/timetable-and-flight-status/flight-disruptions": "/at/de/flugunregelmaessigkeiten",
+    "/at/de/during-your-trip/internet-on-board": "/at/de/flynet",
+    "/at/de/prepare-for-your-trip/airport-information/munich-airport/valet-parking-service": "/at/de/fmg-valet-parking-service",
+    "/at/de/prepare-for-your-trip/airport-information/frankfurt-airport/frankfurt-trade-fair": "/at/de/frankfurt-fair",
+    "/at/de/book-and-manage/additional-services/share-now": "/at/de/free2move",
+    "/at/de/prepare-for-your-trip/baggage/free-baggage": "/at/de/freigepaeck-regeln",
+    "/at/de/prepare-for-your-trip/baggage/dangerous-goods": "/at/de/gefaehrliche-gegenstaende",
+    "/at/de/prepare-for-your-trip/baggage": "/at/de/gepaeck",
+    "/at/de/common/business-conditions": "/at/de/geschaeftsbedingungen",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travelling-healthy": "/at/de/gesund-reisen",
+    "/at/de/prepare-for-your-trip/travel-classes/green-fare": "/at/de/green-fare",
+    "/at/de/book-and-manage/group-travel": "/at/de/group-travel",
+    "/at/de/book-and-manage/group-travel-and-charter": "/at/de/gruppenreisen-und-charter",
+    "/at/de/prepare-for-your-trip/baggage/carry-on-baggage": "/at/de/handgepaeck",
+    "/at/de/discover-lufthansa/partners/rental-cars/hertz": "/at/de/hertz",
+    "/at/de/discover-lufthansa/partners/hotel": "/at/de/hotelangebote",
+    "/at/de/common/imprint": "/at/de/impressum",
+    "/at/de/common/privacy-statement/info": "/at/de/informationen-zum-datenschutz",
+    "/at/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board": "/at/de/kinder-an-bord",
+    "/at/de/during-your-trip/food-and-beverages/childrens-menus": "/at/de/kindermenues-an-bord",
+    "/at/de/during-your-trip/lounges/lounge-companions": "/at/de/lounge-begleitung",
+    "/at/de/during-your-trip/lounges": "/at/de/lounges",
+    "/at/de/prepare-for-your-trip/airport-information/duesseldorf-airport": "/at/de/lufthansa-am-flughafen-duesseldorf",
+    "/at/de/prepare-for-your-trip/airport-information/frankfurt-airport": "/at/de/lufthansa-am-flughafen-frankfurt",
+    "/at/de/prepare-for-your-trip/airport-information/vienna-airport": "/at/de/lufthansa-am-flughafen-wien",
+    "/at/de/prepare-for-your-trip/airport-information/berlin-airport": "/at/de/lufthansa-at-berlin-airport",
+    "/at/de/prepare-for-your-trip/airport-information/zuerich-airport": "/at/de/lufthansa-at-zuerich-airport",
+    "/at/de/discover-lufthansa/lufthansa-aviation-group": "/at/de/lufthansa-aviation-group",
+    "/at/de/prepare-for-your-trip/travel-classes/business-class/business-class-long-haul": "/at/de/lufthansa-business-class-on-long-haul-routes",
+    "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus": "/at/de/lufthansa-express-bus",
+    "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail": "/at/de/lufthansa-express-rail",
+    "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport": "/at/de/lufthansa-express",
+    "/at/de/business-services/for-corporate-customers": "/at/de/lufthansa-firmenkunden",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/entertainment": "/at/de/lufthansa-first-class-entertainment",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/fleet": "/at/de/lufthansa-first-class-flotte",
+    "/at/de/prepare-for-your-trip/travel-classes/first-class/comfort": "/at/de/lufthansa-first-class-komfort",
+    "/at/de/discover-lufthansa/lufthansa-group-airlines": "/at/de/lufthansa-group-star-alliance-and-partner-airlines",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/guide-service": "/at/de/lufthansa-guide-service",
+    "/at/de/prepare-for-your-trip/travel-classes": "/at/de/lufthansa-reiseklassen",
+    "/at/de/prepare-for-your-trip/airport-information/munich-airport": "/at/de/lufthansa-terminal-muenchen",
+    "/at/de/book-and-manage/additional-services/medication-transport": "/at/de/medikamenten-transport",
+    "/at/de/business-services/for-corporate-customers/meetings-and-events": "/at/de/meetings-and-events",
+    "/at/de/business-services/for-corporate-customers/meetings-and-events/organizer": "/at/de/meetings-und-events-individuelle-angebotsanfrage",
+    "/at/de/business-services/for-corporate-customers/meetings-and-events/participant": "/at/de/meetings-und-events-teilnehmer",
+    "/at/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook": "/at/de/mein-logbuch",
+    "/at/de/book-and-manage/view-and-amend-flight-details": "/at/de/meine-buchungen",
+    "/at/de/during-your-trip/food-and-beverages/menus-long-haul": "/at/de/menues-auf-langstreckenfluegen",
+    "/at/de/during-your-trip/food-and-beverages/menus-travelclasses": "/at/de/menues-reiseklassen",
+    "/at/de/discover-lufthansa/partners/rental-cars": "/at/de/mietwagenangebote",
+    "/at/de/discover-lufthansa/miles-and-more": "/at/de/miles-and-more",
+    "/at/de/prepare-for-your-trip/travelling-with-children/airport-with-kids": "/at/de/mit-kindern-am-flughafen",
+    "/at/de/prepare-for-your-trip/special-travel-needs/mobility-partner-program-healthcare": "/at/de/mobility-partner-program-healthcare",
+    "/at/de/prepare-for-your-trip/airport-information/munich-airport/munich-trade-fair": "/at/de/munich-fair",
+    "/at/de/discover-lufthansa/carbon-offsetting": "/at/de/nachhaltiger-fliegen",
+    "/at/de/common/terms-and-conditions/terms-currency-conversion": "/at/de/nutzungsbedingungen-waehrungsumrechnung",
+    "/at/de/common/terms-of-use": "/at/de/nutzungsbedingungen",
+    "/at/de/during-your-trip/food-and-beverages/onboard-delights/faq": "/at/de/onboard-delights-faq",
+    "/at/de/during-your-trip/food-and-beverages/onboard-delights": "/at/de/onboard-delights",
+    "/at/de/prepare-for-your-trip/all-check-in/online-check-in-info": "/at/de/online-check-in-info",
+    "/at/de/prepare-for-your-trip/travelling-with-children/airport-with-kids/online-family-check-in": "/at/de/online-check-in-mit-der-ganzen-familie",
+    "/at/de/prepare-for-your-trip/check-in": "/at/de/online-check-in",
+    "/at/de/book-and-manage/overview-flights": "/at/de/overview-flights",
+    "/at/de/book-and-manage/booking-services": "/at/de/overview-manage",
+    "/at/de/book-and-manage/overview-special-request": "/at/de/overview-special-request",
+    "/at/de/book-and-manage/overview-travel-information": "/at/de/overview-travel-information",
+    "/at/de/discover-lufthansa/partners": "/at/de/partner",
+    "/at/de/book-and-manage/passenger-receipt-90days": "/at/de/passenger-receipt-90",
+    "/at/de/common/passenger-rights": "/at/de/passenger-rights",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs": "/at/de/passengers-using-wheelchairs",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-with-sensory-impairment": "/at/de/passengers-with-sensory-impairment",
+    "/at/de/prepare-for-your-trip/all-check-in/pre-check-in": "/at/de/pre-check-in",
+    "/at/de/prepare-for-your-trip/travel-classes/premium-economy-class": "/at/de/premium-economy-class",
+    "/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-fly": "/at/de/rail-and-fly",
+    "/at/de/common/rail-fly-conditions": "/at/de/rail-fly-bedingungen",
+    "/at/de/book-and-manage/passenger-receipt": "/at/de/rechnungsbeleg",
+    "/at/de/book-and-manage/cancellation-and-refund/refund": "/at/de/refund",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal": "/at/de/register-animal-cabin",
+    "/at/de/business-services/for-travel-agencies": "/at/de/reisebueros",
+    "/at/de/prepare-for-your-trip/special-travel-needs": "/at/de/reisen-mit-besonderen-anforderungen",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs/wheelchair-batteries": "/at/de/rollstuhlbatterien",
+    "/at/de/prepare-for-your-trip/entry-regulations/entering-schengen": "/at/de/schengen",
+    "/at/de/prepare-for-your-trip/entry-regulations/secure-flight": "/at/de/secure-flight",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-fast-lanes": "/at/de/security-fast-lanes",
+    "/at/de/common/sepa-conditions-b": "/at/de/sepa-bedingungen-b",
+    "/at/de/common/sepa-conditions": "/at/de/sepa-bedingungen",
+    "/at/de/prepare-for-your-trip/airport-information/frankfurt-airport/services-at-frankfurt-airport": "/at/de/services-am-flughafen-frankfurt",
+    "/at/de/prepare-for-your-trip/airport-information/munich-airport/services-at-munich-airport": "/at/de/services-am-flughafen-muenchen",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport": "/at/de/services-am-flughafen",
+    "/at/de/during-your-trip/in-flight-services-at-a-glance": "/at/de/services-an-bord",
+    "/at/de/during-your-trip/in-flight-services-at-a-glance/shopping": "/at/de/shopping",
+    "/at/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/security-on-board": "/at/de/sicherheit-fuer-kleinkinder-an-bord",
+    "/at/de/discover-lufthansa/lufthansa-fleet": "/at/de/sitzplaene",
+    "/at/de/common/seatreservation-condtions": "/at/de/sitzplatzreservierungen-konditionen",
+    "/at/de/discover-lufthansa/partners/rental-cars/sixt": "/at/de/sixt",
+    "/at/de/during-your-trip/food-and-beverages/special-meals": "/at/de/sondermahlzeiten",
+    "/at/de/during-your-trip/food-and-beverages": "/at/de/speisen-und-getraenke",
+    "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage": "/at/de/sportgepaeck-hinzufuegen",
+    "/at/de/prepare-for-your-trip/baggage/sport-baggage": "/at/de/sportgepaeck",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage": "/at/de/tiere-als-handgepaeck",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage": "/at/de/tiere-als-uebergepaeck",
+    "/at/de/prepare-for-your-trip/special-travel-needs/tips-senior-travellers": "/at/de/tips-senior-travellers",
+    "/at/de/business-services/for-corporate-customers/travel-expense-management": "/at/de/travel-expense-management",
+    "/at/de/profile/travel-id/travel-id-terms-conditions": "/at/de/travel-id-terms-conditions",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals": "/at/de/travelling-with-animals",
+    "/at/de/discover-lufthansa/campaigns/traveltricks": "/at/de/traveltricks",
+    "/at/de/prepare-for-your-trip/baggage/excess-baggage": "/at/de/uebergepaeck",
+    "/at/de/during-your-trip/entertainment-on-board": "/at/de/unterhaltung-an-bord",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-long-haul": "/at/de/upgrade-business-class-langstrecke",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/first-upgrade-long-haul": "/at/de/upgrade-first-class",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-short-haul": "/at/de/upgrade-in-die-business-class",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade": "/at/de/upgrade-in-die-premium-economy-class",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/upgrade-information": "/at/de/upgrade-informationen",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade-long-haul": "/at/de/upgrade-premium-economy-class",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options": "/at/de/upgrademoeglichkeiten",
+    "/at/de/prepare-for-your-trip/travel-classes/upgrade-options/fixed-price-upgrade-in-online-check-in": "/at/de/upgrades-im-online-check-in",
+    "/at/de/common/payment-options/payment-at-airports": "/at/de/zahlungsmoeglichkeiten-am-flughafen",
+    "/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-control-service": "/at/de/zeitfenster-sicherheitskontrolle",
+    "/de/de/discover-lufthansa/lufthansa-fleet/320": "/de/de/320",
+    "/de/de/discover-lufthansa/lufthansa-fleet/32N": "/de/de/32n",
+    "/de/de/discover-lufthansa/lufthansa-fleet/359": "/de/de/359",
+    "/de/de/discover-lufthansa/lufthansa-fleet/744": "/de/de/744",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs": "/de/de/accessible-travel",
+    "/de/de/book-and-manage/additional-services": "/de/de/additional-services",
+    "/de/de/during-your-trip/lounges/admission-rules": "/de/de/admission-rules",
+    "/de/de/support/contact/adresses": "/de/de/adressen-weltweit",
+    "/de/de/book-and-manage/advance-seat-reservation": "/de/de/advance-seat-reservation",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa": "/de/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "/de/de/business-services/affiliate-marketing": "/de/de/affiliatemarketing",
+    "/de/de/prepare-for-your-trip/all-check-in": "/de/de/all-check-in",
+    "/de/de/prepare-for-your-trip/travelling-with-children/unaccompanied-minors": "/de/de/alleinreisende-kinder",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold": "/de/de/anmeldung-tiere-frachtraum",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/arrival-services": "/de/de/arrival-services",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs": "/de/de/assistenzhunde",
+    "/de/de/prepare-for-your-trip/all-check-in/automatic-check-in": "/de/de/automatic-check-in",
+    "/de/de/prepare-for-your-trip/baggage/baggage-irregularities": "/de/de/baggage-irregularities",
+    "/de/de/book-and-manage/timetable-and-flight-status/most-significant-route": "/de/de/bedeutsamste-strecken",
+    "/de/de/common/terms-and-conditions": "/de/de/befoerderungsbedingungen-group",
+    "/de/de/common/terms-and-conditions/terms-of-service": "/de/de/befoerderungsbedingungen-lh",
+    "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus/terms-of-transport": "/de/de/besondere-befoerderungsbedingungen-bus",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form": "/de/de/betreuungsbedarf",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/bid-upgrade": "/de/de/bid-upgrade",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/boarding": "/de/de/boarding",
+    "/de/de/discover-lufthansa/lufthansa-fleet/787": "/de/de/boeing787",
+    "/de/de/prepare-for-your-trip/travel-classes/business-class/business-class-short-haul": "/de/de/business-class-auf-kurz-und-mittelstrecken",
+    "/de/de/prepare-for-your-trip/travel-classes/business-class": "/de/de/business-class",
+    "/de/de/book-and-manage/cancellation-and-refund": "/de/de/cancellations-and-refunds",
+    "/de/de/common/payment-options/cash-and-miles": "/de/de/cash-and-miles",
+    "/de/de/prepare-for-your-trip/all-check-in/check-in-baggage": "/de/de/check-in-baggage",
+    "/de/de/common/privacy-statement/cookie-policy": "/de/de/cookie-policy",
+    "/de/de/during-your-trip/food-and-beverages/culinary-journey": "/de/de/culinaryjourney",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/dangerous-dogs": "/de/de/dangerous-dogs",
+    "/de/de/prepare-for-your-trip/entry-regulations/data-collection-usa": "/de/de/datenerfassung-fuer-die-usa",
+    "/de/de/prepare-for-your-trip/entry-regulations/data-collection-canada": "/de/de/datenerfassung-fuer-kanada",
+    "/de/de/common/privacy-statement": "/de/de/datenschutz",
+    "/de/de/book-and-manage/digital-self-services": "/de/de/digital-self-services",
+    "/de/de/book-and-manage/digital-self-services/digital-travel-companion": "/de/de/digital-travel-companion",
+    "/de/de/prepare-for-your-trip/baggage/digital-baggage-services": "/de/de/digitale-gepaeckservices",
+    "/de/de/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news": "/de/de/doctor-on-board-news",
+    "/de/de/prepare-for-your-trip/special-travel-needs/doctor-on-board": "/de/de/doctor-on-board",
+    "/de/de/prepare-for-your-trip/travel-classes/economy-class": "/de/de/economy-class",
+    "/de/de/prepare-for-your-trip/baggage/digital-baggage-services/electronic-bag-tags": "/de/de/electronic-bag-tags",
+    "/de/de/prepare-for-your-trip/entry-regulations": "/de/de/entryprocesses",
+    "/de/de/prepare-for-your-trip/travel-classes/europe-fares": "/de/de/europa-tarife-economy-class",
+    "/de/de/discover-lufthansa/partners/rental-cars/europcar": "/de/de/europcar",
+    "/de/de/book-and-manage/exclusive-charter": "/de/de/exclusive-charter",
+    "/de/de/common/faq-data-security": "/de/de/faq-data-security",
+    "/de/de/support/faq/faq-ejournals": "/de/de/faq-ejournals",
+    "/de/de/common/faq-password-security": "/de/de/faq-password-security",
+    "/de/de/support/feedback-past-flight": "/de/de/feedback-past-flight",
+    "/de/de/support/feedback": "/de/de/feedback",
+    "/de/de/prepare-for-your-trip/airport-information/frankfurt-airport/valet-parking-service": "/de/de/fia-valet-service",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/first-class-lounges": "/de/de/first-class-lounges",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/personal-assistant": "/de/de/first-class-personal-assistant",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/first-class-terminal": "/de/de/first-class-terminal",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/valet-parking-service": "/de/de/first-class-valet-parking-service",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class": "/de/de/first-class",
+    "/de/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-babies": "/de/de/fliegen-mit-baby",
+    "/de/de/prepare-for-your-trip/travelling-with-children": "/de/de/fliegen-mit-kindern",
+    "/de/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-small-kids": "/de/de/fliegen-mit-kleinkind",
+    "/de/de/book-and-manage/offers-and-destination": "/de/de/fluege",
+    "/de/de/prepare-for-your-trip/airport-information": "/de/de/flughafeninformation",
+    "/de/de/book-and-manage/timetable-and-flight-status": "/de/de/flugplan-und-flugstatus",
+    "/de/de/book-and-manage/flights": "/de/de/flugsuche",
+    "/de/de/book-and-manage/timetable-and-flight-status/flight-disruptions": "/de/de/flugunregelmaessigkeiten",
+    "/de/de/during-your-trip/internet-on-board": "/de/de/flynet",
+    "/de/de/prepare-for-your-trip/airport-information/munich-airport/valet-parking-service": "/de/de/fmg-valet-parking-service",
+    "/de/de/prepare-for-your-trip/airport-information/frankfurt-airport/frankfurt-trade-fair": "/de/de/frankfurt-fair",
+    "/de/de/book-and-manage/additional-services/share-now": "/de/de/free2move",
+    "/de/de/prepare-for-your-trip/baggage/free-baggage": "/de/de/freigepaeck-regeln",
+    "/de/de/prepare-for-your-trip/baggage/dangerous-goods": "/de/de/gefaehrliche-gegenstaende",
+    "/de/de/prepare-for-your-trip/baggage": "/de/de/gepaeck",
+    "/de/de/common/business-conditions": "/de/de/geschaeftsbedingungen",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travelling-healthy": "/de/de/gesund-reisen",
+    "/de/de/prepare-for-your-trip/travel-classes/green-fare": "/de/de/green-fare",
+    "/de/de/book-and-manage/group-travel": "/de/de/group-travel",
+    "/de/de/book-and-manage/group-travel-and-charter": "/de/de/gruppenreisen-und-charter",
+    "/de/de/prepare-for-your-trip/baggage/carry-on-baggage": "/de/de/handgepaeck",
+    "/de/de/discover-lufthansa/partners/rental-cars/hertz": "/de/de/hertz",
+    "/de/de/discover-lufthansa/partners/hotel": "/de/de/hotelangebote",
+    "/de/de/common/imprint": "/de/de/impressum",
+    "/de/de/common/privacy-statement/info": "/de/de/informationen-zum-datenschutz",
+    "/de/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board": "/de/de/kinder-an-bord",
+    "/de/de/during-your-trip/food-and-beverages/childrens-menus": "/de/de/kindermenues-an-bord",
+    "/de/de/during-your-trip/lounges/lounge-companions": "/de/de/lounge-begleitung",
+    "/de/de/during-your-trip/lounges": "/de/de/lounges",
+    "/de/de/prepare-for-your-trip/airport-information/duesseldorf-airport": "/de/de/lufthansa-am-flughafen-duesseldorf",
+    "/de/de/prepare-for-your-trip/airport-information/frankfurt-airport": "/de/de/lufthansa-am-flughafen-frankfurt",
+    "/de/de/prepare-for-your-trip/airport-information/vienna-airport": "/de/de/lufthansa-am-flughafen-wien",
+    "/de/de/prepare-for-your-trip/airport-information/berlin-airport": "/de/de/lufthansa-at-berlin-airport",
+    "/de/de/prepare-for-your-trip/airport-information/zuerich-airport": "/de/de/lufthansa-at-zuerich-airport",
+    "/de/de/discover-lufthansa/lufthansa-aviation-group": "/de/de/lufthansa-aviation-group",
+    "/de/de/prepare-for-your-trip/travel-classes/business-class/business-class-long-haul": "/de/de/lufthansa-business-class-on-long-haul-routes",
+    "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus": "/de/de/lufthansa-express-bus",
+    "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail": "/de/de/lufthansa-express-rail",
+    "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport": "/de/de/lufthansa-express",
+    "/de/de/business-services/for-corporate-customers": "/de/de/lufthansa-firmenkunden",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/entertainment": "/de/de/lufthansa-first-class-entertainment",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/fleet": "/de/de/lufthansa-first-class-flotte",
+    "/de/de/prepare-for-your-trip/travel-classes/first-class/comfort": "/de/de/lufthansa-first-class-komfort",
+    "/de/de/discover-lufthansa/lufthansa-group-airlines": "/de/de/lufthansa-group-star-alliance-and-partner-airlines",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/guide-service": "/de/de/lufthansa-guide-service",
+    "/de/de/prepare-for-your-trip/travel-classes": "/de/de/lufthansa-reiseklassen",
+    "/de/de/prepare-for-your-trip/airport-information/munich-airport": "/de/de/lufthansa-terminal-muenchen",
+    "/de/de/book-and-manage/additional-services/medication-transport": "/de/de/medikamenten-transport",
+    "/de/de/business-services/for-corporate-customers/meetings-and-events": "/de/de/meetings-and-events",
+    "/de/de/business-services/for-corporate-customers/meetings-and-events/organizer": "/de/de/meetings-und-events-individuelle-angebotsanfrage",
+    "/de/de/business-services/for-corporate-customers/meetings-and-events/participant": "/de/de/meetings-und-events-teilnehmer",
+    "/de/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook": "/de/de/mein-logbuch",
+    "/de/de/book-and-manage/view-and-amend-flight-details": "/de/de/meine-buchungen",
+    "/de/de/during-your-trip/food-and-beverages/menus-long-haul": "/de/de/menues-auf-langstreckenfluegen",
+    "/de/de/during-your-trip/food-and-beverages/menus-travelclasses": "/de/de/menues-reiseklassen",
+    "/de/de/discover-lufthansa/partners/rental-cars": "/de/de/mietwagenangebote",
+    "/de/de/discover-lufthansa/miles-and-more": "/de/de/miles-and-more",
+    "/de/de/prepare-for-your-trip/travelling-with-children/airport-with-kids": "/de/de/mit-kindern-am-flughafen",
+    "/de/de/prepare-for-your-trip/special-travel-needs/mobility-partner-program-healthcare": "/de/de/mobility-partner-program-healthcare",
+    "/de/de/prepare-for-your-trip/airport-information/munich-airport/munich-trade-fair": "/de/de/munich-fair",
+    "/de/de/discover-lufthansa/carbon-offsetting": "/de/de/nachhaltiger-fliegen",
+    "/de/de/common/terms-and-conditions/terms-currency-conversion": "/de/de/nutzungsbedingungen-waehrungsumrechnung",
+    "/de/de/common/terms-of-use": "/de/de/nutzungsbedingungen",
+    "/de/de/during-your-trip/food-and-beverages/onboard-delights/faq": "/de/de/onboard-delights-faq",
+    "/de/de/during-your-trip/food-and-beverages/onboard-delights": "/de/de/onboard-delights",
+    "/de/de/prepare-for-your-trip/all-check-in/online-check-in-info": "/de/de/online-check-in-info",
+    "/de/de/prepare-for-your-trip/travelling-with-children/airport-with-kids/online-family-check-in": "/de/de/online-check-in-mit-der-ganzen-familie",
+    "/de/de/prepare-for-your-trip/check-in": "/de/de/online-check-in",
+    "/de/de/book-and-manage/overview-flights": "/de/de/overview-flights",
+    "/de/de/book-and-manage/booking-services": "/de/de/overview-manage",
+    "/de/de/book-and-manage/overview-special-request": "/de/de/overview-special-request",
+    "/de/de/book-and-manage/overview-travel-information": "/de/de/overview-travel-information",
+    "/de/de/discover-lufthansa/partners": "/de/de/partner",
+    "/de/de/book-and-manage/passenger-receipt-90days": "/de/de/passenger-receipt-90",
+    "/de/de/common/passenger-rights": "/de/de/passenger-rights",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs": "/de/de/passengers-using-wheelchairs",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-with-sensory-impairment": "/de/de/passengers-with-sensory-impairment",
+    "/de/de/prepare-for-your-trip/all-check-in/pre-check-in": "/de/de/pre-check-in",
+    "/de/de/prepare-for-your-trip/travel-classes/premium-economy-class": "/de/de/premium-economy-class",
+    "/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-fly": "/de/de/rail-and-fly",
+    "/de/de/common/rail-fly-conditions": "/de/de/rail-fly-bedingungen",
+    "/de/de/book-and-manage/cancellation-and-refund/refund": "/de/de/refund",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal": "/de/de/register-animal-cabin",
+    "/de/de/business-services/for-travel-agencies": "/de/de/reisebueros",
+    "/de/de/prepare-for-your-trip/special-travel-needs": "/de/de/reisen-mit-besonderen-anforderungen",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs/wheelchair-batteries": "/de/de/rollstuhlbatterien",
+    "/de/de/prepare-for-your-trip/entry-regulations/entering-schengen": "/de/de/schengen",
+    "/de/de/prepare-for-your-trip/entry-regulations/secure-flight": "/de/de/secure-flight",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-fast-lanes": "/de/de/security-fast-lanes",
+    "/de/de/common/sepa-conditions-b": "/de/de/sepa-bedingungen-b",
+    "/de/de/common/sepa-conditions": "/de/de/sepa-bedingungen",
+    "/de/de/prepare-for-your-trip/airport-information/frankfurt-airport/services-at-frankfurt-airport": "/de/de/services-am-flughafen-frankfurt",
+    "/de/de/prepare-for-your-trip/airport-information/munich-airport/services-at-munich-airport": "/de/de/services-am-flughafen-muenchen",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport": "/de/de/services-am-flughafen",
+    "/de/de/during-your-trip/in-flight-services-at-a-glance": "/de/de/services-an-bord",
+    "/de/de/during-your-trip/in-flight-services-at-a-glance/shopping": "/de/de/shopping",
+    "/de/de/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/security-on-board": "/de/de/sicherheit-fuer-kleinkinder-an-bord",
+    "/de/de/discover-lufthansa/lufthansa-fleet": "/de/de/sitzplaene",
+    "/de/de/common/seatreservation-condtions": "/de/de/sitzplatzreservierungen-konditionen",
+    "/de/de/discover-lufthansa/partners/rental-cars/sixt": "/de/de/sixt",
+    "/de/de/during-your-trip/food-and-beverages/special-meals": "/de/de/sondermahlzeiten",
+    "/de/de/during-your-trip/food-and-beverages": "/de/de/speisen-und-getraenke",
+    "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage": "/de/de/sportgepaeck-hinzufuegen",
+    "/de/de/prepare-for-your-trip/baggage/sport-baggage": "/de/de/sportgepaeck",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage": "/de/de/tiere-als-handgepaeck",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage": "/de/de/tiere-als-uebergepaeck",
+    "/de/de/prepare-for-your-trip/special-travel-needs/tips-senior-travellers": "/de/de/tips-senior-travellers",
+    "/de/de/business-services/for-corporate-customers/travel-expense-management": "/de/de/travel-expense-management",
+    "/de/de/profile/travel-id/travel-id-terms-conditions": "/de/de/travel-id-terms-conditions",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals": "/de/de/travelling-with-animals",
+    "/de/de/discover-lufthansa/campaigns/traveltricks": "/de/de/traveltricks",
+    "/de/de/prepare-for-your-trip/baggage/excess-baggage": "/de/de/uebergepaeck",
+    "/de/de/during-your-trip/entertainment-on-board": "/de/de/unterhaltung-an-bord",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-long-haul": "/de/de/upgrade-business-class-langstrecke",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/first-upgrade-long-haul": "/de/de/upgrade-first-class",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-short-haul": "/de/de/upgrade-in-die-business-class",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade": "/de/de/upgrade-in-die-premium-economy-class",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/upgrade-information": "/de/de/upgrade-informationen",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade-long-haul": "/de/de/upgrade-premium-economy-class",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options": "/de/de/upgrademoeglichkeiten",
+    "/de/de/prepare-for-your-trip/travel-classes/upgrade-options/fixed-price-upgrade-in-online-check-in": "/de/de/upgrades-im-online-check-in",
+    "/de/de/common/payment-options/payment-at-airports": "/de/de/zahlungsmoeglichkeiten-am-flughafen",
+    "/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-control-service": "/de/de/zeitfenster-sicherheitskontrolle",
+    "/de/en/discover-lufthansa/lufthansa-fleet/320": "/de/en/320",
+    "/de/en/discover-lufthansa/lufthansa-fleet/32N": "/de/en/32n",
+    "/de/en/discover-lufthansa/lufthansa-fleet/359": "/de/en/359",
+    "/de/en/discover-lufthansa/lufthansa-fleet/744": "/de/en/744",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs": "/de/en/accessible-travel",
+    "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage": "/de/en/add-sports-baggage",
+    "/de/en/book-and-manage/additional-services": "/de/en/additional-services",
+    "/de/en/support/contact/adresses": "/de/en/addresses-worldwide",
+    "/de/en/during-your-trip/lounges/admission-rules": "/de/en/admission-rules",
+    "/de/en/book-and-manage/advance-seat-reservation": "/de/en/advance-seat-reservation",
+    "/de/en/common/seatreservation-condtions": "/de/en/advance-seat-reservations-terms-and-conditions",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "/de/en/business-services/affiliate-marketing": "/de/en/affiliatemarketing",
+    "/de/en/prepare-for-your-trip/airport-information": "/de/en/airport-information",
+    "/de/en/prepare-for-your-trip/all-check-in": "/de/en/all-check-in",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold": "/de/en/anmeldung-tiere-frachtraum",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/arrival-services": "/de/en/arrival-services",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs": "/de/en/assistenzhunde",
+    "/de/en/prepare-for-your-trip/all-check-in/automatic-check-in": "/de/en/automatic-check-in",
+    "/de/en/prepare-for-your-trip/baggage/baggage-irregularities": "/de/en/baggage-irregularities",
+    "/de/en/prepare-for-your-trip/baggage": "/de/en/baggage",
+    "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus/terms-of-transport": "/de/en/besondere-befoerderungsbedingungen-bus",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/bid-upgrade": "/de/en/bid-upgrade",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/boarding": "/de/en/boarding",
+    "/de/en/discover-lufthansa/lufthansa-fleet/787": "/de/en/boeing787",
+    "/de/en/prepare-for-your-trip/travel-classes/business-class/business-class-short-haul": "/de/en/business-class-on-short-and-medium-haul",
+    "/de/en/prepare-for-your-trip/travel-classes/business-class": "/de/en/business-class",
+    "/de/en/common/business-conditions": "/de/en/business-terms-and-conditions",
+    "/de/en/book-and-manage/cancellation-and-refund": "/de/en/cancellations-and-refunds",
+    "/de/en/prepare-for-your-trip/baggage/carry-on-baggage": "/de/en/carry-on-baggage",
+    "/de/en/common/payment-options/cash-and-miles": "/de/en/cash-and-miles",
+    "/de/en/prepare-for-your-trip/all-check-in/check-in-baggage": "/de/en/check-in-baggage",
+    "/de/en/prepare-for-your-trip/travelling-with-children/airport-with-kids/online-family-check-in": "/de/en/check-in-with-the-family",
+    "/de/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/security-on-board": "/de/en/child-restraint-systems",
+    "/de/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board": "/de/en/children-on-board",
+    "/de/en/during-your-trip/food-and-beverages/childrens-menus": "/de/en/childrens-menus-on-board",
+    "/de/en/common/privacy-statement/cookie-policy": "/de/en/cookie-policy",
+    "/de/en/during-your-trip/food-and-beverages/culinary-journey": "/de/en/culinaryjourney",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/dangerous-dogs": "/de/en/dangerous-dogs",
+    "/de/en/prepare-for-your-trip/entry-regulations/data-collection-canada": "/de/en/data-collection-canada",
+    "/de/en/prepare-for-your-trip/entry-regulations/data-collection-usa": "/de/en/data-collection-usa",
+    "/de/en/common/privacy-statement/info": "/de/en/data-protection-information",
+    "/de/en/common/privacy-statement": "/de/en/datenschutz",
+    "/de/en/prepare-for-your-trip/baggage/digital-baggage-services": "/de/en/digital-baggage-services",
+    "/de/en/book-and-manage/digital-self-services": "/de/en/digital-self-services",
+    "/de/en/book-and-manage/digital-self-services/digital-travel-companion": "/de/en/digital-travel-companion",
+    "/de/en/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news": "/de/en/doctor-on-board-news",
+    "/de/en/prepare-for-your-trip/special-travel-needs/doctor-on-board": "/de/en/doctor-on-board",
+    "/de/en/prepare-for-your-trip/travel-classes/economy-class": "/de/en/economy-class",
+    "/de/en/prepare-for-your-trip/baggage/digital-baggage-services/electronic-bag-tags": "/de/en/electronic-bag-tags",
+    "/de/en/prepare-for-your-trip/entry-regulations": "/de/en/entryprocesses",
+    "/de/en/prepare-for-your-trip/travel-classes/europe-fares": "/de/en/europa-tarife-economy-class",
+    "/de/en/discover-lufthansa/partners/rental-cars/europcar": "/de/en/europcar",
+    "/de/en/book-and-manage/exclusive-charter": "/de/en/exclusive-charter",
+    "/de/en/common/faq-data-security": "/de/en/faq-data-security",
+    "/de/en/support/faq/faq-ejournals": "/de/en/faq-ejournals",
+    "/de/en/common/faq-password-security": "/de/en/faq-password-security",
+    "/de/en/support/feedback-past-flight": "/de/en/feedback-past-flight",
+    "/de/en/support/feedback": "/de/en/feedback",
+    "/de/en/prepare-for-your-trip/airport-information/frankfurt-airport/valet-parking-service": "/de/en/fia-valet-service",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/comfort": "/de/en/first-class-comfort",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/first-class-lounges": "/de/en/first-class-lounges",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/personal-assistant": "/de/en/first-class-personal-assistant",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/first-class-terminal": "/de/en/first-class-terminal",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/valet-parking-service": "/de/en/first-class-valet-parking-service",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class": "/de/en/first-class",
+    "/de/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-babies": "/de/en/fliegen-mit-baby",
+    "/de/en/book-and-manage/timetable-and-flight-status/flight-disruptions": "/de/en/flight-disruptions",
+    "/de/en/book-and-manage/flights": "/de/en/flight-search",
+    "/de/en/book-and-manage/offers-and-destination": "/de/en/flights",
+    "/de/en/discover-lufthansa/carbon-offsetting": "/de/en/fly-more-sustainabl",
+    "/de/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-small-kids": "/de/en/flying-with-small-children",
+    "/de/en/during-your-trip/internet-on-board": "/de/en/flynet",
+    "/de/en/prepare-for-your-trip/airport-information/munich-airport/valet-parking-service": "/de/en/fmg-valet-parking-service",
+    "/de/en/during-your-trip/food-and-beverages": "/de/en/food-and-beverages",
+    "/de/en/prepare-for-your-trip/airport-information/frankfurt-airport/frankfurt-trade-fair": "/de/en/frankfurt-fair",
+    "/de/en/book-and-manage/additional-services/share-now": "/de/en/free2move",
+    "/de/en/prepare-for-your-trip/baggage/free-baggage": "/de/en/freigepaeck-regeln",
+    "/de/en/prepare-for-your-trip/baggage/dangerous-goods": "/de/en/gefaehrliche-gegenstaende",
+    "/de/en/common/terms-and-conditions/terms-currency-conversion": "/de/en/general-conditions-currency-conversion",
+    "/de/en/prepare-for-your-trip/travel-classes/green-fare": "/de/en/green-fare",
+    "/de/en/book-and-manage/group-travel-and-charter": "/de/en/group-travel-and-charter",
+    "/de/en/book-and-manage/group-travel": "/de/en/group-travel",
+    "/de/en/discover-lufthansa/partners/rental-cars/hertz": "/de/en/hertz",
+    "/de/en/discover-lufthansa/partners/hotel": "/de/en/hotel-offers",
+    "/de/en/common/imprint": "/de/en/imprint",
+    "/de/en/discover-lufthansa/partners/rental-cars": "/de/en/lh-rentalcar",
+    "/de/en/during-your-trip/lounges/lounge-companions": "/de/en/lounge-companions",
+    "/de/en/during-your-trip/lounges": "/de/en/lounges",
+    "/de/en/prepare-for-your-trip/airport-information/frankfurt-airport": "/de/en/lufthansa-am-flughafen-frankfurt",
+    "/de/en/prepare-for-your-trip/airport-information/berlin-airport": "/de/en/lufthansa-at-berlin-airport",
+    "/de/en/prepare-for-your-trip/airport-information/duesseldorf-airport": "/de/en/lufthansa-at-duesseldorf-airport",
+    "/de/en/prepare-for-your-trip/airport-information/vienna-airport": "/de/en/lufthansa-at-vienna-airport",
+    "/de/en/prepare-for-your-trip/airport-information/zuerich-airport": "/de/en/lufthansa-at-zuerich-airport",
+    "/de/en/discover-lufthansa/lufthansa-aviation-group": "/de/en/lufthansa-aviation-group",
+    "/de/en/prepare-for-your-trip/travel-classes/business-class/business-class-long-haul": "/de/en/lufthansa-business-class-on-long-haul-routes",
+    "/de/en/business-services/for-corporate-customers": "/de/en/lufthansa-corporate-customers",
+    "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus": "/de/en/lufthansa-express-bus",
+    "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail": "/de/en/lufthansa-express-rail",
+    "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport": "/de/en/lufthansa-express",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/entertainment": "/de/en/lufthansa-first-class-entertainment",
+    "/de/en/prepare-for-your-trip/travel-classes/first-class/fleet": "/de/en/lufthansa-first-class-fleet",
+    "/de/en/discover-lufthansa/lufthansa-group-airlines": "/de/en/lufthansa-group-star-alliance-and-partner-airlines",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/guide-service": "/de/en/lufthansa-guide-service",
+    "/de/en/prepare-for-your-trip/airport-information/munich-airport": "/de/en/lufthansa-terminal-muenchen",
+    "/de/en/prepare-for-your-trip/travel-classes": "/de/en/lufthansa-travel-classes",
+    "/de/en/book-and-manage/additional-services/medication-transport": "/de/en/medikamenten-transport",
+    "/de/en/business-services/for-corporate-customers/meetings-and-events/participant": "/de/en/meetings-and-events-delegates",
+    "/de/en/business-services/for-corporate-customers/meetings-and-events/organizer": "/de/en/meetings-and-events-organisers",
+    "/de/en/business-services/for-corporate-customers/meetings-and-events": "/de/en/meetings-and-events",
+    "/de/en/during-your-trip/food-and-beverages/menus-long-haul": "/de/en/menus-on-long-haul-flights",
+    "/de/en/during-your-trip/food-and-beverages/menus-travelclasses": "/de/en/menus-travel-classes",
+    "/de/en/discover-lufthansa/miles-and-more": "/de/en/miles-and-more",
+    "/de/en/prepare-for-your-trip/special-travel-needs/mobility-partner-program-healthcare": "/de/en/mobility-partner-program-healthcare",
+    "/de/en/book-and-manage/timetable-and-flight-status/most-significant-route": "/de/en/most-significant-route",
+    "/de/en/prepare-for-your-trip/airport-information/munich-airport/munich-trade-fair": "/de/en/munich-fair",
+    "/de/en/book-and-manage/view-and-amend-flight-details": "/de/en/my-bookings",
+    "/de/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook": "/de/en/my-logbook",
+    "/de/en/during-your-trip/food-and-beverages/onboard-delights": "/de/en/onboard-delights",
+    "/de/en/prepare-for-your-trip/all-check-in/online-check-in-info": "/de/en/online-check-in-info",
+    "/de/en/prepare-for-your-trip/check-in": "/de/en/online-check-in",
+    "/de/en/book-and-manage/overview-flights": "/de/en/overview-flights",
+    "/de/en/book-and-manage/booking-services": "/de/en/overview-manage",
+    "/de/en/book-and-manage/overview-special-request": "/de/en/overview-special-request",
+    "/de/en/book-and-manage/overview-travel-information": "/de/en/overview-travel-information",
+    "/de/en/discover-lufthansa/partners": "/de/en/partner",
+    "/de/en/book-and-manage/passenger-receipt-90days": "/de/en/passenger-receipt-90",
+    "/de/en/common/passenger-rights": "/de/en/passenger-rights",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs": "/de/en/passengers-using-wheelchairs",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-with-sensory-impairment": "/de/en/passengers-with-sensory-impairment",
+    "/de/en/common/payment-options/payment-at-airports": "/de/en/payment-options-at-the-airport",
+    "/de/en/prepare-for-your-trip/all-check-in/pre-check-in": "/de/en/pre-check-in",
+    "/de/en/prepare-for-your-trip/travel-classes/premium-economy-class": "/de/en/premium-economy-class",
+    "/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-fly": "/de/en/rail-and-fly",
+    "/de/en/common/rail-fly-conditions": "/de/en/rail-fly-terms-and-conditions",
+    "/de/en/book-and-manage/passenger-receipt": "/de/en/rechnungsbeleg",
+    "/de/en/book-and-manage/cancellation-and-refund/refund": "/de/en/refund",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal": "/de/en/register-animal-cabin",
+    "/de/en/prepare-for-your-trip/entry-regulations/entering-schengen": "/de/en/schengen",
+    "/de/en/discover-lufthansa/lufthansa-fleet": "/de/en/seat-maps",
+    "/de/en/prepare-for-your-trip/entry-regulations/secure-flight": "/de/en/secure-flight",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-control-service": "/de/en/security-check-time-slot",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-fast-lanes": "/de/en/security-fast-lanes",
+    "/de/en/common/sepa-conditions-b": "/de/en/sepa-terms-and-conditions-b",
+    "/de/en/common/sepa-conditions": "/de/en/sepa-terms-and-conditions",
+    "/de/en/prepare-for-your-trip/airport-information/frankfurt-airport/services-at-frankfurt-airport": "/de/en/services-at-frankfurt-airport",
+    "/de/en/prepare-for-your-trip/airport-information/services-at-the-airport": "/de/en/services-at-the-airport",
+    "/de/en/prepare-for-your-trip/airport-information/munich-airport/services-at-munich-airport": "/de/en/services-munich-airport",
+    "/de/en/during-your-trip/in-flight-services-at-a-glance": "/de/en/services-on-board",
+    "/de/en/during-your-trip/in-flight-services-at-a-glance/shopping": "/de/en/shopping",
+    "/de/en/discover-lufthansa/partners/rental-cars/sixt": "/de/en/sixt",
+    "/de/en/during-your-trip/food-and-beverages/special-meals": "/de/en/special-meals",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form": "/de/en/special-needs",
+    "/de/en/prepare-for-your-trip/baggage/sport-baggage": "/de/en/sports-baggage",
+    "/de/en/common/terms-and-conditions/terms-of-service": "/de/en/terms-and-conditions-lh",
+    "/de/en/common/terms-and-conditions": "/de/en/terms-of-service-group",
+    "/de/en/common/terms-of-use": "/de/en/terms-of-use",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage": "/de/en/tiere-als-handgepaeck",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage": "/de/en/tiere-als-uebergepaeck",
+    "/de/en/book-and-manage/timetable-and-flight-status": "/de/en/timetable-and-flight-status",
+    "/de/en/prepare-for-your-trip/special-travel-needs/tips-senior-travellers": "/de/en/tips-senior-travellers",
+    "/de/en/business-services/for-travel-agencies": "/de/en/travel-agencies",
+    "/de/en/business-services/for-corporate-customers/travel-expense-management": "/de/en/travel-expense-management",
+    "/de/en/profile/travel-id/travel-id-terms-conditions": "/de/en/travel-id-terms-conditions",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travelling-healthy": "/de/en/travelling-healthy",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals": "/de/en/travelling-with-animals",
+    "/de/en/prepare-for-your-trip/travelling-with-children": "/de/en/travelling-with-children",
+    "/de/en/prepare-for-your-trip/special-travel-needs": "/de/en/travelling-with-special-requirements",
+    "/de/en/discover-lufthansa/campaigns/traveltricks": "/de/en/traveltricks",
+    "/de/en/prepare-for-your-trip/baggage/excess-baggage": "/de/en/uebergepaeck",
+    "/de/en/prepare-for-your-trip/travelling-with-children/unaccompanied-minors": "/de/en/unaccompanied-minors",
+    "/de/en/during-your-trip/entertainment-on-board": "/de/en/unterhaltung-an-bord",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-long-haul": "/de/en/upgrade-business-class-long-haul",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/first-upgrade-long-haul": "/de/en/upgrade-first-class",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/upgrade-information": "/de/en/upgrade-info",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options": "/de/en/upgrade-options",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade-long-haul": "/de/en/upgrade-premium-economy-class",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-short-haul": "/de/en/upgrade-to-business-class",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade": "/de/en/upgrade-to-premium-economy-class",
+    "/de/en/prepare-for-your-trip/travel-classes/upgrade-options/fixed-price-upgrade-in-online-check-in": "/de/en/upgrades-at-online-check-in",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs/wheelchair-batteries": "/de/en/wheelchair-batteries",
+    "/de/en/prepare-for-your-trip/travelling-with-children/airport-with-kids": "/de/en/with-children-at-the-airport",
+    "/gb/en/discover-lufthansa/lufthansa-fleet/320": "/gb/en/320",
+    "/gb/en/discover-lufthansa/lufthansa-fleet/32N": "/gb/en/32n",
+    "/gb/en/discover-lufthansa/lufthansa-fleet/359": "/gb/en/359",
+    "/gb/en/discover-lufthansa/lufthansa-fleet/744": "/gb/en/744",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs": "/gb/en/accessible-travel",
+    "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage": "/gb/en/add-sports-baggage",
+    "/gb/en/book-and-manage/additional-services": "/gb/en/additional-services",
+    "/gb/en/support/contact/adresses": "/gb/en/addresses-worldwide",
+    "/gb/en/during-your-trip/lounges/admission-rules": "/gb/en/admission-rules",
+    "/gb/en/book-and-manage/advance-seat-reservation": "/gb/en/advance-seat-reservation",
+    "/gb/en/common/seatreservation-condtions": "/gb/en/advance-seat-reservations-terms-and-conditions",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa": "/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+    "/gb/en/business-services/affiliate-marketing": "/gb/en/affiliatemarketing",
+    "/gb/en/prepare-for-your-trip/airport-information": "/gb/en/airport-information",
+    "/gb/en/prepare-for-your-trip/all-check-in": "/gb/en/all-check-in",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold": "/gb/en/anmeldung-tiere-frachtraum",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/arrival-services": "/gb/en/arrival-services",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs": "/gb/en/assistenzhunde",
+    "/gb/en/prepare-for-your-trip/all-check-in/automatic-check-in": "/gb/en/automatic-check-in",
+    "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities": "/gb/en/baggage-irregularities",
+    "/gb/en/prepare-for-your-trip/baggage": "/gb/en/baggage",
+    "/gb/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus/terms-of-transport": "/gb/en/besondere-befoerderungsbedingungen-bus",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/bid-upgrade": "/gb/en/bid-upgrade",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/boarding": "/gb/en/boarding",
+    "/gb/en/discover-lufthansa/lufthansa-fleet/787": "/gb/en/boeing787",
+    "/gb/en/prepare-for-your-trip/travel-classes/business-class/business-class-short-haul": "/gb/en/business-class-on-short-and-medium-haul",
+    "/gb/en/prepare-for-your-trip/travel-classes/business-class": "/gb/en/business-class",
+    "/gb/en/common/business-conditions": "/gb/en/business-terms-and-conditions",
+    "/gb/en/book-and-manage/cancellation-and-refund": "/gb/en/cancellations-and-refunds",
+    "/gb/en/prepare-for-your-trip/baggage/carry-on-baggage": "/gb/en/carry-on-baggage",
+    "/gb/en/common/payment-options/cash-and-miles": "/gb/en/cash-and-miles",
+    "/gb/en/prepare-for-your-trip/all-check-in/check-in-baggage": "/gb/en/check-in-baggage",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/airport-with-kids/online-family-check-in": "/gb/en/check-in-with-the-family",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/security-on-board": "/gb/en/child-restraint-systems",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board": "/gb/en/children-on-board",
+    "/gb/en/during-your-trip/food-and-beverages/childrens-menus": "/gb/en/childrens-menus-on-board",
+    "/gb/en/common/privacy-statement/cookie-policy": "/gb/en/cookie-policy",
+    "/gb/en/during-your-trip/food-and-beverages/culinary-journey": "/gb/en/culinaryjourney",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/dangerous-dogs": "/gb/en/dangerous-dogs",
+    "/gb/en/prepare-for-your-trip/entry-regulations/data-collection-canada": "/gb/en/data-collection-canada",
+    "/gb/en/prepare-for-your-trip/entry-regulations/data-collection-usa": "/gb/en/data-collection-usa",
+    "/gb/en/common/privacy-statement/info": "/gb/en/data-protection-information",
+    "/gb/en/common/privacy-statement": "/gb/en/datenschutz",
+    "/gb/en/prepare-for-your-trip/baggage/digital-baggage-services": "/gb/en/digital-baggage-services",
+    "/gb/en/book-and-manage/digital-self-services": "/gb/en/digital-self-services",
+    "/gb/en/book-and-manage/digital-self-services/digital-travel-companion": "/gb/en/digital-travel-companion",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news": "/gb/en/doctor-on-board-news",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/doctor-on-board": "/gb/en/doctor-on-board",
+    "/gb/en/prepare-for-your-trip/travel-classes/economy-class": "/gb/en/economy-class",
+    "/gb/en/prepare-for-your-trip/baggage/digital-baggage-services/electronic-bag-tags": "/gb/en/electronic-bag-tags",
+    "/gb/en/prepare-for-your-trip/entry-regulations": "/gb/en/entryprocesses",
+    "/gb/en/prepare-for-your-trip/travel-classes/europe-fares": "/gb/en/europa-tarife-economy-class",
+    "/gb/en/discover-lufthansa/partners/rental-cars/europcar": "/gb/en/europcar",
+    "/gb/en/book-and-manage/exclusive-charter": "/gb/en/exclusive-charter",
+    "/gb/en/common/faq-data-security": "/gb/en/faq-data-security",
+    "/gb/en/support/faq/faq-ejournals": "/gb/en/faq-ejournals",
+    "/gb/en/common/faq-password-security": "/gb/en/faq-password-security",
+    "/gb/en/support/feedback-past-flight": "/gb/en/feedback-past-flight",
+    "/gb/en/support/feedback": "/gb/en/feedback",
+    "/gb/en/prepare-for-your-trip/airport-information/frankfurt-airport/valet-parking-service": "/gb/en/fia-valet-service",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/comfort": "/gb/en/first-class-comfort",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/first-class-lounges": "/gb/en/first-class-lounges",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/personal-assistant": "/gb/en/first-class-personal-assistant",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/first-class-terminal": "/gb/en/first-class-terminal",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/valet-parking-service": "/gb/en/first-class-valet-parking-service",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class": "/gb/en/first-class",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-babies": "/gb/en/fliegen-mit-baby",
+    "/gb/en/book-and-manage/timetable-and-flight-status/flight-disruptions": "/gb/en/flight-disruptions",
+    "/gb/en/book-and-manage/flights": "/gb/en/flight-search",
+    "/gb/en/book-and-manage/offers-and-destination": "/gb/en/flights",
+    "/gb/en/discover-lufthansa/carbon-offsetting": "/gb/en/fly-more-sustainabl",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/flying-with-small-kids": "/gb/en/flying-with-small-children",
+    "/gb/en/during-your-trip/internet-on-board": "/gb/en/flynet",
+    "/gb/en/prepare-for-your-trip/airport-information/munich-airport/valet-parking-service": "/gb/en/fmg-valet-parking-service",
+    "/gb/en/during-your-trip/food-and-beverages": "/gb/en/food-and-beverages",
+    "/gb/en/prepare-for-your-trip/airport-information/frankfurt-airport/frankfurt-trade-fair": "/gb/en/frankfurt-fair",
+    "/gb/en/book-and-manage/additional-services/share-now": "/gb/en/free2move",
+    "/gb/en/prepare-for-your-trip/baggage/free-baggage": "/gb/en/freigepaeck-regeln",
+    "/gb/en/prepare-for-your-trip/baggage/dangerous-goods": "/gb/en/gefaehrliche-gegenstaende",
+    "/gb/en/common/terms-and-conditions/terms-currency-conversion": "/gb/en/general-conditions-currency-conversion",
+    "/gb/en/prepare-for-your-trip/travel-classes/green-fare": "/gb/en/green-fare",
+    "/gb/en/book-and-manage/group-travel-and-charter": "/gb/en/group-travel-and-charter",
+    "/gb/en/book-and-manage/group-travel": "/gb/en/group-travel",
+    "/gb/en/discover-lufthansa/partners/rental-cars/hertz": "/gb/en/hertz",
+    "/gb/en/discover-lufthansa/partners/hotel": "/gb/en/hotel-offers",
+    "/gb/en/common/imprint": "/gb/en/imprint",
+    "/gb/en/discover-lufthansa/partners/rental-cars": "/gb/en/lh-rentalcar",
+    "/gb/en/during-your-trip/lounges/lounge-companions": "/gb/en/lounge-companions",
+    "/gb/en/during-your-trip/lounges": "/gb/en/lounges",
+    "/gb/en/prepare-for-your-trip/airport-information/frankfurt-airport": "/gb/en/lufthansa-am-flughafen-frankfurt",
+    "/gb/en/prepare-for-your-trip/airport-information/berlin-airport": "/gb/en/lufthansa-at-berlin-airport",
+    "/gb/en/prepare-for-your-trip/airport-information/duesseldorf-airport": "/gb/en/lufthansa-at-duesseldorf-airport",
+    "/gb/en/prepare-for-your-trip/airport-information/vienna-airport": "/gb/en/lufthansa-at-vienna-airport",
+    "/gb/en/prepare-for-your-trip/airport-information/zuerich-airport": "/gb/en/lufthansa-at-zuerich-airport",
+    "/gb/en/discover-lufthansa/lufthansa-aviation-group": "/gb/en/lufthansa-aviation-group",
+    "/gb/en/prepare-for-your-trip/travel-classes/business-class/business-class-long-haul": "/gb/en/lufthansa-business-class-on-long-haul-routes",
+    "/gb/en/business-services/for-corporate-customers": "/gb/en/lufthansa-corporate-customers",
+    "/gb/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus": "/gb/en/lufthansa-express-bus",
+    "/gb/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail": "/gb/en/lufthansa-express-rail",
+    "/gb/en/prepare-for-your-trip/getting-to-and-from-the-airport": "/gb/en/lufthansa-express",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/entertainment": "/gb/en/lufthansa-first-class-entertainment",
+    "/gb/en/prepare-for-your-trip/travel-classes/first-class/fleet": "/gb/en/lufthansa-first-class-fleet",
+    "/gb/en/discover-lufthansa/lufthansa-group-airlines": "/gb/en/lufthansa-group-star-alliance-and-partner-airlines",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/guide-service": "/gb/en/lufthansa-guide-service",
+    "/gb/en/prepare-for-your-trip/airport-information/munich-airport": "/gb/en/lufthansa-terminal-muenchen",
+    "/gb/en/prepare-for-your-trip/travel-classes": "/gb/en/lufthansa-travel-classes",
+    "/gb/en/book-and-manage/additional-services/medication-transport": "/gb/en/medikamenten-transport",
+    "/gb/en/business-services/for-corporate-customers/meetings-and-events/participant": "/gb/en/meetings-and-events-delegates",
+    "/gb/en/business-services/for-corporate-customers/meetings-and-events/organizer": "/gb/en/meetings-and-events-organisers",
+    "/gb/en/business-services/for-corporate-customers/meetings-and-events": "/gb/en/meetings-and-events",
+    "/gb/en/during-your-trip/food-and-beverages/menus-long-haul": "/gb/en/menus-on-long-haul-flights",
+    "/gb/en/during-your-trip/food-and-beverages/menus-travelclasses": "/gb/en/menus-travel-classes",
+    "/gb/en/discover-lufthansa/miles-and-more": "/gb/en/miles-and-more",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/mobility-partner-program-healthcare": "/gb/en/mobility-partner-program-healthcare",
+    "/gb/en/book-and-manage/timetable-and-flight-status/most-significant-route": "/gb/en/most-significant-route",
+    "/gb/en/prepare-for-your-trip/airport-information/munich-airport/munich-trade-fair": "/gb/en/munich-fair",
+    "/gb/en/book-and-manage/view-and-amend-flight-details": "/gb/en/my-bookings",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook": "/gb/en/my-logbook",
+    "/gb/en/during-your-trip/food-and-beverages/onboard-delights": "/gb/en/onboard-delights",
+    "/gb/en/prepare-for-your-trip/all-check-in/online-check-in-info": "/gb/en/online-check-in-info",
+    "/gb/en/prepare-for-your-trip/check-in": "/gb/en/online-check-in",
+    "/gb/en/book-and-manage/overview-flights": "/gb/en/overview-flights",
+    "/gb/en/book-and-manage/booking-services": "/gb/en/overview-manage",
+    "/gb/en/book-and-manage/overview-special-request": "/gb/en/overview-special-request",
+    "/gb/en/book-and-manage/overview-travel-information": "/gb/en/overview-travel-information",
+    "/gb/en/discover-lufthansa/partners": "/gb/en/partner",
+    "/gb/en/book-and-manage/passenger-receipt-90days": "/gb/en/passenger-receipt-90",
+    "/gb/en/common/passenger-rights": "/gb/en/passenger-rights",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs": "/gb/en/passengers-using-wheelchairs",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-with-sensory-impairment": "/gb/en/passengers-with-sensory-impairment",
+    "/gb/en/common/payment-options/payment-at-airports": "/gb/en/payment-options-at-the-airport",
+    "/gb/en/prepare-for-your-trip/all-check-in/pre-check-in": "/gb/en/pre-check-in",
+    "/gb/en/prepare-for-your-trip/travel-classes/premium-economy-class": "/gb/en/premium-economy-class",
+    "/gb/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-fly": "/gb/en/rail-and-fly",
+    "/gb/en/common/rail-fly-conditions": "/gb/en/rail-fly-terms-and-conditions",
+    "/gb/en/book-and-manage/passenger-receipt": "/gb/en/rechnungsbeleg",
+    "/gb/en/book-and-manage/cancellation-and-refund/refund": "/gb/en/refund",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal": "/gb/en/register-animal-cabin",
+    "/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen": "/gb/en/schengen",
+    "/gb/en/discover-lufthansa/lufthansa-fleet": "/gb/en/seat-maps",
+    "/gb/en/prepare-for-your-trip/entry-regulations/secure-flight": "/gb/en/secure-flight",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-control-service": "/gb/en/security-check-time-slot",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport/security-fast-lanes": "/gb/en/security-fast-lanes",
+    "/gb/en/common/sepa-conditions-b": "/gb/en/sepa-terms-and-conditions-b",
+    "/gb/en/common/sepa-conditions": "/gb/en/sepa-terms-and-conditions",
+    "/gb/en/prepare-for-your-trip/airport-information/frankfurt-airport/services-at-frankfurt-airport": "/gb/en/services-at-frankfurt-airport",
+    "/gb/en/prepare-for-your-trip/airport-information/services-at-the-airport": "/gb/en/services-at-the-airport",
+    "/gb/en/prepare-for-your-trip/airport-information/munich-airport/services-at-munich-airport": "/gb/en/services-munich-airport",
+    "/gb/en/during-your-trip/in-flight-services-at-a-glance": "/gb/en/services-on-board",
+    "/gb/en/during-your-trip/in-flight-services-at-a-glance/shopping": "/gb/en/shopping",
+    "/gb/en/discover-lufthansa/partners/rental-cars/sixt": "/gb/en/sixt",
+    "/gb/en/during-your-trip/food-and-beverages/special-meals": "/gb/en/special-meals",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form": "/gb/en/special-needs",
+    "/gb/en/prepare-for-your-trip/baggage/sport-baggage": "/gb/en/sports-baggage",
+    "/gb/en/common/terms-and-conditions/terms-of-service": "/gb/en/terms-and-conditions-lh",
+    "/gb/en/common/terms-and-conditions": "/gb/en/terms-of-service-group",
+    "/gb/en/common/terms-of-use": "/gb/en/terms-of-use",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage": "/gb/en/tiere-als-handgepaeck",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage": "/gb/en/tiere-als-uebergepaeck",
+    "/gb/en/book-and-manage/timetable-and-flight-status": "/gb/en/timetable-and-flight-status",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/tips-senior-travellers": "/gb/en/tips-senior-travellers",
+    "/gb/en/business-services/for-travel-agencies": "/gb/en/travel-agencies",
+    "/gb/en/business-services/for-corporate-customers/travel-expense-management": "/gb/en/travel-expense-management",
+    "/gb/en/profile/travel-id/travel-id-terms-conditions": "/gb/en/travel-id-terms-conditions",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travelling-healthy": "/gb/en/travelling-healthy",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals": "/gb/en/travelling-with-animals",
+    "/gb/en/prepare-for-your-trip/travelling-with-children": "/gb/en/travelling-with-children",
+    "/gb/en/prepare-for-your-trip/special-travel-needs": "/gb/en/travelling-with-special-requirements",
+    "/gb/en/discover-lufthansa/campaigns/traveltricks": "/gb/en/traveltricks",
+    "/gb/en/prepare-for-your-trip/baggage/excess-baggage": "/gb/en/uebergepaeck",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/unaccompanied-minors": "/gb/en/unaccompanied-minors",
+    "/gb/en/during-your-trip/entertainment-on-board": "/gb/en/unterhaltung-an-bord",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-long-haul": "/gb/en/upgrade-business-class-long-haul",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/first-upgrade-long-haul": "/gb/en/upgrade-first-class",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/upgrade-information": "/gb/en/upgrade-info",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options": "/gb/en/upgrade-options",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade-long-haul": "/gb/en/upgrade-premium-economy-class",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/business-upgrade-short-haul": "/gb/en/upgrade-to-business-class",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/premium-economy-upgrade": "/gb/en/upgrade-to-premium-economy-class",
+    "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options/fixed-price-upgrade-in-online-check-in": "/gb/en/upgrades-at-online-check-in",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/passengers-using-wheelchairs/wheelchair-batteries": "/gb/en/wheelchair-batteries",
+    "/gb/en/prepare-for-your-trip/travelling-with-children/airport-with-kids": "/gb/en/with-children-at-the-airport"
+  };
+
+  // tools/importer/parsers/aem-paths.js
+  var CLASSES = /^\/([a-z]{2})\/([a-z]{2})\/prepare-for-your-trip\/travel-classes\/(first-class|business-class|premium-economy-class|economy-class)$/;
+  var CLASSES_HUB = /^\/([a-z]{2})\/([a-z]{2})\/prepare-for-your-trip\/travel-classes$/;
+  var FLYNET = /^\/([a-z]{2})\/([a-z]{2})\/during-your-trip\/internet-on-board$/;
+  function publicPath(href) {
+    const raw = (href || "").trim();
+    const m = raw.match(/^(?:https?:\/\/www\.lufthansa\.com)?(\/[^?#]*)([?#].*)?$/);
+    if (!m) return raw;
+    let path = m[1].replace(/^\/content\/lh\/markets(?=\/)/, "").replace(/\.html$/, "").replace(/\/$/, "");
+    const rest = m[2] || "";
+    let x = path.match(CLASSES);
+    if (x) path = `/${x[1]}/${x[2]}/${x[3]}`;
+    else if (x = path.match(CLASSES_HUB)) path = `/${x[1]}/${x[2]}/${x[2] === "de" ? "lufthansa-reiseklassen" : "lufthansa-travel-classes"}`;
+    else if (x = path.match(FLYNET)) path = `/${x[1]}/${x[2]}/flynet`;
+    else if (Object.prototype.hasOwnProperty.call(AEM_PATHS, path)) path = AEM_PATHS[path];
+    return `${path || "/"}${rest}`;
+  }
+
+  // tools/importer/parsers/profile-nav.js
+  function parse(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const ul = document.createElement("ul");
+    element.querySelectorAll("maui-sub-navigation-tab").forEach((tab) => {
+      const label = clean2(tab.getAttribute("name")) || clean2(tab.textContent);
+      const href = tab.getAttribute("href");
+      if (!label || !href) return;
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.setAttribute("href", publicPath(href));
+      a.textContent = label;
+      li.append(a);
+      ul.append(li);
+    });
+    if (!ul.children.length) {
+      element.remove();
+      return;
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "profile-nav", cells: [[ul]] });
+    const hr = document.createElement("hr");
+    hr.setAttribute("data-excat-section-break", "");
+    element.replaceWith(block, hr);
+  }
+
+  // tools/importer/parsers/subpage-nav.js
+  function parse2(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const text = (el) => {
+      if (!el) return "";
+      const c = el.cloneNode(true);
+      c.querySelectorAll("maui-icon, i, .sr-only, .visually-hidden, maui-screen-reader-label").forEach((n) => n.remove());
+      return clean2(c.textContent);
+    };
+    const nav = element.matches("nav.subpage") ? element : element.querySelector("nav.subpage");
+    if (!nav) return;
+    const head = nav.querySelector(".subpage-header, header");
+    const eyebrow = text(head && head.querySelector("span"));
+    const title = text(head && head.querySelector("h1, h2, h3, h4, h5, h6"));
+    const ul = document.createElement("ul");
+    nav.querySelectorAll("li").forEach((item) => {
+      const link = item.querySelector("a[href]");
+      const label = text(link || item);
+      if (!label) return;
+      const li = document.createElement("li");
+      if (link && !item.classList.contains("active")) {
+        const a = document.createElement("a");
+        a.setAttribute("href", publicPath(link.getAttribute("href")));
+        a.textContent = label;
+        li.append(a);
+      } else {
+        const strong = document.createElement("strong");
+        strong.textContent = label;
+        li.append(strong);
+      }
+      ul.append(li);
+    });
+    if (!ul.children.length) {
+      element.remove();
+      return;
+    }
+    const cell = [];
+    if (eyebrow) {
+      const p = document.createElement("p");
+      p.textContent = eyebrow;
+      cell.push(p);
+    }
+    if (title) {
+      const h = document.createElement("h2");
+      h.textContent = title;
+      cell.push(h);
+    }
+    cell.push(ul);
+    const block = WebImporter.Blocks.createBlock(document, { name: "subpage-nav", cells: [[cell]] });
+    const hr = document.createElement("hr");
+    hr.setAttribute("data-excat-section-break", "");
+    element.replaceWith(hr, block);
+  }
 
   // tools/importer/parsers/poi-map.js
   function decodeId(id) {
@@ -70,7 +900,7 @@ var CustomImportScript = (() => {
       return n.textContent.replace(/[\s\u00A0\u200B]/g, "") || n.querySelector("img, picture, a[href], maui-navigation-link, maui-link");
     });
   }
-  function parse(element, { document }) {
+  function parse3(element, { document }) {
     const isTwoColumn = element.matches(".twocolumn");
     const poimapping = element.matches(".poimapping") ? element : element.querySelector(".poimapping");
     if (!poimapping) return;
@@ -127,7 +957,7 @@ var CustomImportScript = (() => {
     "constraint",
     "rules"
   ];
-  function parse2(element, { document }) {
+  function parse4(element, { document }) {
     const form = element.matches("form") ? element : element.querySelector("form.cmp-form");
     if (!form) return;
     const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
@@ -491,7 +1321,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/car-rental.js
   var DEFAULT_SCRIPT = "https://direct-ux.meili.travel/index.js";
-  function parse3(element, { document, params, url }) {
+  function parse5(element, { document, params, url }) {
     const host = element.matches(".dcep-meili-car-rental") ? element : element.querySelector(".dcep-meili-car-rental");
     let config = {};
     try {
@@ -524,7 +1354,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/flight-search.js
-  function parse4(element, { document }) {
+  function parse6(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -641,7 +1471,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse5(element, { document }) {
+  function parse7(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -733,6 +1563,36 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/carousel-images.js
+  function parse8(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
+    const cells = [];
+    slides.forEach((slide) => {
+      const source = [...slide.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      if (!source) return;
+      const img = document.createElement("img");
+      img.src = source.getAttribute("src");
+      img.alt = clean2(source.getAttribute("alt"));
+      let captionCell = "";
+      const figcaption = slide.querySelector("figcaption, .caption");
+      if (figcaption && clean2(figcaption.textContent)) {
+        const inner = figcaption.querySelector("maui-caption") || figcaption;
+        const p = document.createElement("p");
+        [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
+        captionCell = p;
+      }
+      cells.push([img, captionCell]);
+    });
+    if (!cells.length) {
+      element.remove();
+      return;
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "carousel-images", cells });
+    element.replaceWith(block);
+  }
+
   // tools/importer/parsers/media-nodes.js
   var ZW = /[​-‍﻿]/g;
   var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
@@ -804,7 +1664,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse6(element, { document }) {
+  function parse9(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -922,7 +1782,15 @@ var CustomImportScript = (() => {
             const text = visibleText(node);
             if (!text) return;
             const h = document.createElement(columns.length ? "h3" : node.tagName);
-            h.textContent = text;
+            const icon = node.closest("a.teaser") && node.querySelector("img");
+            const src = icon && icon.getAttribute("src");
+            if (src && !/^(data|blob):/i.test(src) && !/(^|\/)undefined(\.transform|$|\/)/.test(src)) {
+              const img = document.createElement("img");
+              img.setAttribute("src", src);
+              img.setAttribute("alt", clean2(icon.getAttribute("alt")));
+              h.append(img);
+            }
+            h.append(text);
             content.push(h);
           } else if (node.matches(".richtext")) {
             content.push(...convertRichText(node));
@@ -1038,8 +1906,36 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/table-striped.js
+  function parse10(element, { document }) {
+    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
+    const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const cellContent = (cell) => {
+      const c = cell.cloneNode(true);
+      c.querySelectorAll(SKIP).forEach((n) => n.remove());
+      const nodes = [...c.childNodes].filter((n) => n.nodeType !== 8);
+      if (!clean2(c.textContent) && !c.querySelector("img")) return "";
+      if (nodes.every((n) => n.nodeType === 3)) return clean2(c.textContent);
+      return nodes;
+    };
+    const rowEls = [...element.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
+    let rows = rowEls.map((r) => [...r.children].filter((c) => /^(MAUI-TABLE-CELL|MAUI-TABLE-HEADER-CELL|MAUI-TABLE-HEAD-CELL|TD|TH)$/.test(c.tagName) || c.getAttribute("role") === "cell" || c.getAttribute("role") === "columnheader" || c.getAttribute("role") === "rowheader").map(cellContent));
+    rows = rows.filter((cells2) => cells2.some((c) => c !== ""));
+    const width = Math.max(1, ...rows.map((r) => r.length));
+    const cells = rows.map((r) => r.length < width ? [...r, ...Array(width - r.length).fill("")] : r);
+    const before = [];
+    const caption = element.querySelector("maui-table-caption, caption");
+    if (caption && clean2(caption.textContent)) {
+      const p = document.createElement("p");
+      p.textContent = clean2(caption.textContent);
+      before.push(p);
+    }
+    const block = WebImporter.Blocks.createBlock(document, { name: "table-striped", cells });
+    element.replaceWith(...before, block);
+  }
+
   // tools/importer/parsers/carousel-cards.js
-  function parse7(element, { document }) {
+  function parse11(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1144,7 +2040,8 @@ var CustomImportScript = (() => {
         if (!t) return;
         const out = document.createElement(h.tagName.toLowerCase());
         out.textContent = t;
-        if (isArticle && h.className) out.className = h.className;
+        const size = [...h.classList].find((c) => /^heading-/.test(c));
+        if (size) out.className = size;
         titles.push(out);
       }));
       const cards = [...element.querySelectorAll("a.teaser")].filter((a) => !a.closest(".swiper-slide-duplicate") && !(hasDesktopTwin && a.closest(MOBILE)));
@@ -1234,7 +2131,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse8(element, { document }) {
+  function parse12(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -1446,6 +2343,38 @@ var CustomImportScript = (() => {
       }
       return out;
     };
+    const teaserNodes = (teaser) => {
+      const out = [];
+      const h = teaser.querySelector(".teaser-heading") || teaser.querySelector("h1, h2, h3, h4, h5, h6");
+      const title = h && visibleText(h.querySelector(".teaser-heading-text") || h);
+      const icon = h && [...h.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      if (title) {
+        const heading = document.createElement(/^H[1-6]$/.test(h.tagName) ? h.tagName.toLowerCase() : "h3");
+        if (icon) {
+          const img = document.createElement("img");
+          img.setAttribute("src", icon.getAttribute("src"));
+          img.setAttribute("alt", icon.getAttribute("alt") || "");
+          heading.append(img);
+        }
+        heading.append(title);
+        keepHeadingStyle(h, heading);
+        out.push(heading);
+      }
+      const desc = teaser.querySelector(".teaser-description");
+      if (desc) {
+        const paras = [...desc.querySelectorAll("p")].filter((d) => visibleText(d));
+        const nodes = paras.flatMap((d) => splitParagraph(tidy(d.cloneNode(true))));
+        if (!nodes.length && visibleText(desc)) {
+          nodes.push(document.createElement("p"));
+          nodes[0].textContent = visibleText(desc);
+        }
+        nodes.forEach((d) => {
+          d.className = "copytext-medium";
+          out.push(d);
+        });
+      }
+      return out;
+    };
     const collect = (node, out) => {
       [...node.children].forEach((child) => {
         if (child.matches(SKIP_COMPONENTS)) return;
@@ -1461,6 +2390,8 @@ var CustomImportScript = (() => {
           if (p) out.push(p);
         } else if (cl.contains("image") && child.querySelector("img, video")) {
           out.push(...mediaNodes(child));
+        } else if (child.matches("a.teaser:not([href])")) {
+          out.push(...teaserNodes(child));
         } else if (cl.contains("videoViewer")) {
           out.push(...viewerNodes2(child));
         } else if (cl.contains("video") && child.querySelector(":scope > .video-player iframe") || cl.contains("iframe") && child.querySelector(":scope > .iframe-wrapper iframe")) {
@@ -1631,6 +2562,8 @@ var CustomImportScript = (() => {
       if (sliderView) variants.push("slider");
       const stacked = ARTICLE && items.some((it) => [...it.querySelectorAll(".image")].filter((img) => img.closest(".column-view-item") === it && !img.parentElement.closest(".image") && img.querySelector("img, video")).length > 1);
       if (stacked) variants.push("stacked");
+      const own = element.classList.contains("column") && element.children.length === 1 && element.firstElementChild === view && !!element.parentElement && element.parentElement.classList.contains("section-content");
+      if (own && !titles.length && !ARTICLE && !element.closest(".container-gray") && !view.classList.contains("container-gray")) variants.push("padded");
     }
     if (!cells.length && !titles.length) return;
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
@@ -1662,7 +2595,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse9(element, { document }) {
+  function parse13(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -1674,7 +2607,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse10(element, { document }) {
+  function parse14(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -1711,6 +2644,12 @@ var CustomImportScript = (() => {
     ".footer-area",
     ".footer-logos",
     ".commonfooter",
+    // AirCore "wrong geolocation" banner (snapshots of AT/GB pages recorded from a German IP:
+    // "Sie sind in Deutschland ... [Land wechseln] [Auf Seite bleiben]", fixed at the top, and its
+    // 98px placeholder); not page content
+    ".geobanner-sticky-wrapper",
+    ".geobanner-placeholder",
+    ".wrong-geolocation-banner",
     // AirCore footer bands (payment/follow-us, search + language, logo); normally inside footer#footer
     "footer .footer-brand-links",
     ".above-footer-container",
@@ -1761,6 +2700,16 @@ var CustomImportScript = (() => {
   ];
   var TRACKING_URL = /(utag|tealium|tiqcdn|monetate|quantummetric|doubleclick|googletagmanager|google-analytics|googleadservices|facebook\.com\/tr|bat\.bing|demdex|omtrdc|\/b\/ss\/|adsrvr|criteo|cookielaw|onetrust|optanon|challenges\.cloudflare|shop\.lufthansa\.com\/preclearance|hotjar|contentsquare|linkedin\.com\/px|pinterest\.com\/ct|t\.co\/i\/adsct)/i;
   var EMBED_URL = /(youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|brightcove|players\.|maps\.google|google\.com\/maps|lufthansa\.com|lufthansa-inflightentertainment\.com)/i;
+  function keepSubpageNavHeader(document, payload) {
+    const template = payload && payload.template || {};
+    if (!(template.blocks || []).some((b) => b.name === "subpage-nav")) return;
+    document.querySelectorAll(".container-subnav nav.subpage > header").forEach((header) => {
+      const div = document.createElement("div");
+      div.className = "subpage-header";
+      div.append(...header.childNodes);
+      header.replaceWith(div);
+    });
+  }
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
       let nodes = [];
@@ -1791,7 +2740,7 @@ var CustomImportScript = (() => {
   }
   var BREADCRUMB_SOURCES = 'maui-breadcrumb, nav.breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
   var BREADCRUMB_ATTR = "data-lh-import-breadcrumb";
-  var BREADCRUMB_MAP = { "/at/de/additional-services": [["Home", "/at/de/homepage"], ["Extra Services", "/at/de/additional-services"]], "/at/de/befoerderungsbedingungen-group": [["Home", "/at/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/at/de/befoerderungsbedingungen-group"]], "/at/de/book-and-manage/flights/ana": [["Home", "/at/de/homepage"], ["Flugsuche", "/at/de/flugsuche"], ["ANA", "/at/de/book-and-manage/flights/ana"]], "/at/de/business-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["Business Class", "/at/de/business-class"]], "/at/de/common/agb-extra-services-at-online-check-in": [["Home", "/at/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/at/de/common/agb-extra-services-at-online-check-in"]], "/at/de/first-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["First Class", "/at/de/first-class"]], "/at/de/homepage": [["Home", "/at/de/homepage"]], "/at/de/lufthansa-reiseklassen": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"]], "/at/de/nachhaltiger-fliegen": [["Home", "/at/de/homepage"], ["Nachhaltiger fliegen", "/at/de/nachhaltiger-fliegen"]], "/at/de/support/contact": [["Home", "/at/de/homepage"], ["Kontakt", "/at/de/support/contact"]], "/de/de/additional-services": [["Home", "/de/de/homepage"], ["Extra Services", "/de/de/additional-services"]], "/de/de/befoerderungsbedingungen-group": [["Home", "/de/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/de/de/befoerderungsbedingungen-group"]], "/de/de/book-and-manage/flights/ana": [["Home", "/de/de/homepage"], ["Flugsuche", "/de/de/flugsuche"], ["ANA", "/de/de/book-and-manage/flights/ana"]], "/de/de/business-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["Business Class", "/de/de/business-class"]], "/de/de/common/agb-extra-services-at-online-check-in": [["Home", "/de/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/de/de/common/agb-extra-services-at-online-check-in"]], "/de/de/first-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["First Class", "/de/de/first-class"]], "/de/de/homepage": [["Home", "/de/de/homepage"]], "/de/de/lufthansa-reiseklassen": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"]], "/de/de/nachhaltiger-fliegen": [["Home", "/de/de/homepage"], ["Nachhaltiger fliegen", "/de/de/nachhaltiger-fliegen"]], "/de/de/support/contact": [["Home", "/de/de/homepage"], ["Kontakt", "/de/de/support/contact"]], "/de/en/additional-services": [["Home", "/de/en/homepage"], ["Extra services", "/de/en/additional-services"]], "/de/en/book-and-manage/flights/ana": [["Home", "/de/en/homepage"], ["Flight search", "/de/en/flight-search"], ["ANA", "/de/en/book-and-manage/flights/ana"]], "/de/en/business-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["Business Class", "/de/en/business-class"]], "/de/en/common/agb-extra-services-at-online-check-in": [["Home", "/de/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/de/en/common/agb-extra-services-at-online-check-in"]], "/de/en/discover-lufthansa/campaigns": [["Home", "/de/en/homepage"], ["Campaigns", "/de/en/discover-lufthansa/campaigns"]], "/de/en/first-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["First Class", "/de/en/first-class"]], "/de/en/fly-more-sustainabl": [["Home", "/de/en/homepage"], ["Fly more sustainably", "/de/en/fly-more-sustainabl"]], "/de/en/homepage": [["Home", "/de/en/homepage"]], "/de/en/lufthansa-travel-classes": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"]], "/de/en/support/contact": [["Home", "/de/en/homepage"], ["Contact", "/de/en/support/contact"]], "/de/en/terms-of-service-group": [["Home", "/de/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/de/en/terms-of-service-group"]], "/gb/en/additional-services": [["Home", "/gb/en/homepage"], ["Extra services", "/gb/en/additional-services"]], "/gb/en/book-and-manage/flights/ana": [["Home", "/gb/en/homepage"], ["Flight search", "/gb/en/flight-search"], ["ANA", "/gb/en/book-and-manage/flights/ana"]], "/gb/en/business-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["Business Class", "/gb/en/business-class"]], "/gb/en/common/agb-extra-services-at-online-check-in": [["Home", "/gb/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/gb/en/common/agb-extra-services-at-online-check-in"]], "/gb/en/discover-lufthansa/campaigns": [["Home", "/gb/en/homepage"], ["Campaigns", "/gb/en/discover-lufthansa/campaigns"]], "/gb/en/first-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["First Class", "/gb/en/first-class"]], "/gb/en/fly-more-sustainabl": [["Home", "/gb/en/homepage"], ["Fly more sustainably", "/gb/en/fly-more-sustainabl"]], "/gb/en/homepage": [["Home", "/gb/en/homepage"]], "/gb/en/lufthansa-travel-classes": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"]], "/gb/en/support/contact": [["Home", "/gb/en/homepage"], ["Contact", "/gb/en/support/contact"]], "/gb/en/terms-of-service-group": [["Home", "/gb/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/gb/en/terms-of-service-group"]], "/lhg/de/de": [["Reiseziele", "/lhg/de/de"]], "/lhg/de/de/dest/co/asien": [["Reiseziele", "/lhg/de/de"], ["Flug Asien", "/lhg/de/de/dest/co/asien"]], "/lhg/de/en": [["Travel destinations", "/lhg/de/en"]], "/lhg/de/en/dest/c/france": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight France", "/lhg/de/en/dest/c/france"]], "/lhg/de/en/dest/c/jordan": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"], ["Flight Jordan", "/lhg/de/en/dest/c/jordan"]], "/lhg/de/en/dest/c/portugal": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight Portugal", "/lhg/de/en/dest/c/portugal"]], "/lhg/de/en/dest/co/asia": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"]], "/lhg/de/en/from": [["Flights from Germany", "/lhg/de/en/from"]], "/xx/de/homepage": [["Home", "/xx/de/homepage"]] };
+  var BREADCRUMB_MAP = { "/at/de/additional-services": [["Home", "/at/de/homepage"], ["Extra Services", "/at/de/additional-services"]], "/at/de/befoerderungsbedingungen-group": [["Home", "/at/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/at/de/befoerderungsbedingungen-group"]], "/at/de/book-and-manage/flights/ana": [["Home", "/at/de/homepage"], ["Flugsuche", "/at/de/flugsuche"], ["ANA", "/at/de/book-and-manage/flights/ana"]], "/at/de/business-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["Business Class", "/at/de/business-class"]], "/at/de/common/agb-extra-services-at-online-check-in": [["Home", "/at/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/at/de/common/agb-extra-services-at-online-check-in"]], "/at/de/first-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["First Class", "/at/de/first-class"]], "/at/de/homepage": [["Home", "/at/de/homepage"]], "/at/de/lufthansa-reiseklassen": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"]], "/at/de/nachhaltiger-fliegen": [["Home", "/at/de/homepage"], ["Nachhaltiger fliegen", "/at/de/nachhaltiger-fliegen"]], "/at/de/support/contact": [["Home", "/at/de/homepage"], ["Kontakt", "/at/de/support/contact"]], "/de/de/additional-services": [["Home", "/de/de/homepage"], ["Extra Services", "/de/de/additional-services"]], "/de/de/befoerderungsbedingungen-group": [["Home", "/de/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/de/de/befoerderungsbedingungen-group"]], "/de/de/book-and-manage/flights/ana": [["Home", "/de/de/homepage"], ["Flugsuche", "/de/de/flugsuche"], ["ANA", "/de/de/book-and-manage/flights/ana"]], "/de/de/business-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["Business Class", "/de/de/business-class"]], "/de/de/common/agb-extra-services-at-online-check-in": [["Home", "/de/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/de/de/common/agb-extra-services-at-online-check-in"]], "/de/de/first-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["First Class", "/de/de/first-class"]], "/de/de/homepage": [["Home", "/de/de/homepage"]], "/de/de/lufthansa-reiseklassen": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"]], "/de/de/nachhaltiger-fliegen": [["Home", "/de/de/homepage"], ["Nachhaltiger fliegen", "/de/de/nachhaltiger-fliegen"]], "/de/de/support/contact": [["Home", "/de/de/homepage"], ["Kontakt", "/de/de/support/contact"]], "/de/en/additional-services": [["Home", "/de/en/homepage"], ["Extra services", "/de/en/additional-services"]], "/de/en/book-and-manage/flights/ana": [["Home", "/de/en/homepage"], ["Flight search", "/de/en/flight-search"], ["ANA", "/de/en/book-and-manage/flights/ana"]], "/de/en/business-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["Business Class", "/de/en/business-class"]], "/de/en/common/agb-extra-services-at-online-check-in": [["Home", "/de/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/de/en/common/agb-extra-services-at-online-check-in"]], "/de/en/discover-lufthansa/campaigns": [["Home", "/de/en/homepage"], ["Campaigns", "/de/en/discover-lufthansa/campaigns"]], "/de/en/first-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["First Class", "/de/en/first-class"]], "/de/en/fly-more-sustainabl": [["Home", "/de/en/homepage"], ["Fly more sustainably", "/de/en/fly-more-sustainabl"]], "/de/en/homepage": [["Home", "/de/en/homepage"]], "/de/en/lufthansa-travel-classes": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"]], "/de/en/support/contact": [["Home", "/de/en/homepage"], ["Contact", "/de/en/support/contact"]], "/de/en/terms-of-service-group": [["Home", "/de/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/de/en/terms-of-service-group"]], "/gb/en/additional-services": [["Home", "/gb/en/homepage"], ["Extra services", "/gb/en/additional-services"]], "/gb/en/book-and-manage/flights/ana": [["Home", "/gb/en/homepage"], ["Flight search", "/gb/en/flight-search"], ["ANA", "/gb/en/book-and-manage/flights/ana"]], "/gb/en/business-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["Business Class", "/gb/en/business-class"]], "/gb/en/common/agb-extra-services-at-online-check-in": [["Home", "/gb/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/gb/en/common/agb-extra-services-at-online-check-in"]], "/gb/en/discover-lufthansa/campaigns": [["Home", "/gb/en/homepage"], ["Campaigns", "/gb/en/discover-lufthansa/campaigns"]], "/gb/en/first-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["First Class", "/gb/en/first-class"]], "/gb/en/fly-more-sustainabl": [["Home", "/gb/en/homepage"], ["Fly more sustainably", "/gb/en/fly-more-sustainabl"]], "/gb/en/homepage": [["Home", "/gb/en/homepage"]], "/gb/en/lufthansa-travel-classes": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"]], "/gb/en/support/contact": [["Home", "/gb/en/homepage"], ["Contact", "/gb/en/support/contact"]], "/gb/en/terms-of-service-group": [["Home", "/gb/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/gb/en/terms-of-service-group"]], "/lhg/at/de": [["Reiseziele", "/lhg/at/de"]], "/lhg/at/de/dest/c/frankreich": [["Reiseziele", "/lhg/at/de"], ["Flug Europa", "/lhg/at/de/dest/co/europa"], ["Flug Frankreich", "/lhg/at/de/dest/c/frankreich"]], "/lhg/at/de/dest/c/jordanien": [["Reiseziele", "/lhg/at/de"], ["Flug Asien", "/lhg/at/de/dest/co/asien"], ["Flug Jordanien", "/lhg/at/de/dest/c/jordanien"]], "/lhg/at/de/dest/c/portugal": [["Reiseziele", "/lhg/at/de"], ["Flug Europa", "/lhg/at/de/dest/co/europa"], ["Flug Portugal", "/lhg/at/de/dest/c/portugal"]], "/lhg/at/de/dest/co/asien": [["Reiseziele", "/lhg/at/de"], ["Flug Asien", "/lhg/at/de/dest/co/asien"]], "/lhg/de/de": [["Reiseziele", "/lhg/de/de"]], "/lhg/de/de/dest/c/frankreich": [["Reiseziele", "/lhg/de/de"], ["Flug Europa", "/lhg/de/de/dest/co/europa"], ["Flug Frankreich", "/lhg/de/de/dest/c/frankreich"]], "/lhg/de/de/dest/c/jordanien": [["Reiseziele", "/lhg/de/de"], ["Flug Asien", "/lhg/de/de/dest/co/asien"], ["Flug Jordanien", "/lhg/de/de/dest/c/jordanien"]], "/lhg/de/de/dest/c/portugal": [["Reiseziele", "/lhg/de/de"], ["Flug Europa", "/lhg/de/de/dest/co/europa"], ["Flug Portugal", "/lhg/de/de/dest/c/portugal"]], "/lhg/de/de/dest/co/asien": [["Reiseziele", "/lhg/de/de"], ["Flug Asien", "/lhg/de/de/dest/co/asien"]], "/lhg/de/de/from": [["Fl\xFCge ab Deutschland", "/lhg/de/de/from"]], "/lhg/de/en": [["Travel destinations", "/lhg/de/en"]], "/lhg/de/en/dest/c/france": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight France", "/lhg/de/en/dest/c/france"]], "/lhg/de/en/dest/c/jordan": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"], ["Flight Jordan", "/lhg/de/en/dest/c/jordan"]], "/lhg/de/en/dest/c/portugal": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight Portugal", "/lhg/de/en/dest/c/portugal"]], "/lhg/de/en/dest/co/asia": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"]], "/lhg/de/en/from": [["Flights from Germany", "/lhg/de/en/from"]], "/lhg/gb/en": [["Travel destinations", "/lhg/gb/en"]], "/lhg/gb/en/dest/c/france": [["Travel destinations", "/lhg/gb/en"], ["Flight Europe", "/lhg/gb/en/dest/co/europe"], ["Flight France", "/lhg/gb/en/dest/c/france"]], "/lhg/gb/en/dest/c/jordan": [["Travel destinations", "/lhg/gb/en"], ["Flight Asia", "/lhg/gb/en/dest/co/asia"], ["Flight Jordan", "/lhg/gb/en/dest/c/jordan"]], "/lhg/gb/en/dest/c/portugal": [["Travel destinations", "/lhg/gb/en"], ["Flight Europe", "/lhg/gb/en/dest/co/europe"], ["Flight Portugal", "/lhg/gb/en/dest/c/portugal"]], "/lhg/gb/en/dest/co/asia": [["Travel destinations", "/lhg/gb/en"], ["Flight Asia", "/lhg/gb/en/dest/co/asia"]], "/xx/de/homepage": [["Home", "/xx/de/homepage"]] };
   function convertBreadcrumbs(document, pagePath) {
     let trail = null;
     const sources = [...document.querySelectorAll(BREADCRUMB_SOURCES)].filter((el, i, all) => !all.some((other) => other !== el && other.contains(el)));
@@ -1983,8 +2932,9 @@ var CustomImportScript = (() => {
   }
   function convertAuthorQuotes(document) {
     let converted = 0;
-    document.querySelectorAll(".article-details-page .dcep-author-quote").forEach((quote) => {
+    document.querySelectorAll(".dcep-author-quote").forEach((quote) => {
       const bq = document.createElement("blockquote");
+      bq.className = "authorquote";
       [".quote-text", ".subline-text"].forEach((sel) => {
         const src = quote.querySelector(sel);
         if (!src || !cleanText(src)) return;
@@ -1998,6 +2948,9 @@ var CustomImportScript = (() => {
         bq.append(p);
       });
       if (!bq.children.length) return;
+      if (!quote.closest(".article-details-page") && quote.closest(".section-narrow")) {
+        bq.firstElementChild.append(document.createTextNode(" {narrow}"));
+      }
       (quote.closest(".authorquote") || quote).replaceWith(bq);
       converted += 1;
     });
@@ -2594,6 +3547,7 @@ var CustomImportScript = (() => {
       detectTheme(document);
       convertBreadcrumbs(document, pagePath);
       convertFeedbackQuestionnaires(document);
+      keepSubpageNavHeader(document, payload);
       removeAll(document, CHROME_SELECTORS);
       removeAirCoreLeftovers(document);
       removeTracking(document);
@@ -2686,6 +3640,30 @@ var CustomImportScript = (() => {
     });
     return regions;
   }
+  function ownColumnView(el) {
+    return !!el && el.classList.contains("column") && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
+  }
+  function meaningful(el) {
+    return !!((el.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || el.querySelector(MEDIA2));
+  }
+  function greyStyles(region) {
+    const grey = region.matches(".container-gray") ? region : region.querySelector(".container-gray");
+    const styles = [];
+    if (!grey) return styles;
+    if (grey.classList.contains("column-view")) {
+      const column = grey.parentElement;
+      if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains("section-content")) styles.push("column-band");
+    } else {
+      const content = grey.querySelector(".section-content");
+      const parts = content ? [...content.children].filter(meaningful) : [];
+      if (parts.length === 1 && ownColumnView(parts[0])) {
+        styles.push(content.classList.contains("section-padding-y-regular") ? "column-view" : "column-band");
+      }
+    }
+    const aem = region.closest(".container-content > .section");
+    if (aem && !aem.querySelector(":scope > .mb-default")) styles.push("flush");
+    return styles;
+  }
   var SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
   function contentBetween(document, root, from, to) {
     const range = document.createRange();
@@ -2742,7 +3720,7 @@ var CustomImportScript = (() => {
       SOURCE_STYLES.forEach(([source, style]) => {
         styledRegions(document, template, source).forEach((region) => {
           const start = createBreak(document);
-          start.setAttribute(SOURCE_STYLE, style);
+          start.setAttribute(SOURCE_STYLE, [style, ...style === "grey" ? greyStyles(region) : []].join(" "));
           region.before(start);
           region.after(createBreak(document));
         });
@@ -2814,6 +3792,18 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "profile-nav",
+        "instances": [
+          ".subnav-wrapper maui-sub-navigation"
+        ]
+      },
+      {
+        "name": "subpage-nav",
+        "instances": [
+          ".container-subnav:has(nav.subpage)"
+        ]
+      },
+      {
         "name": "poi-map",
         "instances": [
           ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
@@ -2845,9 +3835,21 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "carousel-images",
+        "instances": [
+          ".carousel:has(.swiper-single-slide)"
+        ]
+      },
+      {
         "name": "accordion-columns",
         "instances": [
           ".accordion"
+        ]
+      },
+      {
+        "name": "table-striped",
+        "instances": [
+          "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
         ]
       },
       {
@@ -2927,16 +3929,20 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "poi-map": parse,
-    "form-core": parse2,
-    "car-rental": parse3,
-    "flight-search": parse4,
-    "hero-campaign": parse5,
-    "accordion-columns": parse6,
-    "carousel-cards": parse7,
-    "columns-media": parse8,
-    "embed": parse9,
-    "lounge-finder": parse10
+    "profile-nav": parse,
+    "subpage-nav": parse2,
+    "poi-map": parse3,
+    "form-core": parse4,
+    "car-rental": parse5,
+    "flight-search": parse6,
+    "hero-campaign": parse7,
+    "carousel-images": parse8,
+    "accordion-columns": parse9,
+    "table-striped": parse10,
+    "carousel-cards": parse11,
+    "columns-media": parse12,
+    "embed": parse13,
+    "lounge-finder": parse14
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2960,7 +3966,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_42061_default = {
+  var tmp_bundle_info_70643_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2990,5 +3996,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_42061_exports);
+  return __toCommonJS(tmp_bundle_info_70643_exports);
 })();

@@ -378,5 +378,21 @@
   "change": "C1.1-C1.7 hub (c-diagnosis.md): image teaser grids directly under .container-content to cards-teaser (new four-up), a.teaser.usp service tiles to cards-icon (usp, four-up), new block hero-banner for .herobanner expanding panes, .accordion to accordion-columns, .twocolumn of a.teaser.card to carousel-cards (two-up), a.teaser.partner rows to cards-icon-text (partner), travel classes sub-navigation as profile-nav, meetings logo row and steps, lounges nested columns, open chat window removed. Bundles rebuilt, 36 pages re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: at/de/flughafeninformation 53.2/50.6/- -> 28.5/44.0/22.9 (768 live capture has no teaser images, lazy loading), de/en/lufthansa-travel-classes 53.9/59.3/58.2 -> 37.0/38.0/37.7, de/de/speisen-und-getraenke 35.5/33.0/33.7 -> 22.4/23.8/36.4; open: section spacing, the 28 other pages with the travel classes sub-navigation (not hub).",
   "commit": "8cfd48e",
   "date": "2026-10-23"
+ },
+ {
+  "template": "campaign",
+  "page": "campaign 48 (100-years tree, stopover, new-onboard-experience x4), info 96 stage pages, fleet 20, form 4, app-entry 4, hub 8 (re-imported with C1), insights 3 (tags/allegris)",
+  "block": "hero-campaign, columns-media",
+  "change": "C2-2 stage sections (style stage, flush, before-padded; gap under the stage from the markup, not a fixed 64px), C2-3 intro indent ({indent-N} marker -> p.indent), C2-6 moving images autoplay muted loop, C2-1 harness: the stage with a background video is masked (hero-campaign data-background-video; headless chromium has no H.264, so the replica shows the poster while live shows a frame). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/100-years 39.5/41.9/42.3 -> 38.5/36.9/33.7 (first divergence y=200-400 -> 2200), de/de/100-years/cabin-design 34.8/31.6/38.2 -> 40.0/28.8/38.6 (year images such as 1920er-1930er drawn larger than live, open), at/de/100-years 51.7/44.5/43.3 -> 51.1/43.2/41.8 (diverges at y=1000). C2-4 (sidebar in a one-column view) and C2-5 (25px separators) not done.",
+  "commit": "25a74cb",
+  "date": "2026-10-24"
+ },
+ {
+  "template": "insights",
+  "page": "88 insights pages (authors, articles with quotes, parallax, galleries; highlights, tags, explore-the-world; 4 locales) + 3 tags/allegris",
+  "block": "article-header, columns-media, accordion-columns, carousel-cards",
+  "change": "C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6.",
+  "commit": "4ec7488",
+  "date": "2026-10-24"
  }
 ]

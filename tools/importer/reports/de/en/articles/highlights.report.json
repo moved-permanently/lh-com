@@ -2,11 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/highlights",
   "path": "de/en/articles/highlights",
-  "timestamp": "2026-10-23T05:55:12.405Z",
+  "timestamp": "2026-10-24T00:32:42.923Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "cards-teaser",
+    "columns-media",
+    "columns-media",
     "columns-media"
   ]
 }

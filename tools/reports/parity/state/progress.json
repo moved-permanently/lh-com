@@ -1934,8 +1934,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 10606,
-          "at": "2026-10-23T23:50:04.555Z",
+          "ms": 10484,
+          "at": "2026-10-23T23:57:20.501Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 8062,
@@ -1975,7 +1975,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -1984,19 +1984,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39498,
-        "unmaskedRatio": 0.39498,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.34611,
+        "unmaskedRatio": 0.3851,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.63721
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.32601
         },
         "worstBands": [
           {
@@ -2014,11 +2014,11 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.01253,
-          0.22922,
-          0.63721,
-          0.63447,
-          0.45139,
+          0.01109,
+          0,
+          0,
+          0,
+          0,
           0.02936,
           0.0342,
           0.18331,
@@ -2056,7 +2056,7 @@
           0.14108
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/1440-diff.png",
-        "at": "2026-10-23T23:50:09.324Z",
+        "at": "2026-10-23T23:57:25.076Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/1440-diff.png",
@@ -2073,8 +2073,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8733,
-          "at": "2026-10-23T23:50:18.255Z",
+          "ms": 8319,
+          "at": "2026-10-23T23:57:33.579Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 8049,
@@ -2114,7 +2114,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -2123,19 +2123,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39303,
-        "unmaskedRatio": 0.39303,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.3318,
+        "unmaskedRatio": 0.36918,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.58181
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.34424
         },
         "worstBands": [
           {
@@ -2153,11 +2153,11 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.06298,
-          0.58181,
-          0.57497,
-          0.63127,
-          0.61185,
+          0.01478,
+          0,
+          0,
+          0,
+          0,
           0.02821,
           0.06349,
           0.22131,
@@ -2195,7 +2195,7 @@
           0.12489
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/768-diff.png",
-        "at": "2026-10-23T23:50:20.934Z",
+        "at": "2026-10-23T23:57:36.058Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/768-diff.png",
@@ -2212,8 +2212,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7999,
-          "at": "2026-10-23T23:50:29.107Z",
+          "ms": 7967,
+          "at": "2026-10-23T23:57:44.207Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9701,
@@ -2253,7 +2253,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -2262,19 +2262,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.3724,
-        "unmaskedRatio": 0.3724,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.30272,
+        "unmaskedRatio": 0.33682,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.82953
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.5826
         },
         "worstBands": [
           {
@@ -2282,22 +2282,22 @@
             "unmaskedRatio": 0.89505
           },
           {
-            "y": 200,
-            "unmaskedRatio": 0.82953
-          },
-          {
             "y": 7400,
             "unmaskedRatio": 0.75608
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.68697
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.05849,
-          0.82953,
-          0.5866,
-          0.62591,
-          0.70063,
-          0.10789,
+          0,
+          0,
+          0,
+          0,
+          0.06664,
           0.10143,
           0.15676,
           0.14387,
@@ -2334,7 +2334,7 @@
           0.67727
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/390-diff.png",
-        "at": "2026-10-23T23:50:30.757Z",
+        "at": "2026-10-23T23:57:45.785Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/390-diff.png",
@@ -2694,11 +2694,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 21121,
-          "at": "2026-10-22T23:06:52.477Z",
+          "ms": 22649,
+          "at": "2026-10-24T00:47:24.415Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7042,
+            "scrollHeight": 7159,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -2744,15 +2744,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.2977,
-        "unmaskedRatio": 0.30151,
-        "maskRatio": 0.01262,
+        "mismatchRatio": 0.1619,
+        "unmaskedRatio": 0.16396,
+        "maskRatio": 0.01257,
         "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7129,
-        "heightB": 7042,
-        "heightDiffRatio": 0.0122,
+        "heightB": 7159,
+        "heightDiffRatio": 0.00419,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -2760,16 +2760,16 @@
         },
         "worstBands": [
           {
-            "y": 1600,
-            "unmaskedRatio": 0.63632
+            "y": 600,
+            "unmaskedRatio": 0.52162
           },
           {
             "y": 3400,
-            "unmaskedRatio": 0.62046
+            "unmaskedRatio": 0.50435
           },
           {
             "y": 3600,
-            "unmaskedRatio": 0.61747
+            "unmaskedRatio": 0.48581
           }
         ],
         "bandHeight": 200,
@@ -2778,41 +2778,41 @@
           0.08001,
           0.48171,
           0.52162,
-          0.25471,
-          0.12565,
-          0.06922,
-          0.11731,
-          0.63632,
-          0.60337,
-          0.43475,
-          0.06662,
-          0.07384,
-          0.50892,
-          0.45014,
-          0.06919,
-          0.54533,
-          0.62046,
-          0.61747,
-          0.05905,
-          0.08274,
-          0.08127,
-          0.48634,
-          0.50519,
-          0.47154,
-          0.06317,
-          0.06434,
-          0.26504,
-          0.33923,
-          0.32726,
-          0.51344,
-          0.2393,
-          0.29277,
-          0.05789,
-          0.33604,
-          0.39005
+          0.18733,
+          0.11851,
+          0.07964,
+          0.07825,
+          0.20073,
+          0.36929,
+          0.32109,
+          0.05799,
+          0.08569,
+          0.11982,
+          0.3031,
+          0.06182,
+          0.21371,
+          0.50435,
+          0.48581,
+          0.0682,
+          0.07936,
+          0.08454,
+          0.06795,
+          0.13889,
+          0.05593,
+          0.0439,
+          0.0679,
+          0.07216,
+          0.21482,
+          0.02984,
+          0.22633,
+          0.10078,
+          0.22461,
+          0.06806,
+          0.03242,
+          0.02507
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/1440-diff.png",
-        "at": "2026-10-22T23:06:56.650Z",
+        "at": "2026-10-24T00:47:28.320Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/1440-diff.png",
@@ -2829,11 +2829,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20672,
-          "at": "2026-10-22T23:07:17.413Z",
+          "ms": 21036,
+          "at": "2026-10-24T00:47:49.526Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 8116,
+            "scrollHeight": 8213,
             "truncated": true,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -2879,8 +2879,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.24813,
-        "unmaskedRatio": 0.25095,
+        "mismatchRatio": 0.14831,
+        "unmaskedRatio": 0.15,
         "maskRatio": 0.01125,
         "maskBoxes": 1,
         "widthA": 753,
@@ -2891,67 +2891,67 @@
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
-          "unmaskedRatio": 0.4395
+          "unmaskedRatio": 0.44294
         },
         "worstBands": [
           {
-            "y": 6600,
-            "unmaskedRatio": 0.73154
+            "y": 400,
+            "unmaskedRatio": 0.44294
           },
           {
-            "y": 3600,
-            "unmaskedRatio": 0.71001
+            "y": 3800,
+            "unmaskedRatio": 0.34015
           },
           {
-            "y": 5000,
-            "unmaskedRatio": 0.70651
+            "y": 5200,
+            "unmaskedRatio": 0.32924
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.01392,
           0.27112,
-          0.4395,
-          0.13155,
-          0.13287,
-          0.08044,
-          0.08615,
-          0.33445,
-          0.69631,
-          0.34978,
-          0.09606,
-          0.08755,
-          0.0777,
-          0.59114,
-          0.464,
-          0.35311,
-          0.07035,
-          0.09833,
-          0.71001,
-          0.56784,
-          0.07622,
-          0.08655,
-          0.08784,
-          0.07295,
-          0.08807,
-          0.70651,
-          0.6243,
-          0.07147,
-          0.09129,
-          0.09188,
-          0.18016,
-          0.27647,
-          0.095,
-          0.73154,
-          0.46291,
-          0.07269,
-          0.0741,
-          0.29609,
-          0.0922,
-          0.05444
+          0.44294,
+          0.1124,
+          0.12795,
+          0.08415,
+          0.0911,
+          0.10893,
+          0.28068,
+          0.12902,
+          0.10351,
+          0.09214,
+          0.09074,
+          0.25903,
+          0.32197,
+          0.25477,
+          0.06135,
+          0.10178,
+          0.27635,
+          0.34015,
+          0.08384,
+          0.09464,
+          0.09961,
+          0.08434,
+          0.09196,
+          0.16256,
+          0.32924,
+          0.06274,
+          0.08743,
+          0.09068,
+          0.0605,
+          0.14936,
+          0.07554,
+          0.18305,
+          0.27827,
+          0.02762,
+          0.06669,
+          0.24292,
+          0.1018,
+          0.05322
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/768-diff.png",
-        "at": "2026-10-22T23:07:19.842Z",
+        "at": "2026-10-24T00:47:51.885Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/768-diff.png",
@@ -2968,11 +2968,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20439,
-          "at": "2026-10-22T23:07:40.375Z",
+          "ms": 20435,
+          "at": "2026-10-24T00:48:12.496Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9920,
+            "scrollHeight": 10033,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -3018,8 +3018,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32673,
-        "unmaskedRatio": 0.3326,
+        "mismatchRatio": 0.26503,
+        "unmaskedRatio": 0.26979,
         "maskRatio": 0.01762,
         "maskBoxes": 1,
         "widthA": 375,
@@ -3034,63 +3034,63 @@
         },
         "worstBands": [
           {
-            "y": 3000,
-            "unmaskedRatio": 0.83661
-          },
-          {
             "y": 3600,
-            "unmaskedRatio": 0.82479
+            "unmaskedRatio": 0.79641
           },
           {
-            "y": 3400,
-            "unmaskedRatio": 0.79659
+            "y": 4400,
+            "unmaskedRatio": 0.78131
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.77017
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.06255,
           0.36677,
-          0.19725,
-          0.15591,
-          0.16272,
-          0.12552,
-          0.12801,
-          0.27156,
-          0.75416,
-          0.39275,
-          0.12811,
-          0.13596,
-          0.13619,
-          0.182,
-          0.76953,
-          0.83661,
-          0.59889,
-          0.79659,
-          0.82479,
-          0.21732,
-          0.14521,
-          0.62671,
-          0.67737,
-          0.12523,
-          0.11231,
-          0.11708,
-          0.12579,
-          0.13043,
-          0.11773,
-          0.21701,
-          0.56705,
-          0.58848,
-          0.10827,
-          0.12545,
-          0.13211,
-          0.12087,
-          0.51377,
-          0.56071,
-          0.12299,
-          0.70493
+          0.15541,
+          0.14403,
+          0.16597,
+          0.12763,
+          0.12565,
+          0.14917,
+          0.46043,
+          0.34733,
+          0.12893,
+          0.13128,
+          0.13488,
+          0.12337,
+          0.41461,
+          0.77017,
+          0.52899,
+          0.49099,
+          0.79641,
+          0.21029,
+          0.15251,
+          0.15411,
+          0.78131,
+          0.11577,
+          0.11468,
+          0.12325,
+          0.12636,
+          0.12932,
+          0.12177,
+          0.1428,
+          0.43628,
+          0.68751,
+          0.10316,
+          0.11907,
+          0.11667,
+          0.13128,
+          0.22989,
+          0.67383,
+          0.24205,
+          0.17728
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/390-diff.png",
-        "at": "2026-10-22T23:07:41.962Z",
+        "at": "2026-10-24T00:48:14.132Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-the-world/eat-see-do-berlin/390-diff.png",
@@ -174348,8 +174348,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15402,
-          "at": "2026-10-23T23:51:40.087Z",
+          "ms": 14927,
+          "at": "2026-10-23T23:58:53.847Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 15696,
@@ -174384,9 +174384,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5204
+              "svgAnimations": 5316
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -174395,19 +174395,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.40916,
-        "unmaskedRatio": 0.40916,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.35967,
+        "unmaskedRatio": 0.40018,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.41303
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.35864
         },
         "worstBands": [
           {
@@ -174425,11 +174425,11 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.05717,
-          0.41303,
-          0.4502,
-          0.50862,
-          0.56538,
+          0.01622,
+          0,
+          0,
+          0,
+          0,
           0.09571,
           0.35864,
           0.55175,
@@ -174467,7 +174467,7 @@
           0.79379
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/1440-diff.png",
-        "at": "2026-10-23T23:51:45.360Z",
+        "at": "2026-10-23T23:58:58.889Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/1440-diff.png",
@@ -174484,8 +174484,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13802,
-          "at": "2026-10-23T23:51:59.331Z",
+          "ms": 13742,
+          "at": "2026-10-23T23:59:12.797Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 15722,
@@ -174520,9 +174520,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5287
+              "svgAnimations": 5249
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -174531,19 +174531,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.29664,
-        "unmaskedRatio": 0.29664,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.25849,
+        "unmaskedRatio": 0.28761,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 3,
-          "y": 600,
-          "unmaskedRatio": 0.51323
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.33586
         },
         "worstBands": [
           {
@@ -174561,11 +174561,11 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03871,
-          0.18301,
-          0.29647,
-          0.51323,
-          0.51429,
+          0.0217,
+          0,
+          0,
+          0,
+          0,
           0.14261,
           0.28378,
           0.33586,
@@ -174603,7 +174603,7 @@
           0.11813
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/768-diff.png",
-        "at": "2026-10-23T23:52:02.229Z",
+        "at": "2026-10-23T23:59:15.628Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/768-diff.png",
@@ -174620,8 +174620,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13380,
-          "at": "2026-10-23T23:52:15.802Z",
+          "ms": 13257,
+          "at": "2026-10-23T23:59:29.091Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 18866,
@@ -174656,9 +174656,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5186
+              "svgAnimations": 5192
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -174667,19 +174667,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.39362,
-        "unmaskedRatio": 0.39362,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.34733,
+        "unmaskedRatio": 0.38646,
+        "maskRatio": 0.10125,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.36336
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.56233
         },
         "worstBands": [
           {
@@ -174698,11 +174698,11 @@
         "bandHeight": 200,
         "bandRatios": [
           0.07416,
-          0.2458,
-          0.36336,
-          0.50803,
-          0.69341,
-          0.19812,
+          0,
+          0,
+          0,
+          0,
+          0.16536,
           0.21719,
           0.56233,
           0.18407,
@@ -174739,7 +174739,7 @@
           0.4042
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/390-diff.png",
-        "at": "2026-10-23T23:52:17.709Z",
+        "at": "2026-10-23T23:59:31.061Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/100-years/cabin-design/390-diff.png",
@@ -189236,11 +189236,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 22856,
-          "at": "2026-10-23T09:38:29.889Z",
+          "ms": 22959,
+          "at": "2026-10-24T00:48:37.276Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 8950,
+            "scrollHeight": 8012,
             "truncated": true,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -189286,8 +189286,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51919,
-        "unmaskedRatio": 0.52509,
+        "mismatchRatio": 0.36277,
+        "unmaskedRatio": 0.3669,
         "maskRatio": 0.01125,
         "maskBoxes": 1,
         "widthA": 1425,
@@ -189302,16 +189302,16 @@
         },
         "worstBands": [
           {
-            "y": 7600,
-            "unmaskedRatio": 0.97743
+            "y": 7000,
+            "unmaskedRatio": 0.75188
           },
           {
-            "y": 7800,
-            "unmaskedRatio": 0.91637
+            "y": 3200,
+            "unmaskedRatio": 0.65587
           },
           {
-            "y": 7400,
-            "unmaskedRatio": 0.82524
+            "y": 3400,
+            "unmaskedRatio": 0.64905
           }
         ],
         "bandHeight": 200,
@@ -189320,45 +189320,45 @@
           0.07431,
           0.31147,
           0.59675,
-          0.30832,
-          0.15676,
-          0.09172,
-          0.1265,
-          0.65507,
-          0.47842,
-          0.53576,
-          0.46802,
-          0.34914,
-          0.61761,
-          0.65536,
-          0.7008,
-          0.67786,
-          0.55611,
-          0.57229,
-          0.37443,
-          0.54032,
-          0.55736,
-          0.61989,
-          0.68379,
-          0.6704,
-          0.69351,
-          0.63605,
-          0.65882,
-          0.65609,
-          0.56249,
-          0.31432,
-          0.66206,
-          0.72408,
-          0.70472,
-          0.24774,
-          0.73892,
-          0.19144,
-          0.82524,
-          0.97743,
-          0.91637
+          0.22331,
+          0.15877,
+          0.09905,
+          0.094,
+          0.43285,
+          0.43628,
+          0.54186,
+          0.14615,
+          0.30097,
+          0.52148,
+          0.46444,
+          0.32277,
+          0.65587,
+          0.64905,
+          0.43677,
+          0.26222,
+          0.34704,
+          0.25953,
+          0.33384,
+          0.44448,
+          0.36316,
+          0.34073,
+          0.53972,
+          0.58,
+          0.53234,
+          0.58048,
+          0.11086,
+          0.11319,
+          0.35733,
+          0.30255,
+          0.60264,
+          0.75188,
+          0.4486,
+          0.23537,
+          0.04821,
+          0.57244
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/1440-diff.png",
-        "at": "2026-10-23T09:38:35.775Z",
+        "at": "2026-10-24T00:48:42.605Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/1440-diff.png",
@@ -189375,11 +189375,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20782,
-          "at": "2026-10-23T09:38:56.725Z",
+          "ms": 20763,
+          "at": "2026-10-24T00:49:03.552Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 8302,
+            "scrollHeight": 9002,
             "truncated": true,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -189425,8 +189425,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.4825,
-        "unmaskedRatio": 0.48799,
+        "mismatchRatio": 0.41133,
+        "unmaskedRatio": 0.41601,
         "maskRatio": 0.01125,
         "maskBoxes": 1,
         "widthA": 753,
@@ -189437,67 +189437,67 @@
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
-          "unmaskedRatio": 0.5062
+          "unmaskedRatio": 0.49016
         },
         "worstBands": [
           {
-            "y": 7600,
-            "unmaskedRatio": 0.92076
-          },
-          {
-            "y": 7800,
-            "unmaskedRatio": 0.90006
+            "y": 5200,
+            "unmaskedRatio": 0.74278
           },
           {
             "y": 6000,
-            "unmaskedRatio": 0.77224
+            "unmaskedRatio": 0.7256
+          },
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.72054
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.02046,
           0.20044,
-          0.5062,
-          0.20182,
-          0.14335,
-          0.12473,
-          0.13788,
-          0.38791,
-          0.62716,
-          0.6193,
-          0.67378,
-          0.32641,
-          0.62108,
-          0.7176,
-          0.75154,
-          0.50147,
-          0.28572,
-          0.55987,
-          0.68568,
-          0.75819,
-          0.42699,
-          0.67224,
-          0.71193,
-          0.74533,
-          0.27199,
-          0.6262,
-          0.7027,
-          0.53479,
-          0.29638,
-          0.76878,
-          0.77224,
-          0.35804,
-          0.14817,
-          0.32033,
-          0.50398,
-          0.30893,
-          0.29357,
-          0.23067,
-          0.92076,
-          0.90006
+          0.49016,
+          0.17686,
+          0.15878,
+          0.12112,
+          0.12542,
+          0.16313,
+          0.64943,
+          0.48144,
+          0.58321,
+          0.14301,
+          0.41829,
+          0.60181,
+          0.6976,
+          0.19904,
+          0.53389,
+          0.72054,
+          0.40371,
+          0.12819,
+          0.51773,
+          0.43929,
+          0.52021,
+          0.47458,
+          0.45685,
+          0.70718,
+          0.74278,
+          0.61031,
+          0.68313,
+          0.61854,
+          0.7256,
+          0.23877,
+          0.15427,
+          0.09589,
+          0.29653,
+          0.25539,
+          0.20942,
+          0.62752,
+          0.7178,
+          0.41641
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/768-diff.png",
-        "at": "2026-10-23T09:39:00.111Z",
+        "at": "2026-10-24T00:49:06.773Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/768-diff.png",
@@ -189514,11 +189514,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20575,
-          "at": "2026-10-23T09:39:20.866Z",
+          "ms": 20686,
+          "at": "2026-10-24T00:49:27.627Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 9029,
+            "scrollHeight": 10917,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -189564,8 +189564,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.53454,
-        "unmaskedRatio": 0.54413,
+        "mismatchRatio": 0.44986,
+        "unmaskedRatio": 0.45793,
         "maskRatio": 0.01762,
         "maskBoxes": 1,
         "widthA": 375,
@@ -189580,63 +189580,63 @@
         },
         "worstBands": [
           {
-            "y": 6200,
-            "unmaskedRatio": 0.87999
+            "y": 6400,
+            "unmaskedRatio": 0.86056
           },
           {
-            "y": 4000,
-            "unmaskedRatio": 0.87123
+            "y": 3800,
+            "unmaskedRatio": 0.82223
           },
           {
-            "y": 2000,
-            "unmaskedRatio": 0.86759
+            "y": 4200,
+            "unmaskedRatio": 0.79812
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.07821,
           0.34699,
-          0.29583,
-          0.20017,
-          0.14824,
-          0.19771,
-          0.17908,
-          0.20741,
-          0.49071,
-          0.80301,
-          0.86759,
-          0.7234,
-          0.64771,
-          0.39276,
-          0.53084,
-          0.8348,
-          0.71943,
-          0.41284,
-          0.36789,
-          0.80916,
-          0.87123,
-          0.56367,
-          0.62743,
-          0.6218,
-          0.59047,
-          0.35069,
-          0.79553,
-          0.82132,
-          0.43451,
-          0.19456,
-          0.45235,
-          0.87999,
-          0.84325,
-          0.21645,
-          0.59993,
-          0.82915,
-          0.85287,
-          0.72601,
-          0.31729,
-          0.65455
+          0.1976,
+          0.15678,
+          0.15131,
+          0.18947,
+          0.19431,
+          0.19491,
+          0.22793,
+          0.70084,
+          0.58759,
+          0.46225,
+          0.16996,
+          0.27363,
+          0.61176,
+          0.69515,
+          0.67241,
+          0.19596,
+          0.67239,
+          0.82223,
+          0.70507,
+          0.79812,
+          0.75696,
+          0.18315,
+          0.21204,
+          0.58283,
+          0.44471,
+          0.57493,
+          0.43724,
+          0.21263,
+          0.78349,
+          0.7608,
+          0.86056,
+          0.44157,
+          0.74797,
+          0.69236,
+          0.76112,
+          0.20611,
+          0.19848,
+          0.14024
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/390-diff.png",
-        "at": "2026-10-23T09:39:22.973Z",
+        "at": "2026-10-24T00:49:29.716Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/articles/explore-the-world/picture-perfect-austin/390-diff.png",
@@ -206837,8 +206837,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15460,
-          "at": "2026-10-23T23:50:46.401Z",
+          "ms": 15195,
+          "at": "2026-10-23T23:58:01.156Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9351,
@@ -206876,9 +206876,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5357
+              "svgAnimations": 5297
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -206887,19 +206887,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.51718,
-        "unmaskedRatio": 0.51718,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.48883,
+        "unmaskedRatio": 0.51119,
+        "maskRatio": 0.04375,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 7684,
         "heightB": 8000,
         "heightDiffRatio": 0.0395,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.64221
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.5404
         },
         "worstBands": [
           {
@@ -206917,9 +206917,9 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.07871,
-          0.64221,
-          0.42766,
+          0.01538,
+          0,
+          0.00155,
           0.02857,
           0.0556,
           0.5404,
@@ -206959,7 +206959,7 @@
           0.43999
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/1440-diff.png",
-        "at": "2026-10-23T23:50:51.910Z",
+        "at": "2026-10-23T23:58:06.491Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/1440-diff.png",
@@ -206976,8 +206976,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13977,
-          "at": "2026-10-23T23:51:06.047Z",
+          "ms": 13826,
+          "at": "2026-10-23T23:58:20.493Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 8881,
@@ -207015,9 +207015,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5326
+              "svgAnimations": 5312
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -207026,19 +207026,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.43633,
-        "unmaskedRatio": 0.43633,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.41356,
+        "unmaskedRatio": 0.43248,
+        "maskRatio": 0.04375,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.55875
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.57556
         },
         "worstBands": [
           {
@@ -207056,9 +207056,9 @@
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.08356,
-          0.55875,
-          0.28954,
+          0.0217,
+          0,
+          0.00355,
           0.07748,
           0.09967,
           0.57556,
@@ -207098,7 +207098,7 @@
           0.02646
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/768-diff.png",
-        "at": "2026-10-23T23:51:09.055Z",
+        "at": "2026-10-23T23:58:23.408Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/768-diff.png",
@@ -207115,8 +207115,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13392,
-          "at": "2026-10-23T23:51:22.637Z",
+          "ms": 13331,
+          "at": "2026-10-23T23:58:36.907Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9232,
@@ -207154,9 +207154,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5306
+              "svgAnimations": 5353
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -207165,19 +207165,19 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.42471,
-        "unmaskedRatio": 0.42471,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.39955,
+        "unmaskedRatio": 0.41783,
+        "maskRatio": 0.04375,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 8000,
         "heightB": 8000,
         "heightDiffRatio": 0,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.52013
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.60581
         },
         "worstBands": [
           {
@@ -207196,8 +207196,8 @@
         "bandHeight": 200,
         "bandRatios": [
           0.07416,
-          0.52013,
-          0.50375,
+          0,
+          0.06971,
           0.12425,
           0.11636,
           0.60581,
@@ -207237,7 +207237,7 @@
           0.18537
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/390-diff.png",
-        "at": "2026-10-23T23:51:24.529Z",
+        "at": "2026-10-23T23:58:38.728Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/100-years/390-diff.png",
@@ -236195,18 +236195,106 @@
           "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/articles/tags",
           "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/articles/tags/1440-eds.png",
           "contentWidth": 1425,
-          "status": "pending",
-          "attempts": 0,
-          "inflightAttempts": 0
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13461,
+          "at": "2026-10-24T00:49:43.363Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1752,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 7180
+            },
+            "liveBoxes": 0
+          }
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/articles/tags/screenshot.jpg",
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.37582,
+        "unmaskedRatio": 0.37582,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 1983,
+        "heightB": 1752,
+        "heightDiffRatio": 0.11649,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.81427
+        },
+        "worstBands": [
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.81469
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.81427
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.76995
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01626,
+          0.06793,
+          0.04029,
+          0.13384,
+          0.81427,
+          0.76995,
+          0.47213,
+          0.07319,
+          0.81469,
+          0.57236
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/articles/tags/1440-diff.png",
+        "at": "2026-10-24T00:49:44.869Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/articles/tags/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "gb/en/articles/tags/allegris@1440": {
       "id": "gb/en/articles/tags/allegris",
@@ -239896,87 +239984,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.44452,
-        "unmaskedRatio": 0.48569,
-        "maskRatio": 0.08475,
-        "maskBoxes": 1,
-        "widthA": 1425,
-        "widthB": 1425,
-        "heightA": 6755,
-        "heightB": 8000,
-        "heightDiffRatio": 0.15563,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.84671
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 6200,
-            "unmaskedRatio": 0.94052
-          },
-          {
-            "y": 6400,
-            "unmaskedRatio": 0.93818
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.84671,
-          1,
-          0,
-          0,
-          0.06808,
-          0.44892,
-          0.60133,
-          0.48875,
-          0.60442,
-          0.55741,
-          0.59525,
-          0.53939,
-          0.47828,
-          0.70694,
-          0.56786,
-          0.46446,
-          0.39581,
-          0.19709,
-          0.46954,
-          0.4527,
-          0.45335,
-          0.27741,
-          0.43731,
-          0.44833,
-          0.45233,
-          0.33953,
-          0.36985,
-          0.44592,
-          0.44813,
-          0.40709,
-          0.43255,
-          0.94052,
-          0.93818,
-          0.64853,
-          0.19573,
-          0.45496,
-          0.44814,
-          0.45425,
-          0.18729,
-          0.46132
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/1440-diff.png",
-        "at": "2026-10-22T23:58:03.017Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/1440-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/co/europa@768": {
       "id": "lhg/at/de/dest/co/europa",
@@ -240035,87 +240049,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot-768.jpg",
+          "crop": "top=190",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.67183,
-        "unmaskedRatio": 0.72405,
-        "maskRatio": 0.07212,
-        "maskBoxes": 1,
-        "widthA": 753,
-        "widthB": 753,
-        "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.8115
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 7400,
-            "unmaskedRatio": 0.9111
-          },
-          {
-            "y": 2600,
-            "unmaskedRatio": 0.88619
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.8115,
-          1,
-          0,
-          0.03453,
-          0.39439,
-          0.80001,
-          0.68239,
-          0.63536,
-          0.81219,
-          0.75805,
-          0.69325,
-          0.52962,
-          0.80607,
-          0.88619,
-          0.52169,
-          0.77817,
-          0.33577,
-          0.85161,
-          0.76226,
-          0.5393,
-          0.62189,
-          0.41484,
-          0.88344,
-          0.83073,
-          0.8676,
-          0.44946,
-          0.86153,
-          0.84108,
-          0.86707,
-          0.3894,
-          0.86974,
-          0.85067,
-          0.85602,
-          0.45011,
-          0.82837,
-          0.84542,
-          0.84218,
-          0.9111,
-          0.8245,
-          0.8794
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/768-diff.png",
-        "at": "2026-10-22T23:58:54.276Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/768-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/co/europa@390": {
       "id": "lhg/at/de/dest/co/europa",
@@ -240174,87 +240114,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot-390.jpg",
+          "crop": "top=238",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.55974,
-        "unmaskedRatio": 0.62219,
-        "maskRatio": 0.10038,
-        "maskBoxes": 1,
-        "widthA": 375,
-        "widthB": 375,
-        "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.87223
-        },
-        "worstBands": [
-          {
-            "y": 7800,
-            "unmaskedRatio": 0.87467
-          },
-          {
-            "y": 0,
-            "unmaskedRatio": 0.87223
-          },
-          {
-            "y": 7400,
-            "unmaskedRatio": 0.86096
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.87223,
-          0.53373,
-          0,
-          0,
-          0,
-          0.23239,
-          0.72044,
-          0.6674,
-          0.38775,
-          0.83544,
-          0.25389,
-          0.82581,
-          0.49412,
-          0.59101,
-          0.69512,
-          0.40393,
-          0.83425,
-          0.2564,
-          0.81523,
-          0.5066,
-          0.56756,
-          0.695,
-          0.39547,
-          0.83364,
-          0.25459,
-          0.80001,
-          0.51176,
-          0.65259,
-          0.85732,
-          0.42379,
-          0.85952,
-          0.42619,
-          0.85995,
-          0.60096,
-          0.67783,
-          0.86043,
-          0.45508,
-          0.86096,
-          0.44324,
-          0.87467
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/390-diff.png",
-        "at": "2026-10-22T23:59:11.097Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/co/europa/390-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/new-york@1440": {
       "id": "lhg/at/de/dest/cy/new-york",
@@ -240313,85 +240179,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.14703,
-        "unmaskedRatio": 0.17253,
-        "maskRatio": 0.1478,
-        "maskBoxes": 7,
-        "widthA": 1425,
-        "widthB": 1425,
-        "heightA": 7243,
-        "heightB": 7475,
-        "heightDiffRatio": 0.03104,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.84627
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 6600,
-            "unmaskedRatio": 0.96308
-          },
-          {
-            "y": 0,
-            "unmaskedRatio": 0.84627
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.84627,
-          1,
-          0,
-          0,
-          0.09912,
-          0.06857,
-          0.04128,
-          0.15267,
-          0.12074,
-          0.10278,
-          0.23566,
-          0.24064,
-          0.11036,
-          0.12365,
-          0.14667,
-          0.06189,
-          0.09997,
-          0.09669,
-          0.11146,
-          0.04655,
-          0.03558,
-          0.09647,
-          0.07217,
-          0.05636,
-          0.04745,
-          0.03238,
-          0,
-          0.04352,
-          0.09153,
-          0.0987,
-          0.0842,
-          0.05245,
-          0.04354,
-          0.96308,
-          0.05709,
-          0.20398,
-          0.81643,
-          0.01066
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/1440-diff.png",
-        "at": "2026-10-22T23:59:36.352Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/1440-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/new-york@768": {
       "id": "lhg/at/de/dest/cy/new-york",
@@ -240450,87 +240244,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot-768.jpg",
+          "crop": "top=190",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.17766,
-        "unmaskedRatio": 0.20444,
-        "maskRatio": 0.13096,
-        "maskBoxes": 7,
-        "widthA": 753,
-        "widthB": 753,
-        "heightA": 7710,
-        "heightB": 7892,
-        "heightDiffRatio": 0.02306,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.8115
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 7600,
-            "unmaskedRatio": 0.83195
-          },
-          {
-            "y": 0,
-            "unmaskedRatio": 0.8115
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.8115,
-          1,
-          0,
-          0.60212,
-          0.2444,
-          0.07147,
-          0.16422,
-          0.21529,
-          0.20254,
-          0.17257,
-          0.37573,
-          0.18611,
-          0.1717,
-          0.20007,
-          0.2061,
-          0.18195,
-          0.12034,
-          0.17336,
-          0.16877,
-          0.15844,
-          0.08215,
-          0.06167,
-          0.1462,
-          0.11831,
-          0.089,
-          0.08765,
-          0.04547,
-          0,
-          0.03021,
-          0.1542,
-          0.17029,
-          0.12254,
-          0.10054,
-          0.04542,
-          0.39229,
-          0.48719,
-          0.08821,
-          0.07209,
-          0.83195,
-          0.01653
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/768-diff.png",
-        "at": "2026-10-22T23:59:59.743Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/768-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/new-york@390": {
       "id": "lhg/at/de/dest/cy/new-york",
@@ -240589,87 +240309,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot-390.jpg",
+          "crop": "top=238",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.18653,
-        "unmaskedRatio": 0.2084,
-        "maskRatio": 0.10495,
-        "maskBoxes": 6,
-        "widthA": 375,
-        "widthB": 375,
-        "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.87223
-        },
-        "worstBands": [
-          {
-            "y": 0,
-            "unmaskedRatio": 0.87223
-          },
-          {
-            "y": 200,
-            "unmaskedRatio": 0.53373
-          },
-          {
-            "y": 3000,
-            "unmaskedRatio": 0.39184
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.87223,
-          0.53373,
-          0,
-          0,
-          0,
-          0.28438,
-          0.14463,
-          0.12717,
-          0.19087,
-          0.20447,
-          0.21387,
-          0.18179,
-          0.24352,
-          0.16192,
-          0.20019,
-          0.39184,
-          0.28936,
-          0.27911,
-          0.19347,
-          0.20804,
-          0.18668,
-          0.19971,
-          0.21504,
-          0.18939,
-          0.153,
-          0.15588,
-          0.15467,
-          0.1884,
-          0.23067,
-          0.17613,
-          0.20575,
-          0.17525,
-          0.13815,
-          0.09259,
-          0.10937,
-          0.17992,
-          0.13288,
-          0.15491,
-          0.07889,
-          0.10574
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/390-diff.png",
-        "at": "2026-10-23T00:00:21.954Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/new-york/390-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/los-angeles@1440": {
       "id": "lhg/at/de/dest/cy/los-angeles",
@@ -240728,78 +240374,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.12122,
-        "unmaskedRatio": 0.14812,
-        "maskRatio": 0.18159,
-        "maskBoxes": 7,
-        "widthA": 1425,
-        "widthB": 1425,
-        "heightA": 5967,
-        "heightB": 6084,
-        "heightDiffRatio": 0.01923,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.84671
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 0,
-            "unmaskedRatio": 0.84671
-          },
-          {
-            "y": 5800,
-            "unmaskedRatio": 0.42836
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.84671,
-          1,
-          0,
-          0,
-          0.08974,
-          0.07289,
-          0.04177,
-          0.15371,
-          0.12274,
-          0.10309,
-          0.23566,
-          0.24064,
-          0.05212,
-          0.04447,
-          0.08449,
-          0.05589,
-          0.07784,
-          0.03726,
-          0.03694,
-          0,
-          0.00195,
-          0.07802,
-          0.09941,
-          0.09514,
-          0.06614,
-          0.02535,
-          0.41498,
-          0.11815,
-          0.03874,
-          0.42836,
-          0.00953
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/1440-diff.png",
-        "at": "2026-10-23T00:00:45.365Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/1440-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/los-angeles@768": {
       "id": "lhg/at/de/dest/cy/los-angeles",
@@ -240858,79 +240439,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot-768.jpg",
+          "crop": "top=190",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.16202,
-        "unmaskedRatio": 0.1935,
-        "maskRatio": 0.16266,
-        "maskBoxes": 7,
-        "widthA": 753,
-        "widthB": 753,
-        "heightA": 6282,
-        "heightB": 6354,
-        "heightDiffRatio": 0.01133,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.8115
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 0,
-            "unmaskedRatio": 0.8115
-          },
-          {
-            "y": 2000,
-            "unmaskedRatio": 0.46596
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.8115,
-          1,
-          0,
-          0.18088,
-          0.25108,
-          0.07138,
-          0.16151,
-          0.22349,
-          0.19333,
-          0.20948,
-          0.46596,
-          0.32159,
-          0.06726,
-          0.06163,
-          0.12041,
-          0.09243,
-          0.12757,
-          0.08333,
-          0.07414,
-          0,
-          0.02781,
-          0.07829,
-          0.16042,
-          0.14461,
-          0.14052,
-          0.0624,
-          0.0473,
-          0.44578,
-          0.1179,
-          0.06861,
-          0.13485,
-          0.45475
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/768-diff.png",
-        "at": "2026-10-23T00:01:08.095Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/768-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/at/de/dest/cy/los-angeles@390": {
       "id": "lhg/at/de/dest/cy/los-angeles",
@@ -240989,87 +240504,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot-390.jpg",
+          "crop": "top=238",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.17066,
-        "unmaskedRatio": 0.20306,
-        "maskRatio": 0.15957,
-        "maskBoxes": 7,
-        "widthA": 375,
-        "widthB": 375,
-        "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.87223
-        },
-        "worstBands": [
-          {
-            "y": 0,
-            "unmaskedRatio": 0.87223
-          },
-          {
-            "y": 200,
-            "unmaskedRatio": 0.53373
-          },
-          {
-            "y": 3000,
-            "unmaskedRatio": 0.525
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.87223,
-          0.53373,
-          0,
-          0,
-          0,
-          0.28259,
-          0.13669,
-          0.15267,
-          0.16681,
-          0.17544,
-          0.22907,
-          0.21175,
-          0.21073,
-          0.1798,
-          0.14192,
-          0.525,
-          0.21763,
-          0.31068,
-          0.1166,
-          0.08961,
-          0.14533,
-          0.19007,
-          0.10431,
-          0.15861,
-          0.11091,
-          0.11494,
-          0.10568,
-          0.10535,
-          0.01795,
-          0.078,
-          0.18408,
-          0.20247,
-          0.1834,
-          0.18361,
-          0.12696,
-          0.09251,
-          0.08701,
-          0.52195,
-          0.10392,
-          0.07916
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/390-diff.png",
-        "at": "2026-10-23T00:01:30.297Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/at/de/dest/cy/los-angeles/390-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/gb/en@1440": {
       "id": "lhg/gb/en",
@@ -242760,87 +242201,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.24191,
-        "unmaskedRatio": 0.26536,
-        "maskRatio": 0.08837,
-        "maskBoxes": 6,
-        "widthA": 1425,
-        "widthB": 1425,
-        "heightA": 7642,
-        "heightB": 7917,
-        "heightDiffRatio": 0.03474,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.84772
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 7000,
-            "unmaskedRatio": 0.97312
-          },
-          {
-            "y": 7600,
-            "unmaskedRatio": 0.96166
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.84772,
-          1,
-          0,
-          0,
-          0.04724,
-          0.0848,
-          0.07867,
-          0.05932,
-          0.03626,
-          0.02429,
-          0.06758,
-          0.1221,
-          0.05951,
-          0.03158,
-          0.02132,
-          0.05574,
-          0.05224,
-          0.04606,
-          0.01428,
-          0.07829,
-          0.09204,
-          0.08516,
-          0.07495,
-          0.44969,
-          0.81476,
-          0.75623,
-          0.74393,
-          0.83758,
-          0.88009,
-          0.11889,
-          0.07085,
-          0.09574,
-          0.09192,
-          0.09779,
-          0.06702,
-          0.97312,
-          0.26387,
-          0.2214,
-          0.96166,
-          0.15214
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
-        "at": "2026-10-23T17:09:00.868Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/gb/en/o-d/cy-cy/frankfurt-london@768": {
       "id": "lhg/gb/en/o-d/cy-cy/frankfurt-london",
@@ -242899,87 +242266,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot-768.jpg",
+          "crop": "top=190",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.27945,
-        "unmaskedRatio": 0.30212,
-        "maskRatio": 0.07501,
-        "maskBoxes": 6,
-        "widthA": 753,
-        "widthB": 753,
-        "heightA": 8000,
-        "heightB": 7967,
-        "heightDiffRatio": 0.00413,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.81465
-        },
-        "worstBands": [
-          {
-            "y": 200,
-            "unmaskedRatio": 1
-          },
-          {
-            "y": 7600,
-            "unmaskedRatio": 0.92297
-          },
-          {
-            "y": 6200,
-            "unmaskedRatio": 0.91809
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.81465,
-          1,
-          0,
-          0.37477,
-          0.21335,
-          0.14163,
-          0.05554,
-          0.07607,
-          0.04371,
-          0.06641,
-          0.06439,
-          0.20508,
-          0.08913,
-          0.04435,
-          0.0392,
-          0.06035,
-          0.04088,
-          0.04136,
-          0.03824,
-          0.04861,
-          0.04124,
-          0.02597,
-          0.1221,
-          0.11189,
-          0.10309,
-          0.11027,
-          0.2878,
-          0.75243,
-          0.78778,
-          0.87629,
-          0.91434,
-          0.91809,
-          0.69097,
-          0.1152,
-          0.08329,
-          0.12903,
-          0.71249,
-          0.89367,
-          0.92297,
-          0.40312
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
-        "at": "2026-10-23T17:09:17.081Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/gb/en/o-d/cy-cy/frankfurt-london@390": {
       "id": "lhg/gb/en/o-d/cy-cy/frankfurt-london",
@@ -243038,87 +242331,13 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot-390.jpg",
+          "crop": "top=238",
           "status": "provided"
         }
       },
-      "compare": {
-        "mismatchRatio": 0.13597,
-        "unmaskedRatio": 0.15191,
-        "maskRatio": 0.10495,
-        "maskBoxes": 6,
-        "widthA": 375,
-        "widthB": 375,
-        "heightA": 8000,
-        "heightB": 8000,
-        "heightDiffRatio": 0,
-        "firstDivergentBand": {
-          "index": 0,
-          "y": 0,
-          "unmaskedRatio": 0.87563
-        },
-        "worstBands": [
-          {
-            "y": 0,
-            "unmaskedRatio": 0.87563
-          },
-          {
-            "y": 7200,
-            "unmaskedRatio": 0.85044
-          },
-          {
-            "y": 200,
-            "unmaskedRatio": 0.53022
-          }
-        ],
-        "bandHeight": 200,
-        "bandRatios": [
-          0.87563,
-          0.53022,
-          0,
-          0,
-          0,
-          0.15529,
-          0.05079,
-          0.22285,
-          0.16765,
-          0.13017,
-          0.04552,
-          0.06551,
-          0.11148,
-          0.08781,
-          0.08243,
-          0.07708,
-          0.10931,
-          0.20041,
-          0.10302,
-          0.09844,
-          0.07259,
-          0.08887,
-          0.07239,
-          0.04708,
-          0.0512,
-          0.05387,
-          0.05607,
-          0.05211,
-          0.04611,
-          0.06244,
-          0.08451,
-          0.11972,
-          0.15788,
-          0.10375,
-          0.12517,
-          0.25291,
-          0.85044,
-          0.16839,
-          0.14464,
-          0.1524
-        ],
-        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
-        "at": "2026-10-23T17:09:32.059Z",
-        "attempts": 1
-      },
+      "compare": null,
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
-      "status": "done"
+      "status": "pending"
     },
     "lhg/de/en/dest/co/europe@1440": {
       "id": "lhg/de/en/dest/co/europe",
@@ -254481,6 +253700,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/co/nord-und-suedamerika/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254502,6 +253722,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/usa/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254523,6 +253744,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/spanien/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254544,6 +253766,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/italien/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254565,6 +253788,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/japan/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254586,6 +253810,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/indien/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254607,6 +253832,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/c/grossbritannien/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254628,6 +253854,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/barcelona/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254649,6 +253876,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/rom/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254670,6 +253898,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/tokio/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254691,6 +253920,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/london/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254712,6 +253942,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/paris/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254733,6 +253964,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/amman/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -254754,6 +253986,7 @@
         },
         "src": {
           "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/lhg/at/de/dest/cy/palma-de-mallorca/screenshot.jpg",
+          "crop": "top=98",
           "status": "provided"
         }
       },
@@ -255442,5 +254675,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-23T23:52:17.709Z"
+  "updatedAt": "2026-10-24T00:49:44.870Z"
 }

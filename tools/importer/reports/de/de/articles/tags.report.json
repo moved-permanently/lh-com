@@ -2,10 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/tags",
   "path": "de/de/articles/tags",
-  "timestamp": "2026-10-23T05:59:10.719Z",
+  "timestamp": "2026-10-24T00:31:33.339Z",
   "title": "",
   "template": "insights",
   "blocks": [
-    "cards-teaser"
+    "cards-teaser",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns",
+    "accordion-columns"
   ]
 }
