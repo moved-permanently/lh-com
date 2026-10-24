@@ -644,6 +644,11 @@ function removeEmptyComponents(document, keepInFlow, payload) {
  * beforeTransform: markColumnViews sets data-lh-column="sc" | "cc" on the column views (the
  * columns-media parser moves it to an element around the column title and the block);
  * afterTransform: placeColumnMarks writes the markers and removes the attribute.
+ *
+ * A column view that ends the page's content in an AEM section with .mb-default ("sc-spaced"):
+ * live adds the 2.4rem below the column's 3.2rem (/de/en/lounge-companions last text 61px of ink
+ * above the footer); the end marker gets "column-spaced" too ("{column-end column-spaced}"),
+ * styles.css then keeps 24px below the last section instead of none.
  */
 const COLUMN_MARK_TEMPLATES = ['info'];
 const COLUMN_ATTR = 'data-lh-column';
@@ -686,9 +691,22 @@ function markColumnViews(document, payload) {
     marked += 1;
     return !block;
   };
+  // the last AEM section with content (not the sub-page navigation)
+  const aemSections = [...document.querySelectorAll('.container-content > .section')]
+    .filter((s) => !isEmpty(s) && !s.querySelector('.container-subnav'));
+  const lastAem = aemSections[aemSections.length - 1];
+  const endsSpacedPage = (root) => {
+    const aem = root.closest('.container-content > .section');
+    if (!aem || aem !== lastAem || !aem.querySelector(':scope > .mb-default')) return false;
+    let next = root.nextElementSibling;
+    while (next && isEmpty(next)) next = next.nextElementSibling;
+    return !next;
+  };
   document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS})`).forEach((root) => {
     const kind = root.parentElement.matches('.section-content') ? 'sc' : 'cc';
-    if (!mark(root, kind, false)) return;
+    const flattened = mark(root, kind, false);
+    if (kind === 'sc' && root.getAttribute(COLUMN_ATTR) === 'sc' && endsSpacedPage(root)) root.setAttribute(COLUMN_ATTR, 'sc-spaced');
+    if (!flattened) return;
     root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS})`).forEach((inner) => {
       if (inner.parentElement.closest('.column-view') === root.firstElementChild) mark(inner, kind, true);
     });
@@ -724,6 +742,7 @@ function placeColumnMarks(document) {
   // outer column views first (document order), so a nested one adds its own marker
   roots.forEach((root) => {
     const suffix = root.getAttribute(COLUMN_ATTR) === 'cc' ? '-outer' : '';
+    const spaced = root.getAttribute(COLUMN_ATTR) === 'sc-spaced';
     const leaves = [...root.querySelectorAll(COLUMN_LEAF)].filter((el) => {
       const up = el.parentElement && el.parentElement.closest(COLUMN_LEAF);
       if (up && root.contains(up)) return false;
@@ -739,7 +758,11 @@ function placeColumnMarks(document) {
     const first = leaves[0];
     const last = leaves[leaves.length - 1];
     if (!(inline(first) && addMarkerToken(first, `column-start${suffix}`))) root.prepend(own(`column-start${suffix}`));
-    if (!(inline(last) && addMarkerToken(last, `column-end${suffix}`))) root.append(own(`column-end${suffix}`));
+    if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
+      if (spaced) addMarkerToken(last, 'column-spaced');
+    } else {
+      root.append(own(`column-end${suffix}${spaced ? ' column-spaced' : ''}`));
+    }
     placed += 1;
   });
   roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));

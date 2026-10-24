@@ -104,7 +104,9 @@ lists: at the end of the last item); next to a block, an image or a separator th
 paragraph of its own (`{column-end}` alone). On a page with such markers headings add no space of
 their own above and images keep 40px below, as on lufthansa.com. The importer writes them on info
 pages for one-column views, column views with a title or outside a page section, and column
-views nested in a one-column view; remove a pair to drop the padding.
+views nested in a one-column view; remove a pair to drop the padding. A page that ends with a
+column view gets no extra space below it; `column-spaced` with the last `{column-end}`
+(`{column-end column-spaced}`) keeps 24px there, as the live sections with that spacing.
 
 Section style `padded` (Section Metadata) adds 20px (40px from 768px) above and below the
 section, as the padding of the Lufthansa page sections: the importer writes it for every live

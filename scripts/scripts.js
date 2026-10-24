@@ -200,8 +200,9 @@ function decorateSectionMetadata(main) {
   });
 }
 
-// column-view padding markers (importer: the first / last element of a Lufthansa column view)
-const COLUMN_MARK = 'column-(?:start|end)(?:-outer)?';
+// column-view padding markers (importer: the first / last element of a Lufthansa column view;
+// column-spaced: the column view ends a live section with .mb-default)
+const COLUMN_MARK = 'column-(?:(?:start|end)(?:-outer)?|spaced)';
 const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
 const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`);
 const PARAGRAPH_STYLE = styleMarker(`copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`);

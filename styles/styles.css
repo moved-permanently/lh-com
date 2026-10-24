@@ -1215,6 +1215,12 @@ main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container
   margin-bottom: 0;
 }
 
+/* ... unless that live section keeps its .mb-default ("column-spaced" with the column end,
+   importer): 24px more (/de/en/lounge-companions last text 61px of ink above the footer, was 37) */
+main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child)):has(> .default-content-wrapper:last-child > :is(.column-end, .column-end-outer):last-child):has(> .default-content-wrapper:last-child > .column-spaced) {
+  margin-bottom: var(--spacing-default);
+}
+
 /* a padded first section (the page title in a padded AEM section, /de/en/book-and-manage/
    pax-receipt): the breadcrumb (outside the AEM section on live) stays at the top, the padding
    goes between it and the title */
