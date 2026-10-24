@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_131377_exports = {};
-  __export(tmp_bundle_campaign_131377_exports, {
-    default: () => tmp_bundle_campaign_131377_default
+  var tmp_bundle_campaign_149203_exports = {};
+  __export(tmp_bundle_campaign_149203_exports, {
+    default: () => tmp_bundle_campaign_149203_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1629,7 +1629,10 @@ var CustomImportScript = (() => {
       const NESTED = ["twocolumn", "threecolumn", "fourcolumn"];
       const nestedView = element.matches(".threecolumn, .fourcolumn") && items.map((it) => [...it.children].find((c) => NESTED.some((k) => c.classList.contains(k)) && c.querySelector(".image img") && !c.querySelector(".text, .headline, .link, .teaser"))).find(Boolean);
       if (nestedView) variants.push(`nested-${NESTED.findIndex((k) => nestedView.classList.contains(k)) + 2}`);
-      const row = (hasEmbed || nestedView) && collected.some((c) => c.length) ? collected.map((c) => c.length ? c : "") : collected.filter((c) => c.length);
+      const filled = collected.filter((c) => c.length);
+      const isImage = (n) => n.nodeType === 1 && !clean2(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
+      const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
+      const row = (hasEmbed || nestedView || loneImage) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
@@ -2353,17 +2356,61 @@ var CustomImportScript = (() => {
   function inFlow(run) {
     const prev = run[0].previousElementSibling;
     const next = run[run.length - 1].nextElementSibling;
-    const space = (sep) => {
-      const hr = sep.querySelector(".hr") || sep;
-      const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
-      return m ? Math.round(parseFloat(m[1])) : 25;
-    };
-    if (run.some((sep) => space(sep) < 10)) return false;
+    if (run.some((sep) => separatorSpace(sep) < 10)) return false;
     if (!next || !next.matches(FLOW_COMPONENT)) return false;
     if (prev && !prev.matches(FLOW_COMPONENT)) return false;
     return !(prev && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN));
   }
-  function markSeparators(document, keepInFlow) {
+  var SEPARATOR_AS_IS_TEMPLATES = ["homepage", "flight-status"];
+  function separatorSpace(sep) {
+    const hr = sep.querySelector(".hr") || sep;
+    const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    return m ? Math.round(parseFloat(m[1])) : 25;
+  }
+  function isUntitledColumnView(el) {
+    if (!el || !el.matches(FLOW_COLUMN)) return false;
+    const view = el.querySelector(":scope > .column-view");
+    if (!view) return false;
+    return ![...view.children].some((d) => !d.matches(".row, .carousel") && d.querySelector(HEADING) && cleanText(d));
+  }
+  function isBlockComponent(el) {
+    return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
+  }
+  function missingSeparatorMarkers(run) {
+    const first = run[0];
+    const last = run[run.length - 1];
+    const parent = first.parentElement;
+    if (!parent || !parent.matches(".section-content")) return null;
+    const infos = run.map(separatorInfo);
+    const spaces = run.map(separatorSpace);
+    if (spaces.some((n) => n < 10)) return null;
+    const prev = first.previousElementSibling;
+    const next = last.nextElementSibling;
+    if (prev && prev.matches(".sidebar")) {
+      if (run.length !== 1 || !next || next.matches(".sidebar")) return null;
+      const extra = spaces[0] - 25;
+      return extra > 0 ? [infos[0].marker.replace(/^spacer-\d+/, `spacer-${extra}`)] : null;
+    }
+    if (prev && next && isBlockComponent(prev) && (isBlockComponent(next) || isUntitledColumnView(next))) {
+      return infos.map((i) => i.marker);
+    }
+    if (prev && !next && prev.matches(".headline")) {
+      const aem = parent.closest(".container-content > .section");
+      if (!aem || !aem.querySelector(":scope > .mb-default")) return null;
+      let after = aem.nextElementSibling;
+      while (after && isEmpty(after)) after = after.nextElementSibling;
+      if (!after || !after.matches(".section")) return null;
+      if (after.querySelector(":scope > .container-gray, :scope > div > .section-padding-y-regular")) return null;
+      const content = after.querySelector(":scope > div > .section-content");
+      const start = content && content.firstElementChild;
+      if (!isBlockComponent(start) || start.matches(".container-gray") || start.querySelector(".container-gray")) return null;
+      return infos.map((i, n) => n === run.length - 1 ? i.marker.replace(/^spacer-\d+/, "spacer-0") : i.marker);
+    }
+    return null;
+  }
+  function markSeparators(document, keepInFlow, payload) {
+    const template = (payload && payload.template || {}).name;
+    const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -2376,10 +2423,15 @@ var CustomImportScript = (() => {
     };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
-      const keep = infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run);
+      let markers = null;
+      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
+        markers = infos.map((i) => i.marker);
+      } else if (fillGaps) {
+        markers = missingSeparatorMarkers(run);
+      }
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
-        if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
+        if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
         else sep.remove();
       });
     });
@@ -2446,8 +2498,8 @@ var CustomImportScript = (() => {
     });
     return marked;
   }
-  function removeEmptyComponents(document, keepInFlow) {
-    markSeparators(document, keepInFlow);
+  function removeEmptyComponents(document, keepInFlow, payload) {
+    markSeparators(document, keepInFlow, payload);
     document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component').forEach((el) => {
       if (el.isConnected && isEmpty(el)) el.remove();
     });
@@ -2494,9 +2546,20 @@ var CustomImportScript = (() => {
       marked += 1;
       return !block;
     };
+    const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => !isEmpty(s) && !s.querySelector(".container-subnav"));
+    const lastAem = aemSections[aemSections.length - 1];
+    const endsSpacedPage = (root) => {
+      const aem = root.closest(".container-content > .section");
+      if (!aem || aem !== lastAem || !aem.querySelector(":scope > .mb-default")) return false;
+      let next = root.nextElementSibling;
+      while (next && isEmpty(next)) next = next.nextElementSibling;
+      return !next;
+    };
     document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS})`).forEach((root) => {
       const kind = root.parentElement.matches(".section-content") ? "sc" : "cc";
-      if (!mark(root, kind, false)) return;
+      const flattened = mark(root, kind, false);
+      if (kind === "sc" && root.getAttribute(COLUMN_ATTR) === "sc" && endsSpacedPage(root)) root.setAttribute(COLUMN_ATTR, "sc-spaced");
+      if (!flattened) return;
       root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS})`).forEach((inner) => {
         if (inner.parentElement.closest(".column-view") === root.firstElementChild) mark(inner, kind, true);
       });
@@ -2527,6 +2590,7 @@ var CustomImportScript = (() => {
     let placed = 0;
     roots.forEach((root) => {
       const suffix = root.getAttribute(COLUMN_ATTR) === "cc" ? "-outer" : "";
+      const spaced = root.getAttribute(COLUMN_ATTR) === "sc-spaced";
       const leaves = [...root.querySelectorAll(COLUMN_LEAF)].filter((el) => {
         const up = el.parentElement && el.parentElement.closest(COLUMN_LEAF);
         if (up && root.contains(up)) return false;
@@ -2542,7 +2606,11 @@ var CustomImportScript = (() => {
       const first = leaves[0];
       const last = leaves[leaves.length - 1];
       if (!(inline(first) && addMarkerToken(first, `column-start${suffix}`))) root.prepend(own(`column-start${suffix}`));
-      if (!(inline(last) && addMarkerToken(last, `column-end${suffix}`))) root.append(own(`column-end${suffix}`));
+      if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
+        if (spaced) addMarkerToken(last, "column-spaced");
+      } else {
+        root.append(own(`column-end${suffix}${spaced ? " column-spaced" : ""}`));
+      }
       placed += 1;
     });
     roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
@@ -2969,13 +3037,17 @@ var CustomImportScript = (() => {
       p.replaceWith(h);
     });
   }
+  var HEADING_NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table";
   function markHeadingStyles(document) {
     let marked = 0;
     document.querySelectorAll(HEADING).forEach((h) => {
+      if (!cleanText(h)) return;
       const style = HEADING_STYLES.find((c) => h.classList.contains(c));
-      if (!style || style === HEADING_DEFAULTS[h.tagName] || !cleanText(h) || /\{[a-z-]+\}\s*$/.test(h.textContent)) return;
-      h.append(document.createTextNode(` {${style}}`));
-      marked += 1;
+      if (style && style !== HEADING_DEFAULTS[h.tagName] && !/\{[a-z-]+\}\s*$/.test(h.textContent)) {
+        h.append(document.createTextNode(` {${style}}`));
+        marked += 1;
+      }
+      if (h.classList.contains("limited-width") && !h.closest(HEADING_NOT_DEFAULT) && addMarkerToken(h, "limited-width")) marked += 1;
     });
     return marked;
   }
@@ -3129,7 +3201,7 @@ var CustomImportScript = (() => {
       convertAuthorQuotes(document);
       markParallaxImages(document);
       const columnMarks = columnMarksEnabled(payload) && markColumnViews(document, payload) > 0;
-      removeEmptyComponents(document, columnMarks);
+      removeEmptyComponents(document, columnMarks, payload);
       normalizeImages(document, true);
     }
     if (hookName === "afterTransform") {
@@ -3597,7 +3669,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_131377_default = {
+  var tmp_bundle_campaign_149203_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3627,5 +3699,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_131377_exports);
+  return __toCommonJS(tmp_bundle_campaign_149203_exports);
 })();

@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-am-flughafen-frankfurt",
   "path": "de/en/lufthansa-am-flughafen-frankfurt",
-  "timestamp": "2026-10-24T03:10:06.492Z",
+  "timestamp": "2026-10-24T08:11:59.490Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "profile-tabs",
     "subpage-nav",
     "columns-media"
   ]
