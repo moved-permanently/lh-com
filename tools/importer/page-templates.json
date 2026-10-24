@@ -1074,6 +1074,12 @@
       ],
       "blocks": [
         {
+          "name": "profile-tabs",
+          "instances": [
+            ".tabs.panelcontainer:has(maui-tab-control-panel-responsive .image img):not(:has(.accordion, .table, .teaser, .twocolumn, .threecolumn, .fourcolumn, .carousel, .videoViewer, .video, .sidebar, .poimapping, .imagelinklist, .experiencefragment, form, iframe))"
+          ]
+        },
+        {
           "name": "profile-nav",
           "instances": [
             ".subnav-wrapper maui-sub-navigation"
@@ -1156,7 +1162,8 @@
             ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
             ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
             ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
-            ".videoViewer, .image:has(video)"
+            ".videoViewer, .image:has(video)",
+            ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))"
           ]
         },
         {

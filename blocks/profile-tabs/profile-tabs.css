@@ -57,6 +57,34 @@
   padding: 0 20px 20px;
 }
 
+/* option content (tabs of page content, live .tabs.panelcontainer: /de/en/onboard-delights
+   "Fresh on board"): the image over the panel width, 40px to the heading (.image-wrapper 4rem),
+   the text two thirds wide from 1025px (.richtext.limited-width). Below 768px the image 23px
+   under its header and the panel 51px above the next line (390: header line 128, image 151, text
+   543, line 599); from 768px the image 52px under the tab bar, the panel ends 7px under the text
+   (1440: bar 3444, image 3497, text ink 4275, the divider below 4337) */
+.profile-tabs.content .profile-tabs-panel {
+  padding: 23px 20px 51px;
+}
+
+.profile-tabs.content .profile-tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.profile-tabs.content .profile-tabs-panel > :first-child {
+  margin-top: 0;
+}
+
+.profile-tabs.content .profile-tabs-panel > p:has(> picture, > img) {
+  margin: 0 0 40px;
+}
+
+.profile-tabs.content .profile-tabs-panel > :last-child {
+  margin-bottom: 0;
+}
+
 @media (width >= 768px) {
   .profile-tabs-list {
     display: flex;
@@ -105,5 +133,15 @@
 
   .profile-tabs-panel {
     padding: 20px 0 0;
+  }
+
+  .profile-tabs.content .profile-tabs-panel {
+    padding: 52px 0 7px;
+  }
+}
+
+@media (width >= 1025px) {
+  .profile-tabs.content .profile-tabs-panel > .limited-width {
+    max-width: 66%;
   }
 }

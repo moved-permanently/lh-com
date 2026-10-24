@@ -2,7 +2,8 @@
  * Tabs of the bookings page (live: maui-tab-control-responsive navigation-mode="deeplink"):
  * rows `label | panel` (optional third cell: the deep link id). From 768px a tab row, below an
  * accordion. Deep links #upcoming / #past select a tab; the ids follow the tab position, as
- * live uses the same hashes in every language.
+ * live uses the same hashes in every language. Option content: tabs of page content (image,
+ * heading, text: /onboard-delights), the first panel open below 768px.
  */
 import { loadBlock, toClassName } from '../../scripts/aem.js';
 
@@ -68,7 +69,10 @@ export default async function decorate(block) {
 
   const fromHash = () => items.find((it) => `#${it.id}` === window.location.hash);
   let selected = fromHash() || items[0];
-  const expanded = new Set(fromHash() ? [fromHash()] : []);
+  // option content (tabs of page content, /onboard-delights): below 768px the first panel is
+  // open on load, as live
+  const initial = fromHash() || (block.classList.contains('content') ? items[0] : null);
+  const expanded = new Set(initial ? [initial] : []);
 
   const render = () => {
     items.forEach((it) => {

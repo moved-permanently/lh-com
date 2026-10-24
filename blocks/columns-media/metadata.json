@@ -45,6 +45,10 @@
       "label": "Padded (column-view spacing: 32px above, 32px to the next component)"
     },
     {
+      "class": "cell-slider",
+      "label": "Cell slider (below 1025px the cells of a row are slides with dots)"
+    },
+    {
       "class": "before-padded",
       "label": "Before padded (with sidebar padded: the next section's top padding below the block)"
     },

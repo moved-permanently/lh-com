@@ -24,8 +24,14 @@ import { embedNodes } from './media-nodes.js';
  * Column title (".column-view > div:not(.row) > h2") is default content before the table.
  * Insights articles (.article-details-page): an image's caption (figcaption > maui-caption) follows
  * it as "<p>… {caption}</p>"; a column item with several image components (live: stacked in
- * their column) gives option stacked (picture-perfect-austin galleries). Other templates keep
- * dropping captions and side-by-side images (photo + QR code, 100-years, fleet cabins).
+ * their column) gives option stacked (picture-perfect-austin galleries; outside articles too,
+ * see cell-slider below). Other templates keep dropping captions; images of a nested column view
+ * stay side by side (photo + QR code, 100-years, fleet cabins).
+ *
+ * Option cell-slider: a column view whose own items have carousel behaviour
+ * (.column-view > .carousel) and are media | text: below 1025px the cells are slides
+ * (/onboard-delights Dallmayr band). Option stacked also outside articles when an item holds
+ * several image components (not with option slider).
  *
  * Option nested-N: a three- or four-column view whose items hold an N-column view of images only
  * (shopping icons, app badges); empty items are kept as empty cells.
@@ -556,11 +562,21 @@ export default function parse(element, { document }) {
     const sliderView = items.some((it) => [...it.querySelectorAll('.column-view > .carousel')]
       .some((c) => c.querySelectorAll('.hidden-md-down .image img').length > 1));
     if (sliderView) variants.push('slider');
-    // article galleries: several image components in one column item are stacked on live
-    const stacked = ARTICLE && items.some((it) => [...it.querySelectorAll('.image')]
+    // several image components in one column item are stacked on live (article galleries;
+    // /onboard-delights dean&david: two images one under the other beside the text); not in a
+    // column view with carousel behaviour (photo + QR code side by side, option slider)
+    const stacked = (ARTICLE || !sliderView) && items.some((it) => [...it.querySelectorAll('.image')]
       .filter((img) => img.closest('.column-view-item') === it && !img.parentElement.closest('.image')
         && img.querySelector('img, video')).length > 1);
     if (stacked) variants.push('stacked');
+    // a column view whose own items have carousel behaviour (.column-view > .carousel: the
+    // .hidden-md-down grid from 1025px, a .hidden-lg-up swiper below) with media | text items
+    // (/onboard-delights Dallmayr): below 1025px the cells are slides with dots (cell-slider)
+    const textItem = (it) => !!it.querySelector('.headline, .text');
+    if (!sliderView && view.querySelector(':scope > .carousel') && items.length > 1
+      && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector('.image img'))) {
+      variants.push('cell-slider');
+    }
     // a column view of its own in an AEM section (.section-content > .column >
     // .column-view:only-child) has 3.2rem above and below on live at every width: option padded
     // (block CSS). Not with a column title (default content before the block, the space belongs

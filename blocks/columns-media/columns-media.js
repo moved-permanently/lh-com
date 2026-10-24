@@ -9,8 +9,8 @@ import {
 } from '../../scripts/media.js';
 
 const DEFAULT_LABELS = {
-  en: { 'play video': 'Play video', 'show image': 'Show image' },
-  de: { 'play video': 'Video abspielen', 'show image': 'Bild anzeigen' },
+  en: { 'play video': 'Play video', 'show image': 'Show image', 'show slide': 'Show slide' },
+  de: { 'play video': 'Video abspielen', 'show image': 'Bild anzeigen', 'show slide': 'Folie anzeigen' },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
@@ -66,18 +66,20 @@ function linkPictures(cell) {
 
 /**
  * Option slider: below 1025px the images of a strip are slides, one at a time, with dots
- * (Lufthansa column view with carousel behaviour, .hidden-lg-up swiper).
- * @param {Element} strip .columns-media-multi
+ * (Lufthansa column view with carousel behaviour, .hidden-lg-up swiper). Option cell-slider:
+ * the same for the cells of a row (media | text items with carousel behaviour).
+ * @param {Element} strip .columns-media-multi, or a .columns-media-row
  * @param {Object} labels
+ * @param {string} [label] label key of the dots
  */
-function buildSlider(strip, labels) {
+function buildSlider(strip, labels, label = 'show image') {
   const slides = [...strip.children];
   const dots = document.createElement('div');
   dots.className = 'columns-media-dots';
   const buttons = slides.map((slide, index) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.setAttribute('aria-label', `${labels['show image']} ${index + 1}`);
+    button.setAttribute('aria-label', `${labels[label]} ${index + 1}`);
     button.addEventListener('click', () => {
       strip.scrollTo({ left: slide.offsetLeft - strip.firstElementChild.offsetLeft, behavior: 'smooth' });
     });
@@ -178,6 +180,13 @@ export default async function decorate(block) {
       if (ratio && mediaIndex === 1) row.prepend(cells[1]);
     }
   });
+
+  // option cell-slider: below 1025px the cells of a row are slides with dots under the row
+  if (block.classList.contains('cell-slider')) {
+    block.querySelectorAll(':scope > .columns-media-row').forEach((row) => {
+      if (row.children.length > 1) buildSlider(row, labels, 'show slide');
+    });
+  }
 
   decorateExternalLinks(block);
   if (block.querySelector('.media-video, .media-embed')) await loadMediaStyles();

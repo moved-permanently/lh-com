@@ -1,6 +1,6 @@
 # profile-tabs
 
-Tabs of the bookings page ("Upcoming" / "Past"): live `maui-tab-control-responsive navigation-mode="deeplink"` on `/{cc}/{ll}/profile/bookinglist`.
+Tabs of the bookings page ("Upcoming" / "Past"): live `maui-tab-control-responsive navigation-mode="deeplink"` on `/{cc}/{ll}/profile/bookinglist`; with option `content` the same tabs holding page content (info template, /onboard-delights).
 
 ## Authoring (Document Authoring)
 
@@ -24,7 +24,11 @@ Widget links in the panels become widgets (`buildWidgetAutoBlocks`); the block l
 
 ## Supported variations
 
-No variations.
+| Variation | Option class |
+| --- | --- |
+| Tabs of page content (Lufthansa `.tabs.panelcontainer`: image, heading, text per tab; /de/en/onboard-delights "Fresh on board") | `content` |
+
+Option `content`: the panel's image runs over the panel width with 40px to the heading below it, a paragraph ending in `{limited-width}` takes two thirds of the width from 1025px; from 768px the image starts 52px under the tab bar and the panel ends 7px under its last line; below 768px the first panel is open on load (as live), its image 23px under the header, 51px from the last line to the next header. The importer writes the live `navigation-id` as the deep link id (cell 3: `1`, `2`, `3`).
 
 ## Universal Editor fields
 

@@ -861,6 +861,18 @@ This is part of "mobile is worse" and of every height deficit below.
   content-wide (shopping 1.35x).
 - **Image + headline carousels without teasers** (traveltricks ×4) and onboard-delights ×4 are
   stacked full width.
+  - **onboard-delights done (2026-10-24, code only):** live "Fresh on board" is a
+    `maui-tab-control-responsive` (Varied / High-quality / Sustainable, image + h3 + text each;
+    accordion below 768px with the first panel open), "Quality that you can taste" a grey
+    `.twocolumn` with carousel behaviour (image | text from 1025px, two slides with dots below), and
+    dean&david two image components stacked in one column item beside the text. The replica had
+    all three panels stacked, the Dallmayr band as flattened default content and the dean&david
+    images side by side. Info now maps `profile-tabs` (new parser, option `content`: deep link id =
+    `navigation-id`) for image tabs only and a columns-media instance for that carousel twocolumn
+    (option `cell-slider`); the columns-media parser gives `stacked` outside articles too (not with
+    `slider`). Only onboard-delights ×4 matches each of the three in all snapshots. Other image-less
+    tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport ×4) stay unmapped.
+    Still open there: the 25px separators under "Fresh on board" (C2-5, h2 to tabs 64 vs 89).
 - 390 header 140 vs 144 (site-wide, known).
 
 ### Which pages each cause affects (info)

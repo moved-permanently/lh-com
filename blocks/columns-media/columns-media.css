@@ -355,6 +355,48 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
     margin: 68px 0 24px;
   }
 
+  /* option cell-slider (media | text items with carousel behaviour, /de/en/onboard-delights
+     Dallmayr band): the cells are slides as wide as the column, side by side without a gap, the
+     next one peeking 22px into the page margin (.column-view > .carousel margin -2.2rem, swiper
+     overflow visible, slides 100%); the image keeps its 4rem below, the text its last 2.4rem, the
+     dots 28px under the taller slide (66px block gap - 38) and 30px above the band's end (768:
+     image to dots 68px, dots to the band end 102px; 390: text to dots 58px, 82px) */
+  .columns-media.cell-slider .columns-media-row {
+    display: flex;
+    gap: 0;
+    margin-inline: -22px;
+    padding-inline: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 22px;
+    scrollbar-width: none;
+  }
+
+  .columns-media.cell-slider .columns-media-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .columns-media.cell-slider .columns-media-row > div:nth-child(n) {
+    flex: 0 0 100%;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .columns-media.cell-slider .columns-media-row > .columns-media-media {
+    padding-bottom: 40px;
+  }
+
+  .columns-media.cell-slider .columns-media-row > .columns-media-text {
+    padding-bottom: 24px;
+  }
+
+  .columns-media.cell-slider .columns-media-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: -38px 0 30px;
+  }
+
   /* .swiper.swiper .swiper-pagination-bullet: 8px, white, 1px #666 border; active #05164d */
   .columns-media .columns-media-dots button {
     width: 8px;
