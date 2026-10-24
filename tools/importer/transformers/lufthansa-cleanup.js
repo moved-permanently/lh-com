@@ -1222,13 +1222,21 @@ function convertClassHeadings(document) {
   });
 }
 
+// headline components with .limited-width (live .limited-width { width: 66% } from 1025px):
+// "{limited-width}", default content only (blocks size their own columns)
+const HEADING_NOT_DEFAULT = '.twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table';
+
 function markHeadingStyles(document) {
   let marked = 0;
   document.querySelectorAll(HEADING).forEach((h) => {
+    if (!cleanText(h)) return;
     const style = HEADING_STYLES.find((c) => h.classList.contains(c));
-    if (!style || style === HEADING_DEFAULTS[h.tagName] || !cleanText(h) || /\{[a-z-]+\}\s*$/.test(h.textContent)) return;
-    h.append(document.createTextNode(` {${style}}`));
-    marked += 1;
+    if (style && style !== HEADING_DEFAULTS[h.tagName] && !/\{[a-z-]+\}\s*$/.test(h.textContent)) {
+      h.append(document.createTextNode(` {${style}}`));
+      marked += 1;
+    }
+    if (h.classList.contains('limited-width') && !h.closest(HEADING_NOT_DEFAULT)
+      && addMarkerToken(h, 'limited-width')) marked += 1;
   });
   return marked;
 }

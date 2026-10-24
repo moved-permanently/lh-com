@@ -824,6 +824,11 @@ main .default-content-wrapper li > ol {
    included their indent: 824px at 1425px like the paragraphs); text marked {full-width} (text
    components without .limited-width: footnotes, notes) runs over the whole width */
 @media (width >= 1025px) {
+  /* headline components with .limited-width ("{limited-width}"): 66% as live */
+  main .default-content-wrapper > :is(h1, h2, h3, h4, h5, h6).limited-width {
+    max-width: 66%;
+  }
+
   main .default-content-wrapper > p:not(:has(picture), .button-wrapper, .full-width),
   main .default-content-wrapper > ul:not(.full-width),
   main .default-content-wrapper > ol:not(.full-width) {

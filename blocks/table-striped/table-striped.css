@@ -14,6 +14,12 @@
   overflow: auto;
 }
 
+/* what follows a table starts 40px below it (live: 40px from the table box to the next text
+   component at 1440 and 768, /de/en/admission-rules; the replica had the 24px block gap) */
+.table-striped-wrapper:not(:last-child) > .table-striped {
+  margin-bottom: 40px;
+}
+
 /* "Technical data" heading to the first row: 67px (70px from 768px), as on /de/en/359 (the
    margin collapses with the heading's and the wrapper's) */
 @media (width >= 768px) {

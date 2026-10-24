@@ -203,7 +203,7 @@ function decorateSectionMetadata(main) {
 // column-view padding markers (importer: the first / last element of a Lufthansa column view)
 const COLUMN_MARK = 'column-(?:start|end)(?:-outer)?';
 const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
-const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|${COLUMN_MARK}`);
+const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`);
 const PARAGRAPH_STYLE = styleMarker(`copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`);
 const LIST_STYLE = styleMarker(`full-width|limited-width|${COLUMN_MARK}`);
 const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
