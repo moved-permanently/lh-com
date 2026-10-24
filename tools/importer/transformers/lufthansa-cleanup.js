@@ -405,7 +405,8 @@ const SEPARATOR_MIN_SPACE = 50;
 function separatorInfo(sep) {
   const hr = sep.querySelector('.hr') || sep;
   const line = hr.classList.contains('hr') && !hr.classList.contains('hr-no-layout');
-  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+  // an invalid value ("margin-bottom: 100pxpx", onboard-delights) is ignored by browsers: 2.5rem
+  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px\s*(?:;|!|$)/i);
   const space = m ? Math.round(parseFloat(m[1])) : 25;
   const tokens = [`${line ? 'divider' : 'spacer'}-${Math.max(space, 0)}`];
   if (hr.classList.contains('hidden-sm-down')) tokens.push('from-768');
@@ -449,7 +450,8 @@ const SEPARATOR_AS_IS_TEMPLATES = ['homepage', 'flight-status'];
 
 function separatorSpace(sep) {
   const hr = sep.querySelector('.hr') || sep;
-  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+  // an invalid value ("margin-bottom: 100pxpx", onboard-delights) is ignored by browsers: 2.5rem
+  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px\s*(?:;|!|$)/i);
   return m ? Math.round(parseFloat(m[1])) : 25;
 }
 
