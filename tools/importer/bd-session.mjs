@@ -179,6 +179,9 @@ try {
     state.inflight = { url, startedAt: new Date().toISOString() };
     saveState();
     T0.t = Date.now();
+    // --shots-only without 1440: the page loads at its first width (one navigation per page)
+    const firstWidth = shotsOnly && !widthsFor(url).includes(1440) ? widthsFor(url)[0] : 1440;
+    if (firstWidth !== 1440) await page.setViewportSize({ width: firstWidth, height: 900 }).catch(() => {});
     const nav = await open(page, url);
     lap('open');
     const detection = await detectBlocked(page, { status: () => nav.status });
@@ -236,7 +239,15 @@ try {
       for (const width of pageWidths) {
         if (width !== 1440) {
           await page.setViewportSize({ width, height: 900 }).catch(() => {});
-          await sleep(800);
+          if (shotsOnly && width !== firstWidth) {
+            // a fresh load at this width: the DCEP moving images remount on a resize and never
+            // load their new source (/gb/en/flight-search 768: SIXT and teaser images missing);
+            // one navigation every 5-10 s still holds
+            await sleep(minDelay + Math.random() * (maxDelay - minDelay));
+            await page.reload({ timeout: 90000, waitUntil: 'load' }).catch(() => {});
+            await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+            await dismissCookies(page);
+          } else await sleep(800);
           await quickScroll(page);
           await sleep(500);
         }
@@ -252,7 +263,7 @@ try {
         }).catch((e) => console.error(`  screenshot ${width} failed: ${e.message.split('\n')[0]}`));
         lap(`shot ${width}`);
       }
-      if (pageWidths.some((w) => w !== 1440)) await page.setViewportSize({ width: 1440, height: 900 }).catch(() => {});
+      if (firstWidth !== 1440 || pageWidths.some((w) => w !== 1440)) await page.setViewportSize({ width: 1440, height: 900 }).catch(() => {});
       const alternates = await page.evaluate(() => [...document.querySelectorAll('link[rel="alternate"][hreflang]')]
         .map((l) => ({ hreflang: l.getAttribute('hreflang'), href: l.href }))).catch(() => []);
       // last: extractCleanedHTML mutates the live page (removes <style>, strips attributes), so
