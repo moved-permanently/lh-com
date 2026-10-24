@@ -14,8 +14,9 @@
  *    (the element whose parent is .container-content, .section-content, a column item or a grid
  *    column) and a plain <hr> after it, so the grey ends where the live grey ends. Not for grey
  *    boxes inside a block of the template (the parser renders them) or the sticky price bar.
- *    A grey band that is one column view also gets column-band or column-view (its 3.2rem
- *    padding), and flush when its AEM section has no .mb-default (greyStyles).
+ *    A grey band of column views only also gets column-band or column-view (their 3.2rem
+ *    padding), flush when its AEM section has no .mb-default, spaced for the space live has
+ *    below it (greyStyles).
  *  - full-bleed: a full-width image component (.image-wrapper.full-width-bg, the Lufthansa
  *    Insights category stage) is a section of its own with style full-bleed, the same way.
  *  - padded: an AEM section (.container-content > .section) that is padded on live
@@ -115,16 +116,34 @@ function meaningful(el) {
   return !!((el.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || el.querySelector(MEDIA));
 }
 
+// the cleanup (first transformer) has replaced the separators it keeps by comment placeholders
+const SEPARATOR_NODE = (n) => n.nodeType === 8 && /^lh-separator /.test(n.nodeValue || '');
+
+/** The first node from `node` on (siblings) that is a component with content or a kept separator. */
+function firstComponent(node) {
+  for (let n = node; n; n = n.nextSibling) {
+    if (SEPARATOR_NODE(n) || (n.nodeType === 1 && (meaningful(n) || n.matches('.separator')))) return n;
+  }
+  return null;
+}
+
 /**
  * Extra styles of a grey region. Live pads a column view 3.2rem above and below
  * (.section-content .column > .column-view:only-child) inside the band:
  *  - column-band: the band is the column view itself (.column-view.container-gray): 32px, no
  *    section padding (/de/en/doctor-on-board "Doctor on Board courses");
- *  - column-view: the band is a padded AEM section (.section-padding-y-regular) whose only
- *    component is one column view: the section padding + 32px (teaser bands "This may also be of
- *    interest to you", /de/en/flying-with-small-children; /de/en/economy-class image | text);
+ *  - column-view: the band is a padded AEM section (.section-padding-y-regular) whose components
+ *    are column views only: the section padding + 32px (teaser bands "This may also be of
+ *    interest to you", /de/en/flying-with-small-children; /de/en/economy-class image | text;
+ *    onboard-delights "New: Hot meals" + Oktoberfest, two views: title 79px of ink below the band
+ *    top, the last button 73px above its end);
  *  - flush: the band's AEM section has no .mb-default, so a band that ends the page touches the
  *    footer.
+ * Below the band live has what follows it, the replica the section gap (48px); where that is
+ * the whole space below it is written:
+ *  - spaced: the band is a whole AEM section with .mb-default and the next AEM section (unpadded,
+ *    not grey) starts with a headline or text: 2.4rem (onboard-delights band -> "Fresh on board"
+ *    32px of ink live, 56 in the replica).
  */
 function greyStyles(region) {
   const grey = region.matches('.container-gray') ? region : region.querySelector('.container-gray');
@@ -136,12 +155,23 @@ function greyStyles(region) {
   } else {
     const content = grey.querySelector('.section-content');
     const parts = content ? [...content.children].filter(meaningful) : [];
-    if (parts.length === 1 && ownColumnView(parts[0])) {
+    if (parts.length && parts.every(ownColumnView)) {
       styles.push(content.classList.contains('section-padding-y-regular') ? 'column-view' : 'column-band');
     }
   }
   const aem = region.closest('.container-content > .section');
   if (aem && !aem.querySelector(':scope > .mb-default')) styles.push('flush');
+  const whole = !!aem && (region === aem || grey.parentElement === aem);
+  if (whole && aem.querySelector(':scope > .mb-default')) {
+    let next = aem.nextElementSibling;
+    while (next && !meaningful(next)) next = next.nextElementSibling;
+    const inner = next && next.matches('.section') ? next.firstElementChild : null;
+    const content = inner && inner.querySelector(':scope > .section-content');
+    const first = content && firstComponent(content.firstChild);
+    if (first && first.nodeType === 1 && !inner.matches('.container-gray')
+      && !content.classList.contains('section-padding-y-regular')
+      && first.matches('.headline, .text') && !first.querySelector('.container-gray')) styles.push('spaced');
+  }
   return styles;
 }
 

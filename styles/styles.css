@@ -784,9 +784,12 @@ main .default-content-wrapper > * + h2 {
   margin-top: var(--section-padding);
 }
 
-/* pages with column-view markers: no heading margin above, the column and section paddings make
-   the space (see "column views" below) */
-main:has(.column-start, .column-start-outer) .default-content-wrapper > * + h2 {
+/* pages with column-view markers and flow-spacing pages (metadata "Theme: flow-spacing", importer:
+   info): no heading margin above, the components' own margins, the separators and the column and
+   section paddings make the space (see "column views" below; onboard-delights text -> "Pre-order
+   now" 35px of ink as live, was 52) */
+main:has(.column-start, .column-start-outer) .default-content-wrapper > * + h2,
+body.flow-spacing main .default-content-wrapper > * + h2 {
   margin-top: 0;
 }
 
@@ -1028,6 +1031,13 @@ main > .section.grey.column-band {
   padding: 32px 0;
 }
 
+/* what live has below a grey band instead of the section gap (importer, lufthansa-sections
+   greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
+   text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56) */
+main > .section.grey.spaced {
+  margin-bottom: var(--spacing-default);
+}
+
 /* padded: a Lufthansa AEM section after another one (.section-padding-y-regular: 2rem, 4rem
    from 768px above and below); the importer writes it at the source's section boundaries */
 main > .section.padded {
@@ -1143,11 +1153,12 @@ main .default-content-wrapper > :has(+ p.column-mark:is(.column-end, .column-end
   margin-bottom: 0;
 }
 
-/* pages with column markers get the live spacing between components: no heading margin above
-   (the column and section paddings make it; get-your-guide list -> h2 24px, was 40), image
-   components 4rem below (.image .image-wrapper; flying-with-small-children image -> column h2
-   72px, was 40), a separator's space ends at the next block */
-main:has(.column-start, .column-start-outer) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):not(:last-child, .column-end, .column-end-outer, :has(+ p.caption), :has(+ p.column-mark)) {
+/* pages with column markers (and flow-spacing pages) get the live spacing between components: no
+   heading margin above (the column and section paddings make it; get-your-guide list -> h2 24px,
+   was 40), image components 4rem below (.image .image-wrapper; flying-with-small-children image ->
+   column h2 72px, was 40), a separator's space ends at the next block */
+main:has(.column-start, .column-start-outer) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):not(:last-child, .column-end, .column-end-outer, :has(+ p.caption), :has(+ p.column-mark)),
+body.flow-spacing main .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):not(:last-child, .column-end, .column-end-outer, :has(+ p.caption), :has(+ p.column-mark)) {
   margin-bottom: 40px;
 }
 
@@ -1200,11 +1211,13 @@ main > .section > div + .default-content-wrapper:not(:first-child):has(> p.colum
   margin-top: 0;
 }
 
-main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper) {
+main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper),
+body.flow-spacing main > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper) {
   margin-top: 40px;
 }
 
-main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper) {
+main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper),
+body.flow-spacing main > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper) {
   margin-top: 0;
 }
 

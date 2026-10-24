@@ -88,13 +88,15 @@ A paragraph with only `{spacer-120}` adds 120px of extra space at that place (Lu
 `{spacer-80 from-768}` only from 768px. The importer writes them for live separators with a line
 or with 50px and more (smaller ones are the normal spacing); delete the paragraph to remove it.
 Right after a grey band the importer keeps every separator (the band ends a section, so the
-separator's space is not part of the normal spacing). On pages with column markers (below) it also
-keeps the smaller separators (10px and more) in running text, before text, a heading, a link, an
-image or a column. On every page (not the homepages and flight status pages, whose spacing already
-holds them) it also keeps them between two blocks, after a sidebar (only what goes beyond 25px:
-a 40px separator becomes `{spacer-15}`, the sidebar's own spacing holds the rest) and under a
-heading that ends a live section before a block (`{spacer-0}`: the 1px line only, the heading
-keeps its spacing below).
+separator's space is not part of the normal spacing). On info pages (`Theme: flow-spacing`, below)
+it also keeps the smaller separators (10px and more) in running text, before text, a heading, a
+link, an image or a column. On every page (not the homepages and flight status pages, whose
+spacing already holds them) it also keeps them between two blocks, after a sidebar (only what goes
+beyond 25px: a 40px separator becomes `{spacer-15}`, the sidebar's own spacing holds the rest),
+under a heading that ends a live section before a block (`{spacer-0}`: the 1px line only, the
+heading keeps its spacing below; `{spacer-24}` on flow-spacing pages, where a separator's space
+ends at the block) and under a stage (`{spacer-40}` right after the hero: the live separator at
+the end of the stage's section keeps its inline margin).
 
 `{column-start}` at the end of the first element of a Lufthansa column view and `{column-end}` at
 the end of its last one give the column view's padding: 32px above and below at every width
@@ -112,6 +114,15 @@ Section style `padded` (Section Metadata) adds 20px (40px from 768px) above and 
 section, as the padding of the Lufthansa page sections: the importer writes it for every live
 section after another padded one (/de/en/boeing787 'Seat maps of the Boeing 787-9'); remove it
 to get the normal section spacing.
+
+Below a `grey` section the normal section spacing (48px) applies, unless: `spaced` gives 24px (a
+live grey section before an unpadded one that starts with a heading or text, onboard-delights
+"Fresh on board"). The importer writes it; remove it to get the 48px.
+
+Page metadata `Theme: flow-spacing` (the importer writes it on info pages) spaces default content
+as lufthansa.com spaces its components: headings add no space of their own above (text → heading
+24px), images keep 40px below, the separators of running text are kept as `{spacer-N}` and a
+separator's space ends at the next block. Pages with column markers get the same spacing.
 
 ### Buttons and links
 

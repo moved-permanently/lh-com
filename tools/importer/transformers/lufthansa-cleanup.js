@@ -413,8 +413,8 @@ function separatorInfo(sep) {
   return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(' ') };
 }
 
-// pages with column marks (see markColumnViews) also keep the smaller separators (10-49px)
-// that sit in running text: between two text, heading, link or image components or column
+// info pages (flow spacing: Theme flow-spacing, see markFlowSpacing) also keep the smaller
+// separators (10-49px) that sit in running text: between two text, heading, link or image components or column
 // views, or before one at the start of a section or column; their space then adds to the
 // live component spacing as on live (get-your-guide button -> h2: 24 + 26px). Not when both
 // neighbours are column views (columns-media merges them) and not at the end (live: the last
@@ -445,14 +445,29 @@ function inFlow(run) {
 //   :last-child), so it adds its 1px and keeps the heading's own margin, then .mb-default 2.4rem;
 //   the replica's wrapper gap stands for that when the next AEM section starts with a block:
 //   "{spacer-0}" (h2 to the tab bar 91px live, 65 in the replica). Not before a grey band ("Quality
-//   that you can taste" is already 15px further than live) or a padded section.
+//   that you can taste" is already 15px further than live) or a padded section. With flow spacing
+//   (info) the separator's space ends at the block (styles.css), so it holds the 2.4rem itself:
+//   "{spacer-24}";
+// - at the end of a stage's AEM section (.inspirationteaser, then separators only; section style
+//   stage puts them directly under the hero, hero-campaign.css): live keeps an inline margin there
+//   (it beats .section-content > :last-child > :last-child { margin-bottom: 0 }), the last
+//   separator has no other margin, so "{spacer-N}" with N its inline margin, else 0 (40px
+//   separator under the onboard-delights / economy-class / food-and-beverages stage: first
+//   heading 49px of ink under the image on live with .mb-default 0, 8px in the replica).
 const SEPARATOR_AS_IS_TEMPLATES = ['homepage', 'flight-status'];
 
-function separatorSpace(sep) {
+// the separator's inline margin-bottom in px, or null (an invalid value, "margin-bottom: 100pxpx"
+// on onboard-delights, is ignored by browsers)
+function separatorInline(sep) {
   const hr = sep.querySelector('.hr') || sep;
-  // an invalid value ("margin-bottom: 100pxpx", onboard-delights) is ignored by browsers: 2.5rem
   const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px\s*(?:;|!|$)/i);
-  return m ? Math.round(parseFloat(m[1])) : 25;
+  return m ? Math.round(parseFloat(m[1])) : null;
+}
+
+// without one: .hr { margin-bottom: 2.5rem }
+function separatorSpace(sep) {
+  const inline = separatorInline(sep);
+  return inline === null ? 25 : inline;
 }
 
 function isUntitledColumnView(el) {
@@ -467,7 +482,7 @@ function isBlockComponent(el) {
 }
 
 /** The markers for a dropped run the replica has no stand-in for, or null (see above). */
-function missingSeparatorMarkers(run) {
+function missingSeparatorMarkers(run, flow) {
   const first = run[0];
   const last = run[run.length - 1];
   const parent = first.parentElement;
@@ -477,6 +492,13 @@ function missingSeparatorMarkers(run) {
   if (spaces.some((n) => n < 10)) return null;
   const prev = first.previousElementSibling;
   const next = last.nextElementSibling;
+  if (prev && !next && prev.matches('.inspirationteaser')) {
+    return run.map((sep, n) => {
+      const inline = separatorInline(sep);
+      const space = inline === null ? (n === run.length - 1 ? 0 : 25) : inline;
+      return infos[n].marker.replace(/^(spacer|divider)-\d+/, `$1-${Math.max(space, 0)}`);
+    });
+  }
   if (prev && prev.matches('.sidebar')) {
     // a sidebar right after it merges into the same columns-media block
     if (run.length !== 1 || !next || next.matches('.sidebar')) return null;
@@ -496,7 +518,8 @@ function missingSeparatorMarkers(run) {
     const content = after.querySelector(':scope > div > .section-content');
     const start = content && content.firstElementChild;
     if (!isBlockComponent(start) || start.matches('.container-gray') || start.querySelector('.container-gray')) return null;
-    return infos.map((i, n) => (n === run.length - 1 ? i.marker.replace(/^spacer-\d+/, 'spacer-0') : i.marker));
+    const end = flow ? 'spacer-24' : 'spacer-0';
+    return infos.map((i, n) => (n === run.length - 1 ? i.marker.replace(/^spacer-\d+/, end) : i.marker));
   }
   return null;
 }
@@ -524,7 +547,7 @@ function markSeparators(document, keepInFlow, payload) {
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
       markers = infos.map((i) => i.marker);
     } else if (fillGaps) {
-      markers = missingSeparatorMarkers(run);
+      markers = missingSeparatorMarkers(run, keepInFlow);
     }
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
@@ -1435,14 +1458,34 @@ const THEME_ATTR = 'data-lh-import-theme';
  * pages every light (300/400) head-font text draws bold. Recorded before the <link> is removed,
  * written as metadata "Theme: digital-assistant" (body.digital-assistant) in afterTransform.
  */
+function addTheme(document, theme) {
+  const root = document.documentElement;
+  const themes = (root.getAttribute(THEME_ATTR) || '').split(',').map((t) => t.trim()).filter(Boolean);
+  if (!themes.includes(theme)) themes.push(theme);
+  root.setAttribute(THEME_ATTR, themes.join(', '));
+}
+
 function detectTheme(document) {
   if (document.querySelector('link[href*="/digitalassistant/"][href$=".css"]')) {
-    document.documentElement.setAttribute(THEME_ATTR, 'digital-assistant');
+    addTheme(document, 'digital-assistant');
   }
 }
 
 /**
- * Page metadata rows the importer adds to the head values: "Theme: digital-assistant" and the
+ * Flow spacing (info pages): live spaces the components of an AEM section by their own margins
+ * only (.richtext p 2.4rem, .maui-link 2.4rem, .image-wrapper 4rem; a .headline has none above)
+ * plus the separators between them. Info pages keep those separators ("{spacer-25}" between a
+ * button and the next text, onboard-delights) and get "Theme: flow-spacing" (body.flow-spacing):
+ * styles.css then drops the heading margin above (text -> h2 24px, onboard-delights "Pre-order
+ * now" 35px of ink, was 52), as on pages with column markers.
+ */
+function markFlowSpacing(document) {
+  addTheme(document, 'flow-spacing');
+}
+
+/**
+ * Page metadata rows the importer adds to the head values: "Theme: digital-assistant" and / or
+ * "flow-spacing" (comma-separated, aem.js makes them body classes) and the
  * breadcrumb rows (Parent, Parent title, Breadcrumb title, Breadcrumb). One Metadata table:
  * appended to an existing one (article-header builds its own), else head values + rows (the
  * import script's createMetadata() then adds nothing).
@@ -1525,10 +1568,14 @@ export default function transform(hookName, element, payload) {
     convertJumpLinks(document);
     convertAuthorQuotes(document);
     markParallaxImages(document);
-    // info: column views for their padding markers; only a page with such markers keeps the
-    // separators in running text (its headings have no margin of their own above, styles.css)
-    const columnMarks = columnMarksEnabled(payload) && markColumnViews(document, payload) > 0;
-    removeEmptyComponents(document, columnMarks, payload);
+    // info: column views for their padding markers, and flow spacing: the separators in running
+    // text are kept (headings have no margin of their own above, styles.css)
+    const flow = columnMarksEnabled(payload);
+    if (flow) {
+      markColumnViews(document, payload);
+      markFlowSpacing(document);
+    }
+    removeEmptyComponents(document, flow, payload);
     normalizeImages(document, true);
   }
 
