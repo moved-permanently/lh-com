@@ -1130,6 +1130,14 @@ main > .section.flight-search-container > .flight-search-wrapper + .default-cont
   margin-top: 0;
 }
 
+/* below 768px the separator replaces the section gap (gb/en/flight-search 390: card to the grey
+   band 53px live, 101 with both) */
+@media (width < 768px) {
+  main > .section.flight-search-container:has(> .flight-search-wrapper + .default-content-wrapper:last-child > p.spacer:only-child) {
+    margin-bottom: 0;
+  }
+}
+
 @media (width >= 376px) {
   .flight-search.standalone {
     margin-top: 22px;
