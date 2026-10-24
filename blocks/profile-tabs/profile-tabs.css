@@ -96,6 +96,16 @@
   }
 }
 
+/* lists in a text panel as live .richtext: li { margin-bottom: 1rem }, ul { margin-bottom: 2.4rem }
+   (zahlungsmoeglichkeiten-am-flughafen airports 37px apart at 1440, were 27) */
+.profile-tabs.content .profile-tabs-panel :is(ul, ol) {
+  margin-bottom: 24px;
+}
+
+.profile-tabs.content .profile-tabs-panel li {
+  margin-bottom: 10px;
+}
+
 /* separators between a panel's topics ("{spacer-25}", importer): 1px + their space after the
    component spacing, as in default content (Frankfurt "To the Lufthansa app" to the next heading
    63px of ink at 1440) */
