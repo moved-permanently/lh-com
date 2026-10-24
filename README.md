@@ -85,7 +85,19 @@ A paragraph with only `{spacer-120}` adds 120px of extra space at that place (Lu
 `{spacer-80 from-768}` only from 768px. The importer writes them for live separators with a line
 or with 50px and more (smaller ones are the normal spacing); delete the paragraph to remove it.
 Right after a grey band the importer keeps every separator (the band ends a section, so the
-separator's space is not part of the normal spacing).
+separator's space is not part of the normal spacing). On pages with column markers (below) it also
+keeps the smaller separators (10px and more) in running text, before text, a heading, a link, an
+image or a column.
+
+`{column-start}` at the end of the first element of a Lufthansa column view and `{column-end}` at
+the end of its last one give the column view's padding: 32px above and below at every width
+(`-outer`: `{column-start-outer}` / `{column-end-outer}`, a column view outside a page section,
+20px, 40px from 768px). They combine with the other markers (`Title {heading-small column-start}`;
+lists: at the end of the last item); next to a block, an image or a separator the marker is a
+paragraph of its own (`{column-end}` alone). On a page with such markers headings add no space of
+their own above and images keep 40px below, as on lufthansa.com. The importer writes them on info
+pages for one-column views, column views with a title or outside a page section, and column
+views nested in a one-column view; remove a pair to drop the padding.
 
 Section style `padded` (Section Metadata) adds 20px (40px from 768px) above and below the
 section, as the padding of the Lufthansa page sections: the importer writes it for every live

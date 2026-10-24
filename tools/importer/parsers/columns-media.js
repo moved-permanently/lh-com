@@ -30,7 +30,9 @@ import { embedNodes } from './media-nodes.js';
  * Option padded: the column view is a component of its own in an AEM section
  * (.section-content > .column > .column-view:only-child, live padding 3.2rem top and bottom), has
  * no column title, is not grey and not in an article; nested column views (flight-status) do not
- * get it.
+ * get it. Column views the cleanup marked (data-lh-column, info: titled, outside an AEM section,
+ * nested in a one-column view) keep the mark on an element around the title and the block; the
+ * cleanup turns it into column-start / column-end markers.
  *
  * When several column views form one block (flight-status: 3 x .twocolumn in a .onecolumn) and
  * this instance has no own column title, its rows are appended to the previous Columns Media
@@ -562,5 +564,16 @@ export default function parse(element, { document }) {
     }
   }
 
+  // a column view the cleanup marked for its padding (data-lh-column: with a column title, outside
+  // an AEM section, nested in a one-column view; info): the title and the block stay in an element
+  // that carries the mark, so the cleanup writes the column-start / column-end markers around them
+  const column = element.getAttribute('data-lh-column');
+  if (column) {
+    const wrap = document.createElement('div');
+    wrap.setAttribute('data-lh-column', column);
+    wrap.append(...titles, block);
+    element.replaceWith(wrap);
+    return;
+  }
   element.replaceWith(...titles, block);
 }

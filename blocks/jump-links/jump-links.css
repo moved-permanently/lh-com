@@ -79,3 +79,10 @@ main > .section.padded > .jump-links-wrapper:first-child > .jump-links.columns {
     grid-template-columns: repeat(var(--jump-links-count, 4), minmax(0, 1fr));
   }
 }
+
+/* the last element of a column view ("{column-end}" right after the block, info): no separator
+   below it, the column's padding follows (/de/en/admission-rules: links -> next column heading
+   79px of ink as live) */
+main > .section > .jump-links-wrapper:has(+ .default-content-wrapper > p.column-mark:is(.column-end, .column-end-outer):first-child) > .jump-links:not(.columns) .jump-links-list {
+  padding-bottom: 6px;
+}

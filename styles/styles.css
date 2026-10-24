@@ -783,6 +783,12 @@ main .default-content-wrapper > * + h2 {
   margin-top: var(--section-padding);
 }
 
+/* pages with column-view markers: no heading margin above, the column and section paddings make
+   the space (see "column views" below) */
+main:has(.column-start, .column-start-outer) .default-content-wrapper > * + h2 {
+  margin-top: 0;
+}
+
 /* AirCore route pages: the heading after the return-flight link (see p.link-wrapper above) */
 body.aircore main .default-content-wrapper > h1 + p.link-wrapper + h2 {
   margin-top: 29px;
@@ -1097,6 +1103,48 @@ main > .section.centered > .default-content-wrapper {
   text-align: center;
 }
 
+/* column views ("{column-start}" / "{column-end}" on the first / last element of a Lufthansa column
+   view, or a marker paragraph of its own next to a block, image or separator; importer: info).
+   Live: .section-content .column > .column-view:only-child { padding: 3.2rem 0 } at every width,
+   the last component without margin; directly in .container-content ("-outer") .column-view
+   { padding: 2rem 0 1rem } (4rem 0 2rem from 768px) plus the items' 1rem (2rem) margin below.
+   Text -> column 56px (24 + 32), column -> column 64px, column -> next component 32px
+   (/de/en/admission-rules: first text 72px below the title, was 40) */
+main .default-content-wrapper > :is(p, ul, ol, h1, h2, h3, h4, h5, h6).column-start {
+  padding-top: 32px;
+}
+
+main .default-content-wrapper > :is(p, ul, ol, h1, h2, h3, h4, h5, h6).column-end {
+  margin-bottom: 0;
+  padding-bottom: 32px;
+}
+
+main .default-content-wrapper > :is(p, ul, ol, h1, h2, h3, h4, h5, h6).column-start-outer {
+  padding-top: var(--section-padding);
+}
+
+main .default-content-wrapper > :is(p, ul, ol, h1, h2, h3, h4, h5, h6).column-end-outer {
+  margin-bottom: 0;
+  padding-bottom: var(--section-padding);
+}
+
+main .default-content-wrapper > p.column-mark {
+  height: 0;
+  margin: 0;
+}
+
+main .default-content-wrapper > :has(+ p.column-mark:is(.column-end, .column-end-outer)) {
+  margin-bottom: 0;
+}
+
+/* pages with column markers get the live spacing between components: no heading margin above
+   (the column and section paddings make it; get-your-guide list -> h2 24px, was 40), image
+   components 4rem below (.image .image-wrapper; flying-with-small-children image -> column h2
+   72px, was 40), a separator's space ends at the next block */
+main:has(.column-start, .column-start-outer) .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):not(:last-child, .column-end, .column-end-outer, :has(+ p.caption), :has(+ p.column-mark)) {
+  margin-bottom: 40px;
+}
+
 /* a wrapper of separator paragraphs only (see "separators" below) */
 main > .section > .default-content-wrapper:not(:has(> :not(p.spacer))) {
   margin-top: 8px;
@@ -1134,6 +1182,23 @@ main > .section.grey + .section > .default-content-wrapper:first-child:not(:has(
 }
 
 main > .section.grey + .section > .default-content-wrapper:first-child:not(:has(> :not(p.spacer))) + div {
+  margin-top: 0;
+}
+
+/* column views at a wrapper boundary (see "column views" above): the marker's padding is the
+   whole space to the block, no wrapper gap (a marker paragraph before a block that starts a
+   column, a column end before a block, a block that ends a column); on pages with markers an
+   image before a block keeps its 4rem, a separator's space ends at the block */
+main > .section > .default-content-wrapper:has(> :is(p.column-mark.column-start, p.column-mark.column-start-outer, .column-end, .column-end-outer):last-child) + div:not(.default-content-wrapper),
+main > .section > div + .default-content-wrapper:not(:first-child):has(> p.column-mark:is(.column-end, .column-end-outer):first-child) {
+  margin-top: 0;
+}
+
+main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> p:last-child:is(:has(> picture), :has(> a > picture)):not(.column-end, .column-end-outer)) + div:not(.default-content-wrapper) {
+  margin-top: 40px;
+}
+
+main:has(.column-start, .column-start-outer) > .section > .default-content-wrapper:has(> :not(p.spacer)):has(> p.spacer:last-child) + div:not(.default-content-wrapper) {
   margin-top: 0;
 }
 

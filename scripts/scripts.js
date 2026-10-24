@@ -200,9 +200,12 @@ function decorateSectionMetadata(main) {
   });
 }
 
-const HEADING_STYLE = /\s*\{((?:heading-(?:large|medium|small|copytext-large|copytext-medium))|copytext-large)\}\s*$/;
-const PARAGRAPH_STYLE = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3})(?: (?:copytext-(?:small|medium|large)|full-width|limited-width|indent-\d{1,3}))*)\}\s*$/;
-const LIST_STYLE = /\s*\{(full-width|limited-width)\}\s*$/;
+// column-view padding markers (importer: the first / last element of a Lufthansa column view)
+const COLUMN_MARK = 'column-(?:start|end)(?:-outer)?';
+const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
+const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|${COLUMN_MARK}`);
+const PARAGRAPH_STYLE = styleMarker(`copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`);
+const LIST_STYLE = styleMarker(`full-width|limited-width|${COLUMN_MARK}`);
 const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
 
 /**
@@ -232,8 +235,9 @@ function decorateTextStyles(main) {
   main.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
     const style = takeStyleMarker(h, HEADING_STYLE);
     if (!style) return;
-    h.classList.add(style);
-    if (h.id.endsWith(`-${style}`)) h.id = h.id.slice(0, -style.length - 1);
+    h.classList.add(...style.split(' '));
+    const suffix = `-${style.replace(/ /g, '-')}`;
+    if (h.id.endsWith(suffix)) h.id = h.id.slice(0, -suffix.length);
   });
   main.querySelectorAll('p').forEach((p) => {
     // separator paragraphs: "{spacer-120}" (empty space), "{divider-25}" (1px line + space),
@@ -256,11 +260,18 @@ function decorateTextStyles(main) {
         p.style.setProperty('--indent', `${indent[1]}px`);
       } else p.classList.add(token);
     });
+    // a column-view marker of its own ("{column-end}" next to a block): an empty box whose
+    // padding is the column view's (styles.css "column views")
+    if (!p.textContent.trim() && !p.querySelector('img, picture, video, iframe')
+      && style.split(' ').every((token) => token.startsWith('column-'))) {
+      p.classList.add('column-mark');
+      p.setAttribute('aria-hidden', 'true');
+    }
   });
   main.querySelectorAll('ul, ol').forEach((list) => {
     const last = [...list.children].filter((li) => li.tagName === 'LI').pop();
     const style = last && takeStyleMarker(last, LIST_STYLE);
-    if (style) list.classList.add(style);
+    if (style) list.classList.add(...style.split(' '));
   });
 }
 

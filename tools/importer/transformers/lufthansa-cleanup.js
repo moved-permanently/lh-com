@@ -26,6 +26,8 @@
  *    get a "{parallax}" paragraph marker
  *  - removes empty AEM components (empty flash teaser, quick actions, React mount points,
  *    separators) and AEM sections left empty
+ *  - info: marks the column views whose padding becomes "{column-start}" / "{column-end}"
+ *    markers in afterTransform (see "column views")
  *  - normalizes images (AEM and AirCore): largest srcset/<source> rendition, absolute
  *    https://www.lufthansa.com URLs, lazy-load data-src, drops broken "undefined.transform" images
  *
@@ -410,7 +412,30 @@ function separatorInfo(sep) {
   return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(' ') };
 }
 
-function markSeparators(document) {
+// pages with column marks (see markColumnViews) also keep the smaller separators (10-49px)
+// that sit in running text: between two text, heading, link or image components or column
+// views, or before one at the start of a section or column; their space then adds to the
+// live component spacing as on live (get-your-guide button -> h2: 24 + 26px). Not when both
+// neighbours are column views (columns-media merges them) and not at the end (live: the last
+// component of a section or column has no margin, so the separator is only its 1px)
+const FLOW_COMPONENT = '.text, .headline, .link, .footnote, .image:not(:has(video, .videoViewer)), .onecolumn, .twocolumn, .threecolumn, .fourcolumn';
+const FLOW_COLUMN = '.twocolumn, .threecolumn, .fourcolumn';
+
+function inFlow(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  const space = (sep) => {
+    const hr = sep.querySelector('.hr') || sep;
+    const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+    return m ? Math.round(parseFloat(m[1])) : 25;
+  };
+  if (run.some((sep) => space(sep) < 10)) return false;
+  if (!next || !next.matches(FLOW_COMPONENT)) return false;
+  if (prev && !prev.matches(FLOW_COMPONENT)) return false;
+  return !(prev && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN));
+}
+
+function markSeparators(document, keepInFlow) {
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -427,7 +452,7 @@ function markSeparators(document) {
   };
   runs.forEach((run) => {
     const infos = run.map(separatorInfo);
-    const keep = infos.some((i) => i.keep) || afterGrey(run[0]);
+    const keep = infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run));
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
       if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
@@ -514,8 +539,8 @@ function markParallaxImages(document) {
   return marked;
 }
 
-function removeEmptyComponents(document) {
-  markSeparators(document);
+function removeEmptyComponents(document, keepInFlow) {
+  markSeparators(document, keepInFlow);
   // React mount points rendered empty (e.g. <ppfi-web-component><div id="root"></div>)
   document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component')
     .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
@@ -526,6 +551,128 @@ function removeEmptyComponents(document) {
   [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')]
     .reverse()
     .forEach((el) => { if (el.isConnected && !el.closest('form.cmp-form') && isEmpty(el)) el.remove(); });
+}
+
+/* ------------------------------------------------------- column views ----------------- */
+
+/**
+ * Column-view padding (C4-1), for the templates in COLUMN_MARK_TEMPLATES. Live pads a column view
+ * of its own (.column > .column-view:only-child) 3.2rem above and below at every width inside an
+ * AEM section (.section-content), and 2rem / 4rem from 768px (above; the same below with the
+ * items' margin) directly in .container-content; its last component has no margin. Where the
+ * column view becomes default content (a one-column view, a multi-column view no block takes) or
+ * default content around a block (columns-media with a column title, columns-media outside an
+ * AEM section, columns-media nested in a one-column view), the importer writes a marker on the
+ * column's first and last element: "{column-start}" / "{column-end}" ("-outer" outside an AEM
+ * section), merged into an existing marker ("{heading-small column-start}"; lists: at the end of
+ * the last item), or as a paragraph of its own when that element is a block, an image or a
+ * separator (scripts.js -> classes, styles.css "column views"). Untitled top-level column views
+ * of an AEM section are columns-media option padded (parser), grey bands that are one column view
+ * section styles (lufthansa-sections), other blocks keep their own spacing.
+ *
+ * beforeTransform: markColumnViews sets data-lh-column="sc" | "cc" on the column views (the
+ * columns-media parser moves it to an element around the column title and the block);
+ * afterTransform: placeColumnMarks writes the markers and removes the attribute.
+ */
+const COLUMN_MARK_TEMPLATES = ['info'];
+const COLUMN_ATTR = 'data-lh-column';
+const COLUMN_KINDS = '.onecolumn, .twocolumn, .threecolumn, .fourcolumn';
+
+function columnMarksEnabled(payload) {
+  const template = (payload && payload.template) || {};
+  return COLUMN_MARK_TEMPLATES.includes(template.name);
+}
+
+function isOwnColumnView(el) {
+  return !!el && el.matches(`:is(${COLUMN_KINDS}).column`) && el.children.length === 1
+    && el.firstElementChild.classList.contains('column-view');
+}
+
+function markColumnViews(document, payload) {
+  const template = (payload && payload.template) || {};
+  const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
+  const blockOf = (el) => {
+    const hit = instances.find(([, sel]) => {
+      try { return el.matches(sel); } catch (e) { return false; }
+    });
+    return hit ? hit[0] : null;
+  };
+  const titled = (view) => [...view.children]
+    .some((d) => !d.matches('.row, .carousel') && d.querySelector(HEADING) && cleanText(d));
+  let marked = 0;
+  // returns whether the column view is flattened (its nested column views are marked too)
+  const mark = (root, kind, nested) => {
+    if (!isOwnColumnView(root) || root.closest('.article-details-page')) return false;
+    const view = root.firstElementChild;
+    if (view.classList.contains('container-gray')) return false;
+    const parent = root.parentElement;
+    if (!nested && root.closest('.container-gray') && parent.matches('.section-content')
+      && [...parent.children].filter((c) => !isEmpty(c)).length === 1) return false;
+    const block = blockOf(root);
+    if (block && block !== 'columns-media') return false;
+    if (block && kind === 'sc' && !nested && !titled(view)) return false;
+    root.setAttribute(COLUMN_ATTR, kind);
+    marked += 1;
+    return !block;
+  };
+  document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS})`).forEach((root) => {
+    const kind = root.parentElement.matches('.section-content') ? 'sc' : 'cc';
+    if (!mark(root, kind, false)) return;
+    root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS})`).forEach((inner) => {
+      if (inner.parentElement.closest('.column-view') === root.firstElementChild) mark(inner, kind, true);
+    });
+  });
+  return marked;
+}
+
+const COLUMN_LEAF = 'p, h1, h2, h3, h4, h5, h6, ul, ol, table, blockquote, pre, picture, img, video, iframe, form';
+const COLUMN_INLINE = 'p, h1, h2, h3, h4, h5, h6, ul, ol';
+const TRAILING_MARKER = /\{([a-z0-9 -]+)\}\s*$/;
+
+/** Adds a token to the element's trailing "{...}" marker (or a new one); false if it has it. */
+function addMarkerToken(el, token) {
+  const target = el.matches('ul, ol') ? [...el.children].filter((li) => li.tagName === 'LI').pop() : el;
+  if (!target) return false;
+  const walker = el.ownerDocument.createTreeWalker(target, 4); // NodeFilter.SHOW_TEXT
+  let last = null;
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+  const m = last && last.nodeValue.match(TRAILING_MARKER);
+  if (m) {
+    const tokens = m[1].trim().split(/\s+/);
+    if (tokens.includes(token)) return false;
+    last.nodeValue = `${last.nodeValue.slice(0, m.index)}{${[...tokens, token].join(' ')}}`;
+    return true;
+  }
+  target.append(el.ownerDocument.createTextNode(` {${token}}`));
+  return true;
+}
+
+function placeColumnMarks(document) {
+  const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
+  let placed = 0;
+  // outer column views first (document order), so a nested one adds its own marker
+  roots.forEach((root) => {
+    const suffix = root.getAttribute(COLUMN_ATTR) === 'cc' ? '-outer' : '';
+    const leaves = [...root.querySelectorAll(COLUMN_LEAF)].filter((el) => {
+      const up = el.parentElement && el.parentElement.closest(COLUMN_LEAF);
+      if (up && root.contains(up)) return false;
+      return el.matches('table, picture, img, video, iframe, form') || !!cleanText(el) || !!el.querySelector(MEDIA);
+    });
+    if (!leaves.length) return;
+    const inline = (el) => el.matches(COLUMN_INLINE) && !/^\{(spacer|divider|column)-/.test(cleanText(el));
+    const own = (token) => {
+      const p = document.createElement('p');
+      p.textContent = `{${token}}`;
+      return p;
+    };
+    const first = leaves[0];
+    const last = leaves[leaves.length - 1];
+    if (!(inline(first) && addMarkerToken(first, `column-start${suffix}`))) root.prepend(own(`column-start${suffix}`));
+    if (!(inline(last) && addMarkerToken(last, `column-end${suffix}`))) root.append(own(`column-end${suffix}`));
+    placed += 1;
+  });
+  roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
+  return placed;
 }
 
 /* -------------------------------------------- AirCore leftovers ----------------- */
@@ -1274,7 +1421,10 @@ export default function transform(hookName, element, payload) {
     convertJumpLinks(document);
     convertAuthorQuotes(document);
     markParallaxImages(document);
-    removeEmptyComponents(document);
+    // info: column views for their padding markers; only a page with such markers keeps the
+    // separators in running text (its headings have no margin of their own above, styles.css)
+    const columnMarks = columnMarksEnabled(payload) && markColumnViews(document, payload) > 0;
+    removeEmptyComponents(document, columnMarks);
     normalizeImages(document, true);
   }
 
@@ -1294,6 +1444,7 @@ export default function transform(hookName, element, payload) {
     markHeadingStyles(document);
     convertCaptions(document);
     markParagraphStyles(document);
+    placeColumnMarks(document); // after the style markers, which skip marked elements
     addPageMetadata(document, payload);
   }
 }

@@ -236,6 +236,12 @@ main > .section > .accordion-columns-wrapper:last-child > .accordion-columns.spa
   padding-bottom: 0;
 }
 
+/* nor after the last element of a column view ("{column-end}" right after the block, info): the
+   column's 3.2rem padding is the space below (live: its last component has no margin) */
+main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > p.column-mark:is(.column-end, .column-end-outer):first-child) > .accordion-columns.spaced {
+  padding-bottom: 0;
+}
+
 @media (width >= 768px) {
   .accordion-columns.spaced {
     padding-top: 40px;

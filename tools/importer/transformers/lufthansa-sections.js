@@ -145,8 +145,9 @@ function greyStyles(region) {
   return styles;
 }
 
-/** "{spacer-40}" paragraphs (lufthansa-cleanup separators) do not make a section of their own. */
-const SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
+/** "{spacer-40}" paragraphs (lufthansa-cleanup separators) and the column-view markers of a
+ * paragraph of their own ("{column-end}") do not make a section of their own. */
+const SPACER = /^\{(?:(spacer|divider)-\d{1,3}( from-768)?|column-(?:start|end)(?:-outer)?)\}$/;
 
 /** Whether anything visible lies between two nodes (from the start of `root` when `from` is null). */
 function contentBetween(document, root, from, to) {
