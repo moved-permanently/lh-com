@@ -335,6 +335,14 @@ export default function parse(element, { document }) {
         if (p) out.push(p);
       } else if (cl.contains('image') && child.querySelector('img, video')) {
         out.push(...mediaNodes(child));
+      } else if (child.parentElement.classList.contains('column-view') && !child.matches('.row, .carousel')
+        && child.querySelector('h1, h2, h3, h4, h5, h6')) {
+        // the title of a column view nested in the column (de/en green-fare "Book more
+        // sustainably": .twocolumn item > .onecolumn > .column-view > div > h4) stays in the cell
+        child.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((t) => {
+          const h = headingFrom(t);
+          if (h) out.push(h);
+        });
       } else if (child.matches('a.teaser:not([href])')) {
         out.push(...teaserNodes(child));
       } else if (cl.contains('videoViewer')) {
