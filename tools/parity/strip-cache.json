@@ -16532,5 +16532,109 @@
   "width": 375,
   "strip": 0,
   "why": "narrower than the viewport"
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot.jpg": {
+  "key": "v1:1144807:1792678714314",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot-768.jpg": {
+  "key": "v1:1033140:1792678717976",
+  "top": 190
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/co/europa/screenshot-390.jpg": {
+  "key": "v1:597595:1792678721572",
+  "top": 238
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/co/nord-und-suedamerika/screenshot.jpg": {
+  "key": "v1:715115:1792678733299",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/usa/screenshot.jpg": {
+  "key": "v1:2000202:1792678750282",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/spanien/screenshot.jpg": {
+  "key": "v1:856902:1792678762197",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/italien/screenshot.jpg": {
+  "key": "v1:1111871:1792678787593",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/japan/screenshot.jpg": {
+  "key": "v1:1107755:1792678800724",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/indien/screenshot.jpg": {
+  "key": "v1:927998:1792678813914",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/c/grossbritannien/screenshot.jpg": {
+  "key": "v1:648715:1792678825084",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot.jpg": {
+  "key": "v1:1219504:1792678838696",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot-768.jpg": {
+  "key": "v1:1013036:1792678842222",
+  "top": 190
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/new-york/screenshot-390.jpg": {
+  "key": "v1:708654:1792678845764",
+  "top": 238
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot.jpg": {
+  "key": "v1:873153:1792678859550",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot-768.jpg": {
+  "key": "v1:703858:1792678862706",
+  "top": 190
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/los-angeles/screenshot-390.jpg": {
+  "key": "v1:563528:1792678866223",
+  "top": 238
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/barcelona/screenshot.jpg": {
+  "key": "v1:1121747:1792678879734",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/rom/screenshot.jpg": {
+  "key": "v1:727314:1792678891614",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/tokio/screenshot.jpg": {
+  "key": "v1:1244197:1792678906519",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/london/screenshot.jpg": {
+  "key": "v1:1078659:1792678920572",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/paris/screenshot.jpg": {
+  "key": "v1:1097041:1792678935342",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/amman/screenshot.jpg": {
+  "key": "v1:1149172:1792678949374",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/at/de/dest/cy/palma-de-mallorca/screenshot.jpg": {
+  "key": "v1:1128687:1792678963596",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot.jpg": {
+  "key": "v1:891655:1792680859182",
+  "top": 98
+ },
+ "banner:tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot-768.jpg": {
+  "key": "v1:646204:1792680862801",
+  "top": 190
+ },
+ "banner:tools/source-export/pages/lhg/gb/en/o-d/cy-cy/frankfurt-london/screenshot-390.jpg": {
+  "key": "v1:399991:1792680866233",
+  "top": 238
  }
 }
