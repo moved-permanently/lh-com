@@ -34,7 +34,9 @@ import { embedNodes } from './media-nodes.js';
  * several image components (not with option slider).
  *
  * Option nested-N: a three- or four-column view whose items hold an N-column view of images only
- * (shopping icons, app badges); empty items are kept as empty cells.
+ * (shopping icons, app badges); empty items are kept as empty cells. So are the empty items next
+ * to an image that is alone in its column view (/100-years/cabin-design year numbers: the image
+ * takes its column only, as live).
  *
  * Option padded on a sidebar: the sidebar is the only content of a one-column view of its own
  * in an AEM section (100-years); with before-padded when that view ends its AEM section and the
@@ -554,8 +556,15 @@ export default function parse(element, { document }) {
       .find((c) => NESTED.some((k) => c.classList.contains(k)) && c.querySelector('.image img')
         && !c.querySelector('.text, .headline, .link, .teaser'))).find(Boolean);
     if (nestedView) variants.push(`nested-${NESTED.findIndex((k) => nestedView.classList.contains(k)) + 2}`);
-    const row = (hasEmbed || nestedView) && collected.some((c) => c.length) ? collected.map((c) => (c.length ? c : ''))
-      : collected.filter((c) => c.length);
+    // an image alone in one column whose other columns are empty keeps its column too (live
+    // .col-md-6.col-lg: half the width from 768px, the full width below; /100-years/cabin-design
+    // year numbers "1920s – 1930s" 608px wide at 1440, /100-years/campaigns big numbers)
+    const filled = collected.filter((c) => c.length);
+    const isImage = (n) => n.nodeType === 1 && !clean(n.textContent)
+      && (n.matches('img, picture') || !!n.querySelector('img, picture')) && !n.querySelector('video, iframe');
+    const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
+    const row = (hasEmbed || nestedView || loneImage) && filled.length ? collected.map((c) => (c.length ? c : ''))
+      : filled;
     if (row.length) cells.push(row);
     // an image column view with carousel behaviour in a column (app teaser: photo + QR code):
     // a slider with dots below 1025px (option slider)
