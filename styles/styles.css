@@ -740,12 +740,13 @@ main > .section.columns-logos-container {
 /* fleet "Technical data" (.onecolumn with a table, only on fleet pages): 38px below the
    section before it on mobile (collapses with its 48px), 70px from 768px, 87px from 1025px
    (live /de/en/359: seat map links to the heading 48 / 89 / 96px of ink); after a grey band
-   (boeing787 Allegris) 76px, 97px, 95px (live grey end to the heading 102 / 143 / 143px) */
-main > .section.table-striped-container {
+   (boeing787 Allegris) 76px, 97px, 95px (live grey end to the heading 102 / 143 / 143px). Only a heading-and-table section after
+   another section: info tables (C4-3) sit elsewhere and keep the normal spacing */
+main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
   margin-top: -10px;
 }
 
-main > .section.grey + .section.table-striped-container {
+main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
   margin-top: 76px;
 }
 
@@ -754,21 +755,21 @@ main > .section.grey + .section.table-striped-container {
     margin-bottom: 78px;
   }
 
-  main > .section.table-striped-container {
+  main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
     margin-top: 70px;
   }
 
-  main > .section.grey + .section.table-striped-container {
+  main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
     margin-top: 97px;
   }
 }
 
 @media (width >= 1025px) {
-  main > .section.table-striped-container {
+  main > .section + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
     margin-top: 87px;
   }
 
-  main > .section.grey + .section.table-striped-container {
+  main > .section.grey + .section.table-striped-container:has(> .default-content-wrapper:first-child:has(> h2:only-child) + .table-striped-wrapper:last-child) {
     margin-top: 95px;
   }
 }
