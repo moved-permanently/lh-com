@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/upgrade-premium-economy-class",
   "path": "at/de/upgrade-premium-economy-class",
-  "timestamp": "2026-10-23T04:18:24.052Z",
+  "timestamp": "2026-10-24T02:50:28.959Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

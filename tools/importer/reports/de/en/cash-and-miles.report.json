@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/cash-and-miles",
   "path": "de/en/cash-and-miles",
-  "timestamp": "2026-10-23T13:41:54.999Z",
+  "timestamp": "2026-10-24T03:05:49.425Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "flight-search",
     "accordion-columns"
   ]

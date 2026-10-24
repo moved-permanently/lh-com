@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-at-zuerich-airport",
   "path": "de/de/lufthansa-at-zuerich-airport",
-  "timestamp": "2026-10-23T03:48:39.420Z",
+  "timestamp": "2026-10-24T02:57:23.629Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

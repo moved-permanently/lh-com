@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/digital-travel-companion",
   "path": "de/de/digital-travel-companion",
-  "timestamp": "2026-10-23T03:28:12.926Z",
+  "timestamp": "2026-10-24T02:53:29.605Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "columns-media",
     "columns-media",
     "columns-media",
     "columns-media",

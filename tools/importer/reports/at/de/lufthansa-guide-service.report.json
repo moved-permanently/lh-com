@@ -2,8 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/lufthansa-guide-service",
   "path": "at/de/lufthansa-guide-service",
-  "timestamp": "2026-10-23T03:52:23.424Z",
+  "timestamp": "2026-10-24T02:45:13.291Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav",
+    "table-striped",
+    "table-striped"
+  ]
 }

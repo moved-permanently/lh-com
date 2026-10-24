@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/lufthansa-first-class-entertainment",
   "path": "at/de/lufthansa-first-class-entertainment",
-  "timestamp": "2026-10-23T03:52:01.232Z",
+  "timestamp": "2026-10-24T02:43:59.612Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

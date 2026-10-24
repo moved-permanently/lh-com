@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/digital-baggage-services",
   "path": "gb/en/digital-baggage-services",
-  "timestamp": "2026-10-23T03:28:08.593Z",
+  "timestamp": "2026-10-24T03:19:47.375Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "columns-media"
   ]

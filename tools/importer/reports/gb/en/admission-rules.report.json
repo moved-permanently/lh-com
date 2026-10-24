@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/admission-rules",
   "path": "gb/en/admission-rules",
-  "timestamp": "2026-10-23T03:09:59.632Z",
+  "timestamp": "2026-10-24T03:17:01.013Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "table-striped",
+    "table-striped",
+    "table-striped",
+    "table-striped"
+  ]
 }

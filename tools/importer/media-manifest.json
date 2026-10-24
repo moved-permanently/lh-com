@@ -564,6 +564,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:15.460Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/boarding-card.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/bc8d8fab333b2a2d6f08304933f228a4.svg",
+  "format": "svg",
+  "bytes": 1052,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-24T01:03:42.330Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/calculator.svg": {
   "status": 200,
   "version": 1,
@@ -574,6 +585,17 @@
   "height": 120,
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:06.796Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/calendar-rebook.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/4b09d4bf43b588c88533685c833fed8d.svg",
+  "format": "svg",
+  "bytes": 436,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-24T01:03:41.839Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/card-travel-documents.svg": {
   "status": 200,
@@ -1339,6 +1361,28 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:22.576Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/money-hand-refund.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/56d7dd61e4dc3543bf481ddd9b9465b4.svg",
+  "format": "svg",
+  "bytes": 2633,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-24T01:03:41.392Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/octagon-cross-message-error.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/ea9315b2dc852ecdb9f358f67856c12f.svg",
+  "format": "svg",
+  "bytes": 314,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-24T03:31:31.612Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/payment/americanexpress.svg": {
   "status": 200,
   "version": 1,
@@ -1459,6 +1503,17 @@
   "height": 120,
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:47:04.352Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/seat.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/d3ef8455d4538b374c28a0ccda86f189.svg",
+  "format": "svg",
+  "bytes": 517,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-24T01:03:42.824Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/smartphone.svg": {
   "status": 200,

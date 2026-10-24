@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/boarding",
   "path": "de/de/boarding",
-  "timestamp": "2026-10-23T03:15:39.141Z",
+  "timestamp": "2026-10-24T02:51:10.776Z",
   "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "accordion-columns",
+    "table-striped",
+    "table-striped"
   ]
 }

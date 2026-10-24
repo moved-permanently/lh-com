@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/uebergepaeck",
   "path": "gb/en/uebergepaeck",
-  "timestamp": "2026-10-23T04:15:18.782Z",
+  "timestamp": "2026-10-24T03:29:16.102Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "columns-media"
   ]

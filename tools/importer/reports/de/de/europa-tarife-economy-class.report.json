@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/europa-tarife-economy-class",
   "path": "de/de/europa-tarife-economy-class",
-  "timestamp": "2026-10-23T03:31:26.074Z",
+  "timestamp": "2026-10-24T02:55:12.636Z",
   "title": "",
   "template": "info",
   "blocks": [
-    "accordion-columns"
+    "subpage-nav",
+    "accordion-columns",
+    "table-striped"
   ]
 }

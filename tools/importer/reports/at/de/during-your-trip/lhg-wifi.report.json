@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/during-your-trip/lhg-wifi",
   "path": "at/de/during-your-trip/lhg-wifi",
-  "timestamp": "2026-10-23T23:38:46.476Z",
+  "timestamp": "2026-10-24T02:41:08.223Z",
   "title": "Lufthansa Group Wi-Fi | Lufthansa",
   "template": "info",
   "blocks": [
+    "profile-nav",
     "hero-campaign",
     "accordion-columns",
     "columns-media",

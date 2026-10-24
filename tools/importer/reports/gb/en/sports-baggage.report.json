@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/sports-baggage",
   "path": "gb/en/sports-baggage",
-  "timestamp": "2026-10-23T04:10:49.270Z",
+  "timestamp": "2026-10-24T03:27:43.751Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
     "accordion-columns",

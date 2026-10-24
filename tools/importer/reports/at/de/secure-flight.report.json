@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/secure-flight",
   "path": "at/de/secure-flight",
-  "timestamp": "2026-10-23T04:07:11.732Z",
+  "timestamp": "2026-10-24T02:48:18.279Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

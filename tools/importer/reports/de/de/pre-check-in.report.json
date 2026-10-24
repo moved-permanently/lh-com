@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/pre-check-in",
   "path": "de/de/pre-check-in",
-  "timestamp": "2026-10-23T03:02:46.844Z",
+  "timestamp": "2026-10-24T02:37:45.324Z",
   "title": "",
   "template": "app-entry",
   "blocks": [
+    "subpage-nav",
     "columns-media"
   ]
 }

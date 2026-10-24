@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/upgrade-business-class-long-haul",
   "path": "gb/en/upgrade-business-class-long-haul",
-  "timestamp": "2026-10-23T04:17:49.117Z",
+  "timestamp": "2026-10-24T03:29:23.740Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

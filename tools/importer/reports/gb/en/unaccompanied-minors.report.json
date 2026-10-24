@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/unaccompanied-minors",
   "path": "gb/en/unaccompanied-minors",
-  "timestamp": "2026-10-23T04:17:24.472Z",
+  "timestamp": "2026-10-24T03:29:18.184Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
+    "table-striped",
     "columns-media",
     "columns-media"
   ]

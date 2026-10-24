@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/lufthansa-am-flughafen-wien",
   "path": "de/de/lufthansa-am-flughafen-wien",
-  "timestamp": "2026-10-23T03:48:28.635Z",
+  "timestamp": "2026-10-24T02:57:19.426Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

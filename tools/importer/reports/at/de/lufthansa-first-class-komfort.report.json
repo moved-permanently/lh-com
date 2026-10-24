@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/lufthansa-first-class-komfort",
   "path": "at/de/lufthansa-first-class-komfort",
-  "timestamp": "2026-10-23T03:36:23.806Z",
+  "timestamp": "2026-10-24T02:44:02.264Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

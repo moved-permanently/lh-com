@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/with-children-at-the-airport",
   "path": "gb/en/with-children-at-the-airport",
-  "timestamp": "2026-10-23T04:23:00.295Z",
+  "timestamp": "2026-10-24T03:29:47.620Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media",
     "columns-media"
   ]

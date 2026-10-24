@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
   "path": "gb/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge",
-  "timestamp": "2026-10-23T03:28:51.732Z",
+  "timestamp": "2026-10-24T03:19:54.085Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "table-striped"
+  ]
 }

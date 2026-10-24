@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/rail-and-fly",
   "path": "gb/en/rail-and-fly",
-  "timestamp": "2026-10-23T04:06:35.904Z",
+  "timestamp": "2026-10-24T03:27:15.597Z",
   "title": "",
   "template": "info",
   "blocks": [
     "accordion-columns",
+    "table-striped",
     "columns-media",
     "columns-media",
     "columns-media"

@@ -2,8 +2,8 @@
   "status": "success",
   "url": "https://www.lufthansa.com/lhg/gb/en",
   "path": "lhg/gb/en",
-  "timestamp": "2026-10-22T19:41:50.835Z",
-  "title": "Book flights to destinations all over the world | Lufthansa",
+  "timestamp": "2026-10-24T00:53:27.157Z",
+  "title": "",
   "template": "aircore-destination-overview",
   "blocks": [
     "flight-search",

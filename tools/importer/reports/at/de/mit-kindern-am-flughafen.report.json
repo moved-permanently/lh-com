@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/mit-kindern-am-flughafen",
   "path": "at/de/mit-kindern-am-flughafen",
-  "timestamp": "2026-10-23T04:22:58.119Z",
+  "timestamp": "2026-10-24T02:45:30.099Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media",
     "columns-media"
   ]

@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/fmg-valet-parking-service",
   "path": "de/de/fmg-valet-parking-service",
-  "timestamp": "2026-10-23T03:41:20.259Z",
+  "timestamp": "2026-10-24T02:55:45.849Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

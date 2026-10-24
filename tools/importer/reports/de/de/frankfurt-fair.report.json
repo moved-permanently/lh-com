@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/frankfurt-fair",
   "path": "de/de/frankfurt-fair",
-  "timestamp": "2026-10-23T02:30:23.885Z",
+  "timestamp": "2026-10-24T02:36:44.098Z",
   "title": "",
   "template": "campaign",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/upgrade-business-class-langstrecke",
   "path": "at/de/upgrade-business-class-langstrecke",
-  "timestamp": "2026-10-23T04:17:46.746Z",
+  "timestamp": "2026-10-24T02:50:16.293Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

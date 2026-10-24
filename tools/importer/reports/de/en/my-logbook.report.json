@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/my-logbook",
   "path": "de/en/my-logbook",
-  "timestamp": "2026-10-23T03:02:24.394Z",
+  "timestamp": "2026-10-24T02:37:32.007Z",
   "title": "",
   "template": "app-entry",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/meetings-and-events-organisers",
   "path": "gb/en/meetings-and-events-organisers",
-  "timestamp": "2026-10-23T03:53:04.897Z",
+  "timestamp": "2026-10-24T03:24:57.053Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

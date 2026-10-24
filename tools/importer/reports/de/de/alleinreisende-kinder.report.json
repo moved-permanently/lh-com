@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/alleinreisende-kinder",
   "path": "de/de/alleinreisende-kinder",
-  "timestamp": "2026-10-23T04:15:23.369Z",
+  "timestamp": "2026-10-24T02:50:57.548Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
+    "table-striped",
     "columns-media",
     "columns-media"
   ]

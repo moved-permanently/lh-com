@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/first-class-personal-assistant",
   "path": "de/de/first-class-personal-assistant",
-  "timestamp": "2026-10-23T03:36:41.179Z",
+  "timestamp": "2026-10-24T02:55:23.858Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

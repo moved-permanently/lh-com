@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/upgrade-informationen",
   "path": "at/de/upgrade-informationen",
-  "timestamp": "2026-10-23T04:18:05.532Z",
+  "timestamp": "2026-10-24T02:50:25.984Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

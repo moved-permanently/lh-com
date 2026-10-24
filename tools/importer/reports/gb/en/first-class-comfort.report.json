@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/first-class-comfort",
   "path": "gb/en/first-class-comfort",
-  "timestamp": "2026-10-23T03:36:26.399Z",
+  "timestamp": "2026-10-24T03:22:12.202Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

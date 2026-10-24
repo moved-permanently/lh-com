@@ -2,8 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/fia-valet-service",
   "path": "at/de/fia-valet-service",
-  "timestamp": "2026-10-23T03:36:02.127Z",
+  "timestamp": "2026-10-24T02:41:22.475Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav",
+    "table-striped"
+  ]
 }

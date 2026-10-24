@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/affiliatemarketing",
   "path": "de/de/affiliatemarketing",
-  "timestamp": "2026-10-23T03:10:26.775Z",
+  "timestamp": "2026-10-24T02:50:53.365Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

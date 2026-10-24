@@ -2,10 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/green-fare",
   "path": "at/de/green-fare",
-  "timestamp": "2026-10-23T03:42:03.202Z",
+  "timestamp": "2026-10-24T02:43:15.886Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "table-striped",
+    "table-striped",
     "columns-media",
     "columns-media"
   ]

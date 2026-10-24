@@ -2,11 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/sondermahlzeiten",
   "path": "at/de/sondermahlzeiten",
-  "timestamp": "2026-10-23T23:39:26.664Z",
+  "timestamp": "2026-10-24T02:48:33.666Z",
   "title": "",
   "template": "info",
   "blocks": [
     "hero-campaign",
+    "table-striped",
+    "table-striped",
+    "table-striped",
     "columns-media"
   ]
 }

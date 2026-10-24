@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/automatic-check-in",
   "path": "de/en/automatic-check-in",
-  "timestamp": "2026-10-23T03:15:08.059Z",
+  "timestamp": "2026-10-24T03:05:03.941Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media"
   ]
 }

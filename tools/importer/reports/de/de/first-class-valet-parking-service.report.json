@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/first-class-valet-parking-service",
   "path": "de/de/first-class-valet-parking-service",
-  "timestamp": "2026-10-23T03:36:59.646Z",
+  "timestamp": "2026-10-24T02:55:28.808Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

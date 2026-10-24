@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/meetings-und-events-teilnehmer",
   "path": "de/de/meetings-und-events-teilnehmer",
-  "timestamp": "2026-10-23T03:52:49.701Z",
+  "timestamp": "2026-10-24T02:57:57.435Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

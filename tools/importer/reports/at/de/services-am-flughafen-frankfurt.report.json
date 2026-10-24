@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/services-am-flughafen-frankfurt",
   "path": "at/de/services-am-flughafen-frankfurt",
-  "timestamp": "2026-10-23T04:07:40.755Z",
+  "timestamp": "2026-10-24T02:48:23.000Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "columns-media"
   ]

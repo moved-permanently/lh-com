@@ -1,4 +1,8 @@
-https://www.lufthansa.com/at/de/meine-buchungen
-https://www.lufthansa.com/de/de/meine-buchungen
-https://www.lufthansa.com/de/en/my-bookings
-https://www.lufthansa.com/gb/en/my-bookings
+https://www.lufthansa.com/de/en/my-logbook
+https://www.lufthansa.com/de/de/mein-logbuch
+https://www.lufthansa.com/at/de/mein-logbuch
+https://www.lufthansa.com/gb/en/my-logbook
+https://www.lufthansa.com/de/en/pre-check-in
+https://www.lufthansa.com/de/de/pre-check-in
+https://www.lufthansa.com/at/de/pre-check-in
+https://www.lufthansa.com/gb/en/pre-check-in

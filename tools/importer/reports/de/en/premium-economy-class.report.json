@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/premium-economy-class",
   "path": "de/en/premium-economy-class",
-  "timestamp": "2026-10-23T03:57:06.722Z",
+  "timestamp": "2026-10-24T03:12:27.100Z",
   "title": "Premium Economy Class | Lufthansa",
   "template": "info",
   "blocks": [
+    "profile-nav",
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",

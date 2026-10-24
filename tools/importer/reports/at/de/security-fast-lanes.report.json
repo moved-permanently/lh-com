@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/security-fast-lanes",
   "path": "at/de/security-fast-lanes",
-  "timestamp": "2026-10-23T04:07:31.028Z",
+  "timestamp": "2026-10-24T02:48:20.830Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
     "accordion-columns",

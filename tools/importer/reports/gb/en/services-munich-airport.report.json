@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/services-munich-airport",
   "path": "gb/en/services-munich-airport",
-  "timestamp": "2026-10-23T04:07:53.355Z",
+  "timestamp": "2026-10-24T03:27:36.019Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

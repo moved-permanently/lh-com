@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/travelling-with-animals",
   "path": "de/en/travelling-with-animals",
-  "timestamp": "2026-10-23T04:14:29.425Z",
+  "timestamp": "2026-10-24T03:15:07.704Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns"
   ]

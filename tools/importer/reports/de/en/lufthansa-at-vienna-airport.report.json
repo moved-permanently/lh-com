@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-at-vienna-airport",
   "path": "de/en/lufthansa-at-vienna-airport",
-  "timestamp": "2026-10-23T03:48:26.303Z",
+  "timestamp": "2026-10-24T03:10:14.350Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

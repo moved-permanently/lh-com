@@ -394,5 +394,34 @@
   "change": "C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6.",
   "commit": "4ec7488",
   "date": "2026-10-24"
+ },
+ {
+  "template": "info",
+  "page": "608 info pages (all with column views, sub-page nav, tables, 3/4-column rows, sub-navigation, carousels, teaser bands, quotes, grey ends) + campaign 72, fleet 24, hub 38, legal 18, form 4, app-entry 24 whose import output changed",
+  "block": "columns-media, subpage-nav (new), table-striped, profile-nav, carousel-cards, cards-teaser, accordion-columns",
+  "change": "C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights.",
+  "commit": "a3faa59",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/de/de/320, /at/de/320, /at/de/32n, /de/en/359 (fleet)",
+  "block": "columns-media",
+  "change": "C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept).",
+  "commit": "a26bad4",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "/{de/de,at/de}/sitzplatzreservierungen-konditionen, /{de/en,gb/en}/advance-seat-reservations-terms-and-conditions (legal); /{4 locales}/gefaehrliche-gegenstaende, electronic-devices-and-batteries (info)",
+  "block": "columns-media, accordion-columns",
+  "change": "C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627).",
+  "commit": "eb6075e",
+  "date": "2026-10-24"
+ },
+ {
+  "page": "18 AirCore AT/GB pages (lhg/at/de dest/c, dest/co, dest/cy; lhg/gb/en/o-d/cy-cy/frankfurt-london) + the 4 /lhg/{cc}/{ll} overview pages",
+  "block": "breadcrumb",
+  "change": "C9: the German-IP wrong-geolocation banner is removed by the cleanup (it was imported as two paragraphs under the header); the harness crops it from the live captures (srcCrop.top 98 at 1440, 190 at 768, 238 at 390, build-jobs.mjs from the snapshot); the /lhg/{cc}/{ll} overview pages carry their Breadcrumb title (Reiseziele / Travel destinations; split-fragments.mjs no longer moves the page metadata into a fragment). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: lhg/at/de/dest/cy/new-york 17.3/20.4/20.8 -> 14.7/21.0/17.9 (first divergence y=0 -> 6400 at 1440).",
+  "commit": "a954a01",
+  "date": "2026-10-24"
  }
 ]

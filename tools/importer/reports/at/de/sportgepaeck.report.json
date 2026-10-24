@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/sportgepaeck",
   "path": "at/de/sportgepaeck",
-  "timestamp": "2026-10-23T04:10:46.238Z",
+  "timestamp": "2026-10-24T02:48:36.058Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
     "accordion-columns",

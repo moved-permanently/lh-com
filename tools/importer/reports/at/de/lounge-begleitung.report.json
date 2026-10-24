@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/lounge-begleitung",
   "path": "at/de/lounge-begleitung",
-  "timestamp": "2026-10-23T03:45:50.201Z",
+  "timestamp": "2026-10-24T02:43:29.376Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav",
+    "table-striped",
+    "table-striped",
+    "table-striped"
+  ]
 }

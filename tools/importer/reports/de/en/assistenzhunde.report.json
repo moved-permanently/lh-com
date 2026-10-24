@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/assistenzhunde",
   "path": "de/en/assistenzhunde",
-  "timestamp": "2026-10-23T03:14:56.582Z",
+  "timestamp": "2026-10-24T03:05:01.785Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

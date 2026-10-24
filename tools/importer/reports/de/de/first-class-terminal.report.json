@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/first-class-terminal",
   "path": "de/de/first-class-terminal",
-  "timestamp": "2026-10-23T03:36:50.493Z",
+  "timestamp": "2026-10-24T02:55:25.833Z",
   "title": "",
   "template": "info",
   "blocks": [
@@ -10,6 +10,7 @@
     "hero-campaign",
     "hero-campaign",
     "hero-campaign",
+    "carousel-images",
     "columns-media",
     "columns-media",
     "columns-media",

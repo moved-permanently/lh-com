@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/first-class-lounges",
   "path": "de/en/first-class-lounges",
-  "timestamp": "2026-10-23T03:36:29.319Z",
+  "timestamp": "2026-10-24T03:08:01.338Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
     "accordion-columns",

@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/lufthansa-at-berlin-airport",
   "path": "de/en/lufthansa-at-berlin-airport",
-  "timestamp": "2026-10-23T03:46:05.843Z",
+  "timestamp": "2026-10-24T03:10:08.969Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media"
   ]
 }

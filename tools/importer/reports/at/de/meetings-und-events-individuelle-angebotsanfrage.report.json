@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/meetings-und-events-individuelle-angebotsanfrage",
   "path": "at/de/meetings-und-events-individuelle-angebotsanfrage",
-  "timestamp": "2026-10-23T03:53:02.774Z",
+  "timestamp": "2026-10-24T02:45:20.638Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

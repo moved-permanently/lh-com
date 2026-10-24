@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-aircore-destination-overview.js
-  var tmp_bundle_aircore_destination_overview_70643_exports = {};
-  __export(tmp_bundle_aircore_destination_overview_70643_exports, {
-    default: () => tmp_bundle_aircore_destination_overview_70643_default
+  var tmp_bundle_aircore_destination_overview_91180_exports = {};
+  __export(tmp_bundle_aircore_destination_overview_91180_exports, {
+    default: () => tmp_bundle_aircore_destination_overview_91180_default
   });
 
   // tools/importer/parsers/flight-search.js
@@ -481,7 +481,22 @@ var CustomImportScript = (() => {
     if (hr.classList.contains("hidden-sm-down")) tokens.push("from-768");
     return { keep: line || space >= SEPARATOR_MIN_SPACE, marker: tokens.join(" ") };
   }
-  function markSeparators(document) {
+  var FLOW_COMPONENT = ".text, .headline, .link, .footnote, .image:not(:has(video, .videoViewer)), .onecolumn, .twocolumn, .threecolumn, .fourcolumn";
+  var FLOW_COLUMN = ".twocolumn, .threecolumn, .fourcolumn";
+  function inFlow(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    const space = (sep) => {
+      const hr = sep.querySelector(".hr") || sep;
+      const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*(-?[\d.]+)px/i);
+      return m ? Math.round(parseFloat(m[1])) : 25;
+    };
+    if (run.some((sep) => space(sep) < 10)) return false;
+    if (!next || !next.matches(FLOW_COMPONENT)) return false;
+    if (prev && !prev.matches(FLOW_COMPONENT)) return false;
+    return !(prev && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN));
+  }
+  function markSeparators(document, keepInFlow) {
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -494,7 +509,7 @@ var CustomImportScript = (() => {
     };
     runs.forEach((run) => {
       const infos = run.map(separatorInfo);
-      const keep = infos.some((i) => i.keep) || afterGrey(run[0]);
+      const keep = infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run);
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
         if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
@@ -564,8 +579,8 @@ var CustomImportScript = (() => {
     });
     return marked;
   }
-  function removeEmptyComponents(document) {
-    markSeparators(document);
+  function removeEmptyComponents(document, keepInFlow) {
+    markSeparators(document, keepInFlow);
     document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component').forEach((el) => {
       if (el.isConnected && isEmpty(el)) el.remove();
     });
@@ -573,6 +588,98 @@ var CustomImportScript = (() => {
     [...scope.querySelectorAll('div.section, div[class*="-container"], div[class^="dcep-"]')].reverse().forEach((el) => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
+  }
+  var COLUMN_MARK_TEMPLATES = ["info"];
+  var COLUMN_ATTR = "data-lh-column";
+  var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
+  function columnMarksEnabled(payload) {
+    const template = payload && payload.template || {};
+    return COLUMN_MARK_TEMPLATES.includes(template.name);
+  }
+  function isOwnColumnView(el) {
+    return !!el && el.matches(`:is(${COLUMN_KINDS}).column`) && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
+  }
+  function markColumnViews(document, payload) {
+    const template = payload && payload.template || {};
+    const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
+    const blockOf = (el) => {
+      const hit = instances.find(([, sel]) => {
+        try {
+          return el.matches(sel);
+        } catch (e) {
+          return false;
+        }
+      });
+      return hit ? hit[0] : null;
+    };
+    const titled = (view) => [...view.children].some((d) => !d.matches(".row, .carousel") && d.querySelector(HEADING) && cleanText(d));
+    let marked = 0;
+    const mark = (root, kind, nested) => {
+      if (!isOwnColumnView(root) || root.closest(".article-details-page")) return false;
+      const view = root.firstElementChild;
+      if (view.classList.contains("container-gray")) return false;
+      const parent = root.parentElement;
+      if (!nested && root.closest(".container-gray") && parent.matches(".section-content") && [...parent.children].filter((c) => !isEmpty(c)).length === 1) return false;
+      const block = blockOf(root);
+      if (block && block !== "columns-media") return false;
+      if (block && kind === "sc" && !nested && !titled(view)) return false;
+      root.setAttribute(COLUMN_ATTR, kind);
+      marked += 1;
+      return !block;
+    };
+    document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS})`).forEach((root) => {
+      const kind = root.parentElement.matches(".section-content") ? "sc" : "cc";
+      if (!mark(root, kind, false)) return;
+      root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS})`).forEach((inner) => {
+        if (inner.parentElement.closest(".column-view") === root.firstElementChild) mark(inner, kind, true);
+      });
+    });
+    return marked;
+  }
+  var COLUMN_LEAF = "p, h1, h2, h3, h4, h5, h6, ul, ol, table, blockquote, pre, picture, img, video, iframe, form";
+  var COLUMN_INLINE = "p, h1, h2, h3, h4, h5, h6, ul, ol";
+  var TRAILING_MARKER = /\{([a-z0-9 -]+)\}\s*$/;
+  function addMarkerToken(el, token) {
+    const target = el.matches("ul, ol") ? [...el.children].filter((li) => li.tagName === "LI").pop() : el;
+    if (!target) return false;
+    const walker = el.ownerDocument.createTreeWalker(target, 4);
+    let last = null;
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+    const m = last && last.nodeValue.match(TRAILING_MARKER);
+    if (m) {
+      const tokens = m[1].trim().split(/\s+/);
+      if (tokens.includes(token)) return false;
+      last.nodeValue = `${last.nodeValue.slice(0, m.index)}{${[...tokens, token].join(" ")}}`;
+      return true;
+    }
+    target.append(el.ownerDocument.createTextNode(` {${token}}`));
+    return true;
+  }
+  function placeColumnMarks(document) {
+    const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
+    let placed = 0;
+    roots.forEach((root) => {
+      const suffix = root.getAttribute(COLUMN_ATTR) === "cc" ? "-outer" : "";
+      const leaves = [...root.querySelectorAll(COLUMN_LEAF)].filter((el) => {
+        const up = el.parentElement && el.parentElement.closest(COLUMN_LEAF);
+        if (up && root.contains(up)) return false;
+        return el.matches("table, picture, img, video, iframe, form") || !!cleanText(el) || !!el.querySelector(MEDIA);
+      });
+      if (!leaves.length) return;
+      const inline = (el) => el.matches(COLUMN_INLINE) && !/^\{(spacer|divider|column)-/.test(cleanText(el));
+      const own = (token) => {
+        const p = document.createElement("p");
+        p.textContent = `{${token}}`;
+        return p;
+      };
+      const first = leaves[0];
+      const last = leaves[leaves.length - 1];
+      if (!(inline(first) && addMarkerToken(first, `column-start${suffix}`))) root.prepend(own(`column-start${suffix}`));
+      if (!(inline(last) && addMarkerToken(last, `column-end${suffix}`))) root.append(own(`column-end${suffix}`));
+      placed += 1;
+    });
+    roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
+    return placed;
   }
   function removeAirCoreLeftovers(document) {
     document.querySelectorAll(".language-selection-modal").forEach((m) => {
@@ -1154,7 +1261,8 @@ var CustomImportScript = (() => {
       convertJumpLinks(document);
       convertAuthorQuotes(document);
       markParallaxImages(document);
-      removeEmptyComponents(document);
+      const columnMarks = columnMarksEnabled(payload) && markColumnViews(document, payload) > 0;
+      removeEmptyComponents(document, columnMarks);
       normalizeImages(document, true);
     }
     if (hookName === "afterTransform") {
@@ -1173,6 +1281,7 @@ var CustomImportScript = (() => {
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
+      placeColumnMarks(document);
       addPageMetadata(document, payload);
     }
   }
@@ -1260,7 +1369,7 @@ var CustomImportScript = (() => {
     if (aem && !aem.querySelector(":scope > .mb-default")) styles.push("flush");
     return styles;
   }
-  var SPACER = /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/;
+  var SPACER = /^\{(?:(spacer|divider)-\d{1,3}( from-768)?|column-(?:start|end)(?:-outer)?)\}$/;
   function contentBetween(document, root, from, to) {
     const range = document.createRange();
     if (from) range.setStartAfter(from);
@@ -1330,6 +1439,12 @@ var CustomImportScript = (() => {
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
       });
+      const first = aemSections[0];
+      if (template.name === "info" && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
+        const hr = createBreak(document);
+        hr.setAttribute(SOURCE_STYLE, "padded");
+        first.before(hr);
+      }
       const stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
       aemSections.forEach((s, i) => {
         if (!stage(s)) return;
@@ -1546,7 +1661,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_aircore_destination_overview_70643_default = {
+  var tmp_bundle_aircore_destination_overview_91180_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1576,5 +1691,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_aircore_destination_overview_70643_exports);
+  return __toCommonJS(tmp_bundle_aircore_destination_overview_91180_exports);
 })();

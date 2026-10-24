@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/fliegen-mit-baby",
   "path": "de/de/fliegen-mit-baby",
-  "timestamp": "2026-10-23T03:37:09.356Z",
+  "timestamp": "2026-10-24T02:55:31.061Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

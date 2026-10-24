@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/lufthansa-terminal-muenchen",
   "path": "gb/en/lufthansa-terminal-muenchen",
-  "timestamp": "2026-10-23T03:52:35.321Z",
+  "timestamp": "2026-10-24T03:24:49.846Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media",
     "columns-media",
     "columns-media"

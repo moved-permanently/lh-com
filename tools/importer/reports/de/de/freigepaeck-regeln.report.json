@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/freigepaeck-regeln",
   "path": "de/de/freigepaeck-regeln",
-  "timestamp": "2026-10-23T03:41:39.869Z",
+  "timestamp": "2026-10-24T02:55:51.882Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
     "columns-media",

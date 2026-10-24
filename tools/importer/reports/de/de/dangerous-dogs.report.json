@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/dangerous-dogs",
   "path": "de/de/dangerous-dogs",
-  "timestamp": "2026-10-23T03:27:54.181Z",
+  "timestamp": "2026-10-24T02:53:27.749Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns"
   ]

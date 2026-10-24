@@ -2,11 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/special-meals",
   "path": "de/en/special-meals",
-  "timestamp": "2026-10-23T04:10:29.333Z",
+  "timestamp": "2026-10-24T03:14:44.772Z",
   "title": "",
   "template": "info",
   "blocks": [
     "hero-campaign",
+    "table-striped",
+    "table-striped",
+    "table-striped",
     "columns-media"
   ]
 }

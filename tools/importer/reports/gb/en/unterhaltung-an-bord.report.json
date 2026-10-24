@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/unterhaltung-an-bord",
   "path": "gb/en/unterhaltung-an-bord",
-  "timestamp": "2026-10-23T10:56:39.623Z",
+  "timestamp": "2026-10-24T03:29:21.197Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "table-striped",
     "embed"
   ]
 }

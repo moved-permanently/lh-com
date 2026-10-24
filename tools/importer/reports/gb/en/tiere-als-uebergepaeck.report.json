@@ -2,12 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/tiere-als-uebergepaeck",
   "path": "gb/en/tiere-als-uebergepaeck",
-  "timestamp": "2026-10-23T04:11:33.035Z",
+  "timestamp": "2026-10-24T03:27:51.395Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
     "accordion-columns",
+    "table-striped",
     "columns-media",
     "columns-media",
     "columns-media"

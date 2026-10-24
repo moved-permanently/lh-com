@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/munich-fair",
   "path": "at/de/munich-fair",
-  "timestamp": "2026-10-23T02:33:17.783Z",
+  "timestamp": "2026-10-24T02:36:57.397Z",
   "title": "",
   "template": "campaign",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

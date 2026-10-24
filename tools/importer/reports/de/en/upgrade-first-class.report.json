@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/upgrade-first-class",
   "path": "de/en/upgrade-first-class",
-  "timestamp": "2026-10-23T04:17:51.314Z",
+  "timestamp": "2026-10-24T03:15:28.427Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns"
   ]
 }

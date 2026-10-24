@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/child-restraint-systems",
   "path": "gb/en/child-restraint-systems",
-  "timestamp": "2026-10-23T03:27:28.171Z",
+  "timestamp": "2026-10-24T03:19:35.216Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

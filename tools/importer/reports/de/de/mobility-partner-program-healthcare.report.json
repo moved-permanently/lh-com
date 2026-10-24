@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/mobility-partner-program-healthcare",
   "path": "de/de/mobility-partner-program-healthcare",
-  "timestamp": "2026-10-23T03:55:47.433Z",
+  "timestamp": "2026-10-24T02:58:08.681Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "columns-media"
   ]
 }

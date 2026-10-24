@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/lufthansa-first-class-fleet",
   "path": "gb/en/lufthansa-first-class-fleet",
-  "timestamp": "2026-10-23T02:53:11.651Z",
+  "timestamp": "2026-10-24T02:37:21.280Z",
   "title": "",
   "template": "fleet",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }

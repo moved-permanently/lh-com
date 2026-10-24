@@ -2,13 +2,16 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/flynet",
   "path": "gb/en/flynet",
-  "timestamp": "2026-10-23T03:41:14.374Z",
+  "timestamp": "2026-10-24T03:22:36.721Z",
   "title": "FlyNet® on board | Lufthansa",
   "template": "info",
   "blocks": [
+    "profile-nav",
     "hero-campaign",
     "hero-campaign",
     "accordion-columns",
+    "table-striped",
+    "table-striped",
     "columns-media",
     "columns-media"
   ]

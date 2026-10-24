@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/security-check-time-slot",
   "path": "gb/en/security-check-time-slot",
-  "timestamp": "2026-10-23T04:07:22.478Z",
+  "timestamp": "2026-10-24T03:27:28.474Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "table-striped"
+  ]
 }

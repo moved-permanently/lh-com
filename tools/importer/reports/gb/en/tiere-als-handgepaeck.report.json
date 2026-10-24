@@ -2,11 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/tiere-als-handgepaeck",
   "path": "gb/en/tiere-als-handgepaeck",
-  "timestamp": "2026-10-23T04:11:22.949Z",
+  "timestamp": "2026-10-24T03:27:48.453Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "subpage-nav",
     "accordion-columns",
-    "accordion-columns"
+    "accordion-columns",
+    "table-striped"
   ]
 }

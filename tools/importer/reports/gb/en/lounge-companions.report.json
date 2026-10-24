@@ -2,8 +2,13 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/lounge-companions",
   "path": "gb/en/lounge-companions",
-  "timestamp": "2026-10-23T03:45:53.275Z",
+  "timestamp": "2026-10-24T03:22:58.572Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav",
+    "table-striped",
+    "table-striped",
+    "table-striped"
+  ]
 }

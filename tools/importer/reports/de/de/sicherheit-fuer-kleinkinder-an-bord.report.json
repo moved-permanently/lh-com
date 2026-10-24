@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/sicherheit-fuer-kleinkinder-an-bord",
   "path": "de/de/sicherheit-fuer-kleinkinder-an-bord",
-  "timestamp": "2026-10-23T03:27:23.549Z",
+  "timestamp": "2026-10-24T03:02:44.698Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "subpage-nav"
+  ]
 }
