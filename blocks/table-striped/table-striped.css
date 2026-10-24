@@ -4,6 +4,7 @@
  * white, no borders, 1.8rem regular text with 2.7rem lines, cells 3.2rem x 2rem padded
  * (91px rows), text at the top of the cell.
  */
+
 /* maui-table scrolls inside a box of about 840px (scrollbar included): longer tables show their
    first rows only, at every width (/de/en/admission-rules companion table: 5479 -> 6318 at
    1440, 5458 -> 6297 at 768, the rest behind the scrollbar; the replica was 300px taller) */
