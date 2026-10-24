@@ -430,5 +430,12 @@
   "change": "Head item 1: page metadata from the live head (tools/importer/head-metadata.mjs, post-import step in batch-cycle.sh, report tools/reports/head-metadata.md): Description as live (empty row where live has none, else EDS took the first paragraph, e.g. a video URL), og:title/og:description only where live differs from title/description, Keywords, Robots only with noindex (115 values without noindex listed, not set: 107 AirCore index, follow, 8 no index, no follow), Canonical where it points elsewhere, Image = live og:image; no hreflang rows; /metadata.json untouched. Uploaded and previewed; 259 of 261 preview heads match live, 2 differ only by a trailing comma EDS trims from the keywords (gepaeck de/de, at/de). Head spot-check de/en/feedback (robots noindex,nofollow, description empty, og:description), de/de/rechnungsbeleg (canonical https://www.lufthansa.com/xx/de/book-and-manage/pax-receipt), at/de/gepaeck (keywords); the page layout is unchanged (parity 1440: 13.8 / 42.2 / 13.4).",
   "commit": "head-1",
   "date": "2026-10-24"
+ },
+ {
+  "page": "23 AirCore route pages (lhg o-d/c-c and o-d/cy-cy: de/en 11, de/de 11, gb/en frankfurt-london)",
+  "block": "metadata",
+  "change": "Head item 2: the live JSON-LD (recorded with bd-record-head.mjs in the warm session: on live it is in the server HTML body, not the head) as one json-ld metadata value per page, {\"@context\":\"https://schema.org\",\"@graph\":[BreadcrumbList, Flight x0-24, FAQPage, Product]} (tools/importer/build-aircore-jsonld.mjs -> aircore-jsonld.json, written by head-metadata.mjs); the Offer price/currency (and the same price in the FAQ answers) are those the page shows (import time), e.g. frankfurt-new-york 545 EUR (live now 528), munich-new-york 622 (522), germany-usa 458 (423); <, >, & are JSON-escaped because the pipeline HTML-escaped them in the script. Uploaded and previewed: all 23 render one application/ld+json script that parses and equals the value; no hreflang rendered; the live alternates (4-5 per page, not 3) are in the new hreflang column of tools/migration-scope/aircore.csv. Layout unchanged.",
+  "commit": "head-2",
+  "date": "2026-10-24"
  }
 ]

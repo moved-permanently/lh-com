@@ -239550,8 +239550,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13660,
-          "at": "2026-10-22T23:23:14.181Z",
+          "ms": 14040,
+          "at": "2026-10-24T04:57:11.971Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 3678,
@@ -239589,7 +239589,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6251
+              "svgAnimations": 5500
             },
             "liveBoxes": 1
           }
@@ -239600,8 +239600,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.11636,
-        "unmaskedRatio": 0.14266,
+        "mismatchRatio": 0.12193,
+        "unmaskedRatio": 0.14949,
         "maskRatio": 0.18434,
         "maskBoxes": 1,
         "widthA": 1425,
@@ -239612,46 +239612,46 @@
         "firstDivergentBand": {
           "index": 14,
           "y": 2800,
-          "unmaskedRatio": 0.54066
+          "unmaskedRatio": 0.5142
         },
         "worstBands": [
           {
             "y": 3400,
-            "unmaskedRatio": 0.54091
+            "unmaskedRatio": 0.70058
           },
           {
             "y": 2800,
-            "unmaskedRatio": 0.54066
+            "unmaskedRatio": 0.5142
           },
           {
             "y": 1200,
-            "unmaskedRatio": 0.16486
+            "unmaskedRatio": 0.16006
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02701,
+          0.02128,
           0,
           0,
           0,
-          0.08434,
-          0.12686,
-          0.16486,
-          0.11229,
-          0.04579,
-          0.0909,
-          0.10343,
-          0.07854,
-          0.05693,
-          0.05666,
-          0.54066,
-          0.079,
-          0.03831,
-          0.54091,
-          0.01021
+          0.04575,
+          0.12107,
+          0.16006,
+          0.1168,
+          0.04414,
+          0.09418,
+          0.09836,
+          0.07949,
+          0.05768,
+          0.05485,
+          0.5142,
+          0.08024,
+          0.03793,
+          0.70058,
+          0.06157
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/1440-diff.png",
-        "at": "2026-10-22T23:23:16.333Z",
+        "at": "2026-10-24T04:57:14.187Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/1440-diff.png",
@@ -239668,11 +239668,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13502,
-          "at": "2026-10-22T23:24:07.780Z",
+          "ms": 13673,
+          "at": "2026-10-24T04:57:28.066Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3995,
+            "scrollHeight": 3951,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -239707,7 +239707,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6168
+              "svgAnimations": 6290
             },
             "liveBoxes": 1
           }
@@ -239718,59 +239718,59 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.17194,
-        "unmaskedRatio": 0.20096,
-        "maskRatio": 0.14443,
+        "mismatchRatio": 0.15167,
+        "unmaskedRatio": 0.17761,
+        "maskRatio": 0.14604,
         "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3855,
-        "heightB": 3995,
-        "heightDiffRatio": 0.03504,
+        "heightB": 3951,
+        "heightDiffRatio": 0.0243,
         "firstDivergentBand": {
-          "index": 15,
-          "y": 3000,
-          "unmaskedRatio": 0.58973
+          "index": 3,
+          "y": 600,
+          "unmaskedRatio": 0.37152
         },
         "worstBands": [
           {
-            "y": 3800,
-            "unmaskedRatio": 0.61543
+            "y": 3000,
+            "unmaskedRatio": 0.52707
           },
           {
-            "y": 3000,
-            "unmaskedRatio": 0.58973
+            "y": 3800,
+            "unmaskedRatio": 0.47787
           },
           {
             "y": 600,
-            "unmaskedRatio": 0.27217
+            "unmaskedRatio": 0.37152
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03169,
+          0.02715,
           0,
           0,
-          0.27217,
-          0.14502,
-          0.24564,
-          0.22744,
-          0.16556,
-          0.08266,
-          0.1342,
-          0.15539,
-          0.12323,
-          0.1221,
-          0.06798,
-          0.0516,
-          0.58973,
-          0.26633,
-          0.07287,
-          0.22784,
-          0.61543
+          0.37152,
+          0.17799,
+          0.22202,
+          0.20752,
+          0.17187,
+          0.06726,
+          0.13568,
+          0.14876,
+          0.13705,
+          0.10715,
+          0.07564,
+          0.04676,
+          0.52707,
+          0.12655,
+          0.06037,
+          0.21955,
+          0.47787
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/768-diff.png",
-        "at": "2026-10-22T23:24:09.299Z",
+        "at": "2026-10-24T04:57:29.642Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/768-diff.png",
@@ -239787,8 +239787,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14441,
-          "at": "2026-10-22T23:24:23.849Z",
+          "ms": 14382,
+          "at": "2026-10-24T04:57:44.181Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5517,
@@ -239826,7 +239826,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5410
+              "svgAnimations": 5535
             },
             "liveBoxes": 1
           }
@@ -239837,8 +239837,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.13998,
-        "unmaskedRatio": 0.16383,
+        "mismatchRatio": 0.14546,
+        "unmaskedRatio": 0.17023,
         "maskRatio": 0.14555,
         "maskBoxes": 1,
         "widthA": 375,
@@ -239847,57 +239847,57 @@
         "heightB": 5517,
         "heightDiffRatio": 0.00163,
         "firstDivergentBand": {
-          "index": 26,
-          "y": 5200,
-          "unmaskedRatio": 0.55989
+          "index": 23,
+          "y": 4600,
+          "unmaskedRatio": 0.40099
         },
         "worstBands": [
           {
-            "y": 5200,
-            "unmaskedRatio": 0.55989
+            "y": 4600,
+            "unmaskedRatio": 0.40099
           },
           {
-            "y": 1800,
-            "unmaskedRatio": 0.23047
+            "y": 5200,
+            "unmaskedRatio": 0.22851
           },
           {
             "y": 1200,
-            "unmaskedRatio": 0.22355
+            "unmaskedRatio": 0.21889
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.06097,
+          0.05278,
           0,
           0,
           0,
-          0.07181,
-          0.18743,
-          0.22355,
-          0.18669,
-          0.21597,
-          0.23047,
-          0.1686,
-          0.20816,
-          0.16028,
-          0.15403,
-          0.13735,
-          0.17321,
-          0.21489,
-          0.19248,
-          0.16327,
-          0.12183,
-          0.11173,
-          0.04607,
-          0.06567,
-          0.09049,
-          0.09193,
-          0.08063,
-          0.55989,
-          0.02341
+          0.1178,
+          0.18643,
+          0.21889,
+          0.18039,
+          0.20776,
+          0.21548,
+          0.15728,
+          0.21163,
+          0.1758,
+          0.17055,
+          0.11619,
+          0.17364,
+          0.21455,
+          0.20937,
+          0.16309,
+          0.14339,
+          0.10435,
+          0.07633,
+          0.19603,
+          0.40099,
+          0.11149,
+          0.05313,
+          0.22851,
+          0.04556
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/390-diff.png",
-        "at": "2026-10-22T23:24:25.245Z",
+        "at": "2026-10-24T04:57:45.480Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/de/o-d/c-c/deutschland-usa/390-diff.png",
@@ -242787,11 +242787,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 15632,
-          "at": "2026-10-23T17:08:56.648Z",
+          "ms": 14622,
+          "at": "2026-10-24T04:58:00.292Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7917,
+            "scrollHeight": 7821,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -242826,7 +242826,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 4975
+              "svgAnimations": 5102
             },
             "liveBoxes": 6
           }
@@ -242837,9 +242837,90 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.22037,
+        "unmaskedRatio": 0.24202,
+        "maskRatio": 0.08945,
+        "maskBoxes": 6,
+        "cropA": {
+          "top": 98,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 7544,
+        "heightB": 7821,
+        "heightDiffRatio": 0.03542,
+        "firstDivergentBand": {
+          "index": 23,
+          "y": 4600,
+          "unmaskedRatio": 0.85434
+        },
+        "worstBands": [
+          {
+            "y": 5400,
+            "unmaskedRatio": 0.89147
+          },
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.85434
+          },
+          {
+            "y": 4800,
+            "unmaskedRatio": 0.81188
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02097,
+          0,
+          0,
+          0,
+          0.06718,
+          0.09696,
+          0.0356,
+          0.05982,
+          0.0198,
+          0.07291,
+          0.06406,
+          0.09957,
+          0.05141,
+          0.02146,
+          0.0369,
+          0.05761,
+          0.03886,
+          0.04274,
+          0.04647,
+          0.08766,
+          0.0485,
+          0.12756,
+          0.02715,
+          0.85434,
+          0.81188,
+          0.69905,
+          0.7691,
+          0.89147,
+          0.47397,
+          0.06008,
+          0.08166,
+          0.08731,
+          0.09039,
+          0.07022,
+          0.5299,
+          0.66271,
+          0.05115,
+          0.65579,
+          0.71782,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
+        "at": "2026-10-24T04:58:04.330Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/1440-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/gb/en/o-d/cy-cy/frankfurt-london@768": {
       "id": "lhg/gb/en/o-d/cy-cy/frankfurt-london",
@@ -242852,11 +242933,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13381,
-          "at": "2026-10-23T17:09:14.434Z",
+          "ms": 13657,
+          "at": "2026-10-24T04:58:18.186Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7967,
+            "scrollHeight": 7871,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -242891,7 +242972,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5199
+              "svgAnimations": 5045
             },
             "liveBoxes": 6
           }
@@ -242902,9 +242983,90 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.24444,
+        "unmaskedRatio": 0.26462,
+        "maskRatio": 0.07624,
+        "maskBoxes": 6,
+        "cropA": {
+          "top": 190,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 7810,
+        "heightB": 7871,
+        "heightDiffRatio": 0.00775,
+        "firstDivergentBand": {
+          "index": 26,
+          "y": 5200,
+          "unmaskedRatio": 0.54025
+        },
+        "worstBands": [
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.92001
+          },
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.91046
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.90876
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02685,
+          0,
+          0,
+          0.1361,
+          0.10453,
+          0.08182,
+          0.08355,
+          0.04327,
+          0.05177,
+          0.07423,
+          0.19396,
+          0.09353,
+          0.04625,
+          0.03765,
+          0.05772,
+          0.05345,
+          0.04109,
+          0.04201,
+          0.04154,
+          0.03851,
+          0.01982,
+          0.10987,
+          0.11406,
+          0.10268,
+          0.1209,
+          0.088,
+          0.54025,
+          0.77272,
+          0.73665,
+          0.9063,
+          0.92001,
+          0.7231,
+          0.11448,
+          0.08276,
+          0.11341,
+          0.25679,
+          0.90876,
+          0.91046,
+          0.90604,
+          0.02215
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
+        "at": "2026-10-24T04:58:20.767Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/768-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/gb/en/o-d/cy-cy/frankfurt-london@390": {
       "id": "lhg/gb/en/o-d/cy-cy/frankfurt-london",
@@ -242917,11 +243079,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13156,
-          "at": "2026-10-23T17:09:30.426Z",
+          "ms": 13222,
+          "at": "2026-10-24T04:58:34.167Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 10435,
+            "scrollHeight": 10315,
             "truncated": true,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -242956,7 +243118,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5168
+              "svgAnimations": 5266
             },
             "liveBoxes": 6
           }
@@ -242967,9 +243129,90 @@
           "status": "provided"
         }
       },
-      "compare": null,
+      "compare": {
+        "mismatchRatio": 0.1095,
+        "unmaskedRatio": 0.12234,
+        "maskRatio": 0.10495,
+        "maskBoxes": 6,
+        "cropA": {
+          "top": 238,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 7762,
+        "heightB": 8000,
+        "heightDiffRatio": 0.02975,
+        "firstDivergentBand": {
+          "index": 36,
+          "y": 7200,
+          "unmaskedRatio": 0.41048
+        },
+        "worstBands": [
+          {
+            "y": 7400,
+            "unmaskedRatio": 0.6846
+          },
+          {
+            "y": 7200,
+            "unmaskedRatio": 0.41048
+          },
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.20364
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04958,
+          0,
+          0,
+          0,
+          0.02807,
+          0.0532,
+          0.20364,
+          0.18756,
+          0.119,
+          0.06472,
+          0.08585,
+          0.11668,
+          0.13615,
+          0.09779,
+          0.11107,
+          0.14757,
+          0.17717,
+          0.10297,
+          0.09083,
+          0.06688,
+          0.09245,
+          0.06164,
+          0.05311,
+          0.04987,
+          0.04645,
+          0.05057,
+          0.04739,
+          0.05501,
+          0.04999,
+          0.04511,
+          0.14115,
+          0.12293,
+          0.12163,
+          0.11136,
+          0.1206,
+          0.15087,
+          0.41048,
+          0.6846,
+          0.14653,
+          0.02933
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
+        "at": "2026-10-24T04:58:35.730Z",
+        "attempts": 1
+      },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/gb/en/o-d/cy-cy/frankfurt-london/390-diff.png",
-      "status": "pending"
+      "status": "done"
     },
     "lhg/de/en/dest/co/europe@1440": {
       "id": "lhg/de/en/dest/co/europe",
@@ -250795,8 +251038,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 9128,
-          "at": "2026-10-23T17:09:41.625Z",
+          "ms": 9310,
+          "at": "2026-10-24T04:58:45.233Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7821,
@@ -250845,8 +251088,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.26925,
-        "unmaskedRatio": 0.2957,
+        "mismatchRatio": 0.26839,
+        "unmaskedRatio": 0.29475,
         "maskRatio": 0.08945,
         "maskBoxes": 6,
         "widthA": 1425,
@@ -250857,67 +251100,67 @@
         "firstDivergentBand": {
           "index": 22,
           "y": 4400,
-          "unmaskedRatio": 0.9235
+          "unmaskedRatio": 0.92346
         },
         "worstBands": [
           {
             "y": 7400,
-            "unmaskedRatio": 0.97297
+            "unmaskedRatio": 0.97957
           },
           {
             "y": 6800,
-            "unmaskedRatio": 0.96906
+            "unmaskedRatio": 0.96873
           },
           {
             "y": 4400,
-            "unmaskedRatio": 0.9235
+            "unmaskedRatio": 0.92346
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.02791,
+          0.02212,
           0,
           0,
           0,
-          0.09282,
-          0.09617,
-          0.04856,
-          0.071,
-          0.02889,
-          0.0425,
-          0.04142,
-          0.12892,
-          0.05427,
-          0.03561,
+          0.07488,
+          0.10258,
+          0.0429,
+          0.06796,
+          0.02924,
+          0.04219,
+          0.04171,
+          0.13342,
+          0.05519,
+          0.03549,
           0.02502,
-          0.0538,
-          0.0476,
-          0.05553,
-          0.10646,
-          0.07968,
-          0.09107,
-          0.19621,
-          0.9235,
-          0.77528,
-          0.78203,
-          0.76284,
-          0.89413,
-          0.72286,
-          0.08153,
-          0.07621,
-          0.08983,
-          0.08999,
-          0.0721,
-          0.27503,
-          0.96906,
-          0.73353,
-          0.41305,
-          0.97297,
-          0.58676,
+          0.05339,
+          0.04601,
+          0.05809,
+          0.10622,
+          0.08059,
+          0.08979,
+          0.19824,
+          0.92346,
+          0.77379,
+          0.77303,
+          0.74988,
+          0.89295,
+          0.65394,
+          0.08365,
+          0.07818,
+          0.09646,
+          0.0956,
+          0.07664,
+          0.26629,
+          0.96873,
+          0.66412,
+          0.40867,
+          0.97957,
+          0.71816,
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/1440-diff.png",
-        "at": "2026-10-23T17:09:45.762Z",
+        "at": "2026-10-24T04:58:49.496Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/1440-diff.png",
@@ -250934,8 +251177,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8175,
-          "at": "2026-10-23T17:09:54.120Z",
+          "ms": 8228,
+          "at": "2026-10-24T04:58:57.882Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7838,
@@ -250984,8 +251227,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.27608,
-        "unmaskedRatio": 0.29847,
+        "mismatchRatio": 0.2747,
+        "unmaskedRatio": 0.29697,
         "maskRatio": 0.07501,
         "maskBoxes": 6,
         "widthA": 753,
@@ -250996,67 +251239,67 @@
         "firstDivergentBand": {
           "index": 3,
           "y": 600,
-          "unmaskedRatio": 0.3146
+          "unmaskedRatio": 0.32648
         },
         "worstBands": [
           {
             "y": 7400,
-            "unmaskedRatio": 0.95039
+            "unmaskedRatio": 0.94524
           },
           {
             "y": 5400,
-            "unmaskedRatio": 0.92096
+            "unmaskedRatio": 0.92255
           },
           {
             "y": 5600,
-            "unmaskedRatio": 0.91504
+            "unmaskedRatio": 0.91488
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03223,
+          0.02778,
           0,
           0,
-          0.3146,
-          0.12295,
-          0.13752,
-          0.07084,
-          0.08185,
-          0.04108,
-          0.07513,
-          0.0757,
-          0.16599,
-          0.10224,
-          0.04836,
-          0.04277,
-          0.06146,
-          0.04062,
-          0.03618,
-          0.0416,
-          0.09807,
-          0.09058,
-          0.08403,
-          0.1354,
-          0.08572,
-          0.43496,
-          0.83265,
-          0.74306,
-          0.92096,
-          0.91504,
-          0.90997,
-          0.42449,
-          0.13813,
-          0.06774,
-          0.13463,
-          0.10146,
-          0.4364,
-          0.88578,
-          0.95039,
-          0.7478,
-          0.58916
+          0.32648,
+          0.12484,
+          0.13698,
+          0.06181,
+          0.08269,
+          0.04333,
+          0.06459,
+          0.08345,
+          0.16574,
+          0.10075,
+          0.04913,
+          0.04622,
+          0.06054,
+          0.04222,
+          0.0355,
+          0.0417,
+          0.09007,
+          0.08693,
+          0.09108,
+          0.13098,
+          0.0823,
+          0.39875,
+          0.81776,
+          0.74083,
+          0.92255,
+          0.91488,
+          0.90984,
+          0.42708,
+          0.131,
+          0.07301,
+          0.12951,
+          0.09548,
+          0.40644,
+          0.90198,
+          0.94524,
+          0.78077,
+          0.59622
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/768-diff.png",
-        "at": "2026-10-23T17:09:56.694Z",
+        "at": "2026-10-24T04:59:00.559Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/768-diff.png",
@@ -251073,8 +251316,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7832,
-          "at": "2026-10-23T17:10:04.681Z",
+          "ms": 8105,
+          "at": "2026-10-24T04:59:08.837Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 9996,
@@ -251123,8 +251366,8 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.16241,
-        "unmaskedRatio": 0.18146,
+        "mismatchRatio": 0.16253,
+        "unmaskedRatio": 0.18159,
         "maskRatio": 0.10495,
         "maskBoxes": 6,
         "widthA": 375,
@@ -251135,67 +251378,67 @@
         "firstDivergentBand": {
           "index": 33,
           "y": 6600,
-          "unmaskedRatio": 0.80872
+          "unmaskedRatio": 0.49348
         },
         "worstBands": [
           {
             "y": 7600,
-            "unmaskedRatio": 0.90487
+            "unmaskedRatio": 0.90204
           },
           {
             "y": 7800,
-            "unmaskedRatio": 0.87229
+            "unmaskedRatio": 0.87497
           },
           {
-            "y": 6600,
-            "unmaskedRatio": 0.80872
+            "y": 6800,
+            "unmaskedRatio": 0.63913
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.0616,
+          0.05295,
           0,
           0,
           0,
-          0.10166,
-          0.10671,
-          0.10028,
-          0.22083,
-          0.18295,
-          0.13449,
-          0.06151,
-          0.07172,
-          0.11452,
-          0.07923,
-          0.11245,
-          0.09836,
-          0.11573,
-          0.22315,
-          0.0999,
-          0.07794,
-          0.05917,
-          0.10232,
-          0.06519,
-          0.04713,
-          0.05133,
-          0.05699,
-          0.0614,
-          0.09028,
-          0.12117,
-          0.16001,
-          0.11356,
-          0.12975,
-          0.16471,
-          0.80872,
-          0.29872,
-          0.11633,
-          0.14579,
-          0.26936,
-          0.90487,
-          0.87229
+          0.10077,
+          0.10733,
+          0.11625,
+          0.21561,
+          0.17021,
+          0.14311,
+          0.05863,
+          0.06416,
+          0.07827,
+          0.08417,
+          0.11808,
+          0.1146,
+          0.13193,
+          0.20868,
+          0.10428,
+          0.08581,
+          0.06168,
+          0.0986,
+          0.06863,
+          0.04979,
+          0.05509,
+          0.05308,
+          0.05245,
+          0.08648,
+          0.12507,
+          0.15692,
+          0.11021,
+          0.13985,
+          0.11464,
+          0.49348,
+          0.63913,
+          0.14733,
+          0.13664,
+          0.28387,
+          0.90204,
+          0.87497
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/390-diff.png",
-        "at": "2026-10-23T17:10:06.310Z",
+        "at": "2026-10-24T04:59:10.422Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/lhg/de/en/o-d/cy-cy/frankfurt-new-york/390-diff.png",
@@ -255307,5 +255550,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-24T04:36:57.641Z"
+  "updatedAt": "2026-10-24T04:59:10.422Z"
 }

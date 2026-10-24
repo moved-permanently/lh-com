@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T04:39:18.775Z",
+  "generatedAt": "2026-10-24T04:59:16.628Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -19,8 +19,8 @@
     "de/de": {
       "pages": 328,
       "pass": 0,
-      "review": 36,
-      "fail": 206,
+      "review": 37,
+      "fail": 205,
       "pending": 86,
       "error": 0
     },
@@ -36,14 +36,14 @@
       "pages": 311,
       "pass": 3,
       "review": 7,
-      "fail": 31,
-      "pending": 270,
+      "fail": 32,
+      "pending": 269,
       "error": 0
     }
   },
   "pageWidths": {
     "total": 2683,
-    "compared": 1926
+    "compared": 1929
   },
   "templateGroups": [
     {
@@ -233,10 +233,10 @@
     {
       "template": "aircore-route",
       "width": 768,
-      "pageWidths": 3,
-      "meanUnmasked": 0.22751666666666667,
-      "medianUnmasked": 0.20096,
-      "maxUnmasked": 0.29847
+      "pageWidths": 4,
+      "meanUnmasked": 0.23058,
+      "medianUnmasked": 0.22387,
+      "maxUnmasked": 0.29697
     },
     {
       "template": "form",
@@ -247,20 +247,20 @@
       "maxUnmasked": 0.41631
     },
     {
+      "template": "aircore-route",
+      "width": 1440,
+      "pageWidths": 5,
+      "meanUnmasked": 0.225056,
+      "medianUnmasked": 0.24202,
+      "maxUnmasked": 0.29475
+    },
+    {
       "template": "flight-status",
       "width": 768,
       "pageWidths": 4,
       "meanUnmasked": 0.223815,
       "medianUnmasked": 0.22083999999999998,
       "maxUnmasked": 0.24859
-    },
-    {
-      "template": "aircore-route",
-      "width": 1440,
-      "pageWidths": 4,
-      "meanUnmasked": 0.219345,
-      "medianUnmasked": 0.21951,
-      "maxUnmasked": 0.2957
     },
     {
       "template": "flight-status",
@@ -343,20 +343,20 @@
       "maxUnmasked": 0.4968
     },
     {
-      "template": "aircore-route",
-      "width": 390,
-      "pageWidths": 4,
-      "meanUnmasked": 0.15377000000000002,
-      "medianUnmasked": 0.153945,
-      "maxUnmasked": 0.18146
-    },
-    {
       "template": "legal",
       "width": 1440,
       "pageWidths": 62,
       "meanUnmasked": 0.15361677419354838,
       "medianUnmasked": 0.13026,
       "maxUnmasked": 0.41412
+    },
+    {
+      "template": "aircore-route",
+      "width": 390,
+      "pageWidths": 5,
+      "meanUnmasked": 0.14879,
+      "medianUnmasked": 0.14406,
+      "maxUnmasked": 0.18159
     }
   ],
   "worstPageWidths": [
@@ -5590,7 +5590,7 @@
       "locale": "de/de",
       "template": "aircore-route",
       "priority": 1,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -5601,8 +5601,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.14266,
-          "mismatchRatio": 0.11636,
+          "unmaskedRatio": 0.14949,
+          "mismatchRatio": 0.12193,
           "maskRatio": 0.18434,
           "maskBoxes": 1,
           "heightSrc": 3532,
@@ -5612,15 +5612,15 @@
           "worstBands": [
             {
               "y": 3400,
-              "unmaskedRatio": 0.54091
+              "unmaskedRatio": 0.70058
             },
             {
               "y": 2800,
-              "unmaskedRatio": 0.54066
+              "unmaskedRatio": 0.5142
             },
             {
               "y": 1200,
-              "unmaskedRatio": 0.16486
+              "unmaskedRatio": 0.16006
             }
           ],
           "capturedWidth": 1425,
@@ -5651,26 +5651,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.20096,
-          "mismatchRatio": 0.17194,
-          "maskRatio": 0.14443,
+          "unmaskedRatio": 0.17761,
+          "mismatchRatio": 0.15167,
+          "maskRatio": 0.14604,
           "maskBoxes": 1,
           "heightSrc": 3855,
-          "heightEds": 3995,
-          "heightDiffRatio": 0.03504,
-          "firstDivergentY": 3000,
+          "heightEds": 3951,
+          "heightDiffRatio": 0.0243,
+          "firstDivergentY": 600,
           "worstBands": [
             {
-              "y": 3800,
-              "unmaskedRatio": 0.61543
+              "y": 3000,
+              "unmaskedRatio": 0.52707
             },
             {
-              "y": 3000,
-              "unmaskedRatio": 0.58973
+              "y": 3800,
+              "unmaskedRatio": 0.47787
             },
             {
               "y": 600,
-              "unmaskedRatio": 0.27217
+              "unmaskedRatio": 0.37152
             }
           ],
           "capturedWidth": 753,
@@ -5701,26 +5701,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.16383,
-          "mismatchRatio": 0.13998,
+          "unmaskedRatio": 0.17023,
+          "mismatchRatio": 0.14546,
           "maskRatio": 0.14555,
           "maskBoxes": 1,
           "heightSrc": 5508,
           "heightEds": 5517,
           "heightDiffRatio": 0.00163,
-          "firstDivergentY": 5200,
+          "firstDivergentY": 4600,
           "worstBands": [
             {
-              "y": 5200,
-              "unmaskedRatio": 0.55989
+              "y": 4600,
+              "unmaskedRatio": 0.40099
             },
             {
-              "y": 1800,
-              "unmaskedRatio": 0.23047
+              "y": 5200,
+              "unmaskedRatio": 0.22851
             },
             {
               "y": 1200,
-              "unmaskedRatio": 0.22355
+              "unmaskedRatio": 0.21889
             }
           ],
           "capturedWidth": 375,
@@ -5761,8 +5761,8 @@
       ],
       "remains": [
         "layout diverges at y≈2800 px at 1440; replica 146 px taller (4.0%)",
-        "layout diverges at y≈3000 px at 768; replica 140 px taller (3.5%)",
-        "layout diverges at y≈5200 px at 390"
+        "layout diverges at y≈600 px at 768",
+        "layout diverges at y≈4600 px at 390"
       ]
     },
     {
@@ -13207,14 +13207,40 @@
       "locale": "gb/en",
       "template": "aircore-route",
       "priority": 2,
-      "status": "pending",
-      "widthsChecked": [],
+      "status": "fail",
+      "widthsChecked": [
+        1440,
+        768,
+        390
+      ],
       "widths": [
         {
           "width": 1440,
           "contentWidth": 1425,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.24202,
+          "mismatchRatio": 0.22037,
+          "maskRatio": 0.08945,
+          "maskBoxes": 6,
+          "heightSrc": 7544,
+          "heightEds": 7821,
+          "heightDiffRatio": 0.03542,
+          "firstDivergentY": 4600,
+          "worstBands": [
+            {
+              "y": 5400,
+              "unmaskedRatio": 0.89147
+            },
+            {
+              "y": 4600,
+              "unmaskedRatio": 0.85434
+            },
+            {
+              "y": 4800,
+              "unmaskedRatio": 0.81188
+            }
+          ],
+          "capturedWidth": 1425,
           "contentWidthMatched": true,
           "clientWidth": 1425,
           "overflowPx": 0,
@@ -13241,8 +13267,30 @@
         {
           "width": 768,
           "contentWidth": 753,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.26462,
+          "mismatchRatio": 0.24444,
+          "maskRatio": 0.07624,
+          "maskBoxes": 6,
+          "heightSrc": 7810,
+          "heightEds": 7871,
+          "heightDiffRatio": 0.00775,
+          "firstDivergentY": 5200,
+          "worstBands": [
+            {
+              "y": 6000,
+              "unmaskedRatio": 0.92001
+            },
+            {
+              "y": 7400,
+              "unmaskedRatio": 0.91046
+            },
+            {
+              "y": 7200,
+              "unmaskedRatio": 0.90876
+            }
+          ],
+          "capturedWidth": 753,
           "contentWidthMatched": true,
           "clientWidth": 753,
           "overflowPx": 0,
@@ -13269,8 +13317,30 @@
         {
           "width": 390,
           "contentWidth": 375,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.12234,
+          "mismatchRatio": 0.1095,
+          "maskRatio": 0.10495,
+          "maskBoxes": 6,
+          "heightSrc": 7762,
+          "heightEds": 8000,
+          "heightDiffRatio": 0.02975,
+          "firstDivergentY": 7200,
+          "worstBands": [
+            {
+              "y": 7400,
+              "unmaskedRatio": 0.6846
+            },
+            {
+              "y": 7200,
+              "unmaskedRatio": 0.41048
+            },
+            {
+              "y": 1200,
+              "unmaskedRatio": 0.20364
+            }
+          ],
+          "capturedWidth": 375,
           "contentWidthMatched": true,
           "clientWidth": 375,
           "overflowPx": 0,
@@ -13307,7 +13377,11 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
       ],
-      "remains": []
+      "remains": [
+        "layout diverges at y≈4600 px at 1440; replica 277 px taller (3.5%)",
+        "layout diverges at y≈5200 px at 768",
+        "layout diverges at y≈7200 px at 390"
+      ]
     },
     {
       "path": "/de/en/additional-services",
@@ -116739,8 +116813,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.2957,
-          "mismatchRatio": 0.26925,
+          "unmaskedRatio": 0.29475,
+          "mismatchRatio": 0.26839,
           "maskRatio": 0.08945,
           "maskBoxes": 6,
           "heightSrc": 7398,
@@ -116750,15 +116824,15 @@
           "worstBands": [
             {
               "y": 7400,
-              "unmaskedRatio": 0.97297
+              "unmaskedRatio": 0.97957
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.96906
+              "unmaskedRatio": 0.96873
             },
             {
               "y": 4400,
-              "unmaskedRatio": 0.9235
+              "unmaskedRatio": 0.92346
             }
           ],
           "capturedWidth": 1425,
@@ -116789,8 +116863,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.29847,
-          "mismatchRatio": 0.27608,
+          "unmaskedRatio": 0.29697,
+          "mismatchRatio": 0.2747,
           "maskRatio": 0.07501,
           "maskBoxes": 6,
           "heightSrc": 8000,
@@ -116800,15 +116874,15 @@
           "worstBands": [
             {
               "y": 7400,
-              "unmaskedRatio": 0.95039
+              "unmaskedRatio": 0.94524
             },
             {
               "y": 5400,
-              "unmaskedRatio": 0.92096
+              "unmaskedRatio": 0.92255
             },
             {
               "y": 5600,
-              "unmaskedRatio": 0.91504
+              "unmaskedRatio": 0.91488
             }
           ],
           "capturedWidth": 753,
@@ -116839,8 +116913,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.18146,
-          "mismatchRatio": 0.16241,
+          "unmaskedRatio": 0.18159,
+          "mismatchRatio": 0.16253,
           "maskRatio": 0.10495,
           "maskBoxes": 6,
           "heightSrc": 8000,
@@ -116850,15 +116924,15 @@
           "worstBands": [
             {
               "y": 7600,
-              "unmaskedRatio": 0.90487
+              "unmaskedRatio": 0.90204
             },
             {
               "y": 7800,
-              "unmaskedRatio": 0.87229
+              "unmaskedRatio": 0.87497
             },
             {
-              "y": 6600,
-              "unmaskedRatio": 0.80872
+              "y": 6800,
+              "unmaskedRatio": 0.63913
             }
           ],
           "capturedWidth": 375,

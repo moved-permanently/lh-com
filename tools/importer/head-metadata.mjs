@@ -167,7 +167,12 @@ pathsToDo.forEach((p) => {
       set('Image', `<picture><img src="${escape(live['og:image'])}" alt=""></picture>`);
     }
   }
-  if (jsonld[p]) set('json-ld', escape(JSON.stringify(jsonld[p])));
+  // <, > and & as JSON escapes: the pipeline HTML-escapes them inside the script element
+  // (an FAQ answer's <a href> came out as "&#x3c;a href")
+  if (jsonld[p]) {
+    set('json-ld', escape(JSON.stringify(jsonld[p])
+      .replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026')));
+  }
   if (!changed.length) return;
   results.push({ path: p, changed });
   if (dry) return;

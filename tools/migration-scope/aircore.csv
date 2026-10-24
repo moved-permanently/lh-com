@@ -1,36 +1,36 @@
-type,de_en
-home,/lhg/de/en
-continent,/lhg/de/en/dest/co/europe
-continent,/lhg/de/en/dest/co/north-and-south-america
-country,/lhg/de/en/dest/c/usa
-country,/lhg/de/en/dest/c/spain
-country,/lhg/de/en/dest/c/italy
-country,/lhg/de/en/dest/c/japan
-country,/lhg/de/en/dest/c/india
-country,/lhg/de/en/dest/c/united-kingdom
-city,/lhg/de/en/dest/cy/new-york
-city,/lhg/de/en/dest/cy/los-angeles
-city,/lhg/de/en/dest/cy/barcelona
-city,/lhg/de/en/dest/cy/rome
-city,/lhg/de/en/dest/cy/tokyo
-city,/lhg/de/en/dest/cy/london
-city,/lhg/de/en/dest/cy/paris
-city,/lhg/de/en/dest/cy/amman
-city,/lhg/de/en/dest/cy/palma-de-mallorca
-city,/lhg/de/en/dest/cy/lisbon
-origin,/lhg/de/en/from/cy/frankfurt
-origin,/lhg/de/en/from/cy/munich
-origin,/lhg/de/en/from/cy/berlin
-country-route,/lhg/de/en/o-d/c-c/germany-usa
-country-route,/lhg/de/en/o-d/c-c/germany-spain
-city-route,/lhg/de/en/o-d/cy-cy/frankfurt-new-york
-city-route,/lhg/de/en/o-d/cy-cy/munich-los-angeles
-city-route,/lhg/de/en/o-d/cy-cy/frankfurt-tokyo
-city-route,/lhg/de/en/o-d/cy-cy/munich-barcelona
-city-route,/lhg/de/en/o-d/cy-cy/frankfurt-london
-city-route,/lhg/de/en/o-d/cy-cy/berlin-rome
-city-route,/lhg/de/en/o-d/cy-cy/frankfurt-amman
-city-route,/lhg/de/en/o-d/cy-cy/munich-new-york
-city-route,/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca
-business-class,/lhg/de/en/dest/cy/new-york/business-class
-business-class,/lhg/de/en/dest/cy/tokyo/business-class
+type,de_en,hreflang
+home,/lhg/de/en,
+continent,/lhg/de/en/dest/co/europe,
+continent,/lhg/de/en/dest/co/north-and-south-america,
+country,/lhg/de/en/dest/c/usa,
+country,/lhg/de/en/dest/c/spain,
+country,/lhg/de/en/dest/c/italy,
+country,/lhg/de/en/dest/c/japan,
+country,/lhg/de/en/dest/c/india,
+country,/lhg/de/en/dest/c/united-kingdom,
+city,/lhg/de/en/dest/cy/new-york,
+city,/lhg/de/en/dest/cy/los-angeles,
+city,/lhg/de/en/dest/cy/barcelona,
+city,/lhg/de/en/dest/cy/rome,
+city,/lhg/de/en/dest/cy/tokyo,
+city,/lhg/de/en/dest/cy/london,
+city,/lhg/de/en/dest/cy/paris,
+city,/lhg/de/en/dest/cy/amman,
+city,/lhg/de/en/dest/cy/palma-de-mallorca,
+city,/lhg/de/en/dest/cy/lisbon,
+origin,/lhg/de/en/from/cy/frankfurt,
+origin,/lhg/de/en/from/cy/munich,
+origin,/lhg/de/en/from/cy/berlin,
+country-route,/lhg/de/en/o-d/c-c/germany-usa,es-us https://www.lufthansa.com/lhg/us/es/o-d/c-c/alemania-estados-unidos en-us https://www.lufthansa.com/lhg/us/en/o-d/c-c/germany-usa de-de https://www.lufthansa.com/lhg/de/de/o-d/c-c/deutschland-usa en-de https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-usa
+country-route,/lhg/de/en/o-d/c-c/germany-spain,es-es https://www.lufthansa.com/lhg/es/es/o-d/c-c/alemania-espana en-es https://www.lufthansa.com/lhg/es/en/o-d/c-c/germany-spain de-de https://www.lufthansa.com/lhg/de/de/o-d/c-c/deutschland-spanien en-de https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-spain
+city-route,/lhg/de/en/o-d/cy-cy/frankfurt-new-york,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-new-york en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-new-york es-us https://www.lufthansa.com/lhg/us/es/o-d/cy-cy/francfort-nueva-york en-us https://www.lufthansa.com/lhg/us/en/o-d/cy-cy/frankfurt-new-york fr-fr https://www.lufthansa.com/lhg/fr/fr/o-d/cy-cy/francfort-new-york
+city-route,/lhg/de/en/o-d/cy-cy/munich-los-angeles,es-us https://www.lufthansa.com/lhg/us/es/o-d/cy-cy/munich-los-angeles en-us https://www.lufthansa.com/lhg/us/en/o-d/cy-cy/munich-los-angeles de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-los-angeles en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-los-angeles cs-cz https://www.lufthansa.com/lhg/cz/cs/o-d/cy-cy/mnichov-los-angeles
+city-route,/lhg/de/en/o-d/cy-cy/frankfurt-tokyo,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-tokio en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-tokyo ja-jp https://www.lufthansa.com/lhg/jp/ja/o-d/cy-cy/frankfurt-tokyo en-jp https://www.lufthansa.com/lhg/jp/en/o-d/cy-cy/frankfurt-tokyo fr-fr https://www.lufthansa.com/lhg/fr/fr/o-d/cy-cy/francfort-tokyo
+city-route,/lhg/de/en/o-d/cy-cy/munich-barcelona,es-es https://www.lufthansa.com/lhg/es/es/o-d/cy-cy/munich-barcelona en-es https://www.lufthansa.com/lhg/es/en/o-d/cy-cy/munich-barcelona de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-barcelona en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-barcelona cs-cz https://www.lufthansa.com/lhg/cz/cs/o-d/cy-cy/mnichov-barcelona
+city-route,/lhg/de/en/o-d/cy-cy/frankfurt-london,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-london en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-london en-gb https://www.lufthansa.com/lhg/gb/en/o-d/cy-cy/frankfurt-london fr-fr https://www.lufthansa.com/lhg/fr/fr/o-d/cy-cy/francfort-londres
+city-route,/lhg/de/en/o-d/cy-cy/berlin-rome,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/berlin-rom en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/berlin-rome it-it https://www.lufthansa.com/lhg/it/it/o-d/cy-cy/berlino-roma en-it https://www.lufthansa.com/lhg/it/en/o-d/cy-cy/berlin-rome pl-pl https://www.lufthansa.com/lhg/pl/pl/o-d/cy-cy/berlin-rzym
+city-route,/lhg/de/en/o-d/cy-cy/frankfurt-amman,en-jo https://www.lufthansa.com/lhg/jo/en/o-d/cy-cy/frankfurt-amman de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/frankfurt-amman en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-amman fr-fr https://www.lufthansa.com/lhg/fr/fr/o-d/cy-cy/francfort-amman
+city-route,/lhg/de/en/o-d/cy-cy/munich-new-york,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/muenchen-new-york en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-new-york es-us https://www.lufthansa.com/lhg/us/es/o-d/cy-cy/munich-nueva-york en-us https://www.lufthansa.com/lhg/us/en/o-d/cy-cy/munich-new-york cs-cz https://www.lufthansa.com/lhg/cz/cs/o-d/cy-cy/mnichov-new-york
+city-route,/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca,de-de https://www.lufthansa.com/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca en-de https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca es-es https://www.lufthansa.com/lhg/es/es/o-d/cy-cy/hamburgo-palma-de-mallorca en-es https://www.lufthansa.com/lhg/es/en/o-d/cy-cy/hamburg-palma-de-mallorca
+business-class,/lhg/de/en/dest/cy/new-york/business-class,
+business-class,/lhg/de/en/dest/cy/tokyo/business-class,
