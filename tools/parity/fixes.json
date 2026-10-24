@@ -423,5 +423,12 @@
   "change": "C9: the German-IP wrong-geolocation banner is removed by the cleanup (it was imported as two paragraphs under the header); the harness crops it from the live captures (srcCrop.top 98 at 1440, 190 at 768, 238 at 390, build-jobs.mjs from the snapshot); the /lhg/{cc}/{ll} overview pages carry their Breadcrumb title (Reiseziele / Travel destinations; split-fragments.mjs no longer moves the page metadata into a fragment). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: lhg/at/de/dest/cy/new-york 17.3/20.4/20.8 -> 14.7/21.0/17.9 (first divergence y=0 -> 6400 at 1440).",
   "commit": "a954a01",
   "date": "2026-10-24"
+ },
+ {
+  "page": "261 scope pages (pages.csv x4, AirCore): 200 Description, 20 og:description, 4 og:title, 4 Keywords, 4 Robots (feedback), 1 Canonical (/de/de/rechnungsbeleg), 56 Image",
+  "block": "metadata",
+  "change": "Head item 1: page metadata from the live head (tools/importer/head-metadata.mjs, post-import step in batch-cycle.sh, report tools/reports/head-metadata.md): Description as live (empty row where live has none, else EDS took the first paragraph, e.g. a video URL), og:title/og:description only where live differs from title/description, Keywords, Robots only with noindex (115 values without noindex listed, not set: 107 AirCore index, follow, 8 no index, no follow), Canonical where it points elsewhere, Image = live og:image; no hreflang rows; /metadata.json untouched. Uploaded and previewed; 259 of 261 preview heads match live, 2 differ only by a trailing comma EDS trims from the keywords (gepaeck de/de, at/de). Head spot-check de/en/feedback (robots noindex,nofollow, description empty, og:description), de/de/rechnungsbeleg (canonical https://www.lufthansa.com/xx/de/book-and-manage/pax-receipt), at/de/gepaeck (keywords); the page layout is unchanged (parity 1440: 13.8 / 42.2 / 13.4).",
+  "commit": "head-1",
+  "date": "2026-10-24"
  }
 ]

@@ -2,7 +2,8 @@
 # One capture + import + upload cycle, sized to finish in about 10 minutes:
 #   1. capture the next pages through the warm Bright Data session (stale captures first),
 #   2. import every captured page that is not imported yet (offline, from snapshots),
-#   3. apply the Edge Delivery media limits (postprocess-media.mjs),
+#   3. page metadata from the live head (head-metadata.mjs), then the Edge Delivery media limits
+#      (postprocess-media.mjs),
 #   4. upload new or changed documents to DA and preview them (preview only, never live),
 #   5. rebuild the recorded live data from the responses the pages loaded themselves.
 # Prints one progress line. Usage: tools/importer/batch-cycle.sh [capture-batch]
@@ -25,6 +26,7 @@ flock 9
 for t in $(node -e "console.log(require('./tools/importer/page-templates.json').templates.map((t) => t.name).join(' '))"); do
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done
+node tools/importer/head-metadata.mjs 2>&1 | tail -1
 node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
 node tools/importer/build-upload-list.mjs > /tmp/upload-list.log 2>&1
 timeout 150 node tools/importer/da-upload.mjs --list tools/importer/upload-all.txt 2> /tmp/da-upload.err | grep -E "^da-upload:|^  "

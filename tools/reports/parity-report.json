@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T03:55:12.160Z",
+  "generatedAt": "2026-10-24T04:39:18.775Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -11,8 +11,8 @@
     "de/en": {
       "pages": 328,
       "pass": 1,
-      "review": 47,
-      "fail": 262,
+      "review": 48,
+      "fail": 261,
       "pending": 18,
       "error": 0
     },
@@ -27,9 +27,9 @@
     "at/de": {
       "pages": 312,
       "pass": 3,
-      "review": 8,
+      "review": 9,
       "fail": 27,
-      "pending": 274,
+      "pending": 273,
       "error": 0
     },
     "gb/en": {
@@ -43,7 +43,7 @@
   },
   "pageWidths": {
     "total": 2683,
-    "compared": 1925
+    "compared": 1926
   },
   "templateGroups": [
     {
@@ -121,9 +121,9 @@
     {
       "template": "hub",
       "width": 1440,
-      "pageWidths": 39,
-      "meanUnmasked": 0.34859538461538453,
-      "medianUnmasked": 0.31316,
+      "pageWidths": 40,
+      "meanUnmasked": 0.3432222499999999,
+      "medianUnmasked": 0.31067999999999996,
       "maxUnmasked": 0.59831
     },
     {
@@ -162,7 +162,7 @@
       "template": "info",
       "width": 390,
       "pageWidths": 333,
-      "meanUnmasked": 0.26555471471471476,
+      "meanUnmasked": 0.26537303303303306,
       "medianUnmasked": 0.26111,
       "maxUnmasked": 0.57451
     },
@@ -170,7 +170,7 @@
       "template": "info",
       "width": 768,
       "pageWidths": 322,
-      "meanUnmasked": 0.2610585403726709,
+      "meanUnmasked": 0.2608318322981367,
       "medianUnmasked": 0.246135,
       "maxUnmasked": 0.63235
     },
@@ -210,7 +210,7 @@
       "template": "info",
       "width": 1440,
       "pageWidths": 356,
-      "meanUnmasked": 0.23794842696629231,
+      "meanUnmasked": 0.23762365168539346,
       "medianUnmasked": 0.213975,
       "maxUnmasked": 0.6619
     },
@@ -242,7 +242,7 @@
       "template": "form",
       "width": 768,
       "pageWidths": 23,
-      "meanUnmasked": 0.22749521739130438,
+      "meanUnmasked": 0.22670130434782612,
       "medianUnmasked": 0.21056,
       "maxUnmasked": 0.41631
     },
@@ -298,8 +298,8 @@
       "template": "form",
       "width": 390,
       "pageWidths": 22,
-      "meanUnmasked": 0.21316409090909094,
-      "medianUnmasked": 0.20712999999999998,
+      "meanUnmasked": 0.2111418181818182,
+      "medianUnmasked": 0.1895,
       "maxUnmasked": 0.3124
     },
     {
@@ -330,7 +330,7 @@
       "template": "form",
       "width": 1440,
       "pageWidths": 23,
-      "meanUnmasked": 0.18781000000000003,
+      "meanUnmasked": 0.1872413043478261,
       "medianUnmasked": 0.17174,
       "maxUnmasked": 0.31951
     },
@@ -2592,7 +2592,7 @@
       "locale": "de/en",
       "template": "form",
       "priority": 1,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -2603,8 +2603,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.15123,
-          "mismatchRatio": 0.15123,
+          "unmaskedRatio": 0.13815,
+          "mismatchRatio": 0.13815,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3077,
@@ -2614,15 +2614,15 @@
           "worstBands": [
             {
               "y": 2800,
-              "unmaskedRatio": 0.96405
+              "unmaskedRatio": 0.88048
             },
             {
               "y": 2200,
               "unmaskedRatio": 0.86153
             },
             {
-              "y": 2600,
-              "unmaskedRatio": 0.15902
+              "y": 1800,
+              "unmaskedRatio": 0.04927
             }
           ],
           "capturedWidth": 1425,
@@ -2653,8 +2653,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.16772,
-          "mismatchRatio": 0.16772,
+          "unmaskedRatio": 0.14946,
+          "mismatchRatio": 0.14946,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3162,
@@ -2664,11 +2664,11 @@
           "worstBands": [
             {
               "y": 2200,
-              "unmaskedRatio": 0.73701
+              "unmaskedRatio": 0.61317
             },
             {
               "y": 2800,
-              "unmaskedRatio": 0.69352
+              "unmaskedRatio": 0.5461
             },
             {
               "y": 3000,
@@ -2703,26 +2703,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.22476,
-          "mismatchRatio": 0.22476,
+          "unmaskedRatio": 0.18027,
+          "mismatchRatio": 0.18027,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3771,
           "heightEds": 3568,
           "heightDiffRatio": 0.05383,
-          "firstDivergentY": 2600,
+          "firstDivergentY": 2800,
           "worstBands": [
             {
               "y": 3400,
-              "unmaskedRatio": 0.95281
+              "unmaskedRatio": 0.91913
             },
             {
               "y": 2800,
-              "unmaskedRatio": 0.86225
+              "unmaskedRatio": 0.88633
             },
             {
-              "y": 2600,
-              "unmaskedRatio": 0.65853
+              "y": 3600,
+              "unmaskedRatio": 0.26016
             }
           ],
           "capturedWidth": 375,
@@ -2762,7 +2762,7 @@
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 180 px shorter (5.9%)",
         "layout diverges at y≈2200 px at 768; replica 191 px shorter (6.0%)",
-        "layout diverges at y≈2600 px at 390; replica 203 px shorter (5.4%)"
+        "layout diverges at y≈2800 px at 390; replica 203 px shorter (5.4%)"
       ]
     },
     {
@@ -91178,26 +91178,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.53783,
-          "mismatchRatio": 0.53783,
+          "unmaskedRatio": 0.42221,
+          "mismatchRatio": 0.42221,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2098,
-          "heightEds": 1585,
-          "heightDiffRatio": 0.24452,
-          "firstDivergentY": 800,
+          "heightEds": 1665,
+          "heightDiffRatio": 0.20639,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
               "y": 1600,
-              "unmaskedRatio": 0.99595
+              "unmaskedRatio": 0.99162
             },
             {
               "y": 1800,
               "unmaskedRatio": 0.98683
             },
             {
-              "y": 1200,
-              "unmaskedRatio": 0.96241
+              "y": 1000,
+              "unmaskedRatio": 0.95749
             }
           ],
           "capturedWidth": 1425,
@@ -91228,26 +91228,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.49305,
-          "mismatchRatio": 0.49305,
+          "unmaskedRatio": 0.42005,
+          "mismatchRatio": 0.42005,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2177,
-          "heightEds": 1649,
-          "heightDiffRatio": 0.24254,
-          "firstDivergentY": 800,
+          "heightEds": 1729,
+          "heightDiffRatio": 0.20579,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
               "y": 1800,
               "unmaskedRatio": 0.9931
             },
             {
-              "y": 1600,
-              "unmaskedRatio": 0.98322
+              "y": 1200,
+              "unmaskedRatio": 0.92953
             },
             {
-              "y": 1200,
-              "unmaskedRatio": 0.94637
+              "y": 1000,
+              "unmaskedRatio": 0.92006
             }
           ],
           "capturedWidth": 753,
@@ -91278,14 +91278,14 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.52692,
-          "mismatchRatio": 0.52692,
+          "unmaskedRatio": 0.46642,
+          "mismatchRatio": 0.46642,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2591,
-          "heightEds": 1990,
-          "heightDiffRatio": 0.23196,
-          "firstDivergentY": 1000,
+          "heightEds": 2030,
+          "heightDiffRatio": 0.21652,
+          "firstDivergentY": 1200,
           "worstBands": [
             {
               "y": 2200,
@@ -91296,8 +91296,8 @@
               "unmaskedRatio": 0.97681
             },
             {
-              "y": 1800,
-              "unmaskedRatio": 0.95691
+              "y": 1200,
+              "unmaskedRatio": 0.94165
             }
           ],
           "capturedWidth": 375,
@@ -91329,9 +91329,9 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)"
       ],
       "remains": [
-        "layout diverges at y≈800 px at 1440; replica 513 px shorter (24.5%)",
-        "layout diverges at y≈800 px at 768; replica 528 px shorter (24.3%)",
-        "layout diverges at y≈1000 px at 390; replica 601 px shorter (23.2%)"
+        "layout diverges at y≈1000 px at 1440; replica 433 px shorter (20.6%)",
+        "layout diverges at y≈1000 px at 768; replica 448 px shorter (20.6%)",
+        "layout diverges at y≈1200 px at 390; replica 561 px shorter (21.7%)"
       ]
     },
     {
@@ -118917,14 +118917,59 @@
       "locale": "at/de",
       "template": "hub",
       "priority": 4,
-      "status": "pending",
-      "widthsChecked": [],
+      "status": "review",
+      "widthsChecked": [
+        1440
+      ],
       "widths": [
         {
           "width": 1440,
           "contentWidth": 1425,
-          "state": "pending",
-          "firstDivergentY": null,
+          "state": "done",
+          "unmaskedRatio": 0.13367,
+          "mismatchRatio": 0.13367,
+          "maskRatio": 0,
+          "maskBoxes": 0,
+          "heightSrc": 4716,
+          "heightEds": 4646,
+          "heightDiffRatio": 0.01484,
+          "firstDivergentY": 2800,
+          "worstBands": [
+            {
+              "y": 2800,
+              "unmaskedRatio": 0.33712
+            },
+            {
+              "y": 4600,
+              "unmaskedRatio": 0.32388
+            },
+            {
+              "y": 3000,
+              "unmaskedRatio": 0.30237
+            }
+          ],
+          "capturedWidth": 1425,
+          "contentWidthMatched": true,
+          "clientWidth": 1425,
+          "overflowPx": 0,
+          "failedImages": 0,
+          "fonts": {
+            "h1": {
+              "used": "lufthansahead-digital-assistant",
+              "webfont": true
+            },
+            "h2": {
+              "used": "lufthansahead-digital-assistant",
+              "webfont": true
+            },
+            "body": {
+              "used": "lufthansatext",
+              "webfont": true
+            }
+          },
+          "consentBannerVisible": false,
+          "showcaseNoticeVisible": false,
+          "truncated": false,
           "diff": "tools/reports/parity/shots/at/de/gepaeck/1440-diff.png"
         }
       ],
@@ -118950,7 +118995,9 @@
         "2026-10-24 [page] C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept). (a26bad4)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
       ],
-      "remains": []
+      "remains": [
+        "layout diverges at y≈2800 px at 1440"
+      ]
     },
     {
       "path": "/at/de/digital-self-services",

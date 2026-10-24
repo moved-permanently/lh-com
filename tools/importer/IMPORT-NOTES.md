@@ -46,6 +46,16 @@ Things that are not obvious from the code and cost time once.
   `WebImporter.html2md` + `md2da` + `processPlainHtml` (import-processors). Output matches the
   browser run except `:icon:` tokens (blob images) and the `/media-da/` imageMap.
 
+## Page head metadata (post-import step)
+
+- `node tools/importer/head-metadata.mjs` (idempotent, a few seconds) rewrites the Metadata block
+  of every scope page from its snapshot's live `<head>`: Description (empty row where live has none,
+  else EDS makes one from the first paragraph), og:title / og:description only where live differs
+  from its title / description, Keywords, Robots only with "noindex", Canonical only where it points
+  elsewhere, Image = live og:image, json-ld (AirCore routes, `aircore-jsonld.json`). Run it after
+  every import and before postprocess-media.mjs (batch-cycle.sh does). Report:
+  `tools/reports/head-metadata.md`.
+
 ## Preview limits (post-import step)
 
 - Edge Delivery preview rejects documents with > 200 images, SVGs > 40 KB and images > 20 MB.

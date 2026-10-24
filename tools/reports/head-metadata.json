@@ -1,0 +1,3506 @@
+{
+ "count": {
+  "Description": 200,
+  "og:description": 20,
+  "og:title": 4,
+  "Keywords": 4,
+  "Robots": 4,
+  "Canonical": 1,
+  "Image": 56
+ },
+ "robotsListed": [
+  {
+   "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/de/de/exclusive-charter",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/at/de/exclusive-charter",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/de/de/sepa-bedingungen",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/at/de/sepa-bedingungen",
+   "robots": "no index, no follow"
+  },
+  {
+   "path": "/lhg/de/en",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/co/europe",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/co/europa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/co/europa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/co/europe",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/co/north-and-south-america",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/co/nord-und-suedamerika",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/co/nord-und-suedamerika",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/co/north-and-south-america",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/c/usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/spain",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/spanien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/spanien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/c/spain",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/italy",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/italien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/italien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/c/italy",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/japan",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/japan",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/japan",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/c/japan",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/india",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/indien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/indien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/c/india",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/c/united-kingdom",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/c/grossbritannien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/c/grossbritannien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/rome",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/rom",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/rom",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/rome",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/tokyo",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/tokio",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/tokio",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/tokyo",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/paris",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/paris",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/paris",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/paris",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/lisbon",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/lissabon",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/at/de/dest/cy/lissabon",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/dest/cy/lisbon",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/from/cy/frankfurt",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/from/cy/frankfurt",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/from/cy/munich",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/from/cy/muenchen",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/from/cy/berlin",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/from/cy/berlin",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/c-c/germany-usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/c-c/deutschland-usa",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/c-c/germany-spain",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/c-c/deutschland-spanien",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/frankfurt-new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/munich-los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/muenchen-los-angeles",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/frankfurt-tokio",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/munich-barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/muenchen-barcelona",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/frankfurt-london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/frankfurt-london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/gb/en/o-d/cy-cy/frankfurt-london",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/berlin-rome",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/berlin-rom",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/frankfurt-amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/frankfurt-amman",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/munich-new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/muenchen-new-york",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/new-york/business-class",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/new-york/business-class",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/en/dest/cy/tokyo/business-class",
+   "robots": "index, follow"
+  },
+  {
+   "path": "/lhg/de/de/dest/cy/tokio/business-class",
+   "robots": "index, follow"
+  }
+ ],
+ "rows": [
+  {
+   "path": "/de/en/book-and-manage/booking-services/manage-my-bookings",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/booking-services/manage-my-bookings",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/booking-services/manage-my-bookings",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/booking-services/manage-my-bookings",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/100-years",
+   "missing": [
+    "og:title"
+   ],
+   "live": {
+    "og:title": "100 Jahre Lufthansa"
+   },
+   "before": {
+    "og:title": "100 Jahre Lufthansa"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/100-years",
+   "missing": [
+    "og:title"
+   ],
+   "live": {
+    "og:title": "100 Jahre Lufthansa"
+   },
+   "before": {
+    "og:title": "100 Jahre Lufthansa"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/100-years/cabin-design",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "/content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/100-years/cabin-design",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "/content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/stopover/bayerischer-hof",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!"
+   },
+   "before": {
+    "Description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!",
+    "og:description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/stopover/bayerischer-hof",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!"
+   },
+   "before": {
+    "Description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!",
+    "og:description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/stopover/bayerischer-hof",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!"
+   },
+   "before": {
+    "Description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!",
+    "og:description": "Entdecken Sie das Hotel Bayerischer Hof, Münchens legendäres 5-Sterne-Hotel. Genießen Sie luxuriöse Zimmer, Michelin-Sterneküche, einen atemberaubenden Dach-Spa und Live-Jazz. Buchen Sie Ihren unvergesslichen Aufenthalt noch heute!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/stopover/bayerischer-hof",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!"
+   },
+   "before": {
+    "Description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!",
+    "og:description": "Discover Hotel Bayerischer Hof, Munich's legendary 5-star hotel. Enjoy luxurious rooms, Michelin-starred dining, a stunning rooftop spa, and live jazz. Book your unforgettable stay today!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/discover-lufthansa/take-off",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Board your flight and enjoy the journey. Yes – that's flying with Lufthansa. Perfectly prepared for your trip, the most important things taken care of ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/discover-lufthansa/take-off",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Einsteigen und die Reise genießen. Yes – das ist Fliegen mit Lufthansa. Perfekt auf die Reise vorbereitet, die wichtigsten Dinge schon zu Hause digital erledigt ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/discover-lufthansa/take-off",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Einsteigen und die Reise genießen. Yes – das ist Fliegen mit Lufthansa. Perfekt auf die Reise vorbereitet, die wichtigsten Dinge schon zu Hause digital erledigt ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/discover-lufthansa/take-off",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Board your flight and enjoy the journey. Yes – that's flying with Lufthansa. Perfectly prepared for your trip, the most important things taken care of ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/lufthansa-city/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/lufthansa-city/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/lufthansa-city/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/lufthansa-city/culinaryjourney",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/744",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "PDF download seat map B747-400 main deck and upper deck (67C / 32E / 272M)"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/744",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "PDF Download Sitzplan B747-400 Hauptdeck und Oberdeck (67C / 32E / 272M)"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/744",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "PDF Download Sitzplan B747-400 Hauptdeck und Oberdeck (67C / 32E / 272M)"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/744",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "PDF download seat map B747-400 main deck and upper deck (67C / 32E / 272M)"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/cancellation-and-refund/refund/refund-form",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "If you wish to refund your ticket, you can cancel your trip and request a refund under “Flight details” in \"My bookings\" or with the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/cancellation-and-refund/refund/refund-form",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "If you wish to refund your ticket, you can cancel your trip and request a refund under “Flight details” in \"My bookings\" or with the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/farealert/best-price-alert",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Get instant alerts when prices drop for your dream destinations"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/farealert/best-price-alert",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Best price alerts können aktiviert werden, indem Sie auf das Weckersymbol oben rechts bei einem Reiseziel auf der Seite Angebote & Destinationen klicken."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/farealert/best-price-alert",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Best price alerts können aktiviert werden, indem Sie auf das Weckersymbol oben rechts bei einem Reiseziel auf der Seite Angebote & Destinationen klicken."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/farealert/best-price-alert",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Best price alerts can be set up by activating the alarm clock icon located at the the right corner of any destination on the Offers ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/feedback",
+   "missing": [
+    "Description",
+    "og:description",
+    "Robots"
+   ],
+   "live": {
+    "og:description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "Robots": "noindex,nofollow"
+   },
+   "before": {
+    "Description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "og:description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "Robots": "noindex, nofollow"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/feedback",
+   "missing": [
+    "Robots"
+   ],
+   "live": {
+    "Robots": "noindex,nofollow"
+   },
+   "before": {
+    "Robots": "noindex, nofollow"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/feedback",
+   "missing": [
+    "Robots"
+   ],
+   "live": {
+    "Robots": "noindex,nofollow"
+   },
+   "before": {
+    "Robots": "noindex, nofollow"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/feedback",
+   "missing": [
+    "Description",
+    "og:description",
+    "Robots"
+   ],
+   "live": {
+    "og:description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "Robots": "noindex,nofollow"
+   },
+   "before": {
+    "Description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "og:description": "Use our feedback and contact forms to submit requests for compensation or reimbursement. Learn more now.",
+    "Robots": "noindex, nofollow"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/feedback-past-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Thank you for taking the time to contact us about your concern. Please complete the form so that we can deal with your enquiry quickly. ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/feedback-past-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Vielen Dank, dass Sie sich mit Ihrem Anliegen an uns wenden und sich ein paar Minuten Zeit nehmen. {full-width}"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/feedback-past-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Vielen Dank, dass Sie sich die Zeit genommen haben, uns Ihr Anliegen mitzuteilen. Bitte füllen Sie das Formular aus, damit wir Ihre Anfrage schnell bearbeiten ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/feedback-past-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Thank you for taking the time to contact us about your concern. Please complete the form so that we can deal with your enquiry quickly. ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/feedback/feedbackai",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/feedback/feedbackai",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/feedback/feedbackai",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/feedback/feedbackai",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte melden Sie verspätetes oder beschädigtes Gepäck umgehend bei der Fluggesellschaft, die Ihren Flug durchgeführt hat. Nutzen Sie hierzu die folgenden Links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte melden Sie verspätetes oder beschädigtes Gepäck umgehend bei der Fluggesellschaft, die Ihren Flug durchgeführt hat. Nutzen Sie hierzu die folgenden Links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You can add your ammunition to your Lufthansa flight no later than 72 hours before departure here, unless you have already indicated this upon registering ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Hier können Sie Ihre Munition spätestens 72 Stunden vor dem Abflug zu Ihrem Lufthansa Flug anmelden, sofern Sie diese nicht bereits bei Anmeldung der Waffe ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Hier können Sie Ihre Munition spätestens 72 Stunden vor dem Abflug zu Ihrem Lufthansa Flug anmelden, sofern Sie diese nicht bereits bei Anmeldung der Waffe ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You can add your ammunition to your Lufthansa flight no later than 72 hours before departure here, unless you have already indicated this upon registering ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/baggage",
+   "missing": [
+    "Keywords"
+   ],
+   "live": {
+    "Keywords": "pick-up service, baggage service, suitcase delivery, bag-free travel, Airportr"
+   },
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/gepaeck",
+   "missing": [
+    "Keywords"
+   ],
+   "live": {
+    "Keywords": "Gepäckabholung, Remote Bag Drop, Gepäckservice, Abholservice, Reisen ohne Gepäck, Reisen ohne Koffer, Gepäckabgabe, barrierefreies reisen, Gepäckabholservice, Airportr,"
+   },
+   "before": {},
+   "previewOk": false
+  },
+  {
+   "path": "/at/de/gepaeck",
+   "missing": [
+    "Keywords"
+   ],
+   "live": {
+    "Keywords": "Gepäckabholung, Remote Bag Drop, Gepäckservice, Abholservice, Reisen ohne Gepäck, Reisen ohne Koffer, Gepäckabgabe, barrierefreies reisen, Gepäckabholservice, Airportr,"
+   },
+   "before": {},
+   "previewOk": false
+  },
+  {
+   "path": "/gb/en/baggage",
+   "missing": [
+    "Keywords"
+   ],
+   "live": {
+    "Keywords": "pick-up service, baggage service, suitcase delivery, bag-free travel, Airportr"
+   },
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/meetings-and-events",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "For international trade fairs, congresses, conferences, corporate meetings or large events – with our meetings and events offer, your delegates can optimize their travel costs ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/meetings-and-events",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Ob Sie internationale Messen, Kongresse, Konferenzen, Firmenmeetings oder große Events veranstalten – die Lufthansa Group Airlines unterstützen Sie mit Meetings & Events dabei, die individuelle ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/meetings-and-events",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Ob Sie internationale Messen, Kongresse, Konferenzen, Firmenmeetings oder große Events veranstalten – die Lufthansa Group Airlines unterstützen Sie mit Meetings & Events dabei, die individuelle ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/meetings-and-events",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "For international trade fairs, congresses, conferences, corporate meetings or large events – with our meetings and events offer, your delegates can optimize their travel costs ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/addresses-worldwide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/adressen-weltweit",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/adressen-weltweit",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/addresses-worldwide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/additional-services/get-your-guide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "GetYourGuide is the best place to find unforgettable travel experiences across the whole world. We have over 60,000 experiences, locally tested and curated by experts, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/additional-services/get-your-guide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "GetYourGuide ist die beste Adresse für unvergessliche Reise-Erlebnisse auf der ganzen Welt. Wir haben über 60,000 lokal geprüfte, von Experten zusammengestellte Erlebnisse, damit Sie keine ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/additional-services/get-your-guide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "GetYourGuide ist die beste Adresse für unvergessliche Reise-Erlebnisse auf der ganzen Welt. Wir haben über 60,000 lokal geprüfte, von Experten zusammengestellte Erlebnisse, damit Sie keine ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/additional-services/get-your-guide",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "GetYourGuide is the best place to find unforgettable travel experiences across the whole world. We have over 60,000 experiences, locally tested and curated by experts, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/flights/ana",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Take off from Frankfurt or Munich and discover Japan – with direct connections to over 90 destinations. Together with ANA, we connect you with the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/flights/ana",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Starten Sie in Frankfurt oder München und entdecken Sie Japan – mit nahtlosen Anschlüssen zu mehr als 90 Destinationen. Gemeinsam mit ANA verbinden wir Sie ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/flights/ana",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Starten Sie in Frankfurt oder München und entdecken Sie Japan – mit nahtlosen Anschlüssen zu mehr als 90 Destinationen. Gemeinsam mit ANA verbinden wir Sie ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/flights/ana",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Take off from Frankfurt or Munich and discover Japan – with direct connections to over 90 destinations. Together with ANA, we connect you with the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/flights/ana/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Just like Lufthansa, ANA has an extensive range of food and drinks on board its domestic and international flights."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/flights/ana/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Wie Lufthansa verfügt ANA über ein umfangreiches Speisen- und Getränkeangebot an Bord ihrer nationalen und internationalen Flüge."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/flights/ana/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Wie Lufthansa verfügt ANA über ein umfangreiches Speisen- und Getränkeangebot an Bord ihrer nationalen und internationalen Flüge."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/flights/ana/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Just like Lufthansa, ANA has an extensive range of food and drinks on board its domestic and international flights."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/book-and-manage/flights/lufthansa-voucher",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa Gift Card are an offer from Deutsche Lufthansa Aktiengesellschaft, Venloer Straße 151-153, 50672 Köln, Germany (referred to below as ‘Lufthansa’). The Gift Card are ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/book-and-manage/flights/lufthansa-voucher",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Der Lufthansa Gutschein ist ein Angebot der Deutsche Lufthansa Aktiengesellschaft, Venloer Straße 151-153, 50672 Köln, Deutschland (nachfolgend \"Lufthansa\"). Der Gutschein ist ein Wertgutschein, der auf ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/book-and-manage/flights/lufthansa-voucher",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Der Lufthansa Gutschein ist ein Angebot der Deutsche Lufthansa Aktiengesellschaft, Venloer Straße 151-153, 50672 Köln, Deutschland (nachfolgend \"Lufthansa\"). Der Gutschein ist ein Wertgutschein, der auf ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/book-and-manage/flights/lufthansa-voucher",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa Gift Card are an offer from Deutsche Lufthansa Aktiengesellschaft, Venloer Straße 151-153, 50672 Köln, Germany (referred to below as ‘Lufthansa’). The Gift Card are ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/business-services",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/business-services",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/business-services",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/business-services",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/during-your-trip/food-and-beverages/onboard-delights/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You can find explanations on all important topics concerning preordering food here. {column-start-outer}"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/onboard-delights-faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Hier finden Sie die Erläuterungen zu allen wichtigen Themen rund um das Vorbestellen von Speisen. {column-start-outer column-end-outer}"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/onboard-delights-faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Hier finden Sie die Erläuterungen zu allen wichtigen Themen rund um das Vorbestellen von Speisen. {column-start-outer column-end-outer}"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/during-your-trip/food-and-beverages/onboard-delights/faq",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You can find explanations on all important topics concerning preordering food here. {column-start-outer}"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/exclusive-charter",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Due to current capacity bottlenecks in global air traffic, both Lufthansa and Discover Airlines are unable to provide an ad hoc charter service until further ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/exclusive-charter",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Due to current capacity bottlenecks in global air traffic, both Lufthansa and Discover Airlines are unable to provide an ad hoc charter service until further ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/free2move",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Whether it’s for two minutes or 30 days: Free2move car sharing offers you a cost-effective alternative to get to the airport, into town or to ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/free2move",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Egal, ob für zwei Minuten oder 30 Tage: Free2move Carsharing bietet Ihnen eine kostengünstige Alternative, um zum Flughafen, in die Stadt oder zu Ihrem nächsten ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/free2move",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Egal, ob für zwei Minuten oder 30 Tage: Free2move Carsharing bietet Ihnen eine kostengünstige Alternative, um zum Flughafen, in die Stadt oder zu Ihrem nächsten ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/free2move",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Whether it’s for two minutes or 30 days: Free2move car sharing offers you a cost-effective alternative to get to the airport, into town or to ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/lufthansa-corporate-customers",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa offers corporate and business travellers numerous benefits and worthwhile offers – tailored to the company’s individual requirements."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/lufthansa-firmenkunden",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa bietet Firmen- und Geschäftsreisenden zahlreiche Vorteile und Angebote, die sich auszahlen – ganz nach den individuellen Bedürfnissen des Unternehmens."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/lufthansa-firmenkunden",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa bietet Firmen- und Geschäftsreisenden zahlreiche Vorteile und Angebote, die sich auszahlen – ganz nach den individuellen Bedürfnissen des Unternehmens."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/lufthansa-corporate-customers",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa offers corporate and business travellers numerous benefits and worthwhile offers – tailored to the company’s individual requirements."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Please report delayed baggage immediately to the airline that operated your flight. You can do so using the following links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte melden Sie verspätetes Gepäck umgehend bei der Fluggesellschaft, die Ihren Flug durchgeführt hat. Nutzen Sie hierzu die folgenden Links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte melden Sie verspätetes Gepäck umgehend bei der Fluggesellschaft, die Ihren Flug durchgeführt hat. Nutzen Sie hierzu die folgenden Links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Please report delayed baggage immediately to the airline that operated your flight. You can do so using the following links."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "If you have not received your baggage by the time the baggage reclaim has ended, please report this immediately. At most airports it is best ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Wenn Sie Ihr Gepäck bis zum Ende der Gepäckausgabe nicht erhalten haben, melden Sie dies bitte sofort. An den meisten Flughäfen können Sie dies vorzugsweise ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Wenn Sie Ihr Gepäck bis zum Ende der Gepäckausgabe nicht erhalten haben, melden Sie dies bitte sofort. An den meisten Flughäfen können Sie dies vorzugsweise ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "If you have not received your baggage by the time the baggage reclaim has ended, please report this immediately. At most airports it is best ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Please report to us immediately any bags damaged during carriage so that we can deal with your concern as quickly as possible. At most airports, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Melden Sie uns beim Transport beschädigtes Gepäck bitte umgehend, damit wir uns schnellstmöglich um Ihr Anliegen kümmern können. An den meisten Flughäfen können Sie dies ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Melden Sie uns beim Transport beschädigtes Gepäck bitte umgehend, damit wir uns schnellstmöglich um Ihr Anliegen kümmern können. An den meisten Flughäfen können Sie dies ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Please report to us immediately any bags damaged during carriage so that we can deal with your concern as quickly as possible. At most airports, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "With the European Union’s Smart Borders program, border control procedures are becoming increasingly automated."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mit dem Smart-Borders-Programm der Europäischen Union werden die Grenzkontrollverfahren automatisiert."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mit dem Smart-Borders-Programm der Europäischen Union werden die Grenzkontrollverfahren automatisiert."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "With the European Union’s Smart Borders program, border control procedures are becoming increasingly automated."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "An Electronic Travel Authorisation (UK ETA) for the UK is a digital permit required for travellers who do not need a visa but are visiting ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Eine elektronische Reisegenehmigung (UK ETA – Electronic Travel Authorisation) für das Vereinigte Königreich ist eine digitale Genehmigung, die für Reisende erforderlich ist, die kein Visum ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Eine elektronische Reisegenehmigung (UK ETA – Electronic Travel Authorisation) für das Vereinigte Königreich ist eine digitale Genehmigung, die für Reisende erforderlich ist, die kein Visum ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "An Electronic Travel Authorisation (UK ETA) for the UK is a digital permit required for travellers who do not need a visa but are visiting ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/prepare-for-your-trip/travel-classes/economy-basic",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The Economy Basic fare is available on European routes. It is ideal for travelers who want to travel at a low price, with light baggage, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/travel-classes/economy-basic",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Der Economy Basic Tarif ist auf europäischen Strecken verfügbar. Er ist ideal für alle, die besonders günstig reisen möchten, mit leichtem Gepäck unterwegs sind und ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/travel-classes/economy-basic",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Der Economy Basic Tarif ist auf europäischen Strecken verfügbar. Er ist ideal für alle, die besonders günstig reisen möchten, mit leichtem Gepäck unterwegs sind und ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/prepare-for-your-trip/travel-classes/economy-basic",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The Economy Basic fare is available on European routes. It is ideal for travelers who want to travel at a low price, with light baggage, ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/rechnungsbeleg",
+   "missing": [
+    "Canonical"
+   ],
+   "live": {
+    "Canonical": "https://www.lufthansa.com/xx/de/book-and-manage/pax-receipt"
+   },
+   "before": {
+    "Canonical": "https://lhcom.bbird.live/de/de/rechnungsbeleg"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/schengen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Here you can find information about the free movement of people within Europe’s Schengen Area."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/schengen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Here you can find information about the free movement of people within Europe’s Schengen Area."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/secure-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Transportation Security Administration (TSA) rules require you to provide your full name, date of birth and gender for the purpose of watch list screening, under ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/secure-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Gemäß den Bestimmungen der Transportation Security Administration (TSA) sind Sie verpflichtet, zu Zwecken des Watch List Screening (Prüfung von Beobachtungslisten) auf der Grundlage von 49 ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/secure-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Gemäß den Bestimmungen der Transportation Security Administration (TSA) sind Sie verpflichtet, zu Zwecken des Watch List Screening (Prüfung von Beobachtungslisten) auf der Grundlage von 49 ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/secure-flight",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Transportation Security Administration (TSA) rules require you to provide your full name, date of birth and gender for the purpose of watch list screening, under ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/security-check-time-slot",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "On many flights, you can reserve a security check time slot in advance. Use this opportunity to make your trip enjoyable. You can find out ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/security-check-time-slot",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "On many flights, you can reserve a security check time slot in advance. Use this opportunity to make your trip enjoyable. You can find out ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/support/contact/passenger-duty-united-kingdom",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You are entitled to a refund of Air Passenger Duty United Kingdom under certain conditions (Air Passenger Duty United Kingdom)."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/support/contact/passenger-duty-united-kingdom",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Sie haben unter gewissen Bedingungen ein Anrecht auf die Rückerstattung der Fluggastgebühr von Großbritannien (Air Passenger Duty United Kingdom)."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/support/contact/passenger-duty-united-kingdom",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Sie haben unter gewissen Bedingungen ein Anrecht auf die Rückerstattung der Fluggastgebühr von Großbritannien (Air Passenger Duty United Kingdom)."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/support/contact/passenger-duty-united-kingdom",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "You are entitled to a refund of Air Passenger Duty United Kingdom under certain conditions (Air Passenger Duty United Kingdom)."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/authors/florian-tomberg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Even today, Florian Tomberg vividly remembers his first flight as a Purser to Mumbai. The joy of being the perfect host on board and the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/authors/florian-tomberg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Noch heute kann sich Florian Tomberg an seinen ersten Flug als Purser nach Mumbai erinnern. Die Freude, ein perfekter Gastgeber an Bord zu sein, und ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/authors/florian-tomberg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Noch heute kann sich Florian Tomberg an seinen ersten Flug als Purser nach Mumbai erinnern. Die Freude, ein perfekter Gastgeber an Bord zu sein, und ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/authors/florian-tomberg",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Even today, Florian Tomberg vividly remembers his first flight as a Purser to Mumbai. The joy of being the perfect host on board and the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/100-Years-Seven-People-who-shaped-Lufthansa-History/lh_blog_marga-von-etzdorf_plane_flight_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-flying/media_12c1a865a76527c9ebf95192978d3128e04a44334.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/100-Years-Seven-People-who-shaped-Lufthansa-History/lh_blog_marga-von-etzdorf_plane_flight_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-flying/media_12c1a865a76527c9ebf95192978d3128e04a44334.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-flying/anniversary-super-crane-special",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-flying/media_1e4611e99b4d33c0f8692ad63aed2ef6e13fe8d36.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-flying/anniversary-super-crane-special",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-flying/media_1e4611e99b4d33c0f8692ad63aed2ef6e13fe8d36.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-flying/anniversary-super-crane-special",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-flying/media_1e4611e99b4d33c0f8692ad63aed2ef6e13fe8d36.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-flying/anniversary-super-crane-special",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-flying/media_1e4611e99b4d33c0f8692ad63aed2ef6e13fe8d36.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-flying/essentials-future-of-flying",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/essentials-future-of-flying/lh_blog_lh_blog_cargo_siberian-tigers_illustration_sylvia-neuner_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-flying/media_1b611d36f38e3d5b6a33c7dbac0bf9307959015a4.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-flying/essentials-future-of-flying",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/essentials-future-of-flying/lh_blog_lh_blog_cargo_siberian-tigers_illustration_sylvia-neuner_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-flying/media_1b611d36f38e3d5b6a33c7dbac0bf9307959015a4.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-flying/flying-high-christoph-quarch",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-flying/media_12ff6fb7a4afe42b8d7ed033ae4eac427fd93402d.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-flying/flying-high-christoph-quarch",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-flying/media_12ff6fb7a4afe42b8d7ed033ae4eac427fd93402d.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-flying/flying-high-christoph-quarch",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-flying/media_12ff6fb7a4afe42b8d7ed033ae4eac427fd93402d.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-flying/flying-high-christoph-quarch",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-flying/media_12ff6fb7a4afe42b8d7ed033ae4eac427fd93402d.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-flying/inflight-entertainment-vr-experience",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-flying/media_14a4f03e3334e1cdd0b1285cc3333b7b29fe87807.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-flying/inflight-entertainment-vr-experience",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-flying/media_14a4f03e3334e1cdd0b1285cc3333b7b29fe87807.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-flying/inflight-entertainment-vr-experience",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-flying/media_14a4f03e3334e1cdd0b1285cc3333b7b29fe87807.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-flying/inflight-entertainment-vr-experience",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-flying/media_14a4f03e3334e1cdd0b1285cc3333b7b29fe87807.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world",
+   "missing": [
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Mit unserem Travel Blog zeigen wir Ihnen neue Perspektiven auf die Welt und das Reisen. Lufthansa Teammitglieder teilen Tipps und Inspirationen – damit Ihre nächste Reise unvergesslich wird."
+   },
+   "before": {
+    "og:description": "Mit unserem Travel Blog zeigen wir Ihnen neue Perspektiven auf die Welt und das Reisen. Lufthansa Teammitglieder teilen Tipps und Inspirationen – damit Ihre nächste Reise unvergesslich wird."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world",
+   "missing": [
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Mit unserem Travel Blog zeigen wir Ihnen neue Perspektiven auf die Welt und das Reisen. Lufthansa Teammitglieder teilen Tipps und Inspirationen – damit Ihre nächste Reise unvergesslich wird."
+   },
+   "before": {
+    "og:description": "Mit unserem Travel Blog zeigen wir Ihnen neue Perspektiven auf die Welt und das Reisen. Lufthansa Teammitglieder teilen Tipps und Inspirationen – damit Ihre nächste Reise unvergesslich wird."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_barcelona_placa-reial_getty1386922348_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_161a23b94def040ab89a76ffb097e80c2aeedb231.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+   "missing": [
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Von köstlichen Tapas bis zu einem Spaziergang am Strand von Barceloneta: Erleben Sie mit unseren Insider-Tipps einen perfekten Tag in Barcelona.",
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_barcelona_placa-reial_getty1386922348_16x9.jpg"
+   },
+   "before": {
+    "og:description": "Von köstlichen Tapas bis zu einem Spaziergang am Strand von Barceloneta: Erleben Sie mit unseren Insider-Tipps einen perfekten Tag in Barcelona.",
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_161a23b94def040ab89a76ffb097e80c2aeedb231.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+   "missing": [
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Von köstlichen Tapas bis zu einem Spaziergang am Strand von Barceloneta: Erleben Sie mit unseren Insider-Tipps einen perfekten Tag in Barcelona.",
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_barcelona_placa-reial_getty1386922348_16x9.jpg"
+   },
+   "before": {
+    "og:description": "Von köstlichen Tapas bis zu einem Spaziergang am Strand von Barceloneta: Erleben Sie mit unseren Insider-Tipps einen perfekten Tag in Barcelona.",
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_161a23b94def040ab89a76ffb097e80c2aeedb231.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_barcelona_placa-reial_getty1386922348_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_161a23b94def040ab89a76ffb097e80c2aeedb231.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+   "missing": [
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Jeroen Mosselman shares his perfect day in Berlin: Kreuzberg, Brandenburg Gate, Berlin Wall, Holocaust Memorial, and Museum Island."
+   },
+   "before": {
+    "og:description": "Jeroen Mosselman shares his perfect day in Berlin: Kreuzberg, Brandenburg Gate, Berlin Wall, Holocaust Memorial, and Museum Island."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+   "missing": [
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Jeroen Mosselman zeigt Berlin an einem Tag: Kreuzberg, Brandenburger Tor, Berliner Mauer, Holocaust-Mahnmal und Museumsinsel.",
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/a-perfect-day-berlin-in-one-day/lh_blog_berlin_brandenburger-tor_getty596086576_16x9.jpg"
+   },
+   "before": {
+    "og:description": "Jeroen Mosselman zeigt Berlin an einem Tag: Kreuzberg, Brandenburger Tor, Berliner Mauer, Holocaust-Mahnmal und Museumsinsel.",
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_178ec330aa9fc3f244b3d28e9aeccd18086bb5328.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+   "missing": [
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Jeroen Mosselman zeigt Berlin an einem Tag: Kreuzberg, Brandenburger Tor, Berliner Mauer, Holocaust-Mahnmal und Museumsinsel.",
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/a-perfect-day-berlin-in-one-day/lh_blog_berlin_brandenburger-tor_getty596086576_16x9.jpg"
+   },
+   "before": {
+    "og:description": "Jeroen Mosselman zeigt Berlin an einem Tag: Kreuzberg, Brandenburger Tor, Berliner Mauer, Holocaust-Mahnmal und Museumsinsel.",
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_178ec330aa9fc3f244b3d28e9aeccd18086bb5328.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+   "missing": [
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Jeroen Mosselman shares his perfect day in Berlin: Kreuzberg, Brandenburg Gate, Berlin Wall, Holocaust Memorial, and Museum Island."
+   },
+   "before": {
+    "og:description": "Jeroen Mosselman shares his perfect day in Berlin: Kreuzberg, Brandenburg Gate, Berlin Wall, Holocaust Memorial, and Museum Island."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_spain_sitges_getty2156772544_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_183f69d6499ee90102ae7180d58c1e533c11e8822.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_spain_sitges_getty2156772544_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_183f69d6499ee90102ae7180d58c1e533c11e8822.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_spain_sitges_getty2156772544_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_183f69d6499ee90102ae7180d58c1e533c11e8822.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_spain_sitges_getty2156772544_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_183f69d6499ee90102ae7180d58c1e533c11e8822.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_frankfurt_altsachsenhausen_pubgettyimages1826772802_1440x810.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_1f6b254f8bed687da8af5f29d5fa1e685082b2ae5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/be-picky-frankfurt-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_frankfurt_altsachsenhausen_pubgettyimages1826772802_1440x810.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_1f6b254f8bed687da8af5f29d5fa1e685082b2ae5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/be-picky-frankfurt-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_frankfurt_altsachsenhausen_pubgettyimages1826772802_1440x810.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_1f6b254f8bed687da8af5f29d5fa1e685082b2ae5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/be-picky-frankfurt-insider-tips",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_frankfurt_altsachsenhausen_pubgettyimages1826772802_1440x810.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_1f6b254f8bed687da8af5f29d5fa1e685082b2ae5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/eat-see-do-algiers",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/eat-see-do-algiers/lh_blog_algiers_grande-poste_getty490990290_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_11c50da394478ed92c0498d5fc808e164c8b447de.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/eat-see-do-algiers",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/eat-see-do-algiers/lh_blog_algiers_grande-poste_getty490990290_16x9.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_11c50da394478ed92c0498d5fc808e164c8b447de.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/eat-see-do-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_11ffe1aed6d1b815075b34d52c4347c4759b40dca.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/eat-see-do-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_11ffe1aed6d1b815075b34d52c4347c4759b40dca.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/eat-see-do-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_11ffe1aed6d1b815075b34d52c4347c4759b40dca.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/eat-see-do-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_11ffe1aed6d1b815075b34d52c4347c4759b40dca.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/in-my-hood-district-zurich",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_144d6bd9b3a57867552d1e26acab84ea0d3e60b52.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/in-my-hood-district-zurich",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_144d6bd9b3a57867552d1e26acab84ea0d3e60b52.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/in-my-hood-district-zurich",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_144d6bd9b3a57867552d1e26acab84ea0d3e60b52.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/in-my-hood-district-zurich",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_144d6bd9b3a57867552d1e26acab84ea0d3e60b52.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/know-before-you-go-algiers",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-algiers/LH-KnowBeforeYouGo-Algier-Header-1920x1080.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_16ad90df786f84fff7432c6dca39621bd2250707f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/know-before-you-go-algiers",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-algiers/LH-KnowBeforeYouGo-Algier-Header-1920x1080.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_16ad90df786f84fff7432c6dca39621bd2250707f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/know-before-you-go-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-berlin/LH-KnowBeforeYouGo-Berlin-Header-1920x1080.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_1fdd300cd403e1ca36c93ccdeaf4701d168cdf4c5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/know-before-you-go-berlin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-berlin/LH-KnowBeforeYouGo-Berlin-Header-1920x1080.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_1fdd300cd403e1ca36c93ccdeaf4701d168cdf4c5.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/picture-perfect-austin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_1ed22fa2439b353fecc5f41eaf2602b5cbf58cebd.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/picture-perfect-austin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_1ed22fa2439b353fecc5f41eaf2602b5cbf58cebd.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/picture-perfect-austin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_1ed22fa2439b353fecc5f41eaf2602b5cbf58cebd.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/picture-perfect-austin",
+   "missing": [
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_1ed22fa2439b353fecc5f41eaf2602b5cbf58cebd.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/explore-the-world/stop-over-tokyo",
+   "missing": [
+    "Description",
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Style icons, DJs, designers – twin sisters Ami and Aya Suzuki, who share the artist name Amiaya, are a complete work of art and their ...",
+    "Image": "https://lhcom.bbird.live/de/en/articles/explore-the-world/media_11234b0d7a1d5573a91c7721d00ef24b48710e71b.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/explore-the-world/stop-over-tokyo",
+   "missing": [
+    "Description",
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Stil-Ikonen, DJs, Designerinnen – die Zwillingsschwestern Ami und Aya Suzuki, gemeinsamer Künstlername Amiaya, sind ein Gesamtkunstwerk und ihre eigene Brand",
+    "Image": "https://lhcom.bbird.live/de/de/articles/explore-the-world/media_11234b0d7a1d5573a91c7721d00ef24b48710e71b.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/explore-the-world/stop-over-tokyo",
+   "missing": [
+    "Description",
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Stil-Ikonen, DJs, Designerinnen – die Zwillingsschwestern Ami und Aya Suzuki, gemeinsamer Künstlername Amiaya, sind ein Gesamtkunstwerk und ihre eigene Brand",
+    "Image": "https://lhcom.bbird.live/at/de/articles/explore-the-world/media_11234b0d7a1d5573a91c7721d00ef24b48710e71b.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/explore-the-world/stop-over-tokyo",
+   "missing": [
+    "Description",
+    "Image"
+   ],
+   "live": {
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Style icons, DJs, designers – twin sisters Ami and Aya Suzuki, who share the artist name Amiaya, are a complete work of art and their ...",
+    "Image": "https://lhcom.bbird.live/gb/en/articles/explore-the-world/media_11234b0d7a1d5573a91c7721d00ef24b48710e71b.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/highlights",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!"
+   },
+   "before": {
+    "Description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!",
+    "og:description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/highlights",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Das Leben ist voller Momente. Nichts bleibt, wie es ist. Nichts ist spannender als die Gegenwart. Entdecken Sie hier, was uns aktuell bewegt, was neu ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/highlights",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Das Leben ist voller Momente. Nichts bleibt, wie es ist. Nichts ist spannender als die Gegenwart. Entdecken Sie hier, was uns aktuell bewegt, was neu ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/highlights",
+   "missing": [
+    "Description",
+    "og:description"
+   ],
+   "live": {
+    "og:description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!"
+   },
+   "before": {
+    "Description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!",
+    "og:description": "Nothing is more exciting than the present. Here you can discover what is currently moving us, what's new, what matters to us at the moment. In short: our highlights!"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/highlights/allegris-premium-economy-san-diego",
+   "missing": [
+    "Description",
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "og:description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "Image": "https://lhcom.bbird.live/de/en/articles/highlights/media_16e9626af53bf82f1f5bfce3993f8e98cec066c8f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/highlights/allegris-premium-economy-san-diego",
+   "missing": [
+    "Description",
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "og:description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "Image": "https://lhcom.bbird.live/de/de/articles/highlights/media_16e9626af53bf82f1f5bfce3993f8e98cec066c8f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/highlights/allegris-premium-economy-san-diego",
+   "missing": [
+    "Description",
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "og:description": "Kunst über den Wolken: Inspiriert vom Komfort der Lufthansa Allegris Kabine kreiert Illustrator Diego Blanco ein einzigartiges Poster auf seinem Flug nach San Diego.",
+    "Image": "https://lhcom.bbird.live/at/de/articles/highlights/media_16e9626af53bf82f1f5bfce3993f8e98cec066c8f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/highlights/allegris-premium-economy-san-diego",
+   "missing": [
+    "Description",
+    "og:description",
+    "Image"
+   ],
+   "live": {
+    "og:description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "Image": "https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg"
+   },
+   "before": {
+    "Description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "og:description": "Art above the clouds: Inspired by the comfort of the Lufthansa Allegris cabin, illustrator Diego Blanco creates a unique poster on his flight to San Diego.",
+    "Image": "https://lhcom.bbird.live/gb/en/articles/highlights/media_16e9626af53bf82f1f5bfce3993f8e98cec066c8f.jpg?width=1200&format=pjpg&optimize=medium"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/articles/tags/allegris",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa Allegris heralds a new era of travel. Whether in First Class, Business Class, Premium Economy, or Economy Class, every detail is designed to make ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/articles/tags/allegris",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mit Lufthansa Allegris beginnt eine neue Ära des Reisens. Ob in der First Class, Business Class, Premium Economy oder Economy Class – jedes Detail ist ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/articles/tags/allegris",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mit Lufthansa Allegris beginnt eine neue Ära des Reisens. Ob in der First Class, Business Class, Premium Economy oder Economy Class – jedes Detail ist ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/articles/tags/allegris",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Lufthansa Allegris heralds a new era of travel. Whether in First Class, Business Class, Premium Economy, or Economy Class, every detail is designed to make ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/besondere-befoerderungsbedingungen-bus",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "1. Scope of application and validity of Lufthansa Express Buses"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/besondere-befoerderungsbedingungen-bus",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "4. Fahrpläne, Buchung von Beförderungsplätzen und Beförderungsbeschränkungen"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/besondere-befoerderungsbedingungen-bus",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "4. Fahrpläne, Buchung von Beförderungsplätzen und Beförderungsbeschränkungen"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/besondere-befoerderungsbedingungen-bus",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "1. Scope of application and validity of Lufthansa Express Buses"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/business-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "By linking your Lufthansa profile with the account for your Concur platform services, you agree to the following Terms and Conditions:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/geschaeftsbedingungen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Indem Sie Ihr Lufthansa Profil mit dem Konto Ihrer Concur-Plattformdienste verknüpfen, stimmen Sie den folgenden Geschäftsbedinungen zu:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/geschaeftsbedingungen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Indem Sie Ihr Lufthansa Profil mit dem Konto Ihrer Concur-Plattformdienste verknüpfen, stimmen Sie den folgenden Geschäftsbedinungen zu:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/business-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "By linking your Lufthansa profile with the account for your Concur platform services, you agree to the following Terms and Conditions:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/common",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/common",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common/accessibility-statement",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Veröffentlichungsdatum: 27. Juni 2025 Datum der letzten Aktualisierung: 28. August 2026"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common/accessibility-statement",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Veröffentlichungsdatum: 27. Juni 2025 Datum der letzten Aktualisierung: 28. August 2026"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/common/agb-extra-services-at-online-check-in",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "More space, more service, more comfort: make your trip even more enjoyable just before departure. We offer you upgrades at a fixed price at online ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common/agb-extra-services-at-online-check-in",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mehr Platz, mehr Service, mehr Komfort: Gestalten Sie Ihre Reise kurz vor Abflug noch angenehmer. Abhängig von Ihrer bestehenden Reiseklasse und Ihrer Flugstrecke bieten wir ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common/agb-extra-services-at-online-check-in",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Mehr Platz, mehr Service, mehr Komfort: Gestalten Sie Ihre Reise kurz vor Abflug noch angenehmer. Abhängig von Ihrer bestehenden Reiseklasse und Ihrer Flugstrecke bieten wir ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/common/agb-extra-services-at-online-check-in",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "More space, more service, more comfort: make your trip even more enjoyable just before departure. We offer you upgrades at a fixed price at online ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Enhance your travel experience by selecting your preferred seat during online check-in. Options such as more legroom, extra comfort or seats closer to the front ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Verbessern Sie Ihr Reiseerlebnis, indem Sie beim Online Check-in Ihren bevorzugten Sitzplatz auswählen. Optionen wie mehr Beinfreiheit, zusätzlicher Komfort oder Sitzplätze weiter vorne können beim ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Verbessern Sie Ihr Reiseerlebnis, indem Sie beim Online Check-in Ihren bevorzugten Sitzplatz auswählen. Optionen wie mehr Beinfreiheit, zusätzlicher Komfort oder Sitzplätze weiter vorne können beim ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Enhance your travel experience by selecting your preferred seat during online check-in. Options such as more legroom, extra comfort or seats closer to the front ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/common/imprint/lufthansa-insights-imprint",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Telephone: +49 - 69 - 69 60* (Mon.-Fri.: 08:00 Uhr - 17:00 Uhr) Email: imprint@lufthansa.com Internet: lufthansa.com"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common/imprint/lufthansa-insights-imprint",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Telefon: +49 - 69 - 69 60* (Mo-Fr: 08:00 Uhr - 17:00 Uhr) E-Mail: imprint@lufthansa.com Internet: lufthansa.com"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common/imprint/lufthansa-insights-imprint",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Telefon: +49 - 69 - 69 60* (Mo-Fr: 08:00 Uhr - 17:00 Uhr) E-Mail: imprint@lufthansa.com Internet: lufthansa.com"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/common/imprint/lufthansa-insights-imprint",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Telephone: +49 - 69 - 69 60* (Mon.-Fri.: 08:00 Uhr - 17:00 Uhr) Email: imprint@lufthansa.com Internet: lufthansa.com"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/common/privacy-statement/privacy-statement-group",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "To the Swiss international Airlines (code LX) Data Protection Information"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/common/privacy-statement/privacy-statement-group",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/common/privacy-statement/privacy-statement-group",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {},
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/common/privacy-statement/privacy-statement-group",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "To the Swiss international Airlines (code LX) Data Protection Information"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/data-protection-information",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The protection of your personal data is an important concern for us, Deutsche Lufthansa AG. In the following, we explain how we process your personal ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/data-protection-information",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The protection of your personal data is an important concern for us, Deutsche Lufthansa AG. In the following, we explain how we process your personal ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/datenschutz",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "We take the protection of your private data seriously and want you to feel secure when visiting our websites. The protection of your privacy when ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/datenschutz",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "We take the protection of your private data seriously and want you to feel secure when visiting our websites. The protection of your privacy when ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/faq-data-security",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Combinations of user IDs and passwords are frequently stolen on other websites. Unfortunately, most customers use exactly the same login data on several different platforms. ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/faq-data-security",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Kombinationen von Benutzername und Passwort werden des Öfteren auf anderen Websites gestohlen. Leider nutzen die meisten Kunden ein und dieselben Zugangsdaten auf mehreren Plattformen. Somit ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/faq-data-security",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Kombinationen von Benutzername und Passwort werden des Öfteren auf anderen Websites gestohlen. Leider nutzen die meisten Kunden ein und dieselben Zugangsdaten auf mehreren Plattformen. Somit ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/faq-data-security",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Combinations of user IDs and passwords are frequently stolen on other websites. Unfortunately, most customers use exactly the same login data on several different platforms. ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/nutzungsbedingungen-waehrungsumrechnung",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte beachten Sie beim Kauf eines Tickets mit Währungsumrechnungsoption folgendes:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/nutzungsbedingungen-waehrungsumrechnung",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Bitte beachten Sie beim Kauf eines Tickets mit Währungsumrechnungsoption folgendes:"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/prepare-for-your-trip/baggage/baggage-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Handgepäck: Der Economy Basic Tarif auf Kurz- und Mittelstrecken enthält kein Handgepäck. Passagiere mit einem Economy Basic Tarif, die noch kein Handgepäckstück vor dem Check-in ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/prepare-for-your-trip/baggage/baggage-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Handgepäck: Der Economy Basic Tarif auf Kurz- und Mittelstrecken enthält kein Handgepäck. Passagiere mit einem Economy Basic Tarif, die noch kein Handgepäckstück vor dem Check-in ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/rail-fly-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The terms and conditions for the online sale of tickets shall apply, unless stipulated otherwise in the following provisions. The booking, payment, exchange, and refund ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/rail-fly-bedingungen",
+   "missing": [
+    "Description",
+    "og:title"
+   ],
+   "live": {
+    "og:title": "Nutzungsbedingungen für  RAIL&FLY-Online-Tickets"
+   },
+   "before": {
+    "Description": "Es gelten die Bedingungen für den Internet-Verkauf von Fahrkarten, soweit sich aus den nachfolgenden Bestimmungen nichts anderes ergibt. Buchung, Bezahlung, Umtausch und Erstattung des RAIL&FLY-Online-Tickets ...",
+    "og:title": "Nutzungsbedingungen für RAIL&FLY-Online-Tickets"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/rail-fly-bedingungen",
+   "missing": [
+    "Description",
+    "og:title"
+   ],
+   "live": {
+    "og:title": "Nutzungsbedingungen für  RAIL&FLY-Online-Tickets"
+   },
+   "before": {
+    "Description": "Es gelten die Bedingungen für den Internet-Verkauf von Fahrkarten, soweit sich aus den nachfolgenden Bestimmungen nichts anderes ergibt. Buchung, Bezahlung, Umtausch und Erstattung des RAIL&FLY-Online-Tickets ...",
+    "og:title": "Nutzungsbedingungen für RAIL&FLY-Online-Tickets"
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/rail-fly-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "The terms and conditions for the online sale of tickets shall apply, unless stipulated otherwise in the following provisions. The booking, payment, exchange, and refund ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/sepa-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "I hereby instruct and authorise Deutsche Lufthansa AG to collect the indicated invoice amount from my account, designated by an IBAN (International Banking Account Number). ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/sepa-terms-and-conditions",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "I hereby instruct and authorise Deutsche Lufthansa AG to collect the indicated invoice amount from my account, designated by an IBAN (International Banking Account Number). ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/sepa-terms-and-conditions-b",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "I hereby instruct and authorise Deutsche Lufthansa AG to collect the indicated invoice amount from my account, designated by an IBAN (International Banking Account Number). ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/sepa-bedingungen-b",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Ich mandatiere und ermächtige hiermit die Deutsche Lufthansa AG den ausgewiesenen Rechnungsbeitrag von meinem durch IBAN (International Banking Account Number) bezeichnetem Konto einzuziehen. Zugleich weise ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/sepa-bedingungen-b",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Ich mandatiere und ermächtige hiermit die Deutsche Lufthansa AG den ausgewiesenen Rechnungsbeitrag von meinem durch IBAN (International Banking Account Number) bezeichnetem Konto einzuziehen. Zugleich weise ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/sepa-terms-and-conditions-b",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "I hereby instruct and authorise Deutsche Lufthansa AG to collect the indicated invoice amount from my account, designated by an IBAN (International Banking Account Number). ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/en/terms-of-use",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "These are the terms and conditions of use for all the websites operated by Deutsche Lufthansa AG, in particular lufthansa.com (hereafter referred to as the ..."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/de/de/nutzungsbedingungen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Dies sind die Nutzungsbedingungen für alle von der Deutschen Lufthansa AG betriebenen Websites, insbesondere lufthansa.com (im Folgenden insgesamt \"Lufthansa-Website\")."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/at/de/nutzungsbedingungen",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "Dies sind die Nutzungsbedingungen für alle von der Deutschen Lufthansa AG betriebenen Websites, insbesondere lufthansa.com (im Folgenden insgesamt \"Lufthansa-Website\")."
+   },
+   "previewOk": true
+  },
+  {
+   "path": "/gb/en/terms-of-use",
+   "missing": [
+    "Description"
+   ],
+   "live": {},
+   "before": {
+    "Description": "These are the terms and conditions of use for all the websites operated by Deutsche Lufthansa AG, in particular lufthansa.com (hereafter referred to as the ..."
+   },
+   "previewOk": true
+  }
+ ]
+}
