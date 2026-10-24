@@ -20,7 +20,7 @@
  *    Insights category stage) is a section of its own with style full-bleed, the same way.
  *  - padded: an AEM section (.container-content > .section) that is padded on live
  *    (.section-padding-y-regular), not grey, right after another padded one starts a section
- *    with style padded.
+ *    with style padded; info: also a padded first AEM section that holds the page title.
  *  - stage: an AEM section holding a stage (.inspirationteaser) is a section of its own with
  *    style stage (+ flush without .mb-default, + before-padded before a padded AEM section).
  * afterTransform: drops breaks with no content since the previous break (or the page start),
@@ -229,6 +229,16 @@ export default function transform(hookName, element, payload) {
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);
     });
+    // the page title in a padded first AEM section (info: /book-and-manage/pax-receipt, whose
+    // passenger receipt form is an app widget that is not imported): style padded there too, the
+    // title 2rem / 4rem lower as on live (styles.css keeps the breadcrumb at the top)
+    const first = aemSections[0];
+    if (template.name === 'info' && first && padded(first) && !grey(first) && first.querySelector('h1')
+      && !first.querySelector('.inspirationteaser, .stage')) {
+      const hr = createBreak(document);
+      hr.setAttribute(SOURCE_STYLE, 'padded');
+      first.before(hr);
+    }
     // a stage (.inspirationteaser) is an AEM section of its own, style stage: the space under
     // it is what live adds up (hero-campaign.css): .mb-default (24px; style flush when the
     // wrapper has none), separators in the stage section ({spacer-N} right after the hero) and,

@@ -1202,6 +1202,17 @@ main:has(.column-start, .column-start-outer) > .section > .default-content-wrapp
   margin-top: 0;
 }
 
+/* a padded first section (the page title in a padded AEM section, /de/en/book-and-manage/
+   pax-receipt): the breadcrumb (outside the AEM section on live) stays at the top, the padding
+   goes between it and the title */
+main > .section.padded:first-of-type:has(> .breadcrumb-wrapper:first-child) {
+  padding-top: 0;
+}
+
+main > .section.padded:first-of-type > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(> h1:first-child) {
+  margin-top: calc(var(--spacing-default) + var(--section-padding));
+}
+
 /* separators ("{spacer-N}" / "{divider-N}" paragraphs, scripts.js): .separator .hr is a 1px
    maui-divider (#ccc, transparent with .hr-no-layout) with margin-bottom N (inline style, else
    2.5rem) after the component's own ~32px spacing. A wrapper of separators only takes their
