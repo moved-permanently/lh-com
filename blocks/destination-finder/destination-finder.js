@@ -798,9 +798,11 @@ async function decorateGrid(block, uid) {
   const query = () => ({
     origin: state.origin.code, cabin: state.cabin, months: state.months, tripType: state.tripType,
   });
-  // the service answers by city (LHR → LON): the default origin is mapped first
+  // the default origin keeps its airport code, as live asks for it (gb/en: finder/LHR/E,
+  // recorded from the live page); only its name comes from the origin city (London)
   const firstOffers = contextPromise.then((context) => {
-    state.origin = cityOf(context.origins, state.origin);
+    const city = cityOf(context.origins, state.origin);
+    state.origin = { code: state.origin.code, name: state.origin.name || city.name || '' };
     return { query: query(), result: loadGridOffers(query(), locale) };
   });
 
