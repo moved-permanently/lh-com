@@ -1312,6 +1312,12 @@
       ],
       "blocks": [
         {
+          "name": "subpage-nav",
+          "instances": [
+            ".container-subnav:has(nav.subpage)"
+          ]
+        },
+        {
           "name": "poi-map",
           "instances": [
             ".twocolumn:has(> .column-view > .row > .column-view-item > .poimapping)",
@@ -1539,6 +1545,12 @@
         "https://www.lufthansa.com/gb/en/seat-maps"
       ],
       "blocks": [
+        {
+          "name": "subpage-nav",
+          "instances": [
+            ".container-subnav:has(nav.subpage)"
+          ]
+        },
         {
           "name": "hero-campaign",
           "instances": [
@@ -2306,6 +2318,12 @@
         "https://www.lufthansa.com/gb/en/pre-check-in"
       ],
       "blocks": [
+        {
+          "name": "subpage-nav",
+          "instances": [
+            ".container-subnav:has(nav.subpage)"
+          ]
+        },
         {
           "name": "flight-search",
           "instances": [
