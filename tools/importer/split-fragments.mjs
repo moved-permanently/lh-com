@@ -7,9 +7,9 @@
  * that hold images, e.g. an AirCore continent: h2 Europe, then h3 country + cards-price block
  * per country) moves into fragment documents of at most MAX_PER_FRAGMENT images each, split at
  * unit boundaries (a single unit above the maximum is split between the rows of its block).
- * The page keeps the section's leading headings (so in-page anchors still resolve) and its
- * section metadata, plus one link per fragment that the fragment auto-block
- * (scripts/scripts.js buildAutoBlocks) replaces with the fragment's content.
+ * The page keeps the section's leading headings (so in-page anchors still resolve), its
+ * section metadata and the page metadata block, plus one link per fragment that the fragment
+ * auto-block (scripts/scripts.js buildAutoBlocks) replaces with the fragment's content.
  *
  * Fragment paths are parallel in every locale: /{lhg/}{cc}/{ll}/fragments/{page}-{group}[-{n}]
  *   page:  the page path below the locale root, '-' joined ("home" for the locale root)
@@ -85,7 +85,9 @@ const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-|-$/g, '');
 const isHeading = (c) => /^h[1-6]$/.test(c.tag || '');
-const isSectionMetadata = (c) => c.tag === 'div' && /^<div class="section-metadata"/.test(c.html);
+// section metadata, and the page metadata block: the importer appends it to the last section
+// (/lhg/de/de: inside the Oceania list section, it went into the fragment)
+const isSectionMetadata = (c) => c.tag === 'div' && /^<div class="(section-)?metadata"/.test(c.html);
 
 /** Heading ids of the raw source page, by heading text: Map(text → id). */
 export function rawHeadingIds(rawHtml) {
