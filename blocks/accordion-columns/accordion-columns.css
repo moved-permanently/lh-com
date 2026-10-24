@@ -117,6 +117,28 @@
   line-height: var(--heading-line-height);
 }
 
+/* an icon in a panel heading: a teaser without a target (a.teaser.partner, /gefaehrliche-
+   gegenstaende). Live: .teaser.partner { padding-top: 1.2rem }; .icon-svg 4.8rem square, absolute
+   at left 0 and the top of the tile; .teaser-heading margin-left 5.1rem, margin-bottom 1rem, then
+   the teaser component's 2.4rem */
+.accordion-columns .accordion-columns-panel :is(h2, h3, h4, h5, h6):has(> picture) {
+  position: relative;
+  margin-bottom: 34px;
+  padding: 12px 0 0 51px;
+}
+
+.accordion-columns .accordion-columns-panel :is(h2, h3, h4, h5, h6) > picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.accordion-columns .accordion-columns-panel :is(h2, h3, h4, h5, h6) > picture img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
 /* link lists: .richtext p > a.link-small + br (one link per line) */
 .accordion-columns .accordion-columns-panel ul {
   margin: 0 0 var(--spacing-default);

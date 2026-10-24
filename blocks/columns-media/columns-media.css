@@ -154,6 +154,42 @@
   height: auto;
 }
 
+/* an icon in a heading: a Lufthansa teaser without a target (a.teaser.partner, legal
+   sitzplatzreservierungen-konditionen topics). Live CSS: .teaser.partner { padding-top: 1.2rem }
+   (from 376px); .icon-svg 4.8rem square, position absolute at left 0, margin-top -1.2rem (the
+   top of the tile); .teaser-heading LufthansaHead bold 2rem to 2.4rem / 110%, margin-left 5.1rem,
+   margin-bottom 1rem; .teaser-description (p.desc-inline 1.6rem / 150%, "{copytext-medium}")
+   margin-left 5.1rem, margin-bottom 0, then the teaser component's 2.4rem, the invisible
+   .separator .hr (1px, margin-bottom 2.5rem) and the "Weitere Fragen" link: 50px */
+.columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 12px 0 0 51px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.columns-media .columns-media-row > .columns-media-text :is(h3, h4) > picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.columns-media .columns-media-row > .columns-media-text :is(h3, h4) > picture img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper) {
+  margin-left: 51px;
+}
+
+.columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper):has(+ p:is(.link-wrapper, .button-wrapper)) {
+  margin-bottom: 50px;
+}
+
 /* a link alone in its paragraph: maui-navigation-link size large, variant hyper; links one
    below the other 50px apart (.maui-link { margin-bottom: 2.4rem }, 26px link box) */
 .columns-media .columns-media-text p.link-wrapper {

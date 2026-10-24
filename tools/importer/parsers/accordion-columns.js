@@ -16,6 +16,9 @@ import { viewerNodes, embedNodes } from './media-nodes.js';
  * entertainment widget: a paragraph with the link) stay in place; the block shows the players
  * (scripts/media.js; /flight-disruptions chat assistant videos and YouTube video).
  *
+ * Teasers without a target in a panel (a.teaser.partner: img.icon-svg + heading) give their
+ * heading with the icon inside (/gefaehrliche-gegenstaende, /electronic-devices-and-batteries).
+ *
  * Source links carry an icon <em class="lh lh-arrow-right">, zero-width characters and an
  * sr-only "opens in a new tab" span; those are dropped.
  */
@@ -146,7 +149,18 @@ export default function parse(element, { document }) {
           const text = visibleText(node);
           if (!text) return;
           const h = document.createElement(columns.length ? 'h3' : node.tagName);
-          h.textContent = text;
+          // the icon of a teaser without a target (a.teaser.partner > h4.teaser-heading >
+          // img.icon-svg + .teaser-heading-text, /gefaehrliche-gegenstaende): kept in the heading
+          // ("<h4><img>Permitted in checked baggage</h4>", block CSS: 48px icon left of the title)
+          const icon = node.closest('a.teaser') && node.querySelector('img');
+          const src = icon && icon.getAttribute('src');
+          if (src && !/^(data|blob):/i.test(src) && !/(^|\/)undefined(\.transform|$|\/)/.test(src)) {
+            const img = document.createElement('img');
+            img.setAttribute('src', src);
+            img.setAttribute('alt', clean(icon.getAttribute('alt')));
+            h.append(img);
+          }
+          h.append(text);
           content.push(h);
         } else if (node.matches('.richtext')) {
           content.push(...convertRichText(node));

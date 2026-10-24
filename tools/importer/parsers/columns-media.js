@@ -17,6 +17,10 @@ import { embedNodes } from './media-nodes.js';
  * AEM "copytext" headings are labels and become paragraphs), paragraphs (<br><br> split into
  * paragraphs), lists and links (primary maui-button-link = bold link, secondary = italic link).
  *
+ * A teaser without a target in a column (a.teaser:not([href]), legal
+ * sitzplatzreservierungen-konditionen) gives its heading with the icon inside and its description
+ * (copytext-medium); its .teaser-link-text is dropped.
+ *
  * Column title (".column-view > div:not(.row) > h2") is default content before the table.
  * Insights articles (.article-details-page): an image's caption (figcaption > maui-caption) follows
  * it as "<p>… {caption}</p>"; a column item with several image components (live: stacked in
@@ -260,6 +264,44 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  /**
+   * A teaser without a target (a.teaser:not([href]), Lufthansa "partner" tile: the
+   * sitzplatzreservierungen-konditionen topics): h3.teaser-heading (img.icon-svg +
+   * .teaser-heading-text) and .teaser-description p.desc-inline (16px). The heading keeps its
+   * level and the icon as an image inside it ("<h3><img>REFUND</h3>", block CSS: 48px icon left of
+   * the title and the text); the decorative .teaser-link-text (display: none on live) is dropped.
+   */
+  const teaserNodes = (teaser) => {
+    const out = [];
+    const h = teaser.querySelector('.teaser-heading') || teaser.querySelector('h1, h2, h3, h4, h5, h6');
+    const title = h && visibleText(h.querySelector('.teaser-heading-text') || h);
+    const icon = h && [...h.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));
+    if (title) {
+      const heading = document.createElement(/^H[1-6]$/.test(h.tagName) ? h.tagName.toLowerCase() : 'h3');
+      if (icon) {
+        const img = document.createElement('img');
+        img.setAttribute('src', icon.getAttribute('src'));
+        img.setAttribute('alt', icon.getAttribute('alt') || '');
+        heading.append(img);
+      }
+      heading.append(title);
+      keepHeadingStyle(h, heading);
+      out.push(heading);
+    }
+    const desc = teaser.querySelector('.teaser-description');
+    if (desc) {
+      const paras = [...desc.querySelectorAll('p')].filter((d) => visibleText(d));
+      const nodes = paras.flatMap((d) => splitParagraph(tidy(d.cloneNode(true))));
+      if (!nodes.length && visibleText(desc)) {
+        nodes.push(document.createElement('p'));
+        nodes[0].textContent = visibleText(desc);
+      }
+      // .desc-inline: LufthansaText 1.6rem / 150% ("{copytext-medium}")
+      nodes.forEach((d) => { d.className = 'copytext-medium'; out.push(d); });
+    }
+    return out;
+  };
+
   /** Content of a column, in document order, nested column views flattened. */
   const collect = (node, out) => {
     [...node.children].forEach((child) => {
@@ -276,6 +318,8 @@ export default function parse(element, { document }) {
         if (p) out.push(p);
       } else if (cl.contains('image') && child.querySelector('img, video')) {
         out.push(...mediaNodes(child));
+      } else if (child.matches('a.teaser:not([href])')) {
+        out.push(...teaserNodes(child));
       } else if (cl.contains('videoViewer')) {
         out.push(...viewerNodes(child));
       } else if ((cl.contains('video') && child.querySelector(':scope > .video-player iframe'))
