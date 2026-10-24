@@ -477,5 +477,12 @@
   "change": "Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport).",
   "commit": "ba440f7",
   "date": "2026-10-24"
+ },
+ {
+  "page": "/gb/en/flights (destination-finder grid)",
+  "block": "destination-finder",
+  "change": "Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0.",
+  "commit": "65cbf66",
+  "date": "2026-10-24"
  }
 ]

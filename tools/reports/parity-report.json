@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T06:23:07.168Z",
+  "generatedAt": "2026-10-24T06:36:42.344Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -10,16 +10,16 @@
   "summary": {
     "de/en": {
       "pages": 328,
-      "pass": 1,
-      "review": 48,
+      "pass": 2,
+      "review": 47,
       "fail": 261,
       "pending": 18,
       "error": 0
     },
     "de/de": {
       "pages": 328,
-      "pass": 0,
-      "review": 38,
+      "pass": 1,
+      "review": 37,
       "fail": 204,
       "pending": 86,
       "error": 0
@@ -34,16 +34,16 @@
     },
     "gb/en": {
       "pages": 311,
-      "pass": 3,
+      "pass": 4,
       "review": 8,
       "fail": 32,
-      "pending": 268,
+      "pending": 267,
       "error": 0
     }
   },
   "pageWidths": {
     "total": 2683,
-    "compared": 1932
+    "compared": 1933
   },
   "templateGroups": [
     {
@@ -82,7 +82,7 @@
       "template": "hub",
       "width": 768,
       "pageWidths": 37,
-      "meanUnmasked": 0.366108918918919,
+      "meanUnmasked": 0.36093351351351355,
       "medianUnmasked": 0.37522,
       "maxUnmasked": 0.60483
     },
@@ -119,28 +119,28 @@
       "maxUnmasked": 0.71422
     },
     {
-      "template": "hub",
-      "width": 1440,
-      "pageWidths": 40,
-      "meanUnmasked": 0.3432222499999999,
-      "medianUnmasked": 0.31067999999999996,
-      "maxUnmasked": 0.59831
-    },
-    {
-      "template": "hub",
-      "width": 390,
-      "pageWidths": 36,
-      "meanUnmasked": 0.33834166666666676,
-      "medianUnmasked": 0.32486000000000004,
-      "maxUnmasked": 0.59462
-    },
-    {
       "template": "insights",
       "width": 768,
       "pageWidths": 61,
       "meanUnmasked": 0.33550491803278687,
       "medianUnmasked": 0.33714,
       "maxUnmasked": 0.6726
+    },
+    {
+      "template": "hub",
+      "width": 1440,
+      "pageWidths": 41,
+      "meanUnmasked": 0.33327121951219507,
+      "medianUnmasked": 0.3082,
+      "maxUnmasked": 0.59831
+    },
+    {
+      "template": "hub",
+      "width": 390,
+      "pageWidths": 36,
+      "meanUnmasked": 0.3315894444444445,
+      "medianUnmasked": 0.32486000000000004,
+      "maxUnmasked": 0.59462
     },
     {
       "template": "homepage",
@@ -1012,7 +1012,8 @@
         "2026-10-23 [page] C1.1-C1.7 hub (c-diagnosis.md): image teaser grids directly under .container-content to cards-teaser (new four-up), a.teaser.usp service tiles to cards-icon (usp, four-up), new block hero-banner for .herobanner expanding panes, .accordion to accordion-columns, .twocolumn of a.teaser.card to carousel-cards (two-up), a.teaser.partner rows to cards-icon-text (partner), travel classes sub-navigation as profile-nav, meetings logo row and steps, lounges nested columns, open chat window removed. Bundles rebuilt, 36 pages re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: at/de/flughafeninformation 53.2/50.6/- -> 28.5/44.0/22.9 (768 live capture has no teaser images, lazy loading), de/en/lufthansa-travel-classes 53.9/59.3/58.2 -> 37.0/38.0/37.7, de/de/speisen-und-getraenke 35.5/33.0/33.7 -> 22.4/23.8/36.4; open: section spacing, the 28 other pages with the travel classes sub-navigation (not hub). (8cfd48e)",
         "2026-10-24 [page] C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6. (4ec7488)",
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
-        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
+        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": [
         "layout diverges at y≈400 px at 768; replica 300 px shorter (5.8%)",
@@ -1149,7 +1150,8 @@
         "2026-10-23 [page] C1.1-C1.7 hub (c-diagnosis.md): image teaser grids directly under .container-content to cards-teaser (new four-up), a.teaser.usp service tiles to cards-icon (usp, four-up), new block hero-banner for .herobanner expanding panes, .accordion to accordion-columns, .twocolumn of a.teaser.card to carousel-cards (two-up), a.teaser.partner rows to cards-icon-text (partner), travel classes sub-navigation as profile-nav, meetings logo row and steps, lounges nested columns, open chat window removed. Bundles rebuilt, 36 pages re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: at/de/flughafeninformation 53.2/50.6/- -> 28.5/44.0/22.9 (768 live capture has no teaser images, lazy loading), de/en/lufthansa-travel-classes 53.9/59.3/58.2 -> 37.0/38.0/37.7, de/de/speisen-und-getraenke 35.5/33.0/33.7 -> 22.4/23.8/36.4; open: section spacing, the 28 other pages with the travel classes sub-navigation (not hub). (8cfd48e)",
         "2026-10-24 [page] C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6. (4ec7488)",
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
-        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
+        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": [
         "layout diverges at y≈400 px at 768; replica 238 px shorter (4.6%)",
@@ -1326,7 +1328,8 @@
         "2026-10-23 [page] C1.1-C1.7 hub (c-diagnosis.md): image teaser grids directly under .container-content to cards-teaser (new four-up), a.teaser.usp service tiles to cards-icon (usp, four-up), new block hero-banner for .herobanner expanding panes, .accordion to accordion-columns, .twocolumn of a.teaser.card to carousel-cards (two-up), a.teaser.partner rows to cards-icon-text (partner), travel classes sub-navigation as profile-nav, meetings logo row and steps, lounges nested columns, open chat window removed. Bundles rebuilt, 36 pages re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: at/de/flughafeninformation 53.2/50.6/- -> 28.5/44.0/22.9 (768 live capture has no teaser images, lazy loading), de/en/lufthansa-travel-classes 53.9/59.3/58.2 -> 37.0/38.0/37.7, de/de/speisen-und-getraenke 35.5/33.0/33.7 -> 22.4/23.8/36.4; open: section spacing, the 28 other pages with the travel classes sub-navigation (not hub). (8cfd48e)",
         "2026-10-24 [page] C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6. (4ec7488)",
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
-        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
+        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": [
         "layout diverges at y≈1400 px at 1440; replica 234 px shorter (4.9%)",
@@ -1464,7 +1467,8 @@
         "2026-10-23 [page] C1.1-C1.7 hub (c-diagnosis.md): image teaser grids directly under .container-content to cards-teaser (new four-up), a.teaser.usp service tiles to cards-icon (usp, four-up), new block hero-banner for .herobanner expanding panes, .accordion to accordion-columns, .twocolumn of a.teaser.card to carousel-cards (two-up), a.teaser.partner rows to cards-icon-text (partner), travel classes sub-navigation as profile-nav, meetings logo row and steps, lounges nested columns, open chat window removed. Bundles rebuilt, 36 pages re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: at/de/flughafeninformation 53.2/50.6/- -> 28.5/44.0/22.9 (768 live capture has no teaser images, lazy loading), de/en/lufthansa-travel-classes 53.9/59.3/58.2 -> 37.0/38.0/37.7, de/de/speisen-und-getraenke 35.5/33.0/33.7 -> 22.4/23.8/36.4; open: section spacing, the 28 other pages with the travel classes sub-navigation (not hub). (8cfd48e)",
         "2026-10-24 [page] C3 items 1-4 (CSS/JS: tag chips read article:tag, header panel in the content column, feature image without the scrollbar, byline 32px), 6 author pages (only the banner full-bleed, section style author), 7 author quotes as blockquote, 8 parallax images in a 500px window ({parallax}), 9 galleries stacked with captions (columns-media stacked), 10 category/tag pages (columns-media, accordion-columns column, podcast carousel four-up). Item 5 (9 unstyled de/de live captures) needs a recapture. Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/en/articles/explore-the-world/eat-see-do-berlin 30.2/25.1/33.3 -> 16.4/15.0/27.0, de/de/articles/explore-the-world/picture-perfect-austin 52.5/48.8/54.4 -> 36.7/41.6/45.8, gb/en/articles/tags (1440 only, no earlier compare) 37.6. (4ec7488)",
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
-        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)"
+        "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": [
         "layout diverges at y≈400 px at 768; replica 259 px shorter (5.2%)",
@@ -13928,7 +13932,7 @@
       "locale": "de/en",
       "template": "hub",
       "priority": 3,
-      "status": "review",
+      "status": "pass",
       "widthsChecked": [
         1440,
         768,
@@ -13939,8 +13943,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.04002,
-          "mismatchRatio": 0.00614,
+          "unmaskedRatio": 0.00477,
+          "mismatchRatio": 0.00073,
           "maskRatio": 0.84647,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -13949,16 +13953,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2600,
-              "unmaskedRatio": 0.07903
+              "y": 200,
+              "unmaskedRatio": 0.04603
             },
             {
-              "y": 5200,
-              "unmaskedRatio": 0.07898
-            },
-            {
-              "y": 3000,
-              "unmaskedRatio": 0.07403
+              "y": 0,
+              "unmaskedRatio": 0.00869
             }
           ],
           "capturedWidth": 1425,
@@ -13989,8 +13989,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.10849,
-          "mismatchRatio": 0.01023,
+          "unmaskedRatio": 0.01069,
+          "mismatchRatio": 0.00101,
           "maskRatio": 0.90571,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -13999,16 +13999,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 5000,
-              "unmaskedRatio": 0.23885
+              "y": 200,
+              "unmaskedRatio": 0.08433
             },
             {
-              "y": 2800,
-              "unmaskedRatio": 0.23021
-            },
-            {
-              "y": 4400,
-              "unmaskedRatio": 0.22406
+              "y": 0,
+              "unmaskedRatio": 0.01087
             }
           ],
           "capturedWidth": 753,
@@ -14039,8 +14035,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.13771,
-          "mismatchRatio": 0.02028,
+          "unmaskedRatio": 0.01638,
+          "mismatchRatio": 0.00241,
           "maskRatio": 0.85277,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -14049,16 +14045,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 4800,
-              "unmaskedRatio": 0.2633
+              "y": 200,
+              "unmaskedRatio": 0.10093
             },
             {
-              "y": 5400,
-              "unmaskedRatio": 0.2633
-            },
-            {
-              "y": 2000,
-              "unmaskedRatio": 0.25966
+              "y": 0,
+              "unmaskedRatio": 0.05299
             }
           ],
           "capturedWidth": 375,
@@ -14109,12 +14101,10 @@
         "2026-10-24 [page] C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept). (a26bad4)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
         "2026-10-24 [page] Open item C2-4: a sidebar that is the only content of its own one-column view gets padded (+ before-padded when the next live section is padded); from 768px a sidebar image cell keeps live's 40px below the image (72 sidebar pages, CSS). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after (before = 2026-10-23 shots, 15px-wide harness): de/en/100-years 39.5/41.9/42.3 -> 25.4/30.0/27.1, gb/en/100-years 43.3/26.2/41.2 -> 27.8/27.8/29.2. (ad58bc4)",
-        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)"
+        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
-      "remains": [
-        "10.8% of unmasked pixels differ at 768, most around y≈5000 px",
-        "13.8% of unmasked pixels differ at 390, most around y≈4800 px"
-      ]
+      "remains": []
     },
     {
       "path": "/de/en/food-and-beverages",
@@ -67348,7 +67338,7 @@
       "locale": "de/de",
       "template": "hub",
       "priority": 3,
-      "status": "review",
+      "status": "pass",
       "widthsChecked": [
         1440,
         768,
@@ -67359,8 +67349,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.03829,
-          "mismatchRatio": 0.00588,
+          "unmaskedRatio": 0.00278,
+          "mismatchRatio": 0.00043,
           "maskRatio": 0.84647,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -67369,16 +67359,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2600,
-              "unmaskedRatio": 0.07915
+              "y": 200,
+              "unmaskedRatio": 0.01297
             },
             {
-              "y": 5200,
-              "unmaskedRatio": 0.07906
-            },
-            {
-              "y": 3000,
-              "unmaskedRatio": 0.0742
+              "y": 0,
+              "unmaskedRatio": 0.01125
             }
           ],
           "capturedWidth": 1425,
@@ -67409,8 +67395,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.10867,
-          "mismatchRatio": 0.01025,
+          "unmaskedRatio": 0.01498,
+          "mismatchRatio": 0.00141,
           "maskRatio": 0.90571,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -67419,16 +67405,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2000,
-              "unmaskedRatio": 0.23354
+              "y": 200,
+              "unmaskedRatio": 0.10497
             },
             {
-              "y": 1000,
-              "unmaskedRatio": 0.23333
-            },
-            {
-              "y": 3000,
-              "unmaskedRatio": 0.23333
+              "y": 0,
+              "unmaskedRatio": 0.01983
             }
           ],
           "capturedWidth": 753,
@@ -67459,8 +67441,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.14217,
-          "mismatchRatio": 0.02093,
+          "unmaskedRatio": 0.02042,
+          "mismatchRatio": 0.00301,
           "maskRatio": 0.85277,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -67469,16 +67451,12 @@
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 5400,
-              "unmaskedRatio": 0.26375
+              "y": 200,
+              "unmaskedRatio": 0.11758
             },
             {
-              "y": 4800,
-              "unmaskedRatio": 0.2633
-            },
-            {
-              "y": 2000,
-              "unmaskedRatio": 0.26045
+              "y": 0,
+              "unmaskedRatio": 0.0696
             }
           ],
           "capturedWidth": 375,
@@ -67529,12 +67507,10 @@
         "2026-10-24 [page] C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept). (a26bad4)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
         "2026-10-24 [page] Open item C2-4: a sidebar that is the only content of its own one-column view gets padded (+ before-padded when the next live section is padded); from 768px a sidebar image cell keeps live's 40px below the image (72 sidebar pages, CSS). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after (before = 2026-10-23 shots, 15px-wide harness): de/en/100-years 39.5/41.9/42.3 -> 25.4/30.0/27.1, gb/en/100-years 43.3/26.2/41.2 -> 27.8/27.8/29.2. (ad58bc4)",
-        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)"
+        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
-      "remains": [
-        "10.9% of unmasked pixels differ at 768, most around y≈2000 px",
-        "14.2% of unmasked pixels differ at 390, most around y≈5400 px"
-      ]
+      "remains": []
     },
     {
       "path": "/de/en/book-and-manage/booking-services/manage-my-bookings",
@@ -119925,7 +119901,8 @@
         "2026-10-24 [page] C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept). (a26bad4)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
         "2026-10-24 [page] Open item C2-4: a sidebar that is the only content of its own one-column view gets padded (+ before-padded when the next live section is padded); from 768px a sidebar image cell keeps live's 40px below the image (72 sidebar pages, CSS). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after (before = 2026-10-23 shots, 15px-wide harness): de/en/100-years 39.5/41.9/42.3 -> 25.4/30.0/27.1, gb/en/100-years 43.3/26.2/41.2 -> 27.8/27.8/29.2. (ad58bc4)",
-        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)"
+        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": []
     },
@@ -130117,14 +130094,55 @@
       "locale": "gb/en",
       "template": "hub",
       "priority": 4,
-      "status": "pending",
-      "widthsChecked": [],
+      "status": "pass",
+      "widthsChecked": [
+        1440
+      ],
       "widths": [
         {
           "width": 1440,
           "contentWidth": 1425,
-          "state": "pending",
+          "state": "done",
+          "unmaskedRatio": 0.00599,
+          "mismatchRatio": 0.00092,
+          "maskRatio": 0.84647,
+          "maskBoxes": 1,
+          "heightSrc": 8000,
+          "heightEds": 8000,
+          "heightDiffRatio": 0,
           "firstDivergentY": null,
+          "worstBands": [
+            {
+              "y": 200,
+              "unmaskedRatio": 0.05641
+            },
+            {
+              "y": 0,
+              "unmaskedRatio": 0.01154
+            }
+          ],
+          "capturedWidth": 1425,
+          "contentWidthMatched": true,
+          "clientWidth": 1425,
+          "overflowPx": 0,
+          "failedImages": 0,
+          "fonts": {
+            "h1": {
+              "used": "lufthansahead",
+              "webfont": true
+            },
+            "h2": {
+              "used": "lufthansahead",
+              "webfont": true
+            },
+            "body": {
+              "used": "lufthansatext",
+              "webfont": true
+            }
+          },
+          "consentBannerVisible": false,
+          "showcaseNoticeVisible": false,
+          "truncated": true,
           "diff": "tools/reports/parity/shots/gb/en/flights/1440-diff.png"
         }
       ],
@@ -130151,7 +130169,8 @@
         "2026-10-24 [page] C7 fleet: the missing 32px column-view padding (h2 to first media row 41 vs 72 live) comes with C4-1 (columns-media padded) on the fleet re-import. Spot-check unmasked 1440/768/390 before -> after: at/de/320 18.8/21.8/24.1 -> 10.7/15.3/15.6 (page 6045 vs live 6034), de/de/320 17.6/21.4/22.8 -> 13.1/14.4/15.5, de/en/359 4.7/7.8/13.9 -> 1.6/4.5/13.6 (Technical data spacing kept). (a26bad4)",
         "2026-10-24 [page] C8: hrefless a.teaser tiles keep icon + uppercase heading + description (the decorative Weitere Fragen text dropped); the document splits the SVG icon out of the heading, so both blocks move an SVG-only paragraph right after a heading back into it (48px icon, text 51px in, as live .teaser.partner). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/sitzplatzreservierungen-konditionen 41.4/49.7/- -> 14.2/15.1/10.5 (page 1705 vs live 1627). (eb6075e)",
         "2026-10-24 [page] Open item C2-4: a sidebar that is the only content of its own one-column view gets padded (+ before-padded when the next live section is padded); from 768px a sidebar image cell keeps live's 40px below the image (72 sidebar pages, CSS). Re-imported, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after (before = 2026-10-23 shots, 15px-wide harness): de/en/100-years 39.5/41.9/42.3 -> 25.4/30.0/27.1, gb/en/100-years 43.3/26.2/41.2 -> 27.8/27.8/29.2. (ad58bc4)",
-        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)"
+        "2026-10-24 [page] Open item onboard-delights: Fresh on board image tabs as profile-tabs (new option content, first panel open in the mobile accordion; new parser profile-tabs.js mapped in info for image tabs only), the grey Dallmayr band as columns-media cell-slider (two slides with dots below 1025px), the dean&david images stacked. Re-imported, uploaded and previewed; preview check de/de: 3 tabs, slider, stacked. Spot-check unmasked 1440/768/390 before -> after: de/de 36.3/31.6/22.6 -> 27.3/25.4/20.9, de/en 37.0/33.6/21.7 -> 30.2/26.9/22.2, at/de (1440, no earlier) 30.4; open: the 25px separator under Fresh on board (C2-5), text-only tab pages (lufthansa-am-flughafen-frankfurt, payment-options-at-the-airport). (ba440f7)",
+        "2026-10-24 [page] Open item: the 4 failing gb/en widget checks: the grid mapped its default origin LHR to the city LON before asking destinationfinder/destination/finder, but live asks for LHR (the recorded live call), so no answer was found and the grid stayed empty. The default origin keeps its airport code (name from the origin city). Widget suite 3287 checks, 0 failures. Preview /gb/en/flights: 48 tiles (Brussels £ 105* first), data-lh-source recorded. Spot-check unmasked (grid masked as live data) 1440/768/390: gb/en/flights 0.6, de/en/flights 4.0/10.8/13.8 -> 0.5/1.1/1.6, de/de/fluege 3.8/10.9/14.2 -> 0.3/1.5/2.0. (65cbf66)"
       ],
       "remains": []
     },
