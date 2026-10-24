@@ -107,6 +107,28 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:27:52.439Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_barcelona_placa-reial_getty1386922348_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/b87edea9bba0d6806ef417283aca9d5c.jpg",
+  "format": "jpeg",
+  "bytes": 1144990,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:43.056Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_frankfurt_altsachsenhausen_pubgettyimages1826772802_1440x810.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/cff5f822d5299a9da44e1b5ce3f020f3.jpg",
+  "format": "jpeg",
+  "bytes": 1491351,
+  "width": 1440,
+  "height": 810,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:44.568Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_munich_daniel-schvarcz-schmock-20210920-226_1440x810.jpg": {
   "status": 200,
   "version": 1,
@@ -139,6 +161,17 @@
   "height": 810,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:54:47.631Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_blog_spain_sitges_getty2156772544_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/51965962c8759cd6c20e768ab8b57350.jpg",
+  "format": "jpeg",
+  "bytes": 961434,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:44.071Z"
  },
  "https://www.lufthansa.com/content/dam/lh/article-images/europe/lh_com_munich_folklore_getty155954526_1440x618.jpg": {
   "status": 200,
@@ -3018,6 +3051,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:27:49.439Z"
  },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/a-perfect-day-berlin-in-one-day/lh_blog_berlin_brandenburger-tor_getty596086576_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/b6864028e1db16198c601ba26120021a.jpg",
+  "format": "jpeg",
+  "bytes": 788198,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:43.560Z"
+ },
  "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/aircraft-lights-explained/lh_blog_airplane-lights_plane_night_16x9.jpg": {
   "status": 200,
   "version": 1,
@@ -3028,6 +3072,28 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:27:48.434Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/eat-see-do-algiers/lh_blog_algiers_grande-poste_getty490990290_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/ae462256f41399566726fbf913a83695.jpg",
+  "format": "jpeg",
+  "bytes": 388064,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:45.075Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/essentials-future-of-flying/lh_blog_lh_blog_cargo_siberian-tigers_illustration_sylvia-neuner_16x9.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/2a4d22799c39f0ff6d069892e21f74f7.jpg",
+  "format": "jpeg",
+  "bytes": 703327,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:42.626Z"
  },
  "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/fashion-footprints-new-york/lh_blog_nyc_fashion_vogue_illustration_16x9.jpg": {
   "status": 200,
@@ -3050,6 +3116,28 @@
   "height": 1080,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T01:54:41.639Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-algiers/LH-KnowBeforeYouGo-Algier-Header-1920x1080.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/bf1d0d9ff384851ce8afc44fa54a8d3d.jpg",
+  "format": "jpeg",
+  "bytes": 407316,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:15:45.555Z"
+ },
+ "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/know-before-you-go-berlin/LH-KnowBeforeYouGo-Berlin-Header-1920x1080.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/60a5b258f0bb8b2722bc87561cfae090.jpg",
+  "format": "jpeg",
+  "bytes": 463078,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-24T04:16:10.763Z"
  },
  "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/lh_blog_portrait_diego-blanco_airport_1920x823.jpg": {
   "status": 200,
