@@ -11,7 +11,7 @@
  *    links, breadcrumbs (kept as metadata), sticky header placeholder, a11y live regions, OneTrust, Tealium/utag,
  *    Monetate, Quantum Metric, tracking pixels, tracking iframes, script/noscript/style/link,
  *    location/language and login modals, the open chat assistant window (.webchat-root), AirCore
- *    loaders and the empty AirCore info banner
+ *    loaders, the empty AirCore info banner and the AirCore wrong-geolocation banner
  *  - converts the rendered feedback questionnaire ("Was this information helpful?") into a
  *    Feedback block
  *  - removes screen-reader-only elements (sr-only headings, "opens in a new tab" spans) and the
@@ -79,6 +79,12 @@ const CHROME_SELECTORS = [
   '.footer-area',
   '.footer-logos',
   '.commonfooter',
+  // AirCore "wrong geolocation" banner (snapshots of AT/GB pages recorded from a German IP:
+  // "Sie sind in Deutschland ... [Land wechseln] [Auf Seite bleiben]", fixed at the top, and its
+  // 98px placeholder); not page content
+  '.geobanner-sticky-wrapper',
+  '.geobanner-placeholder',
+  '.wrong-geolocation-banner',
   // AirCore footer bands (payment/follow-us, search + language, logo); normally inside footer#footer
   'footer .footer-brand-links',
   '.above-footer-container',
