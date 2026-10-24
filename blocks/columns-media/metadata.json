@@ -12,7 +12,8 @@
       "several images in one cell sit side by side (photo + QR code)",
       "poster image with a play button bottom-left that starts an inline video",
       "option wide-media: media column 75%, text 25%",
-      "option sidebar: first cell 75%, second 25% (Lufthansa .airem-sidebar), 40px above / 46px below",
+      "option sidebar: first cell 75%, second 25% (Lufthansa .airem-sidebar), 40px above / 46px below text, 60px below an image",
+      "option sidebar padded (+ before-padded): a sidebar in a one-column view of its own, 32px more above and below (+ the next section's top padding)",
       "option slider: several images in a media cell become slides with dots below 1025px",
       "option stacked: several images in a media cell one under the other, each with its {caption} paragraph",
       "option padded: 32px above the first row and 32px to the next component (Lufthansa column view)",
@@ -42,6 +43,10 @@
     {
       "class": "padded",
       "label": "Padded (column-view spacing: 32px above, 32px to the next component)"
+    },
+    {
+      "class": "before-padded",
+      "label": "Before padded (with sidebar padded: the next section's top padding below the block)"
     },
     {
       "class": "nested-4",

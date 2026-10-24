@@ -30,6 +30,10 @@ import { embedNodes } from './media-nodes.js';
  * Option nested-N: a three- or four-column view whose items hold an N-column view of images only
  * (shopping icons, app badges); empty items are kept as empty cells.
  *
+ * Option padded on a sidebar: the sidebar is the only content of a one-column view of its own
+ * in an AEM section (100-years); with before-padded when that view ends its AEM section and the
+ * next AEM section is padded and not grey.
+ *
  * Option padded: the column view is a component of its own in an AEM section
  * (.section-content > .column > .column-view:only-child, live padding 3.2rem top and bottom), has
  * no column title, is not grey and not in an article; nested column views (flight-status) do not
@@ -493,6 +497,30 @@ export default function parse(element, { document }) {
     const text = element.querySelector('.sidebar-aside');
     const row = [media ? finishCell(collect(media, [])) : [], text ? finishCell(collect(text, [])) : []];
     if (row.some((c) => c.length)) cells.push(row.map((c) => (c.length ? c : '')));
+    // a sidebar that is the only content of a one-column view of its own in an AEM section
+    // (.section-content > .onecolumn.column > .column-view:only-child > .row > one item, 100-years
+    // "Under the symbol of the crane") has the column view's 3.2rem above and below: option padded;
+    // before-padded when that one-column view ends its AEM section and the next AEM section is
+    // padded (.section-padding-y-regular) and not grey: its top padding follows (block CSS). Not
+    // in grey, in an article or when the cleanup marked the column view (data-lh-column, info).
+    const item = element.parentElement;
+    const sideView = item && item.classList.contains('column-view-item') && item.children.length === 1
+      && item.parentElement && item.parentElement.classList.contains('row')
+      && item.parentElement.children.length === 1 && item.parentElement.parentElement;
+    const oneColumn = sideView && sideView.classList.contains('column-view') && sideView.parentElement;
+    const ownSidebar = !!oneColumn && oneColumn.matches('.onecolumn.column') && oneColumn.children.length === 1
+      && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains('section-content')
+      && !oneColumn.hasAttribute('data-lh-column') && !ARTICLE && !element.closest('.container-gray');
+    if (ownSidebar) {
+      variants.push('padded');
+      const meaningful = (el) => !!clean(el.textContent) || !!el.querySelector('img, picture, video, iframe');
+      const isLast = [...oneColumn.parentElement.children].filter(meaningful).pop() === oneColumn;
+      const aem = oneColumn.closest('.container-content > .section');
+      let next = aem && aem.nextElementSibling;
+      while (next && !(next.classList.contains('section') && meaningful(next))) next = next.nextElementSibling;
+      if (isLast && next && next.querySelector(':scope > div > .section-padding-y-regular')
+        && !next.querySelector(':scope > .container-gray')) variants.push('before-padded');
+    }
   } else {
     const view = element.querySelector(':scope > .column-view') || element.querySelector('.column-view') || element;
     [...view.children].filter((d) => !d.classList.contains('row') && !d.classList.contains('carousel')).forEach((d) => {

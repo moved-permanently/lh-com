@@ -87,6 +87,26 @@
   display: none;
 }
 
+/* sidebar in a one-column view of its own (options sidebar padded, importer; 100-years "Under the
+   symbol of the crane"): the column view's 3.2rem above and below the .airem-sidebar. 52px above
+   after another component (20 + 32; 72 from 768px), 24px less when the block opens its section
+   (the 48px section gap stands for the previous AEM section's 2.4rem .mb-default); below the
+   sidebar's own space + 32 - 24, so 32px to the next component or, at the end of a section, the
+   column's 32 + .mb-default 24. before-padded: the next AEM section is padded on live, its top
+   padding (2rem / 4rem from 768px) follows. de/en/100-years 1440: text to image 140px, image to
+   the next image 157px (live), were 133 / 95 */
+.columns-media.sidebar.padded {
+  padding: 52px 0 44px;
+}
+
+main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.padded {
+  padding-top: 28px;
+}
+
+.columns-media.sidebar.padded.before-padded {
+  padding-bottom: calc(44px + var(--section-padding));
+}
+
 /* media cell */
 .columns-media .columns-media-media p {
   margin: 0;
@@ -409,8 +429,32 @@
     order: 0;
   }
 
+  /* below the row: .airem-sidebar's 2rem after the taller cell, a text cell with its last
+     component's 2.4rem (+2px measured), a media cell with .image .image-wrapper's 4rem (the
+     .sidebar-content is a flex item, the margin stays inside: de/en/100-years 1440 image to the
+     next component 60px, was 46) */
   .columns-media.sidebar {
-    padding: 40px 0 46px;
+    padding: 40px 0 20px;
+  }
+
+  .columns-media.sidebar .columns-media-row:last-child > .columns-media-text {
+    padding-bottom: 26px;
+  }
+
+  .columns-media.sidebar .columns-media-row:last-child > .columns-media-media {
+    padding-bottom: 40px;
+  }
+
+  .columns-media.sidebar.padded {
+    padding: 72px 0 28px;
+  }
+
+  main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.padded {
+    padding-top: 48px;
+  }
+
+  .columns-media.sidebar.padded.before-padded {
+    padding-bottom: calc(28px + var(--section-padding));
   }
 
   .columns-media.sidebar .columns-media-row:has(> :nth-child(2):last-child) {

@@ -455,6 +455,9 @@ There is also a constant ~7px gap I could not explain without rendering the page
 - Live: 136px from text to image, 156px from image to the next image (40 + 20 + 32 + 24 + 40, the next section is padded).
 - Replica: 128 (−8) and 94 (−62).
 - The replica's 48px section gap vs live's 24px `.mb-default` means a new `columns-media` option needs local measurement before I can give exact numbers.
+- **Done (2026-10-24, code only).** Ink on the 10-23 shots, 1440 / 768 / 390: text → image live 140 / 140 / 100, replica 133 / 133 / 93; image (1440) or button (768, 390) → next image live 157 / 141 / 111, replica 95 / 95 / 85. Causes: (1) the one-column view's 32px above and below is missing (the sidebar is in a section of its own, so the 48px section gap stands for live's 24px `.mb-default`); (2) the next AEM section is padded on live (40 / 20px on top) but follows an unpadded one, so the sections transformer gives it no `padded`; (3) from 768px the media cell lacks `.image .image-wrapper`'s 40px (inside the flex item; confirmed on de/en/economy-class: image → next stage 100 = 40 + 20 + 40).
+  - `parsers/columns-media.js`: a `.sidebar` that is the only item of a `.section-content > .onecolumn > .column-view:only-child` gets `padded`, plus `before-padded` when the view ends its AEM section and the next one is padded and not grey (only 100-years ×4 in all snapshots).
+  - `columns-media.css`: from 768px `.sidebar` is 40 / 20 with the last row's text cell 26px and media cell 40px below (60px under an image, was 46; CSS only, all sidebars whose image is the taller cell); `.sidebar.padded` 72 / 28 (52 / 44 below 768), 24 less on top when it opens its section, `before-padded` + `--section-padding`. Expected: 141 / 141 / 101 and 157 / 143 / 112.
 
 ### C2-5 25px separators are dropped
 - `SEPARATOR_MIN_SPACE = 50` in `lufthansa-cleanup.js` drops the default 2.5rem separators. On live these add 26px to the text's 24px margin.
