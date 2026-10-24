@@ -90,7 +90,11 @@ or with 50px and more (smaller ones are the normal spacing); delete the paragrap
 Right after a grey band the importer keeps every separator (the band ends a section, so the
 separator's space is not part of the normal spacing). On pages with column markers (below) it also
 keeps the smaller separators (10px and more) in running text, before text, a heading, a link, an
-image or a column.
+image or a column. On every page (not the homepages and flight status pages, whose spacing already
+holds them) it also keeps them between two blocks, after a sidebar (only what goes beyond 25px:
+a 40px separator becomes `{spacer-15}`, the sidebar's own spacing holds the rest) and under a
+heading that ends a live section before a block (`{spacer-0}`: the 1px line only, the heading
+keeps its spacing below).
 
 `{column-start}` at the end of the first element of a Lufthansa column view and `{column-end}` at
 the end of its last one give the column view's padding: 32px above and below at every width

@@ -424,18 +424,84 @@ const FLOW_COLUMN = '.twocolumn, .threecolumn, .fourcolumn';
 function inFlow(run) {
   const prev = run[0].previousElementSibling;
   const next = run[run.length - 1].nextElementSibling;
-  const space = (sep) => {
-    const hr = sep.querySelector('.hr') || sep;
-    const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
-    return m ? Math.round(parseFloat(m[1])) : 25;
-  };
-  if (run.some((sep) => space(sep) < 10)) return false;
+  if (run.some((sep) => separatorSpace(sep) < 10)) return false;
   if (!next || !next.matches(FLOW_COMPONENT)) return false;
   if (prev && !prev.matches(FLOW_COMPONENT)) return false;
   return !(prev && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN));
 }
 
-function markSeparators(document, keepInFlow) {
+// C2-5 positions where the replica has no stand-in for a dropped 10-49px separator (every
+// template but those whose CSS already holds it: homepage C5, flight-status C6):
+// - between two blocks: a component the replica makes a block (not FLOW_COMPONENT) and the next
+//   one, a block too or an untitled column view (columns-media, a grey band), at the top level of
+//   an AEM section; live adds the separator's 1px + N to the first one's spacing (/de/en/
+//   flight-search: flight manager to the grey SIXT band 43px live, 17 in the replica);
+// - after a sidebar: columns-media.css sizes the sidebar's bottom for the default 2.5rem
+//   separator that follows most sidebars (de/en/accessible-travel 1440: 80px live, 81 replica),
+//   so only what a bigger one adds, "{spacer-(N-25)}" (new-onboard-experience 40px: spacer-15);
+// - under a heading that ends its AEM section (/de/en/onboard-delights "Fresh on board"): the
+//   separator is then the last component, its margin is 0 (.section-content > :last-child >
+//   :last-child), so it adds its 1px and keeps the heading's own margin, then .mb-default 2.4rem;
+//   the replica's wrapper gap stands for that when the next AEM section starts with a block:
+//   "{spacer-0}" (h2 to the tab bar 91px live, 65 in the replica). Not before a grey band ("Quality
+//   that you can taste" is already 15px further than live) or a padded section.
+const SEPARATOR_AS_IS_TEMPLATES = ['homepage', 'flight-status'];
+
+function separatorSpace(sep) {
+  const hr = sep.querySelector('.hr') || sep;
+  const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*(-?[\d.]+)px/i);
+  return m ? Math.round(parseFloat(m[1])) : 25;
+}
+
+function isUntitledColumnView(el) {
+  if (!el || !el.matches(FLOW_COLUMN)) return false;
+  const view = el.querySelector(':scope > .column-view');
+  if (!view) return false;
+  return ![...view.children].some((d) => !d.matches('.row, .carousel') && d.querySelector(HEADING) && cleanText(d));
+}
+
+function isBlockComponent(el) {
+  return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
+}
+
+/** The markers for a dropped run the replica has no stand-in for, or null (see above). */
+function missingSeparatorMarkers(run) {
+  const first = run[0];
+  const last = run[run.length - 1];
+  const parent = first.parentElement;
+  if (!parent || !parent.matches('.section-content')) return null;
+  const infos = run.map(separatorInfo);
+  const spaces = run.map(separatorSpace);
+  if (spaces.some((n) => n < 10)) return null;
+  const prev = first.previousElementSibling;
+  const next = last.nextElementSibling;
+  if (prev && prev.matches('.sidebar')) {
+    // a sidebar right after it merges into the same columns-media block
+    if (run.length !== 1 || !next || next.matches('.sidebar')) return null;
+    const extra = spaces[0] - 25;
+    return extra > 0 ? [infos[0].marker.replace(/^spacer-\d+/, `spacer-${extra}`)] : null;
+  }
+  if (prev && next && isBlockComponent(prev) && (isBlockComponent(next) || isUntitledColumnView(next))) {
+    return infos.map((i) => i.marker);
+  }
+  if (prev && !next && prev.matches('.headline')) {
+    const aem = parent.closest('.container-content > .section');
+    if (!aem || !aem.querySelector(':scope > .mb-default')) return null;
+    let after = aem.nextElementSibling;
+    while (after && isEmpty(after)) after = after.nextElementSibling;
+    if (!after || !after.matches('.section')) return null;
+    if (after.querySelector(':scope > .container-gray, :scope > div > .section-padding-y-regular')) return null;
+    const content = after.querySelector(':scope > div > .section-content');
+    const start = content && content.firstElementChild;
+    if (!isBlockComponent(start) || start.matches('.container-gray') || start.querySelector('.container-gray')) return null;
+    return infos.map((i, n) => (n === run.length - 1 ? i.marker.replace(/^spacer-\d+/, 'spacer-0') : i.marker));
+  }
+  return null;
+}
+
+function markSeparators(document, keepInFlow, payload) {
+  const template = ((payload && payload.template) || {}).name;
+  const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -452,10 +518,15 @@ function markSeparators(document, keepInFlow) {
   };
   runs.forEach((run) => {
     const infos = run.map(separatorInfo);
-    const keep = infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run));
+    let markers = null;
+    if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
+      markers = infos.map((i) => i.marker);
+    } else if (fillGaps) {
+      markers = missingSeparatorMarkers(run);
+    }
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
-      if (keep) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${infos[i].marker}`));
+      if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
       else sep.remove();
     });
   });
@@ -539,8 +610,8 @@ function markParallaxImages(document) {
   return marked;
 }
 
-function removeEmptyComponents(document, keepInFlow) {
-  markSeparators(document, keepInFlow);
+function removeEmptyComponents(document, keepInFlow, payload) {
+  markSeparators(document, keepInFlow, payload);
   // React mount points rendered empty (e.g. <ppfi-web-component><div id="root"></div>)
   document.querySelectorAll('.dcep-react-wrapper, [id="root"], [id$="-root"], ppfi-web-component')
     .forEach((el) => { if (el.isConnected && isEmpty(el)) el.remove(); });
@@ -1432,7 +1503,7 @@ export default function transform(hookName, element, payload) {
     // info: column views for their padding markers; only a page with such markers keeps the
     // separators in running text (its headings have no margin of their own above, styles.css)
     const columnMarks = columnMarksEnabled(payload) && markColumnViews(document, payload) > 0;
-    removeEmptyComponents(document, columnMarks);
+    removeEmptyComponents(document, columnMarks, payload);
     normalizeImages(document, true);
   }
 

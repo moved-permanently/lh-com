@@ -432,6 +432,26 @@ main > .section > .columns-media-wrapper:first-child > .columns-media.sidebar.pa
   .columns-media .columns-media-row > div:has(+ div:empty:last-child) {
     margin-bottom: 0;
   }
+
+  /* a sidebar whose image comes last, followed by more in its section: the image's
+     .image-wrapper 4rem stays inside (.airem-sidebar 1rem below, then the 2.5rem separator the
+     36px stand for): 16px more (/de/en/accessible-travel 390: 48h icon to the next heading 109px
+     live, was 94) */
+  .columns-media-wrapper:not(:last-child) > .columns-media.sidebar .columns-media-row:last-child > .columns-media-media:last-child:not(:empty) {
+    padding-bottom: 16px;
+  }
+}
+
+/* a separator after a sidebar ({spacer-N}, importer C2-5: what a separator adds beyond the
+   2.5rem the sidebar's bottom spacing already holds): its own space only, no 8px wrapper offset,
+   and a heading after it no margin of its own (/de/en/discover-lufthansa/new-onboard-experience
+   40px separators: 15px more than after other sidebars) */
+main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .default-content-wrapper:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
+
+main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .default-content-wrapper > p.spacer:first-child + :is(h2, h3) {
+  margin-top: 0;
 }
 
 /* Insights articles: the closing teaser column view sits in the article card (.article-content

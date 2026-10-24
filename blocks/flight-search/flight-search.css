@@ -1123,6 +1123,13 @@ body.aircore .flight-search .flight-search-submit {
   background-color: var(--lh-grey-1);
 }
 
+/* a separator between the card and the next block ({spacer-25} wrapper ending the card's section,
+   importer C2-5): only its own space after the card's margin, not the wrapper offset of a
+   separator at a section end (/de/en/flight-search: card to the grey SIXT band 43px live, was 17) */
+main > .section.flight-search-container > .flight-search-wrapper + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
+
 @media (width >= 376px) {
   .flight-search.standalone {
     margin-top: 22px;
