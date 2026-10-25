@@ -1,0 +1,23 @@
+name = "lh-messages"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# KV state of the cron run: activatedAt per message and the active messages (written only when
+# something changed: Workers Free has a small daily KV write quota)
+[[kv_namespaces]]
+binding = "STATE"
+id = "8d235edea06d4ac3910dec7b713914b5"
+
+# compare the index with the last state every minute (activatedAt, push on appear/disappear)
+[triggers]
+crons = ["* * * * *"]
+
+# Secret (not here): PUSH_TARGET, the address the push payloads go to. Unset: the worker only
+# logs what it would send.
+
+[vars]
+# the site the messages come from (published messages only: the live host)
+SOURCE_ORIGIN = "https://main--lh-com--moved-permanently.aem.live"
+ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--lh-com--moved-permanently\\.aem\\.(page|live)$"
+EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
