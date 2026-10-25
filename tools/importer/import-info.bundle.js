@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_513985_exports = {};
-  __export(tmp_bundle_info_513985_exports, {
-    default: () => tmp_bundle_info_513985_default
+  var tmp_bundle_info_517027_exports = {};
+  __export(tmp_bundle_info_517027_exports, {
+    default: () => tmp_bundle_info_517027_default
   });
 
   // tools/importer/parsers/profile-tabs.js
@@ -1734,6 +1734,7 @@ var CustomImportScript = (() => {
     if (info.classList.contains("alignment-right")) variants.push("right");
     if (info.classList.contains("uplift-animation") || teaser.classList.contains("inspiration-teaser-uplift-animation")) variants.push("card");
     if (teaser.classList.contains("inspiration-teaser-narrow")) variants.push("narrow");
+    if (teaser.classList.contains("inspiration-teaser-regular")) variants.push("regular");
     const block = WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants, cells });
     element.replaceWith(block);
   }
@@ -4894,7 +4895,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_513985_default = {
+  var tmp_bundle_info_517027_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4924,5 +4925,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_513985_exports);
+  return __toCommonJS(tmp_bundle_info_517027_exports);
 })();

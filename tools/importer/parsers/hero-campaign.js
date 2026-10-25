@@ -108,12 +108,15 @@ export default function parse(element, { document }) {
   if (media.length) cells.push([media]);
   if (text.length) cells.push([text]);
   // options: right (.alignment-right: text at the right), card (.uplift-animation: white text
-  // card instead of text on the overlay), narrow (.inspiration-teaser-narrow: 350px high)
+  // card instead of text on the overlay), narrow (.inspiration-teaser-narrow: 350px high),
+  // regular (below)
   const teaser = element.querySelector('.cms-inspiration-teaser') || element;
   const variants = [];
   if (info.classList.contains('alignment-right')) variants.push('right');
   if (info.classList.contains('uplift-animation') || teaser.classList.contains('inspiration-teaser-uplift-animation')) variants.push('card');
   if (teaser.classList.contains('inspiration-teaser-narrow')) variants.push('narrow');
+  // regular (.inspiration-teaser-regular: 640px high, gb/en ski-campaign-2026)
+  if (teaser.classList.contains('inspiration-teaser-regular')) variants.push('regular');
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-campaign', variants, cells });
   element.replaceWith(block);

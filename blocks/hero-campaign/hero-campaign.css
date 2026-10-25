@@ -195,6 +195,12 @@
   min-height: 350px;
 }
 
+/* option regular: .inspiration-teaser-regular, 64rem at every width (gb/en ski-campaign-2026:
+   182-822 at 1440, 768 and 390) */
+.hero-campaign.regular {
+  min-height: 640px;
+}
+
 /* no image: plain text on light grey */
 .hero-campaign.hero-campaign-no-image {
   color: var(--text-color);
