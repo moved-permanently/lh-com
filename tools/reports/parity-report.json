@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:48:49.315Z",
+  "generatedAt": "2026-10-25T01:58:54.372Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -11,24 +11,24 @@
     "de/en": {
       "pages": 328,
       "pass": 6,
-      "review": 137,
-      "fail": 185,
+      "review": 136,
+      "fail": 186,
       "pending": 0,
       "error": 0
     },
     "de/de": {
       "pages": 328,
       "pass": 1,
-      "review": 141,
-      "fail": 186,
+      "review": 142,
+      "fail": 185,
       "pending": 0,
       "error": 0
     },
     "at/de": {
       "pages": 312,
       "pass": 60,
-      "review": 152,
-      "fail": 100,
+      "review": 153,
+      "fail": 99,
       "pending": 0,
       "error": 0
     },
@@ -50,15 +50,23 @@
       "template": "campaign",
       "width": 768,
       "pageWidths": 46,
-      "meanUnmasked": 0.38004847826086957,
-      "medianUnmasked": 0.37414000000000003,
+      "meanUnmasked": 0.3887973913043479,
+      "medianUnmasked": 0.405135,
       "maxUnmasked": 0.78687
+    },
+    {
+      "template": "homepage",
+      "width": 768,
+      "pageWidths": 4,
+      "meanUnmasked": 0.34829250000000006,
+      "medianUnmasked": 0.35565,
+      "maxUnmasked": 0.35942
     },
     {
       "template": "campaign",
       "width": 1440,
       "pageWidths": 84,
-      "meanUnmasked": 0.3363534523809525,
+      "meanUnmasked": 0.3363517857142858,
       "medianUnmasked": 0.28591,
       "maxUnmasked": 0.73594
     },
@@ -74,7 +82,7 @@
       "template": "campaign",
       "width": 390,
       "pageWidths": 46,
-      "meanUnmasked": 0.32356913043478247,
+      "meanUnmasked": 0.3236504347826085,
       "medianUnmasked": 0.298635,
       "maxUnmasked": 0.73181
     },
@@ -82,7 +90,7 @@
       "template": "insights",
       "width": 390,
       "pageWidths": 68,
-      "meanUnmasked": 0.30282882352941165,
+      "meanUnmasked": 0.3028313235294117,
       "medianUnmasked": 0.27962,
       "maxUnmasked": 0.52545
     },
@@ -114,17 +122,25 @@
       "template": "insights",
       "width": 768,
       "pageWidths": 68,
-      "meanUnmasked": 0.25808470588235294,
-      "medianUnmasked": 0.253355,
-      "maxUnmasked": 0.44659
+      "meanUnmasked": 0.26277470588235297,
+      "medianUnmasked": 0.245575,
+      "maxUnmasked": 0.49945
+    },
+    {
+      "template": "hub",
+      "width": 768,
+      "pageWidths": 38,
+      "meanUnmasked": 0.2613423684210527,
+      "medianUnmasked": 0.24075000000000002,
+      "maxUnmasked": 0.65366
     },
     {
       "template": "fleet",
       "width": 768,
       "pageWidths": 20,
-      "meanUnmasked": 0.2500535,
-      "medianUnmasked": 0.17344500000000002,
-      "maxUnmasked": 0.45564
+      "meanUnmasked": 0.249396,
+      "medianUnmasked": 0.25739999999999996,
+      "maxUnmasked": 0.4166
     },
     {
       "template": "aircore-destination",
@@ -143,28 +159,12 @@
       "maxUnmasked": 0.45201
     },
     {
-      "template": "hub",
-      "width": 768,
-      "pageWidths": 38,
-      "meanUnmasked": 0.24231394736842113,
-      "medianUnmasked": 0.21879500000000002,
-      "maxUnmasked": 0.65366
-    },
-    {
       "template": "aircore-destination-overview",
       "width": 390,
       "pageWidths": 22,
       "meanUnmasked": 0.24188500000000007,
       "medianUnmasked": 0.22518,
       "maxUnmasked": 0.47898
-    },
-    {
-      "template": "insights",
-      "width": 1440,
-      "pageWidths": 128,
-      "meanUnmasked": 0.23594742187500006,
-      "medianUnmasked": 0.21554,
-      "maxUnmasked": 0.49135
     },
     {
       "template": "homepage",
@@ -175,20 +175,20 @@
       "maxUnmasked": 0.30315
     },
     {
+      "template": "insights",
+      "width": 1440,
+      "pageWidths": 128,
+      "meanUnmasked": 0.23517406250000006,
+      "medianUnmasked": 0.21554,
+      "maxUnmasked": 0.49135
+    },
+    {
       "template": "hub",
       "width": 390,
       "pageWidths": 38,
       "meanUnmasked": 0.23096026315789472,
       "medianUnmasked": 0.24372,
       "maxUnmasked": 0.3528
-    },
-    {
-      "template": "homepage",
-      "width": 768,
-      "pageWidths": 4,
-      "meanUnmasked": 0.2256125,
-      "medianUnmasked": 0.213535,
-      "maxUnmasked": 0.28329
     },
     {
       "template": "hub",
@@ -207,6 +207,14 @@
       "maxUnmasked": 0.27767
     },
     {
+      "template": "info",
+      "width": 768,
+      "pageWidths": 342,
+      "meanUnmasked": 0.19363198830409356,
+      "medianUnmasked": 0.145855,
+      "maxUnmasked": 0.65483
+    },
+    {
       "template": "homepage",
       "width": 390,
       "pageWidths": 4,
@@ -215,20 +223,20 @@
       "maxUnmasked": 0.22318
     },
     {
-      "template": "info",
-      "width": 768,
-      "pageWidths": 342,
-      "meanUnmasked": 0.18640330409356715,
-      "medianUnmasked": 0.143785,
-      "maxUnmasked": 0.65483
-    },
-    {
       "template": "aircore-route",
       "width": 390,
       "pageWidths": 23,
       "meanUnmasked": 0.18548086956521737,
       "medianUnmasked": 0.18159,
       "maxUnmasked": 0.26726
+    },
+    {
+      "template": "fleet",
+      "width": 390,
+      "pageWidths": 20,
+      "meanUnmasked": 0.18195699999999998,
+      "medianUnmasked": 0.16499999999999998,
+      "maxUnmasked": 0.37398
     },
     {
       "template": "info",
@@ -247,22 +255,6 @@
       "maxUnmasked": 0.31155
     },
     {
-      "template": "fleet",
-      "width": 390,
-      "pageWidths": 20,
-      "meanUnmasked": 0.17963249999999997,
-      "medianUnmasked": 0.18109,
-      "maxUnmasked": 0.41336
-    },
-    {
-      "template": "app-entry",
-      "width": 390,
-      "pageWidths": 16,
-      "meanUnmasked": 0.17677375,
-      "medianUnmasked": 0.146705,
-      "maxUnmasked": 0.36579
-    },
-    {
       "template": "legal",
       "width": 390,
       "pageWidths": 62,
@@ -272,25 +264,25 @@
     },
     {
       "template": "app-entry",
-      "width": 768,
+      "width": 390,
       "pageWidths": 16,
-      "meanUnmasked": 0.1750575,
-      "medianUnmasked": 0.132125,
-      "maxUnmasked": 0.42468
+      "meanUnmasked": 0.16977874999999998,
+      "medianUnmasked": 0.140225,
+      "maxUnmasked": 0.36579
     },
     {
       "template": "fleet",
       "width": 1440,
       "pageWidths": 32,
-      "meanUnmasked": 0.16996593750000002,
-      "medianUnmasked": 0.122935,
-      "maxUnmasked": 0.52387
+      "meanUnmasked": 0.169566875,
+      "medianUnmasked": 0.12098500000000001,
+      "maxUnmasked": 0.42422
     },
     {
       "template": "form",
       "width": 768,
       "pageWidths": 23,
-      "meanUnmasked": 0.16699521739130438,
+      "meanUnmasked": 0.16696260869565221,
       "medianUnmasked": 0.11225,
       "maxUnmasked": 0.42297
     },
@@ -298,9 +290,17 @@
       "template": "legal",
       "width": 768,
       "pageWidths": 62,
-      "meanUnmasked": 0.15954258064516133,
+      "meanUnmasked": 0.15954903225806455,
       "medianUnmasked": 0.151205,
       "maxUnmasked": 0.32576
+    },
+    {
+      "template": "app-entry",
+      "width": 768,
+      "pageWidths": 16,
+      "meanUnmasked": 0.13672437499999998,
+      "medianUnmasked": 0.10516500000000001,
+      "maxUnmasked": 0.42468
     },
     {
       "template": "info",
@@ -338,7 +338,7 @@
       "template": "app-entry",
       "width": 1440,
       "pageWidths": 24,
-      "meanUnmasked": 0.11430625000000001,
+      "meanUnmasked": 0.11840791666666668,
       "medianUnmasked": 0.11002,
       "maxUnmasked": 0.22242
     },
@@ -751,6 +751,32 @@
       "diff": "tools/reports/parity/shots/de/de/first-class-terminal/768-diff.png"
     },
     {
+      "path": "/de/en/additional-services",
+      "template": "hub",
+      "width": 768,
+      "unmaskedRatio": 0.63941,
+      "mismatchRatio": 0.63941,
+      "firstDivergentY": 600,
+      "worstBands": [
+        {
+          "y": 7000,
+          "unmaskedRatio": 0.95112
+        },
+        {
+          "y": 6800,
+          "unmaskedRatio": 0.93592
+        },
+        {
+          "y": 5800,
+          "unmaskedRatio": 0.92662
+        }
+      ],
+      "heightSrc": 5275,
+      "heightEds": 7446,
+      "heightDiffRatio": 0.29157,
+      "diff": "tools/reports/parity/shots/de/en/additional-services/768-diff.png"
+    },
+    {
       "path": "/de/en/100-years/history/menu-on-board",
       "template": "campaign",
       "width": 1440,
@@ -853,32 +879,6 @@
       "heightEds": 1124,
       "heightDiffRatio": 0.2913,
       "diff": "tools/reports/parity/shots/de/de/culinaryjourney/1440-diff.png"
-    },
-    {
-      "path": "/at/de/culinaryjourney",
-      "template": "campaign",
-      "width": 1440,
-      "unmaskedRatio": 0.58181,
-      "mismatchRatio": 0.58181,
-      "firstDivergentY": 400,
-      "worstBands": [
-        {
-          "y": 1200,
-          "unmaskedRatio": 0.98873
-        },
-        {
-          "y": 600,
-          "unmaskedRatio": 0.94273
-        },
-        {
-          "y": 1000,
-          "unmaskedRatio": 0.75644
-        }
-      ],
-      "heightSrc": 1586,
-      "heightEds": 1124,
-      "heightDiffRatio": 0.2913,
-      "diff": "tools/reports/parity/shots/at/de/culinaryjourney/1440-diff.png"
     }
   ],
   "pages": [
@@ -945,26 +945,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.22731,
-          "mismatchRatio": 0.15505,
-          "maskRatio": 0.31788,
+          "unmaskedRatio": 0.35836,
+          "mismatchRatio": 0.24554,
+          "maskRatio": 0.31484,
           "maskBoxes": 3,
-          "heightSrc": 5166,
+          "heightSrc": 5216,
           "heightEds": 4866,
-          "heightDiffRatio": 0.05807,
-          "firstDivergentY": 1600,
+          "heightDiffRatio": 0.0671,
+          "firstDivergentY": 400,
           "worstBands": [
             {
               "y": 4800,
-              "unmaskedRatio": 0.96325
+              "unmaskedRatio": 0.96426
             },
             {
               "y": 4200,
-              "unmaskedRatio": 0.92778
+              "unmaskedRatio": 0.91817
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.50109
+              "unmaskedRatio": 0.71372
             }
           ],
           "capturedWidth": 753,
@@ -1059,7 +1059,7 @@
       ],
       "remains": [
         "layout diverges at y≈1400 px at 1440; replica 271 px shorter (5.6%)",
-        "layout diverges at y≈1600 px at 768; replica 300 px shorter (5.8%)",
+        "layout diverges at y≈400 px at 768; replica 350 px shorter (6.7%)",
         "layout diverges at y≈1600 px at 390; replica 292 px shorter (5.4%)"
       ]
     },
@@ -1126,26 +1126,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19976,
-          "mismatchRatio": 0.1359,
-          "maskRatio": 0.31968,
+          "unmaskedRatio": 0.35942,
+          "mismatchRatio": 0.24686,
+          "maskRatio": 0.31316,
           "maskBoxes": 3,
-          "heightSrc": 5191,
+          "heightSrc": 5299,
           "heightEds": 4949,
-          "heightDiffRatio": 0.04662,
-          "firstDivergentY": 1600,
+          "heightDiffRatio": 0.06605,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 4200,
-              "unmaskedRatio": 0.93788
-            },
-            {
-              "y": 4800,
-              "unmaskedRatio": 0.65114
-            },
-            {
               "y": 5000,
-              "unmaskedRatio": 0.49646
+              "unmaskedRatio": 0.9693
+            },
+            {
+              "y": 4200,
+              "unmaskedRatio": 0.91135
+            },
+            {
+              "y": 1800,
+              "unmaskedRatio": 0.71598
             }
           ],
           "capturedWidth": 753,
@@ -1240,7 +1240,7 @@
       ],
       "remains": [
         "layout diverges at y≈1400 px at 1440; replica 234 px shorter (4.9%)",
-        "layout diverges at y≈1600 px at 768; replica 242 px shorter (4.7%)",
+        "layout diverges at y≈400 px at 768; replica 350 px shorter (6.6%)",
         "layout diverges at y≈1600 px at 390; replica 177 px shorter (3.3%)"
       ]
     },
@@ -1307,26 +1307,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19209,
-          "mismatchRatio": 0.13119,
-          "maskRatio": 0.31705,
+          "unmaskedRatio": 0.32245,
+          "mismatchRatio": 0.22228,
+          "maskRatio": 0.31064,
           "maskBoxes": 3,
-          "heightSrc": 5234,
+          "heightSrc": 5342,
           "heightEds": 4992,
-          "heightDiffRatio": 0.04624,
-          "firstDivergentY": 1600,
+          "heightDiffRatio": 0.06552,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 4200,
-              "unmaskedRatio": 0.81612
-            },
-            {
               "y": 5000,
-              "unmaskedRatio": 0.68887
+              "unmaskedRatio": 0.97781
             },
             {
-              "y": 4800,
-              "unmaskedRatio": 0.44975
+              "y": 4200,
+              "unmaskedRatio": 0.77475
+            },
+            {
+              "y": 4400,
+              "unmaskedRatio": 0.77187
             }
           ],
           "capturedWidth": 753,
@@ -1421,7 +1421,7 @@
       ],
       "remains": [
         "layout diverges at y≈1400 px at 1440; replica 234 px shorter (4.9%)",
-        "layout diverges at y≈1600 px at 768; replica 242 px shorter (4.6%)",
+        "layout diverges at y≈400 px at 768; replica 350 px shorter (6.6%)",
         "layout diverges at y≈2000 px at 390; replica 173 px shorter (3.0%)"
       ]
     },
@@ -1488,26 +1488,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.28329,
-          "mismatchRatio": 0.19832,
-          "maskRatio": 0.29996,
+          "unmaskedRatio": 0.35294,
+          "mismatchRatio": 0.24894,
+          "maskRatio": 0.29467,
           "maskBoxes": 3,
-          "heightSrc": 5019,
+          "heightSrc": 5109,
           "heightEds": 4756,
-          "heightDiffRatio": 0.0524,
+          "heightDiffRatio": 0.06909,
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 400,
-              "unmaskedRatio": 0.88333
+              "y": 4800,
+              "unmaskedRatio": 0.96416
             },
             {
-              "y": 4000,
-              "unmaskedRatio": 0.69709
+              "y": 4200,
+              "unmaskedRatio": 0.90215
             },
             {
               "y": 1600,
-              "unmaskedRatio": 0.68795
+              "unmaskedRatio": 0.80593
             }
           ],
           "capturedWidth": 753,
@@ -1602,7 +1602,7 @@
       ],
       "remains": [
         "layout diverges at y≈200 px at 1440; replica 235 px shorter (5.1%)",
-        "layout diverges at y≈400 px at 768; replica 263 px shorter (5.2%)",
+        "layout diverges at y≈400 px at 768; replica 353 px shorter (6.9%)",
         "layout diverges at y≈1600 px at 390; replica 191 px shorter (3.6%)"
       ]
     },
@@ -1672,8 +1672,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.09206,
-          "mismatchRatio": 0.09206,
+          "unmaskedRatio": 0.09222,
+          "mismatchRatio": 0.09222,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4882,
@@ -1683,15 +1683,15 @@
           "worstBands": [
             {
               "y": 2600,
-              "unmaskedRatio": 0.2843
+              "unmaskedRatio": 0.28377
             },
             {
               "y": 2800,
-              "unmaskedRatio": 0.24943
+              "unmaskedRatio": 0.24966
             },
             {
               "y": 2000,
-              "unmaskedRatio": 0.20934
+              "unmaskedRatio": 0.21015
             }
           ],
           "capturedWidth": 753,
@@ -2049,26 +2049,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30029,
-          "mismatchRatio": 0.26989,
+          "unmaskedRatio": 0.52182,
+          "mismatchRatio": 0.46898,
           "maskRatio": 0.10125,
           "maskBoxes": 1,
-          "heightSrc": 8000,
+          "heightSrc": 7524,
           "heightEds": 8000,
-          "heightDiffRatio": 0,
-          "firstDivergentY": 2400,
+          "heightDiffRatio": 0.0595,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 6200,
-              "unmaskedRatio": 0.90701
+              "y": 5400,
+              "unmaskedRatio": 0.97722
             },
             {
-              "y": 5600,
-              "unmaskedRatio": 0.80595
+              "y": 7800,
+              "unmaskedRatio": 0.96215
             },
             {
-              "y": 6000,
-              "unmaskedRatio": 0.69627
+              "y": 7600,
+              "unmaskedRatio": 0.92605
             }
           ],
           "capturedWidth": 753,
@@ -2178,7 +2178,7 @@
       ],
       "remains": [
         "layout diverges at y≈3600 px at 1440",
-        "layout diverges at y≈2400 px at 768",
+        "layout diverges at y≈1000 px at 768; replica 476 px taller (5.9%)",
         "layout diverges at y≈2800 px at 390"
       ]
     },
@@ -2248,8 +2248,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.06334,
-          "mismatchRatio": 0.06334,
+          "unmaskedRatio": 0.06346,
+          "mismatchRatio": 0.06346,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3104,
@@ -2423,8 +2423,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.13898,
-          "mismatchRatio": 0.13742,
+          "unmaskedRatio": 0.13905,
+          "mismatchRatio": 0.13749,
           "maskRatio": 0.01125,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -3941,26 +3941,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.1911,
-          "mismatchRatio": 0.1911,
+          "unmaskedRatio": 0.46885,
+          "mismatchRatio": 0.46885,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5685,
+          "heightSrc": 5225,
           "heightEds": 5545,
-          "heightDiffRatio": 0.02463,
-          "firstDivergentY": 2600,
+          "heightDiffRatio": 0.05771,
+          "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 5400,
-              "unmaskedRatio": 0.59596
+              "y": 5200,
+              "unmaskedRatio": 0.96956
             },
             {
-              "y": 4800,
-              "unmaskedRatio": 0.53606
+              "y": 600,
+              "unmaskedRatio": 0.86418
             },
             {
-              "y": 3400,
-              "unmaskedRatio": 0.51979
+              "y": 1800,
+              "unmaskedRatio": 0.85823
             }
           ],
           "capturedWidth": 753,
@@ -4069,7 +4069,7 @@
       ],
       "remains": [
         "layout diverges at y≈1800 px at 1440",
-        "layout diverges at y≈2600 px at 768",
+        "layout diverges at y≈200 px at 768; replica 320 px taller (5.8%)",
         "layout diverges at y≈1400 px at 390"
       ]
     },
@@ -8908,7 +8908,7 @@
       "locale": "at/de",
       "template": "app-entry",
       "priority": 2,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -8919,26 +8919,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.05021,
-          "mismatchRatio": 0.04576,
+          "unmaskedRatio": 0.08372,
+          "mismatchRatio": 0.0763,
           "maskRatio": 0.0886,
           "maskBoxes": 1,
-          "heightSrc": 2114,
+          "heightSrc": 2110,
           "heightEds": 2127,
-          "heightDiffRatio": 0.00611,
+          "heightDiffRatio": 0.00799,
           "firstDivergentY": null,
           "worstBands": [
             {
+              "y": 1000,
+              "unmaskedRatio": 0.16392
+            },
+            {
               "y": 2000,
-              "unmaskedRatio": 0.12376
+              "unmaskedRatio": 0.15104
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.11045
-            },
-            {
-              "y": 1200,
-              "unmaskedRatio": 0.08076
+              "unmaskedRatio": 0.11895
             }
           ],
           "capturedWidth": 1425,
@@ -8969,26 +8969,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.08084,
-          "mismatchRatio": 0.07277,
-          "maskRatio": 0.09986,
+          "unmaskedRatio": 0.0881,
+          "mismatchRatio": 0.07929,
+          "maskRatio": 0.10001,
           "maskBoxes": 1,
-          "heightSrc": 2672,
+          "heightSrc": 2668,
           "heightEds": 2668,
-          "heightDiffRatio": 0.0015,
+          "heightDiffRatio": 0,
           "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2000,
-              "unmaskedRatio": 0.13593
+              "y": 600,
+              "unmaskedRatio": 0.15907
             },
             {
               "y": 2400,
-              "unmaskedRatio": 0.13182
+              "unmaskedRatio": 0.14552
             },
             {
-              "y": 1200,
-              "unmaskedRatio": 0.12385
+              "y": 2000,
+              "unmaskedRatio": 0.13698
             }
           ],
           "capturedWidth": 753,
@@ -9019,26 +9019,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.20156,
-          "mismatchRatio": 0.17731,
-          "maskRatio": 0.12034,
+          "unmaskedRatio": 0.15147,
+          "mismatchRatio": 0.13315,
+          "maskRatio": 0.12095,
           "maskBoxes": 1,
-          "heightSrc": 3594,
+          "heightSrc": 3564,
           "heightEds": 3576,
-          "heightDiffRatio": 0.00501,
-          "firstDivergentY": 1400,
+          "heightDiffRatio": 0.00336,
+          "firstDivergentY": 2200,
           "worstBands": [
             {
               "y": 2200,
-              "unmaskedRatio": 0.49515
-            },
-            {
-              "y": 1800,
-              "unmaskedRatio": 0.43029
+              "unmaskedRatio": 0.32873
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.32295
+              "unmaskedRatio": 0.24671
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.22091
             }
           ],
           "capturedWidth": 375,
@@ -9098,8 +9098,9 @@
         "2026-10-25 [page] Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2. (bba462c)"
       ],
       "remains": [
-        "8.1% of unmasked pixels differ at 768, most around y≈2000 px",
-        "layout diverges at y≈1400 px at 390"
+        "8.4% of unmasked pixels differ at 1440, most around y≈1000 px",
+        "8.8% of unmasked pixels differ at 768, most around y≈600 px",
+        "layout diverges at y≈2200 px at 390"
       ]
     },
     {
@@ -12093,26 +12094,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.0504,
-          "mismatchRatio": 0.04587,
+          "unmaskedRatio": 0.08601,
+          "mismatchRatio": 0.07829,
           "maskRatio": 0.08974,
           "maskBoxes": 1,
-          "heightSrc": 2087,
+          "heightSrc": 2083,
           "heightEds": 2100,
-          "heightDiffRatio": 0.00619,
+          "heightDiffRatio": 0.0081,
           "firstDivergentY": null,
           "worstBands": [
             {
               "y": 2000,
-              "unmaskedRatio": 0.15109
+              "unmaskedRatio": 0.19145
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.16296
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.13559
-            },
-            {
-              "y": 1200,
-              "unmaskedRatio": 0.07319
+              "unmaskedRatio": 0.16236
             }
           ],
           "capturedWidth": 1425,
@@ -12143,26 +12144,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.08319,
-          "mismatchRatio": 0.07458,
-          "maskRatio": 0.10346,
+          "unmaskedRatio": 0.08975,
+          "mismatchRatio": 0.08045,
+          "maskRatio": 0.10358,
           "maskBoxes": 1,
-          "heightSrc": 2579,
+          "heightSrc": 2575,
           "heightEds": 2576,
-          "heightDiffRatio": 0.00116,
+          "heightDiffRatio": 0.00039,
           "firstDivergentY": null,
           "worstBands": [
             {
               "y": 2400,
-              "unmaskedRatio": 0.15823
+              "unmaskedRatio": 0.17447
+            },
+            {
+              "y": 600,
+              "unmaskedRatio": 0.16193
             },
             {
               "y": 2000,
-              "unmaskedRatio": 0.15242
-            },
-            {
-              "y": 1800,
-              "unmaskedRatio": 0.10997
+              "unmaskedRatio": 0.15187
             }
           ],
           "capturedWidth": 753,
@@ -12193,13 +12194,13 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.12709,
-          "mismatchRatio": 0.11184,
-          "maskRatio": 0.12,
+          "unmaskedRatio": 0.12371,
+          "mismatchRatio": 0.10884,
+          "maskRatio": 0.1202,
           "maskBoxes": 1,
-          "heightSrc": 3516,
+          "heightSrc": 3510,
           "heightEds": 3493,
-          "heightDiffRatio": 0.00654,
+          "heightDiffRatio": 0.00484,
           "firstDivergentY": null,
           "worstBands": [
             {
@@ -12207,12 +12208,12 @@
               "unmaskedRatio": 0.27329
             },
             {
-              "y": 3200,
-              "unmaskedRatio": 0.20477
-            },
-            {
               "y": 1400,
               "unmaskedRatio": 0.17868
+            },
+            {
+              "y": 2400,
+              "unmaskedRatio": 0.16981
             }
           ],
           "capturedWidth": 375,
@@ -12272,8 +12273,9 @@
         "2026-10-25 [page] Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2. (bba462c)"
       ],
       "remains": [
-        "8.3% of unmasked pixels differ at 768, most around y≈2400 px",
-        "12.7% of unmasked pixels differ at 390, most around y≈2200 px"
+        "8.6% of unmasked pixels differ at 1440, most around y≈2000 px",
+        "9.0% of unmasked pixels differ at 768, most around y≈2400 px",
+        "12.4% of unmasked pixels differ at 390, most around y≈2200 px"
       ]
     },
     {
@@ -14227,26 +14229,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.2169,
-          "mismatchRatio": 0.2169,
+          "unmaskedRatio": 0.63941,
+          "mismatchRatio": 0.63941,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7575,
+          "heightSrc": 5275,
           "heightEds": 7446,
-          "heightDiffRatio": 0.01703,
-          "firstDivergentY": 4400,
+          "heightDiffRatio": 0.29157,
+          "firstDivergentY": 600,
           "worstBands": [
             {
-              "y": 6200,
-              "unmaskedRatio": 0.66606
+              "y": 7000,
+              "unmaskedRatio": 0.95112
             },
             {
-              "y": 4800,
-              "unmaskedRatio": 0.58139
+              "y": 6800,
+              "unmaskedRatio": 0.93592
             },
             {
-              "y": 6000,
-              "unmaskedRatio": 0.51467
+              "y": 5800,
+              "unmaskedRatio": 0.92662
             }
           ],
           "capturedWidth": 753,
@@ -14351,7 +14353,7 @@
       ],
       "remains": [
         "layout diverges at y≈600 px at 1440",
-        "layout diverges at y≈4400 px at 768",
+        "layout diverges at y≈600 px at 768; replica 2171 px taller (29.2%)",
         "layout diverges at y≈3400 px at 390"
       ]
     },
@@ -14421,8 +14423,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.44125,
-          "mismatchRatio": 0.44125,
+          "unmaskedRatio": 0.22838,
+          "mismatchRatio": 0.22838,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3608,
@@ -14431,16 +14433,16 @@
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 3200,
-              "unmaskedRatio": 0.96169
+              "y": 1800,
+              "unmaskedRatio": 0.70457
             },
             {
-              "y": 2600,
-              "unmaskedRatio": 0.92843
+              "y": 1400,
+              "unmaskedRatio": 0.61228
             },
             {
-              "y": 3000,
-              "unmaskedRatio": 0.91463
+              "y": 1000,
+              "unmaskedRatio": 0.5098
             }
           ],
           "capturedWidth": 753,
@@ -14957,26 +14959,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.17844,
-          "mismatchRatio": 0.17844,
+          "unmaskedRatio": 0.47679,
+          "mismatchRatio": 0.47679,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5458,
+          "heightSrc": 4998,
           "heightEds": 5341,
-          "heightDiffRatio": 0.02144,
-          "firstDivergentY": 1200,
+          "heightDiffRatio": 0.06422,
+          "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 3200,
-              "unmaskedRatio": 0.52986
+              "y": 5000,
+              "unmaskedRatio": 0.95963
             },
             {
-              "y": 5200,
-              "unmaskedRatio": 0.49781
+              "y": 1000,
+              "unmaskedRatio": 0.87448
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.48948
+              "y": 4400,
+              "unmaskedRatio": 0.87114
             }
           ],
           "capturedWidth": 753,
@@ -15085,7 +15087,7 @@
       ],
       "remains": [
         "layout diverges at y≈1800 px at 1440",
-        "layout diverges at y≈1200 px at 768",
+        "layout diverges at y≈200 px at 768; replica 343 px taller (6.4%)",
         "layout diverges at y≈600 px at 390"
       ]
     },
@@ -15546,8 +15548,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.37976,
-          "mismatchRatio": 0.37976,
+          "unmaskedRatio": 0.3746,
+          "mismatchRatio": 0.3746,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3595,
@@ -15556,16 +15558,16 @@
           "firstDivergentY": 2000,
           "worstBands": [
             {
+              "y": 3200,
+              "unmaskedRatio": 0.97384
+            },
+            {
               "y": 3000,
-              "unmaskedRatio": 0.97185
+              "unmaskedRatio": 0.92792
             },
             {
-              "y": 2400,
-              "unmaskedRatio": 0.93413
-            },
-            {
-              "y": 2800,
-              "unmaskedRatio": 0.92991
+              "y": 2200,
+              "unmaskedRatio": 0.91061
             }
           ],
           "capturedWidth": 753,
@@ -15743,8 +15745,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19038,
-          "mismatchRatio": 0.19038,
+          "unmaskedRatio": 0.19035,
+          "mismatchRatio": 0.19035,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3467,
@@ -16098,8 +16100,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.1939,
-          "mismatchRatio": 0.1939,
+          "unmaskedRatio": 0.19381,
+          "mismatchRatio": 0.19381,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3012,
@@ -16113,11 +16115,11 @@
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.41878
+              "unmaskedRatio": 0.41854
             },
             {
               "y": 800,
-              "unmaskedRatio": 0.38601
+              "unmaskedRatio": 0.38608
             }
           ],
           "capturedWidth": 753,
@@ -16275,8 +16277,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.26666,
-          "mismatchRatio": 0.26666,
+          "unmaskedRatio": 0.2668,
+          "mismatchRatio": 0.2668,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2568,
@@ -16286,11 +16288,11 @@
           "worstBands": [
             {
               "y": 800,
-              "unmaskedRatio": 0.57401
+              "unmaskedRatio": 0.57428
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.52088
+              "unmaskedRatio": 0.52012
             },
             {
               "y": 400,
@@ -16452,26 +16454,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.21761,
-          "mismatchRatio": 0.21761,
+          "unmaskedRatio": 0.1599,
+          "mismatchRatio": 0.1599,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2640,
           "heightEds": 2582,
           "heightDiffRatio": 0.02197,
-          "firstDivergentY": 400,
+          "firstDivergentY": 1400,
           "worstBands": [
             {
               "y": 1400,
-              "unmaskedRatio": 0.62254
-            },
-            {
-              "y": 400,
-              "unmaskedRatio": 0.41576
+              "unmaskedRatio": 0.62297
             },
             {
               "y": 1000,
-              "unmaskedRatio": 0.29493
+              "unmaskedRatio": 0.29479
+            },
+            {
+              "y": 1800,
+              "unmaskedRatio": 0.2467
             }
           ],
           "capturedWidth": 753,
@@ -16559,7 +16561,7 @@
       ],
       "remains": [
         "layout diverges at y≈400 px at 1440; replica 90 px shorter (3.2%)",
-        "layout diverges at y≈400 px at 768",
+        "layout diverges at y≈1400 px at 768",
         "layout diverges at y≈0 px at 390"
       ]
     },
@@ -16629,8 +16631,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19837,
-          "mismatchRatio": 0.19837,
+          "unmaskedRatio": 0.19818,
+          "mismatchRatio": 0.19818,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2642,
@@ -16640,15 +16642,15 @@
           "worstBands": [
             {
               "y": 400,
-              "unmaskedRatio": 0.5096
+              "unmaskedRatio": 0.5091
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.41186
+              "unmaskedRatio": 0.4092
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.40074
+              "unmaskedRatio": 0.40044
             }
           ],
           "capturedWidth": 753,
@@ -16806,8 +16808,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.21708,
-          "mismatchRatio": 0.21708,
+          "unmaskedRatio": 0.21715,
+          "mismatchRatio": 0.21715,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2589,
@@ -16821,7 +16823,7 @@
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.46803
+              "unmaskedRatio": 0.46932
             },
             {
               "y": 1000,
@@ -17156,8 +17158,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.21187,
-          "mismatchRatio": 0.21187,
+          "unmaskedRatio": 0.21202,
+          "mismatchRatio": 0.21202,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2682,
@@ -17171,7 +17173,7 @@
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.54758
+              "unmaskedRatio": 0.54887
             },
             {
               "y": 1000,
@@ -17333,8 +17335,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.08878,
-          "mismatchRatio": 0.08878,
+          "unmaskedRatio": 0.08848,
+          "mismatchRatio": 0.08848,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 6990,
@@ -17458,7 +17460,7 @@
         "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
       ],
       "remains": [
-        "8.9% of unmasked pixels differ at 768, most around y≈5800 px",
+        "8.8% of unmasked pixels differ at 768, most around y≈5800 px",
         "8.6% of unmasked pixels differ at 390, most around y≈6400 px"
       ]
     },
@@ -17874,8 +17876,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.06767,
-          "mismatchRatio": 0.06767,
+          "unmaskedRatio": 0.06776,
+          "mismatchRatio": 0.06776,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 7262,
@@ -17885,7 +17887,7 @@
           "worstBands": [
             {
               "y": 6400,
-              "unmaskedRatio": 0.35959
+              "unmaskedRatio": 0.35872
             },
             {
               "y": 7000,
@@ -18047,8 +18049,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.38547,
-          "mismatchRatio": 0.38547,
+          "unmaskedRatio": 0.38513,
+          "mismatchRatio": 0.38513,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -18057,16 +18059,16 @@
           "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 4400,
-              "unmaskedRatio": 0.87015
+              "y": 5000,
+              "unmaskedRatio": 0.8514
             },
             {
-              "y": 5000,
-              "unmaskedRatio": 0.85482
+              "y": 4400,
+              "unmaskedRatio": 0.82694
             },
             {
               "y": 5600,
-              "unmaskedRatio": 0.81984
+              "unmaskedRatio": 0.81039
             }
           ],
           "capturedWidth": 753,
@@ -18238,26 +18240,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.08432,
-          "mismatchRatio": 0.08432,
+          "unmaskedRatio": 0.30633,
+          "mismatchRatio": 0.30633,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7279,
+          "heightSrc": 6819,
           "heightEds": 7284,
-          "heightDiffRatio": 0.00069,
-          "firstDivergentY": null,
+          "heightDiffRatio": 0.06384,
+          "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6200,
-              "unmaskedRatio": 0.26272
+              "y": 600,
+              "unmaskedRatio": 0.96882
             },
             {
-              "y": 5800,
-              "unmaskedRatio": 0.22754
+              "y": 7000,
+              "unmaskedRatio": 0.95318
             },
             {
-              "y": 5400,
-              "unmaskedRatio": 0.22481
+              "y": 6800,
+              "unmaskedRatio": 0.94525
             }
           ],
           "capturedWidth": 753,
@@ -18359,7 +18361,7 @@
       ],
       "remains": [
         "layout diverges at y≈5000 px at 1440; replica 684 px taller (10.0%)",
-        "8.4% of unmasked pixels differ at 768, most around y≈6200 px",
+        "layout diverges at y≈200 px at 768; replica 465 px taller (6.4%)",
         "layout diverges at y≈7600 px at 390"
       ]
     },
@@ -19159,8 +19161,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.11005,
-          "mismatchRatio": 0.11005,
+          "unmaskedRatio": 0.10999,
+          "mismatchRatio": 0.10999,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3360,
@@ -19178,7 +19180,7 @@
             },
             {
               "y": 2600,
-              "unmaskedRatio": 0.28062
+              "unmaskedRatio": 0.28203
             }
           ],
           "capturedWidth": 753,
@@ -19351,8 +19353,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.24499,
-          "mismatchRatio": 0.24499,
+          "unmaskedRatio": 0.24191,
+          "mismatchRatio": 0.24191,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4760,
@@ -19365,8 +19367,8 @@
               "unmaskedRatio": 0.96207
             },
             {
-              "y": 4000,
-              "unmaskedRatio": 0.9524
+              "y": 4400,
+              "unmaskedRatio": 0.95511
             },
             {
               "y": 6600,
@@ -19906,14 +19908,14 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.36477,
-          "mismatchRatio": 0.36477,
+          "unmaskedRatio": 0.53566,
+          "mismatchRatio": 0.53566,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 4080,
+          "heightSrc": 3620,
           "heightEds": 4664,
-          "heightDiffRatio": 0.12521,
-          "firstDivergentY": 2200,
+          "heightDiffRatio": 0.22384,
+          "firstDivergentY": 200,
           "worstBands": [
             {
               "y": 4200,
@@ -19921,11 +19923,11 @@
             },
             {
               "y": 4000,
-              "unmaskedRatio": 0.92995
+              "unmaskedRatio": 0.94189
             },
             {
-              "y": 3400,
-              "unmaskedRatio": 0.90941
+              "y": 3200,
+              "unmaskedRatio": 0.93596
             }
           ],
           "capturedWidth": 753,
@@ -20024,7 +20026,7 @@
       ],
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 978 px taller (20.1%)",
-        "layout diverges at y≈2200 px at 768; replica 584 px taller (12.5%)",
+        "layout diverges at y≈200 px at 768; replica 1044 px taller (22.4%)",
         "layout diverges at y≈2200 px at 390"
       ]
     },
@@ -20270,8 +20272,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.10808,
-          "mismatchRatio": 0.10808,
+          "unmaskedRatio": 0.10798,
+          "mismatchRatio": 0.10798,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3131,
@@ -20289,7 +20291,7 @@
             },
             {
               "y": 1000,
-              "unmaskedRatio": 0.2078
+              "unmaskedRatio": 0.20751
             }
           ],
           "capturedWidth": 753,
@@ -20653,26 +20655,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.20228,
-          "mismatchRatio": 0.20228,
+          "unmaskedRatio": 0.46763,
+          "mismatchRatio": 0.46763,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 8000,
+          "heightSrc": 7596,
           "heightEds": 8000,
-          "heightDiffRatio": 0,
-          "firstDivergentY": 3800,
+          "heightDiffRatio": 0.0505,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 6600,
-              "unmaskedRatio": 0.77681
+              "y": 7800,
+              "unmaskedRatio": 0.96039
             },
             {
-              "y": 7400,
-              "unmaskedRatio": 0.55627
+              "y": 600,
+              "unmaskedRatio": 0.94912
             },
             {
-              "y": 6800,
-              "unmaskedRatio": 0.54258
+              "y": 7200,
+              "unmaskedRatio": 0.94539
             }
           ],
           "capturedWidth": 753,
@@ -20775,7 +20777,7 @@
       ],
       "remains": [
         "layout diverges at y≈5400 px at 1440",
-        "layout diverges at y≈3800 px at 768",
+        "layout diverges at y≈400 px at 768; replica 404 px taller (5.1%)",
         "layout diverges at y≈6600 px at 390"
       ]
     },
@@ -20842,14 +20844,14 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.35316,
-          "mismatchRatio": 0.35316,
+          "unmaskedRatio": 0.53248,
+          "mismatchRatio": 0.53248,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 4190,
+          "heightSrc": 3730,
           "heightEds": 4747,
-          "heightDiffRatio": 0.11734,
-          "firstDivergentY": 2200,
+          "heightDiffRatio": 0.21424,
+          "firstDivergentY": 200,
           "worstBands": [
             {
               "y": 4400,
@@ -20860,8 +20862,8 @@
               "unmaskedRatio": 0.95268
             },
             {
-              "y": 3600,
-              "unmaskedRatio": 0.90855
+              "y": 4000,
+              "unmaskedRatio": 0.94503
             }
           ],
           "capturedWidth": 753,
@@ -20960,7 +20962,7 @@
       ],
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 978 px taller (19.9%)",
-        "layout diverges at y≈2200 px at 768; replica 557 px taller (11.7%)",
+        "layout diverges at y≈200 px at 768; replica 1017 px taller (21.4%)",
         "layout diverges at y≈2400 px at 390"
       ]
     },
@@ -21207,8 +21209,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.16256,
-          "mismatchRatio": 0.16256,
+          "unmaskedRatio": 0.16251,
+          "mismatchRatio": 0.16251,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3258,
@@ -21218,11 +21220,11 @@
           "worstBands": [
             {
               "y": 400,
-              "unmaskedRatio": 0.4804
+              "unmaskedRatio": 0.48031
             },
             {
               "y": 1000,
-              "unmaskedRatio": 0.31648
+              "unmaskedRatio": 0.31546
             },
             {
               "y": 2000,
@@ -21400,8 +21402,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.10033,
-          "mismatchRatio": 0.10033,
+          "unmaskedRatio": 0.10036,
+          "mismatchRatio": 0.10036,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2251,
@@ -21411,7 +21413,7 @@
           "worstBands": [
             {
               "y": 1000,
-              "unmaskedRatio": 0.36759
+              "unmaskedRatio": 0.36776
             },
             {
               "y": 2000,
@@ -21419,7 +21421,7 @@
             },
             {
               "y": 1400,
-              "unmaskedRatio": 0.12024
+              "unmaskedRatio": 0.12316
             }
           ],
           "capturedWidth": 753,
@@ -21590,26 +21592,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.21509,
-          "mismatchRatio": 0.21509,
+          "unmaskedRatio": 0.42541,
+          "mismatchRatio": 0.42541,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 8000,
+          "heightSrc": 7976,
           "heightEds": 8000,
-          "heightDiffRatio": 0,
-          "firstDivergentY": 3200,
+          "heightDiffRatio": 0.003,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 6800,
-              "unmaskedRatio": 0.67307
+              "y": 600,
+              "unmaskedRatio": 0.94535
             },
             {
-              "y": 4200,
-              "unmaskedRatio": 0.55758
+              "y": 7400,
+              "unmaskedRatio": 0.93904
             },
             {
-              "y": 4000,
-              "unmaskedRatio": 0.50615
+              "y": 800,
+              "unmaskedRatio": 0.92718
             }
           ],
           "capturedWidth": 753,
@@ -21712,7 +21714,7 @@
       ],
       "remains": [
         "layout diverges at y≈3000 px at 1440",
-        "layout diverges at y≈3200 px at 768",
+        "layout diverges at y≈400 px at 768",
         "layout diverges at y≈4200 px at 390"
       ]
     },
@@ -21782,8 +21784,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15863,
-          "mismatchRatio": 0.15863,
+          "unmaskedRatio": 0.15847,
+          "mismatchRatio": 0.15847,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3879,
@@ -21797,7 +21799,7 @@
             },
             {
               "y": 3200,
-              "unmaskedRatio": 0.91467
+              "unmaskedRatio": 0.91372
             },
             {
               "y": 4000,
@@ -22073,7 +22075,7 @@
       "locale": "de/en",
       "template": "info",
       "priority": 3,
-      "status": "review",
+      "status": "fail",
       "widthsChecked": [
         1440,
         768,
@@ -22134,26 +22136,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.18206,
-          "mismatchRatio": 0.18206,
+          "unmaskedRatio": 0.39079,
+          "mismatchRatio": 0.39079,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 4883,
+          "heightSrc": 4423,
           "heightEds": 5129,
-          "heightDiffRatio": 0.04796,
-          "firstDivergentY": 2800,
+          "heightDiffRatio": 0.13765,
+          "firstDivergentY": 200,
           "worstBands": [
             {
               "y": 4800,
-              "unmaskedRatio": 0.95159
+              "unmaskedRatio": 0.9612
             },
             {
-              "y": 4200,
-              "unmaskedRatio": 0.84587
+              "y": 4600,
+              "unmaskedRatio": 0.93354
             },
             {
-              "y": 5000,
-              "unmaskedRatio": 0.39023
+              "y": 3800,
+              "unmaskedRatio": 0.89965
             }
           ],
           "capturedWidth": 753,
@@ -22259,7 +22261,7 @@
       ],
       "remains": [
         "layout diverges at y≈2400 px at 1440; replica 231 px taller (5.3%)",
-        "layout diverges at y≈2800 px at 768; replica 246 px taller (4.8%)",
+        "layout diverges at y≈200 px at 768; replica 706 px taller (13.8%)",
         "layout diverges at y≈3800 px at 390; replica 215 px taller (3.3%)"
       ]
     },
@@ -22671,8 +22673,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.32864,
-          "mismatchRatio": 0.32864,
+          "unmaskedRatio": 0.32857,
+          "mismatchRatio": 0.32857,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3199,
@@ -22847,8 +22849,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15885,
-          "mismatchRatio": 0.15885,
+          "unmaskedRatio": 0.15821,
+          "mismatchRatio": 0.15821,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3998,
@@ -22858,7 +22860,7 @@
           "worstBands": [
             {
               "y": 3200,
-              "unmaskedRatio": 0.81793
+              "unmaskedRatio": 0.81315
             },
             {
               "y": 4000,
@@ -22866,7 +22868,7 @@
             },
             {
               "y": 3800,
-              "unmaskedRatio": 0.49035
+              "unmaskedRatio": 0.48374
             }
           ],
           "capturedWidth": 753,
@@ -23138,7 +23140,7 @@
       "locale": "de/de",
       "template": "info",
       "priority": 3,
-      "status": "review",
+      "status": "fail",
       "widthsChecked": [
         1440,
         768,
@@ -23199,26 +23201,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.18019,
-          "mismatchRatio": 0.18019,
+          "unmaskedRatio": 0.40323,
+          "mismatchRatio": 0.40323,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5053,
+          "heightSrc": 4593,
           "heightEds": 5300,
-          "heightDiffRatio": 0.0466,
-          "firstDivergentY": 3000,
+          "heightDiffRatio": 0.1334,
+          "firstDivergentY": 200,
           "worstBands": [
             {
+              "y": 4800,
+              "unmaskedRatio": 0.95906
+            },
+            {
               "y": 5000,
-              "unmaskedRatio": 0.94853
+              "unmaskedRatio": 0.95721
             },
             {
-              "y": 4400,
-              "unmaskedRatio": 0.60009
-            },
-            {
-              "y": 4200,
-              "unmaskedRatio": 0.59196
+              "y": 4600,
+              "unmaskedRatio": 0.93223
             }
           ],
           "capturedWidth": 753,
@@ -23324,7 +23326,7 @@
       ],
       "remains": [
         "layout diverges at y≈2400 px at 1440; replica 231 px taller (5.2%)",
-        "layout diverges at y≈3000 px at 768; replica 247 px taller (4.7%)",
+        "layout diverges at y≈200 px at 768; replica 707 px taller (13.3%)",
         "layout diverges at y≈4000 px at 390; replica 215 px taller (3.2%)"
       ]
     },
@@ -23394,8 +23396,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.07472,
-          "mismatchRatio": 0.07472,
+          "unmaskedRatio": 0.07468,
+          "mismatchRatio": 0.07468,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2735,
@@ -23564,8 +23566,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.10252,
-          "mismatchRatio": 0.10252,
+          "unmaskedRatio": 0.10246,
+          "mismatchRatio": 0.10246,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3202,
@@ -23583,7 +23585,7 @@
             },
             {
               "y": 2400,
-              "unmaskedRatio": 0.19912
+              "unmaskedRatio": 0.19823
             }
           ],
           "capturedWidth": 753,
@@ -23735,8 +23737,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.33657,
-          "mismatchRatio": 0.33657,
+          "unmaskedRatio": 0.3366,
+          "mismatchRatio": 0.3366,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3291,
@@ -24106,26 +24108,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30068,
-          "mismatchRatio": 0.30068,
+          "unmaskedRatio": 0.4092,
+          "mismatchRatio": 0.4092,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
           "heightEds": 8000,
           "heightDiffRatio": 0,
-          "firstDivergentY": 2400,
+          "firstDivergentY": 1400,
           "worstBands": [
             {
               "y": 6000,
-              "unmaskedRatio": 0.85252
+              "unmaskedRatio": 0.8867
             },
             {
               "y": 5200,
-              "unmaskedRatio": 0.82306
+              "unmaskedRatio": 0.86201
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.8075
+              "y": 5400,
+              "unmaskedRatio": 0.84244
             }
           ],
           "capturedWidth": 753,
@@ -24231,7 +24233,7 @@
       ],
       "remains": [
         "layout diverges at y≈3800 px at 1440",
-        "layout diverges at y≈2400 px at 768",
+        "layout diverges at y≈1400 px at 768",
         "layout diverges at y≈600 px at 390"
       ]
     },
@@ -24301,8 +24303,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.34388,
-          "mismatchRatio": 0.34388,
+          "unmaskedRatio": 0.41665,
+          "mismatchRatio": 0.41665,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -24312,15 +24314,15 @@
           "worstBands": [
             {
               "y": 5200,
-              "unmaskedRatio": 0.8593
+              "unmaskedRatio": 0.86849
             },
             {
               "y": 6200,
-              "unmaskedRatio": 0.81681
+              "unmaskedRatio": 0.86282
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.81671
+              "y": 5400,
+              "unmaskedRatio": 0.83798
             }
           ],
           "capturedWidth": 753,
@@ -25020,26 +25022,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.06186,
-          "mismatchRatio": 0.06186,
+          "unmaskedRatio": 0.442,
+          "mismatchRatio": 0.442,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2238,
           "heightEds": 1733,
           "heightDiffRatio": 0.22565,
-          "firstDivergentY": null,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 1000,
-              "unmaskedRatio": 0.17931
-            },
-            {
-              "y": 1600,
-              "unmaskedRatio": 0.1579
+              "y": 1800,
+              "unmaskedRatio": 0.9707
             },
             {
               "y": 1200,
-              "unmaskedRatio": 0.08804
+              "unmaskedRatio": 0.92726
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.77653
             }
           ],
           "capturedWidth": 753,
@@ -25143,7 +25145,7 @@
       ],
       "remains": [
         "layout diverges at y≈800 px at 1440; replica 213 px shorter (12.6%)",
-        "page height at 768: replica 505 px shorter (22.6%)"
+        "layout diverges at y≈1000 px at 768; replica 505 px shorter (22.6%)"
       ]
     },
     {
@@ -25209,14 +25211,14 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.20671,
-          "mismatchRatio": 0.20671,
+          "unmaskedRatio": 0.28593,
+          "mismatchRatio": 0.28593,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7683,
+          "heightSrc": 7223,
           "heightEds": 7853,
-          "heightDiffRatio": 0.02165,
-          "firstDivergentY": 6200,
+          "heightDiffRatio": 0.08022,
+          "firstDivergentY": 200,
           "worstBands": [
             {
               "y": 7400,
@@ -25224,11 +25226,11 @@
             },
             {
               "y": 7200,
-              "unmaskedRatio": 0.93697
+              "unmaskedRatio": 0.93884
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.93275
+              "unmaskedRatio": 0.93698
             }
           ],
           "capturedWidth": 753,
@@ -25327,7 +25329,7 @@
       ],
       "remains": [
         "layout diverges at y≈5400 px at 1440",
-        "layout diverges at y≈6200 px at 768",
+        "layout diverges at y≈200 px at 768; replica 630 px taller (8.0%)",
         "9.0% of unmasked pixels differ at 390, most around y≈600 px"
       ]
     },
@@ -25397,14 +25399,14 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15102,
-          "mismatchRatio": 0.15102,
+          "unmaskedRatio": 0.16118,
+          "mismatchRatio": 0.16118,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4048,
           "heightEds": 3878,
           "heightDiffRatio": 0.042,
-          "firstDivergentY": 3200,
+          "firstDivergentY": 2400,
           "worstBands": [
             {
               "y": 3800,
@@ -25412,11 +25414,11 @@
             },
             {
               "y": 3200,
-              "unmaskedRatio": 0.67938
+              "unmaskedRatio": 0.68167
             },
             {
-              "y": 3000,
-              "unmaskedRatio": 0.28086
+              "y": 2400,
+              "unmaskedRatio": 0.4235
             }
           ],
           "capturedWidth": 753,
@@ -25521,7 +25523,7 @@
       ],
       "remains": [
         "layout diverges at y≈2600 px at 1440",
-        "layout diverges at y≈3200 px at 768; replica 170 px shorter (4.2%)",
+        "layout diverges at y≈2400 px at 768; replica 170 px shorter (4.2%)",
         "layout diverges at y≈3600 px at 390"
       ]
     },
@@ -25768,8 +25770,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30937,
-          "mismatchRatio": 0.30937,
+          "unmaskedRatio": 0.30926,
+          "mismatchRatio": 0.30926,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4156,
@@ -25965,8 +25967,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.13297,
-          "mismatchRatio": 0.13297,
+          "unmaskedRatio": 0.13298,
+          "mismatchRatio": 0.13298,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 5120,
@@ -26331,26 +26333,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.27564,
-          "mismatchRatio": 0.27564,
+          "unmaskedRatio": 0.51399,
+          "mismatchRatio": 0.51399,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 3026,
+          "heightSrc": 2566,
           "heightEds": 3087,
-          "heightDiffRatio": 0.01976,
-          "firstDivergentY": 800,
+          "heightDiffRatio": 0.16877,
+          "firstDivergentY": 200,
           "worstBands": [
             {
               "y": 2800,
               "unmaskedRatio": 0.95318
             },
             {
-              "y": 2200,
-              "unmaskedRatio": 0.84917
+              "y": 2600,
+              "unmaskedRatio": 0.94525
             },
             {
               "y": 2000,
-              "unmaskedRatio": 0.51094
+              "unmaskedRatio": 0.92459
             }
           ],
           "capturedWidth": 753,
@@ -26449,7 +26451,7 @@
       ],
       "remains": [
         "layout diverges at y≈2200 px at 1440; replica 457 px taller (13.5%)",
-        "layout diverges at y≈800 px at 768",
+        "layout diverges at y≈200 px at 768; replica 521 px taller (16.9%)",
         "layout diverges at y≈800 px at 390; replica 109 px shorter (3.2%)"
       ]
     },
@@ -27054,8 +27056,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.16327,
-          "mismatchRatio": 0.16327,
+          "unmaskedRatio": 0.16312,
+          "mismatchRatio": 0.16312,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 5692,
@@ -27069,7 +27071,7 @@
             },
             {
               "y": 5000,
-              "unmaskedRatio": 0.94006
+              "unmaskedRatio": 0.93579
             },
             {
               "y": 5800,
@@ -27252,8 +27254,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.09633,
-          "mismatchRatio": 0.09633,
+          "unmaskedRatio": 0.09625,
+          "mismatchRatio": 0.09625,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 6878,
@@ -27267,7 +27269,7 @@
             },
             {
               "y": 3800,
-              "unmaskedRatio": 0.32112
+              "unmaskedRatio": 0.32069
             },
             {
               "y": 6000,
@@ -27450,26 +27452,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.18544,
-          "mismatchRatio": 0.16664,
+          "unmaskedRatio": 0.4752,
+          "mismatchRatio": 0.42703,
           "maskRatio": 0.10138,
           "maskBoxes": 1,
           "heightSrc": 8000,
           "heightEds": 8000,
           "heightDiffRatio": 0,
-          "firstDivergentY": 800,
+          "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 7400,
-              "unmaskedRatio": 0.39052
+              "y": 5600,
+              "unmaskedRatio": 0.90812
             },
             {
-              "y": 1800,
-              "unmaskedRatio": 0.38529
+              "y": 600,
+              "unmaskedRatio": 0.90023
             },
             {
-              "y": 2000,
-              "unmaskedRatio": 0.34365
+              "y": 4600,
+              "unmaskedRatio": 0.83608
             }
           ],
           "capturedWidth": 753,
@@ -27574,7 +27576,7 @@
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
-        "layout diverges at y≈800 px at 768",
+        "layout diverges at y≈200 px at 768",
         "layout diverges at y≈400 px at 390"
       ]
     },
@@ -63593,8 +63595,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.22136,
-          "mismatchRatio": 0.22136,
+          "unmaskedRatio": 0.22124,
+          "mismatchRatio": 0.22124,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3161,
@@ -69151,8 +69153,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.07788,
-          "mismatchRatio": 0.0708,
+          "unmaskedRatio": 0.07791,
+          "mismatchRatio": 0.07083,
           "maskRatio": 0.0909,
           "maskBoxes": 1,
           "heightSrc": 2056,
@@ -69202,7 +69204,7 @@
           "contentWidth": 753,
           "state": "done",
           "unmaskedRatio": 0.08202,
-          "mismatchRatio": 0.07326,
+          "mismatchRatio": 0.07327,
           "maskRatio": 0.10678,
           "maskBoxes": 1,
           "heightSrc": 2499,
@@ -69220,7 +69222,7 @@
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.10708
+              "unmaskedRatio": 0.10712
             }
           ],
           "capturedWidth": 753,
@@ -69251,8 +69253,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.10476,
-          "mismatchRatio": 0.09181,
+          "unmaskedRatio": 0.10477,
+          "mismatchRatio": 0.09182,
           "maskRatio": 0.12366,
           "maskBoxes": 1,
           "heightSrc": 3412,
@@ -103760,8 +103762,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.3008,
-          "mismatchRatio": 0.3008,
+          "unmaskedRatio": 0.30076,
+          "mismatchRatio": 0.30076,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3492,
@@ -103810,8 +103812,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.17787,
-          "mismatchRatio": 0.17787,
+          "unmaskedRatio": 0.17781,
+          "mismatchRatio": 0.17781,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4328,
@@ -103821,7 +103823,7 @@
           "worstBands": [
             {
               "y": 3600,
-              "unmaskedRatio": 0.88831
+              "unmaskedRatio": 0.88881
             },
             {
               "y": 4200,
@@ -103860,18 +103862,18 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.21286,
-          "mismatchRatio": 0.21286,
+          "unmaskedRatio": 0.2138,
+          "mismatchRatio": 0.2138,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5541,
+          "heightSrc": 5547,
           "heightEds": 5309,
-          "heightDiffRatio": 0.04187,
+          "heightDiffRatio": 0.04291,
           "firstDivergentY": 4400,
           "worstBands": [
             {
               "y": 5200,
-              "unmaskedRatio": 0.85084
+              "unmaskedRatio": 0.88289
             },
             {
               "y": 4400,
@@ -103914,7 +103916,7 @@
       "remains": [
         "layout diverges at y≈2800 px at 1440; replica 937 px taller (21.2%)",
         "layout diverges at y≈3400 px at 768; replica 219 px taller (4.8%)",
-        "layout diverges at y≈4400 px at 390; replica 232 px shorter (4.2%)"
+        "layout diverges at y≈4400 px at 390; replica 238 px shorter (4.3%)"
       ]
     },
     {
@@ -104097,8 +104099,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.27713,
-          "mismatchRatio": 0.27713,
+          "unmaskedRatio": 0.27703,
+          "mismatchRatio": 0.27703,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2469,
@@ -104112,7 +104114,7 @@
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.93047
+              "unmaskedRatio": 0.92953
             },
             {
               "y": 2600,
@@ -104147,8 +104149,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30535,
-          "mismatchRatio": 0.30535,
+          "unmaskedRatio": 0.30504,
+          "mismatchRatio": 0.30504,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2504,
@@ -104162,7 +104164,7 @@
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.91458
+              "unmaskedRatio": 0.91352
             },
             {
               "y": 2400,
@@ -104197,13 +104199,13 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.39997,
-          "mismatchRatio": 0.39997,
+          "unmaskedRatio": 0.40124,
+          "mismatchRatio": 0.40124,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 2907,
+          "heightSrc": 2913,
           "heightEds": 3908,
-          "heightDiffRatio": 0.25614,
+          "heightDiffRatio": 0.25461,
           "firstDivergentY": 2000,
           "worstBands": [
             {
@@ -104215,8 +104217,8 @@
               "unmaskedRatio": 0.93828
             },
             {
-              "y": 2200,
-              "unmaskedRatio": 0.89439
+              "y": 2400,
+              "unmaskedRatio": 0.90269
             }
           ],
           "capturedWidth": 375,
@@ -104251,7 +104253,7 @@
       "remains": [
         "layout diverges at y≈1800 px at 1440; replica 316 px taller (11.3%)",
         "layout diverges at y≈1600 px at 768; replica 373 px taller (13.0%)",
-        "layout diverges at y≈2000 px at 390; replica 1001 px taller (25.6%)"
+        "layout diverges at y≈2000 px at 390; replica 995 px taller (25.5%)"
       ]
     },
     {
@@ -104281,7 +104283,7 @@
           "worstBands": [
             {
               "y": 1600,
-              "unmaskedRatio": 0.43151
+              "unmaskedRatio": 0.4315
             },
             {
               "y": 2200,
@@ -104331,7 +104333,7 @@
           "worstBands": [
             {
               "y": 1800,
-              "unmaskedRatio": 0.33393
+              "unmaskedRatio": 0.33391
             },
             {
               "y": 2400,
@@ -104370,13 +104372,13 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.13916,
-          "mismatchRatio": 0.13916,
+          "unmaskedRatio": 0.14069,
+          "mismatchRatio": 0.14069,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 3286,
+          "heightSrc": 3292,
           "heightEds": 3285,
-          "heightDiffRatio": 0.0003,
+          "heightDiffRatio": 0.00213,
           "firstDivergentY": null,
           "worstBands": [
             {
@@ -104424,7 +104426,7 @@
       "remains": [
         "layout diverges at y≈1600 px at 1440; replica 83 px taller (3.4%)",
         "layout diverges at y≈1800 px at 768",
-        "13.9% of unmasked pixels differ at 390, most around y≈1400 px"
+        "14.1% of unmasked pixels differ at 390, most around y≈1400 px"
       ]
     },
     {
@@ -104432,7 +104434,7 @@
       "locale": "de/de",
       "template": "fleet",
       "priority": 3,
-      "status": "review",
+      "status": "fail",
       "widthsChecked": [
         1440,
         768,
@@ -104443,26 +104445,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.15229,
-          "mismatchRatio": 0.15229,
+          "unmaskedRatio": 0.39662,
+          "mismatchRatio": 0.39662,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 6516,
+          "heightSrc": 6056,
           "heightEds": 6478,
-          "heightDiffRatio": 0.00583,
-          "firstDivergentY": 1800,
+          "heightDiffRatio": 0.06514,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 5400,
-              "unmaskedRatio": 0.5192
+              "y": 6200,
+              "unmaskedRatio": 0.96825
             },
             {
-              "y": 2200,
-              "unmaskedRatio": 0.40879
+              "y": 6000,
+              "unmaskedRatio": 0.96283
             },
             {
-              "y": 2000,
-              "unmaskedRatio": 0.40623
+              "y": 5600,
+              "unmaskedRatio": 0.95743
             }
           ],
           "capturedWidth": 1425,
@@ -104490,26 +104492,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15189,
-          "mismatchRatio": 0.15189,
+          "unmaskedRatio": 0.37165,
+          "mismatchRatio": 0.37165,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 6433,
+          "heightSrc": 5973,
           "heightEds": 6379,
-          "heightDiffRatio": 0.00839,
-          "firstDivergentY": 2200,
+          "heightDiffRatio": 0.06365,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 5200,
-              "unmaskedRatio": 0.53671
+              "y": 6000,
+              "unmaskedRatio": 0.97712
             },
             {
-              "y": 2200,
-              "unmaskedRatio": 0.51712
+              "y": 5400,
+              "unmaskedRatio": 0.95973
             },
             {
-              "y": 4800,
-              "unmaskedRatio": 0.5043
+              "y": 600,
+              "unmaskedRatio": 0.90499
             }
           ],
           "capturedWidth": 753,
@@ -104537,26 +104539,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.18228,
-          "mismatchRatio": 0.18228,
+          "unmaskedRatio": 0.37398,
+          "mismatchRatio": 0.37398,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7069,
+          "heightSrc": 6615,
           "heightEds": 7036,
-          "heightDiffRatio": 0.00467,
-          "firstDivergentY": 2200,
+          "heightDiffRatio": 0.05984,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 2600,
-              "unmaskedRatio": 0.68384
+              "y": 6600,
+              "unmaskedRatio": 0.95555
             },
             {
-              "y": 5400,
-              "unmaskedRatio": 0.58019
+              "y": 800,
+              "unmaskedRatio": 0.90407
             },
             {
-              "y": 2400,
-              "unmaskedRatio": 0.51571
+              "y": 600,
+              "unmaskedRatio": 0.90391
             }
           ],
           "capturedWidth": 375,
@@ -104614,9 +104616,9 @@
         "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
       ],
       "remains": [
-        "layout diverges at y≈1800 px at 1440",
-        "layout diverges at y≈2200 px at 768",
-        "layout diverges at y≈2200 px at 390"
+        "layout diverges at y≈400 px at 1440; replica 422 px taller (6.5%)",
+        "layout diverges at y≈400 px at 768; replica 406 px taller (6.4%)",
+        "layout diverges at y≈400 px at 390; replica 421 px taller (6.0%)"
       ]
     },
     {
@@ -104635,8 +104637,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.1078,
-          "mismatchRatio": 0.1078,
+          "unmaskedRatio": 0.10792,
+          "mismatchRatio": 0.10792,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3375,
@@ -104650,7 +104652,7 @@
             },
             {
               "y": 2600,
-              "unmaskedRatio": 0.50817
+              "unmaskedRatio": 0.51069
             },
             {
               "y": 3000,
@@ -104685,8 +104687,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.11466,
-          "mismatchRatio": 0.11466,
+          "unmaskedRatio": 0.11495,
+          "mismatchRatio": 0.11495,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3146,
@@ -104735,8 +104737,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.10831,
-          "mismatchRatio": 0.10831,
+          "unmaskedRatio": 0.10847,
+          "mismatchRatio": 0.10847,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3061,
@@ -104812,8 +104814,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.06573,
-          "mismatchRatio": 0.06573,
+          "unmaskedRatio": 0.06563,
+          "mismatchRatio": 0.06563,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3311,
@@ -104831,7 +104833,7 @@
             },
             {
               "y": 2600,
-              "unmaskedRatio": 0.22944
+              "unmaskedRatio": 0.22729
             }
           ],
           "capturedWidth": 1425,
@@ -104862,8 +104864,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.08544,
-          "mismatchRatio": 0.08544,
+          "unmaskedRatio": 0.0856,
+          "mismatchRatio": 0.0856,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3080,
@@ -104912,8 +104914,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.10011,
-          "mismatchRatio": 0.10011,
+          "unmaskedRatio": 0.10018,
+          "mismatchRatio": 0.10018,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3320,
@@ -105170,7 +105172,7 @@
       "locale": "de/de",
       "template": "fleet",
       "priority": 3,
-      "status": "review",
+      "status": "fail",
       "widthsChecked": [
         1440,
         768,
@@ -105181,26 +105183,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.17911,
-          "mismatchRatio": 0.17911,
+          "unmaskedRatio": 0.38596,
+          "mismatchRatio": 0.38596,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7782,
+          "heightSrc": 7322,
           "heightEds": 7666,
-          "heightDiffRatio": 0.01491,
-          "firstDivergentY": 3200,
+          "heightDiffRatio": 0.04487,
+          "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6600,
-              "unmaskedRatio": 0.62898
+              "y": 7400,
+              "unmaskedRatio": 0.9088
             },
             {
-              "y": 3200,
-              "unmaskedRatio": 0.57934
+              "y": 6800,
+              "unmaskedRatio": 0.90443
             },
             {
-              "y": 7600,
-              "unmaskedRatio": 0.55547
+              "y": 600,
+              "unmaskedRatio": 0.89523
             }
           ],
           "capturedWidth": 1425,
@@ -105228,26 +105230,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15373,
-          "mismatchRatio": 0.15373,
+          "unmaskedRatio": 0.32957,
+          "mismatchRatio": 0.32957,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7935,
+          "heightSrc": 7475,
           "heightEds": 7871,
-          "heightDiffRatio": 0.00807,
-          "firstDivergentY": 1600,
+          "heightDiffRatio": 0.05031,
+          "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 2200,
-              "unmaskedRatio": 0.48903
+              "y": 7400,
+              "unmaskedRatio": 0.95822
             },
             {
-              "y": 6600,
-              "unmaskedRatio": 0.48088
+              "y": 7600,
+              "unmaskedRatio": 0.92793
             },
             {
-              "y": 1600,
-              "unmaskedRatio": 0.39851
+              "y": 6800,
+              "unmaskedRatio": 0.91029
             }
           ],
           "capturedWidth": 753,
@@ -105275,26 +105277,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.17996,
-          "mismatchRatio": 0.17996,
+          "unmaskedRatio": 0.36415,
+          "mismatchRatio": 0.36415,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
           "heightEds": 8000,
           "heightDiffRatio": 0,
-          "firstDivergentY": 4600,
+          "firstDivergentY": 400,
           "worstBands": [
             {
               "y": 7800,
-              "unmaskedRatio": 0.73076
+              "unmaskedRatio": 0.93667
             },
             {
-              "y": 7400,
-              "unmaskedRatio": 0.63168
+              "y": 800,
+              "unmaskedRatio": 0.91501
             },
             {
-              "y": 7600,
-              "unmaskedRatio": 0.51211
+              "y": 600,
+              "unmaskedRatio": 0.9036
             }
           ],
           "capturedWidth": 375,
@@ -105352,9 +105354,9 @@
         "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
       ],
       "remains": [
-        "layout diverges at y≈3200 px at 1440",
-        "layout diverges at y≈1600 px at 768",
-        "layout diverges at y≈4600 px at 390"
+        "layout diverges at y≈200 px at 1440; replica 344 px taller (4.5%)",
+        "layout diverges at y≈400 px at 768; replica 396 px taller (5.0%)",
+        "layout diverges at y≈400 px at 390"
       ]
     },
     {
@@ -105373,14 +105375,14 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.52387,
-          "mismatchRatio": 0.52387,
+          "unmaskedRatio": 0.40789,
+          "mismatchRatio": 0.40789,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 3523,
+          "heightSrc": 4139,
           "heightEds": 4872,
-          "heightDiffRatio": 0.27689,
-          "firstDivergentY": 0,
+          "heightDiffRatio": 0.15045,
+          "firstDivergentY": 800,
           "worstBands": [
             {
               "y": 4200,
@@ -105391,8 +105393,8 @@
               "unmaskedRatio": 0.96984
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.93825
+              "y": 3800,
+              "unmaskedRatio": 0.94178
             }
           ],
           "capturedWidth": 1425,
@@ -105421,33 +105423,33 @@
         },
         {
           "width": 768,
-          "contentWidth": 755,
+          "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.43432,
-          "mismatchRatio": 0.43432,
+          "unmaskedRatio": 0.37353,
+          "mismatchRatio": 0.37353,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 2815,
-          "heightEds": 5320,
-          "heightDiffRatio": 0.47086,
-          "firstDivergentY": 0,
+          "heightSrc": 3817,
+          "heightEds": 5318,
+          "heightDiffRatio": 0.28225,
+          "firstDivergentY": 800,
           "worstBands": [
             {
               "y": 5000,
-              "unmaskedRatio": 0.97123
+              "unmaskedRatio": 0.97117
+            },
+            {
+              "y": 3200,
+              "unmaskedRatio": 0.95775
             },
             {
               "y": 4800,
-              "unmaskedRatio": 0.94893
-            },
-            {
-              "y": 4600,
-              "unmaskedRatio": 0.9448
+              "unmaskedRatio": 0.94965
             }
           ],
-          "capturedWidth": 755,
+          "capturedWidth": 753,
           "contentWidthMatched": true,
-          "clientWidth": 755,
+          "clientWidth": 753,
           "overflowPx": 0,
           "failedImages": 0,
           "fonts": {
@@ -105473,14 +105475,14 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.31806,
-          "mismatchRatio": 0.31806,
+          "unmaskedRatio": 0.31375,
+          "mismatchRatio": 0.31375,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 3304,
+          "heightSrc": 4298,
           "heightEds": 7083,
-          "heightDiffRatio": 0.53353,
-          "firstDivergentY": 0,
+          "heightDiffRatio": 0.39319,
+          "firstDivergentY": 800,
           "worstBands": [
             {
               "y": 6600,
@@ -105491,8 +105493,8 @@
               "unmaskedRatio": 0.93828
             },
             {
-              "y": 6200,
-              "unmaskedRatio": 0.78964
+              "y": 3800,
+              "unmaskedRatio": 0.90403
             }
           ],
           "capturedWidth": 375,
@@ -105524,9 +105526,9 @@
         "2026-10-22 [template fleet] D15 fleet pages. Aircraft image right below the h1 at the content width also when the original is smaller (styles.css h1 + image paragraph, live img.w-100): /de/en/359 A350-900 1249x535 at 1425 (live 1249, plane ink x122-1304 = live; was 1144x490), 60px (80px from 768px) to the next section when it ends the first section (/359 seat map h2 ink 897 vs live 896, was 820). carousel-lightbox: with its headline in the column (/359) 46/72px below the section heading and 95/120px to the next section, without (/boeing787 h2 + h3 above) 55px and 108/72px; /359 1440 rows h3 1005 / seat map 1078-1332 / download h2 1460 vs live 1004 / 1078-1332 / 1459 (were 888 / 961-1219 / 1275), 768 and 390 within 7px; boeing787 h3 to map 58 and map to next h2 80 (1440, live 58/80), 390 114 (live 114). Zoom icon redrawn as the live icon-photo-gallery glyph on the 60px circle (filled picture with cut-out sun and mountains, one frame corner behind; was two outline frames). table-striped 67/70px below its heading, 80px below an image; Technical data section 38/70/87px below a link section (/359 h2 ink 1222/1376/1697 vs live 1213 (header offset 4)/1374/1697), 76/97/95px after a grey band (boeing787 Allegris end to h2 102/143/143 = live). Mobile technical data: in the live 390 captures of /359 and /boeing787 the value text starts at x208 of 375 and 'Max. take-off weight' wraps, the same as the replica (value text x207.5): no change. Code only, no re-import. (pending)"
       ],
       "remains": [
-        "layout diverges at y≈0 px at 1440; replica 1349 px taller (27.7%)",
-        "layout diverges at y≈0 px at 768; replica 2505 px taller (47.1%)",
-        "layout diverges at y≈0 px at 390; replica 3779 px taller (53.4%)"
+        "layout diverges at y≈800 px at 1440; replica 733 px taller (15.0%)",
+        "layout diverges at y≈800 px at 768; replica 1501 px taller (28.2%)",
+        "layout diverges at y≈800 px at 390; replica 2785 px taller (39.3%)"
       ]
     },
     {
@@ -105534,7 +105536,7 @@
       "locale": "de/de",
       "template": "fleet",
       "priority": 3,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -105545,26 +105547,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.4355,
-          "mismatchRatio": 0.4355,
+          "unmaskedRatio": 0.08751,
+          "mismatchRatio": 0.08751,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 3767,
+          "heightSrc": 4414,
           "heightEds": 4452,
-          "heightDiffRatio": 0.15386,
-          "firstDivergentY": 0,
+          "heightDiffRatio": 0.00854,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 4000,
-              "unmaskedRatio": 0.97265
+              "y": 3600,
+              "unmaskedRatio": 0.23588
             },
             {
-              "y": 3800,
-              "unmaskedRatio": 0.96381
+              "y": 4200,
+              "unmaskedRatio": 0.22356
             },
             {
-              "y": 600,
-              "unmaskedRatio": 0.87255
+              "y": 3400,
+              "unmaskedRatio": 0.1769
             }
           ],
           "capturedWidth": 1425,
@@ -105592,26 +105594,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.45564,
-          "mismatchRatio": 0.45564,
+          "unmaskedRatio": 0.10711,
+          "mismatchRatio": 0.10711,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 2633,
+          "heightSrc": 3776,
           "heightEds": 3799,
-          "heightDiffRatio": 0.30692,
-          "firstDivergentY": 0,
+          "heightDiffRatio": 0.00605,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 3400,
-              "unmaskedRatio": 0.97802
+              "y": 3000,
+              "unmaskedRatio": 0.27454
             },
             {
-              "y": 3200,
-              "unmaskedRatio": 0.94449
+              "y": 3600,
+              "unmaskedRatio": 0.24372
             },
             {
-              "y": 2400,
-              "unmaskedRatio": 0.92244
+              "y": 2800,
+              "unmaskedRatio": 0.16969
             }
           ],
           "capturedWidth": 753,
@@ -105639,26 +105641,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.41336,
-          "mismatchRatio": 0.41336,
+          "unmaskedRatio": 0.08804,
+          "mismatchRatio": 0.08804,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 4129,
+          "heightSrc": 5343,
           "heightEds": 5380,
-          "heightDiffRatio": 0.23253,
-          "firstDivergentY": 0,
+          "heightDiffRatio": 0.00688,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 4800,
-              "unmaskedRatio": 0.96017
+              "y": 4400,
+              "unmaskedRatio": 0.27552
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.94859
+              "y": 600,
+              "unmaskedRatio": 0.21433
             },
             {
               "y": 5000,
-              "unmaskedRatio": 0.93475
+              "unmaskedRatio": 0.18177
             }
           ],
           "capturedWidth": 375,
@@ -105710,9 +105712,9 @@
         "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
       ],
       "remains": [
-        "layout diverges at y≈0 px at 1440; replica 685 px taller (15.4%)",
-        "layout diverges at y≈0 px at 768; replica 1166 px taller (30.7%)",
-        "layout diverges at y≈0 px at 390; replica 1251 px taller (23.3%)"
+        "8.8% of unmasked pixels differ at 1440, most around y≈3600 px",
+        "10.7% of unmasked pixels differ at 768, most around y≈3000 px",
+        "8.8% of unmasked pixels differ at 390, most around y≈4400 px"
       ]
     },
     {
@@ -105731,26 +105733,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.3774,
-          "mismatchRatio": 0.3774,
+          "unmaskedRatio": 0.27844,
+          "mismatchRatio": 0.27844,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5607,
+          "heightSrc": 2558,
           "heightEds": 2342,
-          "heightDiffRatio": 0.58231,
-          "firstDivergentY": 1200,
+          "heightDiffRatio": 0.08444,
+          "firstDivergentY": 1400,
           "worstBands": [
             {
-              "y": 5200,
-              "unmaskedRatio": 0.99756
+              "y": 1600,
+              "unmaskedRatio": 0.84424
             },
             {
-              "y": 5000,
-              "unmaskedRatio": 0.9788
+              "y": 1400,
+              "unmaskedRatio": 0.81252
             },
             {
-              "y": 2000,
-              "unmaskedRatio": 0.91779
+              "y": 2200,
+              "unmaskedRatio": 0.68145
             }
           ],
           "capturedWidth": 1425,
@@ -105781,26 +105783,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.40302,
-          "mismatchRatio": 0.40302,
+          "unmaskedRatio": 0.28023,
+          "mismatchRatio": 0.28023,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5226,
+          "heightSrc": 2262,
           "heightEds": 2031,
-          "heightDiffRatio": 0.61137,
+          "heightDiffRatio": 0.10212,
           "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 4800,
-              "unmaskedRatio": 0.99659
+              "y": 2000,
+              "unmaskedRatio": 0.81873
             },
             {
-              "y": 4600,
-              "unmaskedRatio": 0.96833
+              "y": 1200,
+              "unmaskedRatio": 0.72525
             },
             {
-              "y": 1600,
-              "unmaskedRatio": 0.93516
+              "y": 1000,
+              "unmaskedRatio": 0.52405
             }
           ],
           "capturedWidth": 753,
@@ -105831,8 +105833,8 @@
           "width": 390,
           "contentWidth": 377,
           "state": "done",
-          "unmaskedRatio": 0.3987,
-          "mismatchRatio": 0.3987,
+          "unmaskedRatio": 0.39891,
+          "mismatchRatio": 0.39891,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 6898,
@@ -105842,15 +105844,15 @@
           "worstBands": [
             {
               "y": 6400,
-              "unmaskedRatio": 0.96853
+              "unmaskedRatio": 0.97499
             },
             {
               "y": 6200,
-              "unmaskedRatio": 0.96036
+              "unmaskedRatio": 0.95737
             },
             {
               "y": 1600,
-              "unmaskedRatio": 0.91635
+              "unmaskedRatio": 0.91623
             }
           ],
           "capturedWidth": 377,
@@ -105892,8 +105894,8 @@
         "2026-10-25 [page] Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2. (bba462c)"
       ],
       "remains": [
-        "layout diverges at y≈1200 px at 1440; replica 3265 px shorter (58.2%)",
-        "layout diverges at y≈1000 px at 768; replica 3195 px shorter (61.1%)",
+        "layout diverges at y≈1400 px at 1440; replica 216 px shorter (8.4%)",
+        "layout diverges at y≈1000 px at 768; replica 231 px shorter (10.2%)",
         "layout diverges at y≈1000 px at 390; replica 4668 px shorter (67.7%)"
       ]
     },
@@ -105913,8 +105915,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.14485,
-          "mismatchRatio": 0.14485,
+          "unmaskedRatio": 0.14486,
+          "mismatchRatio": 0.14486,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -105963,8 +105965,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.15638,
-          "mismatchRatio": 0.15638,
+          "unmaskedRatio": 0.15644,
+          "mismatchRatio": 0.15644,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -106107,8 +106109,8 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.23027,
-          "mismatchRatio": 0.23027,
+          "unmaskedRatio": 0.23023,
+          "mismatchRatio": 0.23023,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 7591,
@@ -106157,8 +106159,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.29177,
-          "mismatchRatio": 0.29177,
+          "unmaskedRatio": 0.21457,
+          "mismatchRatio": 0.21457,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -106167,16 +106169,16 @@
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 7200,
-              "unmaskedRatio": 0.90395
-            },
-            {
               "y": 7400,
-              "unmaskedRatio": 0.88238
+              "unmaskedRatio": 0.90037
             },
             {
-              "y": 7000,
-              "unmaskedRatio": 0.70744
+              "y": 7600,
+              "unmaskedRatio": 0.89653
+            },
+            {
+              "y": 7200,
+              "unmaskedRatio": 0.88582
             }
           ],
           "capturedWidth": 753,
@@ -106207,8 +106209,8 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.24385,
-          "mismatchRatio": 0.24385,
+          "unmaskedRatio": 0.24381,
+          "mismatchRatio": 0.24381,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -106226,7 +106228,7 @@
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.56084
+              "unmaskedRatio": 0.55847
             }
           ],
           "capturedWidth": 375,
@@ -106351,26 +106353,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.32821,
-          "mismatchRatio": 0.32821,
+          "unmaskedRatio": 0.33251,
+          "mismatchRatio": 0.33251,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 5526,
           "heightEds": 4600,
           "heightDiffRatio": 0.16757,
-          "firstDivergentY": 3400,
+          "firstDivergentY": 3600,
           "worstBands": [
             {
               "y": 5000,
-              "unmaskedRatio": 0.99402
+              "unmaskedRatio": 0.99243
             },
             {
               "y": 5200,
-              "unmaskedRatio": 0.98246
+              "unmaskedRatio": 0.98537
             },
             {
               "y": 4800,
-              "unmaskedRatio": 0.97116
+              "unmaskedRatio": 0.97207
             }
           ],
           "capturedWidth": 753,
@@ -106475,7 +106477,7 @@
       ],
       "remains": [
         "layout diverges at y≈4600 px at 1440; replica 529 px shorter (9.2%)",
-        "layout diverges at y≈3400 px at 768; replica 926 px shorter (16.8%)",
+        "layout diverges at y≈3600 px at 768; replica 926 px shorter (16.8%)",
         "layout diverges at y≈3400 px at 390; replica 1148 px shorter (19.5%)"
       ]
     },
@@ -106545,26 +106547,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.26059,
-          "mismatchRatio": 0.26059,
+          "unmaskedRatio": 0.33347,
+          "mismatchRatio": 0.33347,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 6122,
           "heightEds": 5198,
           "heightDiffRatio": 0.15093,
-          "firstDivergentY": 2200,
+          "firstDivergentY": 3200,
           "worstBands": [
             {
-              "y": 5200,
-              "unmaskedRatio": 0.92552
+              "y": 5600,
+              "unmaskedRatio": 0.99365
             },
             {
-              "y": 4400,
-              "unmaskedRatio": 0.79564
+              "y": 5800,
+              "unmaskedRatio": 0.98651
             },
             {
-              "y": 3400,
-              "unmaskedRatio": 0.6694
+              "y": 5400,
+              "unmaskedRatio": 0.96898
             }
           ],
           "capturedWidth": 753,
@@ -106648,7 +106650,7 @@
       ],
       "remains": [
         "layout diverges at y≈3600 px at 1440; replica 516 px shorter (9.1%)",
-        "layout diverges at y≈2200 px at 768; replica 924 px shorter (15.1%)",
+        "layout diverges at y≈3200 px at 768; replica 924 px shorter (15.1%)",
         "layout diverges at y≈2600 px at 390; replica 1235 px shorter (17.3%)"
       ]
     },
@@ -106718,8 +106720,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.18341,
-          "mismatchRatio": 0.18341,
+          "unmaskedRatio": 0.18254,
+          "mismatchRatio": 0.18254,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 8000,
@@ -106737,7 +106739,7 @@
             },
             {
               "y": 4800,
-              "unmaskedRatio": 0.36288
+              "unmaskedRatio": 0.36292
             }
           ],
           "capturedWidth": 753,
@@ -106912,8 +106914,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.31307,
-          "mismatchRatio": 0.29028,
+          "unmaskedRatio": 0.31296,
+          "mismatchRatio": 0.29018,
           "maskRatio": 0.07278,
           "maskBoxes": 1,
           "heightSrc": 6432,
@@ -107114,8 +107116,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.35283,
-          "mismatchRatio": 0.32702,
+          "unmaskedRatio": 0.34097,
+          "mismatchRatio": 0.31603,
           "maskRatio": 0.07314,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -107124,16 +107126,16 @@
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 7800,
-              "unmaskedRatio": 0.99394
+              "y": 7200,
+              "unmaskedRatio": 0.95386
             },
             {
-              "y": 7600,
-              "unmaskedRatio": 0.97015
+              "y": 7000,
+              "unmaskedRatio": 0.94646
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.92968
+              "unmaskedRatio": 0.92844
             }
           ],
           "capturedWidth": 753,
@@ -107313,8 +107315,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.24979,
-          "mismatchRatio": 0.23217,
+          "unmaskedRatio": 0.28628,
+          "mismatchRatio": 0.26608,
           "maskRatio": 0.07057,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -107324,15 +107326,15 @@
           "worstBands": [
             {
               "y": 7800,
-              "unmaskedRatio": 0.93327
+              "unmaskedRatio": 0.96135
             },
             {
               "y": 7600,
-              "unmaskedRatio": 0.92415
+              "unmaskedRatio": 0.92396
             },
             {
               "y": 7400,
-              "unmaskedRatio": 0.83665
+              "unmaskedRatio": 0.82668
             }
           ],
           "capturedWidth": 753,
@@ -107512,8 +107514,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.23119,
-          "mismatchRatio": 0.22778,
+          "unmaskedRatio": 0.23129,
+          "mismatchRatio": 0.22788,
           "maskRatio": 0.01474,
           "maskBoxes": 1,
           "heightSrc": 6107,
@@ -107527,7 +107529,7 @@
             },
             {
               "y": 2400,
-              "unmaskedRatio": 0.58958
+              "unmaskedRatio": 0.58937
             },
             {
               "y": 4400,
@@ -107709,8 +107711,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30968,
-          "mismatchRatio": 0.30968,
+          "unmaskedRatio": 0.30956,
+          "mismatchRatio": 0.30956,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4256,
@@ -107903,8 +107905,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19609,
-          "mismatchRatio": 0.19609,
+          "unmaskedRatio": 0.19518,
+          "mismatchRatio": 0.19518,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 7608,
@@ -108100,8 +108102,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19114,
-          "mismatchRatio": 0.18899,
+          "unmaskedRatio": 0.19015,
+          "mismatchRatio": 0.18801,
           "maskRatio": 0.01125,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -108119,7 +108121,7 @@
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.49989
+              "unmaskedRatio": 0.49983
             }
           ],
           "capturedWidth": 753,
@@ -108297,8 +108299,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.12808,
-          "mismatchRatio": 0.12602,
+          "unmaskedRatio": 0.12819,
+          "mismatchRatio": 0.12613,
           "maskRatio": 0.01609,
           "maskBoxes": 1,
           "heightSrc": 5595,
@@ -108494,26 +108496,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.14256,
-          "mismatchRatio": 0.14256,
+          "unmaskedRatio": 0.17538,
+          "mismatchRatio": 0.17538,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 4911,
+          "heightSrc": 4843,
           "heightEds": 4889,
-          "heightDiffRatio": 0.00448,
+          "heightDiffRatio": 0.00941,
           "firstDivergentY": 2800,
           "worstBands": [
             {
               "y": 3400,
-              "unmaskedRatio": 0.53102
+              "unmaskedRatio": 0.53635
+            },
+            {
+              "y": 4000,
+              "unmaskedRatio": 0.42351
             },
             {
               "y": 3200,
-              "unmaskedRatio": 0.33606
-            },
-            {
-              "y": 2800,
-              "unmaskedRatio": 0.31315
+              "unmaskedRatio": 0.33561
             }
           ],
           "capturedWidth": 753,
@@ -108688,26 +108690,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.21007,
-          "mismatchRatio": 0.18995,
-          "maskRatio": 0.09577,
+          "unmaskedRatio": 0.24454,
+          "mismatchRatio": 0.22157,
+          "maskRatio": 0.09394,
           "maskBoxes": 1,
-          "heightSrc": 5895,
+          "heightSrc": 6010,
           "heightEds": 5792,
-          "heightDiffRatio": 0.01747,
+          "heightDiffRatio": 0.03627,
           "firstDivergentY": 400,
           "worstBands": [
             {
+              "y": 5000,
+              "unmaskedRatio": 0.73576
+            },
+            {
               "y": 4400,
-              "unmaskedRatio": 0.73039
+              "unmaskedRatio": 0.72951
             },
             {
-              "y": 4200,
-              "unmaskedRatio": 0.50252
-            },
-            {
-              "y": 3800,
-              "unmaskedRatio": 0.39306
+              "y": 5800,
+              "unmaskedRatio": 0.5833
             }
           ],
           "capturedWidth": 753,
@@ -108814,7 +108816,7 @@
       ],
       "remains": [
         "layout diverges at y≈600 px at 1440",
-        "layout diverges at y≈400 px at 768",
+        "layout diverges at y≈400 px at 768; replica 218 px shorter (3.6%)",
         "layout diverges at y≈200 px at 390"
       ]
     },
@@ -108884,8 +108886,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.24653,
-          "mismatchRatio": 0.22394,
+          "unmaskedRatio": 0.24661,
+          "mismatchRatio": 0.22402,
           "maskRatio": 0.09163,
           "maskBoxes": 1,
           "heightSrc": 6662,
@@ -109080,8 +109082,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.27117,
-          "mismatchRatio": 0.26781,
+          "unmaskedRatio": 0.27724,
+          "mismatchRatio": 0.27382,
           "maskRatio": 0.01236,
           "maskBoxes": 1,
           "heightSrc": 7282,
@@ -109474,13 +109476,13 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.25621,
-          "mismatchRatio": 0.22723,
-          "maskRatio": 0.11309,
+          "unmaskedRatio": 0.23873,
+          "mismatchRatio": 0.21152,
+          "maskRatio": 0.11396,
           "maskBoxes": 2,
-          "heightSrc": 5788,
+          "heightSrc": 5744,
           "heightEds": 5682,
-          "heightDiffRatio": 0.01831,
+          "heightDiffRatio": 0.01079,
           "firstDivergentY": 200,
           "worstBands": [
             {
@@ -109670,26 +109672,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.22179,
-          "mismatchRatio": 0.19723,
-          "maskRatio": 0.11072,
+          "unmaskedRatio": 0.25413,
+          "mismatchRatio": 0.22631,
+          "maskRatio": 0.10946,
           "maskBoxes": 2,
-          "heightSrc": 5912,
+          "heightSrc": 5980,
           "heightEds": 5776,
-          "heightDiffRatio": 0.023,
+          "heightDiffRatio": 0.03411,
           "firstDivergentY": 2000,
           "worstBands": [
             {
+              "y": 5000,
+              "unmaskedRatio": 0.7975
+            },
+            {
+              "y": 4400,
+              "unmaskedRatio": 0.74898
+            },
+            {
               "y": 4200,
-              "unmaskedRatio": 0.8261
-            },
-            {
-              "y": 5600,
-              "unmaskedRatio": 0.54412
-            },
-            {
-              "y": 4800,
-              "unmaskedRatio": 0.54349
+              "unmaskedRatio": 0.59052
             }
           ],
           "capturedWidth": 753,
@@ -109796,7 +109798,7 @@
       ],
       "remains": [
         "layout diverges at y≈3800 px at 1440",
-        "layout diverges at y≈2000 px at 768",
+        "layout diverges at y≈2000 px at 768; replica 204 px shorter (3.4%)",
         "layout diverges at y≈600 px at 390"
       ]
     },
@@ -109866,8 +109868,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.37723,
-          "mismatchRatio": 0.37298,
+          "unmaskedRatio": 0.43152,
+          "mismatchRatio": 0.42667,
           "maskRatio": 0.01125,
           "maskBoxes": 1,
           "heightSrc": 8000,
@@ -109876,16 +109878,16 @@
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 2600,
-              "unmaskedRatio": 0.68474
+              "y": 6800,
+              "unmaskedRatio": 0.96562
             },
             {
-              "y": 5200,
-              "unmaskedRatio": 0.68281
+              "y": 6400,
+              "unmaskedRatio": 0.92859
             },
             {
-              "y": 6000,
-              "unmaskedRatio": 0.67548
+              "y": 6600,
+              "unmaskedRatio": 0.90175
             }
           ],
           "capturedWidth": 753,
@@ -110060,26 +110062,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.35636,
-          "mismatchRatio": 0.35179,
+          "unmaskedRatio": 0.18264,
+          "mismatchRatio": 0.1803,
           "maskRatio": 0.01282,
           "maskBoxes": 1,
           "heightSrc": 7021,
           "heightEds": 6973,
           "heightDiffRatio": 0.00684,
-          "firstDivergentY": 1400,
+          "firstDivergentY": 1600,
           "worstBands": [
             {
-              "y": 6600,
-              "unmaskedRatio": 0.97906
+              "y": 1600,
+              "unmaskedRatio": 0.57427
             },
             {
-              "y": 6000,
-              "unmaskedRatio": 0.9328
+              "y": 1800,
+              "unmaskedRatio": 0.53244
             },
             {
-              "y": 5800,
-              "unmaskedRatio": 0.77185
+              "y": 5400,
+              "unmaskedRatio": 0.38632
             }
           ],
           "capturedWidth": 753,
@@ -110184,7 +110186,7 @@
       ],
       "remains": [
         "layout diverges at y≈1600 px at 1440",
-        "layout diverges at y≈1400 px at 768",
+        "layout diverges at y≈1600 px at 768",
         "layout diverges at y≈1800 px at 390"
       ]
     },
@@ -110257,8 +110259,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.28698,
-          "mismatchRatio": 0.28345,
+          "unmaskedRatio": 0.21236,
+          "mismatchRatio": 0.20975,
           "maskRatio": 0.01231,
           "maskBoxes": 1,
           "heightSrc": 7309,
@@ -110267,16 +110269,16 @@
           "firstDivergentY": 1600,
           "worstBands": [
             {
-              "y": 6800,
-              "unmaskedRatio": 0.97339
+              "y": 1600,
+              "unmaskedRatio": 0.61196
             },
             {
-              "y": 6200,
-              "unmaskedRatio": 0.91456
+              "y": 2600,
+              "unmaskedRatio": 0.48404
             },
             {
-              "y": 7000,
-              "unmaskedRatio": 0.75038
+              "y": 5600,
+              "unmaskedRatio": 0.43839
             }
           ],
           "capturedWidth": 753,
@@ -110463,13 +110465,13 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.13909,
-          "mismatchRatio": 0.13909,
+          "unmaskedRatio": 0.15954,
+          "mismatchRatio": 0.15954,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 5049,
+          "heightSrc": 5015,
           "heightEds": 5029,
-          "heightDiffRatio": 0.00396,
+          "heightDiffRatio": 0.00278,
           "firstDivergentY": 3400,
           "worstBands": [
             {
@@ -110477,12 +110479,12 @@
               "unmaskedRatio": 0.59719
             },
             {
-              "y": 3600,
-              "unmaskedRatio": 0.332
+              "y": 3800,
+              "unmaskedRatio": 0.37292
             },
             {
-              "y": 2800,
-              "unmaskedRatio": 0.21624
+              "y": 3600,
+              "unmaskedRatio": 0.332
             }
           ],
           "capturedWidth": 753,
@@ -110657,26 +110659,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.33494,
-          "mismatchRatio": 0.33494,
+          "unmaskedRatio": 0.3638,
+          "mismatchRatio": 0.3638,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 6734,
+          "heightSrc": 2798,
           "heightEds": 6893,
-          "heightDiffRatio": 0.02307,
+          "heightDiffRatio": 0.59408,
           "firstDivergentY": 1400,
           "worstBands": [
             {
+              "y": 2200,
+              "unmaskedRatio": 0.96769
+            },
+            {
+              "y": 6400,
+              "unmaskedRatio": 0.95853
+            },
+            {
               "y": 6600,
-              "unmaskedRatio": 0.74155
-            },
-            {
-              "y": 5000,
-              "unmaskedRatio": 0.69092
-            },
-            {
-              "y": 5600,
-              "unmaskedRatio": 0.64845
+              "unmaskedRatio": 0.9579
             }
           ],
           "capturedWidth": 753,
@@ -110785,7 +110787,7 @@
       ],
       "remains": [
         "layout diverges at y≈1600 px at 1440; replica 242 px shorter (3.5%)",
-        "layout diverges at y≈1400 px at 768",
+        "layout diverges at y≈1400 px at 768; replica 4095 px taller (59.4%)",
         "layout diverges at y≈1600 px at 390"
       ]
     },
@@ -110855,26 +110857,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30089,
-          "mismatchRatio": 0.27427,
+          "unmaskedRatio": 0.43522,
+          "mismatchRatio": 0.3967,
           "maskRatio": 0.08849,
           "maskBoxes": 1,
-          "heightSrc": 6536,
+          "heightSrc": 6210,
           "heightEds": 6623,
-          "heightDiffRatio": 0.01314,
+          "heightDiffRatio": 0.06236,
           "firstDivergentY": 1000,
           "worstBands": [
             {
-              "y": 5200,
-              "unmaskedRatio": 0.7907
+              "y": 6200,
+              "unmaskedRatio": 0.97738
             },
             {
               "y": 5600,
-              "unmaskedRatio": 0.77693
+              "unmaskedRatio": 0.87146
             },
             {
-              "y": 6400,
-              "unmaskedRatio": 0.49527
+              "y": 5000,
+              "unmaskedRatio": 0.86659
             }
           ],
           "capturedWidth": 753,
@@ -110984,7 +110986,7 @@
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
-        "layout diverges at y≈1000 px at 768",
+        "layout diverges at y≈1000 px at 768; replica 413 px taller (6.2%)",
         "layout diverges at y≈1200 px at 390"
       ]
     },
@@ -111054,8 +111056,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.2048,
-          "mismatchRatio": 0.2048,
+          "unmaskedRatio": 0.21891,
+          "mismatchRatio": 0.21891,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 7074,
@@ -111064,16 +111066,16 @@
           "firstDivergentY": 1400,
           "worstBands": [
             {
+              "y": 1400,
+              "unmaskedRatio": 0.69416
+            },
+            {
               "y": 2000,
               "unmaskedRatio": 0.58171
             },
             {
               "y": 5600,
               "unmaskedRatio": 0.52529
-            },
-            {
-              "y": 5400,
-              "unmaskedRatio": 0.38388
             }
           ],
           "capturedWidth": 753,
@@ -111248,8 +111250,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.43413,
-          "mismatchRatio": 0.43413,
+          "unmaskedRatio": 0.43398,
+          "mismatchRatio": 0.43398,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2257,
@@ -111430,26 +111432,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.34128,
-          "mismatchRatio": 0.34128,
+          "unmaskedRatio": 0.49945,
+          "mismatchRatio": 0.49945,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 6573,
+          "heightSrc": 3690,
           "heightEds": 6646,
-          "heightDiffRatio": 0.01098,
-          "firstDivergentY": 1400,
+          "heightDiffRatio": 0.44478,
+          "firstDivergentY": 800,
           "worstBands": [
             {
-              "y": 5600,
-              "unmaskedRatio": 0.73424
+              "y": 6200,
+              "unmaskedRatio": 0.96944
             },
             {
-              "y": 2400,
-              "unmaskedRatio": 0.71768
+              "y": 3200,
+              "unmaskedRatio": 0.94266
             },
             {
-              "y": 5200,
-              "unmaskedRatio": 0.65477
+              "y": 6000,
+              "unmaskedRatio": 0.92958
             }
           ],
           "capturedWidth": 753,
@@ -111558,7 +111560,7 @@
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
-        "layout diverges at y≈1400 px at 768",
+        "layout diverges at y≈800 px at 768; replica 2956 px taller (44.5%)",
         "layout diverges at y≈1200 px at 390; replica 270 px shorter (3.4%)"
       ]
     },
@@ -111628,26 +111630,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.27171,
-          "mismatchRatio": 0.27171,
+          "unmaskedRatio": 0.44145,
+          "mismatchRatio": 0.44145,
           "maskRatio": 0,
           "maskBoxes": 0,
-          "heightSrc": 7102,
+          "heightSrc": 5952,
           "heightEds": 7285,
-          "heightDiffRatio": 0.02512,
-          "firstDivergentY": 2800,
+          "heightDiffRatio": 0.18298,
+          "firstDivergentY": 1000,
           "worstBands": [
             {
+              "y": 6800,
+              "unmaskedRatio": 0.96133
+            },
+            {
               "y": 7000,
-              "unmaskedRatio": 0.88555
+              "unmaskedRatio": 0.95793
             },
             {
-              "y": 6200,
-              "unmaskedRatio": 0.81526
-            },
-            {
-              "y": 6000,
-              "unmaskedRatio": 0.63902
+              "y": 6600,
+              "unmaskedRatio": 0.93125
             }
           ],
           "capturedWidth": 753,
@@ -111757,7 +111759,7 @@
       ],
       "remains": [
         "layout diverges at y≈1800 px at 1440",
-        "layout diverges at y≈2800 px at 768",
+        "layout diverges at y≈1000 px at 768; replica 1333 px taller (18.3%)",
         "layout diverges at y≈2200 px at 390"
       ]
     },
@@ -112509,8 +112511,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.0874,
-          "mismatchRatio": 0.0874,
+          "unmaskedRatio": 0.08718,
+          "mismatchRatio": 0.08718,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2324,
@@ -112523,12 +112525,12 @@
               "unmaskedRatio": 0.16714
             },
             {
-              "y": 1600,
-              "unmaskedRatio": 0.12311
-            },
-            {
               "y": 600,
               "unmaskedRatio": 0.11671
+            },
+            {
+              "y": 1600,
+              "unmaskedRatio": 0.11648
             }
           ],
           "capturedWidth": 753,
@@ -112678,8 +112680,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.12731,
-          "mismatchRatio": 0.12731,
+          "unmaskedRatio": 0.12749,
+          "mismatchRatio": 0.12749,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2784,
@@ -113729,8 +113731,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.32476,
-          "mismatchRatio": 0.32476,
+          "unmaskedRatio": 0.32524,
+          "mismatchRatio": 0.32524,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4650,
@@ -113748,7 +113750,7 @@
             },
             {
               "y": 3800,
-              "unmaskedRatio": 0.89369
+              "unmaskedRatio": 0.89372
             }
           ],
           "capturedWidth": 753,
@@ -113900,8 +113902,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.27726,
-          "mismatchRatio": 0.27726,
+          "unmaskedRatio": 0.27734,
+          "mismatchRatio": 0.27734,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 5581,
@@ -117542,8 +117544,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.19645,
-          "mismatchRatio": 0.19645,
+          "unmaskedRatio": 0.1957,
+          "mismatchRatio": 0.1957,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3647,
@@ -118013,7 +118015,7 @@
       "locale": "de/de",
       "template": "app-entry",
       "priority": 3,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -118024,26 +118026,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.04962,
-          "mismatchRatio": 0.04511,
+          "unmaskedRatio": 0.07891,
+          "mismatchRatio": 0.07174,
           "maskRatio": 0.0909,
           "maskBoxes": 1,
-          "heightSrc": 2060,
+          "heightSrc": 2056,
           "heightEds": 2073,
-          "heightDiffRatio": 0.00627,
+          "heightDiffRatio": 0.0082,
           "firstDivergentY": null,
           "worstBands": [
             {
               "y": 1200,
-              "unmaskedRatio": 0.12249
+              "unmaskedRatio": 0.16483
+            },
+            {
+              "y": 1000,
+              "unmaskedRatio": 0.12137
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.10877
-            },
-            {
-              "y": 1400,
-              "unmaskedRatio": 0.07723
+              "unmaskedRatio": 0.12046
             }
           ],
           "capturedWidth": 1425,
@@ -118074,26 +118076,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.3571,
-          "mismatchRatio": 0.32076,
-          "maskRatio": 0.10177,
+          "unmaskedRatio": 0.07972,
+          "mismatchRatio": 0.07159,
+          "maskRatio": 0.10192,
           "maskBoxes": 1,
-          "heightSrc": 2622,
+          "heightSrc": 2618,
           "heightEds": 2614,
-          "heightDiffRatio": 0.00305,
-          "firstDivergentY": 600,
+          "heightDiffRatio": 0.00153,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 1600,
-              "unmaskedRatio": 0.93945
-            },
-            {
-              "y": 2200,
-              "unmaskedRatio": 0.71809
+              "y": 600,
+              "unmaskedRatio": 0.15907
             },
             {
               "y": 2400,
-              "unmaskedRatio": 0.65042
+              "unmaskedRatio": 0.14681
+            },
+            {
+              "y": 2000,
+              "unmaskedRatio": 0.14422
             }
           ],
           "capturedWidth": 753,
@@ -118124,26 +118126,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.19804,
-          "mismatchRatio": 0.17369,
-          "maskRatio": 0.12294,
+          "unmaskedRatio": 0.13958,
+          "mismatchRatio": 0.1223,
+          "maskRatio": 0.12375,
           "maskBoxes": 1,
-          "heightSrc": 3518,
+          "heightSrc": 3488,
           "heightEds": 3495,
-          "heightDiffRatio": 0.00654,
-          "firstDivergentY": 1400,
+          "heightDiffRatio": 0.002,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 2200,
-              "unmaskedRatio": 0.43601
-            },
-            {
-              "y": 1800,
-              "unmaskedRatio": 0.43029
-            },
-            {
               "y": 1400,
-              "unmaskedRatio": 0.32295
+              "unmaskedRatio": 0.24671
+            },
+            {
+              "y": 2200,
+              "unmaskedRatio": 0.23583
+            },
+            {
+              "y": 800,
+              "unmaskedRatio": 0.22091
             }
           ],
           "capturedWidth": 375,
@@ -118203,8 +118205,7 @@
         "2026-10-25 [page] Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2. (bba462c)"
       ],
       "remains": [
-        "layout diverges at y≈600 px at 768",
-        "layout diverges at y≈1400 px at 390"
+        "14.0% of unmasked pixels differ at 390, most around y≈1400 px"
       ]
     },
     {
@@ -118212,7 +118213,7 @@
       "locale": "de/de",
       "template": "app-entry",
       "priority": 3,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -118273,26 +118274,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.34532,
-          "mismatchRatio": 0.34532,
+          "unmaskedRatio": 0.12058,
+          "mismatchRatio": 0.12058,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4020,
           "heightEds": 4056,
           "heightDiffRatio": 0.00888,
-          "firstDivergentY": 2600,
+          "firstDivergentY": null,
           "worstBands": [
             {
-              "y": 3600,
-              "unmaskedRatio": 0.96442
+              "y": 3200,
+              "unmaskedRatio": 0.29793
             },
             {
-              "y": 3000,
-              "unmaskedRatio": 0.95703
+              "y": 3800,
+              "unmaskedRatio": 0.2837
             },
             {
-              "y": 2800,
-              "unmaskedRatio": 0.93588
+              "y": 1800,
+              "unmaskedRatio": 0.22985
             }
           ],
           "capturedWidth": 753,
@@ -118385,7 +118386,7 @@
       ],
       "remains": [
         "layout diverges at y≈3400 px at 1440",
-        "layout diverges at y≈2600 px at 768",
+        "12.1% of unmasked pixels differ at 768, most around y≈3200 px",
         "10.9% of unmasked pixels differ at 390, most around y≈800 px"
       ]
     },
@@ -118455,8 +118456,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.30744,
-          "mismatchRatio": 0.30744,
+          "unmaskedRatio": 0.22936,
+          "mismatchRatio": 0.22936,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 3039,
@@ -118465,16 +118466,16 @@
           "firstDivergentY": 1400,
           "worstBands": [
             {
-              "y": 2600,
-              "unmaskedRatio": 0.97112
+              "y": 2000,
+              "unmaskedRatio": 0.51517
             },
             {
               "y": 1800,
-              "unmaskedRatio": 0.79272
+              "unmaskedRatio": 0.50574
             },
             {
-              "y": 2000,
-              "unmaskedRatio": 0.77655
+              "y": 2800,
+              "unmaskedRatio": 0.4949
             }
           ],
           "capturedWidth": 753,
@@ -118565,7 +118566,7 @@
       "locale": "de/de",
       "template": "app-entry",
       "priority": 3,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -118626,26 +118627,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.20814,
-          "mismatchRatio": 0.20814,
+          "unmaskedRatio": 0.16199,
+          "mismatchRatio": 0.16199,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 4447,
           "heightEds": 4499,
           "heightDiffRatio": 0.01156,
-          "firstDivergentY": 400,
+          "firstDivergentY": 2800,
           "worstBands": [
             {
-              "y": 4200,
-              "unmaskedRatio": 0.94686
+              "y": 3200,
+              "unmaskedRatio": 0.72313
+            },
+            {
+              "y": 2800,
+              "unmaskedRatio": 0.47402
             },
             {
               "y": 3600,
-              "unmaskedRatio": 0.67351
-            },
-            {
-              "y": 3200,
-              "unmaskedRatio": 0.52029
+              "unmaskedRatio": 0.37135
             }
           ],
           "capturedWidth": 753,
@@ -118755,7 +118756,7 @@
       ],
       "remains": [
         "layout diverges at y≈2000 px at 1440",
-        "layout diverges at y≈400 px at 768",
+        "layout diverges at y≈2800 px at 768",
         "layout diverges at y≈3600 px at 390"
       ]
     },
@@ -118825,8 +118826,8 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.14059,
-          "mismatchRatio": 0.14059,
+          "unmaskedRatio": 0.13979,
+          "mismatchRatio": 0.13979,
           "maskRatio": 0,
           "maskBoxes": 0,
           "heightSrc": 2912,
