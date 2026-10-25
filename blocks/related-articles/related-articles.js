@@ -13,7 +13,7 @@ const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '750' }, { width: '60
  */
 function devPrefix() {
   if (!/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return '';
-  const m = window.location.pathname.match(/^((?:\/[^/]+)*?)(?=\/(?:lhg\/)?[a-z]{2}\/[a-z]{2}(?:\/|$))/);
+  const m = window.location.pathname.match(/^((?:\/[^/]+)*?)(?=\/[a-z]{2}\/[a-z]{2}(?:\/|$))/);
   return m ? m[1] : '';
 }
 

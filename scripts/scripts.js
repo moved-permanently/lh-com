@@ -83,9 +83,8 @@ function buildWidgetAutoBlocks(main) {
 /**
  * Breadcrumb from page metadata (blocks/breadcrumb/README.md): pages name their parent
  * ("Parent") instead of carrying the trail. The empty block goes where the live page shows the
- * trail: AEM pages at the start of the first section, AirCore pages (/lhg/) right before the
- * h1 (after the stage). Not when the document still has an authored breadcrumb or the page
- * hides it ("Breadcrumb: hidden", parents that show no trail themselves).
+ * trail: at the start of the first section. Not when the document still has an authored
+ * breadcrumb or the page hides it ("Breadcrumb: hidden", parents that show no trail themselves).
  * @param {Element} main The container element
  */
 function buildBreadcrumb(main) {
@@ -93,15 +92,7 @@ function buildBreadcrumb(main) {
   if (main.querySelector('div.breadcrumb')) return;
   const first = main.querySelector(':scope > div');
   if (!first) return;
-  const block = buildBlock('breadcrumb', '');
-  const h1 = document.body.classList.contains('aircore') && main.querySelector('h1');
-  if (h1) {
-    let el = h1;
-    while (el.parentElement && el.parentElement.parentElement !== main) el = el.parentElement;
-    el.before(block);
-  } else {
-    first.prepend(block);
-  }
+  first.prepend(buildBlock('breadcrumb', ''));
 }
 
 /**
@@ -279,18 +270,6 @@ function decorateTextStyles(main) {
 }
 
 /**
- * Section style "new-tab": every link of the section opens in a new tab, as the AirCore
- * "Best price alert" button (target="_blank" rel="nofollow" on live).
- * @param {Element} main The main element
- */
-function decorateNewTabSections(main) {
-  main.querySelectorAll(':scope > .section.new-tab a[href]').forEach((a) => {
-    a.target = '_blank';
-    a.rel = 'nofollow noopener';
-  });
-}
-
-/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -303,7 +282,6 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
-  decorateNewTabSections(main);
 }
 
 /**
@@ -363,8 +341,6 @@ async function loadEager(doc) {
   const locale = getLocale();
   // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
   document.documentElement.lang = getMetadata('language') || locale.lang;
-  // AirCore pages (/lhg/...) keep the AirCore look of shared blocks (body.aircore scoped rules)
-  if (locale.aircore) document.body.classList.add('aircore');
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   // channel (website, flynet by page metadata, app by ?channel=app): see scripts/channel.js

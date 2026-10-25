@@ -43,8 +43,8 @@ an author can delete it to get the default size again.
 
 ### Small text
 
-The same marker at the end of a paragraph sets its text size: `{copytext-small}` (14px, 13px
-on AirCore pages: footnotes, disclaimers, small link lists), `{copytext-medium}` (16px),
+The same marker at the end of a paragraph sets its text size: `{copytext-small}` (14px:
+footnotes, disclaimers, small link lists), `{copytext-medium}` (16px),
 `{copytext-large}` (18px, the default size, but with regular instead of bold links). A link
 alone in such a paragraph stays a small text link with an arrow instead of a large
 navigation link.
@@ -66,8 +66,8 @@ paragraph centres it like a Lufthansa narrow section (720px with the side margin
 
 ### Text width
 
-Running text (paragraphs, lists) uses two thirds of the content width from 1025px (AirCore
-pages: the AirCore text column, 893px at 1425px). `{full-width}` at the end of a paragraph, or
+Running text (paragraphs, lists) uses two thirds of the content width from 1025px.
+`{full-width}` at the end of a paragraph, or
 at the end of the last item of a list, lets it run over the whole width; it combines with a
 size: `{copytext-small full-width}`. On Lufthansa Insights articles the body text is a centred
 column of two thirds of the width from 768px. Inside a Columns Media cell the text uses the whole cell;
@@ -132,11 +132,11 @@ separator's space ends at the next block. Pages with column markers get the same
   secondary (outlined) button. Bold and italic: dark filled button.
 - Plain link alone in a paragraph: navigation link with a large arrow.
 - Links in running text get a small arrow before the text (→ on lufthansa.com, ↗ to other
-  sites, ↓ to a place on the same page), as on the live site; not on AirCore pages.
+  sites, ↓ to a place on the same page), as on the live site.
 
-Section style `centered` centres the section's default content (the AirCore "Best price alert"
-button); `new-tab` opens every link of the section in a new tab (`target="_blank"`,
-`rel="nofollow noopener"`, as on live). The AirCore route importer writes both for the price alert.
+The AirCore pages under /lhg/ left the replica on 2026-10-25 (links to them are absolute
+www.lufthansa.com links); their look (`body.aircore`), blocks and section styles (`centered`,
+`new-tab`, `link-tiles`) were removed.
 
 ### Breadcrumb
 

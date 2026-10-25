@@ -365,31 +365,6 @@ function showAirportNames(combobox) {
 }
 
 /**
- * AirCore stage (section.hero-full-width: .flight-manager-full-width, then .hero-image): the
- * panorama authored as an image paragraph right after the block becomes the stage image, and
- * the section spans the full width like the source.
- * @param {Element} block
- */
-function adoptStageImage(block) {
-  const wrapper = block.parentElement;
-  const next = wrapper && wrapper.nextElementSibling;
-  if (next && next.classList.contains('default-content-wrapper')) {
-    const first = next.firstElementChild;
-    const picture = first && first.tagName === 'P' && !first.textContent.trim()
-      && first.querySelector(':scope > picture');
-    if (picture) {
-      const stage = el('div', 'flight-search-image');
-      stage.append(picture);
-      block.append(stage);
-      first.remove();
-      if (!next.children.length) next.remove();
-    }
-  }
-  const section = block.closest('.section');
-  if (section) section.classList.add('full-bleed');
-}
-
-/**
  * Background image (local promotion pages, live .flightmanager-container.full-width-bg): the
  * block's wrapper becomes a full-width band (min 500px) with the image as cover, and the card
  * sits at its bottom in the content column. The mobile image (if any) is used below 1025px.
@@ -842,7 +817,6 @@ export default function decorate(block) {
   const background = pick(config, 'background-image');
   const backgroundMobile = pick(config, 'background-image-mobile');
   block.replaceChildren(content);
-  if (locale.aircore) adoptStageImage(block);
   if (background) addBackground(block, background.cell, backgroundMobile && backgroundMobile.cell);
 
   if (!hasFlight) {

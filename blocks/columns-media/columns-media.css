@@ -551,37 +551,9 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
    (.maui-link margin 2.4rem + item margin 2rem; /de/en/travelling-with-special-requirements at
    768: images at x24 and x388, the third item under the first) */
 @media (width >= 768px) and (width < 1025px) {
-  .columns-media:not(.sidebar, .media-first, [class*="ratio-"]) .columns-media-row:has(> :nth-child(3)) {
+  .columns-media:not(.sidebar, .media-first) .columns-media-row:has(> :nth-child(3)) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 44px;
-  }
-}
-
-/* option ratio-NN (AirCore running text: <img style="float: left; margin: 0 5rem 2rem 0"
-   width="60%">): the media cell floats NN% wide beside the text at every width, the text wraps
-   around it, 50px to the text, 20px below the image; a media cell authored after the text
-   floats right (the block JS puts it first) (/lhg/de/en/dest/cy/new-york 'Lufthansa Premium
-   Economy': image 536 of 893 at 1440, 199 of 331 at 390) */
-.columns-media[class*="ratio-"] .columns-media-row {
-  display: flow-root;
-}
-
-.columns-media[class*="ratio-"] .columns-media-row > .columns-media-media {
-  float: left;
-  width: var(--columns-media-first, 50%);
-  margin: 0 50px 20px 0;
-}
-
-.columns-media[class*="ratio-"] .columns-media-media-last > .columns-media-media {
-  float: right;
-  margin: 0 0 20px 50px;
-}
-
-/* AirCore: the block sits in the running text column (.content-wrapper { width: 75% }: 893px
-   at 1425px), like the AirCore paragraphs */
-@media (width >= 1025px) {
-  body.aircore .columns-media {
-    max-width: calc(75% - var(--layout-margin) / 2);
   }
 }
 

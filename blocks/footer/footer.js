@@ -10,17 +10,15 @@ import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
  *  3. legal row: list of links
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:)
- * AirCore pages (/lhg/...) also show the /{cc}/{ll}/fragments/payment-social band above, and
- * the AirCore labels: search field "Search the page" (LABELS.aircoreSearch), locale "DE-EN".
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
 
 const LABELS = {
   en: {
-    search: 'Search', localeCurrent: 'Country and language selection; currently:', newTab: 'opens in a new tab', aircoreSearch: 'Search the page',
+    search: 'Search', localeCurrent: 'Country and language selection; currently:', newTab: 'opens in a new tab',
   },
   de: {
-    search: 'Suchen', localeCurrent: 'Auswahl von Land und Sprache; aktuell:', newTab: 'öffnet in einem neuen Tab', aircoreSearch: 'Seite suchen',
+    search: 'Suchen', localeCurrent: 'Auswahl von Land und Sprache; aktuell:', newTab: 'öffnet in einem neuen Tab',
   },
 };
 
@@ -86,7 +84,7 @@ function classifySections(fragment) {
   };
 }
 
-async function buildSearch(top, labels, fieldLabel) {
+async function buildSearch(top, labels) {
   const para = top && [...top.querySelectorAll('p')].find((p) => {
     const a = p.querySelector('a[href]');
     return a && /search/i.test(a.getAttribute('href'));
@@ -94,7 +92,7 @@ async function buildSearch(top, labels, fieldLabel) {
   if (!para) return null;
   const iconName = takeIconName(para) || 'search';
   const a = para.querySelector('a[href]');
-  const label = fieldLabel || text(a) || labels.search;
+  const label = text(a) || labels.search;
   const id = 'footer-search-input';
   const input = el('input', {
     id, type: 'search', name: 'query', placeholder: label, autocomplete: 'off',
@@ -122,11 +120,11 @@ async function buildSearch(top, labels, fieldLabel) {
   return form;
 }
 
-async function buildLocale(top, labels, localeLabel) {
+async function buildLocale(top, labels) {
   const para = top && [...top.querySelectorAll('p')].find((p) => !p.querySelector('a[href]'));
   if (!para) return null;
   const iconName = takeIconName(para) || 'globe';
-  const label = localeLabel || text(para);
+  const label = text(para);
   if (!label) return null;
   const button = el(
     'button',
@@ -200,20 +198,19 @@ function buildLegal(section, labels) {
 }
 
 /*
- * Logo row icon variants: the AEM footer shows the horizontal "STAR ALLIANCE" graphic
- * (maui-graphic star-alliance-logo-horizontal-transparent), the AirCore (/lhg) footer the
- * "A STAR ALLIANCE MEMBER" image (= /icons/star-alliance.svg).
+ * Logo row icon variants: the footer shows the horizontal "STAR ALLIANCE" graphic
+ * (maui-graphic star-alliance-logo-horizontal-transparent) for the :star-alliance: token.
  */
 const AEM_LOGO_VARIANTS = { 'star-alliance': 'star-alliance-horizontal' };
 
-function buildLogos(section, labels, aircore) {
+function buildLogos(section, labels) {
   if (!section) return null;
   const list = el('ul');
   section.querySelectorAll('a[href]').forEach((a) => {
     // an undecorated ":name:" icon token stands for /icons/{name}.svg
     const token = text(a).match(/^:([a-z0-9-]+):$/);
     if (token && !a.querySelector('img')) {
-      const file = (!aircore && AEM_LOGO_VARIANTS[token[1]]) || token[1];
+      const file = AEM_LOGO_VARIANTS[token[1]] || token[1];
       a.textContent = '';
       a.append(el('img', { src: `${window.hlx.codeBasePath}/icons/${file}.svg`, 'data-icon-name': token[1], alt: '' }));
     }
@@ -257,11 +254,7 @@ export default async function decorate(block) {
   const labels = LABELS[locale.lang] || LABELS.en;
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : `${locale.base}/footer`;
-  const [fragment, band] = await Promise.all([
-    loadFragment(footerPath),
-    // AirCore pages: the payment options / follow us band sits above the footer
-    locale.aircore ? loadFragment(`${locale.base}/fragments/payment-social`) : null,
-  ]);
+  const fragment = await loadFragment(footerPath);
   if (!fragment) return;
   if (getChannel() === 'flynet') {
     fragment.querySelectorAll('li a[href]').forEach((a) => {
@@ -274,10 +267,9 @@ export default async function decorate(block) {
   } = classifySections(fragment);
 
   const inner = el('div', { className: 'footer-inner' });
-  // AirCore footer labels: "Search the page", "de-en" (shown in capitals)
   const [search, localeEl] = await Promise.all([
-    buildSearch(top, labels, locale.aircore ? labels.aircoreSearch : null),
-    buildLocale(top, labels, locale.aircore ? `${locale.country}-${locale.lang}` : null),
+    buildSearch(top, labels),
+    buildLocale(top, labels),
   ]);
   const columnsEl = buildColumns(columns, labels);
   const legalEl = buildLegal(legal, labels);
@@ -285,14 +277,8 @@ export default async function decorate(block) {
   if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
 
   block.textContent = '';
-  block.classList.toggle('footer-aircore', locale.aircore);
-  if (band) {
-    const bandEl = el('div', { className: 'footer-payment-social' });
-    while (band.firstElementChild) bandEl.append(band.firstElementChild);
-    block.append(bandEl);
-  }
   block.append(el('div', { className: 'footer-main' }, inner));
-  const logosEl = buildLogos(logos, labels, locale.aircore);
+  const logosEl = buildLogos(logos, labels);
   if (logosEl) block.append(logosEl);
 
   syncAccordions(block);

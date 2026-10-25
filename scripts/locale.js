@@ -1,6 +1,6 @@
 /**
  * Locale handling for the four migrated lufthansa.com markets.
- * Pages live under /{country}/{lang}/... (AEM) or /lhg/{country}/{lang}/... (AirCore).
+ * Pages live under /{country}/{lang}/...
  */
 
 export const LIVE_ORIGIN = 'https://www.lufthansa.com';
@@ -25,7 +25,7 @@ export const DEFAULT_LOCALE = 'de/de';
 /**
  * Resolves the locale of a path.
  * @param {string} [pathname] Page path, defaults to the current page
- * @returns {Object} locale with key, base path and whether the page is an AirCore page
+ * @returns {Object} locale with key and base path
  */
 export function getLocale(pathname = window.location.pathname) {
   // the local dev server (aem up --html-folder content) serves pages under /content/
@@ -34,13 +34,12 @@ export function getLocale(pathname = window.location.pathname) {
   // market-only pages www serves under their repository path (LoungeNet):
   // /content/lh/markets/{country}/{lang}/...
   const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
-  const match = rest.match(/^\/(lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  const key = match && LOCALES[`${match[2]}/${match[3]}`] ? `${match[2]}/${match[3]}` : DEFAULT_LOCALE;
+  const match = rest.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  const key = match && LOCALES[`${match[1]}/${match[2]}`] ? `${match[1]}/${match[2]}` : DEFAULT_LOCALE;
   return {
     ...LOCALES[key],
     key,
     base: `${prefix}/${key}`,
-    aircore: Boolean(match && match[1]),
   };
 }
 

@@ -39,7 +39,7 @@ const TEXT = {
 /** Locale of the path; a path without a migrated locale gets de/en (live's /error.html). */
 function notFoundLocale(pathname = window.location.pathname) {
   const path = pathname.replace(/^\/content(?=\/)/, '');
-  const match = path.match(/^\/(?:lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  const match = path.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
   return getLocale(match && LOCALES[`${match[1]}/${match[2]}`] ? pathname : '/de/en/');
 }
 

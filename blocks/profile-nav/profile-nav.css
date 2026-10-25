@@ -1,7 +1,8 @@
 /* live maui-sub-navigation: a full-width grey bar right under the header, the page content
-   25px below it (20px below 1024px) */
+   25px below it (20px below 1024px); body.appear keeps the specificity of the former
+   body:not(.aircore) */
 main > .section.profile-nav-container,
-body:not(.aircore) main > .section.profile-nav-container:first-of-type {
+body.appear main > .section.profile-nav-container:first-of-type {
   margin: 0 0 20px;
 }
 
@@ -95,7 +96,7 @@ main > .section.profile-nav-container > .profile-nav-wrapper {
 
 @media (width >= 1024px) {
   main > .section.profile-nav-container,
-  body:not(.aircore) main > .section.profile-nav-container:first-of-type {
+  body.appear main > .section.profile-nav-container:first-of-type {
     margin-bottom: 25px;
   }
 

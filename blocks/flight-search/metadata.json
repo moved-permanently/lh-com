@@ -20,12 +20,9 @@
   "usage": {
     "description": "Homepage and booking hub pages: the primary flight search above the stage.",
     "pagesUsing": [
-      "/de/en/homepage",
-      "/lhg/de/en",
-      "/lhg/de/en/dest/cy/new-york",
-      "/lhg/de/en/o-d/c-c/germany-usa"
+      "/de/en/homepage"
     ],
-    "reuseCount": 3,
+    "reuseCount": 0,
     "lastUsed": "2026-10-21"
   },
   "reuseGuidance": "Reuse unchanged on every template and locale; change only the authored labels. Request builders and response mappers of the live API are in scripts/lh-api.js (suggestions/airports, labels, defaultAirport, catalogs/airportnames); typed terms without a live or recorded answer are matched against the airports known from the market recordings. The block keeps the label key map (LIVE_LABELS) and the shop handoff parameters (buildShopHandoffUrl)."

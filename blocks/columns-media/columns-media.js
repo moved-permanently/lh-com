@@ -110,9 +110,6 @@ function buildSlider(strip, labels, label = 'show image') {
  */
 export default async function decorate(block) {
   const labels = resolveLabels(DEFAULT_LABELS, {}, getLocale().lang);
-  // option ratio-NN: the media cell takes NN% of the row (floated, text around it)
-  const ratio = [...block.classList].map((c) => c.match(/^ratio-(\d{1,2})$/)).find(Boolean);
-  if (ratio) block.style.setProperty('--columns-media-first', `${ratio[1]}%`);
 
   // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
   // paragraph of its own right after it; it goes back into the heading
@@ -176,8 +173,6 @@ export default async function decorate(block) {
 
     if (cells.length === 2 && mediaIndex >= 0 && cells.some((c) => c.classList.contains('columns-media-text'))) {
       row.classList.add(mediaIndex === 0 ? 'columns-media-media-first' : 'columns-media-media-last');
-      // option ratio-NN floats the media cell: it has to come before the text it floats beside
-      if (ratio && mediaIndex === 1) row.prepend(cells[1]);
     }
   });
 

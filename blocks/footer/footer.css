@@ -40,11 +40,6 @@
   height: 24px;
 }
 
-/* AirCore pages: payment options / follow us band above the dark area */
-.footer .footer-payment-social {
-  background-color: #fff;
-}
-
 /* ------------------------------------------------------------------ main ------------ */
 
 .footer .footer-main {
@@ -313,7 +308,7 @@
 }
 
 /* live: crane logo 116.7x20, "Member of Lufthansa Group" 160x8, Star Alliance 20px high
- * (147x20 horizontal graphic on AEM pages, 205x20 member image on /lhg pages) */
+ * (147x20 horizontal graphic) */
 .footer .footer-logos .footer-logo-star-alliance img,
 .footer .footer-logos li:first-child img {
   width: auto;
@@ -323,21 +318,6 @@
 .footer .footer-logos li:nth-child(2) img {
   width: 160px;
   height: 8px;
-}
-
-/* AirCore (/lhg) logo row (.secondary-footer-container): crane +26px, member +71px,
- * Star Alliance +96px in a 156px stack */
-.footer.footer-aircore .footer-logos-inner {
-  padding-top: 26px;
-  padding-bottom: 40px;
-}
-
-.footer.footer-aircore .footer-logos li:first-child {
-  margin-bottom: 25px;
-}
-
-.footer.footer-aircore .footer-logos li:nth-child(2) {
-  margin-bottom: 17px;
 }
 
 /* ---------------------------------------------------------------- tablet+ ------------ */
@@ -423,25 +403,6 @@
     padding-top: 25px;
     padding-bottom: 28px;
   }
-
-  /* AirCore: 74px row, crane and Star Alliance +29px, member +35px and 2rem + a space
-   * after the crane */
-  .footer.footer-aircore .footer-logos-inner {
-    padding-top: 29px;
-    padding-bottom: 25px;
-  }
-
-  .footer.footer-aircore .footer-logos li:first-child {
-    margin: 0 25px 0 0;
-  }
-
-  .footer.footer-aircore .footer-logos li:nth-child(2) {
-    margin: 6px 0 0;
-  }
-
-  .footer.footer-aircore .footer-logos li:last-child {
-    margin: 0 0 0 auto;
-  }
 }
 
 @media (width >= 1025px) {
@@ -460,60 +421,5 @@
 @media (prefers-reduced-motion: reduce) {
   .footer .footer-column-toggle .lh-icon {
     transition: none;
-  }
-}
-
-/* ---------------------------------------------------------------- AirCore ------------ */
-
-/* AirCore (/lhg) footer (live .footer-brand-links, .above-footer-container; 1425/753
- * captures): the payment options / follow us band in the content grid, its headings 133px
- * below the closing accordion line of the last section (its 40px block padding + the 48px
- * section gap + 44px), icons 34px above the dark area; search field a quarter of the width,
- * 3px higher, 16px search icon; "DE-EN" 14px; logo row 3px lower */
-.footer.footer-aircore .footer-payment-social {
-  padding: 44px 0 31px;
-}
-
-.footer.footer-aircore .footer-payment-social > .section > div {
-  box-sizing: border-box;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 var(--footer-margin);
-}
-
-.footer.footer-aircore .footer-search {
-  margin: 15px 0 50px;
-}
-
-.footer.footer-aircore .footer-search button {
-  top: 14px;
-  right: 4px;
-  width: 16px;
-  height: 16px;
-}
-
-.footer.footer-aircore .footer-search button .lh-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.footer.footer-aircore .footer-locale-button {
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.footer.footer-aircore .footer-legal {
-  padding: 32px 0 7px;
-}
-
-@media (width >= 768px) {
-  .footer.footer-aircore .footer-legal {
-    padding-left: 12px;
-  }
-}
-
-@media (width >= 1025px) {
-  .footer.footer-aircore .footer-inner {
-    grid-template-columns: 25% minmax(0, 1fr);
   }
 }

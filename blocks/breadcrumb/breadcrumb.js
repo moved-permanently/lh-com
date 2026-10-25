@@ -32,7 +32,7 @@ function readCrumbs(block) {
  */
 function devPrefix() {
   if (!/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return '';
-  const m = window.location.pathname.match(/^((?:\/[^/]+)*?)(?=\/(?:lhg\/)?[a-z]{2}\/[a-z]{2}(?:\/|$))/);
+  const m = window.location.pathname.match(/^((?:\/[^/]+)*?)(?=\/[a-z]{2}\/[a-z]{2}(?:\/|$))/);
   return m ? m[1] : '';
 }
 
@@ -173,8 +173,8 @@ function render(block, crumbs) {
 }
 
 /**
- * Breadcrumb ("Home > Airport information > Boarding") of the live pages (maui-breadcrumb on
- * AEM pages, nav.breadcrumb on AirCore). Built from page metadata (see README): scripts.js adds
+ * Breadcrumb ("Home > Airport information > Boarding") of the live pages (maui-breadcrumb).
+ * Built from page metadata (see README): scripts.js adds
  * an empty block where the live page shows it; the trail is resolved without delaying the
  * section (the row keeps its height and shows when complete). An authored block (list of
  * links) is rendered as it is. Desktop shows the whole trail; small screens only the parent as

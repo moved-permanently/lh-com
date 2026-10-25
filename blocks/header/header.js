@@ -19,9 +19,6 @@ import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/ch
  * FlyNet channel (scripts/channel.js): no booking, login or flight search links and tools, a
  * sample flight bar from the site's /flight sheet (columns flight, from, to, departure,
  * arrival) below the brand bar, and only the locales the FlyNet site holds.
- * AirCore pages (/lhg/..., body.aircore) use the same nav document in the AirCore header
- * look: globe (country/language) button instead of the cart in the bar, login label
- * "Login & Registration" (LABELS.aircoreLogin), smaller logo and larger burger (header.css).
  */
 
 const DESKTOP = window.matchMedia('(width >= 1025px)');
@@ -51,7 +48,6 @@ const LABELS = {
     location: 'Location',
     continue: 'Continue',
     newTab: 'opens in a new tab',
-    aircoreLogin: 'Login & Registration',
   },
   de: {
     nav: 'Navigation',
@@ -67,7 +63,6 @@ const LABELS = {
     location: 'Land',
     continue: 'Weiter',
     newTab: 'öffnet in einem neuen Tab',
-    aircoreLogin: 'Login & Registrierung',
   },
 };
 
@@ -647,22 +642,12 @@ export default async function decorate(block) {
     ['help', 'nav-tool nav-tool-help'],
     ['cart', 'nav-tool nav-tool-cart'],
   ];
-  // AirCore header: accessibility, help, country/language; no cart
-  if (locale.aircore) barTools.pop();
   const barLinks = await Promise.all(barTools.map(async ([role, className]) => {
     const tool = byRole(role);
     return tool && tool.href ? toolLink(tool, className, false) : null;
   }));
   barLinks.filter(Boolean).forEach((a) => toolsEl.append(a));
-  if (locale.aircore) {
-    const barLocale = await localeButton(localeTool, 'nav-tool nav-tool-locale', labels);
-    barLocale.title = localeTool.label;
-    barLocale.addEventListener('click', () => openLocale(barLocale));
-    toolsEl.append(barLocale);
-  }
-  const navLogin = byRole('login');
-  const loginTool = navLogin && locale.aircore && labels.aircoreLogin
-    ? { ...navLogin, label: labels.aircoreLogin } : navLogin;
+  const loginTool = byRole('login');
   if (loginTool && loginTool.href) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
     toolsEl.append(await toolLink(loginTool, 'nav-tool nav-tool-login', true));
