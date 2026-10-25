@@ -46,7 +46,7 @@ beforeEach(() => {
     if (u.pathname === '/de/de/flugunregelmaessigkeiten' || u.pathname === '/us/en/dnsmpi') {
       return new Response(PAGE, {
         headers: {
-          'content-type': 'text/html; charset=utf-8', 'cache-control': 'max-age=7200', age: '12', 'x-robots-tag': 'noindex',
+          'content-type': 'text/html; charset=utf-8', 'cache-control': 'max-age=7200', 'cdn-cache-control': 'max-age=172800, must-revalidate', age: '12', 'x-robots-tag': 'noindex',
         },
       });
     }
