@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_507194_exports = {};
-  __export(tmp_bundle_info_507194_exports, {
-    default: () => tmp_bundle_info_507194_default
+  var tmp_bundle_info_513985_exports = {};
+  __export(tmp_bundle_info_513985_exports, {
+    default: () => tmp_bundle_info_513985_default
   });
 
   // tools/importer/parsers/profile-tabs.js
@@ -1603,6 +1603,17 @@ var CustomImportScript = (() => {
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
     addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
     addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    const picture = (src) => {
+      if (!/^\/content\/dam\//.test(clean2(src))) return null;
+      const pic = document.createElement("picture");
+      const img = document.createElement("img");
+      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean2(src)))}`;
+      img.alt = "";
+      pic.append(img);
+      return pic;
+    };
+    addRow("Background image", picture(props.backgroundImageL));
+    addRow("Background image mobile", picture(props.backgroundImageS));
     if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
@@ -2101,8 +2112,115 @@ var CustomImportScript = (() => {
     element.replaceWith(...before, block);
   }
 
-  // tools/importer/parsers/carousel-cards.js
+  // tools/importer/parsers/cards-icon-text.js
   function parse12(element, { document }) {
+    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const partners = [...element.querySelectorAll("a.teaser.partner")];
+    if (partners.length) {
+      const rows = [];
+      partners.forEach((card) => {
+        let iconCell = "";
+        const img = card.querySelector("img.icon-svg, .image-wrapper img, img");
+        const src = img && img.getAttribute("src");
+        if (src && !/^(data|blob):/i.test(src)) {
+          iconCell = document.createElement("img");
+          iconCell.src = src;
+          iconCell.alt = clean2(img.getAttribute("alt"));
+        }
+        const content = [];
+        const title = clean2((card.querySelector(".teaser-heading-text") || card.querySelector(".teaser-heading, h1, h2, h3, h4, h5, h6") || {}).textContent);
+        const href = card.getAttribute("href");
+        if (title) {
+          const h3 = document.createElement("h3");
+          if (href) {
+            const a = document.createElement("a");
+            a.href = href;
+            a.textContent = title;
+            h3.append(a);
+          } else {
+            h3.textContent = title;
+          }
+          content.push(h3);
+        }
+        card.querySelectorAll(".teaser-description p").forEach((d) => {
+          const t = clean2(d.textContent);
+          if (!t || content.some((c) => c.textContent === t)) return;
+          const p = document.createElement("p");
+          p.textContent = t;
+          content.push(p);
+        });
+        if (!iconCell && !content.length) return;
+        rows.push([iconCell, content.length ? content : ""]);
+      });
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", variants: ["partner"], cells: rows }));
+      return;
+    }
+    let units = [...element.querySelectorAll(".icon-wrapper")];
+    if (!units.length) units = [...element.querySelectorAll(":scope > a, :scope > div")];
+    const cells = [];
+    units.forEach((unit) => {
+      const isIcon = unit.matches(".icon-wrapper");
+      const card = isIcon ? unit.closest("a[href]") || unit.parentElement : unit;
+      const link = card.matches("a[href]") ? card : card.querySelector("a[href]");
+      const body = isIcon ? [...card.children].find((c) => c !== unit && !c.matches(".icon-wrapper")) || null : card;
+      let iconCell = "";
+      const img = isIcon ? unit.querySelector("img") : null;
+      const src = img && img.getAttribute("src");
+      if (src) {
+        const name = (src.split("?")[0].split("/").pop() || "").replace(/\.svg$/i, "");
+        if (/\.svg/i.test(src) && /^[a-z0-9-_]+$/i.test(name) && !/^(data|blob):/i.test(src)) {
+          iconCell = `:${name.toLowerCase().replace(/_/g, "-")}:`;
+        } else if (!/^(data|blob):/i.test(src)) {
+          const image = document.createElement("img");
+          image.src = src;
+          image.alt = clean2(img.getAttribute("alt"));
+          iconCell = image;
+        }
+      }
+      const content = [];
+      const headingEl = body && body.querySelector("h1, h2, h3, h4, h5, h6");
+      const title = clean2(headingEl && headingEl.textContent);
+      const href = link && link.getAttribute("href");
+      if (title) {
+        const h3 = document.createElement("h3");
+        if (href) {
+          const a = document.createElement("a");
+          a.href = href;
+          a.textContent = title;
+          h3.append(a);
+        } else {
+          h3.textContent = title;
+        }
+        content.push(h3);
+      }
+      if (body) {
+        [...body.childNodes].forEach((child) => {
+          if (child === headingEl || child.nodeType === 1 && child.matches(".icon-wrapper")) return;
+          if (child.nodeType !== 1 && child.nodeType !== 3) return;
+          const t = clean2(child.textContent);
+          if (!t) return;
+          const p = document.createElement("p");
+          p.textContent = t;
+          content.push(p);
+        });
+      }
+      if (!title && href) {
+        const p = document.createElement("p");
+        const a = document.createElement("a");
+        a.href = href;
+        a.textContent = clean2(link.textContent) || href;
+        p.append(a);
+        content.push(p);
+      }
+      if (!iconCell && !content.length) return;
+      cells.push([iconCell, content]);
+    });
+    const block = WebImporter.Blocks.createBlock(document, { name: "cards-icon-text", cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/carousel-cards.js
+  function parse13(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2298,7 +2416,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse13(element, { document }) {
+  function parse14(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -2478,7 +2596,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse14(element, { document }) {
+  function parse15(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -2978,7 +3096,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -2990,7 +3108,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse16(element, { document }) {
+  function parse17(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -3006,13 +3124,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4631,6 +4749,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "cards-icon-text",
+        "instances": [
+          ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
+        ]
+      },
+      {
         "name": "carousel-cards",
         "instances": [
           ".threecolumn:has(.teaser)",
@@ -4739,13 +4863,14 @@ var CustomImportScript = (() => {
     "carousel-images": parse9,
     "accordion-columns": parse10,
     "table-striped": parse11,
-    "carousel-cards": parse12,
-    "cards-teaser": parse13,
-    "columns-media": parse14,
-    "embed": parse15,
-    "lounge-finder": parse16,
-    "ejournals": parse17,
-    "fare-teaser": parse18
+    "cards-icon-text": parse12,
+    "carousel-cards": parse13,
+    "cards-teaser": parse14,
+    "columns-media": parse15,
+    "embed": parse16,
+    "lounge-finder": parse17,
+    "ejournals": parse18,
+    "fare-teaser": parse19
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -4769,7 +4894,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_507194_default = {
+  var tmp_bundle_info_513985_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4799,5 +4924,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_507194_exports);
+  return __toCommonJS(tmp_bundle_info_513985_exports);
 })();

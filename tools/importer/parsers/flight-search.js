@@ -24,6 +24,7 @@
  *                                                 Location error, Hotel footnote, Hotel submit
  *                                                 label, Hotel external note, Close label
  *   .flm-standalone (not the homepage design)  -> variant "standalone"
+ *   data-dcep backgroundImageL / backgroundImageS -> Background image / Background image mobile
  * Not authored: From/To/Date/Submit labels and the date error (the snapshot shows the built-in
  * texts, the live site and the block use labels/flightmanager and labels/common).
  */
@@ -154,6 +155,20 @@ export default function parse(element, { document }) {
   // "Departure - Return"); the block loads the same labels (its rows would override them).
   addRow('Default origin', withCode(clean(props.prefilledOrigin)) || withCode(fieldValue(originField)));
   addRow('Default destination', withCode(clean(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+
+  // Background image (local promotion pages: .flightmanager-container.full-width-bg with
+  // data-dcep backgroundImageL / backgroundImageS): the large one from 1025px, the small one below.
+  const picture = (src) => {
+    if (!/^\/content\/dam\//.test(clean(src))) return null;
+    const pic = document.createElement('picture');
+    const img = document.createElement('img');
+    img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean(src)))}`;
+    img.alt = '';
+    pic.append(img);
+    return pic;
+  };
+  addRow('Background image', picture(props.backgroundImageL));
+  addRow('Background image mobile', picture(props.backgroundImageS));
 
   // Cabin preset (authored on the source component, empty on most pages).
   if (/^[A-Za-z]$/.test(clean(props.prefilledCabinClass))) addRow('Cabin', clean(props.prefilledCabinClass).toUpperCase());

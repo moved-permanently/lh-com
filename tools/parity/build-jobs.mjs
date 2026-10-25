@@ -90,7 +90,8 @@ for (const [url, entry] of Object.entries(progress)) {
   const pagePath = new URL(url).pathname.replace(/\/+$/, '');
   if (EXCLUDED.test(pagePath)) continue; // eslint-disable-line no-continue
   // AirCore pages live under /lhg/{country}/{lang}/...; they belong to that locale
-  const segs = pagePath.split('/').slice(1);
+  // market-only pages www serves under /content/lh/markets/{country}/{lang}/... (LoungeNet)
+  const segs = pagePath.replace(/^\/content\/lh\/markets(?=\/)/, '').split('/').slice(1);
   const locale = (segs[0] === 'lhg' ? segs.slice(1, 3) : segs.slice(0, 2)).join('/');
   if (entry.status === 'ok' && [...PRIMARY, ...SECONDARY].includes(locale)) {
     const dir = path.join(pagesDir, pagePath);

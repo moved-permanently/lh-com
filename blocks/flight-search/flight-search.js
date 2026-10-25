@@ -102,7 +102,15 @@ export async function loadFlightSearchData(settings, locale) {
       || (defaultAirport && defaultAirport.code === origin.code ? defaultAirport : null);
     if (named) origin = { code: origin.code, name: named.name };
   }
-  return { labels: pickLabels(live.labels, LIVE_LABELS), origin, sources };
+  // an authored destination code ("CPT") shows its name like the live field ("Cape Town")
+  let { destination } = settings;
+  if (destination && !destination.name) {
+    const named = airportNames.find((a) => a.code === destination.code);
+    if (named) destination = { code: destination.code, name: named.name };
+  }
+  return {
+    labels: pickLabels(live.labels, LIVE_LABELS), origin, destination, sources,
+  };
 }
 
 /** Trip type codes by authored position: first trip type is round trip, second one way. */
@@ -381,6 +389,39 @@ function adoptStageImage(block) {
   if (section) section.classList.add('full-bleed');
 }
 
+/**
+ * Background image (local promotion pages, live .flightmanager-container.full-width-bg): the
+ * block's wrapper becomes a full-width band (min 500px) with the image as cover, and the card
+ * sits at its bottom in the content column. The mobile image (if any) is used below 1025px.
+ * @param {Element} block
+ * @param {Element} cell the Background image cell
+ * @param {Element} [mobileCell] the Background image mobile cell
+ */
+function addBackground(block, cell, mobileCell) {
+  const img = cell.querySelector('img');
+  if (!img) return;
+  const band = el('div', 'flight-search-background');
+  const picture = document.createElement('picture');
+  const mobile = mobileCell && mobileCell.querySelector('img');
+  if (mobile) {
+    const source = document.createElement('source');
+    source.media = '(width < 1025px)';
+    source.srcset = mobile.currentSrc || mobile.src;
+    picture.append(source);
+  }
+  const image = el('img');
+  image.src = img.src;
+  image.alt = '';
+  image.loading = 'lazy';
+  picture.append(image);
+  band.append(picture);
+  const wrapper = block.parentElement;
+  if (wrapper) {
+    wrapper.classList.add('flight-search-band');
+    wrapper.prepend(band);
+  }
+}
+
 const DAY_MS = 86400000;
 
 /**
@@ -581,6 +622,7 @@ export default function decorate(block) {
   // fields row: origin, swap, destination, dates, submit
   const fields = el('div', 'flight-search-fields');
   let originTouched = false;
+  let destinationTouched = false;
   // set below: the name-only display of each field (showAirportNames)
   const shown = {};
   const origin = createAirportCombobox({
@@ -600,7 +642,10 @@ export default function decorate(block) {
     name: 'destination',
     value: settings.destination,
     fetchSuggestions: (term) => suggest(term),
-    onChange: () => { if (shown.destination) shown.destination(); },
+    onChange: () => {
+      destinationTouched = true;
+      if (shown.destination) shown.destination();
+    },
     noResultsLabel: labels['no results label'],
   });
   destination.element.classList.add('flight-search-destination');
@@ -793,8 +838,12 @@ export default function decorate(block) {
     select(active >= 0 && panels[tabKinds[active]] ? active : tabKinds.findIndex((k) => panels[k]));
   }
 
+  // read before the rows are replaced: the pictures move into the band
+  const background = pick(config, 'background-image');
+  const backgroundMobile = pick(config, 'background-image-mobile');
   block.replaceChildren(content);
   if (locale.aircore) adoptStageImage(block);
+  if (background) addBackground(block, background.cell, backgroundMobile && backgroundMobile.cell);
 
   if (!hasFlight) {
     // hotel only: no live data (the live hotel tab shows its built-in texts)
@@ -813,6 +862,10 @@ export default function decorate(block) {
     // unless the visitor already picked an origin
     if (!originTouched) {
       origin.setValue(data.origin, { silent: true });
+      updateSwapLabel();
+    }
+    if (data.destination && data.destination.name && !destinationTouched) {
+      destination.setValue(data.destination, { silent: true });
       updateSwapLabel();
     }
   });

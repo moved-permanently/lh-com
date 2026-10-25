@@ -13,6 +13,7 @@ import heroCampaignParser from './parsers/hero-campaign.js';
 import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import tableStripedParser from './parsers/table-striped.js';
+import cardsIconTextParser from './parsers/cards-icon-text.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
 import columnsMediaParser from './parsers/columns-media.js';
@@ -96,6 +97,12 @@ const PAGE_TEMPLATE = {
       "name": "table-striped",
       "instances": [
         "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
+      ]
+    },
+    {
+      "name": "cards-icon-text",
+      "instances": [
+        ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
       ]
     },
     {
@@ -208,6 +215,7 @@ const parsers = {
   'carousel-images': carouselImagesParser,
   'accordion-columns': accordionColumnsParser,
   'table-striped': tableStripedParser,
+  'cards-icon-text': cardsIconTextParser,
   'carousel-cards': carouselCardsParser,
   'cards-teaser': cardsTeaserParser,
   'columns-media': columnsMediaParser,

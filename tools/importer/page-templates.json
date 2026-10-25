@@ -1182,6 +1182,12 @@
           ]
         },
         {
+          "name": "cards-icon-text",
+          "instances": [
+            ".threecolumn:has(> .column-view > .row > .column-view-item > .teaser > a.teaser.partner)"
+          ]
+        },
+        {
           "name": "carousel-cards",
           "instances": [
             ".threecolumn:has(.teaser)",

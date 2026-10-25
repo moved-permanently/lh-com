@@ -2,13 +2,14 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion",
   "path": "de/en/local-page/south-africa-winter-promotion",
-  "timestamp": "2026-10-25T05:48:57.791Z",
+  "timestamp": "2026-10-25T06:13:10.276Z",
   "title": "",
   "template": "info",
   "blocks": [
     "flight-search",
     "hero-campaign",
     "accordion-columns",
+    "cards-icon-text",
     "carousel-cards",
     "carousel-cards",
     "carousel-cards"

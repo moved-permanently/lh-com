@@ -24692,5 +24692,235 @@
       "768": 753,
       "1440": 1425
     }
+  },
+  {
+    "id": "de/en/local-page/south-africa-winter-promotion",
+    "path": "/de/en/local-page/south-africa-winter-promotion",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/local-page/south-africa-winter-promotion",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/local-page/south-africa-winter-promotion",
+    "path": "/de/de/local-page/south-africa-winter-promotion",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/local-page/south-africa-winter-promotion",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/event/dghm-2026",
+    "path": "/de/en/event/dghm-2026",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/event/dghm-2026",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/event/dghm-2026/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/event/dghm-2026/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/event/dghm-2026/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/event/dghm-2026",
+    "path": "/de/de/event/dghm-2026",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/event/dghm-2026",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/event/dghm-2026/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/event/dghm-2026/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/event/dghm-2026/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+    "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot-390.jpg",
+      "768": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+    "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot-390.jpg",
+      "768": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+    "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot-390.jpg",
+      "768": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/local-page/black-friday",
+    "path": "/at/de/local-page/black-friday",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/local-page/black-friday",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/local-page/black-friday/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/local-page/black-friday/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/local-page/black-friday/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/event/esorics-2027",
+    "path": "/at/de/event/esorics-2027",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/event/esorics-2027",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/event/esorics-2027/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/event/esorics-2027/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/event/esorics-2027/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/local-page/ski-campaign-2026",
+    "path": "/gb/en/local-page/ski-campaign-2026",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/local-page/ski-campaign-2026",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
   }
 ]

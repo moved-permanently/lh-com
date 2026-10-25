@@ -1240,3 +1240,48 @@ main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .se
     color: var(--lh-deepblue);
   }
 }
+
+/* background image band (local promotion pages: .flightmanager-container.full-width-bg with
+   backgroundImageL/S, min-height 50rem): the wrapper spans the page, the image covers it, the
+   card sits at its bottom in the content column (live 1440: band 501px, card 253px below its top
+   and 34px above its bottom; 390: 22px above and 12px below the card) */
+main > .section > .flight-search-wrapper.flight-search-band {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: none;
+  min-height: 500px;
+  padding: 12px max(var(--layout-margin), calc((100% - var(--content-max-width)) / 2 + var(--layout-margin)));
+}
+
+.flight-search-band > .flight-search-background,
+.flight-search-band > .flight-search-background picture,
+.flight-search-band > .flight-search-background img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.flight-search-band > .flight-search-background img {
+  object-fit: cover;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the band overrides the card spacing */
+.flight-search-band > .flight-search.standalone {
+  position: relative;
+  margin: 10px 0 0;
+}
+
+@media (width >= 768px) {
+  main > .section > .flight-search-wrapper.flight-search-band {
+    padding-block: 0 33px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .flight-search-band > .flight-search.standalone {
+    margin: 0;
+  }
+}

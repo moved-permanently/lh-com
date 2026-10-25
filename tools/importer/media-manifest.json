@@ -96,6 +96,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T13:23:53.307Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/article-images/africa/lh_blog_johannesburg_safari_zebra_george-gillams_unsplash-sdc30uu3wpu_1920x823.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/4f4c1bb3e66b2594e15e9a3ac822c87c.jpg",
+  "format": "jpeg",
+  "bytes": 1363275,
+  "width": 1920,
+  "height": 823,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-25T06:13:37.110Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/article-images/asia/lh_blog_mumbai_bandra_overview_gettyimages521360052_1920x1080.jpg": {
   "status": 200,
   "version": 1,
@@ -376,6 +387,28 @@
   "height": 1440,
   "hasAlpha": false,
   "checkedAt": "2026-10-22T04:31:24.048Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/fr/article-images/africa/lh_blog_johannesburg_safari_giraffe_zoe-reeve_unsplash-zva1esfhonc_772x772.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/1a69875d6e8be4278300413f850d82a6.jpg",
+  "format": "jpeg",
+  "bytes": 612069,
+  "width": 772,
+  "height": 772,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-25T06:13:37.520Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/fr/article-images/africa/lh_blog_johannesburg_safari_zebra_george-gillams_unsplash-sdc30uu3wpu_1920x823.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/45689dff8f4d7a1e952ea69df31da672.jpg",
+  "format": "jpeg",
+  "bytes": 1363275,
+  "width": 1920,
+  "height": 823,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-25T06:13:38.028Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/Airport%20landing.svg": {
   "status": 200,
@@ -1702,6 +1735,26 @@
    "bytes": 323977,
    "width": 2560,
    "height": 1708,
+   "format": "jpeg",
+   "version": 1,
+   "reason": "wider-than-2560"
+  }
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/frontify/2023/q3/52606909.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/d8ab6f5b7326f868bc9c2f6778d31b75.jpg",
+  "format": "jpeg",
+  "bytes": 986863,
+  "width": 3000,
+  "height": 2000,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-25T06:13:38.526Z",
+  "converted": {
+   "local": "/media-da/938f78cffcaf1dd0ae904a392332cfa3.jpg",
+   "bytes": 769516,
+   "width": 2560,
+   "height": 1707,
    "format": "jpeg",
    "version": 1,
    "reason": "wider-than-2560"

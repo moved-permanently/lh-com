@@ -432,6 +432,24 @@
   margin-bottom: 20px;
 }
 
+/* text-only teaser cards in a four-up grid (a.teaser.card without image in a .fourcolumn: local
+   promotion "Booking conditions"): the usual teaser card (border #b0b0b0, 4px radius, shadow),
+   .card-content padding 2rem, four per row from 1025px */
+.carousel-cards.grid.four-up .carousel-cards-slide.carousel-cards-text-only,
+.carousel-cards.grid.four-up .carousel-cards-slide.carousel-cards-text-only:hover {
+  border-color: #b0b0b0;
+  border-radius: var(--radius-s);
+  box-shadow: 0 1px 4px #0003;
+}
+
+.carousel-cards.grid.four-up .carousel-cards-text-only .carousel-cards-body {
+  padding: 20px;
+}
+
+.carousel-cards.grid.four-up .carousel-cards-slide.carousel-cards-text-only .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 10px;
+}
+
 /* buttons (maui size medium): as wide as the label, no 150px minimum ("Login" 108px); the
    booking code button (a maui-button, not a link, on live) spans the card below 768px */
 .carousel-cards .carousel-cards-body > .button-wrapper {
@@ -483,9 +501,13 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* login cards: two per row (.col-md-6) */
+  /* login cards: two per row (.col-md-6); text-only four-up cards: four */
   .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-text-only) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .carousel-cards.grid.four-up .carousel-cards-track:has(> .carousel-cards-text-only) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .carousel-cards.four-up:not(.grid) .carousel-cards-slide {
