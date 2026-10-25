@@ -7,10 +7,14 @@
  *   Help & contact.
  * - German (de/de, at/de): title, the same links in German (opened in a new tab, as live), the
  *   feedback text and Zu Hilfe & Kontakt; no apology text and no search field.
- * The locale comes from the path (scripts/locale.js; other paths: de/de). Help & contact is not
- * migrated and links to www.lufthansa.com. Runs before scripts.js decorates main.
+ * The locale comes from the path (scripts/locale.js). A path without one of the four locales
+ * (e.g. /error.html, where the Form (core) block goes when a submission fails) is English de/en,
+ * as live's /error.html is the English not-found page. Help & contact is not migrated and links
+ * to www.lufthansa.com. Runs before scripts.js decorates main.
  */
-import { getLocale, getHomepageUrl, LIVE_ORIGIN } from './locale.js';
+import {
+  getLocale, getHomepageUrl, LIVE_ORIGIN, LOCALES,
+} from './locale.js';
 
 const TEXT = {
   en: {
@@ -31,6 +35,13 @@ const TEXT = {
     newTab: 'Der Link wird in einem neuen Browser-Tab geöffnet',
   },
 };
+
+/** Locale of the path; a path without a migrated locale gets de/en (live's /error.html). */
+function notFoundLocale(pathname = window.location.pathname) {
+  const path = pathname.replace(/^\/content(?=\/)/, '');
+  const match = path.match(/^\/(?:lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  return getLocale(match && LOCALES[`${match[1]}/${match[2]}`] ? pathname : '/de/en/');
+}
 
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -79,7 +90,7 @@ function searchForm(locale, t) {
 
 export default function buildNotFound(main = document.querySelector('main')) {
   if (!main) return;
-  const locale = getLocale();
+  const locale = notFoundLocale();
   const t = TEXT[locale.lang] || TEXT.en;
   const base = `/${locale.key}`;
   const href = (slug) => (slug === 'home' ? getHomepageUrl(locale.country, locale.lang) : `${base}/${slug}`);
