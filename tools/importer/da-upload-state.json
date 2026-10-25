@@ -61,9 +61,9 @@
    "preview": "2026-10-22T00:19:04.885Z"
   },
   "/de/en/homepage": {
-   "uploaded": "2026-10-25T05:37:02.078Z",
-   "mtime": 1792906477257,
-   "preview": "2026-10-25T05:37:04.721Z"
+   "uploaded": "2026-10-25T06:31:03.201Z",
+   "mtime": 1792909620984,
+   "preview": "2026-10-25T06:31:06.016Z"
   },
   "/de/en/baggage": {
    "uploaded": "2026-10-24T08:21:27.054Z",
@@ -126,19 +126,19 @@
    "preview": "2026-10-24T04:54:49.145Z"
   },
   "/de/de/homepage": {
-   "uploaded": "2026-10-25T05:37:06.031Z",
-   "mtime": 1792906620098,
-   "preview": "2026-10-25T05:37:08.595Z"
+   "uploaded": "2026-10-25T06:31:07.414Z",
+   "mtime": 1792909621030,
+   "preview": "2026-10-25T06:31:09.703Z"
   },
   "/at/de/homepage": {
-   "uploaded": "2026-10-25T05:37:10.029Z",
-   "mtime": 1792906620163,
-   "preview": "2026-10-25T05:37:12.616Z"
+   "uploaded": "2026-10-25T06:31:11.234Z",
+   "mtime": 1792909621079,
+   "preview": "2026-10-25T06:31:13.185Z"
   },
   "/gb/en/homepage": {
-   "uploaded": "2026-10-25T05:37:14.349Z",
-   "mtime": 1792906620228,
-   "preview": "2026-10-25T05:37:17.300Z"
+   "uploaded": "2026-10-25T06:31:14.826Z",
+   "mtime": 1792909621128,
+   "preview": "2026-10-25T06:31:17.184Z"
   },
   "/de/en/additional-services": {
    "uploaded": "2026-10-23T21:53:53.965Z",
@@ -6795,6 +6795,26 @@
    "uploaded": "2026-10-25T05:52:04.325Z",
    "mtime": 1792907454446,
    "preview": "2026-10-25T05:52:06.850Z"
+  },
+  "/de/en/fragments/stage-promotions": {
+   "uploaded": "2026-10-25T06:31:18.390Z",
+   "mtime": 1792909620961,
+   "preview": "2026-10-25T06:31:20.194Z"
+  },
+  "/de/de/fragments/stage-promotions": {
+   "uploaded": "2026-10-25T06:31:21.511Z",
+   "mtime": 1792909621007,
+   "preview": "2026-10-25T06:31:23.219Z"
+  },
+  "/at/de/fragments/stage-promotions": {
+   "uploaded": "2026-10-25T06:31:24.446Z",
+   "mtime": 1792909621057,
+   "preview": "2026-10-25T06:31:26.164Z"
+  },
+  "/gb/en/fragments/stage-promotions": {
+   "uploaded": "2026-10-25T06:31:27.195Z",
+   "mtime": 1792909621105,
+   "preview": "2026-10-25T06:31:28.898Z"
   }
  },
  "media": {
