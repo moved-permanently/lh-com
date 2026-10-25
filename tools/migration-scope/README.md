@@ -53,6 +53,20 @@ the page's language switch or the locale's AirCore sitemap
 cities: Vienna for `at/de`, London for `gb/en`. Origin pages (`/from/`) and business-class pages
 exist only for Germany, so `at/de` and `gb/en` have no equivalent for those rows.
 
+`aircore-dam-images.csv`: every `/content/dam/` URL that the 107 imported `/lhg/` pages (all
+four locales) load on www, from their captures (`tools/importer/bd-snapshots/www.lufthansa.com/lhg`,
+the rendered DOM: img `src` and `srcset`, inline and `<style>` backgrounds, preloads, `og:image`;
+and the recorded heads in `tools/source-export/heads/lhg`, which hold the JSON-LD). Columns:
+`path` (the exact path, on `https://www.lufthansa.com`), `asset` (the part before `.transform/`,
+or the path itself for an untransformed file), `width` and `format` (from the transform; empty
+width for an original), `pages` (space-separated). Regenerate it with
+`node tools/migration-scope/build-aircore-dam-images.mjs`. The captures were taken on 2026-10-21
+and 2026-10-22: 754 paths of 712 assets. The AirCore pages use only widths 360, 720, 1440 and
+2560 and only webp (the 180 and jpg renditions belong to the AEM pages' own transform). The
+`og:image` of these pages is under `/aircore/cache/` or `/aircore/media/`, not `/content/dam/`,
+and their JSON-LD carries no image. The list is the source of the image redirects for the `/lhg/`
+pages, which left the replica on 2026-10-25.
+
 The navigation is authored as pages under `/{country}/{lang}/configuration/commonheader/*`. Use
 them as the source for the nav, not as pages.
 
