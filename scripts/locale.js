@@ -29,8 +29,12 @@ export const DEFAULT_LOCALE = 'de/de';
  */
 export function getLocale(pathname = window.location.pathname) {
   // the local dev server (aem up --html-folder content) serves pages under /content/
-  const prefix = pathname.startsWith('/content/') ? '/content' : '';
-  const match = pathname.slice(prefix.length).match(/^\/(lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  const prefix = pathname.startsWith('/content/') && !pathname.startsWith('/content/lh/markets/')
+    ? '/content' : '';
+  // market-only pages www serves under their repository path (LoungeNet):
+  // /content/lh/markets/{country}/{lang}/...
+  const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
+  const match = rest.match(/^\/(lhg\/)?([a-z]{2})\/([a-z]{2})(?:\/|$)/);
   const key = match && LOCALES[`${match[2]}/${match[3]}`] ? `${match[2]}/${match[3]}` : DEFAULT_LOCALE;
   return {
     ...LOCALES[key],

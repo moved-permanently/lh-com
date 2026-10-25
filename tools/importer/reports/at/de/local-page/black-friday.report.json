@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/local-page/black-friday",
+  "path": "at/de/local-page/black-friday",
+  "timestamp": "2026-10-25T05:49:09.065Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "flight-search",
+    "columns-media"
+  ]
+}

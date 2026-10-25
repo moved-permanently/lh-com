@@ -19,6 +19,7 @@ import columnsMediaParser from './parsers/columns-media.js';
 import embedParser from './parsers/embed.js';
 import loungeFinderParser from './parsers/lounge-finder.js';
 import ejournalsParser from './parsers/ejournals.js';
+import fareTeaserParser from './parsers/fare-teaser.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 
@@ -142,6 +143,12 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".ejournals:has(> .dcep-ejournals)"
       ]
+    },
+    {
+      "name": "fare-teaser",
+      "instances": [
+        ".fareteaserstatic"
+      ]
     }
   ],
   "sections": [
@@ -207,6 +214,7 @@ const parsers = {
   'embed': embedParser,
   'lounge-finder': loungeFinderParser,
   'ejournals': ejournalsParser,
+  'fare-teaser': fareTeaserParser,
 };
 const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
 

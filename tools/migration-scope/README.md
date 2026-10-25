@@ -57,7 +57,11 @@ of any rollout or translation. The importer treats links to them as local
 `south-africa-winter-promotion` pages (de/en and de/de) are two separate rows: each is its
 market's own page, not a translation of the other. The LoungeNet pages keep the full path www
 serves them under (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet/...`) and live's
-`noindex`.
+`noindex`. The two lounge pages (`fra-first-class-lounge-b`, `muc-first-class-lounge`) are
+identical on www apart from their canonical URL, so their content is authored once in
+`/de/en/fragments/loungenet-first-class-lounge`; each lounge page holds only a Fragment block and
+its own metadata (title, canonical, robots). `tools/importer/share-sections.mjs` does that after
+an import. The 10 pages import with the `info` template.
 
 ## AirCore (/lhg/), out of scope
 

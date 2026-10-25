@@ -1306,6 +1306,17 @@
   "hasAlpha": true,
   "checkedAt": "2026-10-21T23:46:48.866Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_icon_laptop-booking-confirmation.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/c98ae94567f986c8f313f6aa33c5e5f1.svg",
+  "format": "svg",
+  "bytes": 1183,
+  "width": 120,
+  "height": 120,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-25T05:51:31.750Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/icons/lh_icon_mileage-accrual.svg": {
   "status": 200,
   "version": 1,
@@ -1316,6 +1327,17 @@
   "height": 300,
   "hasAlpha": true,
   "checkedAt": "2026-10-22T00:42:58.917Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/icons/lh_icon_sale.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/7baeef2b2a0318e62c4a34109f8c72f2.svg",
+  "format": "svg",
+  "bytes": 2003,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-25T05:51:30.845Z"
  },
  "https://www.lufthansa.com/content/dam/lh/icons/lh_senior_travellers_icon_01.svg": {
   "status": 200,
@@ -2260,6 +2282,17 @@
   "height": 300,
   "hasAlpha": true,
   "checkedAt": "2026-10-22T01:10:10.266Z"
+ },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/book/stopover/landing_page/Flight%20research.svg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/e5a86b9d3557965ee0fc237bbe25a21d.svg",
+  "format": "svg",
+  "bytes": 6256,
+  "width": 300,
+  "height": 300,
+  "hasAlpha": true,
+  "checkedAt": "2026-10-25T05:51:31.255Z"
  },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/book/stopover/landing_page/Flight-research.svg": {
   "status": 200,

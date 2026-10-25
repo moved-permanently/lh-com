@@ -40,6 +40,7 @@ function readCsv(file) {
 }
 
 const pages = readCsv(path.join(root, 'tools/migration-scope/pages.csv'));
+const localPages = readCsv(path.join(root, 'tools/migration-scope/local-pages.csv'));
 // AirCore counterparts per locale, once discovered; falls back to the de/en-only scope file
 const aircoreLocales = readCsv(path.join(__dirname, 'aircore-locales.csv'));
 const aircore = aircoreLocales.length ? aircoreLocales : readCsv(path.join(root, 'tools/migration-scope/aircore.csv'));
@@ -68,7 +69,11 @@ const templates = [
   ...Object.entries(TEMPLATES).map(([name, t]) => template(
     name,
     t.description,
-    urlsFor(pages.filter((r) => r.template_group === name), t.rep),
+    [
+      ...urlsFor(pages.filter((r) => r.template_group === name), t.rep),
+      // market-only pages (local promotions, events, LoungeNet) import with the info template
+      ...(name === 'info' ? localPages.map((r) => `${LIVE}${r.path}`) : []),
+    ],
   )),
   ...Object.entries(AIRCORE).map(([name, t]) => template(
     name,

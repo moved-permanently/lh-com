@@ -27,6 +27,7 @@ for t in $(node -e "console.log(require('./tools/importer/page-templates.json').
   node tools/importer/import-batch.mjs "$t" --batch 60 2>&1 | grep -v "nothing to import" | grep -o "^[a-z-]*: [0-9]*/[0-9]* imported"
 done
 node tools/importer/head-metadata.mjs 2>&1 | tail -1
+node tools/importer/share-sections.mjs 2>&1 | tail -2
 node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
 node tools/importer/build-upload-list.mjs > /tmp/upload-list.log 2>&1
 timeout 150 node tools/importer/da-upload.mjs --list tools/importer/upload-all.txt 2> /tmp/da-upload.err | grep -E "^da-upload:|^  "

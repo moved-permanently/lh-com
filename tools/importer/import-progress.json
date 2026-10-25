@@ -6543,5 +6543,55 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-25T03:21:40.441Z"
+ },
+ "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.219Z"
+ },
+ "https://www.lufthansa.com/de/de/local-page/south-africa-winter-promotion": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.225Z"
+ },
+ "https://www.lufthansa.com/de/en/event/dghm-2026": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.228Z"
+ },
+ "https://www.lufthansa.com/de/de/event/dghm-2026": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.231Z"
+ },
+ "https://www.lufthansa.com/at/de/local-page/black-friday": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.234Z"
+ },
+ "https://www.lufthansa.com/at/de/event/esorics-2027": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.237Z"
+ },
+ "https://www.lufthansa.com/gb/en/local-page/ski-campaign-2026": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.240Z"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.243Z"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.245Z"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T05:49:31.248Z"
  }
 }

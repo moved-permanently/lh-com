@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/event/dghm-2026",
+  "path": "de/en/event/dghm-2026",
+  "timestamp": "2026-10-25T05:49:03.954Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "flight-search",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}
