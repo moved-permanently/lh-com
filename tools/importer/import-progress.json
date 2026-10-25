@@ -2,7 +2,7 @@
  "https://www.lufthansa.com/de/en/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-25T05:34:57.400Z"
+  "at": "2026-10-25T08:54:46.872Z"
  },
  "https://www.lufthansa.com/de/en/baggage": {
   "template": "hub",
@@ -67,17 +67,17 @@
  "https://www.lufthansa.com/de/de/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-25T05:34:57.400Z"
+  "at": "2026-10-25T08:54:46.873Z"
  },
  "https://www.lufthansa.com/at/de/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-25T08:30:58.031Z"
+  "at": "2026-10-25T08:54:46.873Z"
  },
  "https://www.lufthansa.com/gb/en/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-25T05:34:57.400Z"
+  "at": "2026-10-25T08:54:46.873Z"
  },
  "https://www.lufthansa.com/de/en/additional-services": {
   "template": "hub",
@@ -842,7 +842,7 @@
  "https://www.lufthansa.com/de/en/prepare-for-your-trip/current-travel-information": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:10:13.079Z"
+  "at": "2026-10-25T08:55:05.513Z"
  },
  "https://www.lufthansa.com/de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
   "template": "info",
@@ -2187,7 +2187,7 @@
  "https://www.lufthansa.com/de/de/prepare-for-your-trip/current-travel-information": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:10:13.079Z"
+  "at": "2026-10-25T08:55:05.513Z"
  },
  "https://www.lufthansa.com/de/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
   "template": "info",
@@ -3632,7 +3632,7 @@
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/current-travel-information": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:10:13.079Z"
+  "at": "2026-10-25T08:55:05.513Z"
  },
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
   "template": "info",
@@ -5092,7 +5092,7 @@
  "https://www.lufthansa.com/gb/en/prepare-for-your-trip/current-travel-information": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:10:13.079Z"
+  "at": "2026-10-25T08:55:05.513Z"
  },
  "https://www.lufthansa.com/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system": {
   "template": "info",

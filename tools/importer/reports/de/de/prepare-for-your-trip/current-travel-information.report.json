@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/current-travel-information",
   "path": "de/de/prepare-for-your-trip/current-travel-information",
-  "timestamp": "2026-10-24T11:09:20.851Z",
+  "timestamp": "2026-10-25T08:54:54.647Z",
   "title": "",
   "template": "info",
   "blocks": [
+    "message-center",
     "accordion-columns"
   ]
 }

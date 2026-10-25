@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/homepage",
   "path": "de/en/homepage",
-  "timestamp": "2026-10-25T05:34:37.272Z",
+  "timestamp": "2026-10-25T08:54:26.667Z",
   "title": "",
   "template": "homepage",
   "blocks": [
+    "flash-teaser",
     "flight-search",
     "hero-card-overlay",
     "fare-teaser",
