@@ -1134,8 +1134,8 @@ function readConfig(rows) {
 
 /**
  * URL to go to for an authored page link: relative links stay on this host (also links DA made
- * absolute to an aem.page / aem.live host, and www.lufthansa.com links); under /content/ (local dev server) the locale
- * paths get the /content prefix.
+ * absolute to an aem.page / aem.live host, and www.lufthansa.com links); under /content/ (local
+ * dev server) the locale paths get the /content prefix.
  */
 function pageUrl(href) {
   const here = window.location;
