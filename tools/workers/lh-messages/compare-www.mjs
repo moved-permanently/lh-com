@@ -1,8 +1,10 @@
 /* eslint-disable no-console, no-underscore-dangle */
 /**
- * Compares the worker's answers with www's recorded answers (the fixture) field by field: the JSON shape of every route, and for the messages both
- * have (same message id and language) every field.
- * Usage: node tools/workers/lh-messages/compare-www.mjs [--worker https://lh-messages.aem-poc-lab.workers.dev]
+ * Compares the worker's answers with www's recorded answers (the fixture) field by field: the
+ * JSON shape of every route, and for the messages both have (same message id and language;
+ * '--' in www's ids counts as '-') every field.
+ * Usage: node tools/workers/lh-messages/compare-www.mjs
+ *   [--worker https://lh-messages.aem-poc-lab.workers.dev]
  *   [--fixture tools/workers/lh-messages/test/fixtures/www-message-center-2026-10-25.json]
  */
 import fs from 'node:fs';
@@ -26,7 +28,9 @@ function shape(o, p = '', out = {}) {
   return out;
 }
 
-const idOf = (item) => `${(item._path || '').split('/').pop()}:${item.language}`;
+// EDS refuses '--' in a path: in DA the ids are written with one hyphen
+// (lh--information-on-flights-to-dubai -> lh-information-on-flights-to-dubai)
+const idOf = (item) => `${(item._path || '').split('/').pop().replace(/-{2,}/g, '-')}:${item.language}`;
 
 const queries = Object.keys(www.queries);
 for (let q = 0; q < queries.length; q += 1) {
@@ -45,13 +49,25 @@ for (let q = 0; q < queries.length; q += 1) {
   console.log(`  shape: ${onlyWww.length || onlyOurs.length || types.length ? '' : 'same'}${onlyWww.length ? ` only www ${onlyWww.join(', ')}` : ''}${onlyOurs.length ? ` only ours ${onlyOurs.join(', ')}` : ''}${types.length ? ` types ${types.join(', ')}` : ''}`);
   const list = (o) => (o.data.lhgMessageList || {}).items || [];
   if (ref.body.data.lhgMessageList) {
-    const theirs = new Map(list(ref.body).map((i) => [idOf(i), i]));
+    // www has two English variations of my-promo-code: the first one counts
+    const theirs = new Map();
+    list(ref.body).forEach((i) => { if (!theirs.has(idOf(i))) theirs.set(idOf(i), i); });
     const mine = list(ours);
     const both = mine.filter((i) => theirs.has(idOf(i)));
     console.log(`  items: www ${theirs.size}, ours ${mine.length}, same message and language ${both.length}`);
     both.forEach((i) => {
       const t = theirs.get(idOf(i));
-      const diffs = Object.keys(t).filter((k) => JSON.stringify(k === '_tags' ? [...t[k]].sort() : t[k]) !== JSON.stringify(k === '_tags' ? [...i[k]].sort() : i[k]));
+      const norm = (item) => {
+        const { _metadata: meta, _tags: tags, ...rest } = item;
+        return {
+          ...rest,
+          _tags: [...(tags || [])].sort(),
+          ...Object.fromEntries((meta?.stringMetadata || []).map((m) => [`stringMetadata.${m.name}`, m.value])),
+          ...Object.fromEntries((meta?.calendarMetadata || []).map((m) => [`calendarMetadata.${m.name}`, m.value])),
+        };
+      };
+      const [nt, ni] = [norm(t), norm(i)];
+      const diffs = Object.keys(nt).filter((k) => JSON.stringify(nt[k]) !== JSON.stringify(ni[k]));
       console.log(`    ${idOf(i)}: ${diffs.length ? `differs in ${diffs.join(', ')}` : 'identical'}`);
     });
   }

@@ -4,7 +4,7 @@
  * persisted GraphQL queries (/graphql/execute.json/Message-Center/*), which the apps and other
  * clients read. Source: the query index /message-center/index.json, the details pages and the
  * sheet /message-center/config/cti-pages.json of the site (SOURCE_ORIGIN, the live host),
- * cached for at most 30 s. A cron trigger (every minute) keeps, in KV, when each message was
+ * fetched past Cloudflare's cache and kept for at most 30 s in the isolate. A cron trigger (every minute) keeps, in KV, when each message was
  * first seen (activatedAt) and the set of active messages, and sends push notifications for
  * messages with push set when they appear and disappear. See README.md.
  */
@@ -14,6 +14,8 @@ const QUERY_PREFIX = '/graphql/execute.json/Message-Center/';
 const TYPES = ['irreg', 'tech-outage', 'promo'];
 const SOURCE_TTL_MS = 30000;
 const STATE_KEY = 'state';
+/** Answered as x-lh-messages, to see which code a deployment runs. */
+export const VERSION = '2026-10-25.2 source no-store';
 /** Order of the page references in www's CTI response; other tenants follow in sheet order. */
 const CTI_TENANT_ORDER = ['ita', 'four_y', 'sn', 'lx', 'os', 'lh'];
 
@@ -81,7 +83,10 @@ async function fetchSource(env, path, as = 'json') {
   const url = `${origin}${path}`;
   const hit = sourceCache.get(url);
   if (hit && Date.now() - hit.at < SOURCE_TTL_MS) return hit.value;
-  const resp = await fetch(url, { cf: { cacheTtl: 30, cacheEverything: true } });
+  // past Cloudflare's cache: aem.live sends max-age=7200 for index.json, so a cached copy would
+  // answer from before a withdrawal or republish (and copies differ per colo); only the 30 s
+  // cache of this isolate stays
+  const resp = await fetch(url, { cache: 'no-store' });
   if (!resp.ok) {
     if (resp.status === 404) return null;
     throw new Error(`${path}: ${resp.status}`);
@@ -363,6 +368,7 @@ function respond(env, request, body, status = 200, extra = {}) {
     'content-type': 'application/json',
     'cache-control': status === 200 ? 'public, max-age=120' : 'no-store',
     vary: 'Origin',
+    'x-lh-messages': VERSION,
     ...extra,
   };
   const origin = allowedOrigin(env, request.headers.get('Origin'));

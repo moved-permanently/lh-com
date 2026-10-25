@@ -223,11 +223,39 @@ test('routes, headers and CORS', async () => {
   assert.equal(preBad.status, 403);
 });
 
-test('the source is fetched at most every 30 s', async () => {
+test('the source is fetched past Cloudflare\'s cache, at most every 30 s per isolate', async () => {
   const e = env();
-  await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgIrregMessageList'), e);
-  await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgTechOutageMessageList'), e);
-  assert.equal(fetches.filter((f) => f.url.endsWith('/message-center/index.json')).length, 1);
+  const realNow = Date.now;
+  let clock = realNow();
+  Date.now = () => clock;
+  try {
+    await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgIrregMessageList'), e);
+    await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgTechOutageMessageList'), e);
+    await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/outage-b2b'), e);
+    await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/CTI_Pages_for_APP'), e);
+    const sourceCalls = () => fetches.filter((f) => f.url.startsWith(SOURCE));
+    const indexCalls = () => fetches.filter((f) => f.url === `${SOURCE}/message-center/index.json`);
+    assert.equal(indexCalls().length, 1);
+    // index, details page and CTI sheet: no edge cache (cache: no-store, no cf cacheTtl / cacheEverything)
+    assert.deepEqual([...new Set(sourceCalls().map((f) => new URL(f.url).pathname))].sort(), [
+      '/message-center/config/cti-pages.json', '/message-center/details/test-2/en.plain.html', '/message-center/index.json',
+    ]);
+    sourceCalls().forEach((f) => {
+      assert.equal(f.init.cache, 'no-store');
+      assert.equal(f.init.cf, undefined);
+    });
+    // a withdrawal shows once the isolate copy is 30 s old
+    sourceRows = TEST_ROWS.filter((r) => !r.path.includes('test-1'));
+    clock += 29999;
+    const before = await (await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgIrregMessageList'), e, NOW)).json();
+    assert.equal(before.data.lhgMessageList.items.length, 1);
+    clock += 1;
+    const after = await (await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgIrregMessageList'), e, NOW)).json();
+    assert.equal(after.data.lhgMessageList.items.length, 0);
+    assert.equal(indexCalls().length, 2);
+  } finally {
+    Date.now = realNow;
+  }
 });
 
 test('cron: activatedAt kept, KV written only on change, push on appear and disappear', async () => {
