@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T04:24:28.171Z",
+  "generatedAt": "2026-10-25T05:02:43.634Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -218,7 +218,7 @@
       "template": "info",
       "width": 768,
       "pageWidths": 372,
-      "meanUnmasked": 0.1892416666666667,
+      "meanUnmasked": 0.18906153225806455,
       "medianUnmasked": 0.139615,
       "maxUnmasked": 0.65483
     },
@@ -250,7 +250,7 @@
       "template": "info",
       "width": 390,
       "pageWidths": 372,
-      "meanUnmasked": 0.18010298387096782,
+      "meanUnmasked": 0.17994715053763455,
       "medianUnmasked": 0.156505,
       "maxUnmasked": 0.49257
     },
@@ -306,7 +306,7 @@
       "template": "info",
       "width": 1440,
       "pageWidths": 706,
-      "meanUnmasked": 0.13385732294617567,
+      "meanUnmasked": 0.13385627478753545,
       "medianUnmasked": 0.10688500000000001,
       "maxUnmasked": 0.47005
     },
@@ -22623,26 +22623,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.32513,
-          "mismatchRatio": 0.32513,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.32494,
+          "mismatchRatio": 0.31506,
+          "maskRatio": 0.0304,
+          "maskBoxes": 1,
           "heightSrc": 2956,
-          "heightEds": 7209,
-          "heightDiffRatio": 0.58996,
+          "heightEds": 7439,
+          "heightDiffRatio": 0.60263,
           "firstDivergentY": 400,
           "worstBands": [
             {
+              "y": 7000,
+              "unmaskedRatio": 0.97262
+            },
+            {
               "y": 6800,
-              "unmaskedRatio": 0.97957
+              "unmaskedRatio": 0.96287
             },
             {
               "y": 2600,
               "unmaskedRatio": 0.96165
-            },
-            {
-              "y": 6600,
-              "unmaskedRatio": 0.9546
             }
           ],
           "capturedWidth": 1425,
@@ -22673,26 +22673,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.32857,
-          "mismatchRatio": 0.32857,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.29457,
+          "mismatchRatio": 0.28354,
+          "maskRatio": 0.03747,
+          "maskBoxes": 1,
           "heightSrc": 3199,
-          "heightEds": 6217,
-          "heightDiffRatio": 0.48544,
+          "heightEds": 6447,
+          "heightDiffRatio": 0.5038,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 5800,
-              "unmaskedRatio": 0.96025
-            },
-            {
-              "y": 5600,
-              "unmaskedRatio": 0.92896
-            },
-            {
               "y": 2800,
-              "unmaskedRatio": 0.92102
+              "unmaskedRatio": 1
+            },
+            {
+              "y": 6000,
+              "unmaskedRatio": 0.94999
+            },
+            {
+              "y": 5800,
+              "unmaskedRatio": 0.93705
             }
           ],
           "capturedWidth": 753,
@@ -22723,26 +22723,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.26478,
-          "mismatchRatio": 0.26478,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.23559,
+          "mismatchRatio": 0.22743,
+          "maskRatio": 0.03463,
+          "maskBoxes": 1,
           "heightSrc": 3740,
-          "heightEds": 6934,
-          "heightDiffRatio": 0.46063,
+          "heightEds": 7188,
+          "heightDiffRatio": 0.47969,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6400,
-              "unmaskedRatio": 0.95868
-            },
-            {
-              "y": 6200,
-              "unmaskedRatio": 0.94671
+              "y": 3200,
+              "unmaskedRatio": 0.97305
             },
             {
               "y": 3000,
-              "unmaskedRatio": 0.90821
+              "unmaskedRatio": 0.96969
+            },
+            {
+              "y": 6400,
+              "unmaskedRatio": 0.96769
             }
           ],
           "capturedWidth": 375,
@@ -22775,12 +22775,13 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
         "2026-10-24 [page] Open item: admission-rules was ~300px taller than live because live's maui-table scrolls inside an ~840px box (scrollbar included; the arrival and companion tables show their first rows only, at 1440 and 768), while table-striped showed every row. table-striped now has max-height 840px with overflow auto (CSS only). Spot-check unmasked 1440/768/390 before -> after: de/en 15.0/19.7/13.1 -> 8.8/8.2/8.8, de/de 17.9/21.9/15.1 -> 10.2/10.3/13.7, at/de (1440) 20.0 -> 10.2, gb/en (1440) -> 9.9. The page is now ~225px shorter than live (7036 vs 7261): the row bands match, the spacing after each table and around the h2s is 15-20px smaller (left open). (3271acd)",
         "2026-10-24 [page] Item 1 (after tables, around headings): two live rules. (a) 40px from a table to what follows (live table component, measured 40px at 1440 and 768 on admission-rules; the replica had the 24px block gap): table-striped margin-bottom 40px when something follows (CSS). (b) live .limited-width { width: 66% } from 1025px also applies to headline components (h2.headline.heading-medium.limited-width): long headings wrap to two lines on live (Access to the Star Alliance partner lounges on departure, Entry to the Lufthansa Group contract lounges on departure, Access regulations for unaccompanied children...); the cleanup now writes {limited-width} on such headings, scripts.js/styles.css keep them to 66%. Re-imported, uploaded and previewed the 156 pages. Spot-check unmasked 1440/768/390 before -> after: de/en/admission-rules 8.8/8.2/8.8 -> 4.3/6.8/8.0 (page 7218 vs live 7261, was 7036), de/de 10.2/10.3/13.7 -> 5.7/9.0/13.4, at/de 10.2 -> 5.7, gb/en 9.9 -> 5.4. (031a170)",
-        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
+        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)",
+        "2026-10-25 [page] eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app. (ejournals)"
       ],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 4253 px taller (59.0%)",
-        "layout diverges at y≈200 px at 768; replica 3018 px taller (48.5%)",
-        "layout diverges at y≈200 px at 390; replica 3194 px taller (46.1%)"
+        "layout diverges at y≈400 px at 1440; replica 4483 px taller (60.3%)",
+        "layout diverges at y≈200 px at 768; replica 3248 px taller (50.4%)",
+        "layout diverges at y≈200 px at 390; replica 3448 px taller (48.0%)"
       ]
     },
     {
@@ -23687,26 +23688,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.32405,
-          "mismatchRatio": 0.32405,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.32387,
+          "mismatchRatio": 0.31423,
+          "maskRatio": 0.02975,
+          "maskBoxes": 1,
           "heightSrc": 3010,
-          "heightEds": 7371,
-          "heightDiffRatio": 0.59164,
+          "heightEds": 7601,
+          "heightDiffRatio": 0.604,
           "firstDivergentY": 400,
           "worstBands": [
             {
-              "y": 7000,
-              "unmaskedRatio": 0.98259
+              "y": 7200,
+              "unmaskedRatio": 0.98041
             },
             {
               "y": 2600,
               "unmaskedRatio": 0.96085
             },
             {
-              "y": 6800,
-              "unmaskedRatio": 0.95447
+              "y": 7000,
+              "unmaskedRatio": 0.95654
             }
           ],
           "capturedWidth": 1425,
@@ -23737,26 +23738,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.3366,
-          "mismatchRatio": 0.3366,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.30359,
+          "mismatchRatio": 0.29255,
+          "maskRatio": 0.03633,
+          "maskBoxes": 1,
           "heightSrc": 3291,
-          "heightEds": 6418,
-          "heightDiffRatio": 0.48722,
+          "heightEds": 6648,
+          "heightDiffRatio": 0.50496,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6000,
-              "unmaskedRatio": 0.97744
-            },
-            {
               "y": 2800,
-              "unmaskedRatio": 0.92924
+              "unmaskedRatio": 0.98673
             },
             {
-              "y": 5800,
-              "unmaskedRatio": 0.92042
+              "y": 6200,
+              "unmaskedRatio": 0.97023
+            },
+            {
+              "y": 6000,
+              "unmaskedRatio": 0.92878
             }
           ],
           "capturedWidth": 753,
@@ -23787,26 +23788,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.26394,
-          "mismatchRatio": 0.26394,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.23516,
+          "mismatchRatio": 0.22732,
+          "maskRatio": 0.03332,
+          "maskBoxes": 1,
           "heightSrc": 3787,
-          "heightEds": 7216,
-          "heightDiffRatio": 0.47519,
+          "heightEds": 7470,
+          "heightDiffRatio": 0.49304,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6600,
-              "unmaskedRatio": 0.96283
-            },
-            {
-              "y": 6400,
-              "unmaskedRatio": 0.95035
+              "y": 3200,
+              "unmaskedRatio": 0.99761
             },
             {
               "y": 6800,
-              "unmaskedRatio": 0.94473
+              "unmaskedRatio": 0.95711
+            },
+            {
+              "y": 7000,
+              "unmaskedRatio": 0.94836
             }
           ],
           "capturedWidth": 375,
@@ -23839,12 +23840,13 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
         "2026-10-24 [page] Open item: admission-rules was ~300px taller than live because live's maui-table scrolls inside an ~840px box (scrollbar included; the arrival and companion tables show their first rows only, at 1440 and 768), while table-striped showed every row. table-striped now has max-height 840px with overflow auto (CSS only). Spot-check unmasked 1440/768/390 before -> after: de/en 15.0/19.7/13.1 -> 8.8/8.2/8.8, de/de 17.9/21.9/15.1 -> 10.2/10.3/13.7, at/de (1440) 20.0 -> 10.2, gb/en (1440) -> 9.9. The page is now ~225px shorter than live (7036 vs 7261): the row bands match, the spacing after each table and around the h2s is 15-20px smaller (left open). (3271acd)",
         "2026-10-24 [page] Item 1 (after tables, around headings): two live rules. (a) 40px from a table to what follows (live table component, measured 40px at 1440 and 768 on admission-rules; the replica had the 24px block gap): table-striped margin-bottom 40px when something follows (CSS). (b) live .limited-width { width: 66% } from 1025px also applies to headline components (h2.headline.heading-medium.limited-width): long headings wrap to two lines on live (Access to the Star Alliance partner lounges on departure, Entry to the Lufthansa Group contract lounges on departure, Access regulations for unaccompanied children...); the cleanup now writes {limited-width} on such headings, scripts.js/styles.css keep them to 66%. Re-imported, uploaded and previewed the 156 pages. Spot-check unmasked 1440/768/390 before -> after: de/en/admission-rules 8.8/8.2/8.8 -> 4.3/6.8/8.0 (page 7218 vs live 7261, was 7036), de/de 10.2/10.3/13.7 -> 5.7/9.0/13.4, at/de 10.2 -> 5.7, gb/en 9.9 -> 5.4. (031a170)",
-        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
+        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)",
+        "2026-10-25 [page] eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app. (ejournals)"
       ],
       "remains": [
-        "layout diverges at y≈400 px at 1440; replica 4361 px taller (59.2%)",
-        "layout diverges at y≈200 px at 768; replica 3127 px taller (48.7%)",
-        "layout diverges at y≈200 px at 390; replica 3429 px taller (47.5%)"
+        "layout diverges at y≈400 px at 1440; replica 4591 px taller (60.4%)",
+        "layout diverges at y≈200 px at 768; replica 3357 px taller (50.5%)",
+        "layout diverges at y≈200 px at 390; replica 3683 px taller (49.3%)"
       ]
     },
     {
@@ -147372,26 +147374,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.32828,
-          "mismatchRatio": 0.32828,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.3281,
+          "mismatchRatio": 0.31834,
+          "maskRatio": 0.02975,
+          "maskBoxes": 1,
           "heightSrc": 3010,
-          "heightEds": 7371,
-          "heightDiffRatio": 0.59164,
+          "heightEds": 7601,
+          "heightDiffRatio": 0.604,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 7000,
-              "unmaskedRatio": 0.98259
+              "y": 7200,
+              "unmaskedRatio": 0.98041
             },
             {
               "y": 2600,
               "unmaskedRatio": 0.96883
             },
             {
-              "y": 6800,
-              "unmaskedRatio": 0.95447
+              "y": 7000,
+              "unmaskedRatio": 0.95681
             }
           ],
           "capturedWidth": 1425,
@@ -147424,10 +147426,11 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
         "2026-10-24 [page] Open item: admission-rules was ~300px taller than live because live's maui-table scrolls inside an ~840px box (scrollbar included; the arrival and companion tables show their first rows only, at 1440 and 768), while table-striped showed every row. table-striped now has max-height 840px with overflow auto (CSS only). Spot-check unmasked 1440/768/390 before -> after: de/en 15.0/19.7/13.1 -> 8.8/8.2/8.8, de/de 17.9/21.9/15.1 -> 10.2/10.3/13.7, at/de (1440) 20.0 -> 10.2, gb/en (1440) -> 9.9. The page is now ~225px shorter than live (7036 vs 7261): the row bands match, the spacing after each table and around the h2s is 15-20px smaller (left open). (3271acd)",
         "2026-10-24 [page] Item 1 (after tables, around headings): two live rules. (a) 40px from a table to what follows (live table component, measured 40px at 1440 and 768 on admission-rules; the replica had the 24px block gap): table-striped margin-bottom 40px when something follows (CSS). (b) live .limited-width { width: 66% } from 1025px also applies to headline components (h2.headline.heading-medium.limited-width): long headings wrap to two lines on live (Access to the Star Alliance partner lounges on departure, Entry to the Lufthansa Group contract lounges on departure, Access regulations for unaccompanied children...); the cleanup now writes {limited-width} on such headings, scripts.js/styles.css keep them to 66%. Re-imported, uploaded and previewed the 156 pages. Spot-check unmasked 1440/768/390 before -> after: de/en/admission-rules 8.8/8.2/8.8 -> 4.3/6.8/8.0 (page 7218 vs live 7261, was 7036), de/de 10.2/10.3/13.7 -> 5.7/9.0/13.4, at/de 10.2 -> 5.7, gb/en 9.9 -> 5.4. (031a170)",
-        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
+        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)",
+        "2026-10-25 [page] eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app. (ejournals)"
       ],
       "remains": [
-        "layout diverges at y≈200 px at 1440; replica 4361 px taller (59.2%)"
+        "layout diverges at y≈200 px at 1440; replica 4591 px taller (60.4%)"
       ]
     },
     {
@@ -169847,26 +169850,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.32921,
-          "mismatchRatio": 0.32921,
-          "maskRatio": 0,
-          "maskBoxes": 0,
+          "unmaskedRatio": 0.32902,
+          "mismatchRatio": 0.31902,
+          "maskRatio": 0.0304,
+          "maskBoxes": 1,
           "heightSrc": 2956,
-          "heightEds": 7209,
-          "heightDiffRatio": 0.58996,
+          "heightEds": 7439,
+          "heightDiffRatio": 0.60263,
           "firstDivergentY": 200,
           "worstBands": [
             {
-              "y": 6800,
-              "unmaskedRatio": 0.97957
+              "y": 7000,
+              "unmaskedRatio": 0.97262
             },
             {
               "y": 2600,
               "unmaskedRatio": 0.96781
             },
             {
-              "y": 2400,
-              "unmaskedRatio": 0.95937
+              "y": 6800,
+              "unmaskedRatio": 0.96185
             }
           ],
           "capturedWidth": 1425,
@@ -169899,10 +169902,11 @@
         "2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)",
         "2026-10-24 [page] Open item: admission-rules was ~300px taller than live because live's maui-table scrolls inside an ~840px box (scrollbar included; the arrival and companion tables show their first rows only, at 1440 and 768), while table-striped showed every row. table-striped now has max-height 840px with overflow auto (CSS only). Spot-check unmasked 1440/768/390 before -> after: de/en 15.0/19.7/13.1 -> 8.8/8.2/8.8, de/de 17.9/21.9/15.1 -> 10.2/10.3/13.7, at/de (1440) 20.0 -> 10.2, gb/en (1440) -> 9.9. The page is now ~225px shorter than live (7036 vs 7261): the row bands match, the spacing after each table and around the h2s is 15-20px smaller (left open). (3271acd)",
         "2026-10-24 [page] Item 1 (after tables, around headings): two live rules. (a) 40px from a table to what follows (live table component, measured 40px at 1440 and 768 on admission-rules; the replica had the 24px block gap): table-striped margin-bottom 40px when something follows (CSS). (b) live .limited-width { width: 66% } from 1025px also applies to headline components (h2.headline.heading-medium.limited-width): long headings wrap to two lines on live (Access to the Star Alliance partner lounges on departure, Entry to the Lufthansa Group contract lounges on departure, Access regulations for unaccompanied children...); the cleanup now writes {limited-width} on such headings, scripts.js/styles.css keep them to 66%. Re-imported, uploaded and previewed the 156 pages. Spot-check unmasked 1440/768/390 before -> after: de/en/admission-rules 8.8/8.2/8.8 -> 4.3/6.8/8.0 (page 7218 vs live 7261, was 7036), de/de 10.2/10.3/13.7 -> 5.7/9.0/13.4, at/de 10.2 -> 5.7, gb/en 9.9 -> 5.4. (031a170)",
-        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)"
+        "2026-10-25 [page] Item 1a: new option Table Striped (header) for live tables with a maui-table-head: white column titles in 20px light, 1px #ccc line, 40px before the first grey row, table 40px under its heading, bold row headers; set by the parser for every such table. The legal template now maps its tables (cookie-policy glossary and cookie lists, data-collection-usa were one paragraph). Other live head tables are inside accordions (freigepaeck-regeln, passengers-using-wheelchairs, sports-baggage/sportgepaeck x4: accordion-columns, not table-striped, left as is). Also on de/en and gb/en green-fare: a two-column view whose column holds a text-only one-column view is now columns-media (the intercontinental infographic beside its text, was full width) and a nested column view's title stays in the cell (Book more sustainably was dropped; 29 snapshots have nested titles, re-imported). Spot-check unmasked 1440/768/390 before -> after: de/en/green-fare 23.8/15.2/29.1 -> 6.3/10.1/14.4, at/de/green-fare (1440) 8.3, de/de/cookie-policy 6.5/10.6/16.0 -> 6.3/9.9/14.9, gb/en/green-fare (1440) 14.3. (50afcc4, 94552d5)",
+        "2026-10-25 [page] eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app. (ejournals)"
       ],
       "remains": [
-        "layout diverges at y≈200 px at 1440; replica 4253 px taller (59.0%)"
+        "layout diverges at y≈200 px at 1440; replica 4483 px taller (60.3%)"
       ]
     },
     {

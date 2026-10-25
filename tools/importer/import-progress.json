@@ -322,7 +322,7 @@
  "https://www.lufthansa.com/de/en/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:14:58.191Z"
+  "at": "2026-10-25T04:55:30.661Z"
  },
  "https://www.lufthansa.com/de/de/doctor-on-board": {
   "template": "info",
@@ -352,7 +352,7 @@
  "https://www.lufthansa.com/de/de/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:14:58.191Z"
+  "at": "2026-10-25T04:55:30.661Z"
  },
  "https://www.lufthansa.com/de/en/100-years/history/menu-on-board": {
   "template": "campaign",
@@ -3832,7 +3832,7 @@
  "https://www.lufthansa.com/at/de/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:14:58.191Z"
+  "at": "2026-10-25T04:55:30.661Z"
  },
  "https://www.lufthansa.com/at/de/upgrade-business-class-langstrecke": {
   "template": "info",
@@ -5292,7 +5292,7 @@
  "https://www.lufthansa.com/gb/en/unterhaltung-an-bord": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T11:14:58.191Z"
+  "at": "2026-10-25T04:55:30.661Z"
  },
  "https://www.lufthansa.com/gb/en/upgrade-business-class-long-haul": {
   "template": "info",

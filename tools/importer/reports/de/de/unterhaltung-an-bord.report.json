@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/unterhaltung-an-bord",
   "path": "de/de/unterhaltung-an-bord",
-  "timestamp": "2026-10-24T11:14:43.900Z",
+  "timestamp": "2026-10-25T04:55:11.570Z",
   "title": "",
   "template": "info",
   "blocks": [
     "table-striped",
-    "embed"
+    "embed",
+    "ejournals"
   ]
 }

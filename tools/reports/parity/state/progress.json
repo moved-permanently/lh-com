@@ -25432,11 +25432,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 9173,
-          "at": "2026-10-24T13:35:45.113Z",
+          "ms": 9321,
+          "at": "2026-10-25T04:59:18.584Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7209,
+            "scrollHeight": 7439,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -25473,7 +25473,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -25482,15 +25482,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32513,
-        "unmaskedRatio": 0.32513,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.31506,
+        "unmaskedRatio": 0.32494,
+        "maskRatio": 0.0304,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2956,
-        "heightB": 7209,
-        "heightDiffRatio": 0.58996,
+        "heightB": 7439,
+        "heightDiffRatio": 0.60263,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -25498,16 +25498,16 @@
         },
         "worstBands": [
           {
+            "y": 7000,
+            "unmaskedRatio": 0.97262
+          },
+          {
             "y": 6800,
-            "unmaskedRatio": 0.97957
+            "unmaskedRatio": 0.96287
           },
           {
             "y": 2600,
             "unmaskedRatio": 0.96165
-          },
-          {
-            "y": 6600,
-            "unmaskedRatio": 0.9546
           }
         ],
         "bandHeight": 200,
@@ -25528,30 +25528,31 @@
           0.96165,
           0.74788,
           0.21616,
-          0.00955,
-          0.00953,
+          0,
+          0.01176,
+          0.01156,
           0.00906,
           0.00226,
           0.00195,
-          0.01209,
-          0.01369,
-          0.25562,
-          0.5854,
-          0.69805,
-          0.64932,
-          0.12705,
-          0.34179,
-          0.50065,
-          0.61533,
-          0.14496,
-          0.34037,
-          0.9546,
-          0.97957,
-          0.63316,
-          0
+          0.01136,
+          0.01442,
+          0.15213,
+          0.58291,
+          0.69348,
+          0.65592,
+          0.22732,
+          0.26314,
+          0.50298,
+          0.58138,
+          0.25826,
+          0.191,
+          0.96287,
+          0.97262,
+          0.7785,
+          0.01706
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/1440-diff.png",
-        "at": "2026-10-25T01:49:37.070Z",
+        "at": "2026-10-25T04:59:22.004Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/1440-diff.png",
@@ -25568,11 +25569,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7972,
-          "at": "2026-10-24T13:35:56.271Z",
+          "ms": 8598,
+          "at": "2026-10-25T04:59:30.837Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 6217,
+            "scrollHeight": 6447,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -25609,7 +25610,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -25618,15 +25619,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32857,
-        "unmaskedRatio": 0.32857,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.28354,
+        "unmaskedRatio": 0.29457,
+        "maskRatio": 0.03747,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3199,
-        "heightB": 6217,
-        "heightDiffRatio": 0.48544,
+        "heightB": 6447,
+        "heightDiffRatio": 0.5038,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -25634,16 +25635,16 @@
         },
         "worstBands": [
           {
-            "y": 5800,
-            "unmaskedRatio": 0.96025
-          },
-          {
-            "y": 5600,
-            "unmaskedRatio": 0.92896
-          },
-          {
             "y": 2800,
-            "unmaskedRatio": 0.92102
+            "unmaskedRatio": 1
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.94999
+          },
+          {
+            "y": 5800,
+            "unmaskedRatio": 0.93705
           }
         ],
         "bandHeight": 200,
@@ -25661,28 +25662,29 @@
           0.05507,
           0.27937,
           0.81675,
-          0.91792,
-          0.92102,
-          0.50961,
-          0.00434,
-          0.00463,
-          0.01387,
-          0.02254,
-          0.01907,
-          0.43902,
-          0.72337,
-          0.25816,
-          0.27803,
-          0.60359,
-          0.12602,
-          0.39123,
-          0.92896,
-          0.96025,
-          0.67606,
-          0
+          0.91203,
+          1,
+          0.48162,
+          0.02397,
+          0.00354,
+          0.00448,
+          0.01231,
+          0.01959,
+          0.02404,
+          0.35077,
+          0.71795,
+          0.34793,
+          0.19871,
+          0.57362,
+          0.2406,
+          0.24521,
+          0.93705,
+          0.94999,
+          0.816,
+          0.03512
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/768-diff.png",
-        "at": "2026-10-25T01:49:38.861Z",
+        "at": "2026-10-25T04:59:32.778Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/768-diff.png",
@@ -25699,11 +25701,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7837,
-          "at": "2026-10-24T13:36:05.892Z",
+          "ms": 8003,
+          "at": "2026-10-25T04:59:41.000Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 6934,
+            "scrollHeight": 7188,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -25740,7 +25742,7 @@
               "fontsAfterScroll": "loaded",
               "svgAnimations": "none"
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -25749,15 +25751,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.26478,
-        "unmaskedRatio": 0.26478,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.22743,
+        "unmaskedRatio": 0.23559,
+        "maskRatio": 0.03463,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3740,
-        "heightB": 6934,
-        "heightDiffRatio": 0.46063,
+        "heightB": 7188,
+        "heightDiffRatio": 0.47969,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -25765,16 +25767,16 @@
         },
         "worstBands": [
           {
-            "y": 6400,
-            "unmaskedRatio": 0.95868
-          },
-          {
-            "y": 6200,
-            "unmaskedRatio": 0.94671
+            "y": 3200,
+            "unmaskedRatio": 0.97305
           },
           {
             "y": 3000,
-            "unmaskedRatio": 0.90821
+            "unmaskedRatio": 0.96969
+          },
+          {
+            "y": 6400,
+            "unmaskedRatio": 0.96769
           }
         ],
         "bandHeight": 200,
@@ -25794,29 +25796,30 @@
           0.10403,
           0.08768,
           0.73588,
-          0.90821,
-          0.8816,
-          0.73668,
-          0.01921,
-          0.00859,
-          0.00741,
-          0.03297,
-          0.03253,
-          0.02953,
-          0.23537,
-          0.42137,
-          0.04321,
-          0.28153,
-          0.19001,
-          0.03565,
-          0.33411,
-          0.94671,
-          0.95868,
-          0.79611,
-          0.02474
+          0.96969,
+          0.97305,
+          0.74935,
+          0.04081,
+          0.01515,
+          0.00685,
+          0.00979,
+          0.02455,
+          0.02861,
+          0.03097,
+          0.08135,
+          0.5766,
+          0.04201,
+          0.14743,
+          0.323,
+          0.03628,
+          0.07551,
+          0.96769,
+          0.94211,
+          0.93236,
+          0.15522
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/390-diff.png",
-        "at": "2026-10-25T01:49:40.110Z",
+        "at": "2026-10-25T04:59:42.288Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/unterhaltung-an-bord/390-diff.png",
@@ -27598,11 +27601,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14117,
-          "at": "2026-10-24T13:40:01.017Z",
+          "ms": 14161,
+          "at": "2026-10-25T04:59:56.658Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7371,
+            "scrollHeight": 7601,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -27637,9 +27640,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5002
+              "svgAnimations": 4884
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -27648,15 +27651,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32405,
-        "unmaskedRatio": 0.32405,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.31423,
+        "unmaskedRatio": 0.32387,
+        "maskRatio": 0.02975,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3010,
-        "heightB": 7371,
-        "heightDiffRatio": 0.59164,
+        "heightB": 7601,
+        "heightDiffRatio": 0.604,
         "firstDivergentBand": {
           "index": 2,
           "y": 400,
@@ -27664,16 +27667,16 @@
         },
         "worstBands": [
           {
-            "y": 7000,
-            "unmaskedRatio": 0.98259
+            "y": 7200,
+            "unmaskedRatio": 0.98041
           },
           {
             "y": 2600,
             "unmaskedRatio": 0.96085
           },
           {
-            "y": 6800,
-            "unmaskedRatio": 0.95447
+            "y": 7000,
+            "unmaskedRatio": 0.95654
           }
         ],
         "bandHeight": 200,
@@ -27694,30 +27697,32 @@
           0.96085,
           0.86507,
           0.54758,
-          0.00099,
-          0.01796,
-          0.01451,
-          0.00232,
+          0.00087,
+          0,
+          0.01639,
+          0.01608,
+          0.00231,
           0.0024,
           0.00824,
-          0.02075,
-          0.00586,
-          0.45046,
-          0.58964,
-          0.71175,
-          0.54641,
-          0.01807,
-          0.43701,
-          0.50849,
-          0.64401,
-          0.02155,
-          0.52071,
-          0.95447,
-          0.98259,
-          0.52262
+          0.01622,
+          0.01031,
+          0.37124,
+          0.57613,
+          0.70726,
+          0.64376,
+          0.01765,
+          0.3625,
+          0.50131,
+          0.6248,
+          0.11812,
+          0.37995,
+          0.95654,
+          0.98041,
+          0.59246,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/1440-diff.png",
-        "at": "2026-10-25T01:50:00.515Z",
+        "at": "2026-10-25T05:00:00.084Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/1440-diff.png",
@@ -27734,11 +27739,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13499,
-          "at": "2026-10-24T13:40:17.700Z",
+          "ms": 13532,
+          "at": "2026-10-25T05:00:13.845Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 6418,
+            "scrollHeight": 6648,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -27773,9 +27778,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5221
+              "svgAnimations": 5146
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -27784,15 +27789,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.3366,
-        "unmaskedRatio": 0.3366,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.29255,
+        "unmaskedRatio": 0.30359,
+        "maskRatio": 0.03633,
+        "maskBoxes": 1,
         "widthA": 753,
         "widthB": 753,
         "heightA": 3291,
-        "heightB": 6418,
-        "heightDiffRatio": 0.48722,
+        "heightB": 6648,
+        "heightDiffRatio": 0.50496,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -27800,16 +27805,16 @@
         },
         "worstBands": [
           {
-            "y": 6000,
-            "unmaskedRatio": 0.97744
-          },
-          {
             "y": 2800,
-            "unmaskedRatio": 0.92924
+            "unmaskedRatio": 0.98673
           },
           {
-            "y": 5800,
-            "unmaskedRatio": 0.92042
+            "y": 6200,
+            "unmaskedRatio": 0.97023
+          },
+          {
+            "y": 6000,
+            "unmaskedRatio": 0.92878
           }
         ],
         "bandHeight": 200,
@@ -27828,28 +27833,29 @@
           0.14798,
           0.75894,
           0.90576,
-          0.92924,
-          0.89624,
-          0.01476,
+          0.98673,
+          0.88615,
+          0.02941,
+          0.01774,
           0.0043,
           0.00359,
           0.02671,
-          0.03072,
-          0.28836,
-          0.70214,
-          0.42734,
-          0.02558,
-          0.59669,
-          0.39064,
-          0.0285,
-          0.69943,
-          0.92042,
-          0.97744,
-          0.67962,
-          0
+          0.02987,
+          0.19797,
+          0.679,
+          0.53179,
+          0.0355,
+          0.50908,
+          0.47133,
+          0.03298,
+          0.55187,
+          0.92878,
+          0.97023,
+          0.82087,
+          0.03173
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/768-diff.png",
-        "at": "2026-10-25T01:50:02.290Z",
+        "at": "2026-10-25T05:00:15.810Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/768-diff.png",
@@ -27866,11 +27872,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13094,
-          "at": "2026-10-24T13:40:32.595Z",
+          "ms": 13342,
+          "at": "2026-10-25T05:00:29.395Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7216,
+            "scrollHeight": 7470,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -27905,9 +27911,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 4963
+              "svgAnimations": 4851
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -27916,15 +27922,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.26394,
-        "unmaskedRatio": 0.26394,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.22732,
+        "unmaskedRatio": 0.23516,
+        "maskRatio": 0.03332,
+        "maskBoxes": 1,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3787,
-        "heightB": 7216,
-        "heightDiffRatio": 0.47519,
+        "heightB": 7470,
+        "heightDiffRatio": 0.49304,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -27932,16 +27938,16 @@
         },
         "worstBands": [
           {
-            "y": 6600,
-            "unmaskedRatio": 0.96283
-          },
-          {
-            "y": 6400,
-            "unmaskedRatio": 0.95035
+            "y": 3200,
+            "unmaskedRatio": 0.99761
           },
           {
             "y": 6800,
-            "unmaskedRatio": 0.94473
+            "unmaskedRatio": 0.95711
+          },
+          {
+            "y": 7000,
+            "unmaskedRatio": 0.94836
           }
         ],
         "bandHeight": 200,
@@ -27961,31 +27967,32 @@
           0.10083,
           0.0814,
           0.50201,
-          0.92764,
-          0.87789,
-          0.88637,
-          0.13388,
-          0.0088,
-          0.00911,
-          0.02125,
-          0.02559,
-          0.04753,
-          0.0312,
-          0.46591,
-          0.19348,
-          0.04064,
-          0.32141,
-          0.15199,
-          0.03509,
-          0.14961,
-          0.95035,
-          0.96283,
-          0.94473,
-          0.26587,
-          0
+          0.93897,
+          0.99761,
+          0.88938,
+          0.13987,
+          0.03903,
+          0.00752,
+          0.00863,
+          0.00721,
+          0.03999,
+          0.03661,
+          0.03417,
+          0.27896,
+          0.37771,
+          0.04161,
+          0.18365,
+          0.29181,
+          0.04509,
+          0.02589,
+          0.82559,
+          0.95711,
+          0.94836,
+          0.513,
+          0.01349
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/390-diff.png",
-        "at": "2026-10-25T01:50:03.528Z",
+        "at": "2026-10-25T05:00:30.746Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/unterhaltung-an-bord/390-diff.png",
@@ -248315,11 +248322,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14215,
-          "at": "2026-10-24T21:06:49.771Z",
+          "ms": 14354,
+          "at": "2026-10-25T05:00:45.312Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7371,
+            "scrollHeight": 7601,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -248354,9 +248361,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 4966
+              "svgAnimations": 4886
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -248365,15 +248372,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32828,
-        "unmaskedRatio": 0.32828,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.31834,
+        "unmaskedRatio": 0.3281,
+        "maskRatio": 0.02975,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 3010,
-        "heightB": 7371,
-        "heightDiffRatio": 0.59164,
+        "heightB": 7601,
+        "heightDiffRatio": 0.604,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -248381,16 +248388,16 @@
         },
         "worstBands": [
           {
-            "y": 7000,
-            "unmaskedRatio": 0.98259
+            "y": 7200,
+            "unmaskedRatio": 0.98041
           },
           {
             "y": 2600,
             "unmaskedRatio": 0.96883
           },
           {
-            "y": 6800,
-            "unmaskedRatio": 0.95447
+            "y": 7000,
+            "unmaskedRatio": 0.95681
           }
         ],
         "bandHeight": 200,
@@ -248411,30 +248418,32 @@
           0.96883,
           0.86714,
           0.54758,
-          0.00099,
-          0.01796,
-          0.01451,
-          0.00232,
+          0.00087,
+          0,
+          0.01639,
+          0.01608,
+          0.00231,
           0.0024,
           0.00824,
-          0.02075,
-          0.00586,
-          0.45046,
-          0.58964,
-          0.71175,
-          0.54641,
-          0.01807,
-          0.43701,
-          0.50849,
-          0.64401,
-          0.02155,
-          0.52105,
-          0.95447,
-          0.98259,
-          0.52262
+          0.01622,
+          0.01031,
+          0.37124,
+          0.57613,
+          0.70726,
+          0.64376,
+          0.01765,
+          0.3625,
+          0.50131,
+          0.6248,
+          0.11812,
+          0.38002,
+          0.95681,
+          0.98041,
+          0.59246,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/unterhaltung-an-bord/1440-diff.png",
-        "at": "2026-10-24T21:06:53.102Z",
+        "at": "2026-10-25T05:00:48.915Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/unterhaltung-an-bord/1440-diff.png",
@@ -281139,11 +281148,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 14112,
-          "at": "2026-10-24T22:26:08.215Z",
+          "ms": 14153,
+          "at": "2026-10-25T05:01:03.309Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 7209,
+            "scrollHeight": 7439,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -281178,9 +281187,9 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 4945
+              "svgAnimations": 4935
             },
-            "liveBoxes": 0
+            "liveBoxes": 1
           }
         },
         "src": {
@@ -281189,15 +281198,15 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.32921,
-        "unmaskedRatio": 0.32921,
-        "maskRatio": 0,
-        "maskBoxes": 0,
+        "mismatchRatio": 0.31902,
+        "unmaskedRatio": 0.32902,
+        "maskRatio": 0.0304,
+        "maskBoxes": 1,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2956,
-        "heightB": 7209,
-        "heightDiffRatio": 0.58996,
+        "heightB": 7439,
+        "heightDiffRatio": 0.60263,
         "firstDivergentBand": {
           "index": 1,
           "y": 200,
@@ -281205,16 +281214,16 @@
         },
         "worstBands": [
           {
-            "y": 6800,
-            "unmaskedRatio": 0.97957
+            "y": 7000,
+            "unmaskedRatio": 0.97262
           },
           {
             "y": 2600,
             "unmaskedRatio": 0.96781
           },
           {
-            "y": 2400,
-            "unmaskedRatio": 0.95937
+            "y": 6800,
+            "unmaskedRatio": 0.96185
           }
         ],
         "bandHeight": 200,
@@ -281235,30 +281244,31 @@
           0.96781,
           0.75407,
           0.21616,
-          0.00955,
-          0.00953,
+          0,
+          0.01176,
+          0.01156,
           0.00906,
           0.00226,
           0.00195,
-          0.01209,
-          0.01369,
-          0.25562,
-          0.5854,
-          0.69805,
-          0.64932,
-          0.12705,
-          0.34179,
-          0.50065,
-          0.61533,
-          0.14496,
-          0.34037,
-          0.95358,
-          0.97957,
-          0.63282,
-          0
+          0.01136,
+          0.01442,
+          0.15213,
+          0.58291,
+          0.69348,
+          0.65592,
+          0.22732,
+          0.26314,
+          0.50298,
+          0.58138,
+          0.25826,
+          0.191,
+          0.96185,
+          0.97262,
+          0.77858,
+          0.0149
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/unterhaltung-an-bord/1440-diff.png",
-        "at": "2026-10-24T22:26:11.529Z",
+        "at": "2026-10-25T05:01:06.875Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/unterhaltung-an-bord/1440-diff.png",
@@ -339587,5 +339597,5 @@
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-25T04:24:21.542Z"
+  "updatedAt": "2026-10-25T05:01:06.879Z"
 }

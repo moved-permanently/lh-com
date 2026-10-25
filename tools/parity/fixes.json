@@ -538,5 +538,12 @@
   "change": "Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2.",
   "commit": "bba462c",
   "date": "2026-10-25"
+ },
+ {
+  "page": "/{de/de,de/en,at/de,gb/en}/unterhaltung-an-bord",
+  "block": "ejournals",
+  "change": "eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app.",
+  "commit": "ejournals",
+  "date": "2026-10-25"
  }
 ]

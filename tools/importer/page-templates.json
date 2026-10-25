@@ -1180,6 +1180,12 @@
           "instances": [
             ".loungefinder:has(> .dcep-lounge-finder)"
           ]
+        },
+        {
+          "name": "ejournals",
+          "instances": [
+            ".ejournals:has(> .dcep-ejournals)"
+          ]
         }
       ],
       "sections": [
