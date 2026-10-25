@@ -4,19 +4,19 @@
   "canonicalModel": "standalone",
   "sourceUrl": "https://www.lufthansa.com/de/en/feedback",
   "visualCharacteristics": {
-    "purpose": "render-only contact and feedback form built from an authored field table; nothing is ever sent",
+    "purpose": "contact and feedback form built from an authored field table; Form (feedback) is render-only, Form (core) sends the entries to the lh-forms worker",
     "traits": [
       "one full-bleed grey band per step",
       "step headline and description on the left (4/12), white card with the fields on the right (7/12) at desktop",
       "two-column field grid inside the card at desktop; textareas, groups, notes, file and submit span both columns",
       "radio cards render as a grid of selectable cards",
       "required marker after the label, inline validation messages under the field",
-      "status message after a valid submit stating that nothing was sent",
+      "Form: status message after a valid submit stating that nothing was sent; Form (core): the submit button shows a busy spinner while posting, then the success or error page",
       "variant core (AEM core forms): one 335px field column, optional marks instead of asterisks, sub-section headings, checkbox-driven sub-sections, repeatable sections, file drop zone, submit right-aligned below the last band"
     ]
   },
   "contentPattern": {
-    "structure": "Header row, then one row per field, heading or text: Label | Type | Name | Required | Options | Help text | Placeholder | Validation message | Constraint message | Rules (columns matched by English or German header words, any order, any may be left out). Types: step (grey band: Label = headline, Help text = description), fieldset (sub-section: Label = heading, Name = key; Rules hidden, repeat=N with add/remove/remaining texts), end (closes the sub-section), text, email, tel, number, date (Rules mask), textarea (Rules rows), select (Options one per line value=Label, =Label empty value, {selected}), region (Rules country= the country select; options from catalogs/countries), radio, radio-cards, checkbox (Options = group; Rules toggles= sub-section keys), stepper (Rules min/max/value), autocomplete (airport), file (Form: input; core: drop zone with Rules accept, max-files, max-size, not-allowed), hidden, note (rich text), submit, label (UI text override), feedback-modules (Form only). Required: yes = required; any other text = optional with that text as the optional mark; empty = optional. Rules: one per line key=value or flag (pattern, maxlength, minlength, inputmode, uppercase, mask, rows, min, max, value, step, toggles, hidden, country, accept, max-files, max-size, not-allowed, repeat, add, remove, remaining). Render-only: no action, submit always prevented, nothing sent or uploaded; a valid submit shows the sent message. See blocks/form/README.md (incl. the Import section for form.cmp-form)."
+    "structure": "Header row, then one row per field, heading or text: Label | Type | Name | Required | Options | Help text | Placeholder | Validation message | Constraint message | Rules (columns matched by English or German header words, any order, any may be left out). Types: step (grey band: Label = headline, Help text = description), fieldset (sub-section: Label = heading, Name = key; Rules hidden, repeat=N with add/remove/remaining texts), end (closes the sub-section), text, email, tel, number, date (Rules mask), textarea (Rules rows), select (Options one per line value=Label, =Label empty value, {selected}), region (Rules country= the country select; options from catalogs/countries), radio, radio-cards, checkbox (Options = group; Rules toggles= sub-section keys), stepper (Rules min/max/value), autocomplete (airport), file (Form: input; core: drop zone with Rules accept, max-files, max-size, not-allowed), hidden, note (rich text), submit, label (UI text override), feedback-modules (Form only). Required: yes = required; any other text = optional with that text as the optional mark; empty = optional. Rules: one per line key=value or flag (pattern, maxlength, minlength, inputmode, uppercase, mask, rows, min, max, value, step, toggles, hidden, country, accept, max-files, max-size, not-allowed, repeat, add, remove, remaining). config (Form (core): Name form = worker form id, success / error = page links). Form: render-only, nothing sent or uploaded; a valid submit shows the sent message. Form (core): a valid submit posts form, locale, page, fields JSON ({section, label, name, value}, hidden fields left out), honeypot lh_hp and the drop-zone files to the lh-forms worker (scripts/lh-forms.js FORMS_ENDPOINT), then goes to the success page (error page on any failure). See blocks/form/README.md (incl. the Import section for form.cmp-form)."
   },
   "options": [
     {
@@ -26,5 +26,5 @@
   ],
   "memberVariantIds": [],
   "usage": "Feedback and contact form pages (form template), e.g. the topic selection step on /de/en/feedback; multi-step refund or registration forms on other pages of the template. Variant core: the AEM core forms (form.cmp-form) of anmeldung-tiere-frachtraum, refund-form, feedback-past-flight, register-ammunition, register-animal-cabin, special-needs, add-sports-baggage, group-travel, passenger-receipt-90.",
-  "reuseGuidance": "Reuse for any form that should look real but must not send data. Add fields as rows; start a new grey band with a step row. Headings and introductory text above the form stay default content. For forms that must actually submit, a different block is needed."
+  "reuseGuidance": "Form: forms that should look real but must not send data. Form (core): forms that send to the lh-forms worker (the worker must know the form id). Add fields as rows; start a new grey band with a step row. Headings and introductory text above the form stay default content."
 }

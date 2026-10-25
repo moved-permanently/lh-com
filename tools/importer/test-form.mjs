@@ -8,7 +8,9 @@
  * B  decorate() of a "Form (core)" table modelled on the lufthansa.com core forms, in a small
  *    DOM shim (below): every field type renders, checkboxes show / hide sub-sections, a
  *    repeatable section adds and removes copies, the region select follows the country
- *    (recorded catalogs/countries), submit shows live's messages and never sends anything.
+ *    (recorded catalogs/countries), submit shows live's messages; a valid submit posts the
+ *    entries to the lh-forms worker (mocked here) and goes to the success / error page.
+ * C  the plain Form (feedback) stays render-only.
  *
  * Usage: node tools/importer/test-form.mjs
  * Exit code 1 on any failed check.
@@ -532,9 +534,18 @@ globalThis.CSS = { escape: (s) => String(s) };
 
 /* network: the live site refuses (CORS), the recordings answer; every request is logged */
 const requests = [];
+const WORKER = 'https://lh-forms.aem-poc-lab.workers.dev';
+let workerReply = { status: 200, body: { ok: true } };
 globalThis.fetch = async (url, init = {}) => {
   const href = String(url);
   requests.push({ url: href, method: (init.method || 'GET').toUpperCase(), body: init.body });
+  if (href.startsWith(`${WORKER}/`)) {
+    if (workerReply === 'network') throw new TypeError('Failed to fetch (offline test)');
+    const { status, body } = workerReply;
+    return {
+      ok: status >= 200 && status < 300, status, json: async () => body,
+    };
+  }
   if (href.startsWith('/data/recorded/')) {
     const file = path.join(ROOT, href);
     if (!fs.existsSync(file)) {
@@ -552,6 +563,7 @@ globalThis.fetch = async (url, init = {}) => {
 
 const row = (...cells) => `<div>${cells.map((c) => `<div>${c}</div>`).join('')}</div>`;
 const lines = (...l) => l.map((x) => `<p>${x}</p>`).join('');
+const SUCCESS_PATH = ['', 'de', 'en', 'support', 'contact', 'contact-form-confirmation'].join('/');
 const TABLE = [
   row('Label', 'Type', 'Name', 'Required', 'Options', 'Help text', 'Placeholder', 'Validation message', 'Constraint message', 'Rules'),
   row('General information', 'step', '', '', '', 'Please give us your contact details.', '', '', '', ''),
@@ -588,6 +600,9 @@ const TABLE = [
   row('Please confirm you accept the terms and conditions of use.', 'checkbox', 'termsOfUse', 'yes', lines('yes=The details you provide will be used solely to process your request.'), '', '', 'Please confirm you accept the terms and conditions of use.', '', ''),
   row('', 'hidden', 'source', '', 'core-form-test', '', '', '', '', ''),
   row('Book now', 'submit', '', '', '', '', '', '', '', ''),
+  row('feedback-past-flight', 'config', 'form', '', '', '', '', '', '', ''),
+  row(`<a href="${SUCCESS_PATH}">${SUCCESS_PATH}</a>`, 'config', 'success', '', '', '', '', '', '', ''),
+  row('<a href="/error.html">/error.html</a>', 'config', 'error', '', '', '', '', '', '', ''),
 ].join('');
 
 const { default: decorate } = await import('../../blocks/form/form.js');
@@ -722,9 +737,9 @@ check('region hidden for a country without regions', region.hidden);
 const drop = field('Attachments');
 const fileInput = drop.querySelector('input[type="file"]');
 fileInput._files = [
-  { name: 'receipt.pdf', type: 'application/pdf', size: 1000 },
-  { name: 'bad#name.png', type: 'image/png', size: 1000 },
-  { name: 'notes.txt', type: 'text/plain', size: 10 },
+  new File(['x'.repeat(1000)], 'receipt.pdf', { type: 'application/pdf' }),
+  new File(['x'.repeat(1000)], 'bad#name.png', { type: 'image/png' }),
+  new File(['x'.repeat(10)], 'notes.txt', { type: 'text/plain' }),
 ];
 fileInput.dispatchEvent(new Event('change', { bubbles: true }));
 eq('file list', drop.querySelectorAll('.form-filedrop-name').map((n) => n.textContent), ['receipt.pdf', 'bad#name.png', 'notes.txt']);
@@ -734,7 +749,7 @@ eq(
   ['The file name contains an invalid character', 'Please upload a file with an accepted file type'],
 );
 
-// complete the form: a valid submit only shows the note, nothing is sent
+// complete the form: a valid submit posts to the worker and goes to the success page
 type('lastName', 'Mustermann');
 type('firstName_1', 'Max');
 type('firstName_2', 'Erika');
@@ -750,18 +765,86 @@ type('departure', 'Frankfurt (FRA)');
 field('animalBaggage').querySelector('input').click();
 field('termsOfUse').querySelector('input').click();
 await new Promise((r) => { setTimeout(r, 20); });
+const trap = form.querySelector('input[name="lh_hp"]');
+check('honeypot', trap && trap.type === 'text' && trap.tabIndex === -1 && trap.autocomplete === 'off'
+  && trap.closest('.form-hp').getAttribute('aria-hidden') === 'true' && !form.querySelector('label[for="lh_hp"]'));
+const submitButton = form.querySelector('.form-actions button');
+const before = requests.length;
 submit();
 const invalid = block.querySelectorAll('.form-field-invalid').map((w) => `${w.dataset.name}: ${w.querySelector('.form-error').textContent}`);
 eq('no errors left', invalid, []);
-eq('sent note after a valid submit', status(), 'This is a preview form. Nothing has been sent.');
-const posts = requests.filter((r) => r.method !== 'GET' || /lufthansa\.com\/content\//.test(r.url));
-eq('nothing posted', posts, []);
+check('busy while posting', submitButton.disabled && submitButton.getAttribute('aria-busy') === 'true'
+  && submitButton.classList.contains('form-button-busy'));
+eq('sending status', status(), 'Sending…');
+await new Promise((r) => { setTimeout(r, 20); });
+const posts = requests.slice(before).filter((r) => r.method === 'POST');
+eq('one POST to the worker', posts.map((r) => r.url), [`${WORKER}/submit`]);
+const body = posts[0] && posts[0].body;
+eq('parts', body ? [...new Set([...body.keys()])] : [], ['form', 'locale', 'page', 'fields', 'lh_hp', 'file_1']);
+eq('form id (config row)', body.get('form'), 'feedback-past-flight');
+eq('locale', body.get('locale'), 'de-en');
+eq('page', body.get('page'), 'https://main--lh-com--moved-permanently.aem.page/de/en/feedback-past-flight');
+eq('honeypot empty', body.get('lh_hp'), '');
+eq('file part', [body.get('file_1').name, body.get('file_1').size], ['receipt.pdf', 1000]);
+const sent = JSON.parse(body.get('fields'));
+const byName = Object.fromEntries(sent.map((f) => [f.name, f]));
+check('every field has section, label, name, value strings', sent.every((f) => ['section', 'label', 'name', 'value'].every((k) => typeof f[k] === 'string')));
+eq('field order', sent.map((f) => f.name), ['lastName', 'email', 'bookingReference', 'pnr', 'salutation', 'alternativedates', 'adults',
+  'flightDate', 'departure', 'animalBaggage', 'passengerFishing', 'onlyoutbound', 'firstName_1', 'country_1', 'firstName_2', 'country_2',
+  'Attachments', 'termsOfUse']);
+eq('text field', byName.lastName, {
+  section: 'Your details', label: 'Name', name: 'lastName', value: 'Mustermann',
+});
+eq('band headline as section', byName.salutation.section, 'General information');
+eq('select: option text', byName.salutation.value, 'Mr');
+eq('preselected select', byName.alternativedates.value, '+/- 0 days');
+eq('stepper', byName.adults.value, '1');
+eq('date as typed', byName.flightDate.value, '15/10/2026');
+eq('radio: option text', byName.animalBaggage.value, 'Outbound and return flights');
+eq('unchecked single checkbox', [byName.passengerFishing.label, byName.passengerFishing.value], ['Fishing equipment', 'No']);
+eq('checked single checkbox', byName.termsOfUse.value, 'Yes');
+eq('repeat copy title as section', [byName.firstName_1.section, byName.firstName_2.section], ['Person 1', 'Person 2']);
+eq('country text', byName.country_2.value, 'Germany');
+eq('files by name', [byName.Attachments.section, byName.Attachments.value], ['Attachments', 'receipt.pdf']);
+check('hidden sections, copies, regions and hidden rows left out', !['fishingLength', 'inbounddate', 'firstName_3', 'state_1', 'source']
+  .some((n) => n in byName));
+eq('success page', window.location.href, `https://main--lh-com--moved-permanently.aem.page${SUCCESS_PATH}`);
 check(
-  'only catalog / recording reads',
-  requests.every((r) => r.method === 'GET'
-  && (/^\/data\/recorded\//.test(r.url) || /\/service\/api\/(catalogs\/countries|suggestions\/airports)/.test(r.url))),
+  'only catalog / recording reads and the worker POST',
+  requests.every((r) => (r.method === 'GET'
+    && (/^\/data\/recorded\//.test(r.url) || /\/service\/api\/(catalogs\/countries|suggestions\/airports)/.test(r.url)))
+    || (r.method === 'POST' && r.url === `${WORKER}/submit`)),
   requests.map((r) => r.url).join(' '),
 );
+
+// failures go to the error page; without config rows: id from the path, success message
+const PAGE = 'https://main--lh-com--moved-permanently.aem.page/de/en/feedback-past-flight';
+const smallCore = (extra) => {
+  const b = parseHtml(`<div class="form core block">${row('Label', 'Type', 'Name', 'Required')}${row('Name', 'text', 'lastName', 'yes')}${row('Send', 'submit', '', '')}${extra}</div>`).firstElementChild;
+  new ShimElement('div').append(b);
+  decorate(b);
+  b.querySelector('input[name="lastName"]').value = 'Muster';
+  return b;
+};
+const sendSmall = async (b) => {
+  window.location.href = PAGE;
+  b.querySelector('form').dispatchEvent(new Event('submit', { cancelable: true }));
+  await new Promise((r) => { setTimeout(r, 20); });
+  return window.location.href;
+};
+const errorPage = 'https://main--lh-com--moved-permanently.aem.page/error.html';
+workerReply = { status: 400, body: { ok: false, error: 'invalid-fields' } };
+eq('non-2xx -> error page', await sendSmall(smallCore(row('<a href="/error.html">/error.html</a>', 'config', 'error', ''))), errorPage);
+workerReply = { status: 200, body: { ok: false } };
+eq('ok false -> error page', await sendSmall(smallCore('')), errorPage);
+workerReply = 'network';
+eq('network error -> error page (default)', await sendSmall(smallCore('')), errorPage);
+workerReply = { status: 200, body: { ok: true } };
+const plain = smallCore('');
+const stay = await sendSmall(plain);
+eq('no success row: stays, shows the success message', [stay, plain.querySelector('.form-status').textContent], [PAGE, 'Thank you. Your request has been sent.']);
+eq('form id from the path', requests[requests.length - 1].body.get('form'), 'feedback-past-flight');
+check('busy state cleared', !plain.querySelector('.form-actions button').disabled);
 
 // legacy form (feedback): unchanged defaults
 const legacy = parseHtml(`<div class="form block">${row('Label', 'Type', 'Name', 'Required', 'Options', 'Help text', 'Placeholder')}${row('Please select your topic', 'select', 'topic', 'yes', lines('109=Login', '114=Functionality'), '', 'Please select your topic')}${row('Message', 'textarea', 'message', 'yes', '', '', '')}${row('Consent', 'checkbox', 'consent', 'yes', '', '', '')}${row('', 'submit', '', '', '', '', '')}</div>`).firstElementChild;
@@ -770,12 +853,21 @@ decorate(legacy);
 check('legacy required asterisk', legacy.querySelectorAll('.form-required').length === 3);
 eq('legacy disabled placeholder option', legacy.querySelector('select').options.map((o) => [o.value, o.disabled]), [['', true], ['109', false], ['114', false]]);
 eq('legacy submit inside the card', legacy.querySelectorAll('.form-step-card .form-actions').map((a) => a.textContent), ['Submit']);
+const legacyBefore = requests.length;
 legacy.querySelector('form').dispatchEvent(new Event('submit', { cancelable: true }));
 eq(
   'legacy messages (browser fallback)',
   legacy.querySelectorAll('.form-error').filter((e) => !e.hidden).map((e) => e.textContent),
   ['Please fill in this field.', 'Please fill in this field.', 'Please fill in this field.'],
 );
+legacy.querySelector('textarea').value = 'Hello';
+legacy.querySelector('select').value = '109';
+legacy.querySelector('input[type="checkbox"]').click();
+legacy.querySelector('form').dispatchEvent(new Event('submit', { cancelable: true }));
+await new Promise((r) => { setTimeout(r, 20); });
+eq('legacy: render-only sent note', legacy.querySelector('.form-status').textContent, 'This is a preview form. Nothing has been sent.');
+eq('legacy: nothing posted', requests.slice(legacyBefore).length, 0);
+check('legacy: no honeypot', !legacy.querySelector('input[name="lh_hp"]'));
 
 console.log(`${passes} passed, ${failures} failed`);
 process.exit(failures ? 1 : 0);

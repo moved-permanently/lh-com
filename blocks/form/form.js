@@ -9,21 +9,29 @@ import {
 } from './form-rules.js';
 
 /*
- * Render-only form. The block never sends anything: the <form> has no action, every submit
- * is prevented, no file is uploaded and no request is made except for the live catalogs and
- * airport suggestions some fields show (read-only GET requests, scripts/lh-data.js). A valid
- * submit only shows a status message.
+ * Form block built from an authored field table.
+ *
+ * Form (the /feedback form): render-only. The <form> has no action, every submit is prevented,
+ * nothing is uploaded and the only requests are the live catalogs and airport suggestions some
+ * fields show (read-only GET requests, scripts/lh-data.js). A valid submit shows a status message.
  *
  * Variant "core" (Form (core)): the lufthansa.com AEM core forms (form.cmp-form): one field
  * column, maui fields with "optional" marks instead of required asterisks, sub-sections that
  * checkboxes show and hide, repeatable sections, a file drop zone, live's validation messages
  * (shown from the first submit on, then while typing), the submit button below the last band.
+ * A valid submit posts the entries to the lh-forms worker (scripts/lh-forms.js, multipart:
+ * form, locale, page, fields JSON, honeypot lh_hp, files) and goes to the success page, or to
+ * the error page when anything fails (config rows: Type "config", Name form / success / error).
  */
 
 /** UI strings; each can be overridden by a row of type "label" (Name = key, Label = text). */
 const DEFAULT_LABELS = {
   en: {
     'sent message': 'This is a preview form. Nothing has been sent.',
+    'success message': 'Thank you. Your request has been sent.',
+    sending: 'Sending…',
+    yes: 'Yes',
+    no: 'No',
     'submit label': 'Submit',
     'required marker': '*',
     'required text': '(required)',
@@ -47,6 +55,10 @@ const DEFAULT_LABELS = {
   },
   de: {
     'sent message': 'Dies ist ein Vorschauformular. Es wurden keine Daten gesendet.',
+    'success message': 'Vielen Dank. Ihre Anfrage wurde gesendet.',
+    sending: 'Wird gesendet…',
+    yes: 'Ja',
+    no: 'Nein',
     'submit label': 'Absenden',
     'required marker': '*',
     'required text': '(Pflichtfeld)',
@@ -539,7 +551,7 @@ function renderFileInput(row, ctx) {
 /**
  * File drop zone (core variant, live forms-filedrop): drop prompt, "or", select button, hint;
  * added files are checked (characters, size, type, count) and listed with a delete button.
- * Nothing is uploaded.
+ * The accepted files are sent with the submission (file_1 .. file_n).
  */
 function renderFileDrop(row, ctx) {
   const {
@@ -661,6 +673,7 @@ function renderFileDrop(row, ctx) {
     help: null, // the format hint stays visible next to an error
     error,
     value: () => files.filter((f) => !f.problem).map((f) => f.file.name),
+    files: () => files.filter((f) => !f.problem).map((f) => f.file),
     fallback: (reason) => (reason === 'valueMissing' ? labels['file required'] : ''),
   });
   return wrapper;
@@ -1098,6 +1111,187 @@ function checkField(wrapper, ctx) {
   return false;
 }
 
+/* ------------------------------- sending (Form (core) only) ------------------------------ */
+
+/** Value of a config row: the link of its Label (or Options) cell, else the cell text. */
+function configValue(row) {
+  const link = [row.labelCell, row.optionsCell]
+    .map((c) => (c ? c.querySelector('a[href]') : null)).find(Boolean);
+  if (link) return link.getAttribute('href').trim();
+  return row.label || row.options;
+}
+
+/** Config rows (Type config): form = worker form id, success / error = page links. */
+function readConfig(rows) {
+  const config = {};
+  rows.filter((r) => r.type === 'config').forEach((r) => {
+    const key = toConfigKey(r.name);
+    const value = configValue(r);
+    if (key && value && !(key in config)) config[key] = value;
+  });
+  return config;
+}
+
+/**
+ * URL to go to for an authored page link: relative links stay on this host (also links DA made
+ * absolute to an aem.page / aem.live host); under /content/ (local dev server) the locale
+ * paths get the /content prefix.
+ */
+function pageUrl(href) {
+  const here = window.location;
+  const url = new URL(href, here.href);
+  let path = `${url.pathname}${url.search}${url.hash}`;
+  if (url.origin !== here.origin && !/\.aem\.(page|live)$/.test(url.hostname)) return url.href;
+  if (here.pathname.startsWith('/content/') && /^\/(lhg\/)?[a-z]{2}\/[a-z]{2}(\/|$)/.test(path)) {
+    path = `/content${path}`;
+  }
+  return `${here.origin}${path}`;
+}
+
+/** Text of the option label next to a checkbox or radio input. */
+function optionText(input) {
+  const label = input.closest('label');
+  return cleanText(label && label.querySelector('.form-option-label'));
+}
+
+/** Sub-section heading (repeat copy title) of a field, else the band headline. */
+function fieldSection(wrapper) {
+  const sub = wrapper.closest('fieldset.form-subsection');
+  const legend = sub ? [...sub.children].find((c) => c.tagName === 'LEGEND') : null;
+  const heading = cleanText(legend);
+  if (heading) return heading;
+  const step = wrapper.closest('.form-step');
+  const band = cleanText(step && step.querySelector('.form-step-title'));
+  const copy = sub && sub.dataset.repeatIndex;
+  return copy && band ? `${band} ${copy}` : band;
+}
+
+/** The label the user saw: field label, group question, else the checkbox text(s). */
+function fieldLabel(entry, ctx) {
+  const { row, controls } = entry;
+  if (row.label) return row.label;
+  if (row.type === 'file') return ctx.labels['file prompt'];
+  const texts = controls.filter((c) => c.type === 'checkbox' || c.type === 'radio')
+    .map(optionText).filter(Boolean);
+  return texts.join(' / ') || row.name;
+}
+
+/** What the user entered, as shown: option texts, Yes / No for one checkbox, file names. */
+function fieldValue(entry, ctx) {
+  const { controls } = entry;
+  if (entry.files) return entry.files().map((f) => f.name).join(', ');
+  const control = controls[0];
+  if (control && control.tagName === 'SELECT') {
+    const option = control.value ? control.options[control.selectedIndex] : null;
+    return option ? cleanText(option) : '';
+  }
+  const boxes = controls.filter((c) => c.type === 'checkbox' || c.type === 'radio');
+  if (boxes.length === 1 && boxes[0].type === 'checkbox') {
+    return boxes[0].checked ? ctx.labels.yes : ctx.labels.no;
+  }
+  if (boxes.length) return boxes.filter((c) => c.checked).map(optionText).join(', ');
+  const value = entry.value();
+  return Array.isArray(value) ? value.join(', ') : String(value ?? '');
+}
+
+/**
+ * The entries in page order: {section, label, name, value}. Fields in hidden sub-sections,
+ * hidden repeat copies and hidden region selects are left out (live removes hidden fields);
+ * hidden inputs, notes and the submit button are no fields.
+ */
+function collectFields(fieldWrappers, ctx) {
+  return fieldWrappers.filter((w) => !isInactive(w)).map((w) => {
+    const entry = ctx.entries.get(w);
+    return {
+      section: fieldSection(w),
+      label: fieldLabel(entry, ctx),
+      name: entry.row.name,
+      value: fieldValue(entry, ctx),
+    };
+  });
+}
+
+/** The multipart body of POST /submit (tools/workers/lh-forms/README.md). */
+function buildSubmission(form, fieldWrappers, ctx, formId) {
+  const data = new FormData();
+  data.append('form', formId);
+  data.append('locale', getLocale().key.replace('/', '-'));
+  data.append('page', window.location.href);
+  data.append('fields', JSON.stringify(collectFields(fieldWrappers, ctx)));
+  const trap = form.querySelector('input[name="lh_hp"]');
+  data.append('lh_hp', trap ? trap.value : '');
+  let n = 0;
+  fieldWrappers.filter((w) => !isInactive(w)).forEach((w) => {
+    const entry = ctx.entries.get(w);
+    if (!entry.files) return;
+    entry.files().forEach((file) => {
+      n += 1;
+      data.append(`file_${n}`, file, file.name);
+    });
+  });
+  return data;
+}
+
+/** Busy state of the submit button while posting. */
+function setBusy(button, busy) {
+  if (!button) return;
+  button.disabled = busy;
+  if (busy) button.setAttribute('aria-busy', 'true');
+  else button.removeAttribute('aria-busy');
+  button.classList.toggle('form-button-busy', busy);
+}
+
+/**
+ * Posts a valid core form once: ok -> the success page (no success row: the success message),
+ * any failure (network, non-2xx, ok false) -> the error page. No retries.
+ */
+async function sendForm(form, fieldWrappers, ctx, button, status) {
+  if (ctx.sending) return;
+  ctx.sending = true;
+  ctx.busyButton = button;
+  setBusy(button, true);
+  status.textContent = ctx.labels.sending;
+  const { config } = ctx;
+  let ok = false;
+  try {
+    const forms = await import('../../scripts/lh-forms.js');
+    const formId = config.form || forms.formIdFromPath();
+    const body = buildSubmission(form, fieldWrappers, ctx, formId);
+    const response = await fetch(`${forms.formsEndpoint()}/submit`, {
+      method: 'POST', body, credentials: 'omit',
+    });
+    const result = response.ok ? await response.json() : null;
+    ok = Boolean(result && result.ok === true);
+  } catch (e) {
+    ok = false;
+  }
+  if (!ok) {
+    window.location.href = pageUrl(config.error || '/error.html');
+    return;
+  }
+  if (config.success) {
+    window.location.href = pageUrl(config.success);
+    return;
+  }
+  ctx.sending = false;
+  setBusy(button, false);
+  status.textContent = ctx.labels['success message'];
+}
+
+/** Honeypot (lh_hp): a text input people never see or reach; bots fill it in. */
+function honeypot() {
+  const trap = el('div', 'form-hp');
+  trap.setAttribute('aria-hidden', 'true');
+  const input = el('input');
+  input.type = 'text';
+  input.name = 'lh_hp';
+  input.tabIndex = -1;
+  input.autocomplete = 'off';
+  input.setAttribute('aria-hidden', 'true');
+  trap.append(input);
+  return trap;
+}
+
 /* ----------------------------------------------------------------------------------------- */
 
 export default function decorate(block) {
@@ -1123,6 +1317,8 @@ export default function decorate(block) {
     toggles: [],
     regions: [],
     submitted: false,
+    sending: false,
+    config: readConfig(rows),
   };
 
   const form = el('form', 'form-form');
@@ -1154,7 +1350,7 @@ export default function decorate(block) {
 
   /** Renders a field or note row into a container. */
   const renderRow = (row, into) => {
-    if (row.type === 'label') return;
+    if (row.type === 'label' || row.type === 'config') return;
     if (row.type === 'note') {
       const note = renderNote(row);
       if (note) into.append(note);
@@ -1178,8 +1374,8 @@ export default function decorate(block) {
   const moduleHosts = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
-    if (row.type === 'label') {
-      // UI text override, read above
+    if (row.type === 'label' || row.type === 'config') {
+      // UI text override / config, read above
     } else if (SECTION_BREAKS.includes(row.type) && row.type !== 'fieldset') {
       section = null;
       if (row.type === 'feedback-modules') {
@@ -1222,6 +1418,8 @@ export default function decorate(block) {
     }
   }
 
+  if (ctx.core) form.append(honeypot());
+
   const status = el('p', 'form-status');
   status.setAttribute('role', 'status');
   status.setAttribute('aria-live', 'polite');
@@ -1231,9 +1429,10 @@ export default function decorate(block) {
     .filter((w) => ctx.entries.has(w));
 
   form.addEventListener('submit', (event) => {
-    // render-only: never send, never navigate
+    // no native submit: Form never sends; Form (core) posts with fetch once it is valid
     event.preventDefault();
     event.stopPropagation();
+    if (ctx.sending) return;
     ctx.submitted = true;
     const results = wrappers().map((w) => ({ w, ok: checkField(w, ctx) }));
     const firstInvalid = results.find((r) => !r.ok);
@@ -1250,6 +1449,11 @@ export default function decorate(block) {
       }
       return;
     }
+    if (ctx.core) {
+      const button = event.submitter || form.querySelector('.form-actions button[type="submit"]');
+      sendForm(form, wrappers(), ctx, button, status);
+      return;
+    }
     status.textContent = labels['sent message'];
   });
 
@@ -1260,10 +1464,19 @@ export default function decorate(block) {
     if ((ctx.core && ctx.submitted) || wrapper.classList.contains('form-field-invalid')) {
       checkField(wrapper, ctx);
     }
-    status.textContent = '';
+    if (!ctx.sending) status.textContent = '';
   };
   form.addEventListener('input', recheck);
   form.addEventListener('change', recheck);
+  if (ctx.core) {
+    // back from the success / error page (back-forward cache): the form can be sent again
+    window.addEventListener('pageshow', (event) => {
+      if (!event.persisted || !ctx.sending) return;
+      ctx.sending = false;
+      setBusy(ctx.busyButton, false);
+      status.textContent = '';
+    });
+  }
 
   block.replaceChildren(form);
   setupToggles(form, ctx);

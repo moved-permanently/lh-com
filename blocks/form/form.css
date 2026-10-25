@@ -917,6 +917,46 @@
   margin: 30px 0 0;
 }
 
+/* while the submission is posted: disabled, aria-busy, a spinner after the text */
+.form.core .form-actions .button.form-button-busy {
+  cursor: progress;
+}
+
+.form.core .form-actions .button.form-button-busy::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 10px;
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -0.15em;
+  animation: form-busy-spin 0.8s linear infinite;
+}
+
+@keyframes form-busy-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form.core .form-actions .button.form-button-busy::after {
+    animation-duration: 2.4s;
+  }
+}
+
+/* honeypot (lh_hp): out of sight, out of the tab order, hidden from assistive tech */
+.form.core .form-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 @media (width >= 768px) {
   /* the card stays in the right 7/12 even when a band has no headline */
   .form.core .form-step .form-step-card {

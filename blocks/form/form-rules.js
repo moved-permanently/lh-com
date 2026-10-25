@@ -85,6 +85,8 @@ export const TYPE_ALIASES = {
   absenden: 'submit',
   button: 'submit',
   label: 'label',
+  config: 'config',
+  konfiguration: 'config',
   'feedback-modules': 'feedback-modules',
 };
 

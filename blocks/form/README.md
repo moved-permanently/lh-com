@@ -1,6 +1,7 @@
 # form
 
-Custom **form** block. Purpose: render-only forms built from an authored field table; nothing is ever sent.
+Custom **form** block. Purpose: forms built from an authored field table. `Form (core)` sends what
+the user enters to the lh-forms worker; the plain `Form` (/feedback) is render-only.
 
 Two looks:
 
@@ -14,13 +15,17 @@ Two looks:
   checkboxes, repeatable sections, a file drop zone, live's validation messages, the submit button
   right-aligned below the last grey band.
 
-Render-only: the form has no action and no method, every submit is prevented, no file is uploaded
-and nothing is posted anywhere. The only requests are read-only GETs some fields need for display
-(region select: `catalogs/countries`; airport field: `suggestions/airports`; feedback modules:
-`catalogs/feedbackForm`, labels), live from www.lufthansa.com where it answers cross-origin, else
-the recordings (`scripts/lh-data.js`, `data-lh-source` on the block). A valid submit shows the sent
-message ("This is a preview form. Nothing has been sent."); an invalid one shows the inline
-messages and moves to the first invalid field.
+The form has no action and no method and the native submit is always prevented. Both variants
+make read-only GETs some fields need for display (region select: `catalogs/countries`; airport
+field: `suggestions/airports`; feedback modules: `catalogs/feedbackForm`, labels), live from
+www.lufthansa.com where it answers cross-origin, else the recordings (`scripts/lh-data.js`,
+`data-lh-source` on the block). An invalid submit shows the inline messages and moves to the first
+invalid field (both variants, unchanged).
+
+- `Form` (/feedback, feedback modules): render-only. Nothing is posted and no file is uploaded; a
+  valid submit shows the sent message ("This is a preview form. Nothing has been sent.").
+- `Form (core)`: a valid submit posts the entries once to the lh-forms worker and then goes to
+  the success page or the error page, see "Sending" below.
 
 ## Authoring (Document Authoring)
 
@@ -72,8 +77,12 @@ Row types:
   (live `forms-filedrop`): Label = drop prompt, Placeholder = button text, Help text = format hint,
   Required = `yes` or the optional text; Rules `accept=`, `max-files=`, `max-size=` (bytes),
   `not-allowed=` (characters not allowed in file names). Added files are checked and listed with a
-  delete button, never uploaded.
+  delete button; the accepted ones are sent with the submission (feedback-past-flight).
 - `hidden`: Name and value (Options); never shown, never sent.
+- `config` (Form (core)): sending settings, Name = key, Label = value (text or a link; the
+  Options cell is read when Label is empty): `form` = the worker form id (e.g. `special-needs`),
+  `success` = link to the page shown after a successful submission, `error` = link to the page
+  shown when it fails (`/error.html`). Never rendered. See "Sending".
 - `note`: static rich text in the card (Label cell: paragraphs, lists, links, bold); paragraph
   markers such as `{copytext-small}` work.
 - `submit`: the button; Label = its text (empty: Submit / Absenden). Form (core): below the last band.
@@ -107,7 +116,61 @@ at least one option. / Bitte wählen Sie mindestens eine Option aus.; required e
 Please check your entry. / Bitte überprüfen Sie Ihre Eingabe.; file prompt, file or, file select,
 file list headline, file remove ({NAME}), file required, file invalid type, file too big, file
 invalid name, file too many ({MAX}) = the lufthansa.com common.fileupload labels (en / de);
-stepper decrease / increase, repeat remove (screen-reader labels).
+stepper decrease / increase, repeat remove (screen-reader labels); Form (core): success message
+(shown when there is no `success` row) = Thank you. Your request has been sent. / Vielen Dank. Ihre
+Anfrage wurde gesendet.; sending (status while posting) = Sending… / Wird gesendet…; yes / no
+(value of a single checkbox) = Yes / No, Ja / Nein.
+
+### Sending (Form (core))
+
+Worker: `tools/workers/lh-forms` (README there), `POST {FORMS_ENDPOINT}/submit`. The URL is in one
+place, `FORMS_ENDPOINT` in `scripts/lh-forms.js` (`https://lh-forms.aem-poc-lab.workers.dev`);
+testers can point a page at another worker with `localStorage.setItem('lh-forms', 'https://...')`.
+The worker only accepts the Edge Delivery hosts of this site and `http://localhost:3000` (Origin).
+
+Only the "valid" branch of the submit changed; the validation is as described below. On a valid
+submit the block builds a `FormData` (multipart) with:
+
+| Part | Value |
+| --- | --- |
+| `form` | the `form` config row; without one, from the page name (`FORM_IDS` in `scripts/lh-forms.js`: betreuungsbedarf → special-needs, sportgepaeck-hinzufuegen → add-sports-baggage, the others as named) |
+| `locale` | from the path: `de-en`, `de-de`, `at-de`, `gb-en` (also under `/content/` on localhost) |
+| `page` | `location.href` |
+| `fields` | JSON array in page order, `{section, label, name, value}` per field, see below |
+| `lh_hp` | the honeypot's value, as is |
+| `file_1` .. `file_n` | the accepted files of the drop zone (feedback-past-flight) |
+
+`fields`: every rendered field that is not hidden. Fields in hidden sub-sections, hidden repeat
+copies and hidden region selects are left out (live removes hidden fields), and `hidden`, `note`,
+`submit`, `label` and `config` rows are no fields.
+
+- `section`: the sub-section heading the field is in (a repeat copy's title, e.g. `Flight 2`),
+  else the band (step) headline; a repeat copy without a heading: band headline + copy number.
+- `label`: the label the user saw: the field label or group question; a group without one: its
+  checkbox / radio text(s).
+- `name`: the field name (repeat copies `_1` .. `_N`, names made unique).
+- `value`: text fields, dates (as typed, e.g. `15/10/2026`), steppers (the number), airport field:
+  the text; selects and regions: the visible option text (empty: `""`); radios: the chosen
+  option's text; a checkbox group with more than one box: the checked texts joined with `, `; a
+  single checkbox (one box, with or without a heading): `Yes` / `No` (`Ja` / `Nein`); the drop
+  zone: the file names joined with `, `.
+
+Honeypot: the block adds `div.form-hp[aria-hidden=true] > input[type=text][name=lh_hp]`
+(tabindex -1, autocomplete off, aria-hidden, no label), visually hidden by CSS. People never
+fill it; the worker answers ok and sends nothing when it is filled.
+
+While posting: the submit button is disabled, has `aria-busy="true"` and the class
+`form-button-busy` (a small spinner after the text, slower with reduced motion), and the status
+line says "Sending…". A second submit is ignored. (maui's own button loading style is in its shadow
+DOM and not in the recorded CSS, so the spinner is our own.)
+
+Afterwards, no retries: response 200 with `{"ok":true}` → `location.href` = the `success` page
+(no `success` row: the button is enabled again and the success message shows); anything else
+(network error, non-2xx, `ok:false`) → the `error` page (default `/error.html`, live's error page,
+the English not-found page; `scripts/not-found.js` shows paths without a locale in English).
+Authored links are relative (same path on this site); a link DA made absolute to an aem.page /
+aem.live host is followed on the current host, and under `/content/` (local dev server) locale
+paths get the `/content` prefix.
 
 ### Validation (as live)
 
@@ -125,10 +188,12 @@ them). `Form` (feedback) keeps its behaviour: messages on submit, re-checked onc
 Parser: `tools/importer/parsers/form-core.js` (block `form-core`, mapped first in the form, hub and
 info templates). Source: `form.cmp-form` (one per page, `action` on www.lufthansa.com) → one block `Form (core)`
 replacing the whole form (all `.form-section` bands are rows of the block, not page sections).
+The config rows come last (see the table below).
 Read the raw snapshots (`tools/importer/bd-snapshots/...`, attributes such as `data-cmp-*`, `hint`,
 `optional`, `data-target` are not in cleaned.html). Header row:
 `Label | Type | Name | Required | Options | Help text | Placeholder | Validation message | Constraint message | Rules`.
-Never write the form's `action`, its hidden inputs or any lufthansa.com POST URL.
+Never write the form's `action`, its hidden inputs or any lufthansa.com POST URL (the `:redirect`
+only becomes the public `success` link, the action's page name only feeds the form id).
 
 Walk the form in document order and write:
 
@@ -150,7 +215,10 @@ Walk the form in document order and write:
 | `maui-autocomplete.forms-autocomplete-airport` | `autocomplete`: Label = `buttontriggerlabel`, Name, Required as above, Validation message = `data-customerror`, else wrapper message, else `errormessage`; skip the hidden `*-code` input |
 | `.filedrop-wrapper section.forms-filedrop` | `file`: Name = the hidden input `name` without `-fileIds`; Label = `.filedrop-desc div:first-child` text; Placeholder = the `maui-button` text; Help text = `p.footnote` (`#forms-filedrop-hint`); Required = `yes` unless the `data-forms-filedrop` JSON has `optional: true`, then the `.hint` text (`optional`); Validation message = JSON `requiredError`; Rules `accept=` acceptedFiles, `max-files=` maxFiles, `max-size=` maxFileSize, `not-allowed=` notAllowedCharacters |
 | `maui-button#submit-btn` | `submit`: Label = its text (Book now, Submit, Send, Buchen, Absenden …) |
-| `input[type=hidden]` (`:formstart`, `:redirect`, `_charset_`, `UUID`, `date-format`, `*-code`, `*-fileIds`) | nothing (AEM and upload internals) |
+| `input[type=hidden]` (`:formstart`, `_charset_`, `UUID`, `date-format`, `*-code`, `*-fileIds`) | nothing (AEM and upload internals) |
+| (end of the form) page name (last segment of `params.originalURL`, else of the form `action`) | `config`: Label = the form id (`FORM_IDS`: betreuungsbedarf → special-needs, sportgepaeck-hinzufuegen → add-sports-baggage, the others as named), Name = `form`; not written for other pages |
+| `input[name=":redirect"]` (`/content/lh/markets/{cc}/{ll}/X.html`) | `config`: Label = link `<a href="/{cc}/{ll}/X">/{cc}/{ll}/X</a>`, Name = `success` (all 36 targets answer 200 on www, e.g. /de/en/support/contact/contact-form-confirmation) |
+| (always) | `config`: Label = link `<a href="/error.html">/error.html</a>`, Name = `error` (live renderer.js goes to origin + resolveErrorpage($('#error-page').val()), `/error.html` when the form has no `#error-page` field; none of the 36 forms has one) |
 
 Notes from the snapshots:
 
@@ -196,4 +264,6 @@ N/A (Document Authoring project)
 ## Tests
 
 `node tools/importer/test-form.mjs`: the parsing and validation rules (`form-rules.js`) and a
-decorate() run of a Form (core) table in a small DOM shim (no browser, no network).
+decorate() run of a Form (core) table in a small DOM shim (no browser, no network; the worker is
+mocked): the posted parts and field JSON, busy state, success / error navigation, the fallbacks
+without config rows, and that the plain Form posts nothing.
