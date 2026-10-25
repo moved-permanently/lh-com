@@ -43,3 +43,5 @@ For messages with `push` set, when they become active and when they disappear (w
 `npm test` in this folder (Node 24, no install): shapes and key order against the www fixture (`test/fixtures/www-message-center-2026-10-25.json`), tags, `_path`, ordering, the window, CTI pages, outage-b2b, routes and CORS, the 30 s source cache, the cron diff and KV writes, the push stub. `fetch` and KV are mocked.
 
 `.github/workflows/deploy-lh-messages.yaml` runs the tests and `wrangler deploy` on every push to main that touches this folder, with the repository secret `CLOUDFLARE_API_TOKEN` (same account as lh-proxy).
+
+`node tools/workers/lh-messages/compare-www.mjs` compares the deployed worker with the recorded www answers: the JSON shape of every route, and, for messages both have (same id and language), every field.
