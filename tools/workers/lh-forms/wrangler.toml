@@ -1,17 +1,19 @@
 name = "lh-forms"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
+# also on https://lh-forms.aem-poc-lab.workers.dev; the public address https://lhforms.bbird.live is a
+# custom domain attached in the Cloudflare dashboard (no routes here: the deploy token cannot
+# manage that zone)
+workers_dev = true
 
-# Secrets (not here): FORM_SENDER (from address) and FORM_CONFIG (JSON, see README.md and
-# FORM_CONFIG.example.json). Set them with `npx wrangler@4 secret put FORM_SENDER` / `FORM_CONFIG`.
+# Secrets (not here): FORM_SENDER (from address), FORM_CONFIG (JSON, see README.md and
+# FORM_CONFIG.example.json), FORM_MAIL_ACCOUNT_ID and FORM_MAIL_TOKEN (the Cloudflare account and
+# API token of the Email Sending REST API; another account than this worker's). Set them with
+# `npx wrangler@4 secret put <NAME>`; never log them.
 
 [vars]
 ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
 EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
-
-# Cloudflare Email Service; the sender domain must be onboarded in the account.
-[[send_email]]
-name = "EMAIL"
 
 # 5 submissions per minute per client IP (the binding only supports periods of 10 or 60 s).
 [[ratelimits]]

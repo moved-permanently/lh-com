@@ -23,6 +23,8 @@ const JPG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 0, 0x10]);
 const PDF = new TextEncoder().encode('%PDF-1.7\n...');
 
 let sent;
+let mailCalls;
+let mailReply;
 let minuteHits;
 let limiters;
 
@@ -49,14 +51,26 @@ function hourlyNamespace() {
   };
 }
 
+// the Email Sending REST API: every call is recorded, the message body is parsed into `sent`
+const MAIL_URL = 'https://api.cloudflare.com/client/v4/accounts/acc-123/email/sending/send';
+globalThis.fetch = async (url, init = {}) => {
+  mailCalls.push({ url: String(url), init });
+  if (mailReply === 'network') throw new TypeError('fetch failed');
+  const { status, body } = mailReply;
+  if (status >= 200 && status < 300 && body && body.success) sent.push(JSON.parse(init.body));
+  return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
+};
+const MAIL_OK = {
+  status: 200,
+  body: {
+    success: true, errors: [], messages: [], result: { delivered: ['x@example.com'], permanent_bounces: [], queued: [] },
+  },
+};
+
 function makeEnv(extra = {}) {
   return {
-    EMAIL: {
-      send: async (message) => {
-        sent.push(message);
-        return { messageId: 'm-1' };
-      },
-    },
+    FORM_MAIL_ACCOUNT_ID: 'acc-123',
+    FORM_MAIL_TOKEN: 'secret-token-value',
     FORM_SENDER: 'forms-sender@example.com',
     FORM_CONFIG: JSON.stringify(CONFIG),
     RATE_LIMIT_MINUTE: {
@@ -108,6 +122,8 @@ async function post(opts = {}, env = makeEnv()) {
 
 beforeEach(() => {
   sent = [];
+  mailCalls = [];
+  mailReply = MAIL_OK;
   minuteHits = new Map();
   limiters = new Map();
 });
@@ -121,7 +137,7 @@ test('valid submission sends one mail and answers 200 {ok:true}', async () => {
   assert.equal(m.from, 'forms-sender@example.com');
   assert.deepEqual(m.to, ['fb-any@example.com']);
   assert.equal(m.subject, 'Default subject');
-  assert.equal(m.replyTo, 'customer@example.com');
+  assert.equal(m.reply_to, 'customer@example.com');
   assert.equal(m.attachments, undefined);
   assert.match(m.html, /<h1>Feedback on a past flight<\/h1>/);
   assert.ok(m.html.includes(PAGE));
@@ -172,7 +188,7 @@ test('no valid recipient → 500 and nothing sent', async () => {
 });
 
 test('missing configuration → 500 not-configured and nothing sent', async () => {
-  const cases = [{ FORM_SENDER: undefined }, { FORM_CONFIG: '{not json' }, { EMAIL: undefined }];
+  const cases = [{ FORM_SENDER: undefined }, { FORM_CONFIG: '{not json' }, { FORM_MAIL_TOKEN: undefined }, { FORM_MAIL_ACCOUNT_ID: '' }];
   // eslint-disable-next-line no-restricted-syntax
   for (const extra of cases) {
     // eslint-disable-next-line no-await-in-loop
@@ -213,7 +229,7 @@ test('Reply-To: first e-mail-like field with a valid address', async () => {
       },
     ],
   });
-  assert.equal(sent[0].replyTo, 'second@example.com');
+  assert.equal(sent[0].reply_to, 'second@example.com');
 });
 
 test('Reply-To absent without a valid e-mail field', async () => {
@@ -228,7 +244,7 @@ test('Reply-To absent without a valid e-mail field', async () => {
     ],
   });
   assert.equal(sent.length, 1);
-  assert.equal('replyTo' in sent[0], false);
+  assert.equal('reply_to' in sent[0], false);
 });
 
 test('honeypot filled → 200 {ok:true}, nothing sent', async () => {
@@ -424,8 +440,8 @@ test('files on feedback-past-flight become attachments', async () => {
     ['scan.JPEG', 'image/jpeg', 'attachment'],
     ['receipt.pdf', 'application/pdf', 'attachment'],
   ]);
-  assert.ok(attachments[0].content instanceof ArrayBuffer);
-  assert.deepEqual(new Uint8Array(attachments[0].content), PNG);
+  assert.equal(typeof attachments[0].content, 'string');
+  assert.deepEqual(new Uint8Array(Buffer.from(attachments[0].content, 'base64')), PNG);
   assert.ok(html.includes('<li>receipt.pdf</li>'));
   assert.ok(text.includes('== Attachments ==\nphoto.png'));
 });
@@ -467,6 +483,7 @@ test('file rules of the live form: count, type, name, size, total', async () => 
     [[pdf('bad(1).pdf')], 400, 'invalid-file-name'],
     [[pdf('a.pdf', 3700001)], 413, 'file-too-large'],
     [[pdf('a.pdf', 2300000), pdf('b.pdf', 2300000)], 413, 'files-too-large'],
+    [[pdf('a.pdf', 2000000), pdf('b.pdf', 1500001)], 413, 'files-too-large'],
   ];
   const results = await Promise.all(cases.map(([files], i) => post({ files, ip: `192.0.2.${100 + i}` })));
   results.forEach(({ res, body }, i) => {
@@ -474,7 +491,8 @@ test('file rules of the live form: count, type, name, size, total', async () => 
     assert.deepEqual(body, { ok: false, error: cases[i][2] });
   });
   assert.equal(sent.length, 0);
-  const ok = await post({ files: [pdf('a.pdf', 3700000), pdf('b.pdf', 800000)], ip: '192.0.2.200' });
+  // 3.5 MB in total before base64 (the JSON message must stay under 5 MiB)
+  const ok = await post({ files: [pdf('a.pdf', 2000000), pdf('b.pdf', 1500000)], ip: '192.0.2.200' });
   assert.equal(ok.res.status, 200);
   assert.equal(sent[0].attachments.length, 2);
 });
@@ -486,25 +504,26 @@ test('send failure → 502 and the log carries no address or value', async () =>
   // eslint-disable-next-line no-console
   console.error = (...args) => logs.push(args.join(' '));
   try {
-    const env = makeEnv({
-      EMAIL: {
-        send: async () => {
-          const e = new Error('sender forms-sender@example.com not verified');
-          e.code = 'E_SENDER_NOT_VERIFIED';
-          throw e;
-        },
+    mailReply = {
+      status: 400,
+      body: {
+        success: false,
+        errors: [{ code: 10001, message: 'email.sending.error.invalid_request_schema' }, { code: 10002, message: 'sender forms-sender@example.com not allowed' }],
+        messages: [],
+        result: null,
       },
-    });
-    const { res, body } = await post({}, env);
+    };
+    const { res, body } = await post({}, makeEnv());
     assert.equal(res.status, 502);
-    assert.deepEqual(body, { ok: false, error: 'send-failed', code: 'E_SENDER_NOT_VERIFIED' });
+    assert.deepEqual(body, { ok: false, error: 'send-failed', codes: ['10001 email.sending.error.invalid_request_schema', '10002'] });
     assert.ok(!JSON.stringify(body).includes('@'));
   } finally {
     // eslint-disable-next-line no-console
     console.error = realError;
   }
   assert.equal(logs.length, 1);
-  assert.ok(logs[0].includes('E_SENDER_NOT_VERIFIED'));
+  assert.ok(logs[0].includes('10001'));
+  assert.ok(!logs.join('\n').includes('secret-token-value'));
   assert.ok(!logs.join('\n').includes('@'));
   assert.ok(!logs.join('\n').includes('Erika'));
 });
@@ -522,7 +541,8 @@ test('/health reports configured without showing addresses', async () => {
     { FORM_CONFIG: undefined },
     { FORM_CONFIG: 'not json' },
     { FORM_CONFIG: '[]' },
-    { EMAIL: undefined },
+    { FORM_MAIL_ACCOUNT_ID: undefined },
+    { FORM_MAIL_TOKEN: undefined },
   ];
   const results = await Promise.all(variants.map((v, i) => worker.fetch(
     new Request(`${BASE}/health`),
@@ -565,4 +585,41 @@ test('CORS: responses echo the origin, preflight 204, unknown routes 404', async
   assert.deepEqual(await nf.json(), { ok: false, error: 'not-found' });
   const getSubmit = await worker.fetch(new Request(`${BASE}/submit`, { headers: { Origin: ORIGIN } }), makeEnv());
   assert.equal(getSubmit.status, 405);
+});
+
+test('the mail goes to the REST API of the mail account with the token, as JSON', async () => {
+  const { res } = await post();
+  assert.equal(res.status, 200);
+  assert.equal(mailCalls.length, 1);
+  const { url, init } = mailCalls[0];
+  assert.equal(url, MAIL_URL);
+  assert.equal(init.method, 'POST');
+  assert.equal(init.headers.authorization, 'Bearer secret-token-value');
+  assert.equal(init.headers['content-type'], 'application/json');
+  const m = JSON.parse(init.body);
+  assert.deepEqual(Object.keys(m).sort(), ['from', 'html', 'reply_to', 'subject', 'text', 'to']);
+  assert.equal(m.from, 'forms-sender@example.com');
+});
+
+test('success:false with 200, a non-2xx status and a network error are failed sends', async () => {
+  const replies = [
+    { status: 200, body: { success: false, errors: [{ code: 10200, message: 'email.sending.error.sender_domain_not_available' }] } },
+    { status: 503, body: {} },
+    'network',
+  ];
+  const expected = [['10200 email.sending.error.sender_domain_not_available'], ['http-503'], ['network']];
+  for (let i = 0; i < replies.length; i += 1) {
+    mailReply = replies[i];
+    // eslint-disable-next-line no-await-in-loop
+    const { res, body } = await post({ ip: `198.51.100.${i + 1}` });
+    assert.equal(res.status, 502);
+    assert.deepEqual(body.codes, expected[i]);
+  }
+  assert.equal(sent.length, 0);
+});
+
+test('the honeypot and a missing config never call the API', async () => {
+  await post({ hp: 'bot' });
+  await post({ ip: '198.51.100.50' }, makeEnv({ FORM_MAIL_TOKEN: '' }));
+  assert.equal(mailCalls.length, 0);
 });

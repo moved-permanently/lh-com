@@ -2,12 +2,14 @@
 
 A Cloudflare Worker for the lufthansa.com replica (`moved-permanently/lh-com`). The `form` block
 on the Edge Delivery Services hosts posts a submission here. The worker checks it and sends one
-e-mail per valid submission through Cloudflare Email Service (`send_email` binding `EMAIL`).
-Recipients come from a secret. It has no dependencies, and it never logs field values, file
+e-mail per valid submission through the Cloudflare Email Sending REST API
+(`POST https://api.cloudflare.com/client/v4/accounts/{FORM_MAIL_ACCOUNT_ID}/email/sending/send`).
+The sending account is another Cloudflare account than the one the worker runs in, so it is the
+REST API and not a `send_email` binding. Recipients come from a secret. It has no dependencies, and it never logs field values, file
 names or addresses.
 
-URL: https://lhforms.bbird.live (public address, used by the form block), also
-https://lh-forms.aem-poc-lab.workers.dev. The custom domain is attached to the worker in the
+URL: https://lhforms.bbird.live (public address, used by the form block); `workers_dev = true`
+keeps https://lh-forms.aem-poc-lab.workers.dev as well. The custom domain is attached to the worker in the
 Cloudflare dashboard (Workers & Pages → lh-forms → Settings → Domains & Routes); `wrangler.toml`
 has no routes or custom domain, because the deploy token cannot manage the bbird.live zone.
 
@@ -53,15 +55,14 @@ image/jpeg, image/jpg, application/pdf`, `max-files=5`, `max-size=3700000`,
 
 - at most 5 files
 - each file at most 3,700,000 bytes
-- at most 4,500,000 bytes for all files together
+- at most 3,500,000 bytes for all files together (before base64)
 - extension `.png`, `.jpg`, `.jpeg` or `.pdf`
 - a part type from the list above
 - content that really is a PNG, JPEG or PDF (checked by its first bytes)
 - no `#$%^*()[]`, slashes or control characters in the file name
 
-Note: Email Service caps a whole message at 5 MiB, attachments included. 4.5 MB of attachments
-may be over that cap once encoded for e-mail, and then the send fails with `502 send-failed`.
-Lower `FILE_RULES.maxTotal` if that happens.
+The REST API takes the attachments base64-encoded in its JSON body and caps the whole message at
+5 MiB including that encoding (+33 %), hence the 3.5 MB total before encoding.
 
 | Status | `error` |
 | --- | --- |
@@ -71,7 +72,7 @@ Lower `FILE_RULES.maxTotal` if that happens.
 | 413 | `payload-too-large` (body over 6 MB), `file-too-large`, `files-too-large` |
 | 429 | `rate-limited` |
 | 500 | `not-configured`, `no-recipients`, `internal-error` |
-| 502 | `send-failed` (Email Service rejected the message; the answer and the log carry only its error code, e.g. `"code":"E_SENDER_NOT_VERIFIED"`) |
+| 502 | `send-failed`: the API answered a non-2xx status or `success: false`, or did not answer. The answer (`"codes"`) and the log carry only the API's error codes and machine messages, e.g. `"codes":["10001 email.sending.error.invalid_request_schema"]`, `http-503`, `network`, `timeout`; never addresses, values or the token |
 
 The body cap is 6,000,000 bytes. A larger `Content-Length` is rejected before the body is read.
 Without a `Content-Length`, the cap is enforced while the body is read.
@@ -86,10 +87,11 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 - HTML and plain text with the same content: the form title, the page URL, the time (ISO,
   UTC), and then one table per section (label | value) in the order the sections first appear.
   The HTML escapes every value, label and section.
-- Reply-To: the first field whose `name` or `label` contains `mail` (so also `email` and
+- The JSON body: `to`, `from`, `reply_to`, `subject`, `html`, `text`, `attachments`.
+- Reply-To (`reply_to`): the first field whose `name` or `label` contains `mail` (so also `email` and
   `e-mail`) and whose value is a valid address. If there is none, no Reply-To is set.
-- Attachments: the uploaded files (`disposition: "attachment"`, with the type taken from the
-  content).
+- Attachments: the uploaded files, `{content (base64), filename, type, disposition: "attachment"}`,
+  the type taken from the content.
 
 ## Abuse limits
 
@@ -111,10 +113,12 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 
 Secrets. They are not in `wrangler.toml`, so a deploy does not touch them:
 
+- `FORM_MAIL_ACCOUNT_ID`: the Cloudflare account that sends (Email Sending set up there).
+- `FORM_MAIL_TOKEN`: an API token of that account with Email Sending permission. Sent only as
+  `Authorization: Bearer ...` to api.cloudflare.com, never logged or answered.
 - `FORM_SENDER`: the from address, for example `forms@example.com`. Its domain must be set up
-  for sending in Cloudflare Email Service (dashboard → Email → Email Sending: onboard the domain
-  and add the DNS records it asks for). Otherwise sends fail with `E_SENDER_NOT_VERIFIED`
-  (`502 send-failed`).
+  for sending in that account's Email Sending (onboard the domain, add the DNS records it asks
+  for); otherwise the API refuses the send (`502 send-failed` with its error code).
 - `FORM_CONFIG`: JSON, see `FORM_CONFIG.example.json`:
 
 ```json
@@ -138,12 +142,15 @@ answers `500 no-recipients` and sends nothing.
 Set the secrets from this folder (a Cloudflare login or `CLOUDFLARE_API_TOKEN` is needed):
 
 ```sh
+npx wrangler@4 secret put FORM_MAIL_ACCOUNT_ID
+npx wrangler@4 secret put FORM_MAIL_TOKEN
 npx wrangler@4 secret put FORM_SENDER
 npx wrangler@4 secret put FORM_CONFIG < FORM_CONFIG.json   # your real file, not committed
 ```
 
-`GET /health` answers `{"configured":true}` when the `EMAIL` binding is present, `FORM_SENDER`
-is a valid address and `FORM_CONFIG` is a valid JSON object. Otherwise it answers
+`GET /health` answers `{"configured":true}` when all four secrets are there: `FORM_MAIL_ACCOUNT_ID`
+and `FORM_MAIL_TOKEN` are not empty, `FORM_SENDER` is a valid address and `FORM_CONFIG` is a valid
+JSON object. Otherwise it answers
 `{"configured":false}`. It never shows addresses.
 
 ## Tests
@@ -155,8 +162,9 @@ node --test tools/workers/lh-forms/test/
 npx eslint tools/workers/lh-forms
 ```
 
-The tests mock the `EMAIL` binding, the per-minute limiter and the Durable Object namespace (the
-real `HourlyLimiter` class runs on in-memory storage). They make no network requests.
+The tests mock `fetch` to the REST API (success, `success: false`, non-2xx, network error), the
+per-minute limiter and the Durable Object namespace (the
+real `HourlyLimiter` class runs on in-memory storage). They make no real network requests.
 
 ## Deployment
 
@@ -164,6 +172,7 @@ Every push to `main` that changes `tools/workers/lh-forms/**` (or
 `.github/workflows/deploy-lh-forms.yaml`) runs the "Deploy lh-forms" workflow. It runs `npm test`
 in this folder and then `npx wrangler@4 deploy` to the Blackbird Cloudflare account, using the
 repository secret `CLOUDFLARE_API_TOKEN`, the same as lh-proxy. You can also start it by hand
-(workflow_dispatch). The first deploy creates the Durable Object class (migration `v1`).
-Afterwards, set the two secrets, attach lhforms.bbird.live in the dashboard and check
-`curl https://lhforms.bbird.live/health` and `curl https://lh-forms.aem-poc-lab.workers.dev/health`.
+(workflow_dispatch). The worker `lh-forms` exists in that account with the four secrets and the
+custom domain lhforms.bbird.live; a deploy replaces only the code (the secrets and the domain
+stay). The Durable Object class comes with migration `v1`. Check with
+`curl https://lhforms.bbird.live/health`.

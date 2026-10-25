@@ -1,7 +1,8 @@
 /*
  * lh-forms: Cloudflare Worker that receives the form block's submissions from the Edge
- * Delivery Services hosts and sends one e-mail per valid submission with Cloudflare Email
- * Service (send_email binding EMAIL). Recipients come from the FORM_CONFIG secret.
+ * Delivery Services hosts and sends one e-mail per valid submission through the Cloudflare
+ * Email Sending REST API of another Cloudflare account (secrets FORM_MAIL_ACCOUNT_ID,
+ * FORM_MAIL_TOKEN). Recipients come from the FORM_CONFIG secret, the sender from FORM_SENDER.
  *
  * Never log field values, file names or addresses. No dependencies. See ../README.md.
  */
@@ -61,14 +62,16 @@ const LIMITS = {
 
 // Files: the rules of the live feedback-past-flight dropzone (content/de/en/feedback-past-flight:
 // accept=image/png, image/jpeg, image/jpg, application/pdf; max-files=5; max-size=3700000;
-// not-allowed=#$%^*()[]) plus a total cap that keeps the mail under the Email Service limit.
+// not-allowed=#$%^*()[]) plus a total cap that keeps the mail under the Email Service limit:
+// the whole JSON message must stay under 5 MiB, attachments base64-encoded (+33 %), so the
+// files may total 3.5 MB before encoding.
 const FILE_FORMS = ['feedback-past-flight'];
 const FILE_RULES = {
   types: ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'],
   extensions: ['.png', '.jpg', '.jpeg', '.pdf'],
   maxFiles: 5,
   maxSize: 3700000,
-  maxTotal: 4.5 * MB,
+  maxTotal: 3.5 * MB,
   notAllowed: '#$%^*()[]',
   maxName: 200,
 };
@@ -164,7 +167,7 @@ function parseConfig(raw) {
 }
 
 function isConfigured(env) {
-  return !!(env.EMAIL && typeof env.EMAIL.send === 'function'
+  return !!(String(env.FORM_MAIL_ACCOUNT_ID || '').trim() && String(env.FORM_MAIL_TOKEN || '').trim()
     && isEmail(String(env.FORM_SENDER || '').trim()) && parseConfig(env.FORM_CONFIG));
 }
 
@@ -233,6 +236,51 @@ function sniffType(bytes) {
   return null;
 }
 
+/** Base64 of bytes (attachments in the REST API's JSON). */
+function base64(bytes) {
+  let bin = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) {
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(bin);
+}
+
+const MAIL_API = 'https://api.cloudflare.com/client/v4/accounts';
+const MAIL_TIMEOUT_MS = 15000;
+
+/**
+ * Sends the message through the Email Sending REST API. A non-2xx status or success:false is a
+ * failure; returns the API's error codes only (numbers and machine strings, never addresses).
+ * @returns {Promise<{ok:true}|{ok:false,codes:string[]}>}
+ */
+async function sendMail(env, message) {
+  const account = encodeURIComponent(String(env.FORM_MAIL_ACCOUNT_ID).trim());
+  let resp;
+  try {
+    resp = await fetch(`${MAIL_API}/${account}/email/sending/send`, {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${String(env.FORM_MAIL_TOKEN).trim()}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(message),
+      signal: AbortSignal.timeout(MAIL_TIMEOUT_MS),
+    });
+  } catch (e) {
+    return { ok: false, codes: [e && e.name === 'TimeoutError' ? 'timeout' : 'network'] };
+  }
+  let data = null;
+  try { data = await resp.json(); } catch (e) { data = null; }
+  if (resp.ok && data && data.success === true) return { ok: true };
+  const codes = (data && Array.isArray(data.errors) ? data.errors : [])
+    .map((er) => [er && er.code, er && er.message]
+      .filter((v) => (typeof v === 'number') || (typeof v === 'string' && /^[a-z0-9_.-]{1,80}$/i.test(v)))
+      .join(' '))
+    .filter(Boolean)
+    .slice(0, 5);
+  return { ok: false, codes: codes.length ? codes : [`http-${resp.status}`] };
+}
+
 /** @returns {Promise<{status:number,error:string}|{attachments:object[]}>} */
 async function validateFiles(files, form) {
   if (!files.length) return { attachments: [] };
@@ -253,9 +301,9 @@ async function validateFiles(files, form) {
   if (bad) return { status: bad[0], error: bad[1] };
   if (total > FILE_RULES.maxTotal) return { status: 413, error: 'files-too-large' };
   const attachments = await Promise.all(files.map(async (file) => {
-    const content = await file.arrayBuffer();
+    const bytes = new Uint8Array(await file.arrayBuffer());
     return {
-      content, filename: file.name, type: sniffType(new Uint8Array(content)), disposition: 'attachment',
+      content: base64(bytes), filename: file.name, type: sniffType(bytes), disposition: 'attachment',
     };
   }));
   if (attachments.some((a) => !a.type)) return { status: 400, error: 'invalid-file-type' };
@@ -425,19 +473,15 @@ async function submit(request, env, origin) {
     text: plain,
   };
   const replyTo = replyToFrom(fields);
-  if (replyTo) message.replyTo = replyTo;
+  if (replyTo) message.reply_to = replyTo;
   if (attachments.length) message.attachments = attachments;
 
-  try {
-    await env.EMAIL.send(message);
-  } catch (e) {
-    // only the error code: never the message, which may quote addresses
+  const sent = await sendMail(env, message);
+  if (!sent.ok) {
+    // only the API's error codes: never addresses, values or the token
     // eslint-disable-next-line no-console
-    const code = /^E_[A-Z_]+$/.test(String(e && e.code)) ? String(e.code) : 'unknown';
-    console.error('lh-forms send failed', code);
-    // the Email Service error code (E_SENDER_NOT_VERIFIED, ...) says what to fix; it holds no
-    // address or field value
-    return json(502, { ok: false, error: 'send-failed', code }, origin);
+    console.error('lh-forms send failed', sent.codes.join(', '));
+    return json(502, { ok: false, error: 'send-failed', codes: sent.codes }, origin);
   }
   return json(200, { ok: true }, origin);
 }
