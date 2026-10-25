@@ -1,0 +1,57 @@
+version: 1
+
+# Query indexes of lh-com. Add new indexes below; don't replace this file.
+
+indices:
+  # Message Center: one row per message and language, from the structured
+  # content documents /message-center/<type>/<id>/<lang> (schema lh-message).
+  # Selectors are anchored on the field keys, see
+  # https://www.aem.live/docs/ew/administering/structured-content
+  # List fields (tenants, markets, touchpoints) use `values`; check
+  # /message-center/index.json for how the index stores them.
+  message-center:
+    include:
+      - /message-center/irreg/**
+      - /message-center/tech-outage/**
+      - /message-center/promo/**
+    exclude:
+      - /message-center/details/**
+      - /message-center/config/**
+    target: /message-center/index.json
+    properties:
+      headline:
+        select: div > div > div:has(#headline) > div:last-child
+        value: textContent(el)
+      criticality:
+        select: div > div > div:has(#criticality) > div:last-child
+        value: textContent(el)
+      tenants:
+        select: div > div > div:has(#tenants) > div:last-child li
+        values: textContent(el)
+      markets:
+        select: div > div > div:has(#markets) > div:last-child li
+        values: textContent(el)
+      touchpoints:
+        select: div > div > div:has(#touchpoints) > div:last-child li
+        values: textContent(el)
+      link:
+        select: div > div > div:has(#link) > div:last-child
+        value: textContent(el)
+      details:
+        select: div > div > div:has(#details) > div:last-child
+        value: textContent(el)
+      from:
+        select: div > div > div:has(#from) > div:last-child
+        value: textContent(el)
+      to:
+        select: div > div > div:has(#to) > div:last-child
+        value: textContent(el)
+      push:
+        select: div > div > div:has(#push) > div:last-child
+        value: textContent(el)
+      internal-title:
+        select: div > div > div:has(#internal-title) > div:last-child
+        value: textContent(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
