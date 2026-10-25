@@ -1223,8 +1223,12 @@ function rewriteHref(href, origins) {
   if (MARKET_PATH.test(pathname) && SCOPE_PATHS.has(pathname)) {
     return `${pathname}${u.search}${u.hash}`;
   }
-  // Strip a leading /content/lh (author-style) path if present.
-  const pagePath = pathname.replace(/^\/content\/lh(?=\/)/, '');
+  // Strip a leading /content/lh (author-style) path if present; www also links in-scope pages
+  // as /content/lh/markets/{cc}/{ll}/<rest> (at/de stage: .../markets/at/de/during-your-trip/
+  // lhg-wifi): that is the page /{cc}/{ll}/<rest>. Only the LoungeNet pages (above) keep the
+  // long path, because www serves them there.
+  const pagePath = pathname.replace(/^\/content\/lh(?:\/markets)?(?=\/[a-z]{2}\/[a-z]{2}(?:\/|$))/, '')
+    .replace(/^\/content\/lh(?=\/)/, '');
   // Locale roots (/de/en, /de/en/, /de/en.html, https://www.lufthansa.com/gb/en) are the
   // market homepages: /de/en -> /de/en/homepage when that page is in scope.
   // AirCore pages (/lhg/...) are out of scope since 2026-10-25: they stay absolute on www.

@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_535907_exports = {};
-  __export(tmp_bundle_info_535907_exports, {
-    default: () => tmp_bundle_info_535907_default
+  var tmp_bundle_info_544460_exports = {};
+  __export(tmp_bundle_info_544460_exports, {
+    default: () => tmp_bundle_info_544460_default
   });
 
   // tools/importer/parsers/profile-tabs.js
@@ -3936,7 +3936,7 @@ var CustomImportScript = (() => {
     if (MARKET_PATH.test(pathname) && SCOPE_PATHS.has(pathname)) {
       return `${pathname}${u.search}${u.hash}`;
     }
-    const pagePath = pathname.replace(/^\/content\/lh(?=\/)/, "");
+    const pagePath = pathname.replace(/^\/content\/lh(?:\/markets)?(?=\/[a-z]{2}\/[a-z]{2}(?:\/|$))/, "").replace(/^\/content\/lh(?=\/)/, "");
     if (LOCALE_ROOT.test(pagePath) && SCOPE_PATHS.has(`${pagePath}/homepage`)) {
       return `${pagePath}/homepage${u.search}${u.hash}`;
     }
@@ -4624,7 +4624,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_535907_default = {
+  var tmp_bundle_info_544460_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4654,5 +4654,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_535907_exports);
+  return __toCommonJS(tmp_bundle_info_544460_exports);
 })();

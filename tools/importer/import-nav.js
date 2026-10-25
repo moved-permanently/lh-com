@@ -82,7 +82,10 @@ function rewriteHref(href) {
   try { u = new URL(raw, `${LIVE_ORIGIN}/`); } catch (e) { return null; }
   if (isAbsolute && !SOURCE_HOSTS.includes(u.hostname)) return null;
   if (!/^https?:$/.test(u.protocol)) return null;
-  const pagePath = normalizePath(u.pathname).replace(/^\/content\/lh(?=\/)/, '');
+  // /content/lh/markets/{cc}/{ll}/<rest> is the page /{cc}/{ll}/<rest> (LoungeNet: not in the nav)
+  const pagePath = normalizePath(u.pathname)
+    .replace(/^\/content\/lh(?:\/markets)?(?=\/[a-z]{2}\/[a-z]{2}(?:\/|$))/, '')
+    .replace(/^\/content\/lh(?=\/)/, '');
   if (LOCALE_ROOT.test(pagePath) && SCOPE_PATHS.has(`${pagePath}/homepage`)) {
     return `${pagePath}/homepage${u.search}${u.hash}`;
   }
