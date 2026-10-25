@@ -124,7 +124,8 @@ Anfrage wurde gesendet.; sending (status while posting) = Sending… / Wird gese
 ### Sending (Form (core))
 
 Worker: `tools/workers/lh-forms` (README there), `POST {FORMS_ENDPOINT}/submit`. The URL is in one
-place, `FORMS_ENDPOINT` in `scripts/lh-forms.js` (`https://lh-forms.aem-poc-lab.workers.dev`);
+place, `FORMS_ENDPOINT` in `scripts/lh-forms.js` (`https://lhforms.bbird.live`, the worker's custom
+domain; it also answers on `https://lh-forms.aem-poc-lab.workers.dev`);
 testers can point a page at another worker with `localStorage.setItem('lh-forms', 'https://...')`.
 The worker only accepts the Edge Delivery hosts of this site and `http://localhost:3000` (Origin).
 

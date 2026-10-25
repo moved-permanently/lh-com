@@ -6,7 +6,10 @@ e-mail per valid submission through Cloudflare Email Service (`send_email` bindi
 Recipients come from a secret. It has no dependencies, and it never logs field values, file
 names or addresses.
 
-URL: https://lh-forms.aem-poc-lab.workers.dev
+URL: https://lhforms.bbird.live (public address, used by the form block), also
+https://lh-forms.aem-poc-lab.workers.dev. The custom domain is attached to the worker in the
+Cloudflare dashboard (Workers & Pages → lh-forms → Settings → Domains & Routes); `wrangler.toml`
+has no routes or custom domain, because the deploy token cannot manage the bbird.live zone.
 
 ## Endpoints
 
@@ -162,4 +165,5 @@ Every push to `main` that changes `tools/workers/lh-forms/**` (or
 in this folder and then `npx wrangler@4 deploy` to the Blackbird Cloudflare account, using the
 repository secret `CLOUDFLARE_API_TOKEN`, the same as lh-proxy. You can also start it by hand
 (workflow_dispatch). The first deploy creates the Durable Object class (migration `v1`).
-Afterwards, set the two secrets and check `curl https://lh-forms.aem-poc-lab.workers.dev/health`.
+Afterwards, set the two secrets, attach lhforms.bbird.live in the dashboard and check
+`curl https://lhforms.bbird.live/health` and `curl https://lh-forms.aem-poc-lab.workers.dev/health`.

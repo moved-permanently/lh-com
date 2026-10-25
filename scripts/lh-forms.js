@@ -3,8 +3,12 @@
  * submissions to, and the form ids it knows.
  */
 
-/** Origin of the deployed lh-forms worker; the block posts to `${origin}/submit`. */
-export const FORMS_ENDPOINT = 'https://lh-forms.aem-poc-lab.workers.dev';
+/**
+ * Public address of the lh-forms worker (custom domain, attached in the Cloudflare dashboard;
+ * the worker also answers on https://lh-forms.aem-poc-lab.workers.dev); the block posts to
+ * `${origin}/submit`.
+ */
+export const FORMS_ENDPOINT = 'https://lhforms.bbird.live';
 
 /** Where the block goes when a submission fails (live: origin + "/error.html"). */
 export const DEFAULT_ERROR_PAGE = '/error.html';

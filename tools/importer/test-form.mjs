@@ -534,7 +534,7 @@ globalThis.CSS = { escape: (s) => String(s) };
 
 /* network: the live site refuses (CORS), the recordings answer; every request is logged */
 const requests = [];
-const WORKER = 'https://lh-forms.aem-poc-lab.workers.dev';
+const WORKER = 'https://lhforms.bbird.live';
 let workerReply = { status: 200, body: { ok: true } };
 globalThis.fetch = async (url, init = {}) => {
   const href = String(url);
