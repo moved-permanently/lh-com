@@ -35,7 +35,12 @@ export function getLocale(pathname = window.location.pathname) {
   // /content/lh/markets/{country}/{lang}/...
   const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
   const match = rest.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  const key = match && LOCALES[`${match[1]}/${match[2]}`] ? `${match[1]}/${match[2]}` : DEFAULT_LOCALE;
+  let key = match && LOCALES[`${match[1]}/${match[2]}`] ? `${match[1]}/${match[2]}` : DEFAULT_LOCALE;
+  // a market the replica does not have (market-only pages, /us/en/ccpa): the migrated locale of
+  // the same language, for texts and the default nav and footer
+  if (match && !LOCALES[`${match[1]}/${match[2]}`]) {
+    key = Object.keys(LOCALES).find((k) => k.endsWith(`/${match[2]}`)) || DEFAULT_LOCALE;
+  }
   return {
     ...LOCALES[key],
     key,

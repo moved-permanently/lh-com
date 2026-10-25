@@ -19,6 +19,8 @@
  * - Canonical: the live canonical, only where it points to another URL than the page itself.
  * - Image: the live og:image (EDS sets og:image and twitter:image from it), unless the row
  *   already holds that image (or its local resized copy, media-manifest.json).
+ * - nav, footer: on market-only pages of a market without nav and footer in the replica (us/en),
+ *   those of the locale with the same language (/de/en/nav, /de/en/footer).
  * - primary-language-url: on the de/de and at/de pages whose slug differs from de/en in
  *   pages.csv, the de/en path of the same row.
  * No hreflang rows are written (live has no hreflang links in the head of these pages).
@@ -46,7 +48,9 @@ const scope = [...new Set([
   ...csvPaths('tools/migration-scope/pages.csv'),
   // market-only pages: path,locale,kind (the AirCore pages, /lhg/, left the scope on 2026-10-25)
   ...fs.readFileSync(path.join(root, 'tools/migration-scope/local-pages.csv'), 'utf8').trim().split('\n')
-    .slice(1).map((l) => l.split(',')[0].trim()).filter((p) => p.startsWith('/')),
+    .slice(1)
+    .map((l) => l.split(',')[0].trim())
+    .filter((p) => p.startsWith('/')),
 ])];
 
 const decode = (s) => s
@@ -103,6 +107,19 @@ fs.readFileSync(path.join(root, 'tools/migration-scope/pages.csv'), 'utf8').trim
     const slug = deEn.slice('/de/en'.length);
     if (deDe && deDe.slice('/de/de'.length) !== slug) primaryLanguage[deDe] = deEn;
     if (atDe && atDe.slice('/at/de'.length) !== slug) primaryLanguage[atDe] = deEn;
+  });
+
+// market-only pages of a market the replica has no nav or footer for (us/en): the nav and footer
+// of the locale with the same language (local-pages.csv locale us/en -> /de/en/nav, /de/en/footer)
+const LOCALE_DOCS = { en: 'de/en', de: 'de/de' };
+const MIGRATED = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const borrowed = {};
+fs.readFileSync(path.join(root, 'tools/migration-scope/local-pages.csv'), 'utf8').trim().split('\n').slice(1)
+  .forEach((l) => {
+    const [p, locale] = l.split(',').map((s) => (s || '').trim());
+    if (!p || !locale || MIGRATED.includes(locale)) return;
+    const lang = locale.split('/')[1];
+    if (LOCALE_DOCS[lang]) borrowed[p] = LOCALE_DOCS[lang];
   });
 
 const ROW = /<div><div>([^<]*)<\/div><div>([\s\S]*?)<\/div><\/div>/g;
@@ -179,6 +196,10 @@ pathsToDo.forEach((p) => {
     }
   }
   set('primary-language-url', primaryLanguage[p] ? escape(primaryLanguage[p]) : null);
+  if (borrowed[p]) {
+    set('nav', `/${borrowed[p]}/nav`);
+    set('footer', `/${borrowed[p]}/footer`);
+  }
   if (!changed.length) return;
   results.push({ path: p, changed });
   if (dry) return;

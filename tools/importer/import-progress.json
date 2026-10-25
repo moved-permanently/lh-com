@@ -6593,5 +6593,115 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-25T05:49:31.248Z"
+ },
+ "https://www.lufthansa.com/de/en/support/support": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T19:00:37.023Z"
+ },
+ "https://www.lufthansa.com/de/en/good-for-train": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.410Z"
+ },
+ "https://www.lufthansa.com/de/en/travel-briefing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.413Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/destination": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.416Z"
+ },
+ "https://www.lufthansa.com/de/de/support/support": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T19:00:37.023Z"
+ },
+ "https://www.lufthansa.com/de/de/good-for-train": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.418Z"
+ },
+ "https://www.lufthansa.com/de/de/travel-briefing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.419Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/destination": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.422Z"
+ },
+ "https://www.lufthansa.com/at/de/support/support": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T19:00:37.023Z"
+ },
+ "https://www.lufthansa.com/at/de/good-for-train": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.428Z"
+ },
+ "https://www.lufthansa.com/at/de/travel-briefing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.431Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/destination": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.434Z"
+ },
+ "https://www.lufthansa.com/gb/en/support/support": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T19:00:37.023Z"
+ },
+ "https://www.lufthansa.com/gb/en/good-for-train": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.439Z"
+ },
+ "https://www.lufthansa.com/gb/en/travel-briefing": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.442Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/destination": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.445Z"
+ },
+ "https://www.lufthansa.com/us/en/dnsmpi": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.448Z"
+ },
+ "https://www.lufthansa.com/us/en/ccpa": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T18:50:17.451Z"
+ },
+ "https://www.lufthansa.com/de/en/common/baggage-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-25T18:50:34.602Z"
+ },
+ "https://www.lufthansa.com/de/de/common/baggage-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-25T18:50:34.605Z"
+ },
+ "https://www.lufthansa.com/at/de/common/baggage-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-25T18:50:34.608Z"
+ },
+ "https://www.lufthansa.com/gb/en/common/baggage-conditions": {
+  "template": "legal",
+  "status": "ok",
+  "at": "2026-10-25T18:50:34.609Z"
  }
 }

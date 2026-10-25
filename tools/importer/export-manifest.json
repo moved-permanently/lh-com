@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T05:28:39.126Z",
+ "generatedAt": "2026-10-25T18:47:23.747Z",
  "items": [
   {
    "kind": "page",
@@ -14499,6 +14499,246 @@
   },
   {
    "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/support/support",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/support/support.model.json",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/de/support/support",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/support/support.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/support/support",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/support/support.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/support/support",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/support/support.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/good-for-train",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/good-for-train.model.json",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/de/good-for-train",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/good-for-train.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/good-for-train",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/good-for-train.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/good-for-train",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/good-for-train.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/travel-briefing",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/travel-briefing.model.json",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/de/travel-briefing",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/travel-briefing.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/travel-briefing",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/travel-briefing.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/travel-briefing",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/travel-briefing.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/common/baggage-conditions",
+   "template": "legal",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/common/baggage-conditions.model.json",
+   "template": "legal",
+   "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/de/common/baggage-conditions",
+   "template": "legal",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/common/baggage-conditions.model.json",
+   "template": "legal",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/common/baggage-conditions",
+   "template": "legal",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/common/baggage-conditions.model.json",
+   "template": "legal",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/common/baggage-conditions",
+   "template": "legal",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/common/baggage-conditions.model.json",
+   "template": "legal",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/book-and-manage/destination",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/book-and-manage/destination.model.json",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/destination",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/destination.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/destination",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/destination.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/book-and-manage/destination",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/book-and-manage/destination.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
    "url": "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion",
    "template": "local-local-promotion",
    "locale": "de/en"
@@ -14616,6 +14856,30 @@
    "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge.model.json",
    "template": "local-loungenet",
    "locale": "de/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/us/en/dnsmpi",
+   "template": "local-legal",
+   "locale": "us/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/us/en/dnsmpi.model.json",
+   "template": "local-legal",
+   "locale": "us/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/us/en/ccpa",
+   "template": "local-legal",
+   "locale": "us/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/us/en/ccpa.model.json",
+   "template": "local-legal",
+   "locale": "us/en"
   },
   {
    "kind": "sitemap",

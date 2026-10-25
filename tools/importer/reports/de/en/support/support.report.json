@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/support/support",
+  "path": "de/en/support/support",
+  "timestamp": "2026-10-25T19:00:20.391Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "help-center"
+  ]
+}

@@ -1,8 +1,4 @@
-https://www.lufthansa.com/de/en/cookie-policy
-https://www.lufthansa.com/de/de/cookie-policy
-https://www.lufthansa.com/at/de/cookie-policy
-https://www.lufthansa.com/gb/en/cookie-policy
-https://www.lufthansa.com/de/en/data-collection-usa
-https://www.lufthansa.com/de/de/datenerfassung-fuer-die-usa
-https://www.lufthansa.com/at/de/datenerfassung-fuer-die-usa
-https://www.lufthansa.com/gb/en/data-collection-usa
+https://www.lufthansa.com/de/en/common/baggage-conditions
+https://www.lufthansa.com/de/de/common/baggage-conditions
+https://www.lufthansa.com/at/de/common/baggage-conditions
+https://www.lufthansa.com/gb/en/common/baggage-conditions

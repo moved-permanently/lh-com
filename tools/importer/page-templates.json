@@ -1107,6 +1107,22 @@
         "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
         "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
         "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+        "https://www.lufthansa.com/de/en/support/support",
+        "https://www.lufthansa.com/de/de/support/support",
+        "https://www.lufthansa.com/at/de/support/support",
+        "https://www.lufthansa.com/gb/en/support/support",
+        "https://www.lufthansa.com/de/en/good-for-train",
+        "https://www.lufthansa.com/de/de/good-for-train",
+        "https://www.lufthansa.com/at/de/good-for-train",
+        "https://www.lufthansa.com/gb/en/good-for-train",
+        "https://www.lufthansa.com/de/en/travel-briefing",
+        "https://www.lufthansa.com/de/de/travel-briefing",
+        "https://www.lufthansa.com/at/de/travel-briefing",
+        "https://www.lufthansa.com/gb/en/travel-briefing",
+        "https://www.lufthansa.com/de/en/book-and-manage/destination",
+        "https://www.lufthansa.com/de/de/book-and-manage/destination",
+        "https://www.lufthansa.com/at/de/book-and-manage/destination",
+        "https://www.lufthansa.com/gb/en/book-and-manage/destination",
         "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion",
         "https://www.lufthansa.com/de/de/local-page/south-africa-winter-promotion",
         "https://www.lufthansa.com/de/en/event/dghm-2026",
@@ -1116,9 +1132,17 @@
         "https://www.lufthansa.com/gb/en/local-page/ski-campaign-2026",
         "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
         "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
-        "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge"
+        "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+        "https://www.lufthansa.com/us/en/dnsmpi",
+        "https://www.lufthansa.com/us/en/ccpa"
       ],
       "blocks": [
+        {
+          "name": "help-center",
+          "instances": [
+            ".help-center-container:has(.topic-selection-topic-list-container)"
+          ]
+        },
         {
           "name": "message-center",
           "instances": [
@@ -2165,7 +2189,11 @@
         "https://www.lufthansa.com/de/en/travel-id-terms-conditions",
         "https://www.lufthansa.com/de/de/travel-id-terms-conditions",
         "https://www.lufthansa.com/at/de/travel-id-terms-conditions",
-        "https://www.lufthansa.com/gb/en/travel-id-terms-conditions"
+        "https://www.lufthansa.com/gb/en/travel-id-terms-conditions",
+        "https://www.lufthansa.com/de/en/common/baggage-conditions",
+        "https://www.lufthansa.com/de/de/common/baggage-conditions",
+        "https://www.lufthansa.com/at/de/common/baggage-conditions",
+        "https://www.lufthansa.com/gb/en/common/baggage-conditions"
       ],
       "blocks": [
         {

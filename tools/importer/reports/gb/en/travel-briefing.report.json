@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/travel-briefing",
+  "path": "gb/en/travel-briefing",
+  "timestamp": "2026-10-25T18:50:02.158Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}
