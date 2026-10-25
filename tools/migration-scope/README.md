@@ -61,7 +61,10 @@ serves them under (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet
 identical on www apart from their canonical URL, so their content is authored once in
 `/de/en/fragments/loungenet-first-class-lounge`; each lounge page holds only a Fragment block and
 its own metadata (title, canonical, robots). `tools/importer/share-sections.mjs` does that after
-an import. The 10 pages import with the `info` template.
+an import. The 10 pages import with the `info` template. The US privacy pages `/us/en/dnsmpi` and `/us/en/ccpa`
+(kind `legal`) are market-only pages because the Lufthansa app always opens them for the US
+market; the replica has no us/en nav or footer, so they carry `nav` / `footer` metadata of de/en
+(head-metadata.mjs) and the page scripts use the de/en locale for them (scripts/locale.js).
 
 ## AirCore (/lhg/), out of scope
 
