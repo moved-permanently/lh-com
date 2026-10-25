@@ -274,6 +274,10 @@ const HOTEL_LABELS_EN = {
   'hotel external note': 'Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies.',
   'close label': 'Close',
 };
+/** Hotel tab texts taken from the live label bundle (labels/flightmanager), by label key. */
+const HOTEL_LIVE_LABELS = {
+  'hotel submit label': 'flightmanager.hotel.default.searchButton',
+};
 const HOTEL_LABELS = {
   en: HOTEL_LABELS_EN,
   de: {
@@ -452,6 +456,16 @@ function buildHotelPanel(config, locale, onClose) {
   submit.setAttribute('aria-describedby', note.id);
   footer.append(submit, note);
   form.append(footer);
+  // the button text of the live label bundle (labels/flightmanager), as the flight tab gets its
+  // labels: de "Hotelsuche", en "Search hotel"; a "Hotel submit label" row other than the
+  // built-in English text (which the importer copies from the rendered live tab) wins
+  const builtIn = (HOTEL_LABELS[locale.lang] || HOTEL_LABELS.en)['hotel submit label'];
+  if (labels['hotel submit label'] === builtIn) {
+    fetchLabels(['flightmanager'], locale).then((live) => {
+      const text = pickLabels(live.labels, HOTEL_LIVE_LABELS)['hotel submit label'];
+      if (text) submit.textContent = text;
+    }).catch(() => {});
+  }
 
   const close = el('button', 'flight-search-close');
   close.type = 'button';

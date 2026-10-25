@@ -543,7 +543,14 @@
   "page": "/{de/de,de/en,at/de,gb/en}/unterhaltung-an-bord",
   "block": "ejournals",
   "change": "eJournals: .ejournals > .dcep-ejournals mapped in info to the new parser ejournals.js (one empty ejournals block; the Login heading stays), so the block replaces the Loading... paragraph. Re-imported, uploaded and previewed; preview: the logged-out view (de/de: Melden Sie sich mit Ihrem Profil an... / Zum Login / Buchungscode oder Ticketnummer / Zum kostenlosen Download; gb/en in English, Travel ID login with state=/{cc}/{ll}/unterhaltung-an-bord), labels recorded. Spot-check unmasked 1440/768/390 before -> after: de/de 32.4/33.7/26.4 -> 32.4/30.4/23.5, de/en 32.5/32.9/26.5 -> 32.5/29.5/23.6, gb/en (1440) 32.9 -> 32.9. Still open (not part of this fix): the page is a tab control on live (only the first panel shows; replica 7601 px vs live 3010), not mapped because its panels hold an iframe (the media-carrier box, also not imported) and the eJournals app.",
-  "commit": "ejournals",
+  "commit": "cf26867",
+  "date": "2026-10-25"
+ },
+ {
+  "page": "/{de/de,at/de}/hotelangebote, /{de/en,gb/en}/hotel-offers, hotel tab on cash-and-miles",
+  "block": "flight-search (hotel tab)",
+  "change": "Hotel submit button: the live label flightmanager.hotel.default.searchButton from labels/flightmanager per locale (de 'Hotelsuche', en 'Search hotel'), as the flight tab gets its labels, also on the hotel-only standalone card; an authored row other than the built-in 'Search hotel' still wins. Note: the live de/de snapshot itself renders the English built-in 'Search hotel'.",
+  "commit": "hotel-label",
   "date": "2026-10-25"
  }
 ]
