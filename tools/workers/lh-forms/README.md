@@ -68,7 +68,7 @@ Lower `FILE_RULES.maxTotal` if that happens.
 | 413 | `payload-too-large` (body over 6 MB), `file-too-large`, `files-too-large` |
 | 429 | `rate-limited` |
 | 500 | `not-configured`, `no-recipients`, `internal-error` |
-| 502 | `send-failed` (Email Service rejected the message; only the error code is logged) |
+| 502 | `send-failed` (Email Service rejected the message; the answer and the log carry only its error code, e.g. `"code":"E_SENDER_NOT_VERIFIED"`) |
 
 The body cap is 6,000,000 bytes. A larger `Content-Length` is rejected before the body is read.
 Without a `Content-Length`, the cap is enforced while the body is read.

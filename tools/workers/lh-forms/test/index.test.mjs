@@ -497,7 +497,8 @@ test('send failure → 502 and the log carries no address or value', async () =>
     });
     const { res, body } = await post({}, env);
     assert.equal(res.status, 502);
-    assert.deepEqual(body, { ok: false, error: 'send-failed' });
+    assert.deepEqual(body, { ok: false, error: 'send-failed', code: 'E_SENDER_NOT_VERIFIED' });
+    assert.ok(!JSON.stringify(body).includes('@'));
   } finally {
     // eslint-disable-next-line no-console
     console.error = realError;

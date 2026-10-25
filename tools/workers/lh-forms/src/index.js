@@ -433,8 +433,11 @@ async function submit(request, env, origin) {
   } catch (e) {
     // only the error code: never the message, which may quote addresses
     // eslint-disable-next-line no-console
-    console.error('lh-forms send failed', String((e && e.code) || 'unknown'));
-    return fail(502, 'send-failed', origin);
+    const code = /^E_[A-Z_]+$/.test(String(e && e.code)) ? String(e.code) : 'unknown';
+    console.error('lh-forms send failed', code);
+    // the Email Service error code (E_SENDER_NOT_VERIFIED, ...) says what to fix; it holds no
+    // address or field value
+    return json(502, { ok: false, error: 'send-failed', code }, origin);
   }
   return json(200, { ok: true }, origin);
 }
