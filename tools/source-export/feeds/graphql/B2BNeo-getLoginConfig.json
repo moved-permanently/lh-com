@@ -1,0 +1,1 @@
+{"errors":[{"message":"Exception while fetching data (/loginConfigByPath) : Path: '/content/dam/hcl/en/login-external-config' did not yield a Content Fragment","locations":[{"line":2,"column":3}],"path":["loginConfigByPath"],"extensions":{"classification":"DataFetchingException"}}],"data":null}

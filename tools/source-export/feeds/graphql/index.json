@@ -1,6 +1,6 @@
 {
  "recorded": "2026-10-25T18:36Z/18:41Z",
- "note": "GET https://www.lufthansa.com<url> from a page on www, credentials omitted. Variables as ;name=value; path values with plain slashes (www answers 404 when the slashes are %2F-encoded). Ancillary catalog: properties values blanked when the name suggests a key or id or the value looks like a token (names kept).",
+ "note": "GET https://www.lufthansa.com<url> from a page on www, credentials omitted. Variables as ;name=value; path values with plain slashes (www answers 404 when the slashes are %2F-encoded). Ancillary catalog: properties values blanked when the name suggests a key or id or the value looks like a token (names kept). Error answers (failing and unknown queries) recorded 2026-10-25 21:38Z, bodies byte for byte.",
  "tmcRedaction": {
   "kept": 15,
   "blanked": 30,
@@ -394,6 +394,52 @@
    "cache-control": "public, max-age=120",
    "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
    "bytes": 4786
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationList": {
+   "file": "graphql/Travel-Regulations-TravelRegulationList.json",
+   "status": 500,
+   "content-type": "application/json",
+   "bytes": 1305,
+   "recorded": "2026-10-25T21:38:04Z"
+  },
+  "/graphql/execute.json/BenefitCard/benefitcardimageList": {
+   "file": "graphql/BenefitCard-benefitcardimageList.json",
+   "status": 500,
+   "content-type": "application/json",
+   "bytes": 279,
+   "recorded": "2026-10-25T21:38:07Z"
+  },
+  "/graphql/execute.json/B2BNeo/getLoginConfig": {
+   "file": "graphql/B2BNeo-getLoginConfig.json",
+   "status": 200,
+   "content-type": "application/json",
+   "bytes": 295,
+   "recorded": "2026-10-25T21:38:10Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/B2BNeo/getLoginConfigByPath": {
+   "file": "graphql/B2BNeo-getLoginConfigByPath.json",
+   "status": 200,
+   "content-type": "application/json",
+   "bytes": 217,
+   "recorded": "2026-10-25T21:38:13Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/Message-Center/noSuchQuery": {
+   "file": "graphql/Message-Center-noSuchQuery.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 211,
+   "recorded": "2026-10-25T21:38:16Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/NoSuchConfig/noSuchQuery": {
+   "file": "graphql/NoSuchConfig-noSuchQuery.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 209,
+   "recorded": "2026-10-25T21:38:19Z",
+   "cache-control": "public, max-age=120"
   }
  }
 }

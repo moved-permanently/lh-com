@@ -1,0 +1,1 @@
+{"errors":[{"errorType":"QueryValidationError","message":"Persisted Query Validation Error","details":"Error: type=ValidationError; message=Validation error (FieldUndefined@[benefitcardimageList]) : Field 'benefitcardimageList' in type 'QueryType' is undefined; location=2,3;"}]}
