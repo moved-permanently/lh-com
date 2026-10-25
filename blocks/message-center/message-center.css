@@ -11,6 +11,16 @@ main > .section > .message-center-wrapper.message-center-empty + div {
   margin-top: 0;
 }
 
+/* live: the first item 280px from the top at 1440, 40px lower than the default spacing after the
+   h1 gives; the standing accordion (the next section, 48px) 60px below the last item */
+main > .section > .message-center-wrapper:not(.message-center-empty) {
+  padding-bottom: 12px;
+}
+
+main > .section > div + .message-center-wrapper:not(.message-center-empty) {
+  margin-top: calc(var(--spacing-default) + 40px);
+}
+
 main > .section > .message-center-wrapper:not(.message-center-empty) + div {
   margin-top: 60px;
 }
