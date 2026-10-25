@@ -1,0 +1,24 @@
+name = "lh-edge"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+# deploys to workers.dev; a demo host is attached in the Cloudflare dashboard (no routes or custom
+# domains here, so the Worker moves to another account and zone unchanged)
+workers_dev = true
+
+# the Message Center JSON (/graphql/execute.json/Message-Center/*): the messages Worker
+[[services]]
+binding = "MESSAGES"
+service = "lh-messages"
+
+# Secret (optional, not here): ORIGIN_AUTHENTICATION, the site token when the origin needs one.
+
+[vars]
+# the Edge Delivery origin (the reference Worker's ORIGIN_HOSTNAME)
+ORIGIN = "main--lh-com--moved-permanently.aem.live"
+# X-Forwarded-Host towards the origin: the public host of the site (empty: the request's host)
+PUBLIC_HOST = ""
+# the host whose <host>.solo_continue/ closes the app's web view, and www's page links in solo pages
+WWW_HOST = "www.lufthansa.com"
+# the alias sheet of the app's web view paths
+ALIAS_SHEET = "/app/config/webview-aliases.json"
+# PUSH_INVALIDATION = "disabled"   # only for lower environments (more origin traffic)

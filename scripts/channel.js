@@ -7,9 +7,11 @@
  *   metadata `channel: flynet`, which the lh-flynet site sets for every page with one row of
  *   its bulk metadata sheet (URL `/**`); never by hostname. Without that row the code renders
  *   the website.
- * - app: `?channel=app` on any page (lh-com or lh-flynet): no header, footer, breadcrumb or
+ * - app: `?channel=app` on any page (lh-com or lh-flynet), or page metadata `channel: app` (lh-edge
+ *   sets it for the app's solo URLs, <page>.solo_continue): no header, footer, breadcrumb or
  *   cookie banner, for an app's web view, which handles navigation and consent itself. Internal
- *   links keep the parameter, so the reader stays in the app view. No second site, no copy.
+ *   links keep the parameter (solo pages: the .solo_continue form), so the reader stays in the app
+ *   view; homepage links become the URL that closes the web view. No second site, no copy.
  * The showcase notice (scripts/showcase-notice.js) shows in every channel.
  */
 import { getMetadata } from './aem.js';
@@ -92,12 +94,60 @@ export function appViewUrl(href) {
   return url.href;
 }
 
-/** App view: every internal link the reader follows keeps ?channel=app. */
+/** The solo URL forms of the app's web view (lh-edge answers them in the app view). */
+const SOLO_SUFFIX = /(\.solo\.continue\.solo_continue|\.solo_continue\.genapp\.html|\.solo_continue\.html|\.solo\.continue|\.solo_continue)$/;
+const HOMEPAGE = /^\/(?:[a-z]{2}\/[a-z]{2}(?:\/homepage)?)?\/?$/;
+const DEFAULT_WWW_HOST = 'www.lufthansa.com';
+
+/** Whether the page was opened through a solo URL (<page>.solo_continue, lh-edge). */
+export function isSoloView(pathname = window.location.pathname) {
+  return SOLO_SUFFIX.test(pathname);
+}
+
+/** The URL on which the app closes its web view (lh-edge's meta app-close-url, else www's). */
+export function appCloseUrl() {
+  return getMetadata('app-close-url') || `https://${DEFAULT_WWW_HOST}.solo_continue/`;
+}
+
+/**
+ * The href of a link in the app view: a homepage link closes the web view; in a page opened
+ * through a solo URL, page links get the .solo_continue form (on this host and on www), else
+ * ?channel=app (appViewUrl). Logout links and files stay. Null: leave the link.
+ * @param {string} href
+ * @param {boolean} [solo] the page was opened through a solo URL
+ * @returns {string|null}
+ */
+export function appLinkUrl(href, solo = isSoloView()) {
+  let url;
+  try {
+    url = new URL(href, window.location.href);
+  } catch (e) {
+    return null;
+  }
+  if (!/^https?:$/.test(url.protocol)) return null;
+  const closeUrl = appCloseUrl();
+  const wwwHost = new URL(closeUrl.replace('.solo_continue/', '/')).hostname || DEFAULT_WWW_HOST;
+  const own = url.origin === window.location.origin;
+  const www = url.hostname === wwwHost;
+  if (!own && !www) return null;
+  if (/\/logout(\/|$|\.|\?)/i.test(url.pathname)) return null;
+  if (HOMEPAGE.test(url.pathname)) return closeUrl;
+  if (/\.(?!html?$)[a-z0-9]{2,5}$/i.test(url.pathname) || SOLO_SUFFIX.test(url.pathname)) return null;
+  if (!solo) return own ? appViewUrl(url.href) : null;
+  const path = url.pathname.replace(/\.html?$/, '').replace(/\/+$/, '');
+  const target = `${path}.solo_continue${url.search}${url.hash}`;
+  return own ? target : `https://${wwwHost}${target}`;
+}
+
+/**
+ * App view: every internal link the reader follows stays in it (the .solo_continue form when the
+ * page was opened through one, else ?channel=app); homepage links close the web view.
+ */
 function keepAppView() {
   const rewrite = (e) => {
     const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
-    const next = appViewUrl(a.href);
+    const next = appLinkUrl(a.href);
     if (next && next !== a.href) a.href = next;
   };
   // before the browser follows the link (click, middle click, context menu "open in new tab")
