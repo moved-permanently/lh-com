@@ -19,12 +19,10 @@
  * - Canonical: the live canonical, only where it points to another URL than the page itself.
  * - Image: the live og:image (EDS sets og:image and twitter:image from it), unless the row
  *   already holds that image (or its local resized copy, media-manifest.json).
- * - JSON-LD (AirCore route pages): the "json-ld" row from tools/importer/aircore-jsonld.json
- *   (recorded by tools/importer/bd-record-head.mjs), one JSON value ("@graph" for several).
  * - primary-language-url: on the de/de and at/de pages whose slug differs from de/en in
  *   pages.csv, the de/en path of the same row.
- * No hreflang rows are written (live has no hreflang links in the head of these pages; the
- * AirCore alternates are recorded in tools/migration-scope/aircore.csv only).
+ * No hreflang rows are written (live has no hreflang links in the head of these pages).
+ * (The json-ld rows of the AirCore route pages went with the /lhg/ pages on 2026-10-25.)
  *
  * Usage: node tools/importer/head-metadata.mjs [--path /de/en/homepage ...] [--dry]
  *   prints one line per changed page and a summary; --report writes the gap table
@@ -106,8 +104,6 @@ fs.readFileSync(path.join(root, 'tools/migration-scope/pages.csv'), 'utf8').trim
     if (deDe && deDe.slice('/de/de'.length) !== slug) primaryLanguage[deDe] = deEn;
     if (atDe && atDe.slice('/at/de'.length) !== slug) primaryLanguage[atDe] = deEn;
   });
-const jsonldFile = path.join(root, 'tools/importer/aircore-jsonld.json');
-const jsonld = fs.existsSync(jsonldFile) ? JSON.parse(fs.readFileSync(jsonldFile, 'utf8')) : {};
 
 const ROW = /<div><div>([^<]*)<\/div><div>([\s\S]*?)<\/div><\/div>/g;
 
@@ -183,12 +179,6 @@ pathsToDo.forEach((p) => {
     }
   }
   set('primary-language-url', primaryLanguage[p] ? escape(primaryLanguage[p]) : null);
-  // <, > and & as JSON escapes: the pipeline HTML-escapes them inside the script element
-  // (an FAQ answer's <a href> came out as "&#x3c;a href")
-  if (jsonld[p]) {
-    set('json-ld', escape(JSON.stringify(jsonld[p])
-      .replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026')));
-  }
   if (!changed.length) return;
   results.push({ path: p, changed });
   if (dry) return;

@@ -53,7 +53,7 @@ const md = [
   '# Page head metadata: live vs preview',
   '',
   `Generated ${new Date().toISOString()} from the live snapshots (tools/importer/bd-snapshots) and the`,
-  `preview heads of ${Object.keys(live).length} scope pages (pages.csv, 4 locales, and the AirCore pages).`,
+  `preview heads of ${Object.keys(live).length} scope pages (pages.csv, 4 locales).`,
   'Filled by `tools/importer/head-metadata.mjs` (post-import step), uploaded to DA and previewed.',
   '',
   '## Summary',

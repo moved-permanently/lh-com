@@ -32,7 +32,7 @@ const TYPES = {
 function fileFor(urlPath) {
   const clean = decodeURIComponent(urlPath).replace(/\/+$/, '') || '/';
   if (clean.includes('..')) return null;
-  const candidates = clean.startsWith('/sitemap/') || clean.startsWith('/aircore/sitemaps/')
+  const candidates = clean.startsWith('/sitemap/')
     ? [path.join(src, 'sitemaps', path.basename(clean))]
     : [path.join(src, 'pages', clean), path.join(src, 'pages', `${clean.replace(/\.html$/, '')}.html`)];
   return candidates.find((f) => fs.existsSync(f) && fs.statSync(f).isFile()) || null;

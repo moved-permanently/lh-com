@@ -2,8 +2,7 @@
 /* global WebImporter */
 
 /**
- * Parser for flight-search (Lufthansa ".redesignedflightmanager" / ".dcep-flight-manager", and
- * the AirCore ".flight-manager-full-width" on /lhg/ pages, see parseAirCore below).
+ * Parser for flight-search (Lufthansa ".redesignedflightmanager" / ".dcep-flight-manager").
  *
  * Output: 2-column key/value config table read by blocks/flight-search (readConfigRows).
  * Keys are config keys (not visible content); every value is read from the source DOM so the
@@ -39,70 +38,6 @@ export default function parse(element, { document }) {
     return clean(clone.textContent);
   };
   const attr = (node, name) => clean(node ? node.getAttribute(name) : '');
-
-  // AirCore (/lhg/) flight manager: different markup, same block contract.
-  if (element.matches('.flight-manager-full-width') || element.querySelector('#flightSearch #tripType-input, #flightSearch #searchFlights')) {
-    parseAirCore();
-    return;
-  }
-
-  /**
-   * AirCore `.flight-manager-full-width` (server-rendered, no React props):
-   *   #tripType-listbox li[role=option]   -> Trip types (Round trip, One-way) / Default trip type
-   *       (the third option "Multi-city flights" (data-value="multi") is not supported by the
-   *       block, which only offers round trip and one way, so it is not emitted)
-   *   #travelerClass                       -> Traveller label
-   *   .btn-nonstop-only .custom-control-description -> Nonstop label
-   *   label[for=flightFrom-input] / label[for=flightTo-input] -> From label / To label
-   *   #flightFrom-input / #flightTo-input [data-value] + value -> Default origin / destination
-   *       ("New York (NYC)"; empty origin = row omitted -> locale home airport)
-   *   #displayDateLabel                    -> Date label
-   *   #searchFlights                       -> Submit label ("Find flights")
-   */
-  function parseAirCore() {
-    const rows = [];
-    const add = (key, value) => {
-      if (value) rows.push([key, value]);
-    };
-    const options = [...element.querySelectorAll('#tripType-listbox li[role="option"]')]
-      .filter((li) => !li.matches('.multicity, [data-value="multi"], [data-url]'));
-    const tripTypes = [...new Set(options.map(visibleText).filter(Boolean))];
-    const tripInput = element.querySelector('#tripType-input');
-    const selected = options.find((li) => li.classList.contains('selected'));
-    const selectedTrip = visibleText(selected) || attr(tripInput, 'value');
-    if (!tripTypes.length && selectedTrip) tripTypes.push(selectedTrip);
-    add('Trip types', tripTypes.join(', '));
-    if (tripTypes.length > 1) add('Default trip type', selectedTrip);
-
-    add('Traveller label', visibleText(element.querySelector('#travelerClass') || element.querySelector('.travelerClass')));
-    add('Nonstop label', visibleText(element.querySelector('.btn-nonstop-only .custom-control-description')));
-
-    const airport = (input) => {
-      const code = attr(input, 'data-value');
-      if (!/^[A-Za-z]{3}$/.test(code)) return '';
-      const name = attr(input, 'value');
-      return name && name.toUpperCase() !== code.toUpperCase() ? `${name} (${code.toUpperCase()})` : code.toUpperCase();
-    };
-    const fromInput = element.querySelector('#flightFrom-input');
-    const toInput = element.querySelector('#flightTo-input');
-    add('From label', visibleText(element.querySelector('label[for="flightFrom-input"]')) || attr(fromInput, 'placeholder'));
-    add('Default origin', airport(fromInput));
-    add('To label', visibleText(element.querySelector('label[for="flightTo-input"]')) || attr(toInput, 'placeholder'));
-    add('Default destination', airport(toInput));
-
-    const dateLabel = element.querySelector('#displayDateLabel');
-    add('Date label', attr(dateLabel, 'data-translation-rt') || visibleText(dateLabel));
-    add('Submit label', visibleText(element.querySelector('#searchFlights')));
-
-    const travelerEl = element.querySelector('#travelerClass[data-compartment], .travelerClass[data-compartment]');
-    const cabin = attr(travelerEl, 'data-compartment').toUpperCase();
-    if (/^[A-Z]$/.test(cabin) && cabin !== 'E') add('Cabin', cabin);
-    const adults = parseInt(attr(travelerEl, 'data-adults'), 10);
-    if (adults > 1) add('Adults', String(adults));
-
-    const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: 'flight-search', cells: rows });
-    element.replaceWith(aircoreBlock);
-  }
 
   // React props of the flight manager (only present on the raw source page).
   let props = {};

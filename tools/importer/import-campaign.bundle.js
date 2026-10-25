@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_502414_exports = {};
-  __export(tmp_bundle_campaign_502414_exports, {
-    default: () => tmp_bundle_campaign_502414_default
+  var tmp_bundle_campaign_535907_exports = {};
+  __export(tmp_bundle_campaign_535907_exports, {
+    default: () => tmp_bundle_campaign_535907_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -918,48 +918,6 @@ var CustomImportScript = (() => {
       return clean2(clone.textContent);
     };
     const attr = (node, name2) => clean2(node ? node.getAttribute(name2) : "");
-    if (element.matches(".flight-manager-full-width") || element.querySelector("#flightSearch #tripType-input, #flightSearch #searchFlights")) {
-      parseAirCore();
-      return;
-    }
-    function parseAirCore() {
-      const rows = [];
-      const add = (key, value) => {
-        if (value) rows.push([key, value]);
-      };
-      const options = [...element.querySelectorAll('#tripType-listbox li[role="option"]')].filter((li) => !li.matches('.multicity, [data-value="multi"], [data-url]'));
-      const tripTypes2 = [...new Set(options.map(visibleText).filter(Boolean))];
-      const tripInput = element.querySelector("#tripType-input");
-      const selected = options.find((li) => li.classList.contains("selected"));
-      const selectedTrip2 = visibleText(selected) || attr(tripInput, "value");
-      if (!tripTypes2.length && selectedTrip2) tripTypes2.push(selectedTrip2);
-      add("Trip types", tripTypes2.join(", "));
-      if (tripTypes2.length > 1) add("Default trip type", selectedTrip2);
-      add("Traveller label", visibleText(element.querySelector("#travelerClass") || element.querySelector(".travelerClass")));
-      add("Nonstop label", visibleText(element.querySelector(".btn-nonstop-only .custom-control-description")));
-      const airport = (input) => {
-        const code = attr(input, "data-value");
-        if (!/^[A-Za-z]{3}$/.test(code)) return "";
-        const name2 = attr(input, "value");
-        return name2 && name2.toUpperCase() !== code.toUpperCase() ? `${name2} (${code.toUpperCase()})` : code.toUpperCase();
-      };
-      const fromInput = element.querySelector("#flightFrom-input");
-      const toInput = element.querySelector("#flightTo-input");
-      add("From label", visibleText(element.querySelector('label[for="flightFrom-input"]')) || attr(fromInput, "placeholder"));
-      add("Default origin", airport(fromInput));
-      add("To label", visibleText(element.querySelector('label[for="flightTo-input"]')) || attr(toInput, "placeholder"));
-      add("Default destination", airport(toInput));
-      const dateLabel = element.querySelector("#displayDateLabel");
-      add("Date label", attr(dateLabel, "data-translation-rt") || visibleText(dateLabel));
-      add("Submit label", visibleText(element.querySelector("#searchFlights")));
-      const travelerEl = element.querySelector("#travelerClass[data-compartment], .travelerClass[data-compartment]");
-      const cabin = attr(travelerEl, "data-compartment").toUpperCase();
-      if (/^[A-Z]$/.test(cabin) && cabin !== "E") add("Cabin", cabin);
-      const adults = parseInt(attr(travelerEl, "data-adults"), 10);
-      if (adults > 1) add("Adults", String(adults));
-      const aircoreBlock = WebImporter.Blocks.createBlock(document, { name: "flight-search", cells: rows });
-      element.replaceWith(aircoreBlock);
-    }
     let props = {};
     const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
     if (propsHost) {
@@ -993,6 +951,17 @@ var CustomImportScript = (() => {
     const withCode = (value) => /\([A-Za-z]{3}\)/.test(value) || /^[A-Za-z]{3}$/.test(value) ? value : "";
     addRow("Default origin", withCode(clean2(props.prefilledOrigin)) || withCode(fieldValue(originField)));
     addRow("Default destination", withCode(clean2(props.prefilledDestination)) || withCode(fieldValue(destinationField)));
+    const picture = (src) => {
+      if (!/^\/content\/dam\//.test(clean2(src))) return null;
+      const pic = document.createElement("picture");
+      const img = document.createElement("img");
+      img.src = `https://www.lufthansa.com${encodeURI(decodeURI(clean2(src)))}`;
+      img.alt = "";
+      pic.append(img);
+      return pic;
+    };
+    addRow("Background image", picture(props.backgroundImageL));
+    addRow("Background image mobile", picture(props.backgroundImageS));
     if (/^[A-Za-z]$/.test(clean2(props.prefilledCabinClass))) addRow("Cabin", clean2(props.prefilledCabinClass).toUpperCase());
     const wwf = element.querySelector(".flma-where-we-fly-wrapper [href]");
     if (wwf && visibleText(wwf)) {
@@ -1113,6 +1082,7 @@ var CustomImportScript = (() => {
     if (info.classList.contains("alignment-right")) variants.push("right");
     if (info.classList.contains("uplift-animation") || teaser.classList.contains("inspiration-teaser-uplift-animation")) variants.push("card");
     if (teaser.classList.contains("inspiration-teaser-narrow")) variants.push("narrow");
+    if (teaser.classList.contains("inspiration-teaser-regular")) variants.push("regular");
     const block = WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants, cells });
     element.replaceWith(block);
   }
@@ -1491,41 +1461,6 @@ var CustomImportScript = (() => {
       const media = element.classList.contains("videoViewer") ? viewerNodes2(element) : mediaNodes(element);
       if (!media.some((n) => n.tagName === "P")) return;
       element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "columns-media", cells: [[media]] }));
-      return;
-    }
-    const floated = element.matches("p") && element.querySelector('img[style*="float"]');
-    if (floated) {
-      const right = /float:\s*right/i.test(floated.getAttribute("style") || "");
-      const pct = parseInt(floated.getAttribute("width") || "", 10);
-      const media = [];
-      if (!isBroken3(floated.getAttribute("src"))) {
-        const img = document.createElement("img");
-        img.setAttribute("src", floated.getAttribute("src"));
-        img.setAttribute("alt", floated.getAttribute("alt") || "");
-        media.push(img);
-      }
-      const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName) || el.querySelector('img[style*="float"]') || !clean2(el.textContent) && !el.querySelector("img");
-      const text = [];
-      for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
-        n.remove();
-        n.querySelectorAll("a.btn-primary[href], a.btn-secondary[href]").forEach((a) => {
-          if (a.closest("strong, em, b, i")) return;
-          const wrap = document.createElement(a.classList.contains("btn-primary") ? "strong" : "em");
-          a.replaceWith(wrap);
-          wrap.append(a);
-        });
-        text.push(n);
-      }
-      if (!media.length || !text.length) {
-        text.reverse().forEach((n) => element.after(n));
-        return;
-      }
-      const floatBlock = WebImporter.Blocks.createBlock(document, {
-        name: "columns-media",
-        variants: pct > 0 && pct < 100 ? [`ratio-${pct}`] : [],
-        cells: [right ? [text, media] : [media, text]]
-      });
-      element.replaceWith(floatBlock);
       return;
     }
     const articles = [...element.querySelectorAll(".blog-article-container")];
@@ -2106,25 +2041,12 @@ var CustomImportScript = (() => {
     ".commonheader",
     ".dcep-header-flyout",
     ".dcep-header-quick-action-links",
-    // AirCore (/lhg/) header incl. the inline slide-in mega-menu
-    "header.header-content-nav",
-    ".header-navigation-flyout-slide-in",
     // global footer (becomes the per-locale footer fragment)
     "footer",
     "#footer",
     ".footer-area",
     ".footer-logos",
     ".commonfooter",
-    // AirCore "wrong geolocation" banner (snapshots of AT/GB pages recorded from a German IP:
-    // "Sie sind in Deutschland ... [Land wechseln] [Auf Seite bleiben]", fixed at the top, and its
-    // 98px placeholder); not page content
-    ".geobanner-sticky-wrapper",
-    ".geobanner-placeholder",
-    ".wrong-geolocation-banner",
-    // AirCore footer bands (payment/follow-us, search + language, logo); normally inside footer#footer
-    "footer .footer-brand-links",
-    ".above-footer-container",
-    ".secondary-footer-container",
     // the Cognigy chat assistant window, open in some snapshots (body > div > div > .webchat-root
     // #webchatWindow: "Lufthansa Chat Assistant / Hi, I'm Elisa", /de/en/overview-travel-information)
     ".webchat-root",
@@ -2146,13 +2068,11 @@ var CustomImportScript = (() => {
     ".optanon-alert-box-wrapper",
     // Cloudflare Turnstile pre-clearance
     "#turnstile-preclearance-frame",
-    // global modals that never hold page content: location/language pickers, login, AirCore
-    // loaders/spinners, UI sound effects. Content modals (fare conditions, the fleet seat-map
+    // global modals that never hold page content: location/language pickers, login, UI sound
+    // effects. Content modals (fare conditions, the fleet seat-map
     // .lightbox-modal) stay until afterTransform because parsers read them.
     "maui-modal.country-language-selector-modal",
     "maui-modal.one-id-login__modal",
-    ".language-selection-modal",
-    ".loader",
     'audio[id^="uifx"]',
     // Tealium / utag, Monetate, Quantum Metric and other trackers
     '[id^="utag_"]',
@@ -2209,9 +2129,9 @@ var CustomImportScript = (() => {
       else if (isHiddenFrame(img) && /^(https?:)?\/\//.test(src) && !/\/content\/dam\//.test(src)) img.remove();
     });
   }
-  var BREADCRUMB_SOURCES = 'maui-breadcrumb, nav.breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
+  var BREADCRUMB_SOURCES = 'maui-breadcrumb, nav[aria-label*="readcrumb"], .breadcrumbs';
   var BREADCRUMB_ATTR = "data-lh-import-breadcrumb";
-  var BREADCRUMB_MAP = { "/at/de/additional-services": [["Home", "/at/de/homepage"], ["Extra Services", "/at/de/additional-services"]], "/at/de/befoerderungsbedingungen-group": [["Home", "/at/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/at/de/befoerderungsbedingungen-group"]], "/at/de/book-and-manage/flights/ana": [["Home", "/at/de/homepage"], ["Flugsuche", "/at/de/flugsuche"], ["ANA", "/at/de/book-and-manage/flights/ana"]], "/at/de/business-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["Business Class", "/at/de/business-class"]], "/at/de/common/agb-extra-services-at-online-check-in": [["Home", "/at/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/at/de/common/agb-extra-services-at-online-check-in"]], "/at/de/first-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["First Class", "/at/de/first-class"]], "/at/de/homepage": [["Home", "/at/de/homepage"]], "/at/de/lufthansa-reiseklassen": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"]], "/at/de/nachhaltiger-fliegen": [["Home", "/at/de/homepage"], ["Nachhaltiger fliegen", "/at/de/nachhaltiger-fliegen"]], "/at/de/support/contact": [["Home", "/at/de/homepage"], ["Kontakt", "/at/de/support/contact"]], "/de/de/additional-services": [["Home", "/de/de/homepage"], ["Extra Services", "/de/de/additional-services"]], "/de/de/befoerderungsbedingungen-group": [["Home", "/de/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/de/de/befoerderungsbedingungen-group"]], "/de/de/book-and-manage/flights/ana": [["Home", "/de/de/homepage"], ["Flugsuche", "/de/de/flugsuche"], ["ANA", "/de/de/book-and-manage/flights/ana"]], "/de/de/business-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["Business Class", "/de/de/business-class"]], "/de/de/common/agb-extra-services-at-online-check-in": [["Home", "/de/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/de/de/common/agb-extra-services-at-online-check-in"]], "/de/de/first-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["First Class", "/de/de/first-class"]], "/de/de/homepage": [["Home", "/de/de/homepage"]], "/de/de/lufthansa-reiseklassen": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"]], "/de/de/nachhaltiger-fliegen": [["Home", "/de/de/homepage"], ["Nachhaltiger fliegen", "/de/de/nachhaltiger-fliegen"]], "/de/de/support/contact": [["Home", "/de/de/homepage"], ["Kontakt", "/de/de/support/contact"]], "/de/en/additional-services": [["Home", "/de/en/homepage"], ["Extra services", "/de/en/additional-services"]], "/de/en/book-and-manage/flights/ana": [["Home", "/de/en/homepage"], ["Flight search", "/de/en/flight-search"], ["ANA", "/de/en/book-and-manage/flights/ana"]], "/de/en/business-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["Business Class", "/de/en/business-class"]], "/de/en/common/agb-extra-services-at-online-check-in": [["Home", "/de/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/de/en/common/agb-extra-services-at-online-check-in"]], "/de/en/discover-lufthansa/campaigns": [["Home", "/de/en/homepage"], ["Campaigns", "/de/en/discover-lufthansa/campaigns"]], "/de/en/first-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["First Class", "/de/en/first-class"]], "/de/en/fly-more-sustainabl": [["Home", "/de/en/homepage"], ["Fly more sustainably", "/de/en/fly-more-sustainabl"]], "/de/en/homepage": [["Home", "/de/en/homepage"]], "/de/en/lufthansa-travel-classes": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"]], "/de/en/support/contact": [["Home", "/de/en/homepage"], ["Contact", "/de/en/support/contact"]], "/de/en/terms-of-service-group": [["Home", "/de/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/de/en/terms-of-service-group"]], "/gb/en/additional-services": [["Home", "/gb/en/homepage"], ["Extra services", "/gb/en/additional-services"]], "/gb/en/book-and-manage/flights/ana": [["Home", "/gb/en/homepage"], ["Flight search", "/gb/en/flight-search"], ["ANA", "/gb/en/book-and-manage/flights/ana"]], "/gb/en/business-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["Business Class", "/gb/en/business-class"]], "/gb/en/common/agb-extra-services-at-online-check-in": [["Home", "/gb/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/gb/en/common/agb-extra-services-at-online-check-in"]], "/gb/en/discover-lufthansa/campaigns": [["Home", "/gb/en/homepage"], ["Campaigns", "/gb/en/discover-lufthansa/campaigns"]], "/gb/en/first-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["First Class", "/gb/en/first-class"]], "/gb/en/fly-more-sustainabl": [["Home", "/gb/en/homepage"], ["Fly more sustainably", "/gb/en/fly-more-sustainabl"]], "/gb/en/homepage": [["Home", "/gb/en/homepage"]], "/gb/en/lufthansa-travel-classes": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"]], "/gb/en/support/contact": [["Home", "/gb/en/homepage"], ["Contact", "/gb/en/support/contact"]], "/gb/en/terms-of-service-group": [["Home", "/gb/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/gb/en/terms-of-service-group"]], "/lhg/at/de": [["Reiseziele", "/lhg/at/de"]], "/lhg/at/de/dest/c/frankreich": [["Reiseziele", "/lhg/at/de"], ["Flug Europa", "/lhg/at/de/dest/co/europa"], ["Flug Frankreich", "/lhg/at/de/dest/c/frankreich"]], "/lhg/at/de/dest/c/jordanien": [["Reiseziele", "/lhg/at/de"], ["Flug Asien", "/lhg/at/de/dest/co/asien"], ["Flug Jordanien", "/lhg/at/de/dest/c/jordanien"]], "/lhg/at/de/dest/c/portugal": [["Reiseziele", "/lhg/at/de"], ["Flug Europa", "/lhg/at/de/dest/co/europa"], ["Flug Portugal", "/lhg/at/de/dest/c/portugal"]], "/lhg/at/de/dest/co/asien": [["Reiseziele", "/lhg/at/de"], ["Flug Asien", "/lhg/at/de/dest/co/asien"]], "/lhg/de/de": [["Reiseziele", "/lhg/de/de"]], "/lhg/de/de/dest/c/frankreich": [["Reiseziele", "/lhg/de/de"], ["Flug Europa", "/lhg/de/de/dest/co/europa"], ["Flug Frankreich", "/lhg/de/de/dest/c/frankreich"]], "/lhg/de/de/dest/c/jordanien": [["Reiseziele", "/lhg/de/de"], ["Flug Asien", "/lhg/de/de/dest/co/asien"], ["Flug Jordanien", "/lhg/de/de/dest/c/jordanien"]], "/lhg/de/de/dest/c/portugal": [["Reiseziele", "/lhg/de/de"], ["Flug Europa", "/lhg/de/de/dest/co/europa"], ["Flug Portugal", "/lhg/de/de/dest/c/portugal"]], "/lhg/de/de/dest/co/asien": [["Reiseziele", "/lhg/de/de"], ["Flug Asien", "/lhg/de/de/dest/co/asien"]], "/lhg/de/de/from": [["Fl\xFCge ab Deutschland", "/lhg/de/de/from"]], "/lhg/de/en": [["Travel destinations", "/lhg/de/en"]], "/lhg/de/en/dest/c/france": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight France", "/lhg/de/en/dest/c/france"]], "/lhg/de/en/dest/c/jordan": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"], ["Flight Jordan", "/lhg/de/en/dest/c/jordan"]], "/lhg/de/en/dest/c/portugal": [["Travel destinations", "/lhg/de/en"], ["Flight Europe", "/lhg/de/en/dest/co/europe"], ["Flight Portugal", "/lhg/de/en/dest/c/portugal"]], "/lhg/de/en/dest/co/asia": [["Travel destinations", "/lhg/de/en"], ["Flight Asia", "/lhg/de/en/dest/co/asia"]], "/lhg/de/en/from": [["Flights from Germany", "/lhg/de/en/from"]], "/lhg/gb/en": [["Travel destinations", "/lhg/gb/en"]], "/lhg/gb/en/dest/c/france": [["Travel destinations", "/lhg/gb/en"], ["Flight Europe", "/lhg/gb/en/dest/co/europe"], ["Flight France", "/lhg/gb/en/dest/c/france"]], "/lhg/gb/en/dest/c/jordan": [["Travel destinations", "/lhg/gb/en"], ["Flight Asia", "/lhg/gb/en/dest/co/asia"], ["Flight Jordan", "/lhg/gb/en/dest/c/jordan"]], "/lhg/gb/en/dest/c/portugal": [["Travel destinations", "/lhg/gb/en"], ["Flight Europe", "/lhg/gb/en/dest/co/europe"], ["Flight Portugal", "/lhg/gb/en/dest/c/portugal"]], "/lhg/gb/en/dest/co/asia": [["Travel destinations", "/lhg/gb/en"], ["Flight Asia", "/lhg/gb/en/dest/co/asia"]], "/xx/de/homepage": [["Home", "/xx/de/homepage"]] };
+  var BREADCRUMB_MAP = { "/at/de/additional-services": [["Home", "/at/de/homepage"], ["Extra Services", "/at/de/additional-services"]], "/at/de/befoerderungsbedingungen-group": [["Home", "/at/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/at/de/befoerderungsbedingungen-group"]], "/at/de/book-and-manage/flights/ana": [["Home", "/at/de/homepage"], ["Flugsuche", "/at/de/flugsuche"], ["ANA", "/at/de/book-and-manage/flights/ana"]], "/at/de/business-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["Business Class", "/at/de/business-class"]], "/at/de/common/agb-extra-services-at-online-check-in": [["Home", "/at/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/at/de/common/agb-extra-services-at-online-check-in"]], "/at/de/first-class": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"], ["First Class", "/at/de/first-class"]], "/at/de/homepage": [["Home", "/at/de/homepage"]], "/at/de/lufthansa-reiseklassen": [["Home", "/at/de/homepage"], ["Reiseklassen", "/at/de/lufthansa-reiseklassen"]], "/at/de/nachhaltiger-fliegen": [["Home", "/at/de/homepage"], ["Nachhaltiger fliegen", "/at/de/nachhaltiger-fliegen"]], "/at/de/support/contact": [["Home", "/at/de/homepage"], ["Kontakt", "/at/de/support/contact"]], "/de/de/additional-services": [["Home", "/de/de/homepage"], ["Extra Services", "/de/de/additional-services"]], "/de/de/befoerderungsbedingungen-group": [["Home", "/de/de/homepage"], ["Bef\xF6rderungsbedingungen der Lufthansa Group-Airlines", "/de/de/befoerderungsbedingungen-group"]], "/de/de/book-and-manage/flights/ana": [["Home", "/de/de/homepage"], ["Flugsuche", "/de/de/flugsuche"], ["ANA", "/de/de/book-and-manage/flights/ana"]], "/de/de/business-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["Business Class", "/de/de/business-class"]], "/de/de/common/agb-extra-services-at-online-check-in": [["Home", "/de/de/homepage"], ["AGB Lufthansa Services im Online Check-in", "/de/de/common/agb-extra-services-at-online-check-in"]], "/de/de/first-class": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"], ["First Class", "/de/de/first-class"]], "/de/de/homepage": [["Home", "/de/de/homepage"]], "/de/de/lufthansa-reiseklassen": [["Home", "/de/de/homepage"], ["Reiseklassen", "/de/de/lufthansa-reiseklassen"]], "/de/de/nachhaltiger-fliegen": [["Home", "/de/de/homepage"], ["Nachhaltiger fliegen", "/de/de/nachhaltiger-fliegen"]], "/de/de/support/contact": [["Home", "/de/de/homepage"], ["Kontakt", "/de/de/support/contact"]], "/de/en/additional-services": [["Home", "/de/en/homepage"], ["Extra services", "/de/en/additional-services"]], "/de/en/book-and-manage/flights/ana": [["Home", "/de/en/homepage"], ["Flight search", "/de/en/flight-search"], ["ANA", "/de/en/book-and-manage/flights/ana"]], "/de/en/business-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["Business Class", "/de/en/business-class"]], "/de/en/common/agb-extra-services-at-online-check-in": [["Home", "/de/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/de/en/common/agb-extra-services-at-online-check-in"]], "/de/en/discover-lufthansa/campaigns": [["Home", "/de/en/homepage"], ["Campaigns", "/de/en/discover-lufthansa/campaigns"]], "/de/en/first-class": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"], ["First Class", "/de/en/first-class"]], "/de/en/fly-more-sustainabl": [["Home", "/de/en/homepage"], ["Fly more sustainably", "/de/en/fly-more-sustainabl"]], "/de/en/homepage": [["Home", "/de/en/homepage"]], "/de/en/lufthansa-travel-classes": [["Home", "/de/en/homepage"], ["Travel classes", "/de/en/lufthansa-travel-classes"]], "/de/en/support/contact": [["Home", "/de/en/homepage"], ["Contact", "/de/en/support/contact"]], "/de/en/terms-of-service-group": [["Home", "/de/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/de/en/terms-of-service-group"]], "/gb/en/additional-services": [["Home", "/gb/en/homepage"], ["Extra services", "/gb/en/additional-services"]], "/gb/en/book-and-manage/flights/ana": [["Home", "/gb/en/homepage"], ["Flight search", "/gb/en/flight-search"], ["ANA", "/gb/en/book-and-manage/flights/ana"]], "/gb/en/business-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["Business Class", "/gb/en/business-class"]], "/gb/en/common/agb-extra-services-at-online-check-in": [["Home", "/gb/en/homepage"], ["T&Cs of Lufthansa Online Check-in Services", "/gb/en/common/agb-extra-services-at-online-check-in"]], "/gb/en/discover-lufthansa/campaigns": [["Home", "/gb/en/homepage"], ["Campaigns", "/gb/en/discover-lufthansa/campaigns"]], "/gb/en/first-class": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"], ["First Class", "/gb/en/first-class"]], "/gb/en/fly-more-sustainabl": [["Home", "/gb/en/homepage"], ["Fly more sustainably", "/gb/en/fly-more-sustainabl"]], "/gb/en/homepage": [["Home", "/gb/en/homepage"]], "/gb/en/lufthansa-travel-classes": [["Home", "/gb/en/homepage"], ["Travel classes", "/gb/en/lufthansa-travel-classes"]], "/gb/en/support/contact": [["Home", "/gb/en/homepage"], ["Contact", "/gb/en/support/contact"]], "/gb/en/terms-of-service-group": [["Home", "/gb/en/homepage"], ["Conditions of Carriage of Lufthansa Group Airlines", "/gb/en/terms-of-service-group"]], "/xx/de/homepage": [["Home", "/xx/de/homepage"]] };
   function convertBreadcrumbs(document, pagePath) {
     let trail = null;
     const sources = [...document.querySelectorAll(BREADCRUMB_SOURCES)].filter((el, i, all) => !all.some((other) => other !== el && other.contains(el)));
@@ -2228,11 +2148,11 @@ var CustomImportScript = (() => {
         });
       }
       const crumbs = items.filter((c) => c.label);
-      const wrapper = source.closest(".breadcrumb-wrapper, .maui-breadcrumb") || source;
+      const wrapper = source.closest(".maui-breadcrumb") || source;
       if (crumbs.length && !trail) trail = crumbs.map((c) => [c.label, c.href || null]);
       wrapper.remove();
     });
-    document.querySelectorAll(".breadcrumb-wrapper, .breadcrumb").forEach((el) => {
+    document.querySelectorAll(".breadcrumb").forEach((el) => {
       if (el.isConnected && !el.querySelector("table")) el.remove();
     });
     let hidden = false;
@@ -2253,7 +2173,7 @@ var CustomImportScript = (() => {
     document.documentElement.removeAttribute(BREADCRUMB_ATTR);
     const { trail, hidden, defaultLabel } = JSON.parse(raw);
     const origins = sourceOrigins(payload);
-    const market = (pagePath || "").match(/^\/(?:lhg\/)?([a-z]{2})\//);
+    const market = (pagePath || "").match(/^\/([a-z]{2})\//);
     const resolve = (href) => {
       if (!href) return null;
       const h = market ? href.replace(/^((?:https?:)?\/\/[^/]+)?\/xx\/([a-z]{2})(?=\/|$)/, (m, host, ll) => `${host || ""}/${market[1]}/${ll}`) : href;
@@ -2633,20 +2553,6 @@ var CustomImportScript = (() => {
     roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
     return placed;
   }
-  function removeAirCoreLeftovers(document) {
-    document.querySelectorAll(".language-selection-modal").forEach((m) => {
-      const modal = m.closest(".modal") || m;
-      if (modal.isConnected) modal.remove();
-    });
-    document.querySelectorAll(".info-banner, #contentInfo").forEach((banner) => {
-      if (!banner.isConnected || !isEmpty(banner)) return;
-      const parent = banner.parentElement;
-      banner.remove();
-      if (parent && parent.tagName === "DIV" && !parent.matches("main, #content, .contentpage") && isEmpty(parent)) {
-        parent.remove();
-      }
-    });
-  }
   var MOBILE_COPY = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs";
   var DESKTOP_COPY = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex";
   function assetKey(url) {
@@ -2815,14 +2721,6 @@ var CustomImportScript = (() => {
       if (a.closest("table") && !a.querySelector("img, picture")) return;
       if (!a.childNodes.length) return;
       a.replaceWith(...a.childNodes);
-    });
-  }
-  function convertClassButtons(document) {
-    document.querySelectorAll("a.btn-primary[href], a.btn-secondary[href]").forEach((a) => {
-      if (a.closest("strong, em, b, i, table")) return;
-      const wrap = document.createElement(a.classList.contains("btn-primary") ? "strong" : "em");
-      a.replaceWith(wrap);
-      wrap.append(a);
     });
   }
   function removeIconsAndZeroWidth(document) {
@@ -3048,16 +2946,6 @@ var CustomImportScript = (() => {
     H5: "heading-copytext-medium",
     H6: "heading-copytext-medium"
   };
-  function convertClassHeadings(document) {
-    document.querySelectorAll("p.h1, p.h2, p.h3, p.h4, p.h5, p.h6").forEach((p) => {
-      if (!cleanText(p)) return;
-      const level = [1, 2, 3, 4, 5, 6].find((n) => p.classList.contains(`h${n}`));
-      const h = document.createElement(`h${level}`);
-      if (level === 3) h.className = "heading-small";
-      h.append(...p.childNodes);
-      p.replaceWith(h);
-    });
-  }
   var HEADING_NOT_DEFAULT = ".twocolumn, .threecolumn, .fourcolumn, .accordion, .teaser, .sidebar, .article-details-page, form, fieldset, table";
   function markHeadingStyles(document) {
     let marked = 0;
@@ -3221,7 +3109,6 @@ var CustomImportScript = (() => {
       convertFeedbackQuestionnaires(document);
       keepSubpageNavHeader(document, payload);
       removeAll(document, CHROME_SELECTORS);
-      removeAirCoreLeftovers(document);
       removeTracking(document);
       removeScreenReaderOnly(document);
       unwrapSingleCellTables(document);
@@ -3242,7 +3129,6 @@ var CustomImportScript = (() => {
       removeOverlays(document);
       removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
       convertMauiLinks(document);
-      convertClassButtons(document);
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
       splitBrParagraphs(document);
@@ -3250,7 +3136,6 @@ var CustomImportScript = (() => {
       normalizeImages(document, false);
       rewriteLinks(document, payload);
       stripTrackingAttributes(document);
-      convertClassHeadings(document);
       markHeadingStyles(document);
       convertCaptions(document);
       markParagraphStyles(document);
@@ -3726,7 +3611,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_502414_default = {
+  var tmp_bundle_campaign_535907_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3756,5 +3641,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_502414_exports);
+  return __toCommonJS(tmp_bundle_campaign_535907_exports);
 })();

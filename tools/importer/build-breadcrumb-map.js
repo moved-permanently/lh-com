@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 /**
- * Breadcrumb trails of pages that show none themselves (homepages, the AirCore start page, hub
- * pages such as /de/en/additional-services or /de/en/first-class) but are parents of pages that
- * do: their label and parents are only known from their children's live breadcrumbs. Reads every
- * snapshot in tools/importer/bd-snapshots/www.lufthansa.com and inlines
+ * Breadcrumb trails of pages that show none themselves (homepages, hub pages such as
+ * /de/en/additional-services or /de/en/first-class) but are parents of pages that do: their
+ * label and parents are only known from their children's live breadcrumbs. Reads every snapshot
+ * in tools/importer/bd-snapshots/www.lufthansa.com (not /lhg/: the AirCore pages left the
+ * replica on 2026-10-25) and inlines
  *   path -> [[label, href], ...]   (root first, the page itself last)
  * into tools/importer/transformers/lufthansa-cleanup.js (BEGIN/END BREADCRUMB_MAP), which writes
  * them as page metadata (Parent, Breadcrumb title, Breadcrumb: hidden) when such a page is
@@ -39,19 +40,10 @@ function normalize(href, base) {
   return p.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
 }
 
-/** [{label, path}] of a snapshot (maui-breadcrumb on AEM pages, nav.breadcrumb on AirCore). */
+/** [{label, path}] of a snapshot (maui-breadcrumb). */
 function trailOf(html, pagePath) {
-  let items = [...html.matchAll(/<maui-breadcrumb-item([^>]*)>([\s\S]*?)<\/maui-breadcrumb-item>/g)]
+  const items = [...html.matchAll(/<maui-breadcrumb-item([^>]*)>([\s\S]*?)<\/maui-breadcrumb-item>/g)]
     .map((m) => ({ label: text(m[2]) || attr(m[1], 'label') || '', href: attr(m[1], 'href') }));
-  if (!items.length) {
-    const nav = html.match(/<nav[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/);
-    if (nav) {
-      items = [...nav[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => {
-        const a = m[1].match(/<a([^>]*)>/);
-        return { label: text(m[1]), href: a ? attr(a[1], 'href') : null };
-      });
-    }
-  }
   return items.filter((i) => i.label)
     .map((i) => ({ label: i.label, path: i.href ? normalize(i.href, pagePath) : null }));
 }
@@ -59,8 +51,9 @@ function trailOf(html, pagePath) {
 function walk(dir, out = []) {
   fs.readdirSync(dir, { withFileTypes: true }).forEach((d) => {
     const f = path.join(dir, d.name);
-    if (d.isDirectory()) walk(f, out);
-    else if (d.name.endsWith('.html')) out.push(f);
+    if (d.isDirectory()) {
+      if (f !== path.join(SNAP, 'lhg')) walk(f, out);
+    } else if (d.name.endsWith('.html')) out.push(f);
   });
   return out;
 }

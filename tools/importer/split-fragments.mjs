@@ -4,18 +4,17 @@
  *
  * Works on the .plain.html the importer writes (top-level <div> sections). When a document has
  * more than LIMIT images, every "list section" (a section with at least two heading-led units
- * that hold images, e.g. an AirCore continent: h2 Europe, then h3 country + cards-price block
- * per country) moves into fragment documents of at most MAX_PER_FRAGMENT images each, split at
+ * that hold images, e.g. h2 Europe, then h3 country + an image block per country) moves into
+ * fragment documents of at most MAX_PER_FRAGMENT images each, split at
  * unit boundaries (a single unit above the maximum is split between the rows of its block).
  * The page keeps the section's leading headings (so in-page anchors still resolve), its
  * section metadata and the page metadata block, plus one link per fragment that the fragment
  * auto-block (scripts/scripts.js buildAutoBlocks) replaces with the fragment's content.
  *
- * Fragment paths are parallel in every locale: /{lhg/}{cc}/{ll}/fragments/{page}-{group}[-{n}]
+ * Fragment paths are parallel in every locale: /{cc}/{ll}/fragments/{page}-{group}[-{n}]
  *   page:  the page path below the locale root, '-' joined ("home" for the locale root)
- *   group: the id of the section's heading in the raw source snapshot (AirCore continents carry
- *          language-independent ids: europe, africa, asia, americas, oceania), else the
- *          heading's slug
+ *   group: the id of the section's heading in the raw source snapshot (language-independent
+ *          where the source sets one), else the heading's slug
  *   n:     part number when a group needs more than one fragment
  */
 
@@ -86,7 +85,7 @@ const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/^-|-$/g, '');
 const isHeading = (c) => /^h[1-6]$/.test(c.tag || '');
 // section metadata, and the page metadata block: the importer appends it to the last section
-// (/lhg/de/de: inside the Oceania list section, it went into the fragment)
+// (inside a list section it would otherwise go into the fragment)
 const isSectionMetadata = (c) => c.tag === 'div' && /^<div class="(section-)?metadata"/.test(c.html);
 
 /** Heading ids of the raw source page, by heading text: Map(text → id). */
@@ -100,9 +99,9 @@ export function rawHeadingIds(rawHtml) {
   return ids;
 }
 
-/** Locale root and page key of a path: /lhg/de/en → { root: '/lhg/de/en', key: 'home' }. */
+/** Locale root and page key of a path: /de/en → { root: '/de/en', key: 'home' }. */
 export function pageKey(docPath) {
-  const m = docPath.match(/^(\/(?:lhg\/)?[a-z]{2}\/[a-z]{2})(\/.*)?$/);
+  const m = docPath.match(/^(\/[a-z]{2}\/[a-z]{2})(\/.*)?$/);
   if (!m) return null;
   const rest = (m[2] || '').replace(/^\/|\/$/g, '');
   return { root: m[1], key: rest ? slug(rest.replace(/\//g, '-')) : 'home' };
@@ -212,7 +211,7 @@ function chunkUnits(units, max) {
 /**
  * Splits one document.
  * @param {string} html the .plain.html content
- * @param {string} docPath e.g. /lhg/de/en
+ * @param {string} docPath e.g. /de/en
  * @param {Object} [options]
  * @param {string} [options.rawHtml] the raw source snapshot (heading ids)
  * @param {number} [options.limit] split when the document has more images than this

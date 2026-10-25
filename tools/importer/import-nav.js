@@ -5,12 +5,13 @@
  * Output (fragment documents):
  *   /{cc}/{ll}/nav                     header: brand, quick actions, mega menu, tools
  *   /{cc}/{ll}/footer                  footer: search + locale, link columns, legal row, logos
- *   /{cc}/{ll}/fragments/payment-social  "Payment options / Follow us" band (columns-logos)
+ * (The /{cc}/{ll}/fragments/payment-social band was shown only on the AirCore pages under /lhg/,
+ * which left the replica on 2026-10-25; it is no longer written.)
  *
- * transform() returns all three outputs. The bulk importer (run-bulk-import.js) only writes
+ * transform() returns both outputs. The bulk importer (run-bulk-import.js) only writes
  * the first output of a transform, so a URL hash selects one output instead:
- *   .../homepage#nav, .../homepage#footer, .../homepage#payment-social
- * (the hash is not part of the snapshot lookup, so all three read the same snapshot).
+ *   .../homepage#nav, .../homepage#footer
+ * (the hash is not part of the snapshot lookup, so both read the same snapshot).
  *
  * Sources in the rendered DOM (spans without class are already unwrapped):
  *  - header: .header-and-flyout-logo, .dcep-header-quick-action-links[data-dcep],
@@ -18,17 +19,15 @@
  *    links), .dcep-login-portlet, .dcep-shopping-cart, .header-and-flyout-burger-menu,
  *    .dcep-country-and-language-selection, maui-modal.country-language-selector-modal
  *  - footer: footer .footer-area (search bar, link columns, legal row), .footer-logos
- *  - payment/social band: the page's .twocolumn holding the "Payment options" imagelinklist
  *
  * Links: in-scope pages become root-relative, locale roots /{cc}/{ll}/homepage, everything
  * else on lufthansa.com absolute https://www.lufthansa.com/..., other domains unchanged.
  */
 import SCOPE_PATHS from './transformers/scope-paths.js';
-import columnsLogosParser from './parsers/columns-logos.js';
 
 const LIVE_ORIGIN = 'https://www.lufthansa.com';
 const SOURCE_HOSTS = ['www.lufthansa.com', 'lufthansa.com', 'localhost', '127.0.0.1'];
-const PAGE_PATH = /^\/(?:[a-z]{2}\/[a-z]{2}|lhg\/[a-z]{2}\/[a-z]{2})(?:\/|$)/;
+const PAGE_PATH = /^\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
 const LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
 const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .popover-box-tooltip';
 
@@ -208,22 +207,8 @@ function menuFromData(data) {
   })).filter((t) => t.label);
 }
 
-/** Rendered flyout (AirCore-style markup), used when the data attribute is missing. */
-function menuFromDom(root) {
-  return [...root.querySelectorAll('.main-menu-list > li')].map((li) => ({
-    label: visibleText(li.querySelector('.btn-flyout-menu')),
-    columns: [...li.querySelectorAll('.sub-menu-section > div')].map((col) => ({
-      label: visibleText(col.querySelector('h1, h2, h3, h4, h5, h6, maui-headline')),
-      links: [...col.querySelectorAll('.sub-menu-list [href]')]
-        .map((a) => ({ label: visibleText(a), href: a.getAttribute('href') }))
-        .filter((l) => l.label && l.href),
-    })),
-  })).filter((t) => t.label);
-}
-
 function menuSection(document, header, flyoutData) {
-  let items = flyoutData ? menuFromData(flyoutData) : [];
-  if (!items.length && header) items = menuFromDom(header);
+  const items = flyoutData ? menuFromData(flyoutData) : [];
   if (!items.length) return [];
   const ul = el(document, 'ul');
   items.forEach((top) => {
@@ -414,20 +399,6 @@ function buildFooter(document, locale) {
   return sectionsToElement(document, sections);
 }
 
-/* ------------------------------------------------------- payment / follow us ---------- */
-
-function buildPaymentSocial(document, params, url) {
-  const lists = [...document.querySelectorAll('.imagelinklist')];
-  const payment = lists.find((l) => l.querySelector('img[src*="/icons/payment/"]')) || lists[0];
-  const column = payment && (payment.closest('.twocolumn') || payment);
-  if (!column) return null;
-  const wrapper = el(document, 'div');
-  wrapper.append(column.cloneNode(true));
-  columnsLogosParser(wrapper.firstElementChild, { document, url, params });
-  wrapper.querySelectorAll('img').forEach((img) => img.setAttribute('src', absoluteImageUrl(img.getAttribute('src'))));
-  return wrapper;
-}
-
 /* ------------------------------------------------------------------ export ------------ */
 
 export default {
@@ -446,7 +417,6 @@ export default {
     };
     add('nav', `/${locale.key}/nav`, () => buildNav(document, locale));
     add('footer', `/${locale.key}/footer`, () => buildFooter(document, locale));
-    add('payment-social', `/${locale.key}/fragments/payment-social`, () => buildPaymentSocial(document, params, url));
     return outputs;
   },
 };

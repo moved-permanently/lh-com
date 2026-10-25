@@ -31,7 +31,7 @@
  *
  * Every inserted <hr> carries BREAK. The end of a section is the next section break in document
  * order (compareDocumentPosition), not the next sibling: later breaks are often nested deeper or
- * shallower than the styled section's own marker (app-entry, AirCore hero vs. #content).
+ * shallower than the styled section's own marker (app-entry).
  */
 
 const MARKER = 'data-excat-section-id';

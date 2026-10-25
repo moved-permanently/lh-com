@@ -37,9 +37,9 @@ node tools/importer/record-live-data.mjs 2> /tmp/record.err | grep -o "index now
 node -e "
 const p = require('./tools/importer/import-progress.json');
 const c = {};
-Object.entries(p).filter(([, v]) => v.status === 'ok').forEach(([u]) => {
-  const path = new URL(u).pathname;
-  const k = path.startsWith('/lhg/') ? 'aircore' : path.split('/').slice(1, 3).join('/');
+// /lhg/ entries are history (the AirCore pages left the replica on 2026-10-25)
+Object.entries(p).filter(([u, v]) => v.status === 'ok' && !new URL(u).pathname.startsWith('/lhg/')).forEach(([u]) => {
+  const k = new URL(u).pathname.split('/').slice(1, 3).join('/');
   c[k] = (c[k] || 0) + 1;
 });
 const s = require('./tools/source-export/bd-session-state.json');

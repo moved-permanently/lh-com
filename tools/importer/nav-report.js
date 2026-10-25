@@ -1,6 +1,6 @@
 /* eslint-disable no-console, import/no-extraneous-dependencies -- dev tooling */
 /**
- * Lists the header, flyout (mega menu), footer and footer-band links that still point at a live
+ * Lists the header, flyout (mega menu) and footer links that still point at a live
  * Lufthansa site instead of a migrated page. No browser, no network: reads the content documents.
  *
  * node tools/importer/nav-report.js [--content-dir content] [--out-dir tools/reports]
@@ -10,8 +10,7 @@
  *   {locale}/nav.plain.html                     header: logo, quick actions, tools and the
  *                                               country/language dialog list; flyout: mega menu
  *   {locale}/footer.plain.html                  footer
- *   {locale}/fragments/payment-social.plain.html footer band (payment options, social media)
- * Scope: tools/importer/transformers/scope-paths.js (pages.csv + AirCore paths; regenerate it
+ * Scope: tools/importer/transformers/scope-paths.js (pages.csv + market-only pages; regenerate it
  * with build-scope-paths.js). A path is in scope when its normalized form (no query/hash,
  * no .html, no trailing slash) is in that set.
  * Live HTTP status: from the optional status file {url: status}. lufthansa.com blocks bots,
@@ -64,7 +63,7 @@ const REASONS = {
   subdomain: (host) => `lufthansa.com subdomain (${host}) – separate application, not in migration scope`,
   root: 'site root www.lufthansa.com/ (redirects by visitor IP) – page not in migration scope',
   otherLocale: `other country/language site – not in migration scope (migrated locales: ${LOCALES.join(', ')})`,
-  aircore: 'AirCore route beyond the sample (only /lhg/de/en pages are in scope) – page not in migration scope',
+  aircore: 'AirCore page (/lhg/, left the replica on 2026-10-25) – page not in migration scope',
   notInScope: 'page not in migration scope',
 };
 
@@ -212,14 +211,11 @@ function footerSections(sections) {
 
 /**
  * Returns every link of one document with its nav area and menu path (ending in the label).
- * kind: 'nav' | 'footer' | 'band'.
+ * kind: 'nav' | 'footer'.
  */
 function extractLinks(html, kind) {
   const sections = rootSections(html);
-  let roles;
-  if (kind === 'nav') roles = navSections(sections);
-  else if (kind === 'footer') roles = footerSections(sections);
-  else roles = sections.map(() => 'band');
+  const roles = kind === 'nav' ? navSections(sections) : footerSections(sections);
   const out = [];
   sections.forEach((s, i) => {
     const role = roles[i];
@@ -227,7 +223,6 @@ function extractLinks(html, kind) {
       const label = linkLabel(a);
       let area = 'footer';
       let prefix = [];
-      if (kind === 'band') area = 'footer band';
       if (kind === 'nav') {
         area = 'header';
         if (role === 'menu') area = nested || p.length ? 'flyout' : 'header';
@@ -346,7 +341,7 @@ function countBy(rows, keys) {
   });
   const order = (k, i) => {
     if (keys[i] === 'locale') return String(LOCALES.indexOf(k));
-    if (keys[i] === 'area') return String(['header', 'flyout', 'footer', 'footer band'].indexOf(k));
+    if (keys[i] === 'area') return String(['header', 'flyout', 'footer'].indexOf(k));
     return k;
   };
   return [...map.entries()].map(([k, count]) => [...k.split('\u0000'), count])
@@ -418,7 +413,6 @@ async function main() {
   const DOCS = [
     ['nav', 'nav.plain.html'],
     ['footer', 'footer.plain.html'],
-    ['band', 'fragments/payment-social.plain.html'],
   ];
   const rows = [];
   const relativeOutOfScope = [];

@@ -2,6 +2,12 @@
 
 Things that are not obvious from the code and cost time once.
 
+The AirCore pages under `/lhg/` left the replica on 2026-10-25: their templates, import scripts,
+blocks (accordion-side-by-side, cards-price, table-deals, table-flightplan, table-price-months,
+weather), JSON-LD rows and the AirCore branches of the cleanup and the shared parsers are gone.
+Links to them import as absolute www.lufthansa.com links; `content/lhg/**` is an obsolete local
+copy that is never uploaded (da-upload.mjs refuses `/lhg/`).
+
 ## Fetching
 
 - www.lufthansa.com is bot-protected. Pages come only through one warm Bright Data session
@@ -59,7 +65,7 @@ Things that are not obvious from the code and cost time once.
   of every scope page from its snapshot's live `<head>`: Description (empty row where live has none,
   else EDS makes one from the first paragraph), og:title / og:description only where live differs
   from its title / description, Keywords, Robots only with "noindex", Canonical only where it points
-  elsewhere, Image = live og:image, json-ld (AirCore routes, `aircore-jsonld.json`). Run it after
+  elsewhere, Image = live og:image. Run it after
   every import and before postprocess-media.mjs (batch-cycle.sh does). Report:
   `tools/reports/head-metadata.md`.
 
@@ -67,7 +73,7 @@ Things that are not obvious from the code and cost time once.
 
 - Edge Delivery preview rejects documents with > 200 images, SVGs > 40 KB and images > 20 MB.
   `node tools/importer/postprocess-media.mjs --all` (idempotent, ~6 s when cached) splits long
-  list sections into `/{lhg/}{cc}/{ll}/fragments/{page}-{group}[-n]` documents, rasterizes big
+  list sections into `/{cc}/{ll}/fragments/{page}-{group}[-n]` documents, rasterizes big
   SVGs and resizes originals wider than 2560 px / over 5 MB into `content/media-da/`. AEM
   renditions (`.transform/lh-dcep-transform-width-N`, N ≤ 2560) stay remote. Downloads are cached
   in `tools/source-export/media-cache/`, decisions in `tools/importer/media-manifest.json`.

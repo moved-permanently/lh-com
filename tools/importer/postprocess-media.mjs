@@ -6,11 +6,11 @@
  * Run after every import batch on the documents the batch wrote (or --all). Idempotent.
  *
  *  1. Documents with more than 200 images: long list sections move into fragment documents
- *     /{lhg/}{cc}/{ll}/fragments/{page}-{group}[-{n}] (tools/importer/split-fragments.mjs),
+ *     /{cc}/{ll}/fragments/{page}-{group}[-{n}] (tools/importer/split-fragments.mjs),
  *     the page links them (fragment auto-block). Fragments are processed like documents.
  *  2. Images: AEM renditions (…/x.jpg.transform/lh-dcep-transform-width-N/img.jpg, N ≤ 2560)
- *     stay remote. Every other www.lufthansa.com image (original DAM assets, PNG, WebP,
- *     /aircore/ images, SVG) is downloaded once into tools/source-export/media-cache/ (at most
+ *     stay remote. Every other www.lufthansa.com image (original DAM assets, PNG, WebP, SVG) is
+ *     downloaded once into tools/source-export/media-cache/ (at most
  *     2 requests per second) and measured. SVGs over 40 KB are rasterized to PNG (2x their
  *     intrinsic size, at least 400 px wide, transparency kept); rasters wider than 2560 px or
  *     larger than 5 MB are resized to 2560 px wide (JPEG q82, or PNG when transparent). The
@@ -49,7 +49,7 @@ const SVG_MAX_BYTES = 40 * 1024;
 const RASTER_MAX_BYTES = 5 * 1024 * 1024;
 const HARD_MAX_BYTES = 20 * 1024 * 1024;
 const MIN_REQUEST_GAP_MS = 500; // 2 requests per second
-const STATIC_PATHS = /^\/(content\/dam|aircore|etc\/designs)\//;
+const STATIC_PATHS = /^\/(content\/dam|etc\/designs)\//;
 const VERSION = 1; // bump to redo conversions
 
 const argv = process.argv.slice(2);

@@ -1,7 +1,7 @@
 /* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, max-len, import/no-unresolved, import/extensions */
 /**
- * Records the server <head> of AirCore route pages (JSON-LD and hreflang alternates) through ONE
- * warm Bright Data session: /de/en/homepage first, then the same page navigates to each route
+ * Records the server <head> of a list of pages (JSON-LD and hreflang alternates) through ONE
+ * warm Bright Data session: /de/en/homepage first, then the same page navigates to each listed
  * page, one every 5-10 s; nothing is typed, clicked or submitted. The page snapshots of the import
  * have no <script> elements (the capture strips them), so the JSON-LD is only in the server HTML
  * of the navigation response.
@@ -9,11 +9,10 @@
  * Output: tools/source-export/heads/{path}.html (the server HTML of the response) and
  * {path}.json = { url, status, recordedAt, jsonld: [{ where: head|body, data }], hreflang:
  * [{ hreflang, href }] (head links) } (resumes: a page with both files is not requested again).
- * 2026-10-24: the first run kept only the parsed <head> (no JSON-LD there: the server HTML has the
- * ld+json scripts in the body), so the 23 pages were requested a second time to keep the HTML.
+ * (2026-10-24 it recorded the AirCore route pages under /lhg/, which left the replica on
+ * 2026-10-25; their former default list is gone.)
  *
- * Usage: node tools/importer/bd-record-head.mjs [--list paths.txt] [--min-delay 5000] [--max-delay 10000]
- *   default list: the c-c and cy-cy rows of tools/importer/aircore-locales.csv
+ * Usage: node tools/importer/bd-record-head.mjs --list paths.txt [--min-delay 5000] [--max-delay 10000]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,10 +31,11 @@ const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
 const outDir = path.join(root, 'tools/source-export/heads');
 
-const list = opt('list')
-  ? fs.readFileSync(path.resolve(root, opt('list')), 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean)
-  : fs.readFileSync(path.join(root, 'tools/importer/aircore-locales.csv'), 'utf8').trim().split('\n').slice(1)
-    .flatMap((l) => l.split(',').slice(1)).map((s) => s.trim()).filter((p) => /\/o-d\/(c-c|cy-cy)\//.test(p));
+if (!opt('list')) {
+  console.error('usage: node tools/importer/bd-record-head.mjs --list paths.txt [--min-delay 5000] [--max-delay 10000]');
+  process.exit(2);
+}
+const list = fs.readFileSync(path.resolve(root, opt('list')), 'utf8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
 const outFile = (p) => path.join(outDir, `${p}.json`);
 const htmlFile = (p) => path.join(outDir, `${p}.html`);
 const todo = list.filter((p) => !fs.existsSync(outFile(p)) || !fs.existsSync(htmlFile(p)));

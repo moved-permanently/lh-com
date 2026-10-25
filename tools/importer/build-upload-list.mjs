@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /**
  * Writes tools/importer/upload-all.txt: every imported page (import-progress.json), the nav,
- * footer and fragment documents of the four locales, and the AirCore fragments. da-upload.mjs
+ * footer and fragment documents of the four locales. da-upload.mjs
  * itself refuses anything outside the scope (root index/nav/footer, drafts, test files).
  * Usage: node tools/importer/build-upload-list.mjs
  */

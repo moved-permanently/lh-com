@@ -1259,71 +1259,10 @@ var CustomImportScript = (() => {
   ]);
   var scope_paths_default = SCOPE_PATHS;
 
-  // tools/importer/parsers/columns-logos.js
-  function parse(element, { document }) {
-    const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
-    const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
-    const visibleText2 = (node) => {
-      if (!node) return "";
-      const clone = node.cloneNode(true);
-      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
-      return clean2(clone.textContent);
-    };
-    const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
-    let columns = [...element.querySelectorAll(".column-view-item")];
-    if (!columns.length) columns = [...element.querySelectorAll(".imagelinklist, .link-list")];
-    const row = [];
-    columns.forEach((column) => {
-      const content = [];
-      const headingSource = column.querySelector("h1, h2, h3, h4, h5, h6, .headline");
-      const headingText = visibleText2(headingSource);
-      if (headingText) {
-        const tag = headingSource && /^H[1-6]$/.test(headingSource.tagName) ? headingSource.tagName : "h3";
-        const h = document.createElement(tag);
-        h.textContent = headingText;
-        content.push(h);
-      }
-      const ul = document.createElement("ul");
-      const items = [...column.querySelectorAll("li")];
-      const linkSources = items.length ? items.map((li) => li.querySelector("maui-navigation-link[href], a[href], [href]") || li) : [...column.querySelectorAll("maui-navigation-link[href], a[href]")];
-      linkSources.forEach((source) => {
-        const href = source.getAttribute && source.getAttribute("href");
-        const img = [...source.querySelectorAll("img")].find((i) => !isBroken(i.getAttribute("src")));
-        const label = visibleText2(source);
-        if (!img && !label) return;
-        const li = document.createElement("li");
-        let item;
-        if (img) {
-          item = document.createElement("img");
-          item.src = img.getAttribute("src");
-          item.alt = clean2(img.getAttribute("alt")) || clean2(img.getAttribute("title")) || label;
-        } else {
-          item = document.createTextNode(label);
-        }
-        if (href) {
-          const a = document.createElement("a");
-          a.href = href;
-          const title = img && (clean2(img.getAttribute("title")) || clean2(img.getAttribute("alt")));
-          if (title) a.title = title;
-          a.append(item);
-          li.append(a);
-        } else {
-          li.append(item);
-        }
-        ul.append(li);
-      });
-      if (ul.children.length) content.push(ul);
-      if (content.length) row.push(content);
-    });
-    const cells = row.length ? [row] : [];
-    const block = WebImporter.Blocks.createBlock(document, { name: "columns-logos", cells });
-    element.replaceWith(block);
-  }
-
   // tools/importer/import-nav.js
   var LIVE_ORIGIN = "https://www.lufthansa.com";
   var SOURCE_HOSTS = ["www.lufthansa.com", "lufthansa.com", "localhost", "127.0.0.1"];
-  var PAGE_PATH = /^\/(?:[a-z]{2}\/[a-z]{2}|lhg\/[a-z]{2}\/[a-z]{2})(?:\/|$)/;
+  var PAGE_PATH = /^\/[a-z]{2}\/[a-z]{2}(?:\/|$)/;
   var LOCALE_ROOT = /^\/[a-z]{2}\/[a-z]{2}$/;
   var SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .popover-box-tooltip';
   var LOCALE_LABELS = {
@@ -1488,18 +1427,8 @@ var CustomImportScript = (() => {
       })).filter((c) => c.label || c.links.length)
     })).filter((t) => t.label);
   }
-  function menuFromDom(root) {
-    return [...root.querySelectorAll(".main-menu-list > li")].map((li) => ({
-      label: visibleText(li.querySelector(".btn-flyout-menu")),
-      columns: [...li.querySelectorAll(".sub-menu-section > div")].map((col) => ({
-        label: visibleText(col.querySelector("h1, h2, h3, h4, h5, h6, maui-headline")),
-        links: [...col.querySelectorAll(".sub-menu-list [href]")].map((a) => ({ label: visibleText(a), href: a.getAttribute("href") })).filter((l) => l.label && l.href)
-      }))
-    })).filter((t) => t.label);
-  }
   function menuSection(document, header, flyoutData) {
-    let items = flyoutData ? menuFromData(flyoutData) : [];
-    if (!items.length && header) items = menuFromDom(header);
+    const items = flyoutData ? menuFromData(flyoutData) : [];
     if (!items.length) return [];
     const ul = el(document, "ul");
     items.forEach((top) => {
@@ -1653,17 +1582,6 @@ var CustomImportScript = (() => {
     }
     return sectionsToElement(document, sections);
   }
-  function buildPaymentSocial(document, params, url) {
-    const lists = [...document.querySelectorAll(".imagelinklist")];
-    const payment = lists.find((l) => l.querySelector('img[src*="/icons/payment/"]')) || lists[0];
-    const column = payment && (payment.closest(".twocolumn") || payment);
-    if (!column) return null;
-    const wrapper = el(document, "div");
-    wrapper.append(column.cloneNode(true));
-    parse(wrapper.firstElementChild, { document, url, params });
-    wrapper.querySelectorAll("img").forEach((img) => img.setAttribute("src", absoluteImageUrl(img.getAttribute("src"))));
-    return wrapper;
-  }
   var tmp_bundle_nav_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
@@ -1679,7 +1597,6 @@ var CustomImportScript = (() => {
       };
       add("nav", `/${locale.key}/nav`, () => buildNav(document, locale));
       add("footer", `/${locale.key}/footer`, () => buildFooter(document, locale));
-      add("payment-social", `/${locale.key}/fragments/payment-social`, () => buildPaymentSocial(document, params, url));
       return outputs;
     }
   };

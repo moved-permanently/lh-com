@@ -1145,7 +1145,7 @@ function pageUrl(href) {
   // live's /error.html, absolute) name the same page on this site
   if (url.origin !== here.origin && !/\.aem\.(page|live)$/.test(url.hostname)
     && url.hostname !== 'www.lufthansa.com') return url.href;
-  if (here.pathname.startsWith('/content/') && /^\/(lhg\/)?[a-z]{2}\/[a-z]{2}(\/|$)/.test(path)) {
+  if (here.pathname.startsWith('/content/') && /^\/[a-z]{2}\/[a-z]{2}(\/|$)/.test(path)) {
     path = `/content${path}`;
   }
   return `${here.origin}${path}`;

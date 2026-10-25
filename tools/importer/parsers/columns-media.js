@@ -390,50 +390,6 @@ export default function parse(element, { document }) {
     return;
   }
 
-  // --- AirCore running text: an image floated beside the text that follows it
-  // (<p><picture><img style="float: left; margin: 0 5rem 2rem 0" width="60%"></picture></p>):
-  // image | text (float right: text | image), option ratio-NN from the image width
-  const floated = element.matches('p') && element.querySelector('img[style*="float"]');
-  if (floated) {
-    const right = /float:\s*right/i.test(floated.getAttribute('style') || '');
-    const pct = parseInt(floated.getAttribute('width') || '', 10);
-    const media = [];
-    if (!isBroken(floated.getAttribute('src'))) {
-      const img = document.createElement('img');
-      img.setAttribute('src', floated.getAttribute('src'));
-      img.setAttribute('alt', floated.getAttribute('alt') || '');
-      media.push(img);
-    }
-    // the paragraphs (also p.h3 titles, which sit beside the image) and lists up to the next
-    // heading, empty paragraph or other component
-    const isStop = (el) => !el || !/^(P|UL|OL)$/.test(el.tagName)
-      || el.querySelector('img[style*="float"]')
-      || (!clean(el.textContent) && !el.querySelector('img'));
-    const text = [];
-    for (let n = element.nextElementSibling; !isStop(n); n = element.nextElementSibling) {
-      n.remove();
-      // AirCore buttons (a.btn-primary / a.btn-secondary): bold / italic link as elsewhere
-      n.querySelectorAll('a.btn-primary[href], a.btn-secondary[href]').forEach((a) => {
-        if (a.closest('strong, em, b, i')) return;
-        const wrap = document.createElement(a.classList.contains('btn-primary') ? 'strong' : 'em');
-        a.replaceWith(wrap);
-        wrap.append(a);
-      });
-      text.push(n);
-    }
-    if (!media.length || !text.length) {
-      text.reverse().forEach((n) => element.after(n));
-      return;
-    }
-    const floatBlock = WebImporter.Blocks.createBlock(document, {
-      name: 'columns-media',
-      variants: pct > 0 && pct < 100 ? [`ratio-${pct}`] : [],
-      cells: [right ? [text, media] : [media, text]],
-    });
-    element.replaceWith(floatBlock);
-    return;
-  }
-
   // --- Insights category list (.blogoverview: the first page of the article list, alternating
   // text | image and image | text rows, image above the text on mobile: option media-first);
   // the search field, category filter and result count are interactive and not imported

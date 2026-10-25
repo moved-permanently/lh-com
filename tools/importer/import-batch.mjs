@@ -30,7 +30,7 @@ if (!t) throw new Error(`unknown template ${template}`);
 
 const snapshot = (u) => path.join(root, 'tools/importer/bd-snapshots', `${new URL(u).hostname}${new URL(u).pathname.replace(/\/$/, '')}.html`);
 const plain = (u) => path.join(root, 'content', `${new URL(u).pathname.replace(/\/$/, '')}.plain.html`);
-const inLocale = (u) => !locale || new URL(u).pathname.replace(/^\/lhg/, '').startsWith(`/${locale}/`) || new URL(u).pathname.replace(/^\/lhg/, '') === `/${locale}`;
+const inLocale = (u) => !locale || new URL(u).pathname.startsWith(`/${locale}/`) || new URL(u).pathname === `/${locale}`;
 
 const candidates = (urlArgs.length ? urlArgs : t.urls).filter(inLocale);
 const noSnapshot = candidates.filter((u) => !fs.existsSync(snapshot(u)));
@@ -61,9 +61,9 @@ todo.forEach((u) => {
 fs.writeFileSync(progressFile, `${JSON.stringify(progress, null, 1)}\n`);
 
 const counts = {};
-Object.entries(progress).filter(([, p]) => p.status === 'ok').forEach(([u]) => {
-  const p = new URL(u).pathname;
-  const key = p.startsWith('/lhg/') ? 'aircore' : p.split('/').slice(1, 3).join('/');
+// /lhg/ entries are history: the AirCore pages left the replica on 2026-10-25
+Object.entries(progress).filter(([u, p]) => p.status === 'ok' && !new URL(u).pathname.startsWith('/lhg/')).forEach(([u]) => {
+  const key = new URL(u).pathname.split('/').slice(1, 3).join('/');
   counts[key] = (counts[key] || 0) + 1;
 });
 console.log(`${template}: ${ok}/${todo.length} imported, ${noSnapshot.length} without snapshot; totals ${JSON.stringify(counts)}`);
