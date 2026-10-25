@@ -50,7 +50,8 @@ beforeEach(() => {
         },
       });
     }
-    if (u.pathname === '/de/de/alt') return new Response(null, { status: 301, headers: { location: '/de/de/neu' } });
+    // aem.live echoes the query of a redirected request
+    if (u.pathname === '/de/de/alt') return new Response(null, { status: 301, headers: { location: `/de/de/neu${u.search}` } });
     if (u.pathname === '/de/en/index.json') return Response.json({ data: [] });
     return new Response('<html><body>Not found</body></html>', { status: 404, headers: { 'content-type': 'text/html' } });
   };
@@ -90,6 +91,24 @@ test('pass-through: origin host, reference headers, query parameters, header cle
   const moved = await get('/de/de/alt?x=1');
   assert.equal(moved.status, 301);
   assert.equal(moved.headers.get('location'), '/de/de/neu?x=1');
+  // EDGE_CACHE_VERSION: on every cached origin request (media keep width/format), not on the
+  // sheets read past the cache, removed from a redirect's location
+  const v = env({ EDGE_CACHE_VERSION: '2026-10-25a' });
+  await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten?utm_source=x`), v, {});
+  assert.equal(calls.at(-1).url, `https://${ORIGIN}/de/de/flugunregelmaessigkeiten?lh-edge-cache=2026-10-25a`);
+  await worker.fetch(new Request(`${HOST}/de/media_${'a'.repeat(40)}.jpg?width=750&format=webply`), v, {});
+  assert.equal(new URL(calls.at(-1).url).search, '?format=webply&width=750&lh-edge-cache=2026-10-25a');
+  calls.length = 0;
+  resetAliasCache();
+  await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten.solo_continue`), v, {});
+  assert.equal(calls.find((c) => c.url.includes('webview-aliases')).url, `https://${ORIGIN}/app/config/webview-aliases.json`);
+  assert.ok(calls.find((c) => c.url.includes('/de/de/flugunregelmaessigkeiten')).url.endsWith('?lh-edge-cache=2026-10-25a'));
+  const movedV = await worker.fetch(new Request(`${HOST}/de/de/alt?x=1`), v, {});
+  assert.equal(movedV.headers.get('location'), '/de/de/neu?x=1');
+  const movedV2 = await worker.fetch(new Request(`${HOST}/de/de/alt`), v, {});
+  assert.equal(movedV2.headers.get('location'), '/de/de/neu');
+  await worker.fetch(new Request(`${HOST}/.rum/1`, { method: 'POST', body: '{}' }), v, {});
+  assert.equal(new URL(calls.at(-1).url).search, '');
   // the reference's prelude: drafts, other ports, RUM methods
   assert.equal((await get('/drafts/x')).status, 404);
   assert.equal((await worker.fetch(new Request('https://lh-edge.example:8443/x'), env(), {})).status, 301);

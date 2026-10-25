@@ -28,3 +28,6 @@ SDUI_WEB_LINKS = "external"
 # edge cache of origin answers in seconds (2xx; 404: 60 s), for hosts without push invalidation
 # (the demo host); empty: the origin's max-age, as the reference (a zone with push invalidation)
 EDGE_TTL = "60"
+# version of lh-edge's edge cache (?lh-edge-cache=<value> on every cached origin request): a new
+# value drops the cache (no custom cache keys or per-host purge on this plan); empty: not added
+EDGE_CACHE_VERSION = "2026-10-25a"

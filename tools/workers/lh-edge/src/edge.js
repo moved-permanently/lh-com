@@ -5,7 +5,9 @@
  * - X-Forwarded-Host comes from the var PUBLIC_HOST (fallback: the request's host), as the
  *   Worker answers on several hosts (workers.dev, the demo host) for one public site;
  * - the origin var is ORIGIN (the reference: ORIGIN_HOSTNAME);
- * - originFetch() is also used by the compatibility routes (solo pages, the alias sheet).
+ * - originFetch() is also used by the compatibility routes (solo pages, the alias sheet);
+ * - EDGE_TTL caps the edge cache and EDGE_CACHE_VERSION versions it (hosts without push
+ *   invalidation).
  */
 
 const getExtension = (path) => {
@@ -76,6 +78,31 @@ export function edgeCacheOptions(env) {
 }
 
 /**
+ * The query parameter that carries EDGE_CACHE_VERSION. Cloudflare's cache key is the URL, so a
+ * new value is a new set of entries: changing it drops lh-edge's edge cache (custom cache keys
+ * and per-host purge aren't available on the plan). aem.live ignores it on pages, .plain.html,
+ * JSON, code and media (width/format still apply); it echoes it on redirects, where it is removed.
+ */
+export const CACHE_VERSION_PARAM = 'lh-edge-cache';
+
+function withCacheVersion(url, request, env) {
+  const version = String(env.EDGE_CACHE_VERSION ?? '').trim();
+  if (!version || !['GET', 'HEAD'].includes(request.method)) return url;
+  const versioned = new URL(url);
+  versioned.searchParams.set(CACHE_VERSION_PARAM, version);
+  return versioned;
+}
+
+function withoutCacheVersion(resp) {
+  const location = resp.headers.get('location');
+  if (!location || !location.includes(CACHE_VERSION_PARAM)) return;
+  const u = new URL(location, 'https://x');
+  u.searchParams.delete(CACHE_VERSION_PARAM);
+  const rel = !/^[a-z]+:/i.test(location);
+  resp.headers.set('location', rel ? `${u.pathname}${u.search}${u.hash}` : u.href);
+}
+
+/**
  * With EDGE_TTL set (no push invalidation), pages and JSON tell browsers and app web views the
  * same limit instead of the origin's max-age=7200; media (content-addressed) keep theirs.
  */
@@ -105,13 +132,14 @@ export async function originFetch(request, env, target, options = {}) {
   if (!url.origin.match(/^https:\/\/main--.*--.*\.aem\.live/)) {
     return new Response('Invalid ORIGIN', { status: 500 });
   }
-  const req = new Request(url, request);
+  const edgeCache = options.edgeCache !== false;
+  const req = new Request(edgeCache ? withCacheVersion(url, request, env) : url, request);
   const forwardedHost = env.PUBLIC_HOST || new URL(request.url).host;
   req.headers.set('x-forwarded-host', forwardedHost);
   req.headers.set('x-byo-cdn-type', 'cloudflare');
   if (env.PUSH_INVALIDATION !== 'disabled') req.headers.set('x-push-invalidation', 'enabled');
   if (env.ORIGIN_AUTHENTICATION) req.headers.set('authorization', `token ${env.ORIGIN_AUTHENTICATION}`);
-  const init = options.edgeCache === false
+  const init = !edgeCache
     ? { method: req.method, cache: 'no-store' }
     // cf doesn't cache html by default: need to override the default behavior
     : { method: req.method, cf: edgeCacheOptions(env) };
@@ -120,6 +148,7 @@ export async function originFetch(request, env, target, options = {}) {
   if (resp.status === 304) resp.headers.delete('Content-Security-Policy');
   resp.headers.delete('age');
   resp.headers.delete('x-robots-tag');
+  withoutCacheVersion(resp);
   capBrowserCache(resp, env);
   return resp;
 }

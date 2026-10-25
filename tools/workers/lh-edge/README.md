@@ -17,6 +17,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `PUSH_INVALIDATION` | `disabled` turns off `X-Push-Invalidation` (lower environments only) |
 | `SDUI_WEB_LINKS` | web links in app screens: `external` (as www today: v1 `showWebScreen` `externalBrowser`, v2 `openUrl` `SELF`, the www URL) or `solo` (`AIR_EM` and the `<page>.solo.continue` URL on the public host) |
 | `EDGE_TTL` | seconds: caps the edge cache of origin answers (`cf.cacheTtlByStatus`: 2xx `EDGE_TTL`, 404 60 s) and the `max-age` pages and JSON send to browsers, for hosts without push invalidation (the demo host; `60`); empty: the reference behaviour (the origin's `max-age`, purged by push invalidation) |
+| `EDGE_CACHE_VERSION` | added to every origin request lh-edge caches at the edge as `?lh-edge-cache=<value>` (Cloudflare's cache key is the URL); **a new value drops lh-edge's edge cache** (see "Dropping the edge cache"); empty: not added |
 | secret `ORIGIN_AUTHENTICATION` | `Authorization: token …` towards the origin, when the site needs one |
 
 ## Routes (first match wins, `src/index.js` `ROUTES`)
@@ -41,6 +42,10 @@ Packages 2 to 6 add their routes before `pass-through`.
 - answer: a 301 gets the original query appended to a `location` without one; a 304 loses `Content-Security-Policy`; `age` and `x-robots-tag` are removed.
 
 Deviations: `X-Forwarded-Host` is the var `PUBLIC_HOST` (fallback: the request's host, as the reference) because one Worker answers on several hosts (workers.dev, the demo host) for one public site; the origin var is `ORIGIN` (reference: `ORIGIN_HOSTNAME`); the sheets the Worker reads itself (the alias sheet) are fetched past Cloudflare's cache (`cache: 'no-store'`, origin sends `max-age=7200`) and kept 60 s in the isolate. With `cacheEverything` alone the edge keeps pages for the origin's `max-age` (7200 s) until push invalidation purges them. The demo host has no push invalidation, so `EDGE_TTL = "60"` caps it: a publish shows within about a minute. For a zone with push invalidation set `EDGE_TTL` empty.
+
+## Dropping the edge cache
+
+Custom cache keys and per-host purge aren't available on this Cloudflare plan, and an entry keeps the lifetime it was stored with: an entry stored before `EDGE_TTL` (under aem.live's `cdn-cache-control: max-age=172800`) stays for two days. To drop everything lh-edge has cached, set `EDGE_CACHE_VERSION` in `wrangler.toml` to a new value (a date and a letter, `2026-10-25b`) and deploy: every cached origin request carries `?lh-edge-cache=<value>`, so no old entry is used again (old entries expire by themselves). aem.live ignores the parameter on pages, `.plain.html`, JSON (with `limit`/`offset`/`sheet`), code and media (`width`/`format`/`optimize` still apply); on redirects it echoes it in `location`, and lh-edge removes it there. Requests past the edge cache (the alias sheet, the screen index) and other methods than GET/HEAD don't carry it.
 
 ## The app's web view (`src/solo.js`)
 
