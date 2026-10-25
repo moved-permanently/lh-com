@@ -1,6 +1,6 @@
 /**
  * Live data for the lufthansa.com widgets (flight search, fare teasers, destination finder,
- * price bar, weather, labels). Three sources, in this order:
+ * price bar, labels). Three sources, in this order:
  *
  * 0. Recorded only: /service/secured/api/pointsOfInterest/* (poi-map) answers its points only to
  *    same-origin calls on www.lufthansa.com (204 without a body from aem.page): recordings only.
@@ -11,7 +11,7 @@
  *    without X-Portal-Site). Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
  *    HTML block page, unparsable JSON) falls back to the recordings; lh-proxy is not used.
  * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
- *    foreign origins; /aircore/weather/*, which sends no CORS header) go through the worker.
+ *    foreign origins) go through the worker.
  *    The recorded answer is looked up at the same time, so a refused proxy (502
  *    upstream-blocked) costs no extra wait; a refused proxy is remembered for the session.
  * 3. Recorded: the responses recorded at import time under /data/recorded/.

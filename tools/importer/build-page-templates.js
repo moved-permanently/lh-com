@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 /**
  * Builds tools/importer/page-templates.json from the migration scope: one template per
- * template_group (pages.csv) with its URLs in all four locales, plus the AirCore templates.
+ * template_group (pages.csv) with its URLs in all four locales (the AirCore templates for the
+ * /lhg/ pages are gone: those pages left the replica on 2026-10-25).
  * The first URL of each template is its representative. Blocks and sections that block
  * mapping already added are kept.
  * Usage: node tools/importer/build-page-templates.js
@@ -26,11 +27,6 @@ const TEMPLATES = {
   'app-entry': { rep: '/de/en/online-check-in', description: 'Entry pages of apps (flight search, check-in, bookings); the app links out' },
   'flight-status': { rep: '/de/en/timetable-and-flight-status', description: 'Timetable and flight status' },
 };
-const AIRCORE = {
-  'aircore-destination-overview': { types: ['home', 'continent', 'country'], description: 'AirCore destination overview: home, continent and country pages' },
-  'aircore-destination': { types: ['city', 'origin', 'business-class'], description: 'AirCore city, origin and business-class pages with frozen prices' },
-  'aircore-route': { types: ['country-route', 'city-route'], description: 'AirCore route pages with frozen prices' },
-};
 
 function readCsv(file) {
   if (!fs.existsSync(file)) return [];
@@ -41,9 +37,6 @@ function readCsv(file) {
 
 const pages = readCsv(path.join(root, 'tools/migration-scope/pages.csv'));
 const localPages = readCsv(path.join(root, 'tools/migration-scope/local-pages.csv'));
-// AirCore counterparts per locale, once discovered; falls back to the de/en-only scope file
-const aircoreLocales = readCsv(path.join(__dirname, 'aircore-locales.csv'));
-const aircore = aircoreLocales.length ? aircoreLocales : readCsv(path.join(root, 'tools/migration-scope/aircore.csv'));
 const existing = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : { templates: [] };
 const previous = Object.fromEntries((existing.templates || []).map((t) => [t.name, t]));
 
@@ -65,22 +58,15 @@ function template(name, description, urls) {
   };
 }
 
-const templates = [
-  ...Object.entries(TEMPLATES).map(([name, t]) => template(
-    name,
-    t.description,
-    [
-      ...urlsFor(pages.filter((r) => r.template_group === name), t.rep),
-      // market-only pages (local promotions, events, LoungeNet) import with the info template
-      ...(name === 'info' ? localPages.map((r) => `${LIVE}${r.path}`) : []),
-    ],
-  )),
-  ...Object.entries(AIRCORE).map(([name, t]) => template(
-    name,
-    t.description,
-    urlsFor(aircore.filter((r) => t.types.includes(r.type))),
-  )),
-];
+const templates = Object.entries(TEMPLATES).map(([name, t]) => template(
+  name,
+  t.description,
+  [
+    ...urlsFor(pages.filter((r) => r.template_group === name), t.rep),
+    // market-only pages (local promotions, events, LoungeNet) import with the info template
+    ...(name === 'info' ? localPages.map((r) => `${LIVE}${r.path}`) : []),
+  ],
+));
 
 const out = { ...existing, metadata: { ...(existing.metadata || {}), projectType: 'da' }, templates };
 fs.writeFileSync(OUT, `${JSON.stringify(out, null, 2)}\n`);

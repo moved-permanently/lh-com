@@ -263,7 +263,7 @@ const liveData = {
   recordedFrom: recordedAt[0] || null,
   recordedTo: recordedAt[recordedAt.length - 1] || null,
   // keep in sync with LIVE_SELECTORS in capture.js
-  maskedSelectors: ['.flight-search', '.fare-teaser', '.destination-finder', '.price-bar', '.weather', '.flight-status', '.table-deals .table-deals-price', '[data-lh-source]'],
+  maskedSelectors: ['.flight-search', '.fare-teaser', '.destination-finder', '.price-bar', '.flight-status', '[data-lh-source]'],
 };
 
 const report = {
@@ -362,12 +362,12 @@ md.push('## Unmapped widgets', '');
 md.push(unmapped ? unmapped.replace(/^#\s.*\n+/, '') : 'Not scanned yet (node tools/parity/unmapped-widgets.mjs).', '');
 
 md.push('## Live data on the replica', '');
-md.push(`The replica's widgets (flight search, fare teasers, destination finder, price bar, weather, flight status, deal prices) show data recorded as of the import date, ${liveData.recordedFrom ? `${liveData.recordedFrom.slice(0, 10)} to ${liveData.recordedTo.slice(0, 10)}` : '2026-10-21/22'} (${liveData.recordings} recorded responses, data/recorded/), wherever the live call is not possible.`);
+md.push(`The replica's widgets (flight search, fare teasers, destination finder, price bar, flight status) show data recorded as of the import date, ${liveData.recordedFrom ? `${liveData.recordedFrom.slice(0, 10)} to ${liveData.recordedTo.slice(0, 10)}` : '2026-10-21/22'} (${liveData.recordings} recorded responses, data/recorded/), wherever the live call is not possible.`);
 md.push('- Direct live calls (airport suggestions, labels, catalogs, defaultAirport, core/feature/list, destination finder) go from the visitor\'s browser to www.lufthansa.com. They only work as long as Lufthansa keeps those routes open for cross-origin requests (CORS) and the visitor passes Lufthansa\'s bot protection; otherwise the recording is shown.');
-md.push('- Fare teasers and weather always come from the recordings: lh-proxy is blocked upstream, and the live routes refuse foreign origins.');
+md.push('- Fare teasers always come from the recordings: lh-proxy is blocked upstream, and the live routes refuse foreign origins.');
 md.push('- Shop handoff: "Find flights" posts to shop.lufthansa.com/booking/availability; the lang/portalCountry values were captured from a real de/en search, those for de/de, at/de and gb/en (de-DE, de-AT, en-GB) are unverified.');
 md.push('- App view (?channel=app) drops header, footer, breadcrumb and consent banner on the assumption that the app\'s web view handles navigation and consent; not verifiable without the app and not part of this comparison.');
-md.push(`- These widgets are masked in the comparison (${liveData.maskedSelectors.map((s) => `\`${s}\``).join(', ')}), because live prices, dates and weather change by the minute; their frame and position still count wherever they shift the surrounding layout.`);
+md.push(`- These widgets are masked in the comparison (${liveData.maskedSelectors.map((s) => `\`${s}\``).join(', ')}), because live prices and dates change by the minute; their frame and position still count wherever they shift the surrounding layout.`);
 md.push('');
 
 md.push('## Not checked', '');

@@ -45,7 +45,6 @@ import decorateDestinationFinder, {
 import decoratePriceBar, {
   readPriceBarSettings, priceBarRequests, loadPriceBarData,
 } from '../../blocks/price-bar/price-bar.js';
-import decorateWeather, { weatherRequest, loadWeather } from '../../blocks/weather/weather.js';
 import decorateFlightStatus from '../../blocks/flight-status/flight-status.js';
 import decorateLoungeFinder, {
   readLoungeFinderSettings, loadLoungeFinderContext, loadLounges, loungeStatuses,
@@ -60,7 +59,7 @@ import decorateCarRental, {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const verbose = process.argv.includes('--verbose');
-const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'weather', 'flight-status', 'lounge-finder'];
+const WIDGETS = ['flight-search', 'fare-teaser', 'destination-finder', 'price-bar', 'flight-status', 'lounge-finder'];
 const PREVIEW_ORIGIN = 'https://main--lh-com--moved-permanently.aem.page';
 const sleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
@@ -663,20 +662,6 @@ async function checkPriceBar(base, config, locale) {
   record({ ...base, check: 'defaultAirport' }, settings.origin || data.sources.defaultAirport === 'recorded', true, `origin ${data.origin}`);
 }
 
-const weatherLocation = (config) => (((config.location || {}).text || '').match(/[A-Z]{3}/) || [''])[0];
-
-async function checkWeather(base, config, locale) {
-  const location = weatherLocation(config);
-  const request = weatherRequest({ location }, locale);
-  const { weather, source } = await loadWeather({ location, unit: 'C' }, locale);
-  record(
-    { ...base, check: request.route },
-    source === 'recorded' && Boolean(weather),
-    isRecorded(locale.key, request),
-    weather ? `${weather.days.length} days, today ${weather.current.temp}°C ${weather.current.condition}, humidity ${weather.current.humidity}` : 'not recorded',
-  );
-}
-
 async function checkFlightStatus(base, config, locale) {
   const term = FLIGHT_STATUS_TERM[locale.lang];
   const { list, source } = await searchAirportsWithSource(term, locale);
@@ -731,7 +716,6 @@ const CHECKS = {
   'fare-teaser': checkFareTeaser,
   'destination-finder': checkDestinationFinder,
   'price-bar': checkPriceBar,
-  weather: checkWeather,
   'flight-status': checkFlightStatus,
   'lounge-finder': checkLoungeFinder,
 };
@@ -745,7 +729,6 @@ const DECORATE = {
   'fare-teaser': decorateFareTeaser,
   'destination-finder': decorateDestinationFinder,
   'price-bar': decoratePriceBar,
-  weather: decorateWeather,
   'flight-status': decorateFlightStatus,
   'lounge-finder': decorateLoungeFinder,
 };
@@ -763,7 +746,6 @@ function primaryRecorded(name, config, locale) {
     const origin = settings.origin || (recordedDefault && JSON.parse(recordedDefault).marketDefaultAirport.iataCode) || locale.homeAirport;
     return Boolean(settings.destination) && isRecorded(locale.key, priceBarRequests(settings, locale, origin).fares);
   }
-  if (name === 'weather') return isRecorded(locale.key, weatherRequest({ location: weatherLocation(config) }, locale));
   if (name === 'flight-status') return isRecorded(locale.key, airportSuggestionsRequest(FLIGHT_STATUS_TERM[locale.lang], locale));
   // flight-search: labels/flightmanager and defaultAirport are recorded in every market; a block
   // with only a hotel tab loads no live data
@@ -780,12 +762,10 @@ const gridRecordedInMarket = (market) => Object.keys(index)
   .some((k) => k.startsWith(`${market}|GET /service/api/destinationfinder/destination/finder/`));
 
 /** Which data-lh-source a block must show in a run. */
-function expectedSource(name, run, recorded, { grid = false, market = '', own = true } = {}) {
+function expectedSource(name, run, recorded, { grid = false, market = '' } = {}) {
   const directPrimary = ['flight-search', 'flight-status', 'lounge-finder'].includes(name) || grid;
   const live = run === 'D' || (run === 'C' && directPrimary);
   if (live && grid && recorded) return gridRecordedInMarket(market) ? 'live' : 'recorded';
-  // the stub answers only the market's own recordings; another market's copy is the fallback
-  if (live && recorded && !own) return 'recorded';
   if (live) return recorded ? 'live' : null; // the stub answers live only what is recorded
   return recorded ? 'recorded' : null;
 }
@@ -813,8 +793,6 @@ function renderedSample(name, block) {
       const price = block.querySelector('.price-bar-price');
       return { ok: Boolean(price && price.textContent), text: `price "${price ? price.textContent : ''}"` };
     }
-    case 'weather':
-      return { ok: block.classList.contains('weather-loaded'), text: `${count('.weather-day')} days, ${(block.querySelector('.weather-temp') || { textContent: '' }).textContent}` };
     case 'flight-status': {
       const options = block.querySelectorAll('li[role="option"]').map((li) => li.textContent);
       return { ok: options.length > 0, text: `${options.length} suggestions: ${options.slice(0, 2).join(' | ')}` };
@@ -847,9 +825,7 @@ async function checkDecorate(run, { page, html }, name, blockIndex) {
   const config = readConfigRows(block);
   const recorded = primaryRecorded(name, config, locale);
   const grid = name === 'destination-finder' && block.classList.contains('grid');
-  const own = name !== 'weather'
-    || Boolean(index[`${locale.key}|${requestKey('GET', weatherRequest({ location: weatherLocation(config) }, locale).route)}`]);
-  const expected = expectedSource(name, run, recorded, { grid, market: locale.key, own });
+  const expected = expectedSource(name, run, recorded, { grid, market: locale.key });
   const start = Date.now();
   const result = DECORATE[name](block);
   if (name === 'flight-status') {
@@ -1035,12 +1011,11 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
 {
   const fraOffers = destinationFinderOffersRequest({ origin: 'FRA', cabin: 'E', months: [0, 11], tripType: 'RETURN' });
   record(
-    { run: 'G', check: 'destinationfinder routes are direct; fare teaser and weather are not' },
+    { run: 'G', check: 'destinationfinder routes are direct; the fare teaser is not' },
     isDirectRoute(fraOffers.route) && isDirectRoute('/service/api/destinationfinder/campaign/FRA')
       && !isDirectRoute(fareTeaserOffersRequest({ origin: 'FRA' }).route)
       && !isDirectRoute(fareTeaserManualRequest({ travels: [{ origin: 'FRA', destination: 'NYC' }] }).route)
-      && !isDirectRoute('/service/api/lhg-fare-teaser/fareteaser/recommend')
-      && !isDirectRoute('/service/api/aircore/weather/FRA'),
+      && !isDirectRoute('/service/api/lhg-fare-teaser/fareteaser/recommend'),
     true,
     fraOffers.route,
   );

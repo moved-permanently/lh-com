@@ -91,7 +91,7 @@ try {
       console.error(`bd-fetch: blocked at ${url} (${r.status}); stopping`);
       break;
     }
-    const kind = /sitemap/.test(url) ? 'sitemap' : (/\.model\.json$/.test(url) && 'model') || (/\/service\/api\/|\/aircore\/(weather|geolocation)\//.test(url) && 'api') || 'page';
+    const kind = /sitemap/.test(url) ? 'sitemap' : (/\.model\.json$/.test(url) && 'model') || (/\/service\/api\//.test(url) && 'api') || 'page';
     fs.appendFileSync(bundle, `${JSON.stringify({
       kind, url, method: post ? 'POST' : 'GET', body: post, ...r, fetchedAt: new Date().toISOString(),
     })}\n`);

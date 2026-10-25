@@ -8,15 +8,14 @@
  *
  * --crop-a: px cut off the source image before anything else (top, right, bottom, left): the
  *   15 px scrollbar strip of live screenshots that are as wide as the viewport (build-jobs.mjs
- *   srcCrop.right), a banner the live capture has and the replica must not (srcCrop.top: the
- *   German-IP geo banner of the AirCore AT/GB captures). Mask boxes are in the cropped
- *   coordinates (those of the replica).
+ *   srcCrop.right), or a banner the live capture has and the replica must not (top). Mask
+ *   boxes are in the cropped coordinates (those of the replica).
  * Both images are padded with white to the larger width/height, so a page that is too short or too
  * long shows up as mismatch at the bottom.
  * --mask (repeatable): a JSON file with boxes in document coordinates, either an array of
  *   {x, y, width, height} or an object with "liveBoxes" or "boxes" (so capture.js's <out>.json can
  *   be passed as is). The boxes are painted the same grey in BOTH images before diffing, so
- *   live/recorded data (fares, weather, flight search) never counts as mismatch; in the diff
+ *   live/recorded data (fares, flight search) never counts as mismatch; in the diff
  *   image they are tinted blue.
  * Prints and writes <out>.json:
  *   mismatchRatio    mismatched / all pixels (masked pixels count as matching)

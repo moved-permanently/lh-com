@@ -18,7 +18,7 @@
  * file. Pages without a faithful capture are skipped and listed in <out without .json>.skipped.json.
  *
  * Each job: { id, path, locale, template, priority, edsUrl, widths, srcPng: {width: file},
- *   contentWidth: {width: px}, srcCrop?: {width: {top?, right?}} } where contentWidth is the
+ *   contentWidth: {width: px}, srcCrop?: {width: {right}} } where contentWidth is the
  * layout width of the live screenshot. The live browser showed a classic 15 px scrollbar, so a
  * "1440" capture is usually 1425 px of layout; capture.js reproduces that layout width (see
  * --content-width there).
@@ -29,12 +29,6 @@
  * and mtime); such a width gets contentWidth = image width - 15 and srcCrop.right = 15, and
  * compare.js (--crop-a, passed on by run-batch.js) cuts the strip off the live image before
  * diffing.
- * Geo banner: the AirCore AT/GB pages captured from a German IP show the "wrong geolocation"
- * banner ("Sie sind in Deutschland ... [Land wechseln] [Auf Seite bleiben]") above the header
- * (98 px at 1440, about 190 / 238 px at 768 / 390); the importer drops it, so the replica starts
- * with the header. Pages whose cleaned.html has .wrong-geolocation-banner get srcCrop.top = the
- * height of the banner, measured in each screenshot as the first row of the navy header
- * (geoBannerTop(), cached in strip-cache.json under "banner:{file}").
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -89,10 +83,9 @@ const candidates = [];
 for (const [url, entry] of Object.entries(progress)) {
   const pagePath = new URL(url).pathname.replace(/\/+$/, '');
   if (EXCLUDED.test(pagePath)) continue; // eslint-disable-line no-continue
-  // AirCore pages live under /lhg/{country}/{lang}/...; they belong to that locale
   // market-only pages www serves under /content/lh/markets/{country}/{lang}/... (LoungeNet)
   const segs = pagePath.replace(/^\/content\/lh\/markets(?=\/)/, '').split('/').slice(1);
-  const locale = (segs[0] === 'lhg' ? segs.slice(1, 3) : segs.slice(0, 2)).join('/');
+  const locale = segs.slice(0, 2).join('/');
   if (entry.status === 'ok' && [...PRIMARY, ...SECONDARY].includes(locale)) {
     const dir = path.join(pagesDir, pagePath);
     const meta = readJson(path.join(dir, 'metadata.json'), null);
@@ -216,73 +209,16 @@ async function scrollbarStrip(file0, nominal) {
   return res;
 }
 
-// ---- geo banner (AirCore AT/GB captures from a German IP) ----
-const hasGeoBanner = (pagePath) => {
-  try {
-    return fs.readFileSync(path.join(pagesDir, pagePath, 'cleaned.html'), 'utf8').includes('wrong-geolocation-banner');
-  } catch (e) {
-    return false;
-  }
-};
-
-/**
- * Height of the geo banner above the navy header in a live screenshot: the first row in the top
- * 400 px where the 4 leftmost columns are navy (luma < 60) for at least 40 rows, with light
- * (banner background) rows above it; 0 when the screenshot starts with the header or has no such
- * band (the banner was closed).
- */
-async function geoBannerTop(file0) {
-  const file = path.join(ROOT, file0);
-  const st = fs.statSync(file);
-  const cacheKey = `banner:${file0}`;
-  const key = `v1:${st.size}:${Math.round(st.mtimeMs)}`; // bump v when the rule changes
-  if (stripCache[cacheKey] && stripCache[cacheKey].key === key) return stripCache[cacheKey].top;
-  const { height } = await sharp(file).metadata();
-  const h = Math.min(height, 460);
-  const w = 4;
-  const { data } = await sharp(file)
-    .extract({
-      left: 0, top: 0, width: w, height: h,
-    })
-    .removeAlpha()
-    .raw()
-    .toBuffer({ resolveWithObject: true });
-  const luma = (x, y) => {
-    const i = (y * w + x) * 3;
-    return 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-  };
-  const navy = (y) => [0, 1, 2, 3].every((x) => luma(x, y) < 60);
-  const light = (y) => [0, 1, 2, 3].every((x) => luma(x, y) > 200);
-  let top = 0;
-  // from row 1 (row 0 navy: the header is at the top already)
-  for (let y = 1; !navy(0) && y < Math.min(400, h - 40); y += 1) {
-    if (navy(y) && !navy(y - 1)) {
-      let run = 0;
-      while (run < 40 && navy(y + run)) run += 1;
-      let above = 0;
-      for (let k = 0; k < y; k += 1) if (light(k)) above += 1;
-      if (run >= 40 && above >= 0.9 * y) {
-        top = y;
-        break;
-      }
-    }
-  }
-  stripCache[cacheKey] = { key, top };
-  return top;
-}
-
 // layout width of every live screenshot (image width minus a scrollbar strip)
 // one file at a time: sharp reads the whole height of every screenshot
 await candidates.reduce((prev, job) => prev.then(() => {
   job.contentWidth = {};
-  job.geoBanner = hasGeoBanner(job.path);
   return job.widths.reduce((p, w) => p.then(async () => {
     const { width, strip } = await scrollbarStrip(job.srcPng[w], w);
     job.contentWidth[w] = width - strip;
-    const top = job.geoBanner ? await geoBannerTop(job.srcPng[w]) : 0;
-    if (strip || top) {
+    if (strip) {
       job.srcCrop = job.srcCrop || {};
-      job.srcCrop[w] = { ...(top ? { top } : {}), ...(strip ? { right: strip } : {}) };
+      job.srcCrop[w] = { right: strip };
     }
   }), Promise.resolve());
 }), Promise.resolve());
@@ -344,10 +280,6 @@ console.log('page-widths by locale@width:', count(items, (it) => `${it.locale}@$
 console.log('pages by priority:', count(jobs, (j) => j.priority));
 console.log('live content widths:', count(items, (it) => `${it.width}->${it.contentWidth[it.width]}`));
 console.log('scrollbar strip cropped:', count(items.filter((it) => it.srcCrop && it.srcCrop[it.width]), (it) => `${it.width} ${path.extname(it.srcPng[it.width]).slice(1)}`));
-console.log('geo banner cropped (top):', count(items.filter((it) => it.srcCrop && it.srcCrop[it.width] && it.srcCrop[it.width].top), (it) => `${it.width} top=${it.srcCrop[it.width].top}`));
-const unmeasured = candidates.filter((j) => j.geoBanner
-  && j.widths.some((w) => !(j.srcCrop && j.srcCrop[w] && j.srcCrop[w].top)));
-if (unmeasured.length) console.log(`geo banner page without a measured banner: ${unmeasured.map((j) => j.path).join(', ')}`);
 if (nonNominal.length) console.log(`${nonNominal.length} page-widths have an unusual live width (viewport adjusted at capture)`);
 console.log(`skipped: ${skipped.length} -> ${rel(skippedFile)}`);
 skipped.forEach((s) => console.log(`  ${s.path} (${s.template}): ${s.reason}`));

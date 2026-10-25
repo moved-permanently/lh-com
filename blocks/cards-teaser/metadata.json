@@ -23,6 +23,6 @@
     }
   ],
   "usage": "Hub pages (/{country}/{lang}/baggage), app-entry (/online-check-in: \"Your check-in with Lufthansa\"), campaign (/100-years stories).",
-  "reuseGuidance": "Use for borderless image teasers. For bordered cards (carousel on mobile) use carousel-cards; for destination tiles with prices use cards-price.",
+  "reuseGuidance": "Use for borderless image teasers. For bordered cards (carousel on mobile) use carousel-cards.",
   "memberVariantIds": []
 }

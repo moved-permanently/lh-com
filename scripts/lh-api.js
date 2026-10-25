@@ -4,7 +4,7 @@
  * exactly the live request (path, query, POST body) so recorded answers match; mappers turn
  * the live response shapes into plain view data. Blocks fetch through lhFetch (scripts/lh-data.js:
  * suggestions, labels, catalogs, defaultAirport and the destinationfinder routes directly from
- * www.lufthansa.com, the fare teaser and weather services through lh-proxy, the recordings as
+ * www.lufthansa.com, the fare teaser services through lh-proxy, the recordings as
  * fallback).
  */
 import { LIVE_ORIGIN } from './locale.js';

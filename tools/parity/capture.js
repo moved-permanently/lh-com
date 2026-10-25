@@ -45,9 +45,7 @@ const LIVE_SELECTORS = [
   '.fare-teaser',
   '.destination-finder',
   '.price-bar',
-  '.weather',
   '.flight-status',
-  '.table-deals .table-deals-price',
   '[data-lh-source]',
   // a stage with a playing background video: both sides play the same mp4, but each capture
   // catches another frame (c-diagnosis C2-1); replica blocks/hero-campaign (data-background-video

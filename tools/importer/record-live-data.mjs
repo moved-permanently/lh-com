@@ -25,7 +25,7 @@ const out = path.resolve(root, args.out || 'data/recorded');
 const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
 // the lh-proxy allowlist plus the recorded-only route of the poi-map block
 // (/service/secured/api/pointsOfInterest, recorded in-page by bd-record-api.mjs --set poi)
-const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|service\/secured\/api\/pointsOfInterest|aircore\/(weather|geolocation))(\/|$)/;
+const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|service\/secured\/api\/pointsOfInterest)(\/|$)/;
 
 function walk(dir, ext) {
   if (!fs.existsSync(dir)) return [];
@@ -37,7 +37,7 @@ function walk(dir, ext) {
 }
 
 function localeFrom(referer, file) {
-  const m = (referer || '').match(/lufthansa\.com\/(?:lhg\/)?([a-z]{2})\/([a-z]{2})\//);
+  const m = (referer || '').match(/lufthansa\.com\/([a-z]{2})\/([a-z]{2})\//);
   if (m && LOCALES.includes(`${m[1]}/${m[2]}`)) return `${m[1]}/${m[2]}`;
   const f = file.replace(/\\/g, '/').match(/(?:^|\/)([a-z]{2})[-_/]([a-z]{2})(?:\/|$)/);
   if (f && LOCALES.includes(`${f[1]}/${f[2]}`)) return `${f[1]}/${f[2]}`;

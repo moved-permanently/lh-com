@@ -25,5 +25,5 @@
     "reuseCount": 0,
     "lastUsed": "2026-10-21"
   },
-  "reuseGuidance": "Use for plain key/value or multi-column data tables without a header. For tables with a header row use the vanilla table; for linked deal rows use table-deals."
+  "reuseGuidance": "Use for plain key/value or multi-column data tables without a header. For tables with a header row use the vanilla table."
 }

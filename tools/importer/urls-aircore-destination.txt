@@ -1,9 +1,0 @@
-https://www.lufthansa.com/lhg/at/de/dest/cy/amman
-https://www.lufthansa.com/lhg/at/de/dest/cy/barcelona
-https://www.lufthansa.com/lhg/at/de/dest/cy/london
-https://www.lufthansa.com/lhg/at/de/dest/cy/los-angeles
-https://www.lufthansa.com/lhg/at/de/dest/cy/new-york
-https://www.lufthansa.com/lhg/at/de/dest/cy/palma-de-mallorca
-https://www.lufthansa.com/lhg/at/de/dest/cy/paris
-https://www.lufthansa.com/lhg/at/de/dest/cy/rom
-https://www.lufthansa.com/lhg/at/de/dest/cy/tokio

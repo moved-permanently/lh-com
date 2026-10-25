@@ -78,7 +78,7 @@ const stateFile = path.join(root, 'tools/source-export/bd-session-state.json');
 // API responses the live page loads by itself while it is captured (no extra requests);
 // tools/importer/record-live-data.mjs turns them into data/recorded/
 const apiDir = path.join(root, 'tools/source-export/api');
-const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|aircore\/(weather|geolocation))(\/|$)/;
+const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder))(\/|$)/;
 let pageResponses = [];
 const pagesDir = path.join(root, 'tools/source-export/pages');
 
@@ -136,7 +136,7 @@ async function open(page, url) {
   const title = () => page.title().catch(() => 'just a moment');
   for (let i = 0; i < 60 && (CHALLENGE.test(await title()) || !(await title())); i += 1) await sleep(1000);
   await page.waitForLoadState('domcontentloaded').catch(() => {});
-  // stylesheets and fonts (AirCore loads its CSS late; without this the capture is unstyled)
+  // stylesheets and fonts (late CSS; without this the capture can be unstyled)
   await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
   await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
   await sleep(1500);
@@ -271,7 +271,7 @@ try {
       if (!shotsOnly) fs.writeFileSync(path.join(dir, 'cleaned.html'), await extractCleanedHTML(page));
 
       let model = null;
-      if (has('model') && !pathname.startsWith('/lhg/')) {
+      if (has('model')) {
         model = await page.evaluate(async (u) => {
           const r = await fetch(u, { credentials: 'include' });
           return { status: r.status, type: r.headers.get('content-type') || '', text: await r.text() };
@@ -304,7 +304,7 @@ try {
       }
       const recorded = (await Promise.all(pageResponses)).filter(Boolean);
       if (recorded.length) {
-        const locale = (pathname.replace(/^\/lhg/, '').match(/^\/([a-z]{2}\/[a-z]{2})\//) || [])[1] || null;
+        const locale = (pathname.match(/^\/([a-z]{2}\/[a-z]{2})\//) || [])[1] || null;
         fs.mkdirSync(apiDir, { recursive: true });
         fs.appendFileSync(path.join(apiDir, `${(locale || 'unknown').replace('/', '-')}.ndjson`), recorded
           .map((r) => `${JSON.stringify({
