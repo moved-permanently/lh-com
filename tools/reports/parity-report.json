@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T08:11:10.834Z",
+  "generatedAt": "2026-10-25T08:21:02.840Z",
   "thresholds": {
     "PASS_MAX": 0.08,
     "REVIEW_MAX": 0.2,
@@ -35,8 +35,8 @@
     "gb/en": {
       "pages": 301,
       "pass": 73,
-      "review": 142,
-      "fail": 86,
+      "review": 143,
+      "fail": 85,
       "pending": 0,
       "error": 0
     }
@@ -154,7 +154,7 @@
       "template": "info",
       "width": 768,
       "pageWidths": 382,
-      "meanUnmasked": 0.19117892670157072,
+      "meanUnmasked": 0.19056306282722513,
       "medianUnmasked": 0.14065,
       "maxUnmasked": 0.65483
     },
@@ -162,7 +162,7 @@
       "template": "info",
       "width": 390,
       "pageWidths": 382,
-      "meanUnmasked": 0.18287787958115193,
+      "meanUnmasked": 0.18229463350785347,
       "medianUnmasked": 0.15756,
       "maxUnmasked": 0.49257
     },
@@ -234,7 +234,7 @@
       "template": "info",
       "width": 1440,
       "pageWidths": 716,
-      "meanUnmasked": 0.1347587709497207,
+      "meanUnmasked": 0.13437388268156425,
       "medianUnmasked": 0.10692499999999999,
       "maxUnmasked": 0.47005
     },
@@ -167872,7 +167872,7 @@
       "locale": "gb/en",
       "template": "info",
       "priority": 4,
-      "status": "fail",
+      "status": "review",
       "widthsChecked": [
         1440,
         768,
@@ -167883,26 +167883,26 @@
           "width": 1440,
           "contentWidth": 1425,
           "state": "done",
-          "unmaskedRatio": 0.43634,
-          "mismatchRatio": 0.363,
-          "maskRatio": 0.16808,
+          "unmaskedRatio": 0.16076,
+          "mismatchRatio": 0.13241,
+          "maskRatio": 0.17635,
           "maskBoxes": 2,
           "heightSrc": 2823,
-          "heightEds": 2962,
-          "heightDiffRatio": 0.04693,
-          "firstDivergentY": 200,
+          "heightEds": 2792,
+          "heightDiffRatio": 0.01098,
+          "firstDivergentY": 1400,
           "worstBands": [
             {
-              "y": 2000,
-              "unmaskedRatio": 0.96341
-            },
-            {
               "y": 1800,
-              "unmaskedRatio": 0.91178
+              "unmaskedRatio": 0.62892
             },
             {
-              "y": 800,
-              "unmaskedRatio": 0.74945
+              "y": 1600,
+              "unmaskedRatio": 0.40417
+            },
+            {
+              "y": 1400,
+              "unmaskedRatio": 0.33665
             }
           ],
           "capturedWidth": 1425,
@@ -167930,26 +167930,26 @@
           "width": 768,
           "contentWidth": 753,
           "state": "done",
-          "unmaskedRatio": 0.41518,
-          "mismatchRatio": 0.31722,
-          "maskRatio": 0.23594,
+          "unmaskedRatio": 0.17992,
+          "mismatchRatio": 0.13555,
+          "maskRatio": 0.24661,
           "maskBoxes": 2,
           "heightSrc": 2984,
-          "heightEds": 3119,
-          "heightDiffRatio": 0.04328,
-          "firstDivergentY": 400,
+          "heightEds": 2949,
+          "heightDiffRatio": 0.01173,
+          "firstDivergentY": 1600,
           "worstBands": [
             {
-              "y": 2200,
-              "unmaskedRatio": 0.97667
+              "y": 1800,
+              "unmaskedRatio": 0.94219
+            },
+            {
+              "y": 1600,
+              "unmaskedRatio": 0.85472
             },
             {
               "y": 2000,
-              "unmaskedRatio": 0.96104
-            },
-            {
-              "y": 1800,
-              "unmaskedRatio": 0.96069
+              "unmaskedRatio": 0.37114
             }
           ],
           "capturedWidth": 753,
@@ -167977,26 +167977,26 @@
           "width": 390,
           "contentWidth": 375,
           "state": "done",
-          "unmaskedRatio": 0.3827,
-          "mismatchRatio": 0.28181,
-          "maskRatio": 0.26362,
+          "unmaskedRatio": 0.1599,
+          "mismatchRatio": 0.11577,
+          "maskRatio": 0.27599,
           "maskBoxes": 2,
           "heightSrc": 3131,
-          "heightEds": 3278,
-          "heightDiffRatio": 0.04484,
-          "firstDivergentY": 400,
+          "heightEds": 3108,
+          "heightDiffRatio": 0.00735,
+          "firstDivergentY": 1600,
           "worstBands": [
             {
-              "y": 2200,
-              "unmaskedRatio": 0.96569
+              "y": 1800,
+              "unmaskedRatio": 0.95455
             },
             {
               "y": 2000,
-              "unmaskedRatio": 0.95307
+              "unmaskedRatio": 0.72587
             },
             {
-              "y": 800,
-              "unmaskedRatio": 0.83408
+              "y": 1600,
+              "unmaskedRatio": 0.33086
             }
           ],
           "capturedWidth": 375,
@@ -168038,9 +168038,9 @@
         "2026-10-25 [page] Item 1c: h1 to card spacing (the h1 section had a 48px gap; live only the h1 margin, +22px below 768), 'This might also be of interest to you' as heading-small (the cards-teaser parser dropped the class), SIXT band to that title 32px (section style before-column). Most of the 768 mismatch is the live 768 captures: none of the four has the SIXT band or teaser images loaded (live content ~325px shorter) -> recaptured in the full run. Spot-check unmasked 1440/768/390 before -> after: gb/en/flight-search 16.3/39.8/19.4 -> 5.0/36.8/12.7, de/en/flight-search 10.5/38.0/17.6 -> 4.9/36.9/10.6, de/de/flugsuche 10.6/37.0/20.8 -> 5.0/35.7/19.8, at/de/flugsuche 13.5/36.7/21.3 -> 5.0/35.5/20.2. (bba462c)"
       ],
       "remains": [
-        "layout diverges at y≈200 px at 1440; replica 139 px taller (4.7%)",
-        "layout diverges at y≈400 px at 768; replica 135 px taller (4.3%)",
-        "layout diverges at y≈400 px at 390; replica 147 px taller (4.5%)"
+        "layout diverges at y≈1400 px at 1440",
+        "layout diverges at y≈1600 px at 768",
+        "layout diverges at y≈1600 px at 390"
       ]
     }
   ],

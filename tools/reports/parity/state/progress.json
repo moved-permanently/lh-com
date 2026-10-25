@@ -342735,11 +342735,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19643,
-          "at": "2026-10-25T06:20:32.247Z",
+          "ms": 20491,
+          "at": "2026-10-25T08:20:13.501Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 2962,
+            "scrollHeight": 2792,
             "truncated": false,
             "viewportWidth": 1440,
             "clientWidth": 1425,
@@ -342782,54 +342782,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.363,
-        "unmaskedRatio": 0.43634,
-        "maskRatio": 0.16808,
+        "mismatchRatio": 0.13241,
+        "unmaskedRatio": 0.16076,
+        "maskRatio": 0.17635,
         "maskBoxes": 2,
         "widthA": 1425,
         "widthB": 1425,
         "heightA": 2823,
-        "heightB": 2962,
-        "heightDiffRatio": 0.04693,
+        "heightB": 2792,
+        "heightDiffRatio": 0.01098,
         "firstDivergentBand": {
-          "index": 1,
-          "y": 200,
-          "unmaskedRatio": 0.54095
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.33665
         },
         "worstBands": [
           {
-            "y": 2000,
-            "unmaskedRatio": 0.96341
-          },
-          {
             "y": 1800,
-            "unmaskedRatio": 0.91178
+            "unmaskedRatio": 0.62892
           },
           {
-            "y": 800,
-            "unmaskedRatio": 0.74945
+            "y": 1600,
+            "unmaskedRatio": 0.40417
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.33665
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.03356,
-          0.54095,
-          0.46093,
-          0.35365,
-          0.74945,
-          0.09447,
+          0.01516,
+          0.15326,
+          0.12389,
+          0.06294,
+          0.0192,
           0,
-          0.4649,
-          0.62715,
-          0.91178,
-          0.96341,
-          0.47331,
-          0.05575,
-          0.30286,
-          0.49654
+          0.0128,
+          0.33665,
+          0.40417,
+          0.62892,
+          0.32156,
+          0.09172,
+          0.04041,
+          0.20388,
+          0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/1440-diff.png",
-        "at": "2026-10-25T06:20:34.732Z",
+        "at": "2026-10-25T08:20:15.535Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/1440-diff.png",
@@ -342846,11 +342846,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19178,
-          "at": "2026-10-25T06:20:54.149Z",
+          "ms": 19199,
+          "at": "2026-10-25T08:20:34.935Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3119,
+            "scrollHeight": 2949,
             "truncated": false,
             "viewportWidth": 768,
             "clientWidth": 753,
@@ -342893,55 +342893,54 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.31722,
-        "unmaskedRatio": 0.41518,
-        "maskRatio": 0.23594,
+        "mismatchRatio": 0.13555,
+        "unmaskedRatio": 0.17992,
+        "maskRatio": 0.24661,
         "maskBoxes": 2,
         "widthA": 753,
         "widthB": 753,
         "heightA": 2984,
-        "heightB": 3119,
-        "heightDiffRatio": 0.04328,
+        "heightB": 2949,
+        "heightDiffRatio": 0.01173,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.39839
+          "index": 8,
+          "y": 1600,
+          "unmaskedRatio": 0.85472
         },
         "worstBands": [
           {
-            "y": 2200,
-            "unmaskedRatio": 0.97667
+            "y": 1800,
+            "unmaskedRatio": 0.94219
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.85472
           },
           {
             "y": 2000,
-            "unmaskedRatio": 0.96104
-          },
-          {
-            "y": 1800,
-            "unmaskedRatio": 0.96069
+            "unmaskedRatio": 0.37114
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
-          0.01424,
-          0.2679,
-          0.39839,
-          0.69069,
-          0.79837,
-          0.11755,
+          0.01423,
+          0.10553,
+          0.12703,
+          0.0449,
+          0.04063,
           0,
           0,
-          0.04252,
-          0.96069,
-          0.96104,
-          0.97667,
-          0.23159,
-          0.07944,
-          0.55649,
-          0.32109
+          0.02404,
+          0.85472,
+          0.94219,
+          0.37114,
+          0.14516,
+          0.13699,
+          0.06746,
+          0.18815
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/768-diff.png",
-        "at": "2026-10-25T06:20:55.638Z",
+        "at": "2026-10-25T08:20:36.277Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/768-diff.png",
@@ -342958,11 +342957,11 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 18933,
-          "at": "2026-10-25T06:21:14.794Z",
+          "ms": 18905,
+          "at": "2026-10-25T08:20:55.418Z",
           "metrics": {
             "httpStatus": 200,
-            "scrollHeight": 3278,
+            "scrollHeight": 3108,
             "truncated": false,
             "viewportWidth": 390,
             "clientWidth": 375,
@@ -343005,61 +343004,60 @@
         }
       },
       "compare": {
-        "mismatchRatio": 0.28181,
-        "unmaskedRatio": 0.3827,
-        "maskRatio": 0.26362,
+        "mismatchRatio": 0.11577,
+        "unmaskedRatio": 0.1599,
+        "maskRatio": 0.27599,
         "maskBoxes": 2,
         "widthA": 375,
         "widthB": 375,
         "heightA": 3131,
-        "heightB": 3278,
-        "heightDiffRatio": 0.04484,
+        "heightB": 3108,
+        "heightDiffRatio": 0.00735,
         "firstDivergentBand": {
-          "index": 2,
-          "y": 400,
-          "unmaskedRatio": 0.40487
+          "index": 8,
+          "y": 1600,
+          "unmaskedRatio": 0.33086
         },
         "worstBands": [
           {
-            "y": 2200,
-            "unmaskedRatio": 0.96569
+            "y": 1800,
+            "unmaskedRatio": 0.95455
           },
           {
             "y": 2000,
-            "unmaskedRatio": 0.95307
+            "unmaskedRatio": 0.72587
           },
           {
-            "y": 800,
-            "unmaskedRatio": 0.83408
+            "y": 1600,
+            "unmaskedRatio": 0.33086
           }
         ],
         "bandHeight": 200,
         "bandRatios": [
           0.06915,
-          0.24493,
-          0.40487,
-          0.81215,
-          0.83408,
-          0.19545,
+          0.17167,
+          0.25416,
+          0.14559,
+          0.08137,
           0,
           0,
-          0.07736,
-          0.48493,
-          0.95307,
-          0.96569,
-          0.44115,
-          0.11173,
-          0.2802,
-          0.5274,
-          0.0121
+          0.04259,
+          0.33086,
+          0.95455,
+          0.72587,
+          0.11341,
+          0.13167,
+          0.10215,
+          0.21955,
+          0.05044
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/390-diff.png",
-        "at": "2026-10-25T06:21:16.030Z",
+        "at": "2026-10-25T08:20:56.419Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/390-diff.png",
       "status": "done"
     }
   },
-  "updatedAt": "2026-10-25T08:10:48.348Z"
+  "updatedAt": "2026-10-25T08:20:56.419Z"
 }
