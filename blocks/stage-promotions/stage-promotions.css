@@ -1,0 +1,4 @@
+/* the block is replaced by the active promotion; until then (and when none is active) it is empty */
+.stage-promotions:empty {
+  display: none;
+}

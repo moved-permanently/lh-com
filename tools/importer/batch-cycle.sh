@@ -28,6 +28,7 @@ for t in $(node -e "console.log(require('./tools/importer/page-templates.json').
 done
 node tools/importer/head-metadata.mjs 2>&1 | tail -1
 node tools/importer/share-sections.mjs 2>&1 | tail -2
+node tools/importer/stage-promotions.mjs 2>&1 | tail -4
 node tools/importer/postprocess-media.mjs --all 2>&1 | grep -E "FAIL|fragments written|^postprocess-media:"
 node tools/importer/build-upload-list.mjs > /tmp/upload-list.log 2>&1
 timeout 150 node tools/importer/da-upload.mjs --list tools/importer/upload-all.txt 2> /tmp/da-upload.err | grep -E "^da-upload:|^  "

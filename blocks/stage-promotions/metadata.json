@@ -1,0 +1,19 @@
+{
+  "variantName": "stage-promotions",
+  "baseBlock": "stage-promotions",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/homepage",
+  "visualCharacteristics": {
+    "purpose": "homepage stage by date: shows the stage promotion of the locale that is active now",
+    "traits": [
+      "no look of its own: renders the active promotion's stage block (hero-card-overlay)"
+    ]
+  },
+  "contentPattern": {
+    "structure": "1 cell: link to /{cc}/{ll}/fragments/stage-promotions. That document: one section per promotion (stage block + Section Metadata Promotion, Start, End)."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Market homepages (/de/en, /de/de, /at/de, /gb/en), in place of the stage.",
+  "reuseGuidance": "Schedule campaigns in the promotions document, never on the homepage."
+}

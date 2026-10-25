@@ -1,0 +1,21 @@
+{
+  "about": "Homepage stage promotions per locale (tools/importer/stage-promotions.mjs). 'homepage-stage': the stage of the imported homepage (live .mainstageteaser, link mode). 'card': a stage built from an existing teaser card of the same homepage (its image, eyebrow, title, text and link). start / end: as authored in the Section Metadata (market time; a date alone is the whole day). FLYZA ends with its booking period on the de pages ('Use code FLYZA before October 31, 2026', /de/en/local-page/south-africa-winter-promotion); the other second promotions start on 2026-12-01 so the homepages match www until then.",
+  "locales": {
+    "de/en": [
+      { "name": "South Africa FLYZA", "source": "homepage-stage", "end": "2026-10-31" },
+      { "name": "Kuala Lumpur", "source": { "card": "Discover Kuala Lumpur and other destinations" }, "start": "2026-11-01" }
+    ],
+    "de/de": [
+      { "name": "Südafrika FLYZA", "source": "homepage-stage", "end": "2026-10-31" },
+      { "name": "Kuala Lumpur", "source": { "card": "Kuala Lumpur und weitere Ziele entdecken" }, "start": "2026-11-01" }
+    ],
+    "at/de": [
+      { "name": "Starlink Wi-Fi", "source": "homepage-stage" },
+      { "name": "Johannesburg via München", "source": { "card": "Nach Johannesburg via München" }, "start": "2026-12-01" }
+    ],
+    "gb/en": [
+      { "name": "Ski campaign", "source": "homepage-stage" },
+      { "name": "This month's deals", "source": { "card": "Discover this month’s deals" }, "start": "2026-12-01" }
+    ]
+  }
+}
