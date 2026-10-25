@@ -1,0 +1,111 @@
+/* message-center: live .messagecenterwrapper (in .airem-sidebar .sidebar-content, 927px of the
+   1249px column at 1440) > maui-collapsible-item; .mcm-critically-high: red header text and
+   warning icon (--maui-color-text-copy: brand red), 5px gap. Measured on
+   /de/en/prepare-for-your-trip/current-travel-information 2026-10-25: item 88-1015 x 280-331,
+   the standing accordion 60px below */
+main > .section > .message-center-wrapper.message-center-empty {
+  display: none;
+}
+
+main > .section > .message-center-wrapper.message-center-empty + div {
+  margin-top: 0;
+}
+
+main > .section > .message-center-wrapper:not(.message-center-empty) + div {
+  margin-top: 60px;
+}
+
+.message-center .message-center-item {
+  border-top: 1px solid var(--border-color, #ccc);
+}
+
+.message-center .message-center-item:last-child {
+  border-bottom: 1px solid var(--border-color, #ccc);
+}
+
+/* maui-collapsible-item header: 13px padding, LufthansaHead 18px/24px bold, 24px chevron */
+.message-center .message-center-title {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 13px 48px 13px 13px;
+  color: var(--lh-deepblue, #05164d);
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  list-style: none;
+}
+
+.message-center summary.message-center-title {
+  cursor: pointer;
+}
+
+.message-center summary.message-center-title::-webkit-details-marker {
+  display: none;
+}
+
+.message-center summary.message-center-title:focus-visible {
+  outline: 2px solid var(--focus-color, #05164d);
+  outline-offset: -2px;
+}
+
+.message-center summary.message-center-title::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 8.6 5.6 7l6.4 6.4L18.4 7 20 8.6l-8 8z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.25s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.message-center details[open] > summary.message-center-title::after {
+  transform: rotate(180deg);
+}
+
+.message-center .message-center-item.is-high .message-center-title {
+  color: #c00;
+}
+
+.message-center .message-center-icon {
+  display: flex;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.message-center .message-center-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* .richtext p: 18px/27px, margin 0 0 2.4rem; links bold #52627c */
+.message-center .message-center-panel {
+  padding: 10px 20px 20px 13px;
+  color: var(--lh-deepblue, #05164d);
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.message-center .message-center-panel p {
+  margin: 0 0 24px;
+}
+
+.message-center .message-center-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.message-center .message-center-panel a:any-link {
+  color: #52627c;
+  font-weight: 700;
+}
+
+@media (width >= 768px) {
+  .message-center {
+    width: 74.2%;
+  }
+}

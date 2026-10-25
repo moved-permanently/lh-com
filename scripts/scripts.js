@@ -350,6 +350,11 @@ async function loadEager(doc) {
     channel = applyChannel(main);
     if (channel !== 'website') await loadCSS(`${window.hlx.codeBasePath}/styles/channels.css`);
     document.body.classList.add('appear');
+    // Message Center blocks: start loading the index before the first section's blocks load, so
+    // the flash teaser above the flight search is ready with it (no layout shift, no extra wait)
+    if (main.querySelector('.flash-teaser, .message-center')) {
+      import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
+    }
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 

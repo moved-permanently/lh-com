@@ -36,13 +36,19 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_544460_exports = {};
-  __export(tmp_bundle_homepage_544460_exports, {
-    default: () => tmp_bundle_homepage_544460_default
+  var tmp_bundle_homepage_547645_exports = {};
+  __export(tmp_bundle_homepage_547645_exports, {
+    default: () => tmp_bundle_homepage_547645_default
   });
 
-  // tools/importer/parsers/flight-search.js
+  // tools/importer/parsers/flash-teaser.js
   function parse(element, { document }) {
+    const block = WebImporter.Blocks.createBlock(document, { name: "flash-teaser", cells: [] });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/flight-search.js
+  function parse2(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -128,7 +134,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-card-overlay.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -234,7 +240,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -450,7 +456,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -716,7 +722,7 @@ var CustomImportScript = (() => {
     out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
     element.replaceWith(...out);
   }
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
     if (grid) {
       parseGrid(element, grid, document);
@@ -852,7 +858,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon.js
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -902,7 +908,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-logos.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -963,7 +969,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -1357,7 +1363,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
@@ -2481,6 +2487,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "flash-teaser",
+        "instances": [
+          ".flashteasercore:has(> .dcep-flash-teaser)"
+        ]
+      },
+      {
         "name": "flight-search",
         "instances": [
           ".redesignedflightmanager"
@@ -2635,14 +2647,15 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "flight-search": parse,
-    "hero-card-overlay": parse2,
-    "fare-teaser": parse3,
-    "carousel-cards": parse4,
-    "destination-finder": parse5,
-    "cards-icon": parse6,
-    "columns-logos": parse7,
-    "accordion-columns": parse8
+    "flash-teaser": parse,
+    "flight-search": parse2,
+    "hero-card-overlay": parse3,
+    "fare-teaser": parse4,
+    "carousel-cards": parse5,
+    "destination-finder": parse6,
+    "cards-icon": parse7,
+    "columns-logos": parse8,
+    "accordion-columns": parse9
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -2666,7 +2679,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_544460_default = {
+  var tmp_bundle_homepage_547645_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2696,5 +2709,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_544460_exports);
+  return __toCommonJS(tmp_bundle_homepage_547645_exports);
 })();

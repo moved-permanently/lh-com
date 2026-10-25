@@ -36,13 +36,19 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_544460_exports = {};
-  __export(tmp_bundle_info_544460_exports, {
-    default: () => tmp_bundle_info_544460_default
+  var tmp_bundle_info_547645_exports = {};
+  __export(tmp_bundle_info_547645_exports, {
+    default: () => tmp_bundle_info_547645_default
   });
 
-  // tools/importer/parsers/profile-tabs.js
+  // tools/importer/parsers/message-center.js
   function parse(element, { document }) {
+    const block = WebImporter.Blocks.createBlock(document, { name: "message-center", cells: [] });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/profile-tabs.js
+  function parse2(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -917,7 +923,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/profile-nav.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const ul = document.createElement("ul");
     element.querySelectorAll("maui-sub-navigation-tab").forEach((tab) => {
@@ -942,7 +948,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/subpage-nav.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const text = (el) => {
       if (!el) return "";
@@ -1024,7 +1030,7 @@ var CustomImportScript = (() => {
       return n.textContent.replace(/[\s\u00A0\u200B]/g, "") || n.querySelector("img, picture, a[href], maui-navigation-link, maui-link");
     });
   }
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const isTwoColumn = element.matches(".twocolumn");
     const poimapping = element.matches(".poimapping") ? element : element.querySelector(".poimapping");
     if (!poimapping) return;
@@ -1095,7 +1101,7 @@ var CustomImportScript = (() => {
     "passenger-receipt-90": "passenger-receipt-90"
   };
   var ERROR_PAGE = "/error.html";
-  function parse5(element, { document, url, params }) {
+  function parse6(element, { document, url, params }) {
     const form = element.matches("form") ? element : element.querySelector("form.cmp-form");
     if (!form) return;
     const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
@@ -1485,7 +1491,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/car-rental.js
   var DEFAULT_SCRIPT = "https://direct-ux.meili.travel/index.js";
-  function parse6(element, { document, params, url }) {
+  function parse7(element, { document, params, url }) {
     const host = element.matches(".dcep-meili-car-rental") ? element : element.querySelector(".dcep-meili-car-rental");
     let config = {};
     try {
@@ -1518,7 +1524,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/flight-search.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1604,7 +1610,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1698,7 +1704,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse9(element, { document }) {
+  function parse10(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -1798,7 +1804,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse10(element, { document }) {
+  function parse11(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -1961,7 +1967,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/table-striped.js
-  function parse11(element, { document }) {
+  function parse12(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
@@ -1992,7 +1998,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse12(element, { document }) {
+  function parse13(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const partners = [...element.querySelectorAll("a.teaser.partner")];
     if (!partners.length) return;
@@ -2035,7 +2041,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse13(element, { document }) {
+  function parse14(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2231,7 +2237,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse14(element, { document }) {
+  function parse15(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -2411,7 +2417,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -2876,7 +2882,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse16(element, { document }) {
+  function parse17(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -2888,7 +2894,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -2904,13 +2910,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3287,7 +3293,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
@@ -4411,6 +4417,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "message-center",
+        "instances": [
+          ".sidebar:has(.sidebar-content > .messagecenterwrapper)"
+        ]
+      },
+      {
         "name": "profile-tabs",
         "instances": [
           ".tabs.panelcontainer:has(maui-tab-control-panel-responsive .image img):not(:has(.accordion, .table, .teaser, .twocolumn, .threecolumn, .fourcolumn, .carousel, .videoViewer, .video, .sidebar, .poimapping, .imagelinklist, .experiencefragment, form, iframe))",
@@ -4582,25 +4594,26 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "profile-tabs": parse,
-    "profile-nav": parse2,
-    "subpage-nav": parse3,
-    "poi-map": parse4,
-    "form-core": parse5,
-    "car-rental": parse6,
-    "flight-search": parse7,
-    "hero-campaign": parse8,
-    "carousel-images": parse9,
-    "accordion-columns": parse10,
-    "table-striped": parse11,
-    "cards-icon-text": parse12,
-    "carousel-cards": parse13,
-    "cards-teaser": parse14,
-    "columns-media": parse15,
-    "embed": parse16,
-    "lounge-finder": parse17,
-    "ejournals": parse18,
-    "fare-teaser": parse19
+    "message-center": parse,
+    "profile-tabs": parse2,
+    "profile-nav": parse3,
+    "subpage-nav": parse4,
+    "poi-map": parse5,
+    "form-core": parse6,
+    "car-rental": parse7,
+    "flight-search": parse8,
+    "hero-campaign": parse9,
+    "carousel-images": parse10,
+    "accordion-columns": parse11,
+    "table-striped": parse12,
+    "cards-icon-text": parse13,
+    "carousel-cards": parse14,
+    "cards-teaser": parse15,
+    "columns-media": parse16,
+    "embed": parse17,
+    "lounge-finder": parse18,
+    "ejournals": parse19,
+    "fare-teaser": parse20
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -4624,7 +4637,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_544460_default = {
+  var tmp_bundle_info_547645_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4654,5 +4667,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_544460_exports);
+  return __toCommonJS(tmp_bundle_info_547645_exports);
 })();

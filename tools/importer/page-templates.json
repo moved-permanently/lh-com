@@ -11,6 +11,12 @@
       ],
       "blocks": [
         {
+          "name": "flash-teaser",
+          "instances": [
+            ".flashteasercore:has(> .dcep-flash-teaser)"
+          ]
+        },
+        {
           "name": "flight-search",
           "instances": [
             ".redesignedflightmanager"
@@ -1113,6 +1119,12 @@
         "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge"
       ],
       "blocks": [
+        {
+          "name": "message-center",
+          "instances": [
+            ".sidebar:has(.sidebar-content > .messagecenterwrapper)"
+          ]
+        },
         {
           "name": "profile-tabs",
           "instances": [

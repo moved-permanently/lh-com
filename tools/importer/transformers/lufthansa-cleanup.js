@@ -364,7 +364,10 @@ const MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, i
 const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 // widgets whose snapshot caught them before they rendered (an empty .dcep-poi-mapping when the
 // map had not loaded) keep their data-dcep config for their parser (poi-map: the id)
-const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]';
+// components that render client-side and are empty in the snapshot but become blocks: the POI map,
+// the car rental widget, the Message Center flash teaser (homepage) and message center (current
+// travel information page)
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {

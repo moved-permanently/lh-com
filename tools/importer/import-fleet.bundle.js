@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_544460_exports = {};
-  __export(tmp_bundle_fleet_544460_exports, {
-    default: () => tmp_bundle_fleet_544460_default
+  var tmp_bundle_fleet_547645_exports = {};
+  __export(tmp_bundle_fleet_547645_exports, {
+    default: () => tmp_bundle_fleet_547645_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2037,7 +2037,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep]";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
@@ -3288,7 +3288,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_544460_default = {
+  var tmp_bundle_fleet_547645_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3318,5 +3318,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_544460_exports);
+  return __toCommonJS(tmp_bundle_fleet_547645_exports);
 })();
