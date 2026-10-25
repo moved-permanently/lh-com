@@ -2552,6 +2552,17 @@
   "hasAlpha": false,
   "checkedAt": "2026-10-22T20:21:19.668Z"
  },
+ "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_100y_content_teaser_homescreen_image.jpg": {
+  "status": 200,
+  "version": 1,
+  "cache": "tools/source-export/media-cache/0fe0cce236b3a408647d0e7d2371a861.jpg",
+  "format": "jpeg",
+  "bytes": 1829281,
+  "width": 1920,
+  "height": 1080,
+  "hasAlpha": false,
+  "checkedAt": "2026-10-25T21:55:23.027Z"
+ },
  "https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/all-check-in/check-in-baggage/image-2026-02-11-12-37-48-489.jpg": {
   "status": 200,
   "version": 1,

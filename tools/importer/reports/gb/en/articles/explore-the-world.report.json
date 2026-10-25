@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world",
   "path": "gb/en/articles/explore-the-world",
-  "timestamp": "2026-10-24T00:33:07.099Z",
+  "timestamp": "2026-10-25T21:51:34.531Z",
   "title": "",
   "template": "insights",
   "blocks": [
@@ -10,7 +10,7 @@
     "carousel-cards",
     "carousel-cards",
     "cards-teaser",
-    "columns-media",
+    "blog-overview",
     "accordion-columns",
     "accordion-columns",
     "accordion-columns"

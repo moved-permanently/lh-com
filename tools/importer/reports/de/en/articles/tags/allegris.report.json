@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/tags/allegris",
   "path": "de/en/articles/tags/allegris",
-  "timestamp": "2026-10-24T10:41:11.748Z",
+  "timestamp": "2026-10-25T21:51:12.862Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "cards-teaser",
-    "columns-media",
+    "blog-overview",
     "columns-media",
     "columns-media"
   ]

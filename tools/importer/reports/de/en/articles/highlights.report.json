@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/highlights",
   "path": "de/en/articles/highlights",
-  "timestamp": "2026-10-24T00:32:42.923Z",
+  "timestamp": "2026-10-25T21:51:02.754Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "cards-teaser",
-    "columns-media",
+    "blog-overview",
     "columns-media",
     "columns-media"
   ]

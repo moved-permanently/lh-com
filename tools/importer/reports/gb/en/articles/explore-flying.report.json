@@ -2,12 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/gb/en/articles/explore-flying",
   "path": "gb/en/articles/explore-flying",
-  "timestamp": "2026-10-23T05:44:18.951Z",
+  "timestamp": "2026-10-25T21:51:19.784Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "carousel-cards",
     "cards-teaser",
-    "columns-media"
+    "blog-overview"
   ]
 }

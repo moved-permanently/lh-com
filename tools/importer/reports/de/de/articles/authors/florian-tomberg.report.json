@@ -2,10 +2,11 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/authors/florian-tomberg",
   "path": "de/de/articles/authors/florian-tomberg",
-  "timestamp": "2026-10-24T00:29:35.638Z",
+  "timestamp": "2026-10-25T21:48:35.977Z",
   "title": "",
   "template": "insights",
   "blocks": [
-    "carousel-cards"
+    "carousel-cards",
+    "blog-overview"
   ]
 }
