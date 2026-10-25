@@ -8,6 +8,7 @@ import {
   mapDefaultAirport, mapAirportNames, searchAirportsWithSource, fillLabel,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -124,95 +125,8 @@ export function flightSearchPrimary(settings) {
   return settings.origin ? ['labels/flightmanager'] : ['labels/flightmanager', 'defaultAirport'];
 }
 
-/**
- * Shop language per market (the `lang` field and query parameter of the handoff).
- * de/en: en-GB, captured from a real live search. UNVERIFIED (no capture, chosen by
- * language-country): de/de de-DE, at/de de-AT, gb/en en-GB.
- */
-const SHOP_LANG = {
-  'de/en': 'en-GB',
-  'de/de': 'de-DE', // UNVERIFIED
-  'at/de': 'de-AT', // UNVERIFIED
-  'gb/en': 'en-GB', // UNVERIFIED
-};
-
-/** Authored cabin codes (Cabin row) to the shop's cabin values. */
-const SHOP_CABINS = {
-  E: 'ECONOMY',
-  M: 'ECONOMY',
-  P: 'PREMIUM_ECONOMY',
-  W: 'PREMIUM_ECONOMY',
-  N: 'PREMIUM_ECONOMY',
-  B: 'BUSINESS',
-  C: 'BUSINESS',
-  F: 'FIRST',
-};
-
-/** OneTrust categories behind the shop's portalFacts (assumed standard OneTrust ids). */
-const PORTAL_FACT_GROUPS = { performance: 'C0002', targeting: 'C0004', functional: 'C0003' };
-
-/**
- * The shop handoff, like the live flight manager: a POST form navigation (target _self) to
- * https://shop.lufthansa.com/booking/availability?lang=..&portalCountry=.. with the fields
- * lang, portalCountry and search (JSON). Captured from one real de/en search (FRA-NYC,
- * round trip, 1 adult, Economy, consent declined); see tools/importer/IMPORT-NOTES.md.
- * This function is the single place where the widget values are mapped to the shop's fields.
- * The nonstop checkbox has no field in the captured payload and is not sent.
- * @param {Object} query collected form values
- * @param {Object} locale result of getLocale()
- * @returns {{action: string, fields: Object<string, string>}}
- */
-export function buildShopHandoff(query, locale) {
-  const lang = SHOP_LANG[locale.key] || 'en-GB';
-  const portalCountry = locale.country.toUpperCase();
-  const itineraries = [{
-    departureDateTime: query.departureDate,
-    originLocationCode: query.origin,
-    destinationLocationCode: query.destination,
-  }];
-  if (query.tripType === 'RETURN') {
-    itineraries.push({
-      departureDateTime: query.returnDate,
-      originLocationCode: query.destination,
-      destinationLocationCode: query.origin,
-    });
-  }
-  const adults = Math.max(1, parseInt(query.adults, 10) || 1);
-  const cabinCode = String(query.cabin || 'E').toUpperCase();
-  const groups = query.consentGroups || [];
-  const search = {
-    itineraries,
-    travelers: Array.from({ length: adults }, () => ({ discounts: [], passengerTypeCode: 'ADT' })),
-    cabin: SHOP_CABINS[cabinCode] || (Object.values(SHOP_CABINS).includes(cabinCode) ? cabinCode : 'ECONOMY'),
-    portalFacts: Object.fromEntries(Object.entries(PORTAL_FACT_GROUPS)
-      .map(([fact, group]) => [fact, groups.includes(group)])),
-  };
-  const action = new URL('https://shop.lufthansa.com/booking/availability');
-  action.searchParams.set('lang', lang);
-  action.searchParams.set('portalCountry', portalCountry);
-  return {
-    action: action.toString(),
-    fields: { lang, portalCountry, search: JSON.stringify(search) },
-  };
-}
-
-/** Submits the handoff as a hidden POST form (method post, target _self). */
-function submitShopHandoff({ action, fields }) {
-  const form = document.createElement('form');
-  form.method = 'post';
-  form.action = action;
-  form.target = '_self';
-  form.hidden = true;
-  Object.entries(fields).forEach(([name, value]) => {
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = name;
-    input.value = value;
-    form.append(input);
-  });
-  document.body.append(form);
-  form.submit();
-}
+// the shop handoff (buildShopHandoff, submitShopHandoff) lives in scripts/shop-handoff.js
+export { buildShopHandoff };
 
 /* ------------------------------------------------------------------------------------------- */
 

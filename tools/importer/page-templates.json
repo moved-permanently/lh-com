@@ -1138,6 +1138,12 @@
       ],
       "blocks": [
         {
+          "name": "destination-offer",
+          "instances": [
+            ".singleofferdisplay"
+          ]
+        },
+        {
           "name": "help-center",
           "instances": [
             ".help-center-container:has(.topic-selection-topic-list-container)"

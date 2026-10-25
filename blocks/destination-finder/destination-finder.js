@@ -6,8 +6,8 @@ import {
 } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import {
-  fareTeaserOffersRequest, fareTeaserRecommendRequest, catalogRequest, fetchRequest,
-  mapOffers, mapRecommendedOrigins, mapConditions, mapLocaleData, findOrigin, filterAirports,
+  fareTeaserRecommendRequest, catalogRequest, fetchRequest, resolveOrigin,
+  mapRecommendedOrigins, mapConditions, mapLocaleData, findOrigin, filterAirports,
   searchAirports, formatFare, destinationImageUrl, htmlToParagraphs,
   destinationFinderOffersRequest, mapDestinationFinderOffers, mapAffinities, mapRegions,
   fetchLabels, pickLabels, fillLabel,
@@ -26,10 +26,19 @@ import { markSource } from '../../scripts/lh-data.js';
 const TRIP_TYPE_CODES = ['RETURN', 'ONEWAY'];
 
 /**
- * Destinations the slider shows: the live component lists the first 15 offers of the service's
- * answer (27 recorded) and then the finder card (homepages de/en, de/de, at/de, gb/en).
+ * Destinations the slider shows: like the live component, 15 destinations and then the finder
+ * card (homepages de/en, de/de, at/de, gb/en). www's recommendations come from the fare teaser
+ * service (fareteaser/offers), which only answers www; the slider shows the destination finder's
+ * answer instead (GET .../destinationfinder/destination/finder/{origin}/E?months=0_11&tripType=
+ * RETURN|ONEWAY, direct, live only): the top deals first, then by price. www's recommendation
+ * order is not reproduced.
  */
 const MAX_DESTINATIONS = 15;
+
+/** The slider's order: topDeal destinations first, then the lowest price. */
+export function sliderOrder(offers) {
+  return [...offers].sort((a, b) => Number(b.topDeal) - Number(a.topDeal) || a.price - b.price);
+}
 
 /**
  * Settings of an authored block (the live component's data-dcep: preselectedOrigin,
@@ -45,10 +54,13 @@ export function readDestinationFinderSettings(config, locale) {
   const oneWayFirst = Boolean(defaultTrip) && tripTypes.length > 1
     && tripTypes[1].toLowerCase() === defaultTrip;
   return {
+    // no authored origin: '' (resolved when the page is viewed: defaultAirport, else the
+    // home airport, as flight search)
     origin: {
-      code: parseAirportCode(originValue) || locale.homeAirport,
+      code: parseAirportCode(originValue) || '',
       name: parseAirportCode(originValue) ? parseAirportName(originValue) : '',
     },
+    fallbackOrigin: locale.homeAirport,
     tripTypes,
     tripType: TRIP_TYPE_CODES[oneWayFirst ? 1 : 0],
     tripDuration: parseInt(text('trip-duration', 'duration'), 10) || 14,
@@ -57,13 +69,11 @@ export function readDestinationFinderSettings(config, locale) {
 }
 
 /** The live requests: destinations for the origin and trip type; origins, conditions, format. */
-export function destinationFinderRequests(state, locale, now) {
+export function destinationFinderRequests(state) {
   return {
-    offers: fareTeaserOffersRequest({
-      origin: state.origin.code,
-      tripType: state.tripType,
-      airlineDestWhitelist: state.airlineWhitelist,
-    }, now),
+    offers: destinationFinderOffersRequest({
+      origin: state.origin.code, cabin: 'E', tripType: state.tripType,
+    }),
     origins: fareTeaserRecommendRequest(),
     conditions: catalogRequest('conditions'),
     localeData: catalogRequest('localeData'),
@@ -78,10 +88,10 @@ export function destinationFinderRequests(state, locale, now) {
 export async function loadDestinations(state, locale) {
   try {
     const request = destinationFinderRequests(state, locale).offers;
-    // exact: the round-trip recording must never stand in for one-way prices
-    const { data, source } = await fetchRequest(request, locale, { exact: true });
+    // a price route: live or nothing (scripts/lh-data.js)
+    const { data, source } = await fetchRequest(request, locale);
     return {
-      destinations: mapOffers(data)
+      destinations: sliderOrder(mapDestinationFinderOffers(data).offers)
         .filter((d) => d.code !== state.origin.code)
         .map((d) => ({ ...d, image: destinationImageUrl(d.code, 720) })),
       source,
@@ -97,7 +107,7 @@ export async function loadDestinations(state, locale) {
  *   sources: Object<string, string>}>}
  */
 export async function loadFinderContext(locale) {
-  const requests = destinationFinderRequests({ origin: { code: locale.homeAirport } }, locale);
+  const requests = destinationFinderRequests({ origin: { code: locale.homeAirport } });
   const sources = {};
   const settle = (name, mapper, fallback) => fetchRequest(requests[name], locale)
     .then(({ data, source }) => {
@@ -774,6 +784,11 @@ async function decorateGrid(block, uid) {
   const locale = getLocale();
   const config = readConfigRows(block);
   const settings = readGridSettings(config, locale);
+  if (!settings.origin.code) {
+    // no authored origin: the market default airport, else the home airport (as flight search)
+    const { code, name } = await resolveOrigin(null, locale);
+    settings.origin = { code, name };
+  }
   const cell = (...keys) => (pick(config, ...keys) || {}).cell;
   const disclaimer = moveCell(cell('disclaimer'), 'destination-finder-disclaimer');
   const conditions = moveCell(cell('conditions', 'conditions-label'), 'destination-finder-conditions');
@@ -1279,7 +1294,7 @@ async function decorateGrid(block, uid) {
   if (mine === requestId) apply(result, first.query);
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
   instanceCount += 1;
   const uid = `destination-finder-${instanceCount}`;
   if (block.classList.contains('grid')) {
@@ -1293,6 +1308,11 @@ export default function decorate(block) {
   const cell = (...keys) => (pick(config, ...keys) || {}).cell;
 
   const settings = readDestinationFinderSettings(config, locale);
+  if (!settings.origin.code) {
+    // no authored origin: the market default airport, else the home airport (as flight search)
+    const { code, name } = await resolveOrigin(null, locale);
+    settings.origin = { code, name };
+  }
   const { tripTypes } = settings;
   const state = {
     origin: { ...settings.origin },

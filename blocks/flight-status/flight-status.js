@@ -3,7 +3,7 @@ import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
-import { searchAirportsWithSource } from '../../scripts/lh-api.js';
+import { searchAirportsWithSource, resolveOrigin } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -259,7 +259,7 @@ function buildTabs(id, tabs, panels, active, label) {
   return tablist;
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
   instance += 1;
   const id = `flight-status-${instance}`;
   const locale = getLocale();
@@ -292,9 +292,11 @@ export default function decorate(block) {
   let submitUrl = '';
   if (liveRow) submitUrl = liveRow.link ? liveRow.link.getAttribute('href') : liveRow.text;
   const airportValue = text('default-airport');
-  const home = parseAirportCode(airportValue)
-    ? { code: parseAirportCode(airportValue), name: parseAirportName(airportValue) }
-    : { code: locale.homeAirport, name: '' };
+  // authored airport, else the market default airport (defaultAirport), else the home airport
+  const authoredAirport = parseAirportCode(airportValue)
+    ? { code: parseAirportCode(airportValue), name: parseAirportName(airportValue) } : null;
+  const resolved = await resolveOrigin(authoredAirport, locale);
+  const home = { code: resolved.code, name: resolved.name };
 
   const go = (query) => window.location.assign(buildFlightStatusUrl(query, locale, submitUrl));
   const makeForm = (key) => {

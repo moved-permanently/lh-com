@@ -155,6 +155,84 @@ export function destinationFinderOffersRequest({
 }
 
 /**
+ * The sticky price of an Insights article (dcep-sticky-price): the lowest round trip from the
+ * visitor's market to the destination, e.g. GET /service/api/teaser/price/BER →
+ * {"currency":"EUR","destination":"Berlin","price":141.26}. Direct, X-Portal-* headers of the
+ * market; no recording is ever used (a price route).
+ */
+export function teaserPriceRequest(destination) {
+  return { method: 'GET', route: `/service/api/teaser/price/${encodeURIComponent(destination)}` };
+}
+
+/** {"currency":"EUR","destination":"Berlin","price":141.26} → { price, currency, name } or null */
+export function mapTeaserPrice(data) {
+  const price = Number(data && data.price);
+  if (!Number.isFinite(price) || price <= 0) return null;
+  return { price, currency: (data.currency || '').toUpperCase(), name: data.destination || '' };
+}
+
+/**
+ * The destination page (dcep-single-offer-display), as www's page calls it (recorded
+ * 2026-10-25, tools/source-export/api/watched/):
+ *   GET /service/api/destinationfinder/destination/content/CHI   city text, visit duration,
+ *       recommended stays, categories (sightseeing, cuisine, neighbourhoods, transport)
+ *   GET /service/api/destinationfinder/flightinfo/FRA?destination=CHI   flight time, stops
+ *   GET /service/api/flight-prices/FRA/CHI/E/2026-10-25T23:00:00/7?mode=MONTHS   lowest fare
+ *       per month (12 months from tomorrow, local midnight written in UTC);
+ *       ?monthsToFetch=2&mode=DAYS per day for the month shown and the next one
+ */
+export function destinationContentRequest(destination) {
+  return { method: 'GET', route: `/service/api/destinationfinder/destination/content/${encodeURIComponent(destination)}` };
+}
+
+export function flightInfoRequest(origin, destination) {
+  return { method: 'GET', route: `/service/api/destinationfinder/flightinfo/${encodeURIComponent(origin)}?${new URLSearchParams({ destination })}` };
+}
+
+/** A local day's midnight written in UTC without milliseconds and zone, as www sends it. */
+export function flightPricesDate(date) {
+  const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  return d.toISOString().replace(/\.\d{3}Z$/, '');
+}
+
+/** The first travel day of the price calendar: tomorrow. */
+export function flightPricesStart(now = new Date()) {
+  return flightPricesDate(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
+}
+
+/**
+ * @param {{origin, destination, cabin, start, tripDuration, mode: 'MONTHS'|'DAYS', months?}} o
+ *   start: flightPricesStart(), or flightPricesDate() of the first day of a month for DAYS
+ */
+export function flightPricesRequest({
+  origin, destination, cabin = 'E', start, tripDuration = 7, mode = 'MONTHS', months = 2,
+}) {
+  const params = mode === 'DAYS' ? { monthsToFetch: String(months), mode } : { mode };
+  const path = [origin, destination, cabin, start, tripDuration].map((v) => encodeURIComponent(v)).join('/');
+  return { method: 'GET', route: `/service/api/flight-prices/${path}?${new URLSearchParams(params)}` };
+}
+
+/**
+ * {"currency":"EUR","currencySymbol":"€","currencySymbolPrefixed":false,"originCityName":
+ *  "Frankfurt","destinationCityName":"Chicago","farePerDates":[{"outboundDate":
+ *  "2026-11-08T00:00:00.000+00:00","price":693.04,"bestPriceInMonth":false}]}
+ * → { originName, destinationName, currency, symbol, prefixed, fares: [{ date, price, best }] }
+ */
+export function mapFlightPrices(data) {
+  const fares = ((data && Array.isArray(data.farePerDates) && data.farePerDates) || [])
+    .map((f) => ({ date: String(f.outboundDate || '').slice(0, 10), price: Number(f.price), best: Boolean(f.bestPriceInMonth) }))
+    .filter((f) => /^\d{4}-\d{2}-\d{2}$/.test(f.date) && Number.isFinite(f.price) && f.price > 0);
+  return {
+    originName: (data && data.originCityName) || '',
+    destinationName: (data && data.destinationCityName) || '',
+    currency: (data && data.currency) || '',
+    symbol: (data && data.currencySymbol) || '',
+    prefixed: typeof (data && data.currencySymbolPrefixed) === 'boolean' ? data.currencySymbolPrefixed : undefined,
+    fares,
+  };
+}
+
+/**
  * Options of the live lounge finder's "Travel Class or Frequent Flyer Status" select, in the
  * live order (initialState.statuses of the LoungeFinder app, 4ca8ff36.chunk.js): travel classes
  * First, Business, Economy, then the frequent flyer statuses HON Circle, Senator, Frequent
@@ -752,4 +830,23 @@ export async function searchAirportsWithSource(term, locale) {
  */
 export async function searchAirports(term, locale) {
   return (await searchAirportsWithSource(term, locale)).list;
+}
+
+/**
+ * The origin of a widget, in the order flight search uses: the authored airport, else the
+ * market default airport (GET /service/api/defaultAirport: www answers by the visitor's
+ * location), else the locale's home airport.
+ * @param {{code: string, name?: string}|null} authored
+ * @returns {Promise<{code: string, name: string, from: 'authored'|'defaultAirport'|'home'}>}
+ */
+export async function resolveOrigin(authored, locale) {
+  if (authored && authored.code) return { name: '', ...authored, from: 'authored' };
+  try {
+    const { data } = await lhFetch(defaultAirportRequest().route, { market: locale.key });
+    const airport = mapDefaultAirport(data);
+    if (airport) return { ...airport, from: 'defaultAirport' };
+  } catch (e) {
+    // no answer: the home airport
+  }
+  return { code: locale.homeAirport, name: '', from: 'home' };
 }

@@ -3,16 +3,18 @@ import {
   readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
 import {
-  fareTeaserManualRequest, defaultAirportRequest, labelsRequest, catalogRequest, fetchRequest,
-  fetchLabels, pickLabels, mapManualOffers, mapDefaultAirport, mapLocaleData, formatFare,
+  teaserPriceRequest, labelsRequest, catalogRequest, fetchRequest, fetchLabels, pickLabels,
+  mapTeaserPrice, mapLocaleData, formatFare,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js). The live sticky price (dcep-sticky-price, data-dcep
- * {"destinationCode":"BER","priceLabel":"Round trip from"}) loads labels/stickyprice; its fare
- * request was not captured yet. The block asks the fare teaser "manual" service (same fares,
- * recorded shape) for the market default origin (defaultAirport) to the destination.
+ * {"destinationCode":"BER","priceLabel":"Round trip from"}) loads labels/stickyprice and its
+ * price from GET /service/api/teaser/price/{destination} ({"currency":"EUR","destination":
+ * "Berlin","price":141.26}: the market's lowest round trip, the origin is www's choice), which
+ * answers this site directly with the market's X-Portal-* headers. Live only: no answer, no
+ * price (never a recorded one).
  * ------------------------------------------------------------------------------------------- */
 
 /** Live labels (labels/stickyprice) used by the block, by block label key. */
@@ -31,39 +33,27 @@ export function readPriceBarSettings(config) {
   return {
     title: text('title', 'destination-name'),
     destination: parseAirportCode(text('destination', 'destination-code')),
-    // empty: the market default airport, like the live bar (OriginCode= empty)
-    origin: parseAirportCode(text('origin', 'origin-code')),
-    tripDuration: parseInt(text('trip-duration', 'duration'), 10) || 7,
-    cabin: (text('cabin') || 'E').toUpperCase(),
   };
 }
 
-/** The live requests of the block for an origin (resolved by loadPriceBarData). */
-export function priceBarRequests(settings, locale, origin) {
+/** The live requests of the block. */
+export function priceBarRequests(settings, locale) {
   return {
-    fares: fareTeaserManualRequest({
-      travels: [{ destination: settings.destination, origin }],
-      cabin: settings.cabin,
-      tripType: 'R',
-      tripDuration: settings.tripDuration,
-    }),
-    defaultAirport: defaultAirportRequest(),
+    price: teaserPriceRequest(settings.destination),
     labels: LABEL_BUNDLES.map((bundle) => labelsRequest(bundle, locale)),
     localeData: catalogRequest('localeData'),
   };
 }
 
 /**
- * Loads the lowest fare to the destination (only an answer for this origin and destination
- * counts), the live labels and the number format.
- * @returns {Promise<{lowest: Object|null, origin: string, labels: Object, localeData: Object,
+ * Loads the price to the destination, the live labels and the number format.
+ * @returns {Promise<{lowest: Object|null, labels: Object, localeData: Object,
  *   sources: Object<string, string>}>}
  */
 export async function loadPriceBarData(settings, locale) {
   const sources = {};
-  const base = priceBarRequests(settings, locale, settings.origin);
-  // exact: a recording of other routes or parameters never shows its price
-  const settle = (name, request, mapper, fallback) => fetchRequest(request, locale, { exact: true })
+  const requests = priceBarRequests(settings, locale);
+  const settle = (name, request, mapper, fallback) => fetchRequest(request, locale)
     .then(({ data, source }) => {
       sources[name] = source;
       return mapper(data);
@@ -72,24 +62,15 @@ export async function loadPriceBarData(settings, locale) {
       sources[name] = 'none';
       return fallback;
     });
-  const labelsPromise = fetchLabels(LABEL_BUNDLES, locale);
-  const localeDataPromise = settle('localeData', base.localeData, mapLocaleData, {});
-  let { origin } = settings;
-  if (!origin) {
-    const airport = await settle('defaultAirport', base.defaultAirport, mapDefaultAirport, null);
-    origin = (airport && airport.code) || locale.homeAirport;
-  }
-  let lowest = null;
-  if (settings.destination) {
-    const offers = await settle('fares', priceBarRequests(settings, locale, origin).fares, mapManualOffers, []);
-    lowest = offers
-      .filter((o) => o.origin === origin && o.destination === settings.destination)
-      .reduce((low, o) => (!low || o.price < low.price ? o : low), null);
-  }
-  const [live, localeData] = await Promise.all([labelsPromise, localeDataPromise]);
+  const [lowest, live, localeData] = await Promise.all([
+    settings.destination ? settle('price', requests.price, mapTeaserPrice, null) : null,
+    fetchLabels(LABEL_BUNDLES, locale),
+    settle('localeData', requests.localeData, mapLocaleData, {}),
+  ]);
+  if (!lowest) sources.price = 'none';
   Object.entries(live.sources).forEach(([bundle, source]) => { sources[`labels/${bundle}`] = source; });
   return {
-    lowest, origin, labels: pickLabels(live.labels, LIVE_LABELS), localeData, sources,
+    lowest, labels: pickLabels(live.labels, LIVE_LABELS), localeData, sources,
   };
 }
 
@@ -181,16 +162,27 @@ export default async function decorate(block) {
 
   if (!settings.destination) return;
   const data = await loadPriceBarData(settings, locale);
-  markSource(block, data.sources, ['fares']);
+  markSource(block, data.sources, ['price']);
   labels = resolveLabels({
     [locale.lang]: { ...(DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en), ...data.labels },
   }, config, locale.lang);
   if (link && !authoredLinkText) link.textContent = labels['link label'];
-  // the sticky price shows the cents (maui-price-display price="141.26"), unlike fare teasers
+  // rounded up to the whole currency unit, with the currency (141.26 EUR: "142 €")
   const price = data.lowest
-    && formatFare(data.lowest.price, data.lowest, locale, data.localeData, { decimals: true });
+    && formatFare(data.lowest.price, { currency: data.lowest.currency }, locale, data.localeData);
   if (price) {
     offer.querySelector('.price-bar-price').textContent = price;
     offer.hidden = false;
+  }
+  // nothing to say (no price, no title: www hides its bar then, e.g. FRA from the German market)
+  if (!price && !settings.title) {
+    block.hidden = true;
+    return;
+  }
+  // no authored title (www's bar was empty when imported): the destination's name from the price
+  if (!settings.title && data.lowest && data.lowest.name) {
+    info.prepend(el('p', 'price-bar-title', data.lowest.name));
+    block.setAttribute('role', 'region');
+    block.setAttribute('aria-label', data.lowest.name);
   }
 }

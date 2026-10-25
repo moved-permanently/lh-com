@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips",
   "path": "de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips",
-  "timestamp": "2026-10-25T21:50:25.530Z",
+  "timestamp": "2026-10-25T22:36:31.697Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "article-header",
+    "price-bar",
     "columns-media",
     "columns-media",
     "related-articles"

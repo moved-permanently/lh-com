@@ -91,3 +91,15 @@ with where each one comes from (`sources`) and the rendition widths seen (`width
 
 Not in the list: lounge images (`lh/images/lounges/<loungeid>-square.jpg` and `fallback-square.jpg`); their ids come from
 the lounge finder's search answers.
+
+## Destination page and prices, `destination/`
+
+`destination/<cc>-<ll>.ndjson`: the `/service/api` answers www's pages loaded themselves when viewed once each through the
+warm Bright Data session (`tools/importer/bd-record-api.mjs --set destination`, 2026-10-25 22:44-22:49 UTC; the full
+recording with every answer and the rendered markup stays in `tools/source-export/api/watched/`, not committed): the
+destination page `/<cc>/<ll>/book-and-manage/destination?OriginCode=..&DestinationCode=..&TripDuration=7&Cabin=E` for
+FRA-CHI (de/en), MUC-NYC (de/de), VIE-BKK (at/de), LON-CPT (gb/en) (destinationfinder/destination/content,
+destinationfinder/flightinfo, flight-prices MONTHS and DAYS, ondcontrol/validateOriginAndDestination, labels/singleOfferDisplay,
+catalogs/localeData), an article with a sticky price (`teaser/price/FRA`: 204 from the German market) and the de/en
+homepage. `destination/pages/*.jpg`: full-page screenshots of the four destination pages at 1440. For tests and
+documentation only (`test/destination-offer.test.mjs`, `blocks/destination-offer/README.md`); no block shows these prices.

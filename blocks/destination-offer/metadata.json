@@ -1,0 +1,22 @@
+{
+  "variantName": "destination-offer",
+  "baseBlock": "destination-offer",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/book-and-manage/destination?OriginCode=FRA&DestinationCode=CHI&TripDuration=7&Cabin=E",
+  "visualCharacteristics": {
+    "purpose": "destination page for the route in the URL: heading with route and lowest price, city text, visit duration and stays, flight facts, categories, price calendar by month and by day, link to all offers; error state without a route",
+    "traits": [
+      "large heading 'From Frankfurt to Chicago from 601 €'",
+      "grey visit box beside the city text",
+      "month buttons with prices, day buttons below",
+      "error notification with an Offers & destinations button"
+    ]
+  },
+  "contentPattern": {
+    "structure": "key | value rows, all optional: All offers (link), Trip duration, Max adults, Max children, Max infants, Content languages; optional label rows. Content comes from www's destination APIs."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/book-and-manage/destination, opened from the fare teaser and the destination finder.",
+  "reuseGuidance": "One per destination page; the route comes from the URL."
+}

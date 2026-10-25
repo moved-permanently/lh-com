@@ -2,8 +2,10 @@
   "status": "success",
   "url": "https://www.lufthansa.com/at/de/book-and-manage/destination",
   "path": "at/de/book-and-manage/destination",
-  "timestamp": "2026-10-25T18:49:54.996Z",
+  "timestamp": "2026-10-25T22:36:13.204Z",
   "title": "",
   "template": "info",
-  "blocks": []
+  "blocks": [
+    "destination-offer"
+  ]
 }

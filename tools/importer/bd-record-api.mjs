@@ -27,9 +27,12 @@
  * calls (/service/api/pointsOfInterest answers 404); without the X-Portal headers it answers 200
  * with an empty list, from aem.page 204 without a body, so poi-map uses only these recordings.
  *
- * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --set poi | --list urls.txt | --url <url> ...)
+ * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --set poi | --set destination | --list urls.txt | --url <url> ...)
  *          [--locale de/en] [--referer <url>] [--min-delay 5000] [--max-delay 10000]
  *   --set lounges   the 36 lounge finder answers (blocks/lounge-finder/README.md "Recording")
+ *   --set destination  six www pages viewed once, every /service answer they load recorded
+ *                   (watchJobs: destination page for 4 routes, an article, a homepage), with the
+ *                   rendered widget markup and a screenshot; --only CHI,NYC limits the pages
  *   --set poi       the 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording"),
  *                   in-page fetch from a map page of the same market
  *   --list/--url    URLs of one market (--locale, default de/en)
@@ -89,8 +92,30 @@ function poiJobs() {
   }).sort((a, b) => a.locale.localeCompare(b.locale)); // one market page per market
 }
 
+/**
+ * --set destination (fixes brief, 2026-10-25): www pages viewed once each, with every
+ * /service/api answer the page loads itself recorded (method, URL, request body, status, text):
+ * the destination page for four routes (blocks/destination-offer tests), an article with a
+ * sticky price, and a homepage (fare teaser, destination finder, defaultAirport). Saved to
+ * tools/source-export/api/watched/<cc>-<ll>.ndjson, for tests and documentation only: not read
+ * by record-live-data.mjs, never shown as prices.
+ */
+function watchJobs() {
+  const only = opt('only');
+  const dest = (locale, o, d) => ({
+    locale, watch: true, url: `${LIVE}/${locale}/book-and-manage/destination?OriginCode=${o}&DestinationCode=${d}&TripDuration=7&Cabin=E`,
+  });
+  return [
+    dest('de/en', 'FRA', 'CHI'), dest('de/de', 'MUC', 'NYC'), dest('at/de', 'VIE', 'BKK'), dest('gb/en', 'LON', 'CPT'),
+    { locale: 'de/en', watch: true, url: `${LIVE}/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips` },
+    { locale: 'de/en', watch: true, url: `${LIVE}/de/en/homepage` },
+  ].filter((j) => !only || only.split(',').some((o) => j.url.includes(o)));
+}
+
 let jobs;
-if (opt('set') === 'lounges') {
+if (opt('set') === 'destination') {
+  jobs = watchJobs();
+} else if (opt('set') === 'lounges') {
   jobs = loungeJobs();
 } else if (opt('set') === 'poi') {
   jobs = poiJobs();
@@ -217,7 +242,60 @@ try {
     }
     await sleep(Math.max(0, callStart + minDelay + Math.random() * (maxDelay - minDelay) - Date.now()));
   }
-  for (const job of jobs.filter((j) => !j.inPage)) {
+  for (const job of jobs.filter((j) => j.watch)) {
+    if (stopped) break;
+    const navStart = Date.now();
+    const answers = [];
+    const onResponse = async (resp) => {
+      const req = resp.request();
+      const u = resp.url();
+      if (!/^https:\/\/www\.lufthansa\.com\/service\//.test(u)) return;
+      const entry = {
+        method: req.method(), url: u, body: req.postData() || null, status: resp.status(), requestHeaders: req.headers(),
+      };
+      entry.text = await resp.text().catch(() => null);
+      answers.push(entry);
+    };
+    page.on('response', onResponse);
+    const r = await open(page, job.url, `${LIVE}/${job.locale}/homepage`);
+    for (let i = 0; i < 60 && CHALLENGE.test(await page.title().catch(() => 'just a moment')); i += 1) await sleep(1000);
+    if (CHALLENGE.test(await page.title().catch(() => '')) || r.status === 403) {
+      stopped = `Cloudflare challenge or 403 on ${job.url} (${r.status})`;
+      page.off('response', onResponse);
+      break;
+    }
+    await page.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {});
+    // scroll through the page so lazy widgets load (nothing is clicked, typed or submitted)
+    for (let y = 0; y < 8; y += 1) {
+      await page.evaluate(() => window.scrollBy(0, window.innerHeight)).catch(() => {});
+      await sleep(1200);
+    }
+    await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+    await sleep(2000);
+    page.off('response', onResponse);
+    const watchDir = path.join(root, 'tools/source-export/api/watched');
+    fs.mkdirSync(path.join(watchDir, 'pages'), { recursive: true });
+    // the rendered widgets (markup and texts) and a screenshot, for the block's layout
+    const slug = new URL(job.url).pathname.split('/').filter(Boolean).slice(-1)[0]
+      + (new URL(job.url).search ? `-${new URLSearchParams(new URL(job.url).search).get('OriginCode')}-${new URLSearchParams(new URL(job.url).search).get('DestinationCode')}` : '');
+    const base = path.join(watchDir, 'pages', `${job.locale.replace('/', '-')}-${slug}`);
+    const main = await page.evaluate(() => {
+      const el = document.querySelector('.dcep-single-offer-display, .container-content, main') || document.body;
+      return el.outerHTML;
+    }).catch(() => '');
+    if (main) fs.writeFileSync(`${base}.html`, main);
+    await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
+    await page.screenshot({ path: `${base}.jpg`, type: 'jpeg', quality: 70, fullPage: true }).catch((e) => console.error(`  screenshot: ${e.message.split('\n')[0]}`));
+    answers.forEach((a) => {
+      fs.appendFileSync(path.join(watchDir, `${job.locale.replace('/', '-')}.ndjson`), `${JSON.stringify({
+        ...a, locale: job.locale, referer: job.url, recordedAt: new Date().toISOString(),
+      })}\n`);
+    });
+    counts.saved += 1;
+    console.log(`${r.status} ${job.url}: ${answers.length} answers (${answers.map((a) => `${a.method} ${new URL(a.url).pathname.replace('/service/api/', '')} ${a.status}`).join(', ').slice(0, 900)})`);
+    await sleep(Math.max(0, navStart + minDelay + Math.random() * (maxDelay - minDelay) - Date.now()));
+  }
+  for (const job of jobs.filter((j) => !j.inPage && !j.watch)) {
     if (stopped) break;
     const navStart = Date.now();
     try {

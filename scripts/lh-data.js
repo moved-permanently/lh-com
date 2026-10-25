@@ -14,7 +14,8 @@
  *    foreign origins) go through the worker.
  *    The recorded answer is looked up at the same time, so a refused proxy (502
  *    upstream-blocked) costs no extra wait; a refused proxy is remembered for the session.
- * 3. Recorded: the responses recorded at import time under /data/recorded/.
+ * 3. Recorded: the responses recorded at import time under /data/recorded/ (never for prices:
+ *    PRICE_ROUTES answer live or not at all).
  */
 import { getLocale, LOCALES, LIVE_ORIGIN } from './locale.js';
 
@@ -27,7 +28,20 @@ export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
  * X-Portal-Language: en and credentials 'omit' answers 200 JSON readable from
  * main--lh-com--moved-permanently.aem.page (tested by Ben, 2026-10-22).
  */
-const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/)/;
+const DIRECT_ROUTES = /^\/service\/api\/(suggestions\/airports|labels\/|catalogs\/|defaultAirport(?:[/?]|$)|core\/feature\/list\/|destinationfinder\/|flight-prices\/|teaser\/price\/)/;
+
+/**
+ * Price routes: their recorded answers are never used (a recorded price is a price of another
+ * day). Live or nothing: a failing call fails, the widget shows no price. The fare teaser's
+ * origin list (fareteaser/recommend) holds no prices and keeps its recording, like labels,
+ * catalogs and suggestions.
+ */
+const PRICE_ROUTES = /^\/service\/api\/(lhg-fare-teaser\/fareteaser\/(?!recommend)|destinationfinder\/destination\/finder\/|flight-prices\/|teaser\/price\/)/;
+
+/** Whether the recordings may answer for a route (not for prices). */
+export function isPriceRoute(route) {
+  return PRICE_ROUTES.test(route);
+}
 
 /**
  * Routes served from the recordings only. pointsOfInterest/{id} (poi-map): the live client calls
@@ -51,6 +65,18 @@ function proxyOrigin() {
     return window.localStorage.getItem('lh-proxy') || PROXY_ORIGIN;
   } catch (e) {
     return PROXY_ORIGIN;
+  }
+}
+
+/**
+ * Origin of the direct calls: www.lufthansa.com; a tester may point a page at a mock server
+ * (localStorage 'lh-live-origin', like 'lh-proxy') to try answers www does not give them.
+ */
+function liveOrigin() {
+  try {
+    return window.localStorage.getItem('lh-live-origin') || LIVE_ORIGIN;
+  } catch (e) {
+    return LIVE_ORIGIN;
   }
 }
 
@@ -289,7 +315,7 @@ export function directRequest(route, { method = 'GET', body, market } = {}) {
     init.body = bodyText(body);
     init.headers['Content-Type'] = 'application/json';
   }
-  return { url: `${LIVE_ORIGIN}${route}`, init };
+  return { url: `${liveOrigin()}${route}`, init };
 }
 
 /**
@@ -326,6 +352,7 @@ export async function lhFetch(route, {
 } = {}) {
   const key = requestKey(method, route, body);
   const options = { method, body, market };
+  const priceRoute = isPriceRoute(route);
   // the recorded answer is looked up right away: a failing live call costs no extra wait
   let recordedLookup;
   const recorded = () => {
@@ -336,6 +363,7 @@ export async function lhFetch(route, {
     return recordedLookup;
   };
   const fromRecording = async () => {
+    if (isPriceRoute(route)) throw new Error(`no live answer for ${route} (prices are never recorded answers)`);
     const { value, error } = await recorded();
     if (error) throw error;
     return { ...value, via: 'recording' };
@@ -345,7 +373,7 @@ export async function lhFetch(route, {
 
   if (isDirectRoute(route)) {
     if (isBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN)) return fromRecording();
-    recorded();
+    if (!priceRoute) recorded();
     const { url, init } = directRequest(route, options);
     const { data, resp, error } = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
     if (!error) return { data, source: 'live', via: 'direct' };
@@ -357,7 +385,7 @@ export async function lhFetch(route, {
 
   const origin = proxyOrigin();
   if (!origin || isBlocked(PROXY_BLOCKED_KEY, origin)) return fromRecording();
-  recorded();
+  if (!priceRoute) recorded();
   const { url, init } = proxyRequest(origin, route, options);
   const { data, resp, error } = await timedFetch(url, init, PROXY_TIMEOUT_MS);
   if (!error) return { data, source: 'live', via: 'proxy' };
@@ -370,20 +398,21 @@ export async function lhFetch(route, {
 }
 
 /**
- * Marks a widget with where its data came from: data-lh-source="live" when every primary
- * request answered live, else "recorded" when any of its data came from the recordings, else
- * "none"; data-lh-sources lists every request ("fares:recorded labels/fareteaserstatic:live").
+ * Marks a widget with where its main content came from: data-lh-source="live" when every
+ * primary request answered live, else "recorded" when a primary request was answered from the
+ * recordings, else "none" (labels or catalogs from the recordings do not count: a widget whose
+ * prices did not load is "none", never "recorded"); data-lh-sources lists every request
+ * ("fares:live labels/fareteaserstatic:recorded").
  * @param {HTMLElement} block
  * @param {Object<string, string>} sources request name → 'live'|'recorded'|'none'
  * @param {string[]} primary names of the requests the widget's main content comes from
  * @returns {string} the data-lh-source value
  */
 export function markSource(block, sources, primary) {
-  const values = Object.values(sources);
   const main = primary.map((name) => sources[name] || 'none');
   let source = 'none';
   if (main.length && main.every((s) => s === 'live')) source = 'live';
-  else if (values.includes('recorded')) source = 'recorded';
+  else if (main.includes('recorded')) source = 'recorded';
   block.dataset.lhSource = source;
   block.dataset.lhSources = Object.entries(sources).map(([name, s]) => `${name}:${s}`).join(' ');
   return source;

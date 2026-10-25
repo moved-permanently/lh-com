@@ -554,20 +554,23 @@ async function checkFlightSearch(base, config, locale) {
 }
 const OFFLINE_TERM = 'Frankf';
 
+/**
+ * Price widgets (fare teaser, destination finder, price bar): their price routes are never
+ * answered from the recordings (scripts/lh-data.js PRICE_ROUTES): in the fallback runs they
+ * show no price and mark "none"; labels, catalogs and the origin list keep their recordings.
+ */
 async function checkFareTeaser(base, config, locale) {
   const settings = readFareTeaserSettings(config, locale);
+  if (!settings.origin) settings.origin = locale.homeAirport;
   const { fares } = fareTeaserRequests(settings, locale);
-  if (verbose) console.log(`  ${base.locale} fare-teaser request: ${fares.method} ${fares.route} ${JSON.stringify(fares.body)}`);
+  if (verbose) console.log(`  ${base.locale} fare-teaser requests: ${fares.map((g) => g.request.route).join(' ')}`);
   const data = await loadFareTeaserData(settings, locale);
   const priced = data.offers.filter((o) => o.price > 0);
-  const sample = priced.slice(0, 2)
-    .map((o) => `${o.originName || o.origin}-${o.destinationName || o.destination} ${formatFare(o.price, o, locale, data.localeData)}`)
-    .join(', ');
   record(
-    { ...base, check: `fares ${fares.route.split('/').pop()} (exact body)` },
-    data.sources.fares === 'recorded' && priced.length > 0 && isRecorded(locale.key, fares),
+    { ...base, check: `fares ${fares.map((g) => g.request.route.split('/').slice(-2).join('/')).join(', ')}: no recorded price` },
+    data.sources.fares === 'none' && priced.length === 0,
     true,
-    `${priced.length}/${settings.destinations.length || priced.length} priced, ${priced[0] ? priced[0].currency : ''}: ${sample}`,
+    `${priced.length} priced, source ${data.sources.fares}`,
   );
   record(
     { ...base, check: 'labels/fareteaserstatic' },
@@ -592,20 +595,18 @@ async function checkFareTeaser(base, config, locale) {
 async function checkDestinationFinder(base, config, locale) {
   const settings = readDestinationFinderSettings(config, locale);
   const state = { ...settings, origin: { ...settings.origin } };
-  const { offers } = destinationFinderRequests(state, locale);
+  if (!state.origin.code) state.origin.code = locale.homeAirport;
   const [context, result] = await Promise.all([
     loadFinderContext(locale), loadDestinations(state, locale),
   ]);
-  const sample = result.destinations.slice(0, 3)
-    .map((d) => `${d.name} ${formatFare(d.price, d, locale, context.localeData)}`).join(', ');
   record(
-    { ...base, check: `offers/${state.origin.code} (${state.tripType})` },
-    result.source === 'recorded' && result.destinations.length > 0,
-    isRecorded(locale.key, offers),
-    `${result.destinations.length} destinations, ${result.destinations[0] ? result.destinations[0].currency : ''}: ${sample}`,
+    { ...base, check: `finder/${state.origin.code} (${state.tripType}): no recorded price` },
+    result.source === 'none' && result.destinations.length === 0,
+    true,
+    `${result.destinations.length} destinations, source ${result.source}`,
   );
   record(
-    { ...base, check: 'fareteaser/recommend' },
+    { ...base, check: 'fareteaser/recommend (origin list, no prices)' },
     context.sources.origins === 'recorded' && context.origins.length > 0,
     true,
     `${context.origins.length} origins, ${state.origin.code} = "${(context.origins.find((o) => o.code === state.origin.code || o.airportCodes.includes(state.origin.code)) || {}).name || '?'}"`,
@@ -616,42 +617,16 @@ async function checkDestinationFinder(base, config, locale) {
     true,
     `"${context.conditions.footerText.slice(0, 40)}..."`,
   );
-  // origin switch: the first origin city of the picker (recommend) whose offers are recorded
-  const switched = context.origins
-    .filter((o) => o.code !== state.origin.code)
-    .map((o) => ({ ...state, origin: { code: o.code, name: o.name } }))
-    .find((s) => isRecorded(locale.key, destinationFinderRequests(s, locale).offers));
-  if (switched) {
-    const switchedResult = await loadDestinations(switched, locale);
-    record(
-      { ...base, check: `origin switch offers/${switched.origin.code}` },
-      switchedResult.source === 'recorded' && switchedResult.destinations.length > 0,
-      true,
-      switchedResult.destinations.slice(0, 3)
-        .map((d) => `${d.name} ${formatFare(d.price, d, locale, context.localeData)}`).join(', '),
-    );
-  }
-  // the other trip type: the one-way request was never recorded
-  const other = { ...state, tripType: state.tripType === 'ONEWAY' ? 'RETURN' : 'ONEWAY' };
-  const otherRequest = destinationFinderRequests(other, locale).offers;
-  const otherResult = await loadDestinations(other, locale);
-  record(
-    { ...base, check: `offers/${other.origin.code} (${other.tripType})` },
-    otherResult.source === 'recorded' && otherResult.destinations.length > 0,
-    isRecorded(locale.key, otherRequest),
-    isRecorded(locale.key, otherRequest) ? '' : 'not recorded',
-  );
 }
 
 async function checkPriceBar(base, config, locale) {
   const settings = readPriceBarSettings(config);
   const data = await loadPriceBarData(settings, locale);
-  const { fares } = priceBarRequests(settings, locale, data.origin);
   record(
-    { ...base, check: `fares ${data.origin}-${settings.destination}` },
-    Boolean(data.lowest),
-    isRecorded(locale.key, fares),
-    data.lowest ? formatFare(data.lowest.price, data.lowest, locale, data.localeData, { decimals: true }) : 'not recorded (no other route\'s price shown)',
+    { ...base, check: `teaser/price/${settings.destination}: no recorded price` },
+    !data.lowest && data.sources.price === 'none',
+    true,
+    `source ${data.sources.price}`,
   );
   record(
     { ...base, check: 'labels/stickyprice' },
@@ -659,7 +634,6 @@ async function checkPriceBar(base, config, locale) {
     locale.lang === 'en',
     data.labels['link label'] ? `link "${data.labels['link label']}"` : 'not recorded for this language',
   );
-  record({ ...base, check: 'defaultAirport' }, settings.origin || data.sources.defaultAirport === 'recorded', true, `origin ${data.origin}`);
 }
 
 async function checkFlightStatus(base, config, locale) {
@@ -735,16 +709,24 @@ const DECORATE = {
 
 /** Whether the block's primary data is recorded (so the fallback can show it). */
 function primaryRecorded(name, config, locale) {
-  if (name === 'fare-teaser') return isRecorded(locale.key, fareTeaserRequests(readFareTeaserSettings(config, locale), locale).fares);
+  // price widgets: whether the stub can answer their direct price call (runs C and D) with
+  // the market's recording standing in for www's live answer
+  const inMarket = (request) => Boolean(recordedFile(locale.key, request.method, request.route));
+  if (name === 'fare-teaser') {
+    const settings = readFareTeaserSettings(config, locale);
+    if (!settings.origin) settings.origin = locale.homeAirport;
+    return fareTeaserRequests(settings, locale).fares.some((g) => inMarket(g.request));
+  }
   if (name === 'destination-finder') {
     const settings = readDestinationFinderSettings(config, locale);
-    return isRecorded(locale.key, destinationFinderRequests(settings, locale).offers);
+    const recordedDefault = recordedFile(locale.key, 'GET', '/service/api/defaultAirport');
+    const code = settings.origin.code
+      || (recordedDefault && JSON.parse(recordedDefault).marketDefaultAirport.iataCode) || locale.homeAirport;
+    return inMarket(destinationFinderRequests({ ...settings, origin: { code } }, locale).offers);
   }
   if (name === 'price-bar') {
     const settings = readPriceBarSettings(config);
-    const recordedDefault = recordedFile(locale.key, 'GET', '/service/api/defaultAirport');
-    const origin = settings.origin || (recordedDefault && JSON.parse(recordedDefault).marketDefaultAirport.iataCode) || locale.homeAirport;
-    return Boolean(settings.destination) && isRecorded(locale.key, priceBarRequests(settings, locale, origin).fares);
+    return Boolean(settings.destination) && inMarket(priceBarRequests(settings, locale).price);
   }
   if (name === 'flight-status') return isRecorded(locale.key, airportSuggestionsRequest(FLIGHT_STATUS_TERM[locale.lang], locale));
   // flight-search: labels/flightmanager and defaultAirport are recorded in every market; a block
@@ -763,6 +745,10 @@ const gridRecordedInMarket = (market) => Object.keys(index)
 
 /** Which data-lh-source a block must show in a run. */
 function expectedSource(name, run, recorded, { grid = false, market = '' } = {}) {
+  // prices: live when the (stubbed) direct call answers, never recorded
+  if (['fare-teaser', 'price-bar', 'destination-finder'].includes(name)) {
+    return (run === 'C' || run === 'D') && recorded ? 'live' : 'none';
+  }
   const directPrimary = ['flight-search', 'flight-status', 'lounge-finder'].includes(name) || grid;
   const live = run === 'D' || (run === 'C' && directPrimary);
   if (live && grid && recorded) return gridRecordedInMarket(market) ? 'live' : 'recorded';
@@ -828,6 +814,8 @@ async function checkDecorate(run, { page, html }, name, blockIndex) {
   const expected = expectedSource(name, run, recorded, { grid, market: locale.key });
   const start = Date.now();
   const result = DECORATE[name](block);
+  // flight status resolves its default airport first (defaultAirport), then builds its fields
+  if (name === 'flight-status') await result;
   if (name === 'flight-status') {
     // type into the first airport field (route tab) like a visitor
     const input = block.querySelector('input[role="combobox"]');
@@ -843,7 +831,8 @@ async function checkDecorate(run, { page, html }, name, blockIndex) {
   await sleep(1);
   const source = block.getAttribute('data-lh-source');
   const rendered = renderedSample(name, block);
-  const ok = marked && (expected ? source === expected && rendered.ok : true);
+  // "none": the block must show no data (no price), else it must show its data
+  const ok = marked && (expected ? source === expected && (expected === 'none' ? !rendered.ok : rendered.ok) : true);
   record(
     {
       run, locale: locale.key, page, block: name, check: `data-lh-source=${source || '(unset)'}${expected ? ` (expect ${expected})` : ' (primary not recorded)'}`,
@@ -938,7 +927,8 @@ summarize('D');
 
 currentPage = '';
 const deEn = getLocale('/de/en/homepage');
-const offersFra = fareTeaserOffersRequest({ origin: 'FRA', tripType: 'R' });
+// a proxy route that is not a price route (prices never fall back to the recordings)
+const offersFra = { method: 'GET', route: '/service/api/lhg-fare-teaser/fareteaser/recommend' };
 async function timed(fn) {
   const start = performance.now();
   const value = await fn();
@@ -1020,23 +1010,24 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
     fraOffers.route,
   );
   const offerCount = (value) => mapDestinationFinderOffers(value.data).offers.length;
-  // the proxy answers in every scenario: a destinationfinder call must still never use it
+  // the proxy answers in every scenario: a destinationfinder call must still never use it, and
+  // a failing price call fails (no recorded price)
+  const failed = (fn) => fn().then((value) => ({ value }), (error) => ({ error }));
   await inSequence([['cors', 'direct CORS error'], ['cloudflare', 'direct Cloudflare 403 page']].map(([direct, label]) => async () => {
     startRun({ direct, proxy: 'ok' });
-    const r = await timed(() => fetchRequest(fraOffers, deEn, { exact: true }));
+    const r = await timed(() => failed(() => fetchRequest(fraOffers, deEn, { exact: true })));
     record(
-      { run: 'G', locale: 'de/en', check: `${label} -> recorded, no proxy call` },
-      r.value.source === 'recorded' && r.value.via === 'recording' && offerCount(r.value) > 0
-        && callsOf('proxy') === 0 && callsOf('direct') === 1 && r.ms <= 50,
+      { run: 'G', locale: 'de/en', check: `${label} -> no price (never recorded), no proxy call` },
+      Boolean(r.value.error) && callsOf('proxy') === 0 && callsOf('direct') === 1 && callsOf('recorded') === 0 && r.ms <= 50,
       true,
-      `${r.ms} ms, ${offerCount(r.value)} offers via ${r.value.via}, direct ${callsOf('direct')}, proxy ${callsOf('proxy')}`,
+      `${r.ms} ms, ${r.value.error ? 'failed' : 'answered'}, direct ${callsOf('direct')}, proxy ${callsOf('proxy')}, recorded ${callsOf('recorded')}`,
     );
   }));
   startRun({ direct: 'hang', proxy: 'ok' });
-  const hung = await timed(() => fetchRequest(fraOffers, deEn, { exact: true }));
+  const hung = await timed(() => failed(() => fetchRequest(fraOffers, deEn, { exact: true })));
   record(
-    { run: 'G', locale: 'de/en', check: 'direct call hangs -> recorded after the 3 s cap' },
-    hung.value.source === 'recorded' && hung.ms >= 2900 && hung.ms <= 3200 && callsOf('proxy') === 0,
+    { run: 'G', locale: 'de/en', check: 'direct call hangs -> no price after the 3 s cap' },
+    Boolean(hung.value.error) && hung.ms >= 2900 && hung.ms <= 3200 && callsOf('proxy') === 0,
     true,
     `${hung.ms} ms, proxy ${callsOf('proxy')}`,
   );
@@ -1055,12 +1046,12 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
       && headers['X-Portal-Language'] === locale.lang
       && headers['X-Portal'] === 'LH';
     const live = gridRecordedInMarket(market) && isRecorded(market, request);
-    const expect = live ? 'live' : 'recorded or none';
+    const expect = live ? 'live' : 'none';
     const got = r.error ? 'none' : r.source;
     record(
       { run: 'G', locale: market, check: `offers/${origin}: direct, market headers, ${expect}` },
       Boolean(sent) && sameHeaders && sent.init.credentials === 'omit' && sent.init.mode === 'cors'
-        && callsOf('proxy') === 0 && (live ? got === 'live' && r.via === 'direct' : got !== 'live'),
+        && callsOf('proxy') === 0 && (live ? got === 'live' && r.via === 'direct' : got === 'none'),
       true,
       `${got}${r.via ? ` via ${r.via}` : ''}, sent ${JSON.stringify(headers)} credentials ${sent ? sent.init.credentials : '-'}`,
     );

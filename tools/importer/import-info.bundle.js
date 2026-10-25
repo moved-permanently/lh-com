@@ -36,13 +36,37 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_576427_exports = {};
-  __export(tmp_bundle_info_576427_exports, {
-    default: () => tmp_bundle_info_576427_default
+  var tmp_bundle_info_598739_exports = {};
+  __export(tmp_bundle_info_598739_exports, {
+    default: () => tmp_bundle_info_598739_default
   });
 
+  // tools/importer/parsers/destination-offer.js
+  function parse(element, { document }) {
+    const host = element.matches(".dcep-single-offer-display[data-dcep]") ? element : element.querySelector(".dcep-single-offer-display[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host && host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      cfg = {};
+    }
+    const rows = [];
+    if (cfg.allOffersUrl) {
+      const a = document.createElement("a");
+      a.setAttribute("href", cfg.allOffersUrl);
+      a.textContent = cfg.allOffersUrl;
+      rows.push(["All offers", a]);
+    }
+    [["Trip duration", "tripDuration"], ["Max adults", "maxAdults"], ["Max children", "maxChildren"], ["Max infants", "maxInfants"]].forEach(([label, key]) => {
+      if (Number(cfg[key]) > 0) rows.push([label, String(Number(cfg[key]))]);
+    });
+    if (cfg.destinationContentLanguages) rows.push(["Content languages", String(cfg.destinationContentLanguages)]);
+    const wrapper = element.closest(".singleofferdisplay") || element;
+    wrapper.replaceWith(WebImporter.Blocks.createBlock(document, { name: "destination-offer", cells: rows }));
+  }
+
   // tools/importer/parsers/help-center.js
-  function parse(element, { document, url }) {
+  function parse2(element, { document, url }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const card = element.querySelector(".topic-search-card-head");
     const out = [];
@@ -115,13 +139,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/message-center.js
-  function parse2(element, { document }) {
+  function parse3(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "message-center", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/profile-tabs.js
-  function parse3(element, { document }) {
+  function parse4(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -996,7 +1020,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/profile-nav.js
-  function parse4(element, { document }) {
+  function parse5(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const ul = document.createElement("ul");
     element.querySelectorAll("maui-sub-navigation-tab").forEach((tab) => {
@@ -1021,7 +1045,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/subpage-nav.js
-  function parse5(element, { document }) {
+  function parse6(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const text = (el) => {
       if (!el) return "";
@@ -1103,7 +1127,7 @@ var CustomImportScript = (() => {
       return n.textContent.replace(/[\s\u00A0\u200B]/g, "") || n.querySelector("img, picture, a[href], maui-navigation-link, maui-link");
     });
   }
-  function parse6(element, { document }) {
+  function parse7(element, { document }) {
     const isTwoColumn = element.matches(".twocolumn");
     const poimapping = element.matches(".poimapping") ? element : element.querySelector(".poimapping");
     if (!poimapping) return;
@@ -1174,7 +1198,7 @@ var CustomImportScript = (() => {
     "passenger-receipt-90": "passenger-receipt-90"
   };
   var ERROR_PAGE = "/error.html";
-  function parse7(element, { document, url, params }) {
+  function parse8(element, { document, url, params }) {
     const form = element.matches("form") ? element : element.querySelector("form.cmp-form");
     if (!form) return;
     const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
@@ -1564,7 +1588,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/car-rental.js
   var DEFAULT_SCRIPT = "https://direct-ux.meili.travel/index.js";
-  function parse8(element, { document, params, url }) {
+  function parse9(element, { document, params, url }) {
     const host = element.matches(".dcep-meili-car-rental") ? element : element.querySelector(".dcep-meili-car-rental");
     let config = {};
     try {
@@ -1597,7 +1621,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/flight-search.js
-  function parse9(element, { document }) {
+  function parse10(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1683,7 +1707,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse10(element, { document }) {
+  function parse11(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1777,7 +1801,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse11(element, { document }) {
+  function parse12(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -1877,7 +1901,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse12(element, { document }) {
+  function parse13(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -2040,7 +2064,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/table-striped.js
-  function parse13(element, { document }) {
+  function parse14(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
@@ -2071,7 +2095,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse14(element, { document }) {
+  function parse15(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const partners = [...element.querySelectorAll("a.teaser.partner")];
     if (!partners.length) return;
@@ -2114,7 +2138,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2206,6 +2230,10 @@ var CustomImportScript = (() => {
         return imageCell || content.length ? [imageCell, content.length ? content : ""] : null;
       }).filter(Boolean);
       if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: rows }));
+      return;
+    }
+    if (element.matches(".authorslider") || element.querySelector(":scope > .dcep-author-slider")) {
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: [] }));
       return;
     }
     if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
@@ -2310,7 +2338,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse16(element, { document }) {
+  function parse17(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -2490,7 +2518,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -2955,7 +2983,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -2967,7 +2995,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -2983,13 +3011,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse20(element, { document }) {
+  function parse21(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse21(element, { document }) {
+  function parse22(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3367,7 +3395,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
@@ -4236,7 +4264,7 @@ var CustomImportScript = (() => {
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
-      removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
+      removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]', ".dcep-blog-cookie"]);
       convertMauiLinks(document);
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
@@ -4493,6 +4521,12 @@ var CustomImportScript = (() => {
     ],
     "blocks": [
       {
+        "name": "destination-offer",
+        "instances": [
+          ".singleofferdisplay"
+        ]
+      },
+      {
         "name": "help-center",
         "instances": [
           ".help-center-container:has(.topic-selection-topic-list-container)"
@@ -4676,27 +4710,28 @@ var CustomImportScript = (() => {
     ]
   };
   var parsers = {
-    "help-center": parse,
-    "message-center": parse2,
-    "profile-tabs": parse3,
-    "profile-nav": parse4,
-    "subpage-nav": parse5,
-    "poi-map": parse6,
-    "form-core": parse7,
-    "car-rental": parse8,
-    "flight-search": parse9,
-    "hero-campaign": parse10,
-    "carousel-images": parse11,
-    "accordion-columns": parse12,
-    "table-striped": parse13,
-    "cards-icon-text": parse14,
-    "carousel-cards": parse15,
-    "cards-teaser": parse16,
-    "columns-media": parse17,
-    "embed": parse18,
-    "lounge-finder": parse19,
-    "ejournals": parse20,
-    "fare-teaser": parse21
+    "destination-offer": parse,
+    "help-center": parse2,
+    "message-center": parse3,
+    "profile-tabs": parse4,
+    "profile-nav": parse5,
+    "subpage-nav": parse6,
+    "poi-map": parse7,
+    "form-core": parse8,
+    "car-rental": parse9,
+    "flight-search": parse10,
+    "hero-campaign": parse11,
+    "carousel-images": parse12,
+    "accordion-columns": parse13,
+    "table-striped": parse14,
+    "cards-icon-text": parse15,
+    "carousel-cards": parse16,
+    "cards-teaser": parse17,
+    "columns-media": parse18,
+    "embed": parse19,
+    "lounge-finder": parse20,
+    "ejournals": parse21,
+    "fare-teaser": parse22
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -4720,7 +4755,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_576427_default = {
+  var tmp_bundle_info_598739_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4750,5 +4785,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_576427_exports);
+  return __toCommonJS(tmp_bundle_info_598739_exports);
 })();

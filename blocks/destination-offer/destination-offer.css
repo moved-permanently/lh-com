@@ -1,0 +1,382 @@
+/*
+ * destination-offer: www's destination page (dcep-single-offer-display, 1440 capture
+ * 2026-10-25, tools/source-export/api/watched/pages/de-en-destination-FRA-CHI.jpg): "Flights"
+ * and the route line, the panorama (two thirds) with the city text and "Read more", the flight
+ * facts, the price calendar (travel class, best prices per month in a grey band, two months of
+ * days), the "Keep exploring" card and the AI note.
+ */
+.destination-offer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.destination-offer h1.destination-offer-heading {
+  margin: 0 0 8px;
+}
+
+.destination-offer .destination-offer-subheading {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l, 28px);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.destination-offer .destination-offer-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.destination-offer .destination-offer-highlights {
+  margin: 20px 0 8px;
+  font-size: var(--body-font-size-s, 16px);
+}
+
+.destination-offer .destination-offer-more {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link-color);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.destination-offer .destination-offer-more::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 9 7 7 7-7' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.2s;
+}
+
+.destination-offer .destination-offer-more[aria-expanded="true"]::before {
+  transform: rotate(180deg);
+}
+
+.destination-offer .destination-offer-details {
+  margin-top: 20px;
+}
+
+.destination-offer .destination-offer-section-title,
+.destination-offer .destination-offer-category-title {
+  margin: 24px 0 8px;
+  font-size: var(--heading-font-size-s, 20px);
+}
+
+.destination-offer .destination-offer-details p,
+.destination-offer .destination-offer-details li {
+  font-size: var(--body-font-size-s, 16px);
+}
+
+.destination-offer .destination-offer-stay {
+  margin: 4px 0;
+  font-weight: 700;
+}
+
+.destination-offer .destination-offer-category ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.destination-offer .destination-offer-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 60px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-offer .destination-offer-fact {
+  margin: 0;
+}
+
+.destination-offer .destination-offer-fact::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 6px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M12 7v5l3 2' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.destination-offer .destination-offer-fact h3 {
+  margin: 0;
+  font-size: var(--heading-font-size-m, 24px);
+}
+
+.destination-offer .destination-offer-fact p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.destination-offer .destination-offer-calendar-title {
+  margin: 0 0 24px;
+  font-size: var(--heading-font-size-xl, 36px);
+  font-weight: 300;
+}
+
+.destination-offer .destination-offer-class {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+  margin-bottom: 40px;
+}
+
+.destination-offer .destination-offer-class label {
+  font-size: 12px;
+}
+
+.destination-offer .destination-offer-class select {
+  height: 40px;
+  border: 0;
+  border-bottom: 2px solid var(--lh-deepblue);
+  background: none;
+  color: var(--lh-deepblue);
+  font: inherit;
+}
+
+.destination-offer .destination-offer-months-title {
+  margin: 0 0 24px;
+  font-size: var(--heading-font-size-s, 20px);
+}
+
+.destination-offer .destination-offer-months-intro {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 16px 10px 0;
+  background-color: var(--light-color, #f2f2f2);
+  font-size: 14px;
+}
+
+.destination-offer .destination-offer-months {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 16px 10px;
+  overflow-x: auto;
+  background-color: var(--light-color, #f2f2f2);
+  list-style: none;
+}
+
+.destination-offer .destination-offer-months li {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding-top: 28px;
+}
+
+.destination-offer .destination-offer-year {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+}
+
+.destination-offer .destination-offer-month {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 92px;
+  min-height: 112px;
+  padding: 10px;
+  border: 0;
+  border-radius: var(--radius-s, 4px);
+  background: var(--background-color, #fff);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+  color: var(--lh-deepblue);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.destination-offer .destination-offer-month[aria-pressed="true"] {
+  outline: 2px solid var(--lh-deepblue);
+}
+
+.destination-offer .destination-offer-month-price {
+  font-weight: 700;
+}
+
+.destination-offer .destination-offer-badge {
+  padding: 1px 4px;
+  border-radius: 2px;
+  background-color: var(--lh-sunrise-yellow, #ffad00);
+  font-size: 11px;
+}
+
+.destination-offer .destination-offer-month-name {
+  margin-top: auto;
+}
+
+.destination-offer .destination-offer-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.destination-offer .destination-offer-month-title {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: var(--heading-font-size-s, 20px);
+}
+
+.destination-offer .destination-offer-month-table table {
+  border-collapse: collapse;
+}
+
+.destination-offer .destination-offer-month-table th {
+  padding: 4px 0;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.destination-offer .destination-offer-month-table td {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.destination-offer .destination-offer-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--lh-deepblue);
+  cursor: pointer;
+}
+
+.destination-offer .destination-offer-day:hover {
+  background-color: var(--light-color, #f2f2f2);
+}
+
+.destination-offer .destination-offer-day-number {
+  font-size: 11px;
+}
+
+.destination-offer .destination-offer-day-price {
+  font-size: 9px;
+}
+
+.destination-offer .destination-offer-day-empty {
+  color: #b0b0b0;
+  font-size: 11px;
+}
+
+/* the best price of the month: www's yellow corner */
+.destination-offer .destination-offer-best.destination-offer-day::before,
+.destination-offer .destination-offer-legend::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 10px solid var(--lh-sunrise-yellow, #ffad00);
+  border-right: 10px solid transparent;
+}
+
+.destination-offer .destination-offer-legend {
+  position: relative;
+  flex-basis: 100%;
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.destination-offer .destination-offer-legend::before {
+  position: static;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.destination-offer .destination-offer-note {
+  margin: 16px 0 0;
+  font-size: 14px;
+}
+
+.destination-offer .destination-offer-banner {
+  padding: 24px 20px;
+  border: 1px solid #dcdcdc;
+  border-radius: var(--radius-s, 4px);
+}
+
+.destination-offer .destination-offer-banner h2 {
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-m, 24px);
+}
+
+.destination-offer .destination-offer-banner p {
+  margin: 0;
+}
+
+.destination-offer .destination-offer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.destination-offer .destination-offer-ai h2 {
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-xs, 18px);
+}
+
+.destination-offer .destination-offer-ai p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.destination-offer .destination-offer-error {
+  max-width: 520px;
+  padding: 20px 24px;
+  border-left: 4px solid var(--lh-error, #c00);
+  background-color: var(--light-color, #f2f2f2);
+}
+
+.destination-offer .destination-offer-error-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.destination-offer .destination-offer-error-text {
+  margin: 0 0 16px;
+}
+
+@media (width >= 1025px) {
+  .destination-offer .destination-offer-about {
+    max-width: 66.666%;
+  }
+}
+
+.destination-offer .destination-offer-month:focus-visible,
+.destination-offer .destination-offer-day:focus-visible,
+.destination-offer .destination-offer-more:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 1px;
+}

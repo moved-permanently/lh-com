@@ -2,11 +2,12 @@
   "status": "success",
   "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-frankfurt-facts",
   "path": "de/de/articles/explore-the-world/essentials-frankfurt-facts",
-  "timestamp": "2026-10-25T21:49:15.777Z",
+  "timestamp": "2026-10-25T22:36:42.698Z",
   "title": "",
   "template": "insights",
   "blocks": [
     "article-header",
+    "price-bar",
     "columns-media",
     "related-articles"
   ]

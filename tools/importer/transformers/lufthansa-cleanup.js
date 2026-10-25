@@ -373,8 +373,9 @@ const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 // the Insights article list and author slider (blog-overview, carousel-cards authors: their config
 // or an empty slider becomes the block, also where the snapshot shows "Loading...") and the
 // article's destination config (.dcep-blog-cookie, read by article-header and price-bar; removed
-// after the parsers)
-const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep]';
+// after the parsers); a sticky price the snapshot shows empty (www hides it while its price is
+// loading or missing: the three Frankfurt articles, destination FRA) is still the price bar
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep], .dcep-sticky-price[data-dcep]';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {
