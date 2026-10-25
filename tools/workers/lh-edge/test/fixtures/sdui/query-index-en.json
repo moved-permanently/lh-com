@@ -1,0 +1,338 @@
+{
+ "total": 33,
+ "offset": 0,
+ "limit": 33,
+ "data": [
+  {
+   "path": "/content/mobile/lh/en/articles",
+   "title": "Lufthansa Insights",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-chicago",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Chicago",
+   "description": "From swimming with a view of skyscrapers to enjoying deep-dish pizza and much more, long-haul purser Peter-Jürgen Jilke reveals his tips for an unforgettable day in Chicago.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_the-bean_unsplash-SLGfbFuqE_16x9.jpg",
+   "category": "/content/mobile/lh/en/articles/north-america",
+   "date": "2025-10-09",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Frankfurt",
+   "description": "Julia Buth, a flight attendant at Lufthansa, lived in Frankfurt for a long time and describes her perfect day there.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_city_getty1392119944_16x9.jpg",
+   "category": "/content/mobile/lh/en/articles/europe",
+   "date": "2025-10-09",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-london",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in London",
+   "description": "Marvel at the skyline from London’s highest garden, shop in Soho, and be captivated by a West End show: Stefanie Sauer shows just how diverse a day in London can be.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_london_westend61-WPEF02418_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/europe",
+   "date": "2025-06-25",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-munich",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Munich",
+   "description": "A visit to the Deutsches Museum, a leisurely walk along the Isar and plenty of culinary delights: Manfred Samhuber describes the ideal way to experience Munich in one day.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_isar_getty638561876_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/europe",
+   "date": "2025-06-22",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-new-york",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in New York",
+   "description": "Flight attendant Till Weisbrod loves traveling in the Big Apple. If you want to experience New York in one day, you can accompany him on his trip and follow his recommendations.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_brooklyn_bridge_westend61-FOLF11149_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/north-america",
+   "date": "2025-06-20",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/a-perfect-day-in-singapore",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Singapore",
+   "description": "Experience Singapore like an insider: purser Florian Tomberg takes us on his perfect day in the Asian metropolis – full of culinary highlights and insider tips.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_marina-bay-sands_shutterstock191289998_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/asia",
+   "date": "2025-06-17",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/africa",
+   "title": "Africa",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/africa/a-perfect-day-in-cape-town",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Cape Town",
+   "description": "Purser Till Nawrath is a true expert on Cape Town. In this article, he shares what he considers to be the essential elements of a perfect day at the foot of Table Mountain.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_view_imago-135352297_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/africa",
+   "date": "2026-09-15",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Johannesburg",
+   "description": "Flight attendant Farah Benkassem regularly spends time in Johannesburg and shares her top tips for a relaxing day in South Africa's vibrant metropolis.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_skyline_getty1213692303_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/africa",
+   "date": "2026-09-15",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Cape Town",
+   "description": "Five things that will surprise you about Cape Town.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/africa",
+   "date": "2026-09-15",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/asia",
+   "title": "Asia",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Hong Kong",
+   "description": "Purser Katja Tucich has been to her favorite city, Hong Kong, many times. She shares her tips for the metropolis, from great coffee in the morning to a nice drink at night.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_unsplash_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/asia",
+   "date": "2026-09-15",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/comfort-on-board",
+   "title": "Comfort on Board",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/discover-allegris",
+   "title": "Discover Allegris",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/discover-allegris/allegris-essentials",
+   "title": "Lufthansa Insights",
+   "headline": "Five Facts About Lufthansa Allegris That Will Surprise You",
+   "description": "From comfortable mattresses to unique design: discover five amazing facts about Lufthansa Allegris, the new premium experience on long-haul routes.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_lufthansa-allegris_illustration_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/discover-allegris",
+   "date": "2026-09-15",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/discover-allegris/allegris-fox",
+   "title": "Lufthansa Insights",
+   "headline": "Lufthansa Allegris & FOX: The New Long-Haul Flight Experience",
+   "description": "With FOX – Future Onboard Experience, Lufthansa is taking the long-haul travel experience to the next level. Yana Holzmann explains what guests can look forward to.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_first-class_man_eating_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/discover-allegris",
+   "date": "2026-09-15",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you",
+   "title": "Lufthansa Insights",
+   "headline": "Lufthansa Allegris: What Type of Passenger Are You?",
+   "description": "Do you belong to the creative jet set, or are you more at home in the world of business? We have compiled a brief typology of Lufthansa Allegris passengers.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_woman_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/discover-allegris",
+   "date": "2026-09-15",
+   "order": "4"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki",
+   "title": "Lufthansa Insights",
+   "headline": "The Perfect Flight with Dirk Nowitzki",
+   "description": "Optimal comfort, extra legroom, and delicious food: as a frequent flyer, basketball legend Dirk Nowitzki knows what it takes to arrive at his destination relaxed and refreshed. Lufthansa Insights joined him on a trip from Frankfurt to Austin to find out what he thinks constitutes a perfect flight, beyond the amenities of Lufthansa Allegris",
+   "image": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg",
+   "category": "/content/mobile/lh/en/articles/discover-allegris",
+   "date": "2026-10-15",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/essentials-of-barcelona",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Barcelona",
+   "description": "Here you can swim and admire unfinished buildings: five things about Barcelona that will surprise you.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_barcelona_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/europe",
+   "date": "2025-06-21",
+   "order": "4"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/essentials-of-mexico-city",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Mexico City",
+   "description": "A sinking city with a flood of taxis: five things about Mexico City that will surprise you.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/north-america",
+   "date": "2025-06-24",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/essentials-of-paris",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Paris",
+   "description": "A city without stop signs and with a penchant for macarons: five things about Paris that will surprise you.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_paris_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/europe",
+   "date": "2025-06-16",
+   "order": "5"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Rio de Janeiro",
+   "description": "Legal graffiti art and a ban on bikinis: five things about Rio de Janeiro that will surprise you.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/south-america",
+   "date": "2025-06-18",
+   "order": "3"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/essentials-of-shanghai",
+   "title": "Lufthansa Insights",
+   "headline": "Essentials of Shanghai",
+   "description": "A metropolis of superlatives – the world's largest subway network takes you to the fastest elevator in the world: here are five things about Shanghai that will surprise you.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration_sylvia-neuner_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/asia",
+   "date": "2025-10-09",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/europe",
+   "title": "Europe",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives",
+   "title": "Lufthansa Insights",
+   "headline": "help alliance: Leading Self-Determined Lives",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/north-america",
+   "title": "North America",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/south-america",
+   "title": "South America",
+   "headline": "",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Buenos Aires",
+   "description": "Purser Julia Buth from Frankfurt regularly spends time in Buenos Aires and shares her top tips on how to spend the perfect day in the Argentinean capital.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_skyline_unsplash-z0A_IsZYXfM_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/south-america",
+   "date": "2026-09-15",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro",
+   "title": "Lufthansa Insights",
+   "headline": "A Perfect Day in Rio de Janeiro",
+   "description": "Flight attendant Ricardo Perna reveals his perfect day in Rio.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_hills_shutterstock636489641_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/south-america",
+   "date": "2026-09-15",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/what-the-hack-best-seats",
+   "title": "Lufthansa Insights",
+   "headline": "What the Hack: the Best Seats on the Plane",
+   "description": "Purser David McGraw from Frankfurt knows all the aircraft types. We asked him which seats are best suited for various needs.",
+   "image": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_privacy_baby_8528_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/comfort-on-board",
+   "date": "2025-06-23",
+   "order": "2"
+  },
+  {
+   "path": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids",
+   "title": "Lufthansa Insights",
+   "headline": "What the Hack: Flying With Kids – Tips for Relaxed Family Flights",
+   "description": "Flying with kids can be exciting – and sometimes a bit challenging. Stefanie Pröstler-Meckl knows this all too well. On Instagram, the world traveler shares what she and her husband experience while flying with their two children.",
+   "image": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_mother_daughter_in_airport_gettyimages_1614430716_1920x1080.jpg",
+   "category": "/content/mobile/lh/en/articles/comfort-on-board",
+   "date": "2025-10-09",
+   "order": "1"
+  },
+  {
+   "path": "/content/mobile/lh/en/homepage",
+   "title": "Homepage",
+   "headline": "Get inspired for your next journey",
+   "description": "",
+   "image": "",
+   "category": "",
+   "date": "",
+   "order": ""
+  }
+ ],
+ ":type": "sheet"
+}

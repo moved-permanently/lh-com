@@ -55,3 +55,37 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Lufthansa app screens (server-driven UI): one row per screen document under
+  # /content/mobile/lh/<lang>/ (hub, categories, articles, homepage). lh-edge renders the
+  # .sdui / .v2.sdui answers from the documents and fills the category screens' article lists
+  # from this index (category, date, order); the titles of linked screens come from it too.
+  app-screens:
+    include:
+      - /content/mobile/lh/**
+    target: /content/mobile/lh/query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      headline:
+        select: main h1
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[name="teaser-image"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      date:
+        select: head > meta[name="date"]
+        value: attribute(el, "content")
+      order:
+        select: head > meta[name="order"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

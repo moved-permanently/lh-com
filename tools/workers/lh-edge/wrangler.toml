@@ -21,6 +21,9 @@ PUBLIC_HOST = ""
 WWW_HOST = "www.lufthansa.com"
 # the alias sheet of the app's web view paths
 ALIAS_SHEET = "/app/config/webview-aliases.json"
+# app screens: web links as www sends them today ("external": showWebScreen externalBrowser /
+# openUrl SELF to the www URL) or in the app's web view ("solo": AIR_EM, <page>.solo.continue)
+SDUI_WEB_LINKS = "external"
 # PUSH_INVALIDATION = "disabled"   # only for lower environments (more origin traffic)
 # edge cache of origin answers in seconds (2xx; 404: 60 s), for hosts without push invalidation
 # (the demo host); empty: the origin's max-age, as the reference (a zone with push invalidation)

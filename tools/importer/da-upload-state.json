@@ -6925,6 +6925,336 @@
    "uploaded": "2026-10-25T19:02:34.229Z",
    "mtime": 1792954881953,
    "preview": "2026-10-25T19:02:36.412Z"
+  },
+  "/content/mobile/lh/de/articles": {
+   "uploaded": "2026-10-25T20:49:34.601Z",
+   "mtime": 1792961370296,
+   "preview": "2026-10-25T20:49:37.043Z"
+  },
+  "/content/mobile/lh/de/homepage": {
+   "uploaded": "2026-10-25T20:49:38.534Z",
+   "mtime": 1792961371055,
+   "preview": "2026-10-25T20:49:40.956Z"
+  },
+  "/content/mobile/lh/en/articles": {
+   "uploaded": "2026-10-25T20:49:42.311Z",
+   "mtime": 1792961371076,
+   "preview": "2026-10-25T20:49:44.352Z"
+  },
+  "/content/mobile/lh/en/homepage": {
+   "uploaded": "2026-10-25T20:49:45.681Z",
+   "mtime": 1792961371835,
+   "preview": "2026-10-25T20:49:47.679Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-singapore": {
+   "uploaded": "2026-10-25T20:49:48.941Z",
+   "mtime": 1792961370441,
+   "preview": "2026-10-25T20:49:54.437Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-new-york": {
+   "uploaded": "2026-10-25T20:49:55.701Z",
+   "mtime": 1792961370416,
+   "preview": "2026-10-25T20:49:58.840Z"
+  },
+  "/content/mobile/lh/de/articles/discover-allegris": {
+   "uploaded": "2026-10-25T20:50:00.138Z",
+   "mtime": 1792961370624,
+   "preview": "2026-10-25T20:50:02.179Z"
+  },
+  "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro": {
+   "uploaded": "2026-10-25T20:50:03.453Z",
+   "mtime": 1792961370820,
+   "preview": "2026-10-25T20:50:06.302Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-munich": {
+   "uploaded": "2026-10-25T20:50:07.454Z",
+   "mtime": 1792961370392,
+   "preview": "2026-10-25T20:50:14.439Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-london": {
+   "uploaded": "2026-10-25T20:50:15.796Z",
+   "mtime": 1792961370367,
+   "preview": "2026-10-25T20:50:19.201Z"
+  },
+  "/content/mobile/lh/de/articles/essentials-of-shanghai": {
+   "uploaded": "2026-10-25T20:50:20.454Z",
+   "mtime": 1792961370844,
+   "preview": "2026-10-25T20:50:23.403Z"
+  },
+  "/content/mobile/lh/de/articles/essentials-of-mexico-city": {
+   "uploaded": "2026-10-25T20:50:24.602Z",
+   "mtime": 1792961370770,
+   "preview": "2026-10-25T20:50:27.370Z"
+  },
+  "/content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives": {
+   "uploaded": "2026-10-25T20:50:28.748Z",
+   "mtime": 1792961370889,
+   "preview": "2026-10-25T20:50:31.799Z"
+  },
+  "/content/mobile/lh/de/articles/essentials-of-barcelona": {
+   "uploaded": "2026-10-25T20:50:33.228Z",
+   "mtime": 1792961370746,
+   "preview": "2026-10-25T20:50:36.569Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-chicago": {
+   "uploaded": "2026-10-25T20:50:37.860Z",
+   "mtime": 1792961370320,
+   "preview": "2026-10-25T20:54:59.195Z"
+  },
+  "/content/mobile/lh/de/articles/comfort-on-board": {
+   "uploaded": "2026-10-25T20:51:09.849Z",
+   "mtime": 1792961370602,
+   "preview": "2026-10-25T20:51:11.602Z"
+  },
+  "/content/mobile/lh/de/articles/essentials-of-paris": {
+   "uploaded": "2026-10-25T20:51:12.964Z",
+   "mtime": 1792961370796,
+   "preview": "2026-10-25T20:51:16.287Z"
+  },
+  "/content/mobile/lh/de/articles/europe": {
+   "uploaded": "2026-10-25T20:51:17.509Z",
+   "mtime": 1792961370865,
+   "preview": "2026-10-25T20:51:19.256Z"
+  },
+  "/content/mobile/lh/de/articles/asia": {
+   "uploaded": "2026-10-25T20:51:20.525Z",
+   "mtime": 1792961370557,
+   "preview": "2026-10-25T20:51:22.599Z"
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-best-seats": {
+   "uploaded": "2026-10-25T20:51:23.895Z",
+   "mtime": 1792961371010,
+   "preview": "2026-10-25T20:51:26.313Z"
+  },
+  "/content/mobile/lh/de/articles/africa": {
+   "uploaded": "2026-10-25T20:51:27.636Z",
+   "mtime": 1792961370462,
+   "preview": "2026-10-25T20:51:29.467Z"
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt": {
+   "uploaded": "2026-10-25T20:51:30.841Z",
+   "mtime": 1792961370344,
+   "preview": "2026-10-25T20:51:33.818Z"
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-travel-with-kids": {
+   "uploaded": "2026-10-25T20:51:34.962Z",
+   "mtime": 1792961371034,
+   "preview": "2026-10-25T20:51:38.582Z"
+  },
+  "/content/mobile/lh/de/articles/south-america": {
+   "uploaded": "2026-10-25T20:51:39.901Z",
+   "mtime": 1792961370933,
+   "preview": "2026-10-25T20:51:41.818Z"
+  },
+  "/content/mobile/lh/de/articles/north-america": {
+   "uploaded": "2026-10-25T20:51:43.173Z",
+   "mtime": 1792961370911,
+   "preview": "2026-10-25T20:51:45.171Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-singapore": {
+   "uploaded": "2026-10-25T20:51:46.373Z",
+   "mtime": 1792961371221,
+   "preview": "2026-10-25T20:51:48.586Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-new-york": {
+   "uploaded": "2026-10-25T20:51:49.953Z",
+   "mtime": 1792961371197,
+   "preview": "2026-10-25T20:51:52.711Z"
+  },
+  "/content/mobile/lh/en/articles/discover-allegris": {
+   "uploaded": "2026-10-25T20:51:53.933Z",
+   "mtime": 1792961371404,
+   "preview": "2026-10-25T20:51:55.933Z"
+  },
+  "/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro": {
+   "uploaded": "2026-10-25T20:51:57.096Z",
+   "mtime": 1792961371598,
+   "preview": "2026-10-25T20:51:59.517Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-munich": {
+   "uploaded": "2026-10-25T20:52:01.070Z",
+   "mtime": 1792961371174,
+   "preview": "2026-10-25T20:52:07.915Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-london": {
+   "uploaded": "2026-10-25T20:52:09.105Z",
+   "mtime": 1792961371148,
+   "preview": "2026-10-25T20:52:11.957Z"
+  },
+  "/content/mobile/lh/en/articles/essentials-of-shanghai": {
+   "uploaded": "2026-10-25T20:52:13.189Z",
+   "mtime": 1792961371623,
+   "preview": "2026-10-25T20:52:15.330Z"
+  },
+  "/content/mobile/lh/en/articles/essentials-of-mexico-city": {
+   "uploaded": "2026-10-25T20:52:16.544Z",
+   "mtime": 1792961371551,
+   "preview": "2026-10-25T20:52:19.398Z"
+  },
+  "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives": {
+   "uploaded": "2026-10-25T20:52:20.862Z",
+   "mtime": 1792961371671,
+   "preview": "2026-10-25T20:52:23.192Z"
+  },
+  "/content/mobile/lh/en/articles/essentials-of-barcelona": {
+   "uploaded": "2026-10-25T20:52:24.666Z",
+   "mtime": 1792961371526,
+   "preview": "2026-10-25T20:52:26.624Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-chicago": {
+   "uploaded": "2026-10-25T20:52:28.083Z",
+   "mtime": 1792961371100,
+   "preview": "2026-10-25T20:52:30.343Z"
+  },
+  "/content/mobile/lh/en/articles/comfort-on-board": {
+   "uploaded": "2026-10-25T20:52:31.728Z",
+   "mtime": 1792961371381,
+   "preview": "2026-10-25T20:52:33.549Z"
+  },
+  "/content/mobile/lh/en/articles/essentials-of-paris": {
+   "uploaded": "2026-10-25T20:52:34.931Z",
+   "mtime": 1792961371574,
+   "preview": "2026-10-25T20:52:37.092Z"
+  },
+  "/content/mobile/lh/en/articles/europe": {
+   "uploaded": "2026-10-25T20:52:38.274Z",
+   "mtime": 1792961371646,
+   "preview": "2026-10-25T20:52:40.179Z"
+  },
+  "/content/mobile/lh/en/articles/asia": {
+   "uploaded": "2026-10-25T20:52:41.411Z",
+   "mtime": 1792961371336,
+   "preview": "2026-10-25T20:52:43.497Z"
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-best-seats": {
+   "uploaded": "2026-10-25T20:52:44.605Z",
+   "mtime": 1792961371790,
+   "preview": "2026-10-25T20:52:46.672Z"
+  },
+  "/content/mobile/lh/en/articles/africa": {
+   "uploaded": "2026-10-25T20:52:47.983Z",
+   "mtime": 1792961371241,
+   "preview": "2026-10-25T20:52:49.849Z"
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt": {
+   "uploaded": "2026-10-25T20:52:51.045Z",
+   "mtime": 1792961371124,
+   "preview": "2026-10-25T20:52:53.071Z"
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids": {
+   "uploaded": "2026-10-25T20:52:54.384Z",
+   "mtime": 1792961371815,
+   "preview": "2026-10-25T20:52:56.343Z"
+  },
+  "/content/mobile/lh/en/articles/south-america": {
+   "uploaded": "2026-10-25T20:52:57.529Z",
+   "mtime": 1792961371714,
+   "preview": "2026-10-25T20:52:59.204Z"
+  },
+  "/content/mobile/lh/en/articles/north-america": {
+   "uploaded": "2026-10-25T20:53:00.646Z",
+   "mtime": 1792961371693,
+   "preview": "2026-10-25T20:53:02.460Z"
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires": {
+   "uploaded": "2026-10-25T20:53:03.689Z",
+   "mtime": 1792961371741,
+   "preview": "2026-10-25T20:53:06.826Z"
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro": {
+   "uploaded": "2026-10-25T20:53:08.156Z",
+   "mtime": 1792961371766,
+   "preview": "2026-10-25T20:53:11.358Z"
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day": {
+   "uploaded": "2026-10-25T20:53:12.565Z",
+   "mtime": 1792961371290,
+   "preview": "2026-10-25T20:53:16.088Z"
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-in-cape-town": {
+   "uploaded": "2026-10-25T20:53:17.520Z",
+   "mtime": 1792961371265,
+   "preview": "2026-10-25T20:53:20.895Z"
+  },
+  "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts": {
+   "uploaded": "2026-10-25T20:53:22.076Z",
+   "mtime": 1792961371314,
+   "preview": "2026-10-25T20:53:25.249Z"
+  },
+  "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong": {
+   "uploaded": "2026-10-25T20:53:26.649Z",
+   "mtime": 1792961371359,
+   "preview": "2026-10-25T20:53:29.507Z"
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-essentials": {
+   "uploaded": "2026-10-25T20:53:30.834Z",
+   "mtime": 1792961371429,
+   "preview": "2026-10-25T20:53:33.442Z"
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-fox": {
+   "uploaded": "2026-10-25T20:53:34.677Z",
+   "mtime": 1792961371454,
+   "preview": "2026-10-25T20:53:37.150Z"
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you": {
+   "uploaded": "2026-10-25T20:53:38.510Z",
+   "mtime": 1792961371479,
+   "preview": "2026-10-25T20:53:41.398Z"
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki": {
+   "uploaded": "2026-10-25T20:53:42.637Z",
+   "mtime": 1792961371502,
+   "preview": "2026-10-25T20:53:45.073Z"
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires": {
+   "uploaded": "2026-10-25T20:53:46.447Z",
+   "mtime": 1792961370959,
+   "preview": "2026-10-25T20:53:49.395Z"
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro": {
+   "uploaded": "2026-10-25T20:53:50.566Z",
+   "mtime": 1792961370984,
+   "preview": "2026-10-25T20:53:55.423Z"
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-johannesburg-in-one-day": {
+   "uploaded": "2026-10-25T20:53:56.722Z",
+   "mtime": 1792961370511,
+   "preview": "2026-10-25T20:53:59.478Z"
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-in-cape-town": {
+   "uploaded": "2026-10-25T20:54:00.803Z",
+   "mtime": 1792961370487,
+   "preview": "2026-10-25T20:54:03.694Z"
+  },
+  "/content/mobile/lh/de/articles/africa/essentials-cape-town-facts": {
+   "uploaded": "2026-10-25T20:54:05.210Z",
+   "mtime": 1792961370535,
+   "preview": "2026-10-25T20:54:07.984Z"
+  },
+  "/content/mobile/lh/de/articles/asia/a-perfect-day-in-hong-kong": {
+   "uploaded": "2026-10-25T20:54:09.491Z",
+   "mtime": 1792961370581,
+   "preview": "2026-10-25T20:54:12.360Z"
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-essentials": {
+   "uploaded": "2026-10-25T20:54:13.671Z",
+   "mtime": 1792961370648,
+   "preview": "2026-10-25T20:54:16.742Z"
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-fox": {
+   "uploaded": "2026-10-25T20:54:17.887Z",
+   "mtime": 1792961370672,
+   "preview": "2026-10-25T20:54:21.122Z"
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you": {
+   "uploaded": "2026-10-25T20:54:22.390Z",
+   "mtime": 1792961370696,
+   "preview": "2026-10-25T20:54:25.323Z"
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki": {
+   "uploaded": "2026-10-25T20:54:26.536Z",
+   "mtime": 1792961370721,
+   "preview": "2026-10-25T20:54:28.357Z"
   }
  },
  "media": {

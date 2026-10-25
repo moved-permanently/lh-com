@@ -1,66 +1,66 @@
 {
- "host": "https://lh-edge.aem-poc-lab.workers.dev",
- "checkedAt": "2026-10-25T19:30:17.382Z",
+ "host": "https://lhedge.bbird.live",
+ "checkedAt": "2026-10-25T20:43:27.253Z",
  "summary": {
   "de/en": {
    "urls": 44,
-   "answered": 34,
+   "answered": 39,
    "notFoundAsWww": 4,
-   "failed": 6,
-   "missingHeadings": 42,
-   "extraHeadings": 65,
+   "failed": 1,
+   "missingHeadings": 57,
+   "extraHeadings": 67,
    "leavingLinks": 0,
    "chrome": 0,
    "medianSimilarity": 0.789,
-   "minSimilarity": 0.392
+   "minSimilarity": 0.028
   },
   "de/de": {
    "urls": 39,
-   "answered": 29,
+   "answered": 34,
    "notFoundAsWww": 4,
-   "failed": 6,
-   "missingHeadings": 38,
-   "extraHeadings": 59,
+   "failed": 1,
+   "missingHeadings": 53,
+   "extraHeadings": 61,
    "leavingLinks": 0,
    "chrome": 0,
    "medianSimilarity": 0.819,
-   "minSimilarity": 0.352
+   "minSimilarity": 0.015
   },
   "at/de": {
    "urls": 39,
-   "answered": 29,
+   "answered": 34,
    "notFoundAsWww": 4,
-   "failed": 6,
-   "missingHeadings": 38,
-   "extraHeadings": 59,
+   "failed": 1,
+   "missingHeadings": 53,
+   "extraHeadings": 61,
    "leavingLinks": 0,
    "chrome": 0,
    "medianSimilarity": 0.843,
-   "minSimilarity": 0.463
+   "minSimilarity": 0.015
   },
   "gb/en": {
    "urls": 39,
-   "answered": 29,
+   "answered": 34,
    "notFoundAsWww": 4,
-   "failed": 6,
-   "missingHeadings": 38,
-   "extraHeadings": 64,
+   "failed": 1,
+   "missingHeadings": 53,
+   "extraHeadings": 66,
    "leavingLinks": 0,
    "chrome": 0,
-   "medianSimilarity": 0.835,
-   "minSimilarity": 0.521
+   "medianSimilarity": 0.836,
+   "minSimilarity": 0.028
   },
   "us/en": {
    "urls": 2,
-   "answered": 0,
+   "answered": 2,
    "notFoundAsWww": 0,
-   "failed": 2,
+   "failed": 0,
    "missingHeadings": 0,
    "extraHeadings": 0,
    "leavingLinks": 0,
    "chrome": 0,
-   "medianSimilarity": null,
-   "minSimilarity": null
+   "medianSimilarity": 0.927,
+   "minSimilarity": 0.728
   }
  },
  "results": [
@@ -68,9 +68,37 @@
    "path": "/de/en/support/support.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/en/support/support.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Help & Contact | Lufthansa | Lufthansa",
+   "wwwTitle": "Help and Contact | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.028,
+   "missingHeadings": [
+    "help and contact",
+    "frequently searched topics",
+    "problems with your baggage",
+    "flight irregularities",
+    "rebooking cancellation and refunds",
+    "other topics",
+    "baggage",
+    "checkin",
+    "families and children",
+    "flight status",
+    "upgrades",
+    "passenger receipt",
+    "health and accessibility",
+    "advance seat reservation",
+    "contact options"
+   ],
+   "extraHeadings": [
+    "how can we help you",
+    "select your request"
+   ],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/en/feedback.solo_continue",
@@ -92,7 +120,7 @@
   {
    "path": "/de/en/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/flight-disruptions.solo_continue",
+   "requested": "/de/en/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "status": 200,
    "title": "Flights delayed and cancelled at short notice | Lufthansa",
    "wwwTitle": "Flights delayed and cancelled at short notice | Lufthansa",
@@ -109,15 +137,23 @@
   {
    "path": "/de/en/book-and-manage/good-for-train.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/good-for-train.solo_continue",
-   "status": 404,
+   "requested": "/de/en/book-and-manage/good-for-train.solo_continue",
+   "status": 200,
+   "title": "Good for Train | Lufthansa",
+   "wwwTitle": "Good for Train | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/en/prepare-for-your-trip/check-in.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/online-check-in.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/check-in.solo_continue",
    "status": 200,
    "title": "Online check-in | Lufthansa",
    "wwwTitle": "Online check-in | Lufthansa",
@@ -183,7 +219,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/special-travel-needs.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/travelling-with-special-requirements.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/special-travel-needs.solo_continue",
    "status": 200,
    "title": "Travelling with assistance requirements | Lufthansa",
    "wwwTitle": "Travelling with assistance requirements | Lufthansa",
@@ -258,7 +294,7 @@
   {
    "path": "/de/en/during-your-trip/lounges.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/lounges.solo_continue",
+   "requested": "/de/en/during-your-trip/lounges.solo_continue",
    "status": 200,
    "title": "Lounges | Lufthansa",
    "wwwTitle": "Lounges | Lufthansa",
@@ -277,7 +313,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/travelling-with-animals.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "status": 200,
    "title": "Travelling with animals | Lufthansa",
    "wwwTitle": "Travelling with animals | Lufthansa",
@@ -295,14 +331,23 @@
    "path": "/de/en/travel-briefing.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/en/travel-briefing.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Travel briefing – guidelines for your trip | Lufthansa | Lufthansa",
+   "wwwTitle": "Travel briefing – guidelines for your trip | Lufthansa | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.941,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/en/common/terms-and-conditions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-service-group.solo_continue",
+   "requested": "/de/en/common/terms-and-conditions.solo_continue",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -319,7 +364,7 @@
   {
    "path": "/de/en/common/passenger-rights.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/passenger-rights.solo_continue",
+   "requested": "/de/en/common/passenger-rights.solo_continue",
    "status": 200,
    "title": "Passenger rights | Lufthansa",
    "wwwTitle": "Passenger rights | Lufthansa",
@@ -336,7 +381,7 @@
   {
    "path": "/de/en/common/privacy-statement.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/datenschutz.solo_continue",
+   "requested": "/de/en/common/privacy-statement.solo_continue",
    "status": 200,
    "title": "Data Protection | Lufthansa",
    "wwwTitle": "Data Protection | Lufthansa",
@@ -353,7 +398,7 @@
   {
    "path": "/de/en/common/terms-of-use.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-use.solo_continue",
+   "requested": "/de/en/common/terms-of-use.solo_continue",
    "status": 200,
    "title": "Terms of use for Lufthansa websites | Lufthansa",
    "wwwTitle": "Terms of use for Lufthansa websites | Lufthansa",
@@ -422,9 +467,18 @@
    "path": "/de/en/common/baggage-conditions.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/en/common/baggage-conditions.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Terms and Conditions for booking additional pieces of baggage | Lufthansa",
+   "wwwTitle": "Terms and Conditions for booking additional pieces of baggage | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.932,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/en/data-protection.solo_continue",
@@ -437,7 +491,7 @@
   {
    "path": "/de/en/common/seatreservation-condtions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/advance-seat-reservations-terms-and-conditions.solo_continue",
+   "requested": "/de/en/common/seatreservation-condtions.solo_continue",
    "status": 200,
    "title": "FAQs seat reservations | Lufthansa",
    "wwwTitle": "FAQs seat reservations | Lufthansa",
@@ -454,7 +508,7 @@
   {
    "path": "/de/en/book-and-manage/advance-seat-reservation.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/advance-seat-reservation.solo_continue",
+   "requested": "/de/en/book-and-manage/advance-seat-reservation.solo_continue",
    "status": 200,
    "title": "Advance seat reservation | Lufthansa",
    "wwwTitle": "Advance seat reservation | Lufthansa",
@@ -471,7 +525,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/upgrade-options.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "status": 200,
    "title": "Upgrade options | Lufthansa",
    "wwwTitle": "Upgrade options | Lufthansa",
@@ -488,7 +542,7 @@
   {
    "path": "/de/en/book-and-manage/additional-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/additional-services.solo_continue",
+   "requested": "/de/en/book-and-manage/additional-services.solo_continue",
    "status": 200,
    "title": "Extra services | Lufthansa",
    "wwwTitle": "Extra services | Lufthansa",
@@ -531,7 +585,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/carry-on-baggage.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "status": 200,
    "title": "Carry-on baggage | Lufthansa",
    "wwwTitle": "Carry-on baggage | Lufthansa",
@@ -548,7 +602,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/baggage-irregularities.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "status": 200,
    "title": "Problems with baggage | Lufthansa",
    "wwwTitle": "Problems with baggage | Lufthansa",
@@ -565,7 +619,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/uebergepaeck.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "status": 200,
    "title": "Excess baggage | Lufthansa",
    "wwwTitle": "Excess baggage | Lufthansa",
@@ -582,7 +636,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/digital-baggage-services.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "status": 200,
    "title": "Digital baggage services | Lufthansa",
    "wwwTitle": "Digital baggage services | Lufthansa",
@@ -599,7 +653,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/baggage.solo_continue",
+   "requested": "/de/en/prepare-for-your-trip/baggage.solo_continue",
    "status": 200,
    "title": "Baggage | Lufthansa",
    "wwwTitle": "Baggage | Lufthansa",
@@ -616,7 +670,7 @@
   {
    "path": "/de/en/during-your-trip/lounges/admission-rules.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/admission-rules.solo_continue",
+   "requested": "/de/en/during-your-trip/lounges/admission-rules.solo_continue",
    "status": 200,
    "title": "Access to our lounges | Lufthansa",
    "wwwTitle": "Access to our lounges | Lufthansa",
@@ -665,7 +719,7 @@
   {
    "path": "/de/en/book-and-manage/offers-and-destination.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/flights.solo_continue",
+   "requested": "/de/en/book-and-manage/offers-and-destination.solo_continue",
    "status": 200,
    "title": "Flight offers and destinations worldwide | Lufthansa",
    "wwwTitle": "Flight offers and destinations worldwide | Lufthansa",
@@ -740,17 +794,53 @@
    "path": "/de/en/book-and-manage/destination.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/en/book-and-manage/destination.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Destination | Lufthansa",
+   "wwwTitle": "Destination | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/de/support/support.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/de/support/support.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Hilfe und Kontakt | Lufthansa | Lufthansa",
+   "wwwTitle": "Hilfe und Kontakt | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.015,
+   "missingHeadings": [
+    "hilfe und kontakt",
+    "häufig gesuchte themen",
+    "gepäckunregelmäßigkeiten",
+    "flugunregelmäßigkeiten",
+    "umbuchung stornierung und erstattung",
+    "weitere themengebiete",
+    "gepäck",
+    "checkin",
+    "familien und kinder",
+    "flugstatus",
+    "upgrades",
+    "passagierbeleg",
+    "gesundheit und barrierefreiheit",
+    "sitzplatzreservierung",
+    "kontaktoptionen"
+   ],
+   "extraHeadings": [
+    "wie können wir ihnen helfen",
+    "wählen sie ihr anliegen aus"
+   ],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/de/feedback.solo_continue",
@@ -772,7 +862,7 @@
   {
    "path": "/de/de/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/flugunregelmaessigkeiten.solo_continue",
+   "requested": "/de/de/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "status": 200,
    "title": "Kurzfristig verspätete und annullierte Flüge | Lufthansa",
    "wwwTitle": "Kurzfristig verspätete und annullierte Flüge | Lufthansa",
@@ -789,15 +879,23 @@
   {
    "path": "/de/de/book-and-manage/good-for-train.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/good-for-train.solo_continue",
-   "status": 404,
+   "requested": "/de/de/book-and-manage/good-for-train.solo_continue",
+   "status": 200,
+   "title": "Good for Train | Lufthansa",
+   "wwwTitle": "Good for Train | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/de/prepare-for-your-trip/check-in.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/online-check-in.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/check-in.solo_continue",
    "status": 200,
    "title": "Online-Check-in | Lufthansa",
    "wwwTitle": "Online-Check-in | Lufthansa",
@@ -821,7 +919,7 @@
   {
    "path": "/de/de/airport-information.solo_continue",
    "wwwStatus": 404,
-   "requested": "/de/de/flughafeninformation.solo_continue",
+   "requested": "/de/de/airport-information.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -854,7 +952,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/special-travel-needs.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/reisen-mit-besonderen-anforderungen.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/special-travel-needs.solo_continue",
    "status": 200,
    "title": "Reisen mit besonderen Anforderungen | Lufthansa",
    "wwwTitle": "Reisen mit besonderen Anforderungen | Lufthansa",
@@ -871,7 +969,7 @@
   {
    "path": "/de/de/lufthansa-travel-classes.solo_continue",
    "wwwStatus": 404,
-   "requested": "/de/de/lufthansa-reiseklassen.solo_continue",
+   "requested": "/de/de/lufthansa-travel-classes.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -914,7 +1012,7 @@
   {
    "path": "/de/de/during-your-trip/lounges.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/lounges.solo_continue",
+   "requested": "/de/de/during-your-trip/lounges.solo_continue",
    "status": 200,
    "title": "Lounges | Lufthansa",
    "wwwTitle": "Lounges | Lufthansa",
@@ -933,7 +1031,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/travelling-with-animals.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "status": 200,
    "title": "Reisen mit Tieren | Lufthansa",
    "wwwTitle": "Reisen mit Tieren | Lufthansa",
@@ -951,14 +1049,23 @@
    "path": "/de/de/travel-briefing.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/de/travel-briefing.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Travel Briefing - Der Leitfaden für Ihre Reise | Lufthansa | Lufthansa",
+   "wwwTitle": "Travel Briefing - Der Leitfaden für Ihre Reise | Lufthansa | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.939,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/de/common/terms-and-conditions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/befoerderungsbedingungen-group.solo_continue",
+   "requested": "/de/de/common/terms-and-conditions.solo_continue",
    "status": 200,
    "title": "Beförderungsbedingungen der Lufthansa Group-Airlines | Lufthansa",
    "wwwTitle": "Beförderungsbedingungen der Lufthansa Group-Airlines | Lufthansa",
@@ -975,7 +1082,7 @@
   {
    "path": "/de/de/common/passenger-rights.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/passenger-rights.solo_continue",
+   "requested": "/de/de/common/passenger-rights.solo_continue",
    "status": 200,
    "title": "Fluggastrechte | Lufthansa",
    "wwwTitle": "Fluggastrechte | Lufthansa",
@@ -992,7 +1099,7 @@
   {
    "path": "/de/de/common/privacy-statement.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/datenschutz.solo_continue",
+   "requested": "/de/de/common/privacy-statement.solo_continue",
    "status": 200,
    "title": "Datenschutz | Lufthansa",
    "wwwTitle": "Datenschutz | Lufthansa",
@@ -1009,7 +1116,7 @@
   {
    "path": "/de/de/common/terms-of-use.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/nutzungsbedingungen.solo_continue",
+   "requested": "/de/de/common/terms-of-use.solo_continue",
    "status": 200,
    "title": "Nutzungsbedingungen für Lufthansa Websites | Lufthansa",
    "wwwTitle": "Nutzungsbedingungen für Lufthansa Websites | Lufthansa",
@@ -1026,7 +1133,7 @@
   {
    "path": "/de/de/terms-of-service-group.solo_continue",
    "wwwStatus": 404,
-   "requested": "/de/de/befoerderungsbedingungen-group.solo_continue",
+   "requested": "/de/de/terms-of-service-group.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1034,7 +1141,7 @@
   {
    "path": "/de/de/upgrade-info.solo_continue",
    "wwwStatus": 404,
-   "requested": "/de/de/upgrade-informationen.solo_continue",
+   "requested": "/de/de/upgrade-info.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1042,7 +1149,7 @@
   {
    "path": "/de/de/advance-seat-reservations-terms-and-conditions.solo_continue",
    "wwwStatus": 404,
-   "requested": "/de/de/sitzplatzreservierungen-konditionen.solo_continue",
+   "requested": "/de/de/advance-seat-reservations-terms-and-conditions.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1051,9 +1158,18 @@
    "path": "/de/de/common/baggage-conditions.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/de/common/baggage-conditions.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Bedingungen für den Kauf zusätzlicher Gepäckstücke | Lufthansa",
+   "wwwTitle": "Bedingungen für den Kauf zusätzlicher Gepäckstücke | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.925,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/de/data-protection.solo_continue",
@@ -1066,7 +1182,7 @@
   {
    "path": "/de/de/common/seatreservation-condtions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/sitzplatzreservierungen-konditionen.solo_continue",
+   "requested": "/de/de/common/seatreservation-condtions.solo_continue",
    "status": 200,
    "title": "Bedingungen für Sitzplatzreservierungen | Lufthansa",
    "wwwTitle": "Bedingungen für Sitzplatzreservierungen | Lufthansa",
@@ -1083,7 +1199,7 @@
   {
    "path": "/de/de/book-and-manage/advance-seat-reservation.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/advance-seat-reservation.solo_continue",
+   "requested": "/de/de/book-and-manage/advance-seat-reservation.solo_continue",
    "status": 200,
    "title": "Sitzplatzreservierung | Lufthansa",
    "wwwTitle": "Sitzplatzreservierung | Lufthansa",
@@ -1100,7 +1216,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/upgrademoeglichkeiten.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "status": 200,
    "title": "Upgrademöglichkeiten | Lufthansa",
    "wwwTitle": "Upgrademöglichkeiten | Lufthansa",
@@ -1117,7 +1233,7 @@
   {
    "path": "/de/de/book-and-manage/additional-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/additional-services.solo_continue",
+   "requested": "/de/de/book-and-manage/additional-services.solo_continue",
    "status": 200,
    "title": "Extra Services | Lufthansa",
    "wwwTitle": "Extra Services | Lufthansa",
@@ -1160,7 +1276,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/handgepaeck.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "status": 200,
    "title": "Handgepäck | Lufthansa",
    "wwwTitle": "Handgepäck | Lufthansa",
@@ -1177,7 +1293,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/baggage-irregularities.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "status": 200,
    "title": "Probleme mit dem Gepäck | Lufthansa",
    "wwwTitle": "Probleme mit dem Gepäck | Lufthansa",
@@ -1194,7 +1310,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/uebergepaeck.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "status": 200,
    "title": "Übergepäck | Lufthansa",
    "wwwTitle": "Übergepäck | Lufthansa",
@@ -1211,7 +1327,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/digitale-gepaeckservices.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "status": 200,
    "title": "Digitale Gepäckservices | Lufthansa",
    "wwwTitle": "Digitale Gepäckservices | Lufthansa",
@@ -1228,7 +1344,7 @@
   {
    "path": "/de/de/prepare-for-your-trip/baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/gepaeck.solo_continue",
+   "requested": "/de/de/prepare-for-your-trip/baggage.solo_continue",
    "status": 200,
    "title": "Gepäck | Lufthansa",
    "wwwTitle": "Gepäck | Lufthansa",
@@ -1245,7 +1361,7 @@
   {
    "path": "/de/de/during-your-trip/lounges/admission-rules.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/admission-rules.solo_continue",
+   "requested": "/de/de/during-your-trip/lounges/admission-rules.solo_continue",
    "status": 200,
    "title": "Zugang zu unseren Lounges | Lufthansa",
    "wwwTitle": "Zugang zu unseren Lounges | Lufthansa",
@@ -1294,7 +1410,7 @@
   {
    "path": "/de/de/book-and-manage/offers-and-destination.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/de/fluege.solo_continue",
+   "requested": "/de/de/book-and-manage/offers-and-destination.solo_continue",
    "status": 200,
    "title": "Angebote & Destinationen: Buchen Sie weltweite Flugziele | Lufthansa",
    "wwwTitle": "Angebote & Destinationen: Buchen Sie weltweite Flugziele | Lufthansa",
@@ -1369,17 +1485,53 @@
    "path": "/de/de/book-and-manage/destination.solo_continue",
    "wwwStatus": 200,
    "requested": "/de/de/book-and-manage/destination.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Reiseziel | Lufthansa",
+   "wwwTitle": "Reiseziel | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/at/de/support/support.solo_continue",
    "wwwStatus": 200,
    "requested": "/at/de/support/support.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Hilfe und Kontakt | Lufthansa | Lufthansa",
+   "wwwTitle": "Hilfe und Kontakt | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.015,
+   "missingHeadings": [
+    "hilfe und kontakt",
+    "häufig gesuchte themen",
+    "gepäckunregelmäßigkeiten",
+    "flugunregelmäßigkeiten",
+    "umbuchung stornierung und erstattung",
+    "weitere themengebiete",
+    "gepäck",
+    "checkin",
+    "familien und kinder",
+    "flugstatus",
+    "upgrades",
+    "passagierbeleg",
+    "gesundheit und barrierefreiheit",
+    "sitzplatzreservierung",
+    "kontaktoptionen"
+   ],
+   "extraHeadings": [
+    "wie können wir ihnen helfen",
+    "wählen sie ihr anliegen aus"
+   ],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/at/de/feedback.solo_continue",
@@ -1401,7 +1553,7 @@
   {
    "path": "/at/de/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/flugunregelmaessigkeiten.solo_continue",
+   "requested": "/at/de/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "status": 200,
    "title": "Kurzfristig verspätete und annullierte Flüge | Lufthansa",
    "wwwTitle": "Kurzfristig verspätete und annullierte Flüge | Lufthansa",
@@ -1418,15 +1570,23 @@
   {
    "path": "/at/de/book-and-manage/good-for-train.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/good-for-train.solo_continue",
-   "status": 404,
+   "requested": "/at/de/book-and-manage/good-for-train.solo_continue",
+   "status": 200,
+   "title": "Good for Train | Lufthansa",
+   "wwwTitle": "Good for Train | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/at/de/prepare-for-your-trip/check-in.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/online-check-in.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/check-in.solo_continue",
    "status": 200,
    "title": "Online-Check-in | Lufthansa",
    "wwwTitle": "Online-Check-in | Lufthansa",
@@ -1450,7 +1610,7 @@
   {
    "path": "/at/de/airport-information.solo_continue",
    "wwwStatus": 404,
-   "requested": "/at/de/flughafeninformation.solo_continue",
+   "requested": "/at/de/airport-information.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1483,7 +1643,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/special-travel-needs.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/reisen-mit-besonderen-anforderungen.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/special-travel-needs.solo_continue",
    "status": 200,
    "title": "Reisen mit besonderen Anforderungen | Lufthansa",
    "wwwTitle": "Reisen mit besonderen Anforderungen | Lufthansa",
@@ -1500,7 +1660,7 @@
   {
    "path": "/at/de/lufthansa-travel-classes.solo_continue",
    "wwwStatus": 404,
-   "requested": "/at/de/lufthansa-reiseklassen.solo_continue",
+   "requested": "/at/de/lufthansa-travel-classes.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1543,7 +1703,7 @@
   {
    "path": "/at/de/during-your-trip/lounges.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/lounges.solo_continue",
+   "requested": "/at/de/during-your-trip/lounges.solo_continue",
    "status": 200,
    "title": "Lounges | Lufthansa",
    "wwwTitle": "Lounges | Lufthansa",
@@ -1562,7 +1722,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/travelling-with-animals.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "status": 200,
    "title": "Reisen mit Tieren | Lufthansa",
    "wwwTitle": "Reisen mit Tieren | Lufthansa",
@@ -1580,14 +1740,23 @@
    "path": "/at/de/travel-briefing.solo_continue",
    "wwwStatus": 200,
    "requested": "/at/de/travel-briefing.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Travel Briefing - Der Leitfaden für Ihre Reise | Lufthansa | Lufthansa",
+   "wwwTitle": "Travel Briefing - Der Leitfaden für Ihre Reise | Lufthansa | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.939,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/at/de/common/terms-and-conditions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/befoerderungsbedingungen-group.solo_continue",
+   "requested": "/at/de/common/terms-and-conditions.solo_continue",
    "status": 200,
    "title": "Beförderungsbedingungen der Lufthansa Group-Airlines | Lufthansa",
    "wwwTitle": "Beförderungsbedingungen der Lufthansa Group-Airlines | Lufthansa",
@@ -1604,7 +1773,7 @@
   {
    "path": "/at/de/common/passenger-rights.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/passenger-rights.solo_continue",
+   "requested": "/at/de/common/passenger-rights.solo_continue",
    "status": 200,
    "title": "Fluggastrechte | Lufthansa",
    "wwwTitle": "Fluggastrechte | Lufthansa",
@@ -1621,7 +1790,7 @@
   {
    "path": "/at/de/common/privacy-statement.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/datenschutz.solo_continue",
+   "requested": "/at/de/common/privacy-statement.solo_continue",
    "status": 200,
    "title": "Datenschutz | Lufthansa",
    "wwwTitle": "Datenschutz | Lufthansa",
@@ -1638,7 +1807,7 @@
   {
    "path": "/at/de/common/terms-of-use.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/nutzungsbedingungen.solo_continue",
+   "requested": "/at/de/common/terms-of-use.solo_continue",
    "status": 200,
    "title": "Nutzungsbedingungen für Lufthansa Websites | Lufthansa",
    "wwwTitle": "Nutzungsbedingungen für Lufthansa Websites | Lufthansa",
@@ -1655,7 +1824,7 @@
   {
    "path": "/at/de/terms-of-service-group.solo_continue",
    "wwwStatus": 404,
-   "requested": "/at/de/befoerderungsbedingungen-group.solo_continue",
+   "requested": "/at/de/terms-of-service-group.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1663,7 +1832,7 @@
   {
    "path": "/at/de/upgrade-info.solo_continue",
    "wwwStatus": 404,
-   "requested": "/at/de/upgrade-informationen.solo_continue",
+   "requested": "/at/de/upgrade-info.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1671,7 +1840,7 @@
   {
    "path": "/at/de/advance-seat-reservations-terms-and-conditions.solo_continue",
    "wwwStatus": 404,
-   "requested": "/at/de/sitzplatzreservierungen-konditionen.solo_continue",
+   "requested": "/at/de/advance-seat-reservations-terms-and-conditions.solo_continue",
    "status": 200,
    "beyondWww": true,
    "ok": true
@@ -1680,9 +1849,18 @@
    "path": "/at/de/common/baggage-conditions.solo_continue",
    "wwwStatus": 200,
    "requested": "/at/de/common/baggage-conditions.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Bedingungen für den Kauf zusätzlicher Gepäckstücke | Lufthansa",
+   "wwwTitle": "Bedingungen für den Kauf zusätzlicher Gepäckstücke | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.925,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/at/de/data-protection.solo_continue",
@@ -1695,7 +1873,7 @@
   {
    "path": "/at/de/common/seatreservation-condtions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/sitzplatzreservierungen-konditionen.solo_continue",
+   "requested": "/at/de/common/seatreservation-condtions.solo_continue",
    "status": 200,
    "title": "Bedingungen für Sitzplatzreservierungen | Lufthansa",
    "wwwTitle": "Bedingungen für Sitzplatzreservierungen | Lufthansa",
@@ -1712,7 +1890,7 @@
   {
    "path": "/at/de/book-and-manage/advance-seat-reservation.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/advance-seat-reservation.solo_continue",
+   "requested": "/at/de/book-and-manage/advance-seat-reservation.solo_continue",
    "status": 200,
    "title": "Sitzplatzreservierung | Lufthansa",
    "wwwTitle": "Sitzplatzreservierung | Lufthansa",
@@ -1729,7 +1907,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/upgrademoeglichkeiten.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "status": 200,
    "title": "Upgrademöglichkeiten | Lufthansa",
    "wwwTitle": "Upgrademöglichkeiten | Lufthansa",
@@ -1746,7 +1924,7 @@
   {
    "path": "/at/de/book-and-manage/additional-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/additional-services.solo_continue",
+   "requested": "/at/de/book-and-manage/additional-services.solo_continue",
    "status": 200,
    "title": "Extra Services | Lufthansa",
    "wwwTitle": "Extra Services | Lufthansa",
@@ -1789,7 +1967,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/handgepaeck.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "status": 200,
    "title": "Handgepäck | Lufthansa",
    "wwwTitle": "Handgepäck | Lufthansa",
@@ -1806,7 +1984,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/baggage-irregularities.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "status": 200,
    "title": "Probleme mit dem Gepäck | Lufthansa",
    "wwwTitle": "Probleme mit dem Gepäck | Lufthansa",
@@ -1823,7 +2001,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/uebergepaeck.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "status": 200,
    "title": "Übergepäck | Lufthansa",
    "wwwTitle": "Übergepäck | Lufthansa",
@@ -1840,7 +2018,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/digitale-gepaeckservices.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "status": 200,
    "title": "Digitale Gepäckservices | Lufthansa",
    "wwwTitle": "Digitale Gepäckservices | Lufthansa",
@@ -1857,7 +2035,7 @@
   {
    "path": "/at/de/prepare-for-your-trip/baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/gepaeck.solo_continue",
+   "requested": "/at/de/prepare-for-your-trip/baggage.solo_continue",
    "status": 200,
    "title": "Gepäck | Lufthansa",
    "wwwTitle": "Gepäck | Lufthansa",
@@ -1874,7 +2052,7 @@
   {
    "path": "/at/de/during-your-trip/lounges/admission-rules.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/admission-rules.solo_continue",
+   "requested": "/at/de/during-your-trip/lounges/admission-rules.solo_continue",
    "status": 200,
    "title": "Zugang zu unseren Lounges | Lufthansa",
    "wwwTitle": "Zugang zu unseren Lounges | Lufthansa",
@@ -1923,7 +2101,7 @@
   {
    "path": "/at/de/book-and-manage/offers-and-destination.solo_continue",
    "wwwStatus": 200,
-   "requested": "/at/de/fluege.solo_continue",
+   "requested": "/at/de/book-and-manage/offers-and-destination.solo_continue",
    "status": 200,
    "title": "Angebote & Destinationen: Buchen Sie weltweite Flugziele | Lufthansa",
    "wwwTitle": "Angebote & Destinationen: Buchen Sie weltweite Flugziele | Lufthansa",
@@ -1998,17 +2176,53 @@
    "path": "/at/de/book-and-manage/destination.solo_continue",
    "wwwStatus": 200,
    "requested": "/at/de/book-and-manage/destination.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Reiseziel | Lufthansa",
+   "wwwTitle": "Reiseziel | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/gb/en/support/support.solo_continue",
    "wwwStatus": 200,
    "requested": "/gb/en/support/support.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Help & Contact | Lufthansa | Lufthansa",
+   "wwwTitle": "Help and Contact | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.028,
+   "missingHeadings": [
+    "help and contact",
+    "frequently searched topics",
+    "problems with your baggage",
+    "flight irregularities",
+    "rebooking cancellation and refunds",
+    "other topics",
+    "baggage",
+    "checkin",
+    "families and children",
+    "flight status",
+    "upgrades",
+    "passenger receipt",
+    "health and accessibility",
+    "advance seat reservation",
+    "contact options"
+   ],
+   "extraHeadings": [
+    "how can we help you",
+    "select your request"
+   ],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/gb/en/feedback.solo_continue",
@@ -2030,7 +2244,7 @@
   {
    "path": "/gb/en/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/flight-disruptions.solo_continue",
+   "requested": "/gb/en/book-and-manage/timetable-and-flight-status/flight-disruptions.solo_continue",
    "status": 200,
    "title": "Flights delayed and cancelled at short notice | Lufthansa",
    "wwwTitle": "Flights delayed and cancelled at short notice | Lufthansa",
@@ -2047,15 +2261,23 @@
   {
    "path": "/gb/en/book-and-manage/good-for-train.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/good-for-train.solo_continue",
-   "status": 404,
+   "requested": "/gb/en/book-and-manage/good-for-train.solo_continue",
+   "status": 200,
+   "title": "Good for Train | Lufthansa",
+   "wwwTitle": "Good for Train | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/gb/en/prepare-for-your-trip/check-in.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/online-check-in.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/check-in.solo_continue",
    "status": 200,
    "title": "Online check-in | Lufthansa",
    "wwwTitle": "Online check-in | Lufthansa",
@@ -2121,7 +2343,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/special-travel-needs.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/travelling-with-special-requirements.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/special-travel-needs.solo_continue",
    "status": 200,
    "title": "Travelling with assistance requirements | Lufthansa",
    "wwwTitle": "Travelling with assistance requirements | Lufthansa",
@@ -2196,7 +2418,7 @@
   {
    "path": "/gb/en/during-your-trip/lounges.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/lounges.solo_continue",
+   "requested": "/gb/en/during-your-trip/lounges.solo_continue",
    "status": 200,
    "title": "Lounges | Lufthansa",
    "wwwTitle": "Lounges | Lufthansa",
@@ -2215,7 +2437,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/travelling-with-animals.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals.solo_continue",
    "status": 200,
    "title": "Travelling with animals | Lufthansa",
    "wwwTitle": "Travelling with animals | Lufthansa",
@@ -2233,14 +2455,23 @@
    "path": "/gb/en/travel-briefing.solo_continue",
    "wwwStatus": 200,
    "requested": "/gb/en/travel-briefing.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Travel briefing – guidelines for your trip | Lufthansa | Lufthansa",
+   "wwwTitle": "Travel briefing – guidelines for your trip | Lufthansa | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.941,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/gb/en/common/terms-and-conditions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/terms-of-service-group.solo_continue",
+   "requested": "/gb/en/common/terms-and-conditions.solo_continue",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -2257,7 +2488,7 @@
   {
    "path": "/gb/en/common/passenger-rights.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/passenger-rights.solo_continue",
+   "requested": "/gb/en/common/passenger-rights.solo_continue",
    "status": 200,
    "title": "Passenger rights | Lufthansa",
    "wwwTitle": "Passenger rights | Lufthansa",
@@ -2274,7 +2505,7 @@
   {
    "path": "/gb/en/common/privacy-statement.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/datenschutz.solo_continue",
+   "requested": "/gb/en/common/privacy-statement.solo_continue",
    "status": 200,
    "title": "Data Protection | Lufthansa",
    "wwwTitle": "Data Protection | Lufthansa",
@@ -2291,7 +2522,7 @@
   {
    "path": "/gb/en/common/terms-of-use.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/terms-of-use.solo_continue",
+   "requested": "/gb/en/common/terms-of-use.solo_continue",
    "status": 200,
    "title": "Terms of use for Lufthansa websites | Lufthansa",
    "wwwTitle": "Terms of use for Lufthansa websites | Lufthansa",
@@ -2360,9 +2591,18 @@
    "path": "/gb/en/common/baggage-conditions.solo_continue",
    "wwwStatus": 200,
    "requested": "/gb/en/common/baggage-conditions.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Terms and Conditions for booking additional pieces of baggage | Lufthansa",
+   "wwwTitle": "Terms and Conditions for booking additional pieces of baggage | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.932,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/gb/en/data-protection.solo_continue",
@@ -2375,7 +2615,7 @@
   {
    "path": "/gb/en/common/seatreservation-condtions.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/advance-seat-reservations-terms-and-conditions.solo_continue",
+   "requested": "/gb/en/common/seatreservation-condtions.solo_continue",
    "status": 200,
    "title": "FAQs seat reservations | Lufthansa",
    "wwwTitle": "FAQs seat reservations | Lufthansa",
@@ -2392,7 +2632,7 @@
   {
    "path": "/gb/en/book-and-manage/advance-seat-reservation.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/advance-seat-reservation.solo_continue",
+   "requested": "/gb/en/book-and-manage/advance-seat-reservation.solo_continue",
    "status": 200,
    "title": "Advance seat reservation | Lufthansa",
    "wwwTitle": "Advance seat reservation | Lufthansa",
@@ -2409,7 +2649,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/upgrade-options.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options.solo_continue",
    "status": 200,
    "title": "Upgrade options | Lufthansa",
    "wwwTitle": "Upgrade options | Lufthansa",
@@ -2426,7 +2666,7 @@
   {
    "path": "/gb/en/book-and-manage/additional-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/additional-services.solo_continue",
+   "requested": "/gb/en/book-and-manage/additional-services.solo_continue",
    "status": 200,
    "title": "Extra services | Lufthansa",
    "wwwTitle": "Extra services | Lufthansa",
@@ -2469,7 +2709,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/carry-on-baggage.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage/carry-on-baggage.solo_continue",
    "status": 200,
    "title": "Carry-on baggage | Lufthansa",
    "wwwTitle": "Carry-on baggage | Lufthansa",
@@ -2486,7 +2726,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/baggage-irregularities.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities.solo_continue",
    "status": 200,
    "title": "Problems with baggage | Lufthansa",
    "wwwTitle": "Problems with baggage | Lufthansa",
@@ -2503,7 +2743,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/uebergepaeck.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage/excess-baggage.solo_continue",
    "status": 200,
    "title": "Excess baggage | Lufthansa",
    "wwwTitle": "Excess baggage | Lufthansa",
@@ -2520,7 +2760,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/digital-baggage-services.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage/digital-baggage-services.solo_continue",
    "status": 200,
    "title": "Digital baggage services | Lufthansa",
    "wwwTitle": "Digital baggage services | Lufthansa",
@@ -2537,7 +2777,7 @@
   {
    "path": "/gb/en/prepare-for-your-trip/baggage.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/baggage.solo_continue",
+   "requested": "/gb/en/prepare-for-your-trip/baggage.solo_continue",
    "status": 200,
    "title": "Baggage | Lufthansa",
    "wwwTitle": "Baggage | Lufthansa",
@@ -2554,7 +2794,7 @@
   {
    "path": "/gb/en/during-your-trip/lounges/admission-rules.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/admission-rules.solo_continue",
+   "requested": "/gb/en/during-your-trip/lounges/admission-rules.solo_continue",
    "status": 200,
    "title": "Access to our lounges | Lufthansa",
    "wwwTitle": "Access to our lounges | Lufthansa",
@@ -2603,7 +2843,7 @@
   {
    "path": "/gb/en/book-and-manage/offers-and-destination.solo_continue",
    "wwwStatus": 200,
-   "requested": "/gb/en/flights.solo_continue",
+   "requested": "/gb/en/book-and-manage/offers-and-destination.solo_continue",
    "status": 200,
    "title": "Flight offers and destinations worldwide | Lufthansa",
    "wwwTitle": "Flight offers and destinations worldwide | Lufthansa",
@@ -2678,30 +2918,56 @@
    "path": "/gb/en/book-and-manage/destination.solo_continue",
    "wwwStatus": 200,
    "requested": "/gb/en/book-and-manage/destination.solo_continue",
-   "status": 404,
+   "status": 200,
+   "title": "Destination | Lufthansa",
+   "wwwTitle": "Destination | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": true,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/us/en/local-page/dnsmpi.solo_continue",
    "wwwStatus": 200,
-   "requested": "/us/en/dnsmpi.solo_continue",
-   "status": 404,
+   "requested": "/us/en/local-page/dnsmpi.solo_continue",
+   "status": 200,
+   "title": "Do Not Sell My Personal Information | Lufthansa",
+   "wwwTitle": "Do Not Sell My Personal Information | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.927,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/us/en/local-page/ccpa.solo_continue",
    "wwwStatus": 200,
-   "requested": "/us/en/ccpa.solo_continue",
-   "status": 404,
+   "requested": "/us/en/local-page/ccpa.solo_continue",
+   "status": 200,
+   "title": "CCPA Statement and Do Not Sell My Personal Information | Lufthansa",
+   "wwwTitle": "CCPA Statement and Do Not Sell My Personal Information | Lufthansa",
+   "channel": "app",
+   "wwwWithoutText": false,
+   "similarity": 0.728,
+   "missingHeadings": [],
+   "extraHeadings": [],
+   "leavingLinks": [],
+   "chrome": [],
    "beyondWww": false,
-   "ok": false
+   "ok": true
   },
   {
    "path": "/de/en/common/terms-and-conditions.solo.continue.solo_continue",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-service-group.solo.continue.solo_continue",
+   "requested": "/de/en/common/terms-and-conditions.solo.continue.solo_continue",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -2718,7 +2984,7 @@
   {
    "path": "/de/en/common/terms-and-conditions.solo.continue",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-service-group.solo.continue",
+   "requested": "/de/en/common/terms-and-conditions.solo.continue",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -2735,7 +3001,7 @@
   {
    "path": "/de/en/common/terms-and-conditions.solo_continue.html",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-service-group.solo_continue.html",
+   "requested": "/de/en/common/terms-and-conditions.solo_continue.html",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -2752,7 +3018,7 @@
   {
    "path": "/de/en/common/terms-and-conditions.solo_continue.genapp.html",
    "wwwStatus": 200,
-   "requested": "/de/en/terms-of-service-group.solo_continue.genapp.html",
+   "requested": "/de/en/common/terms-and-conditions.solo_continue.genapp.html",
    "status": 200,
    "title": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
    "wwwTitle": "Conditions of Carriage of Lufthansa Group Airlines | Lufthansa",
@@ -2769,7 +3035,7 @@
   {
    "path": "/de/en/prepare-for-your-trip/check-in.solo_continue?foo=bar",
    "wwwStatus": 200,
-   "requested": "/de/en/online-check-in.solo_continue?foo=bar",
+   "requested": "/de/en/prepare-for-your-trip/check-in.solo_continue?foo=bar",
    "status": 200,
    "title": "Online check-in | Lufthansa",
    "wwwTitle": "Online check-in | Lufthansa",

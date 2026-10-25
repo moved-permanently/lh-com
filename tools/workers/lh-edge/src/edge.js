@@ -106,8 +106,8 @@ export async function originFetch(request, env, target, options = {}) {
     return new Response('Invalid ORIGIN', { status: 500 });
   }
   const req = new Request(url, request);
-  const publicHost = env.PUBLIC_HOST || new URL(request.url).host;
-  req.headers.set('x-forwarded-host', publicHost);
+  const forwardedHost = env.PUBLIC_HOST || new URL(request.url).host;
+  req.headers.set('x-forwarded-host', forwardedHost);
   req.headers.set('x-byo-cdn-type', 'cloudflare');
   if (env.PUSH_INVALIDATION !== 'disabled') req.headers.set('x-push-invalidation', 'enabled');
   if (env.ORIGIN_AUTHENTICATION) req.headers.set('authorization', `token ${env.ORIGIN_AUTHENTICATION}`);
@@ -122,6 +122,17 @@ export async function originFetch(request, env, target, options = {}) {
   resp.headers.delete('x-robots-tag');
   capBrowserCache(resp, env);
   return resp;
+}
+
+/**
+ * The public host for absolute links (app screens): X-LH-Public-Host (a CDN in front that
+ * sends chosen paths to lh-edge), else X-Forwarded-Host, else the var PUBLIC_HOST, else the
+ * request's host.
+ */
+export function publicHost(request, env) {
+  const h = request.headers;
+  const first = (v) => String(v || '').split(',')[0].trim();
+  return first(h.get('x-lh-public-host')) || first(h.get('x-forwarded-host')) || env.PUBLIC_HOST || new URL(request.url).host;
 }
 
 /** The route of everything else: the request as it is, to the origin. */

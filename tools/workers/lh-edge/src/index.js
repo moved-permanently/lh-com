@@ -7,6 +7,7 @@
  */
 import { prelude, passThrough } from './edge.js';
 import { solo, soloPath } from './solo.js';
+import { sdui, isSduiPath } from './sdui-route.js';
 import WELL_KNOWN from './well-known.js';
 
 /** The App Links / Universal Links files of www, byte for byte, as application/json. */
@@ -41,6 +42,11 @@ export const ROUTES = [
     name: 'message-center',
     match: (url) => url.pathname.startsWith('/graphql/execute.json/Message-Center/'),
     handle: messages,
+  },
+  {
+    name: 'sdui',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isSduiPath(url.pathname),
+    handle: sdui,
   },
   {
     name: 'solo',

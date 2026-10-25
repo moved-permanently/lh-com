@@ -51,7 +51,9 @@ const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-
 const NEVER = /^\/lhg(?:\/|$)/;
 // app shells (login, profile) are built elsewhere: never uploaded, even if listed
 const APP_SHELL = /^\/[a-z]{2}\/[a-z]{2}\/(?:login|profile)(?:\/|$)/;
-const allowed = (p) => !NEVER.test(p) && (SCOPE.has(p) || LOCALE_DOC.test(p));
+// the Lufthansa app's screen documents (tools/importer/sdui-import.mjs; lh-edge renders them)
+const APP_SCREEN = /^\/content\/mobile\/lh\/[a-z]{2}\//;
+const allowed = (p) => !NEVER.test(p) && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p));
 
 const listFile = opt('list');
 const paths = (listFile ? fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/) : argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : [])))

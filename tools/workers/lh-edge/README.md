@@ -15,6 +15,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `WWW_HOST` | the host whose `https://<host>.solo_continue/` closes the app's web view; www page links in solo pages get its solo form (`www.lufthansa.com`) |
 | `ALIAS_SHEET` | the alias sheet of the web view paths (`/app/config/webview-aliases.json`) |
 | `PUSH_INVALIDATION` | `disabled` turns off `X-Push-Invalidation` (lower environments only) |
+| `SDUI_WEB_LINKS` | web links in app screens: `external` (as www today: v1 `showWebScreen` `externalBrowser`, v2 `openUrl` `SELF`, the www URL) or `solo` (`AIR_EM` and the `<page>.solo.continue` URL on the public host) |
 | `EDGE_TTL` | seconds: caps the edge cache of origin answers (`cf.cacheTtlByStatus`: 2xx `EDGE_TTL`, 404 60 s) and the `max-age` pages and JSON send to browsers, for hosts without push invalidation (the demo host; `60`); empty: the reference behaviour (the origin's `max-age`, purged by push invalidation) |
 | secret `ORIGIN_AUTHENTICATION` | `Authorization: token …` towards the origin, when the site needs one |
 
@@ -24,6 +25,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | --- | --- | --- |
 | `well-known` | `/.well-known/assetlinks.json`, `/.well-known/apple-app-site-association` | www's files byte for byte (`src/well-known.js`, generated from `tools/source-export/feeds/well-known/` by `build-well-known.mjs`), `application/json` |
 | `message-center` | `/graphql/execute.json/Message-Center/*` | the messages Worker through the service binding `MESSAGES` |
+| `sdui` | GET/HEAD `/content/mobile/<...>.sdui`, `.v2.sdui` | the app screen, rendered from the document and the index (`src/sdui.js`, see `SDUI.md`); `application/json`, `cache-control: public, max-age=60`; 404 without a document |
 | `solo` | GET/HEAD `<path>.solo_continue`, `.solo.continue`, `.solo.continue.solo_continue`, `.solo_continue.html`, `.solo_continue.genapp.html` | the page in the app view, see below |
 | `pass-through` | everything else | the Edge Delivery origin |
 
@@ -47,6 +49,10 @@ Deviations: `X-Forwarded-Host` is the var `PUBLIC_HOST` (fallback: the request's
 3. The page is fetched from the origin and answered in place (status 200, no redirect). A missing page answers the origin's 404 (as www); a redirect of the site goes to the solo form of its target.
 4. HTMLRewriter: `<meta name="channel" content="app">` and `<meta name="app-close-url" content="https://<WWW_HOST>.solo_continue/">` first in `<head>` (`scripts/channel.js` reads the metadata: no header, footer, breadcrumb or consent, as with `?channel=app`); links: page links on this host and on `WWW_HOST` get the `.solo_continue` form (query and fragment kept), homepage links (`/`, `/{cc}/{ll}`, `/{cc}/{ll}/homepage`) the close URL, links containing `/logout`, files, other hosts and anchors stay; relative media and links (`./media_…`) are made root-relative against the page's own path (the solo URL of an alias sits in another folder).
 5. In the browser, `scripts/channel.js` applies the same link rules on click to links the page scripts render later.
+
+## Public host
+
+Absolute links of the app screens (other screens, images) use `X-LH-Public-Host` (a CDN in front that sends chosen paths to lh-edge), else `X-Forwarded-Host`, else `PUBLIC_HOST`, else the request's host.
 
 ## Tests and deployment
 
