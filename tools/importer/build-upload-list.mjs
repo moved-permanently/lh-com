@@ -20,7 +20,11 @@ const docsIn = (dir) => {
 };
 
 const locales = ['de/en', 'de/de', 'at/de', 'gb/en'];
-const localeDocs = locales.flatMap((l) => [`/${l}/nav`, `/${l}/footer`, ...docsIn(`${l}/fragments`)]);
+// fragments no page shows any more (the payment/follow-us band was shown on the /lhg/ pages
+// only): not uploaded; their DA documents are removed by hand
+const RETIRED_FRAGMENTS = ['payment-social'];
+const localeDocs = locales.flatMap((l) => [`/${l}/nav`, `/${l}/footer`, ...docsIn(`${l}/fragments`)
+  .filter((p) => !RETIRED_FRAGMENTS.includes(p.split('/').pop()))]);
 const pages = Object.entries(progress)
   .filter(([, v]) => v.status === 'ok')
   .map(([u]) => new URL(u).pathname.replace(/\/$/, ''))
