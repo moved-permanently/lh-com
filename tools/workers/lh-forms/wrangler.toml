@@ -1,0 +1,32 @@
+name = "lh-forms"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Secrets (not here): FORM_SENDER (from address) and FORM_CONFIG (JSON, see README.md and
+# FORM_CONFIG.example.json). Set them with `npx wrangler@4 secret put FORM_SENDER` / `FORM_CONFIG`.
+
+[vars]
+ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
+EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
+
+# Cloudflare Email Service; the sender domain must be onboarded in the account.
+[[send_email]]
+name = "EMAIL"
+
+# 5 submissions per minute per client IP (the binding only supports periods of 10 or 60 s).
+[[ratelimits]]
+name = "RATE_LIMIT_MINUTE"
+namespace_id = "4101"
+
+  [ratelimits.simple]
+  limit = 5
+  period = 60
+
+# 20 submissions per hour per client IP: one SQLite-backed Durable Object per IP.
+[[durable_objects.bindings]]
+name = "HOURLY_LIMITER"
+class_name = "HourlyLimiter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["HourlyLimiter"]

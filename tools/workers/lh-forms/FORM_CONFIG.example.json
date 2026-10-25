@@ -1,0 +1,14 @@
+{
+  "default": {
+    "to": ["forms@example.com"]
+  },
+  "forms": {
+    "feedback-past-flight": {
+      "de-de": { "to": ["feedback-de@example.com"], "subject": "[lh-com] Feedback (de-de)" },
+      "*": { "to": ["feedback@example.com", "feedback-copy@example.com"] }
+    },
+    "refund-form": {
+      "*": { "to": ["refunds@example.com"] }
+    }
+  }
+}
