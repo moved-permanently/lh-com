@@ -64,6 +64,32 @@ export function originUrl(requestUrl, env) {
 }
 
 /**
+ * The edge cache of origin answers. As the reference: cacheEverything, the origin's max-age
+ * (7200 s for pages) — right for a zone with push invalidation, which purges on publish. Without
+ * push invalidation (the var EDGE_TTL set, in seconds) answers are kept at most EDGE_TTL
+ * (2xx) and 60 s (404), so a publish shows within about EDGE_TTL.
+ */
+export function edgeCacheOptions(env) {
+  const ttl = Number.parseInt(env.EDGE_TTL, 10);
+  if (!Number.isFinite(ttl) || ttl < 0 || String(env.EDGE_TTL ?? '').trim() === '') return { cacheEverything: true };
+  return { cacheEverything: true, cacheTtlByStatus: { '200-299': ttl, 404: 60 } };
+}
+
+/**
+ * With EDGE_TTL set (no push invalidation), pages and JSON tell browsers and app web views the
+ * same limit instead of the origin's max-age=7200; media (content-addressed) keep theirs.
+ */
+function capBrowserCache(resp, env) {
+  const ttl = Number.parseInt(env.EDGE_TTL, 10);
+  if (!Number.isFinite(ttl) || String(env.EDGE_TTL ?? '').trim() === '') return;
+  const type = resp.headers.get('content-type') || '';
+  if (!/text\/html|application\/json/.test(type)) return;
+  const cc = resp.headers.get('cache-control') || '';
+  const m = cc.match(/max-age=(\d+)/);
+  if (m && Number(m[1]) > ttl) resp.headers.set('cache-control', cc.replace(/max-age=\d+/, `max-age=${ttl}`));
+}
+
+/**
  * Fetches from the origin with the headers of the reference.
  * @param {Request} request the incoming request (method, headers, body)
  * @param {Object} env
@@ -85,12 +111,13 @@ export async function originFetch(request, env, target, options = {}) {
   const init = options.edgeCache === false
     ? { method: req.method, cache: 'no-store' }
     // cf doesn't cache html by default: need to override the default behavior
-    : { method: req.method, cf: { cacheEverything: true } };
+    : { method: req.method, cf: edgeCacheOptions(env) };
   let resp = await fetch(req, init);
   resp = new Response(resp.body, resp);
   if (resp.status === 304) resp.headers.delete('Content-Security-Policy');
   resp.headers.delete('age');
   resp.headers.delete('x-robots-tag');
+  capBrowserCache(resp, env);
   return resp;
 }
 

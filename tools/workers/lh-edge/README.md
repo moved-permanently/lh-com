@@ -15,6 +15,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `WWW_HOST` | the host whose `https://<host>.solo_continue/` closes the app's web view; www page links in solo pages get its solo form (`www.lufthansa.com`) |
 | `ALIAS_SHEET` | the alias sheet of the web view paths (`/app/config/webview-aliases.json`) |
 | `PUSH_INVALIDATION` | `disabled` turns off `X-Push-Invalidation` (lower environments only) |
+| `EDGE_TTL` | seconds: caps the edge cache of origin answers (`cf.cacheTtlByStatus`: 2xx `EDGE_TTL`, 404 60 s) and the `max-age` pages and JSON send to browsers, for hosts without push invalidation (the demo host; `60`); empty: the reference behaviour (the origin's `max-age`, purged by push invalidation) |
 | secret `ORIGIN_AUTHENTICATION` | `Authorization: token …` towards the origin, when the site needs one |
 
 ## Routes (first match wins, `src/index.js` `ROUTES`)
@@ -37,7 +38,7 @@ Packages 2 to 6 add their routes before `pass-through`.
 - origin request: host `ORIGIN`, `X-Forwarded-Host`, `X-BYO-CDN-Type: cloudflare`, `X-Push-Invalidation: enabled`, `cf.cacheEverything`;
 - answer: a 301 gets the original query appended to a `location` without one; a 304 loses `Content-Security-Policy`; `age` and `x-robots-tag` are removed.
 
-Deviations: `X-Forwarded-Host` is the var `PUBLIC_HOST` (fallback: the request's host, as the reference) because one Worker answers on several hosts (workers.dev, the demo host) for one public site; the origin var is `ORIGIN` (reference: `ORIGIN_HOSTNAME`); the sheets the Worker reads itself (the alias sheet) are fetched past Cloudflare's cache (`cache: 'no-store'`, origin sends `max-age=7200`) and kept 60 s in the isolate. With `cacheEverything`, the edge keeps pages until push invalidation purges them: set up push invalidation for the zone the demo host is on (https://www.aem.live/docs/setup-byo-cdn-push-invalidation#cloudflare), else published changes show only after the origin's `max-age`.
+Deviations: `X-Forwarded-Host` is the var `PUBLIC_HOST` (fallback: the request's host, as the reference) because one Worker answers on several hosts (workers.dev, the demo host) for one public site; the origin var is `ORIGIN` (reference: `ORIGIN_HOSTNAME`); the sheets the Worker reads itself (the alias sheet) are fetched past Cloudflare's cache (`cache: 'no-store'`, origin sends `max-age=7200`) and kept 60 s in the isolate. With `cacheEverything` alone the edge keeps pages for the origin's `max-age` (7200 s) until push invalidation purges them. The demo host has no push invalidation, so `EDGE_TTL = "60"` caps it: a publish shows within about a minute. For a zone with push invalidation set `EDGE_TTL` empty.
 
 ## The app's web view (`src/solo.js`)
 

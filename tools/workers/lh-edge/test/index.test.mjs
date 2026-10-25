@@ -69,6 +69,17 @@ test('pass-through: origin host, reference headers, query parameters, header cle
   assert.equal(call.headers['x-byo-cdn-type'], 'cloudflare');
   assert.equal(call.headers['x-push-invalidation'], 'enabled');
   assert.deepEqual(call.init.cf, { cacheEverything: true });
+  // EDGE_TTL caps the edge cache (2xx: EDGE_TTL, 404: 60 s), for pages and solo pages
+  await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten`), env({ EDGE_TTL: '60' }), {});
+  assert.deepEqual(calls.at(-1).init.cf, { cacheEverything: true, cacheTtlByStatus: { '200-299': 60, 404: 60 } });
+  await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten.solo_continue`), env({ EDGE_TTL: '30' }), {});
+  assert.deepEqual(calls.find((c) => c.url.endsWith('/de/de/flugunregelmaessigkeiten') && c.init.cf?.cacheTtlByStatus?.['200-299'] === 30).init.cf, { cacheEverything: true, cacheTtlByStatus: { '200-299': 30, 404: 60 } });
+  // ... and browsers get the same limit instead of the origin's max-age=7200
+  const capped = await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten`), env({ EDGE_TTL: '60' }), {});
+  assert.equal(capped.headers.get('cache-control'), 'max-age=60');
+  await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten`), env({ EDGE_TTL: '' }), {});
+  assert.equal(resp.headers.get('cache-control'), 'max-age=7200');
+  assert.deepEqual(calls.at(-1).init.cf, { cacheEverything: true });
   assert.equal(resp.headers.get('age'), null);
   assert.equal(resp.headers.get('x-robots-tag'), null);
   // json keeps limit/offset/sheet, media keeps format/height/optimize/width (sorted)
