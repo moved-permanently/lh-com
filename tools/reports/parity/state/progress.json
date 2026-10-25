@@ -12,8 +12,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 22962,
-          "at": "2026-10-24T12:08:38.820Z",
+          "ms": 21099,
+          "at": "2026-10-25T08:03:13.336Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4530,
@@ -123,7 +123,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/1440-diff.png",
-        "at": "2026-10-25T01:45:37.567Z",
+        "at": "2026-10-25T08:03:15.808Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/1440-diff.png",
@@ -140,8 +140,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19514,
-          "at": "2026-10-24T12:09:00.991Z",
+          "ms": 19726,
+          "at": "2026-10-25T08:03:35.740Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4866,
@@ -246,7 +246,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/768-diff.png",
-        "at": "2026-10-25T01:45:39.271Z",
+        "at": "2026-10-25T08:03:37.419Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/768-diff.png",
@@ -263,8 +263,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19603,
-          "at": "2026-10-24T12:09:22.175Z",
+          "ms": 19658,
+          "at": "2026-10-25T08:03:57.251Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5147,
@@ -370,7 +370,7 @@
           0.00007
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/390-diff.png",
-        "at": "2026-10-25T01:45:40.380Z",
+        "at": "2026-10-25T08:03:58.394Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/homepage/390-diff.png",
@@ -387,8 +387,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20008,
-          "at": "2026-10-24T12:09:43.255Z",
+          "ms": 20338,
+          "at": "2026-10-25T06:37:28.669Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4526,
@@ -497,7 +497,7 @@
           0.49598
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/1440-diff.png",
-        "at": "2026-10-25T01:45:42.763Z",
+        "at": "2026-10-25T06:37:31.128Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/1440-diff.png",
@@ -514,8 +514,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19618,
-          "at": "2026-10-24T12:10:05.254Z",
+          "ms": 19751,
+          "at": "2026-10-25T06:37:51.078Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4949,
@@ -620,7 +620,7 @@
           0.07456
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/768-diff.png",
-        "at": "2026-10-25T01:45:44.488Z",
+        "at": "2026-10-25T06:37:52.818Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/768-diff.png",
@@ -637,8 +637,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19565,
-          "at": "2026-10-24T12:10:26.424Z",
+          "ms": 19841,
+          "at": "2026-10-25T06:38:12.862Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5224,
@@ -744,7 +744,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/390-diff.png",
-        "at": "2026-10-25T01:45:45.567Z",
+        "at": "2026-10-25T06:38:14.007Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/homepage/390-diff.png",
@@ -761,8 +761,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19941,
-          "at": "2026-10-24T12:10:47.456Z",
+          "ms": 20166,
+          "at": "2026-10-25T06:38:34.370Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4526,
@@ -871,7 +871,7 @@
           0.49598
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/1440-diff.png",
-        "at": "2026-10-25T01:45:47.915Z",
+        "at": "2026-10-25T06:38:36.733Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/1440-diff.png",
@@ -888,8 +888,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19559,
-          "at": "2026-10-24T12:11:09.392Z",
+          "ms": 19680,
+          "at": "2026-10-25T06:38:56.629Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4992,
@@ -994,7 +994,7 @@
           0.34593
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/768-diff.png",
-        "at": "2026-10-25T01:45:49.652Z",
+        "at": "2026-10-25T06:38:58.399Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/768-diff.png",
@@ -1011,8 +1011,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19954,
-          "at": "2026-10-24T12:11:30.954Z",
+          "ms": 20145,
+          "at": "2026-10-25T06:39:18.744Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5516,
@@ -1119,7 +1119,7 @@
           0.0266
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/390-diff.png",
-        "at": "2026-10-25T01:45:50.804Z",
+        "at": "2026-10-25T06:39:19.924Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/homepage/390-diff.png",
@@ -1136,8 +1136,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19716,
-          "at": "2026-10-24T12:11:51.770Z",
+          "ms": 19857,
+          "at": "2026-10-25T08:04:18.452Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4384,
@@ -1246,7 +1246,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/1440-diff.png",
-        "at": "2026-10-25T01:45:53.230Z",
+        "at": "2026-10-25T08:04:20.878Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/1440-diff.png",
@@ -1263,8 +1263,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19514,
-          "at": "2026-10-24T12:12:13.721Z",
+          "ms": 19510,
+          "at": "2026-10-25T08:04:40.591Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4756,
@@ -1368,7 +1368,7 @@
           0.15946
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/768-diff.png",
-        "at": "2026-10-25T01:45:54.888Z",
+        "at": "2026-10-25T08:04:42.255Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/768-diff.png",
@@ -1385,8 +1385,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 19607,
-          "at": "2026-10-24T12:12:34.889Z",
+          "ms": 19683,
+          "at": "2026-10-25T08:05:02.159Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5153,
@@ -1491,7 +1491,7 @@
           0.01901
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/390-diff.png",
-        "at": "2026-10-25T01:45:55.952Z",
+        "at": "2026-10-25T08:05:03.251Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/homepage/390-diff.png",
@@ -1508,8 +1508,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7101,
-          "at": "2026-10-24T12:12:43.061Z",
+          "ms": 7737,
+          "at": "2026-10-25T08:05:11.198Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4581,
@@ -1610,7 +1610,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/1440-diff.png",
-        "at": "2026-10-25T01:45:58.097Z",
+        "at": "2026-10-25T08:05:13.421Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/1440-diff.png",
@@ -1627,8 +1627,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7013,
-          "at": "2026-10-24T12:12:52.197Z",
+          "ms": 7021,
+          "at": "2026-10-25T08:05:20.645Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4850,
@@ -1730,7 +1730,7 @@
           0.0371
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/768-diff.png",
-        "at": "2026-10-25T01:45:59.554Z",
+        "at": "2026-10-25T08:05:22.153Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/768-diff.png",
@@ -1747,8 +1747,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7645,
-          "at": "2026-10-24T12:13:01.328Z",
+          "ms": 7788,
+          "at": "2026-10-25T08:05:30.149Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7343,
@@ -1867,7 +1867,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/390-diff.png",
-        "at": "2026-10-25T01:46:00.878Z",
+        "at": "2026-10-25T08:05:31.457Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/baggage/390-diff.png",
@@ -1884,8 +1884,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6966,
-          "at": "2026-10-24T12:13:09.578Z",
+          "ms": 7359,
+          "at": "2026-10-25T08:05:39.017Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 3468,
@@ -1984,7 +1984,7 @@
           0.01283
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/1440-diff.png",
-        "at": "2026-10-25T01:46:02.784Z",
+        "at": "2026-10-25T08:05:40.865Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/1440-diff.png",
@@ -2001,8 +2001,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6845,
-          "at": "2026-10-24T12:13:18.224Z",
+          "ms": 6804,
+          "at": "2026-10-25T08:05:47.876Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 3791,
@@ -2102,7 +2102,7 @@
           0.56207
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/768-diff.png",
-        "at": "2026-10-25T01:46:04.164Z",
+        "at": "2026-10-25T08:05:49.275Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/768-diff.png",
@@ -2119,8 +2119,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7015,
-          "at": "2026-10-24T12:13:26.562Z",
+          "ms": 7000,
+          "at": "2026-10-25T08:05:56.491Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5306,
@@ -2228,7 +2228,7 @@
           0.01985
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/390-diff.png",
-        "at": "2026-10-25T01:46:05.302Z",
+        "at": "2026-10-25T08:05:57.630Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/flying-with-small-children/390-diff.png",
@@ -9581,8 +9581,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7395,
-          "at": "2026-10-24T13:08:21.208Z",
+          "ms": 7484,
+          "at": "2026-10-25T08:06:49.651Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 3892,
@@ -9686,7 +9686,7 @@
           0.01122
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/1440-diff.png",
-        "at": "2026-10-25T01:46:57.634Z",
+        "at": "2026-10-25T08:06:51.844Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/1440-diff.png",
@@ -9703,8 +9703,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 6811,
-          "at": "2026-10-24T13:08:30.257Z",
+          "ms": 6926,
+          "at": "2026-10-25T08:06:58.991Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4191,
@@ -9816,7 +9816,7 @@
           0.12021
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/768-diff.png",
-        "at": "2026-10-25T01:46:59.121Z",
+        "at": "2026-10-25T08:07:00.502Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/768-diff.png",
@@ -9834,7 +9834,7 @@
           "attempts": 1,
           "inflightAttempts": 0,
           "ms": 7210,
-          "at": "2026-10-24T13:08:39.015Z",
+          "at": "2026-10-25T08:07:07.905Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5698,
@@ -9951,7 +9951,7 @@
           0.02147
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/390-diff.png",
-        "at": "2026-10-25T01:47:00.369Z",
+        "at": "2026-10-25T08:07:09.077Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/digital-self-services/390-diff.png",
@@ -10747,8 +10747,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8511,
-          "at": "2026-10-24T13:10:28.253Z",
+          "ms": 8560,
+          "at": "2026-10-25T08:07:17.856Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5749,
@@ -10859,7 +10859,7 @@
           0.42567
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/1440-diff.png",
-        "at": "2026-10-24T23:13:50.246Z",
+        "at": "2026-10-25T08:07:21.175Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/1440-diff.png",
@@ -10876,8 +10876,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7390,
-          "at": "2026-10-24T13:10:38.942Z",
+          "ms": 7361,
+          "at": "2026-10-25T08:07:28.752Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5213,
@@ -10986,7 +10986,7 @@
           0.01501
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/768-diff.png",
-        "at": "2026-10-24T23:13:52.166Z",
+        "at": "2026-10-25T08:07:30.738Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/768-diff.png",
@@ -11003,8 +11003,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7513,
-          "at": "2026-10-24T13:10:48.415Z",
+          "ms": 7540,
+          "at": "2026-10-25T08:07:38.494Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 6527,
@@ -11119,7 +11119,7 @@
           0.01806
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/390-diff.png",
-        "at": "2026-10-24T23:13:53.521Z",
+        "at": "2026-10-25T08:07:39.885Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/lounges/390-diff.png",
@@ -31709,8 +31709,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7062,
-          "at": "2026-10-24T13:45:41.292Z",
+          "ms": 7327,
+          "at": "2026-10-25T08:07:47.411Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 4489,
@@ -31814,7 +31814,7 @@
           0.12216
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/1440-diff.png",
-        "at": "2026-10-25T01:50:40.654Z",
+        "at": "2026-10-25T08:07:49.610Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/1440-diff.png",
@@ -31831,8 +31831,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7384,
-          "at": "2026-10-24T13:45:50.890Z",
+          "ms": 7274,
+          "at": "2026-10-25T08:07:57.100Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5639,
@@ -31942,7 +31942,7 @@
           0.0364
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/768-diff.png",
-        "at": "2026-10-25T01:50:42.290Z",
+        "at": "2026-10-25T08:07:58.795Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/768-diff.png",
@@ -31959,8 +31959,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7818,
-          "at": "2026-10-24T13:46:00.338Z",
+          "ms": 7833,
+          "at": "2026-10-25T08:08:06.856Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 7893,
@@ -32081,7 +32081,7 @@
           0.02262
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/390-diff.png",
-        "at": "2026-10-25T01:50:43.596Z",
+        "at": "2026-10-25T08:08:08.241Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/book-and-manage/flights/giftvoucher/390-diff.png",
@@ -81724,8 +81724,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 10442,
-          "at": "2026-10-24T14:50:22.261Z",
+          "ms": 10652,
+          "at": "2026-10-25T08:08:19.094Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 18763,
@@ -81843,7 +81843,7 @@
           0.72336
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/1440-diff.png",
-        "at": "2026-10-24T23:25:18.376Z",
+        "at": "2026-10-25T08:08:24.831Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/1440-diff.png",
@@ -81860,8 +81860,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8980,
-          "at": "2026-10-24T14:50:36.938Z",
+          "ms": 9108,
+          "at": "2026-10-25T08:08:34.164Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 17972,
@@ -81979,7 +81979,7 @@
           0.21319
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/768-diff.png",
-        "at": "2026-10-24T23:25:21.717Z",
+        "at": "2026-10-25T08:08:37.477Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/768-diff.png",
@@ -81996,8 +81996,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 8403,
-          "at": "2026-10-24T14:50:53.085Z",
+          "ms": 8319,
+          "at": "2026-10-25T08:08:46.035Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 21362,
@@ -82115,7 +82115,7 @@
           0.19816
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/390-diff.png",
-        "at": "2026-10-24T23:25:23.553Z",
+        "at": "2026-10-25T08:08:47.887Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/100-years/destinations/390-diff.png",
@@ -89525,8 +89525,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7921,
-          "at": "2026-10-24T15:02:05.406Z",
+          "ms": 8091,
+          "at": "2026-10-25T08:08:56.206Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5309,
@@ -89635,7 +89635,7 @@
           0.35703
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/1440-diff.png",
-        "at": "2026-10-24T23:27:32.789Z",
+        "at": "2026-10-25T08:08:59.658Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/1440-diff.png",
@@ -89652,8 +89652,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7321,
-          "at": "2026-10-24T15:02:16.080Z",
+          "ms": 7318,
+          "at": "2026-10-25T08:09:07.208Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 5080,
@@ -89760,7 +89760,7 @@
           0.36439
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/768-diff.png",
-        "at": "2026-10-24T23:27:34.727Z",
+        "at": "2026-10-25T08:09:09.259Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/768-diff.png",
@@ -89777,8 +89777,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 7658,
-          "at": "2026-10-24T15:02:25.719Z",
+          "ms": 7798,
+          "at": "2026-10-25T08:09:17.266Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 6076,
@@ -89893,7 +89893,7 @@
           0.01509
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/390-diff.png",
-        "at": "2026-10-24T23:27:36.330Z",
+        "at": "2026-10-25T08:09:18.938Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/articles/explore-flying/390-diff.png",
@@ -223714,8 +223714,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13093,
-          "at": "2026-10-24T12:55:48.436Z",
+          "ms": 13548,
+          "at": "2026-10-25T08:06:11.372Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 2100,
@@ -223753,7 +223753,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6787
+              "svgAnimations": 6758
             },
             "liveBoxes": 1
           }
@@ -223803,7 +223803,7 @@
           0.19145
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/1440-diff.png",
-        "at": "2026-10-25T01:46:40.580Z",
+        "at": "2026-10-25T08:06:12.966Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/1440-diff.png",
@@ -223820,8 +223820,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13094,
-          "at": "2026-10-24T12:56:03.041Z",
+          "ms": 13275,
+          "at": "2026-10-25T08:06:26.454Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 2576,
@@ -223911,7 +223911,7 @@
           0.17447
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/768-diff.png",
-        "at": "2026-10-25T01:46:41.777Z",
+        "at": "2026-10-25T08:06:27.678Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/768-diff.png",
@@ -223928,8 +223928,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 12983,
-          "at": "2026-10-24T12:56:17.197Z",
+          "ms": 12988,
+          "at": "2026-10-25T08:06:40.920Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 3493,
@@ -223967,7 +223967,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 6609
+              "svgAnimations": 6596
             },
             "liveBoxes": 1
           }
@@ -224024,7 +224024,7 @@
           0.04165
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/390-diff.png",
-        "at": "2026-10-25T01:46:42.807Z",
+        "at": "2026-10-25T08:06:41.959Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/flight-search/390-diff.png",
@@ -225581,8 +225581,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 21790,
-          "at": "2026-10-24T15:45:42.641Z",
+          "ms": 22000,
+          "at": "2026-10-25T08:09:41.117Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 11644,
@@ -225695,7 +225695,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/1440-diff.png",
-        "at": "2026-10-24T23:32:57.779Z",
+        "at": "2026-10-25T08:09:44.993Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/1440-diff.png",
@@ -225712,8 +225712,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20720,
-          "at": "2026-10-24T15:46:07.304Z",
+          "ms": 20950,
+          "at": "2026-10-25T08:10:06.183Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 14147,
@@ -225826,7 +225826,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/768-diff.png",
-        "at": "2026-10-24T23:33:00.081Z",
+        "at": "2026-10-25T08:10:08.517Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/768-diff.png",
@@ -225843,8 +225843,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 20392,
-          "at": "2026-10-24T15:46:30.049Z",
+          "ms": 20545,
+          "at": "2026-10-25T08:10:29.280Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 21080,
@@ -225957,7 +225957,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/390-diff.png",
-        "at": "2026-10-24T23:33:01.551Z",
+        "at": "2026-10-25T08:10:30.847Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/fluege/390-diff.png",
@@ -233635,8 +233635,8 @@
           "status": "ok",
           "attempts": 1,
           "inflightAttempts": 0,
-          "ms": 13666,
-          "at": "2026-10-24T20:31:57.558Z",
+          "ms": 13697,
+          "at": "2026-10-25T08:10:44.774Z",
           "metrics": {
             "httpStatus": 200,
             "scrollHeight": 20958,
@@ -233674,7 +233674,7 @@
               "fonts": "loaded",
               "images": "complete",
               "fontsAfterScroll": "loaded",
-              "svgAnimations": 5333
+              "svgAnimations": 5198
             },
             "liveBoxes": 0
           }
@@ -233764,7 +233764,7 @@
           0
         ],
         "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/handgepaeck/1440-diff.png",
-        "at": "2026-10-24T20:32:01.006Z",
+        "at": "2026-10-25T08:10:48.348Z",
         "attempts": 1
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/handgepaeck/1440-diff.png",
@@ -339595,7 +339595,3471 @@
       },
       "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/support/contact/contact-form-confirmation/390-diff.png",
       "status": "done"
+    },
+    "de/en/local-page/south-africa-winter-promotion@1440": {
+      "id": "de/en/local-page/south-africa-winter-promotion",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 8893,
+          "at": "2026-10-25T06:16:27.050Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3482,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.21025,
+        "unmaskedRatio": 0.22223,
+        "maskRatio": 0.05392,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3495,
+        "heightB": 3482,
+        "heightDiffRatio": 0.00372,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.44258
+        },
+        "worstBands": [
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.46586
+          },
+          {
+            "y": 600,
+            "unmaskedRatio": 0.45051
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.44258
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.18104,
+          0.26061,
+          0.44258,
+          0.45051,
+          0.41155,
+          0.38174,
+          0.34509,
+          0.39764,
+          0.08838,
+          0.05094,
+          0.08568,
+          0.04286,
+          0.46586,
+          0.12321,
+          0.12161,
+          0.05617,
+          0.05174,
+          0.15966
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/1440-diff.png",
+        "at": "2026-10-25T06:16:29.498Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/1440-diff.png",
+      "status": "done"
+    },
+    "de/en/local-page/south-africa-winter-promotion@768": {
+      "id": "de/en/local-page/south-africa-winter-promotion",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7258,
+          "at": "2026-10-25T06:16:36.964Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4091,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.3039,
+        "unmaskedRatio": 0.32511,
+        "maskRatio": 0.06522,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4075,
+        "heightB": 4091,
+        "heightDiffRatio": 0.00391,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.42358
+        },
+        "worstBands": [
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.8151
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.78613
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.66889
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.13511,
+          0.29528,
+          0.42358,
+          0.36407,
+          0.40271,
+          0.39018,
+          0.52461,
+          0.61736,
+          0.13637,
+          0.09515,
+          0.04585,
+          0.10181,
+          0.06528,
+          0.35124,
+          0.51571,
+          0.66889,
+          0.8151,
+          0.09945,
+          0.08422,
+          0.78613,
+          0.161
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/768-diff.png",
+        "at": "2026-10-25T06:16:38.777Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/768-diff.png",
+      "status": "done"
+    },
+    "de/en/local-page/south-africa-winter-promotion@390": {
+      "id": "de/en/local-page/south-africa-winter-promotion",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7258,
+          "at": "2026-10-25T06:16:46.230Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5358,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/local-page/south-africa-winter-promotion/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.23947,
+        "unmaskedRatio": 0.25994,
+        "maskRatio": 0.07874,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5315,
+        "heightB": 5358,
+        "heightDiffRatio": 0.00803,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.34869
+        },
+        "worstBands": [
+          {
+            "y": 800,
+            "unmaskedRatio": 0.54079
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.52635
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.49912
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.16947,
+          0.22709,
+          0.34869,
+          0.34765,
+          0.54079,
+          0.35541,
+          0.44364,
+          0.47886,
+          0.23135,
+          0.08164,
+          0.16509,
+          0.04648,
+          0.09891,
+          0.11367,
+          0.09251,
+          0.10825,
+          0.52635,
+          0.35257,
+          0.46697,
+          0.49912,
+          0.26592,
+          0.49595,
+          0.34155,
+          0.11415,
+          0.09681,
+          0.28635,
+          0.03992
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/390-diff.png",
+        "at": "2026-10-25T06:16:47.555Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/local-page/south-africa-winter-promotion/390-diff.png",
+      "status": "done"
+    },
+    "de/de/local-page/south-africa-winter-promotion@1440": {
+      "id": "de/de/local-page/south-africa-winter-promotion",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 14124,
+          "at": "2026-10-25T06:17:01.896Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3286,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6552
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.29785,
+        "unmaskedRatio": 0.31529,
+        "maskRatio": 0.0553,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 3408,
+        "heightB": 3286,
+        "heightDiffRatio": 0.0358,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.43747
+        },
+        "worstBands": [
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.59061
+          },
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.58994
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.53118
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.17872,
+          0.27861,
+          0.43747,
+          0.45682,
+          0.412,
+          0.37852,
+          0.34509,
+          0.39764,
+          0.10081,
+          0.05082,
+          0.09364,
+          0.53118,
+          0.47518,
+          0.58994,
+          0.07616,
+          0.04124,
+          0.59061,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/1440-diff.png",
+        "at": "2026-10-25T06:17:04.361Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/1440-diff.png",
+      "status": "done"
+    },
+    "de/de/local-page/south-africa-winter-promotion@768": {
+      "id": "de/de/local-page/south-africa-winter-promotion",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13645,
+          "at": "2026-10-25T06:17:18.210Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4008,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6324
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.29569,
+        "unmaskedRatio": 0.31622,
+        "maskRatio": 0.06492,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4110,
+        "heightB": 4008,
+        "heightDiffRatio": 0.02482,
+        "firstDivergentBand": {
+          "index": 1,
+          "y": 200,
+          "unmaskedRatio": 0.31531
+        },
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.8208
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.74311
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.66606
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.13447,
+          0.31531,
+          0.42912,
+          0.38716,
+          0.40295,
+          0.444,
+          0.8208,
+          0.74311,
+          0.14331,
+          0.0673,
+          0.07377,
+          0.1039,
+          0.16856,
+          0.56826,
+          0.46615,
+          0.66606,
+          0.31889,
+          0.08807,
+          0.15799,
+          0.60932,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/768-diff.png",
+        "at": "2026-10-25T06:17:19.994Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/768-diff.png",
+      "status": "done"
+    },
+    "de/de/local-page/south-africa-winter-promotion@390": {
+      "id": "de/de/local-page/south-africa-winter-promotion",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/local-page/south-africa-winter-promotion",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13376,
+          "at": "2026-10-25T06:17:33.603Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5294,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 5890
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/local-page/south-africa-winter-promotion/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.27541,
+        "unmaskedRatio": 0.29957,
+        "maskRatio": 0.08063,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 5364,
+        "heightB": 5294,
+        "heightDiffRatio": 0.01305,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.32723
+        },
+        "worstBands": [
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.76237
+          },
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.6982
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.52637
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.16895,
+          0.27,
+          0.32723,
+          0.35557,
+          0.52637,
+          0.33547,
+          0.37114,
+          0.41205,
+          0.15403,
+          0.0982,
+          0.14001,
+          0.08748,
+          0.10059,
+          0.11177,
+          0.10389,
+          0.43465,
+          0.47359,
+          0.6982,
+          0.40665,
+          0.76237,
+          0.39227,
+          0.43257,
+          0.34639,
+          0.14061,
+          0.07384,
+          0.40477,
+          0.0439
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/390-diff.png",
+        "at": "2026-10-25T06:17:34.962Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/local-page/south-africa-winter-promotion/390-diff.png",
+      "status": "done"
+    },
+    "de/en/event/dghm-2026@1440": {
+      "id": "de/en/event/dghm-2026",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6678,
+          "at": "2026-10-25T06:17:41.863Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2054,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/event/dghm-2026/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.07147,
+        "unmaskedRatio": 0.0786,
+        "maskRatio": 0.09077,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2076,
+        "heightB": 2054,
+        "heightDiffRatio": 0.0106,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.21134
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.15746
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.13811
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01621,
+          0.03653,
+          0.01156,
+          0.07721,
+          0.11096,
+          0.13811,
+          0.21134,
+          0.06768,
+          0.05375,
+          0.15746,
+          0.02913
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/1440-diff.png",
+        "at": "2026-10-25T06:17:43.352Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/1440-diff.png",
+      "status": "done"
+    },
+    "de/en/event/dghm-2026@768": {
+      "id": "de/en/event/dghm-2026",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6309,
+          "at": "2026-10-25T06:17:49.890Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2162,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/event/dghm-2026/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.18533,
+        "unmaskedRatio": 0.20935,
+        "maskRatio": 0.11472,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2326,
+        "heightB": 2162,
+        "heightDiffRatio": 0.07051,
+        "firstDivergentBand": {
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.72447
+        },
+        "worstBands": [
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.72447
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.59935
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.26747
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02489,
+          0.10664,
+          0.00199,
+          0.09716,
+          0.1199,
+          0.09315,
+          0.06698,
+          0.72447,
+          0.17449,
+          0.08616,
+          0.59935,
+          0.26747
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/768-diff.png",
+        "at": "2026-10-25T06:17:51.014Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/768-diff.png",
+      "status": "done"
+    },
+    "de/en/event/dghm-2026@390": {
+      "id": "de/en/event/dghm-2026",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/en/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 6457,
+          "at": "2026-10-25T06:17:57.679Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2752,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 45,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/en/event/dghm-2026/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.17731,
+        "unmaskedRatio": 0.20861,
+        "maskRatio": 0.15007,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 2882,
+        "heightB": 2752,
+        "heightDiffRatio": 0.04511,
+        "firstDivergentBand": {
+          "index": 9,
+          "y": 1800,
+          "unmaskedRatio": 0.46889
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.55775
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.46889
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.3756
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.06981,
+          0.22632,
+          0.11148,
+          0.06596,
+          0.20653,
+          0.13388,
+          0.01511,
+          0.00068,
+          0.12035,
+          0.46889,
+          0.3756,
+          0.1284,
+          0.14392,
+          0.55775,
+          0.0146
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/390-diff.png",
+        "at": "2026-10-25T06:17:58.642Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/en/event/dghm-2026/390-diff.png",
+      "status": "done"
+    },
+    "de/de/event/dghm-2026@1440": {
+      "id": "de/de/event/dghm-2026",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13228,
+          "at": "2026-10-25T06:18:12.097Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2054,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6839
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/event/dghm-2026/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.07196,
+        "unmaskedRatio": 0.07914,
+        "maskRatio": 0.09077,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2076,
+        "heightB": 2054,
+        "heightDiffRatio": 0.0106,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.20959
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.1581
+          },
+          {
+            "y": 1000,
+            "unmaskedRatio": 0.15437
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01388,
+          0.03653,
+          0.0125,
+          0.08249,
+          0.11107,
+          0.15437,
+          0.20959,
+          0.06414,
+          0.05396,
+          0.1581,
+          0.02823
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/1440-diff.png",
+        "at": "2026-10-25T06:18:13.591Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/1440-diff.png",
+      "status": "done"
+    },
+    "de/de/event/dghm-2026@768": {
+      "id": "de/de/event/dghm-2026",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13196,
+          "at": "2026-10-25T06:18:27.005Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2257,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6908
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/event/dghm-2026/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.17342,
+        "unmaskedRatio": 0.19756,
+        "maskRatio": 0.12217,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2414,
+        "heightB": 2257,
+        "heightDiffRatio": 0.06504,
+        "firstDivergentBand": {
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.59062
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.59388
+          },
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.59062
+          },
+          {
+            "y": 1600,
+            "unmaskedRatio": 0.26501
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02424,
+          0.10664,
+          0.00199,
+          0.1069,
+          0.13135,
+          0.06219,
+          0.05448,
+          0.59062,
+          0.26501,
+          0.09053,
+          0.1513,
+          0.59388,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/768-diff.png",
+        "at": "2026-10-25T06:18:28.204Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/768-diff.png",
+      "status": "done"
+    },
+    "de/de/event/dghm-2026@390": {
+      "id": "de/de/event/dghm-2026",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/de/de/event/dghm-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13220,
+          "at": "2026-10-25T06:18:41.651Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2814,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 45,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6648
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/de/de/event/dghm-2026/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.16422,
+        "unmaskedRatio": 0.19418,
+        "maskRatio": 0.15431,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 2923,
+        "heightB": 2814,
+        "heightDiffRatio": 0.03729,
+        "firstDivergentBand": {
+          "index": 9,
+          "y": 1800,
+          "unmaskedRatio": 0.35832
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.56389
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.37631
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.35832
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0696,
+          0.22632,
+          0.11148,
+          0.0746,
+          0.19688,
+          0.1522,
+          0.02573,
+          0.00068,
+          0.14046,
+          0.35832,
+          0.37631,
+          0.11472,
+          0.08037,
+          0.56389,
+          0.02571
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/390-diff.png",
+        "at": "2026-10-25T06:18:42.660Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/de/de/event/dghm-2026/390-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet@1440": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 5852,
+          "at": "2026-10-25T05:59:59.597Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 924,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.06125,
+        "unmaskedRatio": 0.06125,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 916,
+        "heightB": 924,
+        "heightDiffRatio": 0.00866,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 800,
+            "unmaskedRatio": 0.08376
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.07985
+          },
+          {
+            "y": 200,
+            "unmaskedRatio": 0.07651
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01588,
+          0.07651,
+          0.07985,
+          0.05882,
+          0.08376
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/1440-diff.png",
+        "at": "2026-10-25T06:00:00.546Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/1440-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet@768": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 5890,
+          "at": "2026-10-25T06:00:06.658Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 936,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.10156,
+        "unmaskedRatio": 0.10156,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 938,
+        "heightB": 936,
+        "heightDiffRatio": 0.00213,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 800,
+            "unmaskedRatio": 0.1642
+          },
+          {
+            "y": 400,
+            "unmaskedRatio": 0.13269
+          },
+          {
+            "y": 200,
+            "unmaskedRatio": 0.13171
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02243,
+          0.13171,
+          0.13269,
+          0.07616,
+          0.1642
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/768-diff.png",
+        "at": "2026-10-25T06:00:07.449Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/768-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet@390": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 5782,
+          "at": "2026-10-25T06:00:13.429Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 1056,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.10641,
+        "unmaskedRatio": 0.10641,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 1053,
+        "heightB": 1056,
+        "heightDiffRatio": 0.00284,
+        "firstDivergentBand": null,
+        "worstBands": [
+          {
+            "y": 400,
+            "unmaskedRatio": 0.17069
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.1084
+          },
+          {
+            "y": 0,
+            "unmaskedRatio": 0.09415
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.09415,
+          0.08695,
+          0.17069,
+          0.09073,
+          0.1084,
+          0.03905
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/390-diff.png",
+        "at": "2026-10-25T06:00:14.125Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/390-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b@1440": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7455,
+          "at": "2026-10-25T06:00:21.773Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4122,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.28044,
+        "unmaskedRatio": 0.28044,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4266,
+        "heightB": 4122,
+        "heightDiffRatio": 0.03376,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.32821
+        },
+        "worstBands": [
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.78563
+          },
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.70859
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.68779
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04335,
+          0.00005,
+          0.00323,
+          0.01339,
+          0.00088,
+          0.21321,
+          0.32821,
+          0.22439,
+          0.28376,
+          0.14019,
+          0.19168,
+          0.1014,
+          0.68779,
+          0.34711,
+          0.40585,
+          0.68314,
+          0.68436,
+          0.78563,
+          0.0777,
+          0.05127,
+          0.70859,
+          0.01996
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/1440-diff.png",
+        "at": "2026-10-25T06:00:24.367Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/1440-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b@768": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7381,
+          "at": "2026-10-25T06:00:31.966Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4450,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.34305,
+        "unmaskedRatio": 0.34305,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4729,
+        "heightB": 4450,
+        "heightDiffRatio": 0.059,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.30889
+        },
+        "worstBands": [
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.97839
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.90152
+          },
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.6762
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07138,
+          0.00605,
+          0.02812,
+          0.00096,
+          0.18842,
+          0.30889,
+          0.57939,
+          0.35547,
+          0.254,
+          0.45973,
+          0.13735,
+          0.14226,
+          0.10979,
+          0.62103,
+          0.57095,
+          0.30671,
+          0.20973,
+          0.6762,
+          0.61048,
+          0.90152,
+          0.17621,
+          0.22824,
+          0.97839,
+          0.29481
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/768-diff.png",
+        "at": "2026-10-25T06:00:33.784Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/768-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b@390": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7435,
+          "at": "2026-10-25T06:00:41.416Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5679,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.44632,
+        "unmaskedRatio": 0.44632,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 6056,
+        "heightB": 5679,
+        "heightDiffRatio": 0.06225,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.41913
+        },
+        "worstBands": [
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.97593
+          },
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.87649
+          },
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.83741
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.10903,
+          0.13512,
+          0.08897,
+          0.14669,
+          0.41913,
+          0.5316,
+          0.56776,
+          0.62575,
+          0.5854,
+          0.71312,
+          0.41029,
+          0.62723,
+          0.21516,
+          0.13677,
+          0.19104,
+          0.19205,
+          0.32973,
+          0.51388,
+          0.50967,
+          0.44376,
+          0.41329,
+          0.55899,
+          0.54065,
+          0.83741,
+          0.59199,
+          0.87649,
+          0.26079,
+          0.49916,
+          0.97593,
+          0.46183,
+          0.02095
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/390-diff.png",
+        "at": "2026-10-25T06:00:42.957Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b/390-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge@1440": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7321,
+          "at": "2026-10-25T06:00:50.476Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4122,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.28044,
+        "unmaskedRatio": 0.28044,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 4266,
+        "heightB": 4122,
+        "heightDiffRatio": 0.03376,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.32821
+        },
+        "worstBands": [
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.78563
+          },
+          {
+            "y": 4000,
+            "unmaskedRatio": 0.70859
+          },
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.68779
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.04335,
+          0.00005,
+          0.00323,
+          0.01339,
+          0.00088,
+          0.21321,
+          0.32821,
+          0.22439,
+          0.28376,
+          0.14019,
+          0.19168,
+          0.1014,
+          0.68779,
+          0.34711,
+          0.40585,
+          0.68314,
+          0.68436,
+          0.78563,
+          0.0777,
+          0.05127,
+          0.70859,
+          0.01996
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/1440-diff.png",
+        "at": "2026-10-25T06:00:53.096Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/1440-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge@768": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7109,
+          "at": "2026-10-25T06:01:00.440Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4450,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.34989,
+        "unmaskedRatio": 0.34989,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 4729,
+        "heightB": 4450,
+        "heightDiffRatio": 0.059,
+        "firstDivergentBand": {
+          "index": 5,
+          "y": 1000,
+          "unmaskedRatio": 0.31232
+        },
+        "worstBands": [
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.98223
+          },
+          {
+            "y": 3800,
+            "unmaskedRatio": 0.90297
+          },
+          {
+            "y": 3400,
+            "unmaskedRatio": 0.67642
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.07138,
+          0.01525,
+          0.04782,
+          0.05479,
+          0.20875,
+          0.31232,
+          0.58993,
+          0.35782,
+          0.25307,
+          0.45743,
+          0.13742,
+          0.14635,
+          0.11632,
+          0.6218,
+          0.58533,
+          0.30973,
+          0.20638,
+          0.67642,
+          0.61828,
+          0.90297,
+          0.17813,
+          0.22783,
+          0.98223,
+          0.30275
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/768-diff.png",
+        "at": "2026-10-25T06:01:02.343Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/768-diff.png",
+      "status": "done"
+    },
+    "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge@390": {
+      "id": "content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 7373,
+          "at": "2026-10-25T06:01:09.932Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 5679,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead-digital-assistant",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaText",
+              "lufthansahead-digital-assistant"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": "none"
+            },
+            "liveBoxes": 0
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.44876,
+        "unmaskedRatio": 0.44876,
+        "maskRatio": 0,
+        "maskBoxes": 0,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 6056,
+        "heightB": 5679,
+        "heightDiffRatio": 0.06225,
+        "firstDivergentBand": {
+          "index": 4,
+          "y": 800,
+          "unmaskedRatio": 0.42763
+        },
+        "worstBands": [
+          {
+            "y": 5600,
+            "unmaskedRatio": 0.97593
+          },
+          {
+            "y": 5000,
+            "unmaskedRatio": 0.87649
+          },
+          {
+            "y": 4600,
+            "unmaskedRatio": 0.83741
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.10903,
+          0.1386,
+          0.09831,
+          0.17175,
+          0.42763,
+          0.53153,
+          0.56888,
+          0.62079,
+          0.59941,
+          0.71889,
+          0.40544,
+          0.62783,
+          0.21228,
+          0.13632,
+          0.206,
+          0.19629,
+          0.32973,
+          0.5136,
+          0.50901,
+          0.44376,
+          0.41329,
+          0.55899,
+          0.54065,
+          0.83741,
+          0.59199,
+          0.87649,
+          0.26079,
+          0.50024,
+          0.97593,
+          0.46183,
+          0.02095
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/390-diff.png",
+        "at": "2026-10-25T06:01:11.408Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge/390-diff.png",
+      "status": "done"
+    },
+    "at/de/local-page/black-friday@1440": {
+      "id": "at/de/local-page/black-friday",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/local-page/black-friday",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13442,
+          "at": "2026-10-25T06:18:56.334Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2999,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6613
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/local-page/black-friday/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.0923,
+        "unmaskedRatio": 0.09848,
+        "maskRatio": 0.06284,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2933,
+        "heightB": 2999,
+        "heightDiffRatio": 0.02201,
+        "firstDivergentBand": {
+          "index": 11,
+          "y": 2200,
+          "unmaskedRatio": 0.32861
+        },
+        "worstBands": [
+          {
+            "y": 2800,
+            "unmaskedRatio": 0.34617
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.32861
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.12543
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01649,
+          0.01885,
+          0.0081,
+          0.07951,
+          0.07855,
+          0.05701,
+          0.02423,
+          0.03814,
+          0.06458,
+          0.09044,
+          0.12543,
+          0.32861,
+          0.09125,
+          0.04589,
+          0.34617
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/1440-diff.png",
+        "at": "2026-10-25T06:18:58.184Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/1440-diff.png",
+      "status": "done"
+    },
+    "at/de/local-page/black-friday@768": {
+      "id": "at/de/local-page/black-friday",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/local-page/black-friday",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13827,
+          "at": "2026-10-25T06:19:12.240Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3417,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6606
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/local-page/black-friday/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.19105,
+        "unmaskedRatio": 0.20723,
+        "maskRatio": 0.07809,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 3206,
+        "heightB": 3417,
+        "heightDiffRatio": 0.06175,
+        "firstDivergentBand": {
+          "index": 12,
+          "y": 2400,
+          "unmaskedRatio": 0.81292
+        },
+        "worstBands": [
+          {
+            "y": 2400,
+            "unmaskedRatio": 0.81292
+          },
+          {
+            "y": 3200,
+            "unmaskedRatio": 0.66531
+          },
+          {
+            "y": 3000,
+            "unmaskedRatio": 0.45831
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0262,
+          0.05114,
+          0.03455,
+          0.11527,
+          0.0952,
+          0.05943,
+          0.0597,
+          0.0915,
+          0.06339,
+          0.12532,
+          0.15166,
+          0.17657,
+          0.81292,
+          0.3133,
+          0.07216,
+          0.45831,
+          0.66531,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/768-diff.png",
+        "at": "2026-10-25T06:19:13.649Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/768-diff.png",
+      "status": "done"
+    },
+    "at/de/local-page/black-friday@390": {
+      "id": "at/de/local-page/black-friday",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/local-page/black-friday",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13143,
+          "at": "2026-10-25T06:19:27.010Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 4813,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6160
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/local-page/black-friday/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.3347,
+        "unmaskedRatio": 0.36775,
+        "maskRatio": 0.08986,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 4199,
+        "heightB": 4813,
+        "heightDiffRatio": 0.12757,
+        "firstDivergentBand": {
+          "index": 16,
+          "y": 3200,
+          "unmaskedRatio": 0.37125
+        },
+        "worstBands": [
+          {
+            "y": 4200,
+            "unmaskedRatio": 0.96412
+          },
+          {
+            "y": 4400,
+            "unmaskedRatio": 0.94473
+          },
+          {
+            "y": 3600,
+            "unmaskedRatio": 0.90748
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0696,
+          0.15553,
+          0.14965,
+          0.15104,
+          0.20319,
+          0.12605,
+          0.10811,
+          0.14973,
+          0,
+          0,
+          0.28591,
+          0.12681,
+          0.13789,
+          0.178,
+          0.19631,
+          0.19593,
+          0.37125,
+          0.90568,
+          0.90748,
+          0.80544,
+          0.77983,
+          0.96412,
+          0.94473,
+          0.24087,
+          0
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/390-diff.png",
+        "at": "2026-10-25T06:19:28.223Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/local-page/black-friday/390-diff.png",
+      "status": "done"
+    },
+    "at/de/event/esorics-2027@1440": {
+      "id": "at/de/event/esorics-2027",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/event/esorics-2027",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13488,
+          "at": "2026-10-25T06:19:41.975Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2000,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6910
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/event/esorics-2027/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.12054,
+        "unmaskedRatio": 0.13254,
+        "maskRatio": 0.0906,
+        "maskBoxes": 1,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2080,
+        "heightB": 2000,
+        "heightDiffRatio": 0.03846,
+        "firstDivergentBand": {
+          "index": 6,
+          "y": 1200,
+          "unmaskedRatio": 0.46736
+        },
+        "worstBands": [
+          {
+            "y": 1200,
+            "unmaskedRatio": 0.46736
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.41312
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.12901
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01307,
+          0.03652,
+          0.01107,
+          0.07382,
+          0.12901,
+          0,
+          0.46736,
+          0.0777,
+          0.04597,
+          0.41312,
+          0.01568
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/1440-diff.png",
+        "at": "2026-10-25T06:19:43.493Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/1440-diff.png",
+      "status": "done"
+    },
+    "at/de/event/esorics-2027@768": {
+      "id": "at/de/event/esorics-2027",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/event/esorics-2027",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13171,
+          "at": "2026-10-25T06:19:56.903Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2189,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6916
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/event/esorics-2027/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.20537,
+        "unmaskedRatio": 0.23431,
+        "maskRatio": 0.1235,
+        "maskBoxes": 1,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2388,
+        "heightB": 2189,
+        "heightDiffRatio": 0.08333,
+        "firstDivergentBand": {
+          "index": 7,
+          "y": 1400,
+          "unmaskedRatio": 0.85086
+        },
+        "worstBands": [
+          {
+            "y": 1400,
+            "unmaskedRatio": 0.85086
+          },
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.5031
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.46297
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.02536,
+          0.11797,
+          0.03341,
+          0.10847,
+          0.12144,
+          0,
+          0.09603,
+          0.85086,
+          0.13525,
+          0.08175,
+          0.46297,
+          0.5031
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/768-diff.png",
+        "at": "2026-10-25T06:19:58.084Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/768-diff.png",
+      "status": "done"
+    },
+    "at/de/event/esorics-2027@390": {
+      "id": "at/de/event/esorics-2027",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/at/de/event/esorics-2027",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 13095,
+          "at": "2026-10-25T06:20:11.392Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2791,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": true,
+            "overflowPx": 45,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 6672
+            },
+            "liveBoxes": 1
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/at/de/event/esorics-2027/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.17318,
+        "unmaskedRatio": 0.20477,
+        "maskRatio": 0.15427,
+        "maskBoxes": 1,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 2918,
+        "heightB": 2791,
+        "heightDiffRatio": 0.04352,
+        "firstDivergentBand": {
+          "index": 9,
+          "y": 1800,
+          "unmaskedRatio": 0.45841
+        },
+        "worstBands": [
+          {
+            "y": 2600,
+            "unmaskedRatio": 0.60092
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.45841
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.36137
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.0696,
+          0.19916,
+          0.12385,
+          0.08865,
+          0.18059,
+          0.16117,
+          0,
+          0.0075,
+          0.13129,
+          0.45841,
+          0.36137,
+          0.12064,
+          0.08468,
+          0.60092,
+          0.02348
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/390-diff.png",
+        "at": "2026-10-25T06:20:12.368Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/at/de/event/esorics-2027/390-diff.png",
+      "status": "done"
+    },
+    "gb/en/local-page/ski-campaign-2026@1440": {
+      "id": "gb/en/local-page/ski-campaign-2026",
+      "width": 1440,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/local-page/ski-campaign-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/1440-eds.png",
+          "contentWidth": 1425,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 19643,
+          "at": "2026-10-25T06:20:32.247Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 2962,
+            "truncated": false,
+            "viewportWidth": 1440,
+            "clientWidth": 1425,
+            "contentWidth": 1425,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": null,
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 0
+            },
+            "liveBoxes": 2
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.363,
+        "unmaskedRatio": 0.43634,
+        "maskRatio": 0.16808,
+        "maskBoxes": 2,
+        "widthA": 1425,
+        "widthB": 1425,
+        "heightA": 2823,
+        "heightB": 2962,
+        "heightDiffRatio": 0.04693,
+        "firstDivergentBand": {
+          "index": 1,
+          "y": 200,
+          "unmaskedRatio": 0.54095
+        },
+        "worstBands": [
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.96341
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.91178
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.74945
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.03356,
+          0.54095,
+          0.46093,
+          0.35365,
+          0.74945,
+          0.09447,
+          0,
+          0.4649,
+          0.62715,
+          0.91178,
+          0.96341,
+          0.47331,
+          0.05575,
+          0.30286,
+          0.49654
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/1440-diff.png",
+        "at": "2026-10-25T06:20:34.732Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/1440-diff.png",
+      "status": "done"
+    },
+    "gb/en/local-page/ski-campaign-2026@768": {
+      "id": "gb/en/local-page/ski-campaign-2026",
+      "width": 768,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/local-page/ski-campaign-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/768-eds.png",
+          "contentWidth": 753,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 19178,
+          "at": "2026-10-25T06:20:54.149Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3119,
+            "truncated": false,
+            "viewportWidth": 768,
+            "clientWidth": 753,
+            "contentWidth": 753,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 1,
+            "fonts": {
+              "h1": null,
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 0
+            },
+            "liveBoxes": 2
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot-768.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.31722,
+        "unmaskedRatio": 0.41518,
+        "maskRatio": 0.23594,
+        "maskBoxes": 2,
+        "widthA": 753,
+        "widthB": 753,
+        "heightA": 2984,
+        "heightB": 3119,
+        "heightDiffRatio": 0.04328,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.39839
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.97667
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.96104
+          },
+          {
+            "y": 1800,
+            "unmaskedRatio": 0.96069
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.01424,
+          0.2679,
+          0.39839,
+          0.69069,
+          0.79837,
+          0.11755,
+          0,
+          0,
+          0.04252,
+          0.96069,
+          0.96104,
+          0.97667,
+          0.23159,
+          0.07944,
+          0.55649,
+          0.32109
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/768-diff.png",
+        "at": "2026-10-25T06:20:55.638Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/768-diff.png",
+      "status": "done"
+    },
+    "gb/en/local-page/ski-campaign-2026@390": {
+      "id": "gb/en/local-page/ski-campaign-2026",
+      "width": 390,
+      "captures": {
+        "eds": {
+          "url": "https://main--lh-com--moved-permanently.aem.page/gb/en/local-page/ski-campaign-2026",
+          "out": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/390-eds.png",
+          "contentWidth": 375,
+          "status": "ok",
+          "attempts": 1,
+          "inflightAttempts": 0,
+          "ms": 18933,
+          "at": "2026-10-25T06:21:14.794Z",
+          "metrics": {
+            "httpStatus": 200,
+            "scrollHeight": 3278,
+            "truncated": false,
+            "viewportWidth": 390,
+            "clientWidth": 375,
+            "contentWidth": 375,
+            "contentWidthMatched": true,
+            "horizontalOverflow": false,
+            "overflowPx": 0,
+            "failedImages": 0,
+            "pendingImages": 4,
+            "fonts": {
+              "h1": null,
+              "h2": {
+                "used": "lufthansahead",
+                "webfont": true
+              },
+              "body": {
+                "used": "lufthansatext",
+                "webfont": true
+              }
+            },
+            "loadedWebfonts": [
+              "LufthansaHead",
+              "LufthansaText"
+            ],
+            "consentBannerVisible": false,
+            "showcaseNoticeVisible": false,
+            "waits": {
+              "blocks": "loaded",
+              "fonts": "loaded",
+              "images": "complete",
+              "fontsAfterScroll": "loaded",
+              "svgAnimations": 0
+            },
+            "liveBoxes": 2
+          }
+        },
+        "src": {
+          "out": "/backups/moved-permanently/lh-com/repo/tools/source-export/pages/gb/en/local-page/ski-campaign-2026/screenshot-390.jpg",
+          "status": "provided"
+        }
+      },
+      "compare": {
+        "mismatchRatio": 0.28181,
+        "unmaskedRatio": 0.3827,
+        "maskRatio": 0.26362,
+        "maskBoxes": 2,
+        "widthA": 375,
+        "widthB": 375,
+        "heightA": 3131,
+        "heightB": 3278,
+        "heightDiffRatio": 0.04484,
+        "firstDivergentBand": {
+          "index": 2,
+          "y": 400,
+          "unmaskedRatio": 0.40487
+        },
+        "worstBands": [
+          {
+            "y": 2200,
+            "unmaskedRatio": 0.96569
+          },
+          {
+            "y": 2000,
+            "unmaskedRatio": 0.95307
+          },
+          {
+            "y": 800,
+            "unmaskedRatio": 0.83408
+          }
+        ],
+        "bandHeight": 200,
+        "bandRatios": [
+          0.06915,
+          0.24493,
+          0.40487,
+          0.81215,
+          0.83408,
+          0.19545,
+          0,
+          0,
+          0.07736,
+          0.48493,
+          0.95307,
+          0.96569,
+          0.44115,
+          0.11173,
+          0.2802,
+          0.5274,
+          0.0121
+        ],
+        "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/390-diff.png",
+        "at": "2026-10-25T06:21:16.030Z",
+        "attempts": 1
+      },
+      "diff": "/backups/moved-permanently/lh-com/repo/tools/reports/parity/shots/gb/en/local-page/ski-campaign-2026/390-diff.png",
+      "status": "done"
     }
   },
-  "updatedAt": "2026-10-25T05:01:06.879Z"
+  "updatedAt": "2026-10-25T08:10:48.348Z"
 }

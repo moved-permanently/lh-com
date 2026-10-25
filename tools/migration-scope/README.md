@@ -85,7 +85,14 @@ and 2026-10-22: 754 paths of 712 assets. The AirCore pages use only widths 360, 
 2560 and only webp (the 180 and jpg renditions belong to the AEM pages' own transform). The
 `og:image` of these pages is under `/aircore/cache/` or `/aircore/media/`, not `/content/dam/`,
 and their JSON-LD carries no image. The list is the source of the image redirects for the `/lhg/`
-pages, which left the replica on 2026-10-25.
+pages, which left the replica on 2026-10-25: `tools/importer/aircore-images.mjs` copies every asset
+(the original, before `.transform/`) into Document Authoring under `/aircore-images/` with its
+path below `/content/dam/` (lower-cased, other characters as `-`, as Edge Delivery serves them)
+and previews it, and writes one redirect row per exact path (`tools/importer/aircore-redirects.csv`:
+Source = the path www's `/lhg/` pages request, Destination = the copy in that width and format,
+e.g. `/aircore-images/lh/images/offers/destination/aho-square.jpg?width=720&format=webply&optimize=medium`)
+for the site's redirects sheet (`tools/importer/redirects-sheet.json`: the sheet's other rows plus
+these). `tools/importer/check-aircore-redirects.mjs` checks every row on preview.
 
 The navigation is authored as pages under `/{country}/{lang}/configuration/commonheader/*`. Use
 them as the source for the nav, not as pages.
