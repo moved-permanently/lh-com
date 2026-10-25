@@ -1,0 +1,584 @@
+{
+  "total": 96,
+  "limit": 96,
+  "offset": 0,
+  "data": [
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/book-and-manage/timetable-and-flight-status/flight-disruptions",
+      "page": "/de/en/flight-disruptions",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/book-and-manage/timetable-and-flight-status/flight-disruptions",
+      "page": "/de/de/flugunregelmaessigkeiten",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/book-and-manage/timetable-and-flight-status/flight-disruptions",
+      "page": "/at/de/flugunregelmaessigkeiten",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/book-and-manage/timetable-and-flight-status/flight-disruptions",
+      "page": "/gb/en/flight-disruptions",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/book-and-manage/good-for-train",
+      "page": "/de/en/good-for-train",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/book-and-manage/good-for-train",
+      "page": "/de/de/good-for-train",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/book-and-manage/good-for-train",
+      "page": "/at/de/good-for-train",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/book-and-manage/good-for-train",
+      "page": "/gb/en/good-for-train",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/check-in",
+      "page": "/de/en/online-check-in",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/check-in",
+      "page": "/de/de/online-check-in",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/check-in",
+      "page": "/at/de/online-check-in",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/check-in",
+      "page": "/gb/en/online-check-in",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/airport-information",
+      "page": "/de/de/flughafeninformation",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/airport-information",
+      "page": "/at/de/flughafeninformation",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/special-travel-needs",
+      "page": "/de/en/travelling-with-special-requirements",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/special-travel-needs",
+      "page": "/de/de/reisen-mit-besonderen-anforderungen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/special-travel-needs",
+      "page": "/at/de/reisen-mit-besonderen-anforderungen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/special-travel-needs",
+      "page": "/gb/en/travelling-with-special-requirements",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/lufthansa-travel-classes",
+      "page": "/de/de/lufthansa-reiseklassen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/lufthansa-travel-classes",
+      "page": "/at/de/lufthansa-reiseklassen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/during-your-trip/lounges",
+      "page": "/de/en/lounges",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/during-your-trip/lounges",
+      "page": "/de/de/lounges",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/during-your-trip/lounges",
+      "page": "/at/de/lounges",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/during-your-trip/lounges",
+      "page": "/gb/en/lounges",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage/travelling-with-animals",
+      "page": "/de/en/travelling-with-animals",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage/travelling-with-animals",
+      "page": "/de/de/travelling-with-animals",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage/travelling-with-animals",
+      "page": "/at/de/travelling-with-animals",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals",
+      "page": "/gb/en/travelling-with-animals",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/common/terms-and-conditions",
+      "page": "/de/en/terms-of-service-group",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/common/terms-and-conditions",
+      "page": "/de/de/befoerderungsbedingungen-group",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/common/terms-and-conditions",
+      "page": "/at/de/befoerderungsbedingungen-group",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/common/terms-and-conditions",
+      "page": "/gb/en/terms-of-service-group",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/common/passenger-rights",
+      "page": "/de/en/passenger-rights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/common/passenger-rights",
+      "page": "/de/de/passenger-rights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/common/passenger-rights",
+      "page": "/at/de/passenger-rights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/common/passenger-rights",
+      "page": "/gb/en/passenger-rights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/common/privacy-statement",
+      "page": "/de/en/datenschutz",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/common/privacy-statement",
+      "page": "/de/de/datenschutz",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/common/privacy-statement",
+      "page": "/at/de/datenschutz",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/common/privacy-statement",
+      "page": "/gb/en/datenschutz",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/common/terms-of-use",
+      "page": "/de/en/terms-of-use",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/common/terms-of-use",
+      "page": "/de/de/nutzungsbedingungen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/common/terms-of-use",
+      "page": "/at/de/nutzungsbedingungen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/common/terms-of-use",
+      "page": "/gb/en/terms-of-use",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/terms-of-service-group",
+      "page": "/de/de/befoerderungsbedingungen-group",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/terms-of-service-group",
+      "page": "/at/de/befoerderungsbedingungen-group",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/upgrade-info",
+      "page": "/de/de/upgrade-informationen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/upgrade-info",
+      "page": "/at/de/upgrade-informationen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/advance-seat-reservations-terms-and-conditions",
+      "page": "/de/de/sitzplatzreservierungen-konditionen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/advance-seat-reservations-terms-and-conditions",
+      "page": "/at/de/sitzplatzreservierungen-konditionen",
+      "note": "404 on www; German counterpart in the replica"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/common/seatreservation-condtions",
+      "page": "/de/en/advance-seat-reservations-terms-and-conditions",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/common/seatreservation-condtions",
+      "page": "/de/de/sitzplatzreservierungen-konditionen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/common/seatreservation-condtions",
+      "page": "/at/de/sitzplatzreservierungen-konditionen",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/common/seatreservation-condtions",
+      "page": "/gb/en/advance-seat-reservations-terms-and-conditions",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/book-and-manage/advance-seat-reservation",
+      "page": "/de/en/advance-seat-reservation",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/book-and-manage/advance-seat-reservation",
+      "page": "/de/de/advance-seat-reservation",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/book-and-manage/advance-seat-reservation",
+      "page": "/at/de/advance-seat-reservation",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/book-and-manage/advance-seat-reservation",
+      "page": "/gb/en/advance-seat-reservation",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/travel-classes/upgrade-options",
+      "page": "/de/en/upgrade-options",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/travel-classes/upgrade-options",
+      "page": "/de/de/upgrademoeglichkeiten",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/travel-classes/upgrade-options",
+      "page": "/at/de/upgrademoeglichkeiten",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/travel-classes/upgrade-options",
+      "page": "/gb/en/upgrade-options",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/book-and-manage/additional-services",
+      "page": "/de/en/additional-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/book-and-manage/additional-services",
+      "page": "/de/de/additional-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/book-and-manage/additional-services",
+      "page": "/at/de/additional-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/book-and-manage/additional-services",
+      "page": "/gb/en/additional-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage/carry-on-baggage",
+      "page": "/de/en/carry-on-baggage",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage/carry-on-baggage",
+      "page": "/de/de/handgepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage/carry-on-baggage",
+      "page": "/at/de/handgepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage/carry-on-baggage",
+      "page": "/gb/en/carry-on-baggage",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities",
+      "page": "/de/en/baggage-irregularities",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage/baggage-irregularities",
+      "page": "/de/de/baggage-irregularities",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage/baggage-irregularities",
+      "page": "/at/de/baggage-irregularities",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities",
+      "page": "/gb/en/baggage-irregularities",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage/excess-baggage",
+      "page": "/de/en/uebergepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage/excess-baggage",
+      "page": "/de/de/uebergepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage/excess-baggage",
+      "page": "/at/de/uebergepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage/excess-baggage",
+      "page": "/gb/en/uebergepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage/digital-baggage-services",
+      "page": "/de/en/digital-baggage-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage/digital-baggage-services",
+      "page": "/de/de/digitale-gepaeckservices",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage/digital-baggage-services",
+      "page": "/at/de/digitale-gepaeckservices",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage/digital-baggage-services",
+      "page": "/gb/en/digital-baggage-services",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/prepare-for-your-trip/baggage",
+      "page": "/de/en/baggage",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/prepare-for-your-trip/baggage",
+      "page": "/de/de/gepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/prepare-for-your-trip/baggage",
+      "page": "/at/de/gepaeck",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/prepare-for-your-trip/baggage",
+      "page": "/gb/en/baggage",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/during-your-trip/lounges/admission-rules",
+      "page": "/de/en/admission-rules",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/during-your-trip/lounges/admission-rules",
+      "page": "/de/de/admission-rules",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/during-your-trip/lounges/admission-rules",
+      "page": "/at/de/admission-rules",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/during-your-trip/lounges/admission-rules",
+      "page": "/gb/en/admission-rules",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/book-and-manage/offers-and-destination",
+      "page": "/de/en/flights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/book-and-manage/offers-and-destination",
+      "page": "/de/de/fluege",
+      "note": "www canonical"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/book-and-manage/offers-and-destination",
+      "page": "/at/de/fluege",
+      "note": "www canonical"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/book-and-manage/offers-and-destination",
+      "page": "/gb/en/flights",
+      "note": "www canonical"
+    },
+    {
+      "locale": "us/en",
+      "app-path": "/us/en/local-page/dnsmpi",
+      "page": "/us/en/dnsmpi",
+      "note": "www canonical; market-only page"
+    },
+    {
+      "locale": "us/en",
+      "app-path": "/us/en/local-page/ccpa",
+      "page": "/us/en/ccpa",
+      "note": "www canonical; market-only page"
+    }
+  ],
+  ":type": "sheet"
+}
