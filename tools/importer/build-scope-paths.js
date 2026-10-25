@@ -4,10 +4,10 @@
  * cleanup transformer uses to decide whether a lufthansa.com link becomes root-relative
  * (migrated page) or stays absolute on https://www.lufthansa.com (not migrated).
  *
- * Sources (whichever exist), every column named de_en, de_de, at_de or gb_en:
+ * Sources (whichever exist), every column named de_en, de_de, at_de, gb_en or path:
  *   tools/migration-scope/pages.csv        template_group,de_en,de_de,at_de,gb_en
- *   tools/migration-scope/aircore.csv      type,de_en
- *   tools/importer/aircore-locales.csv     type,de_en,de_de,at_de,gb_en
+ *   tools/migration-scope/local-pages.csv  path,locale,kind (market-only pages, one locale each)
+ * The AirCore pages (/lhg/) left the scope on 2026-10-25: links to them stay absolute on www.
  *
  * Usage: node tools/importer/build-scope-paths.js
  */
@@ -15,11 +15,10 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
-const LOCALE_COLUMNS = ['de_en', 'de_de', 'at_de', 'gb_en'];
+const LOCALE_COLUMNS = ['de_en', 'de_de', 'at_de', 'gb_en', 'path'];
 const SOURCES = [
   'tools/migration-scope/pages.csv',
-  'tools/migration-scope/aircore.csv',
-  'tools/importer/aircore-locales.csv',
+  'tools/migration-scope/local-pages.csv',
 ];
 const OUT = path.join(__dirname, 'transformers/scope-paths.js');
 

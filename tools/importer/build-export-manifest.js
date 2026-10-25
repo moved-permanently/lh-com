@@ -16,7 +16,6 @@ const LOCALES = [
   { col: 'at_de', country: 'at', lang: 'de' },
   { col: 'gb_en', country: 'gb', lang: 'en' },
 ];
-const AIRCORE_TYPES = ['dest', 'from', 'o-d'];
 
 function readCsv(file) {
   const [head, ...lines] = fs.readFileSync(file, 'utf8').trim().split(/\r?\n/);
@@ -25,7 +24,8 @@ function readCsv(file) {
 }
 
 const pages = readCsv(path.join(root, 'tools/migration-scope/pages.csv'));
-const aircore = readCsv(path.join(root, 'tools/migration-scope/aircore.csv'));
+// market-only pages: one locale each (the AirCore pages, /lhg/, left the scope on 2026-10-25)
+const localPages = readCsv(path.join(root, 'tools/migration-scope/local-pages.csv'));
 
 const items = [];
 const add = (kind, url, extra = {}) => items.push({ kind, url: `${LIVE}${url}`, ...extra });
@@ -35,14 +35,14 @@ pages.forEach((row) => LOCALES.forEach(({ col }) => {
   add('model', `${row[col]}.model.json`, { template: row.template_group, locale: col.replace('_', '/') });
 }));
 
-// AirCore: de/en rows are known; counterparts in the other locales are found from the
-// language switch of each page or the locale's AirCore sitemaps below
-aircore.forEach((row) => add('page', row.de_en, { template: `aircore-${row.type}`, locale: 'de/en' }));
+localPages.forEach((row) => {
+  add('page', row.path, { template: `local-${row.kind}`, locale: row.locale });
+  add('model', `${row.path}.model.json`, { template: `local-${row.kind}`, locale: row.locale });
+});
 
 LOCALES.forEach(({ country, lang }) => {
   const key = `${country}/${lang}`;
   add('sitemap', `/sitemap/sitemap_lh_${country}_${lang}.xml.gz`, { locale: key, note: 'and every numbered part it links to' });
-  AIRCORE_TYPES.forEach((type) => add('sitemap', `/aircore/sitemaps/${country}_${type}_${lang}_sitemap.xml`, { locale: key }));
   add('nav', `/${country}/${lang}/configuration/commonheader.model.json`, { locale: key, note: 'and every page below configuration/commonheader/, as HTML and .model.json' });
   add('har', `/${country}/${lang}/homepage`, {
     locale: key,

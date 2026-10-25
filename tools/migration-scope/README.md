@@ -45,13 +45,29 @@ confirmation), so its de_en and gb_en cells are empty. The forms' error page is 
 | app-entry | 6 | entry pages of apps (flight search, check-in, my bookings). Migrate the page; the app itself links out. |
 | flight-status | 1 | `timetable-and-flight-status` |
 
-`aircore.csv`: 35 `/lhg/de/en/...` pages from the second platform, AirCore (destination, origin
-and route pages). AirCore slugs are translated per locale (`/lhg/de/en/dest/co/europe` is
-`/lhg/de/de/dest/co/europa`), so match the same destination in each locale, for example through
-the page's language switch or the locale's AirCore sitemap
-(`/aircore/sitemaps/{country}_{type}_{lang}_sitemap.xml`). Routes start in each market's own
-cities: Vienna for `at/de`, London for `gb/en`. Origin pages (`/from/`) and business-class pages
-exist only for Germany, so `at/de` and `gb/en` have no equivalent for those rows.
+`local-pages.csv`: market-only pages, `path,locale,kind`. Every market on www also has pages
+that exist only there: events (`event`), local promotions (`local-promotion`) and the LoungeNet
+lounge pages (`loungenet`). They are imported 1:1 in their own locale only. They sit outside
+`pages.csv` because that file is the set of parallel pages that exist in all four locales and
+that Document Authoring later links as translation (`de/en` to `de/de`) and rollout (`de/de` to
+`at/de`, `de/en` to `gb/en`); these pages have no counterpart in another locale and must stay out
+of any rollout or translation. The importer treats links to them as local
+(`tools/importer/build-scope-paths.js` reads both files), and the language switch
+(`data/locale-map.json`) goes to the other locale's homepage. Even the two
+`south-africa-winter-promotion` pages (de/en and de/de) are two separate rows: each is its
+market's own page, not a translation of the other. The LoungeNet pages keep the full path www
+serves them under (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet/...`) and live's
+`noindex`.
+
+## AirCore (/lhg/), out of scope
+
+The pages under `/lhg/` (destination, origin and route pages) come from a second platform,
+AirCore. www renders them separately and writes their prices into the HTML every night, so a
+copy carries prices frozen at import (Bari on `/lhg/de/en/dest/c/italy`: 143 EUR in the copy,
+131 EUR on www on 2026-10-25). They left the replica on 2026-10-25 in all four locales: links to
+them import as absolute `https://www.lufthansa.com/lhg/...` links, nothing under `/lhg/` is
+uploaded or previewed in DA, and the parity report no longer lists them. The former list
+`aircore.csv` is gone; only the image list below remains.
 
 `aircore-dam-images.csv`: every `/content/dam/` URL that the 107 imported `/lhg/` pages (all
 four locales) load on www, from their captures (`tools/importer/bd-snapshots/www.lufthansa.com/lhg`,
@@ -75,7 +91,7 @@ them as the source for the nav, not as pages.
 The Insights articles beyond the 24 sampled, `/profile/*`, login and Travel ID, `/deeplink/*`
 (My Flights), the booking flow on shop.lufthansa.com, the check-in flow, form submissions, test
 pages (`dcep_ams_*`), the raffle pages, the other 26 aircraft-type pages, the other 10 stopover
-offers, and all AirCore routes beyond the sample.
+offers, and all AirCore pages (`/lhg/`, see above).
 
 ## Fetching the live site
 
@@ -99,5 +115,4 @@ These are same-origin calls on www.lufthansa.com today and become cross-origin o
 | Fare teasers | `POST /service/api/lhg-fare-teaser/fareteaser/offers/{origin}`, `POST .../fareteaser/manual`, `GET .../fareteaser/recommend`, `/service/api/labels/fareteaserstatic/lh/{lang}` |
 | Destination finder | `/service/api/destinationfinder/campaign/{origin}`, `/service/api/destinationfinder/destination/finder/{origin}/{region}` |
 | Labels | `/service/api/labels/{component}/lh/{lang}` |
-| AirCore | prices are in the server-rendered HTML; `/aircore/weather/`, `/aircore/geolocation/` |
 | Login, cart | `api.travelid.lufthansa.com`. Out of scope: show the login entry point and link to the live site. |

@@ -4,7 +4,7 @@
  * Idempotent; run after an import and before postprocess-media.mjs (which may resize the share
  * image) and the DA upload.
  *
- * For every scope page (tools/migration-scope/pages.csv, tools/importer/aircore-locales.csv)
+ * For every scope page (tools/migration-scope/pages.csv, tools/migration-scope/local-pages.csv)
  * with a snapshot (tools/importer/bd-snapshots/www.lufthansa.com{path}.html) it rewrites rows of
  * the page's Metadata block in content{path}.plain.html:
  * - Description: the live description; an empty row where live has none (EDS would otherwise
@@ -46,7 +46,9 @@ const csvPaths = (file) => fs.readFileSync(path.join(root, file), 'utf8').trim()
   .flatMap((l) => l.split(',').slice(1).map((p) => p.trim()).filter((p) => p.startsWith('/')));
 const scope = [...new Set([
   ...csvPaths('tools/migration-scope/pages.csv'),
-  ...csvPaths('tools/importer/aircore-locales.csv'),
+  // market-only pages: path,locale,kind (the AirCore pages, /lhg/, left the scope on 2026-10-25)
+  ...fs.readFileSync(path.join(root, 'tools/migration-scope/local-pages.csv'), 'utf8').trim().split('\n')
+    .slice(1).map((l) => l.split(',')[0].trim()).filter((p) => p.startsWith('/')),
 ])];
 
 const decode = (s) => s

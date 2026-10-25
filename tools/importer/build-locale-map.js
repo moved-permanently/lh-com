@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 /**
  * Builds data/locale-map.json (the language switch) from the migration scope.
- * AirCore rows are added once their counterparts per locale are known
- * (tools/importer/aircore-locales.csv: type,de_en,de_de,at_de,gb_en).
+ * Market-only pages (tools/migration-scope/local-pages.csv: path,locale,kind) get a row of their
+ * own locale only: they have no counterpart, so the language switch goes to the other locale's
+ * homepage. The AirCore pages (/lhg/) left the scope on 2026-10-25.
  * Usage: node tools/importer/build-locale-map.js
  */
 const fs = require('fs');
@@ -22,10 +23,13 @@ function readCsv(file) {
 
 const rows = [
   ...readCsv(path.join(root, 'tools/migration-scope/pages.csv')),
-  ...readCsv(path.join(__dirname, 'aircore-locales.csv')),
 ];
-const pages = rows.map((r) => Object.fromEntries(
-  Object.entries(KEYS).filter(([col]) => r[col]).map(([col, key]) => [key, r[col]]),
-));
+const pages = [
+  ...rows.map((r) => Object.fromEntries(
+    Object.entries(KEYS).filter(([col]) => r[col]).map(([col, key]) => [key, r[col]]),
+  )),
+  ...readCsv(path.join(root, 'tools/migration-scope/local-pages.csv'))
+    .filter((r) => r.path && r.locale).map((r) => ({ [r.locale]: r.path })),
+];
 fs.writeFileSync(path.join(root, 'data/locale-map.json'), `${JSON.stringify({ pages })}\n`);
 console.log(`data/locale-map.json: ${pages.length} rows`);

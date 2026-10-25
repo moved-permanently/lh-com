@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T13:49:55.584Z",
+ "generatedAt": "2026-10-25T05:28:39.126Z",
  "items": [
   {
    "kind": "page",
@@ -14115,212 +14115,506 @@
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en",
-   "template": "aircore-home",
+   "url": "https://www.lufthansa.com/de/en/support/contact/contact-form-confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/support/contact/contact-form-confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/co/europe",
-   "template": "aircore-continent",
+   "url": "https://www.lufthansa.com/de/de/support/contact/contact-form-confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/support/contact/contact-form-confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/support/contact/contact-form-confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/support/contact/contact-form-confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/support/contact/contact-form-confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/support/contact/contact-form-confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/co/north-and-south-america",
-   "template": "aircore-continent",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/book-and-manage/passenger-receipt-90days/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/book-and-manage/passenger-receipt-90days/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/usa",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/passenger-receipt-90days/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/book-and-manage/passenger-receipt-90days/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/passenger-receipt-90days/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/book-and-manage/passenger-receipt-90days/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/book-and-manage/passenger-receipt-90days/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/spain",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/italy",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/japan",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/india",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+   "template": "info",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.model.json",
+   "template": "info",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/c/united-kingdom",
-   "template": "aircore-country",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.model.json",
+   "template": "info",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.model.json",
+   "template": "info",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.model.json",
+   "template": "info",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion",
+   "template": "local-local-promotion",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/local-page/south-africa-winter-promotion.model.json",
+   "template": "local-local-promotion",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york",
-   "template": "aircore-city",
+   "url": "https://www.lufthansa.com/de/de/local-page/south-africa-winter-promotion",
+   "template": "local-local-promotion",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/local-page/south-africa-winter-promotion.model.json",
+   "template": "local-local-promotion",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/de/en/event/dghm-2026",
+   "template": "local-event",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/en/event/dghm-2026.model.json",
+   "template": "local-event",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/los-angeles",
-   "template": "aircore-city",
+   "url": "https://www.lufthansa.com/de/de/event/dghm-2026",
+   "template": "local-event",
+   "locale": "de/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/de/de/event/dghm-2026.model.json",
+   "template": "local-event",
+   "locale": "de/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/local-page/black-friday",
+   "template": "local-local-promotion",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/local-page/black-friday.model.json",
+   "template": "local-local-promotion",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/at/de/event/esorics-2027",
+   "template": "local-event",
+   "locale": "at/de"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/at/de/event/esorics-2027.model.json",
+   "template": "local-event",
+   "locale": "at/de"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/gb/en/local-page/ski-campaign-2026",
+   "template": "local-local-promotion",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/gb/en/local-page/ski-campaign-2026.model.json",
+   "template": "local-local-promotion",
+   "locale": "gb/en"
+  },
+  {
+   "kind": "page",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+   "template": "local-loungenet",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet.model.json",
+   "template": "local-loungenet",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/barcelona",
-   "template": "aircore-city",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+   "template": "local-loungenet",
+   "locale": "de/en"
+  },
+  {
+   "kind": "model",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b.model.json",
+   "template": "local-loungenet",
    "locale": "de/en"
   },
   {
    "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/rome",
-   "template": "aircore-city",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+   "template": "local-loungenet",
    "locale": "de/en"
   },
   {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/london",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/paris",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/amman",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/palma-de-mallorca",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/lisbon",
-   "template": "aircore-city",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/from/cy/frankfurt",
-   "template": "aircore-origin",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/from/cy/munich",
-   "template": "aircore-origin",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/from/cy/berlin",
-   "template": "aircore-origin",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-usa",
-   "template": "aircore-country-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/c-c/germany-spain",
-   "template": "aircore-country-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-los-angeles",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-barcelona",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-london",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/berlin-rome",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/frankfurt-amman",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/munich-new-york",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
-   "template": "aircore-city-route",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/new-york/business-class",
-   "template": "aircore-business-class",
-   "locale": "de/en"
-  },
-  {
-   "kind": "page",
-   "url": "https://www.lufthansa.com/lhg/de/en/dest/cy/tokyo/business-class",
-   "template": "aircore-business-class",
+   "kind": "model",
+   "url": "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge.model.json",
+   "template": "local-loungenet",
    "locale": "de/en"
   },
   {
@@ -14328,21 +14622,6 @@
    "url": "https://www.lufthansa.com/sitemap/sitemap_lh_de_en.xml.gz",
    "locale": "de/en",
    "note": "and every numbered part it links to"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_dest_en_sitemap.xml",
-   "locale": "de/en"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_from_en_sitemap.xml",
-   "locale": "de/en"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_o-d_en_sitemap.xml",
-   "locale": "de/en"
   },
   {
    "kind": "nav",
@@ -14363,21 +14642,6 @@
    "note": "and every numbered part it links to"
   },
   {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_dest_de_sitemap.xml",
-   "locale": "de/de"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_from_de_sitemap.xml",
-   "locale": "de/de"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/de_o-d_de_sitemap.xml",
-   "locale": "de/de"
-  },
-  {
    "kind": "nav",
    "url": "https://www.lufthansa.com/de/de/configuration/commonheader.model.json",
    "locale": "de/de",
@@ -14396,21 +14660,6 @@
    "note": "and every numbered part it links to"
   },
   {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/at_dest_de_sitemap.xml",
-   "locale": "at/de"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/at_from_de_sitemap.xml",
-   "locale": "at/de"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/at_o-d_de_sitemap.xml",
-   "locale": "at/de"
-  },
-  {
    "kind": "nav",
    "url": "https://www.lufthansa.com/at/de/configuration/commonheader.model.json",
    "locale": "at/de",
@@ -14427,21 +14676,6 @@
    "url": "https://www.lufthansa.com/sitemap/sitemap_lh_gb_en.xml.gz",
    "locale": "gb/en",
    "note": "and every numbered part it links to"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/gb_dest_en_sitemap.xml",
-   "locale": "gb/en"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/gb_from_en_sitemap.xml",
-   "locale": "gb/en"
-  },
-  {
-   "kind": "sitemap",
-   "url": "https://www.lufthansa.com/aircore/sitemaps/gb_o-d_en_sitemap.xml",
-   "locale": "gb/en"
   },
   {
    "kind": "nav",

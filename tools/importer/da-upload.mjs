@@ -45,10 +45,13 @@ const { default: SCOPE } = await import(path.join(root, 'tools/importer/transfor
 // documents authors edited in DA: the edits are re-applied to every upload (or the doc is skipped)
 const editsFile = path.join(root, 'tools/importer/author-edits.json');
 const AUTHOR_EDITS = fs.existsSync(editsFile) ? JSON.parse(fs.readFileSync(editsFile, 'utf8')) : {};
-const LOCALE_DOC = /^\/(?:(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)|lhg\/[a-z]{2}\/[a-z]{2}\/fragments\/[a-z0-9-]+)$/;
+const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)$/;
+// the AirCore pages (/lhg/) left the replica on 2026-10-25; their DA documents are taken off
+// preview and live by hand: never upload, preview or delete anything there
+const NEVER = /^\/lhg(?:\/|$)/;
 // app shells (login, profile) are built elsewhere: never uploaded, even if listed
 const APP_SHELL = /^\/[a-z]{2}\/[a-z]{2}\/(?:login|profile)(?:\/|$)/;
-const allowed = (p) => SCOPE.has(p) || LOCALE_DOC.test(p);
+const allowed = (p) => !NEVER.test(p) && (SCOPE.has(p) || LOCALE_DOC.test(p));
 
 const listFile = opt('list');
 const paths = (listFile ? fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/) : argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : [])))

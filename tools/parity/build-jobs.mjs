@@ -5,7 +5,7 @@
  * node tools/parity/build-jobs.mjs [--out tools/parity/jobs.json] [--cutoff 2026-10-21T18:46:00Z]
  *
  * Pages: every imported page (tools/importer/import-progress.json, status ok) of de/en, de/de,
- * at/de and gb/en, incl. the AirCore pages under /lhg/{country}/{lang}/.
+ * at/de and gb/en (the AirCore pages under /lhg/ left the scope on 2026-10-25).
  * Order (field "priority", lower first):
  *   0 market homepages
  *   1 first page of every template group in de/en and de/de (covers all templates early)
@@ -81,7 +81,8 @@ function shotFile(dir, width) {
 }
 
 // app shells (login, profile) are built outside this migration; Ben adds them to the jobs himself
-const EXCLUDED = /^\/[a-z]{2}\/[a-z]{2}\/(login|profile)(\/|$)/;
+// the AirCore pages (/lhg/) left the replica on 2026-10-25
+const EXCLUDED = /^\/(?:[a-z]{2}\/[a-z]{2}\/(login|profile)(\/|$)|lhg(\/|$))/;
 
 const skipped = [];
 const candidates = [];

@@ -23,7 +23,7 @@
  * Usage: node tools/importer/postprocess-media.mjs (--all | <path> ...) [--dry-run]
  *          [--no-download] [--retry-errors] [--json <report.json>]
  *   <path>: /de/en/flights, de/en/flights, content/de/en/flights.plain.html or a lufthansa URL
- *   --all: content/**.plain.html except content/drafts/** and content/lhg/de/en/zz-test
+ *   --all: .plain.html documents except drafts/**, media-da/** and lhg/**
  *   --dry-run: documents and content/media-da stay untouched (cache and manifest are kept)
  * Prints one line per document; exit code 1 when a check fails.
  */
@@ -40,7 +40,8 @@ const CACHE = path.join(root, 'tools/source-export/media-cache');
 const MEDIA_DIR = path.join(CONTENT, 'media-da');
 const MANIFEST = path.join(root, 'tools/importer/media-manifest.json');
 const SNAPSHOTS = path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com');
-const EXCLUDE = [/^\/drafts\//, /^\/lhg\/de\/en\/zz-test$/, /^\/media-da\//];
+// /lhg/: the AirCore pages left the replica on 2026-10-25
+const EXCLUDE = [/^\/drafts\//, /^\/lhg\//, /^\/media-da\//];
 
 const MAX_WIDTH = 2560;
 const MAX_TRANSFORM_WIDTH = 2560;

@@ -23,6 +23,3 @@
 /de/en/feedback
 /de/en/online-check-in
 /de/en/timetable-and-flight-status
-/lhg/de/en
-/lhg/de/en/dest/cy/new-york
-/lhg/de/en/o-d/c-c/germany-usa

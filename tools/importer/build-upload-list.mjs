@@ -21,11 +21,12 @@ const docsIn = (dir) => {
 
 const locales = ['de/en', 'de/de', 'at/de', 'gb/en'];
 const localeDocs = locales.flatMap((l) => [`/${l}/nav`, `/${l}/footer`, ...docsIn(`${l}/fragments`)]);
-const aircoreFragments = locales.flatMap((l) => docsIn(`lhg/${l}/fragments`));
 const pages = Object.entries(progress)
   .filter(([, v]) => v.status === 'ok')
-  .map(([u]) => new URL(u).pathname.replace(/\/$/, ''));
+  .map(([u]) => new URL(u).pathname.replace(/\/$/, ''))
+  // the AirCore pages (/lhg/) left the replica on 2026-10-25: nothing there is uploaded
+  .filter((p) => !p.startsWith('/lhg/'));
 
-const all = [...new Set([...localeDocs, ...pages, ...aircoreFragments])];
+const all = [...new Set([...localeDocs, ...pages])];
 fs.writeFileSync(path.join(root, 'tools/importer/upload-all.txt'), `${all.join('\n')}\n`);
-console.log(`upload list: ${all.length} documents (${localeDocs.length} locale docs, ${pages.length} pages, ${aircoreFragments.length} AirCore fragments)`);
+console.log(`upload list: ${all.length} documents (${localeDocs.length} locale docs, ${pages.length} pages)`);

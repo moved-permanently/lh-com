@@ -59,11 +59,15 @@ const rel = (file) => (file ? path.relative(ROOT, file) : file);
 const pct = (r) => (typeof r === 'number' ? `${(r * 100).toFixed(1)}%` : '');
 const normPath = (p) => `/${String(p || '').replace(/^https?:\/\/[^/]+/, '').replace(/^\/+|\/+$/g, '')}`;
 
-const jobs = readJson(args.jobs, null);
-if (!Array.isArray(jobs)) {
+const allJobs = readJson(args.jobs, null);
+if (!Array.isArray(allJobs)) {
   console.error(`cannot read ${args.jobs}; run tools/parity/build-jobs.mjs first`);
   process.exit(2);
 }
+// the AirCore pages (/lhg/) left the replica on 2026-10-25 (www renders them separately and
+// writes their prices nightly): their rows are dropped, one line in the report says so
+const OUT_OF_SCOPE = /^\/lhg(?:\/|$)/;
+const jobs = allJobs.filter((j) => !OUT_OF_SCOPE.test(j.path));
 const progress = readJson(args.progress, { items: {} });
 const skipped = readJson(args.jobs.replace(/\.json$/, '.skipped.json'), []);
 const fixes = readJson(args.fixes, []);
@@ -293,6 +297,7 @@ const WIDTHS = [1440, 768, 390];
 md.push('# Visual parity report', '');
 md.push(`Generated ${report.generatedAt}. Live: www.lufthansa.com screenshots (tools/source-export/pages, faithful captures from 2026-10-21T18:46Z on, cookie dialog dismissed). Replica: https://main--lh-com--moved-permanently.aem.page, consent stored as "necessary only" before load. ${pageWidths.compared} of ${pageWidths.total} page-widths compared.`, '');
 md.push('## Summary', '');
+md.push('The 107 AirCore pages under /lhg/ (all four locales) were removed from the scope on 2026-10-25 and are no longer in this report.', '');
 md.push(`| Locale | Pages | ${statuses.join(' | ')} |`, `|---|---:|${statuses.map(() => '---:').join('|')}|`);
 locales.forEach((loc) => md.push(`| ${loc} | ${summary[loc].pages} | ${statuses.map((s) => summary[loc][s]).join(' | ')} |`));
 md.push('');
