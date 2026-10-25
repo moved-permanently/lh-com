@@ -84,9 +84,12 @@ function capBrowserCache(resp, env) {
   if (!Number.isFinite(ttl) || String(env.EDGE_TTL ?? '').trim() === '') return;
   const type = resp.headers.get('content-type') || '';
   if (!/text\/html|application\/json/.test(type)) return;
-  const cc = resp.headers.get('cache-control') || '';
-  const m = cc.match(/max-age=(\d+)/);
-  if (m && Number(m[1]) > ttl) resp.headers.set('cache-control', cc.replace(/max-age=\d+/, `max-age=${ttl}`));
+  ['cache-control', 'cdn-cache-control'].forEach((name) => {
+    // aem.live sends cdn-cache-control: max-age=172800 for BYO CDNs (purged by push invalidation)
+    const cc = resp.headers.get(name) || '';
+    const m = cc.match(/max-age=(\d+)/);
+    if (m && Number(m[1]) > ttl) resp.headers.set(name, cc.replace(/max-age=\d+/, `max-age=${ttl}`));
+  });
 }
 
 /**

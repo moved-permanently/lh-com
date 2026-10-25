@@ -77,6 +77,7 @@ test('pass-through: origin host, reference headers, query parameters, header cle
   // ... and browsers get the same limit instead of the origin's max-age=7200
   const capped = await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten`), env({ EDGE_TTL: '60' }), {});
   assert.equal(capped.headers.get('cache-control'), 'max-age=60');
+  assert.equal(capped.headers.get('cdn-cache-control'), 'max-age=60, must-revalidate');
   await worker.fetch(new Request(`${HOST}/de/de/flugunregelmaessigkeiten`), env({ EDGE_TTL: '' }), {});
   assert.equal(resp.headers.get('cache-control'), 'max-age=7200');
   assert.deepEqual(calls.at(-1).init.cf, { cacheEverything: true });
