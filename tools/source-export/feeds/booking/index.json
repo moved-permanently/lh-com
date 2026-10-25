@@ -1,0 +1,70 @@
+{
+ "note": "GET https://www.lufthansa.com<url> from a page on www, credentials omitted, with the request headers listed per entry. bookinglist answers 204 with an empty body (no content-type). Recorded 2026-10-25 21:40Z.",
+ "answers": [
+  {
+   "file": "booking/defaultairport-no-headers.json",
+   "url": "/service/secured/api/core/booking/defaultairport",
+   "requestHeaders": {},
+   "status": 400,
+   "cache-control": "private, no-cache, no-store, must-revalidate",
+   "recorded": "2026-10-25T21:40:11Z",
+   "bytes": 61,
+   "content-type": "application/json"
+  },
+  {
+   "file": "booking/defaultairport-de-de.json",
+   "url": "/service/secured/api/core/booking/defaultairport",
+   "requestHeaders": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "DE",
+    "X-Portal-Language": "de"
+   },
+   "status": 200,
+   "cache-control": "private, no-cache, no-store, must-revalidate",
+   "recorded": "2026-10-25T21:40:14Z",
+   "bytes": 123,
+   "content-type": "application/json"
+  },
+  {
+   "file": "booking/defaultairport-at-de.json",
+   "url": "/service/secured/api/core/booking/defaultairport",
+   "requestHeaders": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "AT",
+    "X-Portal-Language": "de"
+   },
+   "status": 200,
+   "cache-control": "private, no-cache, no-store, must-revalidate",
+   "recorded": "2026-10-25T21:40:17Z",
+   "bytes": 113,
+   "content-type": "application/json"
+  },
+  {
+   "file": "booking/defaultairport-gb-en.json",
+   "url": "/service/secured/api/core/booking/defaultairport",
+   "requestHeaders": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "GB",
+    "X-Portal-Language": "en"
+   },
+   "status": 200,
+   "cache-control": "private, no-cache, no-store, must-revalidate",
+   "recorded": "2026-10-25T21:40:20Z",
+   "bytes": 117,
+   "content-type": "application/json"
+  },
+  {
+   "file": "booking/bookinglist-de-en.json",
+   "url": "/service/secured/api/core/booking/bookinglist",
+   "requestHeaders": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "DE",
+    "X-Portal-Language": "en"
+   },
+   "status": 204,
+   "cache-control": "private, no-cache, no-store, must-revalidate",
+   "recorded": "2026-10-25T21:40:23Z",
+   "bytes": 0
+  }
+ ]
+}

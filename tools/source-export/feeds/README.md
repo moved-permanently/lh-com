@@ -41,6 +41,10 @@ headers (`cache-control: public, max-age=120`, `last-modified` is the query's ow
 - Data errors in www's answers, not to be reproduced (to report to Lufthansa): links to `qa-www.lufthansa.com` in the
   ancillary catalog (7), and doubled image URLs there.
 - Message Center queries are not here: `tools/workers/lh-messages/test/fixtures/` has them.
+- Failing and unknown queries (recorded 2026-10-25 21:38 UTC, bodies byte for byte): `TravelRegulationList` and
+  `benefitcardimageList` answer 500 with a `QueryValidationError` body and no `cache-control`; `B2BNeo/getLoginConfig`
+  answers 200 with a missing-fragment error; `B2BNeo/getLoginConfigByPath` without `path` 200 with a variable error;
+  an unknown query or configuration 404 with "... does not resolve to an existing Persistent Query".
 
 ## Login URL, `login/loginpageurl.json`
 
@@ -53,6 +57,14 @@ and twice without the headers (500 HTML). Recorded 2026-10-25 18:38 UTC.
 
 `/content/lh/markets/<cc>/<ll>/homepage.csi-owa-{header,footer,portal-config}.json` for the four locales,
 recorded 2026-10-25 07:30-07:37 UTC (`Cache-Control: max-age=300, public`). `owa/index.json` has status and headers.
+
+## Booking endpoints, `booking/`
+
+`GET /service/secured/api/core/booking/defaultairport` with `X-Portal: LH`, `X-Portal-Site: <CC>`,
+`X-Portal-Language: <ll>` for DE, AT, GB (200 JSON `{globalDefaultAirport: {iataCode, name}, marketDefaultAirport:
+{iataCode, name}}`: FRA, VIE, LHR) and once without the headers (400 `{"error":"Missing headers",...}`);
+`GET /service/secured/api/core/booking/bookinglist` (204, empty body). All `private, no-cache, no-store,
+must-revalidate`. Recorded 2026-10-25 21:40 UTC; `booking/index.json` lists request headers and status.
 
 ## DAM assets to copy, `dam/dam-assets.csv`
 
