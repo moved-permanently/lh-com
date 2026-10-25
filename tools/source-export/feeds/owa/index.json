@@ -1,0 +1,205 @@
+{
+ "recorded": "2026-10-25T07:30Z/07:37Z",
+ "urls": {
+  "/content/lh/markets/de/en/homepage.csi-owa-header.json": {
+   "file": "owa/de-en-homepage.header.json",
+   "status": 200,
+   "at": "2026-10-25T07:30:46.030Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "2314",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher3westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:30:46 GMT",
+    "etag": "W/\"30ec-65ea531153c2b-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/de/en/homepage.csi-owa-footer.json": {
+   "file": "owa/de-en-homepage.footer.json",
+   "status": 200,
+   "at": "2026-10-25T07:30:48.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "1102",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher2westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:30:48 GMT",
+    "etag": "W/\"d92-65ea531329556-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/de/en/homepage.csi-owa-portal-config.json": {
+   "file": "owa/de-en-homepage.portal-config.json",
+   "status": 200,
+   "at": "2026-10-25T07:30:51.158Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "36",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher3westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:30:51 GMT",
+    "etag": "W/\"24-65ea5315f8011\"",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/de/de/homepage.csi-owa-header.json": {
+   "file": "owa/de-de-homepage.header.json",
+   "status": 200,
+   "at": "2026-10-25T07:30:54.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "2526",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher5westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:30:54 GMT",
+    "etag": "W/\"3157-65ea5318f5c03-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/de/de/homepage.csi-owa-footer.json": {
+   "file": "owa/de-de-homepage.footer.json",
+   "status": 200,
+   "at": "2026-10-25T07:30:57.157Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "1123",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:30:57 GMT",
+    "etag": "W/\"d8b-65ea531bbbca2-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/de/de/homepage.csi-owa-portal-config.json": {
+   "file": "owa/de-de-homepage.portal-config.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:00.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "36",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:00 GMT",
+    "etag": "W/\"24-65ea531e8e74b\"",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/at/de/homepage.csi-owa-header.json": {
+   "file": "owa/at-de-homepage.header.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:03.158Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "2529",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher2westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:03 GMT",
+    "etag": "W/\"3157-65ea532188968-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/at/de/homepage.csi-owa-footer.json": {
+   "file": "owa/at-de-homepage.footer.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:06.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "1127",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:06 GMT",
+    "etag": "W/\"d8b-65ea532457ebe-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/at/de/homepage.csi-owa-portal-config.json": {
+   "file": "owa/at-de-homepage.portal-config.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:09.158Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "36",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:09 GMT",
+    "etag": "W/\"24-65ea53272304f\"",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/gb/en/homepage.csi-owa-header.json": {
+   "file": "owa/gb-en-homepage.header.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:12.158Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "2316",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:12 GMT",
+    "etag": "W/\"30ec-65ea532a1fec2-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/gb/en/homepage.csi-owa-footer.json": {
+   "file": "owa/gb-en-homepage.footer.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:15.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "1101",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher3westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:15 GMT",
+    "etag": "W/\"d92-65ea532ce62d6-gzip\"",
+    "vary": "Accept-Encoding",
+    "server": "cloudflare"
+   }
+  },
+  "/content/lh/markets/gb/en/homepage.csi-owa-portal-config.json": {
+   "file": "owa/gb-en-homepage.portal-config.json",
+   "status": 200,
+   "at": "2026-10-25T07:31:18.159Z",
+   "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "36",
+    "cache-control": "max-age=300, public",
+    "age": "0",
+    "cf-cache-status": "DYNAMIC",
+    "x-dispatcher": "dispatcher4westeurope-29876275",
+    "last-modified": "Sun, 25 Oct 2026 07:31:18 GMT",
+    "etag": "W/\"24-65ea532fc57fb\"",
+    "server": "cloudflare"
+   }
+  }
+ }
+}

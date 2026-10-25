@@ -1,0 +1,128 @@
+{
+ "data": {
+  "benefititemList": {
+   "items": [
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Exklusive Menüs von DO&CO ",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Kulinarisches Erlebnis mit den DO&CO Flying Chefs",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Gehobeneres kulinarisches Erlebnis",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Fast zwei Meter langes Bett",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Freier Nachbarsitz",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Lounge-Zugang (sofern verfügbar)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Sammeln von Meilen",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Priority Boarding (sofern verfügbar)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Mehr Platz und Beinfreiheit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Praktisches Reise-Set",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Willkommensgetränk",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    }
+   ]
+  }
+ }
+}

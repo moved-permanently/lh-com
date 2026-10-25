@@ -1,0 +1,344 @@
+{
+ "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_ithemba_school_south-africa_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "A help alliance volunteer assists two kids with their schoolwork"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "help alliance: Leading Self-Determined Lives",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>19. June 2025 | 5 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>25 years ago, a small group of Lufthansa employees founded help alliance e.V. – its mission: the improvement of educational opportunities for young people all over the world.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "Purser Sonja Steinheuser organizes intercultural cooking events for refugees in Frankfurt. Project manager Oscar Romero promotes sustainable entrepreneurship in the tourism sector in Colombia. HR consultant Katja Müller supports a learning project for traumatized children in India. These are just a few examples of Lufthansa Group employees who are involved in over 60 aid projects across 29 countries. They share their expertise, give workshops, provide tutoring support, or organize fundraising events for the causes they care deeply about.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par0/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_app_help-alliance_worldkitchen_c_inna-rakhuba_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Two women at an intercultural cooking event in the World Kitchen project in Frankfurt"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Improving Educational Opportunities Worldwide</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "The common goal: to improve the educational opportunities of socially disadvantaged children, adolescents, and young adults. “Our projects aim to enable young people to complete school and pursue a career, so they can lead a self-determined life,” summarizes Amelie Schwierholz from the help alliance communications team, describing the mission of the nonprofit organization. “In doing so, we adhere to the standards of the UN Convention on the Rights of the Child and the United Nations’ sustainability goals, always working with professional local partners.”",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_2"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par2/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_india_women_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A group of women, including a help alliance volunteer, in conversation"
+     },
+     {
+      "type": "copyText",
+      "text": "In 1999, 13 pilots and flight attendants from Lufthansa founded help alliance – initially as an association, and since 2017, as a nonprofit limited company (gGmbH). The founders’ desire was to be more engaged with the schools and training centers they had encountered on their travels. “All founding members brought their own projects to the association and continued to support them,” explains Milena Mai, who is responsible for strategy at help alliance. “We continue to build on this idea to this day. All project proposals come from Lufthansa Group employees, who can submit their ideas to us once a year. This makes our work so relatable.”",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>A Major Movement Within the Lufthansa Group</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "With the social media campaign “I fly for,” help alliance is showcasing its many supporters in honor of its 25th anniversary – and their reasons for getting involved. Eurowings Pilot Julia, for example, flies for “the empowerment of women’s rights”; Discover Airlines flight attendant Sanad for “children’s independence.” “We want to show that a small employee initiative has grown into a Lufthansa Group-wide movement,” says Amelie Schwierholz.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_5"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par5/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par5/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par5/link_copy_copy_copy__1748612225",
+      "text": "Flight search",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_all_destinations_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par5/separator_copy_copy__621947195"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>170 Projects in 65 Countries</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Over the past 25 years, help alliance has supported over 170 projects in 65 different countries, including 30 emergency relief projects, such as after the 2004 tsunami in Southeast Asia. In 2023 alone, more than 60,000 children, adolescents, and young adults benefited from these projects. For example, 31,000 children were able to attend school, over 3,000 young people received vocational training or participated in workshops and training sessions, and 462 young men and women were successfully integrated into the labor market.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "One of help alliance’s largest projects is the iThemba School in South Africa.&nbsp;What started as a small preschool has developed into a primary school with an integrated preschool, now offering around 1,200 children from a township access to high-quality education. In 2022, the project was transferred to local authorities and has since been operated independently from donations by local government entities. “Completing projects is our greatest success,” says Milena Mai. “Local empowerment is at the core of our work. We always meet our partners abroad on an equal footing and simply assist with our expertise. After all, they are the ones who know best what’s needed on the ground.”",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_8"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par8/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_ithemba_school_south-africa_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A smiling girl sits in a classroom at iThemba School in South Africa"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Help with Setting Up Distribution Channels</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Pilot Dominik Kopp noticed the extreme poverty of spice farmers in a remote mountainous region of Nepal during his many stays there. He gathered a team of colleagues from Lufthansa’s sales and marketing divisions to help the locals develop new sales channels and produce their goods to international standards. Today, a spice trader from Austria buys cardamom and Sichuan pepper from the farmers at fair prices. Even the business class meals on Lufthansa flights have been flavored with these spices as part of a special campaign.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_10"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par10/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_nepali_pepper-sorting_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Women in traditional clothing working together on spice processing"
+     },
+     {
+      "type": "copyText",
+      "text": "Another unique aspect of help alliance is that 100% of all donations go directly to the respective aid projects. Lufthansa Group covers the administrative costs. Whether donating €160, which can send a child to kindergarten for a year, or €20 for a new school uniform, the money is used solely for its intended purpose.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>The Willingness to Donate Increases from Year to Year</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "“We are very pleased that donations have steadily increased over the past 25 years,” says Milena Mai. “From around €40,000 in the founding year, we reached over €5 million in 2023 alone. This success is thanks to miles donations, spare change donations on board, the annual RTL fundraising marathon, and the many people who collect money for us at birthdays or corporate events.”",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Personal Commitment from Lufthansa Group Customers</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "Even Lufthansa Group customers have become active supporters. “A Lufthansa Senator who is a professor of economics and international strategies learned about our work on board and subsequently gave workshops on entrepreneurship and circular economy at our project in Cartagena, Colombia,” says Milena Mai. “Connecting people and cultures – help alliance will continue to do everything possible to bring Lufthansa Group’s purpose to life in the future.”",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_15"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/articlecontentfragment/par15/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_cartagena-senator-workshop_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "A man leading a workshop or giving a lecture to a group of young adults"
+     },
+     {
+      "type": "copyText",
+      "text": "You can also support help alliance with a donation or start your own fundraiser for one of the projects. You can find all the information you need on the help alliance website.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/help-alliance--leading-self-determined-lives_paragraph_16"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/par/sduicolumn/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

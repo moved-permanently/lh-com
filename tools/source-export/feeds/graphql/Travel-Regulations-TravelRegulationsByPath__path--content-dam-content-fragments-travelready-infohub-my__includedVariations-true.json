@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:01.515Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-18T15:05:08.329Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Travelers to Malaysia</b> must <b>complete</b> the <a hreftemp=\"https://imigresen-online.imi.gov.my/mdac/main\" rel=\"noopener noreferrer\" href=\"https://imigresen-online.imi.gov.my/mdac/main\">Malaysia Digital Arrival Card (MDAC)</a><b> within 3 days before arrival.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:01.515Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-18T15:05:08.329Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Reisende nach Malaysia</b> müssen die <a hreftemp=\"https://imigresen-online.imi.gov.my/mdac/main\" rel=\"noopener noreferrer\" href=\"https://imigresen-online.imi.gov.my/mdac/main\">digitale Einreisekarte für Malaysia (MDAC)</a><b> innerhalb von drei Tagen vor ihrer Ankunft ausfüllen.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:01.515Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-18T15:05:08.329Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Les voyageurs se rendant en Malaisie</b> doivent <b>remplir</b> la <a hreftemp=\"https://imigresen-online.imi.gov.my/mdac/main\" rel=\"noopener noreferrer\" href=\"https://imigresen-online.imi.gov.my/mdac/main\">carte d'arrivée numérique malaisienne (MDAC)</a>&nbsp;<b>dans les 3 jours avant leur arrivée.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

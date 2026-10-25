@@ -1,0 +1,122 @@
+{
+ "title": "Comfort on Board",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "What the Hack: Flying With Kids – Tips for Relaxed Family Flights",
+   "description": "Flying with kids can be exciting – and sometimes a bit challenging. Stefanie Pröstler-Meckl knows this all too well. On Instagram, the world traveler shares what she and her husband experience while flying with their two children.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_mother_daughter_in_airport_gettyimages_1614430716_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "What the Hack: Flying With Kids – Tips for Relaxed Family Flights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/what-the-hack-travel-with-kids.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "What the Hack: the Best Seats on the Plane",
+   "description": "Purser David McGraw from Frankfurt knows all the aircraft types. We asked him which seats are best suited for various needs.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_privacy_baby_8528_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "What the Hack: the Best Seats on the Plane",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/what-the-hack-best-seats.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

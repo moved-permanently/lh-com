@@ -1,0 +1,9 @@
+{
+ "errors": [
+  {
+   "errorType": "PersistenceError",
+   "message": "Could not find Persisted Query",
+   "details": "Configuration: 'Ancillary-on-TMC' and Query Name: 'tmc-translations-v2' does not resolve to an existing Persistent Query"
+  }
+ ]
+}

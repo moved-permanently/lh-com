@@ -1,0 +1,204 @@
+{
+ "id": "/content/mobile/lh/en/articles/asia",
+ "metadata": {
+  "title": "Asia"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/asia/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/asia/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/asia/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Hong Kong",
+      "description": "Purser Katja Tucich has been to her favorite city, Hong Kong, many times. She shares her tips for the metropolis, from great coffee in the morning to a nice drink at night.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_unsplash_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "1"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Hong Kong",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong"
+     },
+     {
+      "type": "offerBox",
+      "title": "Essentials of Shanghai",
+      "description": "A metropolis of superlatives – the world's largest subway network takes you to the fastest elevator in the world: here are five things about Shanghai that will surprise you.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration_sylvia-neuner_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "2"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Essentials of Shanghai",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/essentials-of-shanghai.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/asia/essentials-of-shanghai"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Singapore",
+      "description": "Experience Singapore like an insider: purser Florian Tomberg takes us on his perfect day in the Asian metropolis – full of culinary highlights and insider tips.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_marina-bay-sands_shutterstock191289998_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "3"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Singapore",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-singapore.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-singapore"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/asia/jcr:content/par/sduicolumn/column/separator_copy_copy__267928794"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/jcr:content/par/sduicolumn/column/link_copy_copy_copy__1630096625",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

@@ -1,0 +1,168 @@
+{
+ "id": "/content/mobile/lh/de/articles/comfort-on-board",
+ "metadata": {
+  "title": "Komfort an Bord"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/comfort-on-board/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/comfort-on-board/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/comfort-on-board/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/comfort-on-board/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "offerBox",
+      "title": "What the Hack: Flugreisen mit Kindern – Tipps für entspannte Familienflüge",
+      "description": "Fliegen mit Kindern ist aufregend – und manchmal auch herausfordernd. Das weiß Stefanie Pröstler-Meckl sehr gut. Auf Instagram erzählt die Weltreisende, was sie und ihr Mann mit den beiden Kindern erleben.",
+      "textLink": "Artikel lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_mother_daughter_in_airport_gettyimages_1614430716_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "1"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "What the Hack: Flugreisen mit Kindern – Tipps für entspannte Familienflüge",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/what-the-hack-travel-with-kids.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/de/mobile-app/non-destination/what-the-hack--flugreisen-mit-kindern-–-tipps-für-entspannte-familienflüge"
+     },
+     {
+      "type": "offerBox",
+      "title": "What the Hack: Die besten Plätze im Flugzeug",
+      "description": "Purser David McGraw kennt alle Flugzeugtypen. Wir haben ihn gefragt, welche Sitzplätze in den verschiedenen Reiseklassen am besten zu welchen Bedürfnissen passen.",
+      "textLink": "Artikel lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_privacy_baby_8528_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "2"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "What the Hack: Die besten Plätze im Flugzeug",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/what-the-hack-best-seats.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/de/mobile-app/non-destination/what-the-hack-best-seats"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/comfort-on-board/jcr:content/par/sduicolumn/column/separator_copy_copy__969080417"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/comfort-on-board/jcr:content/par/sduicolumn/column/link_copy_copy_copy__193731723",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

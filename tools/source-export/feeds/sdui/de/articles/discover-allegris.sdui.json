@@ -1,0 +1,176 @@
+{
+ "title": "Allegris entdecken",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Der perfekte Flug mit Dirk Nowitzki",
+   "description": "Viel Komfort, noch mehr Beinfreiheit und leckeres Essen: Als Vielflieger weiß Basketball-Legende Dirk Nowitzki, was es braucht, um entspannt und erholt ans Ziel zu kommen. Lufthansa Insights hat ihn auf einer Reise von Frankfurt nach Austin begleitet und dabei erfahren, was – neben den Annehmlichkeiten von Lufthansa Allegris – einen perfekten Flug für ihn ausmacht",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Der perfekte Flug mit Dirk Nowitzki",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Fünf Fakten über Lufthansa Allegris, die Sie überraschen werden",
+   "description": "Von bequemen Matratzen bis hin zum einzigartigen Design: Hier kommen fünf erstaunliche Fakten über Lufthansa Allegris, das neue Premiumerlebnis auf der Langstrecke.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_lufthansa-allegris_illustration_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Fünf Fakten über Lufthansa Allegris, die Sie überraschen werden",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris/allegris-essentials.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Lufthansa Allegris: Welcher Fluggast-Typ sind Sie?",
+   "description": "Gehören Sie zum kreativen Jetset, oder sind Sie eher in der Welt der Wirtschaft zu Hause? Eine kleine Typologie der Lufthansa Allegris Gäste.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_woman_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Allegris: Welcher Fluggast-Typ sind Sie?",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Lufthansa Allegris & FOX: Das neue Flugerlebnis auf der Langstrecke",
+   "description": "Mit FOX – Future Onboard Experience entwickelt Lufthansa das Reiseerlebnis auf der Langstrecke weiter. Yana Holzmann erklärt, worauf sich Gäste freuen können.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_first-class_man_eating_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Allegris & FOX: Das neue Flugerlebnis auf der Langstrecke",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris/allegris-fox.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

@@ -1,0 +1,333 @@
+{
+ "id": "/content/mobile/lh/de/articles",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/par",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/jcr:content/par/image_1040655928",
+    "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/lufthansa-insights/lh_app_travel-inspiration_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Zwei Prsonen sitzen im Flugzeug und schauen sich etwas auf bedrucktem Papier an"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/separator"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Inspiration und Insider-Tipps für Ihre nächste Reise",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/headline",
+      "isBold": true
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link",
+      "text": "Nordamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_north_america_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Nordamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy",
+      "text": "Südamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_south_america_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Südamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/south-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy_copy",
+      "text": "Asien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_asia_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asien",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Afrika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_africa_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Afrika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/lufthansa-insights/lh_app_allegris_relaxed-travel_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Mann schläft im Flugzeug"
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/separator_copy_1064786639"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Entspannt reisen: Tipps und Hacks",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/headline_copy",
+      "isBold": true
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy_1054133332",
+      "text": "Komfort an Bord",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_comfort_on_board_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Komfort an Bord",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/comfort-on-board.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/link_copy_1054133332_897865114",
+      "text": "Allegris entdecken",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_discover_allegris_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Allegris entdecken",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/separator_copy_10647"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/lufthansa-insights/lh_app_livery_help-alliance_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Flugzeug mit einem help alliance Aufdruck"
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/separator_copy_10647_2012624104"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Highlights, Specials &amp; Events",
+      "variant": "HEADING_L",
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/headline_copy_copy",
+      "isBold": true
+     },
+     {
+      "type": "offerBox",
+      "title": "help alliance",
+      "description": "Die Hilfsorganisation von Mitarbeitenden der Lufthansa Group",
+      "textLink": "Jetzt lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_ithemba_school_south-africa_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "blog_teaser_help_alliance_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/jcr:content/par/sduicolumn/column/teaser"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

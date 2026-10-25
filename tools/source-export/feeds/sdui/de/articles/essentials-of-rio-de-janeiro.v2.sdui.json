@@ -1,0 +1,350 @@
+{
+ "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Illustration der Hand der Cristo Statue auf dem ein Sanitäter aus dem Hubschrauber steigt und zu einem blutenden Finger rennt."
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Essentials of Rio de Janeiro",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>18. Juni 2025 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Legale Graffitikunst und gesetzliches Bikiniverbot: Fünf Dinge über Rio de Janeiro, die Sie überraschen werden.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Graffiti erlaubt!&nbsp;</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Ohne Straßenkunst wäre Rio nicht so bunt. Die Stadt würdigte die Künstler:innen, indem sie das Besprühen weitestgehend legalisierte: Auch öffentliche Gebäude sind freigegeben, solange diese nicht unter Denkmalschutz stehen. Eines der größten Werke ist übrigens das&nbsp;3.000 Quadratmeter große Wandbild „Etnias“ in der Hafengegend.&nbsp;",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par1/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Zwei Illustrationen. Links, Person sitzt auf einem Dach in Favela und sprüht ein Graffiti-Herz in den Himmel. Rechts, ein Schiff auf einem Fluss, welches das Wort Rio bildet."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Verwechslung mit Folgen</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Rio de Janeiro heißt übersetzt „Januar-Fluss“. Der Name entstand, als portugiesische&nbsp;Seefahrende im Januar 1502 in einer Bucht anlandeten, die sie fälschlicherweise für eine Flussmündung hielten. Mit der Stadtgründung 1565 wurde die Bezeichnung Bestandteil ihres Namens.&nbsp;",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_3"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par3/link_copy",
+      "text": "Mehr aus Südamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_south_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Südamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/south-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par3/link_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par3/link_copy_copy_copy",
+      "text": "Flüge nach Rio de Janeiro finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_rio_de_janeiro_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=RIO",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par3/separator_copy_copy__90760013"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Bikini-Bann</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Ein Kleidungsstück ist aus den Strandvierteln von Rio de Janeiro nicht wegzudenken: der Bikini. Doch 1961 ließ der damalige Präsident Jânio da Silva Quadros die Zweiteiler gesetzlich verbieten. Ob das der Grund war, warum er sich nur sieben Monate im Amt halten konnte?&nbsp;",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par5/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Zwei Illustrationen. Links, Verkäufer steht mit drei Luftballons an Copa Cabana, die eine Silhouette einer Frau im Bikini formen. Rechts, die Hand der Cristo Statue auf dem ein Sanitäter aus dem Hubschrauber steigt und zu einem blutenden Finger rennt."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vom Blitz getroffen</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Entgegen dem Sprichwort „Der Blitz schlägt nie zweimal an der gleichen Stelle ein“, wurde die berühmte Christusstatue Cristo Redentor hoch oben auf dem Corcovado-Berg schon mehrmals getroffen – 2014 verlor sie sogar eine Fingerspitze. Autsch!&nbsp;",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/articlecontentfragment/par7/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration des Fussballstadions in Rio de Janeiro, wo ein Fussball rausspringt und am Zuckerhut abprallt."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Fußball verrückt</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Die Liebe zum Fußball ist hier überwältigend: 1950 fanden sich im Maracanã-Stadion von Rio de Janeiro über 173.000 Menschen ein. Das sagen zumindest die offiziellen Zahlen. Inoffiziell sollen es deutlich mehr gewesen sein. Es war das Finale der Fußballweltmeisterschaft. Brasilien trat gegen Uruguay an – und verlor 1:2. Bis heute ein tragischer Moment in der Fußballgeschichte des Landes.&nbsp;",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Alle Illustrationen © Sylvia Neuner",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/essentials-of-rio-de-janeiro_paragraph_10"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/par/sduicolumn/column/link_copy_copy",
+      "text": "Mehr aus Südamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_south_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Südamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/south-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

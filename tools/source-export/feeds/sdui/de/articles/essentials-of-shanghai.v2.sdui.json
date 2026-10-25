@@ -1,0 +1,360 @@
+{
+ "id": "/content/mobile/lh/de/articles/essentials-of-shanghai",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Menschen, die sich auf Shanghainesisch unterhalten"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/asia/essentials-of-shanghai",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Essentials of Shanghai",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>9. Oktober 2025 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Eine Metropole der Superlative – im weltweit größten U-Bahn-Netz geht es zum schnellsten Aufzug der Welt: fünf Dinge über Shanghai, die Sie überraschen werden.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Rasanter Aufstieg</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Der schnellste Aufzug der Welt befindet sich im Shanghai Tower: Mit rund 65 km/h geht es in 55 Sekunden in den 118. Stock.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Gigantisches U-Bahn-Netz</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Mit mehr als 500 U-Bahn-Stationen, einer Streckenlänge von 802 Kilometern und über 3,5 Milliarden Passagieren jährlich hat Shanghai das größte U-Bahn-Netz weltweit.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Left: a rocket in the shape of a building about to take off. Right: a globe depicting a subway network"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/separator_copy_copy"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/link_copy_copy_copy",
+      "text": "Mehr aus Asien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asien",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__614550968",
+      "text": "Flüge nach Shanghai finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_shanghai_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=SHA",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Shanghais eigene Sprache</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Wie bitte? Shanghai hat eine eigene Sprache, die in China sonst kaum jemand versteht? Ja, mehr als 13 Millionen Menschen sprechen Shanghainesisch, ein Mischmasch aus chinesischen Dialekten, Englisch, Französisch und anderen Sprachen. Shanghainesisch wird allerdings nur gesprochen, die Schrift- und Amtssprache ist Mandarin.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par5/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Left: people conversing in Shanghainese. Right: oversized man builds art deco building"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par5/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Die Hauptstadt des Art déco</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "In keiner anderen Stadt der Welt gibt es so viele Art-déco-Gebäude wie in Shanghai. Bekannte Prachtbauten: das Metropole Hotel und die ehemalige Bank of China.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par7/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/essentials-of-shanghai/lh_app_shanghai_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration of a woman being presented with a white magnolia"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/articlecontentfragment/par7/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Blühendes Wahrzeichen</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "So rein, elegant und schön: Seit 1986 ist die weiße Yulan-Magnolie die offizielle Blume der Stadt. In vielen Parks und Grünanlagen Shanghais blüht sie im Frühling und erfüllt die Luft mit ihrem Duft.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Alle Illustrationen © Sylvia Neuner",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/essentials-of-shanghai_paragraph_10"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_04092025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/par/sduicolumn/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Mehr aus Asien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asien",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-shanghai/jcr:content/par/sduicolumn/column/link_copy_copy_copy__595111759",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

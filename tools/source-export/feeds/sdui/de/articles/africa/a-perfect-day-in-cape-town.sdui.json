@@ -1,0 +1,390 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_view_imago-135352297_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Tafelberg bei Sonnenuntergang"
+  },
+  {
+   "type": "copyText",
+   "text": "A Perfect Day in Kapstadt",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>15. September 2026 | 2 min read | Till Nawrath</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Purser Till Nawrath ist ein echter Kenner von Kapstadt. In diesem Beitrag teilt er mit uns, welche Elemente für einen perfekten Tag am Fuße des Tafelbergs für ihn unverzichtbar sind.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Vormittag</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_kanela-cafe_image00020_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Tasse mit Kaffee und Milchschaum mit Herz"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Kaffee im Ground Art Caffè</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Mein Tag beginnt mit einem Flat White im Ground Art Caffè im Viertel De Waterkant</li><li>Das stilvolle Café ist der perfekte Ort für einen entspannten Start in den Tag</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Ground Art Caffè, 160 Strand St, De Waterkant",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Wanderung auf den Lion's Head</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Am Morgen lohnt sich der Aufstieg auf den Lion's Head</li><li>Oben erwartet mich einer der schönsten Ausblicke auf Kapstadt, den Tafelberg und den Ozean</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Lion's Head, Signal Hill",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Mittag</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Lunch im Kanéla Café</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Nach der Wanderung gönne ich mir einen Avocado-Toast im Kanéla Café.</li><li>Am liebsten sitze ich im sonnigen Innenhof am Springbrunnen.</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Kanéla Café, 78 Regent Rd, Sea Point",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Afrika",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_africa_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Afrika",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge nach Kapstadt finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_captown_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=CPT"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Nachmittag</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_beach_getty671269788_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Weißer Sandstrand mit türkisblauem Wasser"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Panoramafahrt entlang der Atlantikküste</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Die Strecke über Camps Bay und den Chapman's Peak Drive zählt zu den schönsten Küstenstraßen der Welt</li><li>Mein Tipp: am Noordhoek Beach eine Pause einlegen und den endlosen Sandstrand genießen</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Noordhoek Beach, Beach Rd, Noordhoek",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_vineyards_getty1292647913_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Vines in the South African landscape"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Weinverkostung bei Buitenverwachting</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Ein Besuch im Weingut Buitenverwachting im Constantia Valley gehört für mich zu jedem Kapstadt-Aufenthalt</li><li>Die ausgezeichneten Weine machen ihrem Namen alle Ehre</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Buitenverwachting, Klein Constantia Rd, Constantia",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Abend</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_beach_getty1202000618_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Sunset at Glen Beach with the Twelve Apostles mountain range in the background"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Sonnenuntergang am Glen Beach</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Den Sonnenuntergang genieße ich am liebsten am ruhigen Glen Beach</li><li>Ein perfekter Ort, um den Tag entspannt ausklingen zu lassen</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Glen Beach, Glen Beach, Camps Bay",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Dinner im Butcher Shop &amp; Grill</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_steak_butcher-shop-and-grill_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Close-up of a plate with a steak"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>Zum Abschluss gönne ich mir ein südafrikanisches Steak im Butcher Shop &amp; Grill</li><li>Mein Tipp: das Steak maximal medium bestellen – so schmeckt es am besten</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Butcher Shop &amp; Grill, 125 Beach Rd, Mouille Point",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Bildrechte: Imago, Kanéla Café, Getty Images (3), Butcher Shop &amp; Grill",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Zur Person</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Purser Till Nawrath arbeitet seit 2016&nbsp; bei Lufthansa. Seine Freizeit verbringt er gern im Ausland – am liebsten in der „Mother City“ Kapstadt.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Afrika",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_africa_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Afrika",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

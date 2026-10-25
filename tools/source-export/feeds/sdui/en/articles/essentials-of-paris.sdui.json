@@ -1,0 +1,278 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_paris_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a person painting the Eiffel Tower"
+  },
+  {
+   "type": "copyText",
+   "text": "Essentials of Paris",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>16. June 2025 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>A city without stop signs and with a penchant for macarons: five things about Paris that will surprise you.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Rule of Thumb: Right of Way</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Paris is a bustling metropolis and tourist mecca with world-famous&nbsp;crowded streets and busy intersections such as Place Charles de Gaulle with the Arc de Triomphe at its center. So it’s incredibly hard to believe that Paris doesn’t have a single&nbsp;stop sign on its streets. Not one, none, nada.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration on the left: intertwined intersections that wrap around the Arc de Triomphe; right: an oversized baguette on a forklift"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>A City with Taste</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Its famous cuisine is one of the many great things that Paris is loved for around the world. No wonder it is home to the second-largest wholesale food market on the planet. The Rungis International Market has been trading since the 10th century.&nbsp;Roughly two million tons of meat, vegetables, fish, and cheese are sold there each year.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Europe",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_europe_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Europe",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/europe.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flight search to Paris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_paris_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=PAR"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Tomato Juice? With Vodka!</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The first Bloody Mary is said to have been prepared at the Ritz Hotel in Paris. Rumor has it that this popular cocktail was created for the famous writer Ernest Hemingway. He asked for a drink that didn’t smell like alcohol. As a result, he was served tomato juice with vodka.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration on the left: a hand writing with pen and ink on a sheet of paper; right: Catherine de' Medici with a box of macarons in her hand"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>A Pastry with a Journey</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Since the French patisserie Ladurée opened its stores around the globe, the macaron has become an icon of French cuisine. But get this – the macaron isn’t French! It is of Arabic origin and found its way to Italy before being introduced to the French royal family by Catherine de' Medici in the 16th century.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Hand Painted</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The Eiffel&nbsp;Tower&nbsp;dominates the Parisian skyline like no other building in the city. To keep the 300-meter-high structure in good shape, it has to be repainted every seven years – by hand! This involves the use of 60 tons of paint.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a person painting the Eiffel Tower"
+  },
+  {
+   "type": "copyText",
+   "text": "All illustrations © Sylvia Neuner",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Europe",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_europe_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Europe",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/europe.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

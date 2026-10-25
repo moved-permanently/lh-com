@@ -1,0 +1,143 @@
+{
+ "title": "Homepage",
+ "type": "CONTAINER",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "M_LARGE"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "Get inspired for your next journey",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "The Lufthansa crew shares their favorite destinations, insider tips, travel trends, and remarkable places to help make your next trip unforgettable.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Discover Lufthansa Insights",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_lufthansa_insights_210726"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "teaserSlider",
+   "variant": "PRIMARY",
+   "title": "Discover further topics",
+   "items": [
+    {
+     "type": "cardItem_v2",
+     "items": [
+      {
+       "type": "spacer",
+       "size": "LARGE"
+      },
+      {
+       "type": "paddedColumn",
+       "padding": {
+        "left": "MEDIUM",
+        "right": "MEDIUM",
+        "top": "NONE",
+        "bottom": "NONE"
+       },
+       "items": [
+        {
+         "type": "copyText",
+         "text": "100 years of Lufthansa\n",
+         "maxLine": 2,
+         "size": "MEDIUM",
+         "variant": "HEADLINE"
+        },
+        {
+         "type": "spacer",
+         "size": "MEDIUM"
+        },
+        {
+         "type": "copyText",
+         "text": "From aviation pioneer to global player\n",
+         "maxLine": 2,
+         "size": "MEDIUM",
+         "variant": "BODY"
+        }
+       ]
+      },
+      {
+       "type": "spacer",
+       "size": "LARGE"
+      },
+      {
+       "type": "image",
+       "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_100y_content_teaser_homescreen_image.jpg",
+       "contentDescription": "Aircraft"
+      }
+     ],
+     "action_v2": {
+      "tracking": {
+       "key": "sm teaser click",
+       "category": "sm teaser",
+       "action": "click",
+       "label": "cp_smth_100_years_lufthansa_overview_080626",
+       "metadata": {
+        "ga_hs_order": "1"
+       }
+      },
+      "type": "getAndShowViewDefinition",
+      "initialTitle": "100 years of Lufthansa",
+      "request": {
+       "type": "urlRequest",
+       "method": {
+        "type": "get"
+       },
+       "url": "https://www.lufthansa.com/content/mobile/lh/en/content-pages/100-years-of-lufthansa.sdui"
+      },
+      "isDisabled": false
+     }
+    }
+   ],
+   "onDisplayTracking": {
+    "key": "sm teaser display",
+    "category": "sm teaser",
+    "action": "display",
+    "label": "teaser",
+    "metadata": {
+     "filter.element.elementValue": "display",
+     "filter.element.elementType": "tile",
+     "filter.element.userInput": "cp_smth_100_years_lufthansa_overview_080626",
+     "filter.element.elementName": "card1"
+    }
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "M_LARGE"
+  }
+ ]
+}

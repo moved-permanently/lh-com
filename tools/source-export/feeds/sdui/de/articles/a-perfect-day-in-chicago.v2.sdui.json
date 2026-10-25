@@ -1,0 +1,509 @@
+{
+ "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago",
+ "metadata": {
+  "title": "A Perfect Day in Chicago"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_the-bean_unsplash-SLGfbFuqE_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Skulptur \"The Bean\" im Millennium Park in Chicago, die die Skyline in ihrer spiegelnden Oberfläche reflektiert."
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Chicago",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>9. Oktober 2025 | 2 min read | Peter Jilke</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_info"
+     },
+     {
+      "type": "copyText",
+      "text": "Schwimmen mit Blick auf Wolkenkratzer, eine Deep Dish Pizza und vieles mehr: Langstreckenpurser Peter-Jürgen Jilke verrät seine Tipps für einen unvergesslichen Tag in Chicago.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b style=\"font-size: 16.0px;\">Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par0/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_lou-mitchells_coffee_alamy-T5DMN8_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Außenansicht des legendären Diners Lou Mitchell’s in Chicago mit gelben Sonnenschirmen und Gästen auf der Terrasse."
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par0/separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Frühstück im Lou Mitchell’s</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>&nbsp;Der perfekte Tag in Chicago fängt für mich mit Frühstück im Diner Lou Mitchell’s an, das genau am Beginn der berühmten Route 66 liegt</li><li>Die Portionen dort sind üppig und die Pancakes schmecken phänomenal</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "565 W. Jackson Blvd",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lake Michigan von oben</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Das Skydeck von Chicagos höchstem Wolkenkratzer, dem Willis Tower, ist ein Muss. Dort blickt man durch Glasböden auf die Stadt</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "233 S. Wacker Dr",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par7/image_copy_198269851",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_deep-dish-pizza_gettyimages1859952448_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Nahaufnahme einer traditionellen Deep-Dish-Pizza in einer gusseisernen Pfanne in Chicago."
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par7/separator_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lunch in der Pizzeria Uno</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Die „Deep Dish Pizza“ mit besonders dickem Rand ist eine lokale Spezialität. Ich finde: Am besten schmeckt sie in der Pizzeria Uno</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "29 East Ohio St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_10"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par10/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par10/link",
+      "text": "Mehr aus Nordamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_north_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Nordamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par10/link_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par10/link_copy_copy",
+      "text": "Flüge nach Chicago finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_chicago_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=CHI",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par10/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Nachmittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_11"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par11/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_riverwalk_shutterstock2046416633_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Blick auf die Skyline von Chicago vom Riverwalk"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par11/separator_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Entspannen am Riverwalk</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Der Riverwalk führt mitten in der Stadt am Chicago River entlang zum Lake Michigan</li><li>Hier lege ich mich gern auf eine der Liegen, beobachte die Kajaks und Elektroboote und blicke zur Skyline empor. Urlaubsfeeling pur!</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Ohio Street Beach</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Eine Besonderheit an Chicago ist, dass es hier Strände mitten in der Stadt gibt</li><li>Mein Tipp: Ich liege gern am Ohio Street Beach und esse ein Eis von The Original Rainbow Cone oder gehe mit Blick auf Chicagos Wolkenkratzer schwimmen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "600 North Jean-Baptiste Pointe DuSable Lake Shore Drive",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Museum of Science</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Im Museum of Science and Industry bin ich schon durch das Modell von einem menschlichen Herz gegangen und habe alles über die Entstehung des Telefons gelernt. Ein wunderbar anschauliches Museum!</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "5700 S DuSable Lake Shore Dr",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abend</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_20"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par20/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_millers-pub_shutterstock_2576464647_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Eingang zum traditionsreichen Miller’s Pub in Chicago mit leuchtendem Neonschild am Abend."
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/articlecontentfragment/par20/separator_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Dinner im Miller’s Pub</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_21"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Meine Empfehlung: Spareribs bestellen. Im Miller’s Pub gibt’s die besten in ganz Chicago</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_22"
+     },
+     {
+      "type": "copyText",
+      "text": "134 S Wabash Ave",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_23"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Ale House</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_24"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Immer wenn ich im über 100 Jahre alten Pub Ale House am Tresen sitze, komme ich mit jemandem ins Gespräch</li><li>Die Menschen sind hier wunderbar gesellig und aufgeschlossen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_25"
+     },
+     {
+      "type": "copyText",
+      "text": "219 West North Avenue (at Wieland)",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_26"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte: Unsplash, Alamy, Getty Images, Shutterstock",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_27"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_28"
+     },
+     {
+      "type": "copyText",
+      "text": "Flugbegleiter Peter Jilke lebt in Greifenstein bei Limburg und arbeitet seit 1993 bei Lufthansa. Er ist Langstreckenpurser und fliegt besonders häufig in die USA.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-chicago_paragraph_29"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/par/sduicolumn/column/separator_copy_copy"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/par/sduicolumn/column/link_copy",
+      "text": "Mehr aus Nordamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_north_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Nordamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-chicago/jcr:content/par/sduicolumn/column/link_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

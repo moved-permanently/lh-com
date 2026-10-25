@@ -1,0 +1,92 @@
+{
+ "id": "/content/mobile/lh/en/homepage",
+ "metadata": {
+  "title": "Homepage"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/homepage/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "mainHeadline",
+      "text": "Get inspired for your next journey",
+      "variant": "HEADING_XXL",
+      "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn/column/headline",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "The Lufthansa crew shares their favorite destinations, insider tips, travel trends, and remarkable places to help make your next trip unforgettable.",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn/column/text_0"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn/column/link",
+      "text": "Discover Lufthansa Insights",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_lufthansa_insights_210726"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "X_SMALL",
+      "id": "/content/mobile/lh/en/homepage/jcr:content/par/sduicolumn/column/separator"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   },
+   {
+    "type": "sduiServiceIntegration",
+    "serviceId": "/content/dam/content-fragments/orchestrator_services/sdui-services/salesandmarketingteaserhub",
+    "auxiliaryData": "{\"headline\":\"Discover further topics\",\"maximumNumberOfTeasers\":8,\"variation\":\"ACCENT_COLOUR\",\"domain\":\"www.lufthansa.com\",\"timeoutInSeconds\":3}",
+    "tenant": "app_lh",
+    "market": "",
+    "language": "en"
+   }
+  ],
+  "padding": {
+   "bottom": "NONE",
+   "top": "NONE"
+  },
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

@@ -1,0 +1,45 @@
+{
+ "data": {
+  "whatsnewList": {
+   "items": [
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-16",
+     "activationDate": "2025-10-16T00:10:00.000+02:00",
+     "headline": "Introducing enhanced Trip Management",
+     "shortText": {
+      "plaintext": "The upgraded Trip Management features a dynamic dashboard design that simplifies navigation, reduces clicks, and prominently displays essential travel information."
+     },
+     "longText": {
+      "html": "<p>The upgraded <b>Trip Management </b>now features a dynamic dashboard design that ensures a seamless and user-friendly experience. This innovative redesign simplifies navigation and reduces the number of clicks required to access vital travel information.</p>\n<p>What's New:</p>\n<p>Key details such as flight routes and departure times are now prominently displayed on a <b>dynamic </b>flight card. For a trip with multiple flights, you can effortlessly swipe through the cards to view each segment. Scrolling down will reveal additional information, including your baggage status, <b>airport and passenger details and furthermore direct access to the seat map, additional baggage and upgrades as well as various other services are provided at first glance.</b></p>\n<p>With the new <b>Trip Management</b>, staying informed and managing your travel plans has never been more straightforward. Experience the difference with the optimized design, tailored to deliver all your travel needs efficiently and effectively.</p>\n<p>And this is only the first great step. Stay tuned for more exciting features and information enrichment coming soon.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    }
+   ]
+  }
+ }
+}

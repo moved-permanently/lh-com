@@ -1,0 +1,27 @@
+{
+ "data": {
+  "travelRegulationsByPath": {
+   "item": {
+    "_variation": "de",
+    "_metadata": {
+     "calendarMetadata": [
+      {
+       "name": "jcr:created",
+       "value": "2026-09-25T07:00:01.931Z"
+      },
+      {
+       "name": "cq:lastModified",
+       "value": "2026-09-16T14:56:40.879Z"
+      }
+     ]
+    },
+    "destination": {
+     "html": "<p>Passagiere, die nach Südafrika reisen oder Südafrika verlassen, müssen vor Reiseantritt eine <a hreftemp=\"https://www.sars.gov.za/travellerdeclaration/\" rel=\"noopener noreferrer\" href=\"https://www.sars.gov.za/travellerdeclaration/\">&quot;Online Traveller Declaration&quot;</a> ausfüllen.</p>\n<p><b>Bitte stellen Sie sicher, dass die Erklärung vor Beginn Ihrer Reise ausgefüllt wurde.</b></p>\n<p>&nbsp;</p>\n<p><b>Reisen mit Kindern nach Südafrika:</b></p>\n<p>1.<b> Eltern, die mit Kindern nach Südafrika ein- oder ausreisen</b>, können aufgefordert werden, die gültigen Reisedokumente (Reisepässe) und vollständigen Geburtsurkunden der Kinder vorzulegen.</p>\n<p>2. <b>Kinder, die nur mit einem Elternteil reisen</b>, müssen ausserdem <b>eines der folgenden Dokumente</b> vorlegen können:</p>\n<ul>\n<li>ein vom nicht mitreisenden Elternteil unterzeichnetes Dokument, in dem dieser der Reise des Kindes zustimmt</li>\n<li>einen Gerichtsbeschluss, der das alleinige Sorgerecht gewährt.</li>\n<li>gegebenenfalls eine Sterbeurkunde des anderen Elternteils, der in der Geburtsurkunde des Kindes eingetragen ist</li>\n<li>In dem Dokument sollten auch die Reiseziele des Elternteils und des Kindes/der Kinder angegeben sein.</li>\n</ul>\n<p>3. Wenn <b>Kinder mit einem Vormund </b>reisen, muss dieser Erwachsene eidesstattliche Erklärungen beider Elternteile vorlegen, in denen die Reise der Kinder genehmigt wird. Ausserdem benötigt er Kopien der Reisepässe der Eltern sowie deren Kontaktdaten.</p>\n"
+    },
+    "transit": {
+     "html": null
+    }
+   }
+  }
+ }
+}

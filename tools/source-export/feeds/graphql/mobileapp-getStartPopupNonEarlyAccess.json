@@ -1,0 +1,962 @@
+{
+ "data": {
+  "whatsnewList": {
+   "items": [
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/nl/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "activationDate": "2025-12-17T09:22:00.000+01:00",
+     "headline": "Onze Apple Watch-app is er",
+     "shortText": {
+      "plaintext": "Houd je instapkaart, vluchtupdates en reisinformatie gewoon aan je pols."
+     },
+     "longText": {
+      "html": "<p>Je reis werd net nog comfortabeler. Met onze nieuwe Apple Watch-app vind je belangrijke reisinformatie altijd in één oogopslag, gewoon aan je pols.</p>\n<p><b>Nieuwe functies zijn:</b></p>\n<ul>\n<li><b>Mobiele instapkaart</b>: sla je instapkaart op je Apple Watch op en ga vlot door de veiligheidscontrole en het instappen.</li>\n<li><b>Mijn vluchten</b>: bekijk belangrijke details voor al je komende reizen, inclusief real-time updates van de vluchtstatus.</li>\n<li><b>Trip Assistant Lite</b>: ontvang tijdige informatie specifiek voor de fase van je vlucht tijdens je reis.</li>\n</ul>\n<p>Onze Apple Watch-app is ontworpen om je bij elke stap te ondersteunen en helpt je om eenvoudiger, sneller en vlotter te reizen.<br>\n<b>Zo kan je hem krijgen:</b><br>\nUpdate naar de nieuwste versie van onze mobiele app en activeer de Apple Watch-app via de Watch-app op je iPhone. Zodra je die hebt geïnstalleerd, kan je aan de slag.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/ioswatchwhatsnew.png"
+     },
+     "imageLX": null,
+     "imageSN": null,
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "activationDate": "2025-12-17T09:22:00.000+01:00",
+     "headline": "Our Apple Watch App Is Here",
+     "shortText": {
+      "plaintext": "Keep your boarding pass, flight updates, and trip information right on your wrist."
+     },
+     "longText": {
+      "html": "<p>Your journey just got even more convenient. With our new Apple Watch app, key travel information is always just a glance away—right on your wrist.</p>\n<p><b>New features include:</b></p>\n<ul>\n<li><b>Mobile Boarding Pass</b> - store your boarding pass on your Apple Watch and move through security and boarding with ease.</li>\n<li><b>My Flights </b>- view important details for all your upcoming trips, including real-time flight status updates.</li>\n<li><b>Trip Assistant Lite</b> - receive timely, flight-phase–specific information throughout your journey.</li>\n</ul>\n<p>Designed to support you every step of the way, our Apple Watch app helps make travel simpler, faster, and more seamless.<br>\n<b>How to get it:</b><br>\nUpdate to the latest version of our mobile app and enable the Apple Watch app via the Watch app on your iPhone. Once installed, you’re ready to go.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/ioswatchwhatsnew.png"
+     },
+     "imageLX": null,
+     "imageSN": null,
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/pl/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "activationDate": "2025-12-17T09:22:00.000+01:00",
+     "headline": "Nasza aplikacja na Apple Watch jest już dostępna",
+     "shortText": {
+      "plaintext": "Karta pokładowa, status lotu i informacje o podróży — zawsze pod ręką."
+     },
+     "longText": {
+      "html": "<p>Podróżowanie właśnie stało się jeszcze wygodniejsze. Z nową aplikacją na Apple Watch najważniejsze dane masz w zasięgu wzroku — prosto na nadgarstku.</p>\n<p><b>Nowości:</b></p>\n<ul>\n<li><p><b>Mobilna karta pokładowa</b> — dodaj kartę do Apple Watch i sprawnie przechodź kontrolę bezpieczeństwa oraz boarding.</p>\n</li>\n<li><p><b>Moje loty</b> — najważniejsze szczegóły wszystkich nadchodzących podróży i aktualizacje statusu lotu w czasie rzeczywistym.</p>\n</li>\n<li><p><b>Trip Assistant Lite</b> — trafne wskazówki dopasowane do etapu podróży, we właściwym momencie.</p>\n</li>\n</ul>\n<p>Stworzona, by wspierać Cię na każdym kroku, aplikacja na Apple Watch upraszcza podróż — szybciej, prościej i bardziej płynnie.</p>\n<p><b>Jak zacząć:</b><br>\nZaktualizuj naszą aplikację mobilną do najnowszej wersji i włącz moduł Apple Watch w aplikacji Watch na iPhonie. Po instalacji możesz od razu korzystać.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/ioswatchwhatsnew.png"
+     },
+     "imageLX": null,
+     "imageSN": null,
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "activationDate": "2025-12-17T09:22:00.000+01:00",
+     "headline": "Unsere Apple Watch App ist da",
+     "shortText": {
+      "plaintext": "Bewahren Sie Ihre Bordkarte, Flug-Updates und Reiseinformationen direkt an Ihrem Handgelenk auf."
+     },
+     "longText": {
+      "html": "<p><b>Unsere Apple-Watch-App ist da</b> Reisen wird jetzt noch komfortabler. Mit unserer neuen Apple-Watch-App haben Sie alle wichtigen Informationen auf einen Blick – direkt an Ihrem Handgelenk.</p>\n<p><b>Neu dabei:</b></p>\n<p><b>Mobile Bordkarte</b> – Speichern Sie Ihre Bordkarte auf der Apple Watch und passieren Sie Sicherheitskontrolle und Boarding ganz entspannt.</p>\n<p><b>Meine Flüge</b> – Alle relevanten Details zu Ihren bevorstehenden Reisen, inklusive Echtzeit-Status-Updates.</p>\n<p><b>Trip Assistant Lite</b>&nbsp;– erhalten Sie während der gesamten Reise aktuelle Informationen zu jeder Etappe Ihres Flugs.</p>\n<p>Unsere Apple&nbsp;Watch&nbsp;App unterstützt Sie auf jedem Schritt und macht Reisen einfacher, schneller und reibungsloser.<br>\n<b>App installieren:</b><br>\nAktualisieren Sie unsere mobile App auf die neueste Version und aktivieren Sie die Apple Watch&nbsp;App über die Watch&nbsp;App auf Ihrem iPhone. Nach der Installation sind Sie startklar.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/ioswatchwhatsnew.png"
+     },
+     "imageLX": null,
+     "imageSN": null,
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ko/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-11-01",
+     "activationDate": "2025-11-01T00:00:00.000+01:00",
+     "headline": "개선된 여행 관리 소개",
+     "shortText": {
+      "plaintext": "업그레이드된 여행 관리 기능은 탐색을 간소화하고 클릭 횟수를 줄이며 필수 여행 정보를 눈에 잘 띄게 표시하는 다이내믹 대시보드 디자인이 특징입니다."
+     },
+     "longText": {
+      "html": "<p>업그레이드된 <b>여행 관리</b> 기능은 이제 다이내믹 대시보드 디자인을 적용하여 원활하고 사용자 친화적인 경험을 보장합니다. 이러한 혁신적인 재설계는 탐색을 간소화하고 중요한 여행 정보에 액세스하는 데 필요한 클릭 수를 줄입니다.</p>\n<p>새로운 소식:</p>\n<p>이제 항공편 노선 및 출발 시간 등의 주요 세부 정보가 <b>다이내믹</b> 항공편 카드에 눈에 잘 띄게 표시됩니다. 여러 항공편을 이용하는 여행의 경우, 카드를 손쉽게 스와이프하여 각 구간을 확인할 수 있습니다. 아래로 스크롤하면 수하물 현황, <b>공항 및 승객 정보 등의 추가 정보가 표시되고, 좌석배치도, 추가 수하물 및 좌석 승급, 다양한 기타 서비스에 대한 직접 액세스가 한눈에 표시됩니다.</b></p>\n<p>새로운 <b>여행 관리</b> 기능을 통해 여행 계획에 대한 최신 정보를 확인하고 관리하기가 그 어느 때보다 쉬워졌습니다. 모든 여행 요구 사항을 효율적이고 효과적으로 충족하도록 맞춤화한 최적화된 디자인으로 차이를 경험해 보세요.</p>\n<p>그리고 이것은 단지 중요한 단계 중 첫 걸음에 불과합니다. 곧 선보일 더욱 흥미로운 기능과 풍부한 정보에 대한 소식을 받아보세요.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-16",
+     "activationDate": "2025-10-16T00:10:00.000+02:00",
+     "headline": "Introducing enhanced Trip Management",
+     "shortText": {
+      "plaintext": "The upgraded Trip Management features a dynamic dashboard design that simplifies navigation, reduces clicks, and prominently displays essential travel information."
+     },
+     "longText": {
+      "html": "<p>The upgraded <b>Trip Management </b>now features a dynamic dashboard design that ensures a seamless and user-friendly experience. This innovative redesign simplifies navigation and reduces the number of clicks required to access vital travel information.</p>\n<p>What's New:</p>\n<p>Key details such as flight routes and departure times are now prominently displayed on a <b>dynamic </b>flight card. For a trip with multiple flights, you can effortlessly swipe through the cards to view each segment. Scrolling down will reveal additional information, including your baggage status, <b>airport and passenger details and furthermore direct access to the seat map, additional baggage and upgrades as well as various other services are provided at first glance.</b></p>\n<p>With the new <b>Trip Management</b>, staying informed and managing your travel plans has never been more straightforward. Experience the difference with the optimized design, tailored to deliver all your travel needs efficiently and effectively.</p>\n<p>And this is only the first great step. Stay tuned for more exciting features and information enrichment coming soon.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/pl/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-16",
+     "activationDate": "2025-10-16T00:00:00.000+02:00",
+     "headline": "Przedstawiamy udoskonalone Zarządzanie podróżą",
+     "shortText": {
+      "plaintext": "W udoskonalonym Zarządzaniu podróżą zastosowano dynamiczny układ pulpitu nawigacyjnego, który upraszcza nawigację, ogranicza liczbę kliknięć i wyświetla najważniejsze informacje o podróży w widocznym miejscu."
+     },
+     "longText": {
+      "html": "<p>Udoskonalone <b>Zarządzanie podróżą</b> ma teraz dynamiczny układ pulpitu nawigacyjnego, który zapewnia płynną i&nbsp;przyjazną dla użytkownika obsługę. Nowy innowacyjny układ ułatwia nawigację i&nbsp;minimalizuje liczbę kliknięć wymaganych do uzyskania dostępu do ważnych informacji o&nbsp;podróży.</p>\n<p>Co nowego:</p>\n<p>Najważniejsze informacje, takie jak trasy rejsów i&nbsp;godziny wylotów, są teraz wyświetlane na <b>dynamicznej</b> karcie rejsu. W&nbsp;przypadku podróży obejmującej wiele lotów możesz łatwo przełączać się między kartami, aby wyświetlić każdy segment. Przewijając w&nbsp;dół, uzyskasz dostęp do dodatkowych informacji, w&nbsp;tym statusu bagażu, <b>lotniska i&nbsp;danych pasażerów, a&nbsp;także bezpośredni dostęp do mapy miejsc, dodatkowego bagażu, podwyższenia klasy podróży i&nbsp;wielu innych usług.</b></p>\n<p>Dzięki nowemu <b>Zarządzaniu podróżą</b> w&nbsp;prosty sposób możesz śledzić i&nbsp;zarządzać swoimi planami podróży. Odkryj nowy, zoptymalizowany układ, który zapewnia sprawną i&nbsp;skuteczną realizację wszystkich Twoich potrzeb związanych z&nbsp;podróżowaniem.</p>\n<p>A&nbsp;to dopiero pierwszy wielki krok. Wkrótce poznasz więcej ciekawych funkcji i&nbsp;informacji.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ita",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-15",
+     "activationDate": "2025-10-15T00:00:00.000+02:00",
+     "headline": "Das verbesserte Trip Management",
+     "shortText": {
+      "plaintext": "Das verbesserte Trip Management bietet ein dynamisches Dashboard-Design, das die Navigation vereinfacht, Klicks reduziert und alle wichtigen Reiseinformationen zentral anzeigt."
+     },
+     "longText": {
+      "html": "<p>Das verbesserte <b>Trip Management </b>bietet jetzt ein dynamisches Dashboard-Design, das ein nahtloses und benutzerfreundliches Erlebnis garantiert. Diese innovative Neugestaltung vereinfacht die Navigation und reduziert die Anzahl der Klicks, die für den Zugriff auf wichtige Reiseinformationen erforderlich sind.</p>\n<p>Das ist neu:</p>\n<p>Wichtige Details wie Flugrouten und Abflugzeiten werden nun deutlich auf einer <b>dynamischen </b>Flugkarte angezeigt. Bei einer Reise mit mehreren Flügen können Sie ganz einfach durch die Karten wischen, um jeden Streckenabschnitt anzusehen. Wenn Sie nach unten scrollen, werden weitere Informationen angezeigt, darunter Ihr Gepäckstatus, <b>Angaben zum Flughafen und zu den Passagieren. Außerdem erhalten Sie direkten Zugriff auf die Sitzplatzübersicht sowie Informationen über zusätzliches Gepäck, Upgrades sowie verschiedene weitere Services.</b></p>\n<p>Das neue <b>Trip Management</b> macht es einfacher denn je, Ihre Reisepläne zu verwalten und auf dem neuesten Stand zu bleiben. Erleben Sie den Unterschied mit dem optimierten Design, das effizient und effektiv auf all Ihre Reisebedürfnisse zugeschnitten ist.</p>\n<p>Und das ist nur der erste großartige Schritt. Freuen Sie sich schon bald auf weitere interessante Funktionen und nützliche Erweiterungen.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/pt/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Apresentamos a Gestão de viagens melhorada",
+     "shortText": {
+      "plaintext": "A Gestão de viagens atualizada possui um painel com um design dinâmico que simplifica a navegação, reduz o número de cliques e apresenta de forma destacada as informações essenciais de viagem."
+     },
+     "longText": {
+      "html": "<p>A <b>Gestão de viagens</b> atualizada tem agora um painel com um design dinâmico que garante uma experiência intuitiva e fácil de utilizar. Este novo design inovador simplifica a navegação e reduz o número de cliques necessários para aceder a informações essenciais de viagem.</p>\n<p>Novidades:</p>\n<p>Os principais detalhes, como rotas de voo e horários de partida, são agora exibidos de forma destacada num cartão de voo <b>dinâmico</b>. Para uma viagem com vários voos, pode deslizar sem esforço pelos cartões para ver cada segmento. À medida que se desloca para baixo, verá informações adicionais, incluindo o estado da bagagem, <b>informações sobre o aeroporto e os passageiros e terá acesso direto ao mapa de lugares, bagagem adicional e upgrades, bem como a outros serviços.</b></p>\n<p>Com a nova <b>Gestão de viagens</b>, manter-se informado e gerir os seus planos de viagem nunca foi tão simples. Veja a diferença com o design otimizado, concebido para atender a todas as suas necessidades de viagem de forma eficiente e eficaz.</p>\n<p>E este é apenas o primeiro grande passo. Fique atento para descobrir mais funcionalidades empolgantes e informações pormenorizadas em breve.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/hk/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "正式推出增強版 Trip Management",
+     "shortText": {
+      "plaintext": "升級版 Trip Management 提供一個動態儀表板，簡化導覽過程、減少點擊次數，並在顯眼位置顯示重要的旅行資訊。"
+     },
+     "longText": {
+      "html": "<p>升級版 <b>Trip Management </b>現在提供一個動態儀表板，確保順暢且對使用者友善的體驗。這項創新的重新設計將導覽過程簡化，並減少存取重要旅行資訊時所需的點擊次數。</p>\n<p>新增功能：</p>\n<p>主要詳細資訊，例如航班路線和出發時間，現在會顯示於<b>動態</b>航班卡片的顯眼位置。對於有多個航班的行程，您可以輕鬆地滑動卡片檢視每個航段。向下捲動會顯示其他資訊，包括您的行李狀態、<b>機場和旅客詳細資料；此外還可以直接存取座位圖，而加購行李和升等服務以及各種其他服務，皆可一目了然。</b></p>\n<p>藉助全新的 <b>Trip Management</b>，掌握最新資訊及管理您的旅行計劃，就是這麼簡單。體驗最佳化設計帶來的不同，用效率快、效果好的方式滿足您的所有旅行需求。</p>\n<p>而且這只是優質服務的第一步而已。敬請留意，即將推出更多精彩功能和豐富資訊。</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": "taTmcSwitcherEnabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/es/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Presentamos un Trip Management mejorado",
+     "shortText": {
+      "plaintext": "El Trip Management mejorado presenta un diseño de panel de control dinámico que simplifica la navegación, reduce los clics y muestra información fundamental de manera prominente."
+     },
+     "longText": {
+      "html": "<p>El <b>Trip Management</b> mejorado ahora presenta un diseño de panel de control dinámico que garantiza una experiencia fluida y sencilla. Este innovador rediseño simplifica la navegación y reduce el número de clics necesarios para acceder a información fundamental.</p>\n<p>Novedades:</p>\n<p>Ahora los detalles clave, como las rutas de vuelo y los horarios de salida, se muestran de forma prominente en una tarjeta de vuelo <b>dinámica</b>. Si se trata de un viaje con múltiples vuelos, puede deslizar fácilmente las tarjetas para ver cada segmento. Al desplazarse hacia abajo verá información adicional de un solo vistazo, como el estado de su equipaje, <b>los detalles del aeropuerto y del pasajero, así como acceso directo al plano de asientos, equipaje adicional y upgrades, además de otros servicios.</b></p>\n<p>Con el nuevo <b>Trip Management</b>, mantenerse informado y gestionar sus planes de viaje nunca había sido tan sencillo. Disfrute de una experiencia mejorada gracias al diseño optimizado, renovado para satisfacer todas sus necesidades de viaje de manera eficiente y eficaz.</p>\n<p>Y este es solo el primer gran paso. Próximamente presentaremos más funciones útiles y más información relevante.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/it/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Presentazione della versione di Gestione viaggi migliorata",
+     "shortText": {
+      "plaintext": "La versione aggiornata di Gestione viaggi presenta una dashboard dinamica che rende la navigazione più semplice, riduce il numero di clic necessari e mette in evidenza le informazioni di viaggio più importanti."
+     },
+     "longText": {
+      "html": "<p>La versione aggiornata di <b>Gestione viaggi </b>presenta ora una dashboard dinamica, garantendo un’esperienza fluida e intuitiva. Questo design rinnovato semplifica la navigazione e riduce il numero di clic necessari per accedere alle informazioni di viaggio più importanti.</p>\n<p>Cosa cambia?</p>\n<p>I dettagli principali, come itinerari di volo e orari di partenza, sono ora messi in evidenza su una scheda <b>dinamica </b>del volo. In caso di viaggio con più voli, si può scorrere agevolmente tra le schede per vedere ogni segmento. Scorrendo verso il basso è possibile visualizzare informazioni aggiuntive come lo stato del bagaglio e <b>dettagli su aeroporto e passeggeri, oltre ad avere accesso immediato alla mappa dei posti, al bagaglio aggiuntivo, agli upgrade e a molti altri servizi, tutti visibili a colpo d’occhio.</b></p>\n<p>Con la nuova versione di <b>Gestione viaggi</b>, tenere sotto controllo le informazioni e gestire i piani di viaggio non è mai stato così semplice. Scopra la differenza con il design ottimizzato, pensato per soddisfare tutte le esigenze di viaggio in modo semplice ed efficace.</p>\n<p>E non è finita qui: presto saranno disponibili nuove interessanti funzionalità e ulteriori informazioni per arricchire l’esperienza di viaggio.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/el/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Παρουσίαση βελτιωμένης διαχείρισης ταξιδιών",
+     "shortText": {
+      "plaintext": "Το αναβαθμισμένο Trip Management διαθέτει δυναμικό σχεδιασμό πίνακα εργαλείων που απλοποιεί την πλοήγηση, μειώνει τα κλικ και προβάλλει σε περίοπτη θέση τις απαραίτητες πληροφορίες ταξιδιού."
+     },
+     "longText": {
+      "html": "<p>Το αναβαθμισμένο <b>Travel Management </b>διαθέτει πλέον έναν δυναμικό σχεδιασμό πίνακα που εξασφαλίζει μια απρόσκοπτη και φιλική προς τον χρήστη εμπειρία. Αυτός ο καινοτόμος επανασχεδιασμός απλοποιεί την πλοήγηση και μειώνει τον αριθμό των κλικ που απαιτούνται για την πρόσβαση σε ζωτικής σημασίας ταξιδιωτικές πληροφορίες.</p>\n<p>Τα νέα μας:</p>\n<p>Τα βασικά στοιχεία, όπως οι διαδρομές πτήσεων και οι ώρες αναχώρησης, εμφανίζονται πλέον σε περίοπτη θέση σε μια <b>δυναμική </b>κάρτα πτήσης. Για ένα ταξίδι με πολλές πτήσεις, μπορείτε να σαρώσετε χωρίς κόπο τις κάρτες για να δείτε κάθε τμήμα. Κάνοντας κύλιση προς τα κάτω θα εμφανιστούν πρόσθετες πληροφορίες, όπως η κατάσταση των αποσκευών σας, <b>τα στοιχεία του αεροδρομίου και των επιβατών και επιπλέον άμεση πρόσβαση στο σχεδιάγραμμα θέσεων, επιπλέον αποσκευές και αναβαθμίσεις, καθώς και διάφορες άλλες υπηρεσίες με την πρώτη ματιά.</b></p>\n<p>Με το νέο <b>Trip Management</b>, η ενημέρωση και η διαχείριση των ταξιδιωτικών σας σχεδίων δεν ήταν ποτέ πιο απλή. Ζήστε τη διαφορά με τον βελτιστοποιημένο σχεδιασμό, προσαρμοσμένο ώστε να καλύπτει όλες τις ταξιδιωτικές σας ανάγκες αποτελεσματικά και αποδοτικά.</p>\n<p>Και αυτό είναι μόνο το πρώτο σπουδαίο βήμα. Μείνετε συντονισμένοι για πιο συναρπαστικά χαρακτηριστικά και εμπλουτισμό των πληροφοριών που θα ακολουθήσουν σύντομα.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/fr/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Présentation de la Gestion des voyages améliorée",
+     "shortText": {
+      "plaintext": "La version améliorée de la Gestion des voyages présente un tableau de bord dynamique qui simplifie la navigation, réduit le nombre de clics et met bien en évidence les informations de voyage essentielles."
+     },
+     "longText": {
+      "html": "<p>La version améliorée de la <b>Gestion des voyages </b>comprend désormais un tableau de bord dynamique qui garantit une expérience fluide et conviviale. Cette nouvelle conception innovante simplifie la navigation et réduit le nombre de clics nécessaires pour accéder aux informations de voyage essentielles.</p>\n<p>Nouveautés&nbsp;:</p>\n<p>Les informations clés telles que les itinéraires de vol et les heures de départ sont désormais affichées en évidence sur une carte de vol <b>dynamique</b>. En cas de voyage composé de plusieurs vols, vous pouvez facilement naviguer entre les cartes pour afficher chaque segment. En faisant défiler vers le bas, vous obtiendrez des informations supplémentaires, notamment le statut de vos bagages, <b>les informations de l’aéroport et des passagers, ainsi qu’un accès direct au plan de cabine, aux bagages supplémentaires et aux surclassements, ainsi qu’à divers autres services.</b></p>\n<p>Avec la nouvelle <b>Gestion des voyages</b>, il n’a jamais été aussi simple de vous tenir informé et de gérer vos projets de voyage. Découvrez la conception optimisée, conçue pour répondre efficacement à tous vos besoins de voyage.</p>\n<p>Et ce n’est que la première grande étape. Restez à l’écoute pour découvrir d’autres fonctionnalités et informations intéressantes à venir.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ru/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "Представляем обновленный раздел «Управление перелетом»",
+     "shortText": {
+      "plaintext": "Обновленный раздел «Управление перелетом» теперь отличается динамическим дизайном панели управления, который упрощает навигацию, сокращает количество кликов и наглядно отображает важную информацию о путешествиях."
+     },
+     "longText": {
+      "html": "<p>Обновленный раздел <b>«Управление перелетом»</b> теперь отличается динамическим дизайном панели управления, обеспечивающим удобство и простоту использования. Этот инновационный дизайн упрощает навигацию и сокращает количество кликов, необходимых для доступа к важной информации о путешествиях.</p>\n<p>Новости:</p>\n<p>Ключевые детали, такие как маршруты рейсов и время вылета, теперь наглядно отображаются на <b>динамической </b>карточке рейса. При перелете несколькими рейсами вы можете пролистать карточки для просмотра каждого сегмента. При прокрутке вниз будет доступна дополнительная информация, включая статус багажа, <b>аэропорт и сведения о пассажирах, а также карта мест, дополнительный багаж, повышение класса обслуживания и другие услуги</b>.</p>\n<p>Благодаря новому разделу <b>«Управление перелетом»</b> быть в курсе актуальных новостей и управлять планами поездок стало еще проще. Ощутите разницу благодаря оптимизированному дизайну, разработанному специально для эффективного удовлетворения всех ваших потребностей в путешествии.</p>\n<p>И это только первый отличный шаг. Скоро появятся еще более интересные функции и дополнительная информация&nbsp;— следите за новостями.</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ja/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "充実した旅行の管理のご紹介",
+     "shortText": {
+      "plaintext": "旅行の管理をアップグレードし、ナビゲーションを簡素化してクリック数を減らし、重要な旅行情報を際立たせて表示するダイナミックなダッシュボードデザインを採用しました。"
+     },
+     "longText": {
+      "html": "<p><b>旅行の管理</b>をアップグレードし、シームレスでユーザーフレンドリーなご利用体験のため、ダイナミックなダッシュボードデザインを採用しました。この革新的な再設計により、ナビゲーションが簡素化され、重要な旅行情報を確認するまでに必要なクリック数が減ります。</p>\n<p>新機能：</p>\n<p>路線や出発時刻などの重要な情報を、<b>ダイナミックな</b>フライトカード上に際立たせて表示しています。複数のフライトをご利用のご旅行の場合、カードをスワイプするだけで各区間を見ることができます。下にスクロールすると、手荷物状況、<b>空港および搭乗者の詳細、シートマップの直接確認、追加手荷物、アップグレード、その他さまざまなサービスを一目でご確認いただけます。</b></p>\n<p>新しくなった<b>旅行の管理</b>では、ご旅行プランに関する最新情報の入手や管理がこれまで以上に簡単になります。ご旅行のあらゆるニーズに効率的かつ効果的にお応えできるよう、最適なデザインを取り入れ、以前との違いをお楽しみいただけます。</p>\n<p>そして、これは大きな最初の一歩にすぎません。近日、さらに充実した機能や情報をお届けします。</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/zh/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-14",
+     "activationDate": "2025-10-14T00:00:00.000+02:00",
+     "headline": "推出升级版“行程管理”设计",
+     "shortText": {
+      "plaintext": "升级后的“行程管理”功能采用动态控制面板设计，可简化导航流程、减少点击次数，并醒目显示关键旅行信息。"
+     },
+     "longText": {
+      "html": "<p>升级后的<b>行程管理</b>现在采用动态控制面板设计，确保操作流畅、对用户友好的使用体验。此次重新设计凸显创新亮点，简化了导航流程，减少了用户访问关键行程信息所需的点击次数。</p>\n<p>更新亮点：</p>\n<p>航班航线和出发时间等关键信息现以<b>动态</b>航班卡片形式醒目展示。多航班行程中，您可以滑动卡片轻松查看各航段详情。向下滚动页面会显示其他信息，包括您的行李状态、<b>机场和旅客详细信息，此外，还能直接访问座位图、额外行李和升舱服务以及各种其他服务，均一目了然。</b></p>\n<p>通过全新的<b>行程管理</b>设计，掌握最新资讯、管理您的旅行计划变得前所未有的简单。优化设计带来不同体验，高效满足您所有的旅行需求。</p>\n<p>而这仅仅是第一步。更多精彩功能与信息升级即将上线，敬请期待！</p>\n"
+     },
+     "ImageLH": {
+      "_path": "/content/dam/lh/images/mobileapp/LH-TMC-NEW.png"
+     },
+     "imageLX": {
+      "_path": "/content/dam/lh/images/mobileapp/LX-TMC-NEW.png"
+     },
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN-TMC-NEW.png"
+     },
+     "imageOS": {
+      "_path": "/content/dam/lh/images/mobileapp/OS-TMC-NEW.png"
+     },
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": "taTmcSwitcherEnabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/pt/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Novo Centro de Ajuda disponível na aplicação",
+     "shortText": {
+      "plaintext": "Com um simples clique no botão do ponto de interrogação, pode aceder à ajuda para mais de 70 tópicos e subtópicos relacionados com voos."
+     },
+     "longText": {
+      "html": "<p>Aceder aos principais tópicos de serviço e opções de contacto é agora mais fácil do que nunca na aplicação da Brussels Airlines. Quer precise de alterar uma reserva, solicitar um reembolso ou necessite de serviços específicos relacionados com o voo, a ajuda personalizada com base na sua preocupação está a apenas alguns toques de distância. Na nova secção do Centro de Ajuda, verá todos os nossos serviços em relance, com as nossas recomendações para a melhor opção fornecida. Desde opções de self-service, utilizando o Assistente de Chat ou chat em direto com um agente, a ligar para a Central de Reservas, todas as soluções possíveis estão ao seu alcance.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "New Help Center",
+     "shortText": {
+      "plaintext": "With a simple click on the question mark button, you can access help for over 70 flight-related topics and subtopics."
+     },
+     "longText": {
+      "html": "<p>Accessing top service topics and contact options is now easier than ever in the Brussels Airlines app. Whether you need to change a booking, request a refund, or require specific flight-related services, personalized help based on your concern is just a few taps away. In the new Help Center section, you will find all our services at a glance, with our recommendations for the best option provided. From self-service options, using the Chat Assistant or live chat with an agent, to calling the Service Center, all possible solutions are at your fingertips.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/hk/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "應用程式中提供新的服務中心",
+     "shortText": {
+      "plaintext": "只要按一下問號按鈕，即可存取超過 70 個航班相關主題和次主題的說明。"
+     },
+     "longText": {
+      "html": "<p>現在，在布魯塞爾航空應用程式中，存取熱門服務主題和聯絡選項比以往更加容易。無論您需要更改預訂、申請退款或需要特定航班相關服務，只需輕點幾下，即可根據您關注的事項獲得個人化協助。在新的「服務中心」區段，您將一目了然地找到我們所有的服務，並提供我們建議的最佳選項。從自助選項、使用聊天助理或與客服人員即時聊天，乃至電話聯絡服務中心，您可以輕鬆找到所有可能的解決方案。</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ko/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "앱에서 새로운 헬프 센터 이용 가능",
+     "shortText": {
+      "plaintext": "물음표 버튼을 클릭하면 70개 이상의 항공편 관련 주제와 하위 주제에 대한 도움말을 확인할 수 있습니다."
+     },
+     "longText": {
+      "html": "<p>브뤼셀 항공 앱에서 주요 서비스 주제와 연락처 옵션에 더 쉽게 액세스할 수 있습니다. 예약을 변경해야 하거나, 환불을 요청하거나, 특정 항공편 관련 서비스가 필요한 경우, 몇 번만 탭하면 우려 사항에 따른 맞춤 지원을 받을 수 있습니다. 새로운 헬프 센터 섹션에서 모든 서비스를 한 눈에 확인할 수 있으며, 최고의 옵션에 대한 권장 사항도 확인할 수 있습니다. 셀프 서비스 옵션부터 채팅 도우미 또는 상담원과의 실시간 채팅, 서비스 센터 전화 문의까지, 이용 가능한 모든 솔루션을 손끝에서 간편하게 이용할 수 있습니다.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/es/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Nuevo Centro de ayuda disponible en la app",
+     "shortText": {
+      "plaintext": "Con un simple clic en el botón del signo de interrogación, puede acceder a más de 70 temas y subtemas de ayuda relacionados con los vuelos."
+     },
+     "longText": {
+      "html": "<p>Ahora es más fácil que nunca acceder a los principales temas de servicio y opciones de contacto en la app de Brussels Airlines. No importa si necesita cambiar una reserva, obtener un reembolso o solicitar servicios específicos relacionados con el vuelo: le ofrecemos ayuda personalizada en solo unos pasos. En la nueva sección del Centro de ayuda encontrará todos nuestros servicios de un vistazo, con nuestras recomendaciones para la mejor opción proporcionada. Todas las soluciones posibles están al alcance de su mano, desde opciones de autoservicio, el asistente de chat o el chat en directo con un agente, hasta llamar por teléfono al centro de atención al cliente.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/it/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Nuovo Help Center disponibile nell’app",
+     "shortText": {
+      "plaintext": "Con un semplice clic sul pulsante del punto interrogativo può consultare informazioni su oltre 70 argomenti e sottoargomenti relativi ai voli."
+     },
+     "longText": {
+      "html": "<p>Con l’app Brussels Airlines, accedere ai servizi più utili e alle opzioni di contatto ora è più facile che mai. Se deve modificare una prenotazione, richiedere un rimborso o dei servizi specifici relativi al volo, le basteranno pochi tocchi per ricevere assistenza personalizzata. Nella nuova sezione dell’Help Center troverà tutti i servizi a colpo d’occhio, con i nostri suggerimenti per individuare l’opzione più conveniente. Scelga la soluzione che preferisce: opzioni self-service, Chat Assistant o Live Chat con agente, oppure la possibilità di chiamare il Service Center.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/el/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Νέο Κέντρο Βοήθειας διαθέσιμο στην εφαρμογή",
+     "shortText": {
+      "plaintext": "Με ένα απλό κλικ στο κουμπί ερωτηματικού, μπορείτε να έχετε πρόσβαση στη βοήθεια για περισσότερα από 70 θέματα και υποθέματα σχετικά με τις πτήσεις."
+     },
+     "longText": {
+      "html": "<p>Η πρόσβαση σε θέματα κορυφαίων υπηρεσιών και επιλογές επικοινωνίας είναι πλέον ευκολότερη από ποτέ στην εφαρμογή της Brussels Airlines. Είτε θέλετε να αλλάξετε μια κράτηση, να ζητήσετε επιστροφή χρημάτων ή να ζητήσετε συγκεκριμένες υπηρεσίες που σχετίζονται με την πτήση, η εξατομικευμένη βοήθεια με βάση το αίτημά σας απέχει μόλις λίγα κλικ. Στη νέα ενότητα του Κέντρου Βοήθειας, θα βρείτε όλες τις υπηρεσίες μας με μια ματιά, με τις προτάσεις μας για την καλύτερη επιλογή που παρέχονται. Από τις επιλογές αυτοεξυπηρέτησης, τη χρήση του Βοηθού Συνομιλίας ή τη ζωντανή συνομιλία με έναν εκπρόσωπο έως την κλήση στο Κέντρο Εξυπηρέτησης, όλες οι πιθανές λύσεις είναι στη διάθεσή σας.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/pl/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Nowe Centrum pomocy dostępne w aplikacji",
+     "shortText": {
+      "plaintext": "Wystarczy kliknąć przycisk ze znakiem zapytania, aby uzyskać dostęp do pomocy dotyczącej ponad 70 tematów i podtematów związanych z lotami."
+     },
+     "longText": {
+      "html": "<p>W aplikacji Brussels Airlines dostęp do najważniejszych tematów i opcji kontaktu jest teraz jeszcze łatwiejszy. Jeżeli chcesz zmienić rezerwację, wystąpić o zwrot kosztów lub skorzystać z określonych usług związanych z lotem, możesz uzyskać dostęp do spersonalizowanej pomocy dotyczącej Twojej sprawy w zaledwie kilku kliknięciach. W nowej sekcji Centrum pomocy znajdziesz wszystkie nasze usługi w pigułce, wraz z naszymi rekomendacjami dotyczącymi najlepszej opcji. Samoobsługa, Chat Assistant lub czat na żywo z agentem, połączenie telefoniczne z Centrum Obsługi – wszystkie możliwe rozwiązania są na wyciągnięcie ręki.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/fr/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Nouveau Centre d’aide disponible dans l’application",
+     "shortText": {
+      "plaintext": "Cliquez simplement sur le point d’interrogation pour explorer plus de 70 thèmes et sous-thèmes relatifs aux vols."
+     },
+     "longText": {
+      "html": "<p>Dans l’application Brussels Airlines, accéder aux principaux thèmes concernant le service et les options de contact n’a jamais été aussi simple. Que vous souhaitiez modifier une réservation, demander un remboursement ou bénéficier de services spécifiques en lien avec votre vol, obtenez une aide personnalisée en quelques clics. La nouvelle section « Centre d’aide » réunit tous nos services en un seul endroit, avec des recommandations claires pour choisir la solution la plus adaptée. Libre-service, assistant virtuel, discussion en direct avec un agent ou encore appel au Service clientèle : toutes les options sont désormais à portée de main.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ru/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Новый справочный центр доступен в приложении",
+     "shortText": {
+      "plaintext": "Просто кликните по кнопке с вопросительным знаком, чтобы получить помощь более чем по 70 темам и подтемам, связанным с перелетом."
+     },
+     "longText": {
+      "html": "<p>Доступ к основным темам по услугам и вариантам обратной связи стал еще проще в приложении Brussels Airlines. Хотите изменить бронирование, запросить возврат средств или заказать определенные услуги, связанные с перелетом? Персонализированная помощь по вашей проблемы всего в нескольких касаниях. В новом разделе «Справочный центр» вы найдете краткий обзор всех наших услуг с нашими рекомендациями по выбору наилучшего варианта. От вариантов самообслуживания, использования Chat Assistant или чата с агентом до звонка в сервисный центр — все возможные решения всегда под рукой.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/ja/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "新しいヘルプセンターはアプリで利用可能",
+     "shortText": {
+      "plaintext": "クエスチョンマークボタンをクリックするだけで、70を超えるフライト関連のトピックやサブトピックに関するヘルプにアクセスできます。"
+     },
+     "longText": {
+      "html": "<p>ブリュッセル航空アプリで、サービスに関する主なトピックやご連絡方法へのアクセスがこれまで以上に簡単になりました。ご予約の変更、払い戻しのリクエスト、フライトに関連した特定のサービスなど、わずか数回のタップでお客様のご要望に基づくパーソナルなサポートをご提供いたします。新しいヘルプセンターのセクションでは、すべてのサービスを一目でご覧いただけるほか、最適なオプションをご紹介しています。セルフサービスオプション、チャットアシスタントの使用や担当者とのライブチャット、サービスセンターへのお電話など、利用可能なすべてのソリューションが指先ひとつで操作できます。</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/zh/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "应用程序现已推出全新“帮助中心”",
+     "shortText": {
+      "plaintext": "只需点击问号按钮，即可获取超过 70 个航班相关主题与子主题的帮助信息。"
+     },
+     "longText": {
+      "html": "<p>在布鲁塞尔航空应用程序中，热门服务主题和联系选项现在更加便捷易查。无论您是需要更改预订、申请退款，还是需要特定的航班相关服务，只需轻点几下，即可获得基于您的需求提供的个性化帮助。在全新“帮助中心”板块，您可以一目了然地查看所有服务，并获得我们针对最佳选项做出的推荐。从自助服务选项、使用聊天助手或与客服实时交流，到致电服务中心，所有可能的解决方案皆触手可及。</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "activationDate": "2025-09-10T15:06:00.000+02:00",
+     "headline": "Neuer Hilfe-Bereich in der App verfügbar",
+     "shortText": {
+      "plaintext": "Durch einen einfachen Klick auf das Fragezeichen-Symbol können Sie zu über 70 flugbezogenen Themen und Unterthemen Hilfe erhalten."
+     },
+     "longText": {
+      "html": "<p>Der Zugriff auf die wichtigsten Service-Themen und Kontaktmöglichkeiten ist in der Brussels Airlines App jetzt einfacher denn je. Ganz gleich, ob Sie eine Buchung ändern, eine Rückerstattung beantragen oder bestimmte flugbezogene Dienstleistungen benötigen, personalisierte Hilfe ist nur wenige Klicks entfernt. Im neuen Hilfe-Bereich finden Sie alle unsere Dienstleistungen auf einen Blick, zusammen mit unseren Empfehlungen für die beste Option. Von Self Service-Optionen über die Nutzung des Chat&nbsp;Assistant oder den Live-Chat mit einem Agenten bis hin zum Anruf beim Service Center stehen Ihnen alle möglichen Lösungen zur Verfügung.</p>\n"
+     },
+     "ImageLH": null,
+     "imageLX": null,
+     "imageSN": {
+      "_path": "/content/dam/lh/images/mobileapp/SN Help Center App (2).png"
+     },
+     "imageOS": null,
+     "imageAZ": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "data": {
+  "featureFlagList": {
+   "items": [
+    {
+     "_path": "/content/dam/hcl/content-fragments/flag-navigation",
+     "flagKey": "navigationFlag",
+     "enabled": false,
+     "name": "Navigation flag",
+     "description": {
+      "html": "<p>This flag is to hide the header navigation</p>\n",
+      "markdown": "This flag is to hide the header navigation\n",
+      "plaintext": "This flag is to hide the header navigation",
+      "json": [
+       {
+        "nodeType": "paragraph",
+        "content": [
+         {
+          "nodeType": "text",
+          "value": "This flag is to hide the header navigation"
+         }
+        ]
+       }
+      ]
+     },
+     "scope": "global",
+     "markets": [
+      ""
+     ],
+     "userSegments": [
+      ""
+     ],
+     "startDate": "2026-02-13T10:05:00.000+01:00",
+     "endDate": null
+    }
+   ]
+  }
+ }
+}

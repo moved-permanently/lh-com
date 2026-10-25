@@ -1,0 +1,350 @@
+{
+ "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Illustration of Table Mountain surrounded by the buildings of Cape Town. Above the mountain, there is a speech bubble containing the word \"yes.\""
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Essentials of Cape Town",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Five things that will surprise you about Cape Town.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Cheers!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Route 62 is the longest wine route in the world. Stretching around 850 kilometers (530 miles) from Cape Town to Gqeberha, it winds through some of South Africa’s finest winery regions.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par1/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration on the left: cars drive along a trail of wine running out of a bottle. Illustration on the right: a person rides down the sun on a sled."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>What a ride!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Cape Town’s Bellville district is home to Africa’s first toboggan run. Called Cool Runnings, the track is just over half a mile long – and truly lives up to its name.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_3"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "More about Africa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_africa_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Africa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/africa.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__1300640381",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__103901823",
+      "text": "Search flights to Cape Town",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_captown_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=CPT",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par3/separator_copy_copy__6753605"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lunchtime!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Every day at 12 noon (except Sundays), a cannon fires from Signal Hill. Today, it reminds people in Cape Town that it’s time for lunch. But the Noon Gun originally had a different purpose: sailors used the signal to set their ships' clocks.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par5/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration on the left: a cannon from which a cuckoo shoots out as if from a cuckoo clock. Illustration on the right: a person playing on a golf course. "
+     },
+     {
+      "type": "copyText",
+      "text": "<b>On the Green</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Golf fans, take note: there are around 20 golf courses in the greater Cape Town area alone. No wonder South Africa is one of the world’s most popular destinations for golfers.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Who Could Say No?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Cape Town is one of the most popular places in the world for marriage proposals. The famous question is asked particularly often on Table Mountain. Those looking to make it truly unforgettable can even hire an agency to organize the perfect proposal.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_9"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/articlecontentfragment/par9/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration of Table Mountain surrounded by the houses of Cape Town. Above the mountain, there is a speech bubble containing the word 'yes.'"
+     },
+     {
+      "type": "copyText",
+      "text": "All illustrations: © Sylvia Neuner",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/essentials-cape-town-facts_paragraph_10"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/par/sduicolumn_copy",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_15092026"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/par/sduicolumn_copy/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/par/sduicolumn_copy/column/separator"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/par/sduicolumn_copy/column/link_copy_copy_copy_",
+      "text": "More about Africa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_africa_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Africa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/africa.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts/jcr:content/par/sduicolumn_copy/column/link_copy_copy_copy__147093814",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

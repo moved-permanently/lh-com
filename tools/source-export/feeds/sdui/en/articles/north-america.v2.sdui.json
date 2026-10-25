@@ -1,0 +1,204 @@
+{
+ "id": "/content/mobile/lh/en/articles/north-america",
+ "metadata": {
+  "title": "North America"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/north-america/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/north-america/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/north-america/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/north-america/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Chicago",
+      "description": "From swimming with a view of skyscrapers to enjoying deep-dish pizza and much more, long-haul purser Peter-Jürgen Jilke reveals his tips for an unforgettable day in Chicago.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-chicago/lh_app_chicago_the-bean_unsplash-SLGfbFuqE_16x9.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "1"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Chicago",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-chicago.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/north-america/a-perfect-day-in-chicago"
+     },
+     {
+      "type": "offerBox",
+      "title": "Essentials of Mexico City",
+      "description": "A sinking city with a flood of taxis: five things about Mexico City that will surprise you.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration_sylvia-neuner_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "2"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Essentials of Mexico City",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/essentials-of-mexico-city.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/north-america/essentials-of-mexico-city"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in New York",
+      "description": "Flight attendant Till Weisbrod loves traveling in the Big Apple. If you want to experience New York in one day, you can accompany him on his trip and follow his recommendations.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_brooklyn_bridge_westend61-FOLF11149_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "3"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in New York",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-new-york.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/north-america/a-perfect-day-in-new-york"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/north-america/jcr:content/par/sduicolumn/column/separator_copy_copy__1396848865"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/north-america/jcr:content/par/sduicolumn/column/link_copy_copy_copy__446446493",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

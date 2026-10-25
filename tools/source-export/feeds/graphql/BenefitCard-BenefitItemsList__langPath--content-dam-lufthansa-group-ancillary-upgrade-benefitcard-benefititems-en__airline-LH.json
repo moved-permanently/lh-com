@@ -1,0 +1,151 @@
+{
+ "data": {
+  "benefititemList": {
+   "items": [
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Exquisite Food & Fine wines",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "first-class-lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Access to First Class Lounge (where available)",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "first-class-meal",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Culinary Delights & Fine Wines",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Neighbouring seat vacant",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fine-dining",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Fine dining",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Practical Travel Kit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Welcome Drink",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    }
+   ]
+  }
+ }
+}

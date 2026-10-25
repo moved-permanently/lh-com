@@ -1,0 +1,404 @@
+{
+ "data": {
+  "whatsnewList": {
+   "items": [
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/easily-find-where-your-aircraft-is-coming-from",
+     "releaseVersion": "610.0",
+     "date": "2026-03-01",
+     "headline": "Finden Sie heraus, woher Ihr Flugzeug kommt",
+     "shortText": {
+      "plaintext": "Ab sofort können Sie im Bereich „Services“ ganz leicht erfahren, woher Ihr Flugzeug kommt."
+     },
+     "longText": {
+      "html": "<p>Ab sofort können Sie im Bereich „Services“ ganz leicht erfahren, woher Ihr Flugzeug kommt.</p>\n<p>&nbsp;</p>\n<p>Besuchen Sie einfach den Bereich „Services“ auf Ihrer Reiseübersichtsseite. Dort finden Sie ein Symbol, das den Abflugort und die Standortinformationen Ihres Flugzeugs anzeigt.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:lhg",
+      "mobile-app:ita",
+      "mobile-app:android",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/manage-push-notifications-in-app",
+     "releaseVersion": "602.0",
+     "date": "2026-01-12",
+     "headline": "Push-Benachrichtigungen in der App verwalten",
+     "shortText": {
+      "plaintext": "Sie können jetzt alle Ihre Präferenzen für Push-Benachrichtigungen ganz einfach an einem Ort in den Einstellungen der App verwalten und anpassen."
+     },
+     "longText": {
+      "html": "<p>Sie können jetzt alle Push-Benachrichtigungen direkt in der App verwalten. Die verbesserten Einstellungen ermöglichen es Ihnen, genau auszuwählen, welche Updates Sie erhalten möchten&nbsp;– alles zentral an einem Ort.</p>\n<p>&nbsp;</p>\n<p>Um Ihre Präferenzen anzupassen, navigieren Sie einfach zu <b>Mehr / Einstellungen / Benachrichtigungen</b>.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:lhg",
+      "mobile-app:ita",
+      "mobile-app:android",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": "moreMenuNotificationSettingsEnabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "headline": "Unsere Apple Watch App ist da",
+     "shortText": {
+      "plaintext": "Bewahren Sie Ihre Bordkarte, Flug-Updates und Reiseinformationen direkt an Ihrem Handgelenk auf."
+     },
+     "longText": {
+      "html": "<p><b>Unsere Apple-Watch-App ist da</b> Reisen wird jetzt noch komfortabler. Mit unserer neuen Apple-Watch-App haben Sie alle wichtigen Informationen auf einen Blick – direkt an Ihrem Handgelenk.</p>\n<p><b>Neu dabei:</b></p>\n<p><b>Mobile Bordkarte</b> – Speichern Sie Ihre Bordkarte auf der Apple Watch und passieren Sie Sicherheitskontrolle und Boarding ganz entspannt.</p>\n<p><b>Meine Flüge</b> – Alle relevanten Details zu Ihren bevorstehenden Reisen, inklusive Echtzeit-Status-Updates.</p>\n<p><b>Trip Assistant Lite</b>&nbsp;– erhalten Sie während der gesamten Reise aktuelle Informationen zu jeder Etappe Ihres Flugs.</p>\n<p>Unsere Apple&nbsp;Watch&nbsp;App unterstützt Sie auf jedem Schritt und macht Reisen einfacher, schneller und reibungsloser.<br>\n<b>App installieren:</b><br>\nAktualisieren Sie unsere mobile App auf die neueste Version und aktivieren Sie die Apple Watch&nbsp;App über die Watch&nbsp;App auf Ihrem iPhone. Nach der Installation sind Sie startklar.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/jetzt-neu-in-der-app--reiseinspirationen-von-lufthansa-insights1",
+     "releaseVersion": "544.0",
+     "date": "2025-11-13",
+     "headline": "Neu in der App: Reiseinspirationen von Lufthansa Insights",
+     "shortText": {
+      "plaintext": "Entdecken Sie unsere Insider-Tipps und Highlights für Ihre Reise."
+     },
+     "longText": {
+      "html": "<p>Mit Lufthansa Insights erleben Sie Ihr Reiseziel aus einer ganz neuen Perspektive – denn unsere Lufthansa Mitarbeitenden kennen sich auf der ganzen Welt aus und teilen Ihre persönlichen Empfehlungen und Geheimtipps mit Ihnen. Viel Spaß beim Lesen!</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Lufthansa Insights V2 DE.png"
+     },
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/introducing-enhanced-trip-management",
+     "releaseVersion": "540.0",
+     "date": "2025-10-15",
+     "headline": "Das verbesserte Trip Management",
+     "shortText": {
+      "plaintext": "Das verbesserte Trip Management bietet ein dynamisches Dashboard-Design, das die Navigation vereinfacht, Klicks reduziert und alle wichtigen Reiseinformationen zentral anzeigt."
+     },
+     "longText": {
+      "html": "<p>Das verbesserte <b>Trip Management </b>bietet jetzt ein dynamisches Dashboard-Design, das ein nahtloses und benutzerfreundliches Erlebnis garantiert. Diese innovative Neugestaltung vereinfacht die Navigation und reduziert die Anzahl der Klicks, die für den Zugriff auf wichtige Reiseinformationen erforderlich sind.</p>\n<p>Das ist neu:</p>\n<p>Wichtige Details wie Flugrouten und Abflugzeiten werden nun deutlich auf einer <b>dynamischen </b>Flugkarte angezeigt. Bei einer Reise mit mehreren Flügen können Sie ganz einfach durch die Karten wischen, um jeden Streckenabschnitt anzusehen. Wenn Sie nach unten scrollen, werden weitere Informationen angezeigt, darunter Ihr Gepäckstatus, <b>Angaben zum Flughafen und zu den Passagieren. Außerdem erhalten Sie direkten Zugriff auf die Sitzplatzübersicht sowie Informationen über zusätzliches Gepäck, Upgrades sowie verschiedene weitere Services.</b></p>\n<p>Das neue <b>Trip Management</b> macht es einfacher denn je, Ihre Reisepläne zu verwalten und auf dem neuesten Stand zu bleiben. Erleben Sie den Unterschied mit dem optimierten Design, das effizient und effektiv auf all Ihre Reisebedürfnisse zugeschnitten ist.</p>\n<p>Und das ist nur der erste großartige Schritt. Freuen Sie sich schon bald auf weitere interessante Funktionen und nützliche Erweiterungen.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:android",
+      "mobile-app:start-popup",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/new-help-center-available-in-app",
+     "releaseVersion": "536.0",
+     "date": "2025-09-02",
+     "headline": "Neuer Hilfe-Bereich in der App verfügbar",
+     "shortText": {
+      "plaintext": "Durch einen einfachen Klick auf das Fragezeichen-Symbol können Sie zu über 70 flugbezogenen Themen und Unterthemen Hilfe erhalten."
+     },
+     "longText": {
+      "html": "<p>Der Zugriff auf die wichtigsten Service-Themen und Kontaktmöglichkeiten ist in der Brussels Airlines App jetzt einfacher denn je. Ganz gleich, ob Sie eine Buchung ändern, eine Rückerstattung beantragen oder bestimmte flugbezogene Dienstleistungen benötigen, personalisierte Hilfe ist nur wenige Klicks entfernt. Im neuen Hilfe-Bereich finden Sie alle unsere Dienstleistungen auf einen Blick, zusammen mit unseren Empfehlungen für die beste Option. Von Self Service-Optionen über die Nutzung des Chat&nbsp;Assistant oder den Live-Chat mit einem Agenten bis hin zum Anruf beim Service Center stehen Ihnen alle möglichen Lösungen zur Verfügung.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/quick-action-tiles",
+     "releaseVersion": "528.0",
+     "date": "2025-07-16",
+     "headline": "Schneller Zugang zu Flugservices",
+     "shortText": {
+      "plaintext": "Die neuen Schnellzugriffs-Kacheln im Trip Assistant bieten Ihnen nahtlosen Zugang zu allen Service-Leistungen für Ihren Flug."
+     },
+     "longText": {
+      "html": "<p>Die neuen Schnellzugriffs-Kacheln, die für jede Reise angezeigt werden, bieten jetzt noch reibungsloseren Zugang zu Service-Leistungen für Ihren Flug. Im Trip&nbsp;Assistant sehen Sie dank intuitiver Kurzinfos auf einen Blick, welche Optionen für Sie verfügbar sind, und können direkt in den Buchungsprozess einsteigen&nbsp;– von zusätzlichem Gepäck bis hin zu Sitzplatzänderungen und mehr. Verpassen Sie Ihrer Reise ein Upgrade&nbsp;– mit diesem benutzerfreundlichen, optimierten Design.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/profile-handover-to-call-center-agents",
+     "releaseVersion": "522.0",
+     "date": "2025-05-27",
+     "headline": "Profilübergabe an Callcenter-Mitarbeiter",
+     "shortText": {
+      "plaintext": "Indem Sie im Voraus Ihre Telefonnummer übermitteln, mit der Sie anrufen, können wir Ihnen eine schnellere Problemlösung, kürzere Gesprächsdauer und einen reibungsloseren Ablauf bieten."
+     },
+     "longText": {
+      "html": "<p>Unsere Callcenter-Mitarbeiter verfügen jetzt über alle notwendigen Buchungs- und Profildaten, bevor der Anruf beginnt. Geben Sie einfach die Telefonnummer an, mit der Sie anrufen, und wir übertragen alle relevanten Profil- und Buchungsdaten an unsere Callcenter-Mitarbeiter. Auf diese Weise kann die Problemlösung schneller sein, die Gesprächsdauer wird verkürzt und der Ablauf ist reibungsloser.</p>\n<p>Anstelle von wiederkehrenden Fragen erhalten Sie einen effizienten, persönlichen Service.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/book-additional-baggage",
+     "releaseVersion": "514.0",
+     "date": "2025-04-23",
+     "headline": "Zusätzliche Gepäckstücke buchen",
+     "shortText": {
+      "plaintext": "Sie können zusätzliches Gepäck jetzt direkt in der App hinzufügen."
+     },
+     "longText": {
+      "html": "<p>Sie möchten mehr Gepäck mitnehmen als die verfügbare Menge? Mit der neuen Zusatzgepäckfunktion können Sie zusätzlich aufzugebende Gepäckstücke direkt aus der App buchen.</p>\n<ul>\n<li>Echtzeit-Erkennung: Über die Angebotsbox können Sie mühelos feststellen, ob Ihre Buchung zum jeweiligen Zeitpunkt weiteres Gepäck zulässt.</li>\n<li>Direkter Zugriff: Buchen Sie Ihr zusätzliches Gepäckstück schnell und unkompliziert unter Ihren hinzugefügten Flügen.</li>\n</ul>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/bag-whats-new.png"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/your-in-flight-wi-fi-status-at-a-glance-1",
+     "releaseVersion": "514.0",
+     "date": "2025-04-11",
+     "headline": "Ihr WLAN-Status an Bord auf einen Blick",
+     "shortText": {
+      "plaintext": "Mit den neuen Verbindungsstatus-Informationen in FlyNet können Sie die WLAN-Verfügbarkeit sowie Ihren eigenen Verbindungsstatus in der App ganz einfach verfolgen."
+     },
+     "longText": {
+      "html": "<p>Mit dem neuen FlyNet-Badge können Sie während Ihres Fluges ganz leicht den aktuellen Verbindungsstatus zum WLAN an Bord erkennen. Wenn Ihr Flugzeug mit FlyNet ausgestattet ist, finden Sie das FlyNet-Badge oben auf dem Startbildschirm und im Reiseassistenten. Wenn Sie auf das Badge klicken, wird eine Seite geöffnet, die Ihnen zeigt, wie Sie sich verbinden können.</p>\n<p>Sobald die Verbindung hergestellt ist, wird der Badge-Status zu „WLAN verbunden“ aktualisiert und es wird angezeigt, wann der Internetzugang verfügbar ist. Nachdem das Flugzeug mit dem Internet verbunden ist, ändert sich der Status in „App&nbsp;online“, sodass Sie die App während des Fluges kostenlos nutzen können. Sie können sich dann die kostenlosen Unterhaltungsangebote ansehen oder über das FlyNet-Portal Internetzugang erwerben.</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/FlyNet Badge.png"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/streamlined-check-in-with-travel-id-passport-integration",
+     "releaseVersion": "514.0",
+     "date": "2025-04-01",
+     "headline": "Vereinfachter Check-in mit Reisepass-Integration",
+     "shortText": {
+      "plaintext": "Vereinfachen Sie Ihren Check-in, wenn Sie mit Ihrer Travel ID angemeldet sind und Ihre Reisepassdaten in Ihrem Profil gespeichert haben."
+     },
+     "longText": {
+      "html": "<p>Sie sind mit Ihrer Travel ID angemeldet und haben Ihre Reisepassdaten in Ihrem Profil gespeichert? Dann ist das Hinzufügen Ihrer Reisepassdaten beim Check-in jetzt noch einfacher. Übermitteln Sie einfach Ihre Daten, um die entsprechenden Reisedokumentfelder vorab auszufüllen. So verläuft der Check-in reibungsloser, schneller und bequemer.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/easier-access-to-seat-reservations",
+     "releaseVersion": "504.0",
+     "date": "2025-01-28",
+     "headline": "Sitzplatzreservierungen",
+     "shortText": {
+      "plaintext": "Mit der neuen Eingabe für Sitzplatzreservierungen können Sie Ihren Lieblingssitzplatz jetzt noch schneller auswählen. Schauen Sie sich die aktualisierte Option in Ihrem Reiseassistenten an!"
+     },
+     "longText": {
+      "html": "<p>Wir haben auch den Buchungsprozess für Ihre Sitzplatzreservierung noch einfacher gemacht! Jetzt können Sie direkt über den Reiseassistenten mit nur einem Klick Ihren Sitzplatz auswählen. Kein Navigieren durch zahlreiche Menüs mehr.</p>\n<ul>\n<li><b>Direkter Zugriff</b>: Reservieren Sie Ihren Sitzplatz schnell und unkompliziert.</li>\n<li><b>Smart-Check-in-Assistent</b>: Ist der Check-in geöffnet, werden Sie direkt weitergeleitet und sparen Zeit.</li>\n<li><b>Verbessertes Reiseerlebnis</b>: Dank der intelligenten Abläufe wird das Verwalten Ihrer Sitzplätze und des Check-ins noch schneller und einfacher.</li>\n</ul>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Seat Reservations.png"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/flynet-badge-connection-status-&-guidance",
+     "releaseVersion": "504.0",
+     "date": "2025-01-23",
+     "headline": "FlyNet Connectivity Information​",
+     "shortText": {
+      "plaintext": "The new feature shows the current connection status to the Wi-Fi on board when eligible for the aircraft."
+     },
+     "longText": {
+      "html": "<p>The new feature shows the current connection status to the Wi-Fi on board when eligible for the aircraft. <br>\nDuring in Flight phase a small badge will appear at the top on home screen and trip assistant to indicate the connection status to the on Board Wi-Fi and help you connecting to it.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:early-access",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": "flyNetDeviceRegistrationEnabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/twint",
+     "releaseVersion": "502.0",
+     "date": "2025-01-21",
+     "headline": "Bezahlen Sie auf swiss.com und der SWISS App mit TWINT",
+     "shortText": {
+      "plaintext": "SWISS bietet TWINT als eine neue Zahlungsmethode für Fluggäste in der Schweiz an, die auf swiss.com einen Flug buchen. Mit dieser neuen Funktion verlaufen Ihre Transaktionen schnell, einfach und sicher über die TWINT App auf Ihrem Smartphone. Mit über fünf Millionen aktiven Nutzern ist TWINT der größte Zahlungsdienstleister der Schweiz. Daher ist diese neue Zahlungsmethode und für viele Reisende eine bequeme Option. Diese Zahlungsmethode kann ausschließlich für Flugbuchungen und Transaktionen in Schweizer Franken auf swiss.com oder der neusten Version der SWISS App verwendet werden."
+     },
+     "longText": {
+      "html": "<p>Die neue Zahlungsmethode TWINT ist ab sofort auf swiss.com und der SWISS App verfügbar</p>\n<p>&nbsp;</p>\n<p>Fluggäste von SWISS mit Wohnsitz in der Schweiz haben nun eine zusätzliche Möglichkeit zur Bezahlung ihres Flugtickets auf swiss.com: Mit TWINT verläuft die Zahlungsabwicklung schnell, einfach und sicher. Am Ende des Buchungsvorgangs können Sie TWINT als Ihre Zahlungsmethode auswählen und die Bezahlung auf der TWINT App auf Ihrem Smartphone bestätigen. Die Bezahlung ist in wenigen Sekunden abgeschlossen und Sie können sich auf Ihre bevorstehende Tour freuen.</p>\n<p>&nbsp;</p>\n<p>Mit über fünf Millionen aktiven Nutzern ist TWINT der größte Zahlungsdienstleister der Schweiz. Dieses neue Angebot gilt für Fluggäste mit Wohnsitz in der Schweiz, die bei der Buchung eine Schweizer Telefonnummer verwenden. Die Bezahlung mit TWINT kann ausschließlich in Schweizer Franken auf swiss.com oder der neusten Version der SWISS App erfolgen. Die Bezahlung mit TWINT gilt nur für Flugbuchungen; für andere Services gelten die bisherigen Zahlungsmethoden.</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Twint.jpeg"
+     },
+     "_tags": [
+      "mobile-app:lx",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/world-aviation-festival---best-app",
+     "releaseVersion": "446.1",
+     "date": "2024-12-01",
+     "headline": "Wir haben die beste Airline-App der Welt 2024!",
+     "shortText": {
+      "plaintext": "Unsere App hat den Battle of the Apps Wettbewerb beim World Aviation Festival 2024 gewonnen."
+     },
+     "longText": {
+      "html": "<p>Wir freuen uns riesig, bekanntzugeben, dass die Lufthansa Group den Battle of the Airline Apps beim <a href=\"https://uk.linkedin.com/company/world-aviation-festival?trk=public_post-text\">World Aviation Festival</a> gewonnen hat! 🎉🎉</p>\n<p>&nbsp;</p>\n<p>Diese Auszeichnung spiegelt unser unermüdliches Engagement wider, das Reiseerlebnis unserer Kunden stetig zu verbessern, eine nahtlose und vertrauenswürdige Begleitung für jede Reise zu bieten und kontinuierlich auf menschliche Interaktionen zu setzen. Dieser Erfolg ist das Ergebnis jedes einzelnen Mitarbeiters der Lufthansa Group. Von den Kolleginnen und Kollegen an vorderster Front, die unsere Kunden vor, während und nach dem Flug betreuen, bis hin zu denen, die hinter den Kulissen arbeiten – Ihr Einsatz macht diesen Erfolg erst möglich.</p>\n<p>&nbsp;</p>\n<p>Wir sind stolz darauf, digitale Tools zu entwickeln, die Sie dabei unterstützen, unseren Kunden den besten und effizientesten Service zu bieten.</p>\n<p>&nbsp;</p>\n<p>Mehr erfahren:</p>\n<p>&nbsp;</p>\n<p><b><a href=\"https://www.lufthansa.com/de/en/digital-travel-companion\">Lufthansa Presse</a></b></p>\n<p>&nbsp;</p>\n<p><a href=\"https://www.linkedin.com/posts/lufthansa-group_waf2024-aviationfest-bestairlineapp-activity-7250156303476531201-bZDx\"><b>Linkedin</b></a></p>\n<p>&nbsp;</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/WAF asset v3.png"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/airporter",
+     "releaseVersion": "446.0",
+     "date": "2024-11-15",
+     "headline": "Stressfreie Gepäcktransfers für Ihre Reise!",
+     "shortText": {
+      "plaintext": "Keine schwere Last mehr – reisen Sie entspannt! Mit AirPortr genießen Sie eine Tür-zu-Tür-Gepäckzustellung von und zum Flughafen, sodass Sie leichter und stressfreier reisen können.\t"
+     },
+     "longText": {
+      "html": "<p>Wir freuen uns sehr, Ihnen AirPortr vorstellen zu können – für eine reibungslosere Reise als je zuvor! Mit AirPortr wird Ihr Gepäck bequem von Ihrem Zuhause oder Hotel abgeholt und direkt zum Flughafen geliefert&nbsp;– oder umgekehrt. Kein mühsames Schleppen schwerer Koffer durch überfüllte Terminals und kein Stress wegen der Check-in-Zeiten mehr!</p>\n<ul>\n<li><b>Lieferung von Tür zu Tür:</b>&nbsp;Ihr Gepäck wird sicher von Ihrer Haustür zum Flughafen oder vom Flughafen zu Ihrem Zielort transportiert.</li>\n<li><b>Unbeschwert reisen:</b>&nbsp;Vermeiden Sie den Stress des Gepäcktragens und bewegen Sie sich ganz entspannt durch den Flughafen – nur mit dem Nötigsten.</li>\n<li><b>Echtzeit-Tracking:</b>&nbsp;Behalten Sie Ihr Gepäck jederzeit im Blick und erhalten Sie Updates zu seinem Standort.</li>\n</ul>\n<p>Aktualisieren Sie jetzt die App und machen Sie Ihre nächste Reise mit AirPortr noch angenehmer!</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Airportr.jpg"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/de/liveactivties-ios",
+     "releaseVersion": "432.0",
+     "date": "2024-08-31",
+     "headline": "Flug-Updates in Echtzeit mit Live-Aktivitäten!",
+     "shortText": {
+      "plaintext": "Erhalten Sie in Echtzeit Updates zu Ihrem Flug, Gate-Änderungen und Boarding direkt auf Ihrem Sperrbildschirm und Ihrer Dynamic Island."
+     },
+     "longText": {
+      "html": "<p>Wir präsentieren die neuen Live-Aktivitäten in unserer App, mit denen Sie Ihren Flugstatus ganz bequem verfolgen können. Mit dieser neuen Funktion erhalten Sie in Echtzeit Updates zu Ihrem Flugstatus, Gate-Änderungen und Boardingzeiten&nbsp;– und das alles, ohne Ihr Smartphone entsperren zu müssen. Ganz egal, ob Sie gerade durch den Flughafen hasten oder sich vor Ihrem Flug entspannen: Ab sofort haben Sie die neuesten Informationen immer zur Hand.</p>\n<ul>\n<li>Flugstatus: Sie werden benachrichtigt, wenn das Boarding begonnen hat und wenn Ihr Flug verspätet oder startbereit ist.</li>\n<li>Gate-Änderungen: Sie werden umgehend informiert, wenn sich Ihr Gate ändert.</li>\n<li>Fortschrittsbalken: Verfolgen Sie Ihre Reise&nbsp;– vom Pre-Boarding über die Boardingzeit bis hin zum Verlauf Ihres Fluges.</li>\n</ul>\n<p>Aktualisieren Sie einfach Ihre App für ein übersichtliches und entspanntes Reiseerlebnis!</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Live Activities2.png"
+     },
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    }
+   ]
+  }
+ }
+}

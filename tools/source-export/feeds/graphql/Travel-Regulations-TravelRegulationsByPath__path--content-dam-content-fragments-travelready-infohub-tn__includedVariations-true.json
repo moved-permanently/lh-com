@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.607Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T13:26:23.232Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information:</b></p>\n<p><b>Visitors may enter Tunisia only with a valid passport.<br>\n </b>Please note that <b>national identity</b> cards are <b>not accepted</b> for entry.</p>\n<p>&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.607Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T13:26:23.232Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Wichtige Information:</b></p>\n<p>Reisende nach Tunesien dürfen nur<b> mit einem gültigen Reisepass </b>einreisen.<br>\nBitte beachten Sie, dass <b>nationale Personalausweise (ID card)</b> für die Einreise nicht akzeptiert werden.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.607Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T13:26:23.232Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Information importante :</b></p>\n<p>Les visiteurs ne peuvent <b>entrer en Tunisie qu'avec un passeport en cours de validité.<br>\n</b>Veuillez noter que les <b>cartes d'identité</b> nationales <b>ne sont pas acceptées</b> pour l'entrée dans le pays.<b></b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "id": "/content/mobile/lh/de/articles/africa",
+ "metadata": {
+  "title": "Afrika"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/africa/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/africa/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/africa/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/africa/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Kapstadt",
+      "description": "Purser Till Nawrath ist ein echter Kenner von Kapstadt. In diesem Beitrag teilt er mit uns, welche Elemente für einen perfekten Tag am Fuße des Tafelbergs für ihn unverzichtbar sind.",
+      "textLink": "Artikel lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-cape-town/lh_app_capetown_view_imago-135352297_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "1"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Kapstadt",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa/a-perfect-day-in-cape-town.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/de/mobile-app/africa/a-perfect-day-in-cape-town"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Johannesburg",
+      "description": "Flugbegleiterin Farah Benkassem verbringt regelmäßig Zeit in Johannesburg und verrät die besten Tipps für einen entspannten Tag in der südafrikanischen Metropole.",
+      "textLink": "Artikel lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_skyline_getty1213692303_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "2"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Johannesburg",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa/a-perfect-day-johannesburg-in-one-day.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/de/mobile-app/africa/a-perfect-day-johannesburg-in-one-day"
+     },
+     {
+      "type": "offerBox",
+      "title": "Essentials of Kapstadt",
+      "description": "Fünf Dinge über Kapstadt, die Sie überraschen werden.",
+      "textLink": "Artikel lesen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/africa/essentials-cape-town/lh_app_capetown_illustration_sylvia-neuner_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "3"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Essentials of Kapstadt",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/africa/essentials-cape-town-facts.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/de/mobile-app/africa/essentials-cape-town-facts"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/africa/jcr:content/par/sduicolumn/column/separator_copy_copy__595207707"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/africa/jcr:content/par/sduicolumn/column/link_copy_copy_copy__842478323",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

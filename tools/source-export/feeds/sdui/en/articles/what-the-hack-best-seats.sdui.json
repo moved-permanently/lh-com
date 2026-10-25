@@ -1,0 +1,326 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_privacy_baby_8528_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A woman with a baby in her arms is handed a drink on the plane"
+  },
+  {
+   "type": "copyText",
+   "text": "What the Hack: the Best Seats on the Plane",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>23. June 2025 | 5 min read | David McGraw</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Purser David McGraw from Frankfurt knows all the aircraft types. We asked him which seats are best suited for various needs.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Some people long for peace and quiet, others want to stretch their legs: for whom would you recommend which seat on a short-haul flight?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "I would always advise guests who want to sleep on board to sit in one of the front rows of the plane. Because the further in front of the engines you sit, the quieter it is. For particularly tall people, it is worth reserving seats at the emergency exits. There is a lot of legroom at the emergency doors of the Airbus A321, as there are no rows of seats directly in front of you.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>And what about other aircraft?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The seats at the emergency windows on the Airbus A319 and the Airbus A320neo also have more space between them and the next row of seats. The distance varies depending on the aircraft type, but they are characterized by at least ten&nbsp;centimeters of additional legroom. It should be noted that guests seated at the emergency exits must meet certain requirements. For example, they must be at least 16 years old, speak German or English, and be prepared to provide assistance in the unlikely event of an emergency.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_19318_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Woman leans against the aeroplane window with a cushion and sleeps"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>What are the advantages of sitting in the last row of the plane?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The advantages are, for example, the proximity to the washrooms and the fact that no one is sitting behind you who could disturb you. Booking seats in advance gives you the opportunity to tailor your flight experience to your personal needs. I find this very practical and therefore also like to use this service privately.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More comfort on board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Comfort on Board",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flight search",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_all_destinations_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Aisle or window seat – what advantages and disadvantages should you weigh up before booking a seat?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "I would always recommend families to reserve window seats for the children, as they can then look out and keep occupied during the flight. You can also sleep undisturbed at the window because you can lean against it. The aisle seat has the advantage that you don't disturb anyone if you want to get up now and then. In our Business Class on the Boeing Dreamliner or in the new&nbsp;Lufthansa Allegris Business Class cabin on the A350, all seats are arranged along the aisle and offer all-aisle access.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_family_15835_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Woman with a child sitting in the aeroplane, both laughing. A man can be seen from the side, also sitting in the same row of seats"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Which seats do you recommend for long-haul flights?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "You have the most legroom at the emergency exits. Or in Economy Class on the Boeing 747-8 directly behind Premium Economy, as there are no fixed partitions between the two classes. And of course in Business and First Class. My insider tip for the Boeing 747 is the last three rows of Economy Class, because there are only two seats on each side, as the aircraft becomes narrower towards the back. In the Airbus A380, there are also only two seats next to each other in row 75 at the emergency exits on the sides. The window seats A + K in row 76 are also recommended because there is no seat in front of them and you can stretch out your legs.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>The Airbus A380 and the Boeing 747 have an upper deck – what are the advantages of sitting there?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Flying in Business Class in the “hump” of a Boeing feels a bit like sitting in a private jet. It's a little quieter here than in the rest of the plane. The upper deck of the A380 feels a little less exclusive with 20 rows, but there is even a small Economy Class with five rows of seats at the rear of the aircraft. Although the A380 is an extremely quiet aircraft, it is still a little quieter here than on the lower deck. Another advantage is that there are only two seats next to each other on the window sides instead of three. You have the most legroom here in row 95 at the emergency exits.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1096_lufthansa-allegris_0970_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A couple is sitting in the Allegris seats, looking at each other. They are holding hands."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>What extra comfort do the seats in the new Lufthansa Allegris Premium Economy offer?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The seats in the hard shell design can be reclined further back than the previous model&nbsp;– and it has no effect on fellow passengers in the row behind you if you lean back. The seats are also wider and the distance to the seat in front of you is just under one meter. I find it very practical that you can charge mobile devices wirelessly on the center armrest.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>A Unique New Travel Experience: Lufthansa Allegris</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "From heated seats to Business and First Class seats that can be combined into double beds, Lufthansa Allegris is the new flagship product for long-haul flights. It has been introduced on newly delivered Airbus A350s since spring 2024, and features new seat concepts for First, Business, Premium Economy, and Economy Class.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Visit the Lufthansa website to find out how you can easily reserve your favorite seat.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>About</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "David McGraw has been working as a purser for Lufthansa on both short- and long-haul flights since 2010. His favorite destinations are Rio de Janeiro, Singapore, and all locations in Italy. He loves the contact with people from different cultures in his job and enjoys flying to sunny places in winter. From the Boeing Dreamliner to the A380, he knows all travel classes and aircraft types used by Lufthansa – and therefore also the best seats in various aircraft cabins.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More comfort on board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Comfort on Board",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

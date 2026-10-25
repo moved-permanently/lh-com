@@ -1,0 +1,278 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of the hand of the Cristo statue showing a paramedic getting out of a helicopter and running to a bleeding finger."
+  },
+  {
+   "type": "copyText",
+   "text": "Essentials of Rio de Janeiro",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>18. June 2025 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Legal graffiti art and a ban on bikinis: five things about Rio de Janeiro that will surprise you.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Graffiti Allowed!&nbsp;</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Rio would not be so&nbsp;colorful without its street art. The city has paid tribute to the artists by&nbsp;legalizing spray-painting as far as possible: public buildings are also permitted as long as they are not listed buildings. One of the largest works is the 3,000 square&nbsp;meter mural \"Etnias\" in the&nbsp;harbor area.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Two illustrations. On the left, a person sits on a roof in a favela and sprays a graffiti heart into the sky. On the right, a ship on a river forming the word Rio."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Mix-up with Consequences</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Rio de Janeiro translates as \"January River.\" The name originated when Portuguese sailors landed in a bay in January 1502, which they mistook for the mouth of a river. When the town's foundations were laid in 1565, the term became part of its name.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about South America",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_south_america_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "South America",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flight search to Rio de Janeiro",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_rio_de_janeiro_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=RIO"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Bikini Ban</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "One item of clothing is an integral part of Rio de Janeiro's beach neighborhoods: the bikini. But in 1961, the then President Jânio da Silva Quadros had the two-piece banned by law. Was that the reason why he was only able to stay in office for seven months?&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Two illustrations. On the left, vendor standing with three balloons at Copa Cabana, forming a silhouette of a woman in a bikini. On the right, the hand of the Cristo statue with a paramedic getting out of a helicopter and running to a bleeding finger"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Hit by Lightning</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Contrary to the saying \"lightning never strikes twice in the same place,\" the famous Cristo Redentor statue high up on the Corcovado mountain has been struck several times - it even lost a fingertip in 2014. Ouch!&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of the football stadium in Rio de Janeiro, where a football jumps out and bounces off the Sugar Loaf Mountain."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Football Madness</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The love of football here is overwhelming: in 1950, over 173,000 people gathered in Rio de Janeiro's Maracanã Stadium. At least that's what the official figures say. Unofficially, it is said to have been significantly more. It was the final of the World Cup. Brazil took on&nbsp;Uruguay – and lost 1:2, a tragic moment in the country's football history to this day.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "All illustrations © Sylvia Neuner",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about South America",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_south_america_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "South America",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

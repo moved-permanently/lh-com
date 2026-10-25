@@ -1,0 +1,169 @@
+{
+ "logoIcon": "/etc/designs/dcep/lh-logo-crane.svg",
+ "logoAltText": "back to homepage",
+ "secondaryLogoIcon": "/etc/designs/dcep/clientlib-all/vite/img/member-of-lhg.svg",
+ "secondaryLogoAltText": "Member of Lufthansa Group",
+ "quoteText": "",
+ "copyrightText": "",
+ "linkedInIcon": "",
+ "linkedInAltText": "",
+ "linkedInLink": "",
+ "linkTarget": "",
+ "linkList1": [
+  {
+   "text": "Flüge ansehen & bearbeiten",
+   "url": "https://www.lufthansa.com/deeplink/cockpit?country=DE&language=DE",
+   "eventId": "imagelinklistitem_1105684584"
+  },
+  {
+   "text": "Angebote & Destinationen",
+   "url": "/de/de/fluege",
+   "eventId": "imagelinklistitem"
+  },
+  {
+   "text": "Gepäck",
+   "url": "/de/de/gepaeck",
+   "eventId": "imagelinklistitem_1222217304"
+  },
+  {
+   "text": "Check-in",
+   "url": "/de/de/all-check-in",
+   "eventId": "imagelinklistitem_844625241"
+  },
+  {
+   "text": "Am Flughafen",
+   "url": "/de/de/flughafeninformation",
+   "eventId": "imagelinklistitem_2134549627"
+  },
+  {
+   "text": "Travel Briefing",
+   "url": "/de/de/travel-briefing",
+   "eventId": "imagelinklistitem_1148487520"
+  },
+  {
+   "text": "Flugziele",
+   "url": "https://www.lufthansa.com/lhg/de/de",
+   "eventId": "imagelinklistitem_1148487520"
+  }
+ ],
+ "linkList2": [
+  {
+   "text": "Travel ID Konto",
+   "url": "/de/de/travel-id",
+   "eventId": "imagelinklistitem_1464073913"
+  },
+  {
+   "text": "Miles & More",
+   "url": "/de/de/miles-and-more",
+   "eventId": "imagelinklistitem_2059232999"
+  },
+  {
+   "text": "Hilfe",
+   "url": "/de/de/help-and-contact",
+   "eventId": "imagelinklistitem"
+  },
+  {
+   "text": "Lufthansa App",
+   "url": "/de/de/digital-travel-companion",
+   "eventId": "imagelinklistitem_354221940"
+  },
+  {
+   "text": "Feedback",
+   "url": "/de/de/feedback",
+   "eventId": "imagelinklistitem_354221940"
+  },
+  {
+   "text": "Newsletter",
+   "url": "/de/de/discover-lufthansa/register-newsletter",
+   "eventId": "imagelinklistitem_103780073"
+  }
+ ],
+ "linkList3": [
+  {
+   "text": "Jobs & Karriere ",
+   "url": "https://lufthansagroup.careers/de",
+   "eventId": "imagelinklistitem"
+  },
+  {
+   "text": "Aviation Group",
+   "url": "/de/de/lufthansa-aviation-group",
+   "eventId": "imagelinklistitem_917903306"
+  },
+  {
+   "text": "Lufthansa Group Airlines",
+   "url": "/de/de/lufthansa-group-star-alliance-and-partner-airlines",
+   "eventId": "imagelinklistitem_1640238860"
+  },
+  {
+   "text": "Presse",
+   "url": "https://www.lufthansagroup.com/de/home.html",
+   "eventId": "imagelinklistitem_1683944434"
+  },
+  {
+   "text": "Lufthansa Partner",
+   "url": "/de/de/partner",
+   "eventId": "imagelinklistitem_329981459"
+  },
+  {
+   "text": "Sustainability",
+   "url": "http://www.makechangefly.com/",
+   "eventId": "imagelinklistitem_329981459"
+  }
+ ],
+ "linkList4": [
+  {
+   "text": "Für Reisebüros",
+   "url": "/de/de/business-services/for-travel-agencies.html",
+   "eventId": "imagelinklistitem"
+  },
+  {
+   "text": "Lufthansa Group for Business",
+   "url": "https://business.lufthansagroup.com/",
+   "eventId": "imagelinklistitem_1809220395"
+  },
+  {
+   "text": "Firmenbonusprogramm",
+   "url": "https://business.lufthansagroup.com/de/de/program/partner-plus-benefit",
+   "eventId": "imagelinklistitem_1192595518"
+  }
+ ],
+ "linkList5": [
+  {
+   "text": "Impressum",
+   "url": "/de/de/impressum",
+   "eventId": "imagelinklistitem"
+  },
+  {
+   "text": "ABB",
+   "url": "/de/de/befoerderungsbedingungen-group",
+   "eventId": "imagelinklistitem_1326273107"
+  },
+  {
+   "text": "Datenschutz",
+   "url": "/de/de/datenschutz",
+   "eventId": "imagelinklistitem_517600338"
+  },
+  {
+   "text": "Passagierrechte",
+   "url": "/de/de/passenger-rights",
+   "eventId": "imagelinklistitem_820069781"
+  },
+  {
+   "text": "Erklärung zur Barrierefreiheit",
+   "url": "/de/de/common/accessibility-statement",
+   "eventId": "imagelinklistitem_820069781"
+  },
+  {
+   "text": "Schlichtungsstelle",
+   "url": "/de/de/passenger-rights",
+   "eventId": "imagelinklistitem_786889040"
+  },
+  {
+   "text": "Nutzungsbedingungen",
+   "url": "/de/de/nutzungsbedingungen",
+   "eventId": "imagelinklistitem_1815916586"
+  }
+ ],
+ "linkList6": [],
+ "linkList7": []
+}

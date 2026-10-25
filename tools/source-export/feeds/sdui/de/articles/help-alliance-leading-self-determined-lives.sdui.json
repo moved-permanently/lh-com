@@ -1,0 +1,278 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_ithemba_school_south-africa_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Eine Freiwillige der help alliance unterstützt zwei Kinder beim Lernen in der Schule"
+  },
+  {
+   "type": "copyText",
+   "text": "help alliance: Ein selbstbestimmtes Leben führen",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>19. Juni 2025 | 5 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Vor 25 Jahren gründeten einige wenige Mitarbeitende der Lufthansa den Verein help alliance e.V. – ihre Mission: die Bildungschancen junger Menschen weltweit zu verbessern.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Purser Sonja Steinheuser organisiert interkulturelle Kochevents für Geflüchtete in Frankfurt am Main. Projektmanager Oscar Romero fördert in Kolumbien nachhaltiges Unternehmertum in der Tourismusbranche. HR-Referentin Katja Müller unterstützt in Indien ein Lernprojekt für traumatisierte Kinder. Das sind nur einige Beispiele für Mitarbeitende der Lufthansa Group, die sich für über 60 Hilfsprojekte in 29 Ländern einsetzen. Sie teilen ihr Know-how, geben Workshops, unterstützen bei Nachhilfe oder organisieren Spendenevents für ihre Herzensprojekte.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_app_help-alliance_worldkitchen_c_inna-rakhuba_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "ZFrauen bei einem interkulturellen Kochevent des World Kitchen Projekts in Frankfurt"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Bildungschancen weltweit verbessern</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Das gemeinsame Ziel: die Bildungschancen von sozial benachteiligten Kindern, Jugendlichen und jungen Erwachsenen zu verbessern. „Unsere Projekte sollen jungen Menschen ermöglichen, die Schule abzuschließen und einen Beruf zu erlangen, um so ein selbstbestimmtes Leben zu führen“, fasst Amelie Schwierholz aus dem Kommunikations-Team der help alliance die Mission der gemeinnützigen GmbH zusammen. „Dabei beachten wir die Standards der Kinderrechtskonvention und die Nachhaltigkeitsziele der Vereinten Nationen und arbeiten immer mit professionellen Partnern vor Ort zusammen.“&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_india_women_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Eine Gruppe von Frauen, darunter eine help alliance-Freiwillige, im Gespräch"
+  },
+  {
+   "type": "copyText",
+   "text": "1999 gründeten 13 Pilot:innen und Flugbegleiter:innen der Lufthansa Airline die help alliance – damals als Verein, seit 2017 ist die Organisation eine gGmbH. Der Wunsch der Gründer:innen: sich stärker für die Schulen und Ausbildungszentren zu engagieren, die sie auf ihren Reisen kennengelernt hatten. „Alle Gründungsmitglieder haben eigene Projekte mit in den Verein gebracht und weiter gefördert“, erzählt Milena Mai, die bei der help alliance für Strategie zuständig ist. „An diese Idee knüpfen wir bis heute an. Alle Projektvorschläge kommen von den Mitarbeitenden der Lufthansa Group, die einmal pro Jahr ihre Ideen bei uns einreichen können. Das macht unsere Arbeit so nahbar.“&nbsp;&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Eine große Bewegung innerhalb der Lufthansa Group</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Mit der Social-Media-Kampagne „I fly for“ stellt die help alliance anlässlich ihres 25-jährigen Bestehens die vielen Unterstützer:innen vor – und deren Gründe für ihr Engagement: Eurowings-Pilotin Julia etwa fliegt für „die Stärkung von Frauenrechten“; Discover-Airlines-Flugbegleiter Sanad für die „Unabhängigkeit von Kindern“. „So wollen wir zeigen, dass aus einer kleinen Mitarbeiterinitiative mittlerweile eine&nbsp;große Bewegung innerhalb der Lufthansa Group geworden ist“, sagt Amelie Schwierholz.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_all_destinations_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>170 Projekte in 65 Ländern</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In 25 Jahren hat die help alliance über 170 Projekte in 65 verschiedenen Ländern unterstützt, darunter 30 Nothilfe-Projekte wie etwa bei der Tsunami-Katastrophe 2004 in Südostasien. Allein 2023 haben über 60.000 Kinder, Jugendliche und junge Erwachsene von den Projekten profitiert: 31.000 Kinder konnten zur Schule gehen, mehr als 3.000 junge Menschen erhielten eine Aus- und Weiterbildung oder nahmen an Workshops und Trainings teil und 462 junge Männer und Frauen wurden erfolgreich in den Arbeitsmarkt integriert.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Eines der größten help alliance-Projekte ist die iThemba-Schule in Südafrika. Was als kleine Vorschule begann, hat sich zu einer Grundschule mit integrierter Vorschule entwickelt, die mittlerweile rund 1.200 Kindern eines Townships Zugang zu qualitativ hochwertiger Bildung bietet. 2022 wurde das Projekt in die Unabhängigkeit überführt und die Schule wird seitdem spendenunabhängig von den örtlichen staatlichen Stellen geführt. „Projekte abzuschließen, ist der größte Erfolg für uns“, sagt Milena Mai. „Denn lokales Empowerment steht im Mittelpunkt unserer Arbeit. Unseren Partner:innen im Ausland begegnen wir stets auf Augenhöhe und helfen lediglich mit unserem Wissen aus. Schließlich sind sie diejenigen, die sich vor Ort am besten auskennen.“&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_ithemba_school_south-africa_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Ein lächelndes Mädchen sitzt im Klassenzimmer der iThemba-Schule in Südafrika"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Hilfe beim Aufbau von Vertriebswegen</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Dem Piloten Dominik Kopp fiel bei seinen zahlreichen Aufenthalten in Nepal die extreme Armut von Arbeiter:innen auf Gewürzbauernhöfen in einer abgelegenen Bergregion auf. Er trommelte ein Team an Kolleg:innen aus dem Vertrieb, Sales- und Marketing-Bereich der Lufthansa Group zusammen, um den Menschen vor Ort dabei zu helfen, neue Vertriebswege aufzubauen und ihre Waren nach internationalen Standards zu produzieren. Mittlerweile kauft ein Gewürzhändler aus Österreich den Landwirt:innen Kardamom und Szechuanpfeffer zu fairen Preisen ab. Und: Sogar die Speisen in der Business Class an Bord von Flugzeugen der Lufthansa wurden im Rahmen einer Aktion damit gewürzt.&nbsp;&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_nepali_pepper-sorting_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Frauen in traditioneller Kleidung arbeiten gemeinsam an der Verarbeitung von Gewürzen"
+  },
+  {
+   "type": "copyText",
+   "text": "Eine weitere Besonderheit der help alliance: Alle Spenden kommen zu 100 Prozent bei den jeweiligen Hilfsprojekten an. Die administrativen Kosten trägt die Lufthansa Group. Spendet man 160 Euro, womit ein Kind ein Jahr lang in den Kindergarten gehen kann, oder 20 Euro für eine neue Schuluniform, wird das Geld ausschließlich für diesen Zweck genutzt.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Die Spendenbereitschaft steigt von Jahr zu Jahr&nbsp;</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "„Wir sind sehr glücklich darüber, dass die Spendenbereitschaft in den letzten 25 Jahren immer weiter gestiegen ist“, sagt Milena Mai. „Von rund 40.000 Euro im Gründungsjahr konnten wir uns allein 2023 auf über fünf Millionen Euro steigern. Dank Meilenspenden, Kleingeldspenden an Bord oder des RTL-Spendenmarathons, an dem wir jedes Jahr teilnehmen, aber auch der vielen Menschen, die bei Geburtstagen oder Firmenevents Geld für uns sammeln.“&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Persönlicher Einsatz von Kund:innen der Lufthansa Group&nbsp;</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Sogar Kund:innen der Lufthansa Group sind mittlerweile aktive Unterstützer:innen. „Ein Lufthansa Senator, der als Professor für Ökonomie und internationale Strategien tätig ist, erfuhr an Bord von unserer Arbeit und hat daraufhin in unserem Projekt in Cartagena in Kolumbien Workshops zum Thema Entrepreneurship und Kreislaufwirtschaft gegeben“, erzählt Milena Mai. „Connecting people and cultures – auch in Zukunft wird die help alliance alles dafür tun, diesen Purpose der Lufthansa Group in die Tat umzusetzen.“&nbsp;&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/help-alliance--leading-self-determined-lives/lh_blog_help-alliance_cartagena-senator-workshop_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Ein Mann gibt in einer Gruppe von jungen Erwachsenen einen Workshop oder Vortrag"
+  },
+  {
+   "type": "copyText",
+   "text": "Sie können die help alliance ebenfalls mit einer Spende unterstützen oder Ihren eigenen Fundraiser für eines der Projekte starten. Alle Infos dazu finden Sie auf der Webseite der help alliance.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

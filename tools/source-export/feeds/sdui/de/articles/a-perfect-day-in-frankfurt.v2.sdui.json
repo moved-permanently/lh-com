@@ -1,0 +1,460 @@
+{
+ "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_city_getty1392119944_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Blick durch eine Hochhäuserschlucht in Frankfurt"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Frankfurt",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>9. Oktober 2025 | 2 min read | Julia Buth</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Flugbegleiterin Julia Buth kennt sich in Frankfurt aus. Wer die Stadt an einem Tag erleben will, folgt ihren Tipps.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par0/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_cafe-karin_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Verschiedene Speisen im Café Karin"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par0/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Frühstück im Café Karin</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Egal ob Bowls, Stullen oder Pfannkuchen: In dem alteingesessenen Lokal werden alle Speisen mit viel Liebe aus regionalen Zutaten zubereitet</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Großer Hirschgraben 28",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Goethes Geburtshaus</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Gleich gegenüber vom Café Karin liegt Goethes Geburtshaus, in dem es noch immer genauso aussieht, als sei Goethe mit seiner Familie gerade erst ausgezogen</li><li>Mein Tipp: ein paar Schritte weiter zum Frankfurter Museumsufer gehen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "Hirschgraben 21",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par7/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_staedel-museum_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Menschen im Städel Museum Frankfurt"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par7/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Städel Museum</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Wenn ich Lust auf Kunst habe, gehe ich ins Städel Museum, wo ich Werke aus den letzten 700 Jahren bewundere.</li><li>Wer mehr Kultur möchte, besucht eines der vielen Museen am berühmten Museumsufer direkt am Main</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Schaumainkai 63",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Chillen im Main Café</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>An Sommertagen schnappe ich mir gern im Main Café einen Liegestuhl, beobachte die vielen Ausflügler und lasse die Skyline von Frankfurt auf mich wirken</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "Schaumainkai 50",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_13"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par13/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par13/link_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par13/link_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par13/link_copy_copy_copy",
+      "text": "Flüge nach Frankfurt finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_frankfurt_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=FRA",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par13/separator_copy_copy__234094263"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Nachmittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_14"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par14/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_gettyImages1449117784_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Fußgänger überqueren eine Kreuzung in Frankfurt am Main"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par14/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Tapas in der Kleinmarkthalle</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Wie multikulturell Frankfurt ist, spürt man auch in der Kleinmarkthalle, in der Händler montags bis samstags Gemüse, Obst und Spezialitäten aus aller Welt verkaufen</li><li>Mein Shopping-Geheimtipp: die Berger Straße im Stadtteil Bornheim mit ihren vielen inhabergeführten Läden, die außergewöhnliche und einzigartige Dinge verkaufen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abends</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_17"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par17/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_berger-streetfood_shutterstock394084948_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Nahaufnahme von Sushi auf einem Schieferteller"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/articlecontentfragment/par17/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Sushi in der Berger Straße essen</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>In der Berger Straße gibt es an jeder Ecke kleine Cafés</li><li>Bei Berger Streetfood findet man das beste Sushi der Stadt – Anstellen lohnt sich</li><li>Meine Empfehlung: abends in chilliger Wohnzimmeratmosphäre in der Saint Tropez Bar im Bahnhofsviertel tanzen gehen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte: George Miguletz, Cafe Karin, Getty Images, Shutterstock",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_21"
+     },
+     {
+      "type": "copyText",
+      "text": "Julia Buth arbeitet seit 2008 als Flugbegleiterin bei Lufthansa und ist seit 2023 Purser auf der Lang- und Kurzstrecke.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-frankfurt_paragraph_22"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_04092025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/par/sduicolumn/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/par/sduicolumn/column/link_copy_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

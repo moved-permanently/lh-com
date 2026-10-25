@@ -1,0 +1,367 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_skyline_unsplash-z0A_IsZYXfM_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Team Stories: A bird's eye view of Buenos Aires"
+  },
+  {
+   "type": "copyText",
+   "text": "A Perfect Day in Buenos Aires",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>15. September 2026 | 2 min read | Julia Buth</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Purser Julia Buth from Frankfurt regularly spends time in Buenos Aires and shares her top tips on how to spend the perfect day in the Argentinean capital.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Morning</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_plaza-dorrego_tango_getty1211337952_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A couple, the woman in a red dress, the man in a beige jacket and black trousers, are dancing the tango in an outdoor square"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Breakfast at Café Tortoni</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>I always start my day at Café Tortoni, the city's oldest and most iconic café</li><li>I highly recommend the medialunas with dulce de leche – a true Argentine classic</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Café Tortoni, Av. de Mayo 825",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Explore San Telmo</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>The historic San Telmo district is the perfect place to experience the vibrant street life of Buenos Aires</li><li>My tip: stroll around Plaza Dorrego and, on Sundays, visit the famous arts and crafts market</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Plaza Dorrego, San Telmo",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Midday</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_juan-pablo-mascanfroni_unsplash-1vumey9jdwk_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "View of the Galileo Galilei Planetarium in the Palermo district of Buenos Aires"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Empanadas at San Telmo Market</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>The historic San Telmo Market is one of my favorite places in the city</li><li>At El Hornero, you'll find empanadas with a wide variety of fillings – my favorites are the cheese empanadas</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Mercado de San Telmo, Defensa 963, San Telmo",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about South America",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_south-america_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "South America",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Search flights to Buenos Aires",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_buenosaires_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=BUE"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Afternoon</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_la-boca_getty172800353_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "View of colorfully painted corrugated iron houses in the La Boca district of Buenos Aires."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Walk Through La Boca</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>La Boca is famous for its colorful buildings, street performers, and lively atmosphere</li><li>Soccer fans shouldn't miss a visit to the iconic La Bombonera stadium</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "La Bombonera, Brandsen 805, La Boca",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Evening</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_palermo_p7e8rp_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "View of the Plaza Italia square in the Palermo district of Buenos Aires."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Dinner at Lo de Jesús</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>My favorite restaurant in Palermo is Lo de Jesús</li><li>I recommend the grilled provolone with creamy spinach – a delicious choice for vegetarians, too</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Lo de Jesús, Gurruchaga 1406, Palermo",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Cocktails at Milión</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<ul><li>I love ending the day at Milión, a stylish bar set in a beautifully restored Belle Époque mansion.</li></ul>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Milión, Paraná 1048, Recoleta",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Copyrights:&nbsp;Andrea Leopardi / Unsplash, Alamy Stock Photo, Getty Images (2), Juan Pablo Mascanfroni / Unsplash",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>About</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Julia Buth began as a flight attendant at Lufthansa in 2008, and has been a purser on long- and short-haul flights since 2023.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_31082026"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about South America",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_south-america_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "South America",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

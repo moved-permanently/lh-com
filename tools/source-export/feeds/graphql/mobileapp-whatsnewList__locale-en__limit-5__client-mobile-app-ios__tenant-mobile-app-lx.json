@@ -1,0 +1,119 @@
+{
+ "data": {
+  "whatsnewList": {
+   "items": [
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-just-got-easier-all-tenants",
+     "releaseVersion": "638.0",
+     "date": "2026-08-24",
+     "headline": "Finding your next flight just got easier",
+     "shortText": {
+      "plaintext": "We've introduced a new, native booking experience that makes searching and booking flights faster, smoother, and more accessible.\n"
+     },
+     "longText": {
+      "html": "<p>We've introduced a new, native booking experience that makes searching and booking flights faster, smoother, and more accessible.</p>\n<ul>\n<li>Faster flight results</li>\n<li>Improved itinerary details</li>\n<li>Enhanced fare selection</li>\n<li>&nbsp;Better accessibility and performance</li>\n</ul>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:os",
+      "mobile-app:sn",
+      "mobile-app:ios",
+      "mobile-app:android"
+     ],
+     "featureFlagName": "expressWayV2Enabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/easily-find-where-your-aircraft-is-coming-from",
+     "releaseVersion": "610.0",
+     "date": "2026-03-01",
+     "headline": "Easily find where your aircraft is coming from!",
+     "shortText": {
+      "plaintext": "You can now easily find information about where your aircraft is coming from right at the top in the services section."
+     },
+     "longText": {
+      "html": "<p>You can now easily find information about where your aircraft is coming from right at the top in the services section.</p>\n<p>&nbsp;</p>\n<p>Simply visit the services section on your trip details page, where you’ll find an icon displaying your aircraft’s origin and location information.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:ita",
+      "mobile-app:android",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/manage-push-notifications-in-app",
+     "releaseVersion": "602.0",
+     "date": "2026-01-12",
+     "headline": "Manage push notifications in-app",
+     "shortText": {
+      "plaintext": "You can now easily manage and customize all your push notification preferences in one place within the app’s settings."
+     },
+     "longText": {
+      "html": "<p>You can now manage all push notifications directly within the app. The improved settings allow you to choose exactly which updates you want to receive – all from one convenient location.</p>\n<p>&nbsp;</p>\n<p>To adjust your preferences, simply navigate to <b>More / Settings / Notifications</b>.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:lx",
+      "mobile-app:sn",
+      "mobile-app:lhg",
+      "mobile-app:ita",
+      "mobile-app:android",
+      "mobile-app:os",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": "moreMenuNotificationSettingsEnabled"
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/ios-watch-app",
+     "releaseVersion": "550.0",
+     "date": "2025-12-07",
+     "headline": "Our Apple Watch App Is Here",
+     "shortText": {
+      "plaintext": "Keep your boarding pass, flight updates, and trip information right on your wrist."
+     },
+     "longText": {
+      "html": "<p>Your journey just got even more convenient. With our new Apple Watch app, key travel information is always just a glance away—right on your wrist.</p>\n<p><b>New features include:</b></p>\n<ul>\n<li><b>Mobile Boarding Pass</b> - store your boarding pass on your Apple Watch and move through security and boarding with ease.</li>\n<li><b>My Flights </b>- view important details for all your upcoming trips, including real-time flight status updates.</li>\n<li><b>Trip Assistant Lite</b> - receive timely, flight-phase–specific information throughout your journey.</li>\n</ul>\n<p>Designed to support you every step of the way, our Apple Watch app helps make travel simpler, faster, and more seamless.<br>\n<b>How to get it:</b><br>\nUpdate to the latest version of our mobile app and enable the Apple Watch app via the Watch app on your iPhone. Once installed, you’re ready to go.</p>\n"
+     },
+     "image": null,
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios",
+      "mobile-app:start-popup"
+     ],
+     "featureFlagName": null
+    },
+    {
+     "__typename": "WhatsnewModel",
+     "_path": "/content/dam/lufthansa-group/mobileapp/whats-new/en/new-in-the-app--travel-inspiration-from-lufthansa-insights1",
+     "releaseVersion": "544.0",
+     "date": "2025-11-13",
+     "headline": "New in the app: Travel inspiration from Lufthansa Insights",
+     "shortText": {
+      "plaintext": "Discover our insider tips and highlights for your trip."
+     },
+     "longText": {
+      "html": "<p>With Lufthansa Insights, you can experience your destination from a completely new perspective – because our Lufthansa employees know their way around the world and share their personal recommendations and insider tips with you. Have fun reading!</p>\n"
+     },
+     "image": {
+      "_path": "/content/dam/lh/images/mobileapp/Lufthansa Insights V2.png"
+     },
+     "_tags": [
+      "mobile-app:lh",
+      "mobile-app:ios"
+     ],
+     "featureFlagName": null
+    }
+   ]
+  }
+ }
+}

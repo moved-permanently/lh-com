@@ -1,0 +1,68 @@
+{
+ "data": {
+  "sduiServiceList": {
+   "items": [
+    {
+     "description": {
+      "plaintext": null
+     },
+     "_path": "/content/dam/content-fragments/orchestrator_services/sdui-services/demographqlfragment",
+     "serviceType": "SDK",
+     "framework": "SPRING",
+     "url": null,
+     "providerClassName": "com.lhg.csi.sdui.sdk.demo.provider.DemoGraphQLFragmentProvider",
+     "serviceIsCacheable": false,
+     "cachingTime": null
+    },
+    {
+     "description": {
+      "plaintext": null
+     },
+     "_path": "/content/dam/content-fragments/orchestrator_services/sdui-services/demohttp",
+     "serviceType": "HTTP",
+     "framework": null,
+     "url": "https://www.austrian.com/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de;airline=OS",
+     "providerClassName": null,
+     "serviceIsCacheable": false,
+     "cachingTime": null
+    },
+    {
+     "description": {
+      "plaintext": null
+     },
+     "_path": "/content/dam/content-fragments/orchestrator_services/sdui-services/demospringsdk",
+     "serviceType": "SDK",
+     "framework": "SPRING",
+     "url": null,
+     "providerClassName": "com.lhg.csi.sdui.sdk.demo.provider.DemoSpringSdkProvider",
+     "serviceIsCacheable": false,
+     "cachingTime": null
+    },
+    {
+     "description": {
+      "plaintext": null
+     },
+     "_path": "/content/dam/content-fragments/orchestrator_services/sdui-services/demovanillasdk",
+     "serviceType": "SDK",
+     "framework": "VANILLA",
+     "url": null,
+     "providerClassName": "com.lhg.csi.sdui.sdk.demo.provider.DemoVanillaSdkProvider",
+     "serviceIsCacheable": false,
+     "cachingTime": null
+    },
+    {
+     "description": {
+      "plaintext": null
+     },
+     "_path": "/content/dam/content-fragments/orchestrator_services/sdui-services/salesandmarketingteaserhub",
+     "serviceType": "SDK",
+     "framework": "VANILLA",
+     "url": null,
+     "providerClassName": "com.lhg.isbtvi.sdui.smth.provider.SalesAndMarketingTeaserHubProvider",
+     "serviceIsCacheable": false,
+     "cachingTime": null
+    }
+   ]
+  }
+ }
+}

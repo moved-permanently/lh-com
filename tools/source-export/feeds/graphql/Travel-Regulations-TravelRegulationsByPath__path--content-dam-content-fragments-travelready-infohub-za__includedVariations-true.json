@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.235Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T14:56:40.879Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Passengers<b> travelling to or from South Africa </b>must complete an <a href=\"https://www.sars.gov.za/travellerdeclaration/\" hreftemp=\"https://www.sars.gov.za/travellerdeclaration/\" rel=\"noopener noreferrer\">Online Traveller Declaration</a> <b>before departure.</b></p>\n<p>Please ensure that the declaration has been <b>completed before your journey.</b></p>\n<p>&nbsp;</p>\n<p><b>Traveling with children to South Africa:</b></p>\n<p>1.<b> Parents travelling with children into or out of South Africa</b> may be asked to show the children’s valid travel documents (passports) and full birth certificates.</p>\n<p>2 .<b> Children travelling with only one parent </b>will also be required to produce one of the following documents:</p>\n<ul>\n<li>a legal document signed by the non-travelling parent giving approval for the child’s travel</li>\n<li>a court order granting sole custody</li>\n<li>where applicable, a death certificate of the other parent registered on the birth certificate of the child</li>\n<li>the document should also specify the travel destinations of the parent and child(ren)</li>\n</ul>\n<p>3. If <b>children </b>are <b>travelling with a guardian</b>, this adult is required to produce affidavits from both parents, giving permission for the children to travel. They will also need copies of the parents' passports, as well as the parents' contact details.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.235Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T14:56:40.879Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Passagiere, die nach Südafrika reisen oder Südafrika verlassen, müssen vor Reiseantritt eine <a hreftemp=\"https://www.sars.gov.za/travellerdeclaration/\" rel=\"noopener noreferrer\" href=\"https://www.sars.gov.za/travellerdeclaration/\">&quot;Online Traveller Declaration&quot;</a> ausfüllen.</p>\n<p><b>Bitte stellen Sie sicher, dass die Erklärung vor Beginn Ihrer Reise ausgefüllt wurde.</b></p>\n<p>&nbsp;</p>\n<p><b>Reisen mit Kindern nach Südafrika:</b></p>\n<p>1.<b> Eltern, die mit Kindern nach Südafrika ein- oder ausreisen</b>, können aufgefordert werden, die gültigen Reisedokumente (Reisepässe) und vollständigen Geburtsurkunden der Kinder vorzulegen.</p>\n<p>2. <b>Kinder, die nur mit einem Elternteil reisen</b>, müssen ausserdem <b>eines der folgenden Dokumente</b> vorlegen können:</p>\n<ul>\n<li>ein vom nicht mitreisenden Elternteil unterzeichnetes Dokument, in dem dieser der Reise des Kindes zustimmt</li>\n<li>einen Gerichtsbeschluss, der das alleinige Sorgerecht gewährt.</li>\n<li>gegebenenfalls eine Sterbeurkunde des anderen Elternteils, der in der Geburtsurkunde des Kindes eingetragen ist</li>\n<li>In dem Dokument sollten auch die Reiseziele des Elternteils und des Kindes/der Kinder angegeben sein.</li>\n</ul>\n<p>3. Wenn <b>Kinder mit einem Vormund </b>reisen, muss dieser Erwachsene eidesstattliche Erklärungen beider Elternteile vorlegen, in denen die Reise der Kinder genehmigt wird. Ausserdem benötigt er Kopien der Reisepässe der Eltern sowie deren Kontaktdaten.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.235Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T14:56:40.879Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Les passagers <b>voyageant vers l'Afrique du Sud ou quittant l'Afrique du Sud</b> doivent <b>remplir </b>une <a href=\"https://www.sars.gov.za/travellerdeclaration/\" hreftemp=\"https://www.sars.gov.za/travellerdeclaration/\" rel=\"noopener noreferrer\">Online Traveller Declaration&quot;</a> avant leur départ.</p>\n<p><b>Veuillez vous assurer que cette déclaration a été complétée avant le début de votre voyage.</b></p>\n<p>&nbsp;</p>\n<p><b>Voyager avec des enfants en Afrique du Sud:</b></p>\n<p>1. Les <b>parents voyageant avec des enfants à destination ou en provenance de l'Afrique du Sud</b> peuvent être invités à présenter les documents de voyage valides (passeports) et les actes de naissance complets des enfants.</p>\n<p>2. Les <b>enfants voyageant avec un seul parent</b> devront également présenter <b>l'un des documents suivants</b>:</p>\n<ul>\n<li>un document juridique signé par le parent qui ne voyage pas, autorisant le voyage de l'enfant</li>\n<li>une décision de justice accordant la garde exclusive</li>\n<li>le cas échéant, un certificat de décès de l'autre parent inscrit sur l'acte de naissance de l'enfant</li>\n<li>le document doit également préciser les destinations de voyage du parent et de l'enfant ou des enfants.</li>\n</ul>\n<p>3. Si les <b>enfants voyagent avec un tuteur</b>, cet adulte est tenu de présenter des affidavits des deux parents, autorisant les enfants à voyager. Il devra également fournir des copies des passeports des parents, ainsi que leurs coordonnées.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

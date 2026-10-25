@@ -1,0 +1,512 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T14:38:20.205Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T14:32:02.738Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Test&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.722Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T09:35:08.147Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>European Entry/Exit System (EES) – What Travelers Need to Know</b></p>\n<p><b>What is the EES?<br>\n</b>The European Entry/Exit System (EES) is a border-control system that digitally records the <b>entry and exit of non-EU nationals visiting the Schengen Area, including Austria</b>, for short stays.</p>\n<p><b>Who is affected?<br>\n </b>The EES applies to <b>non-EU nationals</b> who:</p>\n<ul>\n<li>hold a <b>short-stay visa</b> (e.g. a Schengen visa), or</li>\n<li>are <b>visa-exempt</b> and allowed to stay up <b>to 90 days within any 180-day period.</b></li>\n</ul>\n<p><b>Note:</b> For EES purposes, “non-EU nationals” are travelers who do <b>not hold citizenship or residence of any EU country, Iceland, Liechtenstein, Norway, or Switzerland.</b></p>\n<p><b>What can travelers expect at the Schengen border?</b></p>\n<ul>\n<li><b>Biometric data collection:</b> Facial images and fingerprints are collected and verified at border crossings.</li>\n<li><b>Electronic registration:</b> Travel document details, entry and exit dates, and personal information are recorded digitally.</li>\n<li><b>New signage:</b> Signs guide passengers to the appropriate immigration lanes and registration points.</li>\n<li><b>Self-service registration:</b> Passengers may be required to use EES kiosks or other self-service devices, where available, before proceeding to the immigration counter.</li>\n</ul>\n<p><b>No changes to travel requirements<br>\n </b>The introduction of EES does <b>not change existing entry or transit requirements</b>. Travelers must continue to <b>comply with all applicable passport, visa, transit, and entry regulations</b>.</p>\n<p><b>Coming Next: ETIAS<br>\n Visa-exempt non-EU nationals</b> (e.g. citizens of the United States, Canada, Australia, Japan, and the United Kingdom) will be required to obtain an <b>ETIAS travel authorization</b> before travelling to participating European countries once ETIAS becomes operational.<br>\nMore information will be published closer to the launch. ETIAS is expected to start <b>earliest in the final quarter of 2026.</b></p>\n<p>Find more information under the following links:</p>\n<ul>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/ees\" title=\"https://travel-europe.europa.eu/ees\" hreftemp=\"https://travel-europe.europa.eu/ees\" rel=\"noopener noreferrer\">EU EES</a></b></li>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/etias\" title=\"https://travel-europe.europa.eu/etias\" hreftemp=\"https://travel-europe.europa.eu/etias\" rel=\"noopener noreferrer\">EU ETIAS</a></b></li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.023Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T09:45:57.272Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>European Entry/Exit System (EES) – What Travelers Need to Know</b></p>\n<p><b>What is the EES?<br>\n </b>The European Entry/Exit System (EES) is a border-control system that digitally records the <b>entry and exit of non-EU nationals visiting the Schengen Area, including Belgium</b>, for short stays.</p>\n<p><b>Who is affected?<br>\n </b>The EES applies to <b>non-EU nationals</b> who:</p>\n<ul>\n<li>hold a <b>short-stay visa</b> (e.g. a Schengen visa), or</li>\n<li>are <b>visa-exempt</b> and allowed to stay up <b>to 90 days within any 180-day period.</b></li>\n</ul>\n<p><b>Note:</b> For EES purposes, “non-EU nationals” are travelers who do <b>not hold citizenship or residence of any EU country, Iceland, Liechtenstein, Norway, or Switzerland.</b></p>\n<p><b>What can travelers expect at the Schengen border?</b></p>\n<ul>\n<li><b>Biometric data collection:</b> Facial images and fingerprints are collected and verified at border crossings.</li>\n<li><b>Electronic registration:</b> Travel document details, entry and exit dates, and personal information are recorded digitally.</li>\n<li><b>New signage:</b> Signs guide passengers to the appropriate immigration lanes and registration points.</li>\n<li><b>Self-service registration:</b> Passengers may be required to use EES kiosks or other self-service devices, where available, before proceeding to the immigration counter.</li>\n</ul>\n<p><b>No changes to travel requirements<br>\n </b>The introduction of EES does <b>not change existing entry or transit requirements</b>. Travelers must continue to <b>comply with all applicable passport, visa, transit, and entry regulations</b>.</p>\n<p><b>Coming Next: ETIAS<br>\n Visa-exempt non-EU nationals</b> (e.g. citizens of the United States, Canada, Australia, Japan, and the United Kingdom) will be required to obtain an <b>ETIAS travel authorization</b> before travelling to participating European countries once ETIAS becomes operational.<br>\nMore information will be published closer to the launch. ETIAS is expected to start <b>earliest in the final quarter of 2026.</b></p>\n<p>Find more information under the following links:</p>\n<ul>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/ees\" title=\"https://travel-europe.europa.eu/ees\" hreftemp=\"https://travel-europe.europa.eu/ees\" rel=\"noopener noreferrer\">EU EES</a></b></li>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/etias\" title=\"https://travel-europe.europa.eu/etias\" hreftemp=\"https://travel-europe.europa.eu/etias\" rel=\"noopener noreferrer\">EU ETIAS</a></b></li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.972Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T12:16:32.185Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Pre-registration for entry into Canada:</b></p>\n<p>Please note that the Canadian authorities recommend to <a href=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\" hreftemp=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\" rel=\"noopener noreferrer\">register via ArriveCAN</a> before arrival, in order to speed up processes upon arrival. The new express line for ArriveCAN users improves travel experience and the time spent in customs.</p>\n<p><b>Additional Health Requirements:</b></p>\n<p><b>Travel restrictions and quarantine requirements may apply if you have recently been in certain countries affected by an Ebola outbreak.</b></p>\n<ul>\n<li>Passengers who reside in <b>Uganda</b> or <b>South Sudan</b> are <b>not permitted to enter Canada.</b></li>\n<li>Passengers who have been in the <b>Democratic Republic of the Congo</b> within the previous <b>21 days</b> are<b> not permitted to board a flight to or enter Canada</b>. This restriction does not apply to Canadian citizens, permanent residents, or persons registered under the Indian Act.</li>\n<li>Passengers who have been in the <b>Democratic Republic of the Congo, Uganda, or South Sudan</b> within the previous <b>21 days</b> may be required to quarantine or isolate for 21 days upon arrival in Canada, unless they qualify for an exemption.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T13:30:00.121Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T13:24:29.045Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>European Entry/Exit System (EES) – What Travelers Need to Know</b></p>\n<p><b>What is the EES?</b></p>\n<p>The European Entry/Exit System (EES) is a border-control system that digitally records the <b>entry and exit of non-EU nationals visiting the Schengen Area, including Switzerland</b>, for short stays.</p>\n<p><b>Who is affected?</b></p>\n<p>The EES applies to <b>non-EU nationals</b> who:</p>\n<ul>\n<li>hold a <b>short-stay visa</b> (e.g. a Schengen visa), or</li>\n<li>are <b>visa-exempt</b> and allowed to stay up <b>to 90 days within any 180-day period.</b></li>\n</ul>\n<p><b>Note:</b> For EES purposes, “non-EU nationals” are travelers who do <b>not hold citizenship or residence of any EU country, Iceland, Liechtenstein, Norway, or Switzerland.</b></p>\n<p><b>What can travelers expect at the Schengen border?</b></p>\n<ul>\n<li><b>Biometric data collection:</b> Facial images and fingerprints are collected and verified at border crossings.</li>\n<li><b>Electronic registration:</b> Travel document details, entry and exit dates, and personal information are recorded digitally.</li>\n<li><b>New signage:</b> Signs guide passengers to the appropriate immigration lanes and registration points.</li>\n<li><b>Self-service registration:</b> Passengers may be required to use EES kiosks or other self-service devices, where available, before proceeding to the immigration counter.</li>\n</ul>\n<p><b>No changes to travel requirements</b></p>\n<p>The introduction of EES does <b>not change existing entry or transit requirements</b>. Travelers must continue to <b>comply with all applicable passport, visa, transit, and entry regulations</b>.</p>\n<p><b>Coming Next: ETIAS</b></p>\n<p><b>Visa-exempt non-EU nationals</b> (e.g. citizens of the United States, Canada, Australia, Japan, and the United Kingdom) will be required to obtain an <b>ETIAS travel authorization</b> before travelling to participating European countries once ETIAS becomes operational.</p>\n<p>More information will be published closer to the launch. ETIAS is expected to start <b>earliest in the final quarter of 2026.</b></p>\n<p>Find more information under the following links:</p>\n<ul>\n<li>&nbsp; &nbsp;<a href=\"https://travel-europe.europa.eu/ees\">EU EES</a></li>\n<li>&nbsp;&nbsp;&nbsp;<a href=\"https://travel-europe.europa.eu/etias\">EU ETIAS</a></li>\n</ul>\n<p>&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.312Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T08:30:55.464Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Visitors to China</b> must complete the <a hreftemp=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\" rel=\"noopener noreferrer\" href=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\">electronical arrival declaration</a> before arrival in China.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.495Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T12:32:22.356Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>European Entry/Exit System (EES) – What Travelers Need to Know</b></p>\n<p><b>What is the EES?</b></p>\n<p>The European Entry/Exit System (EES) is a border-control system that digitally records the <b>entry and exit of non-EU nationals visiting the Schengen Area, including Germany</b>, for short stays.</p>\n<p>&nbsp;</p>\n<p><b>Who is affected?</b></p>\n<p>The EES applies to <b>non-EU nationals</b> who:</p>\n<ul>\n<li>hold a <b>short-stay visa</b> (e.g. a Schengen visa), or</li>\n<li>are <b>visa-exempt</b> and allowed to stay up <b>to 90 days within any 180-day period.</b></li>\n</ul>\n<p><b>Note:</b> For EES purposes, “non-EU nationals” are travelers who do <b>not hold citizenship or residence of any EU country, Iceland, Liechtenstein, Norway, or Switzerland.</b></p>\n<p>&nbsp;</p>\n<p><b>What can travelers expect at the Schengen border?</b></p>\n<ul>\n<li><b>Biometric data collection:</b> Facial images and fingerprints are collected and verified at border crossings.</li>\n<li><b>Electronic registration:</b> Travel document details, entry and exit dates, and personal information are recorded digitally.</li>\n<li><b>New signage:</b> Signs guide passengers to the appropriate immigration lanes and registration points.</li>\n<li><b>Self-service registration:</b> Passengers may be required to use EES kiosks or other self-service devices, where available, before proceeding to the immigration counter.</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>No changes to travel requirements</b></p>\n<p>The introduction of EES does <b>not change existing entry or transit requirements</b>. Travelers must continue to <b>comply with all applicable passport, visa, transit, and entry regulations</b>.</p>\n<p>&nbsp;</p>\n<p><b>Coming Next: ETIAS</b></p>\n<p><b>Visa-exempt non-EU nationals</b> (e.g. citizens of the United States, Canada, Australia, Japan, and the United Kingdom) will be required to obtain an <b>ETIAS travel authorization</b> before travelling to participating European countries once ETIAS becomes operational.</p>\n<p>More information will be published closer to the launch. ETIAS is expected to start <b>earliest in the final quarter of 2026.</b></p>\n<p>Find more information under the following links:</p>\n<ul>\n<li>&nbsp; <b>&nbsp;<a href=\"https://travel-europe.europa.eu/ees\" hreftemp=\"https://travel-europe.europa.eu/ees\" rel=\"noopener noreferrer\">EU EES</a></b></li>\n<li>&nbsp;&nbsp;<b>&nbsp;<a href=\"https://travel-europe.europa.eu/etias\" hreftemp=\"https://travel-europe.europa.eu/etias\" linkscheme=\"Hyperlink\" rel=\"noopener noreferrer\"><em class=\"lh lh-arrow-right\">​</em>EU ETIAS</a></b></li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-02T07:00:00.372Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T15:03:07.752Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Passengers must complete an &quot;<b>Electronic Ticket</b>&quot; at <a href=\"https://eticket.migracion.gob.do/\" hreftemp=\"https://eticket.migracion.gob.do/\" rel=\"noopener noreferrer\">https://eticket.migracion.gob.do/</a> before boarding. This will generate a QR code which <b>must be presented upon arrival.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-13T09:40:00.137Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-13T09:37:11.327Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information for visitors</b></p>\n<p>Following insurance are required:</p>\n<ul>\n<li>travel insurance covering the period of stay</li>\n<li>health and accident insurance covering the period of stay. It must be written in Georgian or English and cover a minimum of GEL 30,000.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.352Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:43:15.945Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Travelers to Israel who do not need a visa must apply for an ETA-IL </b>(Electronic Travel Authorization).<br>\nIt is recommended to apply for an ETA-IL <b>at least 72h before booking the flight</b>.</p>\n<p><b>ETA Validity:</b> 2 years or until your passport expires, whichever is sooner<br>\n<b>Duration of stay with an ETA:</b> Up to 90 days per visit<br>\n<b>Cost:</b> NIS 25.00 (approx. USD 7.00)</p>\n<p><b>Find more information about the visa and the application for the ETA-IL <a href=\"https://israel-entry.piba.gov.il/\" title=\"https://israel-entry.piba.gov.il/\" hreftemp=\"https://israel-entry.piba.gov.il/\" rel=\"noopener noreferrer\">here</a></b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-14T07:00:00.409Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:13:19.987Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Arrival in India – Required Steps</b></p>\n<p>&nbsp;</p>\n<p><b>In addition to a valid&nbsp;<a href=\"https://indianvisaonline.gov.in/\" hreftemp=\"https://indianvisaonline.gov.in/\" linkscheme=\"Hyperlink\" rel=\"noopener noreferrer\"><em class=\"lh lh-arrow-right\">​</em>​e‑Visa</a> </b>, passengers travelling to India must <b>complete the following requirements before arrival:</b></p>\n<p>&nbsp;</p>\n<p><b>1.&nbsp; &nbsp;E‑Arrival Card (mandatory for eligible travellers)</b></p>\n<p><b>Visitors and OCI card holders</b> are advised to submit the <b>E‑Arrival Card</b> within <b>72 hours before arrival</b>.</p>\n<p>You can complete the form via:</p>\n<ul>\n<li><a href=\"https://indianvisaonline.gov.in/earrival/\" hreftemp=\"https://indianvisaonline.gov.in/earrival/\" linkscheme=\"Hyperlink\" rel=\"noopener noreferrer\"><b><em class=\"lh lh-arrow-right\">​</em>​the official website</b></a></li>\n<li>the <b>“Indian Visa Su-Swagatam” mobile app</b></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>2.&nbsp; &nbsp;Self Declaration Form (Air Suvidha)</b></p>\n<p><b>All passengers </b>must complete a <b>Self Declaration Form (SDF)</b> before arrival.</p>\n<p>You can complete this:</p>\n<ul>\n<li><b>online via the&nbsp;<a href=\"https://airsuvidha.civilaviation.gov.in/\" hreftemp=\"https://airsuvidha.civilaviation.gov.in/\" rel=\"noopener noreferrer\">Air Suvidha Portal</a>&nbsp;</b></li>\n<li>or by filling in a <b>paper form on board</b></li>\n</ul>\n<p>The digital form can be completed <b>within 24 hours before arrival</b>.</p>\n<p><b>Important:</b></p>\n<ul>\n<li>It is strongly advised to complete <b>either the digital or paper version</b></li>\n<li>If not completed in advance, you may be asked to fill out a paper form before entering India</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>3.&nbsp; &nbsp;Digital Customs Declaration (only if applicable)</b></p>\n<p>Passengers travelling to <b>Bengaluru (BLR)</b> who carry goods or currency that must be declared can submit a <b>customs declaration electronically</b> before arrival.</p>\n<p>You can complete this via:</p>\n<ul>\n<li>the <b>ATITHI 2.0 mobile app (</b><a href=\"https://play.google.com/store/apps/details?id=com.org.customnew\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://play.google.com/store/apps/details?id=com.org.customnew\" rel=\"noopener noreferrer\">Android</a> <b>/&nbsp;</b><a href=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" hreftemp=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" rel=\"noopener noreferrer\">iOS</a> <b>)</b></li>\n</ul>\n<p>&nbsp;</p>\n<ul>\n<li>or the</li>\n</ul>\n<p>&nbsp;</p>\n<ul>\n<li><a href=\"https://atithi.cbic.gov.in/#/login\" hreftemp=\"https://atithi.cbic.gov.in/#/login\" rel=\"noopener noreferrer\">official website</a></li>\n</ul>\n<p><b>Important:</b></p>\n<ul>\n<li>Only required if you have items to declare</li>\n<li>Currently available <b>only for Bengaluru (BLR)</b></li>\n</ul>\n<p>Passengers without anything to declare&nbsp;can continue to use the <b>green channel</b>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.324Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-13T07:25:57.680Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Ebola Virus Disease Preventive Measures<br>\n </b>In order to comply with the <b>Ebola Virus Disease preventive measures</b> and procedures established by the Italian Ministry of Health, all passengers arriving in Italy who are <b>travelling directly or indirectly from the Democratic Republic of the Congo</b>, or who have <b>stayed in this country within the 21 days preceding their flight</b>, are required to download, complete and sign the form available at the following <a href=\"https://ambkampala.esteri.it/wp-content/uploads/2026/05/modulo-dichiarazione-IT-EN.pdf\" title=\"https://ambkampala.esteri.it/wp-content/uploads/2026/05/modulo-dichiarazione-IT-EN.pdf\" hreftemp=\"https://ambkampala.esteri.it/wp-content/uploads/2026/05/modulo-dichiarazione-IT-EN.pdf\" rel=\"noopener noreferrer\">link</a> and present it to the cabin crew on board.</p>\n<p><b>Important information for minors traveling to/from Italy:<br>\n </b>The following <b>requirement </b>is in place for <b>nationals of Italy younger than 14 years who travel to/from Italy</b>: Minors younger than 14 years, whether unaccompanied or accompanied by someone other than the parent/guardian mentioned on page 5 of the minor's passport, are required to hold an <b>authorization (&quot;dichiarazione di accompagnamento&quot;)</b>, signed by both parents and issued by the local police (&quot;questura&quot;). If the parents reside outside Italy, it must be issued by an <b>Italian representation</b>.</p>\n<p>&nbsp;</p>\n<p><b>European Entry/Exit System (EES) – What Travelers Need to Know</b></p>\n<p><b>What is the EES?<br>\n </b>The European Entry/Exit System (EES) is a border-control system that digitally records the <b>entry and exit of non-EU nationals visiting the Schengen Area, including Italy</b>, for short stays.</p>\n<p><b>Who is affected?<br>\n </b>The EES applies to <b>non-EU nationals</b> who:</p>\n<ul>\n<li>hold a <b>short-stay visa</b> (e.g. a Schengen visa), or</li>\n<li>are <b>visa-exempt</b> and allowed to stay up <b>to 90 days within any 180-day period.</b></li>\n</ul>\n<p><b>Note:</b> For EES purposes, “non-EU nationals” are travelers who do <b>not hold citizenship or residence of any EU country, Iceland, Liechtenstein, Norway, or Switzerland.</b></p>\n<p><b>What can travelers expect at the Schengen border?</b></p>\n<ul>\n<li><b>Biometric data collection:</b> Facial images and fingerprints are collected and verified at border crossings.</li>\n<li><b>Electronic registration:</b> Travel document details, entry and exit dates, and personal information are recorded digitally.</li>\n<li><b>New signage:</b> Signs guide passengers to the appropriate immigration lanes and registration points.</li>\n<li><b>Self-service registration:</b> Passengers may be required to use EES kiosks or other self-service devices, where available, before proceeding to the immigration counter.</li>\n</ul>\n<p><b>No changes to travel requirements<br>\n </b>The introduction of EES does <b>not change existing entry or transit requirements</b>. Travelers must continue to <b>comply with all applicable passport, visa, transit, and entry regulations</b>.</p>\n<p><b>Coming Next: ETIAS<br>\n Visa-exempt non-EU nationals</b> (e.g. citizens of the United States, Canada, Australia, Japan, and the United Kingdom) will be required to obtain an <b>ETIAS travel authorization</b> before travelling to participating European countries once ETIAS becomes operational.<br>\nMore information will be published closer to the launch. ETIAS is expected to start <b>earliest in the final quarter of 2026.</b></p>\n<p>Find more information under the following links:</p>\n<ul>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/ees\" title=\"https://travel-europe.europa.eu/ees\">EU EES</a></b></li>\n<li><b>&nbsp; <a href=\"https://travel-europe.europa.eu/etias\" title=\"https://travel-europe.europa.eu/etias\">EU ETIAS</a></b></li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-02T07:00:00.299Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T15:11:13.410Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Passengers must submit the <b><a hreftemp=\"https://www.enterjamaica.gov.jm/\" rel=\"noopener noreferrer\" href=\"https://www.enterjamaica.gov.jm/\">customs and immigration</a> form before departure</b> (or latest upon arrival).</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T07:00:00.443Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:01:51.937Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>To <b>speed up arrival procedures</b> in Japan, <b>complete your immigration and customs registration online</b> via <a hreftemp=\"https://services.digital.go.jp/en/visit-japan-web/\" rel=\"noopener noreferrer\" href=\"https://services.digital.go.jp/en/visit-japan-web/\">Visit Japan Web</a> before departure and present the completed registration upon arrival.</p>\n<p>&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.420Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:19:29.436Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Most <b>travellers entering Kenya must obtain an</b> <b>Electronic Travel Authorisation (eTA) before travel</b>. <b>Apply online at least three working days before arrival</b>. For more information and to apply, visit the official Kenyan government <a hreftemp=\"https://etakenya.go.ke/\" rel=\"noopener noreferrer\" href=\"https://etakenya.go.ke/\">website.</a></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.533Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:27:50.689Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Travellers entering the Maldives must <b>complete </b>the <a hreftemp=\"https://imuga.immigration.gov.mv/traveller\" rel=\"noopener noreferrer\" href=\"https://imuga.immigration.gov.mv/traveller\">Traveller Declaration</a> within 96 hours before arrival.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.826Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-18T15:05:08.329Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Travelers to Malaysia</b> must <b>complete</b> the <a hreftemp=\"https://imigresen-online.imi.gov.my/mdac/main\" rel=\"noopener noreferrer\" href=\"https://imigresen-online.imi.gov.my/mdac/main\">Malaysia Digital Arrival Card (MDAC)</a><b> within 3 days before arrival.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.429Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-10T16:35:22.947Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important note:&nbsp;Entry requirements for&nbsp;<u>minors</u> travelling to Namibia</b></p>\n<p><b>Minors under the age of 18 travelling to Namibia</b> must carry an <b>original full birth certificate</b> <b>or a certified copy.</b></p>\n<p>Depending on their travel situation, additional documents may be required:</p>\n<ul>\n<li><b>Travelling with an adult who is not their biological parent:</b> A sworn statement from the parents authorising the minor to travel with that adult is required.</li>\n<li><b>Travelling with an adult who is not a parent or legal guardian:</b> Copies of the parents’ or legal guardians’ passports or identity documents, together with their contact details, are required.</li>\n<li><b>Travelling with only one parent:</b> A sworn statement from the non-travelling parent authorising the journey is required. If one parent is deceased, a death certificate must be presented.</li>\n<li><b>Travelling unaccompanied:</b> A sworn statement from the parents or legal guardians authorising the journey is required. In addition, minors must carry a letter containing the contact details and address of the person who will receive and look after them in Namibia, a copy of that person's identity document, valid passport or residence permit, and the contact details of the parents or legal guardians.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.837Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:24:58.217Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information:</b></p>\n<p>To <b>enter Nigeria</b>, passengers are <b>required to complete</b> the following <b>before arrival:</b></p>\n<ul>\n<li><a href=\"https://lecard.immigration.gov.ng/\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://lecard.immigration.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Landing Card</b></a></li>\n</ul>\n<ul>\n<li><a href=\"https://healthapp.ncdc.gov.ng/\" hreftemp=\"https://healthapp.ncdc.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Health Declaration Form</b></a></li>\n</ul>\n<p>Please <b>ensure that both documents have been completed <u>before you travel</u>.</b></p>\n<p>In addition, please also familiarise yourself with</p>\n<p><a href=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" hreftemp=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" rel=\"noopener noreferrer\"><b>Nigeria's customs regulations</b></a> regarding <b>foreign currency imports</b>, including declaration requirements and applicable limits.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.129Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:57:47.644Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>All travelers</b> (excluding Thai nationals) are required to complete the<b> &quot;TDAC - Thailand Digital Arrival Card&quot; within 72 hours prior to departur</b>e. The QR code must be presented to Thai authorities upon entry.</p>\n<p>Registration can be done under this <a href=\"https://tdac.immigration.go.th/arrival-card/#/home\" hreftemp=\"https://tdac.immigration.go.th/arrival-card/#/home\" rel=\"noopener noreferrer\">link</a>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:04.607Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-15T13:26:23.232Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information:</b></p>\n<p><b>Visitors may enter Tunisia only with a valid passport.<br>\n </b>Please note that <b>national identity</b> cards are <b>not accepted</b> for entry.</p>\n<p>&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.444Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-18T14:54:41.434Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>1.&nbsp;&nbsp;&nbsp;&nbsp;Traveling to the United Kingdom (UK) is only allowed with a valid passport</b></p>\n<p>A<b> valid passport</b> is required to enter the United Kingdom. National identity cards are not accepted by the authorities.</p>\n<p><b>&nbsp;</b></p>\n<p><b>2.&nbsp;&nbsp;&nbsp;&nbsp;Digital permission to travel (eVisa / Electronic Travel Authorisation – ETA):</b></p>\n<p>&nbsp;</p>\n<p><b>a. General information</b></p>\n<p><b>UK travel requirements have changed. The UK now uses eVisas</b> and the <b>Electronic Travel Authorisation (ETA)</b> as digital permission to travel. <b>Please make sure you have the required electronic permission before travelling.</b> If you do not, you may not be able to travel.</p>\n<ul>\n<li><b>UKVI account holders:</b> Please make sure your UKVI account is updated with your <b>current passport details</b>.</li>\n<li><b>Dual UK nationals:</b> You must travel to the UK with your <b>UK passport</b>.</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>b. Electronic Travel Authorisation (UK ETA)</b></p>\n<p><b>The UK ETA</b> is a <b>digital travel authorisation</b> for travellers who <b>do not require a visa</b> for short stays in the UK or eligible transit. It is required for <b>all ages</b>, including children and infants.</p>\n<ul>\n<li>Valid for <b>2 years</b> or until your passport expires (whichever comes first).</li>\n<li>It is digitally linked to your passport. Please apply and receive approval <b>before travelling</b>.</li>\n<li><b>You must travel with the same passport used in your ETA application.</b></li>\n<li><a href=\"https://www.gov.uk/eta\" hreftemp=\"https://www.gov.uk/eta\" rel=\"noopener noreferrer\">More information on the UK ETA</a></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>c. eVisa (UKVI digital immigration status)</b></p>\n<p><b>A UK eVisa</b> is a <b>digital immigration status</b> linked to your passport and replaces physical documents such as:</p>\n<ul>\n<li>Biometric Residence Permits (BRP)</li>\n<li>Biometric Residence Cards (BRC)</li>\n<li>Visa stickers (vignettes) in passports</li>\n</ul>\n<p>Access your eVisa via your <a href=\"https://www.gov.uk/evisa#why-do-i-need-a-ukvi-account\" hreftemp=\"https://www.gov.uk/evisa#why-do-i-need-a-ukvi-account\" rel=\"noopener noreferrer\">UKVI online account</a> .</p>\n<ul>\n<li>You need a <a href=\"https://www.gov.uk/evisa#why-do-i-need-a-ukvi-accountt\" hreftemp=\"https://www.gov.uk/evisa#why-do-i-need-a-ukvi-accountt\" rel=\"noopener noreferrer\">UKVI account</a> to view and manage your eVisa.</li>\n<li>If you hold a <b>UK visa</b>, <b>BRP</b> or <b>BRC</b>, please ensure your UKVI account is <b>active</b> and updated with the <b>passport you will use to travel</b>.</li>\n<li>You may be asked at the airport to show a <a href=\"https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status\" hreftemp=\"https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status\" rel=\"noopener noreferrer\">share code</a> from your UKVI account—keep your mobile device <b>charged</b> and <b>accessible</b>.</li>\n<li><a href=\"https://www.gov.uk/check-uk-visa\" hreftemp=\"https://www.gov.uk/check-uk-visa\" rel=\"noopener noreferrer\">More information on eVisas</a></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>d. Confirming your immigration status before travel:</b></p>\n<p>Before travelling to the UK, ensure that your immigration status can be confirmed during check-in.</p>\n<p>The UK government provides <a href=\"https://www.gov.uk/guidance/confirm-your-immigration-status-to-your-carrier-before-travelling-to-the-uk\" hreftemp=\"https://www.gov.uk/guidance/confirm-your-immigration-status-to-your-carrier-before-travelling-to-the-uk\" rel=\"noopener noreferrer\">guidance</a> on <b>how passengers can confirm their immigration status</b> before travelling and avoid travel delays.</p>\n<p>&nbsp;</p>\n<p><b>e. Important: travellers with a new passport</b></p>\n<ul>\n<li>If you have a <b>new passport</b>, apply for a <b>new UK ETA</b>.</li>\n<li>If you have a<b> UK eVisa</b> and a <b>new passport</b>, make sure your <b>UKVI account shows your</b> <b>new passport.</b></li>\n</ul>\n<p>You can update your passport details using the UKVI <a href=\"https://www.gov.uk/evisa/update-ukvi-account\" hreftemp=\"https://www.gov.uk/evisa/update-ukvi-account\" rel=\"noopener noreferrer\">Update My Details</a> service (if eligible, for example with a biometric passport).</p>\n"
+     },
+     "transit": {
+      "html": "<p><b>AIRSIDE TRANSIT exemption (London Heathrow – LHR / Manchester):</b></p>\n<p><b>Travellers who do not require a visa</b> to enter the UK and who transit <b>London Heathrow (LHR)</b> or <b>Manchester</b> <b><u>airside</u></b> on an <b>international <u>SAME DAY</u> through-connection</b> (without passing UK border control) <b>do not need a UK ETA</b>.</p>\n<p><b>For any connecting flight</b> departing on the <b>next calendar day, a UK ETA is required</b>..</p>\n"
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.706Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T13:56:41.114Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information – Ebola</b></p>\n<p><b>Travel Alert: U.S. entry restrictions</b></p>\n<p>Due to the Ebola outbreak, passengers who have recently been in the Democratic Republic of Congo, Uganda or South Sudan (even if only in transit) <b>may face U.S. entry restrictions</b> – ranging from mandatory screening via designated airports to denial of entry. Please review the current rules carefully as travel changes may be required.</p>\n<p><a href=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" hreftemp=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" rel=\"noopener noreferrer\">Check U.S. entry rules</a></p>\n<p>&nbsp;</p>\n<p><b>Additional regulations:</b></p>\n<p>The United States (U.S.) has implemented <b>entry restrictions</b> affecting <b>certain nationalities.</b></p>\n<p><b><u>1) Entry Ban for Specific Nationalities</u></b></p>\n<p>Nationals of the <b>following countries</b> are <b>not permitted to enter the U.S.:</b></p>\n<ul>\n<li>Afghanistan</li>\n<li>Burkina Faso</li>\n<li>Chad</li>\n<li>Congo - Brazzaville</li>\n<li>Equatorial Guinea</li>\n<li>Eritrea</li>\n<li>Haiti</li>\n<li>Iran</li>\n<li>Laos</li>\n<li>Libya</li>\n<li>Mali</li>\n<li>Myanmar</li>\n<li>Niger</li>\n<li>Palestinian Authority-issued Travel Documents, issued after 01 January, 2026</li>\n<li>Sierra Leone</li>\n<li>Somalia</li>\n<li>South Sudan</li>\n<li>Sudan</li>\n<li>Syria</li>\n<li>Yemen</li>\n</ul>\n<p><b>Exceptions</b> include:</p>\n<ul>\n<li>travelers holding a <b>valid visa issued on or before 08 June 2025</b></li>\n<li><b>U.S. Lawful Permanent Residents (Green Card Holders)</b>, holding either a Permanent Resident Card or Re-entry Permit</li>\n<li><b>Dual nationals</b> traveling <b>with a passport from a non-restricted country</b></li>\n<li>Travelers with <b>valid non-immigrant visas in the following categories: A-1, A-2, C-2, C-3, G-1, G-2, G-3, G-4, NATO-1 to NATO-6</b></li>\n</ul>\n<p><b><u>2) Visa Restrictions for Additional Nationalities</u></b></p>\n<p>Nationals of the <b>following countries </b>are <b>not permitted to enter the U.S. </b>as immigrants or non-immigrants <b>on the following visa types:</b></p>\n<p><b>B-1, B-2, B-1/B-2, F, M, J</b></p>\n<ul>\n<li>Angola</li>\n<li>Antigua &amp; Barbuda</li>\n<li>Benin</li>\n<li>Burundi</li>\n<li>Côte d'Ivoire</li>\n<li>Cuba</li>\n<li>Dominica</li>\n<li>Gabon</li>\n<li>Gambia</li>\n<li>Malawi</li>\n<li>Mauritania</li>\n<li>Nigeria</li>\n<li>Senegal</li>\n<li>Tanzania</li>\n<li>Tonga</li>\n<li>Togo</li>\n<li>Turkmenistan</li>\n<li>Venezuela</li>\n<li>Zambia</li>\n<li>Zimbabwe</li>\n</ul>\n<p>Nationals of the mentioned countries are <b>allowed to enter with any other U.S. visa type.</b></p>\n<p>&nbsp;</p>\n<p><b>Important ESTA Information:</b></p>\n<p>Please ensure that the correct passport number has been entered in your ESTA.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.025Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T14:56:40.879Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Passengers<b> travelling to or from South Africa </b>must complete an <a href=\"https://www.sars.gov.za/travellerdeclaration/\" hreftemp=\"https://www.sars.gov.za/travellerdeclaration/\" rel=\"noopener noreferrer\">Online Traveller Declaration</a> <b>before departure.</b></p>\n<p>Please ensure that the declaration has been <b>completed before your journey.</b></p>\n<p>&nbsp;</p>\n<p><b>Traveling with children to South Africa:</b></p>\n<p>1.<b> Parents travelling with children into or out of South Africa</b> may be asked to show the children’s valid travel documents (passports) and full birth certificates.</p>\n<p>2 .<b> Children travelling with only one parent </b>will also be required to produce one of the following documents:</p>\n<ul>\n<li>a legal document signed by the non-travelling parent giving approval for the child’s travel</li>\n<li>a court order granting sole custody</li>\n<li>where applicable, a death certificate of the other parent registered on the birth certificate of the child</li>\n<li>the document should also specify the travel destinations of the parent and child(ren)</li>\n</ul>\n<p>3. If <b>children </b>are <b>travelling with a guardian</b>, this adult is required to produce affidavits from both parents, giving permission for the children to travel. They will also need copies of the parents' passports, as well as the parents' contact details.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

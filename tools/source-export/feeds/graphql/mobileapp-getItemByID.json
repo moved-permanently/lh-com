@@ -1,0 +1,16 @@
+{
+ "errors": [
+  {
+   "message": "Variable 'id' has an invalid value: Variable 'id' has coerced Null value for NonNull type 'String!'",
+   "locations": [
+    {
+     "line": 1,
+     "column": 19
+    }
+   ],
+   "extensions": {
+    "classification": "ValidationError"
+   }
+  }
+ ]
+}

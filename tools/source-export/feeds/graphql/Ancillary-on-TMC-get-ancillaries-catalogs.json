@@ -1,0 +1,2015 @@
+{
+ "data": {
+  "ancillaryCatalogList": {
+   "items": [
+    {
+     "name": "BidUpgrade",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": null,
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Ihr Angebot für ein Upgrade abgeben",
+       "description": "Gönnen Sie sich ein Upgrade für noch mehr Komfort zu Ihrem Wunschpreis.",
+       "textLink": "Auf Upgrade bieten"
+      },
+      {
+       "locale": "en",
+       "title": "Place your offer for an upgrade",
+       "description": "Treat yourself to an upgrade for even more comfort at your desired price.",
+       "textLink": "Bid for upgrade"
+      },
+      {
+       "locale": "el",
+       "title": "Υποβάλετε την προσφορά σας για αναβάθμιση",
+       "description": "Κάντε ένα δώρο στον εαυτό σας με μια αναβάθμιση για ακόμα περισσότερη άνεση, στην τιμή που επιθυμείτε.",
+       "textLink": "Κάντε προσφορά για αναβάθμιση"
+      },
+      {
+       "locale": "es",
+       "title": "Haga una oferta para un upgrade",
+       "description": "Regálese un upgrade para disfrutar de aún más comodidad por el precio que desee.",
+       "textLink": "Pujar por un upgrade"
+      },
+      {
+       "locale": "fr",
+       "title": "Faites une offre pour un surclassement",
+       "description": "Offrez-vous un surclassement pour encore plus de confort au prix que vous souhaitez.",
+       "textLink": "Demande de surclassement"
+      },
+      {
+       "locale": "it",
+       "title": "Presenti la sua offerta per un upgrade",
+       "description": "Si conceda un upgrade per godersi ancora più comfort al prezzo che decide lei.",
+       "textLink": "Presenti un’offerta per un upgrade"
+      },
+      {
+       "locale": "ja",
+       "title": "アップグレード入札に参加しませんか？",
+       "description": "アップグレードしてさらに快適な空の旅をご希望の価格でお楽しみいただけます。",
+       "textLink": "アップグレードに入札する"
+      },
+      {
+       "locale": "ko",
+       "title": "좌석 승급 가격을 제안하세요",
+       "description": "원하는 가격으로 좌석 승급을 이용해 더 큰 편안함을 누려 보십시오.",
+       "textLink": "좌석 승급 입찰하기"
+      },
+      {
+       "locale": "nl",
+       "title": "Doe je bod voor een upgrade",
+       "description": "Verwen jezelf met een upgrade voor nog meer comfort tegen je gewenste prijs.",
+       "textLink": "Bied voor een upgrade"
+      },
+      {
+       "locale": "pl",
+       "title": "Złóż swoją ofertę na upgrade",
+       "description": "Zafunduj sobie upgrade dla jeszcze większego komfortu w wybranej przez siebie cenie.",
+       "textLink": "Złóż ofertę na upgrade"
+      },
+      {
+       "locale": "pt",
+       "title": "Faça a sua oferta para um upgrade",
+       "description": "Mime-se com um upgrade para maior conforto ao preço pretendido.",
+       "textLink": "Licite um upgrade"
+      },
+      {
+       "locale": "ru",
+       "title": "Отправить предложение по повышению класса обслуживания",
+       "description": "Повысьте класс обслуживания, чтобы путешествовать с еще большим комфортом по желаемой цене.",
+       "textLink": "Предложение цены за повышение класса"
+      },
+      {
+       "locale": "tr",
+       "title": "Bir yükseltme için teklif verin",
+       "description": "İstediğiniz fiyatla daha da fazla konfor için kendinize bir yükseltme ısmarlayın.",
+       "textLink": "Yükseltme için fiyat öner"
+      },
+      {
+       "locale": "zh",
+       "title": "提交您的竞价升舱报价",
+       "description": "悦享升舱体验，以心仪价格获得更多舒适享受。",
+       "textLink": "提交升舱竞价"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "提出您的升等報價",
+       "description": "以想要的價格獲得升等，享受更舒適的旅程。",
+       "textLink": "透過競標升級艙等"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-bidupgrade-long-haul.jpeg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-bidupgrade-long-haul.jpeg",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-bidupgrade-long-haul.jpeg",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "os"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn-bidupgrade-long-haul.png",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn-bidupgrade-long-haul.png",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn-bidupgrade-long-haul.png",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "sn"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "lh"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-bidupgrade-long-haul.png",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-bidupgrade-long-haul.png",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-bidupgrade-long-haul.png",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "lx"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-bidupgrade-long-haul.png",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-bidupgrade-long-haul.png",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-bidupgrade-long-haul.png",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "az"
+    },
+    {
+     "name": "BidUpgrade",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+       "name": "longHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-bidupgrade-long-haul.jpeg",
+       "name": "shortHaulImage"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "apiKey"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "urlId"
+      }
+     ],
+     "_variation": "yy"
+    },
+    {
+     "name": "CarRental",
+     "enabled": true,
+     "redirectBaseUrl": "www.lufthansa.com/xx/{language}/discover-lufthansa/partners/meili",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_car_rental_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Mietwagen",
+       "description": "Wählen Sie für Ihre Reise die besten Mietwagenmarken zu Top-Preisen und sammeln Sie Meilen!",
+       "textLink": "Auto hinzufügen"
+      },
+      {
+       "locale": "en",
+       "title": "Rental car",
+       "description": "Choose from top car rental brands for your trip at great prices, plus earn Miles!",
+       "textLink": "Add car"
+      },
+      {
+       "locale": "el",
+       "title": "Ενοικίαση αυτοκινήτου",
+       "description": "Επιλέξτε από τις κορυφαίες εταιρείες ενοικίασης αυτοκινήτων για το ταξίδι σας σε εξαιρετικές τιμές, και συγκεντρώστε Μίλια!",
+       "textLink": "Προσθήκη αυτοκινήτου"
+      },
+      {
+       "locale": "es",
+       "title": "Coche de alquiler",
+       "description": "Elija entre los mejores proveedores de alquiler de coches, viaje a precios excelentes ¡y acumule millas!",
+       "textLink": "Añadir vehículo"
+      },
+      {
+       "locale": "fr",
+       "title": "Voiture de location",
+       "description": "Faites votre choix parmi les meilleures enseignes de location de voiture pour votre voyage à des prix avantageux et cumulez des miles !",
+       "textLink": "Ajouter une voiture"
+      },
+      {
+       "locale": "it",
+       "title": "Autonoleggio",
+       "description": "Scelga tra i migliori marchi di noleggio auto per il suo viaggio a prezzi vantaggiosi e accumuli miglia!",
+       "textLink": "Aggiunga auto"
+      },
+      {
+       "locale": "ja",
+       "title": "レンタカー",
+       "description": "人気のレンタカー会社でご希望の一台を選んでドライブ。お得な料金で、マイルの獲得もできます。",
+       "textLink": "レンタカーを追加する"
+      },
+      {
+       "locale": "ko",
+       "title": "렌터카",
+       "description": "여행에 맞는 최고급 렌터카 브랜드를 합리적인 가격으로 선택하고, 마일리지도 적립하세요!",
+       "textLink": "차량 추가"
+      },
+      {
+       "locale": "nl",
+       "title": "Huurauto",
+       "description": "Kies uit de beste autoverhuurmerken voor je reis tegen geweldige prijzen en verzamel Miles.",
+       "textLink": "Auto toevoegen"
+      },
+      {
+       "locale": "pl",
+       "title": "Wynajem samochodu",
+       "description": "Wybieraj samochody z oferty najlepszych sieci wypożyczalni w atrakcyjnych cenach i gromadź mile!",
+       "textLink": "Dodaj samochód"
+      },
+      {
+       "locale": "pt",
+       "title": "Automóvel de aluguer",
+       "description": "Escolha entre as principais marcas de aluguer de automóveis para a sua viagem a preços fantásticos e ganhe milhas!",
+       "textLink": "Adicionar carro"
+      },
+      {
+       "locale": "ru",
+       "title": "Арендованный автомобиль",
+       "description": "Выберите один из лучших брендов по аренде авто для вашей поездки — получите отличные цены и заработайте мили.",
+       "textLink": "Добавить автомобиль"
+      },
+      {
+       "locale": "tr",
+       "title": "Kiralık araç",
+       "description": "Seyahatiniz için harika fiyatlarla en iyi araç kiralama markalarından birini seçin ve Mil kazanın!",
+       "textLink": "Araç ekle"
+      },
+      {
+       "locale": "zh",
+       "title": "租车",
+       "description": "选择前沿租车品牌，以优惠价格体验旅行期间的租车服务，并获取里程！",
+       "textLink": "添加车辆"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "租车",
+       "description": "选择前沿租车品牌，以优惠价格体验旅行期间的租车服务，并获取里程！",
+       "textLink": "添加车辆"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "租車",
+       "description": "以優惠價格選擇頂級租車品牌車輛，讓您的旅程無憂，同時賺取哩數！",
+       "textLink": "新增租車"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "CarRental",
+     "enabled": false,
+     "redirectBaseUrl": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+     "imageUrl": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "CarRental",
+     "enabled": false,
+     "redirectBaseUrl": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+     "imageUrl": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "CarRental",
+     "enabled": true,
+     "redirectBaseUrl": "www.lufthansa.com/xx/{language}/discover-lufthansa/partners/meili",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "ptid"
+      }
+     ],
+     "_variation": "lh"
+    },
+    {
+     "name": "CarRental",
+     "enabled": false,
+     "redirectBaseUrl": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+     "imageUrl": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "CarRental",
+     "enabled": true,
+     "redirectBaseUrl": "www.ita-airways.com/xx/{language}/manage-my-bookings/partners/car-rental",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/ita_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "ptid"
+      }
+     ],
+     "_variation": "az"
+    },
+    {
+     "name": "CarRental",
+     "enabled": true,
+     "redirectBaseUrl": "www.lufthansa.com/xx/{language}/discover-lufthansa/partners/meili",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "ptid"
+      }
+     ],
+     "_variation": "yy"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": true,
+     "redirectBaseUrl": "swiss-cars.cartrawler.com/{language}/book",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-car_rental_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Mietwagen",
+       "description": "Wählen Sie für Ihre Reise die besten Mietwagenmarken zu Top-Preisen und sammeln Sie Meilen!",
+       "textLink": "Auto hinzufügen"
+      },
+      {
+       "locale": "en",
+       "title": "Rental car",
+       "description": "Choose from top car rental brands for your trip at great prices, plus earn Miles!",
+       "textLink": "Add car"
+      },
+      {
+       "locale": "el",
+       "title": "Ενοικίαση αυτοκινήτου",
+       "description": "Επιλέξτε από τις κορυφαίες εταιρείες ενοικίασης αυτοκινήτων για το ταξίδι σας σε εξαιρετικές τιμές, και συγκεντρώστε Μίλια!",
+       "textLink": "Προσθήκη αυτοκινήτου"
+      },
+      {
+       "locale": "es",
+       "title": "Coche de alquiler",
+       "description": "Elija entre los mejores proveedores de alquiler de coches, viaje a precios excelentes ¡y acumule millas!",
+       "textLink": "Añadir vehículo"
+      },
+      {
+       "locale": "fr",
+       "title": "Voiture de location",
+       "description": "Faites votre choix parmi les meilleures enseignes de location de voiture pour votre voyage à des prix avantageux et cumulez des miles !",
+       "textLink": "Ajouter une voiture"
+      },
+      {
+       "locale": "it",
+       "title": "Autonoleggio",
+       "description": "Scelga tra i migliori marchi di noleggio auto per il suo viaggio a prezzi vantaggiosi e accumuli miglia!",
+       "textLink": "Aggiunga auto"
+      },
+      {
+       "locale": "ja",
+       "title": "レンタカー",
+       "description": "人気のレンタカー会社でご希望の一台を選んでドライブ。お得な料金で、マイルの獲得もできます。",
+       "textLink": "レンタカーを追加する"
+      },
+      {
+       "locale": "ko",
+       "title": "렌터카",
+       "description": "여행에 맞는 최고급 렌터카 브랜드를 합리적인 가격으로 선택하고, 마일리지도 적립하세요!",
+       "textLink": "차량 추가"
+      },
+      {
+       "locale": "nl",
+       "title": "Huurauto",
+       "description": "Kies uit de beste autoverhuurmerken voor je reis tegen geweldige prijzen en verzamel Miles.",
+       "textLink": "Auto toevoegen"
+      },
+      {
+       "locale": "pl",
+       "title": "Wynajem samochodu",
+       "description": "Wybieraj samochody z oferty najlepszych sieci wypożyczalni w atrakcyjnych cenach i gromadź mile!",
+       "textLink": "Dodaj samochód"
+      },
+      {
+       "locale": "pt",
+       "title": "Automóvel de aluguer",
+       "description": "Escolha entre as principais marcas de aluguer de automóveis para a sua viagem a preços fantásticos e ganhe milhas!",
+       "textLink": "Adicionar carro"
+      },
+      {
+       "locale": "ru",
+       "title": "Арендованный автомобиль",
+       "description": "Выберите один из лучших брендов по аренде авто для вашей поездки — получите отличные цены и заработайте мили.",
+       "textLink": "Добавить автомобиль"
+      },
+      {
+       "locale": "tr",
+       "title": "Kiralık araç",
+       "description": "Seyahatiniz için harika fiyatlarla en iyi araç kiralama markalarından birini seçin ve Mil kazanın!",
+       "textLink": "Araç ekle"
+      },
+      {
+       "locale": "zh",
+       "title": "租车",
+       "description": "选择前沿租车品牌，以优惠价格体验旅行期间的租车服务，并获取里程！",
+       "textLink": "添加车辆"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "租车",
+       "description": "选择前沿租车品牌，以优惠价格体验旅行期间的租车服务，并获取里程！",
+       "textLink": "添加车辆"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "租車",
+       "description": "以優惠價格選擇頂級租車品牌車輛，讓您的旅程無憂，同時賺取哩數！",
+       "textLink": "新增租車"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "clientID"
+      }
+     ],
+     "_variation": "lh"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": true,
+     "redirectBaseUrl": "brusselsairlines.cartrawler.com/{language}/book",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "clientID"
+      }
+     ],
+     "_variation": "sn"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": true,
+     "redirectBaseUrl": "austrian.cartrawler.com/{language}/book",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "clientID"
+      }
+     ],
+     "_variation": "os"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": true,
+     "redirectBaseUrl": "swiss-cars.cartrawler.com/{language}/book",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "clientid"
+      }
+     ],
+     "_variation": "lx"
+    },
+    {
+     "name": "CarTrawler",
+     "enabled": false,
+     "redirectBaseUrl": "swiss-cars.cartrawler.com/en/book",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-car_rental_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "Esim",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_esim_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "eSIM",
+       "description": "Bleiben Sie erreichbar mit schnellem, sicherem Internet.",
+       "textLink": "Jetzt eSIM sichern"
+      },
+      {
+       "locale": "en",
+       "title": "eSIM",
+       "description": "Enjoy fast and secure internet access on your trip.",
+       "textLink": "Get your eSIM"
+      },
+      {
+       "locale": "el",
+       "title": "eSIM",
+       "description": "Απολαύστε γρήγορη και ασφαλή πρόσβαση στο διαδίκτυο στο ταξίδι σας.",
+       "textLink": "Αποκτήστε το eSIM σας"
+      },
+      {
+       "locale": "es",
+       "title": "eSIM",
+       "description": "Disfrute de acceso a Internet rápido y seguro en su viaje.",
+       "textLink": "Consiga su eSIM"
+      },
+      {
+       "locale": "fr",
+       "title": "e-SIM",
+       "description": "Profitez d’un accès Internet rapide et sécurisé pendant votre voyage.",
+       "textLink": "Obtenir votre e-SIM"
+      },
+      {
+       "locale": "it",
+       "title": "eSIM",
+       "description": "Approfitti di una connessione a Internet veloce e sicura durante il viaggio.",
+       "textLink": "Richiedere una eSIM"
+      },
+      {
+       "locale": "ja",
+       "title": "eSIM",
+       "description": "安全な高速インターネット接続をご旅行中もお楽しみください。",
+       "textLink": "eSIMを購入"
+      },
+      {
+       "locale": "ko",
+       "title": "eSIM",
+       "description": "여행 중에도 빠르고 안전하게 인터넷을 이용하세요.",
+       "textLink": "eSIM 받기"
+      },
+      {
+       "locale": "nl",
+       "title": "eSIM",
+       "description": "Geniet van snelle en veilige internettoegang tijdens je reis.",
+       "textLink": "Je eSIM aanvragen"
+      },
+      {
+       "locale": "pl",
+       "title": "Karta eSIM",
+       "description": "Korzystaj z szybkiego i bezpiecznego dostępu do internetu podczas podróży.",
+       "textLink": "Uzyskaj kartę eSIM"
+      },
+      {
+       "locale": "pt",
+       "title": "eSIM",
+       "description": "Desfrute de acesso à Internet rápido e seguro na sua viagem.",
+       "textLink": "Obter eSIM"
+      },
+      {
+       "locale": "ru",
+       "title": "eSIM",
+       "description": "Воспользуйтесь быстрым и безопасным доступом в Интернет в путешествии.",
+       "textLink": "Оформить eSIM"
+      },
+      {
+       "locale": "tr",
+       "title": "eSIM",
+       "description": "Seyahatinizde hızlı ve güvenli internet erişiminin keyfini çıkarın.",
+       "textLink": "eSIM’inizi alın"
+      },
+      {
+       "locale": "zh",
+       "title": "eSIM（电子 SIM 卡）",
+       "description": "在旅途中享受快速安全的互联网接入服务。",
+       "textLink": "获取您的 eSIM"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "eSIM（电子 SIM 卡）",
+       "description": "在旅途中享受快速安全的互联网接入服务。",
+       "textLink": "获取您的 eSIM"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "eSIM",
+       "description": "在旅途中享受快速且安全的網路連線。",
+       "textLink": "取得您的 eSIM "
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "Esim",
+     "enabled": true,
+     "redirectBaseUrl": "https://lufthansa.breezesim.com",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_esim_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lh"
+    },
+    {
+     "name": "Esim",
+     "enabled": true,
+     "redirectBaseUrl": "https://swiss.breezesim.com",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx_esim.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "Esim",
+     "enabled": true,
+     "redirectBaseUrl": "https://brusselsairlines.breezesim.com",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_esim.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "Esim",
+     "enabled": true,
+     "redirectBaseUrl": "https://austrian.breezesim.com",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os_esim.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "Esim",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_esim_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "Esim",
+     "enabled": true,
+     "redirectBaseUrl": "https://lufthansa.breezesim.com",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_esim_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "yy"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": null,
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Touren und Aktivitäten",
+       "description": "Sammeln Sie vier Meilen für jeden Euro mit GetYourGuide.",
+       "textLink": "Jetzt eine Aktivität buchen"
+      },
+      {
+       "locale": "en",
+       "title": "Tours and activities",
+       "description": "Earn four miles for every Euro spent on GetYourGuide.",
+       "textLink": "Book an activity now"
+      },
+      {
+       "locale": "el",
+       "title": "Περιηγήσεις και δραστηριότητες",
+       "description": "Κερδίστε τέσσερα μίλια για κάθε ευρώ που ξοδεύετε στο GetYourGuide.",
+       "textLink": "Κάντε κράτηση για μια δραστηριότητα τώρα"
+      },
+      {
+       "locale": "es",
+       "title": "Visitas y actividades",
+       "description": "Obtenga cuatro millas por cada euro desembolsado en GetYourGuide.",
+       "textLink": "Reserve una actividad ahora"
+      },
+      {
+       "locale": "fr",
+       "title": "Tours et activités",
+       "description": "Cumulez quatre miles pour chaque euro dépensé sur GetYourGuide.",
+       "textLink": "Réserver une activité"
+      },
+      {
+       "locale": "it",
+       "title": "Tour e attività",
+       "description": "Accumuli quattro miglia per ogni euro speso con GetYourGuide.",
+       "textLink": "Prenoti subito un’attività"
+      },
+      {
+       "locale": "ja",
+       "title": "ツアー＆アクティビティ",
+       "description": "GetYourGuideのご利用1ユーロにつき4マイルを獲得。",
+       "textLink": "アクティビティを今すぐ予約する"
+      },
+      {
+       "locale": "ko",
+       "title": "투어 및 활동",
+       "description": "GetYourGuide에서 1유로당 4마일리지를 적립할 수 있습니다.",
+       "textLink": "지금 액티비티 예약하기"
+      },
+      {
+       "locale": "nl",
+       "title": "Tours en activiteiten",
+       "description": "Verzamel vier Miles voor elke euro die je uitgeeft bij GetYourGuide.",
+       "textLink": "Nu een activiteit reserveren"
+      },
+      {
+       "locale": "pl",
+       "title": "Zwiedzanie i aktywność",
+       "description": "Zgromadź 4 mile za każde euro wydane w GetYourGuide.",
+       "textLink": "Zarezerwuj aktywność już teraz"
+      },
+      {
+       "locale": "pt",
+       "title": "Circuitos e atividades",
+       "description": "Ganhe quatro milhas por cada euro gasto na GetYourGuide.",
+       "textLink": "Reservar uma atividade agora"
+      },
+      {
+       "locale": "ru",
+       "title": "Экскурсии и мероприятия",
+       "description": "Заработайте четыре мили за каждый евро, потраченный на GetYourGuide.",
+       "textLink": "Забронировать мероприятие"
+      },
+      {
+       "locale": "tr",
+       "title": "Turlar ve etkinlikler",
+       "description": "GetYourGuide'da harcanan her Euro için dört mil kazanın.",
+       "textLink": "Hemen bir etkinlik rezervasyonu yapın"
+      },
+      {
+       "locale": "zh",
+       "title": "旅程与活动",
+       "description": "在 GetYourGuide 上每消费 1 欧元即可获取 4 里程。",
+       "textLink": "立即预订活动"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "旅程與活動",
+       "description": "在 GetYourGuide 每消費一歐元即可獲得 4 哩數。",
+       "textLink": "立即預訂活動"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-getyourguide.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "partnerId"
+      }
+     ],
+     "_variation": "lx"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-getyourguide.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "partnerId"
+      }
+     ],
+     "_variation": "os"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn-getyourguide.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "partnerId"
+      }
+     ],
+     "_variation": "sn"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_getyourguide_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "partnerId"
+      }
+     ],
+     "_variation": "lh"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": null,
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "GetYourGuide",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_getyourguide_offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "partnerId"
+      }
+     ],
+     "_variation": "yy"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Lounges entdecken",
+       "description": "Für mehr Komfort auf Ihrer Reise",
+       "textLink": "Lounges entdecken"
+      },
+      {
+       "locale": "en",
+       "title": "Airport lounges",
+       "description": "Add some convenience to your travel",
+       "textLink": "Discover lounges"
+      },
+      {
+       "locale": "el",
+       "title": "Lounge αεροδρομίου",
+       "description": "Προσθέστε λίγη ευκολία στο ταξίδι σας.",
+       "textLink": "Ανακαλύψτε τα lounge"
+      },
+      {
+       "locale": "es",
+       "title": "Lounges de aeropuertos",
+       "description": "Haga su viaje más cómodo.",
+       "textLink": "Descubrir las lounges"
+      },
+      {
+       "locale": "fr",
+       "title": "Salons de l’aéroport",
+       "description": "Ajoutez une touche de commodité à votre voyage.",
+       "textLink": "Découvrir les salons"
+      },
+      {
+       "locale": "it",
+       "title": "Lounge aeroportuali",
+       "description": "Renda il viaggio ancora più confortevole.",
+       "textLink": "Scopra le lounge"
+      },
+      {
+       "locale": "ja",
+       "title": "空港ラウンジ",
+       "description": "ご旅行をもっと便利に。",
+       "textLink": "ラウンジを探す"
+      },
+      {
+       "locale": "ko",
+       "title": "공항 라운지",
+       "description": "여행을 더 편리하게 즐기세요.",
+       "textLink": "라운지 찾기"
+      },
+      {
+       "locale": "nl",
+       "title": "Luchthavenlounges",
+       "description": "Voeg wat gemak toe aan je reis.",
+       "textLink": "Lounges ontdekken"
+      },
+      {
+       "locale": "pl",
+       "title": "Saloniki lotniskowe",
+       "description": "Większy komfort w podróży.",
+       "textLink": "Odkryj salony lotniskowe"
+      },
+      {
+       "locale": "pt",
+       "title": "Lounges no aeroporto",
+       "description": "Acrescente alguma conveniência à sua viagem.",
+       "textLink": "Descobrir lounges"
+      },
+      {
+       "locale": "ru",
+       "title": "Залы ожидания в аэропортах",
+       "description": "Сделайте путешествие удобнее.",
+       "textLink": "Посмотреть бизнес-залы"
+      },
+      {
+       "locale": "tr",
+       "title": "Havaalanı lounge’ları",
+       "description": "Seyahatinize biraz kolaylık katın.",
+       "textLink": "Lounge’ları keşfedin"
+      },
+      {
+       "locale": "zh",
+       "title": "机场休息室",
+       "description": "为您的旅行增添一些便利。",
+       "textLink": "探索休息室"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "机场休息室",
+       "description": "为您的旅行增添一些便利。",
+       "textLink": "探索休息室"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "機場貴賓室",
+       "description": "讓您的旅行更加輕鬆便捷。",
+       "textLink": "探索貴賓室"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lh"
+    },
+    {
+     "name": "Lounge",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "Lounge",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "yy"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Hotels",
+       "description": "Mit Booking.com die perfekte Unterkunft entdecken und Miles & More Meilen sammeln.",
+       "textLink": "Alle Angebotes ansehen"
+      },
+      {
+       "locale": "en",
+       "title": "Hotels",
+       "description": "Find the perfect place to stay with Booking.com and earn Miles & More award miles.",
+       "textLink": "Discover hotels"
+      },
+      {
+       "locale": "el",
+       "title": "Ξενοδοχεία",
+       "description": "Βρείτε το ιδανικό μέρος για να μείνετε στο Booking.com και κερδίστε Μίλια επιβράβευσης Miles&More.",
+       "textLink": "Ανακαλύψτε ξενοδοχεία"
+      },
+      {
+       "locale": "es",
+       "title": "Hoteles",
+       "description": "Encuentre el lugar perfecto para alojarse con Booking.com y acumule millas de premio Miles & More.",
+       "textLink": "Descubrir hoteles"
+      },
+      {
+       "locale": "fr",
+       "title": "Hôtels",
+       "description": "Trouvez l’endroit idéal pour séjourner sur Booking.com et cumulez des Miles de prime Miles&More.",
+       "textLink": "Découvrir les hôtels"
+      },
+      {
+       "locale": "it",
+       "title": "Hotel",
+       "description": "Trovi il luogo perfetto in cui soggiornare su Booking.com e accumuli miglia premio Miles&More.",
+       "textLink": "Scopra gli hotel"
+      },
+      {
+       "locale": "ja",
+       "title": "ホテル",
+       "description": "Booking.comでぴったりの滞在先を見つけて、Miles & Moreのアワードマイルも獲得しましょう。",
+       "textLink": "ホテルを探す"
+      },
+      {
+       "locale": "ko",
+       "title": "호텔",
+       "description": "Booking.com에서 완벽한 숙소를 찾고 Miles & More 보너스 마일리지를 적립하세요.",
+       "textLink": "호텔 찾기"
+      },
+      {
+       "locale": "nl",
+       "title": "Hotels",
+       "description": "Vind een perfecte plek om te verblijven op Booking.com en verzamel Miles&More award Miles.",
+       "textLink": "Hotels ontdekken"
+      },
+      {
+       "locale": "pl",
+       "title": "Hotele",
+       "description": "Znajdź idealne miejsce na pobyt na Booking.com i zgromadź mile premiowe Miles & More.",
+       "textLink": "Odkryj hotele"
+      },
+      {
+       "locale": "pt",
+       "title": "Hotéis",
+       "description": "Encontre o local perfeito para ficar hospedado com Booking.com e ganhe milhas de prémio Miles&More.",
+       "textLink": "Descobrir hotéis"
+      },
+      {
+       "locale": "ru",
+       "title": "Бронирование отелей",
+       "description": "Найдите идеальное место для проживания на Booking.com и заработайте премиальные мили Miles&More.",
+       "textLink": "Посмотреть отели"
+      },
+      {
+       "locale": "tr",
+       "title": "Oteller",
+       "description": "Booking.com'da kalmak için mükemmel bir yer bulun ve Miles&More ödül Milleri kazanın.",
+       "textLink": "Otelleri keşfedin"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "酒店",
+       "description": "通过 Booking.com 查找理想住宿地点，并获取 Miles & More 飞常里程汇奖励里程。",
+       "textLink": "探索酒店"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "酒店",
+       "description": "前往 Booking.com 尋找最佳住宿地點，並賺取 Miles&More 獎勵哩數。",
+       "textLink": "探索酒店"
+      },
+      {
+       "locale": "zh",
+       "title": "酒店",
+       "description": "通过 Booking.com 查找理想住宿地点，并获取 Miles & More 飞常里程汇奖励里程。",
+       "textLink": "探索酒店"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/LX.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "aid"
+      },
+      {
+       "type": "STRING",
+       "value": "Infopages",
+       "name": "label"
+      }
+     ],
+     "_variation": "lx"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/OS.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "aid"
+      }
+     ],
+     "_variation": "os"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_hotels.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "aid"
+      },
+      {
+       "type": "STRING",
+       "value": "label=brusselsair-navtab-planandbook-…",
+       "name": "label"
+      }
+     ],
+     "_variation": "sn"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh-hotels-offerbox.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "aid"
+      },
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "label"
+      }
+     ],
+     "_variation": "lh"
+    },
+    {
+     "name": "Hotel",
+     "enabled": true,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az_hotels.jpg",
+     "localization": [],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "",
+       "name": "aid"
+      }
+     ],
+     "_variation": "az"
+    },
+    {
+     "name": "Hotel",
+     "enabled": false,
+     "redirectBaseUrl": "booking.com/searchresults.html",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "yy"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-parking.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Parken am Flughafen",
+       "description": "Sichern Sie sich einen Parkplatz für Ihre nächste Reise.",
+       "textLink": "Parkplatz finden"
+      },
+      {
+       "locale": "en",
+       "title": "Airport parking",
+       "description": "Book a parking spot for your next trip.",
+       "textLink": "Find parking"
+      },
+      {
+       "locale": "el",
+       "title": "Πάρκινγκ αεροδρομίου",
+       "description": "Κάντε κράτηση θέσης στάθμευσης για το επόμενο ταξίδι σας.",
+       "textLink": "Εύρεση χώρου στάθμευσης"
+      },
+      {
+       "locale": "es",
+       "title": "Aparcamiento en el aeropuerto",
+       "description": "Reserve una plaza de aparcamiento para su próximo viaje.",
+       "textLink": "Buscar aparcamiento"
+      },
+      {
+       "locale": "fr",
+       "title": "Parking de l’aéroport",
+       "description": "Réservez une place de parking pour votre prochain voyage.",
+       "textLink": "Trouver un parking"
+      },
+      {
+       "locale": "it",
+       "title": "Parcheggio in aeroporto",
+       "description": "Prenoti un parcheggio per il suo prossimo viaggio.",
+       "textLink": "Trovare parcheggio"
+      },
+      {
+       "locale": "ja",
+       "title": "空港駐車場",
+       "description": "次のご旅行に向けて駐車場を予約しましょう。",
+       "textLink": "駐車場を探す"
+      },
+      {
+       "locale": "ko",
+       "title": "공항 주차",
+       "description": "다음 여행을 위한 주차 공간을 예약하세요.",
+       "textLink": "주차장 찾기"
+      },
+      {
+       "locale": "nl",
+       "title": "Parking op de luchthaven",
+       "description": "Boek een parkeerplaats voor je volgende reis.",
+       "textLink": "Parking zoeken"
+      },
+      {
+       "locale": "pl",
+       "title": "Parking na lotnisku",
+       "description": "Zarezerwuj miejsce parkingowe na następną podróż.",
+       "textLink": "Znajdź parking"
+      },
+      {
+       "locale": "pt",
+       "title": "Estacionamento no aeroporto",
+       "description": "Reserve um lugar de estacionamento para a sua próxima viagem.",
+       "textLink": "Encontrar estacionamento"
+      },
+      {
+       "locale": "ru",
+       "title": "Парковка в аэропорту",
+       "description": "Забронируйте парковочное место для следующей поездки.",
+       "textLink": "Найти парковку"
+      },
+      {
+       "locale": "tr",
+       "title": "Havaalanı otoparkı",
+       "description": "Bir sonraki seyahatiniz için bir park yeri rezervasyonu yapın.",
+       "textLink": "Otopark bul"
+      },
+      {
+       "locale": "zh",
+       "title": "机场停车",
+       "description": "为您的下次旅行预订停车位。",
+       "textLink": "查找停车位"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "机场停车",
+       "description": "为您的下次旅行预订停车位。",
+       "textLink": "查找停车位"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "機場停車位",
+       "description": "為您的下一趟旅程預訂停車位。",
+       "textLink": "尋找停車位"
+      }
+     ],
+     "properties": [
+      {
+       "type": "STRING",
+       "value": "BER, BRE, DUS, FRA, HAJ, CGN, FMM, MUC, SZG, STR, VIE",
+       "name": "validAirports"
+      }
+     ],
+     "_variation": "master"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": "https://austrian.park.aero/{language}",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-parking.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": "https://lufthansa.park.aero/{language}",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_parking_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lh"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": "https://swiss.park.aero/{language}",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/LX-Parking.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": false,
+     "redirectBaseUrl": null,
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-parking.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": "https://brusselsairlines.park.aero/{language}",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/SN-Airport-parking.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "ParkAero",
+     "enabled": true,
+     "redirectBaseUrl": "https://lufthansa.park.aero/{language}",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_parking_offerbox.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "yy"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_pets_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Reisen mit Tieren",
+       "description": "Wir bieten angenehme Möglichkeiten, um mit Ihrem Hund oder Ihrer Katze zu verreisen.",
+       "textLink": "Mehr erfahren"
+      },
+      {
+       "locale": "en",
+       "title": "Traveling with animals",
+       "description": "Explore our options for flying comfortably with your dog or cat.",
+       "textLink": "Discover more"
+      },
+      {
+       "locale": "el",
+       "title": "Ταξίδι με κατοικίδια",
+       "description": "Ανακαλύψτε τις επιλογές μας για ένα άνετο ταξίδι με τον σκύλο ή τη γάτα σας.",
+       "textLink": "Ανακαλύψτε περισσότερα"
+      },
+      {
+       "locale": "es",
+       "title": "Viajar con mascotas",
+       "description": "Explore nuestras opciones para volar cómodamente con su perro o gato.",
+       "textLink": "Descubra más"
+      },
+      {
+       "locale": "fr",
+       "title": "Voyager avec des animaux de compagnie",
+       "description": "Découvrez nos options pour voyager confortablement avec votre chien ou votre chat.",
+       "textLink": "En savoir plus"
+      },
+      {
+       "locale": "it",
+       "title": "Viaggiare con animali domestici",
+       "description": "Scopra le nostre opzioni per volare comodamente con il suo cane o gatto.",
+       "textLink": "Per saperne di più"
+      },
+      {
+       "locale": "ja",
+       "title": "ペットとの旅行",
+       "description": "愛犬や愛猫と一緒に快適にフライトをご利用いただくためのオプションをご案内します。",
+       "textLink": "詳細はこちら"
+      },
+      {
+       "locale": "ko",
+       "title": "반려동물과 함께 여행하기",
+       "description": "반려견이나 반려묘와 함께 편안하게 비행기를 이용할 수 있는 방법을 확인해 보세요.",
+       "textLink": "자세히 알아보기"
+      },
+      {
+       "locale": "nl",
+       "title": "Reizen met huisdieren",
+       "description": "Ontdek onze opties om comfortabel te vliegen met je hond of kat.",
+       "textLink": "Ontdek meer"
+      },
+      {
+       "locale": "pl",
+       "title": "Podróżowanie ze zwierzętami domowym",
+       "description": "Poznaj nasze opcje wygodnego podróżowania z psem lub kotem.",
+       "textLink": "Zobacz więcej"
+      },
+      {
+       "locale": "pt",
+       "title": "Viajar com animais de estimação",
+       "description": "Explore as nossas opções para viajar confortavelmente com o seu cão ou gato.",
+       "textLink": "Descubra mais"
+      },
+      {
+       "locale": "ru",
+       "title": "Путешествие с домашними животными",
+       "description": "Ознакомьтесь с нашими вариантами комфортного перелета с собакой или кошкой.",
+       "textLink": "Подробнее"
+      },
+      {
+       "locale": "tr",
+       "title": "Evcil hayvanlarla seyahat",
+       "description": "Köpeğiniz veya kedinizle rahat bir şekilde uçma seçeneklerimizi keşfedin.",
+       "textLink": "Daha fazlasını keşfedin"
+      },
+      {
+       "locale": "zh",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "携带寵物旅行",
+       "description": "探索我們的選項，與您的愛犬或愛貓舒適搭機。",
+       "textLink": "了解更多"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.lufthansa.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_pets_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Reisen mit Tieren",
+       "description": "Wir bieten angenehme Möglichkeiten, um mit Ihrem Hund oder Ihrer Katze zu verreisen.",
+       "textLink": "Mehr erfahren"
+      },
+      {
+       "locale": "en",
+       "title": "Traveling with animals",
+       "description": "Explore our options for flying comfortably with your dog or cat.",
+       "textLink": "Discover more"
+      },
+      {
+       "locale": "el",
+       "title": "Ταξίδι με κατοικίδια",
+       "description": "Ανακαλύψτε τις επιλογές μας για ένα άνετο ταξίδι με τον σκύλο ή τη γάτα σας.",
+       "textLink": "Ανακαλύψτε περισσότερα"
+      },
+      {
+       "locale": "es",
+       "title": "Viajar con mascotas",
+       "description": "Explore nuestras opciones para volar cómodamente con su perro o gato.",
+       "textLink": "Descubra más"
+      },
+      {
+       "locale": "fr",
+       "title": "Voyager avec des animaux de compagnie",
+       "description": "Découvrez nos options pour voyager confortablement avec votre chien ou votre chat.",
+       "textLink": "En savoir plus"
+      },
+      {
+       "locale": "it",
+       "title": "Viaggiare con animali domestici",
+       "description": "Scopra le nostre opzioni per volare comodamente con il suo cane o gatto.",
+       "textLink": "Per saperne di più"
+      },
+      {
+       "locale": "ja",
+       "title": "ペットとの旅行",
+       "description": "愛犬や愛猫と一緒に快適にフライトをご利用いただくためのオプションをご案内します。",
+       "textLink": "詳細はこちら"
+      },
+      {
+       "locale": "ko",
+       "title": "반려동물과 함께 여행하기",
+       "description": "반려견이나 반려묘와 함께 편안하게 비행기를 이용할 수 있는 방법을 확인해 보세요.",
+       "textLink": "자세히 알아보기"
+      },
+      {
+       "locale": "nl",
+       "title": "Reizen met huisdieren",
+       "description": "Ontdek onze opties om comfortabel te vliegen met je hond of kat.",
+       "textLink": "Ontdek meer"
+      },
+      {
+       "locale": "pl",
+       "title": "Podróżowanie ze zwierzętami domowym",
+       "description": "Poznaj nasze opcje wygodnego podróżowania z psem lub kotem.",
+       "textLink": "Zobacz więcej"
+      },
+      {
+       "locale": "pt",
+       "title": "Viajar com animais de estimação",
+       "description": "Explore as nossas opções para viajar confortavelmente com o seu cão ou gato.",
+       "textLink": "Descubra mais"
+      },
+      {
+       "locale": "ru",
+       "title": "Путешествие с домашними животными",
+       "description": "Ознакомьтесь с нашими вариантами комфортного перелета с собакой или кошкой.",
+       "textLink": "Подробнее"
+      },
+      {
+       "locale": "tr",
+       "title": "Evcil hayvanlarla seyahat",
+       "description": "Köpeğiniz veya kedinizle rahat bir şekilde uçma seçeneklerimizi keşfedin.",
+       "textLink": "Daha fazlasını keşfedin"
+      },
+      {
+       "locale": "zh",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "携带寵物旅行",
+       "description": "探索我們的選項，與您的愛犬或愛貓舒適搭機。",
+       "textLink": "了解更多"
+      }
+     ],
+     "properties": null,
+     "_variation": "lh"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.lufthansa.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_pets_offerbox.jpg",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Reisen mit Tieren",
+       "description": "Wir bieten angenehme Möglichkeiten, um mit Ihrem Hund oder Ihrer Katze zu verreisen.",
+       "textLink": "Mehr erfahren"
+      },
+      {
+       "locale": "en",
+       "title": "Traveling with animals",
+       "description": "Explore our options for flying comfortably with your dog or cat.",
+       "textLink": "Discover more"
+      },
+      {
+       "locale": "el",
+       "title": "Ταξίδι με κατοικίδια",
+       "description": "Ανακαλύψτε τις επιλογές μας για ένα άνετο ταξίδι με τον σκύλο ή τη γάτα σας.",
+       "textLink": "Ανακαλύψτε περισσότερα"
+      },
+      {
+       "locale": "es",
+       "title": "Viajar con mascotas",
+       "description": "Explore nuestras opciones para volar cómodamente con su perro o gato.",
+       "textLink": "Descubra más"
+      },
+      {
+       "locale": "fr",
+       "title": "Voyager avec des animaux de compagnie",
+       "description": "Découvrez nos options pour voyager confortablement avec votre chien ou votre chat.",
+       "textLink": "En savoir plus"
+      },
+      {
+       "locale": "it",
+       "title": "Viaggiare con animali domestici",
+       "description": "Scopra le nostre opzioni per volare comodamente con il suo cane o gatto.",
+       "textLink": "Per saperne di più"
+      },
+      {
+       "locale": "ja",
+       "title": "ペットとの旅行",
+       "description": "愛犬や愛猫と一緒に快適にフライトをご利用いただくためのオプションをご案内します。",
+       "textLink": "詳細はこちら"
+      },
+      {
+       "locale": "ko",
+       "title": "반려동물과 함께 여행하기",
+       "description": "반려견이나 반려묘와 함께 편안하게 비행기를 이용할 수 있는 방법을 확인해 보세요.",
+       "textLink": "자세히 알아보기"
+      },
+      {
+       "locale": "nl",
+       "title": "Reizen met huisdieren",
+       "description": "Ontdek onze opties om comfortabel te vliegen met je hond of kat.",
+       "textLink": "Ontdek meer"
+      },
+      {
+       "locale": "pl",
+       "title": "Podróżowanie ze zwierzętami domowym",
+       "description": "Poznaj nasze opcje wygodnego podróżowania z psem lub kotem.",
+       "textLink": "Zobacz więcej"
+      },
+      {
+       "locale": "pt",
+       "title": "Viajar com animais de estimação",
+       "description": "Explore as nossas opções para viajar confortavelmente com o seu cão ou gato.",
+       "textLink": "Descubra mais"
+      },
+      {
+       "locale": "ru",
+       "title": "Путешествие с домашними животными",
+       "description": "Ознакомьтесь с нашими вариантами комфортного перелета с собакой или кошкой.",
+       "textLink": "Подробнее"
+      },
+      {
+       "locale": "tr",
+       "title": "Evcil hayvanlarla seyahat",
+       "description": "Köpeğiniz veya kedinizle rahat bir şekilde uçma seçeneklerimizi keşfedin.",
+       "textLink": "Daha fazlasını keşfedin"
+      },
+      {
+       "locale": "zh",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hans",
+       "title": "携带宠物旅行",
+       "description": "探索我们为确保您与爱犬或爱猫舒适乘机而提供的各项方案。",
+       "textLink": "了解更多"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "携带寵物旅行",
+       "description": "探索我們的選項，與您的愛犬或愛貓舒適搭機。",
+       "textLink": "了解更多"
+      }
+     ],
+     "properties": null,
+     "_variation": "yy"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.swiss.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx_animalsincargo.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.austrian.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os_petincabin.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "PetsInCabin",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.brusselsairlines.com/artifacts/baggage-upgrades/baggage-booking/{locale}?product=animal",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_petincabin.jpg",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/content/mobile/lh/{language}/content-pages/ancillaries/sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [
+      {
+       "locale": "de",
+       "title": "Sleeper’s Row",
+       "description": "Genießen Sie mehr Komfort und Freiraum auf Ihrem Langstreckenflug mit einer ganzen Sitzreihe in der Economy Class.",
+       "textLink": "Zur Produktbeschreibung"
+      },
+      {
+       "locale": "en",
+       "title": "Sleeper’s Row",
+       "description": "Enjoy more comfort and space on your long-haul flight with an entire row of Economy Class seats.",
+       "textLink": "To the product description"
+      },
+      {
+       "locale": "el",
+       "title": "Sleeper’s Row",
+       "description": "Απολαύστε μεγαλύτερη άνεση και επιπλέον χώρο στη διηπειρωτική πτήση σας, έχοντας στη διάθεσή σας μια ολόκληρη σειρά καθισμάτων στην Economy Class.",
+       "textLink": "Μετάβαση στην περιγραφή του προϊόντος"
+      },
+      {
+       "locale": "es",
+       "title": "Sleeper’s Row",
+       "description": "Disfrute de más comodidad y espacio en su vuelo de larga distancia con toda una fila de asientos de Economy Class.",
+       "textLink": "Ir a la descripción del producto"
+      },
+      {
+       "locale": "fr",
+       "title": "Sleeper’s Row",
+       "description": "Profitez de plus de confort et d’espace sur votre vol long-courrier grâce à une rangée entière de sièges en Economy Class.",
+       "textLink": "Vers la description du produit"
+      },
+      {
+       "locale": "it",
+       "title": "Sleeper’s Row",
+       "description": "Approfitti di maggiore comfort e spazio sul suo volo a lungo raggio con un’intera fila di posti in Economy Class a sua disposizione.",
+       "textLink": "Alla descrizione del prodotto"
+      },
+      {
+       "locale": "ja",
+       "title": "スリーパーズロウ",
+       "description": "エコノミークラスの座席を1列まるごと利用して、長距離フライトでさらなる快適さと広い空間をお楽しみください。",
+       "textLink": "サービスの詳細へ"
+      },
+      {
+       "locale": "ko",
+       "title": "수면 좌석",
+       "description": "장거리 항공편에서 이코노미 클래스 좌석 한 줄 전체를 이용하여 더욱 편안하고 넉넉한 공간을 누리세요.",
+       "textLink": "상품 설명으로 이동"
+      },
+      {
+       "locale": "nl",
+       "title": "Sleeper’s Row",
+       "description": "Geniet van meer comfort und ruimte op je langeafstandsvlucht met een volledige rij stoelen in Economy Class.",
+       "textLink": "Naar de productbeschrijving"
+      },
+      {
+       "locale": "pl",
+       "title": "Sleeper’s Row",
+       "description": "Zapewnij sobie więcej wygody i przestrzeni podczas rejsów międzykontynentalnych, mając do dyspozycji cały rząd miejsc w Klasie Ekonomicznej.",
+       "textLink": "Do opisu produktu"
+      },
+      {
+       "locale": "pt",
+       "title": "Sleeper’s Row",
+       "description": "Desfrute de mais conforto e espaço no seu voo de longo curso com uma fila inteira de lugares em Economy Class.",
+       "textLink": "Para a descrição do produto"
+      },
+      {
+       "locale": "ru",
+       "title": "Спальный ряд",
+       "description": "Насладитесь дополнительным комфортом и пространством на вашем дальнемагистральном рейсе — забронируйте весь ряд мест эконом-класса.",
+       "textLink": "К описанию продукта"
+      },
+      {
+       "locale": "tr",
+       "title": "Sleeper’s Row",
+       "description": "Uzun menzilli uçuşunuzda Economy Class koltuklardan oluşan bir sıra ile daha fazla konforun ve alanın keyfini çıkarın.",
+       "textLink": "Ürün açıklaması için"
+      },
+      {
+       "locale": "zh",
+       "title": "卧铺排",
+       "description": "在长途航班中尽享整排经济舱座位，体验更舒适的旅途和更宽敞的空间。",
+       "textLink": "查看产品描述"
+      },
+      {
+       "locale": "zh-Hant",
+       "title": "臥鋪排",
+       "description": "在長途航班上擁有整排經濟艙座位，享受更加舒適寬敞的飛行體驗。",
+       "textLink": "前往產品說明"
+      }
+     ],
+     "properties": null,
+     "_variation": "master"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.lufthansa.com/content/mobile/lh/{language}/content-pages/ancillaries/sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "lh"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/xx/{language}/advance-seat-reservation#sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "os"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/xx/{language}/advance-seat-reservation#sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "az"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/xx/{language}/advance-seat-reservation#sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "lx"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": false,
+     "redirectBaseUrl": "https://www.lufthansa.com/xx/{language}/advance-seat-reservation#sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "sn"
+    },
+    {
+     "name": "SleepersRow",
+     "enabled": true,
+     "redirectBaseUrl": "https://www.lufthansa.com/content/mobile/lh/{language}/content-pages/ancillaries/sleepers-row",
+     "imageUrl": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_sleepersrow.png",
+     "localization": [],
+     "properties": null,
+     "_variation": "yy"
+    }
+   ]
+  }
+ }
+}

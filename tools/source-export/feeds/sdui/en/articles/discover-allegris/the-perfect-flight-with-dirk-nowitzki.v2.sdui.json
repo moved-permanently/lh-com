@@ -1,0 +1,399 @@
+{
+ "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Portrait of Dirk Nowitzki"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "The Perfect Flight with Dirk Nowitzki",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. October 2026 | 4 min read | Dirk Nowitzki</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_info"
+     },
+     {
+      "type": "copyText",
+      "text": "Optimal comfort, extra legroom, and delicious food: as a frequent flyer, basketball legend Dirk Nowitzki knows what it takes to arrive at his destination relaxed and refreshed. Lufthansa Insights joined him on a trip from Frankfurt to Austin to find out what he thinks constitutes a perfect flight, beyond the amenities of Lufthansa Allegris",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Start",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par0/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_luggage_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "When I board the plane and get comfy in my seat, I first arrange everything I’ll need during the flight: my book, my journal, and my headphones. I want everything within easy reach so I don’t have to think about it later. I also put on my compression socks, which I always bring on long-haul flights.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "When I’m traveling with the kids, they naturally come first. My wife and I make sure everyone is seated, buckled in, and has everything they need. There’s also plenty of carry-on luggage to stow away, so the generous storage space in Lufthansa Allegris Business Class is especially practical. Once everyone is settled and happy, I can sit down and look forward to the flight.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_2"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par2/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par2/link_copy_copy_copy_",
+      "text": "More about Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Discover Allegris",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par2/link_copy_copy_copy__470851493",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par2/link_copy_copy_copy__1375705385",
+      "text": "Search flights with Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_discoverallegris_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/discover-lufthansa/allegris/destinations",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par2/separator_copy_copy__848936221"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Seat",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "Being tall, space is a critical factor for me on a long flight. Fortunately, Lufthansa Allegris Business Class offers five different seat options. I like the Extra Long Bed Seat, which gives me plenty of legroom. When I’m flying at night, the seat that converts into a 2.20-meter (7 foot 2 inch) bed is ideal. At 2.13 meters (7 feet) tall, having that much room is a real game changer for comfort.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "I also like that all the seats have heating and cooling, so it's easy for everyone to set the temperature to their liking. I prefer a window seat, but overall, I’m pretty easygoing when it comes to choosing where I sit.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par5/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_laptop_working_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Moment on Board",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "I really enjoy being offline for a while and having all the time in the world, because I spend plenty of time on the phone in my everyday life. I use the hours on board to recharge. I love watching movies, and the high-resolution screens make that even more enjoyable. It’s one of the reasons I look forward to long flights, as I can relax and do things I otherwise don’t get around to.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par7/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_entertainment_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Meal",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "I really enjoy bread, especially good dark rye bread. I miss German bread a lot in the United States. Of course, you can find many German products there now, and even Dallas has German grocery stores. But really good German bread is something special. Flying with Lufthansa feels a little like coming home, and even before the flight, I look forward to the fresh baked goods and hearty classics served on board, such as rouladen or dumplings. They remind me of home. This time, I can't wait to have some Black Forest cake, although I’d never say no to a good schnitzel, either.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_9"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par9/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_cake-service_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Way to Unwind",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "For me, pure relaxation means setting everything aside for a few hours – not being contactable, focusing on a book, or watching a movie. Switching off. Rest and relaxation are important to me on a long flight, because once we arrive, we hit the ground running: sightseeing, exploring, and, of course, the kids are always incredibly excited. That’s why I enjoy the time on board and make a point of truly unwinding. I can stretch out, recline my seat, and simply enjoy having nothing I need to do.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_11"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/articlecontentfragment/par11/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_sleeping_bed_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     },
+     {
+      "type": "copyText",
+      "text": "The Perfect Arrival",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "Ideally, I arrive at my destination feeling as refreshed as if I’d slept through the night. So I try to adjust to the local time as early as possible while I’m still on board. Sometimes that means staying awake even when I’m tired, or deliberately going to sleep if it’s already nighttime at my destination. Over the years, I’ve learned to adjust my sleep schedule a little to the time zone I’m traveling to. That makes it easier to manage jet lag.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>All Images&nbsp;© Oscar Bravo</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "About",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "German athlete Dirk Nowitzki is one of the most successful basketball players of all time. He had an impressive career in the National Basketball Association (NBA), and his NBA championship and 14 All-Star selections have made him a sports icon. Nowitzki lives in Dallas, Texas, with his wife, Jessica, and their three children.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/discover-allegris/allegris-business-class-dirk-nowitzki_paragraph_16"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_15092026"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/par/sduicolumn/column/teaser_copy_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/par/sduicolumn/column/separator_copy"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "More about Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Discover Allegris",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki/jcr:content/par/sduicolumn/column/link_copy_copy_copy__1547699085",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

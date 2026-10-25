@@ -1,0 +1,335 @@
+{
+ "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_woman_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Frau mit hellen Haaren und cremefarbener Bluse sitzt in der Lufthansa Allegris Business Class"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Lufthansa Allegris: Welcher Fluggast-Typ sind Sie?",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Gehören Sie zum kreativen Jetset, oder sind Sie eher in der Welt der Wirtschaft zu Hause? Eine kleine Typologie der Lufthansa Allegris Gäste.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "Die Filmenthusiastin&nbsp;",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Sie kennt Oscar-Gewinner:innen auswendig und verbringt jede freie Minute im Arthouse-Kino. An Bord wird der Langstreckenflug zum Blockbuster: Auf dem 13,3-Zoll-Monitor warten über 300 Filme in 4K-Qualität – natürlich mit den eigenen Premium-Kopfhörern, die sich per Bluetooth verbinden lassen. So vergeht die Zeit wie im Flug.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par1/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_film-enthusiast_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Eine Frau mit Kopfhörern schaut durch einen Bildschirm ins All"
+     },
+     {
+      "type": "copyText",
+      "text": "Der Entrepreneur&nbsp;",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Sein Büro? Überall. Zwischen Investor und Produzent steuert er sein Unternehmen einfach aus der Luft. In der Premium Economy sorgen Hartschalensitz, großzügige Beinfreiheit, Steckdose, USB-Anschlüsse und kabelloses Laden dafür, dass erst der Laptop und dann der Entrepreneur neue Energie tanken.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_entrepreneur_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Blick auf einen Mann mit Brille von unten durch eine transparente Tastatur, auf der er tippt"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "Mehr zu Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Allegris entdecken",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__350700462",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__694086628",
+      "text": "Flüge mit Allegris finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_discoverallegris_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/discover-lufthansa/allegris/destinations",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par3/separator_copy_copy__1719339462"
+     },
+     {
+      "type": "copyText",
+      "text": "Die Fashion-Designerin&nbsp;",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Für sie ist jeder Gang ein Laufsteg – und jeder Flug eine Inspirationsquelle. Im Extra Space Seat der Business Class wird die großzügige Ablagefläche kurzerhand zum Atelier, während Sichtschutz sowie Sitzheizung und -kühlung für ungestörte Kreativität und maximalen Komfort sorgen. Die nächste Kollektion landet oft noch vor dem Flugzeug.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par5/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_fashion-designer_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Frau mit Brille sitzt zwischen anderen Passagier:innen in der Lufthansa Allegris Business Class und spricht mit einem Flugbegleiter."
+     },
+     {
+      "type": "copyText",
+      "text": "Das Power Couple&nbsp;",
+      "size": "MEDIUM",
+      "variant": "HEADLINE",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Sie glauben, sie hätten schon alles gesehen? Vielleicht. Aber die First Class Suite Plus setzt noch einen drauf. Abendessen wie im Sternerestaurant, später das Doppelbett genießen und den Filmabend vor dem 43-Zoll-Bildschirm verbringen – da darf der Landeanflug ruhig noch ein bisschen auf sich warten lassen.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/articlecontentfragment/par7/image_copy_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_power-couple_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Weibliches Paar, das sich an einem gedeckten Tisch in der Lufthansa Allegris First Class gegenübersitzt und isst."
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/par/sduicolumn_copy_copy",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/par/sduicolumn_copy_copy/column/teaser_copy_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/par/sduicolumn_copy_copy/column/separator"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy_",
+      "text": "Mehr zu Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Allegris entdecken",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy__147093814",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

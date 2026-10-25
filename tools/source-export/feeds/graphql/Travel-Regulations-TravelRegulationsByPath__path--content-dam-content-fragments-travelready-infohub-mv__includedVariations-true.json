@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.436Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:27:50.689Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Travellers entering the Maldives must <b>complete </b>the <a hreftemp=\"https://imuga.immigration.gov.mv/traveller\" rel=\"noopener noreferrer\" href=\"https://imuga.immigration.gov.mv/traveller\">Traveller Declaration</a> within 96 hours before arrival.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.436Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:27:50.689Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Für die <b>Einreise auf die Malediven</b> müssen Reisende innerhalb von 96 Stunden vor ihrer Ankunft die <a hreftemp=\"https://imuga.immigration.gov.mv/traveller\" rel=\"noopener noreferrer\" href=\"https://imuga.immigration.gov.mv/traveller\">Traveller Declaration</a> <b>ausfüllen.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.436Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:27:50.689Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Les <b>voyageurs se rendant aux Maldives doivent compléter en ligne</b> la <a hreftemp=\"https://imuga.immigration.gov.mv/traveller\" rel=\"noopener noreferrer\" href=\"https://imuga.immigration.gov.mv/traveller\">Traveller Declaration</a> dans les 96 heures précédant leur arrivée.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

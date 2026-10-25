@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.429Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-10T16:35:22.947Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important note:&nbsp;Entry requirements for&nbsp;<u>minors</u> travelling to Namibia</b></p>\n<p><b>Minors under the age of 18 travelling to Namibia</b> must carry an <b>original full birth certificate</b> <b>or a certified copy.</b></p>\n<p>Depending on their travel situation, additional documents may be required:</p>\n<ul>\n<li><b>Travelling with an adult who is not their biological parent:</b> A sworn statement from the parents authorising the minor to travel with that adult is required.</li>\n<li><b>Travelling with an adult who is not a parent or legal guardian:</b> Copies of the parents’ or legal guardians’ passports or identity documents, together with their contact details, are required.</li>\n<li><b>Travelling with only one parent:</b> A sworn statement from the non-travelling parent authorising the journey is required. If one parent is deceased, a death certificate must be presented.</li>\n<li><b>Travelling unaccompanied:</b> A sworn statement from the parents or legal guardians authorising the journey is required. In addition, minors must carry a letter containing the contact details and address of the person who will receive and look after them in Namibia, a copy of that person's identity document, valid passport or residence permit, and the contact details of the parents or legal guardians.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.429Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-10T16:35:22.947Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Wichtige Information: Einreisebestimmungen für <u>Minderjährige</u> bei Reisen nach Namibia</b></p>\n<p><b>Minderjährige unter 18 Jahren, die nach Namibia reisen,</b> müssen eine <b>originale, vollständige Geburtsurkunde oder eine beglaubigte Kopie</b> mitführen.</p>\n<p>Je nach Reisesituation können zusätzliche Dokumente erforderlich sein:</p>\n<ul>\n<li><b>Reise mit einer erwachsenen Person, die nicht der leibliche Elternteil ist:</b> Es ist eine eidesstattliche Erklärung der Eltern erforderlich, die die Reise des Minderjährigen mit dieser Person genehmigt.</li>\n<li><b>Reise mit einer erwachsenen Person, die weder Elternteil noch gesetzlicher Vormund ist:</b> Kopien der Reisepässe oder Ausweisdokumente der Eltern bzw. gesetzlichen Vormünder sowie deren Kontaktdaten sind erforderlich.</li>\n<li><b>Reise mit nur einem Elternteil:</b> Es ist eine eidesstattliche Erklärung des nicht mitreisenden Elternteils erforderlich, die die Reise genehmigt. Ist ein Elternteil verstorben, muss eine Sterbeurkunde vorgelegt werden.</li>\n<li><b>Unbegleitete Reise:</b> Es ist eine eidesstattliche Erklärung der Eltern oder gesetzlichen Vormünder erforderlich, die die Reise genehmigt. Zusätzlich müssen Minderjährige ein Schreiben mit den Kontaktdaten und der Adresse der Person mitführen, die sie in Namibia empfängt und betreut, eine Kopie des Ausweisdokuments, gültigen Reisepasses oder der Aufenthaltserlaubnis dieser Person sowie die Kontaktdaten der Eltern oder gesetzlichen Vormünder.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:05.429Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-10T16:35:22.947Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Information importante: Conditions d'entrée pour les <u>mineurs</u> voyageant vers la Namibie</b></p>\n<p><b>Les mineurs de moins de 18 ans voyageant vers la Namibie</b> doivent être en possession d'un <b>acte de naissance intégral original ou d'une copie certifiée conforme.</b></p>\n<p>Selon leur situation de voyage, des documents supplémentaires peuvent être exigés:</p>\n<ul>\n<li><b>Voyage avec un adulte qui n'est pas leur parent biologique :</b> Une déclaration sous serment des parents autorisant le mineur à voyager avec cet adulte est requise.</li>\n<li><b>Voyage avec un adulte qui n'est ni un parent ni un tuteur légal :</b> Des copies des passeports ou pièces d'identité des parents ou tuteurs légaux, ainsi que leurs coordonnées, sont requises.</li>\n<li><b>Voyage avec un seul parent :</b> Une déclaration sous serment du parent non accompagnant autorisant le voyage est requise. Si l'un des parents est décédé, un certificat de décès doit être présenté.</li>\n<li><b>Voyage non accompagné :</b> Une déclaration sous serment des parents ou tuteurs légaux autorisant le voyage est requise. En outre, les mineurs doivent être en possession d'une lettre indiquant les coordonnées et l'adresse de la personne qui les accueillera et prendra soin d'eux en Namibie, d'une copie du document d'identité, du passeport valide ou du permis de séjour de cette personne, ainsi que des coordonnées des parents ou tuteurs légaux.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

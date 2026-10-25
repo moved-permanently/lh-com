@@ -1,0 +1,265 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_woman_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A woman with light hair and cream-colored blouse sits in Lufthansa Allegris Business Class"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa Allegris: What Type of Passenger Are You?",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>15. September 2026 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Do you belong to the creative jet set, or are you more at home in the world of business? We have compiled a brief typology of Lufthansa Allegris passengers.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "The Film Enthusiast",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "She knows Oscar winners by heart and spends every spare minute at her local arthouse cinema. On board, every long-haul flight becomes a blockbuster: more than 300 movies in 4K await on the 13.3-inch screen, best enjoyed with her own premium headphones connected via Bluetooth. Time really does fly.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_film-enthusiast_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A woman with headphones looks through a screen into space"
+  },
+  {
+   "type": "copyText",
+   "text": "The Entrepreneur",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "His office? Anywhere. Between meetings with investors and producers, he runs his business from 35,000 feet. In Premium Economy, the hard-shell seat, generous legroom, power outlet, USB ports, and wireless charging keep both his devices – and ultimately him – fully recharged.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_entrepreneur_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "View of a man with glasses from below through a transparent keyboard on which he is typing"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Discover Allegris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Search flights with Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_discoverallegris_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/discover-lufthansa/allegris/destinations"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "The Fashion Designer",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "For this passenger, every aisle is a runway and every flight a source of inspiration. In the Business Class Extra Space Seat, the large side table becomes a design studio, while the privacy screen and heated and cooled seat create the perfect setting for uninterrupted creativity. By the time the plane lands, her next collection often has too.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_fashion-designer_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A woman with glasses sits among other passengers in Lufthansa Allegris Business Class talking to a male flight attendant."
+  },
+  {
+   "type": "copyText",
+   "text": "The Power Couple",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "They think they've seen it all. Maybe they have. But the First Class Suite Plus still raises the bar. Dinner feels like a Michelin-starred experience, the seats transform into a double bed, and a movie on the 43-inch screen rounds off the evening. The only downside? The landing always comes too soon.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you/lh_app_allegris_power-couple_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "A female couple sits opposite each other at a set table and eats a meal in Lufthansa Allegris First Class"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_15092026"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Discover Allegris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

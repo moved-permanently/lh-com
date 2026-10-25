@@ -1,0 +1,203 @@
+{
+ "title": "Europa",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in Frankfurt",
+   "description": "Flugbegleiterin Julia Buth kennt sich in Frankfurt aus. Wer die Stadt an einem Tag erleben will, folgt ihren Tipps.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_city_getty1392119944_16x9.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in Frankfurt",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in London",
+   "description": "Im höchstgelegenen Garten Londons die Skyline bestaunen, in Soho shoppen gehen und sich von einer West-End-Show begeistern lassen: Stefanie Sauer zeigt, wie vielseitig ein Tag in London sein kann.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_london_westend61-WPEF02418_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in London",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/a-perfect-day-in-london.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in München",
+   "description": "Ein Besuch im Deutschen Museum, ein gemütlicher Isar-Spaziergang und jede Menge Kulinarik: Flugbegleiter Manfred Samhuber schildert, wie man München an einem Tag erleben kann.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_isar_getty638561876_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in München",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/a-perfect-day-in-munich.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Essentials of Barcelona",
+   "description": "Hier kann man baden und unvollendete Bauten bewundern: Fünf Dinge über Barcelona, die Sie überraschen werden.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_barcelona_illustration_sylvia-neuner_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Essentials of Barcelona",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/essentials-of-barcelona.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Essentials of Paris",
+   "description": "Eine Stadt ohne Stoppschilder und mit einer Vorliebe für Macarons: Fünf Dinge über Paris, die Sie überraschen werden.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_paris_illustration_sylvia-neuner_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Essentials of Paris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/essentials-of-paris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

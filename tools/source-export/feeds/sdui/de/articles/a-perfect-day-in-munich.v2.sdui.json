@@ -1,0 +1,503 @@
+{
+ "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_isar_getty638561876_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Blick entlang der Isar in München"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in München",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>22. Juni 2025 | 3 min read | Manfred Samhuber</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Ein Besuch im Deutschen Museum, ein gemütlicher Isar-Spaziergang und jede Menge Kulinarik: Flugbegleiter Manfred Samhuber schildert, wie man München an einem Tag erleben kann.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par0/image_copy_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_blog_munich_botanical-garden_unsplash-VIBex97kgi0_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Innenansicht des Botanischen Garten in München"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Botanischer Garten</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Mit über 16.240 Arten und Unterarten gehört der Botanische Garten in München zu den bedeutendsten weltweit</li><li>In den Gewächshäusern fühle ich mich wie in einem Dschungel in Südostasien – und die Fotomotive sind wirklich toll</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Menzinger Str. 65",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Deutsches Museum</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Das Deutsche Museum ist eines der größten Technik- und Wissenschaftsmuseen und zieht jährlich Millionen Besucher:innen an</li><li>Zu entdecken gibt es Naturwissenschaft und Technik in 20 Ausstellungen: von Luftfahrt über Chemie bis Robotik und Gesundheit</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "Museumsinsel 1",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par7/image_copy_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_cafe_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Innenansicht des Daddy Longlegs"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lunch im Daddy Longlegs</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Einen Mittagssnack hole ich mir bei Daddy Longlegs. Die haben nicht nur das netteste Personal, sondern auch Leckereien im Bali-Style</li><li>Tipp: Unbedingt das Banana Bread probieren</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Barer Str. 42",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Pinakothek der Moderne</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Gut gestärkt geht es weiter zu meinem zweiten Lieblingsmuseum, der Pinakothek der Moderne</li><li>Mein Tipp: Das Museum am Sonntag besuchen, da kostet der Eintritt nur 1 Euro</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "Barer Str. 40",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_13"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par13/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par13/link_copy_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par13/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par13/link_copy_copy_copy_",
+      "text": "Flüge nach München finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_munich_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=MUC",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par13/separator_copy_copy__1866032044"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Nachmittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_14"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par14/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_market_getty1412491952_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Obst- und Gemüsestände am Viktualenmarkt"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Spaziergang an der Isar</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Ich liebe es, tagsüber an der Isar zu spazieren – oder mich dort am Abend mit Freund:innen zu treffen</li><li>Tipp: Ein Getränk am Kiosk an der Wittelsbacherbrücke oder Corneliusbrücke kaufen und einfach ans Wasser setzen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Viktualienmarkt</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Schnell noch ein Abstecher zum Viktualienmarkt, dessen Stände mich mit frischen Lebensmitteln und Spezialitäten immer wieder begeistern</li><li>Gemütlich ist es vor allem auch im Biergarten mitten auf dem Viktualienmarkt</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abend</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_19"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/articlecontentfragment/par19/image_copy_119866490",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_bahnwaerter-thiel_c_fabian-christ_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Sonnenuntergang am Bahnwärther Thiel mit Bahngleisen und Containern"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Dinner im Donisl</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Ein traditioneller Schweinsbraten mit Knödel ist Pflicht</li><li>Im Donisl am Marienplatz schmeckt's so gut wie bei meiner Oma</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_21"
+     },
+     {
+      "type": "copyText",
+      "text": "Weinstraße 1",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_22"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Cocktails im Yum Thai</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_23"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Für einen Cocktail gehe ich ins Yum Thai, einem asiatischen Bar-Restaurant mit super Beleuchtung</li><li>Übrigens: Hier gibt es das beste Pad Thai diesseits von Bangkok</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_24"
+     },
+     {
+      "type": "copyText",
+      "text": "Utzschneiderstraße 6",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_25"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Tanzen im Bahnwärter Thiel</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_26"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Das Kulturzentrum ist ein kurioses Sammelsurium aus Münchner Tram- und U-Bahnwägen, kunstvoll bemalten Schiffscontainern und einem Kran, bestückt mit schwebenden Gondeln und Kutschen</li><li>Hier tanze ich am liebsten zu elektronischer Musik</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_27"
+     },
+     {
+      "type": "copyText",
+      "text": "Tumblingerstraße 45",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_28"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte: Alexander Goettert | Deutsches Museum, Getty Images, PR, Selina Bubendorfer/Unsplash",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_29"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_30"
+     },
+     {
+      "type": "copyText",
+      "text": "Manfred Samhuber kommt aus München und ist Flugbegleiter bei Lufthansa. Er erkundet die Welt am liebsten mit seinem Fotoapparat. Seine Heimatstadt München bietet für ihn die perfekte Mischung aus Natur, Shopping und Kulinarik. Und natürlich: Nur hier in Bayern gibt's den perfekten Schweinsbraten.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/a-perfect-day-in-munich_paragraph_31"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-munich/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

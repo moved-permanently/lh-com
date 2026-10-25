@@ -1,0 +1,20 @@
+{
+ "errors": [
+  {
+   "message": "Exception while fetching data (/allegrisaircraftList) : Filter definition for field 'airline/_ignoreCase' is not a Map.",
+   "locations": [
+    {
+     "line": 2,
+     "column": 3
+    }
+   ],
+   "path": [
+    "allegrisaircraftList"
+   ],
+   "extensions": {
+    "classification": "DataFetchingException"
+   }
+  }
+ ],
+ "data": null
+}

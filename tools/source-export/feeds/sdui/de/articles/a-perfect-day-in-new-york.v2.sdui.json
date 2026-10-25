@@ -1,0 +1,447 @@
+{
+ "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_brooklyn_bridge_westend61-FOLF11149_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Blick auf die Manhattan Bridge eingerahmt von Häusern"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in New York",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>20. Juni 2025 | 2 min read | Till Weisbrod</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Flugbegleiter Till Weisbrod liebt es, im Big Apple unterwegs zu sein. Wer New York an einem Tag erleben will, kann ihn auf seinem Trip begleiten und seinen Empfehlungen folgen.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par0/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_pancakes_westend61-SBDF000922_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Teller mit gestapelten Pancakes und Butter oben drauf"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Frühstück am East River</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Vor dem Frühstück mache ich einen Abstecher an den East River, um Manhattans Skyline Hallo zu sagen</li><li>Clark's Restaurant, mein liebster Frühstück-Spot, ist nur wenige Gehminuten entfernt</li><li>Das Diner serviert alle Klassiker: Pancakes, French Toast oder Rührei</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "80 Clark St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par3/image_copy_870847809",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_ground-zero-memorial_alamy-DD6KEW_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Ground Zero Memorial in New York"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Durch Brooklyn Heights bummeln</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Das richtige New-York-Gefühl stellt sich vor allem beim Weg über die Brooklyn Bridge ein. Vor mir liegt Manhattan. In der Ferne kann ich die Freiheitsstatue sehen</li><li>Mein Tipp: Montagmorgens gibt es auf der Website des National September 11 Memorial and Museum ab 7 Uhr Gratis-Tickets für denselben Tag</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "180 Greenwich St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_6"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par6/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par6/link_copy",
+      "text": "Mehr aus Nordamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_north_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Nordamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par6/link_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par6/link_copy_copy_copy",
+      "text": "Flüge nach New York finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_new_york_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=NYC",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par6/separator_copy_copy__916260523"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par7/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_rockefeller_view_uu09359_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Blick vom Rockefeller Center"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vom Rockefeller Center die Aussicht genießen</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Für das typische New-York-Panorama mit Empire State Building ist die Aussicht vom Rockefeller Center perfekt</li><li>Die Glasfront der Aussichtsplattform Edge wölbt sich für den unverstellten Blick in die Tiefe nach außen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Edge, 30 Hudson Yards",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Hotdog und Fähre nach Staten Island</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Zum Mittagessen hole ich mir einfach einen Hotdog an einem der Foodtrucks</li><li>Bei schönem Wetter nehme ich die Fähre nach Staten Island zur Freiheitsstatue. Kostet nichts!</li><li>Travel Hack: Beim Ausflug nach Ellis Island erfährt man viel Spannendes über die Geschichte der Einwander:innen und den Bau der Freiheitsstatue</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "Whitehall Terminal, 4 Whitehall St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abend</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_14"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/articlecontentfragment/par14/image_copy_128950122",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/a-perfect-day-in-new-york/lh_app_new-york_cocktail_westend61-LHPF00335_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Hand hält Cocktail in einer Dachbar von New York bei Sonnenuntergang"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Dinner im Time Out Market</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Einige der angesagtesten Restaurants der Stadt sind im Time Out Market mit Ständen vertreten</li><li>Hier ist immer etwas los –&nbsp;vom Salsa-Kurs bis zum DJ-Set</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "55 Water St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Drinks im Refinery Hotel</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Wenn ich noch Lust auf einen Drink habe, fahre ich zum Refinery Hotel. Das hat eine kleine Rooftop-Bar mit Blick auf das Empire State Building</li><li>Mehr New York an einem Tag geht nicht!</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "63 W 38th St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte: Westend61, Alamy",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_21"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_22"
+     },
+     {
+      "type": "copyText",
+      "text": "Flugbegleiter Till Weisbrod arbeitet seit 2015 bei Lufthansa und fliegt häufig nach Asien und in die USA.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/north-america/a-perfect-day-in-new-york_paragraph_23"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/par/sduicolumn/column/link_copy_copy",
+      "text": "Mehr aus Nordamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_north_america_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Nordamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-new-york/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

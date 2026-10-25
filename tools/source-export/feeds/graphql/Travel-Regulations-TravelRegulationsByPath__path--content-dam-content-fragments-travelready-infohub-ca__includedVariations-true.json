@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.574Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T12:16:32.185Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Pre-registration for entry into Canada:</b></p>\n<p>Please note that the Canadian authorities recommend to <a href=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\" hreftemp=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\" rel=\"noopener noreferrer\">register via ArriveCAN</a> before arrival, in order to speed up processes upon arrival. The new express line for ArriveCAN users improves travel experience and the time spent in customs.</p>\n<p><b>Additional Health Requirements:</b></p>\n<p><b>Travel restrictions and quarantine requirements may apply if you have recently been in certain countries affected by an Ebola outbreak.</b></p>\n<ul>\n<li>Passengers who reside in <b>Uganda</b> or <b>South Sudan</b> are <b>not permitted to enter Canada.</b></li>\n<li>Passengers who have been in the <b>Democratic Republic of the Congo</b> within the previous <b>21 days</b> are<b> not permitted to board a flight to or enter Canada</b>. This restriction does not apply to Canadian citizens, permanent residents, or persons registered under the Indian Act.</li>\n<li>Passengers who have been in the <b>Democratic Republic of the Congo, Uganda, or South Sudan</b> within the previous <b>21 days</b> may be required to quarantine or isolate for 21 days upon arrival in Canada, unless they qualify for an exemption.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.574Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T12:16:32.185Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Voranmeldung für die Einreise in Canada:﻿</b></p>\n<p>Bitte beachten Sie, dass die kanadischen Behörden empfehlen, sich vor der Ankunft über <a hreftemp=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\" rel=\"noopener noreferrer\" href=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/en/welcome\">ArriveCAN</a> zu registrieren, um die Abfertigung bei der Ankunft zu beschleunigen. Die Express-Spur für ArriveCAN-Nutzer verbessert das Reiseerlebnis und verkürzt die Wartezeit bei der Zollabfertigung.</p>\n<p><b>Ebola-bedingte Reisebeschränkungen:</b></p>\n<p><b>Für Reisende, die sich kürzlich in bestimmten von Ebola betroffenen Ländern aufgehalten haben, können Reisebeschränkungen und Quarantänebestimmungen gelten.</b></p>\n<ul>\n<li>Personen mit Wohnsitz in <b>Uganda</b> oder <b>Südsudan</b> dürfen <b>nicht nach Kanada einreisen.</b></li>\n<li>Personen, die sich innerhalb der letzten <b>21 Tage</b> in der <b>Demokratischen Republik Kongo</b> aufgehalten haben, dürfen <b>weder einen Flug nach Kanada antreten noch nach Kanada einreisen.</b> Diese Beschränkung gilt nicht für kanadische Staatsangehörige, Personen mit ständigem Wohnsitz in Kanada oder Personen, die gemäß dem <i>Indian Act</i> registriert sind.</li>\n<li>Personen, die sich innerhalb der letzten <b>21 Tage</b> in der <b>Demokratischen Republik Kongo, Uganda oder Südsudan</b> aufgehalten haben, müssen sich nach ihrer Ankunft in Kanada möglicherweise für 21 Tage in Quarantäne oder Isolation begeben, sofern keine Ausnahme von der Quarantänepflicht besteht.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.574Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T12:16:32.185Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Pré-enregistrement pour l'entrée au Canada :</b></p>\n<p>Veuillez noter que les autorités canadiennes recommandent de s'enregistrer via <a href=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/fr/welcome\" hreftemp=\"https://arrivecan.cbsa-asfc.cloud-nuage.canada.ca/fr/welcome\" rel=\"noopener noreferrer\">ArriveCAN</a> avant l'arrivée, afin d'accélérer les procédures à l'arrivée. La ligne express pour les utilisateurs d'ArriveCAN améliore l'expérience de voyage et le temps passé à la douane.</p>\n<p><b>Restrictions de voyage liées à Ebola:</b></p>\n<p><b>Des restrictions de voyage et des exigences de quarantaine peuvent s’appliquer aux voyageurs ayant séjourné récemment dans certains pays touchés par une épidémie d’Ebola.</b></p>\n<ul>\n<li>Les personnes résidant en <b>Ouganda</b> ou au <b>Soudan du Sud</b> ne sont <b>pas autorisées à entrer au Canada.</b></li>\n<li>Les personnes ayant séjourné en <b>République démocratique du Congo</b> au cours des <b>21 derniers jours</b> ne sont <b>pas autorisées à embarquer sur un vol à destination du Canada ni à entrer au Canada</b>. Cette restriction ne s’applique pas aux citoyens canadiens, aux résidents permanents du Canada ni aux personnes inscrites en vertu de la <i>Loi sur les Indiens</i>.</li>\n<li>Les personnes ayant séjourné en <b>République démocratique du Congo, en Ouganda ou au Soudan du Sud</b> au cours des <b>21 derniers jours</b> peuvent être tenues de se mettre en quarantaine ou de s’isoler pendant 21 jours à leur arrivée au Canada, sauf si elles bénéficient d’une exemption à cette obligation.</li>\n</ul>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

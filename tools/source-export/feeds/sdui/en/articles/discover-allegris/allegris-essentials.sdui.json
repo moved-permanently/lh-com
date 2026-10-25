@@ -1,0 +1,283 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_lufthansa-allegris_illustration_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a very tall person lying down and filling an entire airplane"
+  },
+  {
+   "type": "copyText",
+   "text": "Five Facts About Lufthansa Allegris That Will Surprise You",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>15. September 2026 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>From comfortable mattresses to unique design: discover five amazing facts about Lufthansa Allegris, the new premium experience on long-haul routes.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Supported Side Position</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Sleeping like you would at home? Almost. The mattresses in Lufthansa Allegris Business and First Class feature a special “shoulder sink-in” function, which allows the shoulder to gently sink into the mattress and relieves pressure on the neck and spine – especially for side sleepers. In Business Class, the seat also transforms into a bed that's 2.20 meters long (7 feet 2 inches). Basketball star Dirk Nowitzki, who is 2.12 meters (6 feet 11 inches) tall, has already put the comfort to the test.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Let There Be Light</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_allegris_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a sleeping person with a dream bubble in the shape of the sun"
+  },
+  {
+   "type": "copyText",
+   "text": "Less jet lag after a long-haul flight? An intelligent lighting system from jetlite helps make it possible. Different light scenarios prepare the body for the new time zone: warm white light mimics the sunset and helps passengers relax, while cool white light creates an energizing start to the day.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Going the Distance for Comfort</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_allegris_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of the sun, the earth, and an airplane seat; lines in between represent the respective distance"
+  },
+  {
+   "type": "copyText",
+   "text": "Comfort comes at a price – and Lufthansa is spending big: around €3 billion is being invested in improving products and services. More than 31,600 new Lufthansa Allegris seats are joining the fleet. If they all took a journey together, they would cover an incredible 1.26 trillion kilometers (783 billion miles) – while the distance from the Earth to the sun is “only” 150 million kilometers (93 million miles).",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Discover Allegris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Search flights with Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_discoverallegris_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/discover-lufthansa/allegris/destinations"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Award-Winning!</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_allegris_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a group of cranes flying in a V formation in a clear sky; medals hang around the neck of the first bird"
+  },
+  {
+   "type": "copyText",
+   "text": "Great design gets noticed, and Lufthansa Allegris has impressed not only travelers, but also international design experts. The cabin concept has already received three prestigious awards: the German Design Award Gold, the International Design Award Gold, and the Red Dot Award for Product Design.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Teamwork</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/discover-allegris/five-facts-about-lufthansa-allegris-that-will-surprise-you/lh_app_allegris_illustration4_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration of a group of people carrying a relaxed-looking person"
+  },
+  {
+   "type": "copyText",
+   "text": "A new travel experience does not happen overnight – countless experts from design, engineering, and crew training have spent years bringing Lufthansa Allegris to life. The first flight was perfectly timed for the occasion: the first Allegris Airbus took off on May 1, 2024 – Labor Day – from Munich, heading to Vancouver.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "(all illustrations © Sylvia Neuner)",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Ready to discover the world?",
+   "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+   "textLink": "Find flight",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_15092026"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "More about Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Discover Allegris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

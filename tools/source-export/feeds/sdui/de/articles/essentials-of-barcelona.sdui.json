@@ -1,0 +1,278 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_barcelona_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration einer Schnecke, die die Sagrada Família als Haus trägt"
+  },
+  {
+   "type": "copyText",
+   "text": "Essentials of Barcelona",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>21. Juni 2025 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Hier kann man baden und unvollendete Bauten bewundern: Fünf Dinge über Barcelona, die Sie überraschen werden.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Verpasste Chance</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Barcelona hätte Paris mit einem „Eiffelturm“ zuvorkommen können – also fast. Dass Gustave Eiffel seinen Turm zuerst der Hauptstadt Kataloniens anbot, ist nur eine Legende. Was aber wahr ist: Drei dem Eiffelturm sehr ähnliche Bauprojekte für die Weltausstellung 1888 in Barcelona lehnten die Katalan:innen ab. Die Pariser:innen sagten für ihre Weltausstellung ein Jahr später „Oui“ zu Gustave Eiffel und seinem Turm – und wie sich herausstellen sollte, zu einem der ikonischsten Wahrzeichen überhaupt.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration: Gustave Eiffel mit einem Eiffelturm-Plan neben einer Stadtansicht von Barcelona"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Ausgezeichnet!&nbsp;</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Das Royal Institute of British Architects verleiht die Königliche Goldmedaille für Architektur an Menschen, die einen herausragenden Beitrag zur Architektur geleistet haben. Für Barcelona wurde eine Ausnahme gemacht – im Jahr 1999 wurde zum ersten und bis heute einzigen Mal die Auszeichnung einer ganzen Stadt verliehen.&nbsp; &nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Europa",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_europe_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Europa",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge nach Barcelona finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_barcelona_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=BCN"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Schöner sonnenbaden</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Strände in Barcelona? Vor den 1990er Jahren nur Wunschdenken. Zur Vorbereitung auf die Olympischen Spiele 1992 wurden allerdings 4,5 Kilometer Industrieküste in wunderschöne Sandstrände wie Bogatell und Sant Sebastià verwandelt, die Einheimische und Tourist:innen seitdem gleichermaßen lieben.&nbsp;&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration: Links die Entstehung von Barcelonas Stränden durch einen Eimer Sand; rechts die Sagrada Família auf dem Rücken einer Schnecke"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Bombastische Bauzeit</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "La Sagrada Família, Gaudís Kirchenmeisterwerk, ist immer noch unvollendet. Die Bauarbeiten begannen 1882, aber mehr als 50 Jahre später, auf dem Höhepunkt des Spanischen Bürgerkriegs, wurden die Baupläne fast aufgegeben, als Revolutionäre Gaudís Gipsmodelle zerstörten. Es dauerte allein 16 Jahre, um diese zu rekonstruieren. 2026 soll die Basilika der Heiligen Familie endlich fertiggestellt werden.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration: Ein Fußballer pumpt das Stadion Camp Nou auf, als wäre es ein Reifen"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Zu neuer Größe</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Camp Nou, die Heimspielstätte des FC Barcelona, ist das größte Stadion Europas. Es wurde 1957 mit 99.354 Sitzplätzen eröffnet und beherbergt ein Museum, das die Geschichte des Vereins zeigt. Momentan wird tüchtig umgebaut und nach Fertigstellung soll es 105.000 Besucher:innen fassen.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Alle Illustrationen © Sylvia Neuner",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Europa",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_europe_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Europa",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

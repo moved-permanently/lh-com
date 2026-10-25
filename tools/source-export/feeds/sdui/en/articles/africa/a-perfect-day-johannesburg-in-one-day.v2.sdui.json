@@ -1,0 +1,392 @@
+{
+ "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_skyline_getty1213692303_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Johannesburg skyline"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Johannesburg",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 2 min read | Farah Benkassem</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Flight attendant Farah Benkassem regularly spends time in Johannesburg and shares her top tips for a relaxing day in South Africa's vibrant metropolis.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Morning</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par0/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_tashacafeb_breakfast_image-18_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Breakfast plate with fruit, yoghurt, and muesli"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Breakfast at Tashas</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I always start my day with a relaxed breakfast at Tashas in the Melrose Arch business district</li><li>I highly recommend the avocado milkshake and the hummus and avocado toastie</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Tashas Melrose Arch, The Piazza, 14 Whiteley Rd, Melrose",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Midday</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_4"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par4/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_rosebank_gettyimages1208969350_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Rosebank neighborhood in Johannesburg"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Shopping in Rosebank</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>The Rosebank district has plenty of modern shopping malls and galleries to browse</li><li>My tip: the Art &amp; Craft Market right next to Rosebank Mall, where you'll find handcrafted treasures from across Africa, from paintings and wood carvings to jewelry and small pieces of furniture</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Rosebank Art &amp; Craft Market, Cradock Ave (next to Europa), Rosebank",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_7"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par7/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par7/link_copy_copy_copy_",
+      "text": "More about Africa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_africa_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Africa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/africa.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par7/link_copy_copy_copy__873418365",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par7/link_copy_copy_copy__1889889345",
+      "text": "Search flights to Johannesburg",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_johannesburg_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=JNB",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par7/separator_copy_copy__1501143661"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Evening</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_8"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/articlecontentfragment/par8/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/africa/perfect-day-johannesburg/lh_app_johannesburg_marble-restaurant_shutterstock129816269_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Raw salmon served in the restaurant"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Cocktails and Dinner at Marble</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Marble in Rosebank is one of my favorite restaurants – a contemporary grill house with an open kitchen and stunning sunset views</li><li>My recommendation: order the coal-fired rib-eye with the house Jack Daniel's sauce, and be sure to reserve a table in advance</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "Marble Restaurant, Trumpet on Keyes, Keyes &amp; Jellicoe Ave, Rosebank",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Live Music at Katzy's</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I love ending the day at Katzy's: live blues, smooth jazz, and Motown classics create the perfect relaxed atmosphere</li><li>Katzy’s Wine Bar, The Firs/Hyatt Shopping Mall, Oxford Road &amp; Bierman Ave, Rosebank</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "Copyrights:&nbsp;Getty Images (2), PR, Shutterstock",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>About</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "Farah Benkassem has been a Lufthansa flight attendant for seven years. When traveling to South Africa, she enjoys being able to get straight back to her daily routine due to the minimal time difference.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/africa/a-perfect-day-johannesburg-in-one-day_paragraph_16"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/par/sduicolumn_copy_copy",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_15092026"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/par/sduicolumn_copy_copy/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/par/sduicolumn_copy_copy/column/separator"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy_",
+      "text": "More about Africa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_africa_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Africa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/africa.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy__147093814",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

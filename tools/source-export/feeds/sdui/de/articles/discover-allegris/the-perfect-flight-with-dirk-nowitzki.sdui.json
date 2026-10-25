@@ -1,0 +1,307 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_lufthansa-allegris_portrait_dirk-nowitzki_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Portrait von Dirk Nowitzki"
+  },
+  {
+   "type": "copyText",
+   "text": "Der perfekte Flug mit Dirk Nowitzki",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>15. Oktober 2026 | 4 min read | Dirk Nowitzki</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Viel Komfort, noch mehr Beinfreiheit und leckeres Essen: Als Vielflieger weiß Basketball-Legende Dirk Nowitzki, was es braucht, um entspannt und erholt ans Ziel zu kommen. Lufthansa Insights hat ihn auf einer Reise von Frankfurt nach Austin begleitet und dabei erfahren, was – neben den Annehmlichkeiten von Lufthansa Allegris – einen perfekten Flug für ihn ausmacht",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Der perfekte Start&nbsp;",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_luggage_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "Wenn ich in den Flieger komme und es mir an meinem Platz gemütlich mache, lege ich mir erst einmal alles zurecht, was ich während des Fluges brauche: mein Buch, mein Tagebuch und meine Kopfhörer. Alles soll griffbereit sein, damit ich mich später nicht mehr darum kümmern muss. Und ich ziehe meine Kompressionsstrümpfe an, die habe ich bei Langstreckenflügen immer dabei. Reise ich mit den Kindern, haben natürlich sie Vorrang. Dann schauen meine Frau und ich, dass alle sitzen, angeschnallt sind und haben, was sie brauchen. Dazu kommt jede Menge Handgepäck, das verstaut werden muss. In der Lufthansa Allegris Business Class ist der großzügige Stauraum dafür natürlich sehr praktisch. Sind alle versorgt und zufrieden, kann auch ich mich hinsetzen und auf den Flug freuen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr zu Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Allegris entdecken",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge mit Allegris finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_discoverallegris_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/discover-lufthansa/allegris/destinations"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "Der perfekte Sitz",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Bei einem langen Flug ist für mich als großen Menschen Platz ein entscheidender Faktor. In der Lufthansa Allegris Business Class gibt es zum Glück gleich fünf verschiedene Sitzoptionen. Ich sitze gern im Extra Long Bed Seat, der mir viel Beinfreiheit bietet. Fliege ich nachts, ist für mich der Sitz ideal, der sich in ein 2,20 Meter langes Bett verwandeln lässt. Mit meinen 2,13 Metern ist das in Sachen Komfort natürlich ein echter Gamechanger. Was ich außerdem gut finde: Alle Sitze haben Heizung und Kühlung. So können alle die Temperatur ganz einfach so einstellen, wie es für sie angenehm ist. Ich bevorzuge Fensterplätze. Grundsätzlich bin ich in Sachen Sitzplatzauswahl aber ein ziemlich pflegeleichter Typ.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_laptop_working_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "Der perfekte Moment an Bord",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Ich genieße es sehr, mal eine Weile offline zu sein und alle Zeit der Welt zu haben, denn in meinem Alltag bin ich oft genug am Telefon. Die Stunden an Bord nutze ich, um Energie zu tanken. Ich schaue supergern Filme, und auf den hochauflösenden Bildschirmen macht das besonders großen Spaß. Auch deshalb freue ich mich auf lange Flüge. Ich kann entspannen und Dinge machen, zu denen ich sonst nicht komme.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_entertainment_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "Das perfekte Essen",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Ich esse sehr gern Brot, vor allem gutes Schwarzbrot. Das deutsche Brot vermisse ich in den USA schon sehr. Natürlich bekommt man dort mittlerweile vieles; auch in Dallas gibt es deutsche Lebensmittelgeschäfte. Aber ein richtig gutes deutsches Brot ist einfach etwas Besonderes. Das Fliegen mit Lufthansa fühlt sich für mich ein bisschen wie Nachhausekommen an, und schon vor dem Flug freue ich mich auf die frischen Backwaren und deftigen Klassiker wie Rouladen oder Knödel an Bord – Gerichte, die für mich ein Stück Heimat bedeuten. Und diesmal ganz besonders auf die Schwarzwälder Kirschtorte. Wobei ich natürlich auch gegen ein gutes Schnitzel nichts einzuwenden habe.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_cake-service_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "Die perfekte Entspannung",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Für mich ist es Entspannung pur, einfach mal für einige Stunden alles liegen zu lassen. Nicht erreichbar zu sein, mich auf ein Buch zu konzentrieren oder einen Film zu sehen. Abzuschalten. Erholung ist mir während eines langen Fluges wichtig. Denn wenn wir ankommen, geht es direkt mit Vollspeed los: Sachen anschauen, unterwegs sein, und die Kids sind natürlich immer superaufgeregt. Deshalb genieße ich die Zeit an Bord, um wirklich runterzufahren. Mich auszustrecken, den Sitz zurückzustellen und einfach einmal nichts zu müssen.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/the-perfect-flight-with-dirk-nowitzki/lh_blog_dirk-nowitzki_plane_sleeping_bed_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "copyText",
+   "text": "Die perfekte Ankunft",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Idealerweise komme ich am Ziel so erholt an, als hätte ich eine Nacht durchgeschlafen. Ich versuche deshalb schon an Bord, mich möglichst früh auf die Ortszeit einzustellen. Manchmal heißt das, noch wach zu bleiben, auch wenn man müde ist, oder sich bewusst hinzulegen, wenn es am Zielort bereits Nacht ist. Über die Jahre habe ich gelernt, meinen Schlaf ein bisschen nach der jeweiligen Zeitzone zu richten. So fällt es mir leichter, den Jetlag in den Griff zu bekommen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Alle Bilder © Oscar Bravo</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Zur Person",
+   "size": "MEDIUM",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "Der deutsche Sportler Dirk Nowitzki, einer der erfolgreichsten Basketballspieler aller Zeiten, hat eine beeindruckenden Karriere in der National Basketball Association (NBA) gemacht. Mit einem NBA-Meistertitel und 14 All-Star-Nominierungen ist er zu einer Sportikone geworden. Nowitzki lebt mit seiner Frau Jessica und den drei gemeinsamen Kindern in Dallas, Texas.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr zu Allegris",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_discoverallegris_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Allegris entdecken",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "cp_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

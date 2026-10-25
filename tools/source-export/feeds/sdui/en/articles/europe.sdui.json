@@ -1,0 +1,203 @@
+{
+ "title": "Europe",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in Frankfurt",
+   "description": "Julia Buth, a flight attendant at Lufthansa, lived in Frankfurt for a long time and describes her perfect day there.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-frankfurt/lh_app_frankfurt_city_getty1392119944_16x9.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in Frankfurt",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in London",
+   "description": "Marvel at the skyline from London’s highest garden, shop in Soho, and be captivated by a West End show: Stefanie Sauer shows just how diverse a day in London can be.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_london_westend61-WPEF02418_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in London",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-london.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "A Perfect Day in Munich",
+   "description": "A visit to the Deutsches Museum, a leisurely walk along the Isar and plenty of culinary delights: Manfred Samhuber describes the ideal way to experience Munich in one day.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/a-perfect-day-in-munich/lh_app_munich_isar_getty638561876_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "A Perfect Day in Munich",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/a-perfect-day-in-munich.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Essentials of Barcelona",
+   "description": "Here you can swim and admire unfinished buildings: five things about Barcelona that will surprise you.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_barcelona_illustration_sylvia-neuner_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Essentials of Barcelona",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/essentials-of-barcelona.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "offerBox_v2",
+   "title": "Essentials of Paris",
+   "description": "A city without stop signs and with a penchant for macarons: five things about Paris that will surprise you.",
+   "textLink": "Read article",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_paris_illustration_sylvia-neuner_1920x1080.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "blog overview click",
+     "category": "blog overview",
+     "action": "click",
+     "label": "article"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Essentials of Paris",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/essentials-of-paris.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "All categories",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

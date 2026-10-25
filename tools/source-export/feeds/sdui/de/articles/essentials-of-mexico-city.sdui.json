@@ -1,0 +1,278 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": " Illustration einer Hand, die Spielkarten mit Sehenswürdigkeiten hält."
+  },
+  {
+   "type": "copyText",
+   "text": "Essentials of Mexiko-Stadt",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>24. Juni 2025 | 2 min read | Lufthansa Editorial Team</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Eine sinkende Stadt mit einer Flut an Taxis: Fünf Dinge über Mexiko-Stadt, die Sie überraschen werden.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Einmal durchatmen</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Mexiko-Stadt hat das Hoy-No-Circula-Programm ins Leben gerufen, um die Luftqualität in der Stadt zu verbessern. Demnach dürfen an bestimmten Tagen nur Autos mit bestimmten Endziffern auf den Nummernschildern fahren. Ob sich die&nbsp;Hauptstädter:innen daran halten? Ja, indem sie mehrere Nummernschilder besitzen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Links: Illustration eines Verkäufers mit Autokennzeichen. Rechts: Illustration einer Sardinendose mit kleinen Taxen."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Taxi, bitte!</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Dass Mexiko-Stadt solch ein Programm braucht, wird spätestens dann deutlich, wenn man sich die Anzahl der vielen Taxis vor Augen hält – mehr als 140.000!&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Nordamerika",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_north_america_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Nordamerika",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge nach Mexiko-Stadt finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_mexico_city_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=MEX"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Königliche Residenz</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Es gibt lediglich ein monarchisches Schloss in Nordamerika, und das steht in Mexiko-Stadt. Das 67 Meter hohe Schloss Chapultepec wurde 1785 von den&nbsp;Spanier:innen gebaut und ist die einzige Residenz, die in Nordamerika jemals von einer königlichen Familie genutzt wurde.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Links: Illustration eines Sandburgbauers am Strand. Rechts: Illustration einer Hand mit Spielkarten, die Sehenswürdigkeiten zeigen."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Stolzes Erbe</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Mexiko-Stadt hat stolze vier&nbsp;Welterbestätten: das historische Zentrum, Xochimilco, das ehemalige Wohnhaus und Atelier des Architekten Luis Barragán sowie die UNAM, eine der ältesten und größten Universitäten des Kontinents.&nbsp;",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/north-america/essentials-of-mexico-city/lh_app_mexico-city_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Illustration einer Person, die über eine Klippe schaut, während ein Strohut hinabfällt."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Auf den Grund gehen</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "30 bis 40 cm! So viel sackt Mexiko-Stadt jährlich ab. Das liegt am schlammigen Boden, auf dem die Stadt steht, denn sie wurde auf einem ausgetrockneten See gebaut. Und darunter befindet sich Grundwasser, das abgepumpt wird und den Boden dadurch aushöhlt. Mexiko-Stadt wird also weiter sinken.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Alle Illustrationen © Sylvia Neuner",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr aus Nordamerika",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_north_america_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Nordamerika",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/north-america.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

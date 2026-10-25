@@ -1,0 +1,76 @@
+{
+ "recorded": "2026-10-25T18:38:38.169Z",
+ "note": "GET with the headers shown, credentials omitted; without X-Portal headers www answers 500",
+ "answers": [
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fen%2Fhomepage",
+   "headers": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "DE",
+    "X-Portal-Language": "en"
+   },
+   "status": 200,
+   "ct": "application/json",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "{\"loginPageUrl\":\"https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/en/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=en\"}"
+  },
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fde%2Fhomepage",
+   "headers": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "DE",
+    "X-Portal-Language": "de"
+   },
+   "status": 200,
+   "ct": "application/json",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "{\"loginPageUrl\":\"https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/de/de/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=DE&lang=de\"}"
+  },
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fat%2Fde%2Fhomepage",
+   "headers": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "AT",
+    "X-Portal-Language": "de"
+   },
+   "status": 200,
+   "ct": "application/json",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "{\"loginPageUrl\":\"https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/at/de/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=AT&lang=de\"}"
+  },
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fgb%2Fen%2Fhomepage",
+   "headers": {
+    "X-Portal": "LH",
+    "X-Portal-Site": "GB",
+    "X-Portal-Language": "en"
+   },
+   "status": 200,
+   "ct": "application/json",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "{\"loginPageUrl\":\"https://api.travelid.lufthansa.com/oauth2/authorize?client_id=yA8iz2C5BnAIf2GKKdkAlgPPW9y6wjLO&response_type=code&redirect_uri=https://www.lufthansa.com&scope=AUTHENTICATED%20IDENTIFIED%20urn:milesandmore:tech:background:v1:active%20urn:milesandmore:oauth:multifactorauthentication&state=/gb/en/homepage&principal_type=EMAIL&reduced_state=NONE&view=login&prompt=login&country=GB&lang=en\"}"
+  },
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fen%2Fhomepage",
+   "headers": {},
+   "status": 500,
+   "ct": "text/html;charset=iso-8859-1",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=ISO-8859-1\"/>\n<title>Error 500 Request failed.</title>\n</head>\n<body><h2>HTTP ERROR 500 Request failed.</h2>\n<table>\n<tr><th>URI:</th><td>/services/core/authenticate/loginPageUrl</td></tr>\n<tr><th>STATUS:</th><td>500</td></tr>\n<tr><th>MESSAGE:</th><td>Request failed.</td></tr>\n<tr><th>SERVLET:</th><td>org.apache.felix.http.base.internal.dispatch.DispatcherServlet-561ad55f</td></tr>\n<tr><th>CAUSED BY:</th><td>javax.servlet.ServletException: javax.servlet.ServletException: java.lang.NullPointerException</td></tr>\n<tr><th>CAUSED BY:</th><td>javax.servlet.ServletException: java.lang.NullPointerException</td></tr>\n<tr><th>CAUSED BY:</th><td>java.lang.NullPointerException</td></tr>\n</table>\n\n<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML=\"window.__CF$cv$params={r:'a50356bb5d7b1ad4',t:'MTc5Mjk1MzUxMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);\";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>\n</html>\n"
+  },
+  {
+   "url": "/service/secured/api/core/authenticate/loginPageUrl",
+   "headers": {},
+   "status": 500,
+   "ct": "text/html;charset=iso-8859-1",
+   "cc": "private, no-cache, no-store, must-revalidate",
+   "acao": "*",
+   "body": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=ISO-8859-1\"/>\n<title>Error 500 Request failed.</title>\n</head>\n<body><h2>HTTP ERROR 500 Request failed.</h2>\n<table>\n<tr><th>URI:</th><td>/services/core/authenticate/loginPageUrl</td></tr>\n<tr><th>STATUS:</th><td>500</td></tr>\n<tr><th>MESSAGE:</th><td>Request failed.</td></tr>\n<tr><th>SERVLET:</th><td>org.apache.felix.http.base.internal.dispatch.DispatcherServlet-2ff38674</td></tr>\n<tr><th>CAUSED BY:</th><td>javax.servlet.ServletException: javax.servlet.ServletException: java.lang.NullPointerException</td></tr>\n<tr><th>CAUSED BY:</th><td>javax.servlet.ServletException: java.lang.NullPointerException</td></tr>\n<tr><th>CAUSED BY:</th><td>java.lang.NullPointerException</td></tr>\n</table>\n<h3>Caused by:</h3><pre>javax.servlet.ServletException: javax.servlet.ServletException: java.lang.NullPointerException\n\tat com.dlh.dcep.services.osgi.jaxrspublisher.internal.ServletContainerBridge.service(ServletContainerBridge.java:122)\n\tat org.apache.felix.http.jakartawrappers.ServletWrapper.service(ServletWrapper.java:74)\n\tat org.apache.felix.http.base.internal.handler.ServletHandler.handle(ServletHandler.java:128)\n\tat org.apache.felix.http.base.internal.dispatch.InvocationChain.doFilter(InvocationChain.java:86)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat com.adobe.granite.cors.impl.CORSFilter.doFilter(CORSFilter.java:88)\n\tat org.apache.felix.http.jakartawrappers.FilterWrapper.doFilter(FilterWrapper.java:58)\n\tat org.apache.felix.http.base.internal.handler.FilterHandler.handle(FilterHandler.java:145)\n\tat org.apache.felix.http.base.internal.dispatch.InvocationChain.doFilter(InvocationChain.java:81)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat com.adobe.granite.license.impl.LicenseCheckFilter.doFilter(LicenseCheckFilter.java:308)\n\tat org.apache.felix.http.jakartawrappers.FilterWrapper.doFilter(FilterWrapper.java:58)\n\tat org.apache.felix.http.base.internal.handler.FilterHandler.handle(FilterHandler.java:145)\n\tat org.apache.felix.http.base.internal.dispatch.InvocationChain.doFilter(InvocationChain.java:81)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat org.apache.sling.i18n.impl.I18NFilter.doFilter(I18NFilter.java:129)\n\tat org.apache.felix.http.jakartawrappers.FilterWrapper.doFilter(FilterWrapper.java:58)\n\tat org.apache.felix.http.base.internal.handler.FilterHandler.handle(FilterHandler.java:145)\n\tat org.apache.felix.http.base.internal.dispatch.InvocationChain.doFilter(InvocationChain.java:81)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat org.apache.sling.engine.impl.log.RequestLoggerFilter.doFilter(RequestLoggerFilter.java:72)\n\tat org.apache.felix.http.jakartawrappers.FilterWrapper.doFilter(FilterWrapper.java:58)\n\tat org.apache.felix.http.base.internal.handler.FilterHandler.handle(FilterHandler.java:145)\n\tat org.apache.felix.http.base.internal.dispatch.InvocationChain.doFilter(InvocationChain.java:81)\n\tat org.apache.felix.http.base.internal.dispatch.Dispatcher$1.doFilter(Dispatcher.java:167)\n\tat org.apache.felix.http.base.internal.whiteboard.WhiteboardManager$1.doFilter(WhiteboardManager.java:967)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat com.adobe.granite.cors.impl.CORSFilter.doFilter(CORSFilter.java:88)\n\tat org.apache.felix.http.jakartawrappers.FilterWrapper.doFilter(FilterWrapper.java:58)\n\tat org.apache.felix.http.base.internal.handler.PreprocessorHandler.handle(PreprocessorHandler.java:132)\n\tat org.apache.felix.http.base.internal.whiteboard.WhiteboardManager$1.doFilter(WhiteboardManager.java:973)\n\tat org.apache.felix.http.javaxwrappers.FilterChainWrapper.doFilter(FilterChainWrapper.java:45)\n\tat com.adobe.granite.auth.oauth.impl.OAuthCallbackFilter.doFilter(OAuthCallbackFilter.java:78)\n\tat org.apache.f"
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:14.545Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:43:15.945Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Travelers to Israel who do not need a visa must apply for an ETA-IL </b>(Electronic Travel Authorization).<br>\nIt is recommended to apply for an ETA-IL <b>at least 72h before booking the flight</b>.</p>\n<p><b>ETA Validity:</b> 2 years or until your passport expires, whichever is sooner<br>\n<b>Duration of stay with an ETA:</b> Up to 90 days per visit<br>\n<b>Cost:</b> NIS 25.00 (approx. USD 7.00)</p>\n<p><b>Find more information about the visa and the application for the ETA-IL <a href=\"https://israel-entry.piba.gov.il/\" title=\"https://israel-entry.piba.gov.il/\" hreftemp=\"https://israel-entry.piba.gov.il/\" rel=\"noopener noreferrer\">here</a></b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:14.545Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:43:15.945Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Reisende nach Israel, die kein Visum benötigen, müssen eine ETA-IL </b>(Elektronische Reisegenehmigung) beantragen.<br>\nEs wird empfohlen, die ETA <b>mindestens 72 Stunden vor der Flugbuchung</b> zu beantragen.</p>\n<p><b>Gültigkeit der ETA:</b> 2 Jahre oder bis zum Ablauf des Reisepasses, je nachdem, was zuerst eintritt.<br>\n<b>Aufenthaltsdauer mit der ETA:</b> Bis zu 90 Tage pro Besuch.<br>\n<b>Kosten:</b> 25 NIS (ca. USD 7.00)</p>\n<p><b>Finden Sie weitere Informationen zum Visum und zur Beantragung der ETA-IL <a href=\"https://israel-entry.piba.gov.il/\" title=\"https://israel-entry.piba.gov.il/\" hreftemp=\"https://israel-entry.piba.gov.il/\" rel=\"noopener noreferrer\">Hier</a></b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:14.545Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:43:15.945Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Les voyageurs se rendant en Israël qui n'ont pas besoin de visa devront demander une ETA-IL</b> (Autorisation de voyage électronique).<br>\nIl est recommandé de demander l'ETA <b>au moins 72 heures avant la réservation du vol</b>.</p>\n<p><b>Validité de l'ETA : </b>2 ans ou jusqu'à l'expiration du passeport, selon la première échéance.<br>\n<b>Durée de séjour avec l'ETA :</b> Jusqu'à 90 jours par visite.<br>\n<b>Coût :</b> 25 NIS (environ 7 USD)</p>\n<p><b>Trouvez plus d'informations sur le visa et la demande de l'ETA-IL <a href=\"https://israel-entry.piba.gov.il/\" title=\"https://israel-entry.piba.gov.il/\" aria-label=\"https://israel-entry.piba.gov.il/\" hreftemp=\"https://israel-entry.piba.gov.il/\" rel=\"noopener noreferrer\">ici</a> .</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

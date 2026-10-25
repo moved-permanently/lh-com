@@ -15,3 +15,41 @@ Paths the app opens that answer 404 on www in all four locales (no alias, lh-edg
 
 All five solo URL forms answer the same page on www (status 200); `.solo.continue` and `.solo.continue.solo_continue`
 give the canonical without a suffix, the others with `.solo_continue`. A query string is kept.
+
+## App screens (SDUI), `sdui/`
+
+`sdui/<lang>/<path>.sdui.json` (v1) and `sdui/<lang>/<path>.v2.sdui.json` (v2) for the 64 Lufthansa app screens
+(per language: the hub `articles`, 7 category lists, 24 articles) and the home screen `homepage`, de and en:
+132 answers, all 200, recorded 2026-10-25 18:21-18:36 UTC with a plain GET (the dispatcher does not vary on the
+app's request headers). `sdui/index.json` maps each URL to its file with status and headers (`cf-cache-status:
+DYNAMIC`, no `cache-control`). Image URLs inside are absolute `https://www.lufthansa.com/content/dam/...`.
+
+## GraphQL persisted queries, `graphql/`
+
+47 answers of `/graphql/execute.json/<config>/<query>[;name=value...]`, recorded 2026-10-25 18:36-18:41 UTC:
+every variable combination listed in the feed brief, the error answers for missing required variables (HTTP 200
+with a GraphQL error body) and one unknown query (404 body). `graphql/index.json` maps URL to file, status and
+headers (`cache-control: public, max-age=120`, `last-modified` is the query's own edit time, not the data's).
+
+- Variables are path parameters. Path values must keep their slashes: www answers 404 when they are `%2F`-encoded.
+- Travel regulations: `TravelRegulationsByPath` without a path returns all 24 entries without their country;
+  15 countries were asked by path (`travelready-infohub/<cc>`): 13 answer with data (ca, cn, il, in, jp, ke, mv, my,
+  th, ng, na, tn, us) plus za, ec and gb are empty.
+- Ancillary catalog (`Ancillary-on-TMC/get-ancillaries-catalogs`): `properties` values are blanked when the
+  property name suggests a key or an id (`apiKey`, `clientID`, `partnerId`, `aid`, `urlId`, `ptid`...) or the value
+  looks like a token; names, image URLs and airport lists are kept (30 values blanked, 15 kept).
+- Data errors in www's answers, not to be reproduced (to report to Lufthansa): links to `qa-www.lufthansa.com` in the
+  ancillary catalog (7), and doubled image URLs there.
+- Message Center queries are not here: `tools/workers/lh-messages/test/fixtures/` has them.
+
+## Login URL, `login/loginpageurl.json`
+
+`GET /service/secured/api/core/authenticate/loginPageUrl?state=/<cc>/<ll>/homepage` for the four locales with the
+headers `X-Portal: LH`, `X-Portal-Site: <CC>`, `X-Portal-Language: <ll>` (200 JSON `{loginPageUrl}` with the Travel
+ID authorize URL; `cache-control: private, no-cache, no-store, must-revalidate`, `access-control-allow-origin: *`),
+and twice without the headers (500 HTML). Recorded 2026-10-25 18:38 UTC.
+
+## Header, footer and portal config JSON, `owa/`
+
+`/content/lh/markets/<cc>/<ll>/homepage.csi-owa-{header,footer,portal-config}.json` for the four locales,
+recorded 2026-10-25 07:30-07:37 UTC (`Cache-Control: max-age=300, public`). `owa/index.json` has status and headers.

@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.796Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T08:30:55.464Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Visitors to China</b> must complete the <a hreftemp=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\" rel=\"noopener noreferrer\" href=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\">electronical arrival declaration</a> before arrival in China.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.796Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T08:30:55.464Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Reisende nach China </b>müssen <b>vor ihrer Ankunft </b>in China die<b> <a hreftemp=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\" rel=\"noopener noreferrer\" href=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\">elektronische Einreiseerklärung</a> ausfüllen.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.796Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-30T08:30:55.464Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Les <b>visiteurs se rendant en Chine</b> doivent remplir la <b><a hreftemp=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\" rel=\"noopener noreferrer\" href=\"https://s.nia.gov.cn/ArrivalCardFillingPC/entry-registation-home\">déclaration d'arrivée électronique</a></b>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

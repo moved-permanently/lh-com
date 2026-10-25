@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T07:00:00.332Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:01:51.937Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>To <b>speed up arrival procedures</b> in Japan, <b>complete your immigration and customs registration online</b> via <a hreftemp=\"https://services.digital.go.jp/en/visit-japan-web/\" rel=\"noopener noreferrer\" href=\"https://services.digital.go.jp/en/visit-japan-web/\">Visit Japan Web</a> before departure and present the completed registration upon arrival.</p>\n<p>&nbsp;</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T07:00:00.332Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:01:51.937Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Um die <b>Einreise nach Japan zu beschleunigen</b>, <b>registrieren Sie Ihre Einreise- und Zolldaten vor der Abreise online</b> über <a hreftemp=\"https://services.digital.go.jp/en/visit-japan-web/\" rel=\"noopener noreferrer\" href=\"https://services.digital.go.jp/en/visit-japan-web/\">Visit Japan Web</a> und legen Sie die abgeschlossene Registrierung bei der Ankunft vor.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-15T07:00:00.332Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:01:51.937Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Afin d'<b>accélérer les formalités d'arrivée au Japon, enregistrez vos informations d'immigration et de douane en ligne </b>via <a hreftemp=\"https://services.digital.go.jp/en/visit-japan-web/\" rel=\"noopener noreferrer\" href=\"https://services.digital.go.jp/en/visit-japan-web/\">Visit Japan Web</a> avant votre départ et présentez l'enregistrement complété à votre arrivée.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

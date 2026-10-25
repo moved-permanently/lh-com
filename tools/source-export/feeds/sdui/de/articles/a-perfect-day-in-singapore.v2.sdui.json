@@ -1,0 +1,433 @@
+{
+ "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_marina-bay-sands_shutterstock191289998_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Blick auf das Marina Bay Sands in Singapur"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Singapur",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>17. Juni 2025 | 3 min read | Florian Tomberg</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Singapur erleben wie ein Insider: Purser Florian Tomberg nimmt uns mit auf seinen perfekten Tag in der asiatischen Metropole – voller kulinarischer Highlights und Geheimtipps.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par0/image_645579844_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_watermelon-juice_shutterstock-1992470564_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Person hält Becher mit Wassermelonensaft"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Sportlich in den Tag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Mein Tipp gegen Jetlag: Sport. Morgens gehe ich deshalb erst einmal ins Fitnessstudio meines Hotels</li><li>Zur Erfrischung gönne ich mir danach einen frisch gepressten Orangensaft aus einer der vielen Maschinen, die überall auf Singapurs Straßen zu finden sind</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_2"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par2/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par2/link_copy_copy",
+      "text": "Mehr aus Asien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asien",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par2/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par2/link_copy_copy_copy_",
+      "text": "Flüge nach Singapur finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_singapore_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=SIN",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par2/separator_copy_copy__196201539"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par3/image_copy_214762893",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_jay-ang_unsplash-v0BgDZTJyPY_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Blick auf den Merlion Lion in Singapur"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Ausgiebiger Brunch im PS.Cafe Harding Road</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Danach zieht es mich nach Dempsey Hill, einer Gegend mit vielen Cafés, Restaurants und Geschäften</li><li>Besonders toll am PS.Cafe Harding Road: das floral-gemütliche Interieur des Lokals und die Avocado Eggs Florentine und Trüffel-Pommes</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "28b Harding Rd",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mit dem Uber ins Arab Quarter</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>In Singapur kommt man super mit öffentlichen Verkehrsmitteln von A nach B – Bus und U-Bahn sind pünktlich, und seine Fahrkarte zahlt man einfach mit Apple Pay</li><li>Alternativ bietet sich Grab an – das asiatische Uber</li><li>Der Besuch der wunderschönen Sultan-Moschee ist ein Muss, ebenso ein Abstecher in die nahegelegene Haji Lane: Die kleine Straße punktet mit vielen individuellen Boutiquen, gemütlichen Bars und tollen Restaurants</li><li>Meine Empfehlung: Hausgemachte Minz-Limonade, die tut bei der tropischen Hitze in Singapur richtig gut. Oder auch die frisch gepressten Wassermelonen- und Guavensäfte</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Sultan-Moschee (Masjid Sultan), 3 Muscat St",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_9"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par9/image_copy_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_garden-by-the-bay_shutterstock368696480_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Innenansicht der Gardens by the Bay in Singapur"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abstecher zur Marina Bay</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>An der Mündung des Singapore River wacht die gut acht Meter hohe Statue Merlion über die Stadt und ihre&nbsp;Bewohner:innen</li><li>Einzigartig: der traumhafte Blick auf das Marina Bay Sands, ein Hotel mit einem imposanten Infinity-Pool auf der Dachterrasse</li><li>Gleich hinter dem Hotel liegen die Gardens by the Bay, in denen die magischen Supertrees stehen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abend</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_12"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/articlecontentfragment/par12/image_copy_190462780",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-singapore/lh_app_singapore_rooftop-bar_ce-la-vie_ory3942_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Nachtaufnahme in der Rooftop Bar Cé La Vi in Singapur"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lichtershow&nbsp;am Gardens by the Bay</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Abends, zur Lichtershow, versammeln sich hier&nbsp;Tourist:innen neben den Einheimischen, die sich an dieser Attraktion einfach nicht sattsehen können</li><li>Mein Tipp: Eine Bootstour bei Sonnenuntergang buchen. Vom Wasser aus lässt sich Singapur auf ganz andere Art und Weise kennenlernen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "18 Marina Gardens Dr",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Cocktails in der Rooftop-Bar Cé La Vi</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Mein absoluter Geheimtipp: Cocktails trinken in der Rooftop-Bar Cé La Vi</li><li>Eigentlich dürfen nur Hotelgäste auf die Dachterrasse im 57. Stock des Hotels – wer aber ins Cé La Vi geht, darf ebenfalls hinauf</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "10 Bayfront Ave",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte: Shutterstock, Jay Ang/Unsplash, Marina Bay Sands, Rory Daniel",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "Florian Tomberg lebt in Köln und arbeitet seit 2016 für Lufthansa. Als Purser ist er oft auf den Strecken von Frankfurt nach Singapur im Einsatz.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/asia/a-perfect-day-in-singapore_paragraph_21"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Mehr aus Asien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asien",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/a-perfect-day-in-singapore/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

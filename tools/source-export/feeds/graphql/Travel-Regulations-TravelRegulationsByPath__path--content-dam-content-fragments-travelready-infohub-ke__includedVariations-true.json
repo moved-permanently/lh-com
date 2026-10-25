@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:19:29.436Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Most <b>travellers entering Kenya must obtain an</b> <b>Electronic Travel Authorisation (eTA) before travel</b>. <b>Apply online at least three working days before arrival</b>. For more information and to apply, visit the official Kenyan government <a hreftemp=\"https://etakenya.go.ke/\" rel=\"noopener noreferrer\" href=\"https://etakenya.go.ke/\">website.</a></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:19:29.436Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Die meisten Reisenden benötigen für die <b>Einreise nach Kenia eine elektronische Reisegenehmigung (Electronic Travel Authorisation, eTA).</b> <b>Beantragen Sie die eTA online mindestens drei Werktage vor Ihrer Ankunft.</b></p>\n<p>Weitere Informationen sowie die Möglichkeit zur <b>Antragstellung</b> finden Sie auf der offiziellen <a hreftemp=\"https://etakenya.go.ke/\" rel=\"noopener noreferrer\" href=\"https://etakenya.go.ke/\">Website</a> der kenianischen Regierung.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "kenya",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-15T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-14T14:19:29.436Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>La plupart des <b>voyageurs se rendant au Kenya doivent obtenir une autorisation électronique de voyage (Electronic Travel Authorisation, eTA) </b>avant leur départ. <b>Effectuez votre demande en ligne au moins trois jours ouvrables avant votre arrivée.</b></p>\n<p>Pour plus d'informations et pour <b>soumettre votre demande,</b> consultez le <a hreftemp=\"https://etakenya.go.ke/\" rel=\"noopener noreferrer\" href=\"https://etakenya.go.ke/\">site officiel</a> du gouvernement kenyan.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

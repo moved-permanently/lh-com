@@ -1,0 +1,350 @@
+{
+ "id": "/content/mobile/lh/de/articles/essentials-of-paris",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/essentials-of-paris/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_paris_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Illustration eines Menschen, der den Eiffelturm streicht"
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/europe/essentials-of-paris",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Essentials of Paris",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>16. Juni 2025 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Eine Stadt ohne Stoppschilder und mit einer Vorliebe für Macarons: Fünf Dinge über Paris, die Sie überraschen werden.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Faustregel: Rechts vor links</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Paris ist eine strahlende Metropole und ein Touristenmekka mit weltweit bekannten, verkehrsreichen Straßen und belebten Kreuzungen wie der Place Charles de Gaulle mit dem Arc de Triomphe in der Mitte. Kaum zu glauben also, dass es in Paris kein einziges Stoppschild gibt. Keins, wirklich nicht einmal ein einziges.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par1/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration links: ineinander verschlungene Straßenkreuzungen, die den Arc de Triomphe einwickeln; rechts: ein überdimensionales Baguette auf einem Gabelstrapler"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Eine Stadt mit Geschmack</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Zu den vielen Dingen, für die Paris weltweit geliebt wird, zählt die berühmte Küche der Stadt. Kein Wunder, dass hier der zweitgrößte Lebensmittelgroßmarkt der Welt zu Hause ist. Den Rungis International Market gibt es seit dem 10. Jahrhundert. Jährlich werden dort etwa zwei Millionen Tonnen Fleisch, Gemüse, Fisch und Käse verkauft. ",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_3"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par3/link_copy_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par3/link_copy_copy_copy",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "Flüge nach Paris finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_paris_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=PAR",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par3/separator_copy_copy__2035564284"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Tomatensaft? Mit Wodka!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Die erste Bloody Mary aller Zeiten wurde angeblich in Paris im Hôtel Ritz zubereitet. Man munkelt, dass dieser beliebte Cocktail für den berühmten Schriftsteller Ernest Hemingway kreiert wurde. Er wünschte sich ein Getränk, das nicht nach Alkohol riecht.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par5/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration links: eine Hand, die mit Tinte und Feder ein Blatt Papier beschreibt; rechts: Katharina von Medici mit einer Schachtel Macarons in der Hand"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Ein Gebäck auf Reise</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Spätestens seitdem die französische Pâtisserie Ladurée ihre Läden rund um den Globus eröffnet hat, ist das Macaron zu einem festen Bestandteil der französischen Vorzeigeküche geworden. Aber siehe da – das Macaron ist gar nicht französisch! Das Gebäck ist arabischen Ursprungs und gelangte nach Italien, bevor es im 16. Jahrhundert von Katharina von Medici am französischen Hof eingeführt wurde.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Handgemalt</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Der Eiffelturm prägt die Pariser Skyline wie kein anderes Bauwerk der Stadt. Um die 300 Meter hohe Konstruktion in Schuss zu halten, muss sie alle sieben Jahre neu gestrichen werden – von Hand! Hierbei werden 60 Tonnen Farbe verbraucht. ",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_9"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/articlecontentfragment/par9/image_copy",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-paris/lh_app_paris_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration eines Menschen, der den Eiffelturm streicht"
+     },
+     {
+      "type": "copyText",
+      "text": "Alle Illustrationen © Sylvia Neuner",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/europe/essentials-of-paris_paragraph_10"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/par/sduicolumn/column/teaser_copy_copy_cop"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/par/sduicolumn/column/link_copy_copy_copy",
+      "text": "Mehr aus Europa",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europa",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/essentials-of-paris/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

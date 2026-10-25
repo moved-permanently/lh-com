@@ -1,0 +1,350 @@
+{
+ "id": "/content/mobile/lh/en/articles/essentials-of-barcelona",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/lh_app_barcelona_illustration_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Illustration of a snail carrying the Sagrada Família as its shell"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/europe/essentials-of-barcelona",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Essentials of Barcelona",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>21. June 2025 | 2 min read | Lufthansa Editorial Team</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Here you can swim and admire unfinished buildings: five things about Barcelona that will surprise you.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>A Missed Opportunity</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Barcelona could have outdone Paris with an “Eiffel Tower” – almost. The story that Gustave Eiffel first offered his tower to the Catalonian capital is just a legend. But what is true is that Barcelona rejected three projects that were quite similar to the Eiffel Tower for the 1888 World’s Fair. The Parisians, however, said “oui” to Gustave Eiffel and his tower for their World’s Fair a year later – and, as it turned out, to one of the most iconic landmarks in history.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par1/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration1_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration: Gustave Eiffel holding a plan of the Eiffel Tower next to a cityscape of Barcelona"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Award-Winning Architecture</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "The Royal Institute of British Architects awards the Royal Gold Medal for Architecture to individuals who have made outstanding contributions to the field. An exception was made for Barcelona – in 1999, for the first and only time to date, the award was given to an entire city.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_3"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par3/link_copy_copy_copy",
+      "text": "More about Europe",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europe",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__1383567818",
+      "text": "Flight search to Barcelona",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_barcelona_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=BCN",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par3/separator_copy_copy__716010515"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Better Beach Days</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Beaches in Barcelona? Before the 1990s, that was just wishful thinking. In preparation for the 1992 Olympic Games, 4.5 kilometers of industrial coastline were transformed into beautiful sandy beaches, such as Bogatell and Sant Sebastià, which have been loved by both locals and tourists ever since.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par5/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration2_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration on the left: Barcelona’s beaches being created with a bucket of sand. Illustration on the right: the Sagrada Família on the back of a snail."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Monumental Construction Time</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "The Sagrada Família, Gaudí's church masterpiece, remains unfinished. Construction began in 1882, but over 50 years later, at the height of the Spanish Civil War, the building plans were nearly abandoned when revolutionaries destroyed Gaudí's plaster models. It took 16 years just to reconstruct them. The Sagrada Família is now expected to be completed in 2026.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/articlecontentfragment/par7/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/europe/essentials-of-barcelona/lh_blog_barcelona_illustration3_sylvia-neuner_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illustration: A footballer pumping up the Camp Nou stadium as if it were a tire"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>To New Heights</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Camp Nou, home of FC Barcelona, is the largest stadium in Europe. Opened in 1957, it seats 99,354 spectators and houses a museum showcasing the club’s history. It’s currently undergoing major renovations and is set to hold 105,000 spectators upon completion.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "All illustrations © Sylvia Neuner",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/europe/essentials-of-barcelona_paragraph_10"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/par/sduicolumn/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "More about Europe",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_europe_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Europe",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/europe.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/essentials-of-barcelona/jcr:content/par/sduicolumn/column/link_copy_copy_copy__804660815",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

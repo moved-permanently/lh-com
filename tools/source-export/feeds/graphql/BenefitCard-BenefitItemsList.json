@@ -1,0 +1,16 @@
+{
+ "errors": [
+  {
+   "message": "Variable 'langPath' has an invalid value: Variable 'langPath' has coerced Null value for NonNull type 'ID!'",
+   "locations": [
+    {
+     "line": 1,
+     "column": 25
+    }
+   ],
+   "extensions": {
+    "classification": "ValidationError"
+   }
+  }
+ ]
+}

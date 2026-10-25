@@ -1,0 +1,523 @@
+{
+ "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_unsplash_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "The Hong Kong skyline at sunset"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Hong Kong",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 3 min read | Katja Tucich</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Purser Katja Tucich has been to her favorite city, Hong Kong, many times. She shares her tips for the metropolis, from great coffee in the morning to a nice drink at night.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Morning</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par0/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_noc-cafe_breakfast_c_jeremy-cheung_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Puff pastry with blueberries and an iced coffee on a white plate"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Coffee at NOC Coffee</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I start my day with a coffee at NOC Coffee on Whampoa Street</li><li>From there, I enjoy a fantastic view of the Hong Kong skyline</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "NOC Coffee, Shop G42, G/F, Whampoa Garden Site 9 Block 1, Tak Fung St, Hung Hom",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par3/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_island_getty505252214_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Hung Hom Promenade in Hong Kong with the city skyline and mountains in the background"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Walk Along the promenade</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>With coffee in hand, I stroll along the Hung Hom Promenade toward the Avenue of Stars</li><li>The handprints of Hong Kong cinema legends such as Jackie Chan and Wong Kar-wai celebrate the city’s film history</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "Avenue of Stars, Tsim Sha Tsui",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Midday</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Shopping on Mody Road</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I love browsing the small shops and street stalls along Mody Road</li><li>It’s a great place to find souvenirs, repair services, and bargains</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Mody Road, Tsim Sha Tsui",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Discover Wong Tai Sin Temple</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_11"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par11/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_wong-tai-sim-temple_getty1751455646_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Wong Tai Sin Temple in Hong Kong with traditional roofs and the city skyline"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>The colorful Wong Tai Sin Temple is a must-see in Hong Kong</li><li>It is a fascinating place to learn more about local traditions and fortune telling rituals</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "Wong Tai Sin Temple, Chuk Un",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_13"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par13/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par13/link_copy_copy_copy_",
+      "text": "More about Asia",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asia",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par13/link_copy_copy_copy__1381286389",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par13/link_copy_copy_copy__1020928246",
+      "text": "Search Flight to Hong Kong",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_hongkong_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination?city=HKG",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par13/separator_copy_copy__2109892519"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Afternoon</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Street Food at Temple Street Night Market</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I always enjoy trying local dishes at Temple Street Night Market</li><li>Temple Spice Crabs is famous for its seafood selection, although my personal favorite is sweet and sour chicken</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "Temple Street Night Market, Temple Street, Jordan",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Relax at Kowloon Park</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Between exploring the city, I like to take a break in Kowloon Park</li><li>The greenery and birdsong make you forget that you are in the middle of a busy metropolis</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "Kowloon Park, 22 Austin Road, Tsim Sha Tsui",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Evening</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_21"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par21/image_1420113679",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_bann-thai_c_jeremy-cheung_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Cozy seating area with cushions and warm lighting in the Baan Thai Restaurant"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Dinner at Baan Thai</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_22"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>The Thai cuisine at Baan Thai is one of my favorite dining experiences in Hong Kong</li><li>My tip: be sure to reserve a table in advance</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_23"
+     },
+     {
+      "type": "copyText",
+      "text": "Baan Thai, 57 Wyndham Street, Central",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_24"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/articlecontentfragment/par24/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/asia/a-perfect-day-in-hong-kong/lh_app_hongkong_skyline_getty1297741599_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Illuminated Hong Kong skyline at night with light beams over the harbor"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>A Symphony of Lights</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_25"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Every evening at 8 PM, the “A Symphony of Lights” show transforms Victoria Harbour into a spectacular display of light and color</li><li>It only lasts a few minutes but is an unforgettable experience</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_26"
+     },
+     {
+      "type": "copyText",
+      "text": "A Symphony of Lights, Victoria Harbour",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_27"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Live Music at The Iron Fairies</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_28"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>I love ending the day with live music at The Iron Fairies in Central</li><li>It is the perfect place to experience Hong Kong’s vibrant nightlife</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_29"
+     },
+     {
+      "type": "copyText",
+      "text": "The Iron Fairies, 1 Hollywood Rd, Central",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_30"
+     },
+     {
+      "type": "copyText",
+      "text": "Copyrights:&nbsp;Unsplash / Bady Abbas, Jeremy Cheung (2), Getty Images (3)",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_31"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>About</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_32"
+     },
+     {
+      "type": "copyText",
+      "text": "Katja Tucich has been with Lufthansa since 1999 and is a big fan of Hong Kong. The city has always been one of her favorite destinations, and she also enjoys going there for a personal trip with her daughter.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/asia/a-perfect-day-in-hong-kong_paragraph_33"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/par/sduicolumn_copy",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_15092026"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/par/sduicolumn_copy/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/par/sduicolumn_copy/column/separator"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/par/sduicolumn_copy/column/link_copy_copy_copy_",
+      "text": "More about Asia",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_asia_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Asia",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/asia.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong/jcr:content/par/sduicolumn_copy/column/link_copy_copy_copy__147093814",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

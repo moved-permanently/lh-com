@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:15.299Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:24:58.217Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information:</b></p>\n<p>To <b>enter Nigeria</b>, passengers are <b>required to complete</b> the following <b>before arrival:</b></p>\n<ul>\n<li><a href=\"https://lecard.immigration.gov.ng/\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://lecard.immigration.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Landing Card</b></a></li>\n</ul>\n<ul>\n<li><a href=\"https://healthapp.ncdc.gov.ng/\" hreftemp=\"https://healthapp.ncdc.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Health Declaration Form</b></a></li>\n</ul>\n<p>Please <b>ensure that both documents have been completed <u>before you travel</u>.</b></p>\n<p>In addition, please also familiarise yourself with</p>\n<p><a href=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" hreftemp=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" rel=\"noopener noreferrer\"><b>Nigeria's customs regulations</b></a> regarding <b>foreign currency imports</b>, including declaration requirements and applicable limits.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:15.299Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:24:58.217Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p>Wichtige Information:</p>\n<p>Für die <b>Einreise nach Nigeria </b>müssen Reisende <b><u>vor der Ankunft </u>die folgenden Formulare</b> ausfüllen:</p>\n<ul>\n<li><a href=\"https://lecard.immigration.gov.ng/\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://lecard.immigration.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Landing Card</b></a></li>\n<li><a href=\"https://healthapp.ncdc.gov.ng/\" hreftemp=\"https://healthapp.ncdc.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Health Declaration Form</b></a></li>\n</ul>\n<p>Bitte <b>stellen Sie sicher, dass beide Dokumente vor Reiseantritt vollständig ausgefüllt wurden.</b></p>\n<p>&nbsp;</p>\n<p>Bitte informieren Sie sich zudem über die&nbsp;<a href=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" hreftemp=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" rel=\"noopener noreferrer\"><b>nigerianischen Zollbestimmungen</b></a> für die <b>Einfuhr von Fremdwährungen</b>, einschließlich geltender Höchstbeträge und Deklarationspflichten.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:15.299Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:24:58.217Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Information importante:</b></p>\n<p>Pour <b>entrer au Nigeria</b>, les voyageurs doivent <b>remplir les formulaires suivants avant leur arrivée:</b></p>\n<ul>\n<li><a href=\"https://lecard.immigration.gov.ng/\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://lecard.immigration.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Landing Card</b></a></li>\n<li><a href=\"https://healthapp.ncdc.gov.ng/\" hreftemp=\"https://healthapp.ncdc.gov.ng/\" rel=\"noopener noreferrer\"><b>Nigeria Health Declaration Form</b></a></li>\n</ul>\n<p><b>Veuillez vous assurer que ces deux documents sont dûment complétés avant votre départ.</b></p>\n<p>&nbsp;</p>\n<p>Nous vous recommandons également de consulter la</p>\n<p><a href=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" hreftemp=\"https://cdf.nigeriatradehub.gov.ng/new/cdf.php\" rel=\"noopener noreferrer\"><b>réglementation douanière nigériane</b></a> relative à <b>l'importation de devises étrangères,</b> y compris les limites applicables et les obligations de déclaration.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "id": "/content/mobile/lh/en/articles/south-america",
+ "metadata": {
+  "title": "South America"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/south-america/par",
+  "items": [
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/south-america/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/south-america/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/south-america/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Buenos Aires",
+      "description": "Purser Julia Buth from Frankfurt regularly spends time in Buenos Aires and shares her top tips on how to spend the perfect day in the Argentinean capital.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-buenos-aires/lh_app_buenos-aires_skyline_unsplash-z0A_IsZYXfM_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "1"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Buenos Aires",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/south-america/a-perfect-day-in-buenos-aires"
+     },
+     {
+      "type": "offerBox",
+      "title": "A Perfect Day in Rio de Janeiro",
+      "description": "Flight attendant Ricardo Perna reveals his perfect day in Rio.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_hills_shutterstock636489641_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "2"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "A Perfect Day in Rio de Janeiro",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro"
+     },
+     {
+      "type": "offerBox",
+      "title": "Essentials of Rio de Janeiro",
+      "description": "Legal graffiti art and a ban on bikinis: five things about Rio de Janeiro that will surprise you.",
+      "textLink": "Read article",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/south-america/essentials-of-rio-de-janeiro/lh_app_rio-de-janeiro_illustration_sylvia-neuner_1920x1080.jpg",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "blog overview click",
+        "category": "blog overview",
+        "action": "click",
+        "label": "article",
+        "metadata": {
+         "ga_hs_order": "3"
+        }
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Essentials of Rio de Janeiro",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "id": "/lh/en/mobile-app/south-america/essentials-of-rio-de-janeiro"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/south-america/jcr:content/par/sduicolumn/column/separator_copy_copy__1442596052"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/south-america/jcr:content/par/sduicolumn/column/link_copy_copy_copy__1163547684",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

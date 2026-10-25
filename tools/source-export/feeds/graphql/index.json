@@ -1,0 +1,399 @@
+{
+ "recorded": "2026-10-25T18:36Z/18:41Z",
+ "note": "GET https://www.lufthansa.com<url> from a page on www, credentials omitted. Variables as ;name=value; path values with plain slashes (www answers 404 when the slashes are %2F-encoded). Ancillary catalog: properties values blanked when the name suggests a key or id or the value looks like a token (names kept).",
+ "tmcRedaction": {
+  "kept": 15,
+  "blanked": 30,
+  "names": {
+   "longHaulImage": "kkkkkk",
+   "shortHaulImage": "kkkkkk",
+   "apiKey": "BBBBBB",
+   "urlId": "BBBBBB",
+   "ptid": "BBB",
+   "clientID": "BBB",
+   "clientid": "B",
+   "partnerId": "BBBBB",
+   "aid": "BBBBB",
+   "label": "kkB",
+   "validAirports": "k"
+  }
+ },
+ "urls": {
+  "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList": {
+   "file": "graphql/AllegrisUpgrade-AllegrisAircraftsList.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 22 Apr 2026 07:08:55 GMT",
+   "bytes": 282
+  },
+  "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LH": {
+   "file": "graphql/AllegrisUpgrade-AllegrisAircraftsList__airline-LH.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 22 Apr 2026 07:08:55 GMT",
+   "bytes": 1123
+  },
+  "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LX": {
+   "file": "graphql/AllegrisUpgrade-AllegrisAircraftsList__airline-LX.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 22 Apr 2026 07:08:55 GMT",
+   "bytes": 241
+  },
+  "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=OS": {
+   "file": "graphql/AllegrisUpgrade-AllegrisAircraftsList__airline-OS.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 22 Apr 2026 07:08:55 GMT",
+   "bytes": 46
+  },
+  "/graphql/execute.json/Ancillary-on-TMC/get-ancillaries-catalogs": {
+   "file": "graphql/Ancillary-on-TMC-get-ancillaries-catalogs.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Fri, 17 Apr 2026 10:11:08 GMT",
+   "bytes": 50737
+  },
+  "/graphql/execute.json/Ancillary-on-TMC/tmc-translations-v2": {
+   "file": "graphql/Ancillary-on-TMC-tmc-translations-v2.json",
+   "status": 404,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": null,
+   "bytes": 221
+  },
+  "/graphql/execute.json/Ancillary-on-TMC/tmc-translations;path=/content/dam/lufthansa-group/ancillary/tmc/tmc-web-translations/tmc-translations;variation=master": {
+   "file": "graphql/Ancillary-on-TMC-tmc-translations__path--content-dam-lufthansa-group-ancillary-tmc-tmc-web-translations-tmc-translations__variation-master.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 10 Aug 2026 11:43:34 GMT",
+   "bytes": 113538
+  },
+  "/graphql/execute.json/B2BNeo/getAllFooterLogos": {
+   "file": "graphql/B2BNeo-getAllFooterLogos.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 13 Aug 2025 14:07:00 GMT",
+   "bytes": 46
+  },
+  "/graphql/execute.json/B2BNeo/getFeatureFlag": {
+   "file": "graphql/B2BNeo-getFeatureFlag.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 28 Jan 2026 16:22:41 GMT",
+   "bytes": 593
+  },
+  "/graphql/execute.json/B2BNeo/getFreeFlightConfig": {
+   "file": "graphql/B2BNeo-getFreeFlightConfig.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 2 Feb 2026 16:25:28 GMT",
+   "bytes": 455
+  },
+  "/graphql/execute.json/BenefitCard/BenefitItemsList": {
+   "file": "graphql/BenefitCard-BenefitItemsList.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 23 Feb 2026 10:16:27 GMT",
+   "bytes": 221
+  },
+  "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de": {
+   "file": "graphql/BenefitCard-BenefitItemsList__langPath--content-dam-lufthansa-group-ancillary-upgrade-benefitcard-benefititems-de.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 23 Feb 2026 10:16:27 GMT",
+   "bytes": 13291
+  },
+  "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de;airline=OS": {
+   "file": "graphql/BenefitCard-BenefitItemsList__langPath--content-dam-lufthansa-group-ancillary-upgrade-benefitcard-benefititems-de__airline-OS.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 23 Feb 2026 10:16:27 GMT",
+   "bytes": 1997
+  },
+  "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en": {
+   "file": "graphql/BenefitCard-BenefitItemsList__langPath--content-dam-lufthansa-group-ancillary-upgrade-benefitcard-benefititems-en.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 23 Feb 2026 10:16:27 GMT",
+   "bytes": 12905
+  },
+  "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en;airline=LH": {
+   "file": "graphql/BenefitCard-BenefitItemsList__langPath--content-dam-lufthansa-group-ancillary-upgrade-benefitcard-benefititems-en__airline-LH.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 23 Feb 2026 10:16:27 GMT",
+   "bytes": 2294
+  },
+  "/graphql/execute.json/Orchestrator-Services/SDUI-Service-List": {
+   "file": "graphql/Orchestrator-Services-SDUI-Service-List.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 30 Mar 2026 03:48:04 GMT",
+   "bytes": 1701
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationByPathAndVariation": {
+   "file": "graphql/Travel-Regulations-TravelRegulationByPathAndVariation.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Fri, 3 Jul 2026 09:43:26 GMT",
+   "bytes": 218
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationByPathAndVariation;path=/content/dam/content-fragments/travelready-infohub/za;variation=de": {
+   "file": "graphql/Travel-Regulations-TravelRegulationByPathAndVariation__path--content-dam-content-fragments-travelready-infohub-za__variation-de.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Wed, 16 Sep 2026 14:56:40 GMT",
+   "bytes": 1777
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 39582
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ca;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-ca__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 5253
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/cn;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-cn__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 1636
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ec;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-ec__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 47
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/gb;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-gb__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 47
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/il;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-il__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 2875
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/in;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-in__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 10094
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/jp;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-jp__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 1880
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ke;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-ke__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 2076
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/mv;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-mv__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 1575
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/my;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-my__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 1633
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/na;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-na__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 5028
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ng;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-ng__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 3810
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/th;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-th__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 2156
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/tn;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-tn__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 1448
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/us;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-us__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 10232
+  },
+  "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/za;includedVariations=true": {
+   "file": "graphql/Travel-Regulations-TravelRegulationsByPath__path--content-dam-content-fragments-travelready-infohub-za__includedVariations-true.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Thu, 5 Feb 2026 12:58:53 GMT",
+   "bytes": 5143
+  },
+  "/graphql/execute.json/mobileapp/getItemByID": {
+   "file": "graphql/mobileapp-getItemByID.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 27 Jan 2025 11:12:31 GMT",
+   "bytes": 213
+  },
+  "/graphql/execute.json/mobileapp/getItemByID;id=/content/dam/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-jus": {
+   "file": "graphql/mobileapp-getItemByID__id--content-dam-lufthansa-group-mobileapp-whats-new-en-finding-your-next-flight-jus.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 27 Jan 2025 11:12:31 GMT",
+   "bytes": 328
+  },
+  "/graphql/execute.json/mobileapp/getStartPopupEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh;to=2026-10-25T20%3A00%3A00.000%2B01%3A00": {
+   "file": "graphql/mobileapp-getStartPopupEarlyAccess__locale-en__client-mobile-app-android__tenant-mobile-app-lh__to-2026-10-25T20-3A00-3A00.000-2B01-3A00.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Apr 2025 08:45:01 GMT",
+   "bytes": 2131
+  },
+  "/graphql/execute.json/mobileapp/getStartPopupNonEarlyAccess": {
+   "file": "graphql/mobileapp-getStartPopupNonEarlyAccess.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Apr 2025 09:21:58 GMT",
+   "bytes": 47084
+  },
+  "/graphql/execute.json/mobileapp/getStartPopupNonEarlyAccess;locale=en;client=mobile-app:ios;tenant=mobile-app:lh;to=2026-10-25T20%3A00%3A00.000%2B01%3A00": {
+   "file": "graphql/mobileapp-getStartPopupNonEarlyAccess__locale-en__client-mobile-app-ios__tenant-mobile-app-lh__to-2026-10-25T20-3A00-3A00.000-2B01-3A00.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Apr 2025 09:21:58 GMT",
+   "bytes": 3622
+  },
+  "/graphql/execute.json/mobileapp/whatsNewListEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh": {
+   "file": "graphql/mobileapp-whatsNewListEarlyAccess__locale-en__client-mobile-app-android__tenant-mobile-app-lh.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 28314
+  },
+  "/graphql/execute.json/mobileapp/whatsNewListNonEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh": {
+   "file": "graphql/mobileapp-whatsNewListNonEarlyAccess__locale-en__client-mobile-app-android__tenant-mobile-app-lh.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 28314
+  },
+  "/graphql/execute.json/mobileapp/whatsNewListNonEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lx": {
+   "file": "graphql/mobileapp-whatsNewListNonEarlyAccess__locale-en__client-mobile-app-android__tenant-mobile-app-lx.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 28314
+  },
+  "/graphql/execute.json/mobileapp/whatsnewList": {
+   "file": "graphql/mobileapp-whatsnewList.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 273797
+  },
+  "/graphql/execute.json/mobileapp/whatsnewList;locale=de;client=mobile-app:ios;tenant=mobile-app:lh": {
+   "file": "graphql/mobileapp-whatsnewList__locale-de__client-mobile-app-ios__tenant-mobile-app-lh.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 21968
+  },
+  "/graphql/execute.json/mobileapp/whatsnewList;locale=en;client=mobile-app:android;tenant=mobile-app:lh": {
+   "file": "graphql/mobileapp-whatsnewList__locale-en__client-mobile-app-android__tenant-mobile-app-lh.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 22285
+  },
+  "/graphql/execute.json/mobileapp/whatsnewList;locale=en;limit=5;client=mobile-app:ios;tenant=mobile-app:lx": {
+   "file": "graphql/mobileapp-whatsnewList__locale-en__limit-5__client-mobile-app-ios__tenant-mobile-app-lx.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": "public, max-age=120",
+   "last-modified": "Mon, 28 Oct 2024 05:12:31 GMT",
+   "bytes": 4786
+  }
+ }
+}

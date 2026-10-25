@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:31.224Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:57:47.644Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>All travelers</b> (excluding Thai nationals) are required to complete the<b> &quot;TDAC - Thailand Digital Arrival Card&quot; within 72 hours prior to departur</b>e. The QR code must be presented to Thai authorities upon entry.</p>\n<p>Registration can be done under this <a href=\"https://tdac.immigration.go.th/arrival-card/#/home\" hreftemp=\"https://tdac.immigration.go.th/arrival-card/#/home\" rel=\"noopener noreferrer\">link</a>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:31.224Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:57:47.644Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Alle Reisenden</b> (außer thailändischen Staatsangehörigen) müssen die <b>&quot;TDAC - Thailand Digital Arrival Card&quot; innerhalb von 72 Stunden vor der Abreise ausfüllen</b>. Der QR-Code muss bei der Einreise den thailändischen Behörden vorgelegt werden.</p>\n<p>Die Registrierung erfolgt unter diesem <a href=\"https://tdac.immigration.go.th/arrival-card/#/home\" hreftemp=\"https://tdac.immigration.go.th/arrival-card/#/home\" rel=\"noopener noreferrer\">Link</a>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-18T07:00:31.224Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-14T10:57:47.644Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Tous les voyageurs </b>(à l'exception des ressortissants thaïlandais) devront remplir la <b>&quot;TDAC - Thailand Digital Arrival Card&quot; dans les 72 heures précédant leur départ.</b> Le code QR doit être présenté aux autorités thaïlandaises à l'entrée sur le territoire.</p>\n<p>L'inscription peut se faire en suivant <a href=\"https://tdac.immigration.go.th/arrival-card/#/home\" hreftemp=\"https://tdac.immigration.go.th/arrival-card/#/home\" rel=\"noopener noreferrer\">ce lien</a>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

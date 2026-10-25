@@ -1,0 +1,525 @@
+{
+ "dcep-header-quick-action-links": {
+  "id": "dcep-header-quick-action-links",
+  "links": [
+   {
+    "dataIdentifierTrack": "navigation-main_click_main-book",
+    "label": "Buchen",
+    "url": "/at/de/homepage"
+   },
+   {
+    "dataIdentifierTrack": "navigation-main_click_main-my-flights",
+    "label": "Meine Flüge",
+    "url": "/deeplink/cockpit?country=AT&language=DE"
+   },
+   {
+    "dataIdentifierTrack": "navigation-main_click_main-check-in",
+    "label": "Check-in",
+    "url": "/at/de/online-check-in"
+   },
+   {
+    "dataIdentifierTrack": "navigation-main_click_main-flight-status",
+    "label": "Flugstatus",
+    "url": "/at/de/flugplan-und-flugstatus"
+   }
+  ]
+ },
+ "dcep-header-flyout": {
+  "id": "common-header-nav-horizontal",
+  "burgerMenu": false,
+  "menuItems": [
+   {
+    "label": "Buchen & Vorbereiten",
+    "dataIdentifierTrack": "navigation-main_click_prepare",
+    "menuItems": [
+     {
+      "label": "Flüge",
+      "href": "/at/de/book-and-manage/overview-flights",
+      "dataIdentifierTrack": "navigation-main_click_overview-flights",
+      "menuItems": [
+       {
+        "label": "Flüge buchen",
+        "href": "/at/de/flugsuche",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_book-flight"
+       },
+       {
+        "label": "Angebote & Destinationen",
+        "href": "/at/de/fluege",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_offers-and-destinations"
+       },
+       {
+        "label": "Gepäck",
+        "href": "/at/de/gepaeck",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_baggage"
+       },
+       {
+        "label": "Gruppen & Charter",
+        "href": "/at/de/gruppenreisen-und-charter",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_group-travel-and-charter"
+       },
+       {
+        "label": "Nachhaltiger buchen",
+        "href": "/at/de/green-fare",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_green-fare"
+       },
+       {
+        "label": "Lufthansa Gutschein",
+        "href": "/at/de/book-and-manage/flights/giftvoucher",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_lufthansa-gift-card"
+       }
+      ]
+     },
+     {
+      "label": "Reiseinformationen",
+      "href": "/at/de/book-and-manage/overview-travel-information",
+      "dataIdentifierTrack": "navigation-main_click_overview-travel-information",
+      "menuItems": [
+       {
+        "label": "Check-in-Informationen",
+        "href": "/at/de/all-check-in",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_check-in-information"
+       },
+       {
+        "label": "Am Flughafen",
+        "href": "/at/de/flughafeninformation",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_at-the-airport"
+       },
+       {
+        "label": "Lounges",
+        "href": "/at/de/lounges",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_lounges"
+       },
+       {
+        "label": "Entdecke unsere Menüs",
+        "href": "/at/de/culinaryjourney",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_culinary_journey"
+       },
+       {
+        "label": "Einreisebestimmungen",
+        "href": "/at/de/entryprocesses",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_entry-regulations"
+       },
+       {
+        "label": "Übersicht Reiseplanung",
+        "href": "/at/de/travel-briefing",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_travel-briefing"
+       },
+       {
+        "label": "Flughafen An- & Abreise",
+        "href": "/at/de/lufthansa-express",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_get-to-the-airport"
+       }
+      ]
+     },
+     {
+      "label": "Spezielle Anliegen",
+      "href": "/at/de/book-and-manage/overview-special-request",
+      "dataIdentifierTrack": "navigation-main_click_overview-special-request",
+      "menuItems": [
+       {
+        "label": "Familien",
+        "href": "/at/de/fliegen-mit-kindern",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_travelling-with-children"
+       },
+       {
+        "label": "Haustiere",
+        "href": "/at/de/travelling-with-animals",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_travelling-with-animals"
+       },
+       {
+        "label": "Alleinreisende Kinder",
+        "href": "/at/de/alleinreisende-kinder",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_unaccompanied-minors"
+       },
+       {
+        "label": "Spezialmenüs",
+        "href": "/at/de/sondermahlzeiten",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_special-meals"
+       },
+       {
+        "label": "Barrierefrei reisen",
+        "href": "/at/de/accessible-travel",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_accessible-travel"
+       },
+       {
+        "label": "Gesundheit & Reisen",
+        "href": "/at/de/gesund-reisen",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_travelling-healthy"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Meine Buchungen",
+    "dataIdentifierTrack": "navigation-main_click_my-booking",
+    "menuItems": [
+     {
+      "label": "Verwalten",
+      "href": "/at/de/book-and-manage/booking-services",
+      "dataIdentifierTrack": "navigation-main_click_overview-manage",
+      "menuItems": [
+       {
+        "label": "Check-in",
+        "href": "/at/de/online-check-in",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_online-check-in"
+       },
+       {
+        "label": "Flugstatus",
+        "href": "/at/de/flugplan-und-flugstatus",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_flight-status"
+       },
+       {
+        "label": "Buchung bearbeiten",
+        "href": "/deeplink/cockpit?country=AT&language=DE",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_manage-bookings"
+       },
+       {
+        "label": "Sitzplatz reservieren",
+        "href": "/at/de/advance-seat-reservation",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_seat-reservation"
+       },
+       {
+        "label": "Umbuchung",
+        "href": "/at/de/book-and-manage/rebook?country=AT&language=DE",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_rebooking-options"
+       },
+       {
+        "label": "Stornierung & Erstattung",
+        "href": "/at/de/cancellations-and-refunds",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_cancellation-refund"
+       },
+       {
+        "label": "Rechnung anfordern",
+        "href": "/at/de/book-and-manage/pax-receipt",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_pax-receipt"
+       },
+       {
+        "label": "Verspätetes oder beschädigtes Gepäck",
+        "href": "/at/de/baggage-irregularities",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_baggage-irregularities"
+       }
+      ]
+     },
+     {
+      "label": "Extra Services",
+      "href": "/at/de/book-and-manage/additional-services",
+      "dataIdentifierTrack": "navigation-main_click_overview-additional-services",
+      "menuItems": [
+       {
+        "label": "Übersicht",
+        "href": "/at/de/additional-services",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_overview-additional-services"
+       },
+       {
+        "label": "Zusätzliches Gepäck buchen",
+        "href": "/deeplink/cockpit?country=AT&language=DE",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_additional-baggage"
+       },
+       {
+        "label": "Upgrades buchen",
+        "href": "/at/de/upgrademoeglichkeiten?country=AT&language=DE",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_upgrades"
+       },
+       {
+        "label": "Essen vorbestellen",
+        "href": "/at/de/culinaryjourney",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_food-preorder"
+       },
+       {
+        "label": "Hotel buchen",
+        "href": "/at/de/hotelangebote",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_hotels"
+       },
+       {
+        "label": "Mietwagen buchen",
+        "href": "/at/de/mietwagenangebote",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_rental-cars"
+       },
+       {
+        "label": "Reiseversicherung",
+        "href": "/at/de/book-and-manage/additional-services/travel-insurances",
+        "external": false,
+        "dataIdentifierTrack": "imagelinklistitem_co_519511697"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Lufthansa entdecken",
+    "dataIdentifierTrack": "navigation-main_click_discover",
+    "menuItems": [
+     {
+      "label": "Reiseklassen",
+      "href": "/at/de/prepare-for-your-trip/travel-classes",
+      "dataIdentifierTrack": "navigation-main_click_overview-travel-classes",
+      "menuItems": [
+       {
+        "label": "Übersicht",
+        "href": "/at/de/lufthansa-reiseklassen",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_overview-travel-classes"
+       },
+       {
+        "label": "Economy Class",
+        "href": "/at/de/economy-class",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_economy-class"
+       },
+       {
+        "label": "Premium Economy Class",
+        "href": "/at/de/premium-economy-class",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_premium-economy-class"
+       },
+       {
+        "label": "Business Class",
+        "href": "/at/de/business-class",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_business-class"
+       },
+       {
+        "label": "First Class",
+        "href": "/at/de/first-class",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_first-class"
+       },
+       {
+        "label": "Lufthansa Allegris",
+        "href": "/at/de/discover-lufthansa/allegris",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_allegris"
+       },
+       {
+        "label": "Flotte",
+        "href": "/at/de/sitzplaene",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_fleet"
+       },
+       {
+        "label": "Neues Borderlebnis",
+        "href": "/at/de/discover-lufthansa/new-onboard-experience",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_neues-borderlebnis"
+       }
+      ]
+     },
+     {
+      "label": "Services an Bord",
+      "href": "/at/de/during-your-trip/in-flight-services-at-a-glance",
+      "dataIdentifierTrack": "navigation-main_click_overview-services-on-board",
+      "menuItems": [
+       {
+        "label": "Übersicht",
+        "href": "/at/de/services-an-bord",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_overview-in-flight-services-at-a-glance"
+       },
+       {
+        "label": "Kulinarisches Angebot",
+        "href": "/at/de/speisen-und-getraenke",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_food-and-beverages"
+       },
+       {
+        "label": "Unterhaltung",
+        "href": "/at/de/unterhaltung-an-bord",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_entertainment"
+       },
+       {
+        "label": "Internet",
+        "href": "/at/de/during-your-trip/internet-overview",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_internet-overview"
+       },
+       {
+        "label": "Shopping",
+        "href": "/at/de/shopping",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_shopping"
+       }
+      ]
+     },
+     {
+      "label": "Lufthansa Insights",
+      "href": "/at/de/articles",
+      "dataIdentifierTrack": "navigation-main_click_overview-lufthansa-insights",
+      "menuItems": [
+       {
+        "label": "Übersicht",
+        "href": "/at/de/articles",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_overview"
+       },
+       {
+        "label": "Erleben Sie die Welt",
+        "href": "/at/de/articles/explore-the-world",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_explore-the-world"
+       },
+       {
+        "label": "Erleben Sie das Fliegen",
+        "href": "/at/de/articles/explore-flying",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_explore-the-world"
+       },
+       {
+        "label": "Highlights",
+        "href": "/at/de/articles/highlights",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_highlights"
+       }
+      ]
+     },
+     {
+      "label": "Miles & More",
+      "href": "/at/de/discover-lufthansa/miles-and-more",
+      "dataIdentifierTrack": "navigation-main_click_overview-miles-and-more",
+      "menuItems": [
+       {
+        "label": "Meilen sammeln",
+        "href": "/at/de/miles-and-more",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_earn-miles"
+       },
+       {
+        "label": "Miles & More Kreditkarte",
+        "href": "/at/de/discover-lufthansa/miles-and-more-credit-card",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_miles-and-more-creditcard"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "label": "  100 Jahre Lufthansa",
+    "dataIdentifierTrack": "navigation-main_click_100-years",
+    "menuItems": [
+     {
+      "label": "Geschichte & Meilensteine",
+      "href": "/at/de/100-years",
+      "dataIdentifierTrack": "navigation-main_click_overview-100Y",
+      "menuItems": [
+       {
+        "label": "Übersicht",
+        "href": "/at/de/100-years",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_overview"
+       },
+       {
+        "label": "Unsere Geschichte",
+        "href": "/at/de/100-years/history",
+        "external": false,
+        "dataIdentifierTrack": "history"
+       },
+       {
+        "label": "Chronik",
+        "href": "/at/de/100-years/chronicle",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_chronicle"
+       },
+       {
+        "label": "Fliegen verbindet die Welt",
+        "href": "/at/de/100-years/global-network",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_global_network"
+       },
+       {
+        "label": "Meilensteine unserer Flotte",
+        "href": "/at/de/100-years/fleet",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_fleet-100"
+       },
+       {
+        "label": "Menüs an Bord",
+        "href": "/at/de/100-years/history/menu-on-board",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_menu-on-board-100"
+       }
+      ]
+     },
+     {
+      "label": "Markenbild & Erlebnis",
+      "href": "/at/de/100-years",
+      "dataIdentifierTrack": "navigation-main_click_overview-100Y",
+      "menuItems": [
+       {
+        "label": "Zeitreise durch die Werbung",
+        "href": "/at/de/100-years/campaigns",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_campaigns"
+       },
+       {
+        "label": "Der Kranich",
+        "href": "/at/de/100-years/crane",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_crane"
+       },
+       {
+        "label": "Unsere ikonischen Destinationen",
+        "href": "/at/de/100-years/destinations",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_destinations-100"
+       },
+       {
+        "label": "Design & Komfort an Bord",
+        "href": "/at/de/100-years/cabin-design",
+        "external": false,
+        "dataIdentifierTrack": "navigation-main_click_designcomfort-100"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "flyoutImage": "/content/dam/lh/images/local_variations/c-1865990845-260129_Lufthansa_100Y_B787-9_Titel_6252_POS2.png",
+  "accessibilityUrl": "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+  "accessibilityTextLabel": "Barrierefrei reisen",
+  "accessibilityDataTrackingId": "navigation-main_click_accessibility",
+  "supportUrl": "/at/de/support/help",
+  "supportTextLabel": "Hilfe & Kontakt",
+  "supportDataTrackingId": "navigation-main_click_support"
+ },
+ "dcep-header": {
+  "logoUrl": "/content/dam/lh/images/local_images/discover-lufthansa/campaigns/100years/100y-lh-logo-web.svg",
+  "logoAlt": "Zurück zur Homepage",
+  "homeUrl": "/at/de/homepage",
+  "homepageHeadline": "Lufthansa"
+ }
+}

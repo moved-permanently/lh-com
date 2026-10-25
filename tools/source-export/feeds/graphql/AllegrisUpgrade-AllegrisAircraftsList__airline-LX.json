@@ -1,0 +1,28 @@
+{
+ "data": {
+  "allegrisaircraftList": {
+   "items": [
+    {
+     "airline": "LX",
+     "acv": "33F",
+     "displaybadge": true
+    },
+    {
+     "airline": "LX",
+     "acv": "33R",
+     "displaybadge": true
+    },
+    {
+     "airline": "LX",
+     "acv": "A35",
+     "displaybadge": true
+    },
+    {
+     "airline": "LX",
+     "acv": "A36",
+     "displaybadge": true
+    }
+   ]
+  }
+ }
+}

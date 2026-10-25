@@ -1,0 +1,369 @@
+{
+ "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_first-class_man_eating_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Mann in First Class sitzt am Fenster und isst. Auf dem Tisch stehen Getränke."
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/discover-allegris/allegris-fox",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "Lufthansa Allegris & FOX: Das neue Flugerlebnis auf der Langstrecke",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 2 min read | Interview: Christoph Eisenschink</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mit FOX – Future Onboard Experience entwickelt Lufthansa das Reiseerlebnis auf der Langstrecke weiter. Yana Holzmann erklärt, worauf sich Gäste freuen können.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Worum geht es bei FOX?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "FOX steht für „Future Onboard Experience“. Es geht darum, das gesamte Reiseerlebnis auf der Langstrecke weiterzuentwickeln – über alle Reiseklassen hinweg. Dazu gehören Kulinarik, Service, neues Equipment und Markenpartnerschaften.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par1/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_first-class_service_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Flugbegleitung überreicht Passagierin in First Class eine Karte."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Lufthansa hat mit Allegris gerade erst die Kabine neu gestaltet. Ist FOX der nächste logische Schritt?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Auf jeden Fall. Mit Allegris haben wir die Bühne neu gebaut, mit FOX das Stück, das darauf gespielt wird.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_3"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par3/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par3/link_copy_copy_copy_",
+      "text": "Mehr zu Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Allegris entdecken",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__1690679807",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par3/link_copy_copy_copy__1472944004",
+      "text": "Flüge mit Allegris finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_discoverallegris_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/discover-lufthansa/allegris/destinations",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par3/separator_copy_copy__1092891899"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Was verändert sich für die Gäste?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "Unser wichtigstes Ziel ist mehr Individualität. Gäste sollen mehr Wahlfreiheit haben – etwa beim Essen oder beim Zeitpunkt des Services. In der Business Class können sie mit der neuen Sky Selection selbst entscheiden, wann sie essen möchten. Auch in Economy und Premium Economy wächst die Auswahl.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_5"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par5/image_95818340",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_business-class_food_meal_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Vegetarisches Flugzeuggericht mit Reis und Gemüse auf Teller."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Was bedeutet FOX außerdem?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "Mehr Komfort und mehr Signature-Momente. Künftig erhalten auch Economy-Gäste auf der Langstrecke ein Amenity Kit. In der Premium Economy kommen Slipper und ein Hot Towel hinzu. In der Business Class wird Kaffee und Kuchen klassisch vom Wagen serviert, während der Kaviarservice in der First Class noch exklusiver wird.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par7/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_premium-economy-class_slipper_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Mann hält Hausschuhe in Premium Economy, Kind sitzt daneben."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Welche Rolle spielt dabei Lufthansa selbst?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "Eine große. Unsere Gäste haben uns gesagt: „Traut euch ruhig, mehr deutsch zu sein.“ Deshalb setzen wir bei der Kulinarik stärker auf deutsche Einflüsse und arbeiten unter anderem mit Johann Lafer und Christoph Kunz zusammen.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_9"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par9/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_business-class_cake-service_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Frau in Business Class bekommt Kuchen und Gebäck serviert."
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Wie wichtig war das Feedback der Gäste?</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_10"
+     },
+     {
+      "type": "copyText",
+      "text": "Es war zentral. Viele Ideen wurden auf Testflügen erprobt und gemeinsam mit unseren Gästen weiterentwickelt. FOX ist das Ergebnis zahlreicher Rückmeldungen – und der Leidenschaft, mit der unsere Gäste Lufthansa mitgestalten.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/discover-allegris/allegris-fox_paragraph_11"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/articlecontentfragment/par11/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/discover-allegris/lufthansa-allegris-and-fox/lh_app_fox_lufthansa_economy-class_amenity-kit_16x9.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Amenity Kit mit Schlafmaske auf Flugzeugtisch."
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/par/sduicolumn_copy_copy",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/par/sduicolumn_copy_copy/column/teaser_copy_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/par/sduicolumn_copy_copy/column/separator"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy_",
+      "text": "Mehr zu Allegris",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_discoverallegris_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Allegris entdecken",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/discover-allegris.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/discover-allegris/allegris-fox/jcr:content/par/sduicolumn_copy_copy/column/link_copy_copy_copy__147093814",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

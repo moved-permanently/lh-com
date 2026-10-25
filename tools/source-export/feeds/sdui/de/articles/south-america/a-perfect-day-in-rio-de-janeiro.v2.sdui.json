@@ -1,0 +1,419 @@
+{
+ "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_hills_shutterstock636489641_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Luftaufnahme der Berge rund um Rio de Janeiro "
+   },
+   {
+    "type": "column",
+    "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "A Perfect Day in Rio de Janeiro",
+      "variant": "HEADING_XL",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>15. September 2026 | 2 min read | Ricardo Perna</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Flugbegleiter Ricardo Perna verrät, wie sein perfekter Tag in Rio aussieht.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Vormittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_0"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par0/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_cafe-nusa_breakfast_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Frühstückstisch mit mehreren Gerichten im Nusa Café"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Joggen am Strand von Ipanema</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_1"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Ich starte den Tag am liebsten mit einem Lauf am Strand</li><li>Die Sonne im Gesicht, das Rauschen der Wellen neben mir – besser kann ein Morgen in Rio nicht beginnen</li><li>Danach geht es zum Frühstück ins Nusa Café, wo ich besonders die vielen Gerichte mit Avocado liebe</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Nusa Café, R. Vinícius de Moraes 129, Ipanema",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_3"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mit dem Fahrrad zum Zuckerhut</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_4"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par4/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_vermelha-beach_shutterstock437964253_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Vermelha-Strand in Rio"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>In Ipanema leihe ich mir gerne ein Fahrrad und fahre direkt am Meer entlang zum Zuckerhut</li><li>Mein Tipp: mit der Seilbahn hinunterfahren und anschließend am Praia Vermelha ins Meer springen</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "Praia Vermelha, Praça General Tibúrcio, Urca",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_6"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Mittag/Nachmittag</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_7"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par7/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio-de-janeiro_cristo-redentor_getty157185619_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Rio de Janeiro von oben: Die Christusstatue Cristo Redentor wacht über die Stadt (© Getty Images) "
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Besuch beim Cristo Redentor</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_8"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Die Aussicht von der berühmten Christusstatue über Rio und die Küste ist einfach beeindruckend</li><li>Mein Tipp: In Rio bewege ich mich am liebsten mit dem Taxi fort – es ist die sicherste und entspannteste Möglichkeit, die Stadt zu erkunden.</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "Cristo Redentor, Parque Nacional da Tijuca",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_10"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par10/separator_copy_copy"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par10/link_copy_copy_copy__2025319166",
+      "text": "Mehr zu Südamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_south-america_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Südamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/south-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par10/link_copy_copy_copy__317565754",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par10/link_copy_copy_copy__259975784",
+      "text": "Flüge nach Rio de Janeiro finden",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_riodejaneiro_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination?city=RIO",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par10/separator_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Abend</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Dinner in der Churrascaria Assador Rio's</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Für ein typisch brasilianisches Abendessen gehe ich gerne ins Assador Rio's, eine traditionelle Churrascaria direkt am Meer</li><li>Mein Tipp: nicht zu früh satt essen – die besten Fleischstücke werden oft später am Abend serviert</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "Assador Rio's, Av. Infante Dom Henrique s/n, Flamengo",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Caipirinha am Strand</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_15"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/articlecontentfragment/par15/image",
+      "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro/lh_app_rio_caipirinha_shutterstock663995506_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Aufgeschnittene Limetten mit einem Caipirinha-Cocktail"
+     },
+     {
+      "type": "copyText",
+      "text": "<ul><li>Ein Tag in Rio wäre für mich nicht perfekt ohne eine Caipirinha am Strand</li><li>An den vielen Strandständen lohnt es sich, verschiedene Varianten zu probieren und den eigenen Favoriten zu finden</li></ul>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "Bildrechte:&nbsp;Shutterstock (3), Nusa Café, Getty Images",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Zur Person</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "Ricardo Perna ist seit 2018 Flugbegleiter bei Lufthansa und fliegt häufig nach Rio de Janeiro, Kapstadt und Johannesburg. Er mag die abwechslungsreichen Aufgaben an Bord und schätzt, dass er durch seinen Beruf die vielseitigen Vorzüge vieler Länder entdeckt.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/de/mobile-app/south-america/a-perfect-day-in-rio-de-janeiro_paragraph_19"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/par/sduicolumn_copy_copy_1780446744",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Bereit, die Welt zu entdecken?",
+      "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+      "textLink": "Flug suchen",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_17062025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/par/sduicolumn_copy_copy_1780446744/column/teaser_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/par/sduicolumn_copy_copy_1780446744/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/par/sduicolumn_copy_copy_1780446744/column/link_copy_copy_copy_",
+      "text": "Mehr zu Südamerika",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_south-america_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Südamerika",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/south-america.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro/jcr:content/par/sduicolumn_copy_copy_1780446744/column/link_copy_copy_copy__1181097626",
+      "text": "Alle Kategorien",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "cp_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

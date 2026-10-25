@@ -1,0 +1,20 @@
+{
+ "errors": [
+  {
+   "message": "Exception while fetching data (/whatsnewByPath) : Path: '/content/dam/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-jus' did not yield a Content Fragment",
+   "locations": [
+    {
+     "line": 2,
+     "column": 3
+    }
+   ],
+   "path": [
+    "whatsnewByPath"
+   ],
+   "extensions": {
+    "classification": "DataFetchingException"
+   }
+  }
+ ],
+ "data": null
+}

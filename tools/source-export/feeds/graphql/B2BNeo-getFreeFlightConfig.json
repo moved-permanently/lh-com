@@ -1,0 +1,24 @@
+{
+ "data": {
+  "awardsFreeFlightConfigurationByPath": {
+   "item": {
+    "_path": "/content/dam/hcl/content-fragments/awards-free-flight-configuration",
+    "summaryPageBackgroundImage": {
+     "type": "image",
+     "_path": "/content/dam/hcl/ff_order_details.jpg",
+     "width": 2591,
+     "height": 1723,
+     "mimeType": "image/jpeg"
+    },
+    "flightManagerBackgroundImage": {
+     "type": "image",
+     "_path": "/content/dam/hcl/ff_pdp.jpg",
+     "width": 800,
+     "height": 533,
+     "mimeType": "image/jpeg"
+    },
+    "minRequiredPointsForBooking": 10000
+   }
+  }
+ }
+}

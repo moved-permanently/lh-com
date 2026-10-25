@@ -1,0 +1,467 @@
+{
+ "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids",
+ "metadata": {
+  "title": "Lufthansa Insights"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/col",
+  "items": [
+   {
+    "type": "image",
+    "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articleheroimage",
+    "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_mother_daughter_in_airport_gettyimages_1614430716_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+    "contentDescription": "Mother with child and suitcases laughing at the airport"
+   },
+   {
+    "type": "column",
+    "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights",
+    "items": [
+     {
+      "type": "mainHeadline",
+      "text": "What the Hack: Flying With Kids – Tips for Relaxed Family Flights",
+      "variant": "HEADING_XL",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_title",
+      "isBold": true
+     },
+     {
+      "type": "copyText",
+      "text": "<b>9. October 2025 | 5 min read | Stefanie Pröstler-Meckl</b>",
+      "size": "SMALL",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_info"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Flying with kids can be exciting – and sometimes a bit challenging. Stefanie Pröstler-Meckl knows this all too well. On Instagram, the world traveler shares what she and her husband experience while flying with their two children.</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_description_0"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_separator"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Joy Over Stress: Get Excited Before You Board</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_0"
+     },
+     {
+      "type": "copyText",
+      "text": "Travel starts in the mind – with excitement! Kids should know beforehand how fun and adventurous flying can be. Even if you're feeling a bit nervous, it's better to show curiosity and confidence than to pass on your own worries. One great trick is to read a picture book about flying. Many children's books explain things like security checks, boarding, and the aircraft interior in a fun and playful way.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_1"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par1/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_eva_explora_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Mom with two kids at the sea and at the airport with suitcases"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par1/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Play Before Takeoff</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_2"
+     },
+     {
+      "type": "copyText",
+      "text": "Before expecting your kids to sit still on the plane, let them run wild at the airport. Most big airports – and many smaller ones – have designated kids' zones. If you arrive early and don't mind a bit of walking, you can seek out the best ones, such as those in Munich, Zurich, or Copenhagen, where some even have views of the runway. Pro tip: bring spare socks because many play areas require them.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_3"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par3/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_father_and_son_airport_gettyimages_1150687457.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Father and child playing with toy plane at airport gate"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par3/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>\"Kids should know beforehand how fun and adventurous flying can be.\"<br> </b>Stefanie Pröstler-Meckl",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_4"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Smart Packing Makes for Smooth Flying</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_5"
+     },
+     {
+      "type": "copyText",
+      "text": "More is more: bring plenty of (minimally sweetened) snacks to keep little ones happy and wel-fed in the air. If you're short on prep time, you can preorder the Onboard Delights Kids Box with child-friendly snacks on the Lufthansa website up to 24 hours before your flight.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_6"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par6/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_family_packing_gettyimages_1587648424_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Open suitcase being packed with kids' clothes and a stuffed toy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par6/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Pressure? No Problem!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_7"
+     },
+     {
+      "type": "copyText",
+      "text": "Changes in cabin pressure during takeoff and landing can be unpleasant – especially for kids. To avoid sore ears, encourage chewing, drinking, or sucking. For babies, that means breastfeeding, a bottle, or a pacifier. For older kids, try straw cups or chewing gum.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_8"
+     },
+     {
+      "type": "image",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par8/image",
+      "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_girl_drinking_water_gettyimages_1465217065_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "contentDescription": "Girl with headphones drinking water on an airplane seat"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par8/separator_copy_copy"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Never Without a Spare Shirt</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_9"
+     },
+     {
+      "type": "copyText",
+      "text": "On long-haul flights, I always pack a change of clothes – and not just for the kids. I toss in a fresh T-shirt and comfy leggings for myself too. When you're flying with kids, something is bound to go wrong. There might be a spilled juice, a diaper disaster, or an unexpected cuddle-slobber attack. Bonus tip: pack spare clothes in a separate pouch so you can grab them quickly without digging through everything.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_10"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par10/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par10/link_copy_copy_copy",
+      "text": "More comfort on board",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_comfort_on_board_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Comfort on Board",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/comfort-on-board.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par10/link_copy_copy_copy_",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par10/link_copy_copy_copy__1730710637",
+      "text": "Flight search",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "df_link_all_destinations_150926"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/articlecontentfragment/par10/separator_copy_copy__691610613"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Did You Know? Lufthansa Is the Most Family-Friendly Airline in the World!</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_11"
+     },
+     {
+      "type": "copyText",
+      "text": "Lufthansa places a strong emphasis on making flights special for their youngest passengers. With thoughtful services on the ground and in the air, Lufthansa provides a seamless and family-friendly travel experience, earning them the 2025 World Airline Award for Most Family-Friendly Airline.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_12"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Airport Adventures</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_13"
+     },
+     {
+      "type": "copyText",
+      "text": "Even before takeoff, kids should get a taste of the flying experience. Many airports have family check-in counters where children can climb a small staircase to watch the process. Even stuffed animals get their own boarding pass! During school holidays, Lufthansa mascots Lu and Cosmo make surprise appearances in Frankfurt, Munich, and Berlin, handing out autograph cards and taking photos with young fans. Kids are also welcome in Lufthansa lounges, where coloring books, card games, crayons, bottles, and gym bags await. At Easter and Christmas, there are extra festive surprises.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_14"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Kids' Meals</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_15"
+     },
+     {
+      "type": "copyText",
+      "text": "Up to 24 hours before departure, fun meals with names like \"Noodle Volcano,\" \"Chicken Mutiny,\" or \"Clown Wrap\" can be preordered under \"Special Meals.\" Popular options include pasta, meatballs, and sausages. Trays are decorated with Lufthansa mascots Lu and Cosmo, and the menu includes coloring sheets and riddles to keep little ones busy. Kids' meals are available in all classes on long-haul flights and in Business Class on short-haul routes.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_16"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>In-Flight Entertainment</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_17"
+     },
+     {
+      "type": "copyText",
+      "text": "From a cloud-shaped snuggle cloth for babies to a round of \"City, Country, Plane\" – all Lufthansa planes are stocked with age-appropriate toys. There are also tons of coloring sheets available through the Lufthansa eJournal home page, including a special kids' travel guide: the \"Kids Travel Book.\" On long-haul flights, kids can enjoy movies, series, music, audiobooks, and podcasts. A highlight on selected aircraft is the cockpit camera that lets kids watch the flight from the pilot's POV.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_18"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>Kids’ Amenity Kit</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_19"
+     },
+     {
+      "type": "copyText",
+      "text": "Packed in a waterproof pouch that's perfect for reuse, the amenity kit includes airplane-themed socks, a kids' eye mask, a toothbrush shaped like a plane, lip balm, tiny earplugs, a plush airplane, gummy bears, chocolate, a logbook, and the new \"Kids Travel Book\" from Lufthansa Insights. Available on long-haul flights in First, Business, and Premium Economy Class, and on short-haul Business Class flights – making time on board fly by in the best way.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_20"
+     },
+     {
+      "type": "copyText",
+      "text": "Copyrights: Getty Images, EvaExplora, Getty Images",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_21"
+     },
+     {
+      "type": "copyText",
+      "text": "<b>About</b>",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_22"
+     },
+     {
+      "type": "copyText",
+      "text": "Stefanie Pröstler-Meckl and her husband Maximilian have been traveling the world together for years. These days, they're joined by their four-year-old son and two-year-old daughter. Whether it's Mexico, Thailand, Malaysia, or Morocco, Pröstler-Meckl takes her Instagram community (@evaexplora) along for the ride and shares travel tips for Germany, Europe, and beyond on her blog EvaExplora.com.",
+      "size": "MEDIUM",
+      "variant": "BODY",
+      "id": "/lh/en/mobile-app/non-destination/what-the-hack--flying-with-kids-–-tips-for-relaxed-family-flights_paragraph_23"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "MEDIUM"
+   },
+   {
+    "type": "column",
+    "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/par/sduicolumn",
+    "items": [
+     {
+      "type": "offerBox",
+      "title": "Ready to discover the world?",
+      "description": "Book your flight and find new inspiration – wherever the journey may take you.",
+      "textLink": "Find flight",
+      "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+      "accessibility": {
+       "addTraits": "LINK",
+       "removeTraits": "BUTTON",
+       "assistType": "COMBINE"
+      },
+      "imageVariant": "IMAGE",
+      "imageScale": "FILL",
+      "action": {
+       "tracking": {
+        "key": "offer box click",
+        "category": "offer box",
+        "action": "click",
+        "label": "df_teaser_flights_05092025"
+       },
+       "type": "openUrl",
+       "target": "SELF",
+       "url": "https://www.lufthansa.com/xx/en/book-and-manage/offers-and-destination",
+       "isDisabled": false
+      },
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/par/sduicolumn/column/teaser_copy_copy"
+     },
+     {
+      "type": "spacer",
+      "size": "MEDIUM",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/par/sduicolumn/column/separator_copy_copy_"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/par/sduicolumn/column/link_copy_copy_copy_",
+      "text": "More comfort on board",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_comfort_on_board_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Comfort on Board",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles/comfort-on-board.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     },
+     {
+      "type": "navigationLink",
+      "id": "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids/jcr:content/par/sduicolumn/column/link_copy_copy_copy__355219431",
+      "text": "All categories",
+      "size": "MEDIUM",
+      "accessibility": {
+       "addTraits": "BUTTON",
+       "removeTraits": "LINK",
+       "assistType": "COMBINE"
+      },
+      "action": {
+       "tracking": {
+        "key": "link button click",
+        "category": "link button",
+        "action": "click",
+        "label": "blog_link_blog_overview_150926"
+       },
+       "type": "getAndShowViewDefinition",
+       "initialTitle": "Lufthansa Insights",
+       "request": {
+        "type": "urlRequest",
+        "method": {
+         "type": "getMethod"
+        },
+        "url": "https://www.lufthansa.com/content/mobile/lh/en/articles.v2.sdui"
+       },
+       "isDisabled": false
+      },
+      "variant": "HYPERLINK"
+     }
+    ],
+    "padding": {
+     "left": "SPACING_FOUR",
+     "right": "SPACING_FOUR"
+    },
+    "spacing": "LARGE"
+   }
+  ],
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

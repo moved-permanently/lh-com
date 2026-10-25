@@ -1,0 +1,815 @@
+{
+ "data": {
+  "benefititemList": {
+   "items": [
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Exquisite Food & Fine wines",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Exclusive DO&CO menus",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Gourmet experience by the DO&CO Flying chefs",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "Premium meals",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Award-winning cuisine",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "business-class-meal",
+     "icon": "menu-premium",
+     "airline": "4Y",
+     "flightType": "long-haul",
+     "label": "Exquisite Food & Fine wines",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "culinary-experience-business",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "LX",
+     "flightType": "short-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "culinary-experience",
+     "icon": "benefit-fine-dining-menus",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "first-class-lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Access to First Class Lounge (where available)",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "first-class-lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "first-class-meal",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Culinary Delights & Fine Wines",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "first-class-meal",
+     "icon": "menu-premium",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Gourmet Menu",
+     "upgradeClass": [
+      "First"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "flat-bed-seat",
+     "icon": "benefit-fully-flat-bed-seat",
+     "airline": "4Y",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Neighbouring seat vacant",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "LX",
+     "flightType": "short-haul",
+     "label": "Neighbouring seat vacant",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Free adjacent seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "SN",
+     "flightType": "short-haul",
+     "label": "Empty middle seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fine-dining",
+     "icon": "menu-premium",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Fine dining",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fine-dining",
+     "icon": "menu-premium",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Fine dining",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fine-dining",
+     "icon": "menu-premium",
+     "airline": "4Y",
+     "flightType": "short-haul",
+     "label": "Fine dining",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Neighbouring seat vacant",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "free-adjacent-seat",
+     "icon": "benefit-free-middle-seat",
+     "airline": "4Y",
+     "flightType": "short-haul",
+     "label": "Neighbouring seat vacant",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "SN",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "LX",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "4Y",
+     "flightType": "both",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Lounge access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "lounge-access",
+     "icon": "benefit-lounge-access",
+     "airline": "AZ",
+     "flightType": "both",
+     "label": "Lounge access",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fast-track-access",
+     "icon": "fast-lane",
+     "airline": "AZ",
+     "flightType": "both",
+     "label": "Fast Track access (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "dedicated-meal",
+     "icon": "cutlery",
+     "airline": "AZ",
+     "flightType": "short-haul",
+     "label": "Dedicated meal catering service inspired to Italian tradition",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "dedicated-snack",
+     "icon": "snack",
+     "airline": "AZ",
+     "flightType": "short-haul",
+     "label": "Dedicated snacks (on Domestic flights)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "menu-premium",
+     "icon": "menu-premium",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Gourmet dining experience inspired to Italian gastronomic excellence",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "fully-flat-bed-seat",
+     "icon": "sleeping-cabin",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Fully-flat-bed seat",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "comfort-kit",
+     "icon": "amenity-kit",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Comfort kit + Amenity kit with cosmetics",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "priority-check-in",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Priority Check-in desk",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "priority-boarding",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Priority Boarding",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "upgraded-culinary-experience",
+     "icon": "menu-premium",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Upgraded culinary experience",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "more-space-and-legroom",
+     "icon": "seatmap-extra-legroom",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "comfort-kit",
+     "icon": "amenity-kit",
+     "airline": "AZ",
+     "flightType": "long-haul",
+     "label": "Practical Comfort kit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "LX",
+     "flightType": "both",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "mileage-accrual",
+     "icon": "benefit-mileage",
+     "airline": "4Y",
+     "flightType": "both",
+     "label": "Mileage accrual",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "LH",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "OS",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "SN",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "LX",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "First",
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "4Y",
+     "flightType": "both",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-boarding",
+     "icon": "benefit-priority-boarding",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Priority Boarding (where available)",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "LH",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "OS",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "Priority check-in (Brussels Airport only)",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "LX",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "VL",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-checkin",
+     "icon": "benefit-priority-check-in",
+     "airline": "4Y",
+     "flightType": "short-haul",
+     "label": "Priority Check-in",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "priority-lane",
+     "icon": "benefit-priority-lane",
+     "airline": "SN",
+     "flightType": "short-haul",
+     "label": "Priority Lane at Security",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "snack-and-drink",
+     "icon": "benefit-more-enjoyment",
+     "airline": "SN",
+     "flightType": "short-haul",
+     "label": "Complimentary snacks & drinks",
+     "upgradeClass": [
+      "Business"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "space-and-legroom",
+     "icon": "benefit-legspace",
+     "airline": "4Y",
+     "flightType": "long-haul",
+     "label": "More space and legroom",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Practical Travel Kit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Practical Travel Kit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Practical Toiletries Bag",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "travel-kit",
+     "icon": "benefit-travel-kit",
+     "airline": "4Y",
+     "flightType": "long-haul",
+     "label": "Practical Travel Kit",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "LH",
+     "flightType": "long-haul",
+     "label": "Welcome Drink",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "SN",
+     "flightType": "long-haul",
+     "label": "Access to onboard Belgian Bar",
+     "upgradeClass": [
+      "Business",
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "OS",
+     "flightType": "long-haul",
+     "label": "Welcome Drink",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "LX",
+     "flightType": "long-haul",
+     "label": "Welcome Drink",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    },
+    {
+     "id": "welcome-drink",
+     "icon": "benefit-welcome-drink",
+     "airline": "4Y",
+     "flightType": "long-haul",
+     "label": "Welcome Drink",
+     "upgradeClass": [
+      "Premium Economy"
+     ]
+    }
+   ]
+  }
+ }
+}

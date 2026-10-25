@@ -1,0 +1,1062 @@
+{
+ "recorded": "2026-10-25T18:21Z/2026-10-25T18:35:59.167Z",
+ "note": "GET https://www.lufthansa.com<url>, no special headers (the dispatcher does not vary on the app headers)",
+ "urls": {
+  "/content/mobile/lh/de/articles.sdui": {
+   "file": "sdui/de/articles.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5290
+  },
+  "/content/mobile/lh/de/articles.v2.sdui": {
+   "file": "sdui/de/articles.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7964
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-chicago.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-chicago.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9696
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-chicago.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-chicago.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15255
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-frankfurt.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8548
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-frankfurt.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13513
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-london.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-london.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9720
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-london.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-london.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14243
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-munich.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-munich.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9873
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-munich.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-munich.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14884
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-new-york.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-new-york.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8821
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-new-york.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-new-york.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13546
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-singapore.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-singapore.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9192
+  },
+  "/content/mobile/lh/de/articles/a-perfect-day-in-singapore.v2.sdui": {
+   "file": "sdui/de/articles/a-perfect-day-in-singapore.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13584
+  },
+  "/content/mobile/lh/de/articles/africa.sdui": {
+   "file": "sdui/de/articles/africa.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3472
+  },
+  "/content/mobile/lh/de/articles/africa.v2.sdui": {
+   "file": "sdui/de/articles/africa.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4945
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-in-cape-town.sdui": {
+   "file": "sdui/de/articles/africa/a-perfect-day-in-cape-town.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9205
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-in-cape-town.v2.sdui": {
+   "file": "sdui/de/articles/africa/a-perfect-day-in-cape-town.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14304
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-johannesburg-in-one-day.sdui": {
+   "file": "sdui/de/articles/africa/a-perfect-day-johannesburg-in-one-day.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7513
+  },
+  "/content/mobile/lh/de/articles/africa/a-perfect-day-johannesburg-in-one-day.v2.sdui": {
+   "file": "sdui/de/articles/africa/a-perfect-day-johannesburg-in-one-day.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12032
+  },
+  "/content/mobile/lh/de/articles/africa/essentials-cape-town-facts.sdui": {
+   "file": "sdui/de/articles/africa/essentials-cape-town-facts.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6895
+  },
+  "/content/mobile/lh/de/articles/africa/essentials-cape-town-facts.v2.sdui": {
+   "file": "sdui/de/articles/africa/essentials-cape-town-facts.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10537
+  },
+  "/content/mobile/lh/de/articles/asia.sdui": {
+   "file": "sdui/de/articles/asia.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3518
+  },
+  "/content/mobile/lh/de/articles/asia.v2.sdui": {
+   "file": "sdui/de/articles/asia.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4956
+  },
+  "/content/mobile/lh/de/articles/asia/a-perfect-day-in-hong-kong.sdui": {
+   "file": "sdui/de/articles/asia/a-perfect-day-in-hong-kong.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10392
+  },
+  "/content/mobile/lh/de/articles/asia/a-perfect-day-in-hong-kong.v2.sdui": {
+   "file": "sdui/de/articles/asia/a-perfect-day-in-hong-kong.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15834
+  },
+  "/content/mobile/lh/de/articles/comfort-on-board.sdui": {
+   "file": "sdui/de/articles/comfort-on-board.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2941
+  },
+  "/content/mobile/lh/de/articles/comfort-on-board.v2.sdui": {
+   "file": "sdui/de/articles/comfort-on-board.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4360
+  },
+  "/content/mobile/lh/de/articles/discover-allegris.sdui": {
+   "file": "sdui/de/articles/discover-allegris.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4991
+  },
+  "/content/mobile/lh/de/articles/discover-allegris.v2.sdui": {
+   "file": "sdui/de/articles/discover-allegris.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6766
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-essentials.sdui": {
+   "file": "sdui/de/articles/discover-allegris/allegris-essentials.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8284
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-essentials.v2.sdui": {
+   "file": "sdui/de/articles/discover-allegris/allegris-essentials.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12308
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-fox.sdui": {
+   "file": "sdui/de/articles/discover-allegris/allegris-fox.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8151
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/allegris-fox.v2.sdui": {
+   "file": "sdui/de/articles/discover-allegris/allegris-fox.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12039
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.sdui": {
+   "file": "sdui/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7440
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.v2.sdui": {
+   "file": "sdui/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12077
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.sdui": {
+   "file": "sdui/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10536
+  },
+  "/content/mobile/lh/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.v2.sdui": {
+   "file": "sdui/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15584
+  },
+  "/content/mobile/lh/de/articles/essentials-of-barcelona.sdui": {
+   "file": "sdui/de/articles/essentials-of-barcelona.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7619
+  },
+  "/content/mobile/lh/de/articles/essentials-of-barcelona.v2.sdui": {
+   "file": "sdui/de/articles/essentials-of-barcelona.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11040
+  },
+  "/content/mobile/lh/de/articles/essentials-of-mexico-city.sdui": {
+   "file": "sdui/de/articles/essentials-of-mexico-city.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7183
+  },
+  "/content/mobile/lh/de/articles/essentials-of-mexico-city.v2.sdui": {
+   "file": "sdui/de/articles/essentials-of-mexico-city.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10754
+  },
+  "/content/mobile/lh/de/articles/essentials-of-paris.sdui": {
+   "file": "sdui/de/articles/essentials-of-paris.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7339
+  },
+  "/content/mobile/lh/de/articles/essentials-of-paris.v2.sdui": {
+   "file": "sdui/de/articles/essentials-of-paris.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10618
+  },
+  "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro.sdui": {
+   "file": "sdui/de/articles/essentials-of-rio-de-janeiro.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7748
+  },
+  "/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro.v2.sdui": {
+   "file": "sdui/de/articles/essentials-of-rio-de-janeiro.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11423
+  },
+  "/content/mobile/lh/de/articles/essentials-of-shanghai.sdui": {
+   "file": "sdui/de/articles/essentials-of-shanghai.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6798
+  },
+  "/content/mobile/lh/de/articles/essentials-of-shanghai.v2.sdui": {
+   "file": "sdui/de/articles/essentials-of-shanghai.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10389
+  },
+  "/content/mobile/lh/de/articles/europe.sdui": {
+   "file": "sdui/de/articles/europe.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4979
+  },
+  "/content/mobile/lh/de/articles/europe.v2.sdui": {
+   "file": "sdui/de/articles/europe.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6780
+  },
+  "/content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives.sdui": {
+   "file": "sdui/de/articles/help-alliance-leading-self-determined-lives.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12162
+  },
+  "/content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives.v2.sdui": {
+   "file": "sdui/de/articles/help-alliance-leading-self-determined-lives.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 16763
+  },
+  "/content/mobile/lh/de/articles/north-america.sdui": {
+   "file": "sdui/de/articles/north-america.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3531
+  },
+  "/content/mobile/lh/de/articles/north-america.v2.sdui": {
+   "file": "sdui/de/articles/north-america.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5061
+  },
+  "/content/mobile/lh/de/articles/south-america.sdui": {
+   "file": "sdui/de/articles/south-america.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3527
+  },
+  "/content/mobile/lh/de/articles/south-america.v2.sdui": {
+   "file": "sdui/de/articles/south-america.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5071
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires.sdui": {
+   "file": "sdui/de/articles/south-america/a-perfect-day-in-buenos-aires.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8869
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui": {
+   "file": "sdui/de/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14129
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro.sdui": {
+   "file": "sdui/de/articles/south-america/a-perfect-day-in-rio-de-janeiro.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8429
+  },
+  "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro.v2.sdui": {
+   "file": "sdui/de/articles/south-america/a-perfect-day-in-rio-de-janeiro.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13433
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-best-seats.sdui": {
+   "file": "sdui/de/articles/what-the-hack-best-seats.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11485
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-best-seats.v2.sdui": {
+   "file": "sdui/de/articles/what-the-hack-best-seats.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15716
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-travel-with-kids.sdui": {
+   "file": "sdui/de/articles/what-the-hack-travel-with-kids.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13330
+  },
+  "/content/mobile/lh/de/articles/what-the-hack-travel-with-kids.v2.sdui": {
+   "file": "sdui/de/articles/what-the-hack-travel-with-kids.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 20126
+  },
+  "/content/mobile/lh/de/homepage.sdui": {
+   "file": "sdui/de/homepage.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2389
+  },
+  "/content/mobile/lh/de/homepage.v2.sdui": {
+   "file": "sdui/de/homepage.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2132
+  },
+  "/content/mobile/lh/en/articles.sdui": {
+   "file": "sdui/en/articles.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5282
+  },
+  "/content/mobile/lh/en/articles.v2.sdui": {
+   "file": "sdui/en/articles.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8028
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-chicago.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-chicago.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9716
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-chicago.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-chicago.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15283
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-frankfurt.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8577
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-frankfurt.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13611
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-london.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-london.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9477
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-london.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-london.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14141
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-munich.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-munich.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9699
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-munich.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-munich.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14683
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-new-york.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-new-york.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8769
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-new-york.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-new-york.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13463
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-singapore.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-singapore.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8970
+  },
+  "/content/mobile/lh/en/articles/a-perfect-day-in-singapore.v2.sdui": {
+   "file": "sdui/en/articles/a-perfect-day-in-singapore.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13358
+  },
+  "/content/mobile/lh/en/articles/africa.sdui": {
+   "file": "sdui/en/articles/africa.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3439
+  },
+  "/content/mobile/lh/en/articles/africa.v2.sdui": {
+   "file": "sdui/en/articles/africa.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4914
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-in-cape-town.sdui": {
+   "file": "sdui/en/articles/africa/a-perfect-day-in-cape-town.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 9124
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-in-cape-town.v2.sdui": {
+   "file": "sdui/en/articles/africa/a-perfect-day-in-cape-town.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 14220
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day.sdui": {
+   "file": "sdui/en/articles/africa/a-perfect-day-johannesburg-in-one-day.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7465
+  },
+  "/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day.v2.sdui": {
+   "file": "sdui/en/articles/africa/a-perfect-day-johannesburg-in-one-day.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11984
+  },
+  "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts.sdui": {
+   "file": "sdui/en/articles/africa/essentials-cape-town-facts.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6898
+  },
+  "/content/mobile/lh/en/articles/africa/essentials-cape-town-facts.v2.sdui": {
+   "file": "sdui/en/articles/africa/essentials-cape-town-facts.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10539
+  },
+  "/content/mobile/lh/en/articles/asia.sdui": {
+   "file": "sdui/en/articles/asia.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3532
+  },
+  "/content/mobile/lh/en/articles/asia.v2.sdui": {
+   "file": "sdui/en/articles/asia.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4971
+  },
+  "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong.sdui": {
+   "file": "sdui/en/articles/asia/a-perfect-day-in-hong-kong.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10255
+  },
+  "/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong.v2.sdui": {
+   "file": "sdui/en/articles/asia/a-perfect-day-in-hong-kong.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15697
+  },
+  "/content/mobile/lh/en/articles/comfort-on-board.sdui": {
+   "file": "sdui/en/articles/comfort-on-board.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2900
+  },
+  "/content/mobile/lh/en/articles/comfort-on-board.v2.sdui": {
+   "file": "sdui/en/articles/comfort-on-board.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4309
+  },
+  "/content/mobile/lh/en/articles/discover-allegris.sdui": {
+   "file": "sdui/en/articles/discover-allegris.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4938
+  },
+  "/content/mobile/lh/en/articles/discover-allegris.v2.sdui": {
+   "file": "sdui/en/articles/discover-allegris.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6711
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-essentials.sdui": {
+   "file": "sdui/en/articles/discover-allegris/allegris-essentials.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8291
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-essentials.v2.sdui": {
+   "file": "sdui/en/articles/discover-allegris/allegris-essentials.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12239
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-fox.sdui": {
+   "file": "sdui/en/articles/discover-allegris/allegris-fox.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8040
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/allegris-fox.v2.sdui": {
+   "file": "sdui/en/articles/discover-allegris/allegris-fox.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11922
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.sdui": {
+   "file": "sdui/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7323
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.v2.sdui": {
+   "file": "sdui/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11955
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.sdui": {
+   "file": "sdui/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10207
+  },
+  "/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.v2.sdui": {
+   "file": "sdui/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15385
+  },
+  "/content/mobile/lh/en/articles/essentials-of-barcelona.sdui": {
+   "file": "sdui/en/articles/essentials-of-barcelona.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7447
+  },
+  "/content/mobile/lh/en/articles/essentials-of-barcelona.v2.sdui": {
+   "file": "sdui/en/articles/essentials-of-barcelona.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10857
+  },
+  "/content/mobile/lh/en/articles/essentials-of-mexico-city.sdui": {
+   "file": "sdui/en/articles/essentials-of-mexico-city.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6976
+  },
+  "/content/mobile/lh/en/articles/essentials-of-mexico-city.v2.sdui": {
+   "file": "sdui/en/articles/essentials-of-mexico-city.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10539
+  },
+  "/content/mobile/lh/en/articles/essentials-of-paris.sdui": {
+   "file": "sdui/en/articles/essentials-of-paris.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7187
+  },
+  "/content/mobile/lh/en/articles/essentials-of-paris.v2.sdui": {
+   "file": "sdui/en/articles/essentials-of-paris.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10476
+  },
+  "/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro.sdui": {
+   "file": "sdui/en/articles/essentials-of-rio-de-janeiro.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 7636
+  },
+  "/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro.v2.sdui": {
+   "file": "sdui/en/articles/essentials-of-rio-de-janeiro.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11290
+  },
+  "/content/mobile/lh/en/articles/essentials-of-shanghai.sdui": {
+   "file": "sdui/en/articles/essentials-of-shanghai.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6780
+  },
+  "/content/mobile/lh/en/articles/essentials-of-shanghai.v2.sdui": {
+   "file": "sdui/en/articles/essentials-of-shanghai.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 10368
+  },
+  "/content/mobile/lh/en/articles/europe.sdui": {
+   "file": "sdui/en/articles/europe.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 4916
+  },
+  "/content/mobile/lh/en/articles/europe.v2.sdui": {
+   "file": "sdui/en/articles/europe.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 6718
+  },
+  "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives.sdui": {
+   "file": "sdui/en/articles/help-alliance-leading-self-determined-lives.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11536
+  },
+  "/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives.v2.sdui": {
+   "file": "sdui/en/articles/help-alliance-leading-self-determined-lives.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 16079
+  },
+  "/content/mobile/lh/en/articles/north-america.sdui": {
+   "file": "sdui/en/articles/north-america.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3508
+  },
+  "/content/mobile/lh/en/articles/north-america.v2.sdui": {
+   "file": "sdui/en/articles/north-america.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5037
+  },
+  "/content/mobile/lh/en/articles/south-america.sdui": {
+   "file": "sdui/en/articles/south-america.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 3479
+  },
+  "/content/mobile/lh/en/articles/south-america.v2.sdui": {
+   "file": "sdui/en/articles/south-america.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 5023
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires.sdui": {
+   "file": "sdui/en/articles/south-america/a-perfect-day-in-buenos-aires.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8719
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui": {
+   "file": "sdui/en/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13974
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro.sdui": {
+   "file": "sdui/en/articles/south-america/a-perfect-day-in-rio-de-janeiro.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 8096
+  },
+  "/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro.v2.sdui": {
+   "file": "sdui/en/articles/south-america/a-perfect-day-in-rio-de-janeiro.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 13030
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-best-seats.sdui": {
+   "file": "sdui/en/articles/what-the-hack-best-seats.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 11078
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-best-seats.v2.sdui": {
+   "file": "sdui/en/articles/what-the-hack-best-seats.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 15308
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids.sdui": {
+   "file": "sdui/en/articles/what-the-hack-travel-with-kids.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 12063
+  },
+  "/content/mobile/lh/en/articles/what-the-hack-travel-with-kids.v2.sdui": {
+   "file": "sdui/en/articles/what-the-hack-travel-with-kids.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 18602
+  },
+  "/content/mobile/lh/en/homepage.sdui": {
+   "file": "sdui/en/homepage.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2373
+  },
+  "/content/mobile/lh/en/homepage.v2.sdui": {
+   "file": "sdui/en/homepage.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": "DYNAMIC",
+   "bytes": 2115
+  }
+ }
+}

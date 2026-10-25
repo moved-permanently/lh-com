@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.254Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T13:56:41.114Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Important information – Ebola</b></p>\n<p><b>Travel Alert: U.S. entry restrictions</b></p>\n<p>Due to the Ebola outbreak, passengers who have recently been in the Democratic Republic of Congo, Uganda or South Sudan (even if only in transit) <b>may face U.S. entry restrictions</b> – ranging from mandatory screening via designated airports to denial of entry. Please review the current rules carefully as travel changes may be required.</p>\n<p><a href=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" hreftemp=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" rel=\"noopener noreferrer\">Check U.S. entry rules</a></p>\n<p>&nbsp;</p>\n<p><b>Additional regulations:</b></p>\n<p>The United States (U.S.) has implemented <b>entry restrictions</b> affecting <b>certain nationalities.</b></p>\n<p><b><u>1) Entry Ban for Specific Nationalities</u></b></p>\n<p>Nationals of the <b>following countries</b> are <b>not permitted to enter the U.S.:</b></p>\n<ul>\n<li>Afghanistan</li>\n<li>Burkina Faso</li>\n<li>Chad</li>\n<li>Congo - Brazzaville</li>\n<li>Equatorial Guinea</li>\n<li>Eritrea</li>\n<li>Haiti</li>\n<li>Iran</li>\n<li>Laos</li>\n<li>Libya</li>\n<li>Mali</li>\n<li>Myanmar</li>\n<li>Niger</li>\n<li>Palestinian Authority-issued Travel Documents, issued after 01 January, 2026</li>\n<li>Sierra Leone</li>\n<li>Somalia</li>\n<li>South Sudan</li>\n<li>Sudan</li>\n<li>Syria</li>\n<li>Yemen</li>\n</ul>\n<p><b>Exceptions</b> include:</p>\n<ul>\n<li>travelers holding a <b>valid visa issued on or before 08 June 2025</b></li>\n<li><b>U.S. Lawful Permanent Residents (Green Card Holders)</b>, holding either a Permanent Resident Card or Re-entry Permit</li>\n<li><b>Dual nationals</b> traveling <b>with a passport from a non-restricted country</b></li>\n<li>Travelers with <b>valid non-immigrant visas in the following categories: A-1, A-2, C-2, C-3, G-1, G-2, G-3, G-4, NATO-1 to NATO-6</b></li>\n</ul>\n<p><b><u>2) Visa Restrictions for Additional Nationalities</u></b></p>\n<p>Nationals of the <b>following countries </b>are <b>not permitted to enter the U.S. </b>as immigrants or non-immigrants <b>on the following visa types:</b></p>\n<p><b>B-1, B-2, B-1/B-2, F, M, J</b></p>\n<ul>\n<li>Angola</li>\n<li>Antigua &amp; Barbuda</li>\n<li>Benin</li>\n<li>Burundi</li>\n<li>Côte d'Ivoire</li>\n<li>Cuba</li>\n<li>Dominica</li>\n<li>Gabon</li>\n<li>Gambia</li>\n<li>Malawi</li>\n<li>Mauritania</li>\n<li>Nigeria</li>\n<li>Senegal</li>\n<li>Tanzania</li>\n<li>Tonga</li>\n<li>Togo</li>\n<li>Turkmenistan</li>\n<li>Venezuela</li>\n<li>Zambia</li>\n<li>Zimbabwe</li>\n</ul>\n<p>Nationals of the mentioned countries are <b>allowed to enter with any other U.S. visa type.</b></p>\n<p>&nbsp;</p>\n<p><b>Important ESTA Information:</b></p>\n<p>Please ensure that the correct passport number has been entered in your ESTA.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.254Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T13:56:41.114Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Wichtige Information - Ebola:</b></p>\n<p><b>Reisewarnung: Einreisebeschränkungen der USA</b></p>\n<p>Aufgrund des Ebola-Ausbruchs können für Reisende, die sich kürzlich in der Demokratischen Republik Kongo, in Uganda oder im Südsudan aufgehalten haben (auch wenn es sich nur um einen Transit handelte), Einreisebeschränkungen in die USA gelten – diese reichen von obligatorischen Kontrollen an bestimmten Flughäfen bis hin zur Verweigerung der Einreise.</p>\n<p>Bitte lesen Sie die aktuellen Bestimmungen sorgfältig durch, da möglicherweise Änderungen Ihrer Reisepläne erforderlich werden.</p>\n<p><a href=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" hreftemp=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\" rel=\"noopener noreferrer\">Einreisebestimmungen der USA prüfen</a></p>\n<p>&nbsp;</p>\n<p><b>Zusätzliche Bestimmungen:</b></p>\n<p>Die Vereinigten Staaten (USA) haben <b>Einreisebeschränkungen </b>eingeführt, die <b>bestimmte Nationalitäten</b> betreffen.</p>\n<p><b>1) Einreiseverbot für bestimmte Nationalitäten</b></p>\n<p>Staatsangehörige der<b> folgenden Länder dürfen nicht in die USA einreisen:</b></p>\n<ul>\n<li>Äquatorialguinea</li>\n<li>Afghanistan</li>\n<li>Burkina Faso</li>\n<li>Eritrea</li>\n<li>Haiti</li>\n<li>Iran</li>\n<li>Jemen</li>\n<li>Kongo – Brazzaville</li>\n<li>Laos</li>\n<li>Libyen</li>\n<li>Mali</li>\n<li>Myanmar</li>\n<li>Niger</li>\n<li>Inhaber von der Reisedokumenten, die nach dem 01. Januar 2026 von der Palästinensischen Autonomiebehörde ausgestellt wurden</li>\n<li>Sierra Leone</li>\n<li>Somalia</li>\n<li>Südsudan</li>\n<li>Sudan</li>\n<li>Syrien</li>\n<li>Tschad</li>\n</ul>\n<p><b>Ausnahmen </b>gelten für:</p>\n<ul>\n<li>Reisende mit einem <b>gültigen Visum, das am oder vor dem 8. Juni 2025 ausgestellt wurde</b></li>\n<li><b>Gesetzlich dauerhaft in den USA lebende Personen</b> (Green Card-Inhaber), die entweder eine <b>Permanent Resident Card </b>oder ein <b>Re-Entry Permit</b> besitzen</li>\n<li><b>Doppelstaatsangehörige,</b> die mit einem R<b>eisepass eines nicht eingeschränkten Landes </b>reisen</li>\n<li>Reisende mit <b>gültigen Nicht-Einwanderungsvisa in folgenden Kategorien: A-1, A-2, C-2, C-3, G-1, G-2, G-3, G-4, NATO-1 bis NATO-6</b></li>\n</ul>\n<p><b>2) Visabeschränkungen für weitere Nationalitäten</b></p>\n<p>Staatsangehörige der <b>folgenden Länder dürfen nicht mit den folgenden Visaarten </b>als Einwanderer oder Nicht-Einwanderer <b>in die USA einreisen:</b></p>\n<p><b>B-1, B-2, B-1/B-2, F, M, J, es sei denn, das Visum wurde am oder vor dem 8. Juni 2025 ausgestellt</b></p>\n<ul>\n<li>Angola</li>\n<li>Antigua und Barbuda</li>\n<li>Benin</li>\n<li>Burundi</li>\n<li>Côte d'Ivoire</li>\n<li>Dominica</li>\n<li>Gabun</li>\n<li>Gambia</li>\n<li>Kuba</li>\n<li>Malawi</li>\n<li>Mauretanien</li>\n<li>Nigeria</li>\n<li>Sambia</li>\n<li>Senegal</li>\n<li>Tansania</li>\n<li>Tonga</li>\n<li>Togo</li>\n<li>Turkmenistan</li>\n<li>Venezuela</li>\n<li>Zimbabwe</li>\n</ul>\n<p>Staatsangehörige der genannten Länder <b>dürfen mit allen anderen US-Visatypen einreisen.</b></p>\n<p><b>&nbsp;</b></p>\n<p><b>Wichtige ESTA-Information:</b></p>\n<p>Bitte stellen Sie sicher, dass die korrekte Reisepassnummer in Ihrem ESTA-Antrag eingetragen wurde.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-09-25T07:00:02.254Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-09-16T13:56:41.114Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Informations importantes - Ebola</b></p>\n<p><b>Alerte aux voyageurs : restrictions d’entrée aux États-Unis</b></p>\n<p>En raison de l’épidémie d’Ebola, les passagers ayant récemment séjourné en République démocratique du Congo, en Ouganda ou au Soudan du Sud (même en simple transit) peuvent se voir imposer des restrictions d’entrée aux États-Unis, allant d’un contrôle obligatoire dans certains aéroports désignés au refus d’entrée sur le territoire.</p>\n<p>Veuillez consulter attentivement les règles en vigueur, car des modifications de votre itinéraire pourraient être nécessaires.</p>\n<p><a href=\"https://www.cdc.gov/ebola/situation-summary/returning-travelers.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fviral-hemorrhagic-fevers%2Ftravel-to-us%2Findex.html\">Consulter les règles d’entrée aux États-Unis</a></p>\n<p>&nbsp;</p>\n<p><b>Réglementations supplémentaires:</b></p>\n<p>Les États-Unis (U.S.) ont mis en place de <b>restrictions d’entrée affectant certaines nationalités.</b></p>\n<p>&nbsp;</p>\n<p><b>1) Interdiction d’entrée pour certaines nationalités</b></p>\n<p>Les ressortissants des <b>pays suivants ne sont pas autorisés à entrer aux États-Unis:</b></p>\n<ul>\n<li>Afghanistan</li>\n<li>Burkina Faso</li>\n<li>Congo - Brazzaville</li>\n<li>Érythrée</li>\n<li>Guinée équatoriale</li>\n<li>Haïti</li>\n<li>Iran</li>\n<li>Laos</li>\n<li>Libye</li>\n<li>Mali</li>\n<li>Myanmar</li>\n<li>Niger</li>\n<li>Documents de voyage délivrés par l'Autorité palestinienne après le 1er janvier 2026</li>\n<li>Sierra Leone</li>\n<li>Somalie</li>\n<li>Soudan</li>\n<li>Soudan du Sud</li>\n<li>Syrie</li>\n<li>Tchad</li>\n<li>Yémen</li>\n</ul>\n<p><b>Exceptions:</b></p>\n<ul>\n<li>Voyageurs titulaires d’un <b>visa valide délivré au plus tard le 8 juin 2025</b></li>\n<li><b>Résidents permanents légaux des États-Unis </b>(détenteurs d’une &quot;Green Card&quot; ou un<b> &quot;</b>Re-entry Permit&quot;)</li>\n<li><b>Binationaux </b>voyageant <b>avec un passeport d’un pays non concerné par les restrictions</b></li>\n<li>Voyageurs <b>titulaires de visas non-immigrants valides dans les catégories suivantes : A-1, A-2, C-2, C-3, G-1, G-2, G-3, G-4, NATO-1 à NATO-6</b></li>\n</ul>\n<p><b>2) Restrictions de visa pour d’autres nationalités</b></p>\n<p>Les ressortissants des <b>pays suivants ne sont pas autorisés à entrer aux États-Unis</b> en tant qu’immigrants ou non-immigrants<b> avec les types de visa suivants:</b></p>\n<p><b>B-1, B-2, B-1/B-2, F, M, J, sauf si le visa a été délivré au plus tard le 8 juin 2025</b></p>\n<p>&nbsp;</p>\n<ul>\n<li>Burundi</li>\n<li>Cuba</li>\n<li>Laos</li>\n<li>Sierra Leone</li>\n<li>Togo</li>\n<li>Turkménistan</li>\n<li>Venezuela</li>\n</ul>\n<p>Les ressortissants des pays mentionnés <b>peuvent entrer avec tout autre type de visa américain.</b></p>\n<p>&nbsp;</p>\n<p><b>Information important sur l’ESTA:</b></p>\n<p>Veuillez-vous assurer que le numéro de passeport correct a été enregistré dans votre ESTA.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

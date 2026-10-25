@@ -1,0 +1,377 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_mother_daughter_in_airport_gettyimages_1614430716_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Mutter lachend mit Kind und Koffern im Flughafen unterwegs "
+  },
+  {
+   "type": "copyText",
+   "text": "What the Hack: Flugreisen mit Kindern – Tipps für entspannte Familienflüge",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>9. Oktober 2025 | 6 min read | Stefanie Pröstler-Meckl</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Fliegen mit Kindern ist aufregend – und manchmal auch herausfordernd. Das weiß Stefanie Pröstler-Meckl sehr gut. Auf Instagram erzählt die Weltreisende, was sie und ihr Mann mit den beiden Kindern erleben.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Mit Vorfreude gegen Flugstress</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Die Reise beginnt im Kopf – und zwar mit Begeisterung! Kinder sollten schon vor dem Abflug wissen, wie aufregend und schön das Fliegen wird. Auch wenn man selbst vielleicht ein bisschen aufgeregt ist: besser Zuversicht und Neugier vermitteln, als Ängste schüren. Was hilft: ein Kinderbuch über das Fliegen lesen. Viele Bücher erklären spielerisch, was bei der Sicherheitskontrolle passiert, wie man ins Flugzeug einsteigt oder wie es an Bord aussieht.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_eva_explora_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Mutter mit zwei Kindern am Meer und mit Koffern am Flughafen"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Toben vor dem Take-off</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Wichtig, bevor es in den Flieger geht und die Kleinen stillsitzen müssen: Die meisten großen und auch viele kleine Flughäfen verfügen über Extrabereiche für Kinder. Wer früh genug da ist und ein paar Meter auf dem Flughafengelände zurücklegen mag, kann sich die schönen Spielecken aussuchen – zum Beispiel in München, Zürich oder Kopenhagen, wo es Spielbereiche mit Ausblick auf das Rollfeld gibt. Tipp: Wechselsocken einpacken, denn viele Spielbereiche sind sockenpflichtig.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_father_and_son_airport_gettyimages_1150687457.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Vater und Kind spielen am Gate mit Spielzeugflugzeug"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>„Kinder sollten schon vor dem Abflug wissen, wie aufregend und schön das Fliegen wird.“<br> </b>Stefanie Pröstler-Meckl",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Gut gepackt ist halb geflogen</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Viel hilft viel: (möglichst zuckerfreie) Snacks einpacken und die Kinder mit Obst, Gemüse, Crackern und allem, was sie mögen, während des Fluges bespaßen. Besonders empfehlenswert sind Snacks, die nicht zu weich sind und zerquetscht werden können. Wer keine Zeit für Vorbereitungen hat, kann auf Europaflügen bis zu 24 Stunden vor Abflug die Onboard Delights Kids Box mit einer Auswahl an kindgerechten Snacks auf der Lufthansa Website vorbestellen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_family_packing_gettyimages_1587648424_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Offener Koffer: Kinderkleidung und Kuscheltiere werden eingepackt"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Druckausgleich leicht gemacht</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Der Kabinendruckwechsel beim Starten und Landen kann schon für Erwachsene unangenehm sein. Für Kinder kann er richtig schmerzhaft werden. Damit die kleinen Ohren nicht wehtun, hilft vor allem: Kauen, Trinken, Nuckeln. Bei Babys sind Stillen, ein Fläschchen oder Schnuller zu empfehlen. Also alles, was den Schluckreflex auslöst. Bei größeren Kindern sind Strohhalmbecher oder Kaugummis Gold wert.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lufthansa-group/poi/de/images/local_images/blog_article_img/what-the-hack-travel-with-kids/lh_blog_girl_drinking_water_gettyimages_1465217065_1920x823.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Mädchen mit Kopfhörern trinkt Wasser im Flugzeug"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Nicht ohne mein Ersatzshirt</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Ich habe auf Langstreckenflügen natürlich Wechselkleidung dabei – aber nicht nur für die Kinder. Auch für mich wandern ein frisches T-Shirt und eine bequeme Leggings ins Handgepäck. Denn wer mit kleinen Kindern reist, weiß: Irgendwas geht immer daneben. Mal kippt der Saft um, mal gibt’s ein Missgeschick beim Wickeln oder eine spontane Kuschel-Sabber-Attacke. Mein zusätzlicher Tipp: Die Wechselkleidung in eine separate Tasche packen. So hat man im Fall der Fälle alles schnell zur Hand, ohne das halbe Handgepäck durchwühlen zu müssen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr Komfort an Board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Komfort an Bord",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_all_destinations_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Schon gewusst? Lufthansa ist die familienfreundlichste Airline der Welt!</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa legt großen Wert darauf, dass auch für die kleinen Passagiere die Flugreise zu etwas Besonderem wird. Mit durchdachten Angeboten für Kinder, sowohl am Boden als auch an Bord, schafft Lufthansa ein rundum familienfreundliches Reiseerlebnis – und wurde dafür 2025 mit dem World Airline Award als familienfreundlichste Fluggesellschaft ausgezeichnet.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Faszination Flughafen</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Schon vor dem Abflug sollen die Kleinen möglichst alles rund um das Fliegen mitbekommen. Deshalb gibt es an vielen Flughäfen eigene Familienschalter, an denen die Kinder auf einer kleinen Treppe den Check-in beobachten können. Für das Kuscheltier gibt es sogar eine eigene Kuscheltier-Bordkarte. In der Ferienzeit sind außerdem die Lufthansa Maskottchen Lu und Cosmo aktionsweise auch persönlich in Frankfurt, München und Berlin anzutreffen. Sie verteilen Autogrammkarten und freuen sich, wenn die Kinder sich ein Foto wünschen. Natürlich sind die kleinen Gäste auch in den Lounges herzlich willkommen: Eine große Auswahl an Spielsachen wie Kartenspiele, Malbücher, Stifte, Trinkflaschen und Turnbeutel steht hier bereit. Zu Ostern und Weihnachten gibt es besondere Überraschungen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Kinder-Menüs</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Bis zu 24 Stunden vor Abflug können Gerichte extra für Kinder unter den „Special Meals“ mit lustigen Namen wie „Nudel-Vulkan“, „Hühner-Meuterei“ oder „Clown-Wrap“ bestellt werden. Besonders beliebt: Frikadellen, Würstchen oder Pasta. Die Tabletts sind mit bunten Bildern der Lufthansa Maskottchen Lu und Cosmo eingedeckt, und in der Menükarte können die kleinen Fluggäste rätseln und Bilder ausmalen. Die Kinder-Menüs sind für alle Klassen auf der Langstrecke sowie auf der Kurzstrecke in der Business Class bestellbar.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Unterhaltung an Bord</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Ob ein Kuscheltuch in Wolkenform für ganz kleine Fluggäste oder das Spiel „Stadt, Land, Flug“ – alle Flugzeuge sind mit Spielsachen für Babys, Kleinkinder und größere Kinder ausgestattet. Darüber hinaus können die Kleinen mit einer großen Auswahl an Malvorlagen kreativ werden. Diese sind über die Startseite der Lufthansa eJournals zu finden, ebenso wie ein Reiseführer extra für Kinder: das Kids Travel Book. Auf Langstreckenflügen steht außerdem das Inflight-Entertainment-Programm mit Filmen, Serien, Musik, Hörbüchern und Podcasts zur Verfügung. Ein besonderes Highlight für kleine Flieger:innen: Einige Langstreckenflugzeuge sind mit Kameras ausgestattet, sodass die Kinder den Flug aus der Perspektive der Pilot:innen mitverfolgen können.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Kids Amenity Kit</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In einer wasserdichten Tasche, die sicherlich auch nach dem Flug zum Einsatz kommen wird, finden die Kinder alles, was sie während der Reise brauchen: Flugzeugsocken im Wölkchendesign, eine Kinder-Schlafmaske, eine Flugzeugzahnbürste, einen Lippenpflegestift, extrakleine Ohrstöpsel, einen Plüschflieger, Gummibärchen und Schokolade, ein Logbuch und das neue Kids Travel Book aus der Reihe Lufthansa Insights. Das Kids Amenity Kit gibt es auf der Langstrecke in den Klassen First, Business und Premium Economy sowie auf der Kurzstrecke in der Business Class. So vergeht die Zeit an Bord wie im Flug!",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Bildrechte: Getty Images, EvaExplora, Getty Images",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Zur Person</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Stefanie Pröstler-Meckl und ihr Mann Maximilian bereisen seit vielen Jahren gemeinsam die Welt. Seit kurzem mit dabei: ihr 4-jähriger Sohn und ihre 2-jährige Tochter. Mexiko, Thailand, Malaysia oder Marokko – Pröstler-Meckl nimmt ihre Instagram-Follower:innen (@evaexplora) mit auf ihre Abenteuer und gibt auf ihrem Blog EvaExplora.com Reisetipps für Deutschland, Europa und die Welt.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_05092025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr Komfort an Board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Komfort an Bord",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

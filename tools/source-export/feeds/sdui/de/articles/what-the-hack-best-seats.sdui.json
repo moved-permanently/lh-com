@@ -1,0 +1,326 @@
+{
+ "title": "Lufthansa Insights",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/de/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_privacy_baby_8528_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Eine Frau mit einem Baby im Arm wird im Flugzeug ein Getränk gereicht"
+  },
+  {
+   "type": "copyText",
+   "text": "What the Hack: Die besten Plätze im Flugzeug",
+   "size": "EXTRA_LARGE",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>23. Juni 2025 | 5 min read | David McGraw</b>",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Purser David McGraw kennt alle Flugzeugtypen. Wir haben ihn gefragt, welche Sitzplätze in den verschiedenen Reiseklassen am besten zu welchen Bedürfnissen passen.</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Die einen sehnen sich nach Ruhe, die anderen möchten ihre Beine ausstrecken: Wem würden Sie welchen Platz auf einem Kurzstreckenflug empfehlen?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Gästen, die an Bord schlafen wollen, würde ich immer zu einer der vorderen Reihen im Flugzeug raten. Denn je weiter vor den Triebwerken man sitzt, desto leiser ist es. Für besonders große Menschen lohnt es sich, Plätze an den Notausgängen zu reservieren. Besonders viel Beinfreiheit hat man an den Nottüren des Airbus A321, weil sich dort keine Sitzreihen direkt vor einem befinden.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Und wie sieht es bei anderen Flugzeugtypen aus?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Auch im Airbus A319 und Airbus A320neo haben die Plätze an den Notfenstern mehr Abstand zur nächsten Sitzreihe. Der Abstand variiert innerhalb der Flugzeugtypen, aber sie zeichnen sich durch mindestens zehn Zentimeter zusätzliche Beinfreiheit aus. Zu beachten ist, dass Gäste, die an den Notausgängen sitzen, bestimmte Vorrausetzungen erfüllen müssen. Sie müssen zum Beispiel mindestens 16 Jahre alt sein, die deutsche oder englische Sprache beherrschen und bereit sein, bei einer unwahrscheinlichen Notsituation Hilfe zu leisten.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_19318_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Frau lehnt sich mit einem Kissen ans Flugzeugfenster und schläft"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Welche Vorteile hat ein Platz in der letzten Reihe des Flugzeuges?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Vorteile sind zum Beispiel die Nähe zu den Waschräumen und dass niemand hinter einem sitzt, der einen stören könnte. Sitzplätze im Voraus zu buchen, bietet einem die Möglichkeit, das Flugerlebnis nach seinen persönlichen Bedürfnissen zu gestalten. Ich finde das sehr praktisch und nutze diesen Service deshalb auch privat gern.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr Komfort an Board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Komfort an Bord",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Flüge finden",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "df_link_all_destinations_150926"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Gang oder Fensterplatz – welche Vor– und Nachteile sollte man abwägen, bevor man einen Sitzplatz bucht?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Familien würde ich immer empfehlen, Fensterplätze für die Kinder zu reservieren, denn dann können sie hinausschauen und sind während des Fluges beschäftigt. Auch schlafen kann man ungestörter am Fenster, weil man sich anlehnen kann. Der Gangplatz hat den Vorteil, dass man niemanden stört, wenn man zwischendurch aufstehen möchte. In unserer Business Class des Boeing Dreamliners oder in der neuen&nbsp;Lufthansa Allegris Business Class Kabine in der A350 sind übrigens alle Sitzplätze entlang des Gangs angeordnet und bieten einen sogenannten All Aisle Access.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1097_lufthansa-allegris_family_15835_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Frau mit einem Kind sitzt im Flugzeug, beide lachen. Von der Seite ist ein Mann zu erkennen, der ebenfalls in derselben Sitzreihe sitzt"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Welche Sitzplätze empfehlen Sie für Langstreckenflüge?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Die meiste Beinfreiheit hat man auch hier an den Notausgängen. Oder in der Economy Class der Boeing 747-8 unmittelbar hinter der Premium Economy, da sich zwischen den beiden Klassen keine festen Trennwände befinden. Und natürlich in der Business und First Class. Mein Geheimtipp für die Boeing 747 sind die letzten drei Reihen der Economy Class, weil sich dort an jeder Seite jeweils nur zwei Plätze befinden, da das Flugzeug nach hinten hin schmaler wird. Auch im Airbus A380 befinden sich in Reihe 75 an den Notausgängen an den Seiten nur jeweils zwei Plätze nebeneinander. Zu empfehlen sind auch die Fensterplätze A + K in Reihe 76, weil sich vor ihnen kein Sitz befindet und man die Beine ausstrecken kann.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Der Airbus A380 und die Boeing 747 verfügen über ein Oberdeck – welche Vorteile hat es, dort zu sitzen?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "In der Business Class im „Buckel“ einer Boeing zu fliegen, fühlt sich ein bisschen so an, wie in einem Privatjet zu sitzen. Hier ist es etwas ruhiger als im Rest des Flugzeuges. Das Oberdeck der A380 fühlt sich mit 20 Reihen etwas weniger exklusiv an, aber dafür findet man dort im hinteren Flugzeugteil sogar eine kleine Economy Class mit fünf Sitzreihen. Obwohl die A380 ein extrem leises Flugzeug ist, ist es hier trotzdem eine Spur ruhiger als im Unterdeck. Ein weiterer Vorteil ist, dass sich an den Fensterseiten jeweils nur zwei statt drei Plätze nebeneinander befinden. Die meiste Beinfreiheit hat man hier in Reihe 95 an den Notausgängen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/article-images/mobile-app/non-destination/what-the-hack-best-seats/lh_app_1096_lufthansa-allegris_0970_1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "contentDescription": "Ein Paar sitzt auf den Allegris Sitzen, schaut sich an. Sie beide halten sich an der Hand."
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Welchen Extrakomfort bieten die Sitze der neuen Lufthansa Allegris Premium Economy?</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Die Sitze im Hartschalendesign lassen sich weiter nach hinten stellen als das bisherige Modell – und es hat keine Auswirkungen auf Mitreisende in der Reihe hinter einem, wenn man sich zurücklehnt. Zudem sind die Plätze breiter und der Abstand zum Sitz vor einem beträgt knapp einen Meter. Sehr praktisch finde ich, dass man mobile Geräte auf der Mittelarmlehne kabellos laden kann.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Einzigartiges neues Reiseerlebnis: Lufthansa Allegris</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Von beheizbaren Sitzen bis hin zu Plätzen in der Business und First Class, die sich zu Doppelbetten kombinieren lassen: Lufthansa Allegris heißt das neue Spitzenprodukt von Lufthansa auf der Langstrecke. Es wird seit Frühjahr 2024 auf neu ausgelieferten Airbus A350 eingeführt und umfasst neue Sitzkonzepte für die First, Business, Premium Eco und Economy Class.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "Auf der Lufthansa Website erfahren Sie, wie Sie ganz einfach Ihren Lieblingsplatz reservieren können.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "<b>Zur Person</b>",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "copyText",
+   "text": "David McGraw arbeitet seit 2010 als Purser bei Lufthansa auf der Kurz- und Langstrecke. Seine Lieblingsziele sind Rio de Janeiro, Singapur und alle Destinationen in Italien. An seinem Job liebt er den Kontakt zu Menschen unterschiedlicher Kulturen und genießt es, im Winter in die Sonne fliegen zu können. Vom Boeing Dreamliner bis zur A380 kennt er alle Reiseklassen und Flugzeugtypen, die für Lufthansa im Einsatz sind – und somit auch die besten Plätze in den verschiedenen Flugzeugkabinen.",
+   "size": "MEDIUM",
+   "variant": "BODY"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Bereit, die Welt zu entdecken?",
+   "description": "Buchen Sie Ihren Flug und finden Sie neue Inspiration – wo auch immer die Reise hingehen mag.",
+   "textLink": "Flug suchen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1198189999-107019.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "df_teaser_flights_17062025"
+    },
+    "type": "showWebScreen",
+    "providerId": "externalBrowser",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/xx/de/book-and-manage/offers-and-destination"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "MEDIUM"
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Mehr Komfort an Board",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_comfort_on_board_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Komfort an Bord",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles/comfort-on-board.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "textLink_v2",
+   "text": "Alle Kategorien",
+   "size": "MEDIUM",
+   "action_v2": {
+    "tracking": {
+     "key": "link button click",
+     "category": "link button",
+     "action": "click",
+     "label": "blog_link_blog_overview_150926"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "Lufthansa Insights",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/articles.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

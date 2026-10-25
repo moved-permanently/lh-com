@@ -1,0 +1,71 @@
+{
+ "data": {
+  "travelRegulationsList": {
+   "items": [
+    {
+     "_variation": "master",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-14T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:13:19.987Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Arrival in India – Required Steps</b></p>\n<p>&nbsp;</p>\n<p><b>In addition to a valid&nbsp;<a href=\"https://indianvisaonline.gov.in/\" hreftemp=\"https://indianvisaonline.gov.in/\" linkscheme=\"Hyperlink\" rel=\"noopener noreferrer\"><em class=\"lh lh-arrow-right\">​</em>​e‑Visa</a> </b>, passengers travelling to India must <b>complete the following requirements before arrival:</b></p>\n<p>&nbsp;</p>\n<p><b>1.&nbsp; &nbsp;E‑Arrival Card (mandatory for eligible travellers)</b></p>\n<p><b>Visitors and OCI card holders</b> are advised to submit the <b>E‑Arrival Card</b> within <b>72 hours before arrival</b>.</p>\n<p>You can complete the form via:</p>\n<ul>\n<li><a href=\"https://indianvisaonline.gov.in/earrival/\" hreftemp=\"https://indianvisaonline.gov.in/earrival/\" linkscheme=\"Hyperlink\" rel=\"noopener noreferrer\"><b><em class=\"lh lh-arrow-right\">​</em>​the official website</b></a></li>\n<li>the <b>“Indian Visa Su-Swagatam” mobile app</b></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>2.&nbsp; &nbsp;Self Declaration Form (Air Suvidha)</b></p>\n<p><b>All passengers </b>must complete a <b>Self Declaration Form (SDF)</b> before arrival.</p>\n<p>You can complete this:</p>\n<ul>\n<li><b>online via the&nbsp;<a href=\"https://airsuvidha.civilaviation.gov.in/\" hreftemp=\"https://airsuvidha.civilaviation.gov.in/\" rel=\"noopener noreferrer\">Air Suvidha Portal</a>&nbsp;</b></li>\n<li>or by filling in a <b>paper form on board</b></li>\n</ul>\n<p>The digital form can be completed <b>within 24 hours before arrival</b>.</p>\n<p><b>Important:</b></p>\n<ul>\n<li>It is strongly advised to complete <b>either the digital or paper version</b></li>\n<li>If not completed in advance, you may be asked to fill out a paper form before entering India</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>3.&nbsp; &nbsp;Digital Customs Declaration (only if applicable)</b></p>\n<p>Passengers travelling to <b>Bengaluru (BLR)</b> who carry goods or currency that must be declared can submit a <b>customs declaration electronically</b> before arrival.</p>\n<p>You can complete this via:</p>\n<ul>\n<li>the <b>ATITHI 2.0 mobile app (</b><a href=\"https://play.google.com/store/apps/details?id=com.org.customnew\" style=\"background-color: rgb(255,255,255);\" hreftemp=\"https://play.google.com/store/apps/details?id=com.org.customnew\" rel=\"noopener noreferrer\">Android</a> <b>/&nbsp;</b><a href=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" hreftemp=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" rel=\"noopener noreferrer\">iOS</a> <b>)</b></li>\n</ul>\n<p>&nbsp;</p>\n<ul>\n<li>or the</li>\n</ul>\n<p>&nbsp;</p>\n<ul>\n<li><a href=\"https://atithi.cbic.gov.in/#/login\" hreftemp=\"https://atithi.cbic.gov.in/#/login\" rel=\"noopener noreferrer\">official website</a></li>\n</ul>\n<p><b>Important:</b></p>\n<ul>\n<li>Only required if you have items to declare</li>\n<li>Currently available <b>only for Bengaluru (BLR)</b></li>\n</ul>\n<p>Passengers without anything to declare&nbsp;can continue to use the <b>green channel</b>.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "de",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-14T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:13:19.987Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Ankunft in Indien – Erforderliche Schritte</b></p>\n<p>&nbsp;</p>\n<p><b>Neben einem gültigen</b> </p>\n<p><a href=\"https://indianvisaonline.gov.in/\" hreftemp=\"https://indianvisaonline.gov.in/\" rel=\"noopener noreferrer\"><b>E-Visum</b></a> müssen Reisende, die nach Indien reisen, <b>vor ihrer Ankunft die folgenden Voraussetzungen erfüllen:</b></p>\n<p>&nbsp;</p>\n<p><b>1.&nbsp; &nbsp;E-Arrival-Karte (für berechtigte Reisende obligatorisch)</b></p>\n<p><b>Besucher und Inhaber einer OCI-Karte</b> wird empfohlen, die E-Arrival-Karte <b>innerhalb von 72 Stunden vor der Ankunft </b>einzureichen.</p>\n<p>Das Formular kann befüllt werden:&nbsp;</p>\n<ul>\n<li>über die&nbsp;<a href=\"https://indianvisaonline.gov.in/earrival/\" hreftemp=\"https://indianvisaonline.gov.in/earrival/\" rel=\"noopener noreferrer\"><b>offizielle Website</b></a></li>\n<li>über die<b> mobile App „Indian Visa Su-Swagatam“</b></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>2.&nbsp; &nbsp;Formular zur Selbsterklärung (Air Suvidha)</b></p>\n<p>Alle Passagiere müssen vor ihrer Ankunft ein <b>Formular zur Selbsterklärung (SDF) </b>ausfüllen.</p>\n<p>Sie können dies wie folgt tun:</p>\n<ul>\n<li>online über das&nbsp;<a href=\"https://airsuvidha.civilaviation.gov.in/\" hreftemp=\"https://airsuvidha.civilaviation.gov.in/\" rel=\"noopener noreferrer\"><b>Air-Suvidha-Portal</b></a></li>\n<li>oder durch Ausfüllen eines <b>Papierformulars an Bord</b></li>\n</ul>\n<p>Das <b>digitale Formular </b>kann <b>frühestens 24 Stunden vor der Ankunft </b>ausgefüllt werden.</p>\n<p><b>Wichtig:</b></p>\n<p>Es ist zwingend<b>&nbsp;entweder die digitale oder die Papierversion </b>auszufüllen.</p>\n<p>Falls dies nicht im Voraus erledigt wurde, wird möglicherweise vor der Einreise das Befüllen des Papierformulars verlangt werden.</p>\n<p>&nbsp;</p>\n<p><b>3.&nbsp; &nbsp;Digitale Zollanmeldung (nur falls zutreffend)</b></p>\n<p>Passagiere, die nach <b>Bengaluru (BLR)</b> reisen und <b>Waren oder Bargeld mit sich führen, die angemeldet werden müssen</b>, können vor ihrer Ankunft <b>elektronisch</b> eine Zollanmeldung einreichen.</p>\n<p>Dies kann über <b>folgende Kanäle</b> erledigt werden:</p>\n<ul>\n<li>die mobile App „ATITHI 2.0“ (<b><a href=\"https://play.google.com/store/apps/details?id=com.org.customnew\" style=\"background-color: rgb(255, 255, 255);\" hreftemp=\"https://play.google.com/store/apps/details?id=com.org.customnew\" rel=\"noopener noreferrer\">Android</a> /&nbsp;<a href=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" hreftemp=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" rel=\"noopener noreferrer\">iOS</a> </b>)</li>\n</ul>\n<p><li>oder die </li>\n</p>\n<ul>\n<li><a href=\"https://atithi.cbic.gov.in/#/login\" hreftemp=\"https://atithi.cbic.gov.in/#/login\" rel=\"noopener noreferrer\"><b>offizielle Website</b></a></li>\n</ul>\n<p>&nbsp;</p>\n<p><b>Wichtig:</b></p>\n<ul>\n<li><b>Nur erforderlich, wenn Sie Gegenstände zu deklarieren haben</b></li>\n<li>Derzeit nur für <b>Bengaluru (BLR) </b>verfügbar</li>\n</ul>\n<p>Passagiere, die <b>nichts zu deklarieren</b> haben, können weiterhin den<b> grünen Kanal </b>nutzen.</p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    },
+    {
+     "_variation": "fr",
+     "_metadata": {
+      "calendarMetadata": [
+       {
+        "name": "jcr:created",
+        "value": "2026-10-14T07:00:00.442Z"
+       },
+       {
+        "name": "cq:lastModified",
+        "value": "2026-10-10T13:13:19.987Z"
+       }
+      ]
+     },
+     "destination": {
+      "html": "<p><b>Arrivée en Inde – Démarches obligatoires</b></p>\n<p>&nbsp;</p>\n<p><b>Outre un&nbsp;</b><a href=\"https://indianvisaonline.gov.in/\" hreftemp=\"https://indianvisaonline.gov.in/\" rel=\"noopener noreferrer\"><b>e-Visa</b></a> <b>valide</b>, les passagers se rendant en Inde doivent remplir <b>les conditions suivantes avant leur arrivée</b>:</p>\n<p>&nbsp;</p>\n<p><b>1.&nbsp; &nbsp;Fiche d’arrivée électronique (obligatoire pour les voyageurs éligibles)</b></p>\n<p>Il est recommandé aux <b>visiteurs et aux titulaires d’une carte OCI</b> de remplir la<b> fiche d’arrivée électronique dans les 72 heures avant leur arrivée.</b></p>\n<p>Vous pouvez remplir le formulaire via:</p>\n<ul>\n<li>le&nbsp;<a href=\"https://indianvisaonline.gov.in/earrival/\" hreftemp=\"https://indianvisaonline.gov.in/earrival/\" rel=\"noopener noreferrer\"><b>site web officiel</b></a></li>\n<li>l’application mobile « Indian Visa Su-Swagatam »</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>2.&nbsp; &nbsp;Formulaire d'autodéclaration (Air Suvidha)</b></p>\n<p><b>Tous les passagers</b> doivent remplir un <b>formulaire d'autodéclaration (SDF) avant leur arrivée.</b></p>\n<p>Vous pouvez le remplir:</p>\n<ul>\n<li>en ligne via le&nbsp;<a href=\"https://airsuvidha.civilaviation.gov.in/\" hreftemp=\"https://airsuvidha.civilaviation.gov.in/\" rel=\"noopener noreferrer\"><b>portail Air Suvidha</b></a></li>\n<li>ou en remplissant un<b> formulaire papier à bord de l'avion</b></li>\n</ul>\n<p>Le<b> formulaire numérique peut être rempli dans les 24 heures précédant l'arrivée.</b></p>\n<p>&nbsp;</p>\n<p><b>Important:</b></p>\n<ul>\n<li>Vous devez <b>remplir soit la version numérique, soit la version papier.</b></li>\n<li>Si vous ne l'avez pas fait à l'avance, il se peut qu'on vous demande de remplir un formulaire papier avant d'entrer en Inde.</li>\n</ul>\n<p>&nbsp;</p>\n<p><b>3.&nbsp; &nbsp;Déclaration douanière numérique (uniquement le cas échéant)</b></p>\n<p>Les passagers<b> à destination de Bengaluru (BLR)</b> qui transportent des marchandises ou des devises devant être déclarées peuvent soumettre une <b>déclaration douanière par voie électronique</b> avant leur arrivée.</p>\n<p>Vous pouvez effectuer cette démarche via:</p>\n<ul>\n<li>l’application mobile ATITHI 2.0 (<b><a href=\"https://play.google.com/store/apps/details?id=com.org.customnew\" style=\"background-color: rgb(255, 255, 255);\" hreftemp=\"https://play.google.com/store/apps/details?id=com.org.customnew\" rel=\"noopener noreferrer\">Android</a> /&nbsp;<a href=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" hreftemp=\"https://apps.apple.com/us/app/atithi-2-0/id1481045693\" rel=\"noopener noreferrer\">iOS</a></b> )</li>\n</ul>\n<p><li>ou le </li>\n</p>\n<ul>\n<li><a href=\"https://atithi.cbic.gov.in/#/login\" hreftemp=\"https://atithi.cbic.gov.in/#/login\" rel=\"noopener noreferrer\"><b>site web officiel</b></a></li>\n</ul>\n<p><b>Important:</b></p>\n<ul>\n<li>Obligatoire uniquement si vous avez des articles à déclarer</li>\n<li>Actuellement disponible <b>uniquement pour Bengaluru (BLR)</b></li>\n</ul>\n<p>Les passagers n’ayant rien à déclarer peuvent continuer à emprunter <b>le couloir vert.</b></p>\n"
+     },
+     "transit": {
+      "html": null
+     }
+    }
+   ]
+  }
+ }
+}

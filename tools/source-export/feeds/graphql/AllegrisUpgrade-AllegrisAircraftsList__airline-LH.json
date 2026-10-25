@@ -1,0 +1,118 @@
+{
+ "data": {
+  "allegrisaircraftList": {
+   "items": [
+    {
+     "airline": "LH",
+     "acv": "77B",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "77D",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "78F",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "78G",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "78K",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A42",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A46",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A44",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A45",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A47",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A48",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A62",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A65",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A66",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "A74",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "B74",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "H38",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "I38",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "J38",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "K38",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "L38",
+     "displaybadge": true
+    },
+    {
+     "airline": "LH",
+     "acv": "M38",
+     "displaybadge": true
+    }
+   ]
+  }
+ }
+}
