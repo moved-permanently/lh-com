@@ -1,12 +1,4 @@
-https://www.lufthansa.com/at/de/100-years/cabin-design
-https://www.lufthansa.com/at/de/100-years/campaigns
-https://www.lufthansa.com/at/de/discover-lufthansa/new-onboard-experience
-https://www.lufthansa.com/de/de/100-years/cabin-design
-https://www.lufthansa.com/de/de/100-years/campaigns
-https://www.lufthansa.com/de/de/discover-lufthansa/new-onboard-experience
-https://www.lufthansa.com/de/en/100-years/cabin-design
-https://www.lufthansa.com/de/en/100-years/campaigns
-https://www.lufthansa.com/de/en/discover-lufthansa/new-onboard-experience
-https://www.lufthansa.com/gb/en/100-years/cabin-design
-https://www.lufthansa.com/gb/en/100-years/campaigns
-https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience
+https://www.lufthansa.com/de/en/100-years/destinations
+https://www.lufthansa.com/de/de/100-years/destinations
+https://www.lufthansa.com/at/de/100-years/destinations
+https://www.lufthansa.com/gb/en/100-years/destinations

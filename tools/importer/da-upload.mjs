@@ -5,7 +5,7 @@
  *
  * Only documents that belong to the site are sent: pages in the migration scope
  * (tools/importer/transformers/scope-paths.js) and the per-locale nav, footer and
- * fragments (incl. the AirCore fragments). The login and profile app shells
+ * fragments (never anything under /lhg/, which left the replica). The login and profile app shells
  * (/{cc}/{ll}/login, /{cc}/{ll}/profile/...) are built elsewhere and always refused.
  * Local images referenced as /media-da/... are uploaded once and linked from
  * content.da.live. State: tools/importer/da-upload-state.json (or $DA_UPLOAD_STATE).

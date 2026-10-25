@@ -33,9 +33,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-nav.js
-  var import_nav_exports = {};
-  __export(import_nav_exports, {
-    default: () => import_nav_default
+  var tmp_bundle_nav_exports = {};
+  __export(tmp_bundle_nav_exports, {
+    default: () => tmp_bundle_nav_default
   });
 
   // tools/importer/transformers/scope-paths.js
@@ -111,6 +111,7 @@ var CustomImportScript = (() => {
     "/at/de/book-and-manage/additional-services/get-your-guide",
     "/at/de/book-and-manage/additional-services/travel-insurances",
     "/at/de/book-and-manage/booking-services/manage-my-bookings",
+    "/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
     "/at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
     "/at/de/book-and-manage/digital-self-services/airline-apps",
     "/at/de/book-and-manage/flights/air-baltic",
@@ -120,6 +121,7 @@ var CustomImportScript = (() => {
     "/at/de/book-and-manage/flights/helvetic",
     "/at/de/book-and-manage/flights/lufthansa-voucher",
     "/at/de/book-and-manage/flights/wetlease-hub",
+    "/at/de/book-and-manage/passenger-receipt-90days/confirmation",
     "/at/de/book-and-manage/pax-receipt",
     "/at/de/book-and-manage/pax-receipt/invoices-different-countries",
     "/at/de/book-and-manage/rebook",
@@ -171,6 +173,7 @@ var CustomImportScript = (() => {
     "/at/de/entryprocesses",
     "/at/de/europa-tarife-economy-class",
     "/at/de/europcar",
+    "/at/de/event/esorics-2027",
     "/at/de/exclusive-charter",
     "/at/de/faq-data-security",
     "/at/de/faq-ejournals",
@@ -213,6 +216,7 @@ var CustomImportScript = (() => {
     "/at/de/informationen-zum-datenschutz",
     "/at/de/kinder-an-bord",
     "/at/de/kindermenues-an-bord",
+    "/at/de/local-page/black-friday",
     "/at/de/lounge-begleitung",
     "/at/de/lounges",
     "/at/de/lufthansa-am-flughafen-duesseldorf",
@@ -274,6 +278,10 @@ var CustomImportScript = (() => {
     "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
     "/at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
     "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
     "/at/de/prepare-for-your-trip/current-travel-information",
     "/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
     "/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
@@ -282,6 +290,7 @@ var CustomImportScript = (() => {
     "/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
     "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
     "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
     "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
     "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
     "/at/de/prepare-for-your-trip/travel-classes/economy-basic",
@@ -313,6 +322,7 @@ var CustomImportScript = (() => {
     "/at/de/speisen-und-getraenke",
     "/at/de/sportgepaeck",
     "/at/de/sportgepaeck-hinzufuegen",
+    "/at/de/support/contact/contact-form-confirmation",
     "/at/de/support/contact/passenger-duty-united-kingdom",
     "/at/de/support/feedback-and-contact-airlines",
     "/at/de/tiere-als-handgepaeck",
@@ -334,6 +344,9 @@ var CustomImportScript = (() => {
     "/at/de/upgrades-im-online-check-in",
     "/at/de/zahlungsmoeglichkeiten-am-flughafen",
     "/at/de/zeitfenster-sicherheitskontrolle",
+    "/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+    "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+    "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
     "/de/de/100-years",
     "/de/de/100-years/cabin-design",
     "/de/de/100-years/campaigns",
@@ -405,6 +418,7 @@ var CustomImportScript = (() => {
     "/de/de/book-and-manage/additional-services/get-your-guide",
     "/de/de/book-and-manage/additional-services/travel-insurances",
     "/de/de/book-and-manage/booking-services/manage-my-bookings",
+    "/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
     "/de/de/book-and-manage/cancellation-and-refund/refund/refund-form",
     "/de/de/book-and-manage/digital-self-services/airline-apps",
     "/de/de/book-and-manage/flights/air-baltic",
@@ -414,6 +428,7 @@ var CustomImportScript = (() => {
     "/de/de/book-and-manage/flights/helvetic",
     "/de/de/book-and-manage/flights/lufthansa-voucher",
     "/de/de/book-and-manage/flights/wetlease-hub",
+    "/de/de/book-and-manage/passenger-receipt-90days/confirmation",
     "/de/de/book-and-manage/pax-receipt",
     "/de/de/book-and-manage/pax-receipt/invoices-different-countries",
     "/de/de/book-and-manage/rebook",
@@ -465,6 +480,7 @@ var CustomImportScript = (() => {
     "/de/de/entryprocesses",
     "/de/de/europa-tarife-economy-class",
     "/de/de/europcar",
+    "/de/de/event/dghm-2026",
     "/de/de/exclusive-charter",
     "/de/de/faq-data-security",
     "/de/de/faq-ejournals",
@@ -507,6 +523,7 @@ var CustomImportScript = (() => {
     "/de/de/informationen-zum-datenschutz",
     "/de/de/kinder-an-bord",
     "/de/de/kindermenues-an-bord",
+    "/de/de/local-page/south-africa-winter-promotion",
     "/de/de/lounge-begleitung",
     "/de/de/lounges",
     "/de/de/lufthansa-am-flughafen-duesseldorf",
@@ -568,6 +585,10 @@ var CustomImportScript = (() => {
     "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
     "/de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
     "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
     "/de/de/prepare-for-your-trip/current-travel-information",
     "/de/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
     "/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
@@ -576,6 +597,7 @@ var CustomImportScript = (() => {
     "/de/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
     "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
     "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
     "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
     "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
     "/de/de/prepare-for-your-trip/travel-classes/economy-basic",
@@ -607,6 +629,7 @@ var CustomImportScript = (() => {
     "/de/de/speisen-und-getraenke",
     "/de/de/sportgepaeck",
     "/de/de/sportgepaeck-hinzufuegen",
+    "/de/de/support/contact/contact-form-confirmation",
     "/de/de/support/contact/passenger-duty-united-kingdom",
     "/de/de/support/feedback-and-contact-airlines",
     "/de/de/tiere-als-handgepaeck",
@@ -707,6 +730,7 @@ var CustomImportScript = (() => {
     "/de/en/book-and-manage/flights/helvetic",
     "/de/en/book-and-manage/flights/lufthansa-voucher",
     "/de/en/book-and-manage/flights/wetlease-hub",
+    "/de/en/book-and-manage/passenger-receipt-90days/confirmation",
     "/de/en/book-and-manage/pax-receipt",
     "/de/en/book-and-manage/pax-receipt/invoices-different-countries",
     "/de/en/book-and-manage/rebook",
@@ -766,6 +790,7 @@ var CustomImportScript = (() => {
     "/de/en/entryprocesses",
     "/de/en/europa-tarife-economy-class",
     "/de/en/europcar",
+    "/de/en/event/dghm-2026",
     "/de/en/exclusive-charter",
     "/de/en/faq-data-security",
     "/de/en/faq-ejournals",
@@ -803,6 +828,7 @@ var CustomImportScript = (() => {
     "/de/en/hotel-offers",
     "/de/en/imprint",
     "/de/en/lh-rentalcar",
+    "/de/en/local-page/south-africa-winter-promotion",
     "/de/en/lounge-companions",
     "/de/en/lounges",
     "/de/en/lufthansa-am-flughafen-frankfurt",
@@ -858,6 +884,10 @@ var CustomImportScript = (() => {
     "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
     "/de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
     "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
     "/de/en/prepare-for-your-trip/current-travel-information",
     "/de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
     "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
@@ -866,6 +896,7 @@ var CustomImportScript = (() => {
     "/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
     "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
     "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
     "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
     "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
     "/de/en/prepare-for-your-trip/travel-classes/economy-basic",
@@ -892,6 +923,7 @@ var CustomImportScript = (() => {
     "/de/en/special-meals",
     "/de/en/special-needs",
     "/de/en/sports-baggage",
+    "/de/en/support/contact/contact-form-confirmation",
     "/de/en/support/contact/passenger-duty-united-kingdom",
     "/de/en/support/feedback-and-contact-airlines",
     "/de/en/terms-and-conditions-lh",
@@ -1001,6 +1033,7 @@ var CustomImportScript = (() => {
     "/gb/en/book-and-manage/flights/helvetic",
     "/gb/en/book-and-manage/flights/lufthansa-voucher",
     "/gb/en/book-and-manage/flights/wetlease-hub",
+    "/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
     "/gb/en/book-and-manage/pax-receipt",
     "/gb/en/book-and-manage/pax-receipt/invoices-different-countries",
     "/gb/en/book-and-manage/rebook",
@@ -1097,6 +1130,7 @@ var CustomImportScript = (() => {
     "/gb/en/hotel-offers",
     "/gb/en/imprint",
     "/gb/en/lh-rentalcar",
+    "/gb/en/local-page/ski-campaign-2026",
     "/gb/en/lounge-companions",
     "/gb/en/lounges",
     "/gb/en/lufthansa-am-flughafen-frankfurt",
@@ -1152,6 +1186,10 @@ var CustomImportScript = (() => {
     "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
     "/gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
     "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition",
+    "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
     "/gb/en/prepare-for-your-trip/current-travel-information",
     "/gb/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system",
     "/gb/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
@@ -1160,6 +1198,7 @@ var CustomImportScript = (() => {
     "/gb/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
     "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment",
     "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment",
+    "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
     "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion",
     "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment",
     "/gb/en/prepare-for-your-trip/travel-classes/economy-basic",
@@ -1186,6 +1225,7 @@ var CustomImportScript = (() => {
     "/gb/en/special-meals",
     "/gb/en/special-needs",
     "/gb/en/sports-baggage",
+    "/gb/en/support/contact/contact-form-confirmation",
     "/gb/en/support/contact/passenger-duty-united-kingdom",
     "/gb/en/support/feedback-and-contact-airlines",
     "/gb/en/terms-and-conditions-lh",
@@ -1215,42 +1255,7 @@ var CustomImportScript = (() => {
     "/gb/en/upgrade-to-premium-economy-class",
     "/gb/en/upgrades-at-online-check-in",
     "/gb/en/wheelchair-batteries",
-    "/gb/en/with-children-at-the-airport",
-    "/lhg/de/en",
-    "/lhg/de/en/dest/c/india",
-    "/lhg/de/en/dest/c/italy",
-    "/lhg/de/en/dest/c/japan",
-    "/lhg/de/en/dest/c/spain",
-    "/lhg/de/en/dest/c/united-kingdom",
-    "/lhg/de/en/dest/c/usa",
-    "/lhg/de/en/dest/co/europe",
-    "/lhg/de/en/dest/co/north-and-south-america",
-    "/lhg/de/en/dest/cy/amman",
-    "/lhg/de/en/dest/cy/barcelona",
-    "/lhg/de/en/dest/cy/lisbon",
-    "/lhg/de/en/dest/cy/london",
-    "/lhg/de/en/dest/cy/los-angeles",
-    "/lhg/de/en/dest/cy/new-york",
-    "/lhg/de/en/dest/cy/new-york/business-class",
-    "/lhg/de/en/dest/cy/palma-de-mallorca",
-    "/lhg/de/en/dest/cy/paris",
-    "/lhg/de/en/dest/cy/rome",
-    "/lhg/de/en/dest/cy/tokyo",
-    "/lhg/de/en/dest/cy/tokyo/business-class",
-    "/lhg/de/en/from/cy/berlin",
-    "/lhg/de/en/from/cy/frankfurt",
-    "/lhg/de/en/from/cy/munich",
-    "/lhg/de/en/o-d/c-c/germany-spain",
-    "/lhg/de/en/o-d/c-c/germany-usa",
-    "/lhg/de/en/o-d/cy-cy/berlin-rome",
-    "/lhg/de/en/o-d/cy-cy/frankfurt-amman",
-    "/lhg/de/en/o-d/cy-cy/frankfurt-london",
-    "/lhg/de/en/o-d/cy-cy/frankfurt-new-york",
-    "/lhg/de/en/o-d/cy-cy/frankfurt-tokyo",
-    "/lhg/de/en/o-d/cy-cy/hamburg-palma-de-mallorca",
-    "/lhg/de/en/o-d/cy-cy/munich-barcelona",
-    "/lhg/de/en/o-d/cy-cy/munich-los-angeles",
-    "/lhg/de/en/o-d/cy-cy/munich-new-york"
+    "/gb/en/with-children-at-the-airport"
   ]);
   var scope_paths_default = SCOPE_PATHS;
 
@@ -1659,7 +1664,7 @@ var CustomImportScript = (() => {
     wrapper.querySelectorAll("img").forEach((img) => img.setAttribute("src", absoluteImageUrl(img.getAttribute("src"))));
     return wrapper;
   }
-  var import_nav_default = {
+  var tmp_bundle_nav_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const locale = localeOf(params, url);
@@ -1678,5 +1683,5 @@ var CustomImportScript = (() => {
       return outputs;
     }
   };
-  return __toCommonJS(import_nav_exports);
+  return __toCommonJS(tmp_bundle_nav_exports);
 })();

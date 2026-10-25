@@ -2,7 +2,7 @@
  "https://www.lufthansa.com/de/en/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-23T05:09:21.082Z"
+  "at": "2026-10-25T05:34:57.400Z"
  },
  "https://www.lufthansa.com/de/en/baggage": {
   "template": "hub",
@@ -67,17 +67,17 @@
  "https://www.lufthansa.com/de/de/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-23T05:09:21.082Z"
+  "at": "2026-10-25T05:34:57.400Z"
  },
  "https://www.lufthansa.com/at/de/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-23T18:48:46.280Z"
+  "at": "2026-10-25T05:34:57.400Z"
  },
  "https://www.lufthansa.com/gb/en/homepage": {
   "template": "homepage",
   "status": "ok",
-  "at": "2026-10-23T05:09:21.082Z"
+  "at": "2026-10-25T05:34:57.400Z"
  },
  "https://www.lufthansa.com/de/en/additional-services": {
   "template": "hub",
@@ -1112,7 +1112,7 @@
  "https://www.lufthansa.com/de/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T05:35:15.909Z"
  },
  "https://www.lufthansa.com/de/en/100-years/fleet": {
   "template": "campaign",
@@ -2462,7 +2462,7 @@
  "https://www.lufthansa.com/de/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T05:35:15.909Z"
  },
  "https://www.lufthansa.com/de/de/100-years/fleet": {
   "template": "campaign",
@@ -3912,7 +3912,7 @@
  "https://www.lufthansa.com/at/de/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.360Z"
+  "at": "2026-10-25T05:35:15.909Z"
  },
  "https://www.lufthansa.com/at/de/100-years/fleet": {
   "template": "campaign",
@@ -5372,7 +5372,7 @@
  "https://www.lufthansa.com/gb/en/100-years/destinations": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T05:35:15.909Z"
  },
  "https://www.lufthansa.com/gb/en/100-years/fleet": {
   "template": "campaign",
