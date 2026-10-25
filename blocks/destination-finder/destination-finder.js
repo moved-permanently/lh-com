@@ -1,4 +1,5 @@
 import { getLocale } from '../../scripts/locale.js';
+import { bookInApp } from '../../scripts/app-bridge.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
   decorateExternalLinks, cleanText,
@@ -189,6 +190,8 @@ function moveCell(cell, className) {
 function renderDestination(dest, state, labels, locale, context) {
   const li = el('li', 'destination-finder-item');
   const link = el('a', 'destination-finder-link');
+  // in the app's web view the app books (DestinationFinderBookingRequest, scripts/app-bridge.js)
+  bookInApp(link, 'DestinationFinderBookingRequest');
   link.href = buildDestinationLink({
     origin: state.origin.code,
     destination: dest.code,
@@ -667,6 +670,8 @@ const SPARKLE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24
 function renderTile(offer, highlighted, view) {
   const li = el('li', 'destination-finder-tile');
   const link = el('a', 'destination-finder-tile-link');
+  // in the app's web view the app books (DestinationFinderBookingRequest, scripts/app-bridge.js)
+  bookInApp(link, 'DestinationFinderBookingRequest');
   link.href = buildDestinationLink({
     origin: view.origin,
     destination: offer.code,

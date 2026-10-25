@@ -8,6 +8,7 @@ import {
   mapConditions, mapLocaleData, formatFare, destinationImageUrl, fillLabel, htmlToParagraphs,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { bookInApp } from '../../scripts/app-bridge.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes).
@@ -244,6 +245,8 @@ function renderItem(route, labels, locale, pattern) {
 
   const link = el('a', 'fare-teaser-route');
   link.href = buildDestinationLink(route, locale, pattern);
+  // in the app's web view the app books (OfferBookingRequest, scripts/app-bridge.js)
+  bookInApp(link, 'OfferBookingRequest');
   link.append(
     el('span', 'fare-teaser-origin', route.originName || route.origin),
     el('span', 'fare-teaser-destination', route.destinationName || route.destination),

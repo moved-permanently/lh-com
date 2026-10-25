@@ -38,3 +38,7 @@ Left out (need modals, login or the visit history): "Compare cities" checkboxes,
 ## Universal Editor fields
 
 N/A (Document Authoring project)
+
+## App web view
+
+In the Lufthansa app (the `groupapp` bridge, `scripts/app-bridge.js`), a click on a destination posts `DestinationFinderBookingRequest` (`{type, targetURL, parameters: [{key, values}], newWindow, methodGet}`, from the link) to the app instead of navigating; in a browser the link works as before. The fare alert is not built (see above); `requestFareAlertLogin()` in `scripts/app-bridge.js` sends `FareAlertLoginRequest` the way www does (only on `.solo_continue` pages) for when it is.

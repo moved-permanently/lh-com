@@ -15,3 +15,7 @@ No variations.
 ## Universal Editor fields
 
 N/A (Document Authoring project)
+
+## App web view
+
+In the Lufthansa app (the `groupapp` bridge, `scripts/app-bridge.js`), a click on an offer posts `OfferBookingRequest` (`{type, targetURL, parameters: [{key, values}], newWindow, methodGet}`, from the link) to the app instead of navigating; in a browser the link works as before.
