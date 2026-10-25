@@ -1,0 +1,47 @@
+{
+    "activitycontinuation": {
+        "apps": [
+            "793MA3Z98K.com.lufthansa.launcher",
+	        "793MA3Z98K.com.lufthansa.groupapp.test",
+            "793MA3Z98K.pl.lhsystems.GroupAppLHLufthansa"
+        ]
+    },
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "793MA3Z98K.com.lufthansa.launcher",
+                "paths": [
+                    "/??/??/oauthLogin*",
+                    "/deeplink/partner/app",
+                    "/deeplink/partner/myflights/cki",
+                    "/deeplink/partner/myflights/mmb",
+                    "/??/??/book-and-manage/destination",
+                    "/??/??/book-and-manage/offers-and-destination"
+                ]
+            },
+            {
+                "appID": "793MA3Z98K.com.lufthansa.groupapp.test",
+                "paths": [
+                    "/??/??/oauthLogin*",
+                    "/deeplink/partner/app",
+                    "/deeplink/partner/myflights/cki",
+                    "/deeplink/partner/myflights/mmb",
+                    "/??/??/book-and-manage/destination",
+                    "/??/??/book-and-manage/offers-and-destination"
+                ]
+            },
+            {
+                "appID": "793MA3Z98K.pl.lhsystems.GroupAppLHLufthansa",
+                "paths": [
+                    "/??/??/oauthLogin*",
+                    "/deeplink/partner/app",
+                    "/deeplink/partner/myflights/cki",
+                    "/deeplink/partner/myflights/mmb",
+                    "/??/??/book-and-manage/destination",
+                    "/??/??/book-and-manage/offers-and-destination"
+                ]
+            }
+        ]
+    }
+}

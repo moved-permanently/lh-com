@@ -1,0 +1,97 @@
+locale,app-path,page,note
+de/en,/de/en/book-and-manage/timetable-and-flight-status/flight-disruptions,/de/en/flight-disruptions,www canonical
+de/de,/de/de/book-and-manage/timetable-and-flight-status/flight-disruptions,/de/de/flugunregelmaessigkeiten,www canonical
+at/de,/at/de/book-and-manage/timetable-and-flight-status/flight-disruptions,/at/de/flugunregelmaessigkeiten,www canonical
+gb/en,/gb/en/book-and-manage/timetable-and-flight-status/flight-disruptions,/gb/en/flight-disruptions,www canonical
+de/en,/de/en/book-and-manage/good-for-train,/de/en/good-for-train,www canonical
+de/de,/de/de/book-and-manage/good-for-train,/de/de/good-for-train,www canonical
+at/de,/at/de/book-and-manage/good-for-train,/at/de/good-for-train,www canonical
+gb/en,/gb/en/book-and-manage/good-for-train,/gb/en/good-for-train,www canonical
+de/en,/de/en/prepare-for-your-trip/check-in,/de/en/online-check-in,www canonical
+de/de,/de/de/prepare-for-your-trip/check-in,/de/de/online-check-in,www canonical
+at/de,/at/de/prepare-for-your-trip/check-in,/at/de/online-check-in,www canonical
+gb/en,/gb/en/prepare-for-your-trip/check-in,/gb/en/online-check-in,www canonical
+de/de,/de/de/airport-information,/de/de/flughafeninformation,404 on www; German counterpart in the replica
+at/de,/at/de/airport-information,/at/de/flughafeninformation,404 on www; German counterpart in the replica
+de/en,/de/en/prepare-for-your-trip/special-travel-needs,/de/en/travelling-with-special-requirements,www canonical
+de/de,/de/de/prepare-for-your-trip/special-travel-needs,/de/de/reisen-mit-besonderen-anforderungen,www canonical
+at/de,/at/de/prepare-for-your-trip/special-travel-needs,/at/de/reisen-mit-besonderen-anforderungen,www canonical
+gb/en,/gb/en/prepare-for-your-trip/special-travel-needs,/gb/en/travelling-with-special-requirements,www canonical
+de/de,/de/de/lufthansa-travel-classes,/de/de/lufthansa-reiseklassen,404 on www; German counterpart in the replica
+at/de,/at/de/lufthansa-travel-classes,/at/de/lufthansa-reiseklassen,404 on www; German counterpart in the replica
+de/en,/de/en/during-your-trip/lounges,/de/en/lounges,www canonical
+de/de,/de/de/during-your-trip/lounges,/de/de/lounges,www canonical
+at/de,/at/de/during-your-trip/lounges,/at/de/lounges,www canonical
+gb/en,/gb/en/during-your-trip/lounges,/gb/en/lounges,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage/travelling-with-animals,/de/en/travelling-with-animals,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage/travelling-with-animals,/de/de/travelling-with-animals,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage/travelling-with-animals,/at/de/travelling-with-animals,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage/travelling-with-animals,/gb/en/travelling-with-animals,www canonical
+de/en,/de/en/common/terms-and-conditions,/de/en/terms-of-service-group,www canonical
+de/de,/de/de/common/terms-and-conditions,/de/de/befoerderungsbedingungen-group,www canonical
+at/de,/at/de/common/terms-and-conditions,/at/de/befoerderungsbedingungen-group,www canonical
+gb/en,/gb/en/common/terms-and-conditions,/gb/en/terms-of-service-group,www canonical
+de/en,/de/en/common/passenger-rights,/de/en/passenger-rights,www canonical
+de/de,/de/de/common/passenger-rights,/de/de/passenger-rights,www canonical
+at/de,/at/de/common/passenger-rights,/at/de/passenger-rights,www canonical
+gb/en,/gb/en/common/passenger-rights,/gb/en/passenger-rights,www canonical
+de/en,/de/en/common/privacy-statement,/de/en/datenschutz,www canonical
+de/de,/de/de/common/privacy-statement,/de/de/datenschutz,www canonical
+at/de,/at/de/common/privacy-statement,/at/de/datenschutz,www canonical
+gb/en,/gb/en/common/privacy-statement,/gb/en/datenschutz,www canonical
+de/en,/de/en/common/terms-of-use,/de/en/terms-of-use,www canonical
+de/de,/de/de/common/terms-of-use,/de/de/nutzungsbedingungen,www canonical
+at/de,/at/de/common/terms-of-use,/at/de/nutzungsbedingungen,www canonical
+gb/en,/gb/en/common/terms-of-use,/gb/en/terms-of-use,www canonical
+de/de,/de/de/terms-of-service-group,/de/de/befoerderungsbedingungen-group,404 on www; German counterpart in the replica
+at/de,/at/de/terms-of-service-group,/at/de/befoerderungsbedingungen-group,404 on www; German counterpart in the replica
+de/de,/de/de/upgrade-info,/de/de/upgrade-informationen,404 on www; German counterpart in the replica
+at/de,/at/de/upgrade-info,/at/de/upgrade-informationen,404 on www; German counterpart in the replica
+de/de,/de/de/advance-seat-reservations-terms-and-conditions,/de/de/sitzplatzreservierungen-konditionen,404 on www; German counterpart in the replica
+at/de,/at/de/advance-seat-reservations-terms-and-conditions,/at/de/sitzplatzreservierungen-konditionen,404 on www; German counterpart in the replica
+de/en,/de/en/common/seatreservation-condtions,/de/en/advance-seat-reservations-terms-and-conditions,www canonical
+de/de,/de/de/common/seatreservation-condtions,/de/de/sitzplatzreservierungen-konditionen,www canonical
+at/de,/at/de/common/seatreservation-condtions,/at/de/sitzplatzreservierungen-konditionen,www canonical
+gb/en,/gb/en/common/seatreservation-condtions,/gb/en/advance-seat-reservations-terms-and-conditions,www canonical
+de/en,/de/en/book-and-manage/advance-seat-reservation,/de/en/advance-seat-reservation,www canonical
+de/de,/de/de/book-and-manage/advance-seat-reservation,/de/de/advance-seat-reservation,www canonical
+at/de,/at/de/book-and-manage/advance-seat-reservation,/at/de/advance-seat-reservation,www canonical
+gb/en,/gb/en/book-and-manage/advance-seat-reservation,/gb/en/advance-seat-reservation,www canonical
+de/en,/de/en/prepare-for-your-trip/travel-classes/upgrade-options,/de/en/upgrade-options,www canonical
+de/de,/de/de/prepare-for-your-trip/travel-classes/upgrade-options,/de/de/upgrademoeglichkeiten,www canonical
+at/de,/at/de/prepare-for-your-trip/travel-classes/upgrade-options,/at/de/upgrademoeglichkeiten,www canonical
+gb/en,/gb/en/prepare-for-your-trip/travel-classes/upgrade-options,/gb/en/upgrade-options,www canonical
+de/en,/de/en/book-and-manage/additional-services,/de/en/additional-services,www canonical
+de/de,/de/de/book-and-manage/additional-services,/de/de/additional-services,www canonical
+at/de,/at/de/book-and-manage/additional-services,/at/de/additional-services,www canonical
+gb/en,/gb/en/book-and-manage/additional-services,/gb/en/additional-services,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage/carry-on-baggage,/de/en/carry-on-baggage,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage/carry-on-baggage,/de/de/handgepaeck,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage/carry-on-baggage,/at/de/handgepaeck,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage/carry-on-baggage,/gb/en/carry-on-baggage,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage/baggage-irregularities,/de/en/baggage-irregularities,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage/baggage-irregularities,/de/de/baggage-irregularities,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage/baggage-irregularities,/at/de/baggage-irregularities,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage/baggage-irregularities,/gb/en/baggage-irregularities,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage/excess-baggage,/de/en/uebergepaeck,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage/excess-baggage,/de/de/uebergepaeck,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage/excess-baggage,/at/de/uebergepaeck,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage/excess-baggage,/gb/en/uebergepaeck,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage/digital-baggage-services,/de/en/digital-baggage-services,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage/digital-baggage-services,/de/de/digitale-gepaeckservices,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage/digital-baggage-services,/at/de/digitale-gepaeckservices,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage/digital-baggage-services,/gb/en/digital-baggage-services,www canonical
+de/en,/de/en/prepare-for-your-trip/baggage,/de/en/baggage,www canonical
+de/de,/de/de/prepare-for-your-trip/baggage,/de/de/gepaeck,www canonical
+at/de,/at/de/prepare-for-your-trip/baggage,/at/de/gepaeck,www canonical
+gb/en,/gb/en/prepare-for-your-trip/baggage,/gb/en/baggage,www canonical
+de/en,/de/en/during-your-trip/lounges/admission-rules,/de/en/admission-rules,www canonical
+de/de,/de/de/during-your-trip/lounges/admission-rules,/de/de/admission-rules,www canonical
+at/de,/at/de/during-your-trip/lounges/admission-rules,/at/de/admission-rules,www canonical
+gb/en,/gb/en/during-your-trip/lounges/admission-rules,/gb/en/admission-rules,www canonical
+de/en,/de/en/book-and-manage/offers-and-destination,/de/en/flights,www canonical
+de/de,/de/de/book-and-manage/offers-and-destination,/de/de/fluege,www canonical
+at/de,/at/de/book-and-manage/offers-and-destination,/at/de/fluege,www canonical
+gb/en,/gb/en/book-and-manage/offers-and-destination,/gb/en/flights,www canonical
+us/en,/us/en/local-page/dnsmpi,/us/en/dnsmpi,www canonical; market-only page
+us/en,/us/en/local-page/ccpa,/us/en/ccpa,www canonical; market-only page

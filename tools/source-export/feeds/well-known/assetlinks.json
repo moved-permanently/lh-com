@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lufthansa.android.lufthansa",
+      "sha256_cert_fingerprints": [
+        "9A:CE:D4:DA:91:CF:32:92:F6:27:E5:17:4E:9B:8E:41:ED:AA:12:BE:E6:58:3F:EF:99:01:F1:EC:96:F3:1D:E4",
+        "AF:75:72:3A:86:9D:50:C9:20:04:D8:B2:D5:74:46:48:DE:70:14:CA:D8:33:38:86:8E:5F:4C:AA:0B:B8:A8:8E"
+      ]
+    }
+  }
+]

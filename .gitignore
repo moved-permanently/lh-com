@@ -15,6 +15,7 @@ helix-importer-ui
 # raw scrapes from www.lufthansa.com (large, re-fetchable)
 tools/source-export/*
 !tools/source-export/har/
+!tools/source-export/feeds/
 tools/importer/bd-snapshots/
 # parity screenshots and diffs (GBs, reproducible); state/progress.json stays tracked
 tools/reports/parity/shots/
