@@ -102,7 +102,7 @@ function strip(messages, labels, ctiRows, locale) {
   region.setAttribute('role', 'region');
   region.setAttribute('aria-roledescription', 'carousel');
   region.setAttribute('aria-label', labels.title);
-  const container = el('div', 'flash-teaser-container');
+  const container = el('div', 'flash-teaser-bar');
   const slides = el('div', 'flash-teaser-slides');
   // WAI carousel: no announcements while it rotates by itself, polite when the visitor moves it
   slides.setAttribute('aria-live', messages.length > 1 ? 'off' : 'polite');

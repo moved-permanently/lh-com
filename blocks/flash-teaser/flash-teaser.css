@@ -36,7 +36,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 /* .flash-teaser-container { padding: 0 1.8rem 0 1.4rem; justify-content: space-between } */
-.flash-teaser-container {
+.flash-teaser-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,7 +84,8 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 }
 
 /* maui-link variant custom: LufthansaText 14px/18px bold, 5px from the 16px icon */
-.flash-teaser-link {
+.flash-teaser .flash-teaser-link,
+.flash-teaser .flash-teaser-link:any-link {
   display: inline-flex;
   align-items: flex-start;
   gap: 5px;
@@ -97,7 +98,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
   text-decoration: none;
 }
 
-.flash-teaser-link:focus-visible {
+.flash-teaser .flash-teaser-link:focus-visible {
   outline: 2px solid var(--focus-color, #05164d);
   outline-offset: 2px;
 }
@@ -124,7 +125,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
   line-clamp: 4;
 }
 
-.flash-teaser-link:any-link:hover .flash-teaser-text {
+.flash-teaser .flash-teaser-link:any-link:hover .flash-teaser-text {
   text-decoration: underline;
 }
 
@@ -192,7 +193,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
 
 @media (width >= 768px) {
   /* .blinds-wrapper { padding: 1.3rem 0 } around one 18px line */
-  .flash-teaser-container {
+  .flash-teaser-bar {
     height: 44px;
   }
 
