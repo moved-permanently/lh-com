@@ -114,8 +114,10 @@ export default async function decorate(block) {
   main.innerHTML = await resp.text();
   const sections = [...main.querySelectorAll(':scope > div')];
   const promotions = sections.map((section) => {
+    // the Edge Delivery pipeline turns Section Metadata into data attributes of the section
+    // (data-promotion, data-start, data-end); the local dev server keeps the table
     const meta = section.querySelector(':scope > .section-metadata');
-    const config = meta ? readBlockConfig(meta) : {};
+    const config = meta ? readBlockConfig(meta) : { ...section.dataset };
     return {
       section,
       name: config.promotion || config.name || '',
@@ -132,6 +134,12 @@ export default async function decorate(block) {
 
   // only the active promotion is decorated, so the others load no images
   sections.forEach((s, i) => { if (i !== index) s.remove(); });
+  // media of the document are relative to it (./media_…), as in fragment.js
+  [['img', 'src'], ['source', 'srcset']].forEach(([tag, attr]) => {
+    main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
+      elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
+    });
+  });
   decorateMain(main);
   await loadSections(main);
   const chosen = main.querySelector(':scope > .section');
