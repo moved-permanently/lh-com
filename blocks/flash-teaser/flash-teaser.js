@@ -157,7 +157,11 @@ function strip(messages, labels, ctiRows, locale) {
   let lbl = labels;
   const updatePager = () => { pager.textContent = `${current + 1} / ${messages.length}`; };
   const go = (i, announce) => {
+    // the focused slide is hidden by the change: focus moves to the link of the new one (keys
+    // keep working; the buttons keep their own focus)
+    const slideFocused = slides.contains(document.activeElement);
     show((i + messages.length) % messages.length);
+    if (slideFocused) items[current].querySelector('a')?.focus({ preventScroll: true });
     updatePager();
     if (announce) {
       const msg = items[current].textContent.trim();
