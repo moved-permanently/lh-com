@@ -66,6 +66,14 @@ recorded 2026-10-25 07:30-07:37 UTC (`Cache-Control: max-age=300, public`). `owa
 `GET /service/secured/api/core/booking/bookinglist` (204, empty body). All `private, no-cache, no-store,
 must-revalidate`. Recorded 2026-10-25 21:40 UTC; `booking/index.json` lists request headers and status.
 
+## Favicon and web app manifest, `favicon/`
+
+www's icons under the same paths as on www (`favicon/etc/designs/dcep/...`), byte for byte, recorded 2026-10-25 22:48 UTC.
+Every www page has `<link rel="manifest" href="/etc/designs/dcep/manifest.json">` and
+`<link rel="shortcut icon" href="/etc/designs/dcep/favicon.ico" type="image/ico">`. `favicon.ico` (32,988 bytes, 4 sizes
+up to 64x64) has `cache-control: public, max-age=2592000`; `/favicon.ico` answers 301 to `/etc/designs/dcep/favicon.ico`.
+The manifest (723 bytes) lists `clientlib-all/img/icon_{192x192,32x32,16x16}.png` (8,182, 1,003 and 450 bytes).
+
 ## DAM assets to copy, `dam/dam-assets.csv`
 
 1,573 asset paths as www has them (`/content/dam/...`, decoded: spaces, apostrophes and capitals as on www),
