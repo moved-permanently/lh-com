@@ -1,15 +1,15 @@
 # Visual parity report
 
-Generated 2026-10-25T01:58:54.372Z. Live: www.lufthansa.com screenshots (tools/source-export/pages, faithful captures from 2026-10-21T18:46Z on, cookie dialog dismissed). Replica: https://main--lh-com--moved-permanently.aem.page, consent stored as "necessary only" before load. 2683 of 2683 page-widths compared.
+Generated 2026-10-25T04:24:28.171Z. Live: www.lufthansa.com screenshots (tools/source-export/pages, faithful captures from 2026-10-21T18:46Z on, cookie dialog dismissed). Replica: https://main--lh-com--moved-permanently.aem.page, consent stored as "necessary only" before load. 2773 of 2773 page-widths compared.
 
 ## Summary
 
 | Locale | Pages | pass | review | fail | pending | error |
 |---|---:|---:|---:|---:|---:|---:|
-| de/en | 328 | 6 | 136 | 186 | 0 | 0 |
-| de/de | 328 | 1 | 142 | 185 | 0 | 0 |
-| at/de | 312 | 60 | 153 | 99 | 0 | 0 |
-| gb/en | 311 | 73 | 137 | 101 | 0 | 0 |
+| de/en | 335 | 6 | 143 | 186 | 0 | 0 |
+| de/de | 336 | 1 | 149 | 186 | 0 | 0 |
+| at/de | 320 | 60 | 161 | 99 | 0 | 0 |
+| gb/en | 318 | 73 | 143 | 102 | 0 | 0 |
 
 Status: **pass** = unmasked mismatch <= 8.0% at every width, no horizontal overflow, no failed images; **review** = worst width <= 20.0%; **fail** = worse; **pending** = not every width compared yet (the provisional status of the compared widths is given in brackets); **error** = a capture or compare gave up after a retry.
 
@@ -41,19 +41,19 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
 | hub | 390 | 38 | 23.1% | 24.4% | 35.3% |
 | hub | 1440 | 68 | 22.3% | 22.7% | 43.2% |
 | aircore-destination-overview | 1440 | 35 | 19.9% | 21.5% | 27.8% |
-| info | 768 | 342 | 19.4% | 14.6% | 65.5% |
 | homepage | 390 | 4 | 19.1% | 18.5% | 22.3% |
+| info | 768 | 372 | 18.9% | 14.0% | 65.5% |
 | aircore-route | 390 | 23 | 18.5% | 18.2% | 26.7% |
 | fleet | 390 | 20 | 18.2% | 16.5% | 37.4% |
-| info | 390 | 342 | 18.2% | 16.2% | 49.3% |
 | form | 390 | 23 | 18.1% | 17.9% | 31.2% |
+| info | 390 | 372 | 18.0% | 15.7% | 49.3% |
 | legal | 390 | 62 | 17.5% | 16.3% | 54.0% |
 | app-entry | 390 | 16 | 17.0% | 14.0% | 36.6% |
 | fleet | 1440 | 32 | 17.0% | 12.1% | 42.4% |
 | form | 768 | 23 | 16.7% | 11.2% | 42.3% |
 | legal | 768 | 62 | 16.0% | 15.1% | 32.6% |
 | app-entry | 768 | 16 | 13.7% | 10.5% | 42.5% |
-| info | 1440 | 676 | 13.4% | 10.4% | 47.0% |
+| info | 1440 | 706 | 13.4% | 10.7% | 47.0% |
 | form | 1440 | 36 | 13.2% | 13.4% | 31.0% |
 | legal | 1440 | 116 | 12.7% | 9.9% | 35.0% |
 | flight-status | 390 | 4 | 12.0% | 12.7% | 12.8% |
@@ -791,6 +791,21 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
 | /lhg/de/de/o-d/cy-cy/frankfurt-amman | aircore-route | fail | 33.5% | 31.5% | 22.7% | 1440: y≈4000, 768: y≈600, 390: y≈6000 |  |  |
 | /lhg/de/de/o-d/cy-cy/muenchen-new-york | aircore-route | fail | 30.1% | 26.8% | 14.9% | 1440: y≈4600, 768: y≈600, 390: y≈7200 |  |  |
 | /lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca | aircore-route | fail | 27.8% | 38.5% | 24.7% | 1440: y≈3800, 768: y≈600, 390: y≈5600 |  |  |
+| /de/de/book-and-manage/cancellation-and-refund/refund/confirmation | info | review | 10.6% | 12.8% | 14.0% |  |  |  |
+| /de/de/book-and-manage/passenger-receipt-90days/confirmation | info | review | 12.1% | 13.8% | 14.1% | 1440: y≈1000 |  |  |
+| /de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | info | review | 11.7% | 13.6% | 14.5% | 768: y≈600 |  |  |
+| /de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | info | review | 10.7% | 12.6% | 14.4% | 768: y≈800 |  |  |
+| /de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | info | review | 11.7% | 13.3% | 14.5% | 768: y≈600 |  |  |
+| /de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | info | review | 11.7% | 13.3% | 14.5% | 768: y≈600 |  |  |
+| /de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | info | review | 12.2% | 14.0% | 14.6% | 768: y≈400 |  |  |
+| /de/de/support/contact/contact-form-confirmation | info | fail | 20.8% | 28.8% | 37.7% | 1440: y≈400, 768: y≈0, 390: y≈0 |  |  |
+| /de/en/book-and-manage/passenger-receipt-90days/confirmation | info | review | 12.1% | 14.4% | 14.6% | 1440: y≈1000, 768: y≈1000 |  |  |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | info | review | 11.8% | 10.8% | 14.7% |  |  |  |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | info | review | 10.5% | 10.4% | 14.2% |  |  |  |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | info | review | 11.7% | 10.9% | 14.5% |  |  |  |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | info | review | 11.7% | 10.9% | 14.5% |  |  |  |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | info | review | 12.4% | 14.9% | 15.1% | 768: y≈400 |  |  |
+| /de/en/support/contact/contact-form-confirmation | info | review | 11.6% | 13.9% | 12.8% |  |  |  |
 | /at/de/gepaeck | hub | review | 13.4% | – | – | 1440: y≈2800 |  |  |
 | /at/de/digital-self-services | hub | fail | 28.7% | – | – | 1440: y≈2800 |  |  |
 | /at/de/fluege | hub | pass | 6.2% | – | – | 1440: y≈4200 |  |  |
@@ -1369,6 +1384,21 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
 | /lhg/gb/en/dest/cy/palma-de-mallorca | aircore-destination | fail | 24.6% | – | – | 1440: y≈5200 |  |  |
 | /lhg/at/de/dest/cy/lissabon | aircore-destination | fail | 30.9% | – | – | 1440: y≈4000 |  |  |
 | /lhg/gb/en/dest/cy/lisbon | aircore-destination | fail | 30.4% | – | – | 1440: y≈4000 |  |  |
+| /at/de/book-and-manage/cancellation-and-refund/refund/confirmation | info | review | 10.6% | 12.8% | 14.0% |  |  |  |
+| /at/de/book-and-manage/passenger-receipt-90days/confirmation | info | review | 12.1% | 13.8% | 14.0% | 1440: y≈1000 |  |  |
+| /at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | info | review | 11.7% | 13.6% | 14.4% | 768: y≈600 |  |  |
+| /at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | info | review | 10.7% | 12.5% | 14.5% | 768: y≈800 |  |  |
+| /at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | info | review | 11.7% | 13.3% | 14.5% | 768: y≈600 |  |  |
+| /at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | info | review | 11.7% | 13.3% | 14.5% | 768: y≈600 |  |  |
+| /at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | info | review | 12.2% | 13.9% | 14.5% | 768: y≈400 |  |  |
+| /at/de/support/contact/contact-form-confirmation | info | review | 11.5% | 13.1% | 14.0% |  |  |  |
+| /gb/en/book-and-manage/passenger-receipt-90days/confirmation | info | review | 12.0% | 14.5% | 14.3% | 1440: y≈1000, 768: y≈1000 |  |  |
+| /gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | info | review | 11.7% | 10.8% | 14.7% |  |  |  |
+| /gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | info | review | 10.5% | 10.4% | 14.2% |  |  |  |
+| /gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | info | review | 11.7% | 10.9% | 14.5% |  |  |  |
+| /gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | info | review | 11.7% | 11.0% | 14.5% |  |  |  |
+| /gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | info | review | 12.3% | 14.9% | 15.1% | 768: y≈400 |  |  |
+| /gb/en/support/contact/contact-form-confirmation | info | fail | 20.6% | 30.4% | 39.3% | 1440: y≈400, 768: y≈0, 390: y≈0 |  |  |
 
 ## Details
 
@@ -12761,6 +12791,18 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
   - layout diverges at y≈5600 px at 390
 - Diffs: tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca/1440-diff.png, tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca/768-diff.png, tools/reports/parity/shots/lhg/de/de/o-d/cy-cy/hamburg-palma-de-mallorca/390-diff.png
 
+### /de/de/support/contact/contact-form-confirmation (info): fail
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 20.8% / 20.8%, 768: 28.8% / 28.8%, 390: 37.7% / 37.7%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈400 px at 1440; replica 48 px taller (4.0%)
+  - layout diverges at y≈0 px at 768
+  - layout diverges at y≈0 px at 390
+- Diffs: tools/reports/parity/shots/de/de/support/contact/contact-form-confirmation/1440-diff.png, tools/reports/parity/shots/de/de/support/contact/contact-form-confirmation/768-diff.png, tools/reports/parity/shots/de/de/support/contact/contact-form-confirmation/390-diff.png
+
 ### /at/de/digital-self-services (hub): fail
 
 - Widths checked: 1440 (1425 px layout)
@@ -17467,6 +17509,18 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
 - What remains:
   - layout diverges at y≈4000 px at 1440; replica 811 px taller (14.7%)
 - Diffs: tools/reports/parity/shots/lhg/gb/en/dest/cy/lisbon/1440-diff.png
+
+### /gb/en/support/contact/contact-form-confirmation (info): fail
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 20.6% / 20.6%, 768: 30.4% / 30.4%, 390: 39.3% / 39.3%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈400 px at 1440; replica 48 px taller (4.0%)
+  - layout diverges at y≈0 px at 768
+  - layout diverges at y≈0 px at 390
+- Diffs: tools/reports/parity/shots/gb/en/support/contact/contact-form-confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/support/contact/contact-form-confirmation/768-diff.png, tools/reports/parity/shots/gb/en/support/contact/contact-form-confirmation/390-diff.png
 
 ### /de/en/baggage (hub): review
 
@@ -24184,6 +24238,186 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
   - layout diverges at y≈600 px at 768
   - layout diverges at y≈2200 px at 390
 - Diffs: tools/reports/parity/shots/lhg/de/de/dest/cy/tokio/business-class/1440-diff.png, tools/reports/parity/shots/lhg/de/de/dest/cy/tokio/business-class/768-diff.png, tools/reports/parity/shots/lhg/de/de/dest/cy/tokio/business-class/390-diff.png
+
+### /de/de/book-and-manage/cancellation-and-refund/refund/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.6% / 10.6%, 768: 12.8% / 12.8%, 390: 14.0% / 14.0%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.6% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 49 px taller (3.3%)
+  - 12.8% of unmasked pixels differ at 768, most around y≈1400 px
+  - 14.0% of unmasked pixels differ at 390, most around y≈1600 px
+- Diffs: tools/reports/parity/shots/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/768-diff.png, tools/reports/parity/shots/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/390-diff.png
+
+### /de/de/book-and-manage/passenger-receipt-90days/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.1% / 12.1%, 768: 13.8% / 13.8%, 390: 14.1% / 14.1%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈1000 px at 1440; replica 49 px taller (4.2%)
+  - 13.8% of unmasked pixels differ at 768, most around y≈400 px
+  - 14.1% of unmasked pixels differ at 390, most around y≈1200 px
+- Diffs: tools/reports/parity/shots/de/de/book-and-manage/passenger-receipt-90days/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/book-and-manage/passenger-receipt-90days/confirmation/768-diff.png, tools/reports/parity/shots/de/de/book-and-manage/passenger-receipt-90days/confirmation/390-diff.png
+
+### /de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.6% / 13.6%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.8%)
+  - layout diverges at y≈600 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈800 px
+- Diffs: tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/768-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/390-diff.png
+
+### /de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.7% / 10.7%, 768: 12.6% / 12.6%, 390: 14.4% / 14.4%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.7% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 50 px taller (3.3%)
+  - layout diverges at y≈800 px at 768
+  - 14.4% of unmasked pixels differ at 390, most around y≈1600 px
+- Diffs: tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/768-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/390-diff.png
+
+### /de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.3% / 13.3%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - layout diverges at y≈600 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/768-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/390-diff.png
+
+### /de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.3% / 13.3%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - layout diverges at y≈600 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/768-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/390-diff.png
+
+### /de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.2% / 12.2%, 768: 14.0% / 14.0%, 390: 14.6% / 14.6%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 12.2% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.3%)
+  - layout diverges at y≈400 px at 768
+  - 14.6% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/1440-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/768-diff.png, tools/reports/parity/shots/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/390-diff.png
+
+### /de/en/book-and-manage/passenger-receipt-90days/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.1% / 12.1%, 768: 14.4% / 14.4%, 390: 14.6% / 14.6%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈1000 px at 1440; replica 49 px taller (4.2%)
+  - layout diverges at y≈1000 px at 768
+  - 14.6% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/de/en/book-and-manage/passenger-receipt-90days/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/book-and-manage/passenger-receipt-90days/confirmation/768-diff.png, tools/reports/parity/shots/de/en/book-and-manage/passenger-receipt-90days/confirmation/390-diff.png
+
+### /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.8% / 11.8%, 768: 10.8% / 10.8%, 390: 14.7% / 14.7%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.8% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 10.8% of unmasked pixels differ at 768, most around y≈1200 px
+  - 14.7% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/768-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/390-diff.png
+
+### /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.5% / 10.5%, 768: 10.4% / 10.4%, 390: 14.2% / 14.2%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.5% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 50 px taller (3.3%)
+  - 10.4% of unmasked pixels differ at 768, most around y≈1400 px
+  - 14.2% of unmasked pixels differ at 390, most around y≈1000 px
+- Diffs: tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/768-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/390-diff.png
+
+### /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 10.9% / 10.9%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 10.9% of unmasked pixels differ at 768, most around y≈1000 px
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/768-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/390-diff.png
+
+### /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 10.9% / 10.9%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 10.9% of unmasked pixels differ at 768, most around y≈1000 px
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/768-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/390-diff.png
+
+### /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.4% / 12.4%, 768: 14.9% / 14.9%, 390: 15.1% / 15.1%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 12.4% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.3%)
+  - layout diverges at y≈400 px at 768
+  - 15.1% of unmasked pixels differ at 390, most around y≈1000 px
+- Diffs: tools/reports/parity/shots/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/1440-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/768-diff.png, tools/reports/parity/shots/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/390-diff.png
+
+### /de/en/support/contact/contact-form-confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.6% / 11.6%, 768: 13.9% / 13.9%, 390: 12.8% / 12.8%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.6% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.0%)
+  - 13.9% of unmasked pixels differ at 768, most around y≈1000 px
+  - 12.8% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/de/en/support/contact/contact-form-confirmation/1440-diff.png, tools/reports/parity/shots/de/en/support/contact/contact-form-confirmation/768-diff.png, tools/reports/parity/shots/de/en/support/contact/contact-form-confirmation/390-diff.png
 
 ### /at/de/gepaeck (hub): review
 
@@ -30939,6 +31173,186 @@ Unmasked mismatch per template and width over the compared page-widths, worst me
 - What remains:
   - 8.4% of unmasked pixels differ at 1440, most around y≈6600 px
 - Diffs: tools/reports/parity/shots/lhg/gb/en/dest/c/usa/1440-diff.png
+
+### /at/de/book-and-manage/cancellation-and-refund/refund/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.6% / 10.6%, 768: 12.8% / 12.8%, 390: 14.0% / 14.0%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.6% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 49 px taller (3.3%)
+  - 12.8% of unmasked pixels differ at 768, most around y≈1400 px
+  - 14.0% of unmasked pixels differ at 390, most around y≈1600 px
+- Diffs: tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/768-diff.png, tools/reports/parity/shots/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/390-diff.png
+
+### /at/de/book-and-manage/passenger-receipt-90days/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.1% / 12.1%, 768: 13.8% / 13.8%, 390: 14.0% / 14.0%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈1000 px at 1440; replica 49 px taller (4.2%)
+  - 13.8% of unmasked pixels differ at 768, most around y≈400 px
+  - 14.0% of unmasked pixels differ at 390, most around y≈1200 px
+- Diffs: tools/reports/parity/shots/at/de/book-and-manage/passenger-receipt-90days/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/book-and-manage/passenger-receipt-90days/confirmation/768-diff.png, tools/reports/parity/shots/at/de/book-and-manage/passenger-receipt-90days/confirmation/390-diff.png
+
+### /at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.6% / 13.6%, 390: 14.4% / 14.4%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.8%)
+  - layout diverges at y≈600 px at 768
+  - 14.4% of unmasked pixels differ at 390, most around y≈800 px
+- Diffs: tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/768-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/390-diff.png
+
+### /at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.7% / 10.7%, 768: 12.5% / 12.5%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.7% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 50 px taller (3.3%)
+  - layout diverges at y≈800 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈1600 px
+- Diffs: tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/768-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/390-diff.png
+
+### /at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.3% / 13.3%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - layout diverges at y≈600 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/768-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/390-diff.png
+
+### /at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 13.3% / 13.3%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - layout diverges at y≈600 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/768-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/390-diff.png
+
+### /at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.2% / 12.2%, 768: 13.9% / 13.9%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 12.2% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.3%)
+  - layout diverges at y≈400 px at 768
+  - 14.5% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/1440-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/768-diff.png, tools/reports/parity/shots/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/390-diff.png
+
+### /at/de/support/contact/contact-form-confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.5% / 11.5%, 768: 13.1% / 13.1%, 390: 14.0% / 14.0%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.5% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.0%)
+  - 13.1% of unmasked pixels differ at 768, most around y≈1000 px
+  - 14.0% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/at/de/support/contact/contact-form-confirmation/1440-diff.png, tools/reports/parity/shots/at/de/support/contact/contact-form-confirmation/768-diff.png, tools/reports/parity/shots/at/de/support/contact/contact-form-confirmation/390-diff.png
+
+### /gb/en/book-and-manage/passenger-receipt-90days/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.0% / 12.0%, 768: 14.5% / 14.5%, 390: 14.3% / 14.3%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - layout diverges at y≈1000 px at 1440; replica 49 px taller (4.2%)
+  - layout diverges at y≈1000 px at 768
+  - 14.3% of unmasked pixels differ at 390, most around y≈400 px
+- Diffs: tools/reports/parity/shots/gb/en/book-and-manage/passenger-receipt-90days/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/book-and-manage/passenger-receipt-90days/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/book-and-manage/passenger-receipt-90days/confirmation/390-diff.png
+
+### /gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 10.8% / 10.8%, 390: 14.7% / 14.7%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 10.8% of unmasked pixels differ at 768, most around y≈1200 px
+  - 14.7% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/390-diff.png
+
+### /gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 10.5% / 10.5%, 768: 10.4% / 10.4%, 390: 14.2% / 14.2%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 10.5% of unmasked pixels differ at 1440, most around y≈1400 px
+  - page height at 1440: replica 50 px taller (3.3%)
+  - 10.4% of unmasked pixels differ at 768, most around y≈1400 px
+  - 14.2% of unmasked pixels differ at 390, most around y≈1000 px
+- Diffs: tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/390-diff.png
+
+### /gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 10.9% / 10.9%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 10.9% of unmasked pixels differ at 768, most around y≈1000 px
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/390-diff.png
+
+### /gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 11.7% / 11.7%, 768: 11.0% / 11.0%, 390: 14.5% / 14.5%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 11.7% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 49 px taller (3.9%)
+  - 11.0% of unmasked pixels differ at 768, most around y≈1000 px
+  - 14.5% of unmasked pixels differ at 390, most around y≈1400 px
+- Diffs: tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/390-diff.png
+
+### /gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation (info): review
+
+- Widths checked: 1440 (1425 px layout), 768 (753 px layout), 390 (375 px layout)
+- Mismatch (unmasked / all): 1440: 12.3% / 12.3%, 768: 14.9% / 14.9%, 390: 15.1% / 15.1%
+- What was fixed:
+  - 2026-10-24 [page] C4 info (c-diagnosis.md ## C4 Info): C4-1 column-view padding (columns-media padded, grey column bands, {column-start}/{column-end} markers for one-column, titled and .container-content views), C4-2 sub-page navigation as the new subpage-nav block (also campaign/fleet/app-entry), C4-3 tables, C4-4 3/4-cell rows two per row at 768, C4-5 travel-class/internet sub-navigation, C4-6 single-slide carousels, C4-7 teaser band titles 28px, C4-8 author quotes, C4-9 grey band at the page end, C4-10 25px separators in running text, image 40px before a column view, nested icon rows (nested-N), traveltricks carousel as cards-teaser, pax-receipt first section. Follow-ups: the fleet Technical data 87px section rule scoped (it moved the whole first section of info pages with a table), icon headings regrouped in columns-media/accordion-columns. Harness: replica shots were laid out 15px wider than live (scrollbar dropped during the full-page screenshot), fixed in capture.js (b3ace2f): the after values below are measured with the fix, the before values with the bug. Re-imported, postprocessed, uploaded and previewed. Spot-check unmasked 1440/768/390 before -> after: de/de/kinder-an-bord 17.7/17.4/21.7 -> 4.9/21.2/10.0, de/en/upgrade-info 31.5/24.8/32.8 -> 8.0/11.6/12.3, de/en/admission-rules 15.0/19.7/13.1 -> 10.5/11.2/10.6, de/de/book-and-manage/additional-services/get-your-guide 16.1/14.6/20.7 -> 4.3/7.2/13.8, at/de/admission-rules (1440, no earlier) 20.0, gb/en/tiere-als-uebergepaeck (1440, no earlier) 23.9; open: admission-rules about 300px taller (from y=6600), onboard-delights. (a3faa59)
+- What remains:
+  - 12.3% of unmasked pixels differ at 1440, most around y≈1000 px
+  - page height at 1440: replica 48 px taller (4.3%)
+  - layout diverges at y≈400 px at 768
+  - 15.1% of unmasked pixels differ at 390, most around y≈1000 px
+- Diffs: tools/reports/parity/shots/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/1440-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/768-diff.png, tools/reports/parity/shots/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/390-diff.png
 
 ### /de/en/359 (fleet): pass
 

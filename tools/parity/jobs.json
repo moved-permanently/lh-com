@@ -16544,6 +16544,351 @@
     }
   },
   {
+    "id": "de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "path": "/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "path": "/de/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "path": "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "path": "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "path": "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "path": "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "path": "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/de/support/contact/contact-form-confirmation",
+    "path": "/de/de/support/contact/contact-form-confirmation",
+    "locale": "de/de",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/de/support/contact/contact-form-confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/de/support/contact/contact-form-confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/de/support/contact/contact-form-confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/de/support/contact/contact-form-confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "path": "/de/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "path": "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "path": "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "path": "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "path": "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "path": "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "de/en/support/contact/contact-form-confirmation",
+    "path": "/de/en/support/contact/contact-form-confirmation",
+    "locale": "de/en",
+    "template": "info",
+    "priority": 3,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/de/en/support/contact/contact-form-confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/de/en/support/contact/contact-form-confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/de/en/support/contact/contact-form-confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/de/en/support/contact/contact-form-confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
     "id": "at/de/gepaeck",
     "path": "/at/de/gepaeck",
     "locale": "at/de",
@@ -26452,6 +26797,351 @@
       "1440": "tools/source-export/pages/lhg/gb/en/dest/cy/lisbon/screenshot.jpg"
     },
     "contentWidth": {
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "path": "/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/book-and-manage/cancellation-and-refund/refund/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "path": "/at/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/book-and-manage/passenger-receipt-90days/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/book-and-manage/passenger-receipt-90days/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "path": "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "path": "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "path": "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "path": "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "path": "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "at/de/support/contact/contact-form-confirmation",
+    "path": "/at/de/support/contact/contact-form-confirmation",
+    "locale": "at/de",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/at/de/support/contact/contact-form-confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/at/de/support/contact/contact-form-confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/at/de/support/contact/contact-form-confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/at/de/support/contact/contact-form-confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "path": "/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/book-and-manage/passenger-receipt-90days/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "path": "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "path": "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "path": "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "path": "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "path": "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
+      "1440": 1425
+    }
+  },
+  {
+    "id": "gb/en/support/contact/contact-form-confirmation",
+    "path": "/gb/en/support/contact/contact-form-confirmation",
+    "locale": "gb/en",
+    "template": "info",
+    "priority": 4,
+    "edsUrl": "https://main--lh-com--moved-permanently.aem.page/gb/en/support/contact/contact-form-confirmation",
+    "widths": [
+      1440,
+      768,
+      390
+    ],
+    "srcPng": {
+      "390": "tools/source-export/pages/gb/en/support/contact/contact-form-confirmation/screenshot-390.jpg",
+      "768": "tools/source-export/pages/gb/en/support/contact/contact-form-confirmation/screenshot-768.jpg",
+      "1440": "tools/source-export/pages/gb/en/support/contact/contact-form-confirmation/screenshot.jpg"
+    },
+    "contentWidth": {
+      "390": 375,
+      "768": 753,
       "1440": 1425
     }
   }
