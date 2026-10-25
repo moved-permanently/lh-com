@@ -2,8 +2,10 @@
    /de/en/homepage 2026-10-25): a 44px strip (86px below 768px) in the content column, 10px below
    the start of the homepage content; the flight search follows 11px higher than it would start
    on its own (live: strip 157-201 at 1440, "Round trip" row from 225) */
+
+/* padding, not margin: a margin would collapse into the section's own 25px */
 main > .section > .flash-teaser-wrapper {
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 main > .section > .flash-teaser-wrapper:not(.flash-teaser-empty) + div {
