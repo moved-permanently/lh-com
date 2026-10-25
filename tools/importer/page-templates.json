@@ -1134,7 +1134,11 @@
         "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
         "https://www.lufthansa.com/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
         "https://www.lufthansa.com/us/en/dnsmpi",
-        "https://www.lufthansa.com/us/en/ccpa"
+        "https://www.lufthansa.com/us/en/ccpa",
+        "https://www.lufthansa.com/de/en/help-and-contact",
+        "https://www.lufthansa.com/de/de/help-and-contact",
+        "https://www.lufthansa.com/at/de/help-and-contact",
+        "https://www.lufthansa.com/gb/en/help-and-contact"
       ],
       "blocks": [
         {

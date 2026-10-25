@@ -95,3 +95,7 @@ at/de,/at/de/book-and-manage/offers-and-destination,/at/de/fluege,www canonical
 gb/en,/gb/en/book-and-manage/offers-and-destination,/gb/en/flights,www canonical
 us/en,/us/en/local-page/dnsmpi,/us/en/dnsmpi,www canonical; market-only page
 us/en,/us/en/local-page/ccpa,/us/en/ccpa,www canonical; market-only page
+de/en,/de/en/support/support,/de/en/help-and-contact,www redirect to help and contact (2026-10-25)
+de/de,/de/de/support/support,/de/de/help-and-contact,www redirect to help and contact (2026-10-25)
+at/de,/at/de/support/support,/at/de/help-and-contact,www redirect to help and contact (2026-10-25)
+gb/en,/gb/en/support/support,/gb/en/help-and-contact,www redirect to help and contact (2026-10-25)

@@ -1,6 +1,6 @@
 {
-  "total": 96,
-  "limit": 96,
+  "total": 100,
+  "limit": 100,
   "offset": 0,
   "data": [
     {
@@ -578,6 +578,30 @@
       "app-path": "/us/en/local-page/ccpa",
       "page": "/us/en/ccpa",
       "note": "www canonical; market-only page"
+    },
+    {
+      "locale": "de/en",
+      "app-path": "/de/en/support/support",
+      "page": "/de/en/help-and-contact",
+      "note": "www redirect to help and contact (2026-10-25)"
+    },
+    {
+      "locale": "de/de",
+      "app-path": "/de/de/support/support",
+      "page": "/de/de/help-and-contact",
+      "note": "www redirect to help and contact (2026-10-25)"
+    },
+    {
+      "locale": "at/de",
+      "app-path": "/at/de/support/support",
+      "page": "/at/de/help-and-contact",
+      "note": "www redirect to help and contact (2026-10-25)"
+    },
+    {
+      "locale": "gb/en",
+      "app-path": "/gb/en/support/support",
+      "page": "/gb/en/help-and-contact",
+      "note": "www redirect to help and contact (2026-10-25)"
     }
   ],
   ":type": "sheet"

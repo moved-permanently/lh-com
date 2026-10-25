@@ -1,6 +1,6 @@
 {
-  "total": 762,
-  "limit": 762,
+  "total": 766,
+  "limit": 766,
   "offset": 0,
   "data": [
     {
@@ -3050,6 +3050,22 @@
     {
       "Source": "/content/dam/lh/images/offers/destination/zth-square.jpg.transform/lh-dcep-transform-width-720/img.webp",
       "Destination": "/aircore-images/lh/images/offers/destination/zth-square.jpg?width=720&format=webply&optimize=medium"
+    },
+    {
+      "Source": "/de/en/support/support",
+      "Destination": "/de/en/help-and-contact"
+    },
+    {
+      "Source": "/de/de/support/support",
+      "Destination": "/de/de/help-and-contact"
+    },
+    {
+      "Source": "/at/de/support/support",
+      "Destination": "/at/de/help-and-contact"
+    },
+    {
+      "Source": "/gb/en/support/support",
+      "Destination": "/gb/en/help-and-contact"
     }
   ],
   ":type": "sheet"
