@@ -157,7 +157,7 @@
  "https://www.lufthansa.com/de/en/special-needs": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T15:16:03.157Z"
+  "at": "2026-10-25T03:18:05.661Z"
  },
  "https://www.lufthansa.com/de/de/speisen-und-getraenke": {
   "template": "hub",
@@ -177,7 +177,7 @@
  "https://www.lufthansa.com/de/en/add-sports-baggage": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T10:53:12.298Z"
+  "at": "2026-10-25T03:18:30.931Z"
  },
  "https://www.lufthansa.com/de/en/addresses-worldwide": {
   "template": "info",
@@ -667,7 +667,7 @@
  "https://www.lufthansa.com/de/en/group-travel": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:10:51.646Z"
+  "at": "2026-10-25T03:18:30.935Z"
  },
  "https://www.lufthansa.com/de/en/group-travel-and-charter": {
   "template": "info",
@@ -797,7 +797,7 @@
  "https://www.lufthansa.com/de/en/passenger-receipt-90": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:13:13.786Z"
+  "at": "2026-10-25T03:21:40.236Z"
  },
  "https://www.lufthansa.com/de/en/passengers-using-wheelchairs": {
   "template": "info",
@@ -1512,12 +1512,12 @@
  "https://www.lufthansa.com/de/en/anmeldung-tiere-frachtraum": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.803Z"
+  "at": "2026-10-25T03:17:44.820Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/cancellation-and-refund/refund/refund-form": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.826Z"
  },
  "https://www.lufthansa.com/de/en/farealert/best-price-alert": {
   "template": "form",
@@ -1527,7 +1527,7 @@
  "https://www.lufthansa.com/de/en/feedback-past-flight": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.835Z"
  },
  "https://www.lufthansa.com/de/en/feedback/feedbackai": {
   "template": "form",
@@ -1542,12 +1542,12 @@
  "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.841Z"
  },
  "https://www.lufthansa.com/de/en/register-animal-cabin": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.857Z"
  },
  "https://www.lufthansa.com/de/de/additional-services": {
   "template": "hub",
@@ -1647,7 +1647,7 @@
  "https://www.lufthansa.com/de/de/betreuungsbedarf": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T15:16:03.158Z"
+  "at": "2026-10-25T03:18:05.662Z"
  },
  "https://www.lufthansa.com/de/de/accessible-travel": {
   "template": "info",
@@ -1657,7 +1657,7 @@
  "https://www.lufthansa.com/de/de/sportgepaeck-hinzufuegen": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T10:59:46.917Z"
+  "at": "2026-10-25T03:18:30.932Z"
  },
  "https://www.lufthansa.com/de/de/adressen-weltweit": {
   "template": "info",
@@ -2012,7 +2012,7 @@
  "https://www.lufthansa.com/de/de/group-travel": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:56:30.074Z"
+  "at": "2026-10-25T03:18:30.935Z"
  },
  "https://www.lufthansa.com/de/de/gruppenreisen-und-charter": {
   "template": "info",
@@ -2142,7 +2142,7 @@
  "https://www.lufthansa.com/de/de/passenger-receipt-90": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:58:34.451Z"
+  "at": "2026-10-25T03:21:40.242Z"
  },
  "https://www.lufthansa.com/de/de/passengers-using-wheelchairs": {
   "template": "info",
@@ -2877,12 +2877,12 @@
  "https://www.lufthansa.com/de/de/anmeldung-tiere-frachtraum": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.821Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/refund-form": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.829Z"
  },
  "https://www.lufthansa.com/at/de/additional-services": {
   "template": "hub",
@@ -2907,7 +2907,7 @@
  "https://www.lufthansa.com/de/de/feedback-past-flight": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.835Z"
  },
  "https://www.lufthansa.com/de/de/feedback/feedbackai": {
   "template": "form",
@@ -2922,12 +2922,12 @@
  "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.846Z"
  },
  "https://www.lufthansa.com/de/de/register-animal-cabin": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.857Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
@@ -3037,7 +3037,7 @@
  "https://www.lufthansa.com/at/de/betreuungsbedarf": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T15:16:03.158Z"
+  "at": "2026-10-25T03:18:05.662Z"
  },
  "https://www.lufthansa.com/at/de/accessible-travel": {
   "template": "info",
@@ -3047,7 +3047,7 @@
  "https://www.lufthansa.com/at/de/sportgepaeck-hinzufuegen": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T10:59:46.920Z"
+  "at": "2026-10-25T03:18:30.932Z"
  },
  "https://www.lufthansa.com/at/de/adressen-weltweit": {
   "template": "info",
@@ -3437,7 +3437,7 @@
  "https://www.lufthansa.com/at/de/group-travel": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:44:12.770Z"
+  "at": "2026-10-25T03:21:40.230Z"
  },
  "https://www.lufthansa.com/at/de/gruppenreisen-und-charter": {
   "template": "info",
@@ -3587,7 +3587,7 @@
  "https://www.lufthansa.com/at/de/passenger-receipt-90": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:46:28.180Z"
+  "at": "2026-10-25T03:21:40.245Z"
  },
  "https://www.lufthansa.com/at/de/passengers-using-wheelchairs": {
   "template": "info",
@@ -4337,12 +4337,12 @@
  "https://www.lufthansa.com/at/de/anmeldung-tiere-frachtraum": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.823Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/refund-form": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.832Z"
  },
  "https://www.lufthansa.com/at/de/farealert/best-price-alert": {
   "template": "form",
@@ -4357,7 +4357,7 @@
  "https://www.lufthansa.com/at/de/feedback-past-flight": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:23:52.152Z"
+  "at": "2026-10-25T03:17:44.835Z"
  },
  "https://www.lufthansa.com/at/de/feedback/feedbackai": {
   "template": "form",
@@ -4372,12 +4372,12 @@
  "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.851Z"
  },
  "https://www.lufthansa.com/at/de/register-animal-cabin": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.857Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
@@ -4497,7 +4497,7 @@
  "https://www.lufthansa.com/gb/en/special-needs": {
   "template": "hub",
   "status": "ok",
-  "at": "2026-10-23T15:16:03.158Z"
+  "at": "2026-10-25T03:18:05.662Z"
  },
  "https://www.lufthansa.com/gb/en/accessible-travel": {
   "template": "info",
@@ -4507,7 +4507,7 @@
  "https://www.lufthansa.com/gb/en/add-sports-baggage": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T10:59:46.924Z"
+  "at": "2026-10-25T03:18:30.935Z"
  },
  "https://www.lufthansa.com/gb/en/addresses-worldwide": {
   "template": "info",
@@ -4897,7 +4897,7 @@
  "https://www.lufthansa.com/gb/en/group-travel": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:23:16.822Z"
+  "at": "2026-10-25T03:21:40.233Z"
  },
  "https://www.lufthansa.com/gb/en/group-travel-and-charter": {
   "template": "info",
@@ -5047,7 +5047,7 @@
  "https://www.lufthansa.com/gb/en/passenger-receipt-90": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:25:41.711Z"
+  "at": "2026-10-25T03:21:40.248Z"
  },
  "https://www.lufthansa.com/gb/en/passengers-using-wheelchairs": {
   "template": "info",
@@ -5797,12 +5797,12 @@
  "https://www.lufthansa.com/gb/en/anmeldung-tiere-frachtraum": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.823Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/cancellation-and-refund/refund/refund-form": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.835Z"
  },
  "https://www.lufthansa.com/gb/en/farealert/best-price-alert": {
   "template": "form",
@@ -5817,7 +5817,7 @@
  "https://www.lufthansa.com/gb/en/feedback-past-flight": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.835Z"
  },
  "https://www.lufthansa.com/gb/en/feedback/feedbackai": {
   "template": "form",
@@ -5832,12 +5832,12 @@
  "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.857Z"
  },
  "https://www.lufthansa.com/gb/en/register-animal-cabin": {
   "template": "form",
   "status": "ok",
-  "at": "2026-10-23T15:15:32.804Z"
+  "at": "2026-10-25T03:17:44.857Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/booking-services/manage-my-bookings": {
   "template": "app-entry",
@@ -6393,5 +6393,155 @@
   "template": "aircore-route",
   "status": "ok",
   "at": "2026-10-24T00:54:21.081Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.257Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/passenger-receipt-90days/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.263Z"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.274Z"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.280Z"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.289Z"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.295Z"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.306Z"
+ },
+ "https://www.lufthansa.com/at/de/support/contact/contact-form-confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.315Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.327Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/passenger-receipt-90days/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.333Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.342Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.348Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.357Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.362Z"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.371Z"
+ },
+ "https://www.lufthansa.com/de/de/support/contact/contact-form-confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.377Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/passenger-receipt-90days/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.383Z"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.389Z"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.395Z"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.404Z"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.410Z"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.416Z"
+ },
+ "https://www.lufthansa.com/de/en/support/contact/contact-form-confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.419Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/passenger-receipt-90days/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.422Z"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.425Z"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.428Z"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.431Z"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.434Z"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.439Z"
+ },
+ "https://www.lufthansa.com/gb/en/support/contact/contact-form-confirmation": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-25T03:21:40.441Z"
  }
 }

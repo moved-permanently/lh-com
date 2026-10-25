@@ -1,0 +1,307 @@
+{
+ "https://www.lufthansa.com/content/lh/markets/at/de/book-and-manage/cancellation-and-refund/refund/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+  "title": "Anfrage zur Rückerstattung erfolgreich abgesendet | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/book-and-manage/passenger-receipt-90days/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/at/de/support/contact/contact-form-confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/at/de/support/contact/contact-form-confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/book-and-manage/cancellation-and-refund/refund/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+  "title": "Anfrage zur Rückerstattung erfolgreich abgesendet | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/book-and-manage/passenger-receipt-90days/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/de/support/contact/contact-form-confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/de/support/contact/contact-form-confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/book-and-manage/passenger-receipt-90days/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/de/en/support/contact/contact-form-confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/de/en/support/contact/contact-form-confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/book-and-manage/passenger-receipt-90days/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/content/lh/markets/gb/en/support/contact/contact-form-confirmation.html": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/content/lh/markets/gb/en/support/contact/contact-form-confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+  "title": "Anfrage zur Rückerstattung erfolgreich abgesendet | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/passenger-receipt-90days/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/at/de/support/contact/contact-form-confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/at/de/support/contact/contact-form-confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/book-and-manage/cancellation-and-refund/refund/confirmation",
+  "title": "Anfrage zur Rückerstattung erfolgreich abgesendet | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/passenger-receipt-90days/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Vielen Dank für Ihre Anfrage | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/de/support/contact/contact-form-confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/de/support/contact/contact-form-confirmation",
+  "title": "Bestätigung | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/passenger-receipt-90days/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/de/en/support/contact/contact-form-confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/de/en/support/contact/contact-form-confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/passenger-receipt-90days/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/book-and-manage/passenger-receipt-90days/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "title": "Thank you for your enquiry | Lufthansa"
+ },
+ "https://www.lufthansa.com/gb/en/support/contact/contact-form-confirmation": {
+  "status": 200,
+  "final": "https://www.lufthansa.com/gb/en/support/contact/contact-form-confirmation",
+  "title": "Confirmation | Lufthansa"
+ },
+ "https://www.lufthansa.com/error.html": {
+  "status": 404,
+  "final": "https://www.lufthansa.com/error.html",
+  "title": "Page not found | Lufthansa"
+ }
+}

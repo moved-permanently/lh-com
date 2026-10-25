@@ -1134,14 +1134,17 @@ function readConfig(rows) {
 
 /**
  * URL to go to for an authored page link: relative links stay on this host (also links DA made
- * absolute to an aem.page / aem.live host); under /content/ (local dev server) the locale
+ * absolute to an aem.page / aem.live host, and www.lufthansa.com links); under /content/ (local dev server) the locale
  * paths get the /content prefix.
  */
 function pageUrl(href) {
   const here = window.location;
   const url = new URL(href, here.href);
   let path = `${url.pathname}${url.search}${url.hash}`;
-  if (url.origin !== here.origin && !/\.aem\.(page|live)$/.test(url.hostname)) return url.href;
+  // www.lufthansa.com links (the importer keeps links to pages not migrated at import time, and
+  // live's /error.html, absolute) name the same page on this site
+  if (url.origin !== here.origin && !/\.aem\.(page|live)$/.test(url.hostname)
+    && url.hostname !== 'www.lufthansa.com') return url.href;
   if (here.pathname.startsWith('/content/') && /^\/(lhg\/)?[a-z]{2}\/[a-z]{2}(\/|$)/.test(path)) {
     path = `/content${path}`;
   }

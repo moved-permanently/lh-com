@@ -1,10 +1,4 @@
-https://www.lufthansa.com/at/de/digital-self-services
-https://www.lufthansa.com/at/de/speisen-und-getraenke
-https://www.lufthansa.com/de/de/digital-self-services
-https://www.lufthansa.com/de/de/speisen-und-getraenke
-https://www.lufthansa.com/de/en/digital-self-services
-https://www.lufthansa.com/de/en/food-and-beverages
-https://www.lufthansa.com/de/en/lounges
-https://www.lufthansa.com/gb/en/digital-self-services
-https://www.lufthansa.com/gb/en/food-and-beverages
-https://www.lufthansa.com/gb/en/lounges
+https://www.lufthansa.com/de/en/special-needs
+https://www.lufthansa.com/de/de/betreuungsbedarf
+https://www.lufthansa.com/at/de/betreuungsbedarf
+https://www.lufthansa.com/gb/en/special-needs

@@ -26,6 +26,11 @@ same place in each locale tree, under the slug the live site uses for that local
 `template_group,de_en,de_de,at_de,gb_en`. Paths are on `https://www.lufthansa.com`. The rows
 come from the hreflang alternates in the live sitemap (`/sitemap/sitemap_lh_de_en*.xml.gz`,
 read on 2026-10-21). Only pages that exist in all four locales are listed.
+The last 8 rows (added 2026-10-25) are the confirmation pages the 9 core forms go to after a
+submit (live `:redirect`, e.g. `/de/en/support/contact/contact-form-confirmation`); the refund
+confirmation exists only in de/de and at/de (de/en and gb/en refunds go to the contact-form
+confirmation), so its de_en and gb_en cells are empty. The forms' error page is live's
+`/error.html` (the not-found page), served by `404.html`.
 
 | template_group | pages | what it is |
 |---|---|---|
