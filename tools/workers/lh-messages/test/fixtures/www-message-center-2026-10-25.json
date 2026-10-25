@@ -1,0 +1,1352 @@
+{
+ "recordedAt": "2026-10-25T08:05:55.814Z",
+ "host": "www.lufthansa.com",
+ "queries": {
+  "lhgIrregMessageList": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "vary": "Accept-Encoding",
+    "last-modified": "Wed, 22 Apr 2026 05:55:38 GMT"
+   },
+   "body": {
+    "data": {
+     "lhgMessageList": {
+      "items": [
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--passenger-from-the-democratic-republic-of-the-congo-or-uganda",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Information for passengers arriving in Italy",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-23T08:57:59.090Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Passenger from the Democratic Republic of the Congo or Uganda"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-06-19T11:32:23.932Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T08:54:51.129Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--passenger-from-the-democratic-republic-of-the-congo-or-uganda",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Informazioni per i passeggeri in arrivo in Italia",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-23T08:57:59.090Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Passenger from the Democratic Republic of the Congo or Uganda"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-06-19T11:32:23.932Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T08:54:51.129Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--runway-maintenance-works-at-rome-fiumicino-airport",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Runway maintenance works at Rome Fiumicino airport",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T11:51:37.115Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Runway maintenance works at Rome Fiumicino airport"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T11:51:37.118Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T11:50:59.718Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--runway-maintenance-works-at-rome-fiumicino-airport",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Lavori di riqualificazione di una pista presso l’aeroporto di Roma Fiumicino",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T11:51:37.115Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Runway maintenance works at Rome Fiumicino airport"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T11:51:37.118Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T11:50:59.718Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/azmiddle-east-flights-june-2026-app",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Middle East Flights Update ",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-14T09:03:47.612Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ-Middle East Flights June 2026 App"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-16T21:34:12.296Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-14T09:03:21.793Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/azmiddle-east-flights-june-2026-app",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Aggiornamento voli Medio Oriente ",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-14T09:03:47.612Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ-Middle East Flights June 2026 App"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-16T21:34:12.296Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-14T09:03:21.793Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lx",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Information on flights to Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T19:55:56.667Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:36:02.476Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T19:55:48.550Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lx",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Information über den Flugverkehr nach Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T19:55:56.667Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:36:02.476Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T19:55:48.550Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/lh--information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lh",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": " Information on flights to Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T13:32:14.238Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "LH: Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:32:14.245Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T13:31:24.235Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/lh--information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lh",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Information über den Flugverkehr nach Dubai   ",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T13:32:14.238Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "LH: Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:32:14.245Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T13:31:24.235Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/naples-operational-update",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Naples operational update",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-09-15T07:24:38.008Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "NAPLES OPERATIONAL UPDATE"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-08T12:49:02.599Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-15T07:24:17.592Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/naples-operational-update",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Aggiornamento operativo Napoli",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-09-15T07:24:38.008Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "NAPLES OPERATIONAL UPDATE"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-08T12:49:02.599Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-15T07:24:17.592Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/os-getting-to-the-airport-aug2026",
+        "_tags": [
+         "lufthansa-group:markets/at",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/os",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Current restrictions on rail services to Vienna Airport",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-05T09:35:33.818Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "OS-getting-to-the-airport-aug2026"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-26T13:08:28.232Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-24T16:02:15.943Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/os-getting-to-the-airport-aug2026",
+        "_tags": [
+         "lufthansa-group:markets/at",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/os",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Aktuelle Einschränkungen im Bahnverkehr zum Flughafen Wien",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-05T09:35:33.818Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "OS-getting-to-the-airport-aug2026"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-26T13:08:28.232Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-24T16:02:15.943Z"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   }
+  },
+  "lhgTechOutageMessageList": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "last-modified": "Wed, 22 Apr 2026 05:55:46 GMT"
+   },
+   "body": {
+    "data": {
+     "lhgMessageList": {
+      "items": []
+     }
+    }
+   }
+  },
+  "lhgMessageListWithCalendar": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "vary": "Accept-Encoding",
+    "last-modified": "Wed, 22 Apr 2026 05:55:26 GMT"
+   },
+   "body": {
+    "data": {
+     "lhgMessageList": {
+      "items": [
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--passenger-from-the-democratic-republic-of-the-congo-or-uganda",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Information for passengers arriving in Italy",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-23T08:57:59.090Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Passenger from the Democratic Republic of the Congo or Uganda"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-06-19T11:32:23.932Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T08:54:51.129Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--passenger-from-the-democratic-republic-of-the-congo-or-uganda",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Informazioni per i passeggeri in arrivo in Italia",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-23T08:57:59.090Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Passenger from the Democratic Republic of the Congo or Uganda"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-06-19T11:32:23.932Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T08:54:51.129Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--runway-maintenance-works-at-rome-fiumicino-airport",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Runway maintenance works at Rome Fiumicino airport",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T11:51:37.115Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Runway maintenance works at Rome Fiumicino airport"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T11:51:37.132Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T11:50:59.718Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/az--runway-maintenance-works-at-rome-fiumicino-airport",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Lavori di riqualificazione di una pista presso l’aeroporto di Roma Fiumicino",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T11:51:37.115Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ: Runway maintenance works at Rome Fiumicino airport"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T11:51:37.132Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T11:50:59.718Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/azmiddle-east-flights-june-2026-app",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Middle East Flights Update ",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-14T09:03:47.612Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ-Middle East Flights June 2026 App"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-16T21:34:12.272Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-14T09:03:21.793Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/azmiddle-east-flights-june-2026-app",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Aggiornamento voli Medio Oriente ",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-14T09:03:47.612Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "AZ-Middle East Flights June 2026 App"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-16T21:34:12.272Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-14T09:03:21.793Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lx",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Information on flights to Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T19:55:56.667Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:36:02.486Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T19:55:48.550Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lx",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Information über den Flugverkehr nach Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T19:55:56.667Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:36:02.486Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T19:55:48.550Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/lh--information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lh",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": " Information on flights to Dubai",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T13:32:14.238Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "LH: Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:32:14.258Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T13:31:24.235Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/lh--information-on-flights-to-dubai",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lh",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Information über den Flugverkehr nach Dubai   ",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-10-23T13:32:14.238Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "LH: Information on flights to Dubai"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-23T13:32:14.258Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T13:31:24.235Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/naples-operational-update",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Naples operational update",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-09-15T07:24:38.008Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "NAPLES OPERATIONAL UPDATE"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-08T12:49:02.657Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-15T07:24:17.592Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/naples-operational-update",
+        "_tags": [
+         "lufthansa-group:tenant/ita",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "it",
+        "headline": "Aggiornamento operativo Napoli",
+        "criticality": "high",
+        "link": null,
+        "activatedAt": "2026-09-15T07:24:38.008Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "NAPLES OPERATIONAL UPDATE"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-08T12:49:02.657Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-15T07:24:17.592Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/os-getting-to-the-airport-aug2026",
+        "_tags": [
+         "lufthansa-group:markets/at",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/os",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "en",
+        "headline": "Current restrictions on rail services to Vienna Airport",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-05T09:35:33.818Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "OS-getting-to-the-airport-aug2026"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-26T13:08:28.271Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-24T16:02:15.943Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/irreg/os-getting-to-the-airport-aug2026",
+        "_tags": [
+         "lufthansa-group:markets/at",
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/os",
+         "lufthansa-group:touchpoint/android-app",
+         "lufthansa-group:touchpoint/ios-app"
+        ],
+        "language": "de",
+        "headline": "Aktuelle Einschränkungen im Bahnverkehr zum Flughafen Wien",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-05T09:35:33.818Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "OS-getting-to-the-airport-aug2026"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-09-26T13:08:28.271Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-09-24T16:02:15.943Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/promo/kr-flash-teaser",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:tenant/lh",
+         "lufthansa-group:tenant/lx",
+         "lufthansa-group:markets/kr"
+        ],
+        "language": "ko",
+        "headline": "학업을 위해 여행하시나요? 학생 운임 자세히 보기",
+        "criticality": "low",
+        "link": "/kr/ko/local-page/student-fares",
+        "activatedAt": "2026-10-23T04:55:09.905Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "kr-flash-teaser"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-21T08:25:53.224Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-23T04:55:09.279Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/promo/my-promo-code",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:markets/my",
+         "lufthansa-group:tenant/lh"
+        ],
+        "language": "en",
+        "headline": "Save an extra MYR 450 on flights to Europe with promo code KULDEAL ",
+        "criticality": "low",
+        "link": "https://www.lufthansa.com/my/en/local-page/kul-promo-code-oct26",
+        "activatedAt": "2026-10-21T08:31:00.984Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "MY-promo code"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-21T08:12:00.134Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-21T08:26:25.819Z"
+          }
+         ]
+        }
+       },
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/promo/my-promo-code",
+        "_tags": [
+         "lufthansa-group:touchpoint/web",
+         "lufthansa-group:markets/my",
+         "lufthansa-group:tenant/lh"
+        ],
+        "language": "en",
+        "headline": "Save an extra MYR 450 with promo code KULDEAL",
+        "criticality": "low",
+        "link": null,
+        "activatedAt": "2026-10-21T08:31:00.984Z",
+        "_metadata": {
+         "stringMetadata": [
+          {
+           "name": "title",
+           "value": "MY-promo code"
+          },
+          {
+           "name": "description",
+           "value": ""
+          }
+         ],
+         "calendarMetadata": [
+          {
+           "name": "jcr:created",
+           "value": "2026-10-21T08:12:00.134Z"
+          },
+          {
+           "name": "cq:lastModified",
+           "value": "2026-10-21T08:26:25.819Z"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   }
+  },
+  "outage-b2b": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "last-modified": "Mon, 15 Sep 2025 14:04:18 GMT"
+   },
+   "body": {
+    "data": {
+     "lhgMessageList": {
+      "items": []
+     }
+    }
+   }
+  },
+  "CTI_Pages_for_APP": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "vary": "Accept-Encoding",
+    "last-modified": "Wed, 17 Jun 2026 07:52:09 GMT"
+   },
+   "body": {
+    "data": {
+     "linkConfigForMessageCenterList": {
+      "items": [
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/config/cti-pages-for-all-tenants",
+        "_variation": "master",
+        "_metadata": {
+         "stringArrayMetadata": []
+        },
+        "itaPageReference": {
+         "_path": "/content/ita/gc/en/book-and-prepare/current-information"
+        },
+        "four_yPageReference": {
+         "_path": "/content/four_y/gc/en/homepage/current-flight-information"
+        },
+        "snPageReference": {
+         "_path": "/content/bel/gc/en/plan-your-trip/flight-information"
+        },
+        "lxPageReference": {
+         "_path": "/content/lx/gc/en/fly/flight-information/current-information"
+        },
+        "osPageReference": {
+         "_path": "/content/aua/gc/en/fly/flight-information/flight-irregularities"
+        },
+        "lhPageReference": {
+         "_path": "/content/lh/gc/en/prepare-for-your-trip/current-travel-information"
+        }
+       }
+      ]
+     }
+    }
+   }
+  },
+  "CTI%20Pages%20for%20tenants": {
+   "status": 200,
+   "headers": {
+    "content-type": "application/json",
+    "cache-control": "public, max-age=120",
+    "vary": "Accept-Encoding",
+    "last-modified": "Wed, 17 Jun 2026 07:52:09 GMT"
+   },
+   "body": {
+    "data": {
+     "linkConfigForMessageCenterList": {
+      "items": [
+       {
+        "_path": "/content/dam/lufthansa-group/message-center/config/cti-pages-for-all-tenants",
+        "_variation": "master",
+        "_metadata": {
+         "stringArrayMetadata": []
+        },
+        "itaPageReference": {
+         "_path": "/content/ita/gc/en/book-and-prepare/current-information"
+        },
+        "four_yPageReference": {
+         "_path": "/content/four_y/gc/en/homepage/current-flight-information"
+        },
+        "snPageReference": {
+         "_path": "/content/bel/gc/en/plan-your-trip/flight-information"
+        },
+        "lxPageReference": {
+         "_path": "/content/lx/gc/en/fly/flight-information/current-information"
+        },
+        "osPageReference": {
+         "_path": "/content/aua/gc/en/fly/flight-information/flight-irregularities"
+        },
+        "lhPageReference": {
+         "_path": "/content/lh/gc/en/prepare-for-your-trip/current-travel-information"
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "labels": {
+  "en": {
+   "status": 200,
+   "body": {
+    "flashteaser.sr.navigation.previousMessage": "Previous message",
+    "flashteaser.sr.timer.startRotation": "Start slider rotation",
+    "flashteaser.sr.labels.critical": "Attention",
+    "flashteaser.sr.labels.title": "Current travel information, alerts and promotions",
+    "flashteaser.sr.labels.promo": "Promotion",
+    "flashteaser.sr.navigation.nextMessage": "Next message",
+    "flashteaser.sr.labels.stepper": "Message {CURRENT} of {TOTAL}",
+    "flashteaser.sr.timer.stopRotation": "Stop slider rotation"
+   }
+  },
+  "de": {
+   "status": 200,
+   "body": {
+    "flashteaser.sr.navigation.previousMessage": "Vorherige Meldung",
+    "flashteaser.sr.timer.startRotation": "Automatischen Meldungswechsel starten",
+    "flashteaser.sr.labels.critical": "Achtung",
+    "flashteaser.sr.labels.title": "Aktuelle Reiseinformationen, Warnmeldungen und Angebote",
+    "flashteaser.sr.labels.promo": "Angebot",
+    "flashteaser.sr.navigation.nextMessage": "Nächste Meldung",
+    "flashteaser.sr.labels.stepper": "Meldung {CURRENT} von {TOTAL}",
+    "flashteaser.sr.timer.stopRotation": "Automatischen Meldungswechsel stoppen"
+   }
+  }
+ },
+ "homepages": {
+  "/de/en/homepage": {
+   "status": 200,
+   "cacheControl": "max-age=300",
+   "flashTeaserOuterHTML": "<div class=\"dcep-flash-teaser\" data-dcep=\"{&quot;id&quot;: &quot;ae002dab2-7db4-4dab-a35a-b3b6b6aea101&quot;, &quot;flashTeaserMessages&quot;:[{&quot;type&quot;:&quot;irreg&quot;,&quot;criticality&quot;:&quot;high&quot;,&quot;activationTime&quot;:1792762284235,&quot;headline&quot;:&quot; Information on flights to Dubai&quot;,&quot;messageDetails&quot;:&quot;&lt;p&gt;In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Is your flight affected by an irregularity?&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Please check the &lt;a href=\\&quot;https://www.lufthansa.com/de/en/timetable-and-flight-status#/\\&quot;&gt;&lt;b&gt;current status&lt;/b&gt;&lt;/a&gt; of your flight before heading to the airport.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Save contact details, so we can send you important information about your flight quickly&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Please enter your contact details at &lt;a href=\\&quot;https://www.lufthansa.com/de/en/login\\&quot;&gt;&lt;b&gt;My booking&lt;/b&gt;&lt;/a&gt; or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Rebooking and additional information&lt;/b&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\\n&lt;p&gt;In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your &lt;a href=\\&quot;https://www.lufthansa.com/de/en/login\\&quot;&gt;&lt;b&gt;booking&lt;/b&gt;&lt;/a&gt;&lt;u&gt;.&lt;/u&gt; Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the &lt;a href=\\&quot;https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;amp;start=irreg\\&quot;&gt;&lt;b&gt;Lufthansa Chat Assistant&lt;/b&gt;&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Further information&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;You can find more information and tips in case of irregularities at short notice on &lt;a href=\\&quot;https://www.lufthansa.com/de/en/flight-disruptions\\&quot;&gt;&lt;b&gt;our special page&lt;/b&gt;&lt;/a&gt;.&lt;u&gt;&lt;/u&gt;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Air passenger rights&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Advice regarding air passenger rights can be found &lt;a href=\\&quot;https://www.lufthansa.com/de/en/passenger-rights\\&quot;&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;\\n&quot;,&quot;link&quot;:&quot;/content/lh/markets/de/en/prepare-for-your-trip/current-travel-information&quot;,&quot;formattedActivationTime&quot;:&quot;1792762284235&quot;}]}\"></div>"
+  },
+  "/de/de/homepage": {
+   "status": 200,
+   "cacheControl": "max-age=300",
+   "flashTeaserOuterHTML": "<div class=\"dcep-flash-teaser\" data-dcep=\"{&quot;id&quot;: &quot;a418b92c7-3787-4bc8-9499-71e97d4dfefa&quot;, &quot;flashTeaserMessages&quot;:[{&quot;type&quot;:&quot;irreg&quot;,&quot;criticality&quot;:&quot;high&quot;,&quot;activationTime&quot;:1792762284235,&quot;headline&quot;:&quot;Information über den Flugverkehr nach Dubai   &quot;,&quot;messageDetails&quot;:&quot;&lt;p&gt;Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Flug von einer Unregelmässigkeit betroffen?&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Bitte informieren Sie sich &lt;a href=\\&quot;https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\\&quot;&gt;&lt;b&gt;hier&lt;/b&gt;&lt;/a&gt; über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Bitte geben Sie Ihre Kontaktdaten unter &lt;a href=\\&quot;https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\\&quot;&gt;&lt;b&gt;Meine Buchungen&lt;/b&gt;&lt;/a&gt; an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Umbuchung und weitere Optionen&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand &lt;a href=\\&quot;https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\\&quot;&gt;&lt;b&gt;Ihrer Buchung&lt;/b&gt;&lt;/a&gt;. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&amp;nbsp; &lt;a href=\\&quot;https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;amp;start=irreg\\&quot;&gt;&lt;b&gt;Lufthansa Chat Assistant&lt;/b&gt;&lt;/a&gt; zur Verfügung.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Weitere Informationen&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf &lt;a href=\\&quot;https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\\&quot;&gt;&lt;b&gt;unserer Sonderseite&lt;/b&gt;&lt;/a&gt;.&lt;b&gt;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Fluggastrechte&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Hinweise zu den Fluggastrechten finden Sie &lt;a href=\\&quot;https://www.lufthansa.com/de/de/passenger-rights?\\&quot;&gt;&lt;b&gt;hier&lt;/b&gt;&lt;/a&gt;&lt;b&gt;&lt;br&gt;\\n &lt;/b&gt;&lt;/p&gt;\\n&quot;,&quot;link&quot;:&quot;/content/lh/markets/de/de/prepare-for-your-trip/current-travel-information&quot;,&quot;formattedActivationTime&quot;:&quot;1792762284235&quot;}]}\"></div>"
+  },
+  "/at/de/homepage": {
+   "status": 200,
+   "cacheControl": "max-age=300",
+   "flashTeaserOuterHTML": "<div class=\"dcep-flash-teaser\" data-dcep=\"{&quot;id&quot;: &quot;a483d06df-61ea-4391-a8dc-8250b82f365e&quot;, &quot;flashTeaserMessages&quot;:[{&quot;type&quot;:&quot;irreg&quot;,&quot;criticality&quot;:&quot;high&quot;,&quot;activationTime&quot;:1792762284235,&quot;headline&quot;:&quot;Information über den Flugverkehr nach Dubai   &quot;,&quot;messageDetails&quot;:&quot;&lt;p&gt;Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Flug von einer Unregelmässigkeit betroffen?&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Bitte informieren Sie sich &lt;a href=\\&quot;https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\\&quot;&gt;&lt;b&gt;hier&lt;/b&gt;&lt;/a&gt; über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Bitte geben Sie Ihre Kontaktdaten unter &lt;a href=\\&quot;https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\\&quot;&gt;&lt;b&gt;Meine Buchungen&lt;/b&gt;&lt;/a&gt; an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Umbuchung und weitere Optionen&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand &lt;a href=\\&quot;https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\\&quot;&gt;&lt;b&gt;Ihrer Buchung&lt;/b&gt;&lt;/a&gt;. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&amp;nbsp; &lt;a href=\\&quot;https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;amp;start=irreg\\&quot;&gt;&lt;b&gt;Lufthansa Chat Assistant&lt;/b&gt;&lt;/a&gt; zur Verfügung.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Weitere Informationen&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf &lt;a href=\\&quot;https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\\&quot;&gt;&lt;b&gt;unserer Sonderseite&lt;/b&gt;&lt;/a&gt;.&lt;b&gt;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Fluggastrechte&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Hinweise zu den Fluggastrechten finden Sie &lt;a href=\\&quot;https://www.lufthansa.com/de/de/passenger-rights?\\&quot;&gt;&lt;b&gt;hier&lt;/b&gt;&lt;/a&gt;&lt;b&gt;&lt;br&gt;\\n &lt;/b&gt;&lt;/p&gt;\\n&quot;,&quot;link&quot;:&quot;/content/lh/markets/at/de/prepare-for-your-trip/current-travel-information&quot;,&quot;formattedActivationTime&quot;:&quot;1792762284235&quot;}]}\"></div>"
+  },
+  "/gb/en/homepage": {
+   "status": 200,
+   "cacheControl": "max-age=300",
+   "flashTeaserOuterHTML": "<div class=\"dcep-flash-teaser\" data-dcep=\"{&quot;id&quot;: &quot;a2b5d1b34-cc6a-45a1-8f83-6f0fd7b465cb&quot;, &quot;flashTeaserMessages&quot;:[{&quot;type&quot;:&quot;irreg&quot;,&quot;criticality&quot;:&quot;high&quot;,&quot;activationTime&quot;:1792762284235,&quot;headline&quot;:&quot; Information on flights to Dubai&quot;,&quot;messageDetails&quot;:&quot;&lt;p&gt;In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Is your flight affected by an irregularity?&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Please check the &lt;a href=\\&quot;https://www.lufthansa.com/de/en/timetable-and-flight-status#/\\&quot;&gt;&lt;b&gt;current status&lt;/b&gt;&lt;/a&gt; of your flight before heading to the airport.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Save contact details, so we can send you important information about your flight quickly&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Please enter your contact details at &lt;a href=\\&quot;https://www.lufthansa.com/de/en/login\\&quot;&gt;&lt;b&gt;My booking&lt;/b&gt;&lt;/a&gt; or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Rebooking and additional information&lt;/b&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\\n&lt;p&gt;In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your &lt;a href=\\&quot;https://www.lufthansa.com/de/en/login\\&quot;&gt;&lt;b&gt;booking&lt;/b&gt;&lt;/a&gt;&lt;u&gt;.&lt;/u&gt; Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the &lt;a href=\\&quot;https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;amp;start=irreg\\&quot;&gt;&lt;b&gt;Lufthansa Chat Assistant&lt;/b&gt;&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Further information&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;You can find more information and tips in case of irregularities at short notice on &lt;a href=\\&quot;https://www.lufthansa.com/de/en/flight-disruptions\\&quot;&gt;&lt;b&gt;our special page&lt;/b&gt;&lt;/a&gt;.&lt;u&gt;&lt;/u&gt;&lt;/p&gt;\\n&lt;p&gt;&lt;b&gt;Air passenger rights&lt;/b&gt;&lt;/p&gt;\\n&lt;p&gt;Advice regarding air passenger rights can be found &lt;a href=\\&quot;https://www.lufthansa.com/de/en/passenger-rights\\&quot;&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;\\n&quot;,&quot;link&quot;:&quot;/content/lh/markets/gb/en/prepare-for-your-trip/current-travel-information&quot;,&quot;formattedActivationTime&quot;:&quot;1792762284235&quot;}]}\"></div>"
+  }
+ },
+ "cti": {
+  "/de/en/prepare-for-your-trip/current-travel-information": {
+   "status": 200,
+   "items": [
+    "<maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span> Information on flights to Dubai</span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.</p>\n<p><b>Is your flight affected by an irregularity?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Please check the <a href=\"https://www.lufthansa.com/de/en/timetable-and-flight-status#/\"><b>current status</b></a> of your flight before heading to the airport.</p>\n<p><b>Save contact details, so we can send you important information about your flight quickly</b></p>\n<p>Please enter your contact details at <a href=\"https://www.lufthansa.com/de/en/login\"><b>My booking</b></a> or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.</p>\n<p><b>Rebooking and additional information</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p>In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your <a href=\"https://www.lufthansa.com/de/en/login\"><b>booking</b></a><u>.</u> Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a>.&nbsp;</p>\n<p><b>Further information</b></p>\n<p>You can find more information and tips in case of irregularities at short notice on <a href=\"https://www.lufthansa.com/de/en/flight-disruptions\"><b>our special page</b></a>.<u></u></p>\n<p><b>Air passenger rights</b></p>\n<p>Advice regarding air passenger rights can be found <a href=\"https://www.lufthansa.com/de/en/passenger-rights\"><b>here</b></a></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>"
+   ],
+   "wrapperOuterHTML": "<div class=\"messagecenterwrapper section\">\n    \n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.824646fbb830b302b316ef9b2913c294.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.c3e620cd4b69ac2415138a2f9af6e655.js\"></script>\n\n\n\n\n    <div class=\"message-center-wrapper\">\n\n        <maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span> Information on flights to Dubai</span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.</p>\n<p><b>Is your flight affected by an irregularity?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Please check the <a href=\"https://www.lufthansa.com/de/en/timetable-and-flight-status#/\"><b>current status</b></a> of your flight before heading to the airport.</p>\n<p><b>Save contact details, so we can send you important information about your flight quickly</b></p>\n<p>Please enter your contact details at <a href=\"https://www.lufthansa.com/de/en/login\"><b>My booking</b></a> or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.</p>\n<p><b>Rebooking and additional information</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p>In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your <a href=\"https://www.lufthansa.com/de/en/login\"><b>booking</b></a><u>.</u> Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a>.&nbsp;</p>\n<p><b>Further information</b></p>\n<p>You can find more information and tips in case of irregularities at short notice on <a href=\"https://www.lufthansa.com/de/en/flight-disruptions\"><b>our special page</b></a>.<u></u></p>\n<p><b>Air passenger rights</b></p>\n<p>Advice regarding air passenger rights can be found <a href=\"https://www.lufthansa.com/de/en/passenger-rights\"><b>here</b></a></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>\n\n        \n\n    </div>\n\n\n    \n</div>"
+  },
+  "/de/de/prepare-for-your-trip/current-travel-information": {
+   "status": 200,
+   "items": [
+    "<maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span>Information über den Flugverkehr nach Dubai   </span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.</p>\n<p><b>Flug von einer Unregelmässigkeit betroffen?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Bitte informieren Sie sich <a href=\"https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\"><b>hier</b></a> über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.</p>\n<p><b>Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können</b></p>\n<p>Bitte geben Sie Ihre Kontaktdaten unter <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Meine Buchungen</b></a> an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.</p>\n<p><b>Umbuchung und weitere Optionen</b></p>\n<p>Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Ihrer Buchung</b></a>. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&nbsp; <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a> zur Verfügung.</p>\n<p><b>Weitere Informationen</b></p>\n<p>Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf <a href=\"https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\"><b>unserer Sonderseite</b></a>.<b></b></p>\n<p><b>Fluggastrechte</b></p>\n<p>Hinweise zu den Fluggastrechten finden Sie <a href=\"https://www.lufthansa.com/de/de/passenger-rights?\"><b>hier</b></a><b><br>\n </b></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>"
+   ],
+   "wrapperOuterHTML": "<div class=\"messagecenterwrapper section\">\n    \n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.824646fbb830b302b316ef9b2913c294.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.c3e620cd4b69ac2415138a2f9af6e655.js\"></script>\n\n\n\n\n    <div class=\"message-center-wrapper\">\n\n        <maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span>Information über den Flugverkehr nach Dubai   </span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.</p>\n<p><b>Flug von einer Unregelmässigkeit betroffen?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Bitte informieren Sie sich <a href=\"https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\"><b>hier</b></a> über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.</p>\n<p><b>Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können</b></p>\n<p>Bitte geben Sie Ihre Kontaktdaten unter <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Meine Buchungen</b></a> an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.</p>\n<p><b>Umbuchung und weitere Optionen</b></p>\n<p>Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Ihrer Buchung</b></a>. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&nbsp; <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a> zur Verfügung.</p>\n<p><b>Weitere Informationen</b></p>\n<p>Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf <a href=\"https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\"><b>unserer Sonderseite</b></a>.<b></b></p>\n<p><b>Fluggastrechte</b></p>\n<p>Hinweise zu den Fluggastrechten finden Sie <a href=\"https://www.lufthansa.com/de/de/passenger-rights?\"><b>hier</b></a><b><br>\n </b></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>\n\n        \n\n    </div>\n\n\n    \n</div>"
+  },
+  "/at/de/prepare-for-your-trip/current-travel-information": {
+   "status": 200,
+   "items": [
+    "<maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span>Information über den Flugverkehr nach Dubai   </span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.</p>\n<p><b>Flug von einer Unregelmässigkeit betroffen?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Bitte informieren Sie sich <a href=\"https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\"><b>hier</b></a> über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.</p>\n<p><b>Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können</b></p>\n<p>Bitte geben Sie Ihre Kontaktdaten unter <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Meine Buchungen</b></a> an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.</p>\n<p><b>Umbuchung und weitere Optionen</b></p>\n<p>Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Ihrer Buchung</b></a>. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&nbsp; <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a> zur Verfügung.</p>\n<p><b>Weitere Informationen</b></p>\n<p>Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf <a href=\"https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\"><b>unserer Sonderseite</b></a>.<b></b></p>\n<p><b>Fluggastrechte</b></p>\n<p>Hinweise zu den Fluggastrechten finden Sie <a href=\"https://www.lufthansa.com/de/de/passenger-rights?\"><b>hier</b></a><b><br>\n </b></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>"
+   ],
+   "wrapperOuterHTML": "<div class=\"messagecenterwrapper section\">\n    \n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.824646fbb830b302b316ef9b2913c294.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.c3e620cd4b69ac2415138a2f9af6e655.js\"></script>\n\n\n\n\n    <div class=\"message-center-wrapper\">\n\n        <maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span>Information über den Flugverkehr nach Dubai   </span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>Angesichts der aktuellen Lage und des Lageausblicks im Nahen Osten hat die Lufthansa Group heute entschieden, ihre geplante Wiederaufnahme der Flüge nach Dubai (Vereinigte Arabische Emirate) auf den 25. November 2026 zu verschieben. Ursprünglich war der Start der Verbindungen von Lufthansa und SWISS zum 25. Oktober, beziehungsweise für Eurowings zum 1. November, geplant. Fluggäste, die Dubai-Flüge bis zum 25. November gebucht haben, werden entsprechend umgebucht und darüber informiert.</p>\n<p><b>Flug von einer Unregelmässigkeit betroffen?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Bitte informieren Sie sich <a href=\"https://www.lufthansa.com/de/de/flugplan-und-flugstatus#/\"><b>hier</b></a> über den aktuellen Status Ihres Fluges bevor Sie zum Flughafen fahren.</p>\n<p><b>Kontaktdaten hinterlegen, damit wir Ihnen wichtige Informationen zu Ihrem Flug schnell zukommen lassen können</b></p>\n<p>Bitte geben Sie Ihre Kontaktdaten unter <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Meine Buchungen</b></a> an oder erstellen Sie sich Ihre persönliche Travel ID. Nur so ist sichergestellt, dass wir Sie bei Bedarf während Ihrer Reise kontaktieren können.</p>\n<p><b>Umbuchung und weitere Optionen</b></p>\n<p>Im Falle einer Annullierung werden Sie von Lufthansa kostenlos und in der Regel automatisch auf einen anderen Flug umgebucht und über Ihre Mobilfunknummer informiert. Sollten Sie keine Nachricht von Lufthansa bekommen, schauen Sie bitte in den aktuellen Stand <a href=\"https://www.lufthansa.com/de/de/anmeldung?deeplinkRedirect=true\"><b>Ihrer Buchung</b></a>. Hier können Sie sich selbst zu einem späteren Zeitpunkt umbuchen oder sich das Ticket rückerstatten lassen. Alternativ steht Ihnen auch der&nbsp; <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a> zur Verfügung.</p>\n<p><b>Weitere Informationen</b></p>\n<p>Weitere Informationen und Tipps bei kurzfristigen Unregelmässigkeiten sehen Sie auf <a href=\"https://www.lufthansa.com/de/de/flugunregelmaessigkeiten\"><b>unserer Sonderseite</b></a>.<b></b></p>\n<p><b>Fluggastrechte</b></p>\n<p>Hinweise zu den Fluggastrechten finden Sie <a href=\"https://www.lufthansa.com/de/de/passenger-rights?\"><b>hier</b></a><b><br>\n </b></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>\n\n        \n\n    </div>\n\n\n    \n</div>"
+  },
+  "/gb/en/prepare-for-your-trip/current-travel-information": {
+   "status": 200,
+   "items": [
+    "<maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span> Information on flights to Dubai</span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.</p>\n<p><b>Is your flight affected by an irregularity?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Please check the <a href=\"https://www.lufthansa.com/de/en/timetable-and-flight-status#/\"><b>current status</b></a> of your flight before heading to the airport.</p>\n<p><b>Save contact details, so we can send you important information about your flight quickly</b></p>\n<p>Please enter your contact details at <a href=\"https://www.lufthansa.com/de/en/login\"><b>My booking</b></a> or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.</p>\n<p><b>Rebooking and additional information</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p>In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your <a href=\"https://www.lufthansa.com/de/en/login\"><b>booking</b></a><u>.</u> Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a>.&nbsp;</p>\n<p><b>Further information</b></p>\n<p>You can find more information and tips in case of irregularities at short notice on <a href=\"https://www.lufthansa.com/de/en/flight-disruptions\"><b>our special page</b></a>.<u></u></p>\n<p><b>Air passenger rights</b></p>\n<p>Advice regarding air passenger rights can be found <a href=\"https://www.lufthansa.com/de/en/passenger-rights\"><b>here</b></a></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>"
+   ],
+   "wrapperOuterHTML": "<div class=\"messagecenterwrapper section\">\n    \n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.824646fbb830b302b316ef9b2913c294.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/dcep/core/components/content/messagecenterwrapper/clientlibs.c3e620cd4b69ac2415138a2f9af6e655.js\"></script>\n\n\n\n\n    <div class=\"message-center-wrapper\">\n\n        <maui-collapsible-item id=\"message-center-item-1792762284235\" class=\"mcm-critically-high\">\n            <div slot=\"header\">\n                <maui-icon use=\"warning\"></maui-icon>\n                <span> Information on flights to Dubai</span>\n            </div>\n            <div class=\"richtext\">\n                <p></p><p>In light of the current situation and outlook in the Middle East, the Lufthansa Group decided today to postpone its planned resumption of flights to Dubai (United Arab Emirates) until 25 November 2026. Previously, Lufthansa and SWISS were scheduled to begin service on 25 October, and Eurowings on 01 November. Affected passengers will be contacted directly by their respective airlines and will be offered flexible rebooking options or a full refund.</p>\n<p><b>Is your flight affected by an irregularity?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>\n<p>Please check the <a href=\"https://www.lufthansa.com/de/en/timetable-and-flight-status#/\"><b>current status</b></a> of your flight before heading to the airport.</p>\n<p><b>Save contact details, so we can send you important information about your flight quickly</b></p>\n<p>Please enter your contact details at <a href=\"https://www.lufthansa.com/de/en/login\"><b>My booking</b></a> or create your personal Travel ID. This is the only way to ensure that we can contact you during your trip if necessary.</p>\n<p><b>Rebooking and additional information</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p>In the event of a cancellation, Lufthansa will rebook you free of charge and usually automatically to another flight and inform you via your mobile phone number. If you do not receive a message from Lufthansa, please check the current status of your <a href=\"https://www.lufthansa.com/de/en/login\"><b>booking</b></a><u>.</u> Here you can rebook yourself at a later date or have the ticket refunded. Alternatively, you can also use the <a href=\"https://www.lufthansa.com/digitalassistant/webchat.html?ref=flightdisruption&amp;start=irreg\"><b>Lufthansa Chat Assistant</b></a>.&nbsp;</p>\n<p><b>Further information</b></p>\n<p>You can find more information and tips in case of irregularities at short notice on <a href=\"https://www.lufthansa.com/de/en/flight-disruptions\"><b>our special page</b></a>.<u></u></p>\n<p><b>Air passenger rights</b></p>\n<p>Advice regarding air passenger rights can be found <a href=\"https://www.lufthansa.com/de/en/passenger-rights\"><b>here</b></a></p>\n<p></p>\n            </div>\n        </maui-collapsible-item>\n\n        \n\n    </div>\n\n\n    \n</div>"
+  }
+ }
+}
