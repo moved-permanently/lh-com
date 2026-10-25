@@ -388,7 +388,8 @@ export default async function decorate(block) {
     return;
   }
 
-  // www: the "from" price of the heading in whole units (601.14 → 601 €), the calendar's
+  // www: the "from" price of the heading rounded to the nearest unit (601.14 → 601 €, 521.82 →
+  // 522 €), the calendar's
   // prices rounded up (602 €)
   const fare = (price, data = months) => formatFare(price, data || {}, locale, localeData || {});
   const lowestOf = (list) => (list && list.length
@@ -405,7 +406,7 @@ export default async function decorate(block) {
       ORIGIN: originName,
       DESTINATION: destinationName,
       SHOWPRICE: Boolean(lowest),
-      MINPRICE: lowest ? fare(Math.floor(lowest.price)) : '',
+      MINPRICE: lowest ? fare(Math.round(lowest.price)) : '',
     })),
   );
   parts.push(intro);
