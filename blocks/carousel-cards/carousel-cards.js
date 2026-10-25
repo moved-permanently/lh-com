@@ -4,6 +4,7 @@ import {
   toConfigKey, cleanText, resolveLabels, decorateExternalLinks, keepImageSize,
 } from '../../scripts/block-config.js';
 import { isVideoLink, buildVideo, loadMediaStyles } from '../../scripts/media.js';
+import { loadAuthors, loadArticles } from '../../scripts/articles.js';
 
 /**
  * UI strings; authors override any of them with a two-cell row such as
@@ -113,6 +114,79 @@ function buildSlide(cells) {
   return li;
 }
 
+/** Path of an author page link (this site or www.lufthansa.com), or ''. */
+function authorPath(link) {
+  try {
+    const url = new URL(link.getAttribute('href'), window.location.href);
+    const local = url.origin === window.location.origin || /\.aem\.(page|live)$/.test(url.hostname)
+      || /(^|\.)lufthansa\.com$/.test(url.hostname);
+    const m = url.pathname.match(/(\/[a-z]{2}\/[a-z]{2}\/articles\/authors\/[^/.]+)/);
+    return local && m ? m[1] : '';
+  } catch (e) {
+    return '';
+  }
+}
+
+/** A slide row (image | linked name, description) of an author of the author index. */
+function authorRow(author) {
+  const row = el('div');
+  const image = el('div');
+  if (author.image) {
+    const picture = el('picture');
+    const img = el('img');
+    img.src = author.image;
+    img.alt = '';
+    picture.append(img);
+    image.append(picture);
+  }
+  const body = el('div');
+  const h = el('h3');
+  const a = el('a');
+  a.href = author.path;
+  a.textContent = author.name;
+  h.append(a);
+  body.append(h);
+  if (author.description) {
+    const p = el('p');
+    p.textContent = author.description;
+    body.append(p);
+  }
+  row.append(image, body);
+  return row;
+}
+
+/**
+ * Author slider (option authors): the authors come from the locale's author index
+ * (/{cc}/{ll}/articles/authors/query-index.json). Authored rows that link an author page keep
+ * their order (www's configured authors) and take name, square image and description from the
+ * index (rows of authors without a page in the index stay as authored); without authored rows
+ * every author of the index is shown, the one with the newest article first.
+ */
+async function fillAuthors(block) {
+  const locale = getLocale();
+  const [authors, articles] = await Promise.all([
+    loadAuthors(locale).catch(() => []),
+    loadArticles(locale).catch(() => []),
+  ]);
+  block.dataset.lhSource = authors.length ? 'live' : 'none';
+  if (!authors.length) return;
+  const byPath = new Map(authors.map((a) => [a.path, a]));
+  const rows = [...block.children].filter((r) => r.querySelector('picture, img, a, h1, h2, h3, h4, p'));
+  if (!rows.length) {
+    const newest = (a) => Math.max(-Infinity, ...articles
+      .filter((x) => x.authorId && x.authorId === a.authorId)
+      .map((x) => (Number.isNaN(x.time) ? -Infinity : x.time)));
+    [...authors].sort((a, b) => newest(b) - newest(a) || a.name.localeCompare(b.name))
+      .forEach((a) => block.append(authorRow(a)));
+    return;
+  }
+  rows.forEach((row) => {
+    const link = [...row.querySelectorAll('a[href]')].find(authorPath);
+    const author = link && byPath.get(authorPath(link));
+    if (author) row.replaceWith(authorRow(author));
+  });
+}
+
 /** Slides in view: 1 (one slide per dot) unless the four-up option shows several at once. */
 function slidesPerView(block, track, items) {
   if (!block.classList.contains('four-up') || !items[0].offsetWidth) return 1;
@@ -123,6 +197,7 @@ function slidesPerView(block, track, items) {
 export default async function decorate(block) {
   instanceCount += 1;
   const uid = `carousel-cards-${instanceCount}`;
+  if (block.classList.contains('authors')) await fillAuthors(block);
   const { config, slides } = readRows(block);
   const labels = resolveLabels(DEFAULT_LABELS, config, getLocale().lang);
 

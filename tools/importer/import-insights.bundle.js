@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_576427_exports = {};
-  __export(tmp_bundle_insights_576427_exports, {
-    default: () => tmp_bundle_insights_576427_default
+  var tmp_bundle_insights_587510_exports = {};
+  __export(tmp_bundle_insights_587510_exports, {
+    default: () => tmp_bundle_insights_587510_default
   });
 
   // tools/importer/parsers/poi-map.js
@@ -248,8 +248,79 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/parsers/article-data.js
+  var AUTHOR_IDS = {
+    "100 Jahre Lufthansa": "lh/100-jahre-lufthansa",
+    "100 years Lufthansa": "lh/100-years-lufthansa",
+    "Alexandra Mikamo": "lh/alexandra-mikamo",
+    "Alfonso Duran": "lh/alfonso-duran",
+    "Anika Landsteiner": "lh/anika-landsteiner",
+    "Anita-Anna Steiner-Zakowski": "lh/anita-anna-steiner-zakowski",
+    "Chris Yan": "lh/chris-yan",
+    "Christine Peasnell": "lh/christine-peasnell",
+    "Christoph Eisenschink": "lh/christoph-eisenschink",
+    "Coke Bartrina": "lh/coke-bartrina",
+    "Dana-Fiona Armour": "lh/dana-fiona-armour",
+    "Dani\xEBl de Jonge": "lh/dani\xEBl-de-jonge",
+    "David McGraw": "lh/david-mcgraw",
+    "Dennis Talat": "lh/dennis-talat",
+    "Devrim Lingnau": "lh/devrim-lingnau",
+    "Dirk Nowitzki": "lh/dirk-nowitzki",
+    "Emmanuel Carvajal": "lh/emmanuel-carvajal",
+    "Florian Tomberg": "lh/florian-tomberg",
+    "Francisco Tirado": "lh/francisco-tirado",
+    "Hanako Ishii": "lh/hanako-ishii",
+    "Hauke H\xFCckst\xE4dt": "lh/hauke-hueckstaedt",
+    "Interview: Aileen Tiedemann": "lh/interview--aileen-tiedemann",
+    "Jana Zierdt": "lh/jana-zierst",
+    "Jennifer Battis": "lh/jennifer-battis",
+    "Jeroen Mosselman": "lh/jeroen-mosselman",
+    "Julia Buth": "lh/julia-buth",
+    "Kadriye Araci": "lh/kadriye-araci",
+    "Lily Henry": "lh/lily-henry",
+    "Lindsay Jang": "lh/lindsay-jang",
+    "Lufthansa Editorial Team": "lh/lufthansa-editorial-team",
+    "Manfred Samhuber": "lh/manfred-samhuber",
+    "Nicholas Currie": "lh/nicholas-currie",
+    "Peter-J\xFCrgen Jilke": "lh/peter-juergen-jilke",
+    "Philip Bierig": "lh/philip-bierig",
+    "Rebecca Pearson": "lh/rebecca-pearson",
+    "Ricardo Perna": "lh/ricardo-perna",
+    "Sarah Reema M\xFCller-Westernhagen": "lh/sarah-reema-m\xFCller-westernhagen",
+    "Sophia Li": "lh/sophia-li",
+    "Stefanie Pr\xF6stler-Meckl": "lh/stefanie-pr\xF6stler-meckl",
+    "Stefanie Sauer": "lh/stefanie-sauer",
+    "Theresa Kaindl": "lh/theresa-kaindl",
+    "Till Nawrath": "lh/till-nawrath",
+    "Ute Alvarez Alonso": "lh/ute-alvarez-alonso",
+    "Valentino und Giuseppe Mazzella": "lh/valentino-und-giuseppe-mazzella",
+    "Yoshi Sislay": "lh/yoshi-sislay"
+  };
+  var AUTHOR_CARD_IMAGES = {
+    "/at/de/articles/authors/alexandra-mikamo": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_alexandra-mikamo_1x1.jpg",
+    "/at/de/articles/authors/florian-schwebel": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-schwebel_1x1.jpg",
+    "/at/de/articles/authors/florian-tomberg": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-oliver-tomberg_1x1.jpg",
+    "/at/de/articles/authors/julia-buth": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_julia-buth_1x1.jpg",
+    "/at/de/articles/authors/till-weisbrod": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_till-christopher-weisbrod_1x1.jpg",
+    "/de/de/articles/authors/alexandra-mikamo": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_alexandra-mikamo_1x1.jpg",
+    "/de/de/articles/authors/florian-schwebel": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-schwebel_1x1.jpg",
+    "/de/de/articles/authors/florian-tomberg": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-oliver-tomberg_1x1.jpg",
+    "/de/de/articles/authors/julia-buth": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_julia-buth_1x1.jpg",
+    "/de/de/articles/authors/till-weisbrod": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_till-christopher-weisbrod_1x1.jpg",
+    "/de/en/articles/authors/alexandra-mikamo": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_alexandra-mikamo_1x1.jpg",
+    "/de/en/articles/authors/florian-schwebel": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-schwebel_1x1.jpg",
+    "/de/en/articles/authors/florian-tomberg": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-oliver-tomberg_1x1.jpg",
+    "/de/en/articles/authors/julia-buth": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_julia-buth_1x1.jpg",
+    "/de/en/articles/authors/till-weisbrod": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_till-christopher-weisbrod_1x1.jpg",
+    "/gb/en/articles/authors/alexandra-mikamo": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_alexandra-mikamo_1x1.jpg",
+    "/gb/en/articles/authors/florian-schwebel": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-schwebel_1x1.jpg",
+    "/gb/en/articles/authors/florian-tomberg": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_florian-oliver-tomberg_1x1.jpg",
+    "/gb/en/articles/authors/julia-buth": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_julia-buth_1x1.jpg",
+    "/gb/en/articles/authors/till-weisbrod": "/content/dam/lh/article-images/non-destination/author-ilustration-banners/lh_com_illustration_till-christopher-weisbrod_1x1.jpg"
+  };
+
   // tools/importer/parsers/article-header.js
-  function parse3(element, { document }) {
+  function parse3(element, { document, url, params }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -300,7 +371,32 @@ var CustomImportScript = (() => {
         text.push(p);
       }
     }
-    const tags = [...content.querySelectorAll(".chip-wrapper maui-chip, maui-chip")].map((c) => clean2(c.getAttribute("label")) || visibleText(c)).filter(Boolean);
+    const chipEls = [...content.querySelectorAll(".chip-wrapper maui-chip, maui-chip")];
+    const tags = chipEls.map((c) => clean2(c.getAttribute("label")) || visibleText(c)).filter(Boolean);
+    const tagIds = chipEls.map((c) => {
+      const link = c.getAttribute("data-link") || "";
+      const m = link.match(/\/articles\/tags\/([^/?#]+)/);
+      const id = m ? m[1] : clean2(c.getAttribute("data-testid"));
+      return id ? `articles:${id.replace(/\.html$/, "")}` : "";
+    }).filter(Boolean);
+    const pagePath = (() => {
+      try {
+        return new URL(params && params.originalURL || url).pathname;
+      } catch (e) {
+        return "";
+      }
+    })();
+    const categoryMatch = pagePath.match(/^\/[a-z]{2}\/[a-z]{2}\/articles\/([^/]+)\/[^/]+/);
+    const dcep = (sel) => [...document.querySelectorAll(`${sel}[data-dcep]`)].map((el) => {
+      try {
+        return JSON.parse(el.getAttribute("data-dcep")) || {};
+      } catch (e) {
+        return {};
+      }
+    });
+    const destinations = [...new Set([...dcep(".dcep-blog-cookie"), ...dcep(".dcep-sticky-price")].map((c) => clean2(c.destinationCode).toUpperCase()).filter((c) => /^[A-Z]{3}$/.test(c)))];
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    const keywords = clean2(keywordsMeta && keywordsMeta.getAttribute("content"));
     const details = intro && intro.querySelector(".article-details") || content.querySelector(".article-details");
     const dateText = visibleText(details && details.querySelector(".article-date"));
     const readingTime = visibleText(details && details.querySelector(".article-duration"));
@@ -364,6 +460,22 @@ var CustomImportScript = (() => {
     if (dateText) meta["publication-date"] = toIsoDate(dateText);
     if (readingTime) meta["reading-time"] = readingTime;
     if (author) meta.author = author;
+    meta["page-type"] = "article";
+    if (tagIds.length) meta["tag-ids"] = [...new Set(tagIds)].join(", ");
+    if (author) {
+      const slug = author.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      meta["author-id"] = AUTHOR_IDS[author] || `lh/${slug}`;
+    }
+    if (categoryMatch) meta.category = categoryMatch[1];
+    if (image) {
+      const card = document.createElement("img");
+      card.setAttribute("src", image.getAttribute("src"));
+      card.setAttribute("alt", image.getAttribute("alt") || "");
+      meta["card-image"] = card;
+      if (image.getAttribute("alt")) meta["card-image-alt"] = image.getAttribute("alt");
+    }
+    if (keywords) meta.keywords = keywords;
+    if (destinations.length) meta.destinations = destinations.join(", ");
     if (Object.keys(meta).length) {
       const head = document.head;
       if (head) {
@@ -620,6 +732,10 @@ var CustomImportScript = (() => {
         return imageCell || content.length ? [imageCell, content.length ? content : ""] : null;
       }).filter(Boolean);
       if (rows.length) element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: rows }));
+      return;
+    }
+    if (element.matches(".authorslider") || element.querySelector(":scope > .dcep-author-slider")) {
+      element.replaceWith(WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants: ["four-up", "authors"], cells: [] }));
       return;
     }
     if (!element.querySelector(".wide-teaser, .compact-teaser") && element.querySelector(".teaser a.teaser, a.teaser.card")) {
@@ -903,8 +1019,71 @@ var CustomImportScript = (() => {
     element.replaceWith(...titles, block);
   }
 
+  // tools/importer/parsers/blog-overview.js
+  function parse7(element, { document, url, params }) {
+    const clean2 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+    const host = element.matches(".dcep-blog-overview[data-dcep]") ? element : element.querySelector(".dcep-blog-overview[data-dcep]");
+    let cfg = {};
+    try {
+      cfg = JSON.parse(host && host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      cfg = {};
+    }
+    const decodeAuthor = (v) => {
+      const s = clean2(v);
+      if (!s || s.includes("/")) return s;
+      try {
+        const d = decodeURIComponent(escape(atob(s)));
+        return /^[a-z]+\/\S+$/.test(d) ? d : s;
+      } catch (e) {
+        return s;
+      }
+    };
+    const rows = [];
+    const category = clean2(cfg.categoryId).replace(/-em$/, "");
+    if (category) rows.push(["Category", category]);
+    if (clean2(cfg.selectedTag)) rows.push(["Tag", clean2(cfg.selectedTag)]);
+    const author = decodeAuthor(cfg.authorId);
+    if (author) rows.push(["Author", author]);
+    if (Number(cfg.paginationSize) > 0) rows.push(["Page size", String(Number(cfg.paginationSize))]);
+    if (cfg.hideFilter !== void 0 && cfg.hideFilter !== "") rows.push(["Hide filter", String(cfg.hideFilter === true || cfg.hideFilter === "true")]);
+    const wrapper = element.closest(".blogoverview") || element;
+    wrapper.replaceWith(WebImporter.Blocks.createBlock(document, { name: "blog-overview", cells: rows }));
+    const template = document.querySelector('meta[name="template"]');
+    if (!author || !template || template.getAttribute("content") !== "author") return;
+    const pagePath = (() => {
+      try {
+        return new URL(params && params.originalURL || url).pathname.replace(/\.html$/, "").replace(/\/$/, "");
+      } catch (e) {
+        return "";
+      }
+    })();
+    const content = document.querySelector(".author-details-page .author-content, .author-content");
+    const h1 = content && content.querySelector("h1");
+    const name = clean2(h1 && h1.textContent);
+    const bio = content && [...content.querySelectorAll("p")].map((p) => clean2(p.textContent)).find(Boolean);
+    const meta = WebImporter.Blocks.getMetadata(document);
+    meta["page-type"] = "author";
+    if (name) meta.author = name;
+    meta["author-id"] = author;
+    if (bio) meta["author-description"] = bio;
+    const square = AUTHOR_CARD_IMAGES[pagePath];
+    if (square) {
+      const img = document.createElement("img");
+      img.setAttribute("src", `https://www.lufthansa.com${square}`);
+      img.setAttribute("alt", "");
+      meta["card-image"] = img;
+    }
+    const head = document.head;
+    if (head) {
+      ["description", "og:image", "og:image:alt", "og:title", "og:description", "twitter:title", "twitter:description", "twitter:image", "twitter:image:alt"].forEach((n) => head.querySelectorAll(`meta[${n.includes(":") ? "property" : "name"}="${n}"]`).forEach((m) => m.remove()));
+      head.querySelectorAll("title").forEach((t) => t.remove());
+    }
+    document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
+  }
+
   // tools/importer/parsers/columns-media.js
-  function parse7(element, { document }) {
+  function parse8(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -1369,7 +1548,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/related-articles.js
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -1387,46 +1566,12 @@ var CustomImportScript = (() => {
       before.push(h);
     }
     const cells = [];
-    const seen = /* @__PURE__ */ new Set();
-    element.querySelectorAll("a.articles-card[href], .related-articles a[href]").forEach((card) => {
-      const href = card.getAttribute("href");
-      if (!href || seen.has(href)) return;
-      seen.add(href);
-      let title = visibleText(card.querySelector(".card-title, h2, h3, h4, h5")) || clean2(card.getAttribute("title")) || visibleText(card) || href;
-      const truncated = title.match(/^(.*?)\s*(…|\.\.\.)$/);
-      if (truncated && truncated[1]) {
-        const img = card.querySelector("img[alt]");
-        const alt = clean2(img && img.getAttribute("alt"));
-        if (alt && alt.startsWith(truncated[1])) title = alt;
-      }
-      const a = document.createElement("a");
-      a.setAttribute("href", href);
-      a.textContent = title;
-      const p = document.createElement("p");
-      p.append(a);
-      const content = [p];
-      const byline = [".article-date", ".article-duration", ".article-author"].map((sel) => visibleText(card.querySelector(sel))).filter(Boolean);
-      if (byline.length) {
-        const by = document.createElement("p");
-        by.textContent = byline.join(" | ");
-        content.push(by);
-      }
-      const src = card.querySelector(".card-image img[src], img[src]");
-      let imageCell = "";
-      if (src && src.getAttribute("src") && !/^(data|blob):/i.test(src.getAttribute("src"))) {
-        const img = document.createElement("img");
-        img.src = src.getAttribute("src");
-        img.alt = clean2(src.getAttribute("alt"));
-        imageCell = img;
-      }
-      cells.push([imageCell, content]);
-    });
     const block = WebImporter.Blocks.createBlock(document, { name: "related-articles", cells });
     element.replaceWith(...before, block);
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse9(element, { document }) {
+  function parse10(element, { document }) {
     const clean2 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -1456,7 +1601,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse10(element, { document }) {
+  function parse11(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean2 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -1851,7 +1996,7 @@ var CustomImportScript = (() => {
   }
   var MEDIA = 'img, picture, video, audio, iframe, svg, object, embed, canvas, input, select, textarea, button, form, hr, maui-icon, [style*="background-image"]';
   var VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
-  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper";
+  var WIDGET_CONFIG = ".dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep]";
   function isEmpty(el) {
     if (el.textContent.replace(/\u00A0/g, " ").trim()) return false;
     return !el.matches(`${VIDEO_CONFIG}, ${WIDGET_CONFIG}`) && !el.querySelector(`${MEDIA}, ${VIDEO_CONFIG}, ${WIDGET_CONFIG}`);
@@ -2720,7 +2865,7 @@ var CustomImportScript = (() => {
     }
     if (hookName === "afterTransform") {
       removeOverlays(document);
-      removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]']);
+      removeAll(document, ["script", "noscript", "style", "link", 'iframe[src*="cookielaw"]', ".dcep-blog-cookie"]);
       convertMauiLinks(document);
       unwrapLinksWithoutHref(document);
       removeIconsAndZeroWidth(document);
@@ -3017,10 +3162,15 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "blog-overview",
+        "instances": [
+          ".blogoverview"
+        ]
+      },
+      {
         "name": "columns-media",
         "instances": [
           ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
-          ".blogoverview:has(.blog-article-container)",
           ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ".videoViewer, .image:has(video)"
         ]
@@ -3173,10 +3323,11 @@ var CustomImportScript = (() => {
     "price-bar": parse4,
     "carousel-cards": parse5,
     "cards-teaser": parse6,
-    "columns-media": parse7,
-    "related-articles": parse8,
-    "carousel-images": parse9,
-    "accordion-columns": parse10
+    "blog-overview": parse7,
+    "columns-media": parse8,
+    "related-articles": parse9,
+    "carousel-images": parse10,
+    "accordion-columns": parse11
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -3200,7 +3351,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_576427_default = {
+  var tmp_bundle_insights_587510_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3230,5 +3381,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_576427_exports);
+  return __toCommonJS(tmp_bundle_insights_587510_exports);
 })();

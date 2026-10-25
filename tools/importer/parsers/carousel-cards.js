@@ -140,6 +140,13 @@ export default function parse(element, { document }) {
     return;
   }
 
+  // an author slider the snapshot caught before it rendered ("Loading...", /de/de/articles/
+  // explore-flying): the empty block, which lists the authors of the author index
+  if (element.matches('.authorslider') || element.querySelector(':scope > .dcep-author-slider')) {
+    element.replaceWith(WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants: ['four-up', 'authors'], cells: [] }));
+    return;
+  }
+
   // Teaser cards (a.teaser.card) in column views (desktop grid, swiper copy below lg) or in a
   // swiper. Homepage ".carousel" markup (.wide-teaser / .compact-teaser) is handled further down.
   if (!element.querySelector('.wide-teaser, .compact-teaser') && element.querySelector('.teaser a.teaser, a.teaser.card')) {

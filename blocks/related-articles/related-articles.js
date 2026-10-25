@@ -1,6 +1,9 @@
 import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import { cleanText, keepImageSize } from '../../scripts/block-config.js';
+import {
+  loadArticles, loadTagPriority, listOf, normalizeTag, normalizeCategory, currentPath,
+} from '../../scripts/articles.js';
 
 const CACHE_KEY = 'lh-related-articles:';
 // hosts of this site besides the current origin (links may be authored absolute)
@@ -233,28 +236,105 @@ function readCards(block) {
   return cards;
 }
 
+/** Card values of an index row (the shape readPage returns). */
+const fromIndex = (article) => ({
+  image: article.image,
+  alt: article.imageAlt,
+  title: article.title,
+  date: article.date,
+  readingTime: article.readingTime,
+  author: article.author,
+});
+
 /**
- * Related article cards from authored links; image, byline and title that the document does not
- * hold come from the head of the linked page (pages of the site only).
+ * Three related articles from the locale's article index, after the authored ones:
+ * two that share tags with the page (more shared priority-1 tags first, then priority-2, then
+ * other shared tags, then the newest), and one more of the page's category (the newest not yet
+ * shown; www fills its third card at random). Fewer matches: filled with the newest of the
+ * category, then the newest of the locale.
+ * @param {Object[]} articles index rows (newest first)
+ * @param {{tagIds: string[], category: string, exclude: Set<string>}} page
+ * @param {{p1: Set<string>, p2: Set<string>}} priority
+ * @param {number} count
+ */
+export function pickRelated(articles, page, priority, count) {
+  const pool = articles.filter((a) => !page.exclude.has(a.path));
+  const own = new Set(page.tagIds);
+  const score = (a) => {
+    const shared = a.tagIds.filter((t) => own.has(t));
+    return [shared.filter((t) => priority.p1.has(t)).length,
+      shared.filter((t) => priority.p2.has(t)).length, shared.length];
+  };
+  const picks = [];
+  const take = (list, n) => list.filter((a) => !picks.includes(a)).slice(0, n)
+    .forEach((a) => picks.push(a));
+  const tagged = pool.map((a, i) => ({ a, s: score(a), i })).filter((x) => x.s[2] > 0)
+    .sort((x, y) => y.s[0] - x.s[0] || y.s[1] - x.s[1] || y.s[2] - x.s[2] || x.i - y.i)
+    .map((x) => x.a);
+  take(tagged, Math.min(2, count));
+  const sameCategory = pool.filter((a) => page.category && a.category === page.category);
+  take(sameCategory, count - picks.length);
+  take(tagged, count - picks.length);
+  take(pool, count - picks.length);
+  return picks;
+}
+
+const MAX_CARDS = 3;
+
+/**
+ * Related article cards: rows an editor adds first (fixed, in authored order), then picks from
+ * the article index up to three (pickRelated). Image, byline and title a row leaves out come
+ * from the index, else from the head of the linked page (pages of the site only).
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const locale = getLocale();
   const cards = readCards(block);
   const list = document.createElement('ul');
   list.className = 'related-articles-list';
   list.append(...cards.map((card) => card.li));
   block.replaceChildren(list);
+
+  const here = currentPath();
+  const [articles, priority] = await Promise.all([
+    loadArticles(locale).catch(() => []),
+    loadTagPriority(locale),
+  ]);
+  const byPath = new Map(articles.map((a) => [a.path, a]));
+
+  const picks = pickRelated(articles, {
+    tagIds: listOf(getMetadata('tag-ids')).map(normalizeTag),
+    category: normalizeCategory(getMetadata('category') || (here.match(/\/articles\/([^/]+)\/[^/]+$/) || [])[1]),
+    exclude: new Set([here, ...cards.map((c) => c.path).filter(Boolean)]),
+  }, priority, Math.max(0, MAX_CARDS - cards.length));
+  picks.forEach((article) => {
+    const link = document.createElement('a');
+    link.href = article.path;
+    link.textContent = article.title;
+    const card = buildCard(link, { img: null, byline: '' });
+    enrichCard(card, fromIndex(article), locale);
+    cards.push(card);
+    list.append(card.li);
+  });
+  block.dataset.lhSource = articles.length ? 'live' : 'none';
+
   if (!cards.length) {
     block.classList.add('related-articles-empty');
+    // nothing to show (no index yet): neither the heading of the section
+    const section = block.closest('.section');
+    if (section && section.querySelectorAll('.block').length === 1) section.hidden = true;
     return;
   }
 
-  // enrich without holding up the section: the cards are already in place
+  // authored cards: what the row leaves out from the index, else from the linked page's head
   cards.forEach((card) => {
     const complete = card.li.querySelector('.related-articles-image').children.length
       && card.li.querySelector('.related-articles-byline').children.length && card.hasTitle;
     if (!card.path || complete) return;
+    if (byPath.has(card.path)) {
+      enrichCard(card, fromIndex(byPath.get(card.path)), locale);
+      return;
+    }
     fetchPage(card.path).then((page) => {
       if (page) enrichCard(card, page, locale);
       else if (!card.hasTitle) card.li.querySelector('.related-articles-title').textContent = card.path;

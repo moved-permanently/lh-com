@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
+import { AUTHOR_IDS } from './article-data.js';
 
 /**
  * Parser for article-header (Lufthansa Insights article: ".article-details-page >
@@ -16,8 +17,14 @@
  * page image, plus tags / publication-date / reading-time / author) at the end of the page and
  * removes the head entries getMetadata reads, so the import script's createMetadata() call does
  * not add a second Metadata block.
+ * For the article lists (query index per locale, blocks blog-overview and related-articles) the
+ * Metadata also holds: page-type "article", tag-ids (www's ids "articles:<id>", from the chips'
+ * links, in the order of the tag titles), author-id (www's id from article-data.js, else a slug
+ * of the name), category (the path segment after /articles/), card-image and card-image-alt (the
+ * feature image, which www's list cards show), keywords (meta keywords, where www has them) and
+ * destinations (the IATA codes of the page's destination widgets: blog cookie, sticky price).
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
   const clean = (s) => (s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim();
   const visibleText = (node) => {
@@ -75,8 +82,26 @@ export default function parse(element, { document }) {
   }
 
   // --- page metadata from the article chrome
-  const tags = [...content.querySelectorAll('.chip-wrapper maui-chip, maui-chip')]
-    .map((c) => clean(c.getAttribute('label')) || visibleText(c)).filter(Boolean);
+  const chipEls = [...content.querySelectorAll('.chip-wrapper maui-chip, maui-chip')];
+  const tags = chipEls.map((c) => clean(c.getAttribute('label')) || visibleText(c)).filter(Boolean);
+  // www's tag id: the tag page the chip links to (.../articles/tags/<id>), else its test id
+  const tagIds = chipEls.map((c) => {
+    const link = c.getAttribute('data-link') || '';
+    const m = link.match(/\/articles\/tags\/([^/?#]+)/);
+    const id = m ? m[1] : clean(c.getAttribute('data-testid'));
+    return id ? `articles:${id.replace(/\.html$/, '')}` : '';
+  }).filter(Boolean);
+  const pagePath = (() => {
+    try { return new URL((params && params.originalURL) || url).pathname; } catch (e) { return ''; }
+  })();
+  const categoryMatch = pagePath.match(/^\/[a-z]{2}\/[a-z]{2}\/articles\/([^/]+)\/[^/]+/);
+  const dcep = (sel) => [...document.querySelectorAll(`${sel}[data-dcep]`)].map((el) => {
+    try { return JSON.parse(el.getAttribute('data-dcep')) || {}; } catch (e) { return {}; }
+  });
+  const destinations = [...new Set([...dcep('.dcep-blog-cookie'), ...dcep('.dcep-sticky-price')]
+    .map((c) => clean(c.destinationCode).toUpperCase()).filter((c) => /^[A-Z]{3}$/.test(c)))];
+  const keywordsMeta = document.querySelector('meta[name="keywords"]');
+  const keywords = clean(keywordsMeta && keywordsMeta.getAttribute('content'));
   const details = (intro && intro.querySelector('.article-details')) || content.querySelector('.article-details');
   const dateText = visibleText(details && details.querySelector('.article-date'));
   const readingTime = visibleText(details && details.querySelector('.article-duration'));
@@ -142,6 +167,23 @@ export default function parse(element, { document }) {
   if (dateText) meta['publication-date'] = toIsoDate(dateText);
   if (readingTime) meta['reading-time'] = readingTime;
   if (author) meta.author = author;
+  meta['page-type'] = 'article';
+  if (tagIds.length) meta['tag-ids'] = [...new Set(tagIds)].join(', ');
+  if (author) {
+    const slug = author.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    meta['author-id'] = AUTHOR_IDS[author] || `lh/${slug}`;
+  }
+  if (categoryMatch) meta.category = categoryMatch[1];
+  if (image) {
+    const card = document.createElement('img');
+    card.setAttribute('src', image.getAttribute('src'));
+    card.setAttribute('alt', image.getAttribute('alt') || '');
+    meta['card-image'] = card;
+    if (image.getAttribute('alt')) meta['card-image-alt'] = image.getAttribute('alt');
+  }
+  if (keywords) meta.keywords = keywords;
+  if (destinations.length) meta.destinations = destinations.join(', ');
   if (Object.keys(meta).length) {
     const head = document.head;
     if (head) {

@@ -89,3 +89,330 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Lufthansa Insights articles, one index per locale, articles only: the overview, tag and
+  # author pages are excluded by path (and only articles have page-type "article", which the
+  # blocks check too). Read by blog-overview (category, tag and author overviews),
+  # related-articles and the author slider (carousel-cards authors). tags: the tag titles (EDS
+  # writes the Tags metadata as article:tag); tag-ids: www's ids ("articles:munich");
+  # title, description, image: the article's h1, intro and feature image, which www's list cards
+  # show (not og:title, the meta description or og:image).
+  articles-de-en:
+    include:
+      - /de/en/articles/*/*
+    exclude:
+      - /de/en/articles/tags/**
+      - /de/en/articles/authors/**
+      - /de/en/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /de/en/articles/highlights/all-it-takes-is-a-yes
+    target: /de/en/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  articles-de-de:
+    include:
+      - /de/de/articles/*/*
+    exclude:
+      - /de/de/articles/tags/**
+      - /de/de/articles/authors/**
+      - /de/de/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /de/de/articles/highlights/all-it-takes-is-a-yes
+    target: /de/de/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  articles-at-de:
+    include:
+      - /at/de/articles/*/*
+    exclude:
+      - /at/de/articles/tags/**
+      - /at/de/articles/authors/**
+      - /at/de/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /at/de/articles/highlights/all-it-takes-is-a-yes
+    target: /at/de/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  articles-gb-en:
+    include:
+      - /gb/en/articles/*/*
+    exclude:
+      - /gb/en/articles/tags/**
+      - /gb/en/articles/authors/**
+      - /gb/en/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /gb/en/articles/highlights/all-it-takes-is-a-yes
+    target: /gb/en/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Lufthansa Insights author pages, one index per locale: the author slider (carousel-cards
+  # authors) takes name, description and square image from it.
+  article-authors-de-en:
+    include:
+      - /de/en/articles/authors/*
+    target: /de/en/articles/authors/query-index.json
+    properties:
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="author-description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  article-authors-de-de:
+    include:
+      - /de/de/articles/authors/*
+    target: /de/de/articles/authors/query-index.json
+    properties:
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="author-description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  article-authors-at-de:
+    include:
+      - /at/de/articles/authors/*
+    target: /at/de/articles/authors/query-index.json
+    properties:
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="author-description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  article-authors-gb-en:
+    include:
+      - /gb/en/articles/authors/*
+    target: /gb/en/articles/authors/query-index.json
+    properties:
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="author-description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[name="card-image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

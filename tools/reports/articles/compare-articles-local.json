@@ -1,0 +1,905 @@
+{
+ "checkedAt": "2026-10-25T21:56:06.646Z",
+ "replica": "local documents",
+ "locales": {
+  "de/en": {
+   "www": "replica documents (no export yet)",
+   "error": "",
+   "articles": {
+    "www": 24,
+    "replica": 24
+   },
+   "counts": {
+    "category": [],
+    "tag": [],
+    "author": []
+   },
+   "overviews": [
+    {
+     "path": "/de/en/articles/authors/florian-tomberg",
+     "options": {
+      "category": "",
+      "tag": "",
+      "author": "lh/florian-tomberg",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 0,
+      "firstPage": []
+     },
+     "replica": {
+      "total": 0,
+      "firstPage": []
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/de/en/articles/explore-the-world/a-perfect-day-singapore-in-one-day",
+       "/de/en/articles/explore-the-world/be-picky-singapore-insider-tips"
+      ]
+     }
+    },
+    {
+     "path": "/de/en/articles/explore-flying",
+     "options": {
+      "category": "explore-flying",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 5,
+      "firstPage": [
+       "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/de/en/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/de/en/articles/explore-flying/essentials-future-of-flying",
+       "/de/en/articles/explore-flying/anniversary-super-crane-special",
+       "/de/en/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "replica": {
+      "total": 5,
+      "firstPage": [
+       "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/de/en/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/de/en/articles/explore-flying/essentials-future-of-flying",
+       "/de/en/articles/explore-flying/anniversary-super-crane-special",
+       "/de/en/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 80,
+      "cards": [
+       "/de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+       "/de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/de/en/articles/explore-flying/oktoberfest-traditional-bavarian-attire",
+       "/de/en/articles/explore-flying/aircraft-lights-explained",
+       "/de/en/articles/explore-flying/allegris-fox",
+       "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history"
+      ]
+     }
+    },
+    {
+     "path": "/de/en/articles/explore-the-world",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 18,
+      "firstPage": [
+       "/de/en/articles/explore-the-world/essentials-barcelona-facts",
+       "/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/de/en/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "replica": {
+      "total": 18,
+      "firstPage": [
+       "/de/en/articles/explore-the-world/essentials-barcelona-facts",
+       "/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/de/en/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 421,
+      "cards": [
+       "/de/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day",
+       "/de/en/articles/explore-the-world/on-the-scene-sports-miami",
+       "/de/en/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+       "/de/en/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/de/en/articles/explore-the-world/in-my-hood-bandra-mumbai",
+       "/de/en/articles/explore-the-world/a-perfect-day-miami-in-one-day"
+      ]
+     }
+    },
+    {
+     "path": "/de/en/articles/highlights",
+     "options": {
+      "category": "highlights",
+      "tag": "",
+      "author": "",
+      "pageSize": 10,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 58,
+      "cards": [
+       "/de/en/articles/highlights/allegris-a-new-flight-experience",
+       "/de/en/articles/highlights/exclusive-first-class-tracksuit",
+       "/de/en/articles/highlights/the-art-of-flying-extra-long-bed",
+       "/de/en/articles/highlights/the-art-of-flying-extra-space-seat",
+       "/de/en/articles/highlights/the-art-of-flying-suite",
+       "/de/en/articles/highlights/vancouver-winter",
+       "/de/en/articles/highlights/raleigh-nc-winter",
+       "/de/en/articles/highlights/minneapolis-winter",
+       "/de/en/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+       "/de/en/articles/highlights/hyderabad-city-of-pearls-and-programmers"
+      ]
+     }
+    },
+    {
+     "path": "/de/en/articles/tags/allegris",
+     "options": {
+      "category": "",
+      "tag": "articles:allegris",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/de/en/articles/highlights/allegris-a-new-flight-experience",
+       "/de/en/articles/highlights/allegris-experiences",
+       "/de/en/articles/highlights/allegris-business-class-shanghai",
+       "/de/en/articles/highlights/stefan-marx-travel-hacks",
+       "/de/en/articles/highlights/fashion-footprints-new-york"
+      ]
+     }
+    },
+    {
+     "path": "/de/en/articles/tags/munich",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "articles:munich",
+      "author": "",
+      "pageSize": 3,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/de/en/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/de/en/articles/explore-the-world/essentials-munich-facts",
+       "/de/en/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner"
+      ]
+     }
+    }
+   ]
+  },
+  "de/de": {
+   "www": "replica documents (no export yet)",
+   "error": "",
+   "articles": {
+    "www": 24,
+    "replica": 24
+   },
+   "counts": {
+    "category": [],
+    "tag": [],
+    "author": []
+   },
+   "overviews": [
+    {
+     "path": "/de/de/articles/authors/florian-tomberg",
+     "options": {
+      "category": "",
+      "tag": "",
+      "author": "lh/florian-tomberg",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 0,
+      "firstPage": []
+     },
+     "replica": {
+      "total": 0,
+      "firstPage": []
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": []
+     }
+    },
+    {
+     "path": "/de/de/articles/explore-flying",
+     "options": {
+      "category": "explore-flying",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 5,
+      "firstPage": [
+       "/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/de/de/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/de/de/articles/explore-flying/essentials-future-of-flying",
+       "/de/de/articles/explore-flying/anniversary-super-crane-special",
+       "/de/de/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "replica": {
+      "total": 5,
+      "firstPage": [
+       "/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/de/de/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/de/de/articles/explore-flying/essentials-future-of-flying",
+       "/de/de/articles/explore-flying/anniversary-super-crane-special",
+       "/de/de/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": []
+     }
+    },
+    {
+     "path": "/de/de/articles/explore-the-world",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 18,
+      "firstPage": [
+       "/de/de/articles/explore-the-world/essentials-barcelona-facts",
+       "/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/de/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/de/de/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/de/de/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "replica": {
+      "total": 18,
+      "firstPage": [
+       "/de/de/articles/explore-the-world/essentials-barcelona-facts",
+       "/de/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/de/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/de/de/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/de/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/de/de/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 422,
+      "cards": [
+       "/de/de/articles/explore-the-world/a-perfect-day-toronto-in-one-day",
+       "/de/de/articles/explore-the-world/on-the-scene-sports-miami",
+       "/de/de/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+       "/de/de/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/de/de/articles/explore-the-world/in-my-hood-bandra-mumbai",
+       "/de/de/articles/explore-the-world/a-perfect-day-miami-in-one-day"
+      ]
+     }
+    },
+    {
+     "path": "/de/de/articles/highlights",
+     "options": {
+      "category": "highlights",
+      "tag": "",
+      "author": "",
+      "pageSize": 10,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 54,
+      "cards": [
+       "/de/de/articles/highlights/allegris-a-new-flight-experience",
+       "/de/de/articles/highlights/exclusive-first-class-tracksuit",
+       "/de/de/articles/highlights/the-art-of-flying-extra-long-bed",
+       "/de/de/articles/highlights/the-art-of-flying-extra-space-seat",
+       "/de/de/articles/highlights/the-art-of-flying-suite",
+       "/de/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+       "/de/de/articles/highlights/minneapolis-winter",
+       "/de/de/articles/highlights/austin-texas-city-of-live-music",
+       "/de/de/articles/highlights/johannesburg-winter",
+       "/de/de/articles/highlights/hyderabad-city-of-pearls-and-programmers"
+      ]
+     }
+    },
+    {
+     "path": "/de/de/articles/tags/allegris",
+     "options": {
+      "category": "",
+      "tag": "articles:allegris",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/de/de/articles/highlights/allegris-a-new-flight-experience",
+       "/de/de/articles/highlights/allegris-experiences",
+       "/de/de/articles/highlights/allegris-business-class-shanghai",
+       "/de/de/articles/highlights/stefan-marx-travel-hacks",
+       "/de/de/articles/highlights/fashion-footprints-new-york"
+      ]
+     }
+    },
+    {
+     "path": "/de/de/articles/tags/munich",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "articles:munich",
+      "author": "",
+      "pageSize": 3,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/de/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/de/de/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/de/de/articles/explore-the-world/essentials-munich-facts",
+       "/de/de/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner"
+      ]
+     }
+    }
+   ]
+  },
+  "at/de": {
+   "www": "replica documents (no export yet)",
+   "error": "",
+   "articles": {
+    "www": 24,
+    "replica": 24
+   },
+   "counts": {
+    "category": [],
+    "tag": [],
+    "author": []
+   },
+   "overviews": [
+    {
+     "path": "/at/de/articles/authors/florian-tomberg",
+     "options": {
+      "category": "",
+      "tag": "",
+      "author": "lh/florian-tomberg",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 0,
+      "firstPage": []
+     },
+     "replica": {
+      "total": 0,
+      "firstPage": []
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/at/de/articles/explore-the-world/a-perfect-day-singapore-in-one-day",
+       "/at/de/articles/explore-the-world/be-picky-singapore-insider-tips"
+      ]
+     }
+    },
+    {
+     "path": "/at/de/articles/explore-flying",
+     "options": {
+      "category": "explore-flying",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 5,
+      "firstPage": [
+       "/at/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/at/de/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/at/de/articles/explore-flying/essentials-future-of-flying",
+       "/at/de/articles/explore-flying/anniversary-super-crane-special",
+       "/at/de/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "replica": {
+      "total": 5,
+      "firstPage": [
+       "/at/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/at/de/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/at/de/articles/explore-flying/essentials-future-of-flying",
+       "/at/de/articles/explore-flying/anniversary-super-crane-special",
+       "/at/de/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 80,
+      "cards": [
+       "/at/de/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+       "/at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/at/de/articles/explore-flying/oktoberfest-traditional-bavarian-attire",
+       "/at/de/articles/explore-flying/aircraft-lights-explained",
+       "/at/de/articles/explore-flying/allegris-fox",
+       "/at/de/articles/explore-flying/7-people-who-shaped-lufthansa-history"
+      ]
+     }
+    },
+    {
+     "path": "/at/de/articles/explore-the-world",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 18,
+      "firstPage": [
+       "/at/de/articles/explore-the-world/essentials-barcelona-facts",
+       "/at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/at/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/at/de/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/at/de/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "replica": {
+      "total": 18,
+      "firstPage": [
+       "/at/de/articles/explore-the-world/essentials-barcelona-facts",
+       "/at/de/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/at/de/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/at/de/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/at/de/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/at/de/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 422,
+      "cards": [
+       "/at/de/articles/explore-the-world/a-perfect-day-toronto-in-one-day",
+       "/at/de/articles/explore-the-world/on-the-scene-sports-miami",
+       "/at/de/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+       "/at/de/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/at/de/articles/explore-the-world/in-my-hood-bandra-mumbai",
+       "/at/de/articles/explore-the-world/a-perfect-day-miami-in-one-day"
+      ]
+     }
+    },
+    {
+     "path": "/at/de/articles/highlights",
+     "options": {
+      "category": "highlights",
+      "tag": "",
+      "author": "",
+      "pageSize": 10,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 54,
+      "cards": [
+       "/at/de/articles/highlights/allegris-a-new-flight-experience",
+       "/at/de/articles/highlights/exclusive-first-class-tracksuit",
+       "/at/de/articles/highlights/the-art-of-flying-extra-long-bed",
+       "/at/de/articles/highlights/the-art-of-flying-extra-space-seat",
+       "/at/de/articles/highlights/the-art-of-flying-suite",
+       "/at/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+       "/at/de/articles/highlights/minneapolis-winter",
+       "/at/de/articles/highlights/austin-texas-city-of-live-music",
+       "/at/de/articles/highlights/johannesburg-winter",
+       "/at/de/articles/highlights/hyderabad-city-of-pearls-and-programmers"
+      ]
+     }
+    },
+    {
+     "path": "/at/de/articles/tags/allegris",
+     "options": {
+      "category": "",
+      "tag": "articles:allegris",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": []
+     }
+    },
+    {
+     "path": "/at/de/articles/tags/munich",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "articles:munich",
+      "author": "",
+      "pageSize": 3,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": []
+     }
+    }
+   ]
+  },
+  "gb/en": {
+   "www": "replica documents (no export yet)",
+   "error": "",
+   "articles": {
+    "www": 24,
+    "replica": 24
+   },
+   "counts": {
+    "category": [],
+    "tag": [],
+    "author": []
+   },
+   "overviews": [
+    {
+     "path": "/gb/en/articles/authors/florian-tomberg",
+     "options": {
+      "category": "",
+      "tag": "",
+      "author": "lh/florian-tomberg",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 0,
+      "firstPage": []
+     },
+     "replica": {
+      "total": 0,
+      "firstPage": []
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/gb/en/articles/explore-the-world/a-perfect-day-singapore-in-one-day",
+       "/gb/en/articles/explore-the-world/be-picky-singapore-insider-tips"
+      ]
+     }
+    },
+    {
+     "path": "/gb/en/articles/explore-flying",
+     "options": {
+      "category": "explore-flying",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 5,
+      "firstPage": [
+       "/gb/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/gb/en/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/gb/en/articles/explore-flying/essentials-future-of-flying",
+       "/gb/en/articles/explore-flying/anniversary-super-crane-special",
+       "/gb/en/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "replica": {
+      "total": 5,
+      "firstPage": [
+       "/gb/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+       "/gb/en/articles/explore-flying/inflight-entertainment-vr-experience",
+       "/gb/en/articles/explore-flying/essentials-future-of-flying",
+       "/gb/en/articles/explore-flying/anniversary-super-crane-special",
+       "/gb/en/articles/explore-flying/flying-high-christoph-quarch"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 80,
+      "cards": [
+       "/gb/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+       "/gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/gb/en/articles/explore-flying/oktoberfest-traditional-bavarian-attire",
+       "/gb/en/articles/explore-flying/aircraft-lights-explained",
+       "/gb/en/articles/explore-flying/allegris-fox",
+       "/gb/en/articles/explore-flying/7-people-who-shaped-lufthansa-history"
+      ]
+     }
+    },
+    {
+     "path": "/gb/en/articles/explore-the-world",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 18,
+      "firstPage": [
+       "/gb/en/articles/explore-the-world/essentials-barcelona-facts",
+       "/gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/gb/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/gb/en/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "replica": {
+      "total": 18,
+      "firstPage": [
+       "/gb/en/articles/explore-the-world/essentials-barcelona-facts",
+       "/gb/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+       "/gb/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+       "/gb/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+       "/gb/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+       "/gb/en/articles/explore-the-world/eat-see-do-berlin"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 421,
+      "cards": [
+       "/gb/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day",
+       "/gb/en/articles/explore-the-world/on-the-scene-sports-miami",
+       "/gb/en/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+       "/gb/en/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/gb/en/articles/explore-the-world/in-my-hood-bandra-mumbai",
+       "/gb/en/articles/explore-the-world/a-perfect-day-miami-in-one-day"
+      ]
+     }
+    },
+    {
+     "path": "/gb/en/articles/highlights",
+     "options": {
+      "category": "highlights",
+      "tag": "",
+      "author": "",
+      "pageSize": 10,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": 58,
+      "cards": [
+       "/gb/en/articles/highlights/allegris-a-new-flight-experience",
+       "/gb/en/articles/highlights/exclusive-first-class-tracksuit",
+       "/gb/en/articles/highlights/the-art-of-flying-extra-long-bed",
+       "/gb/en/articles/highlights/the-art-of-flying-extra-space-seat",
+       "/gb/en/articles/highlights/the-art-of-flying-suite",
+       "/gb/en/articles/highlights/vancouver-winter",
+       "/gb/en/articles/highlights/raleigh-nc-winter",
+       "/gb/en/articles/highlights/minneapolis-winter",
+       "/gb/en/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+       "/gb/en/articles/highlights/hyderabad-city-of-pearls-and-programmers"
+      ]
+     }
+    },
+    {
+     "path": "/gb/en/articles/tags/allegris",
+     "options": {
+      "category": "",
+      "tag": "articles:allegris",
+      "author": "",
+      "pageSize": 6,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/highlights/allegris-premium-economy-san-diego"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+       "/gb/en/articles/highlights/allegris-a-new-flight-experience",
+       "/gb/en/articles/highlights/allegris-experiences",
+       "/gb/en/articles/highlights/allegris-business-class-shanghai",
+       "/gb/en/articles/highlights/stefan-marx-travel-hacks",
+       "/gb/en/articles/highlights/fashion-footprints-new-york"
+      ]
+     }
+    },
+    {
+     "path": "/gb/en/articles/tags/munich",
+     "options": {
+      "category": "explore-the-world",
+      "tag": "articles:munich",
+      "author": "",
+      "pageSize": 3,
+      "hideFilter": false
+     },
+     "www": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "replica": {
+      "total": 1,
+      "firstPage": [
+       "/gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich"
+      ]
+     },
+     "equal": true,
+     "snapshot": {
+      "total": null,
+      "cards": [
+       "/gb/en/articles/explore-the-world/in-my-hood-munich-sendling",
+       "/gb/en/articles/explore-the-world/essentials-munich-facts",
+       "/gb/en/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner"
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

@@ -540,6 +540,14 @@
   line-height: 1.1;
 }
 
+/* the author index holds the whole bio: cut after three lines, as live cuts it ("… s…") */
+.carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .carousel-cards.authors .carousel-cards-dots {
   margin-top: 24px;
 }

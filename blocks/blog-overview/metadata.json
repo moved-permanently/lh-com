@@ -1,0 +1,22 @@
+{
+  "variantName": "blog-overview",
+  "baseBlock": "blog-overview",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/articles/explore-the-world",
+  "visualCharacteristics": {
+    "purpose": "live list of the locale's Insights articles from the article index: category, tag or author overview with search, category filter, paging and total count",
+    "traits": [
+      "result count left, search field and category select right",
+      "cards alternate text | image and image | text, 100px apart",
+      "tag chips, bold title, bold byline 'date | reading time | author', description, arrow link",
+      "numbered pagination below the list"
+    ]
+  },
+  "contentPattern": {
+    "structure": "key | value rows, all optional: Category (path segment), Tag (articles:<id>), Author (lh/<slug>), Page size, Hide filter; optional label rows. The cards come from /{cc}/{ll}/articles/query-index.json."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "Insights category overviews (/de/en/articles/explore-the-world, explore-flying, highlights), tag pages (/de/en/articles/tags/munich) and author pages (/de/en/articles/authors/florian-tomberg).",
+  "reuseGuidance": "Use for any list of Insights articles; articles need the importer's metadata (page-type article, category, tag-ids, author-id, publication-date, card-image)."
+}

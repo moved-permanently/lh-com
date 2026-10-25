@@ -370,7 +370,11 @@ const VIDEO_CONFIG = '[data-dcep*="videoSrc"]';
 // components that render client-side and are empty in the snapshot but become blocks: the POI map,
 // the car rental widget, the Message Center flash teaser (homepage) and message center (current
 // travel information page)
-const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper';
+// the Insights article list and author slider (blog-overview, carousel-cards authors: their config
+// or an empty slider becomes the block, also where the snapshot shows "Loading...") and the
+// article's destination config (.dcep-blog-cookie, read by article-header and price-bar; removed
+// after the parsers)
+const WIDGET_CONFIG = '.dcep-poi-mapping[data-dcep], .dcep-meili-car-rental[data-dcep], .dcep-flash-teaser, .messagecenterwrapper, .dcep-blog-overview[data-dcep], .dcep-author-slider, .dcep-blog-cookie[data-dcep]';
 const ALWAYS_EMPTY = ['.separator', '.dcep-react-wrapper:empty', 'ppfi-web-component'];
 
 function isEmpty(el) {
@@ -1529,7 +1533,7 @@ export default function transform(hookName, element, payload) {
 
   if (hookName === 'afterTransform') {
     removeOverlays(document);
-    removeAll(document, ['script', 'noscript', 'style', 'link', 'iframe[src*="cookielaw"]']);
+    removeAll(document, ['script', 'noscript', 'style', 'link', 'iframe[src*="cookielaw"]', '.dcep-blog-cookie']);
     convertMauiLinks(document);
     unwrapLinksWithoutHref(document);
     removeIconsAndZeroWidth(document);

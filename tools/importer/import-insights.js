@@ -8,6 +8,7 @@ import articleHeaderParser from './parsers/article-header.js';
 import priceBarParser from './parsers/price-bar.js';
 import carouselCardsParser from './parsers/carousel-cards.js';
 import cardsTeaserParser from './parsers/cards-teaser.js';
+import blogOverviewParser from './parsers/blog-overview.js';
 import columnsMediaParser from './parsers/columns-media.js';
 import relatedArticlesParser from './parsers/related-articles.js';
 import carouselImagesParser from './parsers/carousel-images.js';
@@ -63,10 +64,15 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "blog-overview",
+      "instances": [
+        ".blogoverview"
+      ]
+    },
+    {
       "name": "columns-media",
       "instances": [
         ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
-        ".blogoverview:has(.blog-article-container)",
         ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
         ".videoViewer, .image:has(video)"
       ]
@@ -220,6 +226,7 @@ const parsers = {
   'price-bar': priceBarParser,
   'carousel-cards': carouselCardsParser,
   'cards-teaser': cardsTeaserParser,
+  'blog-overview': blogOverviewParser,
   'columns-media': columnsMediaParser,
   'related-articles': relatedArticlesParser,
   'carousel-images': carouselImagesParser,

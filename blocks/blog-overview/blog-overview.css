@@ -1,0 +1,332 @@
+/*
+ * blog-overview: Lufthansa .dcep-blog-overview (Insights category, tag and author lists). The
+ * cards keep the measures the frozen list had (columns-media media-first, matched to live at
+ * 1440: 582 | 20 | 582, 40px inset, 100px between cards, image above the text on mobile with
+ * 30px between cards); rows alternate text | image and image | text.
+ */
+.blog-overview .blog-overview-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* .d-flex.flex-lg-row.justify-content-md-between: count left, filter right */
+.blog-overview .blog-overview-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.blog-overview .blog-overview-count {
+  margin: 0;
+  font-size: var(--body-font-size-m, 18px);
+  line-height: 27px;
+}
+
+.blog-overview .blog-overview-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+}
+
+.blog-overview .blog-overview-search,
+.blog-overview .blog-overview-select {
+  position: relative;
+  min-width: 0;
+}
+
+.blog-overview .blog-overview-filter input,
+.blog-overview .blog-overview-filter select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: 0 44px 0 12px;
+  border: 1px solid var(--lh-grey-7);
+  border-radius: var(--radius-s, 4px);
+  background-color: var(--background-color, #fff);
+  color: var(--lh-deepblue);
+  font-size: 16px;
+  appearance: none;
+}
+
+.blog-overview .blog-overview-filter input::placeholder {
+  color: var(--lh-grey-7);
+}
+
+.blog-overview .blog-overview-filter input:focus-visible,
+.blog-overview .blog-overview-filter select:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 1px;
+}
+
+/* maui-icon search / the select's chevron */
+.blog-overview .blog-overview-search::after,
+.blog-overview .blog-overview-select::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--lh-deepblue);
+  pointer-events: none;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10' cy='10' r='6.5' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='m15 15 6 6' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.blog-overview .blog-overview-select::after {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 9 7 7 7-7' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.blog-overview .blog-overview-filter input::-webkit-search-cancel-button {
+  margin-right: 4px;
+}
+
+/* the cards */
+.blog-overview .blog-overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-overview .blog-overview-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 var(--grid-gutter);
+  align-items: start;
+  margin: 0;
+}
+
+.blog-overview .blog-overview-image {
+  order: -1;
+  margin-bottom: 15px;
+}
+
+.blog-overview .blog-overview-image a {
+  display: block;
+}
+
+.blog-overview .blog-overview-image picture,
+.blog-overview .blog-overview-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog-overview .blog-overview-details > :first-child {
+  margin-top: 0;
+}
+
+.blog-overview .blog-overview-details > :last-child {
+  margin-bottom: 0;
+}
+
+/* maui-chip: 14px outlined chips */
+.blog-overview .blog-overview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-overview .blog-overview-tags > li {
+  margin: 0;
+  padding: 3px 11px;
+  border: 1px solid var(--lh-grey-7);
+  border-radius: 9999px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* h2.article-title: LufthansaHead 28px, 32px below */
+.blog-overview .blog-overview-title {
+  margin: 0 0 var(--heading-margin-l, 32px);
+  font-size: var(--heading-font-size-l, 28px);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.blog-overview .blog-overview-title a:any-link {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.blog-overview .blog-overview-title a:hover {
+  text-decoration: underline;
+}
+
+/* .blog-article-details-info: bold 18px, " | " 10px each side (px-2 px-md-3) */
+.blog-overview .blog-overview-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 24px;
+  font-size: var(--body-font-size-m, 18px);
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.blog-overview .blog-overview-divider {
+  padding: 0 10px;
+}
+
+.blog-overview .blog-overview-description {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* maui-navigation-link variant hyper, size large: arrow + bold 18px */
+.blog-overview .blog-overview-more {
+  margin: 0;
+  line-height: 24px;
+}
+
+.blog-overview .blog-overview-more a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--link-color);
+}
+
+.blog-overview .blog-overview-more a:hover {
+  color: var(--link-hover-color);
+}
+
+.blog-overview .blog-overview-more a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.blog-overview .blog-overview-empty {
+  margin: 0;
+  font-size: var(--body-font-size-m, 18px);
+}
+
+/* maui-pagination: centred, 40px above */
+.blog-overview .blog-overview-pagination ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-overview .blog-overview-pagination li {
+  margin: 0;
+}
+
+.blog-overview .blog-overview-pagination button {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: var(--radius-s, 4px);
+  background: none;
+  color: var(--lh-deepblue);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.blog-overview .blog-overview-pagination button[aria-current="page"] {
+  background-color: var(--lh-deepblue);
+  color: #fff;
+  font-weight: 700;
+}
+
+.blog-overview .blog-overview-pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.blog-overview .blog-overview-pagination button:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 1px;
+}
+
+.blog-overview .blog-overview-pagination button:hover:not(:disabled) {
+  background-color: var(--light-color, #f2f2f2);
+}
+
+.blog-overview .blog-overview-pagination :is(.blog-overview-prev, .blog-overview-next)::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m15 5-7 7 7 7' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.blog-overview .blog-overview-pagination .blog-overview-next::before {
+  transform: scaleX(-1);
+}
+
+.blog-overview .blog-overview-gap {
+  min-width: 24px;
+  text-align: center;
+}
+
+@media (width >= 768px) {
+  .blog-overview .blog-overview-list {
+    gap: 100px;
+  }
+
+  .blog-overview .blog-overview-card:not(.blog-overview-card-text-only) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-overview .blog-overview-image {
+    order: 0;
+    margin-bottom: 0;
+  }
+
+  /* every second card: image | text */
+  .blog-overview .blog-overview-card:nth-child(even) .blog-overview-image {
+    order: -1;
+  }
+
+  .blog-overview .blog-overview-filter {
+    flex-direction: row;
+  }
+
+  .blog-overview .blog-overview-search,
+  .blog-overview .blog-overview-select {
+    flex: 1 1 0;
+  }
+}
+
+@media (width >= 1025px) {
+  .blog-overview {
+    padding-inline: 40px;
+  }
+
+  .blog-overview .blog-overview-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .blog-overview .blog-overview-filter {
+    flex: 0 1 600px;
+  }
+}
