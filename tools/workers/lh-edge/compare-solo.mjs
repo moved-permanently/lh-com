@@ -34,7 +34,8 @@ const aliases = new Map(aliasFile ? fs.readFileSync(aliasFile, 'utf8').trim().sp
   .map((l) => l.split(','))
   .map(([, from, to]) => [from, to]) : []);
 // notes of the alias sheet: rows that answer where www answers 404
-const aliasNotes = new Map(aliasFile ? fs.readFileSync(aliasFile, 'utf8').trim().split('\n').slice(1)
+const NOTES_FILE = aliasFile || path.join(root, 'tools/source-export/feeds/webviews/webview-aliases.csv');
+const aliasNotes = new Map(fs.existsSync(NOTES_FILE) ? fs.readFileSync(NOTES_FILE, 'utf8').trim().split('\n').slice(1)
   .map((l) => l.split(','))
   .map(([, from, , note = '']) => [from, /^404 on www/.test(note) ? 'beyond' : '']) : []);
 const SOLO = /(\.solo\.continue\.solo_continue|\.solo_continue\.genapp\.html|\.solo_continue\.html|\.solo\.continue|\.solo_continue)$/;

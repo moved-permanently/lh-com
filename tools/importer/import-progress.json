@@ -1017,7 +1017,7 @@
  "https://www.lufthansa.com/de/en/travelling-with-children": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:15:37.686Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/de/en/travelling-with-special-requirements": {
   "template": "info",
@@ -1132,7 +1132,7 @@
  "https://www.lufthansa.com/de/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T20:27:55.494Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -1392,7 +1392,7 @@
  "https://www.lufthansa.com/de/en/common/accessibility-statement": {
   "template": "legal",
   "status": "ok",
-  "at": "2026-10-24T08:17:26.666Z"
+  "at": "2026-10-25T20:28:14.874Z"
  },
  "https://www.lufthansa.com/de/en/common/agb-extra-services-at-online-check-in": {
   "template": "legal",
@@ -2362,7 +2362,7 @@
  "https://www.lufthansa.com/de/de/fliegen-mit-kindern": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:56:30.074Z"
+  "at": "2026-10-25T20:27:34.555Z"
  },
  "https://www.lufthansa.com/de/de/reisen-mit-besonderen-anforderungen": {
   "template": "info",
@@ -2482,7 +2482,7 @@
  "https://www.lufthansa.com/de/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T20:27:55.493Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -2752,7 +2752,7 @@
  "https://www.lufthansa.com/de/de/common/accessibility-statement": {
   "template": "legal",
   "status": "ok",
-  "at": "2026-10-24T08:17:26.666Z"
+  "at": "2026-10-25T20:28:14.874Z"
  },
  "https://www.lufthansa.com/de/de/common/agb-extra-services-at-online-check-in": {
   "template": "legal",
@@ -3807,7 +3807,7 @@
  "https://www.lufthansa.com/at/de/fliegen-mit-kindern": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T02:41:52.374Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/at/de/reisen-mit-besonderen-anforderungen": {
   "template": "info",
@@ -3937,7 +3937,7 @@
  "https://www.lufthansa.com/at/de/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.363Z"
+  "at": "2026-10-25T20:27:55.494Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -4212,7 +4212,7 @@
  "https://www.lufthansa.com/at/de/common/accessibility-statement": {
   "template": "legal",
   "status": "ok",
-  "at": "2026-10-24T08:17:26.665Z"
+  "at": "2026-10-25T20:28:14.877Z"
  },
  "https://www.lufthansa.com/at/de/common/agb-extra-services-at-online-check-in": {
   "template": "legal",
@@ -5267,7 +5267,7 @@
  "https://www.lufthansa.com/gb/en/travelling-with-children": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-24T03:29:56.388Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/gb/en/travelling-with-special-requirements": {
   "template": "info",
@@ -5397,7 +5397,7 @@
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover": {
   "template": "campaign",
   "status": "ok",
-  "at": "2026-10-24T08:05:09.364Z"
+  "at": "2026-10-25T20:27:55.494Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/stopover/bayerischer-hof": {
   "template": "campaign",
@@ -5672,7 +5672,7 @@
  "https://www.lufthansa.com/gb/en/common/accessibility-statement": {
   "template": "legal",
   "status": "ok",
-  "at": "2026-10-24T08:20:04.335Z"
+  "at": "2026-10-25T20:28:14.874Z"
  },
  "https://www.lufthansa.com/gb/en/common/agb-extra-services-at-online-check-in": {
   "template": "legal",
@@ -6597,7 +6597,7 @@
  "https://www.lufthansa.com/de/en/support/support": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T19:00:37.023Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/de/en/good-for-train": {
   "template": "info",
@@ -6607,7 +6607,7 @@
  "https://www.lufthansa.com/de/en/travel-briefing": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T18:50:17.413Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/de/en/book-and-manage/destination": {
   "template": "info",
@@ -6617,7 +6617,7 @@
  "https://www.lufthansa.com/de/de/support/support": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T19:00:37.023Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/de/de/good-for-train": {
   "template": "info",
@@ -6627,7 +6627,7 @@
  "https://www.lufthansa.com/de/de/travel-briefing": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T18:50:17.419Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/de/de/book-and-manage/destination": {
   "template": "info",
@@ -6637,7 +6637,7 @@
  "https://www.lufthansa.com/at/de/support/support": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T19:00:37.023Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/at/de/good-for-train": {
   "template": "info",
@@ -6647,7 +6647,7 @@
  "https://www.lufthansa.com/at/de/travel-briefing": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T18:50:17.431Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/at/de/book-and-manage/destination": {
   "template": "info",
@@ -6657,7 +6657,7 @@
  "https://www.lufthansa.com/gb/en/support/support": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T19:00:37.023Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/gb/en/good-for-train": {
   "template": "info",
@@ -6667,7 +6667,7 @@
  "https://www.lufthansa.com/gb/en/travel-briefing": {
   "template": "info",
   "status": "ok",
-  "at": "2026-10-25T18:50:17.442Z"
+  "at": "2026-10-25T20:27:34.556Z"
  },
  "https://www.lufthansa.com/gb/en/book-and-manage/destination": {
   "template": "info",

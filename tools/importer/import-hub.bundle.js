@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_564548_exports = {};
-  __export(tmp_bundle_hub_564548_exports, {
-    default: () => tmp_bundle_hub_564548_default
+  var tmp_bundle_hub_576427_exports = {};
+  __export(tmp_bundle_hub_576427_exports, {
+    default: () => tmp_bundle_hub_576427_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3873,6 +3873,8 @@ var CustomImportScript = (() => {
   function transform(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
+      const titleEl = document.querySelector("title");
+      if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
       detectTheme(document);
       convertBreadcrumbs(document, pagePath);
@@ -4342,7 +4344,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_564548_default = {
+  var tmp_bundle_hub_576427_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4372,5 +4374,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_564548_exports);
+  return __toCommonJS(tmp_bundle_hub_576427_exports);
 })();

@@ -1498,6 +1498,10 @@ export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
 
   if (hookName === 'beforeTransform') {
+    // a few live titles repeat the site suffix ("Help & Contact | Lufthansa | Lufthansa"): one, as
+    // on the other pages
+    const titleEl = document.querySelector('title');
+    if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, ' | Lufthansa');
     const pagePath = currentPagePath(document, payload); // before <link rel=canonical> goes
     detectTheme(document); // before the <link> elements go
     convertBreadcrumbs(document, pagePath);

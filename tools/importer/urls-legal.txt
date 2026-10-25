@@ -1,4 +1,4 @@
-https://www.lufthansa.com/de/en/common/baggage-conditions
-https://www.lufthansa.com/de/de/common/baggage-conditions
-https://www.lufthansa.com/at/de/common/baggage-conditions
-https://www.lufthansa.com/gb/en/common/baggage-conditions
+https://www.lufthansa.com/gb/en/common/accessibility-statement
+https://www.lufthansa.com/de/de/common/accessibility-statement
+https://www.lufthansa.com/de/en/common/accessibility-statement
+https://www.lufthansa.com/at/de/common/accessibility-statement
