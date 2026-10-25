@@ -11,9 +11,13 @@
  * Output (blocks/form README "Import"): one block `Form (core)` replacing the whole form, header
  * row `Label | Type | Name | Required | Options | Help text | Placeholder | Validation message |
  * Constraint message | Rules`, then one row per band, sub-section, field, text and the submit
- * button in document order. The form's action, its hidden inputs (:formstart, :redirect,
+ * button in document order, then the config rows the block sends with (Type `config`):
+ * Name `form` = the lh-forms worker form id (FORM_IDS, from the page name), `success` = a link to
+ * the public path of the live `:redirect` (/content/lh/markets/{cc}/{ll}/X.html -> /{cc}/{ll}/X),
+ * `error` = a link to /error.html (live renderer.js: origin + "/error.html" when the form has no
+ * #error-page field, and none has). The form's action, the other hidden inputs (:formstart,
  * _charset_, UUID, date-format, *-code, *-fileIds) and any lufthansa.com POST URL are never
- * written: the block is render-only.
+ * written: the block posts to the lh-forms worker (scripts/lh-forms.js).
  *
  * Reads the raw snapshot attributes (label, hint, optional, data-cmp-*, data-customerror,
  * data-target, data-forms-filedrop). Spans are already unwrapped by the importer, so the repeat
@@ -24,7 +28,23 @@ const HEADER = ['Label', 'Type', 'Name', 'Required', 'Options', 'Help text', 'Pl
 const COLUMNS = ['label', 'type', 'name', 'required', 'options', 'help', 'placeholder',
   'message', 'constraint', 'rules'];
 
-export default function parse(element, { document }) {
+/** lh-forms worker form id per live page name (same table as scripts/lh-forms.js FORM_IDS). */
+const FORM_IDS = {
+  'anmeldung-tiere-frachtraum': 'anmeldung-tiere-frachtraum',
+  'refund-form': 'refund-form',
+  'feedback-past-flight': 'feedback-past-flight',
+  'register-ammunition': 'register-ammunition',
+  'register-animal-cabin': 'register-animal-cabin',
+  'special-needs': 'special-needs',
+  betreuungsbedarf: 'special-needs',
+  'add-sports-baggage': 'add-sports-baggage',
+  'sportgepaeck-hinzufuegen': 'add-sports-baggage',
+  'group-travel': 'group-travel',
+  'passenger-receipt-90': 'passenger-receipt-90',
+};
+const ERROR_PAGE = '/error.html';
+
+export default function parse(element, { document, url, params }) {
   const form = element.matches('form') ? element : element.querySelector('form.cmp-form');
   if (!form) return;
 
@@ -363,6 +383,29 @@ export default function parse(element, { document }) {
   }
 
   [...form.children].forEach(visit);
+
+  // config rows: worker form id, success page (live :redirect), error page
+  const pathOf = (u) => { try { return new URL(u, 'https://www.lufthansa.com/').pathname; } catch (e) { return ''; } };
+  const pageName = (p) => String(p || '').replace(/\/+$/, '').split('/').pop().replace(/\.html?$/, '');
+  const formId = FORM_IDS[pageName(pathOf((params && params.originalURL) || url || ''))]
+    || FORM_IDS[pageName(pathOf(form.getAttribute('action') || ''))] || '';
+  const redirect = attr(form.querySelector('input[name=":redirect"]'), 'value');
+  const target = pathOf(redirect).match(/^\/content\/lh\/markets(\/[a-z]{2}\/[a-z]{2}\/.+?)(?:\.html)?$/);
+  const link = (href) => {
+    const a = document.createElement('a');
+    a.setAttribute('href', href);
+    a.textContent = href;
+    return [a];
+  };
+  const config = (name, value) => rows.push(COLUMNS.map((c) => {
+    if (c === 'label') return value;
+    if (c === 'type') return cell('config');
+    if (c === 'name') return cell(name);
+    return '';
+  }));
+  if (formId) config('form', cell(formId));
+  if (target) config('success', link(target[1]));
+  config('error', link(ERROR_PAGE));
 
   const cells = [HEADER, ...rows];
   const block = WebImporter.Blocks.createBlock(document, { name: 'Form', variants: ['core'], cells });

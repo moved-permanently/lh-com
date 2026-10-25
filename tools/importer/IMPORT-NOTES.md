@@ -36,6 +36,13 @@ Things that are not obvious from the code and cost time once.
 - To debug the real browser pipeline offline: put a test snapshot in `tools/importer/bd-snapshots/`
   and run `import-batch.mjs --url ...`, or load the snapshot with playwright-core, inject
   `helix-importer.js` and the bundle, and call `WebImporter.html2md` (see git history of this file).
+- `form-core` ends every `Form (core)` block with config rows (Type `config`, value in the Label
+  cell) that the block sends with: Name `form` = the lh-forms worker id from the live page name
+  (betreuungsbedarf → special-needs, sportgepaeck-hinzufuegen → add-sports-baggage, else the name;
+  only for the nine forms), Name `success` = a relative link to the public path of the hidden
+  `:redirect` input (`/content/lh/markets/{cc}/{ll}/X.html` → `/{cc}/{ll}/X`; all 36 answer 200 on
+  www), Name `error` = a link to `/error.html` (live's renderer goes there because no form has an
+  `#error-page` field). The parser needs `params.originalURL` (falls back to the form `action`).
 
 ## Bundles and offline checks
 
