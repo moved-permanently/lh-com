@@ -53,3 +53,21 @@ and twice without the headers (500 HTML). Recorded 2026-10-25 18:38 UTC.
 
 `/content/lh/markets/<cc>/<ll>/homepage.csi-owa-{header,footer,portal-config}.json` for the four locales,
 recorded 2026-10-25 07:30-07:37 UTC (`Cache-Control: max-age=300, public`). `owa/index.json` has status and headers.
+
+## DAM assets to copy, `dam/dam-assets.csv`
+
+1,573 asset paths as www has them (`/content/dam/...`, decoded: spaces, apostrophes and capitals as on www),
+with where each one comes from (`sources`) and the rendition widths seen (`widths`):
+
+| source | assets | from |
+|---|---|---|
+| `aircore` | 712 | `tools/migration-scope/aircore-dam-images.csv` (copies already in DA under `/aircore-images/`) |
+| `destination` | 682 | every `lh/images/offers/destination/<code>-{square,panorama}.jpg` for the 324 codes seen in the Internet Archive's captures of www (and cinescope where seen); the app loads widths 360 and 1440 |
+| `destination-fallback`, `offers-fallback` | 210, 4 | `lufthansa-group/images/destination/*` and `lh/images/offers/fallback/*` from the same captures (targets of the missing-image fallback) |
+| `app-screens` | 181 | image URLs inside the recorded `.sdui` and `.v2.sdui` answers |
+| `mobileapp` | 49 | What's new images in the recorded GraphQL answers (many with spaces, `'` or capitals) |
+| `tmc`, `graphql` | 37, 2 | Trip Management catalog images and B2B images in the recorded GraphQL answers; the 4 doubled URLs in www's catalog (`.../all-service-page/https://www.lufthansa.com/content/dam/...`) are listed once under their inner path |
+| `replica` | 13 | icons the replica's recorded labels load from www |
+
+Not in the list: lounge images (`lh/images/lounges/<loungeid>-square.jpg` and `fallback-square.jpg`); their ids come from
+the lounge finder's search answers.
