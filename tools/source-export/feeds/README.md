@@ -76,7 +76,7 @@ The manifest (723 bytes) lists `clientlib-all/img/icon_{192x192,32x32,16x16}.png
 
 ## DAM assets to copy, `dam/dam-assets.csv`
 
-1,573 asset paths as www has them (`/content/dam/...`, decoded: spaces, apostrophes and capitals as on www),
+6,945 asset paths as www has them (`/content/dam/...`, decoded: spaces, apostrophes and capitals as on www),
 with where each one comes from (`sources`) and the rendition widths seen (`widths`):
 
 | source | assets | from |
@@ -88,6 +88,7 @@ with where each one comes from (`sources`) and the rendition widths seen (`width
 | `mobileapp` | 49 | What's new images in the recorded GraphQL answers (many with spaces, `'` or capitals) |
 | `tmc`, `graphql` | 37, 2 | Trip Management catalog images and B2B images in the recorded GraphQL answers; the 4 doubled URLs in www's catalog (`.../all-service-page/https://www.lufthansa.com/content/dam/...`) are listed once under their inner path |
 | `replica` | 13 | icons the replica's recorded labels load from www |
+| `articles` | 5,408 (5,372 new, 36 also in other sources) | every `/content/dam/...` URL in the 2,773 exported article, category, tag and author pages (`tools/source-export/articles/`, 2026-10-26): 4,560 jpg (article images, `lufthansa-group/images/local_images`, POI images under `lufthansa-group/poi/de`), 290 mp4 and 525 vtt (the audio travel guides under `video/c3/audiotravelguide`), 13 pdf, 11 png, 5 txt, 3 jpeg, 1 svg; widths from the `.transform/lh-dcep-transform-width-<n>/` renditions seen |
 
 Not in the list: lounge images (`lh/images/lounges/<loungeid>-square.jpg` and `fallback-square.jpg`); their ids come from
 the lounge finder's search answers.
