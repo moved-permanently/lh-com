@@ -30,7 +30,7 @@ EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
 # key is public; the secret TURNSTILE_SECRET is set in the dashboard. BOT_CHECK on: /submit
 # needs a valid token; off: no check (www has it off).
 TURNSTILE_SITE_KEY = "0x4AAAAAAFnIbr4JnmqxGNVc"
-BOT_CHECK = "off"
+BOT_CHECK = "on"
 
 # 5 submissions per minute per client IP (the binding only supports periods of 10 or 60 s).
 [[ratelimits]]
