@@ -818,6 +818,19 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
+      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
+      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
+      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
+      canonical:
+        select: head > link[rel="canonical"]
+        value: attribute(el, "href")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
@@ -856,6 +869,19 @@ indices:
         value: attribute(el, "content")
       hide-in-search:
         select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
+      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
+      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
+      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
+      canonical:
+        select: head > link[rel="canonical"]
+        value: attribute(el, "href")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
         value: attribute(el, "content")
       lastModified:
         select: none
@@ -896,6 +922,19 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
+      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
+      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
+      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
+      canonical:
+        select: head > link[rel="canonical"]
+        value: attribute(el, "href")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
@@ -934,6 +973,19 @@ indices:
         value: attribute(el, "content")
       hide-in-search:
         select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
+      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
+      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
+      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
+      canonical:
+        select: head > link[rel="canonical"]
+        value: attribute(el, "href")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
         value: attribute(el, "content")
       lastModified:
         select: none

@@ -16,7 +16,9 @@
  * - Keywords: the live keywords, where live has them.
  * - Robots: the live value only when it contains "noindex" (page metadata overrides the
  *   site-wide /metadata.json row; the live default "index,follow,NOODP" is never copied; other
- *   values, e.g. "index, follow", are reported, not set).
+ *   values, e.g. "index, follow", are reported, not set). The same value as `page-robots`: the
+ *   page's own robots value, which the site-wide row (noindex on every page until go-live) does
+ *   not set; the locale query indexes read it as their `robots` column for the sitemaps.
  * - Canonical: the live canonical, only where it points to another URL than the page itself.
  * - Image: the live og:image (EDS sets og:image and twitter:image from it), unless the row
  *   already holds that image (or its local resized copy, media-manifest.json). An og:image www
@@ -186,10 +188,15 @@ pathsToDo.forEach((p) => {
   set('og:title', ogTitle && norm(ogTitle) !== norm(live.title) ? escape(ogTitle) : null);
   set('Keywords', live.keywords ? escape(live.keywords) : null);
   if (live.robots && live.robots !== DEFAULT_ROBOTS) {
-    if (/noindex/i.test(live.robots)) set('Robots', escape(live.robots));
-    else robotsListed.push({ path: p, robots: live.robots });
+    if (/noindex/i.test(live.robots)) {
+      set('Robots', escape(live.robots));
+      set('page-robots', escape(live.robots));
+    } else robotsListed.push({ path: p, robots: live.robots });
   }
-  if (!(live.robots && /noindex/i.test(live.robots))) set('Robots', null);
+  if (!(live.robots && /noindex/i.test(live.robots))) {
+    set('Robots', null);
+    set('page-robots', null);
+  }
   const canonical = live.canonical && live.canonical.replace(/\/$/, '') !== `${LIVE}${p}` ? live.canonical : null;
   set('Canonical', canonical ? `<a href="${escape(canonical)}">${escape(canonical)}</a>` : null);
   if (live['og:image']) {
