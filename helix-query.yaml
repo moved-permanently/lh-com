@@ -106,6 +106,8 @@ indices:
       - /de/en/articles/config/**
       # a campaign page (template content on www), not an article
       - /de/en/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de): not in www's article list
+      - /de/en/articles/highlights/soccer-event-in-north-america
     target: /de/en/articles/query-index.json
     properties:
       title:
@@ -162,6 +164,8 @@ indices:
       - /de/de/articles/config/**
       # a campaign page (template content on www), not an article
       - /de/de/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de): not in www's article list
+      - /de/de/articles/highlights/soccer-event-in-north-america
     target: /de/de/articles/query-index.json
     properties:
       title:
@@ -218,6 +222,8 @@ indices:
       - /at/de/articles/config/**
       # a campaign page (template content on www), not an article
       - /at/de/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de): not in www's article list
+      - /at/de/articles/highlights/soccer-event-in-north-america
     target: /at/de/articles/query-index.json
     properties:
       title:
@@ -274,6 +280,8 @@ indices:
       - /gb/en/articles/config/**
       # a campaign page (template content on www), not an article
       - /gb/en/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de): not in www's article list
+      - /gb/en/articles/highlights/soccer-event-in-north-america
     target: /gb/en/articles/query-index.json
     properties:
       title:

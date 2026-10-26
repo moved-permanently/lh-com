@@ -40,7 +40,7 @@ const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true 
   return e.isDirectory() ? walk(p) : [p];
 }) : []);
 
-const EXCLUDED = /\/articles\/(tags|authors|config)\/|\/articles\/highlights\/all-it-takes-is-a-yes$/;
+const EXCLUDED = /\/articles\/(tags|authors|config)\/|\/articles\/highlights\/(all-it-takes-is-a-yes|soccer-event-in-north-america)$/;
 
 /** Rows of the article index of a locale (all included paths, as the site's index). */
 export function articleRows(locale, contentDir = path.join(root, 'content')) {
