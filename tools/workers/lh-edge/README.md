@@ -40,6 +40,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `graphql` | GET/HEAD/OPTIONS `/graphql/execute.json/<config>/<query>[;name=value...]` (other configurations than Message-Center) | www's persisted queries from the structured content under `/data/` (`src/graphql.js`, see "GraphQL feeds"); `application/json`, `cache-control: public, max-age=120` |
 | `sdui` | GET/HEAD `/content/mobile/<...>[.v2][.ios][.nocache].sdui` (the markers in any order, each once) | the app screen, rendered from the document and the index (`src/sdui.js`, see `SDUI.md`): `v2` the v2 format (`ios` has no effect there); `ios` without `v2` www's iOS v1 layout (text runs in `paddedColumn`s, screen links `.ios.sdui`, no `LARGE` spacers at the ends of a page); `nocache` the same body with `Cache-Control: max-age=600`; without it no `Cache-Control`, as www; `application/json`; 404 without a document |
 | `search` | POST `/service/secured/api/search` | www's site search API from the locale's search index (`src/search.js`, see "Site search"); `application/json`, no `cache-control` |
+| `captcha-verify` | any method: `/service/secured/api/captcha/verify` | www's bot check URL: POST with the form field `token` (a Turnstile token, urlencoded or multipart), checked by lh-forms over the service binding `BOT_CHECK` (entrypoint `BotCheck`; the Turnstile secret stays in lh-forms); always `200 application/json` `{"success":true}` or `{"success":false}` (no token, another method, a body over 16 KB, no binding or a failed call: false), `Access-Control-Allow-Origin: *`, `no-store` (`src/captcha.js`) |
 | `login-url` | GET `/service/secured/api/core/authenticate/loginPageUrl?state=...` | www's login link (`src/login.js`, see "Login link") |
 | `default-airport` | GET `/service/secured/api/core/booking/defaultairport` | the market's default airports (`src/booking.js`, see "Small endpoints") |
 | `booking-list` | GET `/service/secured/api/core/booking/bookinglist` | 204, as www |
@@ -50,7 +51,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `solo` | GET/HEAD `<path>.solo_continue`, `.solo.continue`, `.solo.continue.solo_continue`, `.solo_continue.html`, `.solo_continue.genapp.html` | the page in the app view, see below |
 | `login-return` | GET/HEAD `/` or `/<cc>/<ll>/...` with `code` and `state=/<cc>/...` | lh-backends (the return from the login provider), before the entry redirects |
 | `entry` | GET/HEAD `/`, `/<cc>`, `/<cc>/<ll>` (with or without `/`) | 302 to the homepage of the market and language (`src/entry.js`, see "Entry redirects") |
-| `backends` | any method: `/service/secured/api/*` (but the four above and `search`), `/apps/dcep/deeplink/*` (but the kiosk), `/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`, `/_lh-backends/*` | lh-backends through the service binding `BACKENDS`, unchanged (`src/backends.js`) |
+| `backends` | any method: `/service/secured/api/*` (but the four above, `search` and `captcha-verify`), `/apps/dcep/deeplink/*` (but the kiosk), `/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`, `/_lh-backends/*` | lh-backends through the service binding `BACKENDS`, unchanged (`src/backends.js`) |
 | `pass-through` | everything else | the Edge Delivery origin |
 
 Packages add their routes before `login-return`, `entry` and `backends`; `pass-through` comes last.

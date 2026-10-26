@@ -31,6 +31,7 @@ import { aircraftList, isAircraftPath } from './aircraft.js';
 import { changeLocale, isChangeLocalePath } from './changelocale.js';
 import { sitemapGz, isSitemapGzPath } from './sitemap.js';
 import { llmsTxt, isLlmsPath } from './llms.js';
+import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -136,6 +137,12 @@ export const ROUTES = [
     name: 'search',
     match: (url, request) => request.method === 'POST' && isSearchPath(url.pathname),
     handle: siteSearch,
+  },
+  {
+    // AMS rest A6: www's bot check URL, any method (always 200), before the backends route
+    name: 'captcha-verify',
+    match: (url) => url.pathname === CAPTCHA_PATH,
+    handle: captchaVerify,
   },
   {
     name: 'login-url',

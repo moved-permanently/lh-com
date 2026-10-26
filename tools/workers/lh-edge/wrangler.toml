@@ -16,6 +16,13 @@ service = "lh-messages"
 binding = "BACKENDS"
 service = "lh-backends"
 
+# AMS rest A6: lh-forms' bot check (RPC entrypoint BotCheck) for /service/secured/api/captcha/verify;
+# the Turnstile secret stays in lh-forms
+[[services]]
+binding = "BOT_CHECK"
+service = "lh-forms"
+entrypoint = "BotCheck"
+
 # Secret (optional, not here): ORIGIN_AUTHENTICATION, the site token when the origin needs one.
 
 # www's videos over 36 MB and the subtitles (.vtt) under their /content/dam names
