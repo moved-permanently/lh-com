@@ -9,7 +9,10 @@
  *    called from the visitor's browser without credentials, with the query and X-Portal-*
  *    headers the live page sends for the market (destinationfinder answers 400 "Invalid site"
  *    without X-Portal-Site). Any failure (CORS or network error, timeout, non-2xx, Cloudflare's
- *    HTML block page, unparsable JSON) falls back to the recordings; lh-proxy is not used.
+ *    HTML block page, unparsable JSON) falls back to the recordings; lh-proxy is not used. A
+ *    network error or Cloudflare's block page is retried once after DIRECT_RETRY_MS; only when
+ *    the retry fails too is that one route (its path) skipped for the session (BLOCKED_TTL_MS):
+ *    one failing call never switches off the other direct routes of the page.
  * 2. lh-proxy: the other routes (lhg-fare-teaser/*, which answers 403 "Invalid CORS request" to
  *    foreign origins) go through the worker.
  *    The recorded answer is looked up at the same time, so a refused proxy (502
@@ -56,7 +59,10 @@ const PROXY_TIMEOUT_MS = 2500;
 /** How long a refused proxy or a blocked direct route is skipped (sessionStorage). */
 const BLOCKED_TTL_MS = 10 * 60 * 1000;
 const PROXY_BLOCKED_KEY = 'lh-proxy-blocked';
+// { routes: { [path]: { origin, reason, until } } }: direct routes that failed twice
 const DIRECT_BLOCKED_KEY = 'lh-direct-blocked';
+/** Pause before the one retry of a direct call that failed on the network (ms). */
+export const DIRECT_RETRY_MS = 250;
 const RECORDED_BASE = '/data/recorded';
 
 function proxyOrigin() {
@@ -132,6 +138,41 @@ function setBlocked(key, origin, reason) {
     // no sessionStorage (privacy mode, sandboxed frame): every call tries again
   }
 }
+
+/** The memo key of a direct route: its path without the query. */
+const routePath = (route) => String(route).replace(/[?#].*$/, '');
+
+function readDirectMemo() {
+  try {
+    const memo = JSON.parse(storage().getItem(DIRECT_BLOCKED_KEY) || 'null');
+    // an older memo ({ origin, until } for all of www) is not per route: ignored
+    return memo && memo.routes && typeof memo.routes === 'object' ? memo : { routes: {} };
+  } catch (e) {
+    return { routes: {} };
+  }
+}
+
+/** Whether this direct route failed twice in a row lately (only this route is skipped). */
+export function isDirectRouteBlocked(route, origin) {
+  const hit = readDirectMemo().routes[routePath(route)];
+  return Boolean(hit && hit.origin === origin && hit.until > Date.now());
+}
+
+function blockDirectRoute(route, origin, reason) {
+  try {
+    const memo = readDirectMemo();
+    const now = Date.now();
+    Object.keys(memo.routes).forEach((k) => {
+      if (memo.routes[k].until <= now) delete memo.routes[k];
+    });
+    memo.routes[routePath(route)] = { origin, reason, until: now + BLOCKED_TTL_MS };
+    storage().setItem(DIRECT_BLOCKED_KEY, JSON.stringify(memo));
+  } catch (e) {
+    // no sessionStorage: every call tries again
+  }
+}
+
+const pause = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
 /**
  * Reads a JSON answer; anything else (Cloudflare's HTML challenge, an empty body, a scalar)
@@ -372,14 +413,22 @@ export async function lhFetch(route, {
   if (RECORDED_ONLY_ROUTES.test(route)) return fromRecording();
 
   if (isDirectRoute(route)) {
-    if (isBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN)) return fromRecording();
+    const live = liveOrigin();
+    if (isDirectRouteBlocked(route, live)) return fromRecording();
     if (!priceRoute) recorded();
     const { url, init } = directRequest(route, options);
-    const { data, resp, error } = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
-    if (!error) return { data, source: 'live', via: 'direct' };
-    // CORS or network error, timeout or Cloudflare's block page: the visitor cannot reach the
-    // site directly for now; another status or a bad body only concerns this request
-    if (!resp || isEdgeBlock(resp)) setBlocked(DIRECT_BLOCKED_KEY, LIVE_ORIGIN, error);
+    // a network (or CORS) error or Cloudflare's block page: once more after a short pause; a
+    // timeout is not repeated (it already cost DIRECT_TIMEOUT_MS), another status or a bad body
+    // only concerns this request
+    const retriable = (r) => (!r.resp && r.error !== 'timeout') || isEdgeBlock(r.resp);
+    let result = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
+    if (result.error && retriable(result)) {
+      await pause(DIRECT_RETRY_MS);
+      result = await timedFetch(url, init, DIRECT_TIMEOUT_MS);
+      // failed again: skip this route (not the others) for a while
+      if (result.error && retriable(result)) blockDirectRoute(route, live, result.error);
+    }
+    if (!result.error) return { data: result.data, source: 'live', via: 'direct' };
     return fromRecording();
   }
 

@@ -971,8 +971,8 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
   startRun({ direct: 'cors', proxy: '502' });
   const cors = await timed(() => fetchRequest(labelsRoute, deEn));
   record(
-    { run: 'T', locale: 'de/en', check: 'direct CORS error -> recorded at once' },
-    cors.value.source === 'recorded' && cors.ms <= 50,
+    { run: 'T', locale: 'de/en', check: 'direct CORS error -> one retry, then recorded (~250 ms)' },
+    cors.value.source === 'recorded' && cors.ms >= 240 && cors.ms <= 320 && callsOf('direct') === 2,
     true,
     `${cors.ms} ms`,
   );
@@ -1017,8 +1017,8 @@ const callsOf = (kind) => calls.filter((c) => c.kind === kind).length;
     startRun({ direct, proxy: 'ok' });
     const r = await timed(() => failed(() => fetchRequest(fraOffers, deEn, { exact: true })));
     record(
-      { run: 'G', locale: 'de/en', check: `${label} -> no price (never recorded), no proxy call` },
-      Boolean(r.value.error) && callsOf('proxy') === 0 && callsOf('direct') === 1 && callsOf('recorded') === 0 && r.ms <= 50,
+      { run: 'G', locale: 'de/en', check: `${label} -> one retry, no price (never recorded), no proxy call` },
+      Boolean(r.value.error) && callsOf('proxy') === 0 && callsOf('direct') === 2 && callsOf('recorded') === 0 && r.ms <= 320,
       true,
       `${r.ms} ms, ${r.value.error ? 'failed' : 'answered'}, direct ${callsOf('direct')}, proxy ${callsOf('proxy')}, recorded ${callsOf('recorded')}`,
     );
