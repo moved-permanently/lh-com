@@ -1,0 +1,34 @@
+# XML sitemaps of lh-com (AMS rest A7): one sitemap per locale on www's names
+# (/sitemap/sitemap_lh_<cc>_<ll>.xml; lh-edge answers the .xml.gz names by gzipping them), from the
+# locale query indexes search-<cc>-<ll> (helix-query.yaml: lastModified, robots from page-robots,
+# primary-language-url). URLs on www.lufthansa.com without .html; alternates for the same path
+# after the locale prefix, or by primary-language-url (translated slugs pair with their de/en
+# page); hreflang as www (de-DE, en-DE, de-AT, en-GB); no x-default. The index is the static
+# /sitemap/sitemap_lh.xml.
+version: 1
+
+sitemaps:
+  lh:
+    origin: https://www.lufthansa.com
+    lastmod: YYYY-MM-DD
+    languages:
+      de-en:
+        source: /de/en/search-index.json
+        destination: /sitemap/sitemap_lh_de_en.xml
+        hreflang: en-DE
+        alternate: /de/en/{path}
+      de-de:
+        source: /de/de/search-index.json
+        destination: /sitemap/sitemap_lh_de_de.xml
+        hreflang: de-DE
+        alternate: /de/de/{path}
+      at-de:
+        source: /at/de/search-index.json
+        destination: /sitemap/sitemap_lh_at_de.xml
+        hreflang: de-AT
+        alternate: /at/de/{path}
+      gb-en:
+        source: /gb/en/search-index.json
+        destination: /sitemap/sitemap_lh_gb_en.xml
+        hreflang: en-GB
+        alternate: /gb/en/{path}
