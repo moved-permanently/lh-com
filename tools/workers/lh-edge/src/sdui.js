@@ -9,7 +9,25 @@ import {
   parseHtml, elements, hasClass, find, findAll, textOf, isElement,
 } from './html.js';
 
-export const SDUI_SUFFIX = /(\.v2\.sdui|\.sdui)$/;
+export const SDUI_SUFFIX = /((?:\.(?:v2|ios|nocache))*)\.sdui$/;
+
+/**
+ * The app screen spellings www answers: <path>[.v2][.ios][.nocache].sdui, the markers in any
+ * order and combination, each at most once. v2: the v2 format (ios has no effect there); ios
+ * without v2: the iOS v1 answer; nocache: the same body, `Cache-Control: max-age=600`.
+ * Returns {path, v2, ios, nocache} or null.
+ */
+export function parseSduiPath(pathname) {
+  const m = String(pathname).match(SDUI_SUFFIX);
+  if (!m) return null;
+  const markers = m[1].split('.').filter(Boolean);
+  if (new Set(markers).size !== markers.length) return null;
+  const path = pathname.slice(0, -(m[1].length + '.sdui'.length));
+  if (!path || path.endsWith('/')) return null;
+  return {
+    path, v2: markers.includes('v2'), ios: markers.includes('ios') && !markers.includes('v2'), nocache: markers.includes('nocache'),
+  };
+}
 export const INDEX_PATH = '/content/mobile/lh/query-index.json';
 
 /* --------------------------------------------------------------------------- document */
@@ -230,7 +248,12 @@ const pathOf = (href) => {
 const isScreen = (href) => /^\/content\/mobile\//.test(pathOf(href)) && !/\/content\/dam\//.test(href);
 
 /** The public URL of a screen path in the version of the current screen. */
-const screenUrl = (ctx, href) => `https://${ctx.host}${pathOf(href)}${ctx.v2 ? '.v2.sdui' : '.sdui'}`;
+const screenUrl = (ctx, href) => {
+  let suffix = '.sdui';
+  if (ctx.v2) suffix = '.v2.sdui';
+  else if (ctx.ios) suffix = '.ios.sdui';
+  return `https://${ctx.host}${pathOf(href)}${suffix}`;
+};
 /** Image URLs: www's DAM paths on the public host. */
 const imageUrl = (ctx, url) => {
   try {
@@ -448,11 +471,53 @@ function itemsV2(ctx, item, container) {
   }
 }
 
-/** The v1 screen: {title, type: PAGE | CONTAINER, items}. */
+/** Items the iOS v1 answer wraps in a padded column (runs of them). */
+const IOS_COLUMN_TYPES = new Set(['copyText', 'textLink_v2', 'spacer', 'divider']);
+const SMALL_SPACER = () => ({ type: 'spacer', size: 'SMALL' });
+
+/**
+ * www's iOS v1 layout: each run of consecutive copyText, text link, spacer and divider items is
+ * one paddedColumn (padding LARGE left and right, MEDIUM top and bottom) with a SMALL spacer
+ * between its items; two images in a row get a SMALL spacer between them; any other item ends
+ * the current column.
+ */
+export function iosLayout(items) {
+  const out = [];
+  let column = null;
+  items.forEach((item) => {
+    if (IOS_COLUMN_TYPES.has(item.type)) {
+      if (!column) {
+        column = {
+          type: 'paddedColumn',
+          padding: {
+            left: 'LARGE', right: 'LARGE', top: 'MEDIUM', bottom: 'MEDIUM',
+          },
+          items: [],
+        };
+        out.push(column);
+      } else column.items.push(SMALL_SPACER());
+      column.items.push(item);
+      return;
+    }
+    column = null;
+    if (item.type === 'image' && out.length && out[out.length - 1].type === 'image') out.push(SMALL_SPACER());
+    out.push(item);
+  });
+  return out;
+}
+
+/**
+ * The v1 screen: {title, type: PAGE | CONTAINER, items}. ctx.ios: the iOS layout (iosLayout;
+ * a page has no LARGE spacers at its start and end, a container keeps its M_LARGE ones).
+ */
 export function renderV1(model, ctx) {
   const c = { ...ctx, v2: false };
   const pad = { type: 'spacer', size: model.container ? 'M_LARGE' : 'LARGE' };
   const items = model.sections.flatMap((s) => s.items.flatMap((i) => itemsV1(c, i, model.container)));
+  if (ctx.ios) {
+    const laid = iosLayout(items);
+    return { title: model.title, type: model.container ? 'CONTAINER' : 'PAGE', items: model.container ? [pad, ...laid, pad] : laid };
+  }
   return { title: model.title, type: model.container ? 'CONTAINER' : 'PAGE', items: [pad, ...items, pad] };
 }
 
@@ -494,7 +559,7 @@ export function indexRows(json) {
 /**
  * Renders a screen.
  * @param {string} html the screen's page HTML (or .plain.html)
- * @param {Object} opts { path, version: 'v1' | 'v2', host, index: rows, webLinks }
+ * @param {Object} opts { path, version: 'v1' | 'v2', host, index: rows, webLinks, ios }
  */
 export function renderScreen(html, opts) {
   const model = screenModel(readDocument(html));
@@ -504,6 +569,7 @@ export function renderScreen(html, opts) {
     index: opts.index || [],
     byPath: new Map((opts.index || []).map((r) => [r.path, r])),
     webLinks: opts.webLinks || 'external',
+    ios: Boolean(opts.ios) && opts.version !== 'v2',
   };
   return opts.version === 'v2' ? renderV2(model, ctx) : renderV1(model, ctx);
 }

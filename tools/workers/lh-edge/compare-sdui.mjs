@@ -8,6 +8,9 @@
  * purpose (LEFT_OUT). Writes tools/reports/lh-edge/compare-sdui.md and .json.
  * Usage: node tools/workers/lh-edge/compare-sdui.mjs (--host https://<lh-edge host> | --local
  *   | --origin https://main--lh-com--moved-permanently.aem.page) [--only <substring>]
+ * --variants (with --host): the 27 spellings of tools/source-export/feeds/ams-rest/sdui-variants/
+ *   (.ios., .nocache., .v2. in every recorded order) instead, and the Cache-Control header per
+ *   spelling against www's (ams-rest/index.json); report compare-sdui-variants.md and .json.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -34,8 +37,22 @@ const LEFT_OUT = [
   { re: /(^|\.)id$/, why: 'id: www sends AEM node paths; lh-edge generates stable ids of its own' },
 ];
 
-const index = JSON.parse(fs.readFileSync(path.join(FEED, 'index.json'), 'utf8')).urls;
+const VARIANTS = argv.includes('--variants');
+const AMS = path.join(root, 'tools/source-export/feeds/ams-rest');
+const SCREENS = { articles: '/content/mobile/lh/de/articles', london: '/content/mobile/lh/de/articles/a-perfect-day-in-london', homepage: '/content/mobile/lh/de/homepage' };
+const index = VARIANTS ? Object.fromEntries(JSON.parse(fs.readFileSync(path.join(AMS, 'index.json'), 'utf8'))
+  .map((e) => [new URL(e.url).pathname, e])
+  .filter(([u]) => Object.values(SCREENS).some((p) => u.startsWith(`${p}.`) && u.endsWith('.sdui')))
+  .map(([u, e]) => {
+    const [screen, p] = Object.entries(SCREENS).find(([, q]) => u.startsWith(`${q}.`));
+    return [u, { file: `sdui-variants/sdui-${screen}.${u.slice(p.length + 1)}.json`, cacheControl: (e.h || {})['cache-control'] || null }];
+  }))
+  : JSON.parse(fs.readFileSync(path.join(FEED, 'index.json'), 'utf8')).urls;
 const urls = Object.keys(index).filter((u) => !only || u.includes(only));
+if (VARIANTS && LOCAL) {
+  console.error('--variants compares lh-edge (--host) only');
+  process.exit(2);
+}
 
 // --local: the documents and an index built from them, like the query index
 const docFile = (p) => path.join(root, 'content', `${p}.plain.html`);
@@ -67,7 +84,8 @@ const normHost = (v) => (typeof v === 'string' ? v.replace(/https:\/\/(www\.luft
 // Document Authoring trims whitespace at the end of a text and of a bold run (trailing spaces,
 // &nbsp;, a <br>) and collapses runs of spaces: normalised too
 const normText = (v) => (typeof v === 'string' ? v.replace(/<b style="[^"]*">/g, '<b>')
-  .replace(/(?:\s|&nbsp;|<br>)+(<\/b>|<\/li>)/g, '$1').replace(/(<li>)(?:\s|&nbsp;)+/g, '$1').replace(/(?:\s|&nbsp;|<br>)+$/, '').replace(/^\s+/, '')
+  .replace(/(?:\s|&nbsp;|<br>)+(<\/b>|<\/li>)/g, '$1').replace(/(<li>)(?:\s|&nbsp;)+/g, '$1').replace(/(?:\s|&nbsp;|<br>)+$/, '')
+  .replace(/^\s+/, '')
   .replace(/ {2,}/g, ' ') : v);
 
 /** Field-by-field differences of two JSON values. */
@@ -100,8 +118,8 @@ function diff(a, b, p, out) {
 
 const results = [];
 for (const u of urls) {
-  const ref = JSON.parse(fs.readFileSync(path.join(FEED, index[u].file.replace(/^sdui\//, '')), 'utf8'));
-  const r = { url: u, version: u.endsWith('.v2.sdui') ? 'v2' : 'v1' };
+  const ref = JSON.parse(fs.readFileSync(VARIANTS ? path.join(AMS, index[u].file) : path.join(FEED, index[u].file.replace(/^sdui\//, '')), 'utf8'));
+  const r = { url: u, version: /\.v2\./.test(u) ? 'v2' : 'v1' };
   let ours;
   try {
     if (LOCAL) {
@@ -125,7 +143,9 @@ for (const u of urls) {
     missing: [], extra: [], different: [], leftOut: [], normalised: [],
   };
   if (ours) diff(ref, ours, '', out);
-  Object.assign(r, out, { equal: Boolean(ours) && !out.missing.length && !out.extra.length && !out.different.length });
+  const cacheOk = !VARIANTS || (r.cacheControl || null) === index[u].cacheControl;
+  if (VARIANTS) Object.assign(r, { wwwCacheControl: index[u].cacheControl, cacheOk });
+  Object.assign(r, out, { equal: Boolean(ours) && !out.missing.length && !out.extra.length && !out.different.length && cacheOk });
   results.push(r);
 }
 
@@ -136,12 +156,17 @@ const line = (v) => {
 };
 const OUT = path.join(root, 'tools/reports/lh-edge');
 fs.mkdirSync(OUT, { recursive: true });
-const SUFFIX = ORIGIN_RENDER ? '-origin' : (LOCAL ? '-local' : '');
-fs.writeFileSync(path.join(OUT, `compare-sdui${SUFFIX}.json`), `${JSON.stringify({ host: HOST || 'local', checkedAt: new Date().toISOString(), leftOut: LEFT_OUT.map((l) => l.why), results }, null, 1)}\n`);
+let SUFFIX = '';
+if (ORIGIN_RENDER) SUFFIX = '-origin';
+else if (LOCAL) SUFFIX = '-local';
+if (VARIANTS) SUFFIX = '-variants';
+fs.writeFileSync(path.join(OUT, `compare-sdui${SUFFIX}.json`), `${JSON.stringify({
+  host: HOST || 'local', checkedAt: new Date().toISOString(), leftOut: LEFT_OUT.map((l) => l.why), results,
+}, null, 1)}\n`);
 const md = [`# lh-edge app screens vs www (${HOST || 'local render'})`, '', new Date().toISOString(), '', line('v1'), '', line('v2'), '',
   'Left out on purpose:', ...LEFT_OUT.map((l) => `- ${l.why}`), '- normalised (listed per URL in the JSON): whitespace Document Authoring does not keep (spaces, &nbsp; and <br> at the end of a text, of a bold run or of a list item, at the start of a list item, "\\n" at the end of a text, leading spaces, runs of spaces) and an editor style on <b> (<b style="font-size: 16px;">)', '',
-  '| URL | status | equal | missing | extra | different (first) |', '|---|---|---|---|---|---|',
-  ...results.map((r) => `| ${r.url} | ${r.status ?? r.error} | ${r.equal ? 'yes' : 'no'} | ${r.missing.slice(0, 3).join('<br>')} | ${r.extra.slice(0, 3).join('<br>')} | ${r.different.slice(0, 2).map((d) => `${d.path}: ${JSON.stringify(d.www).slice(0, 60)} / ${JSON.stringify(d.ours).slice(0, 60)}`).join('<br>')} |`)];
+  `| URL | status | equal | missing | extra | different (first) |${VARIANTS ? ' Cache-Control www / lh-edge |' : ''}`, `|---|---|---|---|---|---|${VARIANTS ? '---|' : ''}`,
+  ...results.map((r) => `| ${r.url} | ${r.status ?? r.error} | ${r.equal ? 'yes' : 'no'} | ${r.missing.slice(0, 3).join('<br>')} | ${r.extra.slice(0, 3).join('<br>')} | ${r.different.slice(0, 2).map((d) => `${d.path}: ${JSON.stringify(d.www).slice(0, 60)} / ${JSON.stringify(d.ours).slice(0, 60)}`).join('<br>')} |${VARIANTS ? ` ${r.wwwCacheControl || '(none)'} / ${r.cacheControl || '(none)'}${r.cacheOk ? '' : ' (differs)'} |` : ''}`)];
 fs.writeFileSync(path.join(OUT, `compare-sdui${SUFFIX}.md`), `${md.join('\n')}\n`);
 console.log(line('v1'));
 console.log(line('v2'));

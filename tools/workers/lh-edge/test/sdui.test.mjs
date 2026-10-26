@@ -40,7 +40,7 @@ test('sdui: v2 and v1 screens as www (ids aside), list from the index, public ho
   const v2 = await worker.fetch(new Request('https://lh-edge.example/content/mobile/lh/en/articles/europe.v2.sdui', { headers }), env, {});
   assert.equal(v2.status, 200);
   assert.equal(v2.headers.get('content-type'), 'application/json');
-  assert.equal(v2.headers.get('cache-control'), 'public, max-age=60');
+  assert.equal(v2.headers.get('cache-control'), null, 'no Cache-Control without nocache, as www');
   assert.deepEqual(withoutIds(await v2.json()), expected('articles/europe.v2.sdui.json', 'lh.example'));
   const v1 = await worker.fetch(new Request('https://lh-edge.example/content/mobile/lh/en/articles/europe.sdui', { headers: { 'x-forwarded-host': 'fwd.example' } }), env, {});
   assert.deepEqual(await v1.json(), expected('articles/europe.sdui.json', 'fwd.example'));
@@ -70,4 +70,41 @@ test('html parser: entities, void elements, nesting', () => {
   const p = t.children[0];
   assert.equal(textOf(p), 'A\u00a0&BC');
   assert.equal(p.children.find((c) => c.tag === 'img').attrs.src, 'x?a=1&b=2');
+});
+
+test('sdui spellings: v2, ios and nocache in any order; v2 wins over ios; nocache sets max-age=600', async () => {
+  const get = async (suffix) => worker.fetch(new Request(`https://lh-edge.example/content/mobile/lh/en/articles/europe${suffix}`), env, {});
+  const v2 = withoutIds(await (await get('.v2.sdui')).json());
+  const spellings = ['.ios.v2.sdui', '.v2.ios.sdui', '.nocache.v2.sdui', '.v2.nocache.sdui', '.ios.nocache.v2.sdui'];
+  const bodies = await Promise.all(spellings.map(async (s) => withoutIds(await (await get(s)).json())));
+  bodies.forEach((b, i) => assert.deepEqual(b, v2, spellings[i]));
+  const plain = await (await get('.sdui')).json();
+  const nocache = await get('.nocache.sdui');
+  assert.equal(nocache.headers.get('cache-control'), 'max-age=600');
+  assert.deepEqual(await nocache.json(), plain);
+  assert.equal((await get('.v2.nocache.sdui')).headers.get('cache-control'), 'max-age=600');
+  assert.equal((await get('.ios.sdui')).headers.get('cache-control'), null);
+  const ios = await (await get('.ios.sdui')).json();
+  assert.deepEqual(await (await get('.nocache.ios.sdui')).json(), ios);
+  assert.notDeepEqual(ios, plain);
+  // the iOS layout: no LARGE spacers at the ends of a page, text runs in padded columns, screen links .ios.sdui
+  assert.notEqual(ios.items[0].type === 'spacer' && ios.items[0].size, 'LARGE');
+  assert.ok(ios.items.some((i) => i.type === 'paddedColumn'));
+  const text = JSON.stringify(ios);
+  assert.ok(!/\/content\/mobile\/[^"]+(?<!\.ios)\.sdui"/.test(text), 'every screen link ends in .ios.sdui');
+  assert.equal((await get('.v2.v2.sdui')).status, 404, 'a marker twice is not a spelling');
+  assert.equal((await get('.android.sdui')).status, 404);
+});
+
+test('iosLayout: runs of text, links, spacers and dividers in one padded column with SMALL spacers; images apart', async () => {
+  const { iosLayout } = await import('../src/sdui.js');
+  const t = (type, extra = {}) => ({ type, ...extra });
+  const out = iosLayout([t('image'), t('image'), t('copyText'), t('spacer', { size: 'X_SMALL' }), t('textLink_v2'), t('offerBox_v2'), t('divider'), t('copyText')]);
+  assert.deepEqual(out.map((i) => i.type), ['image', 'spacer', 'image', 'paddedColumn', 'offerBox_v2', 'paddedColumn']);
+  assert.equal(out[1].size, 'SMALL');
+  assert.deepEqual(out[3].padding, {
+    left: 'LARGE', right: 'LARGE', top: 'MEDIUM', bottom: 'MEDIUM',
+  });
+  assert.deepEqual(out[3].items.map((i) => `${i.type}${i.size ? `:${i.size}` : ''}`), ['copyText', 'spacer:SMALL', 'spacer:X_SMALL', 'spacer:SMALL', 'textLink_v2']);
+  assert.deepEqual(out[5].items.map((i) => i.type), ['divider', 'spacer', 'copyText']);
 });
