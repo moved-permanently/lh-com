@@ -41,7 +41,7 @@ const VARIANTS = argv.includes('--variants');
 const AMS = path.join(root, 'tools/source-export/feeds/ams-rest');
 const SCREENS = { articles: '/content/mobile/lh/de/articles', london: '/content/mobile/lh/de/articles/a-perfect-day-in-london', homepage: '/content/mobile/lh/de/homepage' };
 const index = VARIANTS ? Object.fromEntries(JSON.parse(fs.readFileSync(path.join(AMS, 'index.json'), 'utf8'))
-  .map((e) => [new URL(e.url).pathname, e])
+  .map((e) => [new URL(e.url, 'https://www.lufthansa.com').pathname, e])
   .filter(([u]) => Object.values(SCREENS).some((p) => u.startsWith(`${p}.`) && u.endsWith('.sdui')))
   .map(([u, e]) => {
     const [screen, p] = Object.entries(SCREENS).find(([, q]) => u.startsWith(`${q}.`));
