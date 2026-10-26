@@ -118,3 +118,48 @@ export function localDamUrl(url, options = {}) {
   const qs = params.toString();
   return `${edsDamPath(asset)}${qs ? `?${qs}` : ''}`;
 }
+
+const OFFERS_IMAGE = /^\/content\/dam\/lh\/images\/offers\/(?:(.+)\/)?([^/?]+)\.jpg(\?.*)?$/;
+const DESTINATION_IMAGE = /^\/content\/dam\/lufthansa-group\/images\/destination\/([^/?]+)\.jpg(\?.*)?$/;
+
+/**
+ * The next image of www's missing-image fallback for one of the site's own offers image URLs
+ * (lh-edge answers www's URLs with the same chain as 302s; on the Edge Delivery hosts the site
+ * follows it itself): .../lh/images/offers/.../<name>.jpg -> /content/dam/lufthansa-group/
+ * images/destination/<name>.jpg -> /content/dam/lh/images/offers/fallback/generic<suffix>.jpg
+ * (suffix from the last "-": "-square"); '' after that. Media parameters are kept.
+ */
+export function damFallback(url) {
+  const rel = String(url || '').replace(/^https?:\/\/[^/]+/, '');
+  const generic = (name, q = '') => {
+    const dash = name.lastIndexOf('-');
+    return `/content/dam/lh/images/offers/fallback/generic${dash >= 0 ? name.slice(dash) : ''}.jpg${q}`;
+  };
+  const offers = rel.match(OFFERS_IMAGE);
+  if (offers) {
+    const [, folder = '', name, q = ''] = offers;
+    if (/^fallback(\/|$)/.test(folder)) return '';
+    return `/content/dam/lufthansa-group/images/destination/${name}.jpg${q}`;
+  }
+  const destination = rel.match(DESTINATION_IMAGE);
+  if (destination) return generic(destination[1], destination[2] || '');
+  return '';
+}
+
+/**
+ * Follows damFallback on an image's load errors; giveUp() when there is nothing left (the
+ * blocks remove the image then, as before).
+ * @param {HTMLImageElement} img
+ * @param {Function} giveUp
+ */
+export function attachDamFallback(img, giveUp) {
+  img.addEventListener('error', () => {
+    const next = damFallback(img.getAttribute('src'));
+    if (!next) {
+      giveUp();
+      return;
+    }
+    img.removeAttribute('srcset');
+    img.setAttribute('src', next);
+  });
+}

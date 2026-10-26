@@ -1,5 +1,5 @@
 import { getLocale } from '../../scripts/locale.js';
-import { localDamUrl } from '../../scripts/dam-path.js';
+import { localDamUrl, attachDamFallback } from '../../scripts/dam-path.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
@@ -420,7 +420,7 @@ export default async function decorate(block) {
   img.src = localDamUrl(`/content/dam/lh/images/offers/destination/${route.destination.toLowerCase()}-panorama.jpg`);
   img.alt = '';
   img.loading = 'eager';
-  img.addEventListener('error', () => img.remove());
+  attachDamFallback(img, () => img.remove());
   const media = el('div', 'destination-offer-image');
   media.append(img);
   about.append(media);

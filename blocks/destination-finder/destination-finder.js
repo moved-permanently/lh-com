@@ -12,6 +12,7 @@ import {
   destinationFinderOffersRequest, mapDestinationFinderOffers, mapAffinities, mapRegions,
   fetchLabels, pickLabels, fillLabel,
 } from '../../scripts/lh-api.js';
+import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource } from '../../scripts/lh-data.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -214,7 +215,7 @@ function renderDestination(dest, state, labels, locale, context) {
     img.src = dest.image;
     img.alt = '';
     img.loading = 'lazy';
-    img.addEventListener('error', () => img.remove());
+    attachDamFallback(img, () => img.remove());
     imageWrap.append(img);
   }
   link.append(imageWrap, el('span', 'destination-finder-city', dest.name || dest.code));
@@ -700,7 +701,7 @@ function renderTile(offer, highlighted, view) {
     img.alt = '';
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.addEventListener('error', () => img.remove());
+    attachDamFallback(img, () => img.remove());
     imageWrap.append(img);
   }
   if (highlighted) imageWrap.append(el('span', 'destination-finder-tile-badge', view.labels['recommended label']));

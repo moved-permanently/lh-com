@@ -7,6 +7,7 @@ import {
   fetchLabels, pickLabels, mapDestinationFinderOffers, mapConditions, mapLocaleData, formatFare,
   destinationImageUrl, fillLabel, htmlToParagraphs, resolveOrigin, knownAirports,
 } from '../../scripts/lh-api.js';
+import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource } from '../../scripts/lh-data.js';
 import { bookInApp } from '../../scripts/app-bridge.js';
 
@@ -261,7 +262,7 @@ function renderItem(route, labels, locale, pattern) {
     img.alt = '';
     img.loading = 'lazy';
     // a destination without a live image keeps the placeholder
-    img.addEventListener('error', () => img.remove());
+    attachDamFallback(img, () => img.remove());
     imageWrap.append(img);
   }
   li.append(imageWrap);
