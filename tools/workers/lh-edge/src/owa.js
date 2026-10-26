@@ -135,8 +135,12 @@ export function buildHeader(navHtml, locale, rows) {
     return { label: t.text, dataIdentifierTrack: t.track, menuItems: groups };
   });
   const tools = elements(first(sections[3], 'ul'), 'li');
+  // the icon as the document has it (":wheelchair:") or as Edge Delivery renders it
+  // (<span class="icon icon-wheelchair">)
+  const hasIcon = (node, icon) => new RegExp(`^\\s*:${icon}:`).test(textOf(node))
+    || all(node, 'span').some((sp) => String(sp.attrs.class || '').split(/\s+/).includes(`icon-${icon}`));
   const tool = (icon) => {
-    const li = tools.find((x) => new RegExp(`^\\s*:${icon}:`).test(textOf(x)));
+    const li = tools.find((x) => hasIcon(x, icon));
     const a = li && all(li, 'a')[0];
     return { url: headerUrl(a && a.attrs.href), text: li ? label(li) : '' };
   };

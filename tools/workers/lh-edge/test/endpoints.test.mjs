@@ -126,6 +126,9 @@ test('entry: /<cc>/<ll> to the homepage, query kept; not cached; www for locales
   assert.equal((await loc('/gb/en/')).location, '/gb/en/homepage');
   assert.equal((await loc('/at/en')).location, 'https://www.lufthansa.com/at/en/homepage');
   assert.equal((await loc('/fr/fr')).location, 'https://www.lufthansa.com/fr/fr/homepage');
+  // /en is no market: a page path, 404 from the origin (www: 404)
+  assert.equal((await get('/en')).status, 404);
+  assert.equal(routeOf(new Request(`${HOST}/en`)).name, 'pass-through');
 });
 
 test('entry: /<cc> by cookie, Accept-Language, then the market default (not www\'s /de/de/en bug)', async () => {
@@ -141,6 +144,14 @@ test('entry: /<cc> by cookie, Accept-Language, then the market default (not www\
 test('entry: / by cookie, CF-IPCountry, else xx/en with the language selection', async () => {
   assert.equal((await loc('/', { cookie: 'dcep.prehpsettings=at/de' })).location, '/at/de/homepage');
   assert.equal((await loc('/', { 'cf-ipcountry': 'DE', 'accept-language': 'en-US' })).location, '/de/en/homepage');
+  // www's recorded answers (feeds/ams-rest A9): / from Germany in English, /de/en, /de/de, /at/de, /gb/en
+  const ams = JSON.parse(read(path.join(FEEDS, 'ams-rest/index.json')));
+  const a9 = ams.filter((r) => ['/', '/de/en', '/de/en/', '/de/de', '/at/de', '/gb/en'].includes(r.url));
+  assert.equal(a9.length, 6);
+  await Promise.all(a9.map(async (r) => {
+    const { location } = await loc(r.url, { 'cf-ipcountry': 'DE', 'accept-language': 'en' });
+    assert.equal(location, new URL(r.final).pathname, r.url);
+  }));
   assert.equal((await loc('/', { 'cf-ipcountry': 'GB' })).location, '/gb/en/homepage');
   assert.equal((await loc('/?a=1')).location, 'https://www.lufthansa.com/xx/en/homepage?a=1&showLanguageSelection=true');
   assert.equal((await loc('/', { 'cf-ipcountry': 'XX' })).location, 'https://www.lufthansa.com/xx/en/homepage?showLanguageSelection=true');
@@ -203,29 +214,42 @@ test('booking list: 204, no body, no-store', async () => {
   assert.equal(resp.headers.get('cache-control'), 'private, no-cache, no-store, must-revalidate');
 });
 
-test('Good for Train kiosk: a page that posts on to the kiosk page in the app view (made-up values)', async () => {
+test('Good for Train kiosk: www\'s page that stores the pair in sessionStorage and goes on to the kiosk page (made-up values)', async () => {
   const post = (fields) => get('/apps/dcep/deeplink/goodfortrain/stele', { method: 'POST', body: new URLSearchParams(fields) });
-  const html = await (await post({
-    Country: 'AT', Language: 'de', Filekey: 'ABC123', Ticketnumber: '2201234567890', Lastname: 'Muster<x>',
-  })).text();
-  assert.match(html, /action="\/at\/de\/common\/g4t-kiosk\.solo_continue"/);
-  assert.match(html, /name="pnrfilekey" value="ABC123"/);
-  assert.doesNotMatch(html, /ticketnumber/);
-  assert.match(html, /name="lastname" value="Muster&lt;x&gt;"/);
-  const ticket = await (await post({
+  /** Runs the answer's script with a fake sessionStorage and window. */
+  const run = async (fields) => {
+    const html = await (await post(fields)).text();
+    const script = html.match(/<script>([\s\S]*)<\/script>/)[1];
+    const stored = {};
+    const window = {};
+    // eslint-disable-next-line no-new-func
+    new Function('sessionStorage', 'window', script)({ setItem: (k, v) => { stored[k] = v; } }, window);
+    return { html, stored, location: window.location };
+  };
+  const a = await run({
+    Country: 'AT', Language: 'de', Filekey: 'ABC123', Ticketnumber: '2201234567890', Lastname: 'Muster</script>',
+  });
+  assert.deepEqual(a.stored, { 'dcep-session-storage/pnrfilekey': '"ABC123"', 'dcep-session-storage/lastname': '"Muster</script>"' });
+  assert.equal(a.location, '/at/de/common/g4t-kiosk.solo_continue');
+  assert.doesNotMatch(a.html, /<form|Muster<\/script>/);
+  const b = await run({
     Country: 'gb', Language: 'en', Ticketnumber: '2201234567890', Lastname: 'Doe',
-  })).text();
-  assert.match(ticket, /action="\/gb\/en\/common\/g4t-kiosk\.solo_continue"/);
-  assert.match(ticket, /name="ticketnumber" value="2201234567890"/);
-  assert.match(await (await post({
+  });
+  assert.deepEqual(b.stored, { 'dcep-session-storage/ticketnumber': '"2201234567890"', 'dcep-session-storage/lastname': '"Doe"' });
+  assert.equal(b.location, '/gb/en/common/g4t-kiosk.solo_continue');
+  const c = await run({ Country: 'de', Language: 'en', Filekey: 'X' });
+  assert.deepEqual(c.stored, {}, 'nothing without a last name');
+  assert.equal(c.location, '/de/en/common/g4t-kiosk.solo_continue');
+  assert.equal((await run({
     Country: 'fr', Language: 'fr', Filekey: 'X', Lastname: 'Y',
-  })).text(), /\/de\/de\/common\/g4t-kiosk/);
-  assert.match(await (await post({
+  })).location, '/de/de/common/g4t-kiosk.solo_continue');
+  assert.equal((await run({
     Country: 'at', Language: 'en', Filekey: 'X', Lastname: 'Y',
-  })).text(), /\/at\/de\/common\/g4t-kiosk/);
-  assert.match(await (await post({
-    Country: 'de', Language: 'en', Filekey: 'X', Lastname: 'Y',
-  })).text(), /\/de\/en\/common\/g4t-kiosk/);
+  })).location, '/at/de/common/g4t-kiosk.solo_continue');
+  const resp = await post({
+    Country: 'de', Language: 'de', Filekey: 'X', Lastname: 'Y',
+  });
+  assert.equal(resp.headers.get('cache-control'), 'private, no-cache, no-store, must-revalidate');
 });
 
 /* ------------------------------------------------------------- 4. selectlanguage ---------- */
@@ -239,4 +263,13 @@ test('selectlanguage: www\'s two recorded answers; unknown market or tenant: non
   assert.equal(await (await get('/apps/selectlanguage?tenant=lx&country=de')).text(), '{"languages":[]}');
   assert.equal(await (await get('/apps/selectlanguage?tenant=lh&country=fr')).text(), '{"languages":[]}');
   assert.equal(await (await get('/apps/selectlanguage?tenant=lh&country=AT')).text(), '{"languages":[{"code":"de","name":"German","isDefault":false}]}');
+});
+
+test('header JSON: the same from the nav as Edge Delivery renders it (icon spans instead of :icon: tokens)', async () => {
+  const { buildHeader } = await import('../src/owa.js');
+  const doc = read(path.join(here, 'fixtures/owa/de-en-nav.plain.html'));
+  const rendered = doc.replace(/:([a-z0-9-]+):\s*/g, '<span class="icon icon-$1"></span>');
+  const rows = JSON.parse(OWA_SHEET).data;
+  assert.deepEqual(buildHeader(rendered, 'de/en', rows), buildHeader(doc, 'de/en', rows));
+  assert.deepEqual(buildHeader(rendered, 'de/en', rows), JSON.parse(read(path.join(FEEDS, 'owa/de-en-homepage.header.json'))));
 });
