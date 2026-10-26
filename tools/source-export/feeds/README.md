@@ -134,3 +134,7 @@ not public URLs.
 | miles and more | 30 | 30 | Miles & More | 30 | 30 |
 | seat reservation | 17 | 17 | Sitzplatzreservierung | 12 | 12 |
 | rebooking | 22 | 20 | Umbuchung | 17 | 22 |
+
+## AMS rest answers, `ams-rest/`
+
+Public www answers for the "AMS rest" briefs (app screen spellings, SDUI of web pages, `.csi-*` selectors, service worker, sitemap, `/apps/selectlanguage`, entry redirects), recorded 2026-10-25 22:20 to 22:42 UTC. See `ams-rest/README.md`.

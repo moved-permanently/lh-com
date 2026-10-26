@@ -1,2 +1,4 @@
 helix-importer-ui
 *.min.js
+# recorded www files, kept byte for byte
+tools/source-export/feeds/ams-rest/static/
