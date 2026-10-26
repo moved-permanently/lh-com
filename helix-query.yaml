@@ -938,3 +938,49 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Experience fragment catalog (AMS rest A3): the teaser fragments of www's
+  # /content/experience-fragments/<folder>.csi-xf.json as documents under /xf/ (one per
+  # fragment, variant and empty folder; tools/importer/build-xf-docs.mjs). lh-edge builds the
+  # catalog from this index: xf-path (the AEM path), xf-kind (fragment, variant, folder),
+  # xf-tags ("Title|id" pairs).
+  xf:
+    include:
+      - /xf/**
+    target: /xf/query-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      xf-path:
+        select: head > meta[name="xf-path"]
+        value: attribute(el, "content")
+      xf-kind:
+        select: head > meta[name="xf-kind"]
+        value: attribute(el, "content")
+      xf-tags:
+        select: head > meta[name="xf-tags"]
+        value: attribute(el, "content")
+
+  # Fleet (AMS rest A3): the aircraft pages of the four locales, with the aircraft code and the
+  # fleet overview's order from their metadata (tools/importer/add-fleet-metadata.mjs). lh-edge's
+  # <page>.aircraft.json and the flight status' fleet links read it.
+  fleet:
+    include:
+      - /*/*/320
+      - /*/*/32n
+      - /*/*/359
+      - /*/*/744
+      - /*/*/boeing787
+      - /*/*/discover-lufthansa/lufthansa-fleet/*
+    target: /fleet-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      aircraft-code:
+        select: head > meta[name="aircraft-code"]
+        value: attribute(el, "content")
+      aircraft-order:
+        select: head > meta[name="aircraft-order"]
+        value: attribute(el, "content")

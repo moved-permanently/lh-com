@@ -1,6 +1,6 @@
 {
-  "total": 766,
-  "limit": 766,
+  "total": 786,
+  "limit": 786,
   "offset": 0,
   "data": [
     {
@@ -3066,6 +3066,86 @@
     {
       "Source": "/gb/en/support/support",
       "Destination": "/gb/en/help-and-contact"
+    },
+    {
+      "Source": "/de/en/discover-lufthansa/lufthansa-fleet/320",
+      "Destination": "/de/en/320"
+    },
+    {
+      "Source": "/de/en/discover-lufthansa/lufthansa-fleet/359",
+      "Destination": "/de/en/359"
+    },
+    {
+      "Source": "/de/en/discover-lufthansa/lufthansa-fleet/744",
+      "Destination": "/de/en/744"
+    },
+    {
+      "Source": "/de/en/discover-lufthansa/lufthansa-fleet/32n",
+      "Destination": "/de/en/32n"
+    },
+    {
+      "Source": "/de/en/discover-lufthansa/lufthansa-fleet/789",
+      "Destination": "/de/en/boeing787"
+    },
+    {
+      "Source": "/de/de/discover-lufthansa/lufthansa-fleet/320",
+      "Destination": "/de/de/320"
+    },
+    {
+      "Source": "/de/de/discover-lufthansa/lufthansa-fleet/359",
+      "Destination": "/de/de/359"
+    },
+    {
+      "Source": "/de/de/discover-lufthansa/lufthansa-fleet/744",
+      "Destination": "/de/de/744"
+    },
+    {
+      "Source": "/de/de/discover-lufthansa/lufthansa-fleet/32n",
+      "Destination": "/de/de/32n"
+    },
+    {
+      "Source": "/de/de/discover-lufthansa/lufthansa-fleet/789",
+      "Destination": "/de/de/boeing787"
+    },
+    {
+      "Source": "/at/de/discover-lufthansa/lufthansa-fleet/320",
+      "Destination": "/at/de/320"
+    },
+    {
+      "Source": "/at/de/discover-lufthansa/lufthansa-fleet/359",
+      "Destination": "/at/de/359"
+    },
+    {
+      "Source": "/at/de/discover-lufthansa/lufthansa-fleet/744",
+      "Destination": "/at/de/744"
+    },
+    {
+      "Source": "/at/de/discover-lufthansa/lufthansa-fleet/32n",
+      "Destination": "/at/de/32n"
+    },
+    {
+      "Source": "/at/de/discover-lufthansa/lufthansa-fleet/789",
+      "Destination": "/at/de/boeing787"
+    },
+    {
+      "Source": "/gb/en/discover-lufthansa/lufthansa-fleet/320",
+      "Destination": "/gb/en/320"
+    },
+    {
+      "Source": "/gb/en/discover-lufthansa/lufthansa-fleet/359",
+      "Destination": "/gb/en/359"
+    },
+    {
+      "Source": "/gb/en/discover-lufthansa/lufthansa-fleet/744",
+      "Destination": "/gb/en/744"
+    },
+    {
+      "Source": "/gb/en/discover-lufthansa/lufthansa-fleet/32n",
+      "Destination": "/gb/en/32n"
+    },
+    {
+      "Source": "/gb/en/discover-lufthansa/lufthansa-fleet/789",
+      "Destination": "/gb/en/boeing787"
     }
   ],
   ":type": "sheet"
