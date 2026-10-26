@@ -439,11 +439,24 @@ export async function handle(request, env, now = Date.now()) {
   }
 }
 
+/**
+ * lh-edge's publish event poller (package 6), called from this Worker's cron: the account's
+ * five cron triggers are all in use. Service binding EVENTS_RELAY (entrypoint EventsRelay);
+ * not bound: nothing to do. Runs next to the message cron; one failing does not stop the other.
+ */
+export function pollEvents(env) {
+  if (!env.EVENTS_RELAY) return Promise.resolve(null);
+  return Promise.resolve().then(() => env.EVENTS_RELAY.poll())
+    .then((r) => { console.log(`events poll: ${JSON.stringify(r)}`); return r; })
+    .catch((e) => { console.log(`events poll error: ${e.message}`); return null; });
+}
+
 export default {
   fetch: (request, env) => handle(request, env),
   scheduled: (event, env, ctx) => {
     ctx.waitUntil(runCron(env, event.scheduledTime || Date.now())
       .then((r) => console.log(`cron: ${JSON.stringify(r)}`))
       .catch((e) => console.log(`cron error: ${e.message}`)));
+    ctx.waitUntil(pollEvents(env));
   },
 };

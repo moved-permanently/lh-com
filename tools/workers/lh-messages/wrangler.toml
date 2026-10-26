@@ -9,9 +9,16 @@ workers_dev = true
 binding = "STATE"
 id = "8d235edea06d4ac3910dec7b713914b5"
 
-# compare the index with the last state every minute (activatedAt, push on appear/disappear)
+# compare the index with the last state every minute (activatedAt, push on appear/disappear);
+# the same cron polls lh-edge's publish event relay (the account's cron triggers are all in use)
 [triggers]
 crons = ["* * * * *"]
+
+# lh-edge's publish event poller (RPC entrypoint EventsRelay, not reachable from the internet)
+[[services]]
+binding = "EVENTS_RELAY"
+service = "lh-edge"
+entrypoint = "EventsRelay"
 
 # Secret (not here): PUSH_TARGET, the address the push payloads go to. Unset: the worker only
 # logs what it would send.

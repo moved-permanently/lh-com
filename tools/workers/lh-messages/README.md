@@ -34,6 +34,8 @@ Headers: `content-type: application/json`, `cache-control: public, max-age=120` 
 
 Every minute (`[triggers] crons`) the worker compares the active messages of the index with the last state in KV (`STATE`, namespace `lh-messages-state`, key `state`: `activatedAt` per message and language, and the active messages with their fields). It writes KV only when something changed (Workers Free: a small daily write quota).
 
+The same cron also polls lh-edge's publish event relay (package 6): service binding `EVENTS_RELAY` to lh-edge's RPC entrypoint `EventsRelay`, `poll()` (lh-edge README, "Publish events"), because the account's five cron triggers are all in use. The poll runs next to the message cron in its own `waitUntil`; an error in one does not stop the other, and without the binding nothing is called.
+
 ## Push
 
 For messages with `push` set, when they become active and when they disappear (withdrawn or past `to`), the worker sends `pushPayload(message, action)` (the message fields plus `action` `PUBLISH` / `UNPUBLISH`; one small function, the real format comes later) as a JSON POST to the secret `PUSH_TARGET`. While `PUSH_TARGET` is unset it only logs what it would send.
