@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/highlights/austin-texas-city-of-live-music",
+  "path": "de/en/articles/highlights/austin-texas-city-of-live-music",
+  "timestamp": "2026-10-26T04:23:59.973Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

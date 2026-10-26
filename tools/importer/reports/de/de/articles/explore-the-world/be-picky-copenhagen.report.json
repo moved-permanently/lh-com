@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-copenhagen",
+  "path": "de/de/articles/explore-the-world/be-picky-copenhagen",
+  "timestamp": "2026-10-26T03:03:21.979Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-venice",
+  "path": "de/de/articles/explore-the-world/know-before-you-go-venice",
+  "timestamp": "2026-10-26T03:50:55.653Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

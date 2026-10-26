@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/flying-high",
+  "path": "de/de/articles/tags/flying-high",
+  "timestamp": "2026-10-26T04:38:10.569Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

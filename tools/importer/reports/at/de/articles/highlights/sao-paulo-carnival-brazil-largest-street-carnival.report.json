@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival",
+  "path": "at/de/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival",
+  "timestamp": "2026-10-26T04:27:20.933Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

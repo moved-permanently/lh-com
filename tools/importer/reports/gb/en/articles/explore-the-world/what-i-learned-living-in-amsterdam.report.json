@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/what-i-learned-living-in-amsterdam",
+  "path": "gb/en/articles/explore-the-world/what-i-learned-living-in-amsterdam",
+  "timestamp": "2026-10-26T04:07:18.560Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

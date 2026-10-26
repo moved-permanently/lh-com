@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/thessaloniki",
+  "path": "de/en/articles/tags/thessaloniki",
+  "timestamp": "2026-10-26T04:52:57.138Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

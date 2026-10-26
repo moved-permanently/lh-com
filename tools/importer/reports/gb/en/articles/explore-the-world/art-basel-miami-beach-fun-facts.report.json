@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/art-basel-miami-beach-fun-facts",
+  "path": "gb/en/articles/explore-the-world/art-basel-miami-beach-fun-facts",
+  "timestamp": "2026-10-26T03:01:17.546Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being",
+  "path": "de/en/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being",
+  "timestamp": "2026-10-26T02:44:08.078Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

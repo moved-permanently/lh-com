@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/buenos-aires",
+  "path": "at/de/articles/tags/buenos-aires",
+  "timestamp": "2026-10-26T04:33:54.095Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

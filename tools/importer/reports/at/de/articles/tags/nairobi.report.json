@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/nairobi",
+  "path": "at/de/articles/tags/nairobi",
+  "timestamp": "2026-10-26T04:46:11.065Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/what-i-learned-living-in-lisbon",
+  "path": "de/de/articles/explore-the-world/what-i-learned-living-in-lisbon",
+  "timestamp": "2026-10-26T04:10:58.942Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

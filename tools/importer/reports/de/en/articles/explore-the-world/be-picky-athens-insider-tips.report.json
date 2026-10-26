@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/be-picky-athens-insider-tips",
+  "path": "de/en/articles/explore-the-world/be-picky-athens-insider-tips",
+  "timestamp": "2026-10-26T03:01:30.025Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

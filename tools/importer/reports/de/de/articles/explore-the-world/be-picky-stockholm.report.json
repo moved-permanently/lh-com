@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-stockholm",
+  "path": "de/de/articles/explore-the-world/be-picky-stockholm",
+  "timestamp": "2026-10-26T03:09:04.806Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

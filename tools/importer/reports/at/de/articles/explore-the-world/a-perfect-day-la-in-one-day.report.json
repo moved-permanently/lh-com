@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/a-perfect-day-la-in-one-day",
+  "path": "at/de/articles/explore-the-world/a-perfect-day-la-in-one-day",
+  "timestamp": "2026-10-26T02:55:26.986Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

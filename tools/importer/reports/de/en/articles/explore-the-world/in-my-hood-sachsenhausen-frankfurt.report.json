@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt",
+  "path": "de/en/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt",
+  "timestamp": "2026-10-26T03:38:30.640Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

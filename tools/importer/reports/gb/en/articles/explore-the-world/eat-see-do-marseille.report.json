@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/eat-see-do-marseille",
+  "path": "gb/en/articles/explore-the-world/eat-see-do-marseille",
+  "timestamp": "2026-10-26T03:16:07.640Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

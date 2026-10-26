@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-flying/lufthansa-insights-art",
+  "path": "at/de/articles/explore-flying/lufthansa-insights-art",
+  "timestamp": "2026-10-26T02:43:30.994Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

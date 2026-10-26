@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-trends-madrid",
+  "path": "gb/en/articles/explore-the-world/on-the-scene-trends-madrid",
+  "timestamp": "2026-10-26T04:00:33.485Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

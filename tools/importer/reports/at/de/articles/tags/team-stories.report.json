@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/team-stories",
+  "path": "at/de/articles/tags/team-stories",
+  "timestamp": "2026-10-26T04:52:42.245Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

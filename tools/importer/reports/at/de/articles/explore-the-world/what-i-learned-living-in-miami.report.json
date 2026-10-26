@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/what-i-learned-living-in-miami",
+  "path": "at/de/articles/explore-the-world/what-i-learned-living-in-miami",
+  "timestamp": "2026-10-26T04:12:10.459Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

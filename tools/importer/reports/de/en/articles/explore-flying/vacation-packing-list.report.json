@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/vacation-packing-list",
+  "path": "de/en/articles/explore-flying/vacation-packing-list",
+  "timestamp": "2026-10-26T02:46:25.361Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

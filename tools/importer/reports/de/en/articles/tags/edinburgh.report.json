@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/edinburgh",
+  "path": "de/en/articles/tags/edinburgh",
+  "timestamp": "2026-10-26T04:36:59.301Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

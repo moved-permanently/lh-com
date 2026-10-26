@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/future-of-flying",
+  "path": "at/de/articles/tags/future-of-flying",
+  "timestamp": "2026-10-26T04:38:58.196Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

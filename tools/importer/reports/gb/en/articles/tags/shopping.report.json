@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/shopping",
+  "path": "gb/en/articles/tags/shopping",
+  "timestamp": "2026-10-26T04:50:51.318Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

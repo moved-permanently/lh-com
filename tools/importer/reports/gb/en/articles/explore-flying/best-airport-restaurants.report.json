@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/best-airport-restaurants",
+  "path": "gb/en/articles/explore-flying/best-airport-restaurants",
+  "timestamp": "2026-10-26T02:36:57.268Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

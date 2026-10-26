@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/interview-livery-iconic-moments",
+  "path": "gb/en/articles/explore-flying/interview-livery-iconic-moments",
+  "timestamp": "2026-10-26T02:41:41.548Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

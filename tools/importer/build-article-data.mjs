@@ -77,15 +77,26 @@ pageFiles.forEach(([base, file]) => {
     .forEach(([, author, src]) => { if (!cardImages[author]) cardImages[author] = src; });
 });
 
-// www's list answers (export): every object with author + authorId; an article's own id by its
-// path (one name can have several ids: "Interview: Marcus Müntefering", "Dr.Bohl")
-const articleIds = {};
+// www's list answers (export): every object with author + authorId; an article's own values by
+// its path: author id (one name can have several ids: "Interview: Marcus Müntefering",
+// "Dr.Bohl"), category (not always the path segment: the 21 articles under
+// /articles/highlights-european-championship/ and one under /articles/explore-the-world/ are
+// "highlights"; "-em" dropped as scripts/articles.js does) and post date with its time (www
+// orders its lists by it; at/de prints "Jänner")
+const articleMeta = {};
 const visit = (v) => {
   if (Array.isArray(v)) v.forEach(visit);
   else if (v && typeof v === 'object') {
     if (typeof v.author === 'string' && typeof v.authorId === 'string') addId(v.author, v.authorId, 'export');
-    if (typeof v.targetUrl === 'string' && typeof v.authorId === 'string' && v.authorId) {
-      try { articleIds[new URL(v.targetUrl).pathname] = v.authorId; } catch (e) { /* no URL */ }
+    if (typeof v.targetUrl === 'string' && 'category' in v && Array.isArray(v.tags)) {
+      try {
+        articleMeta[new URL(v.targetUrl).pathname] = {
+          authorId: v.authorId || '',
+          category: String(v.category || '').replace(/-em$/, ''),
+          // the full time: www orders its lists by it (dates shown in UTC, as www does)
+          date: String(v.postDate || ''),
+        };
+      } catch (e) { /* no URL */ }
     }
     Object.values(v).forEach(visit);
   }
@@ -103,8 +114,8 @@ export const AUTHOR_IDS = ${JSON.stringify(sorted(ids), null, 2)};
 // Author page -> the square image of www's author slider.
 export const AUTHOR_CARD_IMAGES = ${JSON.stringify(sorted(cardImages), null, 2)};
 
-// Article page -> www's author id in its list answer.
-export const ARTICLE_AUTHOR_IDS = ${JSON.stringify(sorted(articleIds), null, 2)};
+// Article page -> www's values in its list answer: author id, category, post date.
+export const ARTICLE_META = ${JSON.stringify(sorted(articleMeta)).replace(/\},"/g, '},\n"')};
 `);
 // map points: JCR path -> [title, lat, lng, link, linkLabel]
 const points = {};
@@ -122,4 +133,4 @@ fs.writeFileSync(POI_OUT, `/* eslint-disable */
 export const POI_POINTS = ${JSON.stringify(sorted(points)).replace(/\],"/g, '],\n"')};
 `);
 console.log(`poi-data: ${Object.keys(points).length} maps, ${Object.values(points).reduce((n, l) => n + l.length, 0)} points`);
-console.log(`article-data: ${Object.keys(ids).length} author ids, ${Object.keys(articleIds).length} article author ids, ${Object.keys(cardImages).length} author images${conflicts.length ? `; conflicts (first kept): ${conflicts.join('; ')}` : ''}`);
+console.log(`article-data: ${Object.keys(ids).length} author ids, ${Object.keys(articleMeta).length} articles in www's lists, ${Object.keys(cardImages).length} author images${conflicts.length ? `; conflicts (first kept): ${conflicts.join('; ')}` : ''}`);

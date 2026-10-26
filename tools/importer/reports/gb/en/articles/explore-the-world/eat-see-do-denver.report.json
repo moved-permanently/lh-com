@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/eat-see-do-denver",
+  "path": "gb/en/articles/explore-the-world/eat-see-do-denver",
+  "timestamp": "2026-10-26T03:13:30.502Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

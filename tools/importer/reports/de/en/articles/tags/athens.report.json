@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/athens",
+  "path": "de/en/articles/tags/athens",
+  "timestamp": "2026-10-26T04:30:51.086Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media"
+  ]
+}

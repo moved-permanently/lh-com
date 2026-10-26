@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/know-before-you-go-dallas",
+  "path": "de/en/articles/explore-the-world/know-before-you-go-dallas",
+  "timestamp": "2026-10-26T03:44:05.305Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

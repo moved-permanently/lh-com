@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/eat-see-do-beijing",
+  "path": "gb/en/articles/explore-the-world/eat-see-do-beijing",
+  "timestamp": "2026-10-26T03:11:21.257Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

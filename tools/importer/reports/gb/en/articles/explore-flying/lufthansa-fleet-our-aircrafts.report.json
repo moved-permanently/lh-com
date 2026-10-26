@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/lufthansa-fleet-our-aircrafts",
+  "path": "gb/en/articles/explore-flying/lufthansa-fleet-our-aircrafts",
+  "timestamp": "2026-10-26T02:42:31.310Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

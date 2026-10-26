@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/be-picky",
+  "path": "de/en/articles/tags/be-picky",
+  "timestamp": "2026-10-26T04:32:00.772Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

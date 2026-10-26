@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/queer-travel-safer-trips",
+  "path": "gb/en/articles/explore-flying/queer-travel-safer-trips",
+  "timestamp": "2026-10-26T02:45:40.106Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

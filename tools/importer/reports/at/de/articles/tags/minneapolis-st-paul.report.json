@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/minneapolis-st-paul",
+  "path": "at/de/articles/tags/minneapolis-st-paul",
+  "timestamp": "2026-10-26T04:45:20.146Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

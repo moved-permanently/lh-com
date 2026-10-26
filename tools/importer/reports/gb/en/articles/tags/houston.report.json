@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/houston",
+  "path": "gb/en/articles/tags/houston",
+  "timestamp": "2026-10-26T04:40:31.832Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/what-the-hack",
+  "path": "de/en/articles/tags/what-the-hack",
+  "timestamp": "2026-10-26T04:55:32.355Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

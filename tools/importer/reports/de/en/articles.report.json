@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles",
+  "path": "de/en/articles",
+  "timestamp": "2026-10-26T02:33:33.754Z",
+  "title": "Lufthansa Insights – Travel Blog | Lufthansa",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "carousel-cards",
+    "blog-overview"
+  ]
+}

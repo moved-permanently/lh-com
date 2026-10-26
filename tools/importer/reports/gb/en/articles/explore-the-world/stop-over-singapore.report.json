@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/stop-over-singapore",
+  "path": "gb/en/articles/explore-the-world/stop-over-singapore",
+  "timestamp": "2026-10-26T04:06:36.788Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/know-before-you-go-almaty",
+  "path": "de/en/articles/explore-the-world/know-before-you-go-almaty",
+  "timestamp": "2026-10-26T03:41:30.496Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/porto",
+  "path": "gb/en/articles/tags/porto",
+  "timestamp": "2026-10-26T04:48:16.518Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

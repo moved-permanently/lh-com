@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/sao-paulo-sights",
+  "path": "at/de/articles/explore-the-world/sao-paulo-sights",
+  "timestamp": "2026-10-26T04:04:20.632Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

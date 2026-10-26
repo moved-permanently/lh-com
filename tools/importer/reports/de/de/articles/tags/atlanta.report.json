@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/atlanta",
+  "path": "de/de/articles/tags/atlanta",
+  "timestamp": "2026-10-26T04:31:31.859Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

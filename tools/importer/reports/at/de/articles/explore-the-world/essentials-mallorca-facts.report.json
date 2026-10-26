@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-mallorca-facts",
+  "path": "at/de/articles/explore-the-world/essentials-mallorca-facts",
+  "timestamp": "2026-10-26T03:25:34.395Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

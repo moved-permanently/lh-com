@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/highlights-european-championship",
+  "path": "de/de/articles/highlights-european-championship",
+  "timestamp": "2026-10-26T04:16:31.404Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "cards-teaser",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

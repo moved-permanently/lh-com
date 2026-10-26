@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/what-i-learned-living-in-seoul",
+  "path": "de/en/articles/explore-the-world/what-i-learned-living-in-seoul",
+  "timestamp": "2026-10-26T04:14:19.281Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

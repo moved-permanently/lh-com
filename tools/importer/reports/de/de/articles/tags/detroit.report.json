@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/detroit",
+  "path": "de/de/articles/tags/detroit",
+  "timestamp": "2026-10-26T04:36:20.729Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

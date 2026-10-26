@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class",
+  "path": "at/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class",
+  "timestamp": "2026-10-26T02:44:31.555Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

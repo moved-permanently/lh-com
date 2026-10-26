@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/what-i-learned-living-in-buenos-aires",
+  "path": "gb/en/articles/explore-the-world/what-i-learned-living-in-buenos-aires",
+  "timestamp": "2026-10-26T04:08:51.685Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/be-picky-toronto-insider-tips",
+  "path": "gb/en/articles/explore-the-world/be-picky-toronto-insider-tips",
+  "timestamp": "2026-10-26T03:09:31.650Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

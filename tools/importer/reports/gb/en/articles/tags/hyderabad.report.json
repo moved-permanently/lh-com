@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/hyderabad",
+  "path": "gb/en/articles/tags/hyderabad",
+  "timestamp": "2026-10-26T04:40:42.679Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

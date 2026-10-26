@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/what-i-learned-living-in-vienna",
+  "path": "gb/en/articles/explore-the-world/what-i-learned-living-in-vienna",
+  "timestamp": "2026-10-26T04:15:31.077Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

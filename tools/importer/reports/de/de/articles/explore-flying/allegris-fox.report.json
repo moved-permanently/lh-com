@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/allegris-fox",
+  "path": "de/de/articles/explore-flying/allegris-fox",
+  "timestamp": "2026-10-26T02:36:22.399Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images",
+    "carousel-images",
+    "carousel-images"
+  ]
+}

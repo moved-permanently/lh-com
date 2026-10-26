@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/what-i-learned-living-in-istanbul",
+  "path": "de/en/articles/explore-the-world/what-i-learned-living-in-istanbul",
+  "timestamp": "2026-10-26T04:10:24.028Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/everyone-wants-to-fly-with-the-cranes",
+  "path": "gb/en/articles/explore-flying/everyone-wants-to-fly-with-the-cranes",
+  "timestamp": "2026-10-26T02:38:44.369Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/lufthansa-in-the-spotlight",
+  "path": "de/de/articles/explore-flying/lufthansa-in-the-spotlight",
+  "timestamp": "2026-10-26T02:43:10.422Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

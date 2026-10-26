@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/boston",
+  "path": "gb/en/articles/tags/boston",
+  "timestamp": "2026-10-26T04:33:09.175Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media"
+  ]
+}

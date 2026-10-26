@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/rio-de-janeiro",
+  "path": "at/de/articles/tags/rio-de-janeiro",
+  "timestamp": "2026-10-26T04:49:26.523Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/aircraft-lights-explained",
+  "path": "de/de/articles/explore-flying/aircraft-lights-explained",
+  "timestamp": "2026-10-26T02:35:32.976Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

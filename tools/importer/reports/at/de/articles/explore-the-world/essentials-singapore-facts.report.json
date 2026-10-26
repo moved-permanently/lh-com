@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-singapore-facts",
+  "path": "at/de/articles/explore-the-world/essentials-singapore-facts",
+  "timestamp": "2026-10-26T03:28:26.861Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

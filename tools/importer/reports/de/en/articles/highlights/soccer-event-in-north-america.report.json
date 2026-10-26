@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/highlights/soccer-event-in-north-america",
+  "path": "de/en/articles/highlights/soccer-event-in-north-america",
+  "timestamp": "2026-10-26T04:27:46.332Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

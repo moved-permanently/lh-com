@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/welcome-to-my-world-lexie-alford",
+  "path": "de/en/articles/explore-flying/welcome-to-my-world-lexie-alford",
+  "timestamp": "2026-10-26T02:47:51.981Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

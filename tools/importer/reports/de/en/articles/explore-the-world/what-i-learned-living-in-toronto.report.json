@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/what-i-learned-living-in-toronto",
+  "path": "de/en/articles/explore-the-world/what-i-learned-living-in-toronto",
+  "timestamp": "2026-10-26T04:15:13.572Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

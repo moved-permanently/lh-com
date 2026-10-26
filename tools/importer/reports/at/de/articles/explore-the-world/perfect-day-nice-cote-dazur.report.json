@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/perfect-day-nice-cote-dazur",
+  "path": "at/de/articles/explore-the-world/perfect-day-nice-cote-dazur",
+  "timestamp": "2026-10-26T04:01:33.513Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

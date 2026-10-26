@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/experience-nature",
+  "path": "gb/en/articles/explore-the-world/experience-nature",
+  "timestamp": "2026-10-26T03:30:04.849Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

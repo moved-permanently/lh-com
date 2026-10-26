@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/picture-perfect-ny",
+  "path": "de/de/articles/explore-the-world/picture-perfect-ny",
+  "timestamp": "2026-10-26T04:03:45.902Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

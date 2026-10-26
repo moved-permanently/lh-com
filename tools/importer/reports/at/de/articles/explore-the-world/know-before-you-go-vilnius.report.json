@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/know-before-you-go-vilnius",
+  "path": "at/de/articles/explore-the-world/know-before-you-go-vilnius",
+  "timestamp": "2026-10-26T03:51:27.828Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-tbilisi",
+  "path": "de/en/articles/explore-the-world/eat-see-do-tbilisi",
+  "timestamp": "2026-10-26T03:18:34.477Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

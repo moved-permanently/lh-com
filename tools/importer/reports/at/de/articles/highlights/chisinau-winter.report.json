@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/chisinau-winter",
+  "path": "at/de/articles/highlights/chisinau-winter",
+  "timestamp": "2026-10-26T04:24:14.861Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

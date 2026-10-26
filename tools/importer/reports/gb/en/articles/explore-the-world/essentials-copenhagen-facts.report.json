@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-copenhagen-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-copenhagen-facts",
+  "timestamp": "2026-10-26T03:23:13.327Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

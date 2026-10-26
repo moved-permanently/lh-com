@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-mexico-city-facts",
+  "path": "at/de/articles/explore-the-world/essentials-mexico-city-facts",
+  "timestamp": "2026-10-26T03:25:44.412Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

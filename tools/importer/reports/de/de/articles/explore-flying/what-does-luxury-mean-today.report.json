@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/what-does-luxury-mean-today",
+  "path": "de/de/articles/explore-flying/what-does-luxury-mean-today",
+  "timestamp": "2026-10-26T02:48:07.624Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

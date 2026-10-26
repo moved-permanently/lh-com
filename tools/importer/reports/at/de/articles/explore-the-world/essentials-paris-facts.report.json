@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-paris-facts",
+  "path": "at/de/articles/explore-the-world/essentials-paris-facts",
+  "timestamp": "2026-10-26T03:27:14.552Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

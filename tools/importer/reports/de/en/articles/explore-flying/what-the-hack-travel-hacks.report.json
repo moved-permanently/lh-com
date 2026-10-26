@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/what-the-hack-travel-hacks",
+  "path": "de/en/articles/explore-flying/what-the-hack-travel-hacks",
+  "timestamp": "2026-10-26T02:49:01.048Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

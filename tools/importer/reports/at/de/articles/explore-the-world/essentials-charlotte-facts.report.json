@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-charlotte-facts",
+  "path": "at/de/articles/explore-the-world/essentials-charlotte-facts",
+  "timestamp": "2026-10-26T03:22:31.270Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

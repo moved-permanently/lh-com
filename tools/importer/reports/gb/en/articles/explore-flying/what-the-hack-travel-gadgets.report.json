@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/what-the-hack-travel-gadgets",
+  "path": "gb/en/articles/explore-flying/what-the-hack-travel-gadgets",
+  "timestamp": "2026-10-26T02:48:58.576Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

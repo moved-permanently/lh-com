@@ -610,6 +610,29 @@ function convertAuthorQuotes(document) {
 }
 
 /**
+ * Moving images www's script did not render in the import browser (an image path with a
+ * character outside Latin-1, e.g. ".../Eat-See-Do-Minneapolis–St-Paul/...", ".../hong-kong’s-
+ * skyline-.../..."): the image from the component's data-dcep (imageUrl at the 2560 rendition,
+ * alt), so the parsers find it as on the pages where it rendered.
+ */
+function restoreMovingImages(document) {
+  let restored = 0;
+  document.querySelectorAll('.dcep-moving-image[data-dcep]').forEach((comp) => {
+    if (comp.querySelector('img, video')) return;
+    let cfg;
+    try { cfg = JSON.parse(comp.getAttribute('data-dcep')) || {}; } catch (e) { return; }
+    const src = String(cfg.imageUrl || '').trim();
+    if (!src || /(^|\/)undefined(\.transform|$|\/)/.test(src)) return;
+    const img = document.createElement('img');
+    img.setAttribute('src', new URL(src.replace(/lh-dcep-transform-width-\d+/, 'lh-dcep-transform-width-2560'), `${LIVE_ORIGIN}/`).href);
+    img.setAttribute('alt', String(cfg.alt || '').trim());
+    comp.append(img);
+    restored += 1;
+  });
+  return restored;
+}
+
+/**
  * Parallax images (.dcep-moving-image with "isParallaxEnabled": true in its data-dcep; live shows
  * them in a 50rem window, .parallax .parallax-content { height: 50rem }): " {parallax}" after the
  * image, so its paragraph gets class parallax (scripts.js PARAGRAPH_STYLE, styles.css). Only
@@ -1530,6 +1553,7 @@ export default function transform(hookName, element, payload) {
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
     convertAuthorQuotes(document);
+    restoreMovingImages(document);
     markParallaxImages(document);
     // info: column views for their padding markers, and flow spacing: the separators in running
     // text are kept (headings have no margin of their own above, styles.css)

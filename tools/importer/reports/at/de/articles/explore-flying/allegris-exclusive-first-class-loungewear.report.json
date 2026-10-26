@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-flying/allegris-exclusive-first-class-loungewear",
+  "path": "at/de/articles/explore-flying/allegris-exclusive-first-class-loungewear",
+  "timestamp": "2026-10-26T02:35:56.055Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

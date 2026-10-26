@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/new-shopping",
+  "path": "gb/en/articles/explore-the-world/new-shopping",
+  "timestamp": "2026-10-26T03:52:01.496Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

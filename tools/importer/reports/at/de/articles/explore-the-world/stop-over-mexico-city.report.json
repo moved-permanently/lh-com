@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/stop-over-mexico-city",
+  "path": "at/de/articles/explore-the-world/stop-over-mexico-city",
+  "timestamp": "2026-10-26T04:06:15.003Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites",
+  "path": "de/en/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites",
+  "timestamp": "2026-10-26T02:44:36.250Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

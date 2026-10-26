@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-istanbul-facts",
+  "path": "de/en/articles/explore-the-world/essentials-istanbul-facts",
+  "timestamp": "2026-10-26T03:24:12.812Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

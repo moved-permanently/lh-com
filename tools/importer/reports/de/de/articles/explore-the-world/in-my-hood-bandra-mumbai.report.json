@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-bandra-mumbai",
+  "path": "de/de/articles/explore-the-world/in-my-hood-bandra-mumbai",
+  "timestamp": "2026-10-26T03:30:42.730Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

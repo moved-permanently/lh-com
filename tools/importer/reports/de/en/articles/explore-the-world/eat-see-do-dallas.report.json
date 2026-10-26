@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-dallas",
+  "path": "de/en/articles/explore-the-world/eat-see-do-dallas",
+  "timestamp": "2026-10-26T03:13:12.585Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-ny-facts",
+  "path": "de/en/articles/explore-the-world/essentials-ny-facts",
+  "timestamp": "2026-10-26T03:26:32.473Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

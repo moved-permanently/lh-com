@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/fly-with-me",
+  "path": "gb/en/articles/tags/fly-with-me",
+  "timestamp": "2026-10-26T04:38:05.373Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

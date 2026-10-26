@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/eat-see-do-almaty",
+  "path": "at/de/articles/explore-the-world/eat-see-do-almaty",
+  "timestamp": "2026-10-26T03:10:30.042Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

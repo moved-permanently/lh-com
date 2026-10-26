@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/new-york",
+  "path": "de/en/articles/tags/new-york",
+  "timestamp": "2026-10-26T04:46:15.189Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

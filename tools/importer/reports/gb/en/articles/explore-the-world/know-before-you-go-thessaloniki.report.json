@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/know-before-you-go-thessaloniki",
+  "path": "gb/en/articles/explore-the-world/know-before-you-go-thessaloniki",
+  "timestamp": "2026-10-26T03:50:22.282Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

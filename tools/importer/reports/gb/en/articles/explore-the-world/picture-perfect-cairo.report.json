@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/picture-perfect-cairo",
+  "path": "gb/en/articles/explore-the-world/picture-perfect-cairo",
+  "timestamp": "2026-10-26T04:02:47.611Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

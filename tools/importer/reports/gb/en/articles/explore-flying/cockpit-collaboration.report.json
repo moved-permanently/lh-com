@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/cockpit-collaboration",
+  "path": "gb/en/articles/explore-flying/cockpit-collaboration",
+  "timestamp": "2026-10-26T02:37:43.222Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

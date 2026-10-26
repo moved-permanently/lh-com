@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-tirana",
+  "path": "de/de/articles/explore-the-world/eat-see-do-tirana",
+  "timestamp": "2026-10-26T03:19:23.986Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

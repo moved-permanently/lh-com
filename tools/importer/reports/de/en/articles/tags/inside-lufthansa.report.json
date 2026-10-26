@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/inside-lufthansa",
+  "path": "de/en/articles/tags/inside-lufthansa",
+  "timestamp": "2026-10-26T04:40:54.747Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/lufthansa-help-alliance-i-fly-for-campaign",
+  "path": "de/en/articles/explore-flying/lufthansa-help-alliance-i-fly-for-campaign",
+  "timestamp": "2026-10-26T02:42:42.707Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

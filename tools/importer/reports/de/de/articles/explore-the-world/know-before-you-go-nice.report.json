@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-nice",
+  "path": "de/de/articles/explore-the-world/know-before-you-go-nice",
+  "timestamp": "2026-10-26T03:47:55.334Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

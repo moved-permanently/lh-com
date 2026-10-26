@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/tallinn",
+  "path": "de/de/articles/tags/tallinn",
+  "timestamp": "2026-10-26T04:52:18.870Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

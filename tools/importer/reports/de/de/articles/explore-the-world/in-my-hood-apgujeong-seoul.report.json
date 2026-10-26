@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-apgujeong-seoul",
+  "path": "de/de/articles/explore-the-world/in-my-hood-apgujeong-seoul",
+  "timestamp": "2026-10-26T03:30:10.144Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-music-cape-town",
+  "path": "gb/en/articles/explore-the-world/on-the-scene-music-cape-town",
+  "timestamp": "2026-10-26T03:56:36.318Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

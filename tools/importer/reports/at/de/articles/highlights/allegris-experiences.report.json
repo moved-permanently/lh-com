@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/allegris-experiences",
+  "path": "at/de/articles/highlights/allegris-experiences",
+  "timestamp": "2026-10-26T04:23:09.660Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

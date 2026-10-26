@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/the-art-of-flying-extra-long-bed",
+  "path": "at/de/articles/highlights/the-art-of-flying-extra-long-bed",
+  "timestamp": "2026-10-26T04:28:14.428Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

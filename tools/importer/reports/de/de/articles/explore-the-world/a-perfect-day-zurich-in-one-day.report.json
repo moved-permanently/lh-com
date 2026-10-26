@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-zurich-in-one-day",
+  "path": "de/de/articles/explore-the-world/a-perfect-day-zurich-in-one-day",
+  "timestamp": "2026-10-26T03:00:36.601Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

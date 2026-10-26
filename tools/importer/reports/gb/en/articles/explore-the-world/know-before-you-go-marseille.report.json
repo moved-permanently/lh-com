@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/know-before-you-go-marseille",
+  "path": "gb/en/articles/explore-the-world/know-before-you-go-marseille",
+  "timestamp": "2026-10-26T03:47:30.145Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

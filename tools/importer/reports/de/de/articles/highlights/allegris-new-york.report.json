@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/highlights/allegris-new-york",
+  "path": "de/de/articles/highlights/allegris-new-york",
+  "timestamp": "2026-10-26T04:23:18.047Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

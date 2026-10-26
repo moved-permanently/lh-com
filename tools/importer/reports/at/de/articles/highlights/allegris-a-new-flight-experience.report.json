@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/allegris-a-new-flight-experience",
+  "path": "at/de/articles/highlights/allegris-a-new-flight-experience",
+  "timestamp": "2026-10-26T04:21:10.413Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/what-i-learned-living-in-oslo",
+  "path": "de/en/articles/explore-the-world/what-i-learned-living-in-oslo",
+  "timestamp": "2026-10-26T04:12:56.306Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

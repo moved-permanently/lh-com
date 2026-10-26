@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo",
+  "path": "de/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo",
+  "timestamp": "2026-10-26T02:38:59.902Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

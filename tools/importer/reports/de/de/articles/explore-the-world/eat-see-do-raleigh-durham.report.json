@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-raleigh-durham",
+  "path": "de/de/articles/explore-the-world/eat-see-do-raleigh-durham",
+  "timestamp": "2026-10-26T03:17:22.607Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

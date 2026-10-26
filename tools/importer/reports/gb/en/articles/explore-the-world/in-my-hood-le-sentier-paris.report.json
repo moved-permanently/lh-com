@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/in-my-hood-le-sentier-paris",
+  "path": "gb/en/articles/explore-the-world/in-my-hood-le-sentier-paris",
+  "timestamp": "2026-10-26T03:35:57.232Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

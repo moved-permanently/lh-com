@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-budapest-insider-tips",
+  "path": "de/de/articles/explore-the-world/be-picky-budapest-insider-tips",
+  "timestamp": "2026-10-26T03:02:15.474Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

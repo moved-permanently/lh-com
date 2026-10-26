@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-oslo-in-one-day",
+  "path": "de/en/articles/explore-the-world/a-perfect-day-oslo-in-one-day",
+  "timestamp": "2026-10-26T02:57:42.491Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

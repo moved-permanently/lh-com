@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/exclusive-first-class-tracksuit",
+  "path": "at/de/articles/highlights/exclusive-first-class-tracksuit",
+  "timestamp": "2026-10-26T04:25:04.603Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

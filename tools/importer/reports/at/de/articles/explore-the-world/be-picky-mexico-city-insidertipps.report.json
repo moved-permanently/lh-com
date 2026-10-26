@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",
+  "path": "at/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",
+  "timestamp": "2026-10-26T02:33:30.549Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

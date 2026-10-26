@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-la-insider-tips",
+  "path": "de/de/articles/explore-the-world/be-picky-la-insider-tips",
+  "timestamp": "2026-10-26T03:04:32.739Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

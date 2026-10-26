@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-porto",
+  "path": "de/de/articles/explore-the-world/eat-see-do-porto",
+  "timestamp": "2026-10-26T03:17:11.965Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

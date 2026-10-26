@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/what-i-learned-living-in-rome",
+  "path": "de/en/articles/explore-the-world/what-i-learned-living-in-rome",
+  "timestamp": "2026-10-26T04:13:58.446Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/essentials-amsterdam-facts",
+  "path": "at/de/articles/explore-the-world/essentials-amsterdam-facts",
+  "timestamp": "2026-10-26T03:20:32.942Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

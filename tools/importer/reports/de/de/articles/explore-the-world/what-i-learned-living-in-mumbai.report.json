@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/what-i-learned-living-in-mumbai",
+  "path": "de/de/articles/explore-the-world/what-i-learned-living-in-mumbai",
+  "timestamp": "2026-10-26T04:12:27.076Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

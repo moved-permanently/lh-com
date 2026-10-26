@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/what-i-learned-living-in-athens",
+  "path": "gb/en/articles/explore-the-world/what-i-learned-living-in-athens",
+  "timestamp": "2026-10-26T04:07:49.540Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

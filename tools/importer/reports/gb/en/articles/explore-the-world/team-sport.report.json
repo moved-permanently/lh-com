@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/team-sport",
+  "path": "gb/en/articles/explore-the-world/team-sport",
+  "timestamp": "2026-10-26T04:07:07.674Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

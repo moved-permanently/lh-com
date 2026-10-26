@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/things-you-always-wanted-to-know-about-flying",
+  "path": "de/en/articles/explore-flying/things-you-always-wanted-to-know-about-flying",
+  "timestamp": "2026-10-26T02:45:53.037Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

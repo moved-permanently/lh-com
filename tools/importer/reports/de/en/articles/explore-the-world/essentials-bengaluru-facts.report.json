@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-bengaluru-facts",
+  "path": "de/en/articles/explore-the-world/essentials-bengaluru-facts",
+  "timestamp": "2026-10-26T03:21:36.036Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

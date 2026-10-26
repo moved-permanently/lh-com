@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-san-francisco-facts",
+  "path": "de/de/articles/explore-the-world/essentials-san-francisco-facts",
+  "timestamp": "2026-10-26T03:27:52.214Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

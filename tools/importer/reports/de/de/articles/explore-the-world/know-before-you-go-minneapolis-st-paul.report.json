@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul",
+  "path": "de/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul",
+  "timestamp": "2026-10-26T03:47:35.491Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

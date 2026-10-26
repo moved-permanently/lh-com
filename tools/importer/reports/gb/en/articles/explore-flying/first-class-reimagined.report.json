@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/first-class-reimagined",
+  "path": "gb/en/articles/explore-flying/first-class-reimagined",
+  "timestamp": "2026-10-26T02:39:26.259Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

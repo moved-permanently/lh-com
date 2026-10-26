@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/know-before-you-go-zagreb",
+  "path": "de/en/articles/explore-the-world/know-before-you-go-zagreb",
+  "timestamp": "2026-10-26T03:51:32.459Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

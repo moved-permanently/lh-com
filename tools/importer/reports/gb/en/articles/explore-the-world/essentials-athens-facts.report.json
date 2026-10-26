@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-athens-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-athens-facts",
+  "timestamp": "2026-10-26T03:21:03.880Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

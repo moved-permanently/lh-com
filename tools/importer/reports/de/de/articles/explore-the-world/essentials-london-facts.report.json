@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-london-facts",
+  "path": "de/de/articles/explore-the-world/essentials-london-facts",
+  "timestamp": "2026-10-26T03:25:12.757Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

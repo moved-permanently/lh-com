@@ -56,13 +56,15 @@ function parseDate(value) {
 
 /**
  * Publication date as live prints it in the article header: "20. August 2026" in every language
- * (day, dot, month name in the page language, year), or the authored text.
+ * (day, dot, month name in the page language, year; at/de: Austrian month names, "22. Jänner
+ * 2025"), or the authored text.
  */
 function formatDate(value, locale) {
   const date = parseDate(value);
   if (!date || Number.isNaN(date.getTime())) return String(value ?? '').trim();
   try {
-    const parts = new Intl.DateTimeFormat(locale.lang, {
+    const tag = locale.lang === 'de' && locale.country === 'at' ? 'de-AT' : locale.lang;
+    const parts = new Intl.DateTimeFormat(tag, {
       day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
     }).formatToParts(date);
     const part = (type) => (parts.find((p) => p.type === type) || {}).value;

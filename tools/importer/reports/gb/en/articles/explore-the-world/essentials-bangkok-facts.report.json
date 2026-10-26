@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-bangkok-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-bangkok-facts",
+  "timestamp": "2026-10-26T03:21:14.599Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

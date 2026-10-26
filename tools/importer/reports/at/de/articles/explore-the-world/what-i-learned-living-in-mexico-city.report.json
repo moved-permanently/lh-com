@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/what-i-learned-living-in-mexico-city",
+  "path": "at/de/articles/explore-the-world/what-i-learned-living-in-mexico-city",
+  "timestamp": "2026-10-26T04:12:00.398Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

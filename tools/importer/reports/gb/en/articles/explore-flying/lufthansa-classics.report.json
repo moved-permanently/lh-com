@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/lufthansa-classics",
+  "path": "gb/en/articles/explore-flying/lufthansa-classics",
+  "timestamp": "2026-10-26T02:42:20.816Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

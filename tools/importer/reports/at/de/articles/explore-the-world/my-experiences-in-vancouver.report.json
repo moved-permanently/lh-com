@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/my-experiences-in-vancouver",
+  "path": "at/de/articles/explore-the-world/my-experiences-in-vancouver",
+  "timestamp": "2026-10-26T03:51:48.675Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

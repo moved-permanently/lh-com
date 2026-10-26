@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome",
+  "path": "de/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome",
+  "timestamp": "2026-10-26T03:38:14.133Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

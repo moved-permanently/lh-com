@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/in-my-hood-district-viii-budapest",
+  "path": "de/de/articles/explore-the-world/in-my-hood-district-viii-budapest",
+  "timestamp": "2026-10-26T03:33:20.268Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/celebrating-20-years-of-excellence",
+  "path": "de/de/articles/explore-flying/celebrating-20-years-of-excellence",
+  "timestamp": "2026-10-26T02:37:26.913Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

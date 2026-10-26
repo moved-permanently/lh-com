@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/allegris-typologies",
+  "path": "at/de/articles/highlights/allegris-typologies",
+  "timestamp": "2026-10-26T04:23:50.570Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

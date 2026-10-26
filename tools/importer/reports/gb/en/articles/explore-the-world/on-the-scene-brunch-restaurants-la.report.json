@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-brunch-restaurants-la",
+  "path": "gb/en/articles/explore-the-world/on-the-scene-brunch-restaurants-la",
+  "timestamp": "2026-10-26T03:53:42.048Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

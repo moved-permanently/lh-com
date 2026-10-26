@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-hamburg",
+  "path": "de/de/articles/explore-the-world/know-before-you-go-hamburg",
+  "timestamp": "2026-10-26T03:45:42.134Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/allegris-first-class-innovations",
+  "path": "de/en/articles/explore-flying/allegris-first-class-innovations",
+  "timestamp": "2026-10-26T02:36:01.023Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

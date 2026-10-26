@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/what-the-hack-best-seats",
+  "path": "gb/en/articles/explore-flying/what-the-hack-best-seats",
+  "timestamp": "2026-10-26T02:48:34.132Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

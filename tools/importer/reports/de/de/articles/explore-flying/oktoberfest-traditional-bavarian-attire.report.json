@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/oktoberfest-traditional-bavarian-attire",
+  "path": "de/de/articles/explore-flying/oktoberfest-traditional-bavarian-attire",
+  "timestamp": "2026-10-26T02:45:14.931Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

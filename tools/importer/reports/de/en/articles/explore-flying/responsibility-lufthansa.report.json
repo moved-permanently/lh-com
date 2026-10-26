@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/responsibility-lufthansa",
+  "path": "de/en/articles/explore-flying/responsibility-lufthansa",
+  "timestamp": "2026-10-26T02:45:42.279Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images",
+    "carousel-images"
+  ]
+}

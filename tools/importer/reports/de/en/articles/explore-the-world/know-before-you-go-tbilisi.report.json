@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/know-before-you-go-tbilisi",
+  "path": "de/en/articles/explore-the-world/know-before-you-go-tbilisi",
+  "timestamp": "2026-10-26T03:49:54.927Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

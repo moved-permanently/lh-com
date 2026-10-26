@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/what-the-hack-what-is-the-etiquette-of-traveling",
+  "path": "gb/en/articles/explore-flying/what-the-hack-what-is-the-etiquette-of-traveling",
+  "timestamp": "2026-10-26T02:49:38.559Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

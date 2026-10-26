@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/inside-lufthansa-lh-allegris",
+  "path": "gb/en/articles/explore-flying/inside-lufthansa-lh-allegris",
+  "timestamp": "2026-10-26T02:41:30.830Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

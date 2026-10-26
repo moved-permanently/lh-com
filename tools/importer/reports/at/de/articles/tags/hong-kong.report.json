@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/hong-kong",
+  "path": "at/de/articles/tags/hong-kong",
+  "timestamp": "2026-10-26T04:40:21.522Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview"
+  ]
+}

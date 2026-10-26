@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/art-basel-miami-beach-stefan-marx",
+  "path": "de/de/articles/explore-flying/art-basel-miami-beach-stefan-marx",
+  "timestamp": "2026-10-26T02:36:42.291Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

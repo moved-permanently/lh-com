@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
+  "path": "de/de/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
+  "timestamp": "2026-10-26T02:43:20.280Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-tel-aviv",
+  "path": "de/de/articles/explore-the-world/eat-see-do-tel-aviv",
+  "timestamp": "2026-10-26T03:19:04.584Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

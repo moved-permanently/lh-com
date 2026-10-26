@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/stop-over-charlotte",
+  "path": "de/de/articles/explore-the-world/stop-over-charlotte",
+  "timestamp": "2026-10-26T04:05:12.425Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

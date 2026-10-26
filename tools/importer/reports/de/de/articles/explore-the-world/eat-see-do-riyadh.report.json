@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/eat-see-do-riyadh",
+  "path": "de/de/articles/explore-the-world/eat-see-do-riyadh",
+  "timestamp": "2026-10-26T03:17:45.302Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/eat-see-do-malaga",
+  "path": "gb/en/articles/explore-the-world/eat-see-do-malaga",
+  "timestamp": "2026-10-26T03:15:47.255Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

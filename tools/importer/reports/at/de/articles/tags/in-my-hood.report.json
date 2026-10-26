@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/in-my-hood",
+  "path": "at/de/articles/tags/in-my-hood",
+  "timestamp": "2026-10-26T04:40:49.664Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

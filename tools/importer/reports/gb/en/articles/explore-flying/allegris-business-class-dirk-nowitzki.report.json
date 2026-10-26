@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+  "path": "gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki",
+  "timestamp": "2026-10-26T02:35:48.439Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

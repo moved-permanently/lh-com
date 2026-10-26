@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/picture-perfect-boston",
+  "path": "gb/en/articles/explore-the-world/picture-perfect-boston",
+  "timestamp": "2026-10-26T04:02:37.428Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

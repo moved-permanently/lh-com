@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-chicago-facts",
+  "path": "de/en/articles/explore-the-world/essentials-chicago-facts",
+  "timestamp": "2026-10-26T03:22:36.299Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

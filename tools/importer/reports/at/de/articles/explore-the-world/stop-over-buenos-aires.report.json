@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/stop-over-buenos-aires",
+  "path": "at/de/articles/explore-the-world/stop-over-buenos-aires",
+  "timestamp": "2026-10-26T04:05:04.649Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/picture-perfect",
+  "path": "at/de/articles/tags/picture-perfect",
+  "timestamp": "2026-10-26T04:48:04.861Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/essentials-rio-de-janeiro-facts",
+  "path": "de/de/articles/explore-the-world/essentials-rio-de-janeiro-facts",
+  "timestamp": "2026-10-26T03:27:33.229Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

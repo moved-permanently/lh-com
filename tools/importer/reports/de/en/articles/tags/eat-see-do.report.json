@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/tags/eat-see-do",
+  "path": "de/en/articles/tags/eat-see-do",
+  "timestamp": "2026-10-26T04:36:50.318Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

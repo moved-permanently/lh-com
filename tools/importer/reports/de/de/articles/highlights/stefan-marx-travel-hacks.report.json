@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/highlights/stefan-marx-travel-hacks",
+  "path": "de/de/articles/highlights/stefan-marx-travel-hacks",
+  "timestamp": "2026-10-26T04:28:02.633Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

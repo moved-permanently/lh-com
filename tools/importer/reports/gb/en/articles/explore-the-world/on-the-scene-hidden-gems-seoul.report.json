@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/on-the-scene-hidden-gems-seoul",
+  "path": "gb/en/articles/explore-the-world/on-the-scene-hidden-gems-seoul",
+  "timestamp": "2026-10-26T03:55:45.532Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

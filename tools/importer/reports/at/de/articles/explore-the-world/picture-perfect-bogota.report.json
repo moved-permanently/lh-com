@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/picture-perfect-bogota",
+  "path": "at/de/articles/explore-the-world/picture-perfect-bogota",
+  "timestamp": "2026-10-26T04:02:24.649Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

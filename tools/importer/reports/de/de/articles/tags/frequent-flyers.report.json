@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/frequent-flyers",
+  "path": "de/de/articles/tags/frequent-flyers",
+  "timestamp": "2026-10-26T04:38:43.199Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

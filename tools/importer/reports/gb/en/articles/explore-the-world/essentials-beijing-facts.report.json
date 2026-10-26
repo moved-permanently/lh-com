@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-beijing-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-beijing-facts",
+  "timestamp": "2026-10-26T03:21:34.155Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

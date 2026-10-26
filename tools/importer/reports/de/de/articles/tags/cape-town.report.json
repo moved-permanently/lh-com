@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/cape-town",
+  "path": "de/de/articles/tags/cape-town",
+  "timestamp": "2026-10-26T04:34:23.959Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

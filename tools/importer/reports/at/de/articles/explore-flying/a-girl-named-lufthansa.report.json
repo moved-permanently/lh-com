@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-flying/a-girl-named-lufthansa",
+  "path": "at/de/articles/explore-flying/a-girl-named-lufthansa",
+  "timestamp": "2026-10-26T02:35:25.433Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

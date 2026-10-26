@@ -5,7 +5,8 @@
  * image) and the DA upload.
  *
  * For every scope page (tools/migration-scope/pages.csv, tools/migration-scope/local-pages.csv)
- * with a snapshot (tools/importer/bd-snapshots/www.lufthansa.com{path}.html) it rewrites rows of
+ * with a snapshot (the unpacked article export, tools/source-export/articles-unpacked/pages{path}.html,
+ * else tools/importer/bd-snapshots/www.lufthansa.com{path}.html) it rewrites rows of
  * the page's Metadata block in content{path}.plain.html:
  * - Description: the live description; an empty row where live has none (EDS would otherwise
  *   make one from the first paragraph). The empty row renders description, og:description and
@@ -18,7 +19,9 @@
  *   values, e.g. "index, follow", are reported, not set).
  * - Canonical: the live canonical, only where it points to another URL than the page itself.
  * - Image: the live og:image (EDS sets og:image and twitter:image from it), unless the row
- *   already holds that image (or its local resized copy, media-manifest.json).
+ *   already holds that image (or its local resized copy, media-manifest.json). An og:image www
+ *   does not find (404 in media-manifest.json, after postprocess-media.mjs) is not copied: the
+ *   page keeps (or gets back) its card-image.
  * - nav, footer: on market-only pages of a market without nav and footer in the replica (us/en),
  *   those of the locale with the same language (/de/en/nav, /de/en/footer).
  * - primary-language-url: on the de/de and at/de pages whose slug differs from de/en in
@@ -159,10 +162,11 @@ function setRow(rows, key, html) {
   return true;
 }
 
-const results = []; const robotsListed = [];
+const results = []; const robotsListed = []; const brokenShareImages = [];
 const pathsToDo = only.length ? only : scope;
 pathsToDo.forEach((p) => {
-  const snap = path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com', `${p}.html`);
+  const snap = ['tools/source-export/articles-unpacked/pages', 'tools/importer/bd-snapshots/www.lufthansa.com']
+    .map((d) => path.join(root, d, `${p}.html`)).find((f) => fs.existsSync(f)) || '';
   const file = path.join(root, 'content', `${p}.plain.html`);
   if (!fs.existsSync(snap) || !fs.existsSync(file)) return;
   const live = liveHead(fs.readFileSync(snap, 'utf8'));
@@ -191,7 +195,14 @@ pathsToDo.forEach((p) => {
   if (live['og:image']) {
     const r = rows.find((x) => x.key.toLowerCase() === 'image');
     const src = r && (r.html.match(/<img[^>]*src="([^"]*)"/) || [])[1];
-    if (imageKey(src && decode(src)) !== imageKey(live['og:image'])) {
+    // www error: an og:image that is not found (postprocess-media.mjs recorded the 404): the
+    // page keeps the feature image (card-image), as no share image would show
+    const known = manifest[new URL(live['og:image'], `${LIVE}/`).href];
+    if (known && known.status === 404) {
+      const card = rows.find((x) => x.key.toLowerCase() === 'card-image');
+      if (imageKey(src && decode(src)) === imageKey(live['og:image']) && card) set('Image', card.html);
+      brokenShareImages.push({ path: p, image: live['og:image'] });
+    } else if (imageKey(src && decode(src)) !== imageKey(live['og:image'])) {
       set('Image', `<picture><img src="${escape(live['og:image'])}" alt=""></picture>`);
     }
   }
@@ -210,5 +221,6 @@ pathsToDo.forEach((p) => {
 const count = {};
 results.forEach((r) => (r.changed || [r.error]).forEach((k) => { count[k] = (count[k] || 0) + 1; }));
 results.forEach((r) => console.log(`${r.path}: ${(r.changed || [r.error]).join(', ')}`));
-console.log(`head-metadata: ${pathsToDo.length} pages, ${results.filter((r) => r.changed).length} ${dry ? 'would change' : 'changed'} ${JSON.stringify(count)}; robots not copied (no noindex): ${robotsListed.length}`);
+console.log(`head-metadata: ${pathsToDo.length} pages, ${results.filter((r) => r.changed).length} ${dry ? 'would change' : 'changed'} ${JSON.stringify(count)}; robots not copied (no noindex): ${robotsListed.length}; share images not found on www (feature image kept): ${brokenShareImages.length}`);
+brokenShareImages.forEach((b) => console.log(`  share image not found: ${b.path} ${b.image}`));
 if (report) fs.writeFileSync('/tmp/head/script-result.json', JSON.stringify({ results, robotsListed }, null, 1));

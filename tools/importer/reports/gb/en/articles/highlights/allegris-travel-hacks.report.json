@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/highlights/allegris-travel-hacks",
+  "path": "gb/en/articles/highlights/allegris-travel-hacks",
+  "timestamp": "2026-10-26T04:23:44.185Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

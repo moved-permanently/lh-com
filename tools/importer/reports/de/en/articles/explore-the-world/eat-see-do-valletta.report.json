@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-valletta",
+  "path": "de/en/articles/explore-the-world/eat-see-do-valletta",
+  "timestamp": "2026-10-26T03:19:43.328Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

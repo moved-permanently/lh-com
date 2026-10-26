@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/eat-see-do-san-diego",
+  "path": "at/de/articles/explore-the-world/eat-see-do-san-diego",
+  "timestamp": "2026-10-26T03:17:56.705Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

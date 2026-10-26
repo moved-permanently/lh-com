@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/in-my-hood-kadikoey-istanbul",
+  "path": "de/en/articles/explore-the-world/in-my-hood-kadikoey-istanbul",
+  "timestamp": "2026-10-26T03:35:08.207Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

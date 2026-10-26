@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-madrid-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-madrid-facts",
+  "timestamp": "2026-10-26T03:25:25.327Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

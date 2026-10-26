@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/stop-over-los-angeles",
+  "path": "de/en/articles/explore-the-world/stop-over-los-angeles",
+  "timestamp": "2026-10-26T04:05:59.469Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

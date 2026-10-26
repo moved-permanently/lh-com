@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/tags/miami",
+  "path": "gb/en/articles/tags/miami",
+  "timestamp": "2026-10-26T04:45:01.181Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "cards-teaser",
+    "blog-overview",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media"
+  ]
+}

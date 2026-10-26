@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/come-fly-with-me-lufthansa-allegris",
+  "path": "de/de/articles/explore-flying/come-fly-with-me-lufthansa-allegris",
+  "timestamp": "2026-10-26T02:37:47.857Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

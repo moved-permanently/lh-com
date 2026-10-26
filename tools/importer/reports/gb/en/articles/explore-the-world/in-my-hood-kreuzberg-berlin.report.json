@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/in-my-hood-kreuzberg-berlin",
+  "path": "gb/en/articles/explore-the-world/in-my-hood-kreuzberg-berlin",
+  "timestamp": "2026-10-26T03:35:37.833Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

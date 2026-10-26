@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai",
+  "path": "at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai",
+  "timestamp": "2026-10-26T03:40:12.375Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

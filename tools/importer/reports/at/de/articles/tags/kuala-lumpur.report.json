@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/kuala-lumpur",
+  "path": "at/de/articles/tags/kuala-lumpur",
+  "timestamp": "2026-10-26T04:41:39.846Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

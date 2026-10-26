@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/female-pilots",
+  "path": "gb/en/articles/explore-flying/female-pilots",
+  "timestamp": "2026-10-26T02:38:54.188Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

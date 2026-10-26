@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/be-picky-charlotte-insider-tips",
+  "path": "gb/en/articles/explore-the-world/be-picky-charlotte-insider-tips",
+  "timestamp": "2026-10-26T03:03:08.822Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

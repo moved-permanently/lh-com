@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-day-london-in-one-day",
+  "path": "de/de/articles/explore-the-world/a-perfect-day-london-in-one-day",
+  "timestamp": "2026-10-26T02:55:47.356Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

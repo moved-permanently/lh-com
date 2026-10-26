@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/essentials-lufthansa-facts",
+  "path": "de/de/articles/explore-flying/essentials-lufthansa-facts",
+  "timestamp": "2026-10-26T02:38:19.826Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/be-picky-madrid",
+  "path": "de/en/articles/explore-the-world/be-picky-madrid",
+  "timestamp": "2026-10-26T03:05:31.698Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

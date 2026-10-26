@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-vancouver-donuts",
+  "path": "de/de/articles/explore-the-world/on-the-scene-vancouver-donuts",
+  "timestamp": "2026-10-26T04:00:49.368Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

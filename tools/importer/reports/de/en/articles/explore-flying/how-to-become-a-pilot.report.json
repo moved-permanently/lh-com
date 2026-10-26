@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/how-to-become-a-pilot",
+  "path": "de/en/articles/explore-flying/how-to-become-a-pilot",
+  "timestamp": "2026-10-26T02:40:50.649Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

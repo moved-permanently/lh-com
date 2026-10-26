@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/welcome-to-my-world-alexandra-maria-lara",
+  "path": "de/de/articles/explore-flying/welcome-to-my-world-alexandra-maria-lara",
+  "timestamp": "2026-10-26T02:46:38.537Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

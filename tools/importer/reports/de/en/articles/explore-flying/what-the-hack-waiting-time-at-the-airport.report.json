@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/what-the-hack-waiting-time-at-the-airport",
+  "path": "de/en/articles/explore-flying/what-the-hack-waiting-time-at-the-airport",
+  "timestamp": "2026-10-26T02:49:20.961Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

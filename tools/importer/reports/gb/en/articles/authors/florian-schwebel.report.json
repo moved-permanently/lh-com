@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/authors/florian-schwebel",
+  "path": "gb/en/articles/authors/florian-schwebel",
+  "timestamp": "2026-10-26T02:34:13.229Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "carousel-cards",
+    "blog-overview"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/highlights/minneapolis-best-winter-activities",
+  "path": "gb/en/articles/highlights/minneapolis-best-winter-activities",
+  "timestamp": "2026-10-26T04:25:49.524Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

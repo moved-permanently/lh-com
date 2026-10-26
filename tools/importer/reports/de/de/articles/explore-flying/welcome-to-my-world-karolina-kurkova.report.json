@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/welcome-to-my-world-karolina-kurkova",
+  "path": "de/de/articles/explore-flying/welcome-to-my-world-karolina-kurkova",
+  "timestamp": "2026-10-26T02:47:34.620Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

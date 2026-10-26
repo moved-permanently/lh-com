@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/picture-perfect-la",
+  "path": "gb/en/articles/explore-the-world/picture-perfect-la",
+  "timestamp": "2026-10-26T04:03:38.591Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer",
+  "path": "gb/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer",
+  "timestamp": "2026-10-26T02:37:21.300Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

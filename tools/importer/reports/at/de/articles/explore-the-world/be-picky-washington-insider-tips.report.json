@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-washington-insider-tips",
+  "path": "at/de/articles/explore-the-world/be-picky-washington-insider-tips",
+  "timestamp": "2026-10-26T03:09:50.801Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

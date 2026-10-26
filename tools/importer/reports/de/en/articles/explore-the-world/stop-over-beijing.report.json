@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/stop-over-beijing",
+  "path": "de/en/articles/explore-the-world/stop-over-beijing",
+  "timestamp": "2026-10-26T04:04:37.458Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

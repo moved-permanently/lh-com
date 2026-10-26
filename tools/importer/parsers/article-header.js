@@ -1,6 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
-import { AUTHOR_IDS, ARTICLE_AUTHOR_IDS } from './article-data.js';
+import { AUTHOR_IDS, ARTICLE_META } from './article-data.js';
 
 // www errors not copied: pages whose <title> is in the wrong language (de/en Toronto article:
 // "A Perfect Day: Toronto an einem Tag"); their Title is the headline
@@ -24,10 +24,12 @@ const TITLE_FROM_HEADLINE = new Set(['/de/en/articles/explore-the-world/a-perfec
  * For the article lists (query index per locale, blocks blog-overview and related-articles) the
  * Metadata also holds: page-type "article", tag-ids (www's ids "articles:<id>", from the chips'
  * links, in the order of the tag titles), author-id (www's id from article-data.js, else a slug
- * of the name; www's list answer for the article first, ARTICLE_AUTHOR_IDS, because one name can
- * have several ids), category (the path segment after /articles/), card-image and card-image-alt (the
+ * of the name), category (the path segment after /articles/), card-image and card-image-alt (the
  * feature image, which www's list cards show), keywords (meta keywords, where www has them) and
  * destinations (the IATA codes of the page's destination widgets: blog cookie, sticky price).
+ * Author id, category and publication date come from www's list answer for the article when it
+ * was exported (ARTICLE_META): one author name can have several ids, the category is not always
+ * the path segment, at/de prints "Jänner".
  */
 export default function parse(element, { document, url, params }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
@@ -169,18 +171,20 @@ export default function parse(element, { document, url, params }) {
     meta.Image = pageImage;
   }
   if (tags.length) meta.tags = [...new Set(tags)].join(', ');
-  if (dateText) meta['publication-date'] = toIsoDate(dateText);
+  const www = ARTICLE_META[pagePath] || {};
+  if (www.date || dateText) meta['publication-date'] = www.date || toIsoDate(dateText);
   if (readingTime) meta['reading-time'] = readingTime;
   if (author) meta.author = author;
   meta['page-type'] = 'article';
   if (TITLE_FROM_HEADLINE.has(pagePath) && text[0] && text[0].tagName === 'H1') meta.Title = `${text[0].textContent} | Lufthansa`;
   if (tagIds.length) meta['tag-ids'] = [...new Set(tagIds)].join(', ');
-  if (author) {
+  if (www.authorId) meta['author-id'] = www.authorId;
+  else if (author) {
     const slug = author.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    meta['author-id'] = ARTICLE_AUTHOR_IDS[pagePath] || AUTHOR_IDS[author] || `lh/${slug}`;
+    meta['author-id'] = AUTHOR_IDS[author] || `lh/${slug}`;
   }
-  if (categoryMatch) meta.category = categoryMatch[1];
+  if (www.category || categoryMatch) meta.category = www.category || categoryMatch[1];
   if (image) {
     const card = document.createElement('img');
     card.setAttribute('src', image.getAttribute('src'));

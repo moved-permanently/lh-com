@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/highlights/allegris-business-class-shanghai",
+  "path": "gb/en/articles/highlights/allegris-business-class-shanghai",
+  "timestamp": "2026-10-26T04:21:23.508Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

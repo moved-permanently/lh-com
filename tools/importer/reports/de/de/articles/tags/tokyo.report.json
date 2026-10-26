@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/tags/tokyo",
+  "path": "de/de/articles/tags/tokyo",
+  "timestamp": "2026-10-26T04:53:50.908Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview"
+  ]
+}

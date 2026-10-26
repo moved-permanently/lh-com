@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/highlights/allegris-business-san-diego",
+  "path": "de/de/articles/highlights/allegris-business-san-diego",
+  "timestamp": "2026-10-26T04:21:27.630Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

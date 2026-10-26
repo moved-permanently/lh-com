@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/highlights/art-and-travel-delhi-berlin",
+  "path": "gb/en/articles/highlights/art-and-travel-delhi-berlin",
+  "timestamp": "2026-10-26T04:23:57.270Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

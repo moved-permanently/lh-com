@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/stop-over-washington",
+  "path": "de/de/articles/explore-the-world/stop-over-washington",
+  "timestamp": "2026-10-26T04:06:52.564Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

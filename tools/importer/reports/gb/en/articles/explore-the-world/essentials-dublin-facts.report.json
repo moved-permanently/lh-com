@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-dublin-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-dublin-facts",
+  "timestamp": "2026-10-26T03:23:24.504Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

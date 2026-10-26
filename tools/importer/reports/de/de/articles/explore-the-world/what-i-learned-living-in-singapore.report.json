@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/what-i-learned-living-in-singapore",
+  "path": "de/de/articles/explore-the-world/what-i-learned-living-in-singapore",
+  "timestamp": "2026-10-26T04:14:43.589Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

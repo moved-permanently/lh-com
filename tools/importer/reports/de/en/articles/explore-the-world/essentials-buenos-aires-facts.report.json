@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-buenos-aires-facts",
+  "path": "de/en/articles/explore-the-world/essentials-buenos-aires-facts",
+  "timestamp": "2026-10-26T03:22:06.522Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

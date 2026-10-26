@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/what-i-learned-living-in-helsinki",
+  "path": "at/de/articles/explore-the-world/what-i-learned-living-in-helsinki",
+  "timestamp": "2026-10-26T04:10:07.928Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

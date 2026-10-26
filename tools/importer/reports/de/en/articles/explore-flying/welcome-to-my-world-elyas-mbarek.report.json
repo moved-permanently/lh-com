@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+  "path": "de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+  "timestamp": "2026-10-26T02:47:10.361Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

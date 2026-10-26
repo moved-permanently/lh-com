@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/know-before-you-go-seattle",
+  "path": "de/de/articles/explore-the-world/know-before-you-go-seattle",
+  "timestamp": "2026-10-26T03:49:26.477Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

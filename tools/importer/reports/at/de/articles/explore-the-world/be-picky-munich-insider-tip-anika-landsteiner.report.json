@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner",
+  "path": "at/de/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner",
+  "timestamp": "2026-10-26T03:06:56.332Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

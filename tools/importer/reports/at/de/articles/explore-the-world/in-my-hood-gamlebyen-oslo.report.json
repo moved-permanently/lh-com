@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo",
+  "path": "at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo",
+  "timestamp": "2026-10-26T03:33:41.379Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

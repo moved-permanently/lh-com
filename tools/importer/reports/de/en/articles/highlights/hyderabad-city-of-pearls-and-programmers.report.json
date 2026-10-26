@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/highlights/hyderabad-city-of-pearls-and-programmers",
+  "path": "de/en/articles/highlights/hyderabad-city-of-pearls-and-programmers",
+  "timestamp": "2026-10-26T04:25:21.473Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

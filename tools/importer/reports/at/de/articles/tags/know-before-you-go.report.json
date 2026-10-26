@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/know-before-you-go",
+  "path": "at/de/articles/tags/know-before-you-go",
+  "timestamp": "2026-10-26T04:41:29.921Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview",
+    "columns-media"
+  ]
+}

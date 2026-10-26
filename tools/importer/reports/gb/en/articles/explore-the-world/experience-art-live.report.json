@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/experience-art-live",
+  "path": "gb/en/articles/explore-the-world/experience-art-live",
+  "timestamp": "2026-10-26T03:29:56.268Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media"
+  ]
+}

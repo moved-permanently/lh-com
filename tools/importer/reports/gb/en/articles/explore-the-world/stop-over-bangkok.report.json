@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/stop-over-bangkok",
+  "path": "gb/en/articles/explore-the-world/stop-over-bangkok",
+  "timestamp": "2026-10-26T04:04:34.165Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles",
+    "carousel-images"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/highlights/mumbai-san-francisco-art-journey",
+  "path": "gb/en/articles/highlights/mumbai-san-francisco-art-journey",
+  "timestamp": "2026-10-26T04:26:08.802Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

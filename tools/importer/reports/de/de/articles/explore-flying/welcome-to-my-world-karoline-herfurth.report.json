@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/welcome-to-my-world-karoline-herfurth",
+  "path": "de/de/articles/explore-flying/welcome-to-my-world-karoline-herfurth",
+  "timestamp": "2026-10-26T02:47:44.865Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "related-articles"
+  ]
+}

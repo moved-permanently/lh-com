@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/a-perfect-nairobi-city-in-one-day",
+  "path": "de/de/articles/explore-the-world/a-perfect-nairobi-city-in-one-day",
+  "timestamp": "2026-10-26T03:01:02.310Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

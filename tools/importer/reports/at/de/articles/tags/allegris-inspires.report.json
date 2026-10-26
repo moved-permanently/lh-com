@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/tags/allegris-inspires",
+  "path": "at/de/articles/tags/allegris-inspires",
+  "timestamp": "2026-10-26T04:29:54.150Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "cards-teaser",
+    "blog-overview"
+  ]
+}

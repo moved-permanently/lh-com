@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/a-perfect-day-chicago-in-one-day",
+  "path": "de/en/articles/explore-the-world/a-perfect-day-chicago-in-one-day",
+  "timestamp": "2026-10-26T02:53:22.435Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

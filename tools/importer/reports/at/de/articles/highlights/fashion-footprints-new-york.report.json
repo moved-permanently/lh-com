@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/highlights/fashion-footprints-new-york",
+  "path": "at/de/articles/highlights/fashion-footprints-new-york",
+  "timestamp": "2026-10-26T04:25:16.092Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

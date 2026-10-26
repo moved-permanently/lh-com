@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt",
+  "path": "de/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt",
+  "timestamp": "2026-10-26T03:58:51.897Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "poi-map",
+    "poi-map",
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}

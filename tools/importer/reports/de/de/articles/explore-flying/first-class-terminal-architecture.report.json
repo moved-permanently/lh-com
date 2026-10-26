@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/de/articles/explore-flying/first-class-terminal-architecture",
+  "path": "de/de/articles/explore-flying/first-class-terminal-architecture",
+  "timestamp": "2026-10-26T02:39:31.151Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

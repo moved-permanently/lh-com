@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/eat-see-do-kuala-lumpur",
+  "path": "gb/en/articles/explore-the-world/eat-see-do-kuala-lumpur",
+  "timestamp": "2026-10-26T03:15:17.355Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

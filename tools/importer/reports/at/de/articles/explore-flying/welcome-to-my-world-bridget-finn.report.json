@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-flying/welcome-to-my-world-bridget-finn",
+  "path": "at/de/articles/explore-flying/welcome-to-my-world-bridget-finn",
+  "timestamp": "2026-10-26T02:47:06.200Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

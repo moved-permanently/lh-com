@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/articles/explore-the-world/essentials-oslo-facts",
+  "path": "de/en/articles/explore-the-world/essentials-oslo-facts",
+  "timestamp": "2026-10-26T03:26:41.884Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "related-articles"
+  ]
+}

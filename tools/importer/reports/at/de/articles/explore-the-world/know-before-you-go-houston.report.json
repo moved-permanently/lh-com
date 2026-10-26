@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/at/de/articles/explore-the-world/know-before-you-go-houston",
+  "path": "at/de/articles/explore-the-world/know-before-you-go-houston",
+  "timestamp": "2026-10-26T03:45:55.090Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "carousel-cards",
+    "columns-media",
+    "related-articles"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-the-world/essentials-washington-facts",
+  "path": "gb/en/articles/explore-the-world/essentials-washington-facts",
+  "timestamp": "2026-10-26T03:29:34.320Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "price-bar",
+    "columns-media",
+    "related-articles"
+  ]
+}

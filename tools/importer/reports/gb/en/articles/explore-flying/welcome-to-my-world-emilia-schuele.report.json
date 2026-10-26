@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/gb/en/articles/explore-flying/welcome-to-my-world-emilia-schuele",
+  "path": "gb/en/articles/explore-flying/welcome-to-my-world-emilia-schuele",
+  "timestamp": "2026-10-26T02:47:29.787Z",
+  "title": "",
+  "template": "insights",
+  "blocks": [
+    "article-header",
+    "columns-media",
+    "columns-media",
+    "related-articles"
+  ]
+}
