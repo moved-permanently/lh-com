@@ -30,6 +30,7 @@
  * Usage: node tools/importer/bd-record-api.mjs (--set lounges | --set poi | --set destination | --list urls.txt | --url <url> ...)
  *          [--locale de/en] [--referer <url>] [--min-delay 5000] [--max-delay 10000]
  *   --set lounges   the 36 lounge finder answers (blocks/lounge-finder/README.md "Recording")
+ *   --set search    www's search result page (with results, without, no query), watch mode
  *   --set destination  six www pages viewed once, every /service answer they load recorded
  *                   (watchJobs: destination page for 4 routes, an article, a homepage), with the
  *                   rendered widget markup and a screenshot; --only CHI,NYC limits the pages
@@ -133,8 +134,25 @@ function watchJobs() {
   ].filter((j) => !only || only.split(',').some((o) => j.url.includes(o)));
 }
 
+/**
+ * --set search (site search package, 2026-10-26): www's search result page viewed once each per
+ * case (a phrase with results, one without results, no query), for the labels and texts its
+ * front end loads and the rendered markup (watch mode, as --set destination).
+ */
+function searchJobs() {
+  const page = (locale, query) => ({
+    locale, watch: true, url: `${LIVE}/${locale}/support/search/search-result${query === null ? '' : `?query=${encodeURIComponent(query)}`}`,
+  });
+  return [
+    page('de/en', 'wifi'), page('de/en', 'xqzvyk'), page('de/en', null),
+    page('de/de', 'WLAN'), page('de/de', 'xqzvyk'),
+  ];
+}
+
 let jobs;
-if (opt('set') === 'destination') {
+if (opt('set') === 'search') {
+  jobs = searchJobs();
+} else if (opt('set') === 'destination') {
   jobs = watchJobs();
 } else if (opt('set') === 'lounges') {
   jobs = loungeJobs();
@@ -300,11 +318,14 @@ try {
     const watchDir = path.join(root, 'tools/source-export/api/watched');
     fs.mkdirSync(path.join(watchDir, 'pages'), { recursive: true });
     // the rendered widgets (markup and texts) and a screenshot, for the block's layout
-    const slug = new URL(job.url).pathname.split('/').filter(Boolean).slice(-1)[0]
-      + (new URL(job.url).search ? `-${new URLSearchParams(new URL(job.url).search).get('OriginCode')}-${new URLSearchParams(new URL(job.url).search).get('DestinationCode')}` : '');
+    const sp = new URLSearchParams(new URL(job.url).search);
+    let suffix = '';
+    if (sp.has('OriginCode')) suffix = `-${sp.get('OriginCode')}-${sp.get('DestinationCode')}`;
+    else if (sp.has('query')) suffix = `-${sp.get('query').replace(/[^A-Za-z0-9]+/g, '-')}`;
+    const slug = new URL(job.url).pathname.split('/').filter(Boolean).slice(-1)[0] + suffix;
     const base = path.join(watchDir, 'pages', `${job.locale.replace('/', '-')}-${slug}`);
     const main = await page.evaluate(() => {
-      const el = document.querySelector('.dcep-single-offer-display, .container-content, main') || document.body;
+      const el = document.querySelector('.dcep-single-offer-display, .onsitesearchresult, .container-content, main') || document.body;
       return el.outerHTML;
     }).catch(() => '');
     if (main) fs.writeFileSync(`${base}.html`, main);
