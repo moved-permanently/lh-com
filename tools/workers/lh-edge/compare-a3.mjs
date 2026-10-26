@@ -12,9 +12,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../.
 const AMS = path.join(root, 'tools/source-export/feeds/ams-rest');
 const argv = process.argv.slice(2);
 const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lhedge.bbird.live').replace(/\/$/, '');
+// strings trimmed: www keeps trailing spaces in some titles ("cash-miles "), Edge Delivery's
+// metadata does not (counted as normalised)
+let trimmed = 0;
 const sorted = (v) => {
   if (Array.isArray(v)) return v.map(sorted).sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
   if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).sort(([a], [b]) => a.localeCompare(b)).map(([k, x]) => [k, sorted(x)]));
+  if (typeof v === 'string' && v !== v.trim()) { trimmed += 1; return v.trim(); }
   return v;
 };
 
@@ -28,9 +32,11 @@ await Object.entries(catalogs).reduce(async (prev, [u, file]) => {
   await prev;
   const resp = await fetch(`${HOST}${u}`);
   const ours = sorted(await resp.json());
+  trimmed = 0;
   const www = sorted(JSON.parse(fs.readFileSync(path.join(AMS, file), 'utf8')));
   const same = JSON.stringify(ours) === JSON.stringify(www);
-  check(u, same && resp.headers.get('cache-control') === 'no-cache, no-store, must-revalidate', same ? '' : `${JSON.stringify(ours).length} vs ${JSON.stringify(www).length} characters`);
+  const note = trimmed ? `order aside; ${trimmed} trailing spaces in www's titles normalised` : 'order aside';
+  check(u, same && resp.headers.get('cache-control') === 'no-cache, no-store, must-revalidate', same ? note : `${JSON.stringify(ours).length} vs ${JSON.stringify(www).length} characters`);
 }, Promise.resolve());
 await ['/de/en/homepage', '/de/de/homepage', '/at/de/homepage', '/gb/en/homepage'].reduce(async (prev, p) => {
   await prev;
