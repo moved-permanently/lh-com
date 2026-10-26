@@ -1,18 +1,13 @@
 {
- "checkedAt": "2026-10-26T14:58:09.370Z",
+ "checkedAt": "2026-10-26T16:06:00.475Z",
  "edge": "https://lhedge.bbird.live",
- "equal": 13,
+ "equal": 17,
  "total": 17,
  "results": [
   {
    "kind": "owa",
    "url": "/content/lh/markets/de/en/homepage.csi-owa-header.json",
-   "differences": [
-    "/dcep-header-flyout/accessibilityUrl: \"/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs\" / \"\"",
-    "/dcep-header-flyout/accessibilityTextLabel: \"Accessible travel\" / \"\"",
-    "/dcep-header-flyout/supportUrl: \"/de/en/support/help\" / \"\"",
-    "/dcep-header-flyout/supportTextLabel: \"Help & contact\" / \"\""
-   ]
+   "differences": []
   },
   {
    "kind": "owa",
@@ -27,12 +22,7 @@
   {
    "kind": "owa",
    "url": "/content/lh/markets/de/de/homepage.csi-owa-header.json",
-   "differences": [
-    "/dcep-header-flyout/accessibilityUrl: \"/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs\" / \"\"",
-    "/dcep-header-flyout/accessibilityTextLabel: \"Barrierefrei reisen\" / \"\"",
-    "/dcep-header-flyout/supportUrl: \"/de/de/support/help\" / \"\"",
-    "/dcep-header-flyout/supportTextLabel: \"Hilfe & Kontakt\" / \"\""
-   ]
+   "differences": []
   },
   {
    "kind": "owa",
@@ -47,12 +37,7 @@
   {
    "kind": "owa",
    "url": "/content/lh/markets/at/de/homepage.csi-owa-header.json",
-   "differences": [
-    "/dcep-header-flyout/accessibilityUrl: \"/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs\" / \"\"",
-    "/dcep-header-flyout/accessibilityTextLabel: \"Barrierefrei reisen\" / \"\"",
-    "/dcep-header-flyout/supportUrl: \"/at/de/support/help\" / \"\"",
-    "/dcep-header-flyout/supportTextLabel: \"Hilfe & Kontakt\" / \"\""
-   ]
+   "differences": []
   },
   {
    "kind": "owa",
@@ -67,12 +52,7 @@
   {
    "kind": "owa",
    "url": "/content/lh/markets/gb/en/homepage.csi-owa-header.json",
-   "differences": [
-    "/dcep-header-flyout/accessibilityUrl: \"/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs\" / \"\"",
-    "/dcep-header-flyout/accessibilityTextLabel: \"Accessible travel\" / \"\"",
-    "/dcep-header-flyout/supportUrl: \"/gb/en/support/help\" / \"\"",
-    "/dcep-header-flyout/supportTextLabel: \"Help & contact\" / \"\""
-   ]
+   "differences": []
   },
   {
    "kind": "owa",
