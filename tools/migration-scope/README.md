@@ -31,6 +31,11 @@ submit (live `:redirect`, e.g. `/de/en/support/contact/contact-form-confirmation
 confirmation exists only in de/de and at/de (de/en and gb/en refunds go to the contact-form
 confirmation), so its de_en and gb_en cells are empty. The forms' error page is live's
 `/error.html` (the not-found page), served by `404.html`.
+The `mfe` rows (added 2026-10-26) are AEM pages that host a micro-frontend and are not in the
+sitemap: `book-and-manage/trip-management` (200 in all four locales on 2026-10-26). The page
+loads www's `/digitalhangar/` design system (CSS and module script, CORS allowed) and
+`trip-management-latest.js`, then renders `<trip-management>`; tested on aem.page, it renders.
+Other systems post booking data to it as `<page>.mfe.html` (lh-edge).
 
 | template_group | pages | what it is |
 |---|---|---|
@@ -44,6 +49,7 @@ confirmation), so its de_en and gb_en cells are empty. The forms' error page is 
 | form | 9 | feedback, refund and registration forms. Render them, never submit them. |
 | app-entry | 6 | entry pages of apps (flight search, check-in, my bookings). Migrate the page; the app itself links out. |
 | flight-status | 1 | `timetable-and-flight-status` |
+| mfe | 1 | `book-and-manage/trip-management`: a page that hosts one of www's micro-frontends |
 
 `local-pages.csv`: market-only pages, `path,locale,kind`. Every market on www also has pages
 that exist only there: events (`event`), local promotions (`local-promotion`) and the LoungeNet
