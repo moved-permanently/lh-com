@@ -56,8 +56,11 @@ const APP_SCREEN = /^\/content\/mobile\/lh\/[a-z]{2}\//;
 // the GraphQL feed documents (structured content, companion documents) and their DA schemas
 // (tools/importer/graphql-import.mjs; lh-edge answers the persisted queries from them)
 const FEED_DOC = /^\/data\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$|^\/\.da\/forms\/schemas\/lh-[a-z0-9-]+$/;
+// the experience fragment documents of www's fragment catalogs (tools/importer/build-xf-docs.mjs;
+// lh-edge answers <folder>.csi-xf.json from their index)
+const XF_DOC = /^\/xf\/lh\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$/;
 const allowed = (p) => !NEVER.test(p)
-  && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p));
+  && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p));
 
 const listFile = opt('list');
 const paths = (listFile ? fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/) : argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : [])))
