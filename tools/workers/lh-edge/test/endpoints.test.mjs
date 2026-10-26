@@ -42,7 +42,8 @@ beforeEach(() => {
     const u = new URL(req.url);
     originCalls.push(u.pathname);
     const local = u.pathname.match(/^\/([a-z]{2}\/[a-z]{2})\/(nav|footer)\.plain\.html$/);
-    if (local) return new Response(read(path.join(root, 'content', local[1], `${local[2]}.plain.html`)), { headers: { 'content-type': 'text/html' } });
+    // the nav and footer documents as uploaded (copies: content/ is not in the repository)
+    if (local) return new Response(read(path.join(here, 'fixtures/owa', `${local[1].replace('/', '-')}-${local[2]}.plain.html`)), { headers: { 'content-type': 'text/html' } });
     if (u.pathname === '/app/config/owa-tracking.json') return new Response(OWA_SHEET, { headers: { 'content-type': 'application/json' } });
     if (u.pathname === '/de/en/homepage') return new Response('<html><body>page</body></html>', { headers: { 'content-type': 'text/html' } });
     if (u.pathname === '/content/dam/lh/images/frontify_variations/1/crop.jpg') return new Response(null, { status: 301, headers: { location: '/content/dam/lh/images/frontify_variations/1/media_1abc.jpg' } });
