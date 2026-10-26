@@ -1,4 +1,5 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
+import { getLocale } from '../../scripts/locale.js';
+import { localDamUrl } from '../../scripts/dam-path.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
@@ -415,7 +416,8 @@ export default async function decorate(block) {
   const overview = content && content.overview;
   const about = el('div', 'destination-offer-about');
   const img = el('img');
-  img.src = `${LIVE_ORIGIN}/content/dam/lh/images/offers/destination/${route.destination.toLowerCase()}-panorama.jpg`;
+  // www's original panorama, from the site's own copy (not www's DAM)
+  img.src = localDamUrl(`/content/dam/lh/images/offers/destination/${route.destination.toLowerCase()}-panorama.jpg`);
   img.alt = '';
   img.loading = 'eager';
   img.addEventListener('error', () => img.remove());
