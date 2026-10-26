@@ -94,14 +94,16 @@ export function authorRows(locale, contentDir = path.join(root, 'content')) {
 /** Overview pages of a locale with their blog-overview options. */
 export function overviewPages(locale, contentDir = path.join(root, 'content')) {
   const base = path.join(contentDir, locale, 'articles');
-  return walk(base).filter((f) => f.endsWith('.plain.html')).flatMap((f) => {
+  // the main overview (/<cc>/<ll>/articles) and every page below it
+  const files = [`${base}.plain.html`, ...walk(base)].filter((f) => f.endsWith('.plain.html') && fs.existsSync(f));
+  return files.flatMap((f) => {
     const html = fs.readFileSync(f, 'utf8');
     const m = html.match(/<div class="blog-overview">([\s\S]*?)<\/div><\/div><\/div>|<div class="blog-overview">(<\/div>)/);
     if (!m) return [];
     const rows = Object.fromEntries([...(m[1] || '').matchAll(/<div><div>([\s\S]*?)<\/div><div>([\s\S]*?)<\/div>/g)]
       .map(([, k, v]) => [text(k).toLowerCase(), text(v)]));
     return [{
-      path: `/${locale}/articles/${path.relative(base, f).replace(/\.plain\.html$/, '')}`.replace(/\/articles\/$/, '/articles'),
+      path: f === `${base}.plain.html` ? `/${locale}/articles` : `/${locale}/articles/${path.relative(base, f).replace(/\.plain\.html$/, '')}`,
       options: {
         category: rows.category || '',
         tag: rows.tag || '',

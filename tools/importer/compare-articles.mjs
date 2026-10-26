@@ -97,9 +97,16 @@ async function originRows(locale) {
   const paths = articleRows(locale).map((r) => r.path);
   const rows = [];
   const missing = [];
-  for (let i = 0; i < paths.length; i += 12) {
-    await Promise.all(paths.slice(i, i + 12).map(async (p) => {
-      const resp = await fetch(`${origin}${p}`, { cache: 'no-store' });
+  // the preview answers 429 when asked too fast: 4 at a time, a 429 waits and asks again
+  const get = async (url, tries = 12) => {
+    const resp = await fetch(url, { cache: 'no-store' });
+    if (resp.status !== 429 || tries <= 1) return resp;
+    await new Promise((r) => { setTimeout(r, Math.max(Number(resp.headers.get('retry-after')) || 0, 10) * 1000); });
+    return get(url, tries - 1);
+  };
+  for (let i = 0; i < paths.length; i += 4) {
+    await Promise.all(paths.slice(i, i + 4).map(async (p) => {
+      const resp = await get(`${origin}${p}`);
       if (!resp.ok) { missing.push(`${p} (${resp.status})`); return; }
       const html = await resp.text();
       const meta = (n) => decodeAttr((html.match(new RegExp(`<meta name="${n}" content="([^"]*)"`)) || [])[1]);
