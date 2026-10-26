@@ -1,0 +1,471 @@
+# Documents that play the site's own videos
+
+2026-10-26T15:43:32.340Z, files checked on https://lhedge.bbird.live
+
+310 documents play videos; 226 use the site's own files (484 video links, 912 subtitle links). Files: 0 in DA, 649 in R2, 77 not there yet.
+
+## Every file in DA (0)
+
+
+## At least one file in R2 (226): plays through lh-edge only
+
+- /at/de/articles/explore-flying/celebrating-20-years-of-excellence
+- /at/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
+- /at/de/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /at/de/articles/explore-flying/interview-livery-iconic-moments
+- /at/de/articles/explore-flying/lufthansa-allegris-welcome-to-the-future-of-aviation
+- /at/de/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being
+- /at/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class
+- /at/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class
+- /at/de/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites
+- /at/de/articles/explore-flying/oktoberfest-traditional-bavarian-attire
+- /at/de/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /at/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /at/de/articles/explore-flying/yes-stories-thorsten-buss
+- /at/de/articles/explore-flying/yes-stories-tom-rees
+- /at/de/articles/explore-the-world/a-perfect-day-munich-in-one-day
+- /at/de/articles/explore-the-world/in-my-hood-back-bay-boston
+- /at/de/articles/explore-the-world/in-my-hood-district-houston
+- /at/de/articles/explore-the-world/in-my-hood-district-malaga
+- /at/de/articles/explore-the-world/in-my-hood-district-nairobi
+- /at/de/articles/explore-the-world/in-my-hood-district-porto
+- /at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo
+- /at/de/articles/explore-the-world/in-my-hood-gulou-beijing
+- /at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur
+- /at/de/articles/explore-the-world/in-my-hood-kreuzberg-berlin
+- /at/de/articles/explore-the-world/in-my-hood-nice-ouest
+- /at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
+- /at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /at/de/articles/highlights/allegris-business-class-shanghai
+- /at/de/articles/highlights/allegris-business-san-diego
+- /at/de/articles/highlights/allegris-new-york
+- /at/de/articles/highlights/allegris-premium-economy-san-diego
+- /at/de/articles/highlights/the-art-of-flying-extra-long-bed
+- /at/de/articles/highlights/the-art-of-flying-extra-space-seat
+- /at/de/articles/highlights/the-art-of-flying-suite
+- /at/de/articles/tags/allegris
+- /at/de/articles/tags/amsterdam
+- /at/de/articles/tags/art-basel-miami-beach
+- /at/de/articles/tags/athens
+- /at/de/articles/tags/barcelona
+- /at/de/articles/tags/beijing
+- /at/de/articles/tags/bengaluru
+- /at/de/articles/tags/boston
+- /at/de/articles/tags/cape-town
+- /at/de/articles/tags/chicago
+- /at/de/articles/tags/frankfurt
+- /at/de/articles/tags/inside-lufthansa
+- /at/de/articles/tags/london
+- /at/de/articles/tags/miami
+- /at/de/articles/tags/mumbai
+- /at/de/articles/tags/munich
+- /at/de/articles/tags/new-york
+- /at/de/articles/tags/san-francisco
+- /at/de/articles/tags/shanghai
+- /at/de/articles/tags/yes-stories
+- /at/de/first-class
+- /de/de/articles/explore-flying/celebrating-20-years-of-excellence
+- /de/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
+- /de/de/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /de/de/articles/explore-flying/interview-livery-iconic-moments
+- /de/de/articles/explore-flying/lufthansa-allegris-welcome-to-the-future-of-aviation
+- /de/de/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being
+- /de/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class
+- /de/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class
+- /de/de/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites
+- /de/de/articles/explore-flying/oktoberfest-traditional-bavarian-attire
+- /de/de/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /de/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /de/de/articles/explore-flying/yes-stories-thorsten-buss
+- /de/de/articles/explore-flying/yes-stories-tom-rees
+- /de/de/articles/explore-the-world/a-perfect-day-munich-in-one-day
+- /de/de/articles/explore-the-world/in-my-hood-back-bay-boston
+- /de/de/articles/explore-the-world/in-my-hood-district-houston
+- /de/de/articles/explore-the-world/in-my-hood-district-malaga
+- /de/de/articles/explore-the-world/in-my-hood-district-nairobi
+- /de/de/articles/explore-the-world/in-my-hood-district-porto
+- /de/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo
+- /de/de/articles/explore-the-world/in-my-hood-gulou-beijing
+- /de/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur
+- /de/de/articles/explore-the-world/in-my-hood-kreuzberg-berlin
+- /de/de/articles/explore-the-world/in-my-hood-nice-ouest
+- /de/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
+- /de/de/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /de/de/articles/highlights/allegris-business-class-shanghai
+- /de/de/articles/highlights/allegris-business-san-diego
+- /de/de/articles/highlights/allegris-new-york
+- /de/de/articles/highlights/allegris-premium-economy-san-diego
+- /de/de/articles/highlights/the-art-of-flying-extra-long-bed
+- /de/de/articles/highlights/the-art-of-flying-extra-space-seat
+- /de/de/articles/highlights/the-art-of-flying-suite
+- /de/de/articles/tags/allegris
+- /de/de/articles/tags/amsterdam
+- /de/de/articles/tags/art-basel-miami-beach
+- /de/de/articles/tags/athens
+- /de/de/articles/tags/barcelona
+- /de/de/articles/tags/beijing
+- /de/de/articles/tags/bengaluru
+- /de/de/articles/tags/boston
+- /de/de/articles/tags/cape-town
+- /de/de/articles/tags/chicago
+- /de/de/articles/tags/frankfurt
+- /de/de/articles/tags/inside-lufthansa
+- /de/de/articles/tags/london
+- /de/de/articles/tags/miami
+- /de/de/articles/tags/mumbai
+- /de/de/articles/tags/munich
+- /de/de/articles/tags/new-york
+- /de/de/articles/tags/san-francisco
+- /de/de/articles/tags/shanghai
+- /de/de/articles/tags/yes-stories
+- /de/de/first-class
+- /de/en/articles/explore-flying/celebrating-20-years-of-excellence
+- /de/en/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
+- /de/en/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /de/en/articles/explore-flying/interview-livery-iconic-moments
+- /de/en/articles/explore-flying/lufthansa-allegris-welcome-to-the-future-of-aviation
+- /de/en/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being
+- /de/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class
+- /de/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class
+- /de/en/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites
+- /de/en/articles/explore-flying/oktoberfest-traditional-bavarian-attire
+- /de/en/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /de/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /de/en/articles/explore-flying/yes-stories-thorsten-buss
+- /de/en/articles/explore-flying/yes-stories-tom-rees
+- /de/en/articles/explore-the-world/a-perfect-day-munich-in-one-day
+- /de/en/articles/explore-the-world/in-my-hood-back-bay-boston
+- /de/en/articles/explore-the-world/in-my-hood-district-houston
+- /de/en/articles/explore-the-world/in-my-hood-district-malaga
+- /de/en/articles/explore-the-world/in-my-hood-district-nairobi
+- /de/en/articles/explore-the-world/in-my-hood-district-porto
+- /de/en/articles/explore-the-world/in-my-hood-gamlebyen-oslo
+- /de/en/articles/explore-the-world/in-my-hood-gulou-beijing
+- /de/en/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur
+- /de/en/articles/explore-the-world/in-my-hood-kreuzberg-berlin
+- /de/en/articles/explore-the-world/in-my-hood-nice-ouest
+- /de/en/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
+- /de/en/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /de/en/articles/highlights/allegris-business-san-diego
+- /de/en/articles/highlights/allegris-new-york
+- /de/en/articles/highlights/allegris-premium-economy-san-diego
+- /de/en/articles/highlights/art-and-travel-delhi-berlin
+- /de/en/articles/highlights/mumbai-nyc-art-journey
+- /de/en/articles/highlights/mumbai-san-francisco-art-journey
+- /de/en/articles/highlights/mumbai-uk-art-journey
+- /de/en/articles/highlights/the-art-of-flying-extra-long-bed
+- /de/en/articles/highlights/the-art-of-flying-extra-space-seat
+- /de/en/articles/highlights/the-art-of-flying-suite
+- /de/en/articles/tags/allegris
+- /de/en/articles/tags/amsterdam
+- /de/en/articles/tags/art-basel-miami-beach
+- /de/en/articles/tags/athens
+- /de/en/articles/tags/barcelona
+- /de/en/articles/tags/beijing
+- /de/en/articles/tags/bengaluru
+- /de/en/articles/tags/boston
+- /de/en/articles/tags/cape-town
+- /de/en/articles/tags/chicago
+- /de/en/articles/tags/frankfurt
+- /de/en/articles/tags/inside-lufthansa
+- /de/en/articles/tags/london
+- /de/en/articles/tags/miami
+- /de/en/articles/tags/mumbai
+- /de/en/articles/tags/munich
+- /de/en/articles/tags/new-york
+- /de/en/articles/tags/san-francisco
+- /de/en/articles/tags/shanghai
+- /de/en/articles/tags/yes-stories
+- /de/en/first-class
+- /gb/en/articles/explore-flying/celebrating-20-years-of-excellence
+- /gb/en/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
+- /gb/en/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /gb/en/articles/explore-flying/interview-livery-iconic-moments
+- /gb/en/articles/explore-flying/lufthansa-allegris-welcome-to-the-future-of-aviation
+- /gb/en/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being
+- /gb/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class
+- /gb/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class
+- /gb/en/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites
+- /gb/en/articles/explore-flying/oktoberfest-traditional-bavarian-attire
+- /gb/en/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /gb/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /gb/en/articles/explore-flying/yes-stories-thorsten-buss
+- /gb/en/articles/explore-flying/yes-stories-tom-rees
+- /gb/en/articles/explore-the-world/a-perfect-day-munich-in-one-day
+- /gb/en/articles/explore-the-world/in-my-hood-back-bay-boston
+- /gb/en/articles/explore-the-world/in-my-hood-district-houston
+- /gb/en/articles/explore-the-world/in-my-hood-district-malaga
+- /gb/en/articles/explore-the-world/in-my-hood-district-nairobi
+- /gb/en/articles/explore-the-world/in-my-hood-district-porto
+- /gb/en/articles/explore-the-world/in-my-hood-gamlebyen-oslo
+- /gb/en/articles/explore-the-world/in-my-hood-gulou-beijing
+- /gb/en/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur
+- /gb/en/articles/explore-the-world/in-my-hood-kreuzberg-berlin
+- /gb/en/articles/explore-the-world/in-my-hood-nice-ouest
+- /gb/en/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
+- /gb/en/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /gb/en/articles/highlights/allegris-business-san-diego
+- /gb/en/articles/highlights/allegris-new-york
+- /gb/en/articles/highlights/allegris-premium-economy-san-diego
+- /gb/en/articles/highlights/art-and-travel-delhi-berlin
+- /gb/en/articles/highlights/mumbai-nyc-art-journey
+- /gb/en/articles/highlights/mumbai-san-francisco-art-journey
+- /gb/en/articles/highlights/mumbai-uk-art-journey
+- /gb/en/articles/highlights/the-art-of-flying-extra-long-bed
+- /gb/en/articles/highlights/the-art-of-flying-extra-space-seat
+- /gb/en/articles/highlights/the-art-of-flying-suite
+- /gb/en/articles/tags/allegris
+- /gb/en/articles/tags/amsterdam
+- /gb/en/articles/tags/art-basel-miami-beach
+- /gb/en/articles/tags/athens
+- /gb/en/articles/tags/barcelona
+- /gb/en/articles/tags/beijing
+- /gb/en/articles/tags/bengaluru
+- /gb/en/articles/tags/boston
+- /gb/en/articles/tags/cape-town
+- /gb/en/articles/tags/chicago
+- /gb/en/articles/tags/frankfurt
+- /gb/en/articles/tags/inside-lufthansa
+- /gb/en/articles/tags/london
+- /gb/en/articles/tags/miami
+- /gb/en/articles/tags/mumbai
+- /gb/en/articles/tags/munich
+- /gb/en/articles/tags/new-york
+- /gb/en/articles/tags/san-francisco
+- /gb/en/articles/tags/shanghai
+- /gb/en/articles/tags/yes-stories
+- /gb/en/first-class
+
+## Only www's videos left (84): nothing switched
+
+- /at/de/100-years
+- /at/de/100-years/cabin-design
+- /at/de/100-years/chronicle
+- /at/de/100-years/crane
+- /at/de/100-years/destinations
+- /at/de/100-years/fleet
+- /at/de/100-years/history
+- /at/de/100-years/history/menu-on-board
+- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /at/de/articles/highlights/all-it-takes-is-a-yes
+- /at/de/baggage-irregularities
+- /at/de/business-class
+- /at/de/check-in-baggage
+- /at/de/discover-lufthansa/new-onboard-experience
+- /at/de/economy-class
+- /at/de/first-class-terminal
+- /at/de/flugunregelmaessigkeiten
+- /at/de/handgepaeck
+- /at/de/lufthansa-terminal-muenchen
+- /at/de/premium-economy-class
+- /at/de/tiere-als-uebergepaeck
+- /de/de/100-years
+- /de/de/100-years/cabin-design
+- /de/de/100-years/chronicle
+- /de/de/100-years/crane
+- /de/de/100-years/destinations
+- /de/de/100-years/fleet
+- /de/de/100-years/history
+- /de/de/100-years/history/menu-on-board
+- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /de/de/articles/highlights/all-it-takes-is-a-yes
+- /de/de/baggage-irregularities
+- /de/de/business-class
+- /de/de/check-in-baggage
+- /de/de/discover-lufthansa/new-onboard-experience
+- /de/de/economy-class
+- /de/de/first-class-terminal
+- /de/de/flugunregelmaessigkeiten
+- /de/de/handgepaeck
+- /de/de/lufthansa-terminal-muenchen
+- /de/de/premium-economy-class
+- /de/de/tiere-als-uebergepaeck
+- /de/en/100-years
+- /de/en/100-years/cabin-design
+- /de/en/100-years/chronicle
+- /de/en/100-years/crane
+- /de/en/100-years/destinations
+- /de/en/100-years/fleet
+- /de/en/100-years/history
+- /de/en/100-years/history/menu-on-board
+- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /de/en/articles/highlights/all-it-takes-is-a-yes
+- /de/en/baggage-irregularities
+- /de/en/business-class
+- /de/en/carry-on-baggage
+- /de/en/check-in-baggage
+- /de/en/discover-lufthansa/new-onboard-experience
+- /de/en/economy-class
+- /de/en/first-class-terminal
+- /de/en/flight-disruptions
+- /de/en/lufthansa-terminal-muenchen
+- /de/en/premium-economy-class
+- /de/en/tiere-als-uebergepaeck
+- /gb/en/100-years
+- /gb/en/100-years/cabin-design
+- /gb/en/100-years/chronicle
+- /gb/en/100-years/crane
+- /gb/en/100-years/destinations
+- /gb/en/100-years/fleet
+- /gb/en/100-years/history
+- /gb/en/100-years/history/menu-on-board
+- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /gb/en/articles/highlights/all-it-takes-is-a-yes
+- /gb/en/baggage-irregularities
+- /gb/en/business-class
+- /gb/en/carry-on-baggage
+- /gb/en/check-in-baggage
+- /gb/en/discover-lufthansa/new-onboard-experience
+- /gb/en/economy-class
+- /gb/en/first-class-terminal
+- /gb/en/flight-disruptions
+- /gb/en/lufthansa-terminal-muenchen
+- /gb/en/premium-economy-class
+- /gb/en/tiere-als-uebergepaeck
+
+## gone on www (404) (12)
+
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_musik_de.mp4
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_shopping_de.mp4
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_kunst_de.mp4
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_sport_de.mp4
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_food_de.mp4
+- /at/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_geschichte_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_musik_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_shopping_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_kunst_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_sport_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_food_de.mp4
+- /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_geschichte_de.mp4
+
+## not recorded yet (124)
+
+- /at/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
+- /at/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
+- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
+- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
+- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
+- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
+- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
+- /at/de/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
+- /at/de/100-years/destinations: /content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4
+- /at/de/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
+- /at/de/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
+- /at/de/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
+- /at/de/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
+- /at/de/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
+- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4
+- /at/de/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
+- /at/de/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4
+- /at/de/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4
+- /at/de/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
+- /at/de/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
+- /at/de/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4
+- /at/de/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
+- /at/de/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
+- /at/de/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
+- /at/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4
+- /at/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4
+- /at/de/handgepaeck: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4
+- /at/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-de.mp4
+- /at/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-de.mp4
+- /at/de/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
+- /at/de/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
+- /de/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
+- /de/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
+- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
+- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
+- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
+- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
+- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
+- /de/de/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
+- /de/de/100-years/destinations: /content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4
+- /de/de/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
+- /de/de/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
+- /de/de/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
+- /de/de/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
+- /de/de/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
+- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4
+- /de/de/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
+- /de/de/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4
+- /de/de/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4
+- /de/de/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
+- /de/de/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
+- /de/de/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4
+- /de/de/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
+- /de/de/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
+- /de/de/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
+- /de/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4
+- /de/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4
+- /de/de/handgepaeck: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4
+- /de/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-de.mp4
+- /de/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-de.mp4
+- /de/de/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
+- /de/de/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
+- /de/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
+- /de/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
+- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
+- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
+- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
+- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
+- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
+- /de/en/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
+- /de/en/100-years/destinations: /content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4
+- /de/en/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
+- /de/en/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
+- /de/en/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
+- /de/en/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
+- /de/en/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
+- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4
+- /de/en/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
+- /de/en/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4
+- /de/en/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4
+- /de/en/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
+- /de/en/carry-on-baggage: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4
+- /de/en/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
+- /de/en/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4
+- /de/en/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
+- /de/en/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
+- /de/en/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
+- /de/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4
+- /de/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4
+- /de/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-en.mp4
+- /de/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-en.mp4
+- /de/en/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
+- /de/en/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
+- /gb/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
+- /gb/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
+- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
+- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
+- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
+- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
+- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
+- /gb/en/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
+- /gb/en/100-years/destinations: /content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4
+- /gb/en/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
+- /gb/en/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
+- /gb/en/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
+- /gb/en/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
+- /gb/en/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
+- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4
+- /gb/en/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
+- /gb/en/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4
+- /gb/en/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4
+- /gb/en/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
+- /gb/en/carry-on-baggage: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4
+- /gb/en/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
+- /gb/en/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4
+- /gb/en/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
+- /gb/en/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
+- /gb/en/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
+- /gb/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4
+- /gb/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4
+- /gb/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-en.mp4
+- /gb/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-en.mp4
+- /gb/en/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
+- /gb/en/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
+
+## subtitles not recorded yet (2)
+
+- /at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur: /content/dam/video/c3/in-my-hood-out-and-about-in-kampung-attap,-kuala-lumpur/Inmyhood_KL_ AD_DE.vtt
+- /de/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur: /content/dam/video/c3/in-my-hood-out-and-about-in-kampung-attap,-kuala-lumpur/Inmyhood_KL_ AD_DE.vtt
