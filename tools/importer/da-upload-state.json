@@ -7275,6 +7275,3874 @@
    "uploaded": "2026-10-25T23:21:30.757Z",
    "mtime": 1792970336090,
    "preview": "2026-10-25T23:21:32.808Z"
+  },
+  "/.da/forms/schemas/lh-allegris-aircraft": {
+   "uploaded": "2026-10-26T00:53:28.227Z",
+   "mtime": 1792974725576
+  },
+  "/.da/forms/schemas/lh-ancillary": {
+   "uploaded": "2026-10-26T00:53:29.389Z",
+   "mtime": 1792974725620
+  },
+  "/.da/forms/schemas/lh-b2b-flag": {
+   "uploaded": "2026-10-26T00:53:31.053Z",
+   "mtime": 1792974725661
+  },
+  "/.da/forms/schemas/lh-benefit-item": {
+   "uploaded": "2026-10-26T00:53:32.250Z",
+   "mtime": 1792974725551
+  },
+  "/.da/forms/schemas/lh-sdui-service": {
+   "uploaded": "2026-10-26T00:53:33.244Z",
+   "mtime": 1792974725641
+  },
+  "/.da/forms/schemas/lh-travel-regulation": {
+   "uploaded": "2026-10-26T00:53:34.399Z",
+   "mtime": 1792974725597
+  },
+  "/.da/forms/schemas/lh-whatsnew": {
+   "uploaded": "2026-10-26T00:53:35.629Z",
+   "mtime": 1792974725530
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-just-got-easier-all-tenants": {
+   "uploaded": "2026-10-26T01:39:21.991Z",
+   "mtime": 1792978724501,
+   "preview": "2026-10-26T01:39:23.698Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-just-got-easier-all-tenants": {
+   "uploaded": "2026-10-26T00:53:58.217Z",
+   "mtime": 1792974708613,
+   "preview": "2026-10-26T00:54:00.021Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-just-got-easier": {
+   "uploaded": "2026-10-26T01:39:25.729Z",
+   "mtime": 1792978724550,
+   "preview": "2026-10-26T01:39:27.713Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-just-got-easier": {
+   "uploaded": "2026-10-26T00:54:04.639Z",
+   "mtime": 1792974708656,
+   "preview": "2026-10-26T00:54:06.372Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:29.209Z",
+   "mtime": 1792978724581,
+   "preview": "2026-10-26T01:39:31.070Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:11.261Z",
+   "mtime": 1792974708697,
+   "preview": "2026-10-26T00:54:13.200Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:32.442Z",
+   "mtime": 1792978724612,
+   "preview": "2026-10-26T01:39:34.198Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:17.447Z",
+   "mtime": 1792974708739,
+   "preview": "2026-10-26T00:54:19.276Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:35.754Z",
+   "mtime": 1792978724648,
+   "preview": "2026-10-26T01:39:37.504Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:23.943Z",
+   "mtime": 1792974708782,
+   "preview": "2026-10-26T00:54:25.756Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:38.985Z",
+   "mtime": 1792978724679,
+   "preview": "2026-10-26T01:39:40.742Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:30.565Z",
+   "mtime": 1792974708825,
+   "preview": "2026-10-26T00:54:32.414Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:42.355Z",
+   "mtime": 1792978724707,
+   "preview": "2026-10-26T01:39:44.000Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:37.133Z",
+   "mtime": 1792974708872,
+   "preview": "2026-10-26T00:54:39.031Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:45.598Z",
+   "mtime": 1792978724735,
+   "preview": "2026-10-26T01:39:47.536Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:43.721Z",
+   "mtime": 1792974708914,
+   "preview": "2026-10-26T00:54:45.701Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:48.937Z",
+   "mtime": 1792978724767,
+   "preview": "2026-10-26T01:39:50.759Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:50.035Z",
+   "mtime": 1792974708957,
+   "preview": "2026-10-26T00:54:52.146Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:52.077Z",
+   "mtime": 1792978724797,
+   "preview": "2026-10-26T01:39:54.164Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:54:56.392Z",
+   "mtime": 1792974708999,
+   "preview": "2026-10-26T00:54:58.210Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:55.576Z",
+   "mtime": 1792978724827,
+   "preview": "2026-10-26T01:39:57.420Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:55:02.915Z",
+   "mtime": 1792974709043,
+   "preview": "2026-10-26T00:55:04.652Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:39:58.868Z",
+   "mtime": 1792978724858,
+   "preview": "2026-10-26T01:40:01.013Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:55:08.737Z",
+   "mtime": 1792974709089,
+   "preview": "2026-10-26T00:55:10.503Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:40:02.801Z",
+   "mtime": 1792978724887,
+   "preview": "2026-10-26T01:40:04.556Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:55:14.994Z",
+   "mtime": 1792974709133,
+   "preview": "2026-10-26T00:55:16.938Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:40:06.066Z",
+   "mtime": 1792978724916,
+   "preview": "2026-10-26T01:40:07.833Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:55:21.851Z",
+   "mtime": 1792974709176,
+   "preview": "2026-10-26T00:55:23.559Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T01:40:09.286Z",
+   "mtime": 1792978724946,
+   "preview": "2026-10-26T01:40:11.132Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/easily-find-where-your-aircraft-is-coming-from": {
+   "uploaded": "2026-10-26T00:55:28.045Z",
+   "mtime": 1792974709220,
+   "preview": "2026-10-26T00:55:29.748Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:12.803Z",
+   "mtime": 1792978724975,
+   "preview": "2026-10-26T01:40:14.570Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:55:34.255Z",
+   "mtime": 1792974709262,
+   "preview": "2026-10-26T00:55:36.207Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:16.254Z",
+   "mtime": 1792978725004,
+   "preview": "2026-10-26T01:40:18.014Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:55:42.824Z",
+   "mtime": 1792974709307,
+   "preview": "2026-10-26T00:55:44.687Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:19.494Z",
+   "mtime": 1792978725033,
+   "preview": "2026-10-26T01:40:21.277Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:55:48.777Z",
+   "mtime": 1792974709348,
+   "preview": "2026-10-26T00:55:50.455Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:22.968Z",
+   "mtime": 1792978725062,
+   "preview": "2026-10-26T01:40:25.024Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:55:54.863Z",
+   "mtime": 1792974709391,
+   "preview": "2026-10-26T00:55:56.783Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:26.508Z",
+   "mtime": 1792978725091,
+   "preview": "2026-10-26T01:40:28.218Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:01.367Z",
+   "mtime": 1792974709433,
+   "preview": "2026-10-26T00:56:03.276Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:29.571Z",
+   "mtime": 1792978725120,
+   "preview": "2026-10-26T01:40:31.567Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:07.583Z",
+   "mtime": 1792974709477,
+   "preview": "2026-10-26T00:56:09.647Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:32.991Z",
+   "mtime": 1792978725150,
+   "preview": "2026-10-26T01:40:34.957Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:14.051Z",
+   "mtime": 1792974709520,
+   "preview": "2026-10-26T00:56:15.749Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:36.464Z",
+   "mtime": 1792978725179,
+   "preview": "2026-10-26T01:40:38.441Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:19.911Z",
+   "mtime": 1792974709563,
+   "preview": "2026-10-26T00:56:21.900Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:39.782Z",
+   "mtime": 1792978725208,
+   "preview": "2026-10-26T01:40:41.962Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:26.261Z",
+   "mtime": 1792974709606,
+   "preview": "2026-10-26T00:56:28.065Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:43.340Z",
+   "mtime": 1792978725238,
+   "preview": "2026-10-26T01:40:45.236Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:32.350Z",
+   "mtime": 1792974709647,
+   "preview": "2026-10-26T00:56:34.262Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:46.747Z",
+   "mtime": 1792978725266,
+   "preview": "2026-10-26T01:40:48.998Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:38.429Z",
+   "mtime": 1792974709689,
+   "preview": "2026-10-26T00:56:40.174Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:50.577Z",
+   "mtime": 1792978725295,
+   "preview": "2026-10-26T01:40:52.418Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:44.465Z",
+   "mtime": 1792974709732,
+   "preview": "2026-10-26T00:56:46.141Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:54.003Z",
+   "mtime": 1792978725324,
+   "preview": "2026-10-26T01:40:55.912Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:50.692Z",
+   "mtime": 1792974709775,
+   "preview": "2026-10-26T00:56:52.428Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T01:40:57.365Z",
+   "mtime": 1792978725354,
+   "preview": "2026-10-26T01:40:59.252Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/manage-push-notifications-in-app": {
+   "uploaded": "2026-10-26T00:56:56.715Z",
+   "mtime": 1792974709818,
+   "preview": "2026-10-26T00:56:58.539Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/ios-watch-app": {
+   "uploaded": "2026-10-26T01:41:01.003Z",
+   "mtime": 1792978725383,
+   "preview": "2026-10-26T01:41:02.836Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/ios-watch-app": {
+   "uploaded": "2026-10-26T00:57:03.186Z",
+   "mtime": 1792974709861,
+   "preview": "2026-10-26T00:57:04.995Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/ios-watch-app": {
+   "uploaded": "2026-10-26T01:41:04.337Z",
+   "mtime": 1792978725412,
+   "preview": "2026-10-26T01:41:06.485Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/ios-watch-app": {
+   "uploaded": "2026-10-26T00:57:09.217Z",
+   "mtime": 1792974709904,
+   "preview": "2026-10-26T00:57:10.847Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/ios-watch-app": {
+   "uploaded": "2026-10-26T01:41:08.165Z",
+   "mtime": 1792978725442,
+   "preview": "2026-10-26T01:41:09.980Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/ios-watch-app": {
+   "uploaded": "2026-10-26T00:57:15.145Z",
+   "mtime": 1792974709949,
+   "preview": "2026-10-26T00:57:17.078Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/ios-watch-app": {
+   "uploaded": "2026-10-26T01:41:11.529Z",
+   "mtime": 1792978725472,
+   "preview": "2026-10-26T01:41:13.740Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/ios-watch-app": {
+   "uploaded": "2026-10-26T00:57:21.338Z",
+   "mtime": 1792974709991,
+   "preview": "2026-10-26T00:57:23.072Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/new-in-the-app-travel-inspiration-from-lufthansa-insights1": {
+   "uploaded": "2026-10-26T01:41:15.563Z",
+   "mtime": 1792978725501,
+   "preview": "2026-10-26T01:41:17.716Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/new-in-the-app-travel-inspiration-from-lufthansa-insights1": {
+   "uploaded": "2026-10-26T00:57:27.380Z",
+   "mtime": 1792974710033,
+   "preview": "2026-10-26T00:57:29.037Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/jetzt-neu-in-der-app-reiseinspirationen-von-lufthansa-insights1": {
+   "uploaded": "2026-10-26T01:41:19.377Z",
+   "mtime": 1792978725530,
+   "preview": "2026-10-26T01:41:21.283Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/jetzt-neu-in-der-app-reiseinspirationen-von-lufthansa-insights1": {
+   "uploaded": "2026-10-26T00:57:33.536Z",
+   "mtime": 1792974710079,
+   "preview": "2026-10-26T00:57:35.447Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:22.840Z",
+   "mtime": 1792978725559,
+   "preview": "2026-10-26T01:41:24.681Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:57:39.735Z",
+   "mtime": 1792974710122,
+   "preview": "2026-10-26T00:57:41.887Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:26.680Z",
+   "mtime": 1792978725588,
+   "preview": "2026-10-26T01:41:28.603Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:57:46.268Z",
+   "mtime": 1792974710165,
+   "preview": "2026-10-26T00:57:47.916Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:30.704Z",
+   "mtime": 1792978725618,
+   "preview": "2026-10-26T01:41:32.579Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:57:52.316Z",
+   "mtime": 1792974710206,
+   "preview": "2026-10-26T00:57:54.354Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:34.235Z",
+   "mtime": 1792978725647,
+   "preview": "2026-10-26T01:41:35.981Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:57:58.956Z",
+   "mtime": 1792974710248,
+   "preview": "2026-10-26T00:58:00.785Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:37.387Z",
+   "mtime": 1792978725688,
+   "preview": "2026-10-26T01:41:39.352Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:05.260Z",
+   "mtime": 1792974710290,
+   "preview": "2026-10-26T00:58:07.049Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:41.044Z",
+   "mtime": 1792978725721,
+   "preview": "2026-10-26T01:41:43.000Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:11.524Z",
+   "mtime": 1792974710332,
+   "preview": "2026-10-26T00:58:13.404Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:44.378Z",
+   "mtime": 1792978725751,
+   "preview": "2026-10-26T01:41:46.227Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:18.376Z",
+   "mtime": 1792974710374,
+   "preview": "2026-10-26T00:58:20.273Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:47.584Z",
+   "mtime": 1792978725781,
+   "preview": "2026-10-26T01:41:49.406Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:24.542Z",
+   "mtime": 1792974710416,
+   "preview": "2026-10-26T00:58:26.453Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:50.798Z",
+   "mtime": 1792978725811,
+   "preview": "2026-10-26T01:41:52.574Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:30.798Z",
+   "mtime": 1792974710459,
+   "preview": "2026-10-26T00:58:32.685Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:54.045Z",
+   "mtime": 1792978725840,
+   "preview": "2026-10-26T01:41:55.962Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:36.962Z",
+   "mtime": 1792974710500,
+   "preview": "2026-10-26T00:58:38.684Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:41:57.440Z",
+   "mtime": 1792978725870,
+   "preview": "2026-10-26T01:41:59.254Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:43.080Z",
+   "mtime": 1792974710543,
+   "preview": "2026-10-26T00:58:45.110Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:42:00.753Z",
+   "mtime": 1792978725899,
+   "preview": "2026-10-26T01:42:02.463Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:49.454Z",
+   "mtime": 1792974710587,
+   "preview": "2026-10-26T00:58:51.257Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T01:42:03.817Z",
+   "mtime": 1792978725927,
+   "preview": "2026-10-26T01:42:05.553Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/introducing-enhanced-trip-management": {
+   "uploaded": "2026-10-26T00:58:55.286Z",
+   "mtime": 1792974710628,
+   "preview": "2026-10-26T00:58:57.242Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:07.445Z",
+   "mtime": 1792978725957,
+   "preview": "2026-10-26T01:42:09.309Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:01.555Z",
+   "mtime": 1792974710670,
+   "preview": "2026-10-26T00:59:03.481Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:10.766Z",
+   "mtime": 1792978725985,
+   "preview": "2026-10-26T01:42:12.520Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:07.566Z",
+   "mtime": 1792974710712,
+   "preview": "2026-10-26T00:59:09.955Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:13.979Z",
+   "mtime": 1792978726013,
+   "preview": "2026-10-26T01:42:15.845Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:15.061Z",
+   "mtime": 1792974710757,
+   "preview": "2026-10-26T00:59:16.851Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:17.154Z",
+   "mtime": 1792978726041,
+   "preview": "2026-10-26T01:42:18.779Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:21.423Z",
+   "mtime": 1792974710801,
+   "preview": "2026-10-26T00:59:22.985Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:20.153Z",
+   "mtime": 1792978726070,
+   "preview": "2026-10-26T01:42:22.073Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:27.120Z",
+   "mtime": 1792974710845,
+   "preview": "2026-10-26T00:59:28.891Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:23.563Z",
+   "mtime": 1792978726098,
+   "preview": "2026-10-26T01:42:25.751Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:32.920Z",
+   "mtime": 1792974710888,
+   "preview": "2026-10-26T00:59:35.173Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:27.216Z",
+   "mtime": 1792978726126,
+   "preview": "2026-10-26T01:42:29.277Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:39.334Z",
+   "mtime": 1792974710933,
+   "preview": "2026-10-26T00:59:41.428Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:30.651Z",
+   "mtime": 1792978726154,
+   "preview": "2026-10-26T01:42:32.498Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:45.736Z",
+   "mtime": 1792974710978,
+   "preview": "2026-10-26T00:59:47.423Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:33.856Z",
+   "mtime": 1792978726184,
+   "preview": "2026-10-26T01:42:35.573Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:52.028Z",
+   "mtime": 1792974711021,
+   "preview": "2026-10-26T00:59:53.857Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:37.281Z",
+   "mtime": 1792978726212,
+   "preview": "2026-10-26T01:42:39.036Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T00:59:59.198Z",
+   "mtime": 1792974711064,
+   "preview": "2026-10-26T01:00:00.962Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:40.452Z",
+   "mtime": 1792978726240,
+   "preview": "2026-10-26T01:42:42.280Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:00:06.000Z",
+   "mtime": 1792974711108,
+   "preview": "2026-10-26T01:00:07.874Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:43.780Z",
+   "mtime": 1792978726268,
+   "preview": "2026-10-26T01:42:45.547Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:00:12.733Z",
+   "mtime": 1792974711151,
+   "preview": "2026-10-26T01:00:14.674Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:42:46.938Z",
+   "mtime": 1792978726296,
+   "preview": "2026-10-26T01:42:48.772Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/new-help-center-available-in-app": {
+   "uploaded": "2026-10-26T01:00:19.383Z",
+   "mtime": 1792974711197,
+   "preview": "2026-10-26T01:00:21.254Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:42:50.152Z",
+   "mtime": 1792978726325,
+   "preview": "2026-10-26T01:42:51.938Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:25.923Z",
+   "mtime": 1792974711240,
+   "preview": "2026-10-26T01:00:27.651Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:42:53.386Z",
+   "mtime": 1792978726359,
+   "preview": "2026-10-26T01:42:55.617Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:32.104Z",
+   "mtime": 1792974711282,
+   "preview": "2026-10-26T01:00:34.120Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:42:57.443Z",
+   "mtime": 1792978726391,
+   "preview": "2026-10-26T01:42:59.315Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:38.531Z",
+   "mtime": 1792974711326,
+   "preview": "2026-10-26T01:00:40.569Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:00.916Z",
+   "mtime": 1792978726420,
+   "preview": "2026-10-26T01:43:02.791Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:45.493Z",
+   "mtime": 1792974711368,
+   "preview": "2026-10-26T01:00:47.568Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:04.152Z",
+   "mtime": 1792978726448,
+   "preview": "2026-10-26T01:43:05.930Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:52.058Z",
+   "mtime": 1792974711411,
+   "preview": "2026-10-26T01:00:53.867Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:07.891Z",
+   "mtime": 1792978726484,
+   "preview": "2026-10-26T01:43:09.695Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:00:58.277Z",
+   "mtime": 1792974711455,
+   "preview": "2026-10-26T01:01:00.122Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:11.075Z",
+   "mtime": 1792978726514,
+   "preview": "2026-10-26T01:43:12.983Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:04.906Z",
+   "mtime": 1792974711498,
+   "preview": "2026-10-26T01:01:06.798Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:14.581Z",
+   "mtime": 1792978726542,
+   "preview": "2026-10-26T01:43:16.395Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:11.237Z",
+   "mtime": 1792974711540,
+   "preview": "2026-10-26T01:01:13.319Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:17.840Z",
+   "mtime": 1792978726571,
+   "preview": "2026-10-26T01:43:19.480Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:18.005Z",
+   "mtime": 1792974711583,
+   "preview": "2026-10-26T01:01:20.139Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:20.917Z",
+   "mtime": 1792978726601,
+   "preview": "2026-10-26T01:43:22.804Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:25.098Z",
+   "mtime": 1792974711627,
+   "preview": "2026-10-26T01:01:27.363Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:24.309Z",
+   "mtime": 1792978726631,
+   "preview": "2026-10-26T01:43:26.137Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:32.026Z",
+   "mtime": 1792974711670,
+   "preview": "2026-10-26T01:01:33.883Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:27.843Z",
+   "mtime": 1792978726660,
+   "preview": "2026-10-26T01:43:30.159Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:38.101Z",
+   "mtime": 1792974711713,
+   "preview": "2026-10-26T01:01:40.057Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:31.710Z",
+   "mtime": 1792978726689,
+   "preview": "2026-10-26T01:43:33.666Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:45.044Z",
+   "mtime": 1792974711756,
+   "preview": "2026-10-26T01:01:47.032Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:43:35.600Z",
+   "mtime": 1792978726718,
+   "preview": "2026-10-26T01:43:37.482Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/quick-action-tiles": {
+   "uploaded": "2026-10-26T01:01:51.493Z",
+   "mtime": 1792974711799,
+   "preview": "2026-10-26T01:01:53.431Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:39.080Z",
+   "mtime": 1792978726747,
+   "preview": "2026-10-26T01:43:40.805Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:01:57.750Z",
+   "mtime": 1792974711843,
+   "preview": "2026-10-26T01:01:59.769Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:42.115Z",
+   "mtime": 1792978726776,
+   "preview": "2026-10-26T01:43:44.540Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:04.463Z",
+   "mtime": 1792974711887,
+   "preview": "2026-10-26T01:02:06.517Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:46.054Z",
+   "mtime": 1792978726805,
+   "preview": "2026-10-26T01:43:47.867Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:10.981Z",
+   "mtime": 1792974711930,
+   "preview": "2026-10-26T01:02:12.813Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/hk/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:49.226Z",
+   "mtime": 1792978726834,
+   "preview": "2026-10-26T01:43:51.303Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/hk/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:17.333Z",
+   "mtime": 1792974711972,
+   "preview": "2026-10-26T01:02:19.283Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:52.846Z",
+   "mtime": 1792978726865,
+   "preview": "2026-10-26T01:43:54.643Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:23.306Z",
+   "mtime": 1792974712016,
+   "preview": "2026-10-26T01:02:25.160Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:55.923Z",
+   "mtime": 1792978726893,
+   "preview": "2026-10-26T01:43:57.722Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:29.525Z",
+   "mtime": 1792974712058,
+   "preview": "2026-10-26T01:02:31.373Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:43:59.130Z",
+   "mtime": 1792978726924,
+   "preview": "2026-10-26T01:44:00.955Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:35.958Z",
+   "mtime": 1792974712100,
+   "preview": "2026-10-26T01:02:37.853Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:02.407Z",
+   "mtime": 1792978726952,
+   "preview": "2026-10-26T01:44:04.356Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:42.207Z",
+   "mtime": 1792974712144,
+   "preview": "2026-10-26T01:02:43.989Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:05.754Z",
+   "mtime": 1792978726982,
+   "preview": "2026-10-26T01:44:07.452Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:48.968Z",
+   "mtime": 1792974712187,
+   "preview": "2026-10-26T01:02:50.999Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:08.821Z",
+   "mtime": 1792978727010,
+   "preview": "2026-10-26T01:44:10.537Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:02:55.488Z",
+   "mtime": 1792974712230,
+   "preview": "2026-10-26T01:02:57.304Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:11.975Z",
+   "mtime": 1792978727038,
+   "preview": "2026-10-26T01:44:13.778Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:03:01.818Z",
+   "mtime": 1792974712272,
+   "preview": "2026-10-26T01:03:03.967Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:15.201Z",
+   "mtime": 1792978727066,
+   "preview": "2026-10-26T01:44:17.165Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:03:08.586Z",
+   "mtime": 1792974712315,
+   "preview": "2026-10-26T01:03:10.502Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:44:18.608Z",
+   "mtime": 1792978727094,
+   "preview": "2026-10-26T01:44:20.414Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/android-widget-now-available": {
+   "uploaded": "2026-10-26T01:03:14.927Z",
+   "mtime": 1792974712358,
+   "preview": "2026-10-26T01:03:16.969Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/neues-android-widget-verfugbar-lx": {
+   "uploaded": "2026-10-26T01:44:21.806Z",
+   "mtime": 1792978727121,
+   "preview": "2026-10-26T01:44:23.693Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/neues-android-widget-verfugbar-lx": {
+   "uploaded": "2026-10-26T01:03:21.691Z",
+   "mtime": 1792974712400,
+   "preview": "2026-10-26T01:03:23.529Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/neues-android-widget-verfugbar": {
+   "uploaded": "2026-10-26T01:44:25.163Z",
+   "mtime": 1792978727150,
+   "preview": "2026-10-26T01:44:27.170Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/neues-android-widget-verfugbar": {
+   "uploaded": "2026-10-26T01:03:28.162Z",
+   "mtime": 1792974712445,
+   "preview": "2026-10-26T01:03:30.730Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/new-in-the-app-travel-inspiration-from-lufthansa-insights": {
+   "uploaded": "2026-10-26T01:44:28.635Z",
+   "mtime": 1792978727179,
+   "preview": "2026-10-26T01:44:30.718Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/new-in-the-app-travel-inspiration-from-lufthansa-insights": {
+   "uploaded": "2026-10-26T01:03:35.061Z",
+   "mtime": 1792974712486,
+   "preview": "2026-10-26T01:03:36.910Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/jetzt-neu-in-der-app-reiseinspirationen-von-lufthansa-insights": {
+   "uploaded": "2026-10-26T01:44:32.204Z",
+   "mtime": 1792978727208,
+   "preview": "2026-10-26T01:44:34.250Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/jetzt-neu-in-der-app-reiseinspirationen-von-lufthansa-insights": {
+   "uploaded": "2026-10-26T01:03:41.640Z",
+   "mtime": 1792974712530,
+   "preview": "2026-10-26T01:03:43.520Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:35.579Z",
+   "mtime": 1792978727237,
+   "preview": "2026-10-26T01:44:37.425Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:03:48.653Z",
+   "mtime": 1792974712570,
+   "preview": "2026-10-26T01:03:50.628Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:39.024Z",
+   "mtime": 1792978727266,
+   "preview": "2026-10-26T01:44:40.991Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:03:54.937Z",
+   "mtime": 1792974712612,
+   "preview": "2026-10-26T01:03:56.924Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:42.584Z",
+   "mtime": 1792978727295,
+   "preview": "2026-10-26T01:44:44.458Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:01.392Z",
+   "mtime": 1792974712655,
+   "preview": "2026-10-26T01:04:03.294Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:45.946Z",
+   "mtime": 1792978727322,
+   "preview": "2026-10-26T01:44:48.055Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:08.997Z",
+   "mtime": 1792974712698,
+   "preview": "2026-10-26T01:04:11.053Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:49.401Z",
+   "mtime": 1792978727351,
+   "preview": "2026-10-26T01:44:51.381Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:15.724Z",
+   "mtime": 1792974712740,
+   "preview": "2026-10-26T01:04:17.885Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:52.826Z",
+   "mtime": 1792978727383,
+   "preview": "2026-10-26T01:44:54.633Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:23.026Z",
+   "mtime": 1792974712782,
+   "preview": "2026-10-26T01:04:24.765Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:56.170Z",
+   "mtime": 1792978727410,
+   "preview": "2026-10-26T01:44:57.821Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:29.638Z",
+   "mtime": 1792974712827,
+   "preview": "2026-10-26T01:04:31.291Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:44:59.305Z",
+   "mtime": 1792978727438,
+   "preview": "2026-10-26T01:45:01.140Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:35.597Z",
+   "mtime": 1792974712872,
+   "preview": "2026-10-26T01:04:37.600Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:45:02.735Z",
+   "mtime": 1792978727466,
+   "preview": "2026-10-26T01:45:04.604Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:42.574Z",
+   "mtime": 1792974712916,
+   "preview": "2026-10-26T01:04:44.440Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:45:06.090Z",
+   "mtime": 1792978727493,
+   "preview": "2026-10-26T01:45:07.786Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:48.799Z",
+   "mtime": 1792974712963,
+   "preview": "2026-10-26T01:04:50.735Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:45:09.512Z",
+   "mtime": 1792978727520,
+   "preview": "2026-10-26T01:45:11.199Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:04:55.248Z",
+   "mtime": 1792974713007,
+   "preview": "2026-10-26T01:04:57.395Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:45:12.662Z",
+   "mtime": 1792978727550,
+   "preview": "2026-10-26T01:45:14.263Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/profile-handover-to-call-center-agents": {
+   "uploaded": "2026-10-26T01:05:02.079Z",
+   "mtime": 1792974713049,
+   "preview": "2026-10-26T01:05:04.099Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:15.694Z",
+   "mtime": 1792978727578,
+   "preview": "2026-10-26T01:45:17.474Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:08.523Z",
+   "mtime": 1792974713091,
+   "preview": "2026-10-26T01:05:10.372Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:19.102Z",
+   "mtime": 1792978727611,
+   "preview": "2026-10-26T01:45:20.860Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:14.476Z",
+   "mtime": 1792974713135,
+   "preview": "2026-10-26T01:05:16.298Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:22.666Z",
+   "mtime": 1792978727640,
+   "preview": "2026-10-26T01:45:24.469Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:20.677Z",
+   "mtime": 1792974713177,
+   "preview": "2026-10-26T01:05:22.419Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:26.080Z",
+   "mtime": 1792978727668,
+   "preview": "2026-10-26T01:45:27.772Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:26.920Z",
+   "mtime": 1792974713221,
+   "preview": "2026-10-26T01:05:28.724Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:29.475Z",
+   "mtime": 1792978727697,
+   "preview": "2026-10-26T01:45:31.366Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:33.270Z",
+   "mtime": 1792974713264,
+   "preview": "2026-10-26T01:05:35.242Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:33.165Z",
+   "mtime": 1792978727726,
+   "preview": "2026-10-26T01:45:35.092Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:39.746Z",
+   "mtime": 1792974713306,
+   "preview": "2026-10-26T01:05:41.652Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:36.489Z",
+   "mtime": 1792978727755,
+   "preview": "2026-10-26T01:45:38.273Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:46.380Z",
+   "mtime": 1792974713350,
+   "preview": "2026-10-26T01:05:48.068Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:39.914Z",
+   "mtime": 1792978727783,
+   "preview": "2026-10-26T01:45:41.958Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:52.609Z",
+   "mtime": 1792974713394,
+   "preview": "2026-10-26T01:05:54.527Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh-tw/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:43.405Z",
+   "mtime": 1792978727811,
+   "preview": "2026-10-26T01:45:45.259Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh-tw/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:05:58.663Z",
+   "mtime": 1792974713438,
+   "preview": "2026-10-26T01:06:00.554Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:46.894Z",
+   "mtime": 1792978727839,
+   "preview": "2026-10-26T01:45:48.860Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:06:05.287Z",
+   "mtime": 1792974713481,
+   "preview": "2026-10-26T01:06:07.075Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:50.194Z",
+   "mtime": 1792978727868,
+   "preview": "2026-10-26T01:45:52.107Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:06:11.362Z",
+   "mtime": 1792974713524,
+   "preview": "2026-10-26T01:06:13.204Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:53.754Z",
+   "mtime": 1792978727897,
+   "preview": "2026-10-26T01:45:55.428Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:06:17.465Z",
+   "mtime": 1792974713567,
+   "preview": "2026-10-26T01:06:19.256Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:45:56.805Z",
+   "mtime": 1792978727924,
+   "preview": "2026-10-26T01:45:58.631Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:06:23.454Z",
+   "mtime": 1792974713609,
+   "preview": "2026-10-26T01:06:25.423Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:46:00.125Z",
+   "mtime": 1792978727953,
+   "preview": "2026-10-26T01:46:02.115Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/book-additional-baggage": {
+   "uploaded": "2026-10-26T01:06:29.821Z",
+   "mtime": 1792974713651,
+   "preview": "2026-10-26T01:06:31.896Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:03.570Z",
+   "mtime": 1792978727982,
+   "preview": "2026-10-26T01:46:05.278Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:06:36.471Z",
+   "mtime": 1792974713694,
+   "preview": "2026-10-26T01:06:38.359Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:06.656Z",
+   "mtime": 1792978728011,
+   "preview": "2026-10-26T01:46:08.554Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:06:42.627Z",
+   "mtime": 1792974713737,
+   "preview": "2026-10-26T01:06:44.718Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:10.028Z",
+   "mtime": 1792978728039,
+   "preview": "2026-10-26T01:46:12.021Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:06:48.866Z",
+   "mtime": 1792974713781,
+   "preview": "2026-10-26T01:06:50.705Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:13.685Z",
+   "mtime": 1792978728068,
+   "preview": "2026-10-26T01:46:15.467Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:06:55.364Z",
+   "mtime": 1792974713824,
+   "preview": "2026-10-26T01:06:57.265Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:16.947Z",
+   "mtime": 1792978728096,
+   "preview": "2026-10-26T01:46:18.811Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:01.740Z",
+   "mtime": 1792974713867,
+   "preview": "2026-10-26T01:07:04.019Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:20.381Z",
+   "mtime": 1792978728124,
+   "preview": "2026-10-26T01:46:22.164Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:08.935Z",
+   "mtime": 1792974713909,
+   "preview": "2026-10-26T01:07:10.683Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:23.723Z",
+   "mtime": 1792978728153,
+   "preview": "2026-10-26T01:46:25.408Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:14.924Z",
+   "mtime": 1792974713954,
+   "preview": "2026-10-26T01:07:16.687Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:26.999Z",
+   "mtime": 1792978728181,
+   "preview": "2026-10-26T01:46:28.866Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:20.983Z",
+   "mtime": 1792974713998,
+   "preview": "2026-10-26T01:07:22.799Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:30.484Z",
+   "mtime": 1792978728214,
+   "preview": "2026-10-26T01:46:32.474Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:27.261Z",
+   "mtime": 1792974714043,
+   "preview": "2026-10-26T01:07:29.180Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:34.237Z",
+   "mtime": 1792978728251,
+   "preview": "2026-10-26T01:46:35.975Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:33.794Z",
+   "mtime": 1792974714086,
+   "preview": "2026-10-26T01:07:35.747Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:37.383Z",
+   "mtime": 1792978728281,
+   "preview": "2026-10-26T01:46:39.408Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:40.762Z",
+   "mtime": 1792974714129,
+   "preview": "2026-10-26T01:07:42.540Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:40.705Z",
+   "mtime": 1792978728309,
+   "preview": "2026-10-26T01:46:42.406Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:46.850Z",
+   "mtime": 1792974714175,
+   "preview": "2026-10-26T01:07:48.713Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:46:43.760Z",
+   "mtime": 1792978728337,
+   "preview": "2026-10-26T01:46:45.585Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/your-in-flight-wi-fi-status-at-a-glance-1": {
+   "uploaded": "2026-10-26T01:07:52.994Z",
+   "mtime": 1792974714220,
+   "preview": "2026-10-26T01:07:54.737Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:46:47.202Z",
+   "mtime": 1792978728366,
+   "preview": "2026-10-26T01:46:49.099Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:07:59.257Z",
+   "mtime": 1792974714263,
+   "preview": "2026-10-26T01:08:00.988Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:46:50.751Z",
+   "mtime": 1792978728394,
+   "preview": "2026-10-26T01:46:52.596Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:05.463Z",
+   "mtime": 1792974714305,
+   "preview": "2026-10-26T01:08:07.442Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:46:53.956Z",
+   "mtime": 1792978728422,
+   "preview": "2026-10-26T01:46:55.959Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:12.112Z",
+   "mtime": 1792974714347,
+   "preview": "2026-10-26T01:08:14.132Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:46:57.363Z",
+   "mtime": 1792978728450,
+   "preview": "2026-10-26T01:46:59.207Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:18.335Z",
+   "mtime": 1792974714390,
+   "preview": "2026-10-26T01:08:19.922Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:00.835Z",
+   "mtime": 1792978728482,
+   "preview": "2026-10-26T01:47:02.764Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:24.518Z",
+   "mtime": 1792974714433,
+   "preview": "2026-10-26T01:08:26.190Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:04.485Z",
+   "mtime": 1792978728512,
+   "preview": "2026-10-26T01:47:06.219Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:30.330Z",
+   "mtime": 1792974714475,
+   "preview": "2026-10-26T01:08:32.031Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:07.562Z",
+   "mtime": 1792978728539,
+   "preview": "2026-10-26T01:47:09.428Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:36.244Z",
+   "mtime": 1792974714520,
+   "preview": "2026-10-26T01:08:38.218Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:10.848Z",
+   "mtime": 1792978728567,
+   "preview": "2026-10-26T01:47:12.812Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:42.331Z",
+   "mtime": 1792974714564,
+   "preview": "2026-10-26T01:08:44.059Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:14.847Z",
+   "mtime": 1792978728597,
+   "preview": "2026-10-26T01:47:16.998Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:48.624Z",
+   "mtime": 1792974714606,
+   "preview": "2026-10-26T01:08:50.468Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:18.409Z",
+   "mtime": 1792978728625,
+   "preview": "2026-10-26T01:47:20.777Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:08:55.269Z",
+   "mtime": 1792974714648,
+   "preview": "2026-10-26T01:08:56.975Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:22.251Z",
+   "mtime": 1792978728653,
+   "preview": "2026-10-26T01:47:24.099Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:09:02.066Z",
+   "mtime": 1792974714692,
+   "preview": "2026-10-26T01:09:04.000Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:25.572Z",
+   "mtime": 1792978728682,
+   "preview": "2026-10-26T01:47:27.267Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:09:08.604Z",
+   "mtime": 1792974714731,
+   "preview": "2026-10-26T01:09:10.314Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:47:28.700Z",
+   "mtime": 1792978728709,
+   "preview": "2026-10-26T01:47:30.725Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/streamlined-check-in-with-travel-id-passport-integration": {
+   "uploaded": "2026-10-26T01:09:14.890Z",
+   "mtime": 1792974714771,
+   "preview": "2026-10-26T01:09:17.020Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:32.598Z",
+   "mtime": 1792978728737,
+   "preview": "2026-10-26T01:47:34.221Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:21.531Z",
+   "mtime": 1792974714814,
+   "preview": "2026-10-26T01:09:23.337Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:35.621Z",
+   "mtime": 1792978728765,
+   "preview": "2026-10-26T01:47:37.625Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:27.435Z",
+   "mtime": 1792974714855,
+   "preview": "2026-10-26T01:09:29.233Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:39.036Z",
+   "mtime": 1792978728794,
+   "preview": "2026-10-26T01:47:41.171Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:33.410Z",
+   "mtime": 1792974714897,
+   "preview": "2026-10-26T01:09:35.165Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:42.838Z",
+   "mtime": 1792978728823,
+   "preview": "2026-10-26T01:47:44.852Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:39.773Z",
+   "mtime": 1792974714938,
+   "preview": "2026-10-26T01:09:41.472Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:46.472Z",
+   "mtime": 1792978728852,
+   "preview": "2026-10-26T01:47:48.473Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:45.706Z",
+   "mtime": 1792974714978,
+   "preview": "2026-10-26T01:09:47.503Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:50.128Z",
+   "mtime": 1792978728880,
+   "preview": "2026-10-26T01:47:51.738Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:51.756Z",
+   "mtime": 1792974715019,
+   "preview": "2026-10-26T01:09:53.401Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:53.520Z",
+   "mtime": 1792978728908,
+   "preview": "2026-10-26T01:47:55.223Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:09:57.644Z",
+   "mtime": 1792974715059,
+   "preview": "2026-10-26T01:09:59.527Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:47:56.723Z",
+   "mtime": 1792978728938,
+   "preview": "2026-10-26T01:47:59.088Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:04.215Z",
+   "mtime": 1792974715101,
+   "preview": "2026-10-26T01:10:06.392Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:48:00.648Z",
+   "mtime": 1792978728966,
+   "preview": "2026-10-26T01:48:02.599Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:10.810Z",
+   "mtime": 1792974715143,
+   "preview": "2026-10-26T01:10:12.624Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:48:04.206Z",
+   "mtime": 1792978728996,
+   "preview": "2026-10-26T01:48:05.961Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:17.275Z",
+   "mtime": 1792974715184,
+   "preview": "2026-10-26T01:10:19.006Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:48:07.602Z",
+   "mtime": 1792978729025,
+   "preview": "2026-10-26T01:48:09.470Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:23.397Z",
+   "mtime": 1792974715226,
+   "preview": "2026-10-26T01:10:25.164Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:48:11.217Z",
+   "mtime": 1792978729053,
+   "preview": "2026-10-26T01:48:13.497Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:29.680Z",
+   "mtime": 1792974715267,
+   "preview": "2026-10-26T01:10:31.591Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:48:14.912Z",
+   "mtime": 1792978729081,
+   "preview": "2026-10-26T01:48:16.787Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/easier-access-to-seat-reservations": {
+   "uploaded": "2026-10-26T01:10:35.782Z",
+   "mtime": 1792974715309,
+   "preview": "2026-10-26T01:10:37.472Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/flynet-badge-connection-status-guidance": {
+   "uploaded": "2026-10-26T01:48:18.372Z",
+   "mtime": 1792978729110,
+   "preview": "2026-10-26T01:48:20.179Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/flynet-badge-connection-status-guidance": {
+   "uploaded": "2026-10-26T01:10:41.912Z",
+   "mtime": 1792974715351,
+   "preview": "2026-10-26T01:10:43.780Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/flynet-badge-connection-status-guidance": {
+   "uploaded": "2026-10-26T01:48:21.711Z",
+   "mtime": 1792978729139,
+   "preview": "2026-10-26T01:48:23.633Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/flynet-badge-connection-status-guidance": {
+   "uploaded": "2026-10-26T01:10:48.247Z",
+   "mtime": 1792974715393,
+   "preview": "2026-10-26T01:10:50.037Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/twint": {
+   "uploaded": "2026-10-26T01:48:25.134Z",
+   "mtime": 1792978729166,
+   "preview": "2026-10-26T01:48:26.964Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/twint": {
+   "uploaded": "2026-10-26T01:10:54.613Z",
+   "mtime": 1792974715434,
+   "preview": "2026-10-26T01:10:56.581Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/twint": {
+   "uploaded": "2026-10-26T01:48:28.585Z",
+   "mtime": 1792978729194,
+   "preview": "2026-10-26T01:48:30.447Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/twint": {
+   "uploaded": "2026-10-26T01:11:01.013Z",
+   "mtime": 1792974715475,
+   "preview": "2026-10-26T01:11:02.654Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:48:31.970Z",
+   "mtime": 1792978729223,
+   "preview": "2026-10-26T01:48:33.812Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:11:07.098Z",
+   "mtime": 1792974715519,
+   "preview": "2026-10-26T01:11:08.720Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/twint": {
+   "uploaded": "2026-10-26T01:48:35.197Z",
+   "mtime": 1792978729252,
+   "preview": "2026-10-26T01:48:36.883Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/twint": {
+   "uploaded": "2026-10-26T01:11:12.918Z",
+   "mtime": 1792974715562,
+   "preview": "2026-10-26T01:11:14.951Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/twint": {
+   "uploaded": "2026-10-26T01:48:38.630Z",
+   "mtime": 1792978729280,
+   "preview": "2026-10-26T01:48:40.503Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/twint": {
+   "uploaded": "2026-10-26T01:11:19.183Z",
+   "mtime": 1792974715603,
+   "preview": "2026-10-26T01:11:21.076Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/twint": {
+   "uploaded": "2026-10-26T01:48:41.925Z",
+   "mtime": 1792978729309,
+   "preview": "2026-10-26T01:48:44.180Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/twint": {
+   "uploaded": "2026-10-26T01:11:25.140Z",
+   "mtime": 1792974715646,
+   "preview": "2026-10-26T01:11:26.825Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/twint": {
+   "uploaded": "2026-10-26T01:48:45.581Z",
+   "mtime": 1792978729336,
+   "preview": "2026-10-26T01:48:47.565Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/twint": {
+   "uploaded": "2026-10-26T01:11:31.223Z",
+   "mtime": 1792974715687,
+   "preview": "2026-10-26T01:11:33.003Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/twint": {
+   "uploaded": "2026-10-26T01:48:49.223Z",
+   "mtime": 1792978729364,
+   "preview": "2026-10-26T01:48:50.852Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/twint": {
+   "uploaded": "2026-10-26T01:11:37.243Z",
+   "mtime": 1792974715731,
+   "preview": "2026-10-26T01:11:39.136Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh-tw/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:48:52.472Z",
+   "mtime": 1792978729393,
+   "preview": "2026-10-26T01:48:54.253Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh-tw/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:11:43.540Z",
+   "mtime": 1792974715772,
+   "preview": "2026-10-26T01:11:45.396Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh-tw/twint": {
+   "uploaded": "2026-10-26T01:48:55.730Z",
+   "mtime": 1792978729422,
+   "preview": "2026-10-26T01:48:57.892Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh-tw/twint": {
+   "uploaded": "2026-10-26T01:11:49.850Z",
+   "mtime": 1792974715817,
+   "preview": "2026-10-26T01:11:51.798Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:48:59.251Z",
+   "mtime": 1792978729452,
+   "preview": "2026-10-26T01:49:01.699Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:11:56.363Z",
+   "mtime": 1792974715859,
+   "preview": "2026-10-26T01:11:58.124Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/twint": {
+   "uploaded": "2026-10-26T01:49:03.021Z",
+   "mtime": 1792978729482,
+   "preview": "2026-10-26T01:49:04.876Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/twint": {
+   "uploaded": "2026-10-26T01:12:02.715Z",
+   "mtime": 1792974715901,
+   "preview": "2026-10-26T01:12:04.350Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/twint": {
+   "uploaded": "2026-10-26T01:49:06.613Z",
+   "mtime": 1792978729513,
+   "preview": "2026-10-26T01:49:08.572Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/twint": {
+   "uploaded": "2026-10-26T01:12:08.846Z",
+   "mtime": 1792974715944,
+   "preview": "2026-10-26T01:12:10.626Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/twint": {
+   "uploaded": "2026-10-26T01:49:09.994Z",
+   "mtime": 1792978729544,
+   "preview": "2026-10-26T01:49:11.719Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/twint": {
+   "uploaded": "2026-10-26T01:12:14.895Z",
+   "mtime": 1792974715987,
+   "preview": "2026-10-26T01:12:16.753Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/twint": {
+   "uploaded": "2026-10-26T01:49:13.416Z",
+   "mtime": 1792978729575,
+   "preview": "2026-10-26T01:49:15.041Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/twint": {
+   "uploaded": "2026-10-26T01:12:20.890Z",
+   "mtime": 1792974716029,
+   "preview": "2026-10-26T01:12:22.804Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:49:16.697Z",
+   "mtime": 1792978729604,
+   "preview": "2026-10-26T01:49:18.808Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/airport-maps-are-available-for-better-navigation-within-the-airport": {
+   "uploaded": "2026-10-26T01:12:27.597Z",
+   "mtime": 1792974716071,
+   "preview": "2026-10-26T01:12:29.461Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/twint": {
+   "uploaded": "2026-10-26T01:49:20.192Z",
+   "mtime": 1792978729634,
+   "preview": "2026-10-26T01:50:19.281Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/twint": {
+   "uploaded": "2026-10-26T01:12:34.066Z",
+   "mtime": 1792974716113,
+   "preview": "2026-10-26T01:12:35.850Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/twint": {
+   "uploaded": "2026-10-26T01:50:21.063Z",
+   "mtime": 1792978729664,
+   "preview": "2026-10-26T01:50:22.982Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/twint": {
+   "uploaded": "2026-10-26T01:12:40.343Z",
+   "mtime": 1792974716156,
+   "preview": "2026-10-26T01:12:42.339Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:24.414Z",
+   "mtime": 1792978729694,
+   "preview": "2026-10-26T01:50:26.158Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:12:46.571Z",
+   "mtime": 1792974716198,
+   "preview": "2026-10-26T01:12:48.371Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:27.616Z",
+   "mtime": 1792978729724,
+   "preview": "2026-10-26T01:50:29.427Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:12:52.920Z",
+   "mtime": 1792974716243,
+   "preview": "2026-10-26T01:12:54.825Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:30.813Z",
+   "mtime": 1792978729754,
+   "preview": "2026-10-26T01:50:32.647Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:12:59.723Z",
+   "mtime": 1792974716285,
+   "preview": "2026-10-26T01:13:01.692Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:34.354Z",
+   "mtime": 1792978729785,
+   "preview": "2026-10-26T01:50:36.355Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:06.242Z",
+   "mtime": 1792974716325,
+   "preview": "2026-10-26T01:13:07.970Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:38.032Z",
+   "mtime": 1792978729815,
+   "preview": "2026-10-26T01:50:39.880Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:12.525Z",
+   "mtime": 1792974716374,
+   "preview": "2026-10-26T01:13:14.240Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:41.357Z",
+   "mtime": 1792978729846,
+   "preview": "2026-10-26T01:50:43.212Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:18.447Z",
+   "mtime": 1792974716415,
+   "preview": "2026-10-26T01:13:20.153Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:44.709Z",
+   "mtime": 1792978729878,
+   "preview": "2026-10-26T01:50:46.567Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:24.479Z",
+   "mtime": 1792974716457,
+   "preview": "2026-10-26T01:13:26.127Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh-tw/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:48.617Z",
+   "mtime": 1792978729908,
+   "preview": "2026-10-26T01:50:50.890Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh-tw/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:30.808Z",
+   "mtime": 1792974716501,
+   "preview": "2026-10-26T01:13:32.812Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:52.403Z",
+   "mtime": 1792978729940,
+   "preview": "2026-10-26T01:50:54.230Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:37.118Z",
+   "mtime": 1792974716544,
+   "preview": "2026-10-26T01:13:38.842Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:55.862Z",
+   "mtime": 1792978729970,
+   "preview": "2026-10-26T01:50:57.706Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:43.177Z",
+   "mtime": 1792974716590,
+   "preview": "2026-10-26T01:13:44.831Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:50:59.242Z",
+   "mtime": 1792978730008,
+   "preview": "2026-10-26T01:51:00.926Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:49.415Z",
+   "mtime": 1792974716632,
+   "preview": "2026-10-26T01:13:51.206Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:51:02.377Z",
+   "mtime": 1792978730038,
+   "preview": "2026-10-26T01:51:04.543Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:13:55.629Z",
+   "mtime": 1792974716677,
+   "preview": "2026-10-26T01:13:57.533Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:51:06.320Z",
+   "mtime": 1792978730066,
+   "preview": "2026-10-26T01:51:08.055Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:14:01.876Z",
+   "mtime": 1792974716725,
+   "preview": "2026-10-26T01:14:03.566Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:51:09.552Z",
+   "mtime": 1792978730097,
+   "preview": "2026-10-26T01:51:11.501Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/world-aviation-festival-best-app": {
+   "uploaded": "2026-10-26T01:14:07.899Z",
+   "mtime": 1792974716769,
+   "preview": "2026-10-26T01:14:09.785Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/airporter": {
+   "uploaded": "2026-10-26T01:51:13.064Z",
+   "mtime": 1792978730127,
+   "preview": "2026-10-26T01:51:14.957Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/airporter": {
+   "uploaded": "2026-10-26T01:14:14.092Z",
+   "mtime": 1792974716813,
+   "preview": "2026-10-26T01:14:15.869Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/airporter": {
+   "uploaded": "2026-10-26T01:51:16.548Z",
+   "mtime": 1792978730158,
+   "preview": "2026-10-26T01:51:18.318Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/airporter": {
+   "uploaded": "2026-10-26T01:14:20.052Z",
+   "mtime": 1792974716857,
+   "preview": "2026-10-26T01:14:22.050Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/airporter": {
+   "uploaded": "2026-10-26T01:51:19.883Z",
+   "mtime": 1792978730186,
+   "preview": "2026-10-26T01:51:21.807Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/airporter": {
+   "uploaded": "2026-10-26T01:14:26.607Z",
+   "mtime": 1792974716900,
+   "preview": "2026-10-26T01:14:28.455Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/airporter": {
+   "uploaded": "2026-10-26T01:51:23.318Z",
+   "mtime": 1792978730215,
+   "preview": "2026-10-26T01:51:25.284Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/airporter": {
+   "uploaded": "2026-10-26T01:14:32.900Z",
+   "mtime": 1792974716943,
+   "preview": "2026-10-26T01:14:34.945Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/airporter": {
+   "uploaded": "2026-10-26T01:51:26.616Z",
+   "mtime": 1792978730245,
+   "preview": "2026-10-26T01:51:28.627Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/airporter": {
+   "uploaded": "2026-10-26T01:14:39.214Z",
+   "mtime": 1792974716987,
+   "preview": "2026-10-26T01:14:41.085Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/airporter": {
+   "uploaded": "2026-10-26T01:51:30.090Z",
+   "mtime": 1792978730273,
+   "preview": "2026-10-26T01:51:32.048Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/airporter": {
+   "uploaded": "2026-10-26T01:14:45.135Z",
+   "mtime": 1792974717031,
+   "preview": "2026-10-26T01:14:47.362Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/airporter": {
+   "uploaded": "2026-10-26T01:51:33.463Z",
+   "mtime": 1792978730304,
+   "preview": "2026-10-26T01:51:35.456Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/airporter": {
+   "uploaded": "2026-10-26T01:14:51.950Z",
+   "mtime": 1792974717076,
+   "preview": "2026-10-26T01:14:53.869Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/airporter": {
+   "uploaded": "2026-10-26T01:51:36.835Z",
+   "mtime": 1792978730334,
+   "preview": "2026-10-26T01:51:38.587Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/airporter": {
+   "uploaded": "2026-10-26T01:14:58.500Z",
+   "mtime": 1792974717119,
+   "preview": "2026-10-26T01:15:00.325Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/airporter": {
+   "uploaded": "2026-10-26T01:51:40.030Z",
+   "mtime": 1792978730364,
+   "preview": "2026-10-26T01:51:42.501Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/airporter": {
+   "uploaded": "2026-10-26T01:15:04.986Z",
+   "mtime": 1792974717163,
+   "preview": "2026-10-26T01:15:07.067Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/airporter": {
+   "uploaded": "2026-10-26T01:51:43.999Z",
+   "mtime": 1792978730391,
+   "preview": "2026-10-26T01:51:45.850Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/airporter": {
+   "uploaded": "2026-10-26T01:15:11.983Z",
+   "mtime": 1792974717207,
+   "preview": "2026-10-26T01:15:14.029Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/airporter": {
+   "uploaded": "2026-10-26T01:51:47.390Z",
+   "mtime": 1792978730420,
+   "preview": "2026-10-26T01:51:49.241Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/airporter": {
+   "uploaded": "2026-10-26T01:15:18.674Z",
+   "mtime": 1792974717250,
+   "preview": "2026-10-26T01:15:20.740Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/airporter": {
+   "uploaded": "2026-10-26T01:51:50.855Z",
+   "mtime": 1792978730450,
+   "preview": "2026-10-26T01:51:52.978Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/airporter": {
+   "uploaded": "2026-10-26T01:15:25.447Z",
+   "mtime": 1792974717292,
+   "preview": "2026-10-26T01:15:27.227Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/airporter": {
+   "uploaded": "2026-10-26T01:51:54.417Z",
+   "mtime": 1792978730482,
+   "preview": "2026-10-26T01:51:56.395Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/airporter": {
+   "uploaded": "2026-10-26T01:15:31.881Z",
+   "mtime": 1792974717335,
+   "preview": "2026-10-26T01:15:33.614Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:51:57.931Z",
+   "mtime": 1792978730513,
+   "preview": "2026-10-26T01:51:59.684Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:15:38.165Z",
+   "mtime": 1792974717380,
+   "preview": "2026-10-26T01:15:39.947Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pt/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:01.291Z",
+   "mtime": 1792978730543,
+   "preview": "2026-10-26T01:52:03.207Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pt/liveactivities-android": {
+   "uploaded": "2026-10-26T01:15:44.368Z",
+   "mtime": 1792974717423,
+   "preview": "2026-10-26T01:15:46.478Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:04.566Z",
+   "mtime": 1792978730573,
+   "preview": "2026-10-26T01:52:06.435Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:15:50.653Z",
+   "mtime": 1792974717467,
+   "preview": "2026-10-26T01:15:52.627Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/nl/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:08.049Z",
+   "mtime": 1792978730603,
+   "preview": "2026-10-26T01:52:09.777Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/nl/liveactivities-android": {
+   "uploaded": "2026-10-26T01:15:56.736Z",
+   "mtime": 1792974717511,
+   "preview": "2026-10-26T01:15:58.916Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:11.267Z",
+   "mtime": 1792978730632,
+   "preview": "2026-10-26T01:52:13.028Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:16:03.531Z",
+   "mtime": 1792974717553,
+   "preview": "2026-10-26T01:16:05.482Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/en/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:14.583Z",
+   "mtime": 1792978730663,
+   "preview": "2026-10-26T01:52:16.514Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/en/liveactivities-android": {
+   "uploaded": "2026-10-26T01:16:09.822Z",
+   "mtime": 1792974717598,
+   "preview": "2026-10-26T01:16:11.644Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:18.047Z",
+   "mtime": 1792978730693,
+   "preview": "2026-10-26T01:52:19.899Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:16:16.045Z",
+   "mtime": 1792974717642,
+   "preview": "2026-10-26T01:16:17.775Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ko/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:21.321Z",
+   "mtime": 1792978730722,
+   "preview": "2026-10-26T01:52:23.214Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ko/liveactivities-android": {
+   "uploaded": "2026-10-26T01:16:22.158Z",
+   "mtime": 1792974717684,
+   "preview": "2026-10-26T01:16:24.024Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:24.791Z",
+   "mtime": 1792978730753,
+   "preview": "2026-10-26T01:52:26.394Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:16:28.223Z",
+   "mtime": 1792974717724,
+   "preview": "2026-10-26T01:16:30.106Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/es/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:27.964Z",
+   "mtime": 1792978730783,
+   "preview": "2026-10-26T01:52:29.644Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/es/liveactivities-android": {
+   "uploaded": "2026-10-26T01:16:34.450Z",
+   "mtime": 1792974717765,
+   "preview": "2026-10-26T01:16:36.233Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:31.109Z",
+   "mtime": 1792978730812,
+   "preview": "2026-10-26T01:52:32.921Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:16:40.386Z",
+   "mtime": 1792974717807,
+   "preview": "2026-10-26T01:16:42.238Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/it/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:34.370Z",
+   "mtime": 1792978730843,
+   "preview": "2026-10-26T01:52:36.192Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/it/liveactivities-android": {
+   "uploaded": "2026-10-26T01:16:46.435Z",
+   "mtime": 1792974717848,
+   "preview": "2026-10-26T01:16:48.167Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:37.627Z",
+   "mtime": 1792978730874,
+   "preview": "2026-10-26T01:52:39.380Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:16:52.495Z",
+   "mtime": 1792974717890,
+   "preview": "2026-10-26T01:16:54.277Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/el/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:41.329Z",
+   "mtime": 1792978730906,
+   "preview": "2026-10-26T01:52:43.236Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/el/liveactivities-android": {
+   "uploaded": "2026-10-26T01:16:58.791Z",
+   "mtime": 1792974717931,
+   "preview": "2026-10-26T01:17:00.621Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:44.756Z",
+   "mtime": 1792978730936,
+   "preview": "2026-10-26T01:52:46.716Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:17:05.314Z",
+   "mtime": 1792974717975,
+   "preview": "2026-10-26T01:17:07.215Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/pl/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:48.057Z",
+   "mtime": 1792978730967,
+   "preview": "2026-10-26T01:52:49.880Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/pl/liveactivities-android": {
+   "uploaded": "2026-10-26T01:17:11.731Z",
+   "mtime": 1792974718017,
+   "preview": "2026-10-26T01:17:13.408Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:51.467Z",
+   "mtime": 1792978730999,
+   "preview": "2026-10-26T01:52:53.195Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:17:18.383Z",
+   "mtime": 1792974718061,
+   "preview": "2026-10-26T01:17:20.534Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/fr/liveactivities-android": {
+   "uploaded": "2026-10-26T01:52:54.906Z",
+   "mtime": 1792978731030,
+   "preview": "2026-10-26T01:52:56.999Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/fr/liveactivities-android": {
+   "uploaded": "2026-10-26T01:17:24.995Z",
+   "mtime": 1792974718104,
+   "preview": "2026-10-26T01:17:26.889Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:52:58.426Z",
+   "mtime": 1792978731060,
+   "preview": "2026-10-26T01:53:00.246Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:17:31.165Z",
+   "mtime": 1792974718146,
+   "preview": "2026-10-26T01:17:33.408Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ru/liveactivities-android": {
+   "uploaded": "2026-10-26T01:53:01.711Z",
+   "mtime": 1792978731090,
+   "preview": "2026-10-26T01:53:03.477Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ru/liveactivities-android": {
+   "uploaded": "2026-10-26T01:17:38.148Z",
+   "mtime": 1792974718189,
+   "preview": "2026-10-26T01:17:39.943Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:53:04.913Z",
+   "mtime": 1792978731121,
+   "preview": "2026-10-26T01:53:06.954Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:17:44.537Z",
+   "mtime": 1792974718230,
+   "preview": "2026-10-26T01:17:46.101Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/ja/liveactivities-android": {
+   "uploaded": "2026-10-26T01:53:08.486Z",
+   "mtime": 1792978731151,
+   "preview": "2026-10-26T01:53:10.432Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/ja/liveactivities-android": {
+   "uploaded": "2026-10-26T01:17:50.376Z",
+   "mtime": 1792974718273,
+   "preview": "2026-10-26T01:17:52.171Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:53:11.801Z",
+   "mtime": 1792978731182,
+   "preview": "2026-10-26T01:53:13.646Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:17:56.665Z",
+   "mtime": 1792974718317,
+   "preview": "2026-10-26T01:17:58.647Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/zh/liveactivities-android": {
+   "uploaded": "2026-10-26T01:53:15.062Z",
+   "mtime": 1792978731212,
+   "preview": "2026-10-26T01:53:16.787Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/zh/liveactivities-android": {
+   "uploaded": "2026-10-26T01:18:03.074Z",
+   "mtime": 1792974718359,
+   "preview": "2026-10-26T01:18:04.881Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:53:18.342Z",
+   "mtime": 1792978731242,
+   "preview": "2026-10-26T01:53:20.302Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/liveactivties-ios": {
+   "uploaded": "2026-10-26T01:18:09.393Z",
+   "mtime": 1792974718404,
+   "preview": "2026-10-26T01:18:11.171Z"
+  },
+  "/data/details/lufthansa-group/mobileapp/whats-new/de/liveactivities-android": {
+   "uploaded": "2026-10-26T01:53:21.559Z",
+   "mtime": 1792978731272,
+   "preview": "2026-10-26T01:53:23.437Z"
+  },
+  "/data/lufthansa-group/mobileapp/whats-new/de/liveactivities-android": {
+   "uploaded": "2026-10-26T01:18:16.006Z",
+   "mtime": 1792974718447,
+   "preview": "2026-10-26T01:18:17.746Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-lh-long-haul": {
+   "uploaded": "2026-10-26T01:18:19.140Z",
+   "mtime": 1792974718484,
+   "preview": "2026-10-26T01:18:20.956Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-os-short-haul": {
+   "uploaded": "2026-10-26T01:18:22.456Z",
+   "mtime": 1792974718507,
+   "preview": "2026-10-26T01:18:24.176Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-os-long-haul": {
+   "uploaded": "2026-10-26T01:18:25.374Z",
+   "mtime": 1792974718528,
+   "preview": "2026-10-26T01:18:27.017Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-sn-long-haul": {
+   "uploaded": "2026-10-26T01:18:28.314Z",
+   "mtime": 1792974718549,
+   "preview": "2026-10-26T01:18:30.046Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-lx-long-haul": {
+   "uploaded": "2026-10-26T01:18:31.694Z",
+   "mtime": 1792974718572,
+   "preview": "2026-10-26T01:18:33.523Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/business-class-meal-4y-long-haul": {
+   "uploaded": "2026-10-26T01:18:34.845Z",
+   "mtime": 1792974718595,
+   "preview": "2026-10-26T01:18:36.597Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-lh-long-haul": {
+   "uploaded": "2026-10-26T01:18:37.893Z",
+   "mtime": 1792974718617,
+   "preview": "2026-10-26T01:18:39.716Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-os-long-haul": {
+   "uploaded": "2026-10-26T01:18:41.024Z",
+   "mtime": 1792974718639,
+   "preview": "2026-10-26T01:18:43.098Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-business-lx-short-haul": {
+   "uploaded": "2026-10-26T01:18:44.374Z",
+   "mtime": 1792974718661,
+   "preview": "2026-10-26T01:18:46.201Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-sn-long-haul": {
+   "uploaded": "2026-10-26T01:18:47.487Z",
+   "mtime": 1792974718682,
+   "preview": "2026-10-26T01:18:49.337Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-lx-long-haul": {
+   "uploaded": "2026-10-26T01:18:50.727Z",
+   "mtime": 1792974718703,
+   "preview": "2026-10-26T01:18:52.585Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/culinary-experience-4y-long-haul": {
+   "uploaded": "2026-10-26T01:18:53.856Z",
+   "mtime": 1792974718724,
+   "preview": "2026-10-26T01:18:55.835Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/first-class-lounge-access-lh-long-haul": {
+   "uploaded": "2026-10-26T01:18:57.293Z",
+   "mtime": 1792974718747,
+   "preview": "2026-10-26T01:18:59.334Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/first-class-lounge-access-lx-long-haul": {
+   "uploaded": "2026-10-26T01:19:00.762Z",
+   "mtime": 1792974718768,
+   "preview": "2026-10-26T01:19:02.819Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/first-class-meal-lh-long-haul": {
+   "uploaded": "2026-10-26T01:19:04.260Z",
+   "mtime": 1792974718789,
+   "preview": "2026-10-26T01:19:06.305Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/first-class-meal-lx-long-haul": {
+   "uploaded": "2026-10-26T01:19:07.872Z",
+   "mtime": 1792974718810,
+   "preview": "2026-10-26T01:19:09.555Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/flat-bed-seat-lh-long-haul": {
+   "uploaded": "2026-10-26T01:19:11.705Z",
+   "mtime": 1792974718832,
+   "preview": "2026-10-26T01:19:13.678Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/flat-bed-seat-os-long-haul": {
+   "uploaded": "2026-10-26T01:19:14.868Z",
+   "mtime": 1792974718853,
+   "preview": "2026-10-26T01:19:16.706Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/flat-bed-seat-sn-long-haul": {
+   "uploaded": "2026-10-26T01:19:18.065Z",
+   "mtime": 1792974718874,
+   "preview": "2026-10-26T01:19:19.662Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/flat-bed-seat-lx-long-haul": {
+   "uploaded": "2026-10-26T01:19:20.896Z",
+   "mtime": 1792974718896,
+   "preview": "2026-10-26T01:19:22.453Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/flat-bed-seat-4y-long-haul": {
+   "uploaded": "2026-10-26T01:19:23.805Z",
+   "mtime": 1792974718919,
+   "preview": "2026-10-26T01:19:25.469Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-lh-short-haul": {
+   "uploaded": "2026-10-26T01:19:26.575Z",
+   "mtime": 1792974718940,
+   "preview": "2026-10-26T01:19:28.353Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-lx-short-haul": {
+   "uploaded": "2026-10-26T01:19:29.570Z",
+   "mtime": 1792974718962,
+   "preview": "2026-10-26T01:19:31.334Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-os-short-haul": {
+   "uploaded": "2026-10-26T01:19:32.593Z",
+   "mtime": 1792974718985,
+   "preview": "2026-10-26T01:19:34.394Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-sn-short-haul": {
+   "uploaded": "2026-10-26T01:19:35.697Z",
+   "mtime": 1792974719006,
+   "preview": "2026-10-26T01:19:37.589Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/fine-dining-lh-short-haul": {
+   "uploaded": "2026-10-26T01:19:38.611Z",
+   "mtime": 1792974719027,
+   "preview": "2026-10-26T01:19:40.223Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/fine-dining-vl-short-haul": {
+   "uploaded": "2026-10-26T01:19:41.422Z",
+   "mtime": 1792974719050,
+   "preview": "2026-10-26T01:19:43.391Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/fine-dining-4y-short-haul": {
+   "uploaded": "2026-10-26T01:19:44.564Z",
+   "mtime": 1792974719071,
+   "preview": "2026-10-26T01:19:46.380Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-vl-short-haul": {
+   "uploaded": "2026-10-26T01:19:47.573Z",
+   "mtime": 1792974719094,
+   "preview": "2026-10-26T01:19:49.337Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/free-adjacent-seat-4y-short-haul": {
+   "uploaded": "2026-10-26T01:19:50.497Z",
+   "mtime": 1792974719116,
+   "preview": "2026-10-26T01:19:52.377Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-lh-both": {
+   "uploaded": "2026-10-26T01:19:53.658Z",
+   "mtime": 1792974719138,
+   "preview": "2026-10-26T01:19:55.536Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-os-both": {
+   "uploaded": "2026-10-26T01:19:56.770Z",
+   "mtime": 1792974719161,
+   "preview": "2026-10-26T01:19:58.588Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-sn-both": {
+   "uploaded": "2026-10-26T01:19:59.892Z",
+   "mtime": 1792974719183,
+   "preview": "2026-10-26T01:20:02.386Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-lx-both": {
+   "uploaded": "2026-10-26T01:20:03.646Z",
+   "mtime": 1792974719204,
+   "preview": "2026-10-26T01:20:05.430Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-4y-both": {
+   "uploaded": "2026-10-26T01:20:06.716Z",
+   "mtime": 1792974719226,
+   "preview": "2026-10-26T01:20:08.445Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-vl-short-haul": {
+   "uploaded": "2026-10-26T01:20:09.669Z",
+   "mtime": 1792974719248,
+   "preview": "2026-10-26T01:20:11.409Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/lounge-access-az-both": {
+   "uploaded": "2026-10-26T01:20:12.974Z",
+   "mtime": 1792974719270,
+   "preview": "2026-10-26T01:20:15.186Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/fast-track-access-az-both": {
+   "uploaded": "2026-10-26T01:20:16.310Z",
+   "mtime": 1792974719291,
+   "preview": "2026-10-26T01:20:18.141Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/dedicated-meal-az-short-haul": {
+   "uploaded": "2026-10-26T01:20:19.506Z",
+   "mtime": 1792974719314,
+   "preview": "2026-10-26T01:20:21.268Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/dedicated-snack-az-short-haul": {
+   "uploaded": "2026-10-26T01:20:22.558Z",
+   "mtime": 1792974719335,
+   "preview": "2026-10-26T01:20:24.298Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/menu-premium-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:25.581Z",
+   "mtime": 1792974719356,
+   "preview": "2026-10-26T01:20:27.429Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/fully-flat-bed-seat-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:28.671Z",
+   "mtime": 1792974719378,
+   "preview": "2026-10-26T01:20:30.502Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/comfort-kit-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:31.895Z",
+   "mtime": 1792974719399,
+   "preview": "2026-10-26T01:20:33.780Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:35.021Z",
+   "mtime": 1792974719421,
+   "preview": "2026-10-26T01:20:36.923Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:38.017Z",
+   "mtime": 1792974719443,
+   "preview": "2026-10-26T01:20:39.699Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/upgraded-culinary-experience-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:41.019Z",
+   "mtime": 1792974719466,
+   "preview": "2026-10-26T01:20:42.723Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/more-space-and-legroom-az-long-haul": {
+   "uploaded": "2026-10-26T01:20:43.851Z",
+   "mtime": 1792974719487,
+   "preview": "2026-10-26T01:20:45.653Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/comfort-kit-az-long-haul-1": {
+   "uploaded": "2026-10-26T01:20:47.021Z",
+   "mtime": 1792974719509,
+   "preview": "2026-10-26T01:20:48.979Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/mileage-accrual-lh-both": {
+   "uploaded": "2026-10-26T01:20:50.369Z",
+   "mtime": 1792974719531,
+   "preview": "2026-10-26T01:20:52.112Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/mileage-accrual-os-both": {
+   "uploaded": "2026-10-26T01:20:53.297Z",
+   "mtime": 1792974719553,
+   "preview": "2026-10-26T01:20:55.540Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/mileage-accrual-lx-both": {
+   "uploaded": "2026-10-26T01:20:56.669Z",
+   "mtime": 1792974719574,
+   "preview": "2026-10-26T01:20:58.497Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/mileage-accrual-4y-both": {
+   "uploaded": "2026-10-26T01:20:59.718Z",
+   "mtime": 1792974719596,
+   "preview": "2026-10-26T01:21:01.713Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/mileage-accrual-vl-short-haul": {
+   "uploaded": "2026-10-26T01:21:02.958Z",
+   "mtime": 1792974719617,
+   "preview": "2026-10-26T01:21:04.760Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-lh-both": {
+   "uploaded": "2026-10-26T01:21:06.032Z",
+   "mtime": 1792974719639,
+   "preview": "2026-10-26T01:21:07.805Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-os-both": {
+   "uploaded": "2026-10-26T01:21:09.089Z",
+   "mtime": 1792974719662,
+   "preview": "2026-10-26T01:21:10.836Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-sn-both": {
+   "uploaded": "2026-10-26T01:21:12.065Z",
+   "mtime": 1792974719684,
+   "preview": "2026-10-26T01:21:13.905Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-lx-both": {
+   "uploaded": "2026-10-26T01:21:15.352Z",
+   "mtime": 1792974719705,
+   "preview": "2026-10-26T01:21:17.167Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-4y-both": {
+   "uploaded": "2026-10-26T01:21:18.521Z",
+   "mtime": 1792974719725,
+   "preview": "2026-10-26T01:21:20.596Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-boarding-vl-short-haul": {
+   "uploaded": "2026-10-26T01:21:22.113Z",
+   "mtime": 1792974719746,
+   "preview": "2026-10-26T01:21:24.055Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-lh-short-haul": {
+   "uploaded": "2026-10-26T01:21:25.263Z",
+   "mtime": 1792974719769,
+   "preview": "2026-10-26T01:21:27.256Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-os-short-haul": {
+   "uploaded": "2026-10-26T01:21:28.540Z",
+   "mtime": 1792974719791,
+   "preview": "2026-10-26T01:21:30.473Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-sn-long-haul": {
+   "uploaded": "2026-10-26T01:21:32.378Z",
+   "mtime": 1792974719814,
+   "preview": "2026-10-26T01:21:34.080Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-lx-short-haul": {
+   "uploaded": "2026-10-26T01:21:35.347Z",
+   "mtime": 1792974719835,
+   "preview": "2026-10-26T01:21:37.126Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-vl-short-haul": {
+   "uploaded": "2026-10-26T01:21:38.398Z",
+   "mtime": 1792974719858,
+   "preview": "2026-10-26T01:21:40.441Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-checkin-4y-short-haul": {
+   "uploaded": "2026-10-26T01:21:41.806Z",
+   "mtime": 1792974719880,
+   "preview": "2026-10-26T01:21:43.550Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/priority-lane-sn-short-haul": {
+   "uploaded": "2026-10-26T01:21:44.894Z",
+   "mtime": 1792974719902,
+   "preview": "2026-10-26T01:21:46.619Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/snack-and-drink-sn-short-haul": {
+   "uploaded": "2026-10-26T01:21:48.191Z",
+   "mtime": 1792974719924,
+   "preview": "2026-10-26T01:21:50.103Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/space-and-legroom-lh-long-haul": {
+   "uploaded": "2026-10-26T01:21:51.385Z",
+   "mtime": 1792974719945,
+   "preview": "2026-10-26T01:21:53.190Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/space-and-legroom-os-long-haul": {
+   "uploaded": "2026-10-26T01:21:54.349Z",
+   "mtime": 1792974719966,
+   "preview": "2026-10-26T01:21:56.283Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/space-and-legroom-sn-long-haul": {
+   "uploaded": "2026-10-26T01:21:57.622Z",
+   "mtime": 1792974719987,
+   "preview": "2026-10-26T01:21:59.479Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/space-and-legroom-lx-long-haul": {
+   "uploaded": "2026-10-26T01:22:00.648Z",
+   "mtime": 1792974720008,
+   "preview": "2026-10-26T01:22:02.619Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/space-and-legroom-4y-long-haul": {
+   "uploaded": "2026-10-26T01:22:03.882Z",
+   "mtime": 1792974720029,
+   "preview": "2026-10-26T01:22:06.155Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/travel-kit-lh-long-haul": {
+   "uploaded": "2026-10-26T01:22:07.287Z",
+   "mtime": 1792974720049,
+   "preview": "2026-10-26T01:22:08.959Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/travel-kit-os-long-haul": {
+   "uploaded": "2026-10-26T01:22:10.109Z",
+   "mtime": 1792974720070,
+   "preview": "2026-10-26T01:22:11.865Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/travel-kit-lx-long-haul": {
+   "uploaded": "2026-10-26T01:22:13.523Z",
+   "mtime": 1792974720089,
+   "preview": "2026-10-26T01:22:15.328Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/travel-kit-4y-long-haul": {
+   "uploaded": "2026-10-26T01:22:16.491Z",
+   "mtime": 1792974720110,
+   "preview": "2026-10-26T01:22:18.281Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/welcome-drink-lh-long-haul": {
+   "uploaded": "2026-10-26T01:22:19.459Z",
+   "mtime": 1792974720130,
+   "preview": "2026-10-26T01:22:21.268Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/welcome-drink-sn-long-haul": {
+   "uploaded": "2026-10-26T01:22:22.580Z",
+   "mtime": 1792974720150,
+   "preview": "2026-10-26T01:22:24.456Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/welcome-drink-os-long-haul": {
+   "uploaded": "2026-10-26T01:22:25.808Z",
+   "mtime": 1792974720170,
+   "preview": "2026-10-26T01:22:27.710Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/welcome-drink-lx-long-haul": {
+   "uploaded": "2026-10-26T01:22:28.945Z",
+   "mtime": 1792974720191,
+   "preview": "2026-10-26T01:22:30.763Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de/welcome-drink-4y-long-haul": {
+   "uploaded": "2026-10-26T01:22:31.928Z",
+   "mtime": 1792974720211,
+   "preview": "2026-10-26T01:22:33.707Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-lh-long-haul": {
+   "uploaded": "2026-10-26T01:22:34.940Z",
+   "mtime": 1792974720236,
+   "preview": "2026-10-26T01:22:36.523Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-os-short-haul": {
+   "uploaded": "2026-10-26T01:22:37.873Z",
+   "mtime": 1792974720256,
+   "preview": "2026-10-26T01:22:39.558Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-os-long-haul": {
+   "uploaded": "2026-10-26T01:22:40.916Z",
+   "mtime": 1792974720277,
+   "preview": "2026-10-26T01:22:42.815Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-sn-long-haul": {
+   "uploaded": "2026-10-26T01:22:44.055Z",
+   "mtime": 1792974720297,
+   "preview": "2026-10-26T01:22:45.864Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-lx-long-haul": {
+   "uploaded": "2026-10-26T01:22:47.160Z",
+   "mtime": 1792974720319,
+   "preview": "2026-10-26T01:22:48.830Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/business-class-meal-4y-long-haul": {
+   "uploaded": "2026-10-26T01:22:50.003Z",
+   "mtime": 1792974720340,
+   "preview": "2026-10-26T01:22:51.884Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/culinary-experience-lh-long-haul": {
+   "uploaded": "2026-10-26T01:22:53.223Z",
+   "mtime": 1792974720360,
+   "preview": "2026-10-26T01:22:55.002Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/culinary-experience-os-long-haul": {
+   "uploaded": "2026-10-26T01:22:56.314Z",
+   "mtime": 1792974720381,
+   "preview": "2026-10-26T01:22:58.406Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/culinary-experience-business-lx-short-haul": {
+   "uploaded": "2026-10-26T01:22:59.767Z",
+   "mtime": 1792974720403,
+   "preview": "2026-10-26T01:23:01.472Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/culinary-experience-sn-long-haul": {
+   "uploaded": "2026-10-26T01:23:02.674Z",
+   "mtime": 1792974720424,
+   "preview": "2026-10-26T01:23:04.572Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/culinary-experience-lx-long-haul": {
+   "uploaded": "2026-10-26T01:23:05.895Z",
+   "mtime": 1792974720448,
+   "preview": "2026-10-26T01:23:07.774Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/first-class-lounge-access-lh-long-haul": {
+   "uploaded": "2026-10-26T01:23:08.925Z",
+   "mtime": 1792974720468,
+   "preview": "2026-10-26T01:23:10.812Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/first-class-lounge-access-lx-long-haul": {
+   "uploaded": "2026-10-26T01:23:12.153Z",
+   "mtime": 1792974720489,
+   "preview": "2026-10-26T01:23:13.779Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/first-class-meal-lh-long-haul": {
+   "uploaded": "2026-10-26T01:23:15.035Z",
+   "mtime": 1792974720511,
+   "preview": "2026-10-26T01:23:16.698Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/first-class-meal-lx-long-haul": {
+   "uploaded": "2026-10-26T01:23:18.023Z",
+   "mtime": 1792974720533,
+   "preview": "2026-10-26T01:23:19.784Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/flat-bed-seat-lh-long-haul": {
+   "uploaded": "2026-10-26T01:23:21.069Z",
+   "mtime": 1792974720556,
+   "preview": "2026-10-26T01:23:22.997Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/flat-bed-seat-os-long-haul": {
+   "uploaded": "2026-10-26T01:23:24.155Z",
+   "mtime": 1792974720578,
+   "preview": "2026-10-26T01:23:26.385Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/flat-bed-seat-sn-long-haul": {
+   "uploaded": "2026-10-26T01:23:27.739Z",
+   "mtime": 1792974720599,
+   "preview": "2026-10-26T01:23:29.511Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/flat-bed-seat-lx-long-haul": {
+   "uploaded": "2026-10-26T01:23:30.741Z",
+   "mtime": 1792974720623,
+   "preview": "2026-10-26T01:23:32.672Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/flat-bed-seat-4y-long-haul": {
+   "uploaded": "2026-10-26T01:23:33.989Z",
+   "mtime": 1792974720645,
+   "preview": "2026-10-26T01:23:35.797Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-lh-short-haul": {
+   "uploaded": "2026-10-26T01:23:37.156Z",
+   "mtime": 1792974720666,
+   "preview": "2026-10-26T01:23:38.946Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-lx-short-haul": {
+   "uploaded": "2026-10-26T01:23:40.201Z",
+   "mtime": 1792974720689,
+   "preview": "2026-10-26T01:23:41.962Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-os-short-haul": {
+   "uploaded": "2026-10-26T01:23:43.265Z",
+   "mtime": 1792974720710,
+   "preview": "2026-10-26T01:23:45.176Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-sn-short-haul": {
+   "uploaded": "2026-10-26T01:23:46.512Z",
+   "mtime": 1792974720731,
+   "preview": "2026-10-26T01:23:48.345Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/fine-dining-lh-short-haul": {
+   "uploaded": "2026-10-26T01:23:49.570Z",
+   "mtime": 1792974720754,
+   "preview": "2026-10-26T01:23:51.314Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/fine-dining-vl-short-haul": {
+   "uploaded": "2026-10-26T01:23:52.454Z",
+   "mtime": 1792974720775,
+   "preview": "2026-10-26T01:23:54.302Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/fine-dining-4y-short-haul": {
+   "uploaded": "2026-10-26T01:23:55.475Z",
+   "mtime": 1792974720797,
+   "preview": "2026-10-26T01:23:57.528Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-vl-short-haul": {
+   "uploaded": "2026-10-26T01:23:58.817Z",
+   "mtime": 1792974720819,
+   "preview": "2026-10-26T01:24:00.701Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/free-adjacent-seat-4y-short-haul": {
+   "uploaded": "2026-10-26T01:24:01.986Z",
+   "mtime": 1792974720842,
+   "preview": "2026-10-26T01:24:03.895Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-lh-both": {
+   "uploaded": "2026-10-26T01:24:05.472Z",
+   "mtime": 1792974720863,
+   "preview": "2026-10-26T01:24:07.257Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-os-both": {
+   "uploaded": "2026-10-26T01:24:08.596Z",
+   "mtime": 1792974720886,
+   "preview": "2026-10-26T01:24:10.440Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-sn-both": {
+   "uploaded": "2026-10-26T01:24:11.870Z",
+   "mtime": 1792974720908,
+   "preview": "2026-10-26T01:24:13.701Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-lx-both": {
+   "uploaded": "2026-10-26T01:24:14.871Z",
+   "mtime": 1792974720930,
+   "preview": "2026-10-26T01:24:16.786Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-4y-both": {
+   "uploaded": "2026-10-26T01:24:17.985Z",
+   "mtime": 1792974720951,
+   "preview": "2026-10-26T01:24:19.736Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-vl-short-haul": {
+   "uploaded": "2026-10-26T01:24:21.002Z",
+   "mtime": 1792974720974,
+   "preview": "2026-10-26T01:24:22.760Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/lounge-access-az-both": {
+   "uploaded": "2026-10-26T01:24:24.145Z",
+   "mtime": 1792974720996,
+   "preview": "2026-10-26T01:24:25.914Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/fast-track-access-az-both": {
+   "uploaded": "2026-10-26T01:24:27.166Z",
+   "mtime": 1792974721017,
+   "preview": "2026-10-26T01:24:29.885Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/dedicated-meal-az-short-haul": {
+   "uploaded": "2026-10-26T01:24:31.307Z",
+   "mtime": 1792974721037,
+   "preview": "2026-10-26T01:24:33.014Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/dedicated-snack-az-short-haul": {
+   "uploaded": "2026-10-26T01:24:34.246Z",
+   "mtime": 1792974721059,
+   "preview": "2026-10-26T01:24:36.349Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/menu-premium-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:37.564Z",
+   "mtime": 1792974721081,
+   "preview": "2026-10-26T01:24:39.185Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/fully-flat-bed-seat-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:40.452Z",
+   "mtime": 1792974721103,
+   "preview": "2026-10-26T01:24:42.334Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/comfort-kit-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:43.609Z",
+   "mtime": 1792974721125,
+   "preview": "2026-10-26T01:24:45.463Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:46.539Z",
+   "mtime": 1792974721147,
+   "preview": "2026-10-26T01:24:48.415Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:49.563Z",
+   "mtime": 1792974721169,
+   "preview": "2026-10-26T01:24:52.121Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/upgraded-culinary-experience-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:53.382Z",
+   "mtime": 1792974721192,
+   "preview": "2026-10-26T01:24:55.642Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/more-space-and-legroom-az-long-haul": {
+   "uploaded": "2026-10-26T01:24:56.808Z",
+   "mtime": 1792974721214,
+   "preview": "2026-10-26T01:24:58.822Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/comfort-kit-az-long-haul-1": {
+   "uploaded": "2026-10-26T01:25:00.159Z",
+   "mtime": 1792974721235,
+   "preview": "2026-10-26T01:25:02.123Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/mileage-accrual-lh-both": {
+   "uploaded": "2026-10-26T01:25:03.859Z",
+   "mtime": 1792974721258,
+   "preview": "2026-10-26T01:25:05.619Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/mileage-accrual-os-both": {
+   "uploaded": "2026-10-26T01:25:06.820Z",
+   "mtime": 1792974721279,
+   "preview": "2026-10-26T01:25:08.797Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/mileage-accrual-lx-both": {
+   "uploaded": "2026-10-26T01:25:09.981Z",
+   "mtime": 1792974721301,
+   "preview": "2026-10-26T01:25:11.856Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/mileage-accrual-vl-short-haul": {
+   "uploaded": "2026-10-26T01:25:13.132Z",
+   "mtime": 1792974721324,
+   "preview": "2026-10-26T01:25:14.846Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/mileage-accrual-4y-both": {
+   "uploaded": "2026-10-26T01:25:16.026Z",
+   "mtime": 1792974721345,
+   "preview": "2026-10-26T01:25:18.204Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-lh-both": {
+   "uploaded": "2026-10-26T01:25:19.522Z",
+   "mtime": 1792974721367,
+   "preview": "2026-10-26T01:25:21.551Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-os-both": {
+   "uploaded": "2026-10-26T01:25:22.841Z",
+   "mtime": 1792974721390,
+   "preview": "2026-10-26T01:25:24.657Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-sn-both": {
+   "uploaded": "2026-10-26T01:25:25.755Z",
+   "mtime": 1792974721411,
+   "preview": "2026-10-26T01:25:27.475Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-lx-both": {
+   "uploaded": "2026-10-26T01:25:28.689Z",
+   "mtime": 1792974721435,
+   "preview": "2026-10-26T01:25:30.812Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-4y-both": {
+   "uploaded": "2026-10-26T01:25:32.260Z",
+   "mtime": 1792974721456,
+   "preview": "2026-10-26T01:25:33.958Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-boarding-vl-short-haul": {
+   "uploaded": "2026-10-26T01:25:35.275Z",
+   "mtime": 1792974721478,
+   "preview": "2026-10-26T01:25:37.006Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-lh-short-haul": {
+   "uploaded": "2026-10-26T01:25:38.294Z",
+   "mtime": 1792974721500,
+   "preview": "2026-10-26T01:25:40.040Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-os-short-haul": {
+   "uploaded": "2026-10-26T01:25:41.435Z",
+   "mtime": 1792974721521,
+   "preview": "2026-10-26T01:25:43.296Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-sn-long-haul": {
+   "uploaded": "2026-10-26T01:25:44.570Z",
+   "mtime": 1792974721544,
+   "preview": "2026-10-26T01:25:46.378Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-lx-short-haul": {
+   "uploaded": "2026-10-26T01:25:47.789Z",
+   "mtime": 1792974721565,
+   "preview": "2026-10-26T01:25:49.677Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-vl-short-haul": {
+   "uploaded": "2026-10-26T01:25:51.006Z",
+   "mtime": 1792974721587,
+   "preview": "2026-10-26T01:25:52.733Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-checkin-4y-short-haul": {
+   "uploaded": "2026-10-26T01:25:53.906Z",
+   "mtime": 1792974721610,
+   "preview": "2026-10-26T01:25:55.714Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/priority-lane-sn-short-haul": {
+   "uploaded": "2026-10-26T01:25:56.912Z",
+   "mtime": 1792974721631,
+   "preview": "2026-10-26T01:25:59.042Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/snack-and-drink-sn-short-haul": {
+   "uploaded": "2026-10-26T01:26:01.435Z",
+   "mtime": 1792974721653,
+   "preview": "2026-10-26T01:26:03.281Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/space-and-legroom-lh-long-haul": {
+   "uploaded": "2026-10-26T01:26:04.824Z",
+   "mtime": 1792974721676,
+   "preview": "2026-10-26T01:26:07.211Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/space-and-legroom-os-long-haul": {
+   "uploaded": "2026-10-26T01:26:08.360Z",
+   "mtime": 1792974721699,
+   "preview": "2026-10-26T01:26:10.367Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/space-and-legroom-sn-long-haul": {
+   "uploaded": "2026-10-26T01:26:11.802Z",
+   "mtime": 1792974721722,
+   "preview": "2026-10-26T01:26:13.535Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/space-and-legroom-lx-long-haul": {
+   "uploaded": "2026-10-26T01:26:15.119Z",
+   "mtime": 1792974721743,
+   "preview": "2026-10-26T01:26:17.181Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/space-and-legroom-4y-long-haul": {
+   "uploaded": "2026-10-26T01:26:18.427Z",
+   "mtime": 1792974721765,
+   "preview": "2026-10-26T01:26:20.080Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/travel-kit-lh-long-haul": {
+   "uploaded": "2026-10-26T01:26:21.624Z",
+   "mtime": 1792974721787,
+   "preview": "2026-10-26T01:26:23.429Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/travel-kit-os-long-haul": {
+   "uploaded": "2026-10-26T01:26:24.618Z",
+   "mtime": 1792974721809,
+   "preview": "2026-10-26T01:26:26.623Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/travel-kit-lx-long-haul": {
+   "uploaded": "2026-10-26T01:26:28.056Z",
+   "mtime": 1792974721830,
+   "preview": "2026-10-26T01:26:30.233Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/travel-kit-4y-long-haul": {
+   "uploaded": "2026-10-26T01:26:31.317Z",
+   "mtime": 1792974721853,
+   "preview": "2026-10-26T01:26:33.734Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/welcome-drink-lh-long-haul": {
+   "uploaded": "2026-10-26T01:26:35.160Z",
+   "mtime": 1792974721876,
+   "preview": "2026-10-26T01:26:37.210Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/welcome-drink-sn-long-haul": {
+   "uploaded": "2026-10-26T01:26:38.530Z",
+   "mtime": 1792974721898,
+   "preview": "2026-10-26T01:26:40.281Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/welcome-drink-os-long-haul": {
+   "uploaded": "2026-10-26T01:26:41.678Z",
+   "mtime": 1792974721920,
+   "preview": "2026-10-26T01:26:43.288Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/welcome-drink-lx-long-haul": {
+   "uploaded": "2026-10-26T01:26:44.480Z",
+   "mtime": 1792974721942,
+   "preview": "2026-10-26T01:26:46.820Z"
+  },
+  "/data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en/welcome-drink-4y-long-haul": {
+   "uploaded": "2026-10-26T01:26:48.083Z",
+   "mtime": 1792974721966,
+   "preview": "2026-10-26T01:26:50.081Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-77b": {
+   "uploaded": "2026-10-26T01:26:51.823Z",
+   "mtime": 1792974721995,
+   "preview": "2026-10-26T01:26:53.704Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-77d": {
+   "uploaded": "2026-10-26T01:26:55.085Z",
+   "mtime": 1792974722018,
+   "preview": "2026-10-26T01:26:57.020Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-78f": {
+   "uploaded": "2026-10-26T01:26:58.292Z",
+   "mtime": 1792974722040,
+   "preview": "2026-10-26T01:27:00.258Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-78g": {
+   "uploaded": "2026-10-26T01:27:01.687Z",
+   "mtime": 1792974722062,
+   "preview": "2026-10-26T01:27:03.374Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-78k": {
+   "uploaded": "2026-10-26T01:27:04.807Z",
+   "mtime": 1792974722086,
+   "preview": "2026-10-26T01:27:06.439Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a42": {
+   "uploaded": "2026-10-26T01:27:07.738Z",
+   "mtime": 1792974722109,
+   "preview": "2026-10-26T01:27:09.598Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a46": {
+   "uploaded": "2026-10-26T01:27:10.965Z",
+   "mtime": 1792974722131,
+   "preview": "2026-10-26T01:27:12.738Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a44": {
+   "uploaded": "2026-10-26T01:27:14.233Z",
+   "mtime": 1792974722154,
+   "preview": "2026-10-26T01:27:16.092Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a45": {
+   "uploaded": "2026-10-26T01:27:17.502Z",
+   "mtime": 1792974722177,
+   "preview": "2026-10-26T01:27:19.155Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a47": {
+   "uploaded": "2026-10-26T01:27:20.289Z",
+   "mtime": 1792974722201,
+   "preview": "2026-10-26T01:27:21.994Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a48": {
+   "uploaded": "2026-10-26T01:27:23.302Z",
+   "mtime": 1792974722225,
+   "preview": "2026-10-26T01:27:25.068Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a62": {
+   "uploaded": "2026-10-26T01:27:26.459Z",
+   "mtime": 1792974722249,
+   "preview": "2026-10-26T01:27:28.069Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a65": {
+   "uploaded": "2026-10-26T01:27:29.350Z",
+   "mtime": 1792974722270,
+   "preview": "2026-10-26T01:27:31.165Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a66": {
+   "uploaded": "2026-10-26T01:27:32.422Z",
+   "mtime": 1792974722292,
+   "preview": "2026-10-26T01:27:34.121Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-a74": {
+   "uploaded": "2026-10-26T01:27:35.498Z",
+   "mtime": 1792974722312,
+   "preview": "2026-10-26T01:27:37.296Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-b74": {
+   "uploaded": "2026-10-26T01:27:38.550Z",
+   "mtime": 1792974722335,
+   "preview": "2026-10-26T01:27:40.298Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-h38": {
+   "uploaded": "2026-10-26T01:27:41.513Z",
+   "mtime": 1792974722356,
+   "preview": "2026-10-26T01:27:43.443Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-i38": {
+   "uploaded": "2026-10-26T01:27:44.650Z",
+   "mtime": 1792974722377,
+   "preview": "2026-10-26T01:27:46.529Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-j38": {
+   "uploaded": "2026-10-26T01:27:47.807Z",
+   "mtime": 1792974722398,
+   "preview": "2026-10-26T01:27:49.709Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-k38": {
+   "uploaded": "2026-10-26T01:27:50.864Z",
+   "mtime": 1792974722423,
+   "preview": "2026-10-26T01:27:52.548Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-l38": {
+   "uploaded": "2026-10-26T01:27:53.715Z",
+   "mtime": 1792974722443,
+   "preview": "2026-10-26T01:27:55.554Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lh-m38": {
+   "uploaded": "2026-10-26T01:27:56.752Z",
+   "mtime": 1792974722463,
+   "preview": "2026-10-26T01:27:58.412Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lx-33f": {
+   "uploaded": "2026-10-26T01:27:59.729Z",
+   "mtime": 1792974722489,
+   "preview": "2026-10-26T01:28:01.428Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lx-33r": {
+   "uploaded": "2026-10-26T01:28:02.944Z",
+   "mtime": 1792974722511,
+   "preview": "2026-10-26T01:28:04.719Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lx-a35": {
+   "uploaded": "2026-10-26T01:28:05.916Z",
+   "mtime": 1792974722531,
+   "preview": "2026-10-26T01:28:07.767Z"
+  },
+  "/data/lufthansa-group/ancillary/allegris-upgrade/aircraft/lx-a36": {
+   "uploaded": "2026-10-26T01:28:09.175Z",
+   "mtime": 1792974722554,
+   "preview": "2026-10-26T01:28:11.189Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ca/master/destination": {
+   "uploaded": "2026-10-26T01:53:26.077Z",
+   "mtime": 1792978732856,
+   "preview": "2026-10-26T01:53:28.190Z"
+  },
+  "/data/content-fragments/travelready-infohub/ca/master": {
+   "uploaded": "2026-10-26T01:28:15.833Z",
+   "mtime": 1792974722620,
+   "preview": "2026-10-26T01:28:17.688Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ca/de/destination": {
+   "uploaded": "2026-10-26T01:53:29.796Z",
+   "mtime": 1792978732891,
+   "preview": "2026-10-26T01:53:31.533Z"
+  },
+  "/data/content-fragments/travelready-infohub/ca/de": {
+   "uploaded": "2026-10-26T01:28:22.343Z",
+   "mtime": 1792974722663,
+   "preview": "2026-10-26T01:28:24.090Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ca/fr/destination": {
+   "uploaded": "2026-10-26T01:53:33.460Z",
+   "mtime": 1792978732923,
+   "preview": "2026-10-26T01:53:35.391Z"
+  },
+  "/data/content-fragments/travelready-infohub/ca/fr": {
+   "uploaded": "2026-10-26T01:28:28.283Z",
+   "mtime": 1792974722705,
+   "preview": "2026-10-26T01:28:30.118Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/cn/master/destination": {
+   "uploaded": "2026-10-26T01:53:37.245Z",
+   "mtime": 1792978732957,
+   "preview": "2026-10-26T01:53:39.265Z"
+  },
+  "/data/content-fragments/travelready-infohub/cn/master": {
+   "uploaded": "2026-10-26T01:28:34.693Z",
+   "mtime": 1792974722754,
+   "preview": "2026-10-26T01:28:36.661Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/cn/de/destination": {
+   "uploaded": "2026-10-26T01:53:40.781Z",
+   "mtime": 1792978732989,
+   "preview": "2026-10-26T01:53:42.584Z"
+  },
+  "/data/content-fragments/travelready-infohub/cn/de": {
+   "uploaded": "2026-10-26T01:28:41.261Z",
+   "mtime": 1792974722798,
+   "preview": "2026-10-26T01:28:43.126Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/cn/fr/destination": {
+   "uploaded": "2026-10-26T01:53:44.035Z",
+   "mtime": 1792978733020,
+   "preview": "2026-10-26T01:53:45.790Z"
+  },
+  "/data/content-fragments/travelready-infohub/cn/fr": {
+   "uploaded": "2026-10-26T01:28:47.354Z",
+   "mtime": 1792974722842,
+   "preview": "2026-10-26T01:28:49.223Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/il/master/destination": {
+   "uploaded": "2026-10-26T01:53:47.335Z",
+   "mtime": 1792978733063,
+   "preview": "2026-10-26T01:53:49.194Z"
+  },
+  "/data/content-fragments/travelready-infohub/il/master": {
+   "uploaded": "2026-10-26T01:28:53.581Z",
+   "mtime": 1792974722903,
+   "preview": "2026-10-26T01:28:55.173Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/il/de/destination": {
+   "uploaded": "2026-10-26T01:53:50.595Z",
+   "mtime": 1792978733093,
+   "preview": "2026-10-26T01:53:52.337Z"
+  },
+  "/data/content-fragments/travelready-infohub/il/de": {
+   "uploaded": "2026-10-26T01:28:59.773Z",
+   "mtime": 1792974722947,
+   "preview": "2026-10-26T01:29:01.738Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/il/fr/destination": {
+   "uploaded": "2026-10-26T01:53:53.746Z",
+   "mtime": 1792978733122,
+   "preview": "2026-10-26T01:53:55.379Z"
+  },
+  "/data/content-fragments/travelready-infohub/il/fr": {
+   "uploaded": "2026-10-26T01:29:06.193Z",
+   "mtime": 1792974722991,
+   "preview": "2026-10-26T01:29:08.262Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/in/master/destination": {
+   "uploaded": "2026-10-26T01:53:56.924Z",
+   "mtime": 1792978733157,
+   "preview": "2026-10-26T01:53:58.896Z"
+  },
+  "/data/content-fragments/travelready-infohub/in/master": {
+   "uploaded": "2026-10-26T01:29:12.247Z",
+   "mtime": 1792974723042,
+   "preview": "2026-10-26T01:29:14.080Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/in/de/destination": {
+   "uploaded": "2026-10-26T01:54:00.229Z",
+   "mtime": 1792978733186,
+   "preview": "2026-10-26T01:54:01.978Z"
+  },
+  "/data/content-fragments/travelready-infohub/in/de": {
+   "uploaded": "2026-10-26T01:29:18.670Z",
+   "mtime": 1792974723085,
+   "preview": "2026-10-26T01:29:20.319Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/in/fr/destination": {
+   "uploaded": "2026-10-26T01:54:03.403Z",
+   "mtime": 1792978733216,
+   "preview": "2026-10-26T01:54:05.264Z"
+  },
+  "/data/content-fragments/travelready-infohub/in/fr": {
+   "uploaded": "2026-10-26T01:29:25.110Z",
+   "mtime": 1792974723126,
+   "preview": "2026-10-26T01:29:27.195Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/jp/master/destination": {
+   "uploaded": "2026-10-26T01:54:06.856Z",
+   "mtime": 1792978733250,
+   "preview": "2026-10-26T01:54:08.668Z"
+  },
+  "/data/content-fragments/travelready-infohub/jp/master": {
+   "uploaded": "2026-10-26T01:29:31.507Z",
+   "mtime": 1792974723177,
+   "preview": "2026-10-26T01:29:33.322Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/jp/de/destination": {
+   "uploaded": "2026-10-26T01:54:10.199Z",
+   "mtime": 1792978733280,
+   "preview": "2026-10-26T01:54:12.086Z"
+  },
+  "/data/content-fragments/travelready-infohub/jp/de": {
+   "uploaded": "2026-10-26T01:29:37.931Z",
+   "mtime": 1792974723221,
+   "preview": "2026-10-26T01:29:39.825Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/jp/fr/destination": {
+   "uploaded": "2026-10-26T01:54:13.500Z",
+   "mtime": 1792978733311,
+   "preview": "2026-10-26T01:54:15.422Z"
+  },
+  "/data/content-fragments/travelready-infohub/jp/fr": {
+   "uploaded": "2026-10-26T01:29:44.230Z",
+   "mtime": 1792974723263,
+   "preview": "2026-10-26T01:29:46.105Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ke/master/destination": {
+   "uploaded": "2026-10-26T01:54:17.092Z",
+   "mtime": 1792978733344,
+   "preview": "2026-10-26T01:54:18.889Z"
+  },
+  "/data/content-fragments/travelready-infohub/ke/master": {
+   "uploaded": "2026-10-26T01:29:50.411Z",
+   "mtime": 1792974723314,
+   "preview": "2026-10-26T01:29:52.636Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ke/de/destination": {
+   "uploaded": "2026-10-26T01:54:20.242Z",
+   "mtime": 1792978733375,
+   "preview": "2026-10-26T01:54:22.390Z"
+  },
+  "/data/content-fragments/travelready-infohub/ke/de": {
+   "uploaded": "2026-10-26T01:29:57.034Z",
+   "mtime": 1792974723359,
+   "preview": "2026-10-26T01:29:59.016Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ke/kenya/destination": {
+   "uploaded": "2026-10-26T01:54:23.864Z",
+   "mtime": 1792978733404,
+   "preview": "2026-10-26T01:54:25.913Z"
+  },
+  "/data/content-fragments/travelready-infohub/ke/kenya": {
+   "uploaded": "2026-10-26T01:30:04.389Z",
+   "mtime": 1792974723406,
+   "preview": "2026-10-26T01:30:06.287Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/mv/master/destination": {
+   "uploaded": "2026-10-26T01:54:27.841Z",
+   "mtime": 1792978733438,
+   "preview": "2026-10-26T01:54:29.869Z"
+  },
+  "/data/content-fragments/travelready-infohub/mv/master": {
+   "uploaded": "2026-10-26T01:30:11.296Z",
+   "mtime": 1792974723455,
+   "preview": "2026-10-26T01:30:13.594Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/mv/de/destination": {
+   "uploaded": "2026-10-26T01:54:31.374Z",
+   "mtime": 1792978733468,
+   "preview": "2026-10-26T01:54:33.253Z"
+  },
+  "/data/content-fragments/travelready-infohub/mv/de": {
+   "uploaded": "2026-10-26T01:30:18.206Z",
+   "mtime": 1792974723498,
+   "preview": "2026-10-26T01:30:20.018Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/mv/fr/destination": {
+   "uploaded": "2026-10-26T01:54:34.838Z",
+   "mtime": 1792978733497,
+   "preview": "2026-10-26T01:54:36.575Z"
+  },
+  "/data/content-fragments/travelready-infohub/mv/fr": {
+   "uploaded": "2026-10-26T01:30:24.390Z",
+   "mtime": 1792974723541,
+   "preview": "2026-10-26T01:30:26.211Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/my/master/destination": {
+   "uploaded": "2026-10-26T01:54:37.983Z",
+   "mtime": 1792978733531,
+   "preview": "2026-10-26T01:54:39.773Z"
+  },
+  "/data/content-fragments/travelready-infohub/my/master": {
+   "uploaded": "2026-10-26T01:30:30.921Z",
+   "mtime": 1792974723592,
+   "preview": "2026-10-26T01:30:32.689Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/my/de/destination": {
+   "uploaded": "2026-10-26T01:54:41.324Z",
+   "mtime": 1792978733562,
+   "preview": "2026-10-26T01:54:43.049Z"
+  },
+  "/data/content-fragments/travelready-infohub/my/de": {
+   "uploaded": "2026-10-26T01:30:37.568Z",
+   "mtime": 1792974723637,
+   "preview": "2026-10-26T01:30:39.431Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/my/fr/destination": {
+   "uploaded": "2026-10-26T01:54:44.458Z",
+   "mtime": 1792978733592,
+   "preview": "2026-10-26T01:54:46.475Z"
+  },
+  "/data/content-fragments/travelready-infohub/my/fr": {
+   "uploaded": "2026-10-26T01:30:43.832Z",
+   "mtime": 1792974723679,
+   "preview": "2026-10-26T01:30:45.662Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/na/master/destination": {
+   "uploaded": "2026-10-26T01:54:47.791Z",
+   "mtime": 1792978733636,
+   "preview": "2026-10-26T01:54:49.519Z"
+  },
+  "/data/content-fragments/travelready-infohub/na/master": {
+   "uploaded": "2026-10-26T01:30:49.880Z",
+   "mtime": 1792974723733,
+   "preview": "2026-10-26T01:30:51.839Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/na/de/destination": {
+   "uploaded": "2026-10-26T01:54:51.054Z",
+   "mtime": 1792978733666,
+   "preview": "2026-10-26T01:54:52.952Z"
+  },
+  "/data/content-fragments/travelready-infohub/na/de": {
+   "uploaded": "2026-10-26T01:30:55.973Z",
+   "mtime": 1792974723777,
+   "preview": "2026-10-26T01:30:57.779Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/na/fr/destination": {
+   "uploaded": "2026-10-26T01:54:54.712Z",
+   "mtime": 1792978733697,
+   "preview": "2026-10-26T01:54:56.629Z"
+  },
+  "/data/content-fragments/travelready-infohub/na/fr": {
+   "uploaded": "2026-10-26T01:31:02.008Z",
+   "mtime": 1792974723828,
+   "preview": "2026-10-26T01:31:03.733Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ng/master/destination": {
+   "uploaded": "2026-10-26T01:54:58.094Z",
+   "mtime": 1792978733731,
+   "preview": "2026-10-26T01:54:59.901Z"
+  },
+  "/data/content-fragments/travelready-infohub/ng/master": {
+   "uploaded": "2026-10-26T01:31:08.100Z",
+   "mtime": 1792974723880,
+   "preview": "2026-10-26T01:31:10.465Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ng/de/destination": {
+   "uploaded": "2026-10-26T01:55:01.533Z",
+   "mtime": 1792978733762,
+   "preview": "2026-10-26T01:55:03.572Z"
+  },
+  "/data/content-fragments/travelready-infohub/ng/de": {
+   "uploaded": "2026-10-26T01:31:14.880Z",
+   "mtime": 1792974723925,
+   "preview": "2026-10-26T01:31:16.672Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ng/fr/destination": {
+   "uploaded": "2026-10-26T01:55:05.136Z",
+   "mtime": 1792978733794,
+   "preview": "2026-10-26T01:55:07.227Z"
+  },
+  "/data/content-fragments/travelready-infohub/ng/fr": {
+   "uploaded": "2026-10-26T01:31:20.834Z",
+   "mtime": 1792974723969,
+   "preview": "2026-10-26T01:31:22.817Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/th/master/destination": {
+   "uploaded": "2026-10-26T01:55:08.790Z",
+   "mtime": 1792978733829,
+   "preview": "2026-10-26T01:55:10.718Z"
+  },
+  "/data/content-fragments/travelready-infohub/th/master": {
+   "uploaded": "2026-10-26T01:31:27.269Z",
+   "mtime": 1792974724018,
+   "preview": "2026-10-26T01:31:29.319Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/th/de/destination": {
+   "uploaded": "2026-10-26T01:55:12.421Z",
+   "mtime": 1792978733864,
+   "preview": "2026-10-26T01:55:14.385Z"
+  },
+  "/data/content-fragments/travelready-infohub/th/de": {
+   "uploaded": "2026-10-26T01:31:33.631Z",
+   "mtime": 1792974724060,
+   "preview": "2026-10-26T01:31:35.459Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/th/fr/destination": {
+   "uploaded": "2026-10-26T01:55:16.256Z",
+   "mtime": 1792978733895,
+   "preview": "2026-10-26T01:55:18.156Z"
+  },
+  "/data/content-fragments/travelready-infohub/th/fr": {
+   "uploaded": "2026-10-26T01:31:39.850Z",
+   "mtime": 1792974724106,
+   "preview": "2026-10-26T01:31:41.660Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/tn/master/destination": {
+   "uploaded": "2026-10-26T01:55:19.707Z",
+   "mtime": 1792978733930,
+   "preview": "2026-10-26T01:55:21.592Z"
+  },
+  "/data/content-fragments/travelready-infohub/tn/master": {
+   "uploaded": "2026-10-26T01:31:45.925Z",
+   "mtime": 1792974724160,
+   "preview": "2026-10-26T01:31:47.931Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/tn/de/destination": {
+   "uploaded": "2026-10-26T01:55:23.082Z",
+   "mtime": 1792978733960,
+   "preview": "2026-10-26T01:55:24.683Z"
+  },
+  "/data/content-fragments/travelready-infohub/tn/de": {
+   "uploaded": "2026-10-26T01:31:52.069Z",
+   "mtime": 1792974724205,
+   "preview": "2026-10-26T01:31:54.172Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/tn/fr/destination": {
+   "uploaded": "2026-10-26T01:55:26.217Z",
+   "mtime": 1792978733995,
+   "preview": "2026-10-26T01:55:27.956Z"
+  },
+  "/data/content-fragments/travelready-infohub/tn/fr": {
+   "uploaded": "2026-10-26T01:31:58.403Z",
+   "mtime": 1792974724248,
+   "preview": "2026-10-26T01:32:00.161Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/us/master/destination": {
+   "uploaded": "2026-10-26T01:55:29.522Z",
+   "mtime": 1792978734030,
+   "preview": "2026-10-26T01:55:31.441Z"
+  },
+  "/data/content-fragments/travelready-infohub/us/master": {
+   "uploaded": "2026-10-26T01:32:04.573Z",
+   "mtime": 1792974724300,
+   "preview": "2026-10-26T01:32:06.232Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/us/de/destination": {
+   "uploaded": "2026-10-26T01:55:33.005Z",
+   "mtime": 1792978734060,
+   "preview": "2026-10-26T01:55:34.905Z"
+  },
+  "/data/content-fragments/travelready-infohub/us/de": {
+   "uploaded": "2026-10-26T01:32:10.915Z",
+   "mtime": 1792974724352,
+   "preview": "2026-10-26T01:32:12.824Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/us/fr/destination": {
+   "uploaded": "2026-10-26T01:55:36.337Z",
+   "mtime": 1792978734091,
+   "preview": "2026-10-26T01:55:38.247Z"
+  },
+  "/data/content-fragments/travelready-infohub/us/fr": {
+   "uploaded": "2026-10-26T01:32:17.302Z",
+   "mtime": 1792974724396,
+   "preview": "2026-10-26T01:32:19.033Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/za/master/destination": {
+   "uploaded": "2026-10-26T01:55:39.885Z",
+   "mtime": 1792978734123,
+   "preview": "2026-10-26T01:55:41.836Z"
+  },
+  "/data/content-fragments/travelready-infohub/za/master": {
+   "uploaded": "2026-10-26T01:32:23.345Z",
+   "mtime": 1792974724453,
+   "preview": "2026-10-26T01:32:25.251Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/za/de/destination": {
+   "uploaded": "2026-10-26T01:55:43.215Z",
+   "mtime": 1792978734154,
+   "preview": "2026-10-26T01:55:45.294Z"
+  },
+  "/data/content-fragments/travelready-infohub/za/de": {
+   "uploaded": "2026-10-26T01:32:29.181Z",
+   "mtime": 1792974724498,
+   "preview": "2026-10-26T01:32:31.106Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/za/fr/destination": {
+   "uploaded": "2026-10-26T01:55:46.805Z",
+   "mtime": 1792978734184,
+   "preview": "2026-10-26T01:55:48.676Z"
+  },
+  "/data/content-fragments/travelready-infohub/za/fr": {
+   "uploaded": "2026-10-26T01:32:35.318Z",
+   "mtime": 1792974724541,
+   "preview": "2026-10-26T01:32:37.255Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/aa-placeholder-0/master/destination": {
+   "uploaded": "2026-10-26T01:55:50.056Z",
+   "mtime": 1792978734219,
+   "preview": "2026-10-26T01:55:52.041Z"
+  },
+  "/data/content-fragments/travelready-infohub/aa-placeholder-0/master": {
+   "uploaded": "2026-10-26T01:32:41.431Z",
+   "mtime": 1792974724595,
+   "preview": "2026-10-26T01:32:43.134Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/at/master/destination": {
+   "uploaded": "2026-10-26T01:55:53.607Z",
+   "mtime": 1792978734248,
+   "preview": "2026-10-26T01:55:55.378Z"
+  },
+  "/data/content-fragments/travelready-infohub/at/master": {
+   "uploaded": "2026-10-26T01:32:47.424Z",
+   "mtime": 1792974724641,
+   "preview": "2026-10-26T01:32:49.274Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/be/master/destination": {
+   "uploaded": "2026-10-26T01:55:56.791Z",
+   "mtime": 1792978734278,
+   "preview": "2026-10-26T01:55:58.532Z"
+  },
+  "/data/content-fragments/travelready-infohub/be/master": {
+   "uploaded": "2026-10-26T01:32:53.771Z",
+   "mtime": 1792974724686,
+   "preview": "2026-10-26T01:32:55.748Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ch/master/destination": {
+   "uploaded": "2026-10-26T01:55:59.987Z",
+   "mtime": 1792978734309,
+   "preview": "2026-10-26T01:56:01.837Z"
+  },
+  "/data/content-fragments/travelready-infohub/ch/master": {
+   "uploaded": "2026-10-26T01:33:00.540Z",
+   "mtime": 1792974724729,
+   "preview": "2026-10-26T01:33:02.309Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/de/master/destination": {
+   "uploaded": "2026-10-26T01:56:03.374Z",
+   "mtime": 1792978734338,
+   "preview": "2026-10-26T01:56:05.170Z"
+  },
+  "/data/content-fragments/travelready-infohub/de/master": {
+   "uploaded": "2026-10-26T01:33:07.087Z",
+   "mtime": 1792974724773,
+   "preview": "2026-10-26T01:33:08.627Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/do/master/destination": {
+   "uploaded": "2026-10-26T01:56:06.618Z",
+   "mtime": 1792978734368,
+   "preview": "2026-10-26T01:56:08.723Z"
+  },
+  "/data/content-fragments/travelready-infohub/do/master": {
+   "uploaded": "2026-10-26T01:33:12.904Z",
+   "mtime": 1792974724818,
+   "preview": "2026-10-26T01:33:14.751Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/ge/master/destination": {
+   "uploaded": "2026-10-26T01:56:10.334Z",
+   "mtime": 1792978734397,
+   "preview": "2026-10-26T01:56:12.208Z"
+  },
+  "/data/content-fragments/travelready-infohub/ge/master": {
+   "uploaded": "2026-10-26T01:33:18.814Z",
+   "mtime": 1792974724864,
+   "preview": "2026-10-26T01:33:20.623Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/it/master/destination": {
+   "uploaded": "2026-10-26T01:56:13.531Z",
+   "mtime": 1792978734426,
+   "preview": "2026-10-26T01:56:15.507Z"
+  },
+  "/data/content-fragments/travelready-infohub/it/master": {
+   "uploaded": "2026-10-26T01:33:25.343Z",
+   "mtime": 1792974724908,
+   "preview": "2026-10-26T01:33:27.261Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/iz-placeholder-12/master/destination": {
+   "uploaded": "2026-10-26T01:56:16.980Z",
+   "mtime": 1792978734454,
+   "preview": "2026-10-26T01:56:19.151Z"
+  },
+  "/data/content-fragments/travelready-infohub/iz-placeholder-12/master": {
+   "uploaded": "2026-10-26T01:33:31.798Z",
+   "mtime": 1792974724953,
+   "preview": "2026-10-26T01:33:33.619Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/uk/master/destination": {
+   "uploaded": "2026-10-26T01:56:20.863Z",
+   "mtime": 1792978734490,
+   "preview": "2026-10-26T01:56:22.831Z"
+  },
+  "/data/details/content-fragments/travelready-infohub/uk/master/transit": {
+   "uploaded": "2026-10-26T01:56:24.181Z",
+   "mtime": 1792978734512,
+   "preview": "2026-10-26T01:56:25.990Z"
+  },
+  "/data/content-fragments/travelready-infohub/uk/master": {
+   "uploaded": "2026-10-26T01:33:41.657Z",
+   "mtime": 1792974725027,
+   "preview": "2026-10-26T01:33:43.363Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/bidupgrade": {
+   "uploaded": "2026-10-26T01:33:44.572Z",
+   "mtime": 1792974725068,
+   "preview": "2026-10-26T01:33:46.344Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/carrental": {
+   "uploaded": "2026-10-26T01:33:47.506Z",
+   "mtime": 1792974725094,
+   "preview": "2026-10-26T01:33:49.729Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/cartrawler": {
+   "uploaded": "2026-10-26T01:33:51.008Z",
+   "mtime": 1792974725121,
+   "preview": "2026-10-26T01:33:52.766Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/esim": {
+   "uploaded": "2026-10-26T01:33:54.152Z",
+   "mtime": 1792974725146,
+   "preview": "2026-10-26T01:33:56.434Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/getyourguide": {
+   "uploaded": "2026-10-26T01:33:57.652Z",
+   "mtime": 1792974725173,
+   "preview": "2026-10-26T01:33:59.637Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/lounge": {
+   "uploaded": "2026-10-26T01:34:01.013Z",
+   "mtime": 1792974725200,
+   "preview": "2026-10-26T01:34:03.011Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/hotel": {
+   "uploaded": "2026-10-26T01:34:04.314Z",
+   "mtime": 1792974725228,
+   "preview": "2026-10-26T01:34:06.120Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/parkaero": {
+   "uploaded": "2026-10-26T01:34:07.343Z",
+   "mtime": 1792974725256,
+   "preview": "2026-10-26T01:34:09.351Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/petsincabin": {
+   "uploaded": "2026-10-26T01:34:10.680Z",
+   "mtime": 1792974725282,
+   "preview": "2026-10-26T01:34:12.847Z"
+  },
+  "/data/lufthansa-group/ancillary/tmc/catalog/sleepersrow": {
+   "uploaded": "2026-10-26T01:34:14.056Z",
+   "mtime": 1792974725308,
+   "preview": "2026-10-26T01:34:15.911Z"
+  },
+  "/data/content-fragments/orchestrator-services/sdui-services/demographqlfragment": {
+   "uploaded": "2026-10-26T01:34:17.140Z",
+   "mtime": 1792974725336,
+   "preview": "2026-10-26T01:34:19.038Z"
+  },
+  "/data/content-fragments/orchestrator-services/sdui-services/demohttp": {
+   "uploaded": "2026-10-26T01:34:20.417Z",
+   "mtime": 1792974725358,
+   "preview": "2026-10-26T01:34:22.223Z"
+  },
+  "/data/content-fragments/orchestrator-services/sdui-services/demospringsdk": {
+   "uploaded": "2026-10-26T01:34:23.412Z",
+   "mtime": 1792974725380,
+   "preview": "2026-10-26T01:34:25.218Z"
+  },
+  "/data/content-fragments/orchestrator-services/sdui-services/demovanillasdk": {
+   "uploaded": "2026-10-26T01:34:26.394Z",
+   "mtime": 1792974725402,
+   "preview": "2026-10-26T01:34:28.272Z"
+  },
+  "/data/content-fragments/orchestrator-services/sdui-services/salesandmarketingteaserhub": {
+   "uploaded": "2026-10-26T01:34:29.523Z",
+   "mtime": 1792974725424,
+   "preview": "2026-10-26T01:34:31.407Z"
+  },
+  "/data/hcl/content-fragments/flag-navigation": {
+   "uploaded": "2026-10-26T01:34:32.618Z",
+   "mtime": 1792974725453,
+   "preview": "2026-10-26T01:34:34.455Z"
   }
  },
  "media": {

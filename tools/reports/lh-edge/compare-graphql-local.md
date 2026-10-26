@@ -1,10 +1,10 @@
 # GraphQL feeds: lh-edge vs www (local documents)
 
-2026-10-26T00:44:55.505Z
+2026-10-26T02:00:59.975Z
 
 52/52 recorded URLs equal apart from the deliberate differences; 1 skipped.
 
-Deliberate (normalized in www's answers before comparing): _tags as a set 361, rich text as EDS renders it 430, trailing whitespace of texts 42, www data errors fixed 11, empty properties [] as null 0, jcr:created not compared 67; last-modified not compared.
+Deliberate (normalized in www's answers before comparing): _tags as a set 361, rich text compared by text and links 430, trailing whitespace of texts 42, www data errors fixed 11, empty properties [] as null 0, jcr:created not compared 67; last-modified not compared.
 
 | URL | status www / lh-edge | cache-control | equal | differences (first) |
 |---|---|---|---|---|

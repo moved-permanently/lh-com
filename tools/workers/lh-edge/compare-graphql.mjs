@@ -7,13 +7,15 @@
  * --host <url>  the deployed lh-edge (it reads the published documents and their indexes)
  * --local       the worker in Node with the indexes computed from the local documents
  *               (feed-index.mjs); Message-Center URLs are skipped (the messages Worker's)
+ * --origin <aem.page>  the same with each document as Edge Delivery renders it (before the
+ *               documents are published and indexed)
  *
  * Deliberate differences (DELIBERATE below), normalized before the comparison and counted:
  * - _tags: compared as a set (the document keeps tenants, platforms and the two flags as fields,
  *   www's tag order is the order the tags were picked in);
- * - rich text (longText.html, destination.html, transit.html): compared as Edge Delivery renders
- *   it (whitespace between tags, <b>/<strong>, <i>/<em>, attributes other than href, &nbsp;,
- *   empty paragraphs);
+ * - rich text (longText.html, destination.html, transit.html): compared by its text and its link
+ *   targets; the markup is Document Authoring's (it nests bold and links its own way, merges
+ *   runs, moves whitespace at their edges, writes <strong> for <b>, drops empty paragraphs);
  * - text values: trailing whitespace (Document Authoring trims it: "DO&CO ", plaintext "...\n");
  * - www's data errors, fixed at import: qa-www.lufthansa.com links, doubled image URLs;
  * - properties: [] and null (an empty list is not kept in a document; lh-edge sends null);
@@ -34,10 +36,11 @@ const dir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(dir, '../../..');
 const FEEDS = path.join(root, 'tools/source-export/feeds');
 const argv = process.argv.slice(2);
-const local = argv.includes('--local');
+const originRender = argv.includes('--origin') ? argv[argv.indexOf('--origin') + 1].replace(/\/$/, '') : '';
+const local = argv.includes('--local') || Boolean(originRender);
 const host = argv.includes('--host') ? argv[argv.indexOf('--host') + 1].replace(/\/$/, '') : '';
 if (!local && !host) {
-  console.error('usage: compare-graphql.mjs --local | --host https://...');
+  console.error('usage: compare-graphql.mjs --local | --origin https://main--lh-com--moved-permanently.aem.page | --host https://...');
   process.exit(1);
 }
 const recorded = JSON.parse(fs.readFileSync(path.join(FEEDS, 'graphql/index.json'), 'utf8')).urls;
@@ -47,6 +50,28 @@ if (local) {
   const { default: buildFeedIndexes } = await import('./feed-index.mjs');
   const { default: worker } = await import('./src/index.js');
   const indexes = buildFeedIndexes();
+  if (originRender) {
+    // the documents as Edge Delivery renders them (preview): each index row's html is the
+    // rendered page's first section, as the site's indexer takes it (innerHTML of main > div)
+    const docs = fs.readFileSync(path.join(root, 'tools/importer/graphql-documents.txt'), 'utf8').split('\n').filter(Boolean);
+    const rendered = new Map();
+    for (let i = 0; i < docs.length; i += 16) {
+      await Promise.all(docs.slice(i, i + 16).map(async (p) => {
+        const r = await fetch(`${originRender}${p}`);
+        const html = r.ok ? await r.text() : '';
+        const m = html.match(/<main>\s*<div>([\s\S]*?)<\/div>\s*<\/main>/);
+        rendered.set(p, m ? m[1] : null);
+      }));
+    }
+    let missing = 0;
+    Object.values(indexes).forEach((ix) => (ix.data || []).forEach((row) => {
+      if (!('html' in row)) return;
+      const h = rendered.get(row.path);
+      if (h === null || h === undefined) missing += 1;
+      else row.html = h;
+    }));
+    console.log(`origin render: ${rendered.size} documents fetched, ${missing} not on ${originRender}`);
+  }
   const realFetch = globalThis.fetch;
   globalThis.fetch = async (input) => {
     const req = input instanceof Request ? input : new Request(input);
@@ -99,7 +124,7 @@ for (const [url, e] of Object.entries(recorded)) {
 
 const checked = results.filter((r) => !r.skipped);
 const equal = checked.filter((r) => r.equal).length;
-const name = local ? 'compare-graphql-local' : 'compare-graphql';
+const name = (originRender && 'compare-graphql-origin') || (local ? 'compare-graphql-local' : 'compare-graphql');
 const outDir = path.join(root, 'tools/reports/lh-edge');
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, `${name}.json`), `${JSON.stringify({
@@ -107,7 +132,7 @@ fs.writeFileSync(path.join(outDir, `${name}.json`), `${JSON.stringify({
 }, null, 1)}\n`);
 const md = [`# GraphQL feeds: lh-edge vs www (${local ? 'local documents' : host})`, '', new Date().toISOString(), '',
   `${equal}/${checked.length} recorded URLs equal apart from the deliberate differences${results.length - checked.length ? `; ${results.length - checked.length} skipped` : ''}.`, '',
-  `Deliberate (normalized in www's answers before comparing): _tags as a set ${DELIBERATE.tags}, rich text as EDS renders it ${DELIBERATE.richText}, trailing whitespace of texts ${DELIBERATE.plaintext}, www data errors fixed ${DELIBERATE.wwwDataErrors}, empty properties [] as null ${DELIBERATE.emptyProperties}, jcr:created not compared ${DELIBERATE.created}; last-modified not compared.`, '',
+  `Deliberate (normalized in www's answers before comparing): _tags as a set ${DELIBERATE.tags}, rich text compared by text and links ${DELIBERATE.richText}, trailing whitespace of texts ${DELIBERATE.plaintext}, www data errors fixed ${DELIBERATE.wwwDataErrors}, empty properties [] as null ${DELIBERATE.emptyProperties}, jcr:created not compared ${DELIBERATE.created}; last-modified not compared.`, '',
   '| URL | status www / lh-edge | cache-control | equal | differences (first) |', '|---|---|---|---|---|',
   ...results.map((r) => (r.skipped ? `| ${r.url} | | | skipped | ${r.skipped} |`
     : `| ${r.url} | ${r.status.www} / ${r.status.edge} | ${r.cacheControl.edge || '-'} | ${r.equal ? 'yes' : 'no'} | ${r.differences.slice(0, 3).map((x) => `${x.kind} ${x.path}`).join('; ')}${r.count > 3 ? ` (+${r.count - 3})` : ''} |`)),

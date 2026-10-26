@@ -18,7 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { convertJsonToHtml } from './vendor/da-sc-sdk.min.js';
+import { convertJsonToHtml, convertHtmlToJson } from './vendor/da-sc-sdk.min.js';
 import { SCHEMAS } from '../feeds/schemas.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -52,7 +52,15 @@ function writeDoc(docPath, schemaName, data) {
   const main = html.replace(/^[\s\S]*<main>/, '').replace(/<\/main>[\s\S]*$/, '');
   const file = path.join(CONTENT, `${docPath}.plain.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, main);
+  // an unchanged document keeps its file (the nested block ids are random): no new upload
+  let same = false;
+  if (fs.existsSync(file)) {
+    try {
+      const old = convertHtmlToJson({ html: `<body><header></header><main>${fs.readFileSync(file, 'utf8')}</main><footer></footer></body>` });
+      same = JSON.stringify(old.json && old.json.data) === JSON.stringify(convertHtmlToJson({ html }).json.data);
+    } catch (e) { same = false; }
+  }
+  if (!same) fs.writeFileSync(file, main);
   written.push(docPath);
   report.documents += 1;
 }
@@ -62,7 +70,11 @@ function writeDetails(docPath, html) {
   if (html === null || html === undefined) return '';
   const file = path.join(CONTENT, `${docPath}.plain.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  const body = String(html).trim() || '<p></p>';
+  // a table around a text (www wraps some notes in a one-cell table) would be a block in a
+  // document: the cells' content stays, the table goes
+  const body = String(html).replace(/<\/?(?:table|tbody|thead|tr)\b[^>]*>/gi, '').replace(/<(?:td|th)\b[^>]*>/gi, '').replace(/<\/(?:td|th)>/gi, '\n')
+    .trim() || '<p></p>';
+  if (/<table/i.test(String(html))) report.tablesUnwrapped = (report.tablesUnwrapped || 0) + 1;
   fs.writeFileSync(file, `<div>${body}</div>`);
   written.push(docPath);
   report.details += 1;

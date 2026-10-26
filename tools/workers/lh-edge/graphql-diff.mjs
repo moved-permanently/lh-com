@@ -12,20 +12,19 @@ const RICH = new Set(['html']);
 
 function normHtml(h) {
   if (typeof h !== 'string') return h;
-  return h
-    .replace(/<(\/?)b>/g, '<$1strong>').replace(/<(\/?)i>/g, '<$1em>')
-    .replace(/<([a-z0-9]+)\s+([^>]*)>/gi, (m, tag, attrs) => {
-      const href = attrs.match(/\bhref="([^"]*)"/);
-      return href ? `<${tag} href="${href[1]}">` : `<${tag}>`;
-    })
-    .replace(/&nbsp;|\u00a0/g, ' ')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/<p>\s*<\/p>/g, '')
-    .replace(/>\s+</g, '><')
-    .replace(/\s+/g, ' ')
-    .replace(/\s*(<\/?(?:p|li|ul|ol|h\d|br)[^>]*>)\s*/g, '$1')
-    .trim();
+  // the text (tags removed, entities decoded, whitespace collapsed) and the link targets: the
+  // markup is Document Authoring's (nesting of bold and links, merged runs, whitespace at their
+  // edges, <b>/<strong>, &amp;/&#x26;, empty paragraphs)
+  const decode = (t) => t.replace(/&nbsp;|\u00a0/g, ' ').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+    .replace(/&#x([0-9a-f]+);/gi, (m, x) => String.fromCodePoint(parseInt(x, 16)))
+    .replace(/&#(\d+);/g, (m, x) => String.fromCodePoint(Number(x)))
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+  const links = [...h.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)].map((m) => decode(m[1]));
+  const text = decode(h.replace(/<\/(p|li|h\d|ul|ol)>|<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ''))
+    .replace(/[\u200b-\u200d\ufeff]/g, '').replace(/\s+/g, '').trim();
+  return `${text} | links: ${links.join(' ')}`;
 }
 
 const fixWww = (v) => (typeof v === 'string'
