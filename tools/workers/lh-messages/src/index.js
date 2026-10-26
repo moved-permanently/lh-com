@@ -412,7 +412,19 @@ export async function handle(request, env, now = Date.now()) {
   }
   if (request.method !== 'GET' && request.method !== 'HEAD') return respond(env, request, { error: 'method-not-allowed' }, 405);
   const name = queryName(url.pathname);
-  if (!name) return respond(env, request, { error: 'not-found' }, 404);
+  if (!name) {
+    // an unknown query: AEM's answer (status, body and cache-control as www)
+    const raw = url.pathname.startsWith(QUERY_PREFIX) ? url.pathname.slice(QUERY_PREFIX.length).split(';')[0] : '';
+    let query = raw;
+    try { query = decodeURIComponent(raw); } catch (e) { /* as sent */ }
+    return respond(env, request, {
+      errors: [{
+        errorType: 'PersistenceError',
+        message: 'Could not find Persisted Query',
+        details: `Configuration: 'Message-Center' and Query Name: '${query}' does not resolve to an existing Persistent Query`,
+      }],
+    }, 404, { 'cache-control': 'public, max-age=120' });
+  }
   try {
     if (name.startsWith('CTI')) {
       return respond(env, request, ctiPages(await loadCtiPages(env)));

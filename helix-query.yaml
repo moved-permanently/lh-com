@@ -416,3 +416,282 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # GraphQL data feeds (lh-edge answers /graphql/execute.json/<config>/<query> from these):
+  # one index per DA structured content model under /data/ (schemas in /.da/forms/schemas/,
+  # tools/feeds/schemas.mjs). The fields are the documents' fields; html is the document
+  # (main) as EDS renders it, which lh-edge reads (nested values, exact types). Each index
+  # JSON is a plain feed of its own (tools/workers/lh-edge/README.md "Data feeds").
+  # What's new of the Lufthansa app (mobileapp/whatsnewList and the pop-up queries)
+  feed-whatsnew:
+    include:
+      - /data/lufthansa-group/mobileapp/whats-new/**
+    target: /data/lufthansa-group/mobileapp/whats-new/query-index.json
+    properties:
+      dam-path:
+        select: div.lh-whatsnew > div:has(#dam-path) > div:last-child
+        value: textContent(el)
+      release-version:
+        select: div.lh-whatsnew > div:has(#release-version) > div:last-child
+        value: textContent(el)
+      date:
+        select: div.lh-whatsnew > div:has(#date) > div:last-child
+        value: textContent(el)
+      activation-date:
+        select: div.lh-whatsnew > div:has(#activation-date) > div:last-child
+        value: textContent(el)
+      headline:
+        select: div.lh-whatsnew > div:has(#headline) > div:last-child
+        value: textContent(el)
+      short-text:
+        select: div.lh-whatsnew > div:has(#short-text) > div:last-child
+        value: textContent(el)
+      long-text:
+        select: div.lh-whatsnew > div:has(#long-text) > div:last-child
+        value: textContent(el)
+      tenants:
+        select: div.lh-whatsnew > div:has(#tenants) > div:last-child li
+        values: textContent(el)
+      platforms:
+        select: div.lh-whatsnew > div:has(#platforms) > div:last-child li
+        values: textContent(el)
+      early-access:
+        select: div.lh-whatsnew > div:has(#early-access) > div:last-child
+        value: textContent(el)
+      start-popup:
+        select: div.lh-whatsnew > div:has(#start-popup) > div:last-child
+        value: textContent(el)
+      feature-flag:
+        select: div.lh-whatsnew > div:has(#feature-flag) > div:last-child
+        value: textContent(el)
+      image:
+        select: div.lh-whatsnew > div:has(#image) > div:last-child
+        value: textContent(el)
+      image-lh:
+        select: div.lh-whatsnew > div:has(#image-lh) > div:last-child
+        value: textContent(el)
+      image-lx:
+        select: div.lh-whatsnew > div:has(#image-lx) > div:last-child
+        value: textContent(el)
+      image-sn:
+        select: div.lh-whatsnew > div:has(#image-sn) > div:last-child
+        value: textContent(el)
+      image-os:
+        select: div.lh-whatsnew > div:has(#image-os) > div:last-child
+        value: textContent(el)
+      image-az:
+        select: div.lh-whatsnew > div:has(#image-az) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-whatsnew > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # upgrade benefits (BenefitCard/BenefitItemsList)
+  feed-benefit-items:
+    include:
+      - /data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/**
+    target: /data/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/query-index.json
+    properties:
+      id:
+        select: div.lh-benefit-item > div:has(#id) > div:last-child
+        value: textContent(el)
+      icon:
+        select: div.lh-benefit-item > div:has(#icon) > div:last-child
+        value: textContent(el)
+      airline:
+        select: div.lh-benefit-item > div:has(#airline) > div:last-child
+        value: textContent(el)
+      flight-type:
+        select: div.lh-benefit-item > div:has(#flight-type) > div:last-child
+        value: textContent(el)
+      label:
+        select: div.lh-benefit-item > div:has(#label) > div:last-child
+        value: textContent(el)
+      upgrade-class:
+        select: div.lh-benefit-item > div:has(#upgrade-class) > div:last-child li
+        values: textContent(el)
+      order:
+        select: div.lh-benefit-item > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # Allegris aircraft (AllegrisUpgrade/AllegrisAircraftsList)
+  feed-allegris-aircraft:
+    include:
+      - /data/lufthansa-group/ancillary/allegris-upgrade/aircraft/**
+    target: /data/lufthansa-group/ancillary/allegris-upgrade/aircraft/query-index.json
+    properties:
+      airline:
+        select: div.lh-allegris-aircraft > div:has(#airline) > div:last-child
+        value: textContent(el)
+      acv:
+        select: div.lh-allegris-aircraft > div:has(#acv) > div:last-child
+        value: textContent(el)
+      display-badge:
+        select: div.lh-allegris-aircraft > div:has(#display-badge) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-allegris-aircraft > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # travel regulations (Travel-Regulations/*)
+  feed-travel-regulations:
+    include:
+      - /data/content-fragments/travelready-infohub/**
+    target: /data/content-fragments/travelready-infohub/query-index.json
+    properties:
+      country:
+        select: div.lh-travel-regulation > div:has(#country) > div:last-child
+        value: textContent(el)
+      variation:
+        select: div.lh-travel-regulation > div:has(#variation) > div:last-child
+        value: textContent(el)
+      destination:
+        select: div.lh-travel-regulation > div:has(#destination) > div:last-child
+        value: textContent(el)
+      transit:
+        select: div.lh-travel-regulation > div:has(#transit) > div:last-child
+        value: textContent(el)
+      created:
+        select: div.lh-travel-regulation > div:has(#created) > div:last-child
+        value: textContent(el)
+      modified:
+        select: div.lh-travel-regulation > div:has(#modified) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-travel-regulation > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # Trip Management catalog (Ancillary-on-TMC/get-ancillaries-catalogs); html holds the variations
+  feed-ancillary-catalog:
+    include:
+      - /data/lufthansa-group/ancillary/tmc/catalog/**
+    target: /data/lufthansa-group/ancillary/tmc/catalog/query-index.json
+    properties:
+      name:
+        select: div.lh-ancillary > div:has(#name) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-ancillary > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # SDUI services (Orchestrator-Services/SDUI-Service-List)
+  feed-sdui-services:
+    include:
+      - /data/content-fragments/orchestrator-services/sdui-services/**
+    target: /data/content-fragments/orchestrator-services/sdui-services/query-index.json
+    properties:
+      dam-path:
+        select: div.lh-sdui-service > div:has(#dam-path) > div:last-child
+        value: textContent(el)
+      description:
+        select: div.lh-sdui-service > div:has(#description) > div:last-child
+        value: textContent(el)
+      service-type:
+        select: div.lh-sdui-service > div:has(#service-type) > div:last-child
+        value: textContent(el)
+      framework:
+        select: div.lh-sdui-service > div:has(#framework) > div:last-child
+        value: textContent(el)
+      url:
+        select: div.lh-sdui-service > div:has(#url) > div:last-child
+        value: textContent(el)
+      provider-class-name:
+        select: div.lh-sdui-service > div:has(#provider-class-name) > div:last-child
+        value: textContent(el)
+      service-is-cacheable:
+        select: div.lh-sdui-service > div:has(#service-is-cacheable) > div:last-child
+        value: textContent(el)
+      caching-time:
+        select: div.lh-sdui-service > div:has(#caching-time) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-sdui-service > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # B2B Neo feature flags (B2BNeo/getFeatureFlag)
+  feed-b2b-flags:
+    include:
+      - /data/hcl/content-fragments/**
+    target: /data/hcl/content-fragments/query-index.json
+    properties:
+      dam-path:
+        select: div.lh-b2b-flag > div:has(#dam-path) > div:last-child
+        value: textContent(el)
+      flag-key:
+        select: div.lh-b2b-flag > div:has(#flag-key) > div:last-child
+        value: textContent(el)
+      enabled:
+        select: div.lh-b2b-flag > div:has(#enabled) > div:last-child
+        value: textContent(el)
+      name:
+        select: div.lh-b2b-flag > div:has(#name) > div:last-child
+        value: textContent(el)
+      description:
+        select: div.lh-b2b-flag > div:has(#description) > div:last-child
+        value: textContent(el)
+      scope:
+        select: div.lh-b2b-flag > div:has(#scope) > div:last-child
+        value: textContent(el)
+      markets:
+        select: div.lh-b2b-flag > div:has(#markets) > div:last-child li
+        values: textContent(el)
+      user-segments:
+        select: div.lh-b2b-flag > div:has(#user-segments) > div:last-child li
+        values: textContent(el)
+      start-date:
+        select: div.lh-b2b-flag > div:has(#start-date) > div:last-child
+        value: textContent(el)
+      end-date:
+        select: div.lh-b2b-flag > div:has(#end-date) > div:last-child
+        value: textContent(el)
+      order:
+        select: div.lh-b2b-flag > div:has(#order) > div:last-child
+        value: textContent(el)
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # companion documents with the rich texts (What's new long text, travel regulation texts)
+  feed-details:
+    include:
+      - /data/details/**
+    target: /data/details/query-index.json
+    properties:
+      html:
+        select: main > div
+        value: innerHTML(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

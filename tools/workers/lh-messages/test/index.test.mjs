@@ -214,7 +214,11 @@ test('routes, headers and CORS', async () => {
   const foreign = await get('/graphql/execute.json/Message-Center/lhgMessageListWithCalendar', 'https://evil.example');
   assert.equal(foreign.status, 200);
   assert.equal(foreign.headers.get('access-control-allow-origin'), null);
-  assert.equal((await get('/graphql/execute.json/Message-Center/unknown')).status, 404);
+  const unknown = await get('/graphql/execute.json/Message-Center/noSuchQuery');
+  assert.equal(unknown.status, 404);
+  assert.equal(unknown.headers.get('cache-control'), 'public, max-age=120');
+  // AEM's answer, as recorded on www (tools/source-export/feeds/graphql/Message-Center-noSuchQuery.json)
+  assert.equal(await unknown.text(), fs.readFileSync(new URL('../../../source-export/feeds/graphql/Message-Center-noSuchQuery.json', import.meta.url), 'utf8'));
   assert.equal((await get('/other')).status, 404);
   assert.equal(queryName('/graphql/execute.json/Message-Center/lhgIrregMessageList;locale=en'), 'lhgIrregMessageList');
   const pre = await worker.fetch(new Request('https://w.example/graphql/execute.json/Message-Center/lhgIrregMessageList', { method: 'OPTIONS', headers: { Origin: ORIGIN } }), env());

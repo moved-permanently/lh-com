@@ -1,0 +1,119 @@
+{
+ "documents": 485,
+ "details": 283,
+ "fixes": [
+  {
+   "where": "CarRental/os redirectBaseUrl",
+   "from": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+   "to": "www.lufthansa.com/gb/en/ts-t/meili.html"
+  },
+  {
+   "where": "CarRental/os imageUrl",
+   "from": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-car_rental_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-car_rental_offerbox.jpg"
+  },
+  {
+   "where": "CarRental/sn redirectBaseUrl",
+   "from": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+   "to": "www.lufthansa.com/gb/en/ts-t/meili.html"
+  },
+  {
+   "where": "CarRental/sn imageUrl",
+   "from": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_car_rental_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/sn_car_rental_offerbox.jpg"
+  },
+  {
+   "where": "CarRental/lx redirectBaseUrl",
+   "from": "qa-www.lufthansa.com/gb/en/ts-t/meili.html",
+   "to": "www.lufthansa.com/gb/en/ts-t/meili.html"
+  },
+  {
+   "where": "CarRental/lx imageUrl",
+   "from": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-car_rental_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lx-car_rental_offerbox.jpg"
+  },
+  {
+   "where": "Lounge/master imageUrl",
+   "from": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg"
+  },
+  {
+   "where": "Lounge/az imageUrl",
+   "from": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg"
+  },
+  {
+   "where": "Hotel/master imageUrl",
+   "from": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/lh_lounge_offerbox.jpg"
+  },
+  {
+   "where": "Hotel/az imageUrl",
+   "from": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az_hotels.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az_hotels.jpg"
+  },
+  {
+   "where": "ParkAero/master imageUrl",
+   "from": "https://qa-www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-parking.jpg",
+   "to": "https://www.lufthansa.com/content/dam/lufthansa-group/ancillary/tmc/all-service-page/os-parking.jpg"
+  }
+ ],
+ "placeholders": [
+  {
+   "position": 0,
+   "country": "aa-placeholder-0",
+   "text": "Test&nbsp;"
+  },
+  {
+   "position": 12,
+   "country": "iz-placeholder-12",
+   "text": "Passengers must submit the customs and immigration form before departure (or lat"
+  }
+ ],
+ "inferred": [
+  {
+   "position": 1,
+   "country": "at",
+   "from": "including Austria"
+  },
+  {
+   "position": 2,
+   "country": "be",
+   "from": "including Belgium"
+  },
+  {
+   "position": 4,
+   "country": "ch",
+   "from": "including Switzerland"
+  },
+  {
+   "position": 6,
+   "country": "de",
+   "from": "including Germany"
+  },
+  {
+   "position": 7,
+   "country": "do",
+   "from": "eticket.migracion.gob.do"
+  },
+  {
+   "position": 8,
+   "country": "ge",
+   "from": "written in Georgian"
+  },
+  {
+   "position": 11,
+   "country": "it",
+   "from": "arriving in Italy"
+  },
+  {
+   "position": 21,
+   "country": "uk",
+   "from": "Traveling to the United Kingdom"
+  }
+ ],
+ "tmc": {
+  "keys": 72,
+  "locales": 31
+ }
+}
