@@ -103,3 +103,27 @@ destinationfinder/flightinfo, flight-prices MONTHS and DAYS, ondcontrol/validate
 catalogs/localeData), an article with a sticky price (`teaser/price/FRA`: 204 from the German market) and the de/en
 homepage. `destination/pages/*.jpg`: full-page screenshots of the four destination pages at 1440. For tests and
 documentation only (`test/destination-offer.test.mjs`, `blocks/destination-offer/README.md`); no block shows these prices.
+
+## Site search, `search/`
+
+www's site search, recorded 2026-10-26 00:53 UTC: `POST /service/secured/api/search` with `{"phrase": "<phrase>"}`,
+`X-Portal: LH`, `X-Portal-Site`, `X-Portal-Language`, no credentials. 10 phrases per locale (40 answers,
+`search-<cc>-<ll>-<phrase>.json`, bodies byte for byte), `search-no-headers.json` and `search-empty-de-en.json` (both
+400 `{"error":"Invalid input",...}`), the four search result pages `page-<cc>-<ll>.html`
+(`/<cc>/<ll>/support/search/search-result`, all 200) and `index.json` (file, URL, request headers and body, status,
+content type, size, phrase, locale). Answers are `{results, total, pageSize: 10}` with at most 30 results; `total` is
+the number returned. No `cache-control` on any answer. Result links are AEM paths (`/content/lh/markets/de/en/...`),
+not public URLs.
+
+| phrase | de/en | gb/en | phrase | de/de | at/de |
+|---|---|---|---|---|---|
+| baggage | 30 | 30 | Gepäck | 30 | 30 |
+| check-in | 30 | 30 | Check-in | 30 | 30 |
+| refund | 27 | 26 | Erstattung | 18 | 23 |
+| lounge | 30 | 24 | Lounge | 30 | 24 |
+| wifi | 3 | 3 | WLAN | 6 | 6 |
+| pets | 3 | 3 | Tiere | 6 | 6 |
+| wheelchair | 4 | 4 | Rollstuhl | 3 | 3 |
+| miles and more | 30 | 30 | Miles & More | 30 | 30 |
+| seat reservation | 17 | 17 | Sitzplatzreservierung | 12 | 12 |
+| rebooking | 22 | 20 | Umbuchung | 17 | 22 |

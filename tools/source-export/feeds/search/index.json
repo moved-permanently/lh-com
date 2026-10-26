@@ -1,0 +1,899 @@
+[
+  {
+    "file": "search-de-en-baggage.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"baggage\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7553,
+    "recordedAt": "2026-10-26T00:53:18.111Z",
+    "phrase": "baggage",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-check-in.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"check-in\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7401,
+    "recordedAt": "2026-10-26T00:53:22.111Z",
+    "phrase": "check-in",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-refund.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"refund\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7774,
+    "recordedAt": "2026-10-26T00:53:26.111Z",
+    "phrase": "refund",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-lounge.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"lounge\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 5066,
+    "recordedAt": "2026-10-26T00:53:30.111Z",
+    "phrase": "lounge",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-wifi.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"wifi\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 840,
+    "recordedAt": "2026-10-26T00:53:34.110Z",
+    "phrase": "wifi",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-pets.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"pets\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 724,
+    "recordedAt": "2026-10-26T00:53:38.110Z",
+    "phrase": "pets",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-wheelchair.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"wheelchair\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1487,
+    "recordedAt": "2026-10-26T00:53:42.111Z",
+    "phrase": "wheelchair",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-miles-and-more.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"miles and more\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 8112,
+    "recordedAt": "2026-10-26T00:53:46.110Z",
+    "phrase": "miles and more",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-seat-reservation.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"seat reservation\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 4590,
+    "recordedAt": "2026-10-26T00:53:50.110Z",
+    "phrase": "seat reservation",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-en-rebooking.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"rebooking\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 6379,
+    "recordedAt": "2026-10-26T00:53:54.110Z",
+    "phrase": "rebooking",
+    "locale": "de/en"
+  },
+  {
+    "file": "search-de-de-gepaeck.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Gepäck\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7758,
+    "recordedAt": "2026-10-26T00:53:58.110Z",
+    "phrase": "Gepäck",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-check-in.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Check-in\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7248,
+    "recordedAt": "2026-10-26T00:54:02.110Z",
+    "phrase": "Check-in",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-erstattung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Erstattung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 4659,
+    "recordedAt": "2026-10-26T00:54:06.110Z",
+    "phrase": "Erstattung",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-lounge.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Lounge\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 5153,
+    "recordedAt": "2026-10-26T00:54:10.109Z",
+    "phrase": "Lounge",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-wlan.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"WLAN\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1899,
+    "recordedAt": "2026-10-26T00:54:14.110Z",
+    "phrase": "WLAN",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-tiere.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Tiere\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1987,
+    "recordedAt": "2026-10-26T00:54:18.110Z",
+    "phrase": "Tiere",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-rollstuhl.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Rollstuhl\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1172,
+    "recordedAt": "2026-10-26T00:54:22.109Z",
+    "phrase": "Rollstuhl",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-miles-and-more.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Miles & More\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7502,
+    "recordedAt": "2026-10-26T00:54:26.110Z",
+    "phrase": "Miles & More",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-sitzplatzreservierung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Sitzplatzreservierung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 3416,
+    "recordedAt": "2026-10-26T00:54:30.110Z",
+    "phrase": "Sitzplatzreservierung",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-de-de-umbuchung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Umbuchung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 4834,
+    "recordedAt": "2026-10-26T00:54:34.110Z",
+    "phrase": "Umbuchung",
+    "locale": "de/de"
+  },
+  {
+    "file": "search-at-de-gepaeck.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Gepäck\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 8003,
+    "recordedAt": "2026-10-26T00:54:38.110Z",
+    "phrase": "Gepäck",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-check-in.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Check-in\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7248,
+    "recordedAt": "2026-10-26T00:54:42.109Z",
+    "phrase": "Check-in",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-erstattung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Erstattung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 6177,
+    "recordedAt": "2026-10-26T00:54:46.109Z",
+    "phrase": "Erstattung",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-lounge.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Lounge\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7175,
+    "recordedAt": "2026-10-26T00:54:50.109Z",
+    "phrase": "Lounge",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-wlan.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"WLAN\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1899,
+    "recordedAt": "2026-10-26T00:54:54.110Z",
+    "phrase": "WLAN",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-tiere.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Tiere\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1987,
+    "recordedAt": "2026-10-26T00:54:58.110Z",
+    "phrase": "Tiere",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-rollstuhl.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Rollstuhl\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1172,
+    "recordedAt": "2026-10-26T00:55:02.110Z",
+    "phrase": "Rollstuhl",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-miles-and-more.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Miles & More\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7924,
+    "recordedAt": "2026-10-26T00:55:06.109Z",
+    "phrase": "Miles & More",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-sitzplatzreservierung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Sitzplatzreservierung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 3416,
+    "recordedAt": "2026-10-26T00:55:10.109Z",
+    "phrase": "Sitzplatzreservierung",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-at-de-umbuchung.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "AT",
+      "X-Portal-Language": "de"
+    },
+    "requestBody": "{\"phrase\":\"Umbuchung\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 6454,
+    "recordedAt": "2026-10-26T00:55:14.110Z",
+    "phrase": "Umbuchung",
+    "locale": "at/de"
+  },
+  {
+    "file": "search-gb-en-baggage.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"baggage\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7553,
+    "recordedAt": "2026-10-26T00:55:18.110Z",
+    "phrase": "baggage",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-check-in.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"check-in\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7496,
+    "recordedAt": "2026-10-26T00:55:22.110Z",
+    "phrase": "check-in",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-refund.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"refund\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7443,
+    "recordedAt": "2026-10-26T00:55:26.110Z",
+    "phrase": "refund",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-lounge.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"lounge\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 7136,
+    "recordedAt": "2026-10-26T00:55:30.109Z",
+    "phrase": "lounge",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-wifi.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"wifi\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 840,
+    "recordedAt": "2026-10-26T00:55:34.110Z",
+    "phrase": "wifi",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-pets.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"pets\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 724,
+    "recordedAt": "2026-10-26T00:55:38.110Z",
+    "phrase": "pets",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-wheelchair.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"wheelchair\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 1487,
+    "recordedAt": "2026-10-26T00:55:42.110Z",
+    "phrase": "wheelchair",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-miles-and-more.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"miles and more\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 8557,
+    "recordedAt": "2026-10-26T00:55:46.109Z",
+    "phrase": "miles and more",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-seat-reservation.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"seat reservation\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 4561,
+    "recordedAt": "2026-10-26T00:55:51.110Z",
+    "phrase": "seat reservation",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-gb-en-rebooking.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "GB",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"rebooking\"}",
+    "credentials": "omit",
+    "status": 200,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 5750,
+    "recordedAt": "2026-10-26T00:55:55.109Z",
+    "phrase": "rebooking",
+    "locale": "gb/en"
+  },
+  {
+    "file": "search-no-headers.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json"
+    },
+    "requestBody": "{\"phrase\":\"baggage\"}",
+    "credentials": "omit",
+    "status": 400,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 59,
+    "recordedAt": "2026-10-26T00:55:59.109Z",
+    "phrase": "baggage",
+    "locale": null
+  },
+  {
+    "file": "search-empty-de-en.json",
+    "url": "https://www.lufthansa.com/service/secured/api/search",
+    "method": "POST",
+    "requestHeaders": {
+      "content-type": "application/json",
+      "X-Portal": "LH",
+      "X-Portal-Site": "DE",
+      "X-Portal-Language": "en"
+    },
+    "requestBody": "{\"phrase\":\"\"}",
+    "credentials": "omit",
+    "status": 400,
+    "contentType": "application/json",
+    "cacheControl": null,
+    "bytes": 59,
+    "recordedAt": "2026-10-26T00:56:03.110Z",
+    "phrase": "",
+    "locale": "de/en"
+  },
+  {
+    "file": "page-de-en.html",
+    "url": "https://www.lufthansa.com/de/en/support/search/search-result?query=baggage",
+    "method": "GET",
+    "requestHeaders": {},
+    "requestBody": null,
+    "credentials": "include",
+    "status": 200,
+    "contentType": "text/html;charset=utf-8",
+    "cacheControl": "public, max-age=300",
+    "bytes": 48524,
+    "recordedAt": "2026-10-26T00:56:07.110Z",
+    "phrase": null,
+    "locale": "de/en"
+  },
+  {
+    "file": "page-de-de.html",
+    "url": "https://www.lufthansa.com/de/de/support/search/search-result?query=Gep%C3%A4ck",
+    "method": "GET",
+    "requestHeaders": {},
+    "requestBody": null,
+    "credentials": "include",
+    "status": 200,
+    "contentType": "text/html;charset=utf-8",
+    "cacheControl": "public, max-age=300",
+    "bytes": 48753,
+    "recordedAt": "2026-10-26T00:56:11.109Z",
+    "phrase": null,
+    "locale": "de/de"
+  },
+  {
+    "file": "page-at-de.html",
+    "url": "https://www.lufthansa.com/at/de/support/search/search-result?query=Gep%C3%A4ck",
+    "method": "GET",
+    "requestHeaders": {},
+    "requestBody": null,
+    "credentials": "include",
+    "status": 200,
+    "contentType": "text/html;charset=utf-8",
+    "cacheControl": "public, max-age=300",
+    "bytes": 48753,
+    "recordedAt": "2026-10-26T00:56:15.109Z",
+    "phrase": null,
+    "locale": "at/de"
+  },
+  {
+    "file": "page-gb-en.html",
+    "url": "https://www.lufthansa.com/gb/en/support/search/search-result?query=baggage",
+    "method": "GET",
+    "requestHeaders": {},
+    "requestBody": null,
+    "credentials": "include",
+    "status": 200,
+    "contentType": "text/html;charset=utf-8",
+    "cacheControl": "public, max-age=300",
+    "bytes": 48524,
+    "recordedAt": "2026-10-26T00:56:19.109Z",
+    "phrase": null,
+    "locale": "gb/en"
+  }
+]
