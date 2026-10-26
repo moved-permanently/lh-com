@@ -1,0 +1,303 @@
+# Article header videos
+
+2026-10-26. www's moving image in the article header (data-dcep videoUrl) as an optional video link in the article-header block (README); re-imported, post-processed (head-metadata, postprocess-media), switch-dam-media, uploaded and previewed. Each document equals its earlier version apart from the video link.
+
+## Publish after your check (176): header video from DA, nothing in R2
+
+- /at/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /at/de/articles/explore-flying/what-does-luxury-mean-today
+- /at/de/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /at/de/articles/explore-the-world/essentials-amsterdam-facts
+- /at/de/articles/explore-the-world/essentials-athens-facts
+- /at/de/articles/explore-the-world/essentials-bangkok-facts
+- /at/de/articles/explore-the-world/essentials-barcelona-facts
+- /at/de/articles/explore-the-world/essentials-beijing-facts
+- /at/de/articles/explore-the-world/essentials-bengaluru-facts
+- /at/de/articles/explore-the-world/essentials-boston-facts
+- /at/de/articles/explore-the-world/essentials-budapest-facts
+- /at/de/articles/explore-the-world/essentials-buenos-aires-facts
+- /at/de/articles/explore-the-world/essentials-cape-town-facts
+- /at/de/articles/explore-the-world/essentials-charlotte-facts
+- /at/de/articles/explore-the-world/essentials-chicago-facts
+- /at/de/articles/explore-the-world/essentials-dublin-facts
+- /at/de/articles/explore-the-world/essentials-facts-vancouver ({mobile})
+- /at/de/articles/explore-the-world/essentials-frankfurt-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-helsinki-facts
+- /at/de/articles/explore-the-world/essentials-johannesburg-facts
+- /at/de/articles/explore-the-world/essentials-la-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-london-facts
+- /at/de/articles/explore-the-world/essentials-mallorca-facts
+- /at/de/articles/explore-the-world/essentials-mexico-city-facts
+- /at/de/articles/explore-the-world/essentials-milan-facts
+- /at/de/articles/explore-the-world/essentials-mumbai-facts
+- /at/de/articles/explore-the-world/essentials-munich-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-ny-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-oslo-facts
+- /at/de/articles/explore-the-world/essentials-paris-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-prague-facts
+- /at/de/articles/explore-the-world/essentials-rio-de-janeiro-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-rome-facts
+- /at/de/articles/explore-the-world/essentials-san-francisco-facts
+- /at/de/articles/explore-the-world/essentials-seoul-facts
+- /at/de/articles/explore-the-world/essentials-shanghai-facts
+- /at/de/articles/explore-the-world/essentials-singapore-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-tokyo-facts
+- /at/de/articles/explore-the-world/essentials-toronto-facts ({mobile})
+- /at/de/articles/explore-the-world/essentials-vienna-facts
+- /at/de/articles/explore-the-world/essentials-washington-facts
+- /at/de/articles/explore-the-world/essentials-zurich-facts
+- /at/de/articles/highlights/rome-art-and-culture
+- /at/de/articles/highlights/sports-experiences-rio-de-janeiro
+- /de/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /de/de/articles/explore-flying/what-does-luxury-mean-today
+- /de/de/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /de/de/articles/explore-the-world/essentials-amsterdam-facts
+- /de/de/articles/explore-the-world/essentials-athens-facts
+- /de/de/articles/explore-the-world/essentials-bangkok-facts
+- /de/de/articles/explore-the-world/essentials-barcelona-facts
+- /de/de/articles/explore-the-world/essentials-beijing-facts
+- /de/de/articles/explore-the-world/essentials-bengaluru-facts
+- /de/de/articles/explore-the-world/essentials-boston-facts
+- /de/de/articles/explore-the-world/essentials-budapest-facts
+- /de/de/articles/explore-the-world/essentials-buenos-aires-facts
+- /de/de/articles/explore-the-world/essentials-cape-town-facts
+- /de/de/articles/explore-the-world/essentials-charlotte-facts
+- /de/de/articles/explore-the-world/essentials-chicago-facts
+- /de/de/articles/explore-the-world/essentials-dublin-facts
+- /de/de/articles/explore-the-world/essentials-facts-vancouver ({mobile})
+- /de/de/articles/explore-the-world/essentials-frankfurt-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-helsinki-facts
+- /de/de/articles/explore-the-world/essentials-johannesburg-facts
+- /de/de/articles/explore-the-world/essentials-la-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-london-facts
+- /de/de/articles/explore-the-world/essentials-mallorca-facts
+- /de/de/articles/explore-the-world/essentials-mexico-city-facts
+- /de/de/articles/explore-the-world/essentials-milan-facts
+- /de/de/articles/explore-the-world/essentials-mumbai-facts
+- /de/de/articles/explore-the-world/essentials-munich-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-ny-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-oslo-facts
+- /de/de/articles/explore-the-world/essentials-paris-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-prague-facts
+- /de/de/articles/explore-the-world/essentials-rio-de-janeiro-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-rome-facts
+- /de/de/articles/explore-the-world/essentials-san-francisco-facts
+- /de/de/articles/explore-the-world/essentials-seoul-facts
+- /de/de/articles/explore-the-world/essentials-shanghai-facts
+- /de/de/articles/explore-the-world/essentials-singapore-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-tokyo-facts
+- /de/de/articles/explore-the-world/essentials-toronto-facts ({mobile})
+- /de/de/articles/explore-the-world/essentials-vienna-facts
+- /de/de/articles/explore-the-world/essentials-washington-facts
+- /de/de/articles/explore-the-world/essentials-zurich-facts
+- /de/de/articles/highlights/rome-art-and-culture
+- /de/de/articles/highlights/sports-experiences-rio-de-janeiro
+- /de/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /de/en/articles/explore-flying/what-does-luxury-mean-today
+- /de/en/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /de/en/articles/explore-the-world/essentials-amsterdam-facts
+- /de/en/articles/explore-the-world/essentials-athens-facts
+- /de/en/articles/explore-the-world/essentials-bangkok-facts
+- /de/en/articles/explore-the-world/essentials-barcelona-facts
+- /de/en/articles/explore-the-world/essentials-beijing-facts
+- /de/en/articles/explore-the-world/essentials-bengaluru-facts
+- /de/en/articles/explore-the-world/essentials-boston-facts
+- /de/en/articles/explore-the-world/essentials-budapest-facts
+- /de/en/articles/explore-the-world/essentials-buenos-aires-facts
+- /de/en/articles/explore-the-world/essentials-cape-town-facts
+- /de/en/articles/explore-the-world/essentials-charlotte-facts
+- /de/en/articles/explore-the-world/essentials-chicago-facts
+- /de/en/articles/explore-the-world/essentials-dublin-facts
+- /de/en/articles/explore-the-world/essentials-facts-vancouver ({mobile})
+- /de/en/articles/explore-the-world/essentials-frankfurt-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-helsinki-facts
+- /de/en/articles/explore-the-world/essentials-johannesburg-facts
+- /de/en/articles/explore-the-world/essentials-la-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-london-facts
+- /de/en/articles/explore-the-world/essentials-mallorca-facts
+- /de/en/articles/explore-the-world/essentials-mexico-city-facts
+- /de/en/articles/explore-the-world/essentials-milan-facts
+- /de/en/articles/explore-the-world/essentials-mumbai-facts
+- /de/en/articles/explore-the-world/essentials-munich-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-ny-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-oslo-facts
+- /de/en/articles/explore-the-world/essentials-paris-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-prague-facts
+- /de/en/articles/explore-the-world/essentials-rio-de-janeiro-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-rome-facts
+- /de/en/articles/explore-the-world/essentials-san-francisco-facts
+- /de/en/articles/explore-the-world/essentials-seoul-facts
+- /de/en/articles/explore-the-world/essentials-shanghai-facts
+- /de/en/articles/explore-the-world/essentials-singapore-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-tokyo-facts
+- /de/en/articles/explore-the-world/essentials-toronto-facts ({mobile})
+- /de/en/articles/explore-the-world/essentials-vienna-facts
+- /de/en/articles/explore-the-world/essentials-washington-facts
+- /de/en/articles/explore-the-world/essentials-zurich-facts
+- /de/en/articles/highlights/rome-art-and-culture
+- /de/en/articles/highlights/sports-experiences-rio-de-janeiro
+- /gb/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /gb/en/articles/explore-flying/what-does-luxury-mean-today
+- /gb/en/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /gb/en/articles/explore-the-world/essentials-amsterdam-facts
+- /gb/en/articles/explore-the-world/essentials-athens-facts
+- /gb/en/articles/explore-the-world/essentials-bangkok-facts
+- /gb/en/articles/explore-the-world/essentials-barcelona-facts
+- /gb/en/articles/explore-the-world/essentials-beijing-facts
+- /gb/en/articles/explore-the-world/essentials-bengaluru-facts
+- /gb/en/articles/explore-the-world/essentials-boston-facts
+- /gb/en/articles/explore-the-world/essentials-budapest-facts
+- /gb/en/articles/explore-the-world/essentials-buenos-aires-facts
+- /gb/en/articles/explore-the-world/essentials-cape-town-facts
+- /gb/en/articles/explore-the-world/essentials-charlotte-facts
+- /gb/en/articles/explore-the-world/essentials-chicago-facts
+- /gb/en/articles/explore-the-world/essentials-dublin-facts
+- /gb/en/articles/explore-the-world/essentials-facts-vancouver ({mobile})
+- /gb/en/articles/explore-the-world/essentials-frankfurt-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-helsinki-facts
+- /gb/en/articles/explore-the-world/essentials-johannesburg-facts
+- /gb/en/articles/explore-the-world/essentials-la-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-london-facts
+- /gb/en/articles/explore-the-world/essentials-mallorca-facts
+- /gb/en/articles/explore-the-world/essentials-mexico-city-facts
+- /gb/en/articles/explore-the-world/essentials-milan-facts
+- /gb/en/articles/explore-the-world/essentials-mumbai-facts
+- /gb/en/articles/explore-the-world/essentials-munich-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-ny-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-oslo-facts
+- /gb/en/articles/explore-the-world/essentials-paris-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-prague-facts
+- /gb/en/articles/explore-the-world/essentials-rio-de-janeiro-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-rome-facts
+- /gb/en/articles/explore-the-world/essentials-san-francisco-facts
+- /gb/en/articles/explore-the-world/essentials-seoul-facts
+- /gb/en/articles/explore-the-world/essentials-shanghai-facts
+- /gb/en/articles/explore-the-world/essentials-singapore-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-tokyo-facts
+- /gb/en/articles/explore-the-world/essentials-toronto-facts ({mobile})
+- /gb/en/articles/explore-the-world/essentials-vienna-facts
+- /gb/en/articles/explore-the-world/essentials-washington-facts
+- /gb/en/articles/explore-the-world/essentials-zurich-facts
+- /gb/en/articles/highlights/rome-art-and-culture
+- /gb/en/articles/highlights/sports-experiences-rio-de-janeiro
+
+## Hold with the 226 R2 video documents (18): header video added, other videos in R2
+
+- /at/de/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /at/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /at/de/articles/explore-flying/yes-stories-thorsten-buss
+- /at/de/articles/explore-flying/yes-stories-tom-rees
+- /de/de/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /de/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /de/de/articles/explore-flying/yes-stories-thorsten-buss
+- /de/de/articles/explore-flying/yes-stories-tom-rees
+- /de/en/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /de/en/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /de/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /de/en/articles/explore-flying/yes-stories-thorsten-buss
+- /de/en/articles/explore-flying/yes-stories-tom-rees
+- /gb/en/articles/explore-flying/help-alliance-engagement-in-tanzania
+- /gb/en/articles/explore-flying/yes-stories-the-fascination-of-skydiving
+- /gb/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree
+- /gb/en/articles/explore-flying/yes-stories-thorsten-buss
+- /gb/en/articles/explore-flying/yes-stories-tom-rees
+
+## Left with the still picture (6)
+
+- /de/de/articles/explore-the-world/essentials-hong-kong-facts: /content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4 (gone on www)
+- /de/de/articles/explore-flying/yes-stories-the-fascination-of-skydiving: /content/dam/video/c3/campaigns/yes-story/lh/01_video/lh_blog_yes_video_tim_1920x1080.mp4 (225 MB film, R2 only)
+- /de/en/articles/explore-the-world/essentials-hong-kong-facts: /content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4 (gone on www)
+- /gb/en/articles/explore-the-world/essentials-hong-kong-facts: /content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4 (gone on www)
+- /at/de/articles/explore-the-world/essentials-hong-kong-facts: /content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4 (gone on www)
+- /at/de/articles/explore-flying/yes-stories-the-fascination-of-skydiving: /content/dam/video/c3/campaigns/yes-story/lh/01_video/lh_blog_yes_video_tim_1920x1080.mp4 (225 MB film, R2 only)
+
+## Not part of this change: the 84 www-only video documents, switched locally only after their files appeared on lh-edge (88, not uploaded)
+
+- /at/de/100-years
+- /at/de/100-years/cabin-design
+- /at/de/100-years/chronicle
+- /at/de/100-years/crane
+- /at/de/100-years/destinations
+- /at/de/100-years/fleet
+- /at/de/100-years/history
+- /at/de/100-years/history/menu-on-board
+- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /at/de/articles/highlights/all-it-takes-is-a-yes
+- /at/de/baggage-irregularities
+- /at/de/business-class
+- /at/de/check-in-baggage
+- /at/de/discover-lufthansa/new-onboard-experience
+- /at/de/economy-class
+- /at/de/first-class
+- /at/de/first-class-terminal
+- /at/de/flugunregelmaessigkeiten
+- /at/de/handgepaeck
+- /at/de/lufthansa-terminal-muenchen
+- /at/de/premium-economy-class
+- /at/de/tiere-als-uebergepaeck
+- /de/de/100-years
+- /de/de/100-years/cabin-design
+- /de/de/100-years/chronicle
+- /de/de/100-years/crane
+- /de/de/100-years/destinations
+- /de/de/100-years/fleet
+- /de/de/100-years/history
+- /de/de/100-years/history/menu-on-board
+- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /de/de/articles/highlights/all-it-takes-is-a-yes
+- /de/de/baggage-irregularities
+- /de/de/business-class
+- /de/de/check-in-baggage
+- /de/de/discover-lufthansa/new-onboard-experience
+- /de/de/economy-class
+- /de/de/first-class
+- /de/de/first-class-terminal
+- /de/de/flugunregelmaessigkeiten
+- /de/de/handgepaeck
+- /de/de/lufthansa-terminal-muenchen
+- /de/de/premium-economy-class
+- /de/de/tiere-als-uebergepaeck
+- /de/en/100-years
+- /de/en/100-years/cabin-design
+- /de/en/100-years/chronicle
+- /de/en/100-years/crane
+- /de/en/100-years/destinations
+- /de/en/100-years/fleet
+- /de/en/100-years/history
+- /de/en/100-years/history/menu-on-board
+- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /de/en/articles/highlights/all-it-takes-is-a-yes
+- /de/en/baggage-irregularities
+- /de/en/business-class
+- /de/en/carry-on-baggage
+- /de/en/check-in-baggage
+- /de/en/discover-lufthansa/new-onboard-experience
+- /de/en/economy-class
+- /de/en/first-class
+- /de/en/first-class-terminal
+- /de/en/flight-disruptions
+- /de/en/lufthansa-terminal-muenchen
+- /de/en/premium-economy-class
+- /de/en/tiere-als-uebergepaeck
+- /gb/en/100-years
+- /gb/en/100-years/cabin-design
+- /gb/en/100-years/chronicle
+- /gb/en/100-years/crane
+- /gb/en/100-years/destinations
+- /gb/en/100-years/fleet
+- /gb/en/100-years/history
+- /gb/en/100-years/history/menu-on-board
+- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
+- /gb/en/articles/highlights/all-it-takes-is-a-yes
+- /gb/en/baggage-irregularities
+- /gb/en/business-class
+- /gb/en/carry-on-baggage
+- /gb/en/check-in-baggage
+- /gb/en/discover-lufthansa/new-onboard-experience
+- /gb/en/economy-class
+- /gb/en/first-class
+- /gb/en/first-class-terminal
+- /gb/en/flight-disruptions
+- /gb/en/lufthansa-terminal-muenchen
+- /gb/en/premium-economy-class
+- /gb/en/tiere-als-uebergepaeck

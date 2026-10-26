@@ -1,14 +1,229 @@
 # Documents that play the site's own videos
 
-2026-10-26T15:43:32.340Z, files checked on https://lhedge.bbird.live
+2026-10-26T17:14:10.860Z, files checked on https://lhedge.bbird.live
 
-310 documents play videos; 226 use the site's own files (484 video links, 912 subtitle links). Files: 0 in DA, 649 in R2, 77 not there yet.
+486 documents play videos; 486 use the site's own files (211 video links, 36 subtitle links). Files: 77 in DA, 697 in R2, 0 not there yet.
 
-## Every file in DA (0)
+## Every file in DA (210)
 
+- /at/de/100-years/cabin-design
+- /at/de/100-years/chronicle
+- /at/de/100-years/fleet
+- /at/de/100-years/history/menu-on-board
+- /at/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /at/de/articles/explore-flying/what-does-luxury-mean-today
+- /at/de/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /at/de/articles/explore-the-world/essentials-amsterdam-facts
+- /at/de/articles/explore-the-world/essentials-athens-facts
+- /at/de/articles/explore-the-world/essentials-bangkok-facts
+- /at/de/articles/explore-the-world/essentials-barcelona-facts
+- /at/de/articles/explore-the-world/essentials-beijing-facts
+- /at/de/articles/explore-the-world/essentials-bengaluru-facts
+- /at/de/articles/explore-the-world/essentials-boston-facts
+- /at/de/articles/explore-the-world/essentials-budapest-facts
+- /at/de/articles/explore-the-world/essentials-buenos-aires-facts
+- /at/de/articles/explore-the-world/essentials-cape-town-facts
+- /at/de/articles/explore-the-world/essentials-charlotte-facts
+- /at/de/articles/explore-the-world/essentials-chicago-facts
+- /at/de/articles/explore-the-world/essentials-dublin-facts
+- /at/de/articles/explore-the-world/essentials-facts-vancouver
+- /at/de/articles/explore-the-world/essentials-frankfurt-facts
+- /at/de/articles/explore-the-world/essentials-helsinki-facts
+- /at/de/articles/explore-the-world/essentials-johannesburg-facts
+- /at/de/articles/explore-the-world/essentials-la-facts
+- /at/de/articles/explore-the-world/essentials-london-facts
+- /at/de/articles/explore-the-world/essentials-mallorca-facts
+- /at/de/articles/explore-the-world/essentials-mexico-city-facts
+- /at/de/articles/explore-the-world/essentials-milan-facts
+- /at/de/articles/explore-the-world/essentials-mumbai-facts
+- /at/de/articles/explore-the-world/essentials-munich-facts
+- /at/de/articles/explore-the-world/essentials-ny-facts
+- /at/de/articles/explore-the-world/essentials-oslo-facts
+- /at/de/articles/explore-the-world/essentials-paris-facts
+- /at/de/articles/explore-the-world/essentials-prague-facts
+- /at/de/articles/explore-the-world/essentials-rio-de-janeiro-facts
+- /at/de/articles/explore-the-world/essentials-rome-facts
+- /at/de/articles/explore-the-world/essentials-san-francisco-facts
+- /at/de/articles/explore-the-world/essentials-seoul-facts
+- /at/de/articles/explore-the-world/essentials-shanghai-facts
+- /at/de/articles/explore-the-world/essentials-singapore-facts
+- /at/de/articles/explore-the-world/essentials-tokyo-facts
+- /at/de/articles/explore-the-world/essentials-toronto-facts
+- /at/de/articles/explore-the-world/essentials-vienna-facts
+- /at/de/articles/explore-the-world/essentials-washington-facts
+- /at/de/articles/explore-the-world/essentials-zurich-facts
+- /at/de/articles/highlights/rome-art-and-culture
+- /at/de/articles/highlights/sports-experiences-rio-de-janeiro
+- /at/de/business-class
+- /at/de/economy-class
+- /at/de/first-class-terminal
+- /at/de/lufthansa-terminal-muenchen
+- /at/de/premium-economy-class
+- /de/de/100-years/cabin-design
+- /de/de/100-years/chronicle
+- /de/de/100-years/fleet
+- /de/de/100-years/history/menu-on-board
+- /de/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /de/de/articles/explore-flying/what-does-luxury-mean-today
+- /de/de/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /de/de/articles/explore-the-world/essentials-amsterdam-facts
+- /de/de/articles/explore-the-world/essentials-athens-facts
+- /de/de/articles/explore-the-world/essentials-bangkok-facts
+- /de/de/articles/explore-the-world/essentials-barcelona-facts
+- /de/de/articles/explore-the-world/essentials-beijing-facts
+- /de/de/articles/explore-the-world/essentials-bengaluru-facts
+- /de/de/articles/explore-the-world/essentials-boston-facts
+- /de/de/articles/explore-the-world/essentials-budapest-facts
+- /de/de/articles/explore-the-world/essentials-buenos-aires-facts
+- /de/de/articles/explore-the-world/essentials-cape-town-facts
+- /de/de/articles/explore-the-world/essentials-charlotte-facts
+- /de/de/articles/explore-the-world/essentials-chicago-facts
+- /de/de/articles/explore-the-world/essentials-dublin-facts
+- /de/de/articles/explore-the-world/essentials-facts-vancouver
+- /de/de/articles/explore-the-world/essentials-frankfurt-facts
+- /de/de/articles/explore-the-world/essentials-helsinki-facts
+- /de/de/articles/explore-the-world/essentials-johannesburg-facts
+- /de/de/articles/explore-the-world/essentials-la-facts
+- /de/de/articles/explore-the-world/essentials-london-facts
+- /de/de/articles/explore-the-world/essentials-mallorca-facts
+- /de/de/articles/explore-the-world/essentials-mexico-city-facts
+- /de/de/articles/explore-the-world/essentials-milan-facts
+- /de/de/articles/explore-the-world/essentials-mumbai-facts
+- /de/de/articles/explore-the-world/essentials-munich-facts
+- /de/de/articles/explore-the-world/essentials-ny-facts
+- /de/de/articles/explore-the-world/essentials-oslo-facts
+- /de/de/articles/explore-the-world/essentials-paris-facts
+- /de/de/articles/explore-the-world/essentials-prague-facts
+- /de/de/articles/explore-the-world/essentials-rio-de-janeiro-facts
+- /de/de/articles/explore-the-world/essentials-rome-facts
+- /de/de/articles/explore-the-world/essentials-san-francisco-facts
+- /de/de/articles/explore-the-world/essentials-seoul-facts
+- /de/de/articles/explore-the-world/essentials-shanghai-facts
+- /de/de/articles/explore-the-world/essentials-singapore-facts
+- /de/de/articles/explore-the-world/essentials-tokyo-facts
+- /de/de/articles/explore-the-world/essentials-toronto-facts
+- /de/de/articles/explore-the-world/essentials-vienna-facts
+- /de/de/articles/explore-the-world/essentials-washington-facts
+- /de/de/articles/explore-the-world/essentials-zurich-facts
+- /de/de/articles/highlights/rome-art-and-culture
+- /de/de/articles/highlights/sports-experiences-rio-de-janeiro
+- /de/de/business-class
+- /de/de/economy-class
+- /de/de/first-class-terminal
+- /de/de/lufthansa-terminal-muenchen
+- /de/de/premium-economy-class
+- /de/en/100-years/cabin-design
+- /de/en/100-years/chronicle
+- /de/en/100-years/fleet
+- /de/en/100-years/history/menu-on-board
+- /de/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /de/en/articles/explore-flying/what-does-luxury-mean-today
+- /de/en/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /de/en/articles/explore-the-world/essentials-amsterdam-facts
+- /de/en/articles/explore-the-world/essentials-athens-facts
+- /de/en/articles/explore-the-world/essentials-bangkok-facts
+- /de/en/articles/explore-the-world/essentials-barcelona-facts
+- /de/en/articles/explore-the-world/essentials-beijing-facts
+- /de/en/articles/explore-the-world/essentials-bengaluru-facts
+- /de/en/articles/explore-the-world/essentials-boston-facts
+- /de/en/articles/explore-the-world/essentials-budapest-facts
+- /de/en/articles/explore-the-world/essentials-buenos-aires-facts
+- /de/en/articles/explore-the-world/essentials-cape-town-facts
+- /de/en/articles/explore-the-world/essentials-charlotte-facts
+- /de/en/articles/explore-the-world/essentials-chicago-facts
+- /de/en/articles/explore-the-world/essentials-dublin-facts
+- /de/en/articles/explore-the-world/essentials-facts-vancouver
+- /de/en/articles/explore-the-world/essentials-frankfurt-facts
+- /de/en/articles/explore-the-world/essentials-helsinki-facts
+- /de/en/articles/explore-the-world/essentials-johannesburg-facts
+- /de/en/articles/explore-the-world/essentials-la-facts
+- /de/en/articles/explore-the-world/essentials-london-facts
+- /de/en/articles/explore-the-world/essentials-mallorca-facts
+- /de/en/articles/explore-the-world/essentials-mexico-city-facts
+- /de/en/articles/explore-the-world/essentials-milan-facts
+- /de/en/articles/explore-the-world/essentials-mumbai-facts
+- /de/en/articles/explore-the-world/essentials-munich-facts
+- /de/en/articles/explore-the-world/essentials-ny-facts
+- /de/en/articles/explore-the-world/essentials-oslo-facts
+- /de/en/articles/explore-the-world/essentials-paris-facts
+- /de/en/articles/explore-the-world/essentials-prague-facts
+- /de/en/articles/explore-the-world/essentials-rio-de-janeiro-facts
+- /de/en/articles/explore-the-world/essentials-rome-facts
+- /de/en/articles/explore-the-world/essentials-san-francisco-facts
+- /de/en/articles/explore-the-world/essentials-seoul-facts
+- /de/en/articles/explore-the-world/essentials-shanghai-facts
+- /de/en/articles/explore-the-world/essentials-singapore-facts
+- /de/en/articles/explore-the-world/essentials-tokyo-facts
+- /de/en/articles/explore-the-world/essentials-toronto-facts
+- /de/en/articles/explore-the-world/essentials-vienna-facts
+- /de/en/articles/explore-the-world/essentials-washington-facts
+- /de/en/articles/explore-the-world/essentials-zurich-facts
+- /de/en/articles/highlights/rome-art-and-culture
+- /de/en/articles/highlights/sports-experiences-rio-de-janeiro
+- /de/en/business-class
+- /de/en/economy-class
+- /de/en/first-class-terminal
+- /de/en/premium-economy-class
+- /gb/en/100-years/cabin-design
+- /gb/en/100-years/chronicle
+- /gb/en/100-years/fleet
+- /gb/en/100-years/history/menu-on-board
+- /gb/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class
+- /gb/en/articles/explore-flying/what-does-luxury-mean-today
+- /gb/en/articles/explore-the-world/art-basel-miami-beach-fun-facts
+- /gb/en/articles/explore-the-world/essentials-amsterdam-facts
+- /gb/en/articles/explore-the-world/essentials-athens-facts
+- /gb/en/articles/explore-the-world/essentials-bangkok-facts
+- /gb/en/articles/explore-the-world/essentials-barcelona-facts
+- /gb/en/articles/explore-the-world/essentials-beijing-facts
+- /gb/en/articles/explore-the-world/essentials-bengaluru-facts
+- /gb/en/articles/explore-the-world/essentials-boston-facts
+- /gb/en/articles/explore-the-world/essentials-budapest-facts
+- /gb/en/articles/explore-the-world/essentials-buenos-aires-facts
+- /gb/en/articles/explore-the-world/essentials-cape-town-facts
+- /gb/en/articles/explore-the-world/essentials-charlotte-facts
+- /gb/en/articles/explore-the-world/essentials-chicago-facts
+- /gb/en/articles/explore-the-world/essentials-dublin-facts
+- /gb/en/articles/explore-the-world/essentials-facts-vancouver
+- /gb/en/articles/explore-the-world/essentials-frankfurt-facts
+- /gb/en/articles/explore-the-world/essentials-helsinki-facts
+- /gb/en/articles/explore-the-world/essentials-johannesburg-facts
+- /gb/en/articles/explore-the-world/essentials-la-facts
+- /gb/en/articles/explore-the-world/essentials-london-facts
+- /gb/en/articles/explore-the-world/essentials-mallorca-facts
+- /gb/en/articles/explore-the-world/essentials-mexico-city-facts
+- /gb/en/articles/explore-the-world/essentials-milan-facts
+- /gb/en/articles/explore-the-world/essentials-mumbai-facts
+- /gb/en/articles/explore-the-world/essentials-munich-facts
+- /gb/en/articles/explore-the-world/essentials-ny-facts
+- /gb/en/articles/explore-the-world/essentials-oslo-facts
+- /gb/en/articles/explore-the-world/essentials-paris-facts
+- /gb/en/articles/explore-the-world/essentials-prague-facts
+- /gb/en/articles/explore-the-world/essentials-rio-de-janeiro-facts
+- /gb/en/articles/explore-the-world/essentials-rome-facts
+- /gb/en/articles/explore-the-world/essentials-san-francisco-facts
+- /gb/en/articles/explore-the-world/essentials-seoul-facts
+- /gb/en/articles/explore-the-world/essentials-shanghai-facts
+- /gb/en/articles/explore-the-world/essentials-singapore-facts
+- /gb/en/articles/explore-the-world/essentials-tokyo-facts
+- /gb/en/articles/explore-the-world/essentials-toronto-facts
+- /gb/en/articles/explore-the-world/essentials-vienna-facts
+- /gb/en/articles/explore-the-world/essentials-washington-facts
+- /gb/en/articles/explore-the-world/essentials-zurich-facts
+- /gb/en/articles/highlights/rome-art-and-culture
+- /gb/en/articles/highlights/sports-experiences-rio-de-janeiro
+- /gb/en/business-class
+- /gb/en/economy-class
+- /gb/en/first-class-terminal
+- /gb/en/premium-economy-class
 
-## At least one file in R2 (226): plays through lh-edge only
+## At least one file in R2 (276): plays through lh-edge only
 
+- /at/de/100-years
+- /at/de/100-years/crane
+- /at/de/100-years/destinations
+- /at/de/100-years/history
+- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
 - /at/de/articles/explore-flying/celebrating-20-years-of-excellence
 - /at/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
 - /at/de/articles/explore-flying/help-alliance-engagement-in-tanzania
@@ -36,6 +251,7 @@
 - /at/de/articles/explore-the-world/in-my-hood-nice-ouest
 - /at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
 - /at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /at/de/articles/highlights/all-it-takes-is-a-yes
 - /at/de/articles/highlights/allegris-business-class-shanghai
 - /at/de/articles/highlights/allegris-business-san-diego
 - /at/de/articles/highlights/allegris-new-york
@@ -63,7 +279,18 @@
 - /at/de/articles/tags/san-francisco
 - /at/de/articles/tags/shanghai
 - /at/de/articles/tags/yes-stories
+- /at/de/baggage-irregularities
+- /at/de/check-in-baggage
+- /at/de/discover-lufthansa/new-onboard-experience
 - /at/de/first-class
+- /at/de/flugunregelmaessigkeiten
+- /at/de/handgepaeck
+- /at/de/tiere-als-uebergepaeck
+- /de/de/100-years
+- /de/de/100-years/crane
+- /de/de/100-years/destinations
+- /de/de/100-years/history
+- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
 - /de/de/articles/explore-flying/celebrating-20-years-of-excellence
 - /de/de/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
 - /de/de/articles/explore-flying/help-alliance-engagement-in-tanzania
@@ -91,6 +318,7 @@
 - /de/de/articles/explore-the-world/in-my-hood-nice-ouest
 - /de/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
 - /de/de/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /de/de/articles/highlights/all-it-takes-is-a-yes
 - /de/de/articles/highlights/allegris-business-class-shanghai
 - /de/de/articles/highlights/allegris-business-san-diego
 - /de/de/articles/highlights/allegris-new-york
@@ -118,7 +346,18 @@
 - /de/de/articles/tags/san-francisco
 - /de/de/articles/tags/shanghai
 - /de/de/articles/tags/yes-stories
+- /de/de/baggage-irregularities
+- /de/de/check-in-baggage
+- /de/de/discover-lufthansa/new-onboard-experience
 - /de/de/first-class
+- /de/de/flugunregelmaessigkeiten
+- /de/de/handgepaeck
+- /de/de/tiere-als-uebergepaeck
+- /de/en/100-years
+- /de/en/100-years/crane
+- /de/en/100-years/destinations
+- /de/en/100-years/history
+- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
 - /de/en/articles/explore-flying/celebrating-20-years-of-excellence
 - /de/en/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
 - /de/en/articles/explore-flying/help-alliance-engagement-in-tanzania
@@ -146,6 +385,7 @@
 - /de/en/articles/explore-the-world/in-my-hood-nice-ouest
 - /de/en/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
 - /de/en/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /de/en/articles/highlights/all-it-takes-is-a-yes
 - /de/en/articles/highlights/allegris-business-san-diego
 - /de/en/articles/highlights/allegris-new-york
 - /de/en/articles/highlights/allegris-premium-economy-san-diego
@@ -176,7 +416,19 @@
 - /de/en/articles/tags/san-francisco
 - /de/en/articles/tags/shanghai
 - /de/en/articles/tags/yes-stories
+- /de/en/baggage-irregularities
+- /de/en/carry-on-baggage
+- /de/en/check-in-baggage
+- /de/en/discover-lufthansa/new-onboard-experience
 - /de/en/first-class
+- /de/en/flight-disruptions
+- /de/en/lufthansa-terminal-muenchen
+- /de/en/tiere-als-uebergepaeck
+- /gb/en/100-years
+- /gb/en/100-years/crane
+- /gb/en/100-years/destinations
+- /gb/en/100-years/history
+- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
 - /gb/en/articles/explore-flying/celebrating-20-years-of-excellence
 - /gb/en/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo
 - /gb/en/articles/explore-flying/help-alliance-engagement-in-tanzania
@@ -204,6 +456,7 @@
 - /gb/en/articles/explore-the-world/in-my-hood-nice-ouest
 - /gb/en/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg
 - /gb/en/articles/explore-the-world/in-my-hood-west-seattle-seattle
+- /gb/en/articles/highlights/all-it-takes-is-a-yes
 - /gb/en/articles/highlights/allegris-business-san-diego
 - /gb/en/articles/highlights/allegris-new-york
 - /gb/en/articles/highlights/allegris-premium-economy-san-diego
@@ -234,94 +487,17 @@
 - /gb/en/articles/tags/san-francisco
 - /gb/en/articles/tags/shanghai
 - /gb/en/articles/tags/yes-stories
-- /gb/en/first-class
-
-## Only www's videos left (84): nothing switched
-
-- /at/de/100-years
-- /at/de/100-years/cabin-design
-- /at/de/100-years/chronicle
-- /at/de/100-years/crane
-- /at/de/100-years/destinations
-- /at/de/100-years/fleet
-- /at/de/100-years/history
-- /at/de/100-years/history/menu-on-board
-- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
-- /at/de/articles/highlights/all-it-takes-is-a-yes
-- /at/de/baggage-irregularities
-- /at/de/business-class
-- /at/de/check-in-baggage
-- /at/de/discover-lufthansa/new-onboard-experience
-- /at/de/economy-class
-- /at/de/first-class-terminal
-- /at/de/flugunregelmaessigkeiten
-- /at/de/handgepaeck
-- /at/de/lufthansa-terminal-muenchen
-- /at/de/premium-economy-class
-- /at/de/tiere-als-uebergepaeck
-- /de/de/100-years
-- /de/de/100-years/cabin-design
-- /de/de/100-years/chronicle
-- /de/de/100-years/crane
-- /de/de/100-years/destinations
-- /de/de/100-years/fleet
-- /de/de/100-years/history
-- /de/de/100-years/history/menu-on-board
-- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki
-- /de/de/articles/highlights/all-it-takes-is-a-yes
-- /de/de/baggage-irregularities
-- /de/de/business-class
-- /de/de/check-in-baggage
-- /de/de/discover-lufthansa/new-onboard-experience
-- /de/de/economy-class
-- /de/de/first-class-terminal
-- /de/de/flugunregelmaessigkeiten
-- /de/de/handgepaeck
-- /de/de/lufthansa-terminal-muenchen
-- /de/de/premium-economy-class
-- /de/de/tiere-als-uebergepaeck
-- /de/en/100-years
-- /de/en/100-years/cabin-design
-- /de/en/100-years/chronicle
-- /de/en/100-years/crane
-- /de/en/100-years/destinations
-- /de/en/100-years/fleet
-- /de/en/100-years/history
-- /de/en/100-years/history/menu-on-board
-- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
-- /de/en/articles/highlights/all-it-takes-is-a-yes
-- /de/en/baggage-irregularities
-- /de/en/business-class
-- /de/en/carry-on-baggage
-- /de/en/check-in-baggage
-- /de/en/discover-lufthansa/new-onboard-experience
-- /de/en/economy-class
-- /de/en/first-class-terminal
-- /de/en/flight-disruptions
-- /de/en/lufthansa-terminal-muenchen
-- /de/en/premium-economy-class
-- /de/en/tiere-als-uebergepaeck
-- /gb/en/100-years
-- /gb/en/100-years/cabin-design
-- /gb/en/100-years/chronicle
-- /gb/en/100-years/crane
-- /gb/en/100-years/destinations
-- /gb/en/100-years/fleet
-- /gb/en/100-years/history
-- /gb/en/100-years/history/menu-on-board
-- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki
-- /gb/en/articles/highlights/all-it-takes-is-a-yes
 - /gb/en/baggage-irregularities
-- /gb/en/business-class
 - /gb/en/carry-on-baggage
 - /gb/en/check-in-baggage
 - /gb/en/discover-lufthansa/new-onboard-experience
-- /gb/en/economy-class
-- /gb/en/first-class-terminal
+- /gb/en/first-class
 - /gb/en/flight-disruptions
 - /gb/en/lufthansa-terminal-muenchen
-- /gb/en/premium-economy-class
 - /gb/en/tiere-als-uebergepaeck
+
+## Only www's videos left (0): nothing switched
+
 
 ## gone on www (404) (12)
 
@@ -338,134 +514,8 @@
 - /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_food_de.mp4
 - /de/de/articles/tags/munich: /content/dam/video/c3/audiotravelguide/muc/01_interessensbasiert/de/munich_lhcom_geschichte_de.mp4
 
-## not recorded yet (124)
+## not recorded yet (0)
 
-- /at/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
-- /at/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
-- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
-- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
-- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
-- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
-- /at/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
-- /at/de/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
-- /at/de/100-years/destinations: /content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4
-- /at/de/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
-- /at/de/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
-- /at/de/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
-- /at/de/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
-- /at/de/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
-- /at/de/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4
-- /at/de/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
-- /at/de/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4
-- /at/de/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4
-- /at/de/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
-- /at/de/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
-- /at/de/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4
-- /at/de/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
-- /at/de/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
-- /at/de/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
-- /at/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4
-- /at/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4
-- /at/de/handgepaeck: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4
-- /at/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-de.mp4
-- /at/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-de.mp4
-- /at/de/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
-- /at/de/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
-- /de/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
-- /de/de/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
-- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
-- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
-- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
-- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
-- /de/de/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
-- /de/de/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
-- /de/de/100-years/destinations: /content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4
-- /de/de/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
-- /de/de/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
-- /de/de/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
-- /de/de/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
-- /de/de/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
-- /de/de/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4
-- /de/de/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
-- /de/de/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4
-- /de/de/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4
-- /de/de/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
-- /de/de/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
-- /de/de/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4
-- /de/de/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
-- /de/de/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
-- /de/de/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
-- /de/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4
-- /de/de/flugunregelmaessigkeiten: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4
-- /de/de/handgepaeck: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4
-- /de/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-de.mp4
-- /de/de/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-de.mp4
-- /de/de/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
-- /de/de/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
-- /de/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
-- /de/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
-- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
-- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
-- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
-- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
-- /de/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
-- /de/en/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
-- /de/en/100-years/destinations: /content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4
-- /de/en/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
-- /de/en/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
-- /de/en/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
-- /de/en/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
-- /de/en/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
-- /de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4
-- /de/en/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
-- /de/en/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4
-- /de/en/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4
-- /de/en/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
-- /de/en/carry-on-baggage: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4
-- /de/en/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
-- /de/en/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4
-- /de/en/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
-- /de/en/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
-- /de/en/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
-- /de/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4
-- /de/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4
-- /de/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-en.mp4
-- /de/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-en.mp4
-- /de/en/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
-- /de/en/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
-- /gb/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4
-- /gb/en/100-years/cabin-design: /content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4
-- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4
-- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4
-- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4
-- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4
-- /gb/en/100-years/chronicle: /content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4
-- /gb/en/100-years/crane: /content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4
-- /gb/en/100-years/destinations: /content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4
-- /gb/en/100-years/fleet: /content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4
-- /gb/en/100-years/history/menu-on-board: /content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4
-- /gb/en/100-years/history: /content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4
-- /gb/en/100-years: /content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4
-- /gb/en/100-years: /content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4
-- /gb/en/articles/explore-flying/allegris-business-class-dirk-nowitzki: /content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4
-- /gb/en/articles/highlights/all-it-takes-is-a-yes: /content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4
-- /gb/en/baggage-irregularities: /content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4
-- /gb/en/baggage-irregularities: /content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4
-- /gb/en/business-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4
-- /gb/en/carry-on-baggage: /content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4
-- /gb/en/check-in-baggage: /content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4
-- /gb/en/discover-lufthansa/new-onboard-experience: /content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4
-- /gb/en/economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4
-- /gb/en/first-class-terminal: /content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4
-- /gb/en/first-class: /content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4
-- /gb/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4
-- /gb/en/flight-disruptions: /content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4
-- /gb/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-transfer-en.mp4
-- /gb/en/lufthansa-terminal-muenchen: /content/dam/lh/video/2024-muc-arrival-en.mp4
-- /gb/en/premium-economy-class: /content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4
-- /gb/en/tiere-als-uebergepaeck: /content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4
 
-## subtitles not recorded yet (2)
+## subtitles not recorded yet (0)
 
-- /at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur: /content/dam/video/c3/in-my-hood-out-and-about-in-kampung-attap,-kuala-lumpur/Inmyhood_KL_ AD_DE.vtt
-- /de/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur: /content/dam/video/c3/in-my-hood-out-and-about-in-kampung-attap,-kuala-lumpur/Inmyhood_KL_ AD_DE.vtt
