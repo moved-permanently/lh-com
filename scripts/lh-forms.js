@@ -40,6 +40,52 @@ export function formsEndpoint() {
   }
 }
 
+/** Cloudflare Turnstile, the bot check of lh-forms (its README): rendered explicitly. */
+export const TURNSTILE_API = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+
+/** The submission part with the widget's token (the name the widget gives its input). */
+export const BOT_TOKEN_FIELD = 'cf-turnstile-response';
+
+const CONFIG_OFF = { botCheck: 'off', turnstileSiteKey: '' };
+let configRequest;
+
+/**
+ * The worker's form configuration (GET /config): {botCheck: 'on'|'off', turnstileSiteKey}, read
+ * once per page. When it cannot be read: no site key (the worker decides at submit).
+ */
+export function formsConfig() {
+  if (!configRequest) {
+    configRequest = fetch(`${formsEndpoint()}/config`, { credentials: 'omit' })
+      .then((res) => (res.ok ? res.json() : CONFIG_OFF))
+      .then((c) => ({
+        botCheck: c && c.botCheck === 'on' ? 'on' : 'off',
+        turnstileSiteKey: String((c && c.turnstileSiteKey) || '').trim(),
+      }))
+      .catch(() => CONFIG_OFF);
+  }
+  return configRequest;
+}
+
+/** Forgets the configuration read (tests). */
+export function resetFormsConfig() {
+  configRequest = undefined;
+}
+
+/**
+ * The site key the widget renders with: localStorage "lh-forms-sitekey" when set (a tester's
+ * Cloudflare test key, e.g. 1x00000000000000000000AA, on branch previews and localhost, where the
+ * real key cannot render), else the configuration's.
+ */
+export function turnstileSiteKey(config) {
+  let override = '';
+  try {
+    override = (window.localStorage.getItem('lh-forms-sitekey') || '').trim();
+  } catch (e) {
+    override = '';
+  }
+  return override || String((config && config.turnstileSiteKey) || '');
+}
+
 /** Form id of a page path (its last segment), '' when the page is not one of the forms. */
 export function formIdFromPath(pathname = window.location.pathname) {
   const last = String(pathname).replace(/\/+$/, '').split('/').pop()

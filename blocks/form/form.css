@@ -947,6 +947,17 @@
   }
 }
 
+/* bot check (Turnstile, managed): the widget takes room only when it needs the visitor */
+.form.core .form-bot-check {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form.core .form-bot-check[hidden],
+.form.core .form-bot-check:empty {
+  display: none;
+}
+
 /* honeypot (lh_hp): out of sight, out of the tab order, hidden from assistive tech */
 .form.core .form-hp {
   position: absolute;

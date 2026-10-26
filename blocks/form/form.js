@@ -1,3 +1,4 @@
+import { loadScript } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
   cleanText, stripZeroWidth, toConfigKey, resolveLabels, decorateExternalLinks,
@@ -20,8 +21,10 @@ import {
  * checkboxes show and hide, repeatable sections, a file drop zone, live's validation messages
  * (shown from the first submit on, then while typing), the submit button below the last band.
  * A valid submit posts the entries to the lh-forms worker (scripts/lh-forms.js, multipart:
- * form, locale, page, fields JSON, honeypot lh_hp, files) and goes to the success page, or to
- * the error page when anything fails (config rows: Type "config", Name form / success / error).
+ * form, locale, page, fields JSON, honeypot lh_hp, the bot check token, files) and goes to the
+ * success page, or to the error page when anything fails (config rows: Type "config", Name
+ * form / success / error). The bot check: a Cloudflare Turnstile widget above the submit button
+ * (managed, shown only when it needs the visitor), its site key from lh-forms' configuration.
  */
 
 /** UI strings; each can be overridden by a row of type "label" (Name = key, Label = text). */
@@ -1214,8 +1217,75 @@ function collectFields(fieldWrappers, ctx) {
   });
 }
 
+/** How long a submit waits for the bot check's token (the widget may need the visitor). */
+const BOT_CHECK_WAIT = 60000;
+
+/**
+ * Bot check (Form (core) only): the Turnstile widget above the submit button, with the site key
+ * from lh-forms (GET /config; scripts/lh-forms.js). token() resolves to the widget's token, waits
+ * for it while the widget runs, '' without a site key or when the widget fails (it hides; the
+ * worker decides: with BOT_CHECK on, 403 and the error page). reset() after a submission (a
+ * token is good for one check).
+ */
+function setupBotCheck(form, ctx) {
+  const holder = el('div', 'form-bot-check');
+  holder.hidden = true;
+  const actions = [...form.children].find((c) => c.classList.contains('form-actions'));
+  form.insertBefore(holder, actions || form.querySelector(':scope > .form-status'));
+  const state = {
+    id: null, token: '', done: false, waiters: [],
+  };
+  const settle = (value) => state.waiters.splice(0).forEach((resolve) => resolve(value));
+  const fail = () => {
+    state.done = true;
+    state.token = '';
+    holder.hidden = true;
+    settle('');
+  };
+  (async () => {
+    const forms = await import('../../scripts/lh-forms.js');
+    const sitekey = forms.turnstileSiteKey(await forms.formsConfig());
+    if (!sitekey) {
+      fail();
+      return;
+    }
+    await loadScript(forms.TURNSTILE_API, { async: '' });
+    holder.hidden = false;
+    state.id = window.turnstile.render(holder, {
+      sitekey,
+      appearance: 'interaction-only',
+      language: ctx.lang,
+      'response-field': false,
+      callback: (token) => {
+        state.token = token;
+        settle(token);
+      },
+      'expired-callback': () => { state.token = ''; },
+      'timeout-callback': () => { state.token = ''; },
+      'error-callback': () => {
+        fail();
+        return true;
+      },
+    });
+  })().catch(fail);
+  return {
+    token() {
+      if (state.token || state.done) return Promise.resolve(state.token);
+      return new Promise((resolve) => {
+        state.waiters.push(resolve);
+        setTimeout(() => resolve(state.token), BOT_CHECK_WAIT);
+      });
+    },
+    reset() {
+      if (state.id === null || state.done || !window.turnstile) return;
+      state.token = '';
+      window.turnstile.reset(state.id);
+    },
+  };
+}
+
 /** The multipart body of POST /submit (tools/workers/lh-forms/README.md). */
-function buildSubmission(form, fieldWrappers, ctx, formId) {
+function buildSubmission(form, fieldWrappers, ctx, formId, token) {
   const data = new FormData();
   data.append('form', formId);
   data.append('locale', getLocale().key.replace('/', '-'));
@@ -1223,6 +1293,7 @@ function buildSubmission(form, fieldWrappers, ctx, formId) {
   data.append('fields', JSON.stringify(collectFields(fieldWrappers, ctx)));
   const trap = form.querySelector('input[name="lh_hp"]');
   data.append('lh_hp', trap ? trap.value : '');
+  if (token) data.append('cf-turnstile-response', token);
   let n = 0;
   fieldWrappers.filter((w) => !isInactive(w)).forEach((w) => {
     const entry = ctx.entries.get(w);
@@ -1259,10 +1330,12 @@ async function sendForm(form, fieldWrappers, ctx, button, status) {
   try {
     const forms = await import('../../scripts/lh-forms.js');
     const formId = config.form || forms.formIdFromPath();
-    const body = buildSubmission(form, fieldWrappers, ctx, formId);
+    const token = ctx.botCheck ? await ctx.botCheck.token() : '';
+    const body = buildSubmission(form, fieldWrappers, ctx, formId, token);
     const response = await fetch(`${forms.formsEndpoint()}/submit`, {
       method: 'POST', body, credentials: 'omit',
     });
+    if (ctx.botCheck) ctx.botCheck.reset();
     const result = response.ok ? await response.json() : null;
     ok = Boolean(result && result.ok === true);
   } catch (e) {
@@ -1427,6 +1500,7 @@ export default function decorate(block) {
   status.setAttribute('role', 'status');
   status.setAttribute('aria-live', 'polite');
   form.append(status);
+  if (ctx.core) ctx.botCheck = setupBotCheck(form, ctx);
 
   const wrappers = () => [...form.querySelectorAll('.form-field[data-name]')]
     .filter((w) => ctx.entries.has(w));
@@ -1478,6 +1552,7 @@ export default function decorate(block) {
       ctx.sending = false;
       setBusy(ctx.busyButton, false);
       status.textContent = '';
+      if (ctx.botCheck) ctx.botCheck.reset();
     });
   }
 
