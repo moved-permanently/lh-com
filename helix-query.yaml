@@ -818,13 +818,12 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
-      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
-      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
-      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
-      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
-      canonical:
-        select: head > link[rel="canonical"]
-        value: attribute(el, "href")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
       primary-language-url:
         select: head > meta[name="primary-language-url"]
         value: attribute(el, "content")
@@ -887,13 +886,12 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
-      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
-      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
-      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
-      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
-      canonical:
-        select: head > link[rel="canonical"]
-        value: attribute(el, "href")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
       primary-language-url:
         select: head > meta[name="primary-language-url"]
         value: attribute(el, "content")
@@ -956,13 +954,12 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
-      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
-      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
-      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
-      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
-      canonical:
-        select: head > link[rel="canonical"]
-        value: attribute(el, "href")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
       primary-language-url:
         select: head > meta[name="primary-language-url"]
         value: attribute(el, "content")
@@ -1025,13 +1022,12 @@ indices:
       hide-in-search:
         select: head > meta[name="hide-in-search"]
         value: attribute(el, "content")
-      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the page's canonical link, the
-      # de/en page a translated slug pairs with, and the page's OWN robots value: page-robots,
-      # which the site-wide /metadata.json row (noindex on every page until go-live) does not
-      # set; meta[name="robots"] would carry that inherited noindex and empty every sitemap
-      canonical:
-        select: head > link[rel="canonical"]
-        value: attribute(el, "href")
+      # the XML sitemaps (helix-sitemap.yaml, AMS rest A7): the de/en page a translated slug
+      # pairs with, and the page's OWN robots value: page-robots, which the site-wide
+      # /metadata.json row (noindex on every page until go-live) does not set;
+      # meta[name="robots"] would carry that inherited noindex and empty every sitemap. No
+      # canonical column: Edge Delivery fills it with the production host, and the sitemap
+      # builder drops every row whose canonical differs from origin plus path
       primary-language-url:
         select: head > meta[name="primary-language-url"]
         value: attribute(el, "content")
