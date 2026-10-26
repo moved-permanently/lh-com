@@ -83,3 +83,10 @@ test('llms.txt: the curated static file wins; a market without a replica locale 
   assert.ok(empty.startsWith('# Lufthansa — United Kingdom (GB)'));
   assert.ok(empty.trim().endsWith('https://www.lufthansa.com/llms.txt'));
 });
+
+test('llms.txt without listed pages is cached a minute only (the first published page shows at once)', async () => {
+  globalThis.fetch = async () => new Response('not found', { status: 404 });
+  const resp = await get('/gb/llms.txt');
+  assert.equal(resp.status, 200);
+  assert.equal(resp.headers.get('cache-control'), 'public, max-age=60');
+});

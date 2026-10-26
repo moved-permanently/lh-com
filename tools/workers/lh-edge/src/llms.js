@@ -9,7 +9,8 @@
  *   or description>` for the pages with llms-include true, ordered by category and title;
  * - a closing line pointing at https://www.lufthansa.com/llms.txt.
  * A static file at the path (the curated /llms.txt and /de/llms.txt) wins: the origin is asked
- * first. text/plain, cached for an hour (edge and browsers).
+ * first. text/plain, cached for an hour (edge and browsers) once it lists pages; a file without
+ * pages for a minute and not at the edge, so the first published page shows at once.
  */
 /* eslint-disable import/no-relative-packages */
 import { LOCALES, LIVE_ORIGIN } from '../../../../scripts/locale.js';
@@ -78,11 +79,15 @@ export async function llmsTxt(request, env, ctx) {
   const keys = localesOf(url.pathname);
   if (!keys.length) return new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'llms' } });
   const cache = typeof caches !== 'undefined' ? caches.default : null;
-  const cacheKey = new Request(url.origin + url.pathname);
+  // the cache key's version drops what an earlier version cached
+  const cacheKey = new Request(`${url.origin}${url.pathname}?llms-cache=2`);
   const hit = cache && await cache.match(cacheKey);
   if (hit) return hit;
   const rowsByLocale = Object.fromEntries(await Promise.all(keys.map(async (k) => [k, await readSheet(request, env, `/${k}/search-index.json?limit=5000`)])));
-  const resp = text(buildLlms(keys, rowsByLocale));
-  if (cache && ctx && ctx.waitUntil) ctx.waitUntil(cache.put(cacheKey, resp.clone()));
+  const body = buildLlms(keys, rowsByLocale);
+  const listed = /^- \[/m.test(body);
+  // a file without pages is not kept at the edge: the first published page shows at once
+  const resp = text(body, listed ? {} : { 'cache-control': 'public, max-age=60' });
+  if (listed && cache && ctx && ctx.waitUntil) ctx.waitUntil(cache.put(cacheKey, resp.clone()));
   return resp;
 }
