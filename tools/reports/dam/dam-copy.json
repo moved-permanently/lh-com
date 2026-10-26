@@ -1,11 +1,11 @@
 {
- "checkedAt": "2026-10-26T11:38:46.963Z",
- "assets": 7714,
- "copied": 6136,
+ "checkedAt": "2026-10-26T15:32:21.536Z",
+ "assets": 7884,
+ "copied": 6227,
  "notDeliverable": 1,
- "notOnWww": 234,
+ "notOnWww": 237,
  "wwwFallback": 528,
- "blockedByWww": 815,
+ "blockedByWww": 891,
  "removedMisnamed": 350,
  "failed": 0,
  "pending": 0,
@@ -53,12 +53,22 @@
   "destination-fallback": {
    "copied": 210
   },
+  "linked-pdf": {
+   "copied": 103,
+   "not on www": 3
+  },
+  "linked-video": {
+   "blocked by www": 80
+  },
   "lounges": {
    "not on www": 224,
    "copied": 14
   }
  },
- "collisions": {},
+ "collisions": {
+  "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_DE.pdf": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de-2.pdf",
+  "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_EN.pdf": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en-2.pdf"
+ },
  "problems": [
   {
    "www": "/content/dam/lh/images/offers/destination/adb-square.jpg",
@@ -9978,7 +9988,8 @@
    "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly_with_Dirk_Longform_AudioDescription_DE.vtt",
    "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-audiodescription-de.vtt",
    "sources": [
-    "articles"
+    "articles",
+    "linked-video"
    ],
    "status": "blocked by www",
    "bytes": 0,
@@ -9988,7 +9999,8 @@
    "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly_with_Dirk_Longform_AudioDescription_EN.vtt",
    "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-audiodescription-en.vtt",
    "sources": [
-    "articles"
+    "articles",
+    "linked-video"
    ],
    "status": "blocked by www",
    "bytes": 0,
@@ -9998,7 +10010,8 @@
    "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly_with_Dirk_Longform_DE_SUBs.vtt",
    "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-de-subs.vtt",
    "sources": [
-    "articles"
+    "articles",
+    "linked-video"
    ],
    "status": "blocked by www",
    "bytes": 0,
@@ -10008,7 +10021,8 @@
    "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly_with_Dirk_Longform_EN_SUBs.vtt",
    "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-en-subs.vtt",
    "sources": [
-    "articles"
+    "articles",
+    "linked-video"
    ],
    "status": "blocked by www",
    "bytes": 0,
@@ -11649,6 +11663,796 @@
    "eds": "/content/dam/video/dbb/meet_the_makers-2024/priestmangoode/240725-mtm-priestmangoode-en-cc.vtt",
    "sources": [
     "articles"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400.43c.32p.308m.pdf",
+   "eds": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400-43c-32p-308m.pdf",
+   "sources": [
+    "linked-pdf"
+   ],
+   "status": "not on www",
+   "bytes": 0,
+   "why": "www 404"
+  },
+  {
+   "www": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_DE.pdf",
+   "eds": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de-2.pdf",
+   "sources": [
+    "linked-pdf"
+   ],
+   "status": "not on www",
+   "bytes": 0,
+   "why": "www 404"
+  },
+  {
+   "www": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_EN.pdf",
+   "eds": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en-2.pdf",
+   "sources": [
+    "linked-pdf"
+   ],
+   "status": "not on www",
+   "bytes": 0,
+   "why": "www 404"
+  },
+  {
+   "www": "/content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4",
+   "eds": "/content/dam/lh/images/local_images/100-years/history/menu-on-board/header-menues-an-bord.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4",
+   "eds": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro-bc.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4",
+   "eds": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro-ec.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4",
+   "eds": "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro-pe.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/video/2024-muc-arrival-de.mp4",
+   "eds": "/content/dam/lh/video/2024-muc-arrival-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/video/2024-muc-arrival-en.mp4",
+   "eds": "/content/dam/lh/video/2024-muc-arrival-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/video/2024-muc-transfer-de.mp4",
+   "eds": "/content/dam/lh/video/2024-muc-transfer-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/video/2024-muc-transfer-en.mp4",
+   "eds": "/content/dam/lh/video/2024-muc-transfer-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4",
+   "eds": "/content/dam/lh/videos/100-years/cabin-design/01-100y-lh-kabinendesign-lp-header.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4",
+   "eds": "/content/dam/lh/videos/100-years/cabin-design/05-50er-moving-img-50er-jahre-01-1.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4",
+   "eds": "/content/dam/lh/videos/100-years/chronicle/lh100years-timeline-video-00-header.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4",
+   "eds": "/content/dam/lh/videos/100-years/chronicle/lh100years-timeline-video-01-1947-1996.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4",
+   "eds": "/content/dam/lh/videos/100-years/chronicle/lh100years-timeline-video-02-lockheedstarliner.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4",
+   "eds": "/content/dam/lh/videos/100-years/chronicle/lh100years-timeline-video-03-boeing-707.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4",
+   "eds": "/content/dam/lh/videos/100-years/chronicle/lh100years-timeline-video-04-1997-2026.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4",
+   "eds": "/content/dam/lh/videos/100-years/crane/260316-lh-100y-muc-cube-moving-img-crane.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4",
+   "eds": "/content/dam/lh/videos/100-years/destinations/260415-lh100-60sec-16x9-eng-webmix-v01.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4",
+   "eds": "/content/dam/lh/videos/100-years/destinations/iconoclast-lufthansa100-60sec-16x9-de-titled-master-webmix.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4",
+   "eds": "/content/dam/lh/videos/100-years/fleet/meilensteine-flugzeuge-header-moving.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4",
+   "eds": "/content/dam/lh/videos/100-years/history/lh100years-history-overview.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4",
+   "eds": "/content/dam/lh/videos/100-years/lh100y-landingpage-keyvisual-update-iconicjourney.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4",
+   "eds": "/content/dam/lh/videos/100-years/lh100years-main-page-video-history-overview-1.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-2026-culinaryspa-98s-eco-pe-bus-first-1920x1080-de-agentur.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-2026-culinaryspa-98s-eco-pe-bus-first-1920x1080-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721-lha-how-to-stow-en-7691080.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01-fct-header-moving-image-2-7465099.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4",
+   "eds": "/content/dam/video/c3/04-fc-terminal-01-header-moving-image.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4",
+   "eds": "/content/dam/video/c3/campaigns/summer-push/01_video/lh-com-summerpush-anthem-en-16x9.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4",
+   "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-de-clean.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4",
+   "eds": "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825-fly-with-dirk-longform-en-clean.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4",
+   "eds": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/documents/Selfbagdrop-eng.vtt",
+   "eds": "/content/dam/lh/documents/selfbagdrop-eng.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_AD_DE_1.vtt",
+   "eds": "/content/dam/lh/videos/100-years/destinations/lufthansa-100jahre-iconicjourney-60s-ad-de-1.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_AD_EN.vtt",
+   "eds": "/content/dam/lh/videos/100-years/destinations/lufthansa-100jahre-iconicjourney-60s-ad-en.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_UT_DE_1.vtt",
+   "eds": "/content/dam/lh/videos/100-years/destinations/lufthansa-100jahre-iconicjourney-60s-ut-de-1.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_UT_EN.vtt",
+   "eds": "/content/dam/lh/videos/100-years/destinations/lufthansa-100jahre-iconicjourney-60s-ut-en.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_AD_DE.vtt",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-ad-de.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_AD_EN.vtt",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-ad-en.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_DE_UT.vtt",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-de-ut.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_EN_UT.vtt",
+   "eds": "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/lh-obx-en-ut.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-ad_7691084.vtt",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-ad-7691084.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-cc.vtt",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-ad_7691083.vtt",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-ad-7691083.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-cc-1_7706651 (1).vtt",
+   "eds": "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-cc-1-7706651-1.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_de_ad.vtt",
+   "eds": "/content/dam/video/c3/campaigns/summer-push/03_text/lh-com-summerpush-de-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_de_cc.vtt",
+   "eds": "/content/dam/video/c3/campaigns/summer-push/03_text/lh-com-summerpush-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_en_ad.vtt",
+   "eds": "/content/dam/video/c3/campaigns/summer-push/03_text/lh-com-summerpush-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_en_cc.vtt",
+   "eds": "/content/dam/video/c3/campaigns/summer-push/03_text/lh-com-summerpush-en-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-ad.vtt",
+   "eds": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-cc.vtt",
+   "eds": "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-cc.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-ad.vtt",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-ad.vtt",
+   "sources": [
+    "linked-video"
+   ],
+   "status": "blocked by www",
+   "bytes": 0,
+   "why": "www 403"
+  },
+  {
+   "www": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-cc.vtt",
+   "eds": "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-cc.vtt",
+   "sources": [
+    "linked-video"
    ],
    "status": "blocked by www",
    "bytes": 0,

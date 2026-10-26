@@ -156,6 +156,10 @@ export default function decorate(block) {
   const videoLink = [...block.querySelectorAll('a[href]')].find(isVideoLink);
   const videoSrc = videoLink ? videoLink.href : '';
   if (videoLink) videoLink.remove();
+  // its subtitle links (.vtt) are not calls to action: a muted background video shows no text
+  block.querySelectorAll('a[href]').forEach((a) => {
+    if (/\.vtt$/i.test(a.pathname || '')) a.remove();
+  });
 
   // everything else is text; loose text and inline nodes (cells without a paragraph) are
   // wrapped in a paragraph so they get the text styles

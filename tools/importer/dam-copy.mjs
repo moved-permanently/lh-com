@@ -8,7 +8,10 @@
  * lounge images (lh/images/lounges/<loungeid>-square.jpg for every loungeid in the recorded
  * lounge search answers, tools/source-export/api/bd-record-api/*.ndjson, and fallback-square.jpg),
  * the destination images (square, panorama) of every city in the recorded destination finder
- * answers (data/recorded), and the targets of www's redirects among them.
+ * answers (data/recorded), the files the documents link or play that the list misses
+ * (tools/source-export/feeds/dam/linked-assets.csv: the PDFs, source linked-pdf, without the
+ * 27.6 MB poster; the videos of pages imported after the list and their subtitles from www's
+ * video viewers, linked-video), and the targets of www's redirects among them.
  *
  *   --names     write scripts/dam-collisions.js (www paths that would share one name: the second
  *               and later ones get "-2", "-3" before the extension) and the asset table
@@ -45,6 +48,7 @@ const ORG = 'moved-permanently';
 const SITE = 'lh-com';
 const LIVE = 'https://www.lufthansa.com';
 const LIST = path.join(root, 'tools/source-export/feeds/dam/dam-assets.csv');
+const LINKED = path.join(root, 'tools/source-export/feeds/dam/linked-assets.csv');
 const LOUNGE_ANSWERS = path.join(root, 'tools/source-export/api/bd-record-api');
 const CACHE = path.join(root, 'tools/source-export/dam-cache');
 const AIRCORE_CACHE = path.join(root, 'tools/source-export/aircore-images');
@@ -76,12 +80,14 @@ function assets() {
     if (!list.has(key)) list.set(key, new Set());
     list.get(key).add(source);
   };
-  const [head, ...lines] = fs.readFileSync(LIST, 'utf8').trim().split('\n');
-  const cols = head.split(',');
-  lines.forEach((l) => {
-    const cells = l.match(/("([^"]|"")*"|[^,]*)(,|$)/g).map((c) => c.replace(/,$/, '').replace(/^"|"$/g, '').replace(/""/g, '"'));
-    const row = Object.fromEntries(cols.map((c, i) => [c, cells[i] || '']));
-    row.sources.split(' ').filter(Boolean).forEach((s) => add(row.asset, s));
+  [LIST, LINKED].filter((f) => fs.existsSync(f)).forEach((file) => {
+    const [head, ...lines] = fs.readFileSync(file, 'utf8').trim().split('\n');
+    const cols = head.split(',');
+    lines.forEach((l) => {
+      const cells = l.match(/("([^"]|"")*"|[^,]*)(,|$)/g).map((c) => c.replace(/,$/, '').replace(/^"|"$/g, '').replace(/""/g, '"'));
+      const row = Object.fromEntries(cols.map((c, i) => [c, cells[i] || '']));
+      row.sources.split(' ').filter(Boolean).forEach((s) => add(row.asset, s));
+    });
   });
   // lounge images: every loungeid of the recorded search answers, and the fallback
   const ids = new Set();

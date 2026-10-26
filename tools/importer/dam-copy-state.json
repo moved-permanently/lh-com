@@ -11156,6 +11156,185 @@
   "uploaded": "2026-10-26T10:20:10.023Z",
   "preview": "2026-10-26T10:20:11.461Z"
  },
+ "/content/dam/lh/documents/100-years/LH-Magazin_216x280-8mm_rave_96dpi_sRGB_7096312.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/100-years/LH-Magazin_216x280-8mm_rave_96dpi_sRGB_7096312.pdf",
+  "bytes": 8835834,
+  "uploadedName": "/content/dam/lh/documents/100-years/lh-magazin-216x280-8mm-rave-96dpi-srgb-7096312.pdf",
+  "uploaded": "2026-10-26T15:31:52.678Z",
+  "preview": "2026-10-26T15:31:55.101Z"
+ },
+ "/content/dam/lh/documents/202205_B789_26-21-247B.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/202205_B789_26-21-247B.pdf",
+  "bytes": 1054816,
+  "uploadedName": "/content/dam/lh/documents/202205-b789-26-21-247b.pdf",
+  "uploaded": "2026-10-26T15:31:51.745Z",
+  "preview": "2026-10-26T15:31:52.994Z"
+ },
+ "/content/dam/lh/documents/book-and-manage/travel-information/230526_Kontaktdaten_Inlay_DE_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/book-and-manage/travel-information/230526_Kontaktdaten_Inlay_DE_EN.pdf",
+  "bytes": 50378,
+  "uploadedName": "/content/dam/lh/documents/book-and-manage/travel-information/230526-kontaktdaten-inlay-de-en.pdf",
+  "uploaded": "2026-10-26T15:31:51.784Z",
+  "preview": "2026-10-26T15:31:52.917Z"
+ },
+ "/content/dam/lh/documents/business-services/FRA_Germany_Concur_Anleitung_210x297_DE_screen.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/FRA_Germany_Concur_Anleitung_210x297_DE_screen.pdf",
+  "bytes": 86093,
+  "uploadedName": "/content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-de-screen.pdf",
+  "uploaded": "2026-10-26T15:31:51.732Z",
+  "preview": "2026-10-26T15:31:53.246Z"
+ },
+ "/content/dam/lh/documents/business-services/FRA_Germany_Concur_Anleitung_210x297_EN_screen.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/FRA_Germany_Concur_Anleitung_210x297_EN_screen.pdf",
+  "bytes": 83203,
+  "uploadedName": "/content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-en-screen.pdf",
+  "uploaded": "2026-10-26T15:31:51.703Z",
+  "preview": "2026-10-26T15:31:53.145Z"
+ },
+ "/content/dam/lh/documents/business-services/FRA_HQ_Concur_Triplink_Update_URL_Broschuere_210x297_DE_Screen.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/FRA_HQ_Concur_Triplink_Update_URL_Broschuere_210x297_DE_Screen.pdf",
+  "bytes": 244163,
+  "uploadedName": "/content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-de-screen.pdf",
+  "uploaded": "2026-10-26T15:31:51.787Z",
+  "preview": "2026-10-26T15:31:52.936Z"
+ },
+ "/content/dam/lh/documents/business-services/FRA_HQ_Concur_Triplink_Update_URL_Broschuere_210x297_EN_Screen.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/FRA_HQ_Concur_Triplink_Update_URL_Broschuere_210x297_EN_Screen.pdf",
+  "bytes": 241661,
+  "uploadedName": "/content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-en-screen.pdf",
+  "uploaded": "2026-10-26T15:31:53.327Z",
+  "preview": "2026-10-26T15:31:54.476Z"
+ },
+ "/content/dam/lh/documents/business-services/Passenger_Receipt_de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/Passenger_Receipt_de.pdf",
+  "bytes": 237127,
+  "uploadedName": "/content/dam/lh/documents/business-services/passenger-receipt-de.pdf",
+  "uploaded": "2026-10-26T15:31:53.390Z",
+  "preview": "2026-10-26T15:31:54.530Z"
+ },
+ "/content/dam/lh/documents/business-services/Passenger_Receipt_en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/business-services/Passenger_Receipt_en.pdf",
+  "bytes": 234840,
+  "uploadedName": "/content/dam/lh/documents/business-services/passenger-receipt-en.pdf",
+  "uploaded": "2026-10-26T15:31:53.539Z",
+  "preview": "2026-10-26T15:31:54.795Z"
+ },
+ "/content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-de.pdf",
+  "bytes": 105461,
+  "uploadedName": "/content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-de.pdf",
+  "uploaded": "2026-10-26T15:31:53.535Z",
+  "preview": "2026-10-26T15:31:54.685Z"
+ },
+ "/content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-en.pdf",
+  "bytes": 110982,
+  "uploadedName": "/content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-en.pdf",
+  "uploaded": "2026-10-26T15:31:53.628Z",
+  "preview": "2026-10-26T15:31:54.791Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603_A320_168.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603_A320_168.pdf",
+  "bytes": 406589,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603-a320-168.pdf",
+  "uploaded": "2026-10-26T15:31:54.886Z",
+  "preview": "2026-10-26T15:31:56.564Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603_A320neo_180.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603_A320neo_180.pdf",
+  "bytes": 423630,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603-a320neo-180.pdf",
+  "uploaded": "2026-10-26T15:31:54.889Z",
+  "preview": "2026-10-26T15:31:56.422Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/351/202604_A3510_Allegris_4F49C35W212Y_7775024.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/351/202604_A3510_Allegris_4F49C35W212Y_7775024.pdf",
+  "bytes": 4905856,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/351/202604-a3510-allegris-4f49c35w212y-7775024.pdf",
+  "uploaded": "2026-10-26T15:31:55.847Z",
+  "preview": "2026-10-26T15:31:59.145Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812_A359_36-21-262B.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812_A359_36-21-262B.pdf",
+  "bytes": 895270,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812-a359-36-21-262b.pdf",
+  "uploaded": "2026-10-26T15:31:55.508Z",
+  "preview": "2026-10-26T15:31:56.898Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812_A359_48-21-224B.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812_A359_48-21-224B.pdf",
+  "bytes": 891291,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812-a359-48-21-224b.pdf",
+  "uploaded": "2026-10-26T15:31:55.674Z",
+  "preview": "2026-10-26T15:31:56.806Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/201812_B744_0-67-32-272B.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/74e/201812_B744_0-67-32-272B.pdf",
+  "bytes": 1557947,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/201812-b744-0-67-32-272b.pdf",
+  "uploaded": "2026-10-26T15:31:55.731Z",
+  "preview": "2026-10-26T15:31:56.986Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/seatmap_747-400_67c32p22m.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/74e/seatmap_747-400_67c32p22m.pdf",
+  "bytes": 1234667,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/seatmap-747-400-67c32p22m.pdf",
+  "uploaded": "2026-10-26T15:31:56.895Z",
+  "preview": "2026-10-26T15:31:58.400Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/201812_B744_0-53-32-308B.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/74p/201812_B744_0-53-32-308B.pdf",
+  "bytes": 1567034,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/201812-b744-0-53-32-308b.pdf",
+  "uploaded": "2026-10-26T15:31:57.080Z",
+  "preview": "2026-10-26T15:31:58.819Z"
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400.43c.32p.308m.pdf": {
+  "wwwStatus": 404
+ },
+ "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/787/202603_B789_Allegris_28C28W231Y.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/discover-lufthansa/lufthansa-fleet/787/202603_B789_Allegris_28C28W231Y.pdf",
+  "bytes": 4367755,
+  "uploadedName": "/content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/787/202603-b789-allegris-28c28w231y.pdf",
+  "uploaded": "2026-10-26T15:31:57.866Z",
+  "preview": "2026-10-26T15:31:59.418Z"
+ },
+ "/content/dam/lh/documents/during-your-trip/in-flight-services-at-a-glance/doctor-on-board/doctor-on-board-anmeldung.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/during-your-trip/in-flight-services-at-a-glance/doctor-on-board/doctor-on-board-anmeldung.pdf",
+  "bytes": 1293116,
+  "uploadedName": "/content/dam/lh/documents/during-your-trip/in-flight-services-at-a-glance/doctor-on-board/doctor-on-board-anmeldung.pdf",
+  "uploaded": "2026-10-26T15:31:57.687Z",
+  "preview": "2026-10-26T15:31:58.979Z"
+ },
+ "/content/dam/lh/documents/food-and-beverages/dlh-26-014-onboard-delights-winter-26-C18-spread-low.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/food-and-beverages/dlh-26-014-onboard-delights-winter-26-C18-spread-low.pdf",
+  "bytes": 3550842,
+  "uploadedName": "/content/dam/lh/documents/food-and-beverages/dlh-26-014-onboard-delights-winter-26-c18-spread-low.pdf",
+  "uploaded": "2026-10-26T15:31:58.125Z",
+  "preview": "2026-10-26T15:31:59.688Z"
+ },
  "/content/dam/lh/documents/hagia_sofia_flash_sale_copy.jpg": {
   "type": "image/jpeg",
   "file": "tools/source-export/dam-cache/lh/documents/hagia_sofia_flash_sale_copy.jpg",
@@ -11163,6 +11342,535 @@
   "uploadedName": "/content/dam/lh/documents/hagia-sofia-flash-sale-copy.jpg",
   "uploaded": "2026-10-26T10:20:09.914Z",
   "preview": "2026-10-26T10:20:11.175Z"
+ },
+ "/content/dam/lh/documents/lh_in_case_your_baggage_gets_lost_de_en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/lh_in_case_your_baggage_gets_lost_de_en.pdf",
+  "bytes": 50850,
+  "uploadedName": "/content/dam/lh/documents/lh-in-case-your-baggage-gets-lost-de-en.pdf",
+  "uploaded": "2026-10-26T15:31:58.743Z",
+  "preview": "2026-10-26T15:31:59.830Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/airport-information/frankfurt-airport-html/LHMag201902_FRA.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/airport-information/frankfurt-airport-html/LHMag201902_FRA.pdf",
+  "bytes": 928333,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/airport-information/frankfurt-airport-html/lhmag201902-fra.pdf",
+  "uploaded": "2026-10-26T15:31:59.308Z",
+  "preview": "2026-10-26T15:32:00.529Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/airport-information/munich-airport/LHMag201904_MUC.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/airport-information/munich-airport/LHMag201904_MUC.pdf",
+  "bytes": 916262,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/airport-information/munich-airport/lhmag201904-muc.pdf",
+  "uploaded": "2026-10-26T15:31:59.434Z",
+  "preview": "2026-10-26T15:32:01.045Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna_airport_austrian_star_alliance_terminal_plan.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna_airport_austrian_star_alliance_terminal_plan.pdf",
+  "bytes": 801469,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna-airport-austrian-star-alliance-terminal-plan.pdf",
+  "uploaded": "2026-10-26T15:31:59.568Z",
+  "preview": "2026-10-26T15:32:00.901Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/airport-information/zuerich-airport/zuerich-airport_terminal-plan.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/airport-information/zuerich-airport/zuerich-airport_terminal-plan.pdf",
+  "bytes": 562274,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/airport-information/zuerich-airport/zuerich-airport-terminal-plan.pdf",
+  "uploaded": "2026-10-26T15:31:59.857Z",
+  "preview": "2026-10-26T15:32:01.399Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/Overview of Electronic Devices and Batteries.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/Overview of Electronic Devices and Batteries.pdf",
+  "bytes": 412458,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/overview-of-electronic-devices-and-batteries.pdf",
+  "uploaded": "2026-10-26T15:32:00.183Z",
+  "preview": "2026-10-26T15:32:01.343Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/Summary of Dangerous Goods.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/Summary of Dangerous Goods.pdf",
+  "bytes": 1531717,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/summary-of-dangerous-goods.pdf",
+  "uploaded": "2026-10-26T15:32:00.338Z",
+  "preview": "2026-10-26T15:32:02.066Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/Lufthansa-checklist-for-animal-transport.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/Lufthansa-checklist-for-animal-transport.pdf",
+  "bytes": 552367,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/lufthansa-checklist-for-animal-transport.pdf",
+  "uploaded": "2026-10-26T15:32:01.565Z",
+  "preview": "2026-10-26T15:32:02.780Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/Lufthansa-Checkliste-fuer-Tierbefoerderung.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/Lufthansa-Checkliste-fuer-Tierbefoerderung.pdf",
+  "bytes": 131847,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/lufthansa-checkliste-fuer-tierbefoerderung.pdf",
+  "uploaded": "2026-10-26T15:32:01.024Z",
+  "preview": "2026-10-26T15:32:02.172Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage/checkliste-tiere-kabine.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage/checkliste-tiere-kabine.pdf",
+  "bytes": 243544,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage/checkliste-tiere-kabine.pdf",
+  "uploaded": "2026-10-26T15:32:01.411Z",
+  "preview": "2026-10-26T15:32:02.759Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_APR23.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_APR23.pdf",
+  "bytes": 87070,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-apr23.pdf",
+  "uploaded": "2026-10-26T15:32:01.807Z",
+  "preview": "2026-10-26T15:32:03.380Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_AUG26.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_AUG26.pdf",
+  "bytes": 104285,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-aug26.pdf",
+  "uploaded": "2026-10-26T15:32:01.925Z",
+  "preview": "2026-10-26T15:32:03.202Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_MAR25.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/LH_Animals_in_Cabin_Form_MAR25.pdf",
+  "bytes": 100129,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-mar25.pdf",
+  "uploaded": "2026-10-26T15:32:02.559Z",
+  "preview": "2026-10-26T15:32:03.806Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh_us-dot-service-animal-air-transportation-form_2024.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh_us-dot-service-animal-air-transportation-form_2024.pdf",
+  "bytes": 184129,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-us-dot-service-animal-air-transportation-form-2024.pdf",
+  "uploaded": "2026-10-26T15:32:03.236Z",
+  "preview": "2026-10-26T15:32:04.338Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/Service_Animal_Air_Transportation_Form_FINAL_9_20_24.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/Service_Animal_Air_Transportation_Form_FINAL_9_20_24.pdf",
+  "bytes": 378161,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/service-animal-air-transportation-form-final-9-20-24.pdf",
+  "uploaded": "2026-10-26T15:32:02.728Z",
+  "preview": "2026-10-26T15:32:04.098Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/Service_Animals_Relief_Final_9_20_24.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/Service_Animals_Relief_Final_9_20_24.pdf",
+  "bytes": 193763,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/service-animals-relief-final-9-20-24.pdf",
+  "uploaded": "2026-10-26T15:32:03.198Z",
+  "preview": "2026-10-26T15:32:04.518Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/us-dot-service-animal-relief-attestation-form.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/us-dot-service-animal-relief-attestation-form.pdf",
+  "bytes": 184426,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/us-dot-service-animal-relief-attestation-form.pdf",
+  "uploaded": "2026-10-26T15:32:03.723Z",
+  "preview": "2026-10-26T15:32:04.938Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express/lufthansa-express-bus/lh_map_express-bus_nuremberg-airport.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express/lufthansa-express-bus/lh_map_express-bus_nuremberg-airport.pdf",
+  "bytes": 758353,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express/lufthansa-express-bus/lh-map-express-bus-nuremberg-airport.pdf",
+  "uploaded": "2026-10-26T15:32:03.830Z",
+  "preview": "2026-10-26T15:32:05.430Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news/arzt_07-17_MF_Stutz_Med_Notfall_an_Bord.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news/arzt_07-17_MF_Stutz_Med_Notfall_an_Bord.pdf",
+  "bytes": 1402175,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news/arzt-07-17-mf-stutz-med-notfall-an-bord.pdf",
+  "uploaded": "2026-10-26T15:32:04.520Z",
+  "preview": "2026-10-26T15:32:05.787Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa/department-transportion-us.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa/department-transportion-us.pdf",
+  "bytes": 653312,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa/department-transportion-us.pdf",
+  "uploaded": "2026-10-26T15:32:04.944Z",
+  "preview": "2026-10-26T15:32:06.218Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/LH_electric_mobility_device_form_en-de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/LH_electric_mobility_device_form_en-de.pdf",
+  "bytes": 132631,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-electric-mobility-device-form-en-de.pdf",
+  "uploaded": "2026-10-26T15:32:04.942Z",
+  "preview": "2026-10-26T15:32:06.227Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-DPNA-reservation-form.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-DPNA-reservation-form.pdf",
+  "bytes": 179112,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-dpna-reservation-form.pdf",
+  "uploaded": "2026-10-26T15:32:04.990Z",
+  "preview": "2026-10-26T15:32:06.469Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_DE.pdf": {
+  "wwwStatus": 404
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_EN.pdf": {
+  "wwwStatus": 404
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de.pdf",
+  "bytes": 222906,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de.pdf",
+  "uploaded": "2026-10-26T15:32:05.522Z",
+  "preview": "2026-10-26T15:32:06.666Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en.pdf",
+  "bytes": 225364,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en.pdf",
+  "uploaded": "2026-10-26T15:32:06.095Z",
+  "preview": "2026-10-26T15:32:07.520Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/pregnancy-statement-for-air-travel-de-en-20210525.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/pregnancy-statement-for-air-travel-de-en-20210525.pdf",
+  "bytes": 103434,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/pregnancy-statement-for-air-travel-de-en-20210525.pdf",
+  "uploaded": "2026-10-26T15:32:06.566Z",
+  "preview": "2026-10-26T15:32:08.077Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/games-download.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/games-download.pdf",
+  "bytes": 246146,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/games-download.pdf",
+  "uploaded": "2026-10-26T15:32:07.177Z",
+  "preview": "2026-10-26T15:32:08.791Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/EN_LH_A4_Pilotenurkunde.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/EN_LH_A4_Pilotenurkunde.pdf",
+  "bytes": 115351,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/en-lh-a4-pilotenurkunde.pdf",
+  "uploaded": "2026-10-26T15:32:07.090Z",
+  "preview": "2026-10-26T15:32:08.636Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/lh_kids-pilot-certificate.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/lh_kids-pilot-certificate.pdf",
+  "bytes": 114385,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/lh-kids-pilot-certificate.pdf",
+  "uploaded": "2026-10-26T15:32:07.968Z",
+  "preview": "2026-10-26T15:32:09.240Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/spiele-download.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/spiele-download.pdf",
+  "bytes": 248740,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/spiele-download.pdf",
+  "uploaded": "2026-10-26T15:32:08.516Z",
+  "preview": "2026-10-26T15:32:09.654Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/LH_Familienlotse_FRA_8-23.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/LH_Familienlotse_FRA_8-23.pdf",
+  "bytes": 2098809,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/lh-familienlotse-fra-8-23.pdf",
+  "uploaded": "2026-10-26T15:32:06.887Z",
+  "preview": "2026-10-26T15:32:08.573Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/LH_Familienlotse_MUC_8-23.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/LH_Familienlotse_MUC_8-23.pdf",
+  "bytes": 2593641,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/lh-familienlotse-muc-8-23.pdf",
+  "uploaded": "2026-10-26T15:32:06.861Z",
+  "preview": "2026-10-26T15:32:08.339Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/250430_DSDLH-27860_LH_formular_alleinreisende-jugendliche_210x297mm_lith.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/250430_DSDLH-27860_LH_formular_alleinreisende-jugendliche_210x297mm_lith.pdf",
+  "bytes": 68517,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/250430-dsdlh-27860-lh-formular-alleinreisende-jugendliche-210x297mm-lith.pdf",
+  "uploaded": "2026-10-26T15:32:08.782Z",
+  "preview": "2026-10-26T15:32:09.903Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/Checklist_for_unaccompanied_children_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/Checklist_for_unaccompanied_children_EN.pdf",
+  "bytes": 335489,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/checklist-for-unaccompanied-children-en.pdf",
+  "uploaded": "2026-10-26T15:32:08.953Z",
+  "preview": "2026-10-26T15:32:10.199Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh_unaccompanied-minors_checklist_2026_de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh_unaccompanied-minors_checklist_2026_de.pdf",
+  "bytes": 44633,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-unaccompanied-minors-checklist-2026-de.pdf",
+  "uploaded": "2026-10-26T15:32:09.184Z",
+  "preview": "2026-10-26T15:32:10.208Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh_unaccompanied-minors_checklist_2026_en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh_unaccompanied-minors_checklist_2026_en.pdf",
+  "bytes": 41980,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-unaccompanied-minors-checklist-2026-en.pdf",
+  "uploaded": "2026-10-26T15:32:09.590Z",
+  "preview": "2026-10-26T15:32:10.695Z"
+ },
+ "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-um_handling-advice_digital-form_2025.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-um_handling-advice_digital-form_2025.pdf",
+  "bytes": 94196,
+  "uploadedName": "/content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-um-handling-advice-digital-form-2025.pdf",
+  "uploaded": "2026-10-26T15:32:09.236Z",
+  "preview": "2026-10-26T15:32:10.348Z"
+ },
+ "/content/dam/lh/documents/Selfbagdrop-eng.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/02_Belgium_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/02_Belgium_Project-Description_DE.pdf",
+  "bytes": 299567,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/02-belgium-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:10.084Z",
+  "preview": "2026-10-26T15:32:11.397Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/02_Belgium_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/02_Belgium_Project-Description_EN.pdf",
+  "bytes": 314722,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/02-belgium-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:10.404Z",
+  "preview": "2026-10-26T15:32:11.596Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/03_Austria_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/03_Austria_Project-Description_DE.pdf",
+  "bytes": 219984,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/03-austria-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:10.712Z",
+  "preview": "2026-10-26T15:32:11.811Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/03_Austria_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/03_Austria_Project-Description_EN.pdf",
+  "bytes": 238577,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/03-austria-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:10.642Z",
+  "preview": "2026-10-26T15:32:11.789Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/04_Switzerland_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/04_Switzerland_Project-Description_DE.pdf",
+  "bytes": 193395,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/04-switzerland-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:10.980Z",
+  "preview": "2026-10-26T15:32:12.409Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/04_Switzerland_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/04_Switzerland_Project-Description_EN.pdf",
+  "bytes": 210436,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/04-switzerland-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:11.204Z",
+  "preview": "2026-10-26T15:32:12.463Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/05_Germany_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/05_Germany_Project-Description_DE.pdf",
+  "bytes": 264381,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/05-germany-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:11.941Z",
+  "preview": "2026-10-26T15:32:17.617Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/05_Germany_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/05_Germany_Project-Description_EN.pdf",
+  "bytes": 264951,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/05-germany-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:12.202Z",
+  "preview": "2026-10-26T15:32:13.696Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/06_Italy_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/06_Italy_Project-Description_DE.pdf",
+  "bytes": 297816,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/06-italy-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:12.184Z",
+  "preview": "2026-10-26T15:32:13.333Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/06_Italy_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/06_Italy_Project-Description_EN.pdf",
+  "bytes": 323164,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/06-italy-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:12.284Z",
+  "preview": "2026-10-26T15:32:13.471Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/08_Mongolia_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/08_Mongolia_Project-Description_DE.pdf",
+  "bytes": 310279,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/08-mongolia-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:12.854Z",
+  "preview": "2026-10-26T15:32:13.899Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/08_Mongolia_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/08_Mongolia_Project-Description_EN.pdf",
+  "bytes": 310616,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/08-mongolia-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:12.794Z",
+  "preview": "2026-10-26T15:32:14.194Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/10_Kenya_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/10_Kenya_Project-Description_DE.pdf",
+  "bytes": 183599,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/10-kenya-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:13.863Z",
+  "preview": "2026-10-26T15:32:14.935Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/10_Kenya_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/10_Kenya_Project-Description_EN.pdf",
+  "bytes": 116938,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/10-kenya-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:14.089Z",
+  "preview": "2026-10-26T15:32:15.320Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/11_India_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/11_India_Project-Description_DE.pdf",
+  "bytes": 286046,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/11-india-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:14.280Z",
+  "preview": "2026-10-26T15:32:15.688Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/11_India_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/11_India_Project-Description_EN.pdf",
+  "bytes": 286556,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/11-india-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:14.564Z",
+  "preview": "2026-10-26T15:32:15.619Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/12_Uganda_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/12_Uganda_Project-Description_DE.pdf",
+  "bytes": 242012,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/12-uganda-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:14.579Z",
+  "preview": "2026-10-26T15:32:15.630Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/12_Uganda_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/12_Uganda_Project-Description_EN.pdf",
+  "bytes": 244672,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/12-uganda-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:15.306Z",
+  "preview": "2026-10-26T15:32:16.389Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/14_Colombia_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/14_Colombia_Project-Description_DE.pdf",
+  "bytes": 281103,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/14-colombia-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:15.705Z",
+  "preview": "2026-10-26T15:32:17.019Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/14_Colombia_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/14_Colombia_Project-Description_EN.pdf",
+  "bytes": 284897,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/14-colombia-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:16.167Z",
+  "preview": "2026-10-26T15:32:17.402Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/16_Bolivia_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/16_Bolivia_Project-Description_DE.pdf",
+  "bytes": 302987,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/16-bolivia-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:16.054Z",
+  "preview": "2026-10-26T15:32:17.254Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/16_Bolivia_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/16_Bolivia_Project-Description_EN.pdf",
+  "bytes": 299606,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/16-bolivia-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:16.707Z",
+  "preview": "2026-10-26T15:32:18.050Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/17_India_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/17_India_Project-Description_DE.pdf",
+  "bytes": 285532,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/17-india-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:16.731Z",
+  "preview": "2026-10-26T15:32:18.043Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/17_India_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/17_India_Project-Description_EN.pdf",
+  "bytes": 321302,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/17-india-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:17.614Z",
+  "preview": "2026-10-26T15:32:18.786Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/18+19_Iceland_Project-Description_DE.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/18+19_Iceland_Project-Description_DE.pdf",
+  "bytes": 254754,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/18-19-iceland-project-description-de.pdf",
+  "uploaded": "2026-10-26T15:32:17.715Z",
+  "preview": "2026-10-26T15:32:18.852Z"
+ },
+ "/content/dam/lh/documents/sustainability/climate-protection-projects/18+19_Iceland_Project-Description_EN.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/sustainability/climate-protection-projects/18+19_Iceland_Project-Description_EN.pdf",
+  "bytes": 243752,
+  "uploadedName": "/content/dam/lh/documents/sustainability/climate-protection-projects/18-19-iceland-project-description-en.pdf",
+  "uploaded": "2026-10-26T15:32:17.814Z",
+  "preview": "2026-10-26T15:32:19.329Z"
+ },
+ "/content/dam/lh/documents/terms-conditions/2026_08_ABB_dt.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/terms-conditions/2026_08_ABB_dt.pdf",
+  "bytes": 236691,
+  "uploadedName": "/content/dam/lh/documents/terms-conditions/2026-08-abb-dt.pdf",
+  "uploaded": "2026-10-26T15:32:18.611Z",
+  "preview": "2026-10-26T15:32:19.933Z"
+ },
+ "/content/dam/lh/documents/terms-conditions/2026_08_ABB_en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/terms-conditions/2026_08_ABB_en.pdf",
+  "bytes": 219164,
+  "uploadedName": "/content/dam/lh/documents/terms-conditions/2026-08-abb-en.pdf",
+  "uploaded": "2026-10-26T15:32:18.646Z",
+  "preview": "2026-10-26T15:32:19.739Z"
+ },
+ "/content/dam/lh/documents/terms-conditions/2026_08_ABB_RO.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/documents/terms-conditions/2026_08_ABB_RO.pdf",
+  "bytes": 224014,
+  "uploadedName": "/content/dam/lh/documents/terms-conditions/2026-08-abb-ro.pdf",
+  "uploaded": "2026-10-26T15:32:18.054Z",
+  "preview": "2026-10-26T15:32:19.263Z"
  },
  "/content/dam/lh/en/images/offers/destination/bos-cinescope.jpg": {
   "type": "image/jpeg",
@@ -11412,6 +12120,9 @@
   "uploaded": "2026-10-26T10:20:16.314Z",
   "preview": "2026-10-26T10:20:17.676Z"
  },
+ "/content/dam/lh/images/local_images/100-years/history/menu-on-board/header_menues_an_bord.mp4": {
+  "wwwStatus": 403
+ },
  "/content/dam/lh/images/local_images/discover-lufthansa/allegris/economy/Allegris_Teaser_Reiseklassen_BC_21x9.jpg": {
   "type": "image/jpeg",
   "file": "tools/source-export/dam-cache/lh/images/local_images/discover-lufthansa/allegris/economy/Allegris_Teaser_Reiseklassen_BC_21x9.jpg",
@@ -11467,6 +12178,31 @@
   "uploadedName": "/content/dam/lh/images/local_images/mobile/lufthansa-insights/lh-app-travel-inspiration-1920x1080.jpg",
   "uploaded": "2026-10-26T10:07:15.131Z",
   "preview": "2026-10-26T10:07:16.446Z"
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603_Checkliste_Senioren_EN-GB.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603_Checkliste_Senioren_EN-GB.pdf",
+  "bytes": 92935,
+  "uploadedName": "/content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603-checkliste-senioren-en-gb.pdf",
+  "uploaded": "2026-10-26T15:32:19.211Z",
+  "preview": "2026-10-26T15:32:20.317Z"
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603_Checkliste_Senioren.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603_Checkliste_Senioren.pdf",
+  "bytes": 96331,
+  "uploadedName": "/content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603-checkliste-senioren.pdf",
+  "uploaded": "2026-10-26T15:32:19.111Z",
+  "preview": "2026-10-26T15:32:20.322Z"
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/business-class/intro_BC.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/intro_EC.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/premium-economy-class/intro_PE.mp4": {
+  "wwwStatus": 403
  },
  "/content/dam/lh/images/local_variations/c-1865990845-260129_Lufthansa_100Y_B787-9_Titel_6252_POS2.png": {
   "file": "tools/source-export/dam-cache/lh/images/local_variations/c-1865990845-260129_Lufthansa_100Y_B787-9_Titel_6252_POS2.png",
@@ -22860,10 +23596,118 @@
   "uploaded": "2026-10-26T10:20:38.832Z",
   "preview": "2026-10-26T10:20:40.182Z"
  },
+ "/content/dam/lh/video/2024-muc-arrival-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/video/2024-muc-arrival-en.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/video/2024-muc-transfer-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/video/2024-muc-transfer-en.mp4": {
+  "wwwStatus": 403
+ },
  "/content/dam/lh/video/lh_essentials_header_animation_cdg.mp4": {
   "wwwStatus": 403
  },
  "/content/dam/lh/video/lh_essentials_header_animation_sfo.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/cabin-design/01_100y_lh_kabinendesign_lp_header.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/cabin-design/05_50er_moving_img_50er_jahre_01-1.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_00_header.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_01_1947-1996.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_02_lockheedstarliner.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_03_boeing_707.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/chronicle/lh100years_timeline_video_04_1997-2026.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_AD_DE_1.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_AD_EN.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_UT_DE_1.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/destinations/Lufthansa_100Jahre_IconicJourney_60s_UT_EN.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/fleet/meilensteine_flugzeuge_header_moving.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/history/lh100years_History-Overview.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/lh100y_landingpage_keyvisual_update_iconicjourney.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/100-years/lh100years_main_page_video_History-Overview-1.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_AD_DE.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_AD_EN.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_DE_UT.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_EN_UT.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-ad_7691084.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-ad_7691083.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-en-cc-1_7706651 (1).vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/travel-class/first-class/first-class-terminal/01_fct_header_moving_image-2_7465099.mp4": {
   "wwwStatus": 403
  },
  "/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az_hotels.jpg": {
@@ -41637,6 +42481,22 @@
   "uploaded": "2026-10-26T10:29:39.985Z",
   "preview": "2026-10-26T10:29:41.394Z"
  },
+ "/content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form--en.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lufthansa-group/pdfs/lhg-power-of-attorney-form--en.pdf",
+  "bytes": 171474,
+  "uploadedName": "/content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf",
+  "uploaded": "2026-10-26T15:32:19.662Z",
+  "preview": "2026-10-26T15:32:20.865Z"
+ },
+ "/content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-de.pdf": {
+  "type": "application/pdf",
+  "file": "tools/source-export/dam-cache/lufthansa-group/pdfs/lhg-power-of-attorney-form-de.pdf",
+  "bytes": 131295,
+  "uploadedName": "/content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-de.pdf",
+  "uploaded": "2026-10-26T15:32:19.771Z",
+  "preview": "2026-10-26T15:32:20.748Z"
+ },
  "/content/dam/lufthansa-group/poi/de/images/destination/cmn-cinescope.jpg": {
   "type": "image/jpeg",
   "file": "tools/source-export/dam-cache/lufthansa-group/poi/de/images/destination/cmn-cinescope.jpg",
@@ -50829,6 +51689,9 @@
   "uploaded": "2026-10-26T10:35:22.572Z",
   "preview": "2026-10-26T10:35:23.772Z"
  },
+ "/content/dam/video/c3/04_FC_Terminal_01_Header_moving_Image.mp4": {
+  "wwwStatus": 403
+ },
  "/content/dam/video/c3/202405-em/austragungsorte/lh_com_lh_em_master_de_uts.jpg": {
   "type": "image/jpeg",
   "file": "tools/source-export/dam-cache/video/c3/202405-em/austragungsorte/lh_com_lh_em_master_de_uts.jpg",
@@ -54068,6 +54931,21 @@
  "/content/dam/video/c3/campaigns/summer-push/01_video/lh_blog_nyc_header.mp4": {
   "wwwStatus": 403
  },
+ "/content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_de_ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_de_cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_en_ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/campaigns/summer-push/03_text/lh_com_summerpush_en_cc.vtt": {
+  "wwwStatus": 403
+ },
  "/content/dam/video/c3/campaigns/yes-story/lh/01_video/lh_blog_yes_video_kaye_1920x1080.mp4": {
   "wwwStatus": 403
  },
@@ -54219,6 +55097,12 @@
   "wwwStatus": 403
  },
  "/content/dam/video/c3/campaigns/yes-story/lh/04_animation/lh_blog_yes_story_tom_1920x1080.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_DE_clean.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly with Dirk _Longform_EN_clean.mp4": {
   "wwwStatus": 403
  },
  "/content/dam/video/c3/dirk-nowiztki-perfect-flight/260825_Fly_with_Dirk_Longform_AudioDescription_DE.vtt": {
@@ -54988,5 +55872,86 @@
   "uploadedName": "/content/dam/video/de/c3/headeranimation/essentials-bangkok/lh-blog-bangkok-illustration-sylvia-neuner-16x9.jpg",
   "uploaded": "2026-10-26T10:36:24.984Z",
   "preview": "2026-10-26T10:36:26.353Z"
+ },
+ "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-de-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-lh-chat-assistant-rebooking-en-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-damaged-baggage-en-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-ad.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en-cc.vtt": {
+  "wwwStatus": 403
+ },
+ "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4": {
+  "wwwStatus": 403
  }
 }

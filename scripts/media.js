@@ -2,7 +2,9 @@
  * Videos and embeds inside blocks (columns-media, carousel-cards, accordion-columns, embed).
  *
  * Video: a poster picture plus a link to an .mp4 file, optionally followed in its paragraph by
- * a settings marker ("{autoplay muted loop}", "{controls round-play-button}").
+ * links to its text tracks (.vtt: "Subtitles", "Audio description"; www's closedCaptionsSrc and
+ * audioDescriptionSrc) and a settings marker ("{autoplay muted loop}",
+ * "{controls round-play-button}").
  * Embed: a link alone in its paragraph to a YouTube video (shown as a youtube-nocookie.com
  * player, 16:9) or to a Lufthansa in-flight entertainment widget
  * (www.lufthansa-inflightentertainment.com/.../widgets/?id=…&type=…&lang=…, 520px high, at most
@@ -42,6 +44,30 @@ function toUrl(href) {
 export function isVideoLink(a) {
   const url = toUrl(a.href);
   return Boolean(url) && /\.mp4$/i.test(url.pathname);
+}
+
+/** Whether a link points to a .vtt text track (subtitles, audio description). */
+export function isTrackLink(a) {
+  const url = toUrl(a.href);
+  return Boolean(url) && /\.vtt$/i.test(url.pathname);
+}
+
+/**
+ * The text tracks authored next to a video link (in its paragraph): www's closed captions
+ * (kind captions) and audio description (kind descriptions: a link text or file name with
+ * "audio"/"AD"). The links are removed.
+ */
+function takeTracks(link) {
+  const p = link.closest('p');
+  if (!p) return [];
+  return [...p.querySelectorAll('a[href]')].filter(isTrackLink).map((a) => {
+    const text = cleanText(a);
+    const file = toUrl(a.href).pathname.split('/').pop();
+    const description = /audio|deskription|(^|[^a-z])ad([^a-z]|$)/i.test(`${text} ${file.replace(/\.vtt$/i, '')}`);
+    a.remove();
+    const bare = !text || /^(https?:)?\/\/|^\//i.test(text);
+    return { src: a.href, label: bare ? '' : text, kind: description ? 'descriptions' : 'captions' };
+  });
 }
 
 /** Whether a link text is just its URL (DA writes bare links that way). */
@@ -136,9 +162,18 @@ function takeVideoSettings(link) {
  * @param {HTMLImageElement} img poster
  * @param {Set<string>} settings authored settings (none: controls, loop)
  */
-function createVideo(src, img, settings) {
+function createVideo(src, img, settings, tracks = []) {
   const authored = settings.size > 0;
   const video = document.createElement('video');
+  // text tracks (same origin): captions and audio description in the page language
+  tracks.forEach(({ src: trackSrc, label: trackLabel, kind }) => {
+    const track = document.createElement('track');
+    track.kind = kind;
+    track.src = trackSrc;
+    track.srclang = getLocale().lang;
+    if (trackLabel) track.label = trackLabel;
+    video.append(track);
+  });
   video.controls = !authored || settings.has('controls');
   video.loop = !authored || settings.has('loop');
   video.muted = settings.has('muted');
@@ -179,6 +214,7 @@ function play(video) {
 export function buildVideo(link, picture, playLabel) {
   mediaCount += 1;
   const settings = takeVideoSettings(link);
+  const tracks = takeTracks(link);
   const src = link.href;
   const buttonLabel = isUrlText(link) ? (playLabel || label('video')) : cleanText(link);
   const wrapper = document.createElement('div');
@@ -197,7 +233,7 @@ export function buildVideo(link, picture, playLabel) {
     const observer = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       observer.disconnect();
-      const video = createVideo(src, wrapper.querySelector('img'), settings);
+      const video = createVideo(src, wrapper.querySelector('img'), settings, tracks);
       video.autoplay = true;
       video.tabIndex = -1;
       video.setAttribute('aria-hidden', 'true');
@@ -217,7 +253,7 @@ export function buildVideo(link, picture, playLabel) {
   wrapper.append(button);
 
   button.addEventListener('click', () => {
-    const video = createVideo(src, wrapper.querySelector('img'), settings);
+    const video = createVideo(src, wrapper.querySelector('img'), settings, tracks);
     video.autoplay = true;
     if (!video.controls) video.addEventListener('click', () => (video.paused ? play(video) : video.pause()));
     wrapper.replaceChildren(video);
@@ -247,7 +283,8 @@ export function decorateMedia(root) {
     if (isVideoLink(link)) {
       const clone = p.cloneNode(true);
       clone.querySelectorAll('a').forEach((a) => a.remove());
-      if (cleanText(clone).replace(VIDEO_MARKERS, '').trim() || p.querySelectorAll('a').length > 1) return;
+      const others = [...p.querySelectorAll('a')].filter((a) => a !== link && !isTrackLink(a));
+      if (cleanText(clone).replace(VIDEO_MARKERS, '').trim() || others.length) return;
       const prev = p.previousElementSibling;
       const picture = p.querySelector('picture')
         || (prev && prev.tagName === 'P' && !cleanText(prev) && prev.children.length === 1 && prev.querySelector(':scope > picture'));
