@@ -30,6 +30,7 @@ import { xfCatalog, isXfPath } from './xf.js';
 import { aircraftList, isAircraftPath } from './aircraft.js';
 import { changeLocale, isChangeLocalePath } from './changelocale.js';
 import { sitemapGz, isSitemapGzPath } from './sitemap.js';
+import { llmsTxt, isLlmsPath } from './llms.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -99,6 +100,12 @@ export const ROUTES = [
     name: 'sitemap-gz',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isSitemapGzPath(url.pathname),
     handle: sitemapGz,
+  },
+  {
+    // AMS rest A8: generated llms.txt per market and locale (the curated static files win)
+    name: 'llms',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isLlmsPath(url.pathname),
+    handle: llmsTxt,
   },
   {
     name: 'service-worker',
