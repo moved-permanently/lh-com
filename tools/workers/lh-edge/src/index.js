@@ -11,6 +11,15 @@ import { sdui, isSduiPath } from './sdui-route.js';
 import { graphql, isGraphqlPath } from './graphql.js';
 import { dam, isDamPath } from './dam.js';
 import { siteSearch, isSearchPath } from './search.js';
+import { backends, isBackendsPath, isLoginReturn } from './backends.js';
+import { entry, entryPath } from './entry.js';
+import { loginUrl, LOGIN_PATH } from './login.js';
+import {
+  defaultAirport, bookingList, DEFAULT_AIRPORT_PATH, BOOKING_LIST_PATH,
+} from './booking.js';
+import { g4tKiosk, G4T_PATH } from './g4t.js';
+import { selectLanguage, SELECT_LANGUAGE_PATH } from './select-language.js';
+import { owa, OWA } from './owa.js';
 import WELL_KNOWN from './well-known.js';
 
 /** The App Links / Universal Links files of www, byte for byte, as application/json. */
@@ -33,7 +42,7 @@ async function messages(request, env) {
 
 /**
  * The routes, first match wins. match(url, request) -> boolean; handle(request, env, ctx).
- * Packages 2 to 6 add their routes before the pass-through.
+ * Packages add their routes before login-return, entry and backends; pass-through comes last.
  */
 export const ROUTES = [
   {
@@ -62,6 +71,36 @@ export const ROUTES = [
     handle: siteSearch,
   },
   {
+    name: 'login-url',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === LOGIN_PATH,
+    handle: loginUrl,
+  },
+  {
+    name: 'default-airport',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === DEFAULT_AIRPORT_PATH,
+    handle: defaultAirport,
+  },
+  {
+    name: 'booking-list',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === BOOKING_LIST_PATH,
+    handle: bookingList,
+  },
+  {
+    name: 'g4t-kiosk',
+    match: (url, request) => request.method === 'POST' && url.pathname === G4T_PATH,
+    handle: g4tKiosk,
+  },
+  {
+    name: 'select-language',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === SELECT_LANGUAGE_PATH,
+    handle: selectLanguage,
+  },
+  {
+    name: 'owa',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && OWA.test(url.pathname),
+    handle: owa,
+  },
+  {
     name: 'dam',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isDamPath(url.pathname),
     handle: dam,
@@ -70,6 +109,23 @@ export const ROUTES = [
     name: 'solo',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && soloPath(url.pathname) !== null,
     handle: solo,
+  },
+  {
+    // the return from the login provider (/?code=..&state=/de/en/...): before the entry redirects
+    name: 'login-return',
+    match: (url, request) => isLoginReturn(url, request),
+    handle: backends,
+  },
+  {
+    name: 'entry',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && entryPath(url.pathname) !== null,
+    handle: entry,
+  },
+  {
+    // www's remaining server endpoints, answered by lh-backends (after every route of lh-edge)
+    name: 'backends',
+    match: (url) => isBackendsPath(url.pathname),
+    handle: backends,
   },
   {
     name: 'pass-through',

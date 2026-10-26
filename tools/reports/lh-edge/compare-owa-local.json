@@ -1,0 +1,93 @@
+{
+ "checkedAt": "2026-10-26T13:55:27.351Z",
+ "edge": "the Worker in Node, local documents and the seed sheet",
+ "equal": 17,
+ "total": 17,
+ "results": [
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/en/homepage.csi-owa-header.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/en/homepage.csi-owa-footer.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/en/homepage.csi-owa-portal-config.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/de/homepage.csi-owa-header.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/de/homepage.csi-owa-footer.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/de/de/homepage.csi-owa-portal-config.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/at/de/homepage.csi-owa-header.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/at/de/homepage.csi-owa-footer.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/at/de/homepage.csi-owa-portal-config.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/gb/en/homepage.csi-owa-header.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/gb/en/homepage.csi-owa-footer.json",
+   "differences": []
+  },
+  {
+   "kind": "owa",
+   "url": "/content/lh/markets/gb/en/homepage.csi-owa-portal-config.json",
+   "differences": []
+  },
+  {
+   "kind": "login",
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fen%2Fhomepage (DE/en)",
+   "differences": []
+  },
+  {
+   "kind": "login",
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fde%2Fhomepage (DE/de)",
+   "differences": []
+  },
+  {
+   "kind": "login",
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fat%2Fde%2Fhomepage (AT/de)",
+   "differences": []
+  },
+  {
+   "kind": "login",
+   "url": "/service/secured/api/core/authenticate/loginPageUrl?state=%2Fgb%2Fen%2Fhomepage (GB/en)",
+   "differences": []
+  },
+  {
+   "kind": "vanity",
+   "url": "/de/en/homepage.csi-owa-header.json",
+   "differences": []
+  }
+ ]
+}

@@ -8,10 +8,21 @@ workers_dev = true
 
 # Secrets (not here): FORM_SENDER (from address), FORM_CONFIG (JSON, see README.md and
 # FORM_CONFIG.example.json), FORM_MAIL_ACCOUNT_ID and FORM_MAIL_TOKEN (the Cloudflare account and
-# API token of the Email Sending REST API; another account than this worker's). Set them with
+# API token of the Email Sending REST API; another account than this worker's),
+# FORMS_DELIVERY_TOKEN (the token lh-backends expects in x-forms-delivery-token, for
+# FORM_DELIVERY email+backends or backends). Set them with
 # `npx wrangler@4 secret put <NAME>`; never log them.
 
+# lh-backends: delivers submissions to the airline's systems (FORM_DELIVERY below)
+[[services]]
+binding = "DELIVERY"
+service = "lh-backends"
+
 [vars]
+# email (default): the e-mail only; email+backends: the e-mail, then also lh-backends;
+# backends: lh-backends instead of the e-mail. Switched by Ben once DELIVERY and
+# FORMS_DELIVERY_TOKEN are in place; keep "email" here.
+FORM_DELIVERY = "email"
 ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
 EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
 

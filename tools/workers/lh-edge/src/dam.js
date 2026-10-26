@@ -16,8 +16,9 @@
  *   images/offers/fallback/generic<suffix>.jpg (suffix: from the last "-" of the name,
  *   "zzq-square" -> "-square"), with the rendition kept. www sends the other airlines' fallbacks
  *   to their own sites (www.swiss.com ...); Lufthansa's stay on the request's host.
- * - DAM_STEPS run first (a step returns a Response or null): for paths another source answers
- *   (the synced brand assets of /content/dam/<tenant>/images/frontify/..., a later package).
+ * - The synced brand assets (/content/dam/<tenant>/(images|videos)/frontify/...) go to
+ *   lh-backends first (syncedAsset); its 404 falls through to the copies.
+ * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
  */
 import { originFetch } from './edge.js';
 // the site's own module: one naming rule for the site, the copies and the Worker (wrangler
@@ -32,6 +33,28 @@ export const isDamPath = (pathname) => pathname.startsWith('/content/dam/');
 
 /** Steps before the copies: async (request, env, ctx, dam) => Response | null. */
 export const DAM_STEPS = [];
+
+// brand assets Lufthansa manages in Frontify, kept in sync by lh-backends (binding BACKENDS):
+// /content/dam/<tenant>/(images|videos)/frontify/..., renditions included; not the author-made
+// crops under images/frontify_variations/ (DA copies)
+const SYNCED = /^\/content\/dam\/(lh|lx|aua|bel|four_y|b2bneo)\/(images|videos)\/frontify\//;
+
+/**
+ * The synced brand assets first: lh-backends' answer as it is when it has the asset (200, 304:
+ * its cache-control, etag, CSP for SVG); on 404 (not synced, not published, a file that lives in
+ * DA) or any other answer the copies of package 4 answer. Renditions: lh-backends answers the
+ * original for www's rendition names (not resized here).
+ */
+export async function syncedAsset(request, env, url) {
+  if (!env.BACKENDS || !['GET', 'HEAD'].includes(request.method) || !SYNCED.test(url.pathname)) return null;
+  try {
+    const resp = await env.BACKENDS.fetch(request);
+    if (resp.status === 200 || resp.status === 304) return resp;
+  } catch (e) {
+    // lh-backends unreachable: the copies answer
+  }
+  return null;
+}
 
 const ASSET_CACHE = 'public, max-age=2592000';
 const NOT_FOUND_CACHE = 'public, max-age=60';
@@ -120,6 +143,8 @@ export async function dam(request, env, ctx) {
   const url = new URL(request.url);
   const parsed = parseDamPath(url.pathname);
   const info = { ...parsed, url };
+  const synced = await syncedAsset(request, env, url);
+  if (synced) return synced;
   for (let i = 0; i < DAM_STEPS.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     const answer = await DAM_STEPS[i](request, env, ctx, info);

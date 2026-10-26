@@ -204,6 +204,43 @@ function navLink(href, label, className, labels) {
   return a;
 }
 
+/* ---------------------------------------------------------------- login -------------- */
+
+const LOGIN_URL = '/service/secured/api/core/authenticate/loginPageUrl';
+
+/**
+ * The login link asks for www's login URL (GET .../loginPageUrl?state=<this page>, answered by
+ * lh-edge as www) and follows it; where nothing answers (an Edge Delivery host without lh-edge)
+ * or it fails, the link's own URL from the nav document.
+ */
+function useLoginUrl(a) {
+  // the login opens in this tab, as on www
+  a.removeAttribute('target');
+  a.removeAttribute('rel');
+  a.addEventListener('click', async (e) => {
+    // a new tab or window (modifier keys) keeps the link as it is
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    const fallback = a.href;
+    const locale = getLocale();
+    try {
+      const state = window.location.pathname.replace(/^\/content(?=\/)/, '');
+      const resp = await fetch(`${LOGIN_URL}?state=${encodeURIComponent(state)}`, {
+        headers: {
+          'X-Portal': 'LH', 'X-Portal-Site': locale.country.toUpperCase(), 'X-Portal-Language': locale.lang,
+        },
+        signal: AbortSignal.timeout(3000),
+      });
+      const json = resp.ok ? await resp.json() : null;
+      const next = json && typeof json.loginPageUrl === 'string' ? json.loginPageUrl : '';
+      window.location.href = /^https:\/\//.test(next) ? next : fallback;
+    } catch (err) {
+      window.location.href = fallback;
+    }
+  });
+  return a;
+}
+
 /* ---------------------------------------------------------------- locale ------------- */
 
 /** Target of an authored country link: the counterpart page for migrated locales. */
@@ -650,7 +687,7 @@ export default async function decorate(block) {
   const loginTool = byRole('login');
   if (loginTool && loginTool.href) {
     toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
-    toolsEl.append(await toolLink(loginTool, 'nav-tool nav-tool-login', true));
+    toolsEl.append(useLoginUrl(await toolLink(loginTool, 'nav-tool nav-tool-login', true)));
   }
   if (toolsEl.children.length) toolsEl.append(el('span', { className: 'nav-divider', 'aria-hidden': 'true' }));
   const menuButton = el(
@@ -675,7 +712,7 @@ export default async function decorate(block) {
   const flyoutLocale = await localeButton(localeTool, 'nav-flyout-extra nav-flyout-locale', labels);
   flyoutLocale.addEventListener('click', () => openLocale(flyoutLocale));
   extras.push(el('li', {}, flyoutLocale));
-  const flyoutLogin = loginTool && loginTool.href ? await toolLink(loginTool, 'nav-flyout-extra', true) : null;
+  const flyoutLogin = loginTool && loginTool.href ? useLoginUrl(await toolLink(loginTool, 'nav-flyout-extra', true)) : null;
 
   const menuImage = menu && [...menu.querySelectorAll('picture, img')].find((p) => !p.closest('li') && !(p.tagName === 'IMG' && p.closest('picture')));
   if (menuImage) {

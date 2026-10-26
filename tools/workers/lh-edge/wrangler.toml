@@ -10,6 +10,12 @@ workers_dev = true
 binding = "MESSAGES"
 service = "lh-messages"
 
+# lh-backends: www's server endpoints that are not pages (REST calls, deeplinks, Travel ID
+# return and logout, seat map) and the synced Frontify brand assets under /content/dam
+[[services]]
+binding = "BACKENDS"
+service = "lh-backends"
+
 # Secret (optional, not here): ORIGIN_AUTHENTICATION, the site token when the origin needs one.
 
 [vars]

@@ -3,6 +3,8 @@
  * Delivery Services hosts and sends one e-mail per valid submission through the Cloudflare
  * Email Sending REST API of another Cloudflare account (secrets FORM_MAIL_ACCOUNT_ID,
  * FORM_MAIL_TOKEN). Recipients come from the FORM_CONFIG secret, the sender from FORM_SENDER.
+ * The var FORM_DELIVERY (email | email+backends | backends) can also, or instead, hand the
+ * submission to lh-backends (service binding DELIVERY, secret FORMS_DELIVERY_TOKEN).
  *
  * Never log field values, file names or addresses. No dependencies. See ../README.md.
  */
@@ -166,9 +168,77 @@ function parseConfig(raw) {
   }
 }
 
-function isConfigured(env) {
+function isMailConfigured(env) {
   return !!(String(env.FORM_MAIL_ACCOUNT_ID || '').trim() && String(env.FORM_MAIL_TOKEN || '').trim()
     && isEmail(String(env.FORM_SENDER || '').trim()) && parseConfig(env.FORM_CONFIG));
+}
+
+/* ---------- delivery to lh-backends (switch FORM_DELIVERY) ---------- */
+
+const DELIVERY_MODES = ['email', 'email+backends', 'backends'];
+const DELIVERY_TIMEOUT_MS = 40000;
+const warned = new Set();
+/** Logs a warning once per isolate (codes only). */
+function warnOnce(code) {
+  if (warned.has(code)) return;
+  warned.add(code);
+  // eslint-disable-next-line no-console
+  console.warn('lh-forms', code);
+}
+
+/** email (default and for any unknown value), email+backends or backends. */
+function deliveryMode(env) {
+  const mode = String(env.FORM_DELIVERY ?? '').trim();
+  if (!mode) return 'email';
+  if (DELIVERY_MODES.includes(mode)) return mode;
+  warnOnce('unknown-form-delivery');
+  return 'email';
+}
+
+/** The binding DELIVERY (lh-backends) and the secret FORMS_DELIVERY_TOKEN are there. */
+function isDeliveryConfigured(env) {
+  return !!(env.DELIVERY && typeof env.DELIVERY.fetch === 'function' && String(env.FORMS_DELIVERY_TOKEN || '').trim());
+}
+
+/** Configured for the delivery mode (GET /health). */
+function isConfigured(env) {
+  const mode = deliveryMode(env);
+  if (mode === 'backends') return !!(isDeliveryConfigured(env) && parseConfig(env.FORM_CONFIG));
+  if (mode === 'email+backends') return isMailConfigured(env) && isDeliveryConfigured(env);
+  return isMailConfigured(env);
+}
+
+/**
+ * Hands a submission to lh-backends (POST /_lh-backends/forms/deliver over the binding; the
+ * host does not matter). 200 delivered, 202 queued for a retry: both success. Returns the status
+ * and lh-backends' error code only; nothing of the request is logged.
+ * @returns {Promise<{ok:boolean,status:number,error:string}>}
+ */
+async function deliver(env, payload) {
+  let resp;
+  try {
+    resp = await env.DELIVERY.fetch('https://lh-backends/_lh-backends/forms/deliver', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-forms-delivery-token': String(env.FORMS_DELIVERY_TOKEN).trim(),
+      },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(DELIVERY_TIMEOUT_MS),
+    });
+  } catch (e) {
+    return { ok: false, status: 0, error: e && e.name === 'TimeoutError' ? 'timeout' : 'network' };
+  }
+  let data = null;
+  try { data = await resp.json(); } catch (e) { data = null; }
+  const code = data && typeof data.error === 'string' && /^[a-z0-9_.-]{1,80}$/i.test(data.error) ? data.error : '';
+  return { ok: resp.status === 200 || resp.status === 202, status: resp.status, error: code };
+}
+
+function logDelivery(result) {
+  // the status and lh-backends' error code: never addresses, values, file names or the token
+  // eslint-disable-next-line no-console
+  console.error('lh-forms delivery failed', result.status, result.error || '-');
 }
 
 const oneLine = (s) => String(s).replace(/[\r\n\t]+/g, ' ').trim().slice(0, 300);
@@ -455,7 +525,10 @@ async function submit(request, env, origin) {
   const filesChecked = await validateFiles(files, form);
   if (filesChecked.error) return fail(filesChecked.status, filesChecked.error, origin);
 
-  if (!isConfigured(env)) return fail(500, 'not-configured', origin);
+  const mode = deliveryMode(env);
+  if (mode === 'backends' ? !(isDeliveryConfigured(env) && parseConfig(env.FORM_CONFIG)) : !isMailConfigured(env)) {
+    return fail(500, 'not-configured', origin);
+  }
   const recipients = resolveRecipients(parseConfig(env.FORM_CONFIG), form, locale);
   if (!recipients) return fail(500, 'no-recipients', origin);
 
@@ -466,7 +539,7 @@ async function submit(request, env, origin) {
     title, page, time: new Date().toISOString(), fields, files: attachments.map((a) => a.filename),
   });
   const message = {
-    from: String(env.FORM_SENDER).trim(),
+    from: String(env.FORM_SENDER || '').trim(),
     to: recipients.to,
     subject: recipients.subject || `[lh-com] ${title} (${locale})`,
     html,
@@ -476,12 +549,33 @@ async function submit(request, env, origin) {
   if (replyTo) message.reply_to = replyTo;
   if (attachments.length) message.attachments = attachments;
 
+  const payload = () => ({
+    form, locale, page, message, fields, attachments,
+  });
+
+  if (mode === 'backends') {
+    const delivered = await deliver(env, payload());
+    if (!delivered.ok) {
+      logDelivery(delivered);
+      return json(502, { ok: false, error: 'delivery-failed' }, origin);
+    }
+    return json(200, { ok: true }, origin);
+  }
+
   const sent = await sendMail(env, message);
   if (!sent.ok) {
     // only the API's error codes: never addresses, values or the token
     // eslint-disable-next-line no-console
     console.error('lh-forms send failed', sent.codes.join(', '));
     return json(502, { ok: false, error: 'send-failed', codes: sent.codes }, origin);
+  }
+  if (mode === 'email+backends') {
+    // the visitor's answer is the e-mail's; the hand-over is logged when it fails
+    if (!isDeliveryConfigured(env)) warnOnce('delivery-not-configured');
+    else {
+      const delivered = await deliver(env, payload());
+      if (!delivered.ok) logDelivery(delivered);
+    }
   }
   return json(200, { ok: true }, origin);
 }

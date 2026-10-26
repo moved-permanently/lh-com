@@ -623,3 +623,139 @@ test('the honeypot and a missing config never call the API', async () => {
   await post({ ip: '198.51.100.50' }, makeEnv({ FORM_MAIL_TOKEN: '' }));
   assert.equal(mailCalls.length, 0);
 });
+
+/* ---------- FORM_DELIVERY: hand-over to lh-backends ---------- */
+
+/** A fake binding DELIVERY: records each call and answers with the given status and body. */
+function fakeDelivery(status = 200, body = { ok: true, state: 'delivered' }) {
+  const calls = [];
+  return {
+    calls,
+    fetch: async (url, init = {}) => {
+      calls.push({ url: String(url), init, body: JSON.parse(init.body) });
+      if (status === 'network') throw new TypeError('fetch failed');
+      return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
+    },
+  };
+}
+
+async function quietly(fn) {
+  const logs = [];
+  // eslint-disable-next-line no-console
+  const real = [console.error, console.warn, console.log];
+  // eslint-disable-next-line no-console
+  console.error = (...a) => logs.push(a.join(' '));
+  // eslint-disable-next-line no-console
+  console.warn = (...a) => logs.push(a.join(' '));
+  // eslint-disable-next-line no-console
+  console.log = (...a) => logs.push(a.join(' '));
+  try {
+    return { result: await fn(), logs };
+  } finally {
+    // eslint-disable-next-line no-console
+    [console.error, console.warn, console.log] = real;
+  }
+}
+
+test('delivery off (email, unset, unknown value): the binding is never called', async () => {
+  const values = [undefined, 'email', 'smtp'];
+  const runs = await Promise.all(values.map(async (FORM_DELIVERY) => {
+    const DELIVERY = fakeDelivery();
+    const { result } = await quietly(() => post({}, makeEnv({ FORM_DELIVERY, DELIVERY, FORMS_DELIVERY_TOKEN: 'tok-1' })));
+    return { DELIVERY, result };
+  }));
+  runs.forEach(({ DELIVERY, result }) => {
+    assert.equal(result.res.status, 200);
+    assert.equal(DELIVERY.calls.length, 0);
+  });
+  assert.equal(sent.length, 3);
+});
+
+test('email+backends: one hand-over after a sent mail, none after a failed one; its failure keeps the answer', async () => {
+  const DELIVERY = fakeDelivery();
+  const env = makeEnv({ FORM_DELIVERY: 'email+backends', DELIVERY, FORMS_DELIVERY_TOKEN: 'tok-1' });
+  const ok = await post({}, env);
+  assert.equal(ok.res.status, 200);
+  assert.equal(sent.length, 1);
+  assert.equal(DELIVERY.calls.length, 1);
+
+  mailReply = { status: 500, body: { success: false, errors: [], messages: [] } };
+  const { result: failed } = await quietly(() => post({ ip: '203.0.113.8' }, env));
+  assert.equal(failed.res.status, 502);
+  assert.equal(DELIVERY.calls.length, 1);
+
+  mailReply = MAIL_OK;
+  const broken = fakeDelivery(500, { ok: false, state: 'failed', error: 'upstream-unavailable' });
+  const { result, logs } = await quietly(() => post({ ip: '203.0.113.9' }, makeEnv({ FORM_DELIVERY: 'email+backends', DELIVERY: broken, FORMS_DELIVERY_TOKEN: 'tok-1' })));
+  assert.equal(result.res.status, 200);
+  assert.deepEqual(result.body, { ok: true });
+  assert.equal(broken.calls.length, 1);
+  assert.equal(logs.length, 1);
+  assert.match(logs[0], /500 upstream-unavailable/);
+});
+
+test('email+backends without binding or token: the mail goes, no hand-over, /health not configured', async () => {
+  const { result } = await quietly(() => post({}, makeEnv({ FORM_DELIVERY: 'email+backends' })));
+  assert.equal(result.res.status, 200);
+  assert.equal(sent.length, 1);
+  const health = await worker.fetch(new Request(`${BASE}/health`), makeEnv({ FORM_DELIVERY: 'email+backends', DELIVERY: fakeDelivery() }));
+  assert.deepEqual(await health.json(), { configured: false });
+});
+
+test('backends: the hand-over instead of the mail; 200 and 202 are ok, anything else 502', async () => {
+  const envFor = (DELIVERY) => makeEnv({
+    FORM_DELIVERY: 'backends', DELIVERY, FORMS_DELIVERY_TOKEN: 'tok-1', FORM_MAIL_ACCOUNT_ID: undefined, FORM_MAIL_TOKEN: undefined, FORM_SENDER: undefined,
+  });
+  const cases = [[200, 200], [202, 200], [500, 502], [400, 502], ['network', 502]];
+  const ips = ['203.0.113.10', '203.0.113.11', '203.0.113.12', '203.0.113.13', '203.0.113.14'];
+  const runs = await Promise.all(cases.map(async ([reply, expected], i) => {
+    const DELIVERY = fakeDelivery(reply, reply === 200 || reply === 202 ? { ok: true, state: reply === 202 ? 'queued' : 'delivered' } : { ok: false, state: 'failed', error: 'rejected' });
+    const { result } = await quietly(() => post({ ip: ips[i] }, envFor(DELIVERY)));
+    return {
+      result, expected, DELIVERY, reply,
+    };
+  }));
+  runs.forEach(({ result, expected, DELIVERY }) => {
+    assert.equal(result.res.status, expected);
+    assert.deepEqual(result.body, expected === 200 ? { ok: true } : { ok: false, error: 'delivery-failed' });
+    assert.equal(DELIVERY.calls.length, 1);
+  });
+  assert.equal(mailCalls.length, 0);
+  assert.equal(sent.length, 0);
+  const health = await worker.fetch(new Request(`${BASE}/health`), envFor(fakeDelivery()));
+  assert.deepEqual(await health.json(), { configured: true });
+});
+
+test('backends without binding or token: 500 not-configured, /health not configured', async () => {
+  const env = makeEnv({ FORM_DELIVERY: 'backends' });
+  const { res, body } = await post({}, env);
+  assert.equal(res.status, 500);
+  assert.equal(body.error, 'not-configured');
+  const health = await worker.fetch(new Request(`${BASE}/health`), env);
+  assert.deepEqual(await health.json(), { configured: false });
+});
+
+test('the hand-over: token header, JSON shape, and nothing but codes in the log', async () => {
+  const DELIVERY = fakeDelivery(503, { ok: false, state: 'failed', error: 'down' });
+  const { result, logs } = await quietly(() => post({
+    files: [['file1', file(PNG, 'receipt.png', 'image/png')]],
+  }, makeEnv({ FORM_DELIVERY: 'backends', DELIVERY, FORMS_DELIVERY_TOKEN: 'tok-secret-1' })));
+  assert.equal(result.res.status, 502);
+  const [call] = DELIVERY.calls;
+  assert.match(call.url, /\/_lh-backends\/forms\/deliver$/);
+  assert.equal(call.init.method, 'POST');
+  assert.equal(call.init.headers['content-type'], 'application/json');
+  assert.equal(call.init.headers['x-forms-delivery-token'], 'tok-secret-1');
+  assert.ok(call.init.signal);
+  assert.deepEqual(Object.keys(call.body).sort(), ['attachments', 'fields', 'form', 'locale', 'message', 'page']);
+  assert.equal(call.body.form, 'feedback-past-flight');
+  assert.equal(call.body.locale, 'de-en');
+  assert.equal(call.body.page, PAGE);
+  assert.deepEqual(Object.keys(call.body.message).sort(), ['attachments', 'from', 'html', 'reply_to', 'subject', 'text', 'to']);
+  assert.deepEqual(call.body.fields.map((f) => f.name), ['firstName', 'emailAddress', 'additionalText']);
+  // the list built for the mail, as it is (filename, type, Base64 content, disposition)
+  assert.ok(['content', 'filename', 'type'].every((k) => k in call.body.attachments[0]));
+  const all = logs.join('\n');
+  assert.match(all, /503 down/);
+  ['tok-secret-1', '@', 'Erika', 'receipt.png'].forEach((secret) => assert.ok(!all.includes(secret), secret));
+});

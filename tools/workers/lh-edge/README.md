@@ -30,11 +30,20 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `graphql` | GET/HEAD/OPTIONS `/graphql/execute.json/<config>/<query>[;name=value...]` (other configurations than Message-Center) | www's persisted queries from the structured content under `/data/` (`src/graphql.js`, see "GraphQL feeds"); `application/json`, `cache-control: public, max-age=120` |
 | `sdui` | GET/HEAD `/content/mobile/<...>.sdui`, `.v2.sdui` | the app screen, rendered from the document and the index (`src/sdui.js`, see `SDUI.md`); `application/json`, `cache-control: public, max-age=60`; 404 without a document |
 | `search` | POST `/service/secured/api/search` | www's site search API from the locale's search index (`src/search.js`, see "Site search"); `application/json`, no `cache-control` |
+| `login-url` | GET `/service/secured/api/core/authenticate/loginPageUrl?state=...` | www's login link (`src/login.js`, see "Login link") |
+| `default-airport` | GET `/service/secured/api/core/booking/defaultairport` | the market's default airports (`src/booking.js`, see "Small endpoints") |
+| `booking-list` | GET `/service/secured/api/core/booking/bookinglist` | 204, as www |
+| `g4t-kiosk` | POST `/apps/dcep/deeplink/goodfortrain/stele` | a page that posts on to the kiosk page in the app view (`src/g4t.js`) |
+| `select-language` | GET `/apps/selectlanguage?tenant=&country=` | the market's languages (`src/select-language.js`) |
+| `owa` | GET `/content/lh/markets/<cc>/<ll>/<page>.csi-owa-{header,footer,portal-config}.json` | www's header and footer JSON from the nav and footer documents (`src/owa.js`, see "Header and footer JSON") |
 | `dam` | GET/HEAD `/content/dam/*` | www's DAM URLs from the copies in Document Authoring (`src/dam.js`, see "DAM URLs") |
 | `solo` | GET/HEAD `<path>.solo_continue`, `.solo.continue`, `.solo.continue.solo_continue`, `.solo_continue.html`, `.solo_continue.genapp.html` | the page in the app view, see below |
+| `login-return` | GET/HEAD `/` or `/<cc>/<ll>/...` with `code` and `state=/<cc>/...` | lh-backends (the return from the login provider), before the entry redirects |
+| `entry` | GET/HEAD `/`, `/<cc>`, `/<cc>/<ll>` (with or without `/`) | 302 to the homepage of the market and language (`src/entry.js`, see "Entry redirects") |
+| `backends` | any method: `/service/secured/api/*` (but the four above and `search`), `/apps/dcep/deeplink/*` (but the kiosk), `/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`, `/_lh-backends/*` | lh-backends through the service binding `BACKENDS`, unchanged (`src/backends.js`) |
 | `pass-through` | everything else | the Edge Delivery origin |
 
-Packages 2 to 6 add their routes before `pass-through`.
+Packages add their routes before `login-return`, `entry` and `backends`; `pass-through` comes last.
 
 ## Pass-through (Adobe's reference Worker)
 
@@ -122,6 +131,29 @@ The copies are served from `ORIGIN` (aem.live): a copy answers once it is publis
 - `link` is the page's path on this site: www sends its AEM paths (`/content/lh/markets/de/en/...`), which this site doesn't serve.
 - Markets without a replica of their own (`X-Portal-Site: CH` ...) search the migrated locale of the same language (de/de, de/en).
 - `compare-search.mjs --host https://lhedge.bbird.live` (or `--local`, the Worker in Node with the indexes computed from the local documents by `tools/importer/build-search-index.mjs`) compares the answers with www's for the recorded phrases.
+
+## lh-backends (`src/backends.js`)
+
+www answers a set of server endpoints that are not pages: REST calls of its own front end, partner and app deeplinks, the Travel ID return and logout, Amadeus' late login, the seat map. Another Worker, lh-backends, answers them for the replica; lh-edge hands them over unchanged through the service binding `BACKENDS` (method, path, query, headers and body, any method) and returns its answer as it is, `Set-Cookie` included and nothing cached here. The `backends` route comes after every route of lh-edge, so the endpoints lh-edge answers itself (search, default airport, booking list, login link, the Good for Train kiosk) stay here; the login return (`/` or a page with `code` and a page path in `state`) is checked before the entry redirects. Without the binding: 503 `{"error":"backends-not-bound"}`. The same binding answers the synced Frontify brand assets first (`/content/dam/<tenant>/(images|videos)/frontify/...`, see "DAM URLs").
+
+## Entry redirects (`src/entry.js`)
+
+Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live and lhcom.bbird.live don't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
+
+## Login link (`src/login.js`)
+
+`GET /service/secured/api/core/authenticate/loginPageUrl?state=<page>` answers www's JSON `{"loginPageUrl": "<Travel ID authorize URL>"}`, built from public parameters only: client id, redirect URI and scopes from the vars `TRAVELID_AUTHORIZE_URL`, `TRAVELID_CLIENT_ID`, `TRAVELID_REDIRECT_URI`, `TRAVELID_SCOPE` (www's values when unset), country and language from `X-Portal-Site` and `X-Portal-Language`, `state` from the query. Headers as www: `cache-control: private, no-cache, no-store, must-revalidate`, `access-control-allow-origin: *`. Without the X-Portal headers www answers 500 with an HTML page; here 400 `{"error":"missing-headers"}`. The header block's login link asks for it (and falls back to the link of the nav document where nothing answers).
+
+## Header and footer JSON (`src/owa.js`)
+
+`/content/lh/markets/<cc>/<ll>/<page>.csi-owa-header.json` and `.csi-owa-footer.json` answer www's JSON (its field names and order) built from `/<cc>/<ll>/nav` and `/<cc>/<ll>/footer` (`content-type: application/json;charset=utf-8`, `cache-control: max-age=300, public`); `.csi-owa-portal-config.json` answers `{"appShellJs":"","remoteEntries":[]}`, as every brand today. The vanity form (`/de/en/homepage.csi-owa-header.json`) is not answered here (404 from the origin, as www). The tracking ids (`dataIdentifierTrack`, `eventId`) and the values the documents don't hold (logo and flyout image paths, alt texts) come from the sheet `/app/config/owa-tracking` (columns locale, part, key, track, url, text; keys `quick/<label>`, `menu/<top>/<group>/<link>`, `tool/accessibility`, `tool/support`, `list<n>/<text>`, `field:<name>`), seeded from www's answers by `tools/importer/build-owa-sheet.mjs` (file `tools/importer/owa-tracking-sheet.json`); `url` and `text` there override the document where www's answer differs from it (trailing spaces, `.html`, a missing fragment). `compare-owa.mjs` compares header, footer and login with www's recordings.
+
+## Small endpoints
+
+- `GET /service/secured/api/core/booking/defaultairport` (`src/booking.js`): with `X-Portal: LH`, `X-Portal-Site`, `X-Portal-Language` 200 `{"globalDefaultAirport": {iataCode, name}, "marketDefaultAirport": {iataCode, name}}` for the market of `X-Portal-Site` from the sheet `/app/config/default-airports` (market, global IATA, global name, market IATA, market name; until it exists its seed DE/AT/GB; a market not in it: FRA Frankfurt); without the headers 400 `{"error":"Missing headers","errors":[],"validationErrors":[]}`; both `cache-control: private, no-cache, no-store, must-revalidate`. Seed file: `tools/importer/default-airports-sheet.json`.
+- `GET /service/secured/api/core/booking/bookinglist`: 204, empty body, same cache-control; the caller's user agent is logged (console only).
+- `POST /apps/dcep/deeplink/goodfortrain/stele` (`src/g4t.js`, Good for Train kiosks): form fields `Country`, `Language`, `Filekey`, `Ticketnumber`, `Lastname`; the answer is an HTML page that posts itself on to `/<cc>/<ll>/common/g4t-kiosk.solo_continue` with `pnrfilekey` (or `ticketnumber` without a file key) and `lastname`. Unknown country: de; unknown language: the market's default. Nothing logged or cached.
+- `GET /apps/selectlanguage?tenant=<tenant>&country=<cc>` (`src/select-language.js`): `{"languages":[{"code","name","isDefault"}]}` for the replica's languages of the market (English language names, `isDefault` false), empty for other markets, another tenant than `lh` or no parameters; `cache-control: max-age=604800`.
 
 ## Public host
 

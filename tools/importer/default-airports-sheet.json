@@ -1,0 +1,32 @@
+{
+  "total": 3,
+  "offset": 0,
+  "limit": 3,
+  "data": [
+    {
+      "market": "DE",
+      "global IATA": "FRA",
+      "global name": "Frankfurt",
+      "market IATA": "FRA",
+      "market name": "Frankfurt",
+      "note": "recorded from www 2026-10-25; Lufthansa to add the other markets (a market not in the sheet gets FRA Frankfurt)"
+    },
+    {
+      "market": "AT",
+      "global IATA": "VIE",
+      "global name": "Wien",
+      "market IATA": "VIE",
+      "market name": "Wien",
+      "note": "recorded from www 2026-10-25; Lufthansa to add the other markets (a market not in the sheet gets FRA Frankfurt)"
+    },
+    {
+      "market": "GB",
+      "global IATA": "LHR",
+      "global name": "London",
+      "market IATA": "LHR",
+      "market name": "London",
+      "note": "recorded from www 2026-10-25; Lufthansa to add the other markets (a market not in the sheet gets FRA Frankfurt)"
+    }
+  ],
+  ":type": "sheet"
+}

@@ -119,6 +119,8 @@ Secrets. They are not in `wrangler.toml`, so a deploy does not touch them:
 - `FORM_SENDER`: the from address, for example `forms@example.com`. Its domain must be set up
   for sending in that account's Email Sending (onboard the domain, add the DNS records it asks
   for); otherwise the API refuses the send (`502 send-failed` with its error code).
+- `FORMS_DELIVERY_TOKEN`: the token lh-backends expects in `x-forms-delivery-token` when
+  submissions are handed to it (`FORM_DELIVERY` below). Never logged; not in the repository.
 - `FORM_CONFIG`: JSON, see `FORM_CONFIG.example.json`:
 
 ```json
@@ -146,12 +148,39 @@ npx wrangler@4 secret put FORM_MAIL_ACCOUNT_ID
 npx wrangler@4 secret put FORM_MAIL_TOKEN
 npx wrangler@4 secret put FORM_SENDER
 npx wrangler@4 secret put FORM_CONFIG < FORM_CONFIG.json   # your real file, not committed
+npx wrangler@4 secret put FORMS_DELIVERY_TOKEN              # only for the hand-over to lh-backends
 ```
 
 `GET /health` answers `{"configured":true}` when all four secrets are there: `FORM_MAIL_ACCOUNT_ID`
 and `FORM_MAIL_TOKEN` are not empty, `FORM_SENDER` is a valid address and `FORM_CONFIG` is a valid
-JSON object. Otherwise it answers
+JSON object (with `FORM_DELIVERY` using lh-backends also the binding and `FORMS_DELIVERY_TOKEN`;
+in `backends` mode instead of the mail secrets). Otherwise it answers
 `{"configured":false}`. It never shows addresses.
+
+## Delivery to lh-backends (`FORM_DELIVERY`, off by default)
+
+lh-backends (service binding `DELIVERY`) delivers a submission to the airline's own systems in
+production (on the demo it records what it would send). The var `FORM_DELIVERY` decides:
+
+- `email` or unset (the value in `wrangler.toml`): the e-mail only; the binding is never called.
+- `email+backends`: the e-mail as before; when it was sent, the same submission also goes to
+  lh-backends. The visitor's answer depends on the e-mail only; a failed hand-over is logged
+  (status and error code) and changes nothing.
+- `backends`: no e-mail; the submission goes to lh-backends instead: `200 {ok:true}` when it
+  answers 200 (delivered) or 202 (queued for a retry), otherwise `502 delivery-failed`. The mail
+  secrets are not needed; `FORM_CONFIG` still gives recipients and subject (the message is built
+  the same way).
+- Any other value: `email`, with one warning in the log.
+
+The hand-over is one `POST https://lh-backends/_lh-backends/forms/deliver` over the binding (the
+host does not matter), after the fields and files are validated and the message is built:
+`content-type: application/json`, `x-forms-delivery-token: <FORMS_DELIVERY_TOKEN>`, body
+`{form, locale, page, message, fields, attachments}` (`message`: the object the mail API gets,
+`from`, `to`, `subject`, `html`, `text`, `reply_to`; `attachments`: the mail's list, Base64, or
+`[]`), 40 s timeout. Only the status and lh-backends' `error` code are logged, never the body,
+values, file names, addresses or the token. Without the binding or the token, `/health` answers
+`configured: false` in both modes that use it; `/submit` answers `500 not-configured` in
+`backends` mode and sends the e-mail without the hand-over (one log line) in `email+backends`.
 
 ## Tests
 
