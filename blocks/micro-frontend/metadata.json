@@ -1,0 +1,20 @@
+{
+  "variantName": "micro-frontend",
+  "baseBlock": "micro-frontend",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/book-and-manage/trip-management",
+  "visualCharacteristics": {
+    "purpose": "hosts one of www.lufthansa.com's micro-frontends (the trip management) with www's design system",
+    "traits": [
+      "the app renders itself: trip header 'Your trip' with the booking selector, flight cards, content and help columns",
+      "no authored text besides the app name"
+    ]
+  },
+  "contentPattern": {
+    "structure": "1 cell: the app name (trip-management, the default). Page metadata post-handler: true when other systems POST <page>.mfe.html."
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/book-and-manage/trip-management in all four locales.",
+  "reuseGuidance": "Add another app to APPS in micro-frontend.js (element, script, classes); the design system version is DESIGN_SYSTEM_VERSION there."
+}

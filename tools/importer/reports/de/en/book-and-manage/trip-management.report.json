@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/book-and-manage/trip-management",
+  "path": "de/en/book-and-manage/trip-management",
+  "timestamp": "2026-10-26T22:45:30.967Z",
+  "title": "Trip management | Lufthansa",
+  "template": "mfe",
+  "blocks": [
+    "micro-frontend"
+  ]
+}

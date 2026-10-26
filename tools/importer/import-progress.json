@@ -19978,5 +19978,25 @@
   "template": "info",
   "status": "ok",
   "at": "2026-10-26T12:33:18.005Z"
+ },
+ "https://www.lufthansa.com/de/en/book-and-manage/trip-management": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-10-26T22:46:20.487Z"
+ },
+ "https://www.lufthansa.com/de/de/book-and-manage/trip-management": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-10-26T22:46:20.490Z"
+ },
+ "https://www.lufthansa.com/at/de/book-and-manage/trip-management": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-10-26T22:46:20.493Z"
+ },
+ "https://www.lufthansa.com/gb/en/book-and-manage/trip-management": {
+  "template": "mfe",
+  "status": "ok",
+  "at": "2026-10-26T22:46:20.495Z"
  }
 }

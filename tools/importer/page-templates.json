@@ -5325,6 +5325,38 @@
           ]
         }
       ]
+    },
+    {
+      "name": "mfe",
+      "description": "Pages that host one of www's micro-frontends (book-and-manage/trip-management); other systems POST <page>.mfe.html to them",
+      "urls": [
+        "https://www.lufthansa.com/de/en/book-and-manage/trip-management",
+        "https://www.lufthansa.com/de/de/book-and-manage/trip-management",
+        "https://www.lufthansa.com/at/de/book-and-manage/trip-management",
+        "https://www.lufthansa.com/gb/en/book-and-manage/trip-management"
+      ],
+      "blocks": [
+        {
+          "name": "micro-frontend",
+          "instances": [
+            "trip-management"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Micro-frontend",
+          "selector": [
+            ".container-content > .section"
+          ],
+          "style": null,
+          "blocks": [
+            "micro-frontend"
+          ],
+          "defaultContent": []
+        }
+      ]
     }
   ],
   "metadata": {

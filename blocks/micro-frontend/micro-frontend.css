@@ -1,0 +1,8 @@
+/* the app draws itself (www's design system); the block only keeps room while it loads */
+.micro-frontend {
+  min-height: 400px;
+}
+
+.micro-frontend > * {
+  display: block;
+}

@@ -32,6 +32,7 @@ import { changeLocale, isChangeLocalePath } from './changelocale.js';
 import { sitemapGz, isSitemapGzPath } from './sitemap.js';
 import { llmsTxt, isLlmsPath } from './llms.js';
 import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
+import { mfe, isMfePath } from './mfe.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -95,6 +96,12 @@ export const ROUTES = [
     name: 'changelocale',
     match: (url, request) => request.method === 'POST' && isChangeLocalePath(url.pathname),
     handle: changeLocale,
+  },
+  {
+    // AMS rest A4 part 2: the micro-frontend hand-off (POST <page>.mfe.html; GET like the page)
+    name: 'mfe',
+    match: (url) => isMfePath(url.pathname),
+    handle: mfe,
   },
   {
     // AMS rest A7: www's gzipped sitemap names
