@@ -29,6 +29,7 @@ import {
 import { xfCatalog, isXfPath } from './xf.js';
 import { aircraftList, isAircraftPath } from './aircraft.js';
 import { changeLocale, isChangeLocalePath } from './changelocale.js';
+import { sitemapGz, isSitemapGzPath } from './sitemap.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -92,6 +93,12 @@ export const ROUTES = [
     name: 'changelocale',
     match: (url, request) => request.method === 'POST' && isChangeLocalePath(url.pathname),
     handle: changeLocale,
+  },
+  {
+    // AMS rest A7: www's gzipped sitemap names
+    name: 'sitemap-gz',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isSitemapGzPath(url.pathname),
+    handle: sitemapGz,
   },
   {
     name: 'service-worker',

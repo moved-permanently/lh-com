@@ -117,3 +117,19 @@ test('service-worker.js: www\'s file with www\'s headers', async () => {
   assert.equal(resp.headers.get('cache-control'), 'public, max-age=21600');
   assert.equal(await resp.text(), SW);
 });
+
+test('sitemap .xml.gz: the origin\'s .xml gzipped, application/octet-stream, 4 h; missing 404', async () => {
+  const { gunzipSync } = await import('node:zlib');
+  const XML = '<?xml version="1.0" encoding="UTF-8"?><urlset><url><loc>https://www.lufthansa.com/de/en/baggage</loc></url></urlset>';
+  globalThis.fetch = async (input) => {
+    const u = new URL((input instanceof Request ? input : new Request(input)).url);
+    if (u.pathname === '/sitemap/sitemap_lh_de_en.xml') return new Response(XML, { headers: { 'content-type': 'application/xml' } });
+    return new Response('not found', { status: 404 });
+  };
+  const resp = await get('/sitemap/sitemap_lh_de_en.xml.gz');
+  assert.equal(resp.status, 200);
+  assert.equal(resp.headers.get('content-type'), 'application/octet-stream');
+  assert.equal(resp.headers.get('cache-control'), 'public, max-age=14400');
+  assert.equal(gunzipSync(Buffer.from(await resp.arrayBuffer())).toString(), XML);
+  assert.equal((await get('/sitemap/sitemap_lh_xx_xx.xml.gz')).status, 404);
+});
