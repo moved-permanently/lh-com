@@ -1,6 +1,14 @@
 /* eslint-disable */
 /* global WebImporter */
 import { AUTHOR_IDS, ARTICLE_META } from './article-data.js';
+import { edsDamPath, decodePath } from '../../../scripts/dam-path.js';
+
+// header videos without a copy in DA: gone on www (404), or a 225 MB film kept in R2 only (it
+// would play on lh-edge alone); their articles keep the still picture
+const HEADER_VIDEOS_NOT_COPIED = new Set([
+  '/content/dam/video/c3/headeranimation/lh_blog_hongkong_animation_16x9.mp4',
+  '/content/dam/video/c3/campaigns/yes-story/lh/01_video/lh_blog_yes_video_tim_1920x1080.mp4',
+]);
 
 // www errors not copied: pages whose <title> is in the wrong language (de/en Toronto article:
 // "A Perfect Day: Toronto an einem Tag"); their Title is the headline
@@ -11,7 +19,9 @@ const TITLE_FROM_HEADLINE = new Set(['/de/en/articles/explore-the-world/a-perfec
  * .article-feature-image" plus its siblings in ".article-content").
  *
  * Output (blocks/article-header README): 1 column.
- *   row 1: feature image (src + alt)
+ *   row 1: feature image (src + alt), then the header video link when www's moving image has
+ *          one (videoUrl, a link to the copy's /content/dam/... path, " {mobile}" after it when
+ *          www plays it on small screens)
  *   row 2: H1 (".article-title h1") and intro paragraph(s) (".article-intro .article-description")
  * The tag chips (maui-chip[label]), the byline (".article-details": date | reading time |
  * author) and the share widgets are removed from the body. Tags, publication date (ISO when the
@@ -58,6 +68,28 @@ export default function parse(element, { document, url, params }) {
     image = document.createElement('img');
     image.setAttribute('src', img.getAttribute('src'));
     image.setAttribute('alt', img.getAttribute('alt') || '');
+  }
+
+  // --- row 1: the header video of www's moving image (data-dcep videoUrl, on www.lufthansa.com
+  // or media.lufthansa.com) as a link to the site's copy, " {mobile}" when www plays it on small
+  // screens too (isVideoEnabledOnMobile); parallax images have none
+  let videoLink = null;
+  const moving = element.querySelector('.dcep-moving-image[data-dcep]');
+  if (image && moving) {
+    let cfg = {};
+    try { cfg = JSON.parse(moving.getAttribute('data-dcep')) || {}; } catch (e) { cfg = {}; }
+    const asset = decodePath(String(cfg.videoUrl || '').trim()
+      .replace(/^https?:\/\/(www|media)\.lufthansa\.com(?=\/)/, '').split(/[?#]/)[0]);
+    if (/^\/content\/dam\/.+\.mp4$/i.test(asset) && !cfg.isParallaxEnabled && !HEADER_VIDEOS_NOT_COPIED.has(asset)) {
+      videoLink = document.createElement('p');
+      const a = document.createElement('a');
+      // the importer writes every .mp4 link absolute on www (helix-importer uploads them as
+      // assets); switch-dam-media.mjs turns it into the site's copy afterwards
+      a.setAttribute('href', edsDamPath(asset));
+      a.textContent = edsDamPath(asset);
+      videoLink.append(a);
+      if (cfg.isVideoEnabledOnMobile === true) videoLink.append(document.createTextNode(' {mobile}'));
+    }
   }
 
   // --- row 2: H1 + intro
@@ -157,7 +189,7 @@ export default function parse(element, { document, url, params }) {
   page.querySelectorAll('.article-share, .article-share-mobile').forEach((s) => s.remove());
 
   const cells = [];
-  if (image) cells.push([image]);
+  if (image) cells.push(videoLink ? [[image, videoLink]] : [image]);
   if (text.length) cells.push([text]);
   const block = WebImporter.Blocks.createBlock(document, { name: 'article-header', cells });
   element.replaceWith(block);
