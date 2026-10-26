@@ -695,3 +695,76 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  # Event fares (B12c, module event of lh-backends with EVENTS_SOURCE=index): one row per
+  # structured content document /data/admin/events/<code> (schema lh-event). Only invented events
+  # until the origin is protected: published, this index lists every event code with its dates.
+  # List fields (origins, destinations, pages) use `values` and come out as JSON arrays.
+  admin-events:
+    include:
+      - /data/admin/events/**
+    target: /data/admin/events/index.json
+    properties:
+      code:
+        select: div.lh-event > div:has(#code) > div:last-child
+        value: textContent(el)
+      name:
+        select: div.lh-event > div:has(#name) > div:last-child
+        value: textContent(el)
+      country:
+        select: div.lh-event > div:has(#country) > div:last-child
+        value: textContent(el)
+      timeless:
+        select: div.lh-event > div:has(#timeless) > div:last-child
+        value: textContent(el)
+      valid-from:
+        select: div.lh-event > div:has(#valid-from) > div:last-child
+        value: textContent(el)
+      valid-to:
+        select: div.lh-event > div:has(#valid-to) > div:last-child
+        value: textContent(el)
+      display-valid-from:
+        select: div.lh-event > div:has(#display-valid-from) > div:last-child
+        value: textContent(el)
+      display-valid-to:
+        select: div.lh-event > div:has(#display-valid-to) > div:last-child
+        value: textContent(el)
+      outbound-from:
+        select: div.lh-event > div:has(#outbound-from) > div:last-child
+        value: textContent(el)
+      outbound-to:
+        select: div.lh-event > div:has(#outbound-to) > div:last-child
+        value: textContent(el)
+      inbound-from:
+        select: div.lh-event > div:has(#inbound-from) > div:last-child
+        value: textContent(el)
+      inbound-to:
+        select: div.lh-event > div:has(#inbound-to) > div:last-child
+        value: textContent(el)
+      blackout-1-from:
+        select: div.lh-event > div:has(#blackout-1-from) > div:last-child
+        value: textContent(el)
+      blackout-1-to:
+        select: div.lh-event > div:has(#blackout-1-to) > div:last-child
+        value: textContent(el)
+      blackout-2-from:
+        select: div.lh-event > div:has(#blackout-2-from) > div:last-child
+        value: textContent(el)
+      blackout-2-to:
+        select: div.lh-event > div:has(#blackout-2-to) > div:last-child
+        value: textContent(el)
+      trip-type:
+        select: div.lh-event > div:has(#trip-type) > div:last-child
+        value: textContent(el)
+      origins:
+        select: div.lh-event > div:has(#origins) > div:last-child li
+        values: textContent(el)
+      destinations:
+        select: div.lh-event > div:has(#destinations) > div:last-child li
+        values: textContent(el)
+      pages:
+        select: div.lh-event > div:has(#pages) > div:last-child li
+        values: textContent(el)
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
