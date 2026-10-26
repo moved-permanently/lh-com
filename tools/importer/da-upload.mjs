@@ -59,8 +59,10 @@ const FEED_DOC = /^\/data\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$|^\/\.da\/forms\/schemas\
 // the experience fragment documents of www's fragment catalogs (tools/importer/build-xf-docs.mjs;
 // lh-edge answers <folder>.csi-xf.json from their index)
 const XF_DOC = /^\/xf\/lh\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$/;
+// the Page check plugin's test page (AMS rest A11): one issue of each kind, under /drafts/
+const TEST_DOC = /^\/drafts\/page-check\/[a-z0-9-]+$/;
 const allowed = (p) => !NEVER.test(p)
-  && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p));
+  && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p) || TEST_DOC.test(p));
 
 const listFile = opt('list');
 const paths = (listFile ? fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/) : argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : [])))

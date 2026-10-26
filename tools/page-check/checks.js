@@ -129,7 +129,12 @@ export async function runChecks(ctx) {
   const h1 = doc.querySelector('h1');
   const firstP = textOf([...doc.querySelectorAll('p')].find((p) => textOf(p)));
 
-  if (on('title') && !meta.title && !(ctx.headTitle && !meta.source) && !h1) issues.push(issue('title', 'No title: the page has no Title metadata and no H1.'));
+  // outside DA (no source) the preview head stands in: Edge Delivery fills an empty title from
+  // the first heading, so a head title equal to the first heading is no Title metadata
+  const firstHeading = textOf(doc.querySelector('h1, h2, h3, h4, h5, h6'));
+  const headTitle = String(ctx.headTitle || '').trim();
+  const hasTitle = meta.source ? Boolean(meta.title) : Boolean(headTitle && headTitle !== firstHeading);
+  if (on('title') && !hasTitle && !h1) issues.push(issue('title', 'No title: the page has no Title metadata and no H1.'));
   if (on('description')) {
     const fromHead = String(ctx.headDescription || '').trim();
     const missing = meta.source ? !meta.description : (!fromHead || fromHead === firstP);
@@ -137,7 +142,7 @@ export async function runChecks(ctx) {
   }
   if (on('alt')) {
     doc.querySelectorAll('img').forEach((img) => {
-      if (!String(img.getAttribute('alt') || '').trim()) issues.push(issue('alt', `Image without alternative text: ${String(img.getAttribute('src') || '').split('?')[0].split('/').pop()}`, textOf(img.closest('div'))));
+      if (!String(img.getAttribute('alt') || '').trim()) issues.push(issue('alt', `the alt text of ${String(img.getAttribute('src') || '').split('?')[0].split('/').pop()} is empty.`, textOf(img.closest('div'))));
     });
   }
   if (on('empty')) {

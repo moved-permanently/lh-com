@@ -89,3 +89,13 @@ test('page check links and media: the site\'s own hosts, anchors and queries ign
   assert.equal(mediaUrlOf('https://www.lufthansa.com/content/dam/lh/images/A_B.jpg.transform/lh-dcep-transform-width-2560/img.jpg', ORIGIN, edsDamPath), `${ORIGIN}${edsDamPath('/content/dam/lh/images/A_B.jpg')}`);
   assert.equal(mediaUrlOf('https://example.com/x.jpg', ORIGIN, edsDamPath), null);
 });
+
+test('page check outside DA: a head title that is only the first heading counts as missing', async () => {
+  const doc = parse('<div><h3>Starts deep</h3><p>Text.</p></div>');
+  assert.ok((await runChecks({
+    ...base, path: '/x', doc, headTitle: 'Starts deep', headDescription: 'Own.',
+  })).some((i) => i.check === 'title'));
+  assert.ok(!(await runChecks({
+    ...base, path: '/x', doc, headTitle: 'An own title', headDescription: 'Own.',
+  })).some((i) => i.check === 'title'));
+});
