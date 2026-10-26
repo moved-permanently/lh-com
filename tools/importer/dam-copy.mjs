@@ -6,7 +6,9 @@
  *
  * Assets: tools/source-export/feeds/dam/dam-assets.csv (renditions reduced to their asset), the
  * lounge images (lh/images/lounges/<loungeid>-square.jpg for every loungeid in the recorded
- * lounge search answers, tools/source-export/api/bd-record-api/*.ndjson, and fallback-square.jpg).
+ * lounge search answers, tools/source-export/api/bd-record-api/*.ndjson, and fallback-square.jpg),
+ * the destination images (square, panorama) of every city in the recorded destination finder
+ * answers (data/recorded), and the targets of www's redirects among them.
  *
  *   --names     write scripts/dam-collisions.js (www paths that would share one name: the second
  *               and later ones get "-2", "-3" before the extension) and the asset table
@@ -15,13 +17,17 @@
  *               www's missing-image fallback, recorded, not copied), at most 2 at a time, into
  *               tools/source-export/dam-cache/<decoded www path> (the AirCore originals are taken
  *               from tools/source-export/aircore-images/ when they are there)
+ *   --recheck   ask www again (HEAD, no redirects followed, at most 2 at a time) for the assets
+ *               taken from the AirCore cache (that download followed www's redirects, so a missing
+ *               destination image held www's fallback): where www redirects, the copy is taken out
+ *               of DA and preview again and the asset is recorded as www's fallback
  *   --upload    upload to DA and preview, 6 at a time (Document Authoring and admin, not www);
  *               files outside Edge Delivery's media limits are listed, not uploaded: jpg, jpeg,
  *               png and pdf up to 20 MB, mp4 up to 36 MB, svg up to 40 KB; vtt and txt are not
  *               delivered by Edge Delivery at all
  *   --report    tools/reports/dam/dam-copy.md and .json
  * State: tools/importer/dam-copy-state.json. Options: --limit N, --budget <seconds>, --only <path>.
- * Usage: node tools/importer/dam-copy.mjs --download | --upload | --report | --names
+ * Usage: node tools/importer/dam-copy.mjs --download | --recheck | --upload | --report | --names
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -90,6 +96,16 @@ function assets() {
   }
   [...ids].sort().forEach((id) => add(`/content/dam/lh/images/lounges/${id}-square.jpg`, 'lounges'));
   add('/content/dam/lh/images/lounges/fallback-square.jpg', 'lounges');
+  // the destination images of every city the replica's destination finder answers list (the fare
+  // teaser and destination finder show them; the list's 324 codes miss city codes such as CHI)
+  const recIndex = JSON.parse(fs.readFileSync(path.join(root, 'data/recorded/index.json'), 'utf8')).entries;
+  Object.entries(recIndex).filter(([k]) => k.includes('/destinationfinder/destination/finder/')).forEach(([, v]) => {
+    const answer = JSON.parse(fs.readFileSync(path.join(root, 'data/recorded', v.file), 'utf8'));
+    (answer.destinationFinderOffers || []).forEach((o) => {
+      if (!/^[A-Z]{3}$/.test(o.city || '')) return;
+      ['square', 'panorama'].forEach((shape) => add(`/content/dam/lh/images/offers/destination/${o.city.toLowerCase()}-${shape}.jpg`, 'finder-cities'));
+    });
+  });
   // where www redirects an asset of the list (its missing-image fallback), the target is copied
   Object.values(state).forEach((s) => {
     const m = String(s.wwwRedirect || '').match(/^https:\/\/www\.lufthansa\.com(\/content\/dam\/[^?#]+)$/);
@@ -169,9 +185,13 @@ async function download(list) {
     const s = state[p] || {};
     state[p] = s;
     const file = cacheFile(p);
+    // the AirCore cache followed www's redirects: only an asset www answers itself is taken from it
     if (fs.existsSync(aircoreFile(p)) && fs.statSync(aircoreFile(p)).size > 0) {
-      fs.mkdirSync(path.dirname(file), { recursive: true });
-      fs.copyFileSync(aircoreFile(p), file);
+      const head = await curl(['-I', '--max-time', '60', `${LIVE}${encodeURI(p)}`]);
+      if (head.status === 200) {
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.copyFileSync(aircoreFile(p), file);
+      }
     }
     if (!fs.existsSync(file) || !fs.statSync(file).size) {
       fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -198,6 +218,35 @@ async function download(list) {
   save();
   const have = [...list.keys()].filter((p) => state[p] && state[p].file).length;
   console.log(`dam-copy download: ${done} this run; ${have}/${list.size} in the cache, ${[...list.keys()].filter((p) => state[p] && state[p].wwwStatus).length} not fetched`);
+}
+
+async function recheck(list) {
+  const todo = [...list.keys()].filter((p) => fs.existsSync(aircoreFile(p)) && state[p] && state[p].file);
+  let redirected = 0;
+  const problems = [];
+  await pool(todo, 2, async (p) => {
+    const s = state[p];
+    const r = await curl(['-I', '--max-time', '60', `${LIVE}${encodeURI(p)}`]);
+    if (![301, 302].includes(r.status)) return;
+    redirected += 1;
+    s.wwwStatus = r.status;
+    if (r.redirect) s.wwwRedirect = r.redirect;
+    if (s.preview) {
+      const u = await curl(['-X', 'DELETE', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${s.uploadedName}`]);
+      if (u.status >= 300) problems.push(`${p}: unpreview ${u.status}`);
+    }
+    if (s.uploadedName) {
+      const d = await curl(['-X', 'DELETE', `https://admin.da.live/source/${ORG}/${SITE}${s.uploadedName}`]);
+      if (d.status >= 300) problems.push(`${p}: DA delete ${d.status}`);
+      else s.removed = [...(s.removed || []), s.uploadedName];
+    }
+    if (fs.existsSync(path.join(root, s.file))) fs.unlinkSync(path.join(root, s.file));
+    ['file', 'bytes', 'type', 'uploaded', 'uploadedName', 'preview', 'previewError'].forEach((k) => delete s[k]);
+    console.log(`  ${p}: www ${r.status} -> ${r.redirect}; copy taken out`);
+  });
+  save();
+  console.log(`dam-copy recheck: ${todo.length} AirCore copies asked, ${redirected} are www redirects (copies taken out), ${problems.length} problems`);
+  problems.forEach((x) => console.log(`  ${x}`));
 }
 
 /** Why an asset is not uploaded ('' when it is). */
@@ -318,6 +367,7 @@ function report(list, byName, collisions) {
 const list = assets();
 const { byName, collisions } = names(list);
 console.log(`dam-copy: ${list.size} assets, ${Object.keys(collisions).length} collisions`);
+if (has('recheck')) await recheck(list);
 if (has('download')) await download(list);
 if (has('upload')) await upload(list, byName);
-if (has('report') || has('download') || has('upload')) report(list, byName, collisions);
+if (has('report') || has('download') || has('upload') || has('recheck')) report(list, byName, collisions);

@@ -1,12 +1,12 @@
 {
- "checkedAt": "2026-10-26T10:41:03.191Z",
- "assets": 7195,
- "copied": 6129,
+ "checkedAt": "2026-10-26T11:38:46.963Z",
+ "assets": 7714,
+ "copied": 6136,
  "notDeliverable": 1,
  "notOnWww": 234,
- "wwwFallback": 16,
+ "wwwFallback": 528,
  "blockedByWww": 815,
- "removedMisnamed": 56,
+ "removedMisnamed": 350,
  "failed": 0,
  "pending": 0,
  "bySource": {
@@ -20,7 +20,8 @@
    "copied": 13
   },
   "aircore": {
-   "copied": 712
+   "copied": 418,
+   "www fallback": 294
   },
   "mobileapp": {
    "copied": 49
@@ -32,14 +33,18 @@
    "not deliverable": 1
   },
   "destination": {
-   "copied": 666,
-   "www fallback": 16
+   "copied": 657,
+   "www fallback": 25
+  },
+  "finder-cities": {
+   "copied": 785,
+   "www fallback": 443
   },
   "offers-fallback": {
    "copied": 3
   },
   "www-fallback": {
-   "copied": 16
+   "copied": 406
   },
   "tmc": {
    "copied": 36,
@@ -56,44 +61,1621 @@
  "collisions": {},
  "problems": [
   {
+   "www": "/content/dam/lh/images/offers/destination/adb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/adb-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/adl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/adl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/adl-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aes-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aes-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aes-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aey-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aey-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aey-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aga-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aga-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aga-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/agu-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/agu-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/agy-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/agy-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aho-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aho-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aho-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aju-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aju-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aju-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/alb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/alb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/alf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/alf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ama-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ama-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ama-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/amd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/amd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aqj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aqj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aqj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/asr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/asr-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/asr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/atw-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/atw-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/atw-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/avl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/avl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/axt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/axt-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/axt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bbi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bbi-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bbk-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bbk-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bbk-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bda-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bda-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bda-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bdl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bdl-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bdl-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bel-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bel-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bel-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bew-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bew-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bfm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bfm-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bfm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bhm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bhm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bhm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bil-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bil-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bil-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bjm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bjm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bjm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boi-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boi-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boo-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boo-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/brc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/brc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/brc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bro-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bro-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/btv-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/btv-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/btv-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/buf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/buf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bze-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bze-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bze-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bzn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bzn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bzn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bzo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bzo-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cak-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cak-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cak-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ceb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ceb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ceb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cei-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cei-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cei-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cgb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cgb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cgq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cgq-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgq-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cgr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cgr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cha-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cha-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cha-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cho-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cho-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cid-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cid-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cid-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cld-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cld-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cmb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cmb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cmn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cmn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cnf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cnf-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cns-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cns-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cns-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cnx-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cnx-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cnx-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cok-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cok-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cok-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/coo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/coo-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cos-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cos-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cos-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cov-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cov-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/crp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/crp-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/crp-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/csl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/csl-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cuc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cuc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cuu-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cuu-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cuu-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/day-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/day-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/dje-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/dje-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dje-panorama.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/dje-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dje-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dje-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dlh-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dlh-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dlh-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dro-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dro-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dro-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/drw-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/drw-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/drw-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dsm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dsm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dsm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dtn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dtn-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dtw-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dtw-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eap-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eap-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ecp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ecp-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ecp-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ege-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ege-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ege-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eil-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eil-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/els-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/els-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/els-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eug-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eug-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eve-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eve-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/eve-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eze-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eze-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/far-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/far-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fca-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fca-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fez-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fez-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fez-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fna-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fna-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fna-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fsd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fsd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fsd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fwa-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fwa-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gbe-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gbe-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/geg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/geg-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/geg-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/generic-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/generic-panorama.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/generic-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/generic-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gjt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gjt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gjt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gpa-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gpa-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gpa-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gso-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gso-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gtf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gtf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gtf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gum-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gum-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gum-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hau-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hau-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hau-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hds-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hds-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hds-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hfd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hfd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hfd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hij-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hij-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hij-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hln-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hln-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hln-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hmo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hmo-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/hre-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/hre-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hre-panorama.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/hre-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hre-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hre-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hrg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hrg-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hrg-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/iah-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/iah-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ida-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ida-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ida-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ika-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ika-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ilm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ilm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ilm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ils-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ils-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ini-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ini-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ios-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ios-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/isg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/isg-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/isg-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ith-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ith-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ith-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ito-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ito-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ito-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ivl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ivl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ivl-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/jax-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/jax-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jax-panorama.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/jax-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/jax-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jax-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/joi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/joi-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/jpa-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/jpa-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jpa-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kaj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kaj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kaj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kao-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kao-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kao-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kem-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kem-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kgl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kgl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kgl-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/khh-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/khh-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/khh-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kim-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kim-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kim-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kkj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kkj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kkn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kkn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/klr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/klr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/klr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kmi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kmi-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmi-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kmj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kmj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kno-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kno-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/koj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/koj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/koj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/krn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/krn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/krs-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/krs-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krs-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ksf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ksf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ksu-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ksu-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksu-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kzr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kzr-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lbb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lbb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/lca-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/lca-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lca-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lca-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lca-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lca-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lex-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lex-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lih-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lih-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lih-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lir-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lir-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lir-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lit-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lit-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lit-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lla-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lla-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lla-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lmp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lmp-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lmp-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lnk-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lnk-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lpb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lpb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lpb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lvi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lvi-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lvi-square.jpg"
   },
   {
    "www": "/content/dam/lh/images/offers/destination/lxh-panorama.jpg",
@@ -116,6 +1698,190 @@
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/lxr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lxr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lxs-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lxs-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxs-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lyr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lyr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lyr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mao-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mao-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mao-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mcz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mcz-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mcz-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mdq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mdq-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mfe-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mfe-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mfr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mfr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mfr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mgf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mgf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mgf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mid-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mid-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mid-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mir-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mir-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mir-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mji-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mji-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mjt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mjt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mjt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mli-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mli-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mlm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mlm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mlw-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mlw-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mol-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mol-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mol-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/mow-square.jpg",
    "eds": "/content/dam/lh/images/offers/destination/mow-square.jpg",
    "sources": [
@@ -126,24 +1892,339 @@
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mow-square.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/mqp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mqp-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mry-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mry-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mry-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/msn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/msn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/msn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mso-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mso-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mso-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mtj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mtj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mtj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mub-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mub-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mub-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/myj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/myj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/myr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/myr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mzt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mzt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mzt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nas-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nas-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nas-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nat-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nat-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nat-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ndr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ndr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ndr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nsi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nsi-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nvt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nvt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nvt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/oax-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/oax-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oax-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/ohd-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/ohd-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ohd-panorama.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/ohd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ohd-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ohd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/oit-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/oit-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oit-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/okc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/okc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/okj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/okj-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/omo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/omo-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omo-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/omr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/omr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ont-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ont-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ord-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ord-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/orf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/orf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/osd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/osd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/osd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/otp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/otp-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/oua-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/oua-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oua-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/oua-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/oua-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oua-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/oud-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/oud-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pen-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pen-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pen-square.jpg"
   },
   {
    "www": "/content/dam/lh/images/offers/destination/pia-panorama.jpg",
@@ -169,11 +2250,24 @@
    "www": "/content/dam/lh/images/offers/destination/plz-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/plz-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/plz-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/plz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/plz-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/plz-square.jpg"
   },
   {
    "www": "/content/dam/lh/images/offers/destination/pna-panorama.jpg",
@@ -196,24 +2290,1109 @@
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pna-square.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/pnl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pnl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pnl-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/pns-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/pns-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pns-panorama.jpg"
   },
   {
+   "www": "/content/dam/lh/images/offers/destination/pns-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pns-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pns-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pop-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pop-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pop-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/psc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/psc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/psc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/psr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/psr-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/puq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/puq-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puq-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/puw-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/puw-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puw-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pvr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pvr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pvr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pxo-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pxo-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pxo-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pzb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pzb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pzb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qfb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qfb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qfb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qls-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qls-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qls-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qro-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qro-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qro-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qsr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qsr-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rai-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rai-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rai-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rap-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rap-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rba-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rba-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rba-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rdd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rdd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rdm-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rdm-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdm-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/reg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/reg-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/reg-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rep-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rep-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rep-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ric-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ric-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ric-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rmf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rmf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rmf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rno-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rno-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rno-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rns-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rns-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rns-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/roa-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/roa-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/roc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/roc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/roc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ros-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ros-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/saf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/saf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/saf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sbn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sbn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sce-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sce-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdf-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdl-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdl-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdq-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdq-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sez-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sez-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sez-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sft-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sft-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sft-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sgf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sgf-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sid-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sid-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sid-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sjd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sjd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sjd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sjp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sjp-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sll-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sll-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sll-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/slp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/slp-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slp-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/slz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/slz-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slz-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/smi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/smi-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smi-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/smr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/smr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sna-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sna-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sna-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/spx-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/spx-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/spx-square.jpg"
+  },
+  {
    "www": "/content/dam/lh/images/offers/destination/srq-panorama.jpg",
    "eds": "/content/dam/lh/images/offers/destination/srq-panorama.jpg",
    "sources": [
-    "destination"
+    "destination",
+    "finder-cities"
    ],
    "status": "www fallback",
    "bytes": 0,
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srq-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/srq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/srq-square.jpg",
+   "sources": [
+    "aircore",
+    "destination",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srq-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/srz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/srz-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srz-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ssh-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ssh-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ssh-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sub-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sub-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sub-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/svl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/svl-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/syr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/syr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/szk-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/szk-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/szk-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tak-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tak-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tak-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tam-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tam-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tam-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tdx-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tdx-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tdx-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ter-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ter-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ter-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tgz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tgz-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tgz-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tks-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tks-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tks-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tmp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tmp-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tmp-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tng-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tng-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tng-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/toy-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/toy-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/toy-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/trc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/trc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/trf-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/trf-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/trv-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/trv-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/trv-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tvc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tvc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tvc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tys-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tys-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tys-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/udi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/udi-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/udi-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ukb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ukb-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ume-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ume-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ume-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ush-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ush-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ush-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/utn-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/utn-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/utn-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vcp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vcp-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vnx-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vnx-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vnx-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vol-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vol-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vol-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vte-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vte-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vte-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vxe-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vxe-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vxe-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/wvb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/wvb-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/wvb-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/xap-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/xap-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/xhj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/xhj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/xhj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/xpl-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/xpl-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/xpl-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ycd-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ycd-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ycd-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yfc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yfc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yfc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqg-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqg-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqq-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqq-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqq-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqr-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqr-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqr-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqt-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ysb-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ysb-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yul-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yul-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ywh-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ywh-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ywh-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxc-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxc-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxc-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxe-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxe-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxe-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxj-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxj-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxj-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxs-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxs-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxs-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxt-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxt-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxu-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxu-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxu-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxy-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxy-square.jpg",
+   "sources": [
+    "aircore",
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxy-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yyg-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yyg-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yyz-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yyz-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/zdi-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/zdi-square.jpg",
+   "sources": [
+    "aircore"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/zdi-square.jpg"
   },
   {
    "www": "/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-car_rental_offerbox.jpg",
@@ -10714,6 +13893,2186 @@
    "status": "not on www",
    "bytes": 0,
    "why": "www 404"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ter-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ter-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ter-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pnl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pnl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pnl-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cei-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cei-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cei-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/myr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/myr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aah-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aah-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aah-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aah-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aah-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aah-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pop-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pop-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pop-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kem-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kem-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mir-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mir-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mir-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/btv-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/btv-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/btv-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yao-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yao-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yao-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yao-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lxs-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lxs-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxs-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lxr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lxr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sez-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sez-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sez-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/buf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/buf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mjt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mjt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mjt-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sft-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sft-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sft-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lyr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lyr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lyr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tys-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tys-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tys-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kgl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kgl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kgl-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lir-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lir-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lir-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/reg-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/reg-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/reg-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lit-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lit-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lit-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fna-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fna-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fna-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gpa-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gpa-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gpa-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hrg-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hrg-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hrg-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hau-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hau-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hau-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mlw-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mlw-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ume-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ume-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ume-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/syr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/syr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sid-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sid-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sid-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aes-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aes-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aes-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vol-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vol-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vol-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aey-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aey-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aey-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ivl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ivl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ivl-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lla-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lla-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lla-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/orf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/orf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bhm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bhm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bhm-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hds-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hds-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hds-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/osd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/osd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/osd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gso-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gso-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ric-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ric-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ric-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kkn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kkn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bjm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bjm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bjm-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hfd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hfd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hfd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aho-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aho-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aho-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cmb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cmb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cmn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cmn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sna-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sna-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sna-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cnx-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cnx-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cnx-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ndr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ndr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ndr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/coo-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/coo-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cos-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cos-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cos-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rmf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rmf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rmf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/alb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/alb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/alf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/alf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/day-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/day-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dro-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dro-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dro-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lbb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lbb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/spx-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/spx-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/spx-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boo-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boo-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boo-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/roc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/roc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/roc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eve-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eve-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/eve-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/saf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/saf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/saf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ini-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ini-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/krn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/krn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/krs-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/krs-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krs-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/okc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/okc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ssh-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ssh-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ssh-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rai-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rai-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rai-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lex-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lex-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rap-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rap-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bbi-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bbi-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bbk-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bbk-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bbk-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdl-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/myj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/myj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sdq-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sdq-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdq-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ceb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ceb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ceb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqq-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqq-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqq-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqt-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tgz-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tgz-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tgz-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mzt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mzt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mzt-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rdd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rdd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rdm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rdm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdm-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cgb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cgb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cgr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cgr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sgf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sgf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bew-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bew-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ith-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ith-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ith-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cha-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cha-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cha-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/adl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/adl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/adl-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cho-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cho-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/els-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/els-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/els-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cid-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cid-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cid-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/shv-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/shv-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/shv-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/shv-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/shv-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/shv-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/vnx-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/vnx-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vnx-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tks-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tks-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tks-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/grr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/grr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/oax-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/oax-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oax-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sjd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sjd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sjd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aga-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aga-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aga-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bil-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bil-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bil-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/agu-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/agu-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pen-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pen-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pen-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gtf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gtf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gtf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nat-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nat-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nat-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nas-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nas-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nas-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxe-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxe-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxe-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tng-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tng-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tng-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxs-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxs-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxs-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fsd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fsd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fsd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/slp-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/slp-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slp-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxu-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxu-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxu-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yxy-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yxy-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxy-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gum-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gum-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gum-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/slz-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/slz-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slz-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/smr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/smr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mao-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mao-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mao-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/toy-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/toy-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/toy-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cns-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cns-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cns-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/aju-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/aju-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aju-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cok-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cok-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cok-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ush-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ush-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ush-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/trc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/trc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/drw-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/drw-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/drw-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/utn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/utn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/utn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fwa-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fwa-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/rno-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/rno-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rno-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ama-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ama-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ama-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eug-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eug-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/amd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/amd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/trv-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/trv-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/trv-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/boi-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/boi-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boi-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/dsm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/dsm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dsm-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/roa-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/roa-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kao-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kao-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kao-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/crp-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/crp-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/crp-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mfe-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mfe-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mfr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mfr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mfr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mgf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mgf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mgf-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/okj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/okj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/brc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/brc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/brc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bro-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bro-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tvc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tvc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tvc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cuc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cuc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cuu-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cuu-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cuu-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mid-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mid-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mid-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/omr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/omr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qro-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qro-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qro-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nlp-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nlp-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nlp-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nlp-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lih-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lih-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lih-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ycd-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ycd-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ycd-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/atw-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/atw-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/atw-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/xap-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/xap-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ida-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ida-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ida-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mli-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mli-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mlm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mlm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/psc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/psc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/psc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/avl-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/avl-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/szk-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/szk-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/szk-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gbe-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gbe-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yfc-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yfc-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yfc-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mob-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mob-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mob-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mob-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mob-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mob-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mol-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mol-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mol-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kkj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kkj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/puq-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/puq-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puq-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lmp-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lmp-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lmp-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fai-square.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fai-square.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fai-square.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fai-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fai-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fai-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/far-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/far-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bzn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bzn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bzn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lnk-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lnk-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pvr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pvr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pvr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/klr-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/klr-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/klr-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/fca-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/fca-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/kmi-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/kmi-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmi-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/geg-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/geg-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/geg-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/eap-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/eap-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lpb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lpb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lpb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mry-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mry-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mry-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mso-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mso-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mso-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hij-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hij-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hij-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/msn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/msn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/msn-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ecp-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ecp-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ecp-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/pzb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/pzb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pzb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tak-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tak-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tak-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/tam-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/tam-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tam-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mtj-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mtj-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mtj-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ilm-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ilm-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ilm-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/nvt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/nvt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nvt-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/mub-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/mub-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mub-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/cak-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/cak-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cak-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/jpa-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/jpa-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jpa-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hln-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hln-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hln-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/gjt-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/gjt-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gjt-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sbn-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sbn-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/hmo-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/hmo-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ksu-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ksu-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksu-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ios-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ios-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sce-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sce-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/lvi-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/lvi-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/sub-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/sub-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sub-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/yqg-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/yqg-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqg-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/qfb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/qfb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qfb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/bze-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/bze-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bze-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/wvb-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/wvb-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/wvb-panorama.jpg"
+  },
+  {
+   "www": "/content/dam/lh/images/offers/destination/ksf-panorama.jpg",
+   "eds": "/content/dam/lh/images/offers/destination/ksf-panorama.jpg",
+   "sources": [
+    "finder-cities"
+   ],
+   "status": "www fallback",
+   "bytes": 0,
+   "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksf-panorama.jpg"
   }
  ],
  "loungeIds": 237

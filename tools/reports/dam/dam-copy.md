@@ -1,27 +1,28 @@
 # www DAM assets copied into Document Authoring
 
-2026-10-26T10:41:03.191Z
+2026-10-26T11:38:46.963Z
 
-7195 assets: 6129 copied and previewed, 16 answered by www with its missing-image fallback (302; lh-edge answers the same, the targets are copied), 234 not found on www (404), 815 refused by www to scripts (403 Cloudflare challenge: the videos and subtitles), 1 not deliverable by Edge Delivery, 0 upload or preview failed, 0 pending.
+7714 assets: 6136 copied and previewed, 528 answered by www with its missing-image fallback (302; lh-edge answers the same, the targets are copied), 234 not found on www (404), 815 refused by www to scripts (403 Cloudflare challenge: the videos and subtitles), 1 not deliverable by Edge Delivery, 0 upload or preview failed, 0 pending.
 
 Not deliverable at all: .vtt and .txt (Edge Delivery delivers HTML, JSON, MP4, PDF, SVG, JPG, PNG, AVIF and WEBP); size limits: images and PDF 20 MB, MP4 36 MB, SVG 40 KB.
 
-Misnamed copies replaced: 56 (folders with "--" or "," that admin refuses to preview, renamed by the folder rule and the old DA documents removed).
+Misnamed copies replaced: 350 (folders with "--" or "," that admin refuses to preview, renamed by the folder rule and the old DA documents removed).
 
 | source | status counts |
 |---|---|
-| aircore | copied 712 |
+| aircore | copied 418, www fallback 294 |
 | app-screens | copied 181 |
 | articles | copied 4583, not on www 9, blocked by www 815, not deliverable 1 |
-| destination | copied 666, www fallback 16 |
+| destination | copied 657, www fallback 25 |
 | destination-fallback | copied 210 |
+| finder-cities | copied 785, www fallback 443 |
 | graphql | copied 2 |
 | lounges | not on www 224, copied 14 |
 | mobileapp | copied 49 |
 | offers-fallback | copied 3 |
 | replica | copied 13 |
 | tmc | copied 36, not on www 1 |
-| www-fallback | copied 16 |
+| www-fallback | copied 406 |
 
 ## Collisions (two www paths, one Edge Delivery name)
 
@@ -31,22 +32,316 @@ None.
 
 | www path | why | sources |
 |---|---|---|
-| `/content/dam/lh/images/offers/destination/dje-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dje-panorama.jpg | destination |
-| `/content/dam/lh/images/offers/destination/hre-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hre-panorama.jpg | destination |
-| `/content/dam/lh/images/offers/destination/jax-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jax-panorama.jpg | destination |
-| `/content/dam/lh/images/offers/destination/lca-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lca-panorama.jpg | destination |
+| `/content/dam/lh/images/offers/destination/adb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/adl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/adl-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/aes-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aes-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/aey-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aey-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/aga-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aga-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/agu-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/agy-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/aho-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aho-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/aju-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aju-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/alb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/alf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ama-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ama-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/amd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/aqj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aqj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/asr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/asr-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/atw-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/atw-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/avl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/axt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/axt-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/bbi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bbk-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bbk-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bda-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bda-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/bdl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bdl-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/bel-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bel-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/bew-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bfm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bfm-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/bhm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bhm-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bil-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bil-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bjm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bjm-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/boi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boi-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/boj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/boo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boo-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/brc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/brc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bro-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/btv-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/btv-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/buf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bze-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bze-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bzn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bzn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/bzo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/cak-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cak-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ceb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ceb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cei-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cei-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cgb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cgq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgq-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/cgr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cha-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cha-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cho-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cid-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cid-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cld-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/cmb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cmn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cnf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/cns-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cns-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cnx-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cnx-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cok-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cok-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/coo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cos-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cos-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cov-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/crp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/crp-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/csl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/cuc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/cuu-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cuu-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/day-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/dje-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dje-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/dje-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dje-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/dlh-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dlh-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/dro-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dro-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/drw-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/drw-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/dsm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dsm-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/dtn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/dtw-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/eap-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ecp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ecp-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ege-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ege-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/eil-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/els-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/els-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/eug-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/eve-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/eve-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/eze-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/far-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/fca-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/fez-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fez-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/fna-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fna-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/fsd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fsd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/fwa-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/gbe-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/geg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/geg-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/generic-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/generic-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/gjt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gjt-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/gpa-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gpa-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/grb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/grj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/grr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/gso-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/gtf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gtf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/gum-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gum-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hau-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hau-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hds-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hds-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hfd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hfd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hij-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hij-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hln-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hln-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hmo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/hre-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hre-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/hre-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hre-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/hrg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hrg-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/iah-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ida-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ida-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ika-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ilm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ilm-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ils-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ini-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ios-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/isg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/isg-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ith-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ith-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ito-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ito-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ivl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ivl-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/jax-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jax-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/jax-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jax-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/joi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/jpa-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jpa-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kaj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kaj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/kao-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kao-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kem-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kgl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kgl-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/khh-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/khh-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/kim-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kim-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/kkj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kkn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/klr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/klr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kmi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmi-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kmj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/kno-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/koj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/koj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/krn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/krs-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krs-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ksf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ksu-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksu-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/kzr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/lbb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lca-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lca-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/lca-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lca-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/lex-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lih-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lih-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lir-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lir-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lit-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lit-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lla-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lla-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lmp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lmp-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lnk-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lpb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lpb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lvi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lvi-square.jpg | aircore finder-cities |
 | `/content/dam/lh/images/offers/destination/lxh-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | destination |
 | `/content/dam/lh/images/offers/destination/lxh-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | destination |
+| `/content/dam/lh/images/offers/destination/lxr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lxs-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxs-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/lyr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lyr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mao-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mao-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mcz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mcz-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/mdq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/mfe-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mfr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mfr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mgf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mgf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mid-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mid-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mir-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mir-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mji-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/mjt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mjt-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mli-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mlm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mlw-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mol-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mol-square.jpg | aircore finder-cities |
 | `/content/dam/lh/images/offers/destination/mow-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mow-square.jpg | destination |
-| `/content/dam/lh/images/offers/destination/ohd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ohd-panorama.jpg | destination |
-| `/content/dam/lh/images/offers/destination/oua-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oua-panorama.jpg | destination |
+| `/content/dam/lh/images/offers/destination/mqp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/mry-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mry-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/msn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/msn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mso-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mso-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mtj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mtj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mub-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mub-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/myj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/myr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/mzt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mzt-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/nas-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nas-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/nat-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nat-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ndr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ndr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/nsi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/nvt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nvt-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/oax-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oax-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ohd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ohd-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/ohd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ohd-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/oit-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oit-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/okc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/okj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okj-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/omo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omo-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/omr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ont-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ord-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/orf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/osd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/osd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/otp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/oua-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oua-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/oua-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oua-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/oud-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/pen-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pen-square.jpg | aircore finder-cities |
 | `/content/dam/lh/images/offers/destination/pia-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pia-panorama.jpg | destination |
 | `/content/dam/lh/images/offers/destination/pia-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pia-square.jpg | destination |
-| `/content/dam/lh/images/offers/destination/plz-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/plz-panorama.jpg | destination |
+| `/content/dam/lh/images/offers/destination/plz-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/plz-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/plz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/plz-square.jpg | aircore destination finder-cities |
 | `/content/dam/lh/images/offers/destination/pna-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pna-panorama.jpg | destination |
 | `/content/dam/lh/images/offers/destination/pna-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pna-square.jpg | destination |
-| `/content/dam/lh/images/offers/destination/pns-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pns-panorama.jpg | destination |
-| `/content/dam/lh/images/offers/destination/srq-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srq-panorama.jpg | destination |
+| `/content/dam/lh/images/offers/destination/pnl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pnl-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/pns-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pns-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/pns-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pns-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/pop-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pop-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/psc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/psc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/psr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/puq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puq-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/puw-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puw-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/pvr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pvr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/pxo-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pxo-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/pzb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pzb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/qfb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qfb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/qls-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qls-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/qro-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qro-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/qsr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/rai-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rai-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rap-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rba-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rba-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/rdd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rdm-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdm-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/reg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/reg-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rep-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rep-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ric-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ric-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rmf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rmf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rno-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rno-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/rns-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rns-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/roa-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/roc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/roc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ros-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/saf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/saf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sbn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sce-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sdf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdf-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sdl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdl-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sdq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdq-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sez-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sez-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sft-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sft-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sgf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sid-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sid-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sjd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sjd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sjp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/sll-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sll-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/slp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slp-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/slz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slz-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/smi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smi-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/smr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sna-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sna-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/spx-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/spx-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/srq-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srq-panorama.jpg | destination finder-cities |
+| `/content/dam/lh/images/offers/destination/srq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srq-square.jpg | aircore destination finder-cities |
+| `/content/dam/lh/images/offers/destination/srz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/srz-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ssh-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ssh-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/sub-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sub-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/svl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/syr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/szk-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/szk-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tak-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tak-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tam-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tam-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tdx-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tdx-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ter-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ter-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tgz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tgz-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tks-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tks-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tmp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tmp-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/tng-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tng-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/toy-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/toy-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/trc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/trf-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/trv-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/trv-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tvc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tvc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/tys-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tys-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/udi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/udi-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ukb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ume-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ume-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ush-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ush-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/utn-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/utn-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/vcp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/vnx-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vnx-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/vol-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vol-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/vte-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vte-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/vxe-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vxe-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/wvb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/wvb-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/xap-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/xhj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/xhj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/xpl-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/xpl-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ycd-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ycd-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yfc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yfc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yqg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqg-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yqq-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqq-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yqr-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqr-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yqt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqt-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/ysb-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/yul-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/ywh-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ywh-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/yxc-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxc-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yxe-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxe-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yxj-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxj-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/yxs-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxs-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yxt-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yxu-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxu-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yxy-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxy-square.jpg | aircore finder-cities |
+| `/content/dam/lh/images/offers/destination/yyg-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/yyz-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | aircore |
+| `/content/dam/lh/images/offers/destination/zdi-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/zdi-square.jpg | aircore |
 | `/content/dam/lufthansa-group/ancillary/tmc/all-service-page/az-car_rental_offerbox.jpg` | www 404 | tmc |
 | `/content/dam/lh/article-images/africa/lh_blog_johannesburg_everard-read-gallery_all-mauritius-images_16.pw1cpy_1920x823.jpg` | www 404 | articles |
 | `/content/dam/lh/article-images/europe/lh_blog_barcelona_animation_16x9.mp4` | www 403 | articles |
@@ -1097,3 +1392,221 @@ None.
 | `/content/dam/lh/images/lounges/39-square.jpg` | www 404 | lounges |
 | `/content/dam/lh/images/lounges/45-square.jpg` | www 404 | lounges |
 | `/content/dam/lh/images/lounges/536-square.jpg` | www 404 | lounges |
+| `/content/dam/lh/images/offers/destination/ter-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ter-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/pnl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pnl-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sdf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cei-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cei-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/myr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aah-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aah-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aah-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aah-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/pop-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pop-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kem-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mir-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mir-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/btv-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/btv-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yao-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yao-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lxs-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxs-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lxr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lxr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sez-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sez-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/buf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mjt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mjt-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sft-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sft-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lyr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lyr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tys-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tys-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kgl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kgl-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lir-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lir-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/reg-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/reg-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lit-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lit-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fna-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fna-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gpa-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gpa-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hrg-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hrg-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hau-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hau-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mlw-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ume-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ume-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/syr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sid-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sid-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aes-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aes-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/vol-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vol-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aey-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aey-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ivl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ivl-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/grj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lla-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lla-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/orf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bhm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bhm-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hds-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hds-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/osd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/osd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gso-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ric-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ric-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kkn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bjm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bjm-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hfd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hfd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aho-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aho-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cmb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cmn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cmn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sna-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sna-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cnx-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cnx-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ndr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ndr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/coo-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cos-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cos-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rmf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rmf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/alb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/alf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/alf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/day-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/dro-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dro-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lbb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/spx-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/spx-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/boj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/boo-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boo-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/roc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/roc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/eve-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/eve-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/saf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/saf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ini-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/krn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/krs-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/krs-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/okc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ssh-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ssh-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rai-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rai-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lex-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rap-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bbi-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bbk-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bbk-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sdl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdl-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/myj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/myj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sdq-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sdq-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ceb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ceb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yqq-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqq-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yqr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yqt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqt-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tgz-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tgz-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mzt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mzt-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rdd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rdm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rdm-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cgb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cgr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cgr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sgf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bew-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ith-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ith-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cha-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cha-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/adl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/adl-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cho-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/els-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/els-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cid-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cid-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/shv-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/shv-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/shv-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/shv-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/vnx-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/vnx-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/grb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tks-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tks-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/grr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/grr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/oax-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/oax-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sjd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sjd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aga-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aga-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bil-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bil-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/agu-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/pen-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pen-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gtf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gtf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/nat-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nat-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/nas-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nas-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxe-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxe-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tng-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tng-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxs-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxs-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fsd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fsd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/slp-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slp-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxu-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxu-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yxy-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yxy-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gum-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gum-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/slz-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/slz-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/smr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/smr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mao-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mao-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/toy-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/toy-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cns-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cns-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/aju-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/aju-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cok-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cok-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ush-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ush-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/trc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/drw-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/drw-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/utn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/utn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fwa-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/rno-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/rno-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ama-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ama-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/eug-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/amd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/trv-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/trv-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/boi-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/boi-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/dsm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/dsm-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/roa-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kao-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kao-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/crp-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/crp-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mfe-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mfr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mfr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mgf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mgf-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/okj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/okj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/brc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/brc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bro-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tvc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tvc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cuc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cuu-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cuu-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mid-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mid-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/omr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/omr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/qro-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qro-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/nlp-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/nlp-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lih-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lih-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ycd-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ycd-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/atw-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/atw-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/xap-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ida-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ida-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mli-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mlm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/psc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/psc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/avl-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/szk-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/szk-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gbe-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yfc-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yfc-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mob-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mob-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mob-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mob-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mol-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mol-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kkj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kkj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/puq-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/puq-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lmp-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lmp-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fai-square.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fai-square.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fai-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/fai-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/far-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bzn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bzn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lnk-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/pvr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pvr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/klr-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/klr-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/fca-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/kmi-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/kmi-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/geg-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/geg-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/eap-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lpb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/lpb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mry-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mry-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mso-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mso-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hij-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hij-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/msn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/msn-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ecp-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ecp-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/pzb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/pzb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tak-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tak-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/tam-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/tam-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mtj-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mtj-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ilm-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ilm-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/nvt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/nvt-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/mub-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/mub-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/cak-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/cak-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/jpa-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/jpa-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hln-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/hln-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/gjt-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/gjt-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sbn-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/hmo-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ksu-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksu-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ios-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sce-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/lvi-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lh/images/offers/fallback/generic-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/sub-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/sub-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/yqg-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/yqg-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/qfb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/qfb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/bze-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/bze-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/wvb-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/wvb-panorama.jpg | finder-cities |
+| `/content/dam/lh/images/offers/destination/ksf-panorama.jpg` | www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksf-panorama.jpg | finder-cities |
