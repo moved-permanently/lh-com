@@ -137,8 +137,7 @@ export async function dam(request, env, ctx) {
   if (resp.status === 200 || resp.status === 206) return assetResponse(request, resp);
   if (resp.status === 404) {
     const raw = decodePath(url.pathname);
-    // the rendition, or the site's own media parameters, go with the redirect
-    const suffix = parsed.rendition ? raw.slice(parsed.asset.length) : url.search;
+    const suffix = parsed.rendition ? raw.slice(parsed.asset.length) : '';
     const target = await offersFallback(request, env, parsed.asset, suffix);
     if (target) return redirect(target);
     return notFound(request);

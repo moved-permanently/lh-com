@@ -1158,7 +1158,7 @@ const textOf = (node) => (node ? node.textContent : '');
       && rowsText[0] === 'Montag - Freitag 05:30 - 22:00' && rowsText[1] === 'Wochenende 06:00 - 21:00'
       && amenities.join() === 'W-LAN,Dusche,Faxgerät'
       && textOf(found.querySelector('.lounge-finder-badge')) === 'Senator Lounge'
-      && Boolean(img) && img.src === '/content/dam/lh/images/lounges/14072-square.jpg?width=720&format=jpeg&optimize=medium'
+      && Boolean(img) && img.src === `${LIVE_ORIGIN}/content/dam/lh/images/lounges/14072-square.jpg.transform/lh-dcep-transform-width-720/img.jpg`
       && textOf(inside(cards[1] || found, '.lounge-finder-hours', 'p')[0]) === '24h',
     true,
     `${cards.length} cards, ${rowsText.join(' | ')}; ${amenities.join(', ')}; ${found.getAttribute('data-lh-sources')}`,

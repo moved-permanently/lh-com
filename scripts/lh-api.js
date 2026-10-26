@@ -7,7 +7,7 @@
  * www.lufthansa.com, the fare teaser services through lh-proxy, the recordings as
  * fallback).
  */
-import { localDamUrl } from './dam-path.js';
+import { LIVE_ORIGIN } from './locale.js';
 import { lhFetch, lhRecorded } from './lh-data.js';
 
 /* ------------------------------------------------------------------------------------------- */
@@ -527,10 +527,8 @@ const LOUNGE_IMAGE_WIDTHS = [2560, 1440, 720, 360, 180];
 
 /**
  * Square lounge image as the live app builds it from imageBaseUrl (data-dcep):
- * {base}/{loungeid}-square.jpg.transform/lh-dcep-transform-width-{width}/img.jpg;
- * {base}/fallback-square.jpg... when the lounge has no image (404). The site loads its own copy
- * (scripts/dam-path.js localDamUrl: /content/dam/...-square.jpg?width=..&format=jpeg, on this
- * host), not www's.
+ * {base}/{loungeid}-square.jpg.transform/lh-dcep-transform-width-{width}/img.jpg, on
+ * www.lufthansa.com; {base}/fallback-square.jpg... when the lounge has no image (404).
  * @param {string} base e.g. /content/dam/lh/images/lounges
  * @param {string} id loungeid or 'fallback'
  * @param {number} [width]
@@ -539,7 +537,8 @@ export function loungeImageUrl(base, id, width) {
   if (!id) return '';
   const root = String(base || '/content/dam/lh/images/lounges').replace(/\/+$/, '');
   const path = `${root}/${String(id).toLowerCase()}-square.jpg`;
-  return localDamUrl(path, width ? { width, ext: 'jpg' } : {});
+  const url = width ? `${path}.transform/lh-dcep-transform-width-${width}/img.jpg` : path;
+  return /^https?:/.test(url) ? url : `${LIVE_ORIGIN}${url}`;
 }
 
 /** srcset of a lounge image (every live width). */
@@ -691,14 +690,10 @@ export function htmlToParagraphs(html) {
   });
 }
 
-/**
- * Square destination image of the live fare widgets (720 or 180 px wide): www's
- * /content/dam/lh/images/offers/destination/{code}-square.jpg rendition, from the site's own copy
- * (scripts/dam-path.js localDamUrl).
- */
+/** Square destination image of the live fare widgets (720 or 180 px wide). */
 export function destinationImageUrl(code, width = 720) {
   if (!isCode(code)) return '';
-  return localDamUrl(`/content/dam/lh/images/offers/destination/${code.toLowerCase()}-square.jpg`, { width, ext: 'jpg' });
+  return `${LIVE_ORIGIN}/content/dam/lh/images/offers/destination/${code.toLowerCase()}-square.jpg.transform/lh-dcep-transform-width-${width}/img.jpg`;
 }
 
 /**
