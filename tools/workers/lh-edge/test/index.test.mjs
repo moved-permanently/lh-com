@@ -129,6 +129,12 @@ test('message-center: to the messages Worker (service binding), not copied', asy
   assert.deepEqual(seen, [`${HOST}/graphql/execute.json/Message-Center/lhgIrregMessageList`]);
   assert.equal(calls.length, 0);
   assert.equal((await worker.fetch(new Request(`${HOST}/graphql/execute.json/Message-Center/x`), env(), {})).status, 503);
+  // the /api/content/graphql/... alias: the messages Worker gets the /graphql/... form
+  const alias = await worker.fetch(new Request(`${HOST}/api/content/graphql/execute.json/Message-Center/lhgIrregMessageList;locale=en`), e, {});
+  assert.equal(alias.status, 200);
+  assert.equal(seen[1], `${HOST}/graphql/execute.json/Message-Center/lhgIrregMessageList;locale=en`);
+  assert.equal(routeOf(new Request(`${HOST}/api/content/graphql/execute.json/Message-Center/x`)).name, 'message-center');
+  assert.equal(routeOf(new Request(`${HOST}/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList`)).name, 'graphql');
 });
 
 /* ------------------------------------------------------------------------------- well-known */

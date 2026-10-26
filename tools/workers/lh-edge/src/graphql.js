@@ -1,5 +1,6 @@
 /**
- * www's GraphQL persisted queries, GET /graphql/execute.json/<config>/<query>[;name=value...],
+ * www's GraphQL persisted queries, GET /graphql/execute.json/<config>/<query>[;name=value...]
+ * (also under www's other address /api/content/graphql/execute.json/..., the same answers),
  * answered from lh-com's structured content (DA documents under /data/, one query index per
  * model, helix-query.yaml "feed-*"). The Message Center (config Message-Center) is the messages
  * Worker's (route message-center). Envelope, field names and errors as www (see README "GraphQL
@@ -10,6 +11,12 @@ import readDaForm from './daform.js';
 import FIXED from './graphql-fixed.js';
 
 export const GRAPHQL_PREFIX = '/graphql/execute.json/';
+/** www's second address of the same queries (the trip management app asks for its labels there). */
+export const GRAPHQL_ALIAS = '/api/content/graphql/execute.json/';
+
+/** The /graphql/execute.json/ form of a path (the alias rewritten); any other path unchanged. */
+export const graphqlPath = (pathname) => (pathname.startsWith(GRAPHQL_ALIAS)
+  ? `${GRAPHQL_PREFIX}${pathname.slice(GRAPHQL_ALIAS.length)}` : pathname);
 
 /** The query indexes (and the TMC strings sheet), by model. */
 export const FEEDS = {
@@ -40,7 +47,9 @@ const TYPES = {
  * URL-decoded: "/" and "%2F" in a path value are the same).
  */
 export function parseQueryPath(pathname) {
-  const rest = pathname.slice(GRAPHQL_PREFIX.length);
+  const canonical = graphqlPath(pathname);
+  if (!canonical.startsWith(GRAPHQL_PREFIX)) return null;
+  const rest = canonical.slice(GRAPHQL_PREFIX.length);
   const slash = rest.indexOf('/');
   if (slash < 0) return null;
   const decode = (s) => {
@@ -442,7 +451,7 @@ export function allowedOrigin(origin, patterns = '') {
   });
 }
 
-export const isGraphqlPath = (pathname) => pathname.startsWith(GRAPHQL_PREFIX);
+export const isGraphqlPath = (pathname) => graphqlPath(pathname).startsWith(GRAPHQL_PREFIX);
 
 export async function graphql(request, env) {
   const url = new URL(request.url);

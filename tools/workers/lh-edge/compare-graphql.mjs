@@ -4,7 +4,9 @@
  * graphql/index.json): for every recorded URL the status and the JSON, field by field, lists in
  * order (missing, extra and different items).
  *
- * --host <url>  the deployed lh-edge (it reads the published documents and their indexes)
+ * --host <url>  the deployed lh-edge (it reads the published documents and their indexes); every
+ *               recorded URL also under www's alias /api/content/graphql/execute.json/... (the
+ *               same recorded answer: www answers both addresses alike)
  * --local       the worker in Node with the indexes computed from the local documents
  *               (feed-index.mjs); Message-Center URLs are skipped (the messages Worker's)
  * --origin <aem.page>  the same with each document as Edge Delivery renders it (before the
@@ -91,8 +93,10 @@ if (local) {
   fetchLocal = (url) => worker.fetch(new Request(`https://lh-edge.local${url}`), env, {});
 }
 
+const ALIAS = (u) => u.replace('/graphql/execute.json/', '/api/content/graphql/execute.json/');
+const targets = Object.entries(recorded).flatMap(([url, e]) => (host ? [[url, e], [ALIAS(url), e]] : [[url, e]]));
 const results = [];
-for (const [url, e] of Object.entries(recorded)) {
+for (const [url, e] of targets) {
   if (local && url.includes('/Message-Center/')) {
     results.push({ url, skipped: 'Message-Center: the messages Worker (lh-messages)' });
     // eslint-disable-next-line no-continue
@@ -139,4 +143,4 @@ const md = [`# GraphQL feeds: lh-edge vs www (${local ? 'local documents' : host
   ''];
 fs.writeFileSync(path.join(outDir, `${name}.md`), md.join('\n'));
 console.log(`compare-graphql: ${equal}/${checked.length} equal${results.length - checked.length ? `, ${results.length - checked.length} skipped` : ''}; deliberate ${JSON.stringify(DELIBERATE)}`);
-checked.filter((r) => !r.equal).forEach((r) => console.log(`  ${r.status.www}/${r.status.edge} ${r.url.replace('/graphql/execute.json/', '')}: ${r.count} diffs, e.g. ${r.differences.slice(0, 2).map((x) => `${x.kind} ${x.path} www=${JSON.stringify(x.www)?.slice(0, 80)} edge=${JSON.stringify(x.edge)?.slice(0, 80)}`).join(' | ')}`));
+checked.filter((r) => !r.equal).forEach((r) => console.log(`  ${r.status.www}/${r.status.edge} ${r.url.replace(/^(\/api\/content)?\/graphql\/execute\.json\//, '')}: ${r.count} diffs, e.g. ${r.differences.slice(0, 2).map((x) => `${x.kind} ${x.path} www=${JSON.stringify(x.www)?.slice(0, 80)} edge=${JSON.stringify(x.edge)?.slice(0, 80)}`).join(' | ')}`));

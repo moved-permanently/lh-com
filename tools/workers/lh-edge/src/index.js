@@ -10,7 +10,7 @@ import { WorkerEntrypoint } from 'cloudflare:workers';
 import { prelude, passThrough, originFetch } from './edge.js';
 import { solo, soloPath } from './solo.js';
 import { sdui, isSduiPath } from './sdui-route.js';
-import { graphql, isGraphqlPath } from './graphql.js';
+import { graphql, isGraphqlPath, graphqlPath } from './graphql.js';
 import { dam, isDamPath } from './dam.js';
 import { siteSearch, isSearchPath } from './search.js';
 import { backends, isBackendsPath, isLoginReturn } from './backends.js';
@@ -61,7 +61,12 @@ function wellKnown(request) {
 /** The Message Center JSON: the messages Worker (service binding MESSAGES). */
 async function messages(request, env) {
   if (!env.MESSAGES) return new Response('Message Center not bound', { status: 503 });
-  return env.MESSAGES.fetch(request);
+  // the /api/content/graphql/... alias reaches the messages Worker in its /graphql/... form
+  const url = new URL(request.url);
+  const canonical = graphqlPath(url.pathname);
+  if (canonical === url.pathname) return env.MESSAGES.fetch(request);
+  url.pathname = canonical;
+  return env.MESSAGES.fetch(new Request(url.href, request));
 }
 
 /**
@@ -127,7 +132,7 @@ export const ROUTES = [
   },
   {
     name: 'message-center',
-    match: (url) => url.pathname.startsWith('/graphql/execute.json/Message-Center/'),
+    match: (url) => graphqlPath(url.pathname).startsWith('/graphql/execute.json/Message-Center/'),
     handle: messages,
   },
   {

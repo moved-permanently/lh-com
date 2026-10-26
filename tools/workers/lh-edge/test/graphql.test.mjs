@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import worker from '../src/index.js';
 import {
-  resetFeedCache, parseQueryPath, allowedOrigin,
+  resetFeedCache, parseQueryPath, allowedOrigin, graphqlPath,
 } from '../src/graphql.js';
 import readDaForm from '../src/daform.js';
 import { normalize, diff } from '../graphql-diff.mjs';
@@ -71,6 +71,30 @@ test('graphql: headers, last-modified of the data, failing queries as www', asyn
   await get('/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LX');
   assert.equal(calls.filter((c) => c.url.includes('/aircraft/query-index.json')).length, 1);
   assert.equal(calls[0].init.cache, 'no-store');
+});
+
+test('graphql: /api/content/graphql/execute.json/... answers exactly as /graphql/execute.json/...', async () => {
+  const urls = Object.keys(recorded).filter((u) => !u.includes('/Message-Center/'));
+  for (const url of urls) {
+    const alias = url.replace('/graphql/execute.json/', '/api/content/graphql/execute.json/');
+    // eslint-disable-next-line no-await-in-loop
+    const [a, b] = await Promise.all([get(url), get(alias)]);
+    assert.equal(b.status, a.status, alias);
+    ['content-type', 'cache-control', 'last-modified', 'x-lh-edge-route'].forEach((h) => assert.equal(b.headers.get(h), a.headers.get(h), `${alias} ${h}`));
+    // eslint-disable-next-line no-await-in-loop
+    assert.equal(await b.text(), await a.text(), alias);
+  }
+  const tmc = await get('/api/content/graphql/execute.json/Ancillary-on-TMC/tmc-translations;path=/content/dam/lufthansa-group/ancillary/tmc/tmc-web-translations/tmc-translations;variation=master');
+  assert.equal(tmc.status, 200);
+  assert.equal(tmc.headers.get('cache-control'), 'public, max-age=120');
+  assert.ok(Object.keys((await tmc.json()).data).length);
+  // CORS and the preflight as on /graphql
+  const pre = await worker.fetch(new Request('https://lh-edge.example/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList', { method: 'OPTIONS', headers: { origin: 'https://www.lufthansa.com' } }), env, {});
+  assert.equal(pre.status, 204);
+  assert.equal(pre.headers.get('access-control-allow-origin'), 'https://www.lufthansa.com');
+  assert.equal(graphqlPath('/api/content/graphql/execute.json/a/b;x=1'), '/graphql/execute.json/a/b;x=1');
+  assert.equal(graphqlPath('/api/content/other'), '/api/content/other');
+  assert.equal(parseQueryPath('/api/content/graphql/execute.json/BenefitCard/BenefitItemsList;airline=LH').query, 'BenefitItemsList');
 });
 
 test('graphql: path variables with %2F as with /, encoded values, limit', async () => {
