@@ -15,7 +15,7 @@
  *               www's missing-image fallback, recorded, not copied), at most 2 at a time, into
  *               tools/source-export/dam-cache/<decoded www path> (the AirCore originals are taken
  *               from tools/source-export/aircore-images/ when they are there)
- *   --upload    upload to DA and preview, 3 at a time (Document Authoring and admin, not www);
+ *   --upload    upload to DA and preview, 6 at a time (Document Authoring and admin, not www);
  *               files outside Edge Delivery's media limits are listed, not uploaded: jpg, jpeg,
  *               png and pdf up to 20 MB, mp4 up to 36 MB, svg up to 40 KB; vtt and txt are not
  *               delivered by Edge Delivery at all
@@ -59,6 +59,8 @@ const TYPES = {
 };
 const extOf = (p) => (p.match(/\.([a-z0-9]+)$/i) || [])[1]?.toLowerCase() || '';
 
+const state = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : {};
+
 /** The asset list: www path (decoded, NFC) -> sources. */
 function assets() {
   const list = new Map();
@@ -88,6 +90,11 @@ function assets() {
   }
   [...ids].sort().forEach((id) => add(`/content/dam/lh/images/lounges/${id}-square.jpg`, 'lounges'));
   add('/content/dam/lh/images/lounges/fallback-square.jpg', 'lounges');
+  // where www redirects an asset of the list (its missing-image fallback), the target is copied
+  Object.values(state).forEach((s) => {
+    const m = String(s.wwwRedirect || '').match(/^https:\/\/www\.lufthansa\.com(\/content\/dam\/[^?#]+)$/);
+    if (m) add(m[1], 'www-fallback');
+  });
   return list;
 }
 
@@ -121,16 +128,15 @@ export default ${JSON.stringify(sorted, null, 2)};
   return { byName, collisions: sorted };
 }
 
-const state = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : {};
 const save = () => fs.writeFileSync(STATE, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`);
 const cacheFile = (p) => path.join(CACHE, p.replace(/^\/content\/dam\//, ''));
 const aircoreFile = (p) => path.join(AIRCORE_CACHE, p.replace(/^\/content\/dam\//, ''));
 
 async function curl(args) {
   try {
-    const { stdout } = await run('curl', ['-s', '-w', '\n%{http_code} %{content_type} %{redirect_url}', ...args], { maxBuffer: 16 * MB });
+    const { stdout } = await run('curl', ['-s', '-w', '\n%{http_code}\t%{content_type}\t%{redirect_url}', ...args], { maxBuffer: 16 * MB });
     const i = stdout.lastIndexOf('\n');
-    const [status, type, redirect] = stdout.slice(i + 1).split(' ');
+    const [status, type, redirect] = stdout.slice(i + 1).split('\t');
     return {
       body: stdout.slice(0, i), status: Number(status), type, redirect,
     };
@@ -210,7 +216,7 @@ async function upload(list, byName) {
   }).slice(0, limit);
   let done = 0;
   const problems = [];
-  await pool(todo, 3, async (p) => {
+  await pool(todo, 6, async (p) => {
     const s = state[p];
     const why = notDeliverable(p, s);
     if (why) { s.skipped = why; return; }
@@ -218,7 +224,16 @@ async function upload(list, byName) {
     const name = nameOf.get(p);
     if (/^\/lhg(\/|$)/.test(name) || !name.startsWith('/content/dam/')) { problems.push(`${p}: refused target ${name}`); return; }
     if (s.uploadedName !== name) {
-      const r = await curl(['-X', 'POST', '-F', `data=@${path.join(root, s.file)};type=${TYPES[extOf(p)]}`, `https://admin.da.live/source/${ORG}/${SITE}${name}`]);
+      // a copy under a name admin refused to preview (an earlier naming rule) is replaced: the
+      // misnamed document is removed from DA (it was never previewed)
+      if (s.uploadedName && s.previewError) {
+        const d = await curl(['-X', 'DELETE', `https://admin.da.live/source/${ORG}/${SITE}${s.uploadedName}`]);
+        if (d.status >= 200 && d.status < 300) s.removed = [...(s.removed || []), s.uploadedName];
+        else problems.push(`${p}: could not remove ${s.uploadedName} (${d.status})`);
+      }
+      // the file name quoted: curl -F reads "," and ";" in a bare name as separators
+      const file = path.join(root, s.file).replace(/["\\]/g, '\\$&');
+      const r = await curl(['-X', 'POST', '-F', `data=@"${file}";type=${TYPES[extOf(p)]}`, `https://admin.da.live/source/${ORG}/${SITE}${name}`]);
       if (r.status < 200 || r.status >= 300) { s.uploadError = r.status; problems.push(`${p}: upload ${r.status} ${r.body.slice(0, 100)}`); return; }
       delete s.uploadError;
       s.uploadedName = name;
@@ -251,6 +266,8 @@ function report(list, byName, collisions) {
     let status = 'pending';
     if (s.preview && !s.previewError) status = 'copied';
     else if (s.skipped) status = 'not deliverable';
+    else if (s.wwwStatus === 302 || s.wwwStatus === 301) status = 'www fallback';
+    else if (s.wwwStatus === 403) status = 'blocked by www';
     else if (s.wwwStatus) status = 'not on www';
     else if (s.uploadError || s.previewError) status = 'upload or preview failed';
     return {
@@ -269,17 +286,23 @@ function report(list, byName, collisions) {
     copied: count((r) => r.status === 'copied'),
     notDeliverable: count((r) => r.status === 'not deliverable'),
     notOnWww: count((r) => r.status === 'not on www'),
+    wwwFallback: count((r) => r.status === 'www fallback'),
+    blockedByWww: count((r) => r.status === 'blocked by www'),
+    removedMisnamed: Object.values(state).reduce((n, x) => n + (x.removed || []).length, 0),
     failed: count((r) => r.status === 'upload or preview failed'),
     pending: count((r) => r.status === 'pending'),
     bySource,
     collisions,
     problems: rows.filter((r) => !['copied', 'pending'].includes(r.status)),
+    loungeIds: [...list.keys()].filter((k) => /\/lh\/images\/lounges\/\d+-square\.jpg$/.test(k)).length,
   };
   fs.mkdirSync(REPORTS, { recursive: true });
   fs.writeFileSync(path.join(REPORTS, 'dam-copy.json'), `${JSON.stringify(out, null, 1)}\n`);
   const md = [
     '# www DAM assets copied into Document Authoring', '', out.checkedAt, '',
-    `${out.assets} assets: ${out.copied} copied and previewed, ${out.notDeliverable} not deliverable by Edge Delivery, ${out.notOnWww} not found on www, ${out.failed} upload or preview failed, ${out.pending} pending.`, '',
+    `${out.assets} assets: ${out.copied} copied and previewed, ${out.wwwFallback} answered by www with its missing-image fallback (302; lh-edge answers the same, the targets are copied), ${out.notOnWww} not found on www (404), ${out.blockedByWww} refused by www to scripts (403 Cloudflare challenge: the videos and subtitles), ${out.notDeliverable} not deliverable by Edge Delivery, ${out.failed} upload or preview failed, ${out.pending} pending.`, '',
+    'Not deliverable at all: .vtt and .txt (Edge Delivery delivers HTML, JSON, MP4, PDF, SVG, JPG, PNG, AVIF and WEBP); size limits: images and PDF 20 MB, MP4 36 MB, SVG 40 KB.', '',
+    `Misnamed copies replaced: ${out.removedMisnamed} (folders with "--" or "," that admin refuses to preview, renamed by the folder rule and the old DA documents removed).`, '',
     '| source | status counts |', '|---|---|',
     ...Object.entries(bySource).sort().map(([src, c]) => `| ${src} | ${Object.entries(c).map(([k, v]) => `${k} ${v}`).join(', ')} |`), '',
     '## Collisions (two www paths, one Edge Delivery name)', '',

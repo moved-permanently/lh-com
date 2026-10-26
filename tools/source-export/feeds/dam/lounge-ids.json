@@ -1,0 +1,3059 @@
+{
+ "recordedFrom": "GET /service/api/catalogs/lounges/{HON,STA}/{city} for the 156 cities of catalogs/lounges/cities, in-page on www (bd-record-api.mjs --set lounge-ids), 2026-10-26",
+ "lounges": [
+  {
+   "loungeid": "39",
+   "name": "Austrian Business Lounge Schengen",
+   "airport": "Vienna International",
+   "cities": [
+    "VIE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "45",
+   "name": "Lufthansa Lounge",
+   "airport": "Boston - Logan International, MA",
+   "cities": [
+    "BOS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "202",
+   "name": "ERSTE Premier Lounge",
+   "airport": "Prague, Václav Havel Airport",
+   "cities": [
+    "PRG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "316",
+   "name": "Airport Lounge",
+   "airport": "Abuja International",
+   "cities": [
+    "ABV"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "333",
+   "name": "Airport VIP Lounge",
+   "airport": "Graz - Thalerhof",
+   "cities": [
+    "GRZ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "536",
+   "name": "Sala Pau Casals",
+   "airport": "Barcelona",
+   "cities": [
+    "BCN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13826",
+   "name": "Lufthansa Lounge",
+   "airport": "Detroit - Wayne County, MI",
+   "cities": [
+    "DTT"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13850",
+   "name": "Lufthansa Business Lounge",
+   "airport": "New York - JFK International, NY",
+   "cities": [
+    "NYC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13872",
+   "name": "AENA Sala VIP Joan Olivert",
+   "airport": "Valencia",
+   "cities": [
+    "VLC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13880",
+   "name": "Austrian HON Circle Lounge Schengen",
+   "airport": "Vienna International",
+   "cities": [
+    "VIE"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13883",
+   "name": "Pearl Lounge",
+   "airport": "Naples - Capodichino",
+   "cities": [
+    "NAP"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13884",
+   "name": "SWISS First Lounge A",
+   "airport": "Zurich",
+   "cities": [
+    "ZRH"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "13885",
+   "name": "Sala VIP Costa Blanca",
+   "airport": "Alicante",
+   "cities": [
+    "ALC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13889",
+   "name": "Marco Polo Lounge",
+   "airport": "Venice - Marco Polo",
+   "cities": [
+    "VCE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13891",
+   "name": "The Club at SEA",
+   "airport": "Seattle - Seattle/Tacoma International, WA",
+   "cities": [
+    "SEA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13899",
+   "name": "Split Airport Business Lounge",
+   "airport": "Split",
+   "cities": [
+    "SPU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13909",
+   "name": "La Valette lounge",
+   "airport": "Malta",
+   "cities": [
+    "MLA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13913",
+   "name": "Executive Lounge",
+   "airport": "Wroclaw",
+   "cities": [
+    "WRO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13915",
+   "name": "Business Executive Lounge",
+   "airport": "Poznan",
+   "cities": [
+    "POZ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13916",
+   "name": "Executive Lounge",
+   "airport": "Gdansk",
+   "cities": [
+    "GDN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13925",
+   "name": "Air China Business Lounge",
+   "airport": "Beijing (BJS) - Capital",
+   "cities": [
+    "BJS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13930",
+   "name": "LOT Business Lounge Polonez",
+   "airport": "Warsaw",
+   "cities": [
+    "WAW"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13933",
+   "name": "Air Canada Maple Leaf Lounge",
+   "airport": "Toronto - Pearson Int'l",
+   "cities": [
+    "YTO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13942",
+   "name": "Turkish Airlines Lounge Miami",
+   "airport": "Miami International, FL",
+   "cities": [
+    "MIA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13946",
+   "name": "Business Lounge",
+   "airport": "Belgrade",
+   "cities": [
+    "BEG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13950",
+   "name": "SWISS Senator Lounge A",
+   "airport": "Zurich",
+   "cities": [
+    "ZRH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "13952",
+   "name": "Beirut Lounge",
+   "airport": "Beirut Rafik Hariri International",
+   "cities": [
+    "BEY"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13955",
+   "name": "Salzburg Airport Business Lounge",
+   "airport": "Salzburg - W.A. Mozart",
+   "cities": [
+    "SZG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13956",
+   "name": "The Club at ATL",
+   "airport": "Hartsfield-Jackson Atlanta International Airport GA",
+   "cities": [
+    "ATL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13961",
+   "name": "Aspire Lounge",
+   "airport": "Edinburgh",
+   "cities": [
+    "EDI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13962",
+   "name": "Aspire Lounge",
+   "airport": "Birmingham Airport",
+   "cities": [
+    "BHX"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13978",
+   "name": "Air Canada Maple Leaf Lounge",
+   "airport": "Montreal - Pierre Elliott Trudeau",
+   "cities": [
+    "YMQ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13979",
+   "name": "Air Canada Maple Leaf Lounge",
+   "airport": "Vancouver - International",
+   "cities": [
+    "YVR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13983",
+   "name": "EuroAirport Skyview Lounge",
+   "airport": "Basel Euroairport",
+   "cities": [
+    "EAP"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "13993",
+   "name": "Royal Jordanian Crown Lounge",
+   "airport": "Amman - Queen Alia International",
+   "cities": [
+    "AMM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14006",
+   "name": "Sala Azahar",
+   "airport": "Seville",
+   "cities": [
+    "SVQ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14012",
+   "name": "Tunisair Espace Privilege Lounge",
+   "airport": "Tunis - Carthage International",
+   "cities": [
+    "TUN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14013",
+   "name": "Business Lounge",
+   "airport": "Yerevan - Zvartnots Int´l",
+   "cities": [
+    "EVN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14027",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "New York - JFK International, NY",
+   "cities": [
+    "NYC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14036",
+   "name": "Latam Lounge",
+   "airport": "Miami International, FL",
+   "cities": [
+    "MIA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14049",
+   "name": "Zero Eight Zero Lounge",
+   "airport": "Bengaluru Kempegowda International Airport ",
+   "cities": [
+    "BLR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14051",
+   "name": "Adani Lounge",
+   "airport": "Mumbai Chhatrapati Shivaji Maharaj International Airport",
+   "cities": [
+    "BOM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14066",
+   "name": "Olbia Airport Club Lounge",
+   "airport": "Aeroporto di Olbia Costa Smeralda - S.A. Principe Karim Aga Khan IV",
+   "cities": [
+    "OLB"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14067",
+   "name": "Bilbao VIP lounge",
+   "airport": "Bilbao",
+   "cities": [
+    "BIO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14072",
+   "name": "SWISS Senator Lounge",
+   "airport": "Genève - Geneva-Cointrin Airport",
+   "cities": [
+    "GVA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14076",
+   "name": "The Club",
+   "airport": "Charlotte, NC",
+   "cities": [
+    "CLT"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14080",
+   "name": "Business Lounge Timisoara",
+   "airport": "Timisoara – Traian Vuia International Airport",
+   "cities": [
+    "TSR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14086",
+   "name": "Prima Vista Lounge",
+   "airport": "Cagliari",
+   "cities": [
+    "CAG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14088",
+   "name": "Lufthansa Lounge",
+   "airport": "Athens Eleftherios Venizelos",
+   "cities": [
+    "ATH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14089",
+   "name": "SWISS Arrival Lounge",
+   "airport": "Zurich",
+   "cities": [
+    "ZRH"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14091",
+   "name": "Austrian Senator Lounge Schengen",
+   "airport": "Vienna International",
+   "cities": [
+    "VIE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14100",
+   "name": "Business Class Lounge",
+   "airport": "Bucharest",
+   "cities": [
+    "BUH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14103",
+   "name": "La Croix Du Sud Lounge",
+   "airport": "Toulouse - Blagnac",
+   "cities": [
+    "TLS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14107",
+   "name": "Bergen Lounge",
+   "airport": "Bergen",
+   "cities": [
+    "BGO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14117",
+   "name": "The Library VIP Lounge",
+   "airport": "Nice",
+   "cities": [
+    "NCE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14120",
+   "name": "Primeclass Lounge",
+   "airport": "Tbilisi",
+   "cities": [
+    "TBS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14121",
+   "name": "VIP Club Lounge",
+   "airport": "Florence - Amerigo Vespucci",
+   "cities": [
+    "FLR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14131",
+   "name": "Lufthansa Senator Lounge G28 (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14145",
+   "name": "Lufthansa Business Lounge G28 (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14152",
+   "name": "Sala VIP Puerta de Alcalá",
+   "airport": "Madrid Barajas",
+   "cities": [
+    "MAD"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14153",
+   "name": "Sala VIP Puerta del Sol",
+   "airport": "Madrid Barajas",
+   "cities": [
+    "MAD"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14154",
+   "name": "Copa Club",
+   "airport": "San Jose - Juan Santamaria International",
+   "cities": [
+    "SJO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14170",
+   "name": "Copa Club",
+   "airport": "Bogotá",
+   "cities": [
+    "BOG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14176",
+   "name": "Lounge Tempelhof",
+   "airport": "Berlin - Brandenburg",
+   "cities": [
+    "BER"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14177",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Paris - Charles De Gaulle",
+   "cities": [
+    "PAR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14178",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Paris - Charles De Gaulle",
+   "cities": [
+    "PAR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14189",
+   "name": "First Class Wining and Dining",
+   "airport": "New York - JFK International, NY",
+   "cities": [
+    "NYC"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14195",
+   "name": "Wingtips",
+   "airport": "Saint Louis - Lambert-St Louis Intl, MO",
+   "cities": [
+    "STL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14199",
+   "name": "TAP Premium Lounge",
+   "airport": "Lisbon ",
+   "cities": [
+    "LIS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14208",
+   "name": "Sala VIP Mediterraneo",
+   "airport": "Mallorca/Palma de Mallorca",
+   "cities": [
+    "PMI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14215",
+   "name": "First Class Area",
+   "airport": "Boston - Logan International, MA",
+   "cities": [
+    "BOS"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14217",
+   "name": "Icelandair Saga Lounge",
+   "airport": "Reykjavik - Keflavik International",
+   "cities": [
+    "REK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14222",
+   "name": "King Amlet Lounge",
+   "airport": "Billund",
+   "cities": [
+    "BLL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14229",
+   "name": "Sala VIP Valldemossa",
+   "airport": "Mallorca/Palma de Mallorca",
+   "cities": [
+    "PMI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14251",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Hannover",
+   "cities": [
+    "HAJ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14257",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Hannover",
+   "cities": [
+    "HAJ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14264",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Berlin - Brandenburg",
+   "cities": [
+    "BER"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14265",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Berlin - Brandenburg",
+   "cities": [
+    "BER"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14271",
+   "name": "Scanderbeg VIP Lounge",
+   "airport": "Tirana - Mother Teresa Apt. Rinas",
+   "cities": [
+    "TIA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14273",
+   "name": "Encalm Lounge",
+   "airport": "Hyderabad",
+   "cities": [
+    "HYD"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14292",
+   "name": "Primeclass Lounge",
+   "airport": "Zagreb",
+   "cities": [
+    "ZAG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14301",
+   "name": "Encalm Lounge",
+   "airport": "New Delhi - Indira Gandhi International",
+   "cities": [
+    "DEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14303",
+   "name": "TFS Travel Club Lounge",
+   "airport": "Chennai/Madras",
+   "cities": [
+    "MAA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14308",
+   "name": "Turkish Airlines Star Alliance Lounge",
+   "airport": "Nairobi - Jomo Kenyatta International",
+   "cities": [
+    "NBO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14309",
+   "name": "Business Lounge Cluj",
+   "airport": "Cluj",
+   "cities": [
+    "CLJ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14317",
+   "name": "Absheron Lounge",
+   "airport": "Baku - Heydar Aliyev Int´l",
+   "cities": [
+    "BAK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14335",
+   "name": "Business Class Lounge",
+   "airport": "Sarajevo",
+   "cities": [
+    "SJJ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14337",
+   "name": "Lufthansa Lounge",
+   "airport": "New York - Newark International, NJ",
+   "cities": [
+    "NYC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14338",
+   "name": "First Class Wining and Dining",
+   "airport": "New York - Newark International, NJ",
+   "cities": [
+    "NYC"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14339",
+   "name": "The Lounge Münster Osnabrück",
+   "airport": "Muenster-Osnabrueck",
+   "cities": [
+    "FMO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14341",
+   "name": "The Lounge Bremen",
+   "airport": "Bremen",
+   "cities": [
+    "BRE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14342",
+   "name": "Dürer Lounge",
+   "airport": "Nuremberg",
+   "cities": [
+    "NUE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14362",
+   "name": "United Club",
+   "airport": "London Heathrow",
+   "cities": [
+    "LON"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14363",
+   "name": "Air Canada Maple Leaf Lounge",
+   "airport": "London Heathrow",
+   "cities": [
+    "LON"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14365",
+   "name": "Singapore Airlines SilverKris Business Lounge",
+   "airport": "London Heathrow",
+   "cities": [
+    "LON"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14366",
+   "name": "SWISS First Lounge",
+   "airport": "Genève - Geneva-Cointrin Airport",
+   "cities": [
+    "GVA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14369",
+   "name": "Platinum Lounge",
+   "airport": "Budapest, Liszt Ferenc",
+   "cities": [
+    "BUD"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14398",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Hamburg",
+   "cities": [
+    "HAM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14401",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Hamburg",
+   "cities": [
+    "HAM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14404",
+   "name": "Qantas Hong Kong Lounge",
+   "airport": "Hong Kong International Airport",
+   "cities": [
+    "HKG"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14405",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "London Heathrow",
+   "cities": [
+    "LON"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14407",
+   "name": "Lufthansa Business Lounge",
+   "airport": "London Heathrow",
+   "cities": [
+    "LON"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14408",
+   "name": "Plaza Premium Lounge",
+   "airport": "Nairobi - Jomo Kenyatta International",
+   "cities": [
+    "NBO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14409",
+   "name": "Aspire Lounge",
+   "airport": "Nairobi - Jomo Kenyatta International",
+   "cities": [
+    "NBO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14410",
+   "name": "OP Lounge by Aspire",
+   "airport": "Helsinki - Vantaa",
+   "cities": [
+    "HEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14417",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Dusseldorf - North Rhine Westphalia",
+   "cities": [
+    "DUS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14418",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Dusseldorf - North Rhine Westphalia",
+   "cities": [
+    "DUS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14429",
+   "name": "Airport LHV Lounge",
+   "airport": "Tallinn",
+   "cities": [
+    "TLL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14432",
+   "name": "Lufthansa Welcome Lounge",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14433",
+   "name": "Lufthansa First Class Lounge A13 (Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14448",
+   "name": "Lufthansa First Class Terminal",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "copied"
+  },
+  {
+   "loungeid": "14451",
+   "name": "The Lounge Leipzig/Halle",
+   "airport": "Leipzig/Halle",
+   "cities": [
+    "LEJ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14452",
+   "name": "Avianca & TAP Lounge",
+   "airport": "Miami International, FL",
+   "cities": [
+    "MIA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14459",
+   "name": "Singapore Airlines KrisFlyer Gold Lounge",
+   "airport": "Singapore - Changi International",
+   "cities": [
+    "SIN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14461",
+   "name": "Air China Business Class Lounge",
+   "airport": "Shanghai - Pu Dong",
+   "cities": [
+    "SHA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14463",
+   "name": "South African Airways International Premium Lounge",
+   "airport": "Johannesburg- O.R. Tambo International Airport",
+   "cities": [
+    "JNB"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14468",
+   "name": "AEGEAN Business Lounge",
+   "airport": "Thessaloniki",
+   "cities": [
+    "SKG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14485",
+   "name": "LOT Business Lounge",
+   "airport": "Chicago - OHare International, IL",
+   "cities": [
+    "CHI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14488",
+   "name": "The Lounge Dresden",
+   "airport": "Dresden",
+   "cities": [
+    "DRS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14490",
+   "name": "KIX Lounge Kansai",
+   "airport": "Osaka - Kansai International",
+   "cities": [
+    "OSA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14494",
+   "name": "LOT Polonez Gold Lounge",
+   "airport": "Warsaw",
+   "cities": [
+    "WAW"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14498",
+   "name": "SAS Lounge",
+   "airport": "Oslo",
+   "cities": [
+    "OSL"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14506",
+   "name": "Luxair Lounge",
+   "airport": "Luxembourg",
+   "cities": [
+    "LUX"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14512",
+   "name": "United Club",
+   "airport": "Denver - International, CO",
+   "cities": [
+    "DEN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14513",
+   "name": "United Club",
+   "airport": "San Francisco International, CA",
+   "cities": [
+    "SFO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14514",
+   "name": "United Club",
+   "airport": "Austin-Bergstrom International Airport, TX",
+   "cities": [
+    "AUS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14515",
+   "name": "United Club B6",
+   "airport": "Chicago - OHare International, IL",
+   "cities": [
+    "CHI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14516",
+   "name": "United Club",
+   "airport": "San Diego Lindbergh Field, CA",
+   "cities": [
+    "SAN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14518",
+   "name": "United Club B18",
+   "airport": "Chicago - OHare International, IL",
+   "cities": [
+    "CHI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14519",
+   "name": "United Club C10",
+   "airport": "Chicago - OHare International, IL",
+   "cities": [
+    "CHI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14520",
+   "name": "United Club",
+   "airport": "Raleigh/Durham, NC",
+   "cities": [
+    "RDU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14521",
+   "name": "United Club",
+   "airport": "Houston - Intercontinental, TX",
+   "cities": [
+    "HOU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14522",
+   "name": "Lufthansa First Class Lounge",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14524",
+   "name": "Air Canada Signature Suite",
+   "airport": "Toronto - Pearson Int'l",
+   "cities": [
+    "YTO"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14525",
+   "name": "Air Canada Signature Suite",
+   "airport": "Vancouver - International",
+   "cities": [
+    "YVR"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14526",
+   "name": "Genova Lounge",
+   "airport": "Genoa",
+   "cities": [
+    "GOA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14529",
+   "name": "Juneyao Air Lounge",
+   "airport": "Shanghai - Pu Dong",
+   "cities": [
+    "SHA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14532",
+   "name": "Kinsale Lounge",
+   "airport": "Cork",
+   "cities": [
+    "ORK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14537",
+   "name": "Catrion Lounge",
+   "airport": "Dammam",
+   "cities": [
+    "DMM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14539",
+   "name": "Salon VIP Schengen",
+   "airport": "Marseille-Provence",
+   "cities": [
+    "MRS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14544",
+   "name": "Prima Vista Lounge",
+   "airport": "Bologna",
+   "cities": [
+    "BLQ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14546",
+   "name": "United Club",
+   "airport": "Washington - Dulles International, DC",
+   "cities": [
+    "WAS"
+   ],
+   "statuses": [
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14550",
+   "name": "Lufthansa Senator Lounge A50 (Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14552",
+   "name": "Lufthansa Business Lounge Z50 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14555",
+   "name": "Lufthansa Senator Lounge B43 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14556",
+   "name": "Lufthansa Senator Lounge Z50 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14563",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Washington - Dulles International, DC",
+   "cities": [
+    "WAS"
+   ],
+   "statuses": [
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14565",
+   "name": "First Class Area",
+   "airport": "Washington - Dulles International, DC",
+   "cities": [
+    "WAS"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14566",
+   "name": "Turkish Airlines Lounge",
+   "airport": "Washington - Dulles International, DC",
+   "cities": [
+    "WAS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14567",
+   "name": "SWISS Business Lounge A",
+   "airport": "Zurich",
+   "cities": [
+    "ZRH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14569",
+   "name": "SWISS Business Class Lounge",
+   "airport": "Genève - Geneva-Cointrin Airport",
+   "cities": [
+    "GVA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14570",
+   "name": "SWISS Alpine Lounge",
+   "airport": "Zurich",
+   "cities": [
+    "ZRH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14574",
+   "name": "British Airways Lounge",
+   "airport": "Washington - Dulles International, DC",
+   "cities": [
+    "WAS"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14575",
+   "name": "Zadar Airport Business Lounge",
+   "airport": "Zadar",
+   "cities": [
+    "ZAD"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14581",
+   "name": "Lufthansa Senator Lounge H24 (Non-Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14582",
+   "name": "Lufthansa Business Lounge H24 (Non-Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14583",
+   "name": "Business Lounge",
+   "airport": "Ljubljana",
+   "cities": [
+    "LJU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14584",
+   "name": "Lufthansa Business Lounge A13 (Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14587",
+   "name": "The Lounge By Menzies Aviation",
+   "airport": "Gothenburg - Landvetter",
+   "cities": [
+    "GOT"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14588",
+   "name": "Lufthansa Business Lounge",
+   "airport": "Stuttgart - Echterdingen",
+   "cities": [
+    "STR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14589",
+   "name": "Lufthansa Senator Lounge",
+   "airport": "Stuttgart - Echterdingen",
+   "cities": [
+    "STR"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14606",
+   "name": "Lufthansa Bistro Lounge C14 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14615",
+   "name": "Luxe by Aspire",
+   "airport": "Tel Aviv - Ben Gurion",
+   "cities": [
+    "TLV"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14616",
+   "name": "SilverKris Lounge",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14622",
+   "name": "The Pop-Up Loft",
+   "airport": "Brussels - Airport",
+   "cities": [
+    "BRU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14623",
+   "name": "The Sunrise Lounge",
+   "airport": "Brussels - Airport",
+   "cities": [
+    "BRU"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14625",
+   "name": "United Club",
+   "airport": "Hong Kong International Airport",
+   "cities": [
+    "HKG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14626",
+   "name": "Airport Business Lounge",
+   "airport": "Krakow",
+   "cities": [
+    "KRK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14631",
+   "name": "The Lounge Köln Bonn",
+   "airport": "Cologne - Cologne/Bonn Airport",
+   "cities": [
+    "CGN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14633",
+   "name": "Lufthansa Business Lounge B24 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14635",
+   "name": "Lufthansa Senator Lounge K11 (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14637",
+   "name": "Lufthansa Business Lounge K11 (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14640",
+   "name": "Cozaya Lounge",
+   "airport": "Riyadh - King Khaled International",
+   "cities": [
+    "RUH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14642",
+   "name": "Cozaya Lounge",
+   "airport": "Dammam",
+   "cities": [
+    "DMM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14643",
+   "name": "Lounge 19 By Grand Lounge Elite",
+   "airport": "Mexico City - Aeropuerto Internacional",
+   "cities": [
+    "MEX"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14651",
+   "name": "Plaza Premium Lounge (D16)",
+   "airport": "Dallas/Fort Worth - International, TX",
+   "cities": [
+    "DFW"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14652",
+   "name": "Work Lounge",
+   "airport": "Bari",
+   "cities": [
+    "BRI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14653",
+   "name": "Aspire Executive Lounge",
+   "airport": "Venice - Marco Polo",
+   "cities": [
+    "VCE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14654",
+   "name": "Turkish Airlines Lounge Bangkok",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14655",
+   "name": "Thai Royal Orchid Prestige Lounge",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14656",
+   "name": "Asiana Business Class Lounge West",
+   "airport": "Seoul - Incheon International Airport",
+   "cities": [
+    "SEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14657",
+   "name": "Thai Royal Silk Lounge",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14658",
+   "name": "Singapore Airlines SilverKris Lounge",
+   "airport": "Hong Kong International Airport",
+   "cities": [
+    "HKG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14659",
+   "name": "EGYPTAIR Alioth Business Class Lounge",
+   "airport": "Cairo International",
+   "cities": [
+    "CAI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14660",
+   "name": "ANA Lounge",
+   "airport": "Tokyo - Haneda",
+   "cities": [
+    "TYO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14662",
+   "name": "EVA Air Lounge",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14664",
+   "name": "SAS Lounge",
+   "airport": "Copenhagen",
+   "cities": [
+    "CPH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14665",
+   "name": "Aegean Airlines Business Lounge",
+   "airport": "Athens Eleftherios Venizelos",
+   "cities": [
+    "ATH"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14666",
+   "name": "SilverKris Lounge",
+   "airport": "Seoul - Incheon International Airport",
+   "cities": [
+    "SEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14667",
+   "name": "Asiana Business Class Lounge East",
+   "airport": "Seoul - Incheon International Airport",
+   "cities": [
+    "SEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14668",
+   "name": "Avianca VIP Gold Lounge",
+   "airport": "Bogotá",
+   "cities": [
+    "BOG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14669",
+   "name": "Asiana Business Class Lounge Central",
+   "airport": "Seoul - Incheon International Airport",
+   "cities": [
+    "SEL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14670",
+   "name": "Thai Royal Orchid Lounge",
+   "airport": "Bangkok - Suvarnabhumi International",
+   "cities": [
+    "BKK"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14671",
+   "name": "Turkish Airlines Miles&Smiles",
+   "airport": "Istanbul",
+   "cities": [
+    "IST"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14674",
+   "name": "Piemonte Lounge",
+   "airport": "Turin",
+   "cities": [
+    "TRN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14695",
+   "name": "ITA Airways Piazza Vincenzo Bellini",
+   "airport": "Sicily/Catania",
+   "cities": [
+    "CTA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14696",
+   "name": "ITA Airways Hangar Lounge",
+   "airport": "Rome - Leonardo Da Vinci",
+   "cities": [
+    "ROM"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14697",
+   "name": "ITA Airways Runway Lounge",
+   "airport": "Milan Linate",
+   "cities": [
+    "MIL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14704",
+   "name": "Sylt Lounge",
+   "airport": "Sylt/Westerland",
+   "cities": [
+    "GWT"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14711",
+   "name": "Lufthansa Senator Lounge G24 (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14712",
+   "name": "Lufthansa Business Lounge B44 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14713",
+   "name": "Lufthansa Business Lounge A26 (Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14714",
+   "name": "Lufthansa First Class Lounge B22 (Non-Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14715",
+   "name": "Lufthansa Business Lounge L11 (Non-Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14716",
+   "name": "Lufthansa First Class Lounge Satellite",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14717",
+   "name": "Lufthansa Panorama Lounge A26 (Schengen)",
+   "airport": "Frankfurt/Main International",
+   "cities": [
+    "FRA"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14718",
+   "name": "Lufthansa Senator Lounge L11 (Non-Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14719",
+   "name": "Senator Cafe (Schengen)",
+   "airport": "Munich",
+   "cities": [
+    "MUC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14723",
+   "name": "Dubrovnik Airport Adriatic Business Lounge",
+   "airport": "Dubrovnik",
+   "cities": [
+    "DBV"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14724",
+   "name": "Cap des Falco",
+   "airport": "Ibiza",
+   "cities": [
+    "IBZ"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14736",
+   "name": "TAV Primeclass Lounge",
+   "airport": "Sofia",
+   "cities": [
+    "SOF"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14748",
+   "name": "No1 Lounge",
+   "airport": "Jersey",
+   "cities": [
+    "JER"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14767",
+   "name": "Casa BB",
+   "airport": "Sao Paulo - Guarulhos International",
+   "cities": [
+    "SAO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14769",
+   "name": "Star Alliance Business Class Lounge",
+   "airport": "Los Angeles International, CA",
+   "cities": [
+    "LAX"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14773",
+   "name": "Star Alliance Lounge",
+   "airport": "Amsterdam - Schiphol",
+   "cities": [
+    "AMS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14774",
+   "name": "Star Alliance Lounge",
+   "airport": "Rio de Janeiro - International",
+   "cities": [
+    "RIO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14775",
+   "name": "Star Alliance Lounge",
+   "airport": "Buenos Aires - Ministro Pistarini",
+   "cities": [
+    "BUE"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14813",
+   "name": "Aspire Lounge – Welcoming Lufthansa Group",
+   "airport": "Stockholm",
+   "cities": [
+    "STO"
+   ],
+   "statuses": [
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14814",
+   "name": "Suite by Aspire",
+   "airport": "Stockholm",
+   "cities": [
+    "STO"
+   ],
+   "statuses": [
+    "HON"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14815",
+   "name": "The Maharaja Lounge",
+   "airport": "San Francisco International, CA",
+   "cities": [
+    "SFO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14818",
+   "name": "EGYPTAIR Gienah Business Class Lounge",
+   "airport": "Cairo International",
+   "cities": [
+    "CAI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14836",
+   "name": "ANA Airport Lounge",
+   "airport": "Porto",
+   "cities": [
+    "OPO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14837",
+   "name": "BGS Premier Lounge",
+   "airport": "Beijing (BJS) - Capital",
+   "cities": [
+    "BJS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14840",
+   "name": "Primeclass Lounge",
+   "airport": "Riga",
+   "cities": [
+    "RIX"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14842",
+   "name": "Premier 1 Lounge",
+   "airport": "Cape Town",
+   "cities": [
+    "CPT"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14846",
+   "name": "Brindisi VIP Lounge",
+   "airport": "Brindisi",
+   "cities": [
+    "BDS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14860",
+   "name": "The Phoenix Lounge",
+   "airport": "Dublin",
+   "cities": [
+    "DUB"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14863",
+   "name": "Aspire Lounge C Gates",
+   "airport": "Manchester",
+   "cities": [
+    "MAN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14864",
+   "name": "Aspire Lounge D Gates",
+   "airport": "Manchester",
+   "cities": [
+    "MAN"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14882",
+   "name": "Turkish Airlines Lounge",
+   "airport": "Edinburgh",
+   "cities": [
+    "EDI"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14900",
+   "name": "Prima Vista Lounge",
+   "airport": "Sicily/Palermo",
+   "cities": [
+    "PMO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14918",
+   "name": "Lufthansa Lounge",
+   "airport": "Milan Malpensa",
+   "cities": [
+    "MIL"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14919",
+   "name": "Agora Business Lounge",
+   "airport": "Malabo",
+   "cities": [
+    "SSG"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14935",
+   "name": "Aspire Lounge",
+   "airport": "Vilnius",
+   "cities": [
+    "VNO"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14984",
+   "name": "Clouds of Diamond Business Lounge",
+   "airport": "Port Harcourt International",
+   "cities": [
+    "PHC"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14987",
+   "name": "Confluence",
+   "airport": "Lyon Saint Exupéry",
+   "cities": [
+    "LYS"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  },
+  {
+   "loungeid": "14988",
+   "name": "VIP Lounge",
+   "airport": "Malaga",
+   "cities": [
+    "AGP"
+   ],
+   "statuses": [
+    "HON",
+    "STA"
+   ],
+   "image": "www 404"
+  }
+ ]
+}

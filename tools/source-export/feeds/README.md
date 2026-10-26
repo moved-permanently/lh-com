@@ -93,6 +93,12 @@ with where each one comes from (`sources`) and the rendition widths seen (`width
 Not in the list: lounge images (`lh/images/lounges/<loungeid>-square.jpg` and `fallback-square.jpg`); their ids come from
 the lounge finder's search answers.
 
+`dam/lounge-ids.json`: the 237 lounge ids of the lounge finder's search answers (`catalogs/lounges/{HON,STA}/<city>` for the 156
+cities, in-page on www through the warm Bright Data session, `bd-record-api.mjs --set lounge-ids`, 2026-10-26), with name,
+airport, the cities and statuses that list them, and whether www has its image: 13 have one, 224 answer 404 (www shows
+`fallback-square.jpg`). Copied into DA by `tools/importer/dam-copy.mjs` with the list above
+(report `tools/reports/dam/dam-copy.md`).
+
 ## Destination page and prices, `destination/`
 
 `destination/<cc>-<ll>.ndjson`: the `/service/api` answers www's pages loaded themselves when viewed once each through the
