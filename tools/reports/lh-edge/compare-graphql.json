@@ -1,17 +1,31 @@
 {
- "checkedAt": "2026-10-26T02:10:55.177Z",
+ "checkedAt": "2026-10-26T23:28:19.184Z",
  "target": "https://lhedge.bbird.live",
  "deliberate": {
-  "tags": 361,
-  "richText": 430,
-  "plaintext": 42,
-  "wwwDataErrors": 11,
+  "tags": 722,
+  "richText": 860,
+  "plaintext": 84,
+  "wwwDataErrors": 22,
   "emptyProperties": 0,
-  "created": 67
+  "created": 134
  },
  "results": [
   {
    "url": "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
    "status": {
     "www": 200,
     "edge": 200
@@ -39,7 +53,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LH",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LX",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LX",
    "status": {
     "www": 200,
     "edge": 200
@@ -67,7 +109,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=OS",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Ancillary-on-TMC/get-ancillaries-catalogs",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Ancillary-on-TMC/get-ancillaries-catalogs",
    "status": {
     "www": 200,
     "edge": 200
@@ -95,7 +165,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Ancillary-on-TMC/tmc-translations-v2",
+   "status": {
+    "www": 404,
+    "edge": 404
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Ancillary-on-TMC/tmc-translations;path=/content/dam/lufthansa-group/ancillary/tmc/tmc-web-translations/tmc-translations;variation=master",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Ancillary-on-TMC/tmc-translations;path=/content/dam/lufthansa-group/ancillary/tmc/tmc-web-translations/tmc-translations;variation=master",
    "status": {
     "www": 200,
     "edge": 200
@@ -123,7 +221,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/B2BNeo/getAllFooterLogos",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/B2BNeo/getFeatureFlag",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/B2BNeo/getFeatureFlag",
    "status": {
     "www": 200,
     "edge": 200
@@ -151,7 +277,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/B2BNeo/getFreeFlightConfig",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/BenefitCard/BenefitItemsList",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/BenefitCard/BenefitItemsList",
    "status": {
     "www": 200,
     "edge": 200
@@ -179,7 +333,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de;airline=OS",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/de;airline=OS",
    "status": {
     "www": 200,
     "edge": 200
@@ -207,7 +389,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en;airline=LH",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/BenefitCard/BenefitItemsList;langPath=/content/dam/lufthansa-group/ancillary/upgrade/benefitcard/benefititems/en;airline=LH",
    "status": {
     "www": 200,
     "edge": 200
@@ -235,7 +445,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Orchestrator-Services/SDUI-Service-List",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationByPathAndVariation",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationByPathAndVariation",
    "status": {
     "www": 200,
     "edge": 200
@@ -263,7 +501,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationByPathAndVariation;path=/content/dam/content-fragments/travelready-infohub/za;variation=de",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath",
    "status": {
     "www": 200,
     "edge": 200
@@ -291,7 +557,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ca;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/cn;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/cn;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -319,7 +613,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ec;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/gb;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/gb;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -347,7 +669,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/il;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/in;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/in;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -375,7 +725,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/jp;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ke;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ke;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -403,7 +781,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/mv;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/my;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/my;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -431,7 +837,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/na;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ng;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/ng;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -459,7 +893,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/th;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/tn;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/tn;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -487,7 +949,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/us;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/za;includedVariations=true",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationsByPath;path=/content/dam/content-fragments/travelready-infohub/za;includedVariations=true",
    "status": {
     "www": 200,
     "edge": 200
@@ -515,7 +1005,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/getItemByID",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/getItemByID;id=/content/dam/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-jus",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/getItemByID;id=/content/dam/lufthansa-group/mobileapp/whats-new/en/finding-your-next-flight-jus",
    "status": {
     "www": 200,
     "edge": 200
@@ -543,7 +1061,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/getStartPopupEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh;to=2026-10-25T20%3A00%3A00.000%2B01%3A00",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/getStartPopupNonEarlyAccess",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/getStartPopupNonEarlyAccess",
    "status": {
     "www": 200,
     "edge": 200
@@ -571,7 +1117,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/getStartPopupNonEarlyAccess;locale=en;client=mobile-app:ios;tenant=mobile-app:lh;to=2026-10-25T20%3A00%3A00.000%2B01%3A00",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/whatsNewListEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsNewListEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh",
    "status": {
     "www": 200,
     "edge": 200
@@ -599,7 +1173,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsNewListNonEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lh",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/whatsNewListNonEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lx",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsNewListNonEarlyAccess;locale=en;client=mobile-app:android;tenant=mobile-app:lx",
    "status": {
     "www": 200,
     "edge": 200
@@ -627,7 +1229,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsnewList",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/whatsnewList;locale=de;client=mobile-app:ios;tenant=mobile-app:lh",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsnewList;locale=de;client=mobile-app:ios;tenant=mobile-app:lh",
    "status": {
     "www": 200,
     "edge": 200
@@ -655,7 +1285,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsnewList;locale=en;client=mobile-app:android;tenant=mobile-app:lh",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/mobileapp/whatsnewList;locale=en;limit=5;client=mobile-app:ios;tenant=mobile-app:lx",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/mobileapp/whatsnewList;locale=en;limit=5;client=mobile-app:ios;tenant=mobile-app:lx",
    "status": {
     "www": 200,
     "edge": 200
@@ -683,7 +1341,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Travel-Regulations/TravelRegulationList",
+   "status": {
+    "www": 500,
+    "edge": 500
+   },
+   "cacheControl": {
+    "www": null,
+    "edge": null
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/BenefitCard/benefitcardimageList",
+   "status": {
+    "www": 500,
+    "edge": 500
+   },
+   "cacheControl": {
+    "www": null,
+    "edge": null
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/BenefitCard/benefitcardimageList",
    "status": {
     "www": 500,
     "edge": 500
@@ -711,7 +1397,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/B2BNeo/getLoginConfig",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/B2BNeo/getLoginConfigByPath",
+   "status": {
+    "www": 200,
+    "edge": 200
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/B2BNeo/getLoginConfigByPath",
    "status": {
     "www": 200,
     "edge": 200
@@ -739,7 +1453,35 @@
    "count": 0
   },
   {
+   "url": "/api/content/graphql/execute.json/Message-Center/noSuchQuery",
+   "status": {
+    "www": 404,
+    "edge": 404
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
    "url": "/graphql/execute.json/NoSuchConfig/noSuchQuery",
+   "status": {
+    "www": 404,
+    "edge": 404
+   },
+   "cacheControl": {
+    "www": "public, max-age=120",
+    "edge": "public, max-age=120"
+   },
+   "equal": true,
+   "differences": [],
+   "count": 0
+  },
+  {
+   "url": "/api/content/graphql/execute.json/NoSuchConfig/noSuchQuery",
    "status": {
     "www": 404,
     "edge": 404
