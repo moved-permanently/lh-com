@@ -1,0 +1,217 @@
+{
+ "note": "Sample entries of GET https://admin.hlx.page/log/moved-permanently/lh-com/main (author role), recorded 2026-10-26 from real lh-com activity: per-resource publish (live POST 200) and unpublish (live DELETE 204) from bulk jobs, the bulk request entry (202 with paths), a job summary, a single sheet preview, index entries, an indexer entry and a code sync request. user, ip, contentBusId and details are replaced; long paths/changes lists are cut. The answer of the log API is {from, to, entries, nextToken?, links?}.",
+ "kinds": [
+  "bulk-request (status)",
+  "job-summary (status)",
+  "bulk-request (live)",
+  "live-DELETE-204",
+  "live-DELETE-204",
+  "job-summary (publish)",
+  "live-POST-200",
+  "preview-POST-200",
+  "live-POST-200",
+  "indexer",
+  "index-POST-200",
+  "code-POST-202"
+ ],
+ "entries": [
+  {
+   "timestamp": 1793015353422,
+   "contentBusId": "<content-bus-id>",
+   "duration": 318,
+   "status": 202,
+   "method": "POST",
+   "route": "status",
+   "path": "/*",
+   "user": "author@example.com",
+   "ip": "203.0.113.10",
+   "paths": [
+    "/content/dam/*",
+    "/aircore-images/*"
+   ],
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "job": "status/job-2026-10-26-11-49-13-170bba19",
+   "timestamp": 1793015353906,
+   "contentBusId": "<content-bus-id>",
+   "duration": 50187,
+   "status": 200,
+   "method": "POST",
+   "route": "status-job",
+   "path": "/status/job-2026-10-26-11-49-13-170bba19",
+   "user": "author@example.com",
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793015443320,
+   "contentBusId": "<content-bus-id>",
+   "duration": 332,
+   "status": 202,
+   "method": "POST",
+   "route": "live",
+   "path": "",
+   "user": "author@example.com",
+   "ip": "203.0.113.10",
+   "paths": [
+    "/content/dam/lh/images/offers/destination/alb-square.jpg",
+    "/content/dam/lh/images/offers/destination/alf-square.jpg",
+    "/content/dam/lh/images/offers/destination/aho-square.jpg",
+    "<284 more>"
+   ],
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793015458899,
+   "contentBusId": "<content-bus-id>",
+   "duration": 202,
+   "status": 204,
+   "method": "DELETE",
+   "route": "live",
+   "path": "/content/dam/lh/images/offers/destination/alf-square.jpg",
+   "user": "author@example.com"
+  },
+  {
+   "timestamp": 1793015458901,
+   "contentBusId": "<content-bus-id>",
+   "duration": 203,
+   "status": 204,
+   "method": "DELETE",
+   "route": "live",
+   "path": "/content/dam/lh/images/offers/destination/aju-square.jpg",
+   "user": "author@example.com"
+  },
+  {
+   "job": "publish/job-2026-10-26-11-51-21-2cde471d",
+   "timestamp": 1793015481860,
+   "contentBusId": "<content-bus-id>",
+   "duration": 7972,
+   "status": 200,
+   "method": "POST",
+   "route": "job",
+   "path": "/publish/job-2026-10-26-11-51-21-2cde471d",
+   "user": "author@example.com",
+   "details": [
+    "<details removed>"
+   ],
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793015483771,
+   "contentBusId": "<content-bus-id>",
+   "duration": 2651,
+   "status": 200,
+   "method": "POST",
+   "route": "live",
+   "path": "/content/dam/lh/images/offers/destination/abj-panorama.jpg",
+   "user": "author@example.com",
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793015554824,
+   "contentBusId": "<content-bus-id>",
+   "duration": 6517,
+   "status": 200,
+   "method": "POST",
+   "route": "preview",
+   "path": "/redirects.json",
+   "user": "author@example.com",
+   "ip": "203.0.113.10",
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793015594254,
+   "contentBusId": "<content-bus-id>",
+   "duration": 2108,
+   "status": 200,
+   "method": "POST",
+   "route": "live",
+   "path": "/de/en/articles/highlights/soccer-event-in-north-america",
+   "user": "author@example.com",
+   "ip": "203.0.113.10",
+   "details": [
+    "<details removed>"
+   ],
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793038153383,
+   "source": "indexer",
+   "contentBusId": "<content-bus-id>",
+   "changes": [
+    "search-gb-en: updated /gb/en/baggage-irregularities",
+    "search-gb-en: updated /gb/en/check-in-baggage",
+    "<34 more>"
+   ],
+   "errors": [],
+   "unmodified": 56,
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793038153435,
+   "contentBusId": "<content-bus-id>",
+   "duration": 1858,
+   "status": 200,
+   "method": "POST",
+   "route": "index",
+   "path": "/de/en/search-index.json",
+   "user": "author@example.com",
+   "details": [
+    "<details removed>"
+   ],
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  },
+  {
+   "timestamp": 1793039893307,
+   "contentBusId": "<content-bus-id>",
+   "duration": 418,
+   "status": 202,
+   "method": "POST",
+   "route": "code",
+   "path": "/",
+   "user": "author@example.com",
+   "ip": "203.0.113.10",
+   "org": "moved-permanently",
+   "site": "lh-com",
+   "owner": "moved-permanently",
+   "repo": "lh-com",
+   "ref": "main"
+  }
+ ]
+}

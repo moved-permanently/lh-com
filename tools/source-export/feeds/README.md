@@ -138,3 +138,12 @@ not public URLs.
 ## AMS rest answers, `ams-rest/`
 
 Public www answers for the "AMS rest" briefs (app screen spellings, SDUI of web pages, `.csi-*` selectors, service worker, sitemap, `/apps/selectlanguage`, entry redirects), recorded 2026-10-25 22:20 to 22:42 UTC. See `ams-rest/README.md`.
+
+## Audit log entries (publish events), `events/`
+
+`events/log-sample.json`: entries of lh-com's own audit log (`GET https://admin.hlx.page/log/moved-permanently/lh-com/main`,
+read with the author role), recorded 2026-10-26 from real lh-com activity, not from www. It has one or two entries of each
+kind a publish-event relay meets: the bulk request entry (202 with `paths`) of a status job and of a bulk unpublish, the
+job summaries, per-resource publishes (`route: live`, `POST`, 200) and unpublishes (`DELETE`, 204), a single sheet preview,
+index and indexer entries, and a code sync request. `user`, `ip`, `contentBusId` and `details` are replaced, long `paths`
+and `changes` lists are cut. The log API answers `{from, to, entries}` plus `nextToken` and `links.next` when there is more.
