@@ -2,3 +2,5 @@ helix-importer-ui
 *.min.js
 # recorded www files, kept byte for byte
 tools/source-export/feeds/ams-rest/static/
+# www's service worker, served byte for byte (AMS rest A3)
+/service-worker.js
