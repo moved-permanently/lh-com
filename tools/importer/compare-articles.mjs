@@ -42,6 +42,12 @@ const EXPORT_API = path.join(root, 'tools/source-export/articles/api');
 const SNAPSHOTS = path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com');
 const EXPORT_PAGES = path.join(root, 'tools/source-export/articles-unpacked/pages');
 // www errors the replica does not copy (they do not change a count or a first page)
+// index rows that are not articles and stay in the live index (admin does not remove a row of
+// a path the index config excludes later; the blocks filter it by page-type): known, not differences
+const KNOWN_INDEX_ROWS = [
+  '/de/en/articles/highlights/soccer-event-in-north-america',
+  '/de/de/articles/highlights/soccer-event-in-north-america',
+];
 const WWW_ERRORS = [
   'de/en: /de/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day has a German <title> ("A Perfect Day: Toronto an einem Tag"); the replica\'s Title is the English headline',
   'gb/en: the tag chennai is in www\'s list answer, its page /gb/en/articles/tags/chennai is not found; no tag page, the articles keep the tag id',
@@ -178,6 +184,10 @@ for (const locale of LOCALES) {
     replicaRaw = [];
   }
   const replica = replicaRaw.filter((r) => String(r['page-type'] || '').trim() === 'article').map(toArticle).sort(byDate);
+  // rows of the index that are not articles: the known ones, and any other (a difference)
+  const otherRows = replicaRaw.filter((r) => String(r['page-type'] || '').trim() !== 'article').map((r) => r.path);
+  const knownRows = otherRows.filter((p) => KNOWN_INDEX_ROWS.includes(p));
+  const unknownRows = otherRows.filter((p) => !KNOWN_INDEX_ROWS.includes(p));
   // author ids with typographic spaces (U+202F, "lh/flávio branco-geraldes"): compared with one
   // kind of space (the documents' metadata text collapses them)
   [...www, ...replica].forEach((a) => { a.authorId = String(a.authorId || '').replace(/\s+/g, ' '); });
@@ -217,6 +227,8 @@ for (const locale of LOCALES) {
     articles: { www: www.length, replica: replica.length },
     onlyWww: [...wwwPaths].filter((p) => !replicaPaths.has(p)),
     onlyReplica: [...replicaPaths].filter((p) => !wwwPaths.has(p)),
+    knownIndexRows: knownRows,
+    otherIndexRows: unknownRows,
     counts,
     overviews,
   };
@@ -224,6 +236,8 @@ for (const locale of LOCALES) {
   md.push(`## ${locale}`, '', `www: ${L.www}; articles www ${www.length}, replica ${replica.length}${error ? ` (replica index: ${error})` : ''}`, '');
   if (L.onlyWww.length) md.push(`- only on www: ${L.onlyWww.join(', ')}`);
   if (L.onlyReplica.length) md.push(`- only on the replica: ${L.onlyReplica.join(', ')}`);
+  if (L.knownIndexRows.length) md.push(`- known index rows that are not articles (no page-type, filtered by the blocks): ${L.knownIndexRows.join(', ')}`);
+  if (L.otherIndexRows.length) md.push(`- other index rows that are not articles (difference): ${L.otherIndexRows.join(', ')}`);
   if (missing.length) md.push(`- not on ${origin}: ${missing.join(', ')}`);
   ['category', 'tag', 'author'].forEach((k) => {
     md.push(`- counts per ${k}: ${counts[k].length ? counts[k].map((d) => `${d.key} ${d.www}/${d.replica}`).join(', ') : 'equal'}`);
@@ -244,5 +258,5 @@ fs.writeFileSync(path.join(OUT, `${name}.md`), `${md.join('\n')}\n`);
 Object.entries(report.locales).forEach(([l, r]) => {
   const eq = r.overviews.filter((o) => o.equal).length;
   const ties = r.overviews.filter((o) => o.tieOrderOnly).length;
-  console.log(`${l}: articles www ${r.articles.www} / replica ${r.articles.replica} (only www ${r.onlyWww.length}, only replica ${r.onlyReplica.length}${r.missing.length ? `, not rendered ${r.missing.length}` : ''}); overviews equal ${eq}/${r.overviews.length} (+${ties} apart from same-time order); count diffs category ${r.counts.category.length}, tag ${r.counts.tag.length}, author ${r.counts.author.length}${r.error ? ` (${r.error})` : ''}`);
+  console.log(`${l}: articles www ${r.articles.www} / replica ${r.articles.replica} (only www ${r.onlyWww.length}, only replica ${r.onlyReplica.length}, known rows ${r.knownIndexRows.length}, other non-article rows ${r.otherIndexRows.length}${r.missing.length ? `, not rendered ${r.missing.length}` : ''}); overviews equal ${eq}/${r.overviews.length} (+${ties} apart from same-time order); count diffs category ${r.counts.category.length}, tag ${r.counts.tag.length}, author ${r.counts.author.length}${r.error ? ` (${r.error})` : ''}`);
 });

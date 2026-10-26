@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-10-26T08:35:38.885Z",
+ "checkedAt": "2026-10-26T12:13:59.648Z",
  "replica": "https://main--lh-com--moved-permanently.aem.live article indexes",
  "wwwErrors": [
   "de/en: /de/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day has a German <title> (\"A Perfect Day: Toronto an einem Tag\"); the replica's Title is the English headline",
@@ -17,6 +17,10 @@
    },
    "onlyWww": [],
    "onlyReplica": [],
+   "knownIndexRows": [
+    "/de/en/articles/highlights/soccer-event-in-north-america"
+   ],
+   "otherIndexRows": [],
    "counts": {
     "category": [],
     "tag": [],
@@ -4613,6 +4617,10 @@
    },
    "onlyWww": [],
    "onlyReplica": [],
+   "knownIndexRows": [
+    "/de/de/articles/highlights/soccer-event-in-north-america"
+   ],
+   "otherIndexRows": [],
    "counts": {
     "category": [],
     "tag": [],
@@ -9209,6 +9217,8 @@
    },
    "onlyWww": [],
    "onlyReplica": [],
+   "knownIndexRows": [],
+   "otherIndexRows": [],
    "counts": {
     "category": [],
     "tag": [],
@@ -13805,6 +13815,8 @@
    },
    "onlyWww": [],
    "onlyReplica": [],
+   "knownIndexRows": [],
+   "otherIndexRows": [],
    "counts": {
     "category": [],
     "tag": [],

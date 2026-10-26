@@ -1,6 +1,6 @@
 # Article lists: replica vs www (https://main--lh-com--moved-permanently.aem.live article indexes)
 
-2026-10-26T08:35:38.885Z
+2026-10-26T12:13:59.648Z
 
 Related articles are not compared (www picks them at random on each render). www errors not copied (no count changes):
 
@@ -12,6 +12,7 @@ Related articles are not compared (www picks them at random on each render). www
 
 www: tools/source-export/articles/api/articleblog-de-en.json; articles www 559, replica 559
 
+- known index rows that are not articles (no page-type, filtered by the blocks): /de/en/articles/highlights/soccer-event-in-north-america
 - counts per category: equal
 - counts per tag: equal
 - counts per author: equal
@@ -155,6 +156,7 @@ www: tools/source-export/articles/api/articleblog-de-en.json; articles www 559, 
 
 www: tools/source-export/articles/api/articleblog-de-de.json; articles www 556, replica 556
 
+- known index rows that are not articles (no page-type, filtered by the blocks): /de/de/articles/highlights/soccer-event-in-north-america
 - counts per category: equal
 - counts per tag: equal
 - counts per author: equal
