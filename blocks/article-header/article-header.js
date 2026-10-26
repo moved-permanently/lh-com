@@ -14,6 +14,11 @@ const DEFAULT_LABELS = {
     'email label': 'Email',
     'copy link label': 'Copy link',
     'link copied label': 'Link copied',
+    // www's moving image (common.misc.movingimage.*)
+    'play label': 'Play video',
+    'pause label': 'Pause video',
+    'video started label': 'Video started',
+    'video stopped label': 'Video stopped',
   },
   de: {
     'tags label': 'Schlagwörter',
@@ -24,8 +29,20 @@ const DEFAULT_LABELS = {
     'email label': 'E-Mail',
     'copy link label': 'Link kopieren',
     'link copied label': 'Link kopiert',
+    // www's German label bundle holds the English texts; translated here
+    'play label': 'Video abspielen',
+    'pause label': 'Video anhalten',
+    'video started label': 'Video gestartet',
+    'video stopped label': 'Video gestoppt',
   },
 };
+
+/** www's moving image plays above its s-view (md breakpoint 767px) unless enabled on mobile. */
+const VIDEO_VIEWPORT = '(min-width: 768px)';
+/** The controls stay visible this long after the pointer or focus leaves (www: 3000 ms). */
+const CONTROLS_DELAY = 3000;
+/** Marker after the video link: the video plays on small screens too (isVideoEnabledOnMobile). */
+const MOBILE_MARKER = /\{\s*mobile\s*\}/i;
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);
 
@@ -87,6 +104,151 @@ function takeLabelRows(block) {
     else delete config[key];
   });
   return config;
+}
+
+/** Whether a link points to an .mp4 video. */
+function isVideoLink(a) {
+  try {
+    return /\.mp4$/i.test(new URL(a.href, window.location.href).pathname);
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * Takes the optional header video link (the first link to an .mp4 file) out of the block, with
+ * its paragraph when that holds nothing else but the "{mobile}" marker.
+ * @returns {{ src: string, mobile: boolean }|null}
+ */
+function takeVideo(block) {
+  const link = [...block.querySelectorAll('a[href]')].find(isVideoLink);
+  if (!link) return null;
+  const p = link.closest('p');
+  const mobile = MOBILE_MARKER.test(p ? p.textContent : '');
+  const src = link.href;
+  if (p) {
+    const rest = p.cloneNode(true);
+    rest.querySelectorAll('a').forEach((a) => a.remove());
+    if (!cleanText(rest).replace(MOBILE_MARKER, '').trim()) p.remove();
+    else link.remove();
+  } else link.remove();
+  return { src, mobile };
+}
+
+/** Runs a callback after the page load event, so the video never competes with the LCP image. */
+function afterLoad(callback) {
+  const run = () => setTimeout(callback, 0);
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run, { once: true });
+}
+
+/**
+ * www's moving image (.dcep-moving-image) over the feature image: muted, looping, inline, no
+ * picture-in-picture; it plays while at least half of it is in view and pauses outside, unless
+ * the visitor paused it. The play/pause button appears once the video can play and hides
+ * CONTROLS_DELAY after the pointer or focus leaves. The picture stays below as the poster and
+ * the fallback: the video shows only once it plays, and not at all where www shows none (below
+ * 768px unless {mobile}), with reduced motion or when it fails.
+ */
+function addVideo(block, media, { src, mobile }, labels) {
+  const img = media.querySelector('img');
+  const viewport = mobile ? null : window.matchMedia(VIDEO_VIEWPORT);
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const allowed = () => (!viewport || viewport.matches) && !motion.matches;
+
+  let video = null;
+  let toggle = null;
+  let status = null;
+  let inView = false;
+  let pausedByVisitor = false;
+  let hideTimer = 0;
+
+  const showControls = (show) => {
+    clearTimeout(hideTimer);
+    if (show) block.classList.add('article-header-controls-visible');
+    else hideTimer = setTimeout(() => block.classList.remove('article-header-controls-visible'), CONTROLS_DELAY);
+  };
+  const update = () => {
+    if (!video) return;
+    const play = allowed() && inView && !pausedByVisitor;
+    block.classList.toggle('article-header-video-off', !allowed());
+    if (play && video.paused) {
+      const playing = video.play();
+      if (playing && playing.catch) playing.catch(() => {});
+    } else if (!play && !video.paused) video.pause();
+  };
+  const remove = () => {
+    if (video) video.remove();
+    if (toggle) toggle.remove();
+    if (status) status.remove();
+    video = null;
+    block.classList.remove('article-header-video-playing', 'article-header-controls-visible');
+  };
+
+  const create = () => {
+    if (video || !allowed()) return;
+    video = document.createElement('video');
+    video.id = `article-header-video-${instanceCount}`;
+    video.className = 'article-header-video';
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+    ['muted', 'loop', 'playsinline', 'disablepictureinpicture'].forEach((attr) => video.setAttribute(attr, ''));
+    video.setAttribute('aria-hidden', 'true');
+    video.setAttribute('tabindex', '-1');
+    video.preload = 'auto';
+    if (img) video.poster = img.currentSrc || img.src;
+
+    toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'article-header-video-toggle';
+    toggle.setAttribute('aria-controls', video.id);
+    toggle.hidden = true;
+    status = document.createElement('span');
+    status.className = 'article-header-video-status';
+    status.setAttribute('role', 'status');
+    const setState = (paused) => {
+      toggle.setAttribute('aria-label', paused ? labels['play label'] : labels['pause label']);
+      toggle.classList.toggle('article-header-video-paused', paused);
+    };
+    setState(true);
+    toggle.addEventListener('click', () => {
+      pausedByVisitor = !video.paused;
+      status.textContent = pausedByVisitor ? labels['video stopped label'] : labels['video started label'];
+      if (pausedByVisitor) video.pause();
+      else update();
+    });
+    toggle.addEventListener('focus', () => showControls(true));
+    toggle.addEventListener('blur', () => showControls(false));
+    video.addEventListener('play', () => setState(false));
+    video.addEventListener('pause', () => setState(true));
+    video.addEventListener('playing', () => block.classList.add('article-header-video-playing'), { once: true });
+    video.addEventListener('canplay', () => {
+      if (!toggle.hidden) return;
+      toggle.hidden = false;
+      showControls(true);
+      showControls(false);
+    }, { once: true });
+    video.addEventListener('error', remove);
+    video.src = src;
+    media.append(video, toggle, status);
+
+    new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      update();
+    }, { threshold: [0.5] }).observe(media);
+  };
+
+  media.addEventListener('mouseenter', () => showControls(true));
+  media.addEventListener('mouseleave', () => showControls(false));
+  const onChange = () => {
+    create();
+    update();
+  };
+  if (viewport) viewport.addEventListener('change', onChange);
+  motion.addEventListener('change', onChange);
+  afterLoad(create);
 }
 
 /** Copies text to the clipboard, with a fallback for browsers without the async API. */
@@ -216,6 +378,7 @@ export default function decorate(block) {
   instanceCount += 1;
   const locale = getLocale();
   const labels = resolveLabels(DEFAULT_LABELS, takeLabelRows(block), locale.lang);
+  const headerVideo = takeVideo(block);
 
   const media = document.createElement('div');
   media.className = 'article-header-media';
@@ -281,4 +444,5 @@ export default function decorate(block) {
   if (window.ResizeObserver) new ResizeObserver(updateScrollbar).observe(document.documentElement);
   else window.addEventListener('resize', updateScrollbar, { passive: true });
   if (!media.children.length) block.classList.add('article-header-no-image');
+  else if (headerVideo) addVideo(block, media, headerVideo, labels);
 }

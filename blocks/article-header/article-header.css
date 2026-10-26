@@ -23,6 +23,101 @@
   object-fit: cover;
 }
 
+/* header video (.dcep-moving-image .moving-image-video, absolute over the picture): shown once
+   it plays; the picture stays below as poster and fallback */
+.article-header .article-header-media:has(.article-header-video) {
+  position: relative;
+}
+
+.article-header .article-header-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.article-header.article-header-video-playing .article-header-video {
+  opacity: 1;
+}
+
+.article-header.article-header-video-off .article-header-video {
+  display: none;
+}
+
+.article-header .article-header-video-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* .moving-image-play-button (.on-image-button 4rem square, #0009, 18px white icon, hover #ccc)
+   in .on-image-button-wrapper.opposite-alignment-left (right: 0; padding: 1.5rem 1.5rem 0;
+   height 7.2rem while the controls are visible, 0 after 3 s without pointer or focus) */
+.article-header .article-header-video-toggle {
+  position: absolute;
+  right: 15px;
+  bottom: 17px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: rgb(0 0 0 / 60%);
+  color: var(--lh-white);
+  cursor: pointer;
+  transform: translateY(57px);
+  transition: transform 0.5s, color 0.3s ease-in-out;
+}
+
+.article-header .article-header-video-toggle[hidden],
+.article-header.article-header-video-off .article-header-video-toggle {
+  display: none;
+}
+
+.article-header.article-header-controls-visible .article-header-video-toggle,
+.article-header .article-header-video-toggle:focus-visible {
+  transform: none;
+}
+
+.article-header .article-header-video-toggle::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 4h4v16H6zm8 0h4v16h-4z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.article-header .article-header-video-toggle.article-header-video-paused::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.5v17L20 12z'/%3E%3C/svg%3E");
+}
+
+.article-header .article-header-video-toggle:hover {
+  color: var(--lh-grey-4);
+}
+
+.article-header .article-header-video-toggle:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-header .article-header-video,
+  .article-header .article-header-video-toggle {
+    display: none;
+  }
+}
+
 /* .article-content { padding-top: 2.6rem } */
 .article-header .article-header-panel {
   position: relative;
