@@ -19,7 +19,8 @@ has no routes or custom domain, because the deploy token cannot manage the bbird
 | --- | --- | --- |
 | `POST` | `/submit` | `200 {"ok":true}` or `{"ok":false,"error":"..."}` with the status below |
 | `GET` | `/health` | `200 {"configured":true\|false}` |
-| `OPTIONS` | `/submit`, `/health` | `204` CORS preflight (allowed origins only) |
+| `GET` | `/config` | `200 {"botCheck":"on"\|"off","turnstileSiteKey":"..."}` (the form block's configuration) |
+| `OPTIONS` | `/submit`, `/health`, `/config` | `204` CORS preflight (allowed origins only) |
 
 Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method answers `405`.
 
@@ -43,6 +44,7 @@ The body is `multipart/form-data` (for example a `FormData`). It has these parts
 | `locale` | `de-en`, `de-de`, `at-de` or `gb-en` |
 | `page` | the page URL (`http:` or `https:`, at most 2000 characters) |
 | `fields` | a JSON array in page order: `[{"section":"...","label":"...","name":"...","value":"..."}]`. All four keys are required and must be strings (`""` is allowed). |
+| `cf-turnstile-response` | the Turnstile token (bot check below); needed when `BOT_CHECK` is on, ignored when off |
 | `lh_hp` | the honeypot: a hidden, empty text input. If it is not empty, the worker answers `200 {"ok":true}` and sends nothing. |
 | any other name | an uploaded file (only for `feedback-past-flight`). An empty part (an empty file input) is ignored. A non-empty text part under any other name gets `400 invalid-parts`. |
 
@@ -92,6 +94,27 @@ Without a `Content-Length`, the cap is enforced while the body is read.
   `e-mail`) and whose value is a valid address. If there is none, no Reply-To is set.
 - Attachments: the uploaded files, `{content (base64), filename, type, disposition: "attachment"}`,
   the type taken from the content.
+
+## Bot check (Turnstile, `BOT_CHECK`)
+
+Cloudflare Turnstile widget "lh-com forms (lh-forms)", managed mode. It accepts only
+`main--lh-com--moved-permanently.aem.page`, `.aem.live` and `lhcom.bbird.live`; branch previews
+and localhost cannot render it (use Cloudflare's test keys there, see the form block).
+
+- `TURNSTILE_SITE_KEY` (`[vars]`, public): served to the block by `GET /config`, never hard-coded
+  in the block.
+- `TURNSTILE_SECRET` (secret, lh-forms only): Siteverify
+  (`https://challenges.cloudflare.com/turnstile/v0/siteverify`, form `secret`, `response`,
+  `remoteip`). Never logged or answered.
+- `BOT_CHECK` (`[vars]`): `on` (the default when unset) or `off`. On: after the honeypot and
+  part checks, `/submit` needs `cf-turnstile-response`; a missing, invalid, spent or expired
+  token (or a failed Siteverify call) answers `403 {"ok":false,"error":"bot-check-failed"}` and
+  sends nothing; without `TURNSTILE_SECRET` it answers `500 bot-check-not-configured`. Off: no
+  check (as www has it). The honeypot and the rate limits stay in both cases.
+- RPC entrypoint `BotCheck` (`verify(token, ip) -> boolean`) for other Workers over a service
+  binding with `entrypoint = "BotCheck"`: lh-edge's www URL
+  `POST /service/secured/api/captcha/verify` uses it, so the secret stays here. It has no route
+  and is not reachable from the internet.
 
 ## Abuse limits
 
@@ -149,6 +172,7 @@ npx wrangler@4 secret put FORM_MAIL_TOKEN
 npx wrangler@4 secret put FORM_SENDER
 npx wrangler@4 secret put FORM_CONFIG < FORM_CONFIG.json   # your real file, not committed
 npx wrangler@4 secret put FORMS_DELIVERY_TOKEN              # only for the hand-over to lh-backends
+npx wrangler@4 secret put TURNSTILE_SECRET                  # the bot check
 ```
 
 `GET /health` answers `{"configured":true}` when all four secrets are there: `FORM_MAIL_ACCOUNT_ID`
@@ -184,16 +208,19 @@ values, file names, addresses or the token. Without the binding or the token, `/
 
 ## Tests
 
-From the repo root (Node 24, no install needed):
+From this folder (Node 24, no install needed; the shim answers `cloudflare:workers`):
 
 ```sh
-node --test tools/workers/lh-forms/test/
-npx eslint tools/workers/lh-forms
+npm test    # node --import ./test/cloudflare-workers-shim.mjs --test test/
+npx eslint .
 ```
 
 The tests mock `fetch` to the REST API (success, `success: false`, non-2xx, network error), the
 per-minute limiter and the Durable Object namespace (the
-real `HourlyLimiter` class runs on in-memory storage). They make no real network requests.
+real `HourlyLimiter` class runs on in-memory storage), and Siteverify as it answers Cloudflare's
+published Turnstile test secrets (`1x…AA` always passes, `2x…AA` always fails, `3x…AA` token
+already spent) with the dummy token `XXXX.DUMMY.TOKEN.XXXX`; never a real secret. They make no
+real network requests.
 
 ## Deployment
 

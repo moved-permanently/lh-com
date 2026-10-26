@@ -6,8 +6,18 @@
  * The var FORM_DELIVERY (email | email+backends | backends) can also, or instead, hand the
  * submission to lh-backends (service binding DELIVERY, secret FORMS_DELIVERY_TOKEN).
  *
+ * Bot check (AMS rest A6): with BOT_CHECK on (the default; `off` per deployment, as www has
+ * it off) /submit needs a Cloudflare Turnstile token (part `cf-turnstile-response`), checked
+ * with Siteverify and the secret TURNSTILE_SECRET before anything is sent; a missing, invalid
+ * or expired token answers 403 bot-check-failed. GET /config gives the block the public site
+ * key (TURNSTILE_SITE_KEY) and the switch. The RPC entrypoint BotCheck (service bindings only:
+ * lh-edge's /service/secured/api/captcha/verify) checks a token, so the secret stays here.
+ *
  * Never log field values, file names or addresses. No dependencies. See ../README.md.
  */
+/* eslint-disable max-classes-per-file -- HourlyLimiter and BotCheck: wrangler.toml classes */
+// eslint-disable-next-line import/no-unresolved -- Workers runtime module (tests: a shim)
+import { WorkerEntrypoint } from 'cloudflare:workers';
 
 /*
  * Form ids and their titles (the page h1 of /de/en/... and /de/de/...). special-needs and
@@ -79,7 +89,10 @@ const FILE_RULES = {
 };
 
 const HONEYPOT = 'lh_hp';
-const TEXT_PARTS = ['form', 'locale', 'page', 'fields', HONEYPOT];
+// the Turnstile widget's token (the name the widget gives its hidden input)
+const BOT_TOKEN = 'cf-turnstile-response';
+const TEXT_PARTS = ['form', 'locale', 'page', 'fields', HONEYPOT, BOT_TOKEN];
+export const SITEVERIFY = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const HOUR_MS = 60 * 60 * 1000;
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+$/;
 
@@ -435,6 +448,30 @@ function buildMail({
   return { html, text };
 }
 
+/* ---------- bot check ---------- */
+
+/** Whether the deployment checks tokens (BOT_CHECK on unless set to off). */
+export const botCheckOn = (env) => String(env.BOT_CHECK ?? 'on').trim().toLowerCase() !== 'off';
+
+/**
+ * Siteverify of a Turnstile token (TURNSTILE_SECRET): true only for success. A missing token or
+ * secret, a network error or any other answer is false. Tokens are never logged.
+ */
+export async function verifyToken(env, token, ip) {
+  const response = String(token || '').trim();
+  if (!response || response.length > 2048 || !env.TURNSTILE_SECRET) return false;
+  const body = new URLSearchParams({ secret: env.TURNSTILE_SECRET, response });
+  if (ip) body.set('remoteip', ip);
+  try {
+    const res = await fetch(SITEVERIFY, { method: 'POST', body });
+    if (!res.ok) return false;
+    const outcome = await res.json();
+    return Boolean(outcome && outcome.success === true);
+  } catch (e) {
+    return false;
+  }
+}
+
 /* ---------- rate limits ---------- */
 
 /*
@@ -514,6 +551,11 @@ async function submit(request, env, origin) {
 
   if (text[HONEYPOT]) return json(200, { ok: true }, origin);
   if (unexpected) return fail(400, 'invalid-parts', origin);
+  if (botCheckOn(env)) {
+    if (!env.TURNSTILE_SECRET) return fail(500, 'bot-check-not-configured', origin);
+    const ip = request.headers.get('CF-Connecting-IP') || '';
+    if (!(await verifyToken(env, text[BOT_TOKEN], ip))) return fail(403, 'bot-check-failed', origin);
+  }
 
   const { form, locale } = text;
   if (!Object.prototype.hasOwnProperty.call(FORMS, form || '')) return fail(400, 'unknown-form', origin);
@@ -588,7 +630,7 @@ async function handle(request, env) {
 
   if (request.method === 'OPTIONS') {
     const wanted = (request.headers.get('Access-Control-Request-Method') || '').toUpperCase();
-    const ok = (url.pathname === '/submit' && wanted === 'POST') || (url.pathname === '/health' && wanted === 'GET');
+    const ok = (url.pathname === '/submit' && wanted === 'POST') || (['/health', '/config'].includes(url.pathname) && wanted === 'GET');
     if (!origin || !ok) return fail(404, 'not-found', origin);
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
   }
@@ -598,6 +640,12 @@ async function handle(request, env) {
     return json(200, { configured: isConfigured(env) }, origin);
   }
 
+  // the form block's configuration: the bot check switch and the public Turnstile site key
+  if (url.pathname === '/config') {
+    if (request.method !== 'GET') return fail(405, 'method-not-allowed', origin);
+    return json(200, { botCheck: botCheckOn(env) ? 'on' : 'off', turnstileSiteKey: String(env.TURNSTILE_SITE_KEY || '') }, origin);
+  }
+
   if (url.pathname === '/submit') {
     if (request.method !== 'POST') return fail(405, 'method-not-allowed', origin);
     if (!origin) return fail(403, 'origin-not-allowed', null);
@@ -605,6 +653,16 @@ async function handle(request, env) {
   }
 
   return fail(404, 'not-found', origin);
+}
+
+/**
+ * The bot check for other Workers (service binding with entrypoint BotCheck, never a route):
+ * lh-edge's www URL /service/secured/api/captcha/verify. verify(token, ip) -> boolean.
+ */
+export class BotCheck extends WorkerEntrypoint {
+  async verify(token, ip = '') {
+    return verifyToken(this.env, token, ip);
+  }
 }
 
 // The default export is the worker; HourlyLimiter is the Durable Object class (wrangler.toml).

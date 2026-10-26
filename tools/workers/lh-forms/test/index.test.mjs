@@ -1,6 +1,8 @@
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
-import worker, { HourlyLimiter } from '../src/index.js';
+import worker, {
+  HourlyLimiter, BotCheck, SITEVERIFY, verifyToken, botCheckOn,
+} from '../src/index.js';
 
 const ORIGIN = 'https://main--lh-com--moved-permanently.aem.page';
 const BASE = 'https://lh-forms.example.com';
@@ -27,6 +29,7 @@ let mailCalls;
 let mailReply;
 let minuteHits;
 let limiters;
+let verifyCalls;
 
 function memoryStorage() {
   const map = new Map();
@@ -53,7 +56,26 @@ function hourlyNamespace() {
 
 // the Email Sending REST API: every call is recorded, the message body is parsed into `sent`
 const MAIL_URL = 'https://api.cloudflare.com/client/v4/accounts/acc-123/email/sending/send';
+// Cloudflare's published Turnstile test secrets: always passes, always fails, token already spent
+const PASS_SECRET = '1x0000000000000000000000000000000AA';
+const FAIL_SECRET = '2x0000000000000000000000000000000AA';
+const SPENT_SECRET = '3x0000000000000000000000000000000AA';
+const DUMMY_TOKEN = 'XXXX.DUMMY.TOKEN.XXXX';
+// Siteverify as Cloudflare answers the test secrets
+function siteverify(init) {
+  const form = new URLSearchParams(String(init.body));
+  verifyCalls.push(Object.fromEntries(form));
+  const secret = form.get('secret');
+  if (secret === 'network') throw new TypeError('fetch failed');
+  if (secret === PASS_SECRET) return { success: true, 'error-codes': [] };
+  if (secret === FAIL_SECRET) return { success: false, 'error-codes': ['invalid-input-response'] };
+  if (secret === SPENT_SECRET) return { success: false, 'error-codes': ['timeout-or-duplicate'] };
+  return { success: false, 'error-codes': ['invalid-input-secret'] };
+}
 globalThis.fetch = async (url, init = {}) => {
+  if (String(url) === SITEVERIFY) {
+    return new Response(JSON.stringify(siteverify(init)), { status: 200, headers: { 'content-type': 'application/json' } });
+  }
   mailCalls.push({ url: String(url), init });
   if (mailReply === 'network') throw new TypeError('fetch failed');
   const { status, body } = mailReply;
@@ -73,6 +95,8 @@ function makeEnv(extra = {}) {
     FORM_MAIL_TOKEN: 'secret-token-value',
     FORM_SENDER: 'forms-sender@example.com',
     FORM_CONFIG: JSON.stringify(CONFIG),
+    // the bot check has its own tests below
+    BOT_CHECK: 'off',
     RATE_LIMIT_MINUTE: {
       limit: async ({ key }) => {
         minuteHits.set(key, (minuteHits.get(key) || 0) + 1);
@@ -122,6 +146,7 @@ async function post(opts = {}, env = makeEnv()) {
 
 beforeEach(() => {
   sent = [];
+  verifyCalls = [];
   mailCalls = [];
   mailReply = MAIL_OK;
   minuteHits = new Map();
@@ -758,4 +783,84 @@ test('the hand-over: token header, JSON shape, and nothing but codes in the log'
   const all = logs.join('\n');
   assert.match(all, /503 down/);
   ['tok-secret-1', '@', 'Erika', 'receipt.png'].forEach((secret) => assert.ok(!all.includes(secret), secret));
+});
+
+/* ---------- bot check (Turnstile, Cloudflare's test keys) ---------- */
+
+const botEnv = (extra = {}) => makeEnv({ BOT_CHECK: 'on', TURNSTILE_SECRET: PASS_SECRET, ...extra });
+
+test('bot check on: a passing token sends; Siteverify gets secret, token and IP', async () => {
+  const { res, body } = await post({ extra: { 'cf-turnstile-response': DUMMY_TOKEN } }, botEnv());
+  assert.equal(res.status, 200);
+  assert.deepEqual(body, { ok: true });
+  assert.equal(sent.length, 1);
+  assert.deepEqual(verifyCalls, [{ secret: PASS_SECRET, response: DUMMY_TOKEN, remoteip: '203.0.113.7' }]);
+  assert.ok(!JSON.stringify(sent[0]).includes(DUMMY_TOKEN), 'the token is not part of the mail');
+});
+
+test('bot check on: a missing, failing or spent token → 403 bot-check-failed, nothing sent', async () => {
+  const cases = [
+    [{}, botEnv()],
+    [{ extra: { 'cf-turnstile-response': '' } }, botEnv()],
+    [{ extra: { 'cf-turnstile-response': DUMMY_TOKEN } }, botEnv({ TURNSTILE_SECRET: FAIL_SECRET })],
+    [{ extra: { 'cf-turnstile-response': DUMMY_TOKEN } }, botEnv({ TURNSTILE_SECRET: SPENT_SECRET })],
+    [{ extra: { 'cf-turnstile-response': 'x'.repeat(2049) } }, botEnv()],
+    [{ extra: { 'cf-turnstile-response': DUMMY_TOKEN } }, botEnv({ TURNSTILE_SECRET: 'network' })],
+  ];
+  const results = await Promise.all(cases.map(([opts, env], i) => post({ ...opts, ip: `198.51.100.${i}` }, env)));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 403, `case ${i}`);
+    assert.deepEqual(body, { ok: false, error: 'bot-check-failed' });
+    assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN, 'the block can read the answer');
+  });
+  assert.equal(sent.length, 0);
+  assert.equal(verifyCalls.length, 3, 'no Siteverify call without a usable token');
+});
+
+test('bot check on by default; without the secret → 500 bot-check-not-configured', async () => {
+  assert.equal(botCheckOn({}), true);
+  assert.equal(botCheckOn({ BOT_CHECK: ' OFF ' }), false);
+  assert.equal(botCheckOn({ BOT_CHECK: 'yes' }), true);
+  const { res, body } = await post({ extra: { 'cf-turnstile-response': DUMMY_TOKEN } }, makeEnv({ BOT_CHECK: undefined }));
+  assert.equal(res.status, 500);
+  assert.deepEqual(body, { ok: false, error: 'bot-check-not-configured' });
+  assert.equal(sent.length, 0);
+});
+
+test('bot check off: no token needed, Siteverify never called; the honeypot still wins', async () => {
+  assert.equal((await post({}, makeEnv({ TURNSTILE_SECRET: FAIL_SECRET }))).res.status, 200);
+  assert.equal(sent.length, 1);
+  const trap = await post({ hp: 'bot', ip: '198.51.100.50' }, botEnv({ TURNSTILE_SECRET: FAIL_SECRET }));
+  assert.deepEqual([trap.res.status, trap.body], [200, { ok: true }]);
+  assert.equal(sent.length, 1);
+  assert.equal(verifyCalls.length, 0);
+});
+
+test('GET /config: the switch and the public site key, CORS for the block', async () => {
+  const get = (env) => worker.fetch(new Request(`${BASE}/config`, { headers: { Origin: ORIGIN } }), env);
+  const on = await get(botEnv({ TURNSTILE_SITE_KEY: '1x00000000000000000000AA' }));
+  assert.equal(on.status, 200);
+  assert.deepEqual(await on.json(), { botCheck: 'on', turnstileSiteKey: '1x00000000000000000000AA' });
+  assert.equal(on.headers.get('access-control-allow-origin'), ORIGIN);
+  const off = await get(makeEnv());
+  assert.deepEqual(await off.json(), { botCheck: 'off', turnstileSiteKey: '' });
+  const text = JSON.stringify(await (await get(botEnv())).json());
+  assert.ok(!text.includes(PASS_SECRET), 'never the secret');
+  const pre = await worker.fetch(new Request(`${BASE}/config`, {
+    method: 'OPTIONS', headers: { Origin: ORIGIN, 'Access-Control-Request-Method': 'GET' },
+  }), makeEnv());
+  assert.equal(pre.status, 204);
+  const wrong = await worker.fetch(new Request(`${BASE}/config`, { method: 'POST', headers: { Origin: ORIGIN } }), makeEnv());
+  assert.equal(wrong.status, 405);
+});
+
+test('BotCheck entrypoint (service binding): verify(token, ip) with the test keys', async () => {
+  const pass = new BotCheck({}, { TURNSTILE_SECRET: PASS_SECRET });
+  const fail = new BotCheck({}, { TURNSTILE_SECRET: FAIL_SECRET });
+  assert.equal(await pass.verify(DUMMY_TOKEN, '203.0.113.9'), true);
+  assert.equal(await pass.verify(''), false);
+  assert.equal(await fail.verify(DUMMY_TOKEN), false);
+  assert.equal(await new BotCheck({}, {}).verify(DUMMY_TOKEN), false, 'no secret: false');
+  assert.equal(await verifyToken({ TURNSTILE_SECRET: PASS_SECRET }, DUMMY_TOKEN), true);
+  assert.deepEqual(verifyCalls.map((c) => c.remoteip), ['203.0.113.9', undefined, undefined]);
 });
