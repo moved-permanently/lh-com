@@ -1,0 +1,81 @@
+/* Shared styles of the admin apps (plain CSS, no build). */
+:root {
+  --admin-text: #1f1f1f;
+  --admin-muted: #5c5c5c;
+  --admin-line: #d6d6d6;
+  --admin-bg: #fff;
+  --admin-soft: #f4f6f8;
+  --admin-accent: #05164d;
+  --admin-error: #b40000;
+  --admin-success: #0b6b2b;
+  --admin-warning: #8a5a00;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 14px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--admin-text);
+  background: var(--admin-bg);
+}
+
+.admin-app { max-width: 1200px; margin: 0 auto; padding: 16px 24px 48px; }
+.admin-app.plugin { padding: 8px 12px; }
+
+.admin-app h1 { font-size: 22px; margin: 0 0 4px; }
+.admin-app h2 { font-size: 17px; margin: 24px 0 8px; }
+.admin-app h3 { font-size: 15px; margin: 16px 0 6px; }
+
+.admin-user { color: var(--admin-muted); margin: 0 0 12px; min-height: 1.4em; }
+
+.admin-status { padding: 8px 12px; margin: 8px 0 16px; border-radius: 4px; background: var(--admin-soft); }
+.admin-status[hidden] { display: none; }
+.admin-status[data-kind='error'] { background: #fdecec; color: var(--admin-error); }
+.admin-status[data-kind='success'] { background: #e9f6ee; color: var(--admin-success); }
+.admin-status[data-kind='warning'] { background: #fff4de; color: var(--admin-warning); }
+
+.admin-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 16px; align-items: end; margin: 8px 0 16px; }
+.admin-form label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+.admin-form label.check { flex-direction: row; align-items: center; font-weight: 400; }
+.admin-form fieldset { grid-column: 1 / -1; border: 1px solid var(--admin-line); border-radius: 4px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.admin-form .wide { grid-column: 1 / -1; }
+
+input, select, textarea, button { font: inherit; }
+input[type='text'], input[type='date'], input[type='number'], input[type='search'], select, textarea {
+  padding: 6px 8px;
+  border: 1px solid var(--admin-line);
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 400;
+}
+textarea { min-height: 80px; resize: vertical; }
+
+button {
+  padding: 6px 14px;
+  border: 1px solid var(--admin-accent);
+  border-radius: 16px;
+  background: var(--admin-accent);
+  color: #fff;
+  cursor: pointer;
+}
+button.secondary { background: #fff; color: var(--admin-accent); }
+button.danger { background: var(--admin-error); border-color: var(--admin-error); }
+button:disabled { opacity: 0.5; cursor: default; }
+
+.admin-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+
+.admin-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; }
+.admin-table caption { text-align: left; font-weight: 600; padding: 4px 0; }
+.admin-table th, .admin-table td { border-bottom: 1px solid var(--admin-line); padding: 6px 8px; text-align: left; vertical-align: top; }
+.admin-table th { background: var(--admin-soft); }
+.admin-table td button { padding: 2px 10px; }
+
+.admin-key { font-family: ui-monospace, Menlo, monospace; word-break: break-all; background: var(--admin-soft); padding: 8px; border-radius: 4px; }
+.admin-note { color: var(--admin-muted); }
+.admin-errors li { color: var(--admin-error); }
+.admin-errors li.warning { color: var(--admin-warning); }
+
+.state-active { color: var(--admin-success); }
+.state-upcoming { color: var(--admin-warning); }
+.state-expired { color: var(--admin-muted); }
