@@ -102,6 +102,9 @@ test('dam: missing offers images answer 302 as www', async () => {
   assert.equal(generic.headers.get('cache-control'), 'public, max-age=2592000');
   const original = await get('/content/dam/lh/images/offers/zzq.jpg');
   assert.equal(original.headers.get('location'), `${HOST}/content/dam/lh/images/offers/fallback/generic.jpg`);
+  // the site's own form keeps its media parameters
+  const own = await get('/content/dam/lh/images/offers/destination/zzq-square.jpg?width=180&format=jpeg&optimize=medium');
+  assert.equal(own.headers.get('location'), `${HOST}/content/dam/lh/images/offers/fallback/generic-square.jpg?width=180&format=jpeg&optimize=medium`);
   const swiss = await get('/content/dam/lx/images/offers/destination/zzq-square.jpg');
   assert.equal(swiss.headers.get('location'), 'https://www.swiss.com/content/dam/lx/images/offers/fallback/generic-square.jpg');
   // ita and four_y: no destination fallback
