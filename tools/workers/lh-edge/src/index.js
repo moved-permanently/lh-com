@@ -9,6 +9,7 @@ import { prelude, passThrough } from './edge.js';
 import { solo, soloPath } from './solo.js';
 import { sdui, isSduiPath } from './sdui-route.js';
 import { graphql, isGraphqlPath } from './graphql.js';
+import { dam, isDamPath } from './dam.js';
 import WELL_KNOWN from './well-known.js';
 
 /** The App Links / Universal Links files of www, byte for byte, as application/json. */
@@ -53,6 +54,11 @@ export const ROUTES = [
     name: 'sdui',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isSduiPath(url.pathname),
     handle: sdui,
+  },
+  {
+    name: 'dam',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isDamPath(url.pathname),
+    handle: dam,
   },
   {
     name: 'solo',

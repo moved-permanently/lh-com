@@ -35,6 +35,8 @@
  *                   rendered widget markup and a screenshot; --only CHI,NYC limits the pages
  *   --set poi       the 52 pointsOfInterest answers (blocks/poi-map/README.md "Recording"),
  *                   in-page fetch from a map page of the same market
+ *   --set lounge-ids  the lounge search answer of every city (HON, STA), in-page from the de/en
+ *                   lounge page, for the lounge image ids
  *   --list/--url    URLs of one market (--locale, default de/en)
  */
 import fs from 'node:fs';
@@ -67,6 +69,25 @@ function loungeJobs() {
     url: `${LIVE}/service/api/catalogs/lounges/${status}/${city}`,
     referer: `${LIVE}/${locale}/lounges`,
   }))));
+}
+
+/**
+ * --set lounge-ids (DAM package, 2026-10-26): the lounge finder's search answer for every city of
+ * catalogs/lounges/cities (data/recorded) with the statuses HON and STA (together every lounge the
+ * finder lists: First Class, Senator and Business lounges, Star Alliance partners), in-page from
+ * www's de/en lounge page, for the lounge ids of the lounge images
+ * (/content/dam/lh/images/lounges/<loungeid>-square.jpg).
+ */
+function loungeIdJobs() {
+  const index = JSON.parse(fs.readFileSync(path.join(root, 'data/recorded/index.json'), 'utf8')).entries;
+  const { file } = index['de/en|GET /service/api/catalogs/lounges/cities'];
+  const { cities } = JSON.parse(fs.readFileSync(path.join(root, 'data/recorded', file), 'utf8'));
+  return cities.flatMap(({ code }) => ['HON', 'STA'].map((status) => ({
+    locale: 'de/en',
+    url: `${LIVE}/service/api/catalogs/lounges/${status}/${code}`,
+    referer: `${LIVE}/de/en/lounges`,
+    inPage: true,
+  })));
 }
 
 /**
@@ -119,6 +140,8 @@ if (opt('set') === 'destination') {
   jobs = loungeJobs();
 } else if (opt('set') === 'poi') {
   jobs = poiJobs();
+} else if (opt('set') === 'lounge-ids') {
+  jobs = loungeIdJobs();
 } else {
   const locale = opt('locale', 'de/en');
   const list = opt('list');
@@ -234,8 +257,9 @@ try {
         method: 'GET', url: job.url, status: 200, text: r.text, locale: job.locale, referer: job.referer, recordedAt: new Date().toISOString(),
       })}\n`);
       counts.saved += 1;
-      const n = Array.isArray(data.pointsOfInterest) ? data.pointsOfInterest.length : '?';
-      console.log(`200 ${job.locale} ${pathname.slice(0, 80)}… ${n} points (${r.text.length} B)`);
+      const n = (Array.isArray(data.pointsOfInterest) && `${data.pointsOfInterest.length} points`)
+        || (Array.isArray(data.lounges) && `${data.lounges.length} lounges`) || '';
+      console.log(`200 ${job.locale} ${pathname.slice(0, 80)}… ${n} (${r.text.length} B)`);
     } else {
       counts.skipped += 1;
       console.log(`${r.status} ${job.locale} ${pathname.slice(0, 80)}… not saved (${r.type || 'no type'}): ${(r.text || '').replace(/\s+/g, ' ').slice(0, 160)}`);
@@ -285,7 +309,9 @@ try {
     }).catch(() => '');
     if (main) fs.writeFileSync(`${base}.html`, main);
     await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
-    await page.screenshot({ path: `${base}.jpg`, type: 'jpeg', quality: 70, fullPage: true }).catch((e) => console.error(`  screenshot: ${e.message.split('\n')[0]}`));
+    await page.screenshot({
+      path: `${base}.jpg`, type: 'jpeg', quality: 70, fullPage: true,
+    }).catch((e) => console.error(`  screenshot: ${e.message.split('\n')[0]}`));
     answers.forEach((a) => {
       fs.appendFileSync(path.join(watchDir, `${job.locale.replace('/', '-')}.ndjson`), `${JSON.stringify({
         ...a, locale: job.locale, referer: job.url, recordedAt: new Date().toISOString(),

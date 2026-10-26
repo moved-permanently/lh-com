@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'tools/workers/lh-edge/**'
+      # the DAM names lh-edge shares with the site
+      - 'scripts/dam-path.js'
+      - 'scripts/dam-collisions.js'
       - '.github/workflows/deploy-lh-edge.yaml'
   workflow_dispatch:
 
