@@ -1,0 +1,105 @@
+# Linked PDFs copied into DA: to publish
+
+2026-10-26. Copied and previewed, not published yet (91). After publishing: node tools/importer/switch-dam-pdfs.mjs, then da-upload.mjs --list tools/importer/dam-pdf-documents.txt.
+
+- /content/dam/lh/documents/100-years/lh-magazin-216x280-8mm-rave-96dpi-srgb-7096312.pdf
+- /content/dam/lh/documents/202205-b789-26-21-247b.pdf
+- /content/dam/lh/documents/book-and-manage/travel-information/230526-kontaktdaten-inlay-de-en.pdf
+- /content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-de-screen.pdf
+- /content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-en-screen.pdf
+- /content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-de-screen.pdf
+- /content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-en-screen.pdf
+- /content/dam/lh/documents/business-services/passenger-receipt-de.pdf
+- /content/dam/lh/documents/business-services/passenger-receipt-en.pdf
+- /content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-de.pdf
+- /content/dam/lh/documents/common/terms-and-conditions/lh-express-bus/tt-lufthansa-express-bus-20201221-en.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603-a320-168.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/320/202603-a320neo-180.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/351/202604-a3510-allegris-4f49c35w212y-7775024.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812-a359-36-21-262b.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/35a/201812-a359-48-21-224b.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/201812-b744-0-67-32-272b.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74e/seatmap-747-400-67c32p22m.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/201812-b744-0-53-32-308b.pdf
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/787/202603-b789-allegris-28c28w231y.pdf
+- /content/dam/lh/documents/during-your-trip/in-flight-services-at-a-glance/doctor-on-board/doctor-on-board-anmeldung.pdf
+- /content/dam/lh/documents/food-and-beverages/dlh-26-014-onboard-delights-winter-26-c18-spread-low.pdf
+- /content/dam/lh/documents/lh-in-case-your-baggage-gets-lost-de-en.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/airport-information/frankfurt-airport-html/lhmag201902-fra.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/airport-information/munich-airport/lhmag201904-muc.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna-airport-austrian-star-alliance-terminal-plan.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/airport-information/zuerich-airport/zuerich-airport-terminal-plan.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/overview-of-electronic-devices-and-batteries.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/dangerous-goods/summary-of-dangerous-goods.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/lufthansa-checklist-for-animal-transport.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-excess-baggage/lufthansa-checkliste-fuer-tierbefoerderung.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/animals-hand-luggage/checkliste-tiere-kabine.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-apr23.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-aug26.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-animals-in-cabin-form-mar25.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/lh-us-dot-service-animal-air-transportation-form-2024.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/service-animal-air-transportation-form-final-9-20-24.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/service-animals-relief-final-9-20-24.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/baggage/travelling-with-animals/assistance-dogs/us-dot-service-animal-relief-attestation-form.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express/lufthansa-express-bus/lh-map-express-bus-nuremberg-airport.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/doctor-on-board/doctor-on-board-news/arzt-07-17-mf-stutz-med-notfall-an-bord.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/advice-special-needs-usa/department-transportion-us.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-dpna-reservation-form.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travel-with-needs/lh-electric-mobility-device-form-en-de.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-de.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh-medif-en.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/pregnancy-statement-for-air-travel-de-en-20210525.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/games-download.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/en-lh-a4-pilotenurkunde.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/my-logbook/lh-kids-pilot-certificate.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/kids-babys-on-board/spiele-download.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/lh-familienlotse-fra-8-23.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/lh-familienlotse-muc-8-23.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/250430-dsdlh-27860-lh-formular-alleinreisende-jugendliche-210x297mm-lith.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/checklist-for-unaccompanied-children-en.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-um-handling-advice-digital-form-2025.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-unaccompanied-minors-checklist-2026-de.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/travelling-with-children/unaccompanied-minors/lh-unaccompanied-minors-checklist-2026-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/02-belgium-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/02-belgium-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/03-austria-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/03-austria-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/04-switzerland-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/04-switzerland-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/05-germany-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/05-germany-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/06-italy-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/06-italy-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/08-mongolia-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/08-mongolia-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/10-kenya-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/10-kenya-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/11-india-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/11-india-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/12-uganda-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/12-uganda-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/14-colombia-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/14-colombia-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/16-bolivia-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/16-bolivia-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/17-india-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/17-india-project-description-en.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/18-19-iceland-project-description-de.pdf
+- /content/dam/lh/documents/sustainability/climate-protection-projects/18-19-iceland-project-description-en.pdf
+- /content/dam/lh/documents/terms-conditions/2026-08-abb-dt.pdf
+- /content/dam/lh/documents/terms-conditions/2026-08-abb-en.pdf
+- /content/dam/lh/documents/terms-conditions/2026-08-abb-ro.pdf
+- /content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603-checkliste-senioren-en-gb.pdf
+- /content/dam/lh/images/local_images/prepare-for-your-trip/special-travel-needs/tips-senior-travellers/260603-checkliste-senioren.pdf
+- /content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-de.pdf
+- /content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf
+
+## Gone on www (404), links kept (3)
+
+- /content/dam/lh/documents/discover-lufthansa/lufthansa-fleet/74p/seatmap-747-400.43c.32p.308m.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_DE.pdf
+- /content/dam/lh/documents/prepare-for-your-trip/special-travel-needs/travelling-healthy/lh_medif_EN.pdf
+
+## Left out
+
+- /content/dam/lufthansa-group/pdfs/LH_Poster_Antonio_Colomboni_48x73cm.pdf (27.6 MB, over the 20 MB limit)
