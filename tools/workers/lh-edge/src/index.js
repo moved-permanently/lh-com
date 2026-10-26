@@ -7,7 +7,7 @@
  */
 // eslint-disable-next-line import/no-unresolved -- Workers runtime module (tests: a shim)
 import { WorkerEntrypoint } from 'cloudflare:workers';
-import { prelude, passThrough } from './edge.js';
+import { prelude, passThrough, originFetch } from './edge.js';
 import { solo, soloPath } from './solo.js';
 import { sdui, isSduiPath } from './sdui-route.js';
 import { graphql, isGraphqlPath } from './graphql.js';
@@ -26,6 +26,20 @@ import WELL_KNOWN from './well-known.js';
 import {
   relay, eventsList, eventsWebhook, EVENTS_PATH, WEBHOOK_PATH,
 } from './events.js';
+import { xfCatalog, isXfPath } from './xf.js';
+import { aircraftList, isAircraftPath } from './aircraft.js';
+
+/**
+ * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
+ * headers: application/javascript, public, max-age=21600.
+ */
+async function serviceWorker(request, env) {
+  const resp = await originFetch(new Request(request.url, { method: 'GET', headers: request.headers }), env, new URL('/service-worker.js', `https://${env.ORIGIN}`));
+  if (!resp.ok) return resp;
+  return new Response(request.method === 'HEAD' ? null : await resp.text(), {
+    headers: { 'content-type': 'application/javascript', 'cache-control': 'public, max-age=21600', 'x-lh-edge-route': 'service-worker' },
+  });
+}
 
 /** The App Links / Universal Links files of www, byte for byte, as application/json. */
 function wellKnown(request) {
@@ -60,6 +74,22 @@ export const ROUTES = [
     name: 'events-webhook',
     match: (url, request) => request.method === 'POST' && url.pathname === WEBHOOK_PATH,
     handle: eventsWebhook,
+  },
+  {
+    // AMS rest A3: www's fragment catalog, the aircraft list of any page, the service worker
+    name: 'csi-xf',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isXfPath(url.pathname),
+    handle: xfCatalog,
+  },
+  {
+    name: 'aircraft',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isAircraftPath(url.pathname),
+    handle: aircraftList,
+  },
+  {
+    name: 'service-worker',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === '/service-worker.js',
+    handle: serviceWorker,
   },
   {
     name: 'well-known',

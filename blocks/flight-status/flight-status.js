@@ -259,6 +259,24 @@ function buildTabs(id, tabs, panels, active, label) {
   return tablist;
 }
 
+/**
+ * The fleet page link of an aircraft type in a flight status result (www links them): when the
+ * type code (e.g. 359, 32N) is one of the locale's fleet pages (rows of /fleet-index.json, column
+ * aircraft-code), `/<cc>/<ll>/discover-lufthansa/lufthansa-fleet/<code>` (the redirects sheet
+ * sends it to the page's short URL); otherwise null. Results are handed off to www today, so no
+ * caller yet.
+ * @param {string} code the aircraft type code of the flight
+ * @param {Array<{path: string, 'aircraft-code': string}>} fleet the fleet index rows
+ * @param {string} base the locale prefix, e.g. /de/en
+ */
+export function aircraftLink(code, fleet, base) {
+  const c = String(code || '').trim().toLowerCase();
+  if (!c || !base) return null;
+  const known = (fleet || []).some((r) => String(r.path || '').startsWith(`${base}/`)
+    && String(r['aircraft-code'] || '').toLowerCase() === c);
+  return known ? `${base}/discover-lufthansa/lufthansa-fleet/${c}` : null;
+}
+
 export default async function decorate(block) {
   instance += 1;
   const id = `flight-status-${instance}`;
