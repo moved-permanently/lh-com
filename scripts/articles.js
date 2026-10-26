@@ -27,7 +27,7 @@ const PAGE = 500;
 const sheets = {};
 
 /** All rows of a sheet (query index or spreadsheet), page by page. */
-async function loadSheet(url) {
+export async function loadSheet(url) {
   if (!sheets[url]) {
     sheets[url] = (async () => {
       const rows = [];

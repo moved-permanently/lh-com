@@ -29,6 +29,7 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `message-center` | `/graphql/execute.json/Message-Center/*` | the messages Worker through the service binding `MESSAGES` |
 | `graphql` | GET/HEAD/OPTIONS `/graphql/execute.json/<config>/<query>[;name=value...]` (other configurations than Message-Center) | www's persisted queries from the structured content under `/data/` (`src/graphql.js`, see "GraphQL feeds"); `application/json`, `cache-control: public, max-age=120` |
 | `sdui` | GET/HEAD `/content/mobile/<...>.sdui`, `.v2.sdui` | the app screen, rendered from the document and the index (`src/sdui.js`, see `SDUI.md`); `application/json`, `cache-control: public, max-age=60`; 404 without a document |
+| `search` | POST `/service/secured/api/search` | www's site search API from the locale's search index (`src/search.js`, see "Site search"); `application/json`, no `cache-control` |
 | `dam` | GET/HEAD `/content/dam/*` | www's DAM URLs from the copies in Document Authoring (`src/dam.js`, see "DAM URLs") |
 | `solo` | GET/HEAD `<path>.solo_continue`, `.solo.continue`, `.solo.continue.solo_continue`, `.solo_continue.html`, `.solo_continue.genapp.html` | the page in the app view, see below |
 | `pass-through` | everything else | the Edge Delivery origin |
@@ -111,6 +112,16 @@ Image and file URLs under `https://www.lufthansa.com/content/dam/...` keep worki
 - `DAM_STEPS` (exported by `src/dam.js`) run before the copies: a step `async (request, env, ctx, { asset, rendition, valid, url })` returns a Response or `null`. The lookup of the synced brand assets (`/content/dam/<tenant>/images/frontify/...`) goes there.
 
 The copies are served from `ORIGIN` (aem.live): a copy answers once it is published.
+
+## Site search (`src/search.js`)
+
+`POST /service/secured/api/search` with `{"phrase": "..."}` and `X-Portal: LH`, `X-Portal-Site`, `X-Portal-Language` answers as www: `{"results": [{"link", "headline", "description"}], "total", "pageSize": 10}`, at most 30 results, `content-type: application/json`, no `cache-control`; without the X-Portal headers or the phrase 400 `{"error":"Invalid input","errors":[],"validationErrors":[]}` (www's answers: `tools/source-export/feeds/search/`).
+
+- Data: the locale's search index `/<cc>/<ll>/search-index.json` (helix-query.yaml `search-<cc>-<ll>`), read through the edge cache and kept for a minute per isolate; it fills when pages are published.
+- Scoring: `scripts/site-search.js`, the same as the site's `search-results` block (folding, every term must match, BM25F over title, headings, path, description and content, excerpt with the matches in `<strong>`). Pages with the metadata `hide-in-search: true` are left out.
+- `link` is the page's path on this site: www sends its AEM paths (`/content/lh/markets/de/en/...`), which this site doesn't serve.
+- Markets without a replica of their own (`X-Portal-Site: CH` ...) search the migrated locale of the same language (de/de, de/en).
+- `compare-search.mjs --host https://lhedge.bbird.live` (or `--local`, the Worker in Node with the indexes computed from the local documents by `tools/importer/build-search-index.mjs`) compares the answers with www's for the recorded phrases.
 
 ## Public host
 

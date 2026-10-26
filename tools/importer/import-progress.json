@@ -19958,5 +19958,25 @@
   "template": "insights",
   "status": "ok",
   "at": "2026-10-26T04:57:03.600Z"
+ },
+ "https://www.lufthansa.com/de/en/support/search/search-result": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-26T12:33:17.990Z"
+ },
+ "https://www.lufthansa.com/de/de/support/search/search-result": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-26T12:33:17.997Z"
+ },
+ "https://www.lufthansa.com/at/de/support/search/search-result": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-26T12:33:18.001Z"
+ },
+ "https://www.lufthansa.com/gb/en/support/search/search-result": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-26T12:33:18.005Z"
  }
 }

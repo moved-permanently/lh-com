@@ -1,4 +1,4 @@
-https://www.lufthansa.com/de/en/help-and-contact
-https://www.lufthansa.com/de/de/help-and-contact
-https://www.lufthansa.com/at/de/help-and-contact
-https://www.lufthansa.com/gb/en/help-and-contact
+https://www.lufthansa.com/de/en/support/search/search-result
+https://www.lufthansa.com/de/de/support/search/search-result
+https://www.lufthansa.com/at/de/support/search/search-result
+https://www.lufthansa.com/gb/en/support/search/search-result

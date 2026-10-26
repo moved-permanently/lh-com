@@ -7,6 +7,8 @@ on:
       # the DAM names lh-edge shares with the site
       - 'scripts/dam-path.js'
       - 'scripts/dam-collisions.js'
+      # and the site search scoring
+      - 'scripts/site-search.js'
       - '.github/workflows/deploy-lh-edge.yaml'
   workflow_dispatch:
 

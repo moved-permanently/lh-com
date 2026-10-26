@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.lufthansa.com/de/en/support/search/search-result",
+  "path": "de/en/support/search/search-result",
+  "timestamp": "2026-10-26T12:32:26.222Z",
+  "title": "",
+  "template": "info",
+  "blocks": [
+    "search-results"
+  ]
+}

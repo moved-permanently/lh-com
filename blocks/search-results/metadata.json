@@ -1,0 +1,22 @@
+{
+  "variantName": "search-results",
+  "baseBlock": "search",
+  "canonicalModel": "standalone",
+  "sourceUrl": "https://www.lufthansa.com/de/en/support/search/search-result?query=wifi",
+  "visualCharacteristics": {
+    "purpose": "www's site search result page: search field, 'Your search for <phrase>', result count, ranked results with excerpt, pagination",
+    "traits": [
+      "underlined search field with a magnifier button",
+      "light heading with the phrase in bold",
+      "results separated by thin lines: bold headline, excerpt with the matched words in bold",
+      "ten results per page, numbered pages below"
+    ]
+  },
+  "contentPattern": {
+    "structure": "as the library's search block: one optional row with the query index path (default /{cc}/{ll}/search-index.json); optional label | text rows"
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": "/{cc}/{ll}/support/search/search-result, the page the header and footer search lead to.",
+  "reuseGuidance": "Use for full-text search over a locale's pages; the pages need the search index (helix-query.yaml search-<cc>-<ll>)."
+}

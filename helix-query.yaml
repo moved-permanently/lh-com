@@ -776,3 +776,163 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  # Site search (package 7): one index per locale, read by the search-results block and by
+  # lh-edge's POST /service/secured/api/search (scripts/site-search.js scores both). headings
+  # and content are lists (values); content is the running text (paragraphs, list items and
+  # links alone in a block cell, 40 words each), not the block configuration cells. Pages with the metadata
+  # hide-in-search: true stay in the index and are left out by the block and lh-edge.
+  search-de-en:
+    include:
+      - /de/en/**
+    exclude:
+      - /de/en/nav
+      - /de/en/footer
+      - /de/en/fragments/**
+      - /de/en/drafts/**
+      - /de/en/**/confirmation
+      - /de/en/**/*-confirmation
+      - /de/en/support/search/**
+      - /de/en/articles/config/**
+    target: /de/en/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: words(textContent(el), 0, 40)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  search-de-de:
+    include:
+      - /de/de/**
+    exclude:
+      - /de/de/nav
+      - /de/de/footer
+      - /de/de/fragments/**
+      - /de/de/drafts/**
+      - /de/de/**/confirmation
+      - /de/de/**/*-confirmation
+      - /de/de/support/search/**
+      - /de/de/articles/config/**
+    target: /de/de/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: words(textContent(el), 0, 40)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  search-at-de:
+    include:
+      - /at/de/**
+    exclude:
+      - /at/de/nav
+      - /at/de/footer
+      - /at/de/fragments/**
+      - /at/de/drafts/**
+      - /at/de/**/confirmation
+      - /at/de/**/*-confirmation
+      - /at/de/support/search/**
+      - /at/de/articles/config/**
+    target: /at/de/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: words(textContent(el), 0, 40)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  search-gb-en:
+    include:
+      - /gb/en/**
+    exclude:
+      - /gb/en/nav
+      - /gb/en/footer
+      - /gb/en/fragments/**
+      - /gb/en/drafts/**
+      - /gb/en/**/confirmation
+      - /gb/en/**/*-confirmation
+      - /gb/en/support/search/**
+      - /gb/en/articles/config/**
+    target: /gb/en/search-index.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: words(textContent(el), 0, 40)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
