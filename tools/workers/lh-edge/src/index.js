@@ -28,6 +28,7 @@ import {
 } from './events.js';
 import { xfCatalog, isXfPath } from './xf.js';
 import { aircraftList, isAircraftPath } from './aircraft.js';
+import { changeLocale, isChangeLocalePath } from './changelocale.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -85,6 +86,12 @@ export const ROUTES = [
     name: 'aircraft',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isAircraftPath(url.pathname),
     handle: aircraftList,
+  },
+  {
+    // AMS rest A4: www's country and language selector
+    name: 'changelocale',
+    match: (url, request) => request.method === 'POST' && isChangeLocalePath(url.pathname),
+    handle: changeLocale,
   },
   {
     name: 'service-worker',

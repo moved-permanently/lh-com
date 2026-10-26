@@ -9,6 +9,8 @@ on:
       - 'scripts/dam-collisions.js'
       # and the site search scoring
       - 'scripts/site-search.js'
+      # and the locales (the country and language selector, AMS rest A4)
+      - 'scripts/locale.js'
       - '.github/workflows/deploy-lh-edge.yaml'
   workflow_dispatch:
 
