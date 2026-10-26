@@ -21,6 +21,7 @@
  * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
  */
 import { originFetch } from './edge.js';
+import { damMedia } from './dam-media.js';
 // the site's own module: one naming rule for the site, the copies and the Worker (wrangler
 // bundles it)
 /* eslint-disable import/no-relative-packages */
@@ -31,8 +32,11 @@ import {
 
 export const isDamPath = (pathname) => pathname.startsWith('/content/dam/');
 
-/** Steps before the copies: async (request, env, ctx, dam) => Response | null. */
-export const DAM_STEPS = [];
+/**
+ * Steps before the copies: async (request, env, ctx, dam) => Response | null. The first: the
+ * videos and subtitles in R2 (src/dam-media.js).
+ */
+export const DAM_STEPS = [damMedia];
 
 // brand assets Lufthansa manages in Frontify, kept in sync by lh-backends (binding BACKENDS):
 // /content/dam/<tenant>/(images|videos)/frontify/..., renditions included; not the author-made
