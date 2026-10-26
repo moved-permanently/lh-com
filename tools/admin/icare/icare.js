@@ -36,7 +36,7 @@ function renderList(answer, refresh) {
     }, 'Send again'),
   ]);
   out.replaceChildren(
-    answer.truncated ? h('p', { class: 'admin-note' }, `Only the newest ${answer.limit} incidents are shown. Narrow the search.`) : null,
+    answer.truncated ? h('p', { class: 'admin-note' }, `Only the newest ${answer.limit} incidents are shown. Narrow the search.`) : '',
     table(['Number', 'Provider', 'Provider ID', 'Type', 'Status', 'Created', 'Sent', ''], rows),
   );
 }

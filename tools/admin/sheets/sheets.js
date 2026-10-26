@@ -42,8 +42,8 @@ function showResult(result) {
     h('p', {}, result.valid
       ? `The sheet is valid: ${result.count} rows.`
       : `The sheet has ${(result.errors || []).length} errors. Fix them before saving.`),
-    result.truncated ? h('p', { class: 'admin-note' }, 'Only the first problems are listed.') : null,
-    problems.length ? h('ul', { class: 'admin-errors' }, problems.map((p) => h('li', { class: p.level }, `${where(p)}: ${p.message}`))) : null,
+    result.truncated ? h('p', { class: 'admin-note' }, 'Only the first problems are listed.') : '',
+    problems.length ? h('ul', { class: 'admin-errors' }, problems.map((p) => h('li', { class: p.level }, `${where(p)}: ${p.message}`))) : '',
   );
   setStatus(result.valid ? 'Check passed.' : 'Check found errors.', result.valid ? 'success' : 'error');
 }
@@ -165,7 +165,7 @@ async function showSync() {
   out.replaceChildren(
     h('p', {}, `Jobs: ${counts.map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}.`
       + `${status.persistent ? '' : ' (The job list is kept in memory only.)'}`),
-    status.recent?.length ? jobsTable(status.recent, false) : null,
+    status.recent?.length ? jobsTable(status.recent, false) : '',
     h('h3', {}, 'Data written'),
     status.datasets?.length
       ? table(['Path', 'Stage', 'Version', 'Written', 'Unpublished'], status.datasets.map((d) => [
@@ -173,7 +173,7 @@ async function showSync() {
       ]))
       : h('p', { class: 'admin-note' }, 'Nothing written yet.'),
     Object.keys(status.releaseStates || {}).length
-      ? table(['List', 'Release'], Object.entries(status.releaseStates)) : null,
+      ? table(['List', 'Release'], Object.entries(status.releaseStates)) : '',
     h('h3', {}, `Failed jobs (${failed.length})`),
     failed.length ? h('div', {}, jobsTable(failed, true, showSync), h('button', {
       type: 'button',

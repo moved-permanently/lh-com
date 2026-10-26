@@ -71,7 +71,7 @@ function insertButtons(app, words) {
     const r = await api('/admin/articles/generate-article', { method: 'POST', body });
     draftOut.replaceChildren(
       h('h3', {}, r.title || 'Draft'),
-      r.description ? h('p', { class: 'admin-note' }, r.description) : null,
+      r.description ? h('p', { class: 'admin-note' }, r.description) : '',
       ...String(r.text || '').split(/\n\s*\n/).filter(Boolean).map((p) => h('p', {}, p)),
       h('div', { class: 'admin-actions' }, h('button', {
         type: 'button',

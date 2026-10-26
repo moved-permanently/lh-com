@@ -16,14 +16,14 @@ function showAnswer(answer, isCheck) {
   out.replaceChildren(
     h('h2', {}, isCheck ? 'Check result' : 'Import result'),
     h('p', {}, answer.message || ''),
-    answer.hint ? h('p', { class: 'admin-note' }, answer.hint) : null,
-    errors.length ? h('ol', { class: 'admin-errors' }, errors.map((e) => h('li', {}, e))) : null,
+    answer.hint ? h('p', { class: 'admin-note' }, answer.hint) : '',
+    errors.length ? h('ol', { class: 'admin-errors' }, errors.map((e) => h('li', {}, e))) : '',
     protocol.length
       ? table(['Document', 'Change'], protocol.map((p) => [p.fragmentPath, p.updateInfo]), { caption: isCheck ? 'What the import would change' : 'What changed' })
-      : null,
+      : '',
     !isCheck && (answer.publish || []).length
       ? h('div', {}, h('h3', {}, 'Publish these documents'), h('ul', {}, answer.publish.map((p) => h('li', {}, p))))
-      : null,
+      : '',
   );
 }
 
