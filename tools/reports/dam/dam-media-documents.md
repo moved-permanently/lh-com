@@ -1,8 +1,8 @@
 # Documents that play the site's own videos
 
-2026-10-26T17:14:10.860Z, files checked on https://lhedge.bbird.live
+2026-10-26T17:44:20.192Z, files checked on https://lhedge.bbird.live
 
-486 documents play videos; 486 use the site's own files (211 video links, 36 subtitle links). Files: 77 in DA, 697 in R2, 0 not there yet.
+486 documents play videos; 486 use the site's own files (0 video links, 0 subtitle links). Files: 77 in DA, 697 in R2, 0 not there yet.
 
 ## Every file in DA (210)
 
