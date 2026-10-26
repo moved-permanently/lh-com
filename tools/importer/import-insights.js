@@ -20,7 +20,7 @@ const PAGE_TEMPLATE = {
   "name": "insights",
   "description": "Lufthansa Insights magazine: overview, categories, tags, authors and articles",
   "urls": [
-    "https://www.lufthansa.com/de/en/articles/explore-the-world/eat-see-do-berlin"
+    "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-mexico-city-insidertipps"
   ],
   "blocks": [
     {

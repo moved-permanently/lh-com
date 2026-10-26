@@ -5,7 +5,9 @@
  * Progress: tools/importer/import-progress.json (url → {template, status, at}).
  *
  * Usage: node tools/importer/import-batch.mjs <template> [--locale de/en] [--batch 40]
- *          [--url <url> ...] [--force]
+ *          [--url <url> ...] [--list <file>] [--force] [--export <dir>]
+ * --export <dir>: the pages of an unpacked www export (serve-export.mjs --unpack --out <dir>)
+ *   are the snapshots, before tools/importer/bd-snapshots (a URL in neither is skipped).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,7 +19,10 @@ const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-
 const argv = process.argv.slice(2);
 const template = argv[0];
 const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : def);
-const urlArgs = argv.flatMap((a, i) => (a === '--url' ? [argv[i + 1]] : []));
+const urlArgs = [
+  ...argv.flatMap((a, i) => (a === '--url' ? [argv[i + 1]] : [])),
+  ...(argv.includes('--list') ? fs.readFileSync(path.resolve(argv[argv.indexOf('--list') + 1]), 'utf8').split('\n').map((l) => l.trim()).filter(Boolean) : []),
+];
 const locale = opt('locale');
 const batch = Number(opt('batch', 40));
 const force = argv.includes('--force');
@@ -28,7 +33,10 @@ const { templates } = JSON.parse(fs.readFileSync(path.join(root, 'tools/importer
 const t = templates.find((x) => x.name === template);
 if (!t) throw new Error(`unknown template ${template}`);
 
-const snapshot = (u) => path.join(root, 'tools/importer/bd-snapshots', `${new URL(u).hostname}${new URL(u).pathname.replace(/\/$/, '')}.html`);
+const exportDir = opt('export') ? path.resolve(root, opt('export')) : null;
+const snapshotIn = (dir, u) => path.join(dir, `${new URL(u).hostname}${new URL(u).pathname.replace(/\/$/, '')}.html`);
+const BD = path.join(root, 'tools/importer/bd-snapshots');
+const snapshot = (u) => (exportDir && fs.existsSync(snapshotIn(exportDir, u)) ? snapshotIn(exportDir, u) : snapshotIn(BD, u));
 const plain = (u) => path.join(root, 'content', `${new URL(u).pathname.replace(/\/$/, '')}.plain.html`);
 const inLocale = (u) => !locale || new URL(u).pathname.startsWith(`/${locale}/`) || new URL(u).pathname === `/${locale}`;
 
@@ -46,11 +54,17 @@ if (!todo.length) {
 
 const bundle = path.join(root, `tools/importer/import-${template}.bundle.js`);
 const urlsFile = path.join(root, `tools/importer/urls-${template}.txt`);
-fs.writeFileSync(urlsFile, `${todo.join('\n')}\n`);
-const run = spawnSync('node', [`${CI}/run-bulk-import.js`, '--import-script', bundle, '--urls', urlsFile, '--force'], {
-  cwd: root, encoding: 'utf8', timeout: 540000, maxBuffer: 64 * 1024 * 1024,
+// the bulk importer reads one snapshot folder: URLs from the export and from bd-snapshots run apart
+const groups = exportDir
+  ? [[exportDir, todo.filter((u) => snapshot(u).startsWith(exportDir))], [BD, todo.filter((u) => !snapshot(u).startsWith(exportDir))]]
+  : [[BD, todo]];
+groups.filter(([, list]) => list.length).forEach(([dir, list]) => {
+  fs.writeFileSync(urlsFile, `${list.join('\n')}\n`);
+  const run = spawnSync('node', [`${CI}/run-bulk-import.js`, '--import-script', bundle, '--urls', urlsFile, '--force', '--html-dir', dir], {
+    cwd: root, encoding: 'utf8', timeout: 540000, maxBuffer: 64 * 1024 * 1024,
+  });
+  if (run.status !== 0) console.error((run.stderr || '').split('\n').slice(-15).join('\n'));
 });
-if (run.status !== 0) console.error((run.stderr || '').split('\n').slice(-15).join('\n'));
 
 let ok = 0;
 todo.forEach((u) => {
