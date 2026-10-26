@@ -99,3 +99,10 @@ test('page check outside DA: a head title that is only the first heading counts 
     ...base, path: '/x', doc, headTitle: 'An own title', headDescription: 'Own.',
   })).some((i) => i.check === 'title'));
 });
+
+test('page check empty content: icon tokens are content; a block without any content is empty on purpose', async () => {
+  const doc = parse('<div><h1>T</h1><div class="cards-icon"><div><div><span class="icon icon-hotel"></span></div><div><a href="/de/en/baggage">Hotels</a></div></div></div><div class="flash-teaser"><div><div></div></div></div></div>');
+  assert.deepEqual((await runChecks({
+    ...base, path: '/x', doc, meta: { source: true, title: 'T', description: 'D' },
+  })).filter((i) => i.check === 'empty'), []);
+});

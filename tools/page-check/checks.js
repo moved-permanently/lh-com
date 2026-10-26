@@ -48,7 +48,8 @@ const issue = (check, message, text = '') => ({
   check, severity: byId[check].severity, group: byId[check].group, message, text: String(text || '').replace(/\s+/g, ' ').trim().slice(0, 80),
 });
 const textOf = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
-const MEDIA = 'img, picture, video, iframe';
+// content without text: media and the :icon: tokens Edge Delivery renders as <span class="icon">
+const MEDIA = 'img, picture, video, iframe, span.icon';
 
 /** Sections and blocks of a .plain.html document (body > div sections, their div[class] blocks). */
 export function partsOf(doc) {
@@ -149,9 +150,13 @@ export async function runChecks(ctx) {
     doc.querySelectorAll('p, h1, h2, h3, h4, h5, h6').forEach((el) => {
       if (!textOf(el) && !el.querySelector(MEDIA)) issues.push(issue('empty', `Empty ${el.tagName === 'P' ? 'paragraph' : `heading (${el.tagName})`}.`, textOf(el.previousElementSibling)));
     });
+    const blank = (cell) => !textOf(cell) && !cell.querySelector(`${MEDIA}, a`);
     partsOf(doc).blocks.forEach((block) => {
+      const cells = [...block.children].flatMap((row) => [...row.children]);
+      // a block without any content is empty on purpose (flash-teaser, related-articles: filled by code)
+      if (cells.every(blank)) return;
       [...block.children].forEach((row) => [...row.children].forEach((cell) => {
-        if (!textOf(cell) && !cell.querySelector(`${MEDIA}, a`)) issues.push(issue('empty', `Empty cell in the ${block.className.split(/\s+/)[0]} block.`, textOf(row)));
+        if (blank(cell)) issues.push(issue('empty', `Empty cell in the ${block.className.split(/\s+/)[0]} block.`, textOf(row)));
       }));
     });
   }
