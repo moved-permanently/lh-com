@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-10-26T12:58:35.633Z",
+ "checkedAt": "2026-10-26T13:30:46.750Z",
  "edge": "the Worker in Node, indexes from the local documents",
  "cases": 42,
  "ok": 37,
@@ -47,11 +47,11 @@
     "/de/en/digital-baggage-services",
     "/de/en/baggage-irregularities",
     "/de/en/uebergepaeck",
-    "/de/en/freigepaeck-regeln",
     "/de/en/sports-baggage",
-    "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+    "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
     "/de/en/check-in-baggage",
-    "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg"
+    "/de/en/freigepaeck-regeln",
+    "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay"
    ]
   },
   {
@@ -94,11 +94,11 @@
     "/de/en/automatic-check-in",
     "/de/en/online-check-in",
     "/de/en/check-in-with-the-family",
-    "/de/en/common/agb-extra-services-at-online-check-in",
     "/de/en/online-check-in-info",
+    "/de/en/common/agb-extra-services-at-online-check-in",
     "/de/en/upgrades-at-online-check-in",
-    "/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
-    "/de/en/prepare-for-your-trip/baggage/baggage-conditions"
+    "/de/en/prepare-for-your-trip/baggage/baggage-conditions",
+    "/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation"
    ]
   },
   {
@@ -189,14 +189,14 @@
    "edgeTop": [
     "/de/en/lounges",
     "/de/en/lounge-companions",
-    "/de/en/first-class-lounges",
     "/de/en/admission-rules",
+    "/de/en/first-class-lounges",
     "/de/en/articles/explore-flying/lufthansa-lounges",
     "/de/en/articles/explore-flying/new-lufthansa-lounge-newark-interview",
     "/de/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree",
     "/de/en/arrival-services",
     "/de/en/articles/explore-flying/allegris-exclusive-first-class-loungewear",
-    "/de/en/lufthansa-business-class-on-long-haul-routes"
+    "/de/en/overview-travel-information"
    ]
   },
   {
@@ -204,7 +204,7 @@
    "locale": "de/en",
    "phrase": "wifi",
    "wwwTotal": 3,
-   "edgeTotal": 19,
+   "edgeTotal": 22,
    "shape": [],
    "top5": [
     {
@@ -229,11 +229,11 @@
     "/de/en/articles/explore-flying/lufthansa-group-wifi",
     "/de/en/flynet",
     "/de/en/discover-lufthansa/lufthansa-fleet/351",
-    "/de/en/lounges",
     "/de/en/online-check-in",
-    "/de/en/shopping",
+    "/de/en/lounges",
     "/de/en/frankfurt-fair",
-    "/de/en/first-class-terminal"
+    "/de/en/shopping",
+    "/de/en/articles/explore-the-world/what-i-learned-living-in-singapore"
    ]
   },
   {
@@ -241,7 +241,7 @@
    "locale": "de/en",
    "phrase": "pets",
    "wwwTotal": 3,
-   "edgeTotal": 19,
+   "edgeTotal": 20,
    "shape": [],
    "top5": [
     {
@@ -272,12 +272,12 @@
     "/de/en/help-and-contact",
     "/de/en/support/support",
     "/de/en/lounges",
-    "/de/en/travelling-with-animals",
     "/de/en/digital-self-services",
+    "/de/en/travelling-with-animals",
     "/de/en/my-bookings",
-    "/de/en/articles/explore-the-world/essentials-washington-facts",
     "/de/en/register-animal-cabin",
-    "/de/en/book-and-manage/rebook/involuntary-rebooking"
+    "/de/en/book-and-manage/rebook/involuntary-rebooking",
+    "/de/en/articles/explore-the-world/essentials-washington-facts"
    ]
   },
   {
@@ -285,7 +285,7 @@
    "locale": "de/en",
    "phrase": "wheelchair",
    "wwwTotal": 4,
-   "edgeTotal": 12,
+   "edgeTotal": 13,
    "shape": [],
    "top5": [
     {
@@ -312,12 +312,12 @@
     "/de/en/wheelchair-batteries",
     "/de/en/passengers-using-wheelchairs",
     "/de/en/mobility-partner-program-healthcare",
+    "/de/en/besondere-befoerderungsbedingungen-bus",
     "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
-    "/de/en/besondere-befoerderungsbedingungen-bus",
-    "/de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
-    "/de/en/rail-and-fly",
     "/de/en/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
+    "/de/en/rail-and-fly",
+    "/de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
     "/de/en/tips-senior-travellers"
    ]
   },
@@ -362,12 +362,12 @@
     "/de/en/miles-and-more",
     "/de/en/cash-and-miles",
     "/de/en/flight-search",
+    "/de/en/hotel-offers",
     "/de/en/help-and-contact",
     "/de/en/support/support",
-    "/de/en/hotel-offers",
     "/de/en/book-and-manage/additional-services/get-your-guide",
-    "/de/en/doctor-on-board",
-    "/de/en/upgrade-to-premium-economy-class"
+    "/de/en/upgrade-to-premium-economy-class",
+    "/de/en/doctor-on-board"
    ]
   },
   {
@@ -457,13 +457,13 @@
     "/de/en/book-and-manage/rebook",
     "/de/en/book-and-manage/rebook/involuntary-rebooking",
     "/de/en/book-and-manage/rebook/voluntary-rebooking",
-    "/de/en/upgrade-info",
     "/de/en/advance-seat-reservations-terms-and-conditions",
+    "/de/en/upgrade-info",
     "/de/en/overview-manage",
     "/de/en/digital-self-services",
+    "/de/en/sepa-terms-and-conditions-b",
     "/de/en/prepare-for-your-trip/current-travel-information",
-    "/de/en/flight-disruptions",
-    "/de/en/common/baggage-conditions"
+    "/de/en/help-and-contact"
    ]
   },
   {
@@ -500,15 +500,15 @@
    "notMigrated": [],
    "edgeTop": [
     "/de/de/digitale-gepaeckservices",
-    "/de/de/gepaeck",
     "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+    "/de/de/gepaeck",
     "/de/de/baggage-irregularities",
+    "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+    "/de/de/uebergepaeck",
     "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
     "/de/de/freigepaeck-regeln",
-    "/de/de/uebergepaeck",
-    "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
-    "/de/de/sportgepaeck"
+    "/de/de/prepare-for-your-trip/baggage/baggage-conditions"
    ]
   },
   {
@@ -557,10 +557,10 @@
     "/de/de/automatic-check-in",
     "/de/de/upgrades-im-online-check-in",
     "/de/de/common/agb-extra-services-at-online-check-in",
-    "/de/de/online-check-in-info",
     "/de/de/online-check-in-mit-der-ganzen-familie",
-    "/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+    "/de/de/online-check-in-info",
     "/de/de/online-check-in",
+    "/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
     "/de/de/prepare-for-your-trip/baggage/baggage-conditions"
    ]
   },
@@ -604,12 +604,12 @@
     "/de/de/book-and-manage/cancellation-and-refund/refund/refund-form",
     "/de/de/cancellations-and-refunds",
     "/de/de/support/contact/passenger-duty-united-kingdom",
-    "/de/de/feedback",
     "/de/de/sitzplatzreservierungen-konditionen",
+    "/de/de/feedback",
     "/de/de/overview-manage",
-    "/de/de/common/baggage-conditions",
     "/de/de/help-and-contact",
-    "/de/de/support/support"
+    "/de/de/support/support",
+    "/de/de/upgrade-informationen"
    ]
   },
   {
@@ -650,16 +650,16 @@
     "/content/lh/markets/de/de/during-your-trip/lounges/loungenet/dtw-lounge"
    ],
    "edgeTop": [
-    "/de/de/lounges",
     "/de/de/lounge-begleitung",
+    "/de/de/lounges",
     "/de/de/admission-rules",
     "/de/de/first-class-lounges",
     "/de/de/articles/explore-flying/lufthansa-lounges",
     "/de/de/articles/explore-flying/new-lufthansa-lounge-newark-interview",
     "/de/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree",
     "/de/de/arrival-services",
-    "/de/de/lufthansa-business-class-on-long-haul-routes",
-    "/de/de/overview-travel-information"
+    "/de/de/overview-travel-information",
+    "/de/de/lufthansa-business-class-on-long-haul-routes"
    ]
   },
   {
@@ -667,7 +667,7 @@
    "locale": "de/de",
    "phrase": "WLAN",
    "wwwTotal": 6,
-   "edgeTotal": 15,
+   "edgeTotal": 16,
    "shape": [],
    "top5": [
     {
@@ -702,11 +702,11 @@
     "/de/de/flynet",
     "/de/de/book-and-manage/stopover/neuschwanstein",
     "/de/de/lounges",
-    "/de/de/first-class-lounges",
     "/de/de/frankfurt-fair",
-    "/de/de/first-class-terminal",
-    "/de/de/articles/highlights/allegris-experiences",
-    "/de/de/book-and-manage/flights/ana"
+    "/de/de/first-class-lounges",
+    "/de/de/book-and-manage/flights/ana",
+    "/de/de/lufthansa-express-bus",
+    "/de/de/first-class-terminal"
    ]
   },
   {
@@ -742,8 +742,8 @@
    "missing": [],
    "notMigrated": [],
    "edgeTop": [
-    "/de/de/tiere-als-uebergepaeck",
     "/de/de/tiere-als-handgepaeck",
+    "/de/de/tiere-als-uebergepaeck",
     "/de/de/travelling-with-animals",
     "/de/de/dangerous-dogs",
     "/de/de/anmeldung-tiere-frachtraum",
@@ -759,7 +759,7 @@
    "locale": "de/de",
    "phrase": "Rollstuhl",
    "wwwTotal": 3,
-   "edgeTotal": 12,
+   "edgeTotal": 13,
    "shape": [],
    "top5": [
     {
@@ -782,8 +782,8 @@
     "/de/de/rollstuhlbatterien",
     "/de/de/passengers-using-wheelchairs",
     "/de/de/mobility-partner-program-healthcare",
-    "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/de/de/besondere-befoerderungsbedingungen-bus",
+    "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/de/de/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
     "/de/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
     "/de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
@@ -830,14 +830,14 @@
    "edgeTop": [
     "/de/de/discover-lufthansa/miles-and-more-credit-card",
     "/de/de/miles-and-more",
-    "/de/de/doctor-on-board",
     "/de/de/cash-and-miles",
     "/de/de/feedback",
+    "/de/de/doctor-on-board",
     "/de/de/help-and-contact",
     "/de/de/support/support",
     "/de/de/upgrade-in-die-premium-economy-class",
-    "/de/de/during-your-trip/lhg-wifi",
-    "/de/de/hotelangebote"
+    "/de/de/hotelangebote",
+    "/de/de/during-your-trip/lhg-wifi"
    ]
   },
   {
@@ -845,7 +845,7 @@
    "locale": "de/de",
    "phrase": "Sitzplatzreservierung",
    "wwwTotal": 12,
-   "edgeTotal": 24,
+   "edgeTotal": 29,
    "shape": [],
    "top5": [
     {
@@ -881,11 +881,11 @@
     "/de/de/advance-seat-reservation",
     "/de/de/prepare-for-your-trip/travelling-with-children/planning-with-kids",
     "/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
-    "/de/de/europa-tarife-economy-class",
     "/de/de/fliegen-mit-kindern",
+    "/de/de/europa-tarife-economy-class",
     "/de/de/additional-services",
-    "/de/de/fliegen-mit-kleinkind",
-    "/de/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass"
+    "/de/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
+    "/de/de/overview-manage"
    ]
   },
   {
@@ -924,15 +924,15 @@
    ],
    "edgeTop": [
     "/de/de/book-and-manage/rebook",
-    "/de/de/book-and-manage/rebook/voluntary-rebooking",
     "/de/de/upgrade-informationen",
+    "/de/de/book-and-manage/rebook/voluntary-rebooking",
     "/de/de/book-and-manage/rebook/involuntary-rebooking",
     "/de/de/sitzplatzreservierungen-konditionen",
     "/de/de/overview-manage",
-    "/de/de/common/baggage-conditions",
     "/de/de/digital-self-services",
     "/de/de/sepa-bedingungen-b",
-    "/de/de/help-and-contact"
+    "/de/de/help-and-contact",
+    "/de/de/support/support"
    ]
   },
   {
@@ -969,15 +969,15 @@
    "notMigrated": [],
    "edgeTop": [
     "/at/de/digitale-gepaeckservices",
-    "/at/de/gepaeck",
     "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+    "/at/de/gepaeck",
     "/at/de/baggage-irregularities",
+    "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
+    "/at/de/uebergepaeck",
     "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
     "/at/de/freigepaeck-regeln",
-    "/at/de/uebergepaeck",
-    "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
-    "/at/de/sportgepaeck"
+    "/at/de/prepare-for-your-trip/baggage/baggage-conditions"
    ]
   },
   {
@@ -1026,10 +1026,10 @@
     "/at/de/automatic-check-in",
     "/at/de/upgrades-im-online-check-in",
     "/at/de/common/agb-extra-services-at-online-check-in",
-    "/at/de/online-check-in-info",
     "/at/de/online-check-in-mit-der-ganzen-familie",
-    "/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
+    "/at/de/online-check-in-info",
     "/at/de/online-check-in",
+    "/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
     "/at/de/prepare-for-your-trip/baggage/baggage-conditions"
    ]
   },
@@ -1073,12 +1073,12 @@
     "/at/de/book-and-manage/cancellation-and-refund/refund/refund-form",
     "/at/de/cancellations-and-refunds",
     "/at/de/support/contact/passenger-duty-united-kingdom",
-    "/at/de/feedback",
     "/at/de/sitzplatzreservierungen-konditionen",
+    "/at/de/feedback",
     "/at/de/overview-manage",
-    "/at/de/common/baggage-conditions",
     "/at/de/help-and-contact",
-    "/at/de/support/support"
+    "/at/de/support/support",
+    "/at/de/upgrade-informationen"
    ]
   },
   {
@@ -1117,16 +1117,16 @@
     "/content/lh/markets/at/de/discover-lufthansa/campaigns/ibeacon/senator"
    ],
    "edgeTop": [
-    "/at/de/lounges",
     "/at/de/lounge-begleitung",
+    "/at/de/lounges",
     "/at/de/admission-rules",
     "/at/de/first-class-lounges",
     "/at/de/articles/explore-flying/lufthansa-lounges",
     "/at/de/articles/explore-flying/new-lufthansa-lounge-newark-interview",
     "/at/de/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree",
     "/at/de/arrival-services",
-    "/at/de/lufthansa-business-class-on-long-haul-routes",
-    "/at/de/overview-travel-information"
+    "/at/de/overview-travel-information",
+    "/at/de/lufthansa-business-class-on-long-haul-routes"
    ]
   },
   {
@@ -1134,7 +1134,7 @@
    "locale": "at/de",
    "phrase": "WLAN",
    "wwwTotal": 6,
-   "edgeTotal": 15,
+   "edgeTotal": 16,
    "shape": [],
    "top5": [
     {
@@ -1169,11 +1169,11 @@
     "/at/de/flynet",
     "/at/de/book-and-manage/stopover/neuschwanstein",
     "/at/de/lounges",
-    "/at/de/first-class-lounges",
     "/at/de/frankfurt-fair",
+    "/at/de/first-class-lounges",
     "/at/de/first-class-terminal",
-    "/at/de/articles/highlights/allegris-experiences",
-    "/at/de/book-and-manage/flights/ana"
+    "/at/de/book-and-manage/flights/ana",
+    "/at/de/lufthansa-express-bus"
    ]
   },
   {
@@ -1209,8 +1209,8 @@
    "missing": [],
    "notMigrated": [],
    "edgeTop": [
-    "/at/de/tiere-als-uebergepaeck",
     "/at/de/tiere-als-handgepaeck",
+    "/at/de/tiere-als-uebergepaeck",
     "/at/de/travelling-with-animals",
     "/at/de/dangerous-dogs",
     "/at/de/anmeldung-tiere-frachtraum",
@@ -1226,7 +1226,7 @@
    "locale": "at/de",
    "phrase": "Rollstuhl",
    "wwwTotal": 3,
-   "edgeTotal": 12,
+   "edgeTotal": 13,
    "shape": [],
    "top5": [
     {
@@ -1249,8 +1249,8 @@
     "/at/de/rollstuhlbatterien",
     "/at/de/passengers-using-wheelchairs",
     "/at/de/mobility-partner-program-healthcare",
-    "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/at/de/besondere-befoerderungsbedingungen-bus",
+    "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/at/de/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
     "/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
     "/at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
@@ -1297,14 +1297,14 @@
    "edgeTop": [
     "/at/de/discover-lufthansa/miles-and-more-credit-card",
     "/at/de/miles-and-more",
-    "/at/de/doctor-on-board",
     "/at/de/cash-and-miles",
     "/at/de/feedback",
+    "/at/de/doctor-on-board",
     "/at/de/help-and-contact",
     "/at/de/support/support",
     "/at/de/upgrade-in-die-premium-economy-class",
     "/at/de/hotelangebote",
-    "/at/de/automatic-check-in"
+    "/at/de/articles/explore-the-world/in-my-hood-city-centre-cape-town"
    ]
   },
   {
@@ -1312,7 +1312,7 @@
    "locale": "at/de",
    "phrase": "Sitzplatzreservierung",
    "wwwTotal": 12,
-   "edgeTotal": 24,
+   "edgeTotal": 29,
    "shape": [],
    "top5": [
     {
@@ -1349,10 +1349,10 @@
     "/at/de/prepare-for-your-trip/travelling-with-children/planning-with-kids",
     "/at/de/additional-services",
     "/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
-    "/at/de/europa-tarife-economy-class",
     "/at/de/fliegen-mit-kindern",
-    "/at/de/fliegen-mit-kleinkind",
-    "/at/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass"
+    "/at/de/europa-tarife-economy-class",
+    "/at/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
+    "/at/de/overview-manage"
    ]
   },
   {
@@ -1391,15 +1391,15 @@
    ],
    "edgeTop": [
     "/at/de/book-and-manage/rebook",
-    "/at/de/book-and-manage/rebook/voluntary-rebooking",
     "/at/de/upgrade-informationen",
+    "/at/de/book-and-manage/rebook/voluntary-rebooking",
     "/at/de/book-and-manage/rebook/involuntary-rebooking",
     "/at/de/sitzplatzreservierungen-konditionen",
     "/at/de/overview-manage",
-    "/at/de/common/baggage-conditions",
     "/at/de/digital-self-services",
     "/at/de/sepa-bedingungen-b",
-    "/at/de/help-and-contact"
+    "/at/de/help-and-contact",
+    "/at/de/support/support"
    ]
   },
   {
@@ -1443,11 +1443,11 @@
     "/gb/en/digital-baggage-services",
     "/gb/en/baggage-irregularities",
     "/gb/en/uebergepaeck",
-    "/gb/en/freigepaeck-regeln",
     "/gb/en/sports-baggage",
-    "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+    "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg",
     "/gb/en/check-in-baggage",
-    "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg"
+    "/gb/en/freigepaeck-regeln",
+    "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay"
    ]
   },
   {
@@ -1490,11 +1490,11 @@
     "/gb/en/automatic-check-in",
     "/gb/en/online-check-in",
     "/gb/en/check-in-with-the-family",
-    "/gb/en/common/agb-extra-services-at-online-check-in",
     "/gb/en/online-check-in-info",
+    "/gb/en/common/agb-extra-services-at-online-check-in",
     "/gb/en/upgrades-at-online-check-in",
-    "/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
-    "/gb/en/prepare-for-your-trip/baggage/baggage-conditions"
+    "/gb/en/prepare-for-your-trip/baggage/baggage-conditions",
+    "/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation"
    ]
   },
   {
@@ -1583,14 +1583,14 @@
    "edgeTop": [
     "/gb/en/lounges",
     "/gb/en/lounge-companions",
-    "/gb/en/first-class-lounges",
     "/gb/en/admission-rules",
+    "/gb/en/first-class-lounges",
     "/gb/en/articles/explore-flying/lufthansa-lounges",
     "/gb/en/articles/explore-flying/new-lufthansa-lounge-newark-interview",
     "/gb/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree",
     "/gb/en/arrival-services",
     "/gb/en/articles/explore-flying/allegris-exclusive-first-class-loungewear",
-    "/gb/en/lufthansa-business-class-on-long-haul-routes"
+    "/gb/en/overview-travel-information"
    ]
   },
   {
@@ -1598,7 +1598,7 @@
    "locale": "gb/en",
    "phrase": "wifi",
    "wwwTotal": 3,
-   "edgeTotal": 19,
+   "edgeTotal": 22,
    "shape": [],
    "top5": [
     {
@@ -1623,10 +1623,10 @@
     "/gb/en/articles/explore-flying/lufthansa-group-wifi",
     "/gb/en/flynet",
     "/gb/en/discover-lufthansa/lufthansa-fleet/351",
-    "/gb/en/lounges",
     "/gb/en/online-check-in",
-    "/gb/en/shopping",
+    "/gb/en/lounges",
     "/gb/en/frankfurt-fair",
+    "/gb/en/shopping",
     "/gb/en/first-class-terminal"
    ]
   },
@@ -1635,7 +1635,7 @@
    "locale": "gb/en",
    "phrase": "pets",
    "wwwTotal": 3,
-   "edgeTotal": 19,
+   "edgeTotal": 20,
    "shape": [],
    "top5": [
     {
@@ -1666,12 +1666,12 @@
     "/gb/en/support/support",
     "/gb/en/help-and-contact",
     "/gb/en/lounges",
-    "/gb/en/travelling-with-animals",
     "/gb/en/digital-self-services",
+    "/gb/en/travelling-with-animals",
     "/gb/en/my-bookings",
-    "/gb/en/articles/explore-the-world/essentials-washington-facts",
     "/gb/en/register-animal-cabin",
-    "/gb/en/book-and-manage/rebook/involuntary-rebooking"
+    "/gb/en/book-and-manage/rebook/involuntary-rebooking",
+    "/gb/en/articles/explore-the-world/essentials-washington-facts"
    ]
   },
   {
@@ -1679,7 +1679,7 @@
    "locale": "gb/en",
    "phrase": "wheelchair",
    "wwwTotal": 4,
-   "edgeTotal": 12,
+   "edgeTotal": 13,
    "shape": [],
    "top5": [
     {
@@ -1711,12 +1711,12 @@
     "/gb/en/wheelchair-batteries",
     "/gb/en/passengers-using-wheelchairs",
     "/gb/en/mobility-partner-program-healthcare",
+    "/gb/en/besondere-befoerderungsbedingungen-bus",
     "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
     "/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
-    "/gb/en/besondere-befoerderungsbedingungen-bus",
+    "/gb/en/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
     "/gb/en/rail-and-fly",
     "/gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries",
-    "/gb/en/articles/explore-flying/lufthansa-innovation-hub-future-of-flying",
     "/gb/en/lufthansa-express-rail"
    ]
   },
@@ -1760,12 +1760,12 @@
     "/gb/en/discover-lufthansa/miles-and-more-credit-card",
     "/gb/en/miles-and-more",
     "/gb/en/cash-and-miles",
+    "/gb/en/hotel-offers",
     "/gb/en/support/support",
     "/gb/en/help-and-contact",
-    "/gb/en/hotel-offers",
     "/gb/en/book-and-manage/additional-services/get-your-guide",
-    "/gb/en/doctor-on-board",
     "/gb/en/upgrade-to-premium-economy-class",
+    "/gb/en/doctor-on-board",
     "/gb/en/feedback"
    ]
   },
@@ -1810,8 +1810,8 @@
     "/gb/en/advance-seat-reservation",
     "/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation",
     "/gb/en/prepare-for-your-trip/travelling-with-children/planning-with-kids",
-    "/gb/en/overview-manage",
     "/gb/en/additional-services",
+    "/gb/en/overview-manage",
     "/gb/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
     "/gb/en/support/support",
     "/gb/en/help-and-contact"
@@ -1856,13 +1856,13 @@
     "/gb/en/book-and-manage/rebook",
     "/gb/en/book-and-manage/rebook/involuntary-rebooking",
     "/gb/en/book-and-manage/rebook/voluntary-rebooking",
-    "/gb/en/upgrade-info",
     "/gb/en/advance-seat-reservations-terms-and-conditions",
+    "/gb/en/upgrade-info",
     "/gb/en/overview-manage",
     "/gb/en/digital-self-services",
+    "/gb/en/sepa-terms-and-conditions-b",
     "/gb/en/prepare-for-your-trip/current-travel-information",
-    "/gb/en/flight-disruptions",
-    "/gb/en/common/baggage-conditions"
+    "/gb/en/support/support"
    ]
   },
   {

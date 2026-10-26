@@ -12,9 +12,9 @@
  * - Words joined by inner punctuation also count joined ("Wi-Fi" is found by "wifi"); a word
  *   that holds a term of six letters or more inside counts half (compounds: "Ticketumbuchungen"
  *   for "Umbuchung"), a longer word starting with the term 0.8.
- * - Ranking: BM25F over the fields title (boost 4), headings (2), path (2: the page's name and
+ * - Ranking: BM25F over the fields title (boost 5), headings (2), path (4: the page's name and
  *   its parent's, from the Parent metadata, as www's search reads its content tree),
- *   description (3) and content (1), with length normalisation (b 0.75, k1 1.2) and the terms'
+ *   description (4) and content (1), with length normalisation (b 0.9, k1 1.2) and the terms'
  *   rarity in the locale; 20 % more when the whole phrase stands in the title. Ties: the shorter
  *   path first. Weights tuned on www's recorded answers (compare-search.mjs).
  * - Pages with hide-in-search: true are left out. At most 30 results (www's limit).
@@ -26,7 +26,7 @@
 export const MAX_RESULTS = 30;
 export const PAGE_SIZE = 10;
 const WEIGHTS = {
-  title: 4, headings: 2, path: 2, description: 3, content: 1,
+  title: 5, headings: 2, path: 4, description: 4, content: 1,
 };
 const STOPWORDS = new Set([
   'a', 'an', 'and', 'or', 'the', 'of', 'to', 'in', 'on', 'for', 'with', 'at', 'by', 'from', 'is', 'my',
@@ -129,7 +129,7 @@ function termCounts(prepared, term) {
 // BM25F (www's search is a full text index with length-normalised relevance): field boosts are
 // WEIGHTS, length normalisation B per field, saturation K1
 const K1 = 1.2;
-const B = 0.75;
+const B = 0.9;
 
 function bm25(counts, prepared, avg, idf) {
   let tf = 0;

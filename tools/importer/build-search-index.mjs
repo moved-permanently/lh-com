@@ -5,7 +5,7 @@
  * title (the Title metadata, as <title>), description (the Description row; without one, Edge
  * Delivery's default: the first paragraph of 10 words or more, its first 25 words), image (the
  * Image row), headings (h1 to h3), content (paragraphs, list items and links alone in a block
- * cell, 40 words each), parent (the Parent row), hide-in-search, lastModified (the file's
+ * cell), parent (the Parent row), hide-in-search, lastModified (the file's
  * time). For the diff and the tests before the indexes fill on the site (on publish).
  *
  * Usage: node tools/importer/build-search-index.mjs [--out <dir>]
@@ -72,8 +72,7 @@ export function searchRows(locale, contentDir = path.join(root, 'content')) {
         description,
         image,
         headings: JSON.stringify([...main.matchAll(/<h[1-3][^>]*>([\s\S]*?)<\/h[1-3]>/g)].map((m) => text(m[1])).filter(Boolean)),
-        content: JSON.stringify([...paragraphs, ...items, ...cellLinks]
-          .map((t) => firstWords(t, 40))),
+        content: JSON.stringify([...paragraphs, ...items, ...cellLinks]),
         parent: (() => {
           const m = metaAt >= 0 && html.slice(metaAt).match(/<div><div>Parent<\/div><div>[\s\S]*?href="([^"]*)"/);
           return m ? decode(m[1]).replace(/^https?:\/\/[^/]+/, '') : '';

@@ -779,7 +779,9 @@ indices:
   # Site search (package 7): one index per locale, read by the search-results block and by
   # lh-edge's POST /service/secured/api/search (scripts/site-search.js scores both). headings
   # and content are lists (values); content is the running text (paragraphs, list items and
-  # links alone in a block cell, 40 words each), not the block configuration cells. Pages with the metadata
+  # links alone in a block cell), not the block configuration cells. (A function around
+  # textContent in `values` joins the list into one value: words(...) kept only the first 40
+  # words of the page, so the text is indexed whole.) Pages with the metadata
   # hide-in-search: true stay in the index and are left out by the block and lh-edge.
   search-de-en:
     include:
@@ -809,7 +811,7 @@ indices:
         values: textContent(el)
       content:
         select: main p, main li, main div > a
-        values: words(textContent(el), 0, 40)
+        values: textContent(el)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")
@@ -848,7 +850,7 @@ indices:
         values: textContent(el)
       content:
         select: main p, main li, main div > a
-        values: words(textContent(el), 0, 40)
+        values: textContent(el)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")
@@ -887,7 +889,7 @@ indices:
         values: textContent(el)
       content:
         select: main p, main li, main div > a
-        values: words(textContent(el), 0, 40)
+        values: textContent(el)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")
@@ -926,7 +928,7 @@ indices:
         values: textContent(el)
       content:
         select: main p, main li, main div > a
-        values: words(textContent(el), 0, 40)
+        values: textContent(el)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")

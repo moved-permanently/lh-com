@@ -17,4 +17,4 @@ Label rows (optional, `label | text`): Input label, Search button label, Search 
 
 ## Index
 
-`helix-query.yaml` `search-<cc>-<ll>` (target `/<cc>/<ll>/search-index.json`): every page of the locale except nav, footer, fragments, drafts, form confirmation pages, the search page itself and the article configuration. Fields: title, description, image, headings (h1 to h3, list), content (paragraphs, list items and links alone in a block cell, 40 words each, list), parent, hide-in-search, lastModified. Rows exist once the pages are published.
+`helix-query.yaml` `search-<cc>-<ll>` (target `/<cc>/<ll>/search-index.json`): every page of the locale except nav, footer, fragments, drafts, form confirmation pages, the search page itself and the article configuration. Fields: title, description, image, headings (h1 to h3, list), content (paragraphs, list items and links alone in a block cell, list), parent, hide-in-search, lastModified. Rows exist once the pages are published.
