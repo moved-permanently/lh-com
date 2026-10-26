@@ -1,0 +1,110 @@
+/* Page check (DA library plugin): compact panel styles */
+body {
+  margin: 0;
+  padding: 12px;
+  color: #1d1d1d;
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+button {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: #3b63fb;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+#status {
+  margin: 8px 0;
+  color: #505050;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.score.overall {
+  font-size: 16px;
+}
+
+.badge {
+  min-width: 56px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.badge-good {
+  background: #d4f7dc;
+  color: #0d6a2c;
+}
+
+.badge-warning {
+  background: #fff0c2;
+  color: #7a5600;
+}
+
+.badge-poor {
+  background: #ffd9d9;
+  color: #9b1c1c;
+}
+
+#issues {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issue {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid #e1e1e1;
+}
+
+.severity {
+  padding: 0 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.severity.high {
+  background: #ffd9d9;
+  color: #9b1c1c;
+}
+
+.severity.medium {
+  background: #fff0c2;
+  color: #7a5600;
+}
+
+.severity.low {
+  background: #e8eefc;
+  color: #2c4a9b;
+}
+
+#checks label {
+  display: block;
+  padding: 2px 0;
+}
