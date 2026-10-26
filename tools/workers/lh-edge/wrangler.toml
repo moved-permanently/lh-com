@@ -24,7 +24,19 @@ service = "lh-backends"
 binding = "DAM_MEDIA"
 bucket_name = "lh-dam-media"
 
+# publish events (src/events.js): the relay's position and the last 500 events, one key, written
+# only when events arrive or the position moves (Workers Free: about 1,000 KV writes a day for
+# the account). Secrets (not here): AUDIT_LOG_KEY (lh-com API key, author role: reads the audit
+# log), WEBHOOK_TOKEN (the site config webhook's token), EVENTS_SINK_URL (optional: where each
+# event is POSTed; unset, the relay logs what it would send).
+[[kv_namespaces]]
+binding = "EVENTS"
+id = "14bc4c87921a41179f044e3d635919d5"
+
 [vars]
+# the audit log the publish events come from, and its org/site (checked on the webhook body)
+EVENTS_LOG = "https://admin.hlx.page/log/moved-permanently/lh-com/main"
+EVENTS_SITE = "moved-permanently/lh-com"
 # the Edge Delivery origin (the reference Worker's ORIGIN_HOSTNAME)
 ORIGIN = "main--lh-com--moved-permanently.aem.live"
 # X-Forwarded-Host towards the origin: the public host of the site (empty: the request's host)

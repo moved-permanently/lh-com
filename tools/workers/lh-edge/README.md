@@ -20,11 +20,15 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `EDGE_CACHE_VERSION` | added to every origin request lh-edge caches at the edge as `?lh-edge-cache=<value>` (Cloudflare's cache key is the URL); **a new value drops lh-edge's edge cache** (see "Dropping the edge cache"); empty: not added |
 | `CORS_ORIGINS` | GraphQL feeds: origins that get `Access-Control-Allow-Origin` (comma list: a domain is the domain and its subdomains, `*` one label, `localhost` any port; https only except localhost): the group's domains, the lh-com hosts, localhost |
 | secret `ORIGIN_AUTHENTICATION` | `Authorization: token …` towards the origin, when the site needs one |
+| `EVENTS_LOG`, `EVENTS_SITE` | publish events: the audit log URL (`https://admin.hlx.page/log/<org>/<site>/main`) and `<org>/<site>`, which the webhook body must name |
+| KV `EVENTS`; secrets `AUDIT_LOG_KEY`, `WEBHOOK_TOKEN`, `EVENTS_SINK_URL` | publish events: the relay's state (one key); the site's API key with the author role (reads the audit log); the site config webhook's token; optional: where each event is POSTed (unset: logged) |
 
 ## Routes (first match wins, `src/index.js` `ROUTES`)
 
 | Route | Match | Answer |
 | --- | --- | --- |
+| `events` | GET/HEAD `/_lh/events.json` | the last 500 publish events, newest first (`src/events.js`, see "Publish events"); `cache-control: no-store` |
+| `events-webhook` | POST `/_lh/events/webhook` | the site config's webhook: reads the audit log range of its `nextToken` (see "Publish events") |
 | `well-known` | `/.well-known/assetlinks.json`, `/.well-known/apple-app-site-association` | www's files byte for byte (`src/well-known.js`, generated from `tools/source-export/feeds/well-known/` by `build-well-known.mjs`), `application/json` |
 | `message-center` | `/graphql/execute.json/Message-Center/*` | the messages Worker through the service binding `MESSAGES` |
 | `graphql` | GET/HEAD/OPTIONS `/graphql/execute.json/<config>/<query>[;name=value...]` (other configurations than Message-Center) | www's persisted queries from the structured content under `/data/` (`src/graphql.js`, see "GraphQL feeds"); `application/json`, `cache-control: public, max-age=120` |
@@ -156,12 +160,36 @@ Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>
 - `POST /apps/dcep/deeplink/goodfortrain/stele` (`src/g4t.js`, Good for Train kiosks): form fields `Country`, `Language`, `Filekey`, `Ticketnumber`, `Lastname`; the answer is www's small HTML page: it stores the booking pair in `sessionStorage` (key `dcep-session-storage/<name>`, value the JSON string: `pnrfilekey` and `lastname`, or without a file key `ticketnumber` and `lastname`; nothing without a last name), then sets `window.location` to `/<cc>/<ll>/common/g4t-kiosk.solo_continue` (a plain GET; www has no such page today, so the replica's 404 as www). Unknown country: de; unknown language: the market's default. Nothing logged or cached.
 - `GET /apps/selectlanguage?tenant=<tenant>&country=<cc>` (`src/select-language.js`): `{"languages":[{"code","name","isDefault"}]}` for the replica's languages of the market (English language names, `isDefault` false), empty for other markets, another tenant than `lh` or no parameters; `cache-control: max-age=604800`.
 
+## Publish events (`src/events.js`, package 6)
+
+www's authoring system posts one JSON message per page or fragment it publishes or withdraws: `{contentType: PAGE|EXP_FRAGMENT|CONTENT_FRAGMENT, contentPath, contentChangeType: CREATE_MODIFY|DELETE, env}`. lh-edge makes the same messages from lh-com's own publishing, read from the site's audit log (`EVENTS_LOG`, header `authorization: token <AUDIT_LOG_KEY>`, `limit=200` per read so one run stays within the CPU limit):
+
+- **Poller:** the RPC entrypoint `EventsRelay` (`export class EventsRelay` in `src/index.js`, no route: reachable only over a service binding). lh-messages' every-minute cron calls `env.EVENTS_RELAY.poll()` (the account's five cron triggers are all in use). It reads from the stored position: the next page of a stored window (`from`, `to`, `nextToken`), else from the last `to` minus 60 s (the first run: the last 60 s) to now.
+- **Webhook:** `POST /_lh/events/webhook`, body `{org, site, nextToken}`, header `authorization: token <WEBHOOK_TOKEN>` (compared in constant time; 401 without or with a wrong token, 400 for another org/site, 503 without the secret). It reads the range of its `nextToken` and does not move the poller, which stays as the safety net.
+- **Kept:** per-resource entries with `route: live`: publish (`POST`, 200) and unpublish (`DELETE`, 204). Not kept: preview, bulk requests (202 with `paths`), job summaries (`job`, `path: /*`), snapshots, sheets (`.json`), media and other files, and every path the mapping does not know.
+- **Deduplicated:** an entry already stored (the overlap reads it again) and the same path and change within 120 s.
+- **Mapping version 1** (`mapPath`, `MAPPING_VERSION`; `contentChangeType` `CREATE_MODIFY` for publish, `DELETE` for unpublish; `env` `prod`):
+
+| Edge Delivery path | `contentType` | `contentPath` |
+| --- | --- | --- |
+| `/<cc>/<ll>` and `/<cc>/<ll>/<page>` | `PAGE` | `/content/lh/markets/<cc>/<ll>[/<page>]` |
+| `/content/lh/markets/...` (LoungeNet), `/content/mobile/...` (app pages) | `PAGE` | the same path |
+| `/<cc>/<ll>/nav`, `/<cc>/<ll>/footer`, `/<cc>/<ll>/fragments/<name>` | `EXP_FRAGMENT` | `/content/experience-fragments/lh/markets/<cc>/<ll>/<nav, footer or name>` |
+| `/data/<path>`, `/data/details/<path>` (a fragment's long texts) | `CONTENT_FRAGMENT` | `/content/dam/<path>` |
+| `/message-center/<type>/<id>/<ll>` | `CONTENT_FRAGMENT` | `/content/dam/lufthansa-group/message-center/<type>/<id>` (lh-messages' `_path`; the languages are variations of one fragment) |
+| `/message-center/config/cti-pages.json` | `CONTENT_FRAGMENT` | `/content/dam/lufthansa-group/message-center/config/cti-pages-for-all-tenants` |
+| other `/message-center/...` documents | `CONTENT_FRAGMENT` | `/content/dam/lufthansa-group/message-center/...` |
+| sheets, `/content/dam/*` files, `/lhg/`, `/drafts/`, `/library/`, `/.helix/`, root documents | none | |
+
+- **State:** KV `EVENTS`, one key `state`: `{position, events}` (the last 500 events). Written only when events were added, the position moved to another page of the log or back to its live end, or it is older than 6 hours; never on a quiet poll.
+- **Output:** `GET /_lh/events.json`: `{mappingVersion, position, total, events}`, the events newest first with their AEM fields, `timestamp` and Edge Delivery `path`. Each new event is POSTed to `EVENTS_SINK_URL` as the four AEM fields, up to 5 tries (1, 2, 4, 8 s back-off; 4xx other than 429 not retried), in `waitUntil`; without the secret the relay logs what it would send.
+
 ## Public host
 
 Absolute links of the app screens (other screens, images) use `X-LH-Public-Host` (a CDN in front that sends chosen paths to lh-edge), else `X-Forwarded-Host`, else `PUBLIC_HOST`, else the request's host.
 
 ## Tests and deployment
 
-`npm test` (Node 24, no install; `fetch` mocked, `test/htmlrewriter-shim.mjs` stands in for the runtime's HTMLRewriter): one test per route and the pass-through. `.github/workflows/deploy-lh-edge.yaml` tests and deploys on pushes to main that touch this folder (secret `CLOUDFLARE_API_TOKEN`).
+`npm test` (Node 24, no install; `fetch` mocked, `test/htmlrewriter-shim.mjs` stands in for the runtime's HTMLRewriter, `test/cloudflare-workers-shim.mjs` (a loader hook) for `cloudflare:workers`): one test per route and the pass-through. `.github/workflows/deploy-lh-edge.yaml` tests and deploys on pushes to main that touch this folder (secret `CLOUDFLARE_API_TOKEN`).
 
 `compare-solo.mjs --host <lh-edge host> [--aliases tools/source-export/feeds/webviews/webview-aliases.csv]` renders every solo URL of www's recording (`tools/source-export/feeds/webviews/www-solo-pages.json`) on the lh-edge host in a headless browser and compares title, headings, the text of `<main>` (as recorded: textContent without scripts and styles; Dice coefficient of word bigrams), links that leave the app view, and whether header, footer, breadcrumb or consent render. `--aliases` requests the alias target directly (before the alias sheet is published). Output: `tools/reports/lh-edge/compare-solo.md` and `.json`.

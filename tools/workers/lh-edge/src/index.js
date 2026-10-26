@@ -5,6 +5,8 @@
  * reference Worker (src/edge.js). Hosts and origins are [vars], secrets are secrets, bindings
  * have generic names: the Worker moves to another account and zone unchanged. See README.md.
  */
+// eslint-disable-next-line import/no-unresolved -- Workers runtime module (tests: a shim)
+import { WorkerEntrypoint } from 'cloudflare:workers';
 import { prelude, passThrough } from './edge.js';
 import { solo, soloPath } from './solo.js';
 import { sdui, isSduiPath } from './sdui-route.js';
@@ -21,6 +23,9 @@ import { g4tKiosk, G4T_PATH } from './g4t.js';
 import { selectLanguage, SELECT_LANGUAGE_PATH } from './select-language.js';
 import { owa, OWA } from './owa.js';
 import WELL_KNOWN from './well-known.js';
+import {
+  relay, eventsList, eventsWebhook, EVENTS_PATH, WEBHOOK_PATH,
+} from './events.js';
 
 /** The App Links / Universal Links files of www, byte for byte, as application/json. */
 function wellKnown(request) {
@@ -45,6 +50,17 @@ async function messages(request, env) {
  * Packages add their routes before login-return, entry and backends; pass-through comes last.
  */
 export const ROUTES = [
+  {
+    // publish events (package 6): the stored events and the site config's webhook
+    name: 'events',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && url.pathname === EVENTS_PATH,
+    handle: eventsList,
+  },
+  {
+    name: 'events-webhook',
+    match: (url, request) => request.method === 'POST' && url.pathname === WEBHOOK_PATH,
+    handle: eventsWebhook,
+  },
   {
     name: 'well-known',
     match: (url) => Object.prototype.hasOwnProperty.call(WELL_KNOWN, url.pathname),
@@ -146,3 +162,19 @@ export default {
     return routeOf(request).handle(request, env, ctx);
   },
 };
+
+/**
+ * The publish event poller, an RPC entrypoint for service bindings only (no route): lh-messages'
+ * every-minute cron calls env.EVENTS_RELAY.poll() (the account's cron triggers are all in use).
+ */
+export class EventsRelay extends WorkerEntrypoint {
+  async poll() {
+    try {
+      return await relay(this.env, this.ctx, { source: 'poll' });
+    } catch (e) {
+      // eslint-disable-next-line no-console -- the poll's error goes to the Worker log
+      console.log(`events poll: ${e.message}`);
+      return { ok: false, error: e.message };
+    }
+  }
+}
