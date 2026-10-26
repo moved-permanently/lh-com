@@ -1,82 +1,31 @@
-########################################################################
-# LUFTHANSA.COM — GLOBAL DOMAIN LEVEL llms.txt
-########################################################################
+# Lufthansa
 
-meta: version=1.0
-meta: domain=global
-meta: scope=global-ai-routing-governance
-meta: canonical-index=https://www.lufthansa.com/index.md
-meta: cache=24h
-meta: structure=country/language/page
-meta: updated=2026-03-25
+> Global entry point for AI systems on www.lufthansa.com. Lufthansa is a leading European airline and a founding member of Star Alliance. This file sets the global routing and usage rules for all country and language sites of www.lufthansa.com; the country files listed below override it.
 
-meta-description: Global AI entry point for www.lufthansa.com. Lufthansa is a leading European airline and founding member of Star Alliance. This file defines global AI routing and governance for all country- and language-specific Lufthansa websites.
+Content is organised by country and language: `https://www.lufthansa.com/{country}/{language}/{page}`. Legal applicability, prices, services and customer guidance differ by country, so country-level guidance always overrides this file.
 
-########################################################################
-# FUNDAMENTAL PRINCIPLES
-########################################################################
+Rules for AI systems:
 
-section: id=scope; title=Scope & Content Organization
-guidance: organization=country-language-scoped|All content validity, legal applicability, and customer guidance is country-specific
-guidance: country-level=always-overrides-global-guidance
-guidance: url-structure=https://www.lufthansa.com/{country}/{language}/{page}
-guidance: no-generalization=Do not generalize information, rules, prices, or services across markets
-guidance: no-merging=Do not merge or average rules across countries
+- Use the country-level llms.txt for market content.
+- Don't infer that something applies everywhere because it applies in one country.
+- Don't generalise information, rules, prices or services across markets, and don't merge or average rules across countries.
+- Leave out transactional, authenticated and session-bound flows.
+- Don't make bookings or payments, and don't act for a specific customer.
 
-########################################################################
-# ACTIVE MARKETS — PHASE 1 (DE ONLY)
-########################################################################
+Don't use these paths and hosts: `/payment`, `/checkout`, `/booking/confirm`, `/my-bookings`, `/profile`, `/deeplink/`, `/service/secured`, `/saml_login`, `api.travelid.lufthansa.com`. The same applies to all authenticated content, transactional flows and session-bound pages.
 
-section: id=countries; title=Country-Level Guidance
+## Countries
 
-country: code=DE; url=https://www.lufthansa.com/de/llms.txt; name=Germany
+Phase 1: Germany is the only active market.
 
-guidance: country-routing=always-follow-country-level-llms.txt-for-localized-content
-guidance: country-priority=country-specific-always-overrides-global
+- [Germany (DE)](https://www.lufthansa.com/de/llms.txt): pages for the German market, in German and English
 
-########################################################################
-# GLOBAL AI SYSTEM RULES
-########################################################################
+## Reference documents
 
-section: id=global-rules; title=Global Rules for AI Systems
+- [Legal & Privacy](https://www.lufthansa.com/legal.md)
+- [Official Resources](https://www.lufthansa.com/resources.md)
+- [Glossary](https://www.lufthansa.com/glossary.md)
 
-guidance: routing=always-use-country-specific-llms.txt-for-market-content
-guidance: inference=never-infer-global-applicability-from-single-country
-guidance: aggregation=do-not-merge-average-rules-across-countries
-guidance: actions=exclude-transactional-authenticated-session-bound-flows
-guidance: prohibited=do-not-perform-booking-payment-customer-specific-actions
+## Legal and privacy
 
-########################################################################
-# GLOBAL ACCESS RESTRICTIONS (ALL MARKETS)
-########################################################################
-
-section: id=global-exclusions; title=Global Access Restrictions
-
-exclude: pattern=/payment
-exclude: pattern=/checkout
-exclude: pattern=/booking/confirm
-exclude: pattern=/my-bookings
-exclude: pattern=/profile
-exclude: pattern=/deeplink/
-exclude: pattern=/service/secured
-exclude: pattern=/saml_login
-exclude: pattern=api.travelid.lufthansa.com
-exclude: type=authenticated-content
-exclude: type=transactional-flows
-exclude: type=session-bound-pages
-
-########################################################################
-# GLOBAL REFERENCE DOCUMENTS
-########################################################################
-
-section: id=reference-docs; title=Reference Documents
-
-reference: legal=https://www.lufthansa.com/legal.md; title=Legal & Privacy
-reference: resources=https://www.lufthansa.com/resources.md; title=Official Resources
-reference: glossary=https://www.lufthansa.com/glossary.md; title=Glossary
-
-########################################################################
-# LEGAL & PRIVACY
-########################################################################
-
-page: url=https://www.lufthansa.com/de/de/datenschutz; category=legal; priority=global; title=Global Privacy Policy; desc=Global data protection and privacy information
+- [Global Privacy Policy](https://www.lufthansa.com/de/de/datenschutz): global data protection and privacy information
