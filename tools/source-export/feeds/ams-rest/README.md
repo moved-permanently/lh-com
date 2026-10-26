@@ -12,6 +12,7 @@ the response headers (`x-dispatcher` present = answered by AEM; its values are b
 | `selectors/` | `csi-xf-markets-de.json` (`/content/experience-fragments/lh/markets/de.csi-xf.json`), `csi-xf-gc-en.json` (`/content/experience-fragments/lh/gc/en.csi-xf.json`), `csi-offline-full.json` (`/content/lh/markets/de/en/homepage.csi-offline.json`) | 80 (A3) |
 | `static/service-worker.js` | `/service-worker.js` as www serves it (`application/javascript`, `public, max-age=21600`) | 80 (A3) |
 | `sitemap/sitemap_lh.xml` | the unzipped sitemap index `/sitemap/sitemap_lh.xml.gz` (499 entries, lastmod 2026-10-25 22:00 UTC) | 84 (A7) |
+| `sitemap/sitemap_lh_de_en.xml.gz` | www's de/en sitemap `/sitemap/sitemap_lh_de_en.xml.gz` as served (gzip, 186,171 bytes; 144 URLs with their hreflang alternates), recorded 2026-10-26 21:54 UTC in a browser tab on www; for A7's alternates spot check | 84 (A7) |
 
 Small answers that are only in `index.json` (no body file): `/apps/selectlanguage` without parameters
 (`{"languages":[]}`) and with `?tenant=lh&country=de`
