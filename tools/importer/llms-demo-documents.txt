@@ -1,0 +1,5 @@
+/at/de/homepage
+/at/de/fluege
+/at/de/online-check-in
+/at/de/gepaeck
+/at/de/flugplan-und-flugstatus

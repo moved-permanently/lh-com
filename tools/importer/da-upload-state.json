@@ -96,9 +96,9 @@
    "preview": "2026-10-24T01:05:33.320Z"
   },
   "/de/en/feedback": {
-   "uploaded": "2026-10-24T04:17:03.467Z",
-   "mtime": 1792815308845,
-   "preview": "2026-10-24T04:17:05.322Z"
+   "uploaded": "2026-10-26T21:07:03.056Z",
+   "mtime": 1793048425314,
+   "preview": "2026-10-26T21:07:04.978Z"
   },
   "/de/en/online-check-in": {
    "uploaded": "2026-10-24T10:37:14.807Z",
@@ -2997,9 +2997,9 @@
    "preview": "2026-10-24T04:24:45.801Z"
   },
   "/de/de/feedback": {
-   "uploaded": "2026-10-24T04:24:47.626Z",
-   "mtime": 1792815308871,
-   "preview": "2026-10-24T04:24:49.487Z"
+   "uploaded": "2026-10-26T21:06:28.373Z",
+   "mtime": 1793048425021,
+   "preview": "2026-10-26T21:06:30.430Z"
   },
   "/de/de/feedback-past-flight": {
    "uploaded": "2026-10-26T16:29:07.795Z",
@@ -4447,9 +4447,9 @@
    "preview": "2026-10-24T04:29:20.700Z"
   },
   "/at/de/feedback": {
-   "uploaded": "2026-10-24T04:29:22.997Z",
-   "mtime": 1792815308901,
-   "preview": "2026-10-24T04:29:24.827Z"
+   "uploaded": "2026-10-26T21:05:52.036Z",
+   "mtime": 1793048424713,
+   "preview": "2026-10-26T21:05:54.104Z"
   },
   "/at/de/feedback-past-flight": {
    "uploaded": "2026-10-26T16:26:08.671Z",
@@ -5907,9 +5907,9 @@
    "preview": "2026-10-24T04:33:34.397Z"
   },
   "/gb/en/feedback": {
-   "uploaded": "2026-10-24T04:33:36.123Z",
-   "mtime": 1792815308935,
-   "preview": "2026-10-24T04:33:38.134Z"
+   "uploaded": "2026-10-26T21:07:37.464Z",
+   "mtime": 1793048425612,
+   "preview": "2026-10-26T21:07:39.379Z"
   },
   "/gb/en/feedback-past-flight": {
    "uploaded": "2026-10-26T16:35:17.118Z",
@@ -6597,24 +6597,24 @@
    "preview": "2026-10-25T03:26:27.234Z"
   },
   "/at/de/book-and-manage/passenger-receipt-90days/confirmation": {
-   "uploaded": "2026-10-25T03:26:28.559Z",
-   "mtime": 1792898514035,
-   "preview": "2026-10-25T03:26:30.501Z"
+   "uploaded": "2026-10-26T21:05:44.823Z",
+   "mtime": 1793048424647,
+   "preview": "2026-10-26T21:05:46.915Z"
   },
   "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
-   "uploaded": "2026-10-25T03:26:32.207Z",
-   "mtime": 1792898514171,
-   "preview": "2026-10-25T03:26:34.020Z"
+   "uploaded": "2026-10-26T21:05:55.924Z",
+   "mtime": 1793048424743,
+   "preview": "2026-10-26T21:05:57.746Z"
   },
   "/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
-   "uploaded": "2026-10-25T03:26:35.238Z",
-   "mtime": 1792898514303,
-   "preview": "2026-10-25T03:26:36.977Z"
+   "uploaded": "2026-10-26T21:05:59.113Z",
+   "mtime": 1793048424773,
+   "preview": "2026-10-26T21:06:01.151Z"
   },
   "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
-   "uploaded": "2026-10-25T03:26:38.462Z",
-   "mtime": 1792898514440,
-   "preview": "2026-10-25T03:26:40.529Z"
+   "uploaded": "2026-10-26T21:06:02.546Z",
+   "mtime": 1793048424805,
+   "preview": "2026-10-26T21:06:04.498Z"
   },
   "/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
    "uploaded": "2026-10-25T03:26:41.827Z",
@@ -6622,14 +6622,14 @@
    "preview": "2026-10-25T03:26:43.539Z"
   },
   "/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
-   "uploaded": "2026-10-25T03:26:44.909Z",
-   "mtime": 1792898514687,
-   "preview": "2026-10-25T03:26:46.824Z"
+   "uploaded": "2026-10-26T21:06:06.452Z",
+   "mtime": 1793048424840,
+   "preview": "2026-10-26T21:06:08.504Z"
   },
   "/at/de/support/contact/contact-form-confirmation": {
-   "uploaded": "2026-10-25T03:26:48.279Z",
-   "mtime": 1792898513855,
-   "preview": "2026-10-25T03:26:49.879Z"
+   "uploaded": "2026-10-26T21:06:10.159Z",
+   "mtime": 1793048424872,
+   "preview": "2026-10-26T21:06:12.204Z"
   },
   "/de/de/book-and-manage/cancellation-and-refund/refund/confirmation": {
    "uploaded": "2026-10-25T03:26:51.190Z",
@@ -6637,24 +6637,24 @@
    "preview": "2026-10-25T03:26:52.852Z"
   },
   "/de/de/book-and-manage/passenger-receipt-90days/confirmation": {
-   "uploaded": "2026-10-25T03:26:54.213Z",
-   "mtime": 1792898514003,
-   "preview": "2026-10-25T03:26:56.244Z"
+   "uploaded": "2026-10-26T21:06:20.947Z",
+   "mtime": 1793048424949,
+   "preview": "2026-10-26T21:06:22.966Z"
   },
   "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
-   "uploaded": "2026-10-25T03:26:57.616Z",
-   "mtime": 1792898514136,
-   "preview": "2026-10-25T03:26:59.413Z"
+   "uploaded": "2026-10-26T21:06:31.925Z",
+   "mtime": 1793048425051,
+   "preview": "2026-10-26T21:06:33.834Z"
   },
   "/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
-   "uploaded": "2026-10-25T03:27:00.870Z",
-   "mtime": 1792898514269,
-   "preview": "2026-10-25T03:27:02.751Z"
+   "uploaded": "2026-10-26T21:06:35.282Z",
+   "mtime": 1793048425080,
+   "preview": "2026-10-26T21:06:37.280Z"
   },
   "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
-   "uploaded": "2026-10-25T03:27:04.113Z",
-   "mtime": 1792898514404,
-   "preview": "2026-10-25T03:27:05.748Z"
+   "uploaded": "2026-10-26T21:06:39.116Z",
+   "mtime": 1793048425109,
+   "preview": "2026-10-26T21:06:41.235Z"
   },
   "/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
    "uploaded": "2026-10-25T03:27:07.055Z",
@@ -6662,34 +6662,34 @@
    "preview": "2026-10-25T03:27:08.997Z"
   },
   "/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
-   "uploaded": "2026-10-25T03:27:10.349Z",
-   "mtime": 1792898514658,
-   "preview": "2026-10-25T03:27:11.893Z"
+   "uploaded": "2026-10-26T21:06:42.858Z",
+   "mtime": 1793048425134,
+   "preview": "2026-10-26T21:06:44.711Z"
   },
   "/de/de/support/contact/contact-form-confirmation": {
-   "uploaded": "2026-10-25T03:27:13.528Z",
-   "mtime": 1792898513825,
-   "preview": "2026-10-25T03:27:15.445Z"
+   "uploaded": "2026-10-26T21:06:46.484Z",
+   "mtime": 1793048425165,
+   "preview": "2026-10-26T21:06:48.258Z"
   },
   "/de/en/book-and-manage/passenger-receipt-90days/confirmation": {
-   "uploaded": "2026-10-25T03:27:16.921Z",
-   "mtime": 1792898513971,
-   "preview": "2026-10-25T03:27:18.843Z"
+   "uploaded": "2026-10-26T21:06:56.396Z",
+   "mtime": 1793048425243,
+   "preview": "2026-10-26T21:06:58.252Z"
   },
   "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
-   "uploaded": "2026-10-25T03:27:20.352Z",
-   "mtime": 1792898514101,
-   "preview": "2026-10-25T03:27:22.198Z"
+   "uploaded": "2026-10-26T21:07:06.543Z",
+   "mtime": 1793048425342,
+   "preview": "2026-10-26T21:07:08.631Z"
   },
   "/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
-   "uploaded": "2026-10-25T03:27:24.142Z",
-   "mtime": 1792898514236,
-   "preview": "2026-10-25T03:27:25.902Z"
+   "uploaded": "2026-10-26T21:07:10.308Z",
+   "mtime": 1793048425375,
+   "preview": "2026-10-26T21:07:12.144Z"
   },
   "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
-   "uploaded": "2026-10-25T03:27:27.261Z",
-   "mtime": 1792898514368,
-   "preview": "2026-10-25T03:27:28.884Z"
+   "uploaded": "2026-10-26T21:07:13.715Z",
+   "mtime": 1793048425402,
+   "preview": "2026-10-26T21:07:15.679Z"
   },
   "/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
    "uploaded": "2026-10-25T03:27:30.222Z",
@@ -6697,34 +6697,34 @@
    "preview": "2026-10-25T03:27:31.920Z"
   },
   "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
-   "uploaded": "2026-10-25T03:27:33.265Z",
-   "mtime": 1792898514626,
-   "preview": "2026-10-25T03:27:35.211Z"
+   "uploaded": "2026-10-26T21:07:17.199Z",
+   "mtime": 1793048425427,
+   "preview": "2026-10-26T21:07:19.007Z"
   },
   "/de/en/support/contact/contact-form-confirmation": {
-   "uploaded": "2026-10-25T03:27:36.512Z",
-   "mtime": 1792898513791,
-   "preview": "2026-10-25T03:27:38.753Z"
+   "uploaded": "2026-10-26T21:07:20.432Z",
+   "mtime": 1793048425463,
+   "preview": "2026-10-26T21:07:22.372Z"
   },
   "/gb/en/book-and-manage/passenger-receipt-90days/confirmation": {
-   "uploaded": "2026-10-25T03:27:40.022Z",
-   "mtime": 1792898514068,
-   "preview": "2026-10-25T03:27:41.793Z"
+   "uploaded": "2026-10-26T21:07:30.298Z",
+   "mtime": 1793048425543,
+   "preview": "2026-10-26T21:07:32.200Z"
   },
   "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation": {
-   "uploaded": "2026-10-25T03:27:43.204Z",
-   "mtime": 1792898514205,
-   "preview": "2026-10-25T03:27:44.735Z"
+   "uploaded": "2026-10-26T21:07:40.969Z",
+   "mtime": 1793048425654,
+   "preview": "2026-10-26T21:07:42.727Z"
   },
   "/gb/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation": {
-   "uploaded": "2026-10-25T03:27:46.023Z",
-   "mtime": 1792898514337,
-   "preview": "2026-10-25T03:27:47.751Z"
+   "uploaded": "2026-10-26T21:07:44.224Z",
+   "mtime": 1793048425686,
+   "preview": "2026-10-26T21:07:45.962Z"
   },
   "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation": {
-   "uploaded": "2026-10-25T03:27:49.070Z",
-   "mtime": 1792898514473,
-   "preview": "2026-10-25T03:27:50.781Z"
+   "uploaded": "2026-10-26T21:07:47.384Z",
+   "mtime": 1793048425718,
+   "preview": "2026-10-26T21:07:49.225Z"
   },
   "/gb/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation": {
    "uploaded": "2026-10-25T03:27:52.160Z",
@@ -6732,14 +6732,14 @@
    "preview": "2026-10-25T03:27:54.041Z"
   },
   "/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation": {
-   "uploaded": "2026-10-25T03:27:55.306Z",
-   "mtime": 1792898514714,
-   "preview": "2026-10-25T03:27:57.106Z"
+   "uploaded": "2026-10-26T21:07:50.867Z",
+   "mtime": 1793048425746,
+   "preview": "2026-10-26T21:07:52.660Z"
   },
   "/gb/en/support/contact/contact-form-confirmation": {
-   "uploaded": "2026-10-25T03:27:58.432Z",
-   "mtime": 1792898513885,
-   "preview": "2026-10-25T03:28:00.205Z"
+   "uploaded": "2026-10-26T21:07:54.309Z",
+   "mtime": 1793048425777,
+   "preview": "2026-10-26T21:07:56.099Z"
   },
   "/de/en/local-page/south-africa-winter-promotion": {
    "uploaded": "2026-10-25T06:14:00.224Z",
@@ -6832,14 +6832,14 @@
    "preview": "2026-10-26T16:33:24.175Z"
   },
   "/de/en/common/baggage-conditions": {
-   "uploaded": "2026-10-25T19:01:36.440Z",
-   "mtime": 1792954881450,
-   "preview": "2026-10-25T19:01:38.401Z"
+   "uploaded": "2026-10-26T21:06:59.700Z",
+   "mtime": 1793048425278,
+   "preview": "2026-10-26T21:07:01.600Z"
   },
   "/de/en/book-and-manage/destination": {
-   "uploaded": "2026-10-25T23:08:15.284Z",
-   "mtime": 1792967854740,
-   "preview": "2026-10-25T23:08:18.695Z"
+   "uploaded": "2026-10-26T21:06:53.269Z",
+   "mtime": 1793048425217,
+   "preview": "2026-10-26T21:06:55.029Z"
   },
   "/de/de/support/support": {
    "uploaded": "2026-10-25T20:30:07.387Z",
@@ -6857,14 +6857,14 @@
    "preview": "2026-10-26T16:30:37.189Z"
   },
   "/de/de/common/baggage-conditions": {
-   "uploaded": "2026-10-25T19:01:52.876Z",
-   "mtime": 1792954881582,
-   "preview": "2026-10-25T19:01:54.676Z"
+   "uploaded": "2026-10-26T21:06:24.656Z",
+   "mtime": 1793048424991,
+   "preview": "2026-10-26T21:06:26.643Z"
   },
   "/de/de/book-and-manage/destination": {
-   "uploaded": "2026-10-25T23:08:20.241Z",
-   "mtime": 1792967854768,
-   "preview": "2026-10-25T23:08:22.265Z"
+   "uploaded": "2026-10-26T21:06:17.197Z",
+   "mtime": 1793048424924,
+   "preview": "2026-10-26T21:06:19.294Z"
   },
   "/at/de/support/support": {
    "uploaded": "2026-10-25T20:30:14.677Z",
@@ -6882,14 +6882,14 @@
    "preview": "2026-10-26T16:27:34.315Z"
   },
   "/at/de/common/baggage-conditions": {
-   "uploaded": "2026-10-25T19:02:08.731Z",
-   "mtime": 1792954881710,
-   "preview": "2026-10-25T19:02:10.666Z"
+   "uploaded": "2026-10-26T21:05:48.347Z",
+   "mtime": 1793048424681,
+   "preview": "2026-10-26T21:05:50.440Z"
   },
   "/at/de/book-and-manage/destination": {
-   "uploaded": "2026-10-25T23:08:23.675Z",
-   "mtime": 1792967854796,
-   "preview": "2026-10-25T23:08:25.598Z"
+   "uploaded": "2026-10-26T21:05:41.440Z",
+   "mtime": 1793048424621,
+   "preview": "2026-10-26T21:05:43.237Z"
   },
   "/gb/en/support/support": {
    "uploaded": "2026-10-25T20:30:04.108Z",
@@ -6907,14 +6907,14 @@
    "preview": "2026-10-26T16:36:35.093Z"
   },
   "/gb/en/common/baggage-conditions": {
-   "uploaded": "2026-10-25T19:02:24.979Z",
-   "mtime": 1792954881852,
-   "preview": "2026-10-25T19:02:26.774Z"
+   "uploaded": "2026-10-26T21:07:33.674Z",
+   "mtime": 1793048425579,
+   "preview": "2026-10-26T21:07:35.689Z"
   },
   "/gb/en/book-and-manage/destination": {
-   "uploaded": "2026-10-25T23:08:27.050Z",
-   "mtime": 1792967854827,
-   "preview": "2026-10-25T23:08:29.003Z"
+   "uploaded": "2026-10-26T21:07:27.253Z",
+   "mtime": 1793048425516,
+   "preview": "2026-10-26T21:07:29.000Z"
   },
   "/us/en/dnsmpi": {
    "uploaded": "2026-10-25T19:02:30.927Z",
@@ -11175,24 +11175,24 @@
    "preview": "2026-10-26T02:47:02.458Z"
   },
   "/de/en/articles/authors": {
-   "uploaded": "2026-10-26T02:47:03.676Z",
-   "mtime": 1792982792628,
-   "preview": "2026-10-26T02:47:05.536Z"
+   "uploaded": "2026-10-26T21:06:49.868Z",
+   "mtime": 1793048425190,
+   "preview": "2026-10-26T21:06:51.716Z"
   },
   "/de/de/articles/authors": {
-   "uploaded": "2026-10-26T02:47:06.961Z",
-   "mtime": 1792982792654,
-   "preview": "2026-10-26T02:47:09.005Z"
+   "uploaded": "2026-10-26T21:06:13.590Z",
+   "mtime": 1793048424897,
+   "preview": "2026-10-26T21:06:15.580Z"
   },
   "/at/de/articles/authors": {
-   "uploaded": "2026-10-26T02:47:10.306Z",
-   "mtime": 1792982792679,
-   "preview": "2026-10-26T02:47:12.408Z"
+   "uploaded": "2026-10-26T21:05:36.868Z",
+   "mtime": 1793048424599,
+   "preview": "2026-10-26T21:05:39.834Z"
   },
   "/gb/en/articles/authors": {
-   "uploaded": "2026-10-26T02:47:13.525Z",
-   "mtime": 1792982792704,
-   "preview": "2026-10-26T02:47:15.366Z"
+   "uploaded": "2026-10-26T21:07:23.829Z",
+   "mtime": 1793048425490,
+   "preview": "2026-10-26T21:07:25.728Z"
   },
   "/de/en/articles/authors/alexandra-mikamo": {
    "uploaded": "2026-10-26T02:47:16.510Z",
