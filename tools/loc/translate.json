@@ -72,7 +72,7 @@
         "source": "",
         "location": "/de/en",
         "locales": "/gb/en",
-        "actions": "Rollout, Skip"
+        "actions": "Skip, Rollout"
       },
       {
         "name": "German",
@@ -80,7 +80,7 @@
         "source": "/de/en",
         "location": "/de/de",
         "locales": "/at/de",
-        "actions": "Translate, Rollout, Skip"
+        "actions": "Skip, Translate, Rollout"
       }
     ]
   },

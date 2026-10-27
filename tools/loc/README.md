@@ -77,10 +77,10 @@ read -rs DA_TOKEN && export DA_TOKEN      # paste, Enter: not echoed, not in the
 4. Validate: each URL must exist; uncheck the ones marked "not found" (validate.js 98-116, 147).
    Fragments linked from a page are only added when their link is absolute on lh-com's hosts
    (`source.fragment.hostnames`, validate.js 58-66): add relative `/fragments/` links yourself.
-5. Options: **German → Translate** (Google). **Every language you don't want: Skip.** English
-   starts on **Rollout** in every project (its first action, options/utils/utils.js 139-149), so
-   a German-only project would also roll the English pages out to `/gb/en` unless you set English
-   to Skip. Check that every conflict setting on Options says **merge**.
+5. Options: **German → Translate** (Google), and **English → Rollout** only if `/gb/en` should
+   get the English change too. Every language starts on **Skip** (the first action of its row is
+   preselected, options/utils/utils.js 139-149; `translate.json` lists Skip first), so a project
+   does only what you pick. Check that every conflict setting on Options says **merge**.
 6. The app sends the pages to Google and saves the German pages to `/de/de/<same path>`
    (translate/index.js 106). With `merge` an existing German page is not replaced: the
    differences are marked in it (see "What merge does").
@@ -283,8 +283,8 @@ pages are still www's own, and 75 of 968 differ from the English page where www'
 
 | name | code | source | location | locales | actions |
 |---|---|---|---|---|---|
-| English | en | | `/de/en` | `/gb/en` | Rollout, Skip |
-| German | de | `/de/en` | `/de/de` | `/at/de` | Translate, Rollout, Skip |
+| English | en | | `/de/en` | `/gb/en` | Skip, Rollout |
+| German | de | `/de/en` | `/de/de` | `/at/de` | Skip, Translate, Rollout |
 
 - `name`: matched by `source.language` (options/utils/utils.js 53-63).
 - `code`: the target language for Google (connectors/google/index.js 26, 78); unique, the views
@@ -294,7 +294,9 @@ pages are still www's own, and 75 of 968 differ from the English page where www'
 - `locales`: comma list of full path prefixes; a rollout writes `<locale><path>`
   (rollout/index.js 122-142; options/utils/utils.js 151-164, all active without a
   `default locales` column).
-- `actions`: the first is preselected, Skip is added when missing (options/utils/utils.js 139-149).
+- `actions`: the first is preselected (aem.live, "Translation projects": "the first one listed is
+  the default"), Skip is added when missing (options/utils/utils.js 139-149). Skip comes first, so
+  no project rolls out or translates a language unless the author chooses it.
 - `source`: today the folder a row's translation reads from (translate/translate.js 133-149;
   `/de/en`, the same as the default); with #793/#870 also the root that offers the row's
   Translate. The German row's `location` (`/de/de`) is then the root of its rollout.

@@ -60,8 +60,9 @@ export async function run({ pages = [] } = {}) {
   // formatLangs: actions, locales
   const langs = app.options.formatLangs(structuredClone(config.languages.data), conf);
   const by = Object.fromEntries(langs.map((l) => [l.name, l]));
-  check('English: Rollout first, then Skip; locale /gb/en', by.English.orderedActions.map((a) => a.value).join(',') === 'rollout,skip' && by.English.locales.map((l) => `${l.code}:${l.active}`).join() === '/gb/en:true');
-  check('German: Translate, Rollout, Skip; locale /at/de', by.German.orderedActions.map((a) => a.value).join(',') === 'translate,rollout,skip' && by.German.locales.map((l) => `${l.code}:${l.active}`).join() === '/at/de:true');
+  // the first action is the one a new project preselects: Skip, so an author picks each action
+  check('English: Skip first (preselected), then Rollout; locale /gb/en', by.English.orderedActions.map((a) => a.value).join(',') === 'skip,rollout' && by.English.locales.map((l) => `${l.code}:${l.active}`).join() === '/gb/en:true');
+  check('German: Skip first (preselected), then Translate, Rollout; locale /at/de', by.German.orderedActions.map((a) => a.value).join(',') === 'skip,translate,rollout' && by.German.locales.map((l) => `${l.code}:${l.active}`).join() === '/at/de:true');
   check('no waiting languages (no "source language" column)', langs.every((l) => !l.waitingFor));
   check('unique codes (options.js, rollout.js match languages by code)', new Set(langs.map((l) => l.code)).size === langs.length);
 

@@ -1,6 +1,6 @@
 # translate.json against the localisation app (adobe/da-nx f0c63255)
 
-2026-10-27T06:08:59.781Z
+2026-10-27T16:43:04.590Z
 
 All checks pass.
 
@@ -15,8 +15,8 @@ All checks pass.
 - OK   sync.conflict.behavior default: merge
 - OK   service: {"name":"Google","envs":{"prod":{"origin":"https://translate.da.live/google","link":"https://cloud.google.com/translate/docs/overview"}}}
 - OK   source.language.detect is not read at this commit (da-nx #793 + #870 open)
-- OK   English: Rollout first, then Skip; locale /gb/en
-- OK   German: Translate, Rollout, Skip; locale /at/de
+- OK   English: Skip first (preselected), then Rollout; locale /gb/en
+- OK   German: Skip first (preselected), then Translate, Rollout; locale /at/de
 - OK   no waiting languages (no "source language" column)
 - OK   unique codes (options.js, rollout.js match languages by code)
 - OK   /de/en URLs, English rollout + German translate -> translate view first
