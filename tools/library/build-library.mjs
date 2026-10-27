@@ -2,15 +2,20 @@
 /**
  * Builds lh-com's DA block library from the content: one document per block at
  * content/library/blocks/<block>.html (DA /library/blocks/<block>), one block table per
- * variant (option combination) that occurs on lh-com pages, each a copy of a real page's block
- * with the variant's most common structure, followed by a library-metadata table (description,
+ * variant (option combination) that occurs on lh-com pages: a copy of a real page's block with
+ * the structure the most of the variant's blocks resolve against (structure.mjs chooseModels:
+ * the fields all of them share; a sample with more is cut to them), then, under a heading, one
+ * per other structure the pages use (at least 4 blocks or a tenth of the variant; the Block
+ * Inspector edits every block of a variant with its first table, these are for inserting),
+ * each followed by a library-metadata table (description,
  * fields: the labels the Block Inspector of adobe-rnd/ew-extensions shows, mirroring the
  * table's rows and cells; see tools/library/structure.mjs). Writes the index sheet
  * content/library/blocks.json (sheets blocks, editor, options) and
  * tools/library/library-variants.json (variant -> sample page, pages), which
  * tools/library/check-fields.mjs reads.
  *
- * Left out: header and footer (loaded by the page), channels-demo, and the blocks of the
+ * Left out: header and footer (loaded by the page), channels-demo, micro-frontend (an app
+ * shell), and the blocks of the
  * structured documents under /data/** (DA form documents from the GraphQL import, edited
  * with DA's form editor; their class names are generated ids).
  *
@@ -20,7 +25,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  parse, describeBlockDiv, rowShape, normalizeCell, contentFields, rowCovers, blockCovers,
+  parse, describeBlockDiv, rowShape, normalizeCell, contentFields, fieldType, rowCovers, blockCovers,
+  chooseModels, rowFits, rowIsModel, describeModel,
 } from './structure.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -28,7 +34,8 @@ const CONTENT = path.join(root, 'content');
 const OUT = path.join(CONTENT, 'library/blocks');
 const ORG_SITE = 'moved-permanently/lh-com';
 const SKIP_DIRS = /^(drafts|lhg|library|media-da|data|demo)(\/|$)/;
-const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata']);
+// micro-frontend: the trip-management app shell (its app name and config), not inserted by authors
+const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata', 'micro-frontend']);
 const LOCALE_ORDER = ['/de/en/', '/de/de/', '/gb/en/', '/at/de/', '/us/en/'];
 const MAX_ITEMS = 4;
 
@@ -72,7 +79,9 @@ const SPEC = {
   'fare-teaser': { description: 'Fare teaser: routes from an origin with the lowest live price per destination' },
   feedback: { description: 'Feedback question with its answer choices', rows: { 0: [['Question']], 1: [['Answers']] } },
   'flash-teaser': { description: 'Current messages of the Message Center (disruptions, outages, promotions) at the top of the homepage' },
-  'flight-search': { description: 'Flight search form (origin, destination, dates, travellers) that hands off to the booking' },
+  'flight-search': {
+    multi: true, description: 'Flight search form (origin, destination, dates, travellers) that hands off to the booking; each row is one setting (key and value), optional ones can be added or removed', item: [['Setting'], ['Value']],
+  },
   'flight-status': { description: 'Flight status search by flight number, route or airport' },
   form: { multi: true, description: 'Form built from a field table: a header row naming the columns, then one row per field, heading or text', headerLabels: true },
   fragment: { description: 'Includes the content of another document (fragment), from its link', rows: { 0: [['Fragment link']] } },
@@ -198,6 +207,42 @@ function pickSample(v, spec) {
   return [...best.group].sort(byPage)[0];
 }
 
+/** Removes the fields of a cell beyond the first n (image-only cells keep their spacer paragraphs). */
+function trimCell(cell, n) {
+  normalizeCell(cell);
+  const els = contentFields(cell);
+  const content = els.filter((el) => fieldType(el) !== 'text' || el.textContent.trim());
+  if (els.length <= n || (content.length === n && content.every((el) => fieldType(el) === 'image'))) return;
+  els.slice(n).forEach((el) => el.remove());
+}
+
+/**
+ * The library sample of a model: a real block that resolves against it, preferably one whose
+ * structure is the model exactly (multi: its first item; else every row), then the one with the
+ * most items of the model, from a de/en page where there is one. A sample with more fields than
+ * the model is cut to the model (the fields table describes the sample). Multi: the rows before
+ * its first item are left out (the first row is the item schema).
+ */
+function sampleFor(entry, uses, multi, preferred) {
+  const byPage = (a, b) => (localeRank(a.page) - localeRank(b.page)) || a.page.localeCompare(b.page);
+  // multi: the first item row (the sample starts with it); a fixed block starts with row 1
+  const first = (u) => (multi ? u.d.rows.findIndex((r) => rowFits(entry.model, r)) : 0);
+  const exact = (u) => (multi ? rowIsModel(entry.model, u.d.rows[first(u)]) : u.d.rows.every((r, i) => rowIsModel(entry.model[i], r)));
+  const items = (u) => (multi ? u.d.rows.slice(first(u), first(u) + MAX_ITEMS).filter((r) => rowFits(entry.model, r)).length : 0);
+  // the earlier sample (pickSample) stays when it is the model exactly: no change for authors
+  if (preferred && entry.fit.includes(preferred.d) && first(preferred) === 0 && exact(preferred)) return preferred;
+  const [u] = uses.filter((x) => entry.fit.includes(x.d))
+    .sort((a, b) => (exact(b) - exact(a)) || (first(a) - first(b)) || (items(b) - items(a)) || byPage(a, b));
+  if (first(u) === 0 && exact(u)) return u;
+  const block = u.block.cloneNode(true);
+  if (multi) [...block.children].slice(0, first(u)).forEach((r) => r.remove());
+  const rows = [...block.children];
+  (multi ? [entry.model] : entry.model).forEach((modelRow, ri) => {
+    [...rows[ri].children].forEach((cell, ci) => trimCell(cell, modelRow[ci].length));
+  });
+  return { page: u.page, block, trimmed: !exact(u) };
+}
+
 /** Generic label of one field element. */
 function genericLabel(el, state, spec) {
   if (el.tagName === 'IMG' || el.querySelector('img')) return spec.imageLabel || 'Image';
@@ -306,9 +351,9 @@ const missingSpec = [];
   if (!SPEC[name]) missingSpec.push(name);
   const list = byBlock.get(name).sort((a, b) => (a.opts.length - b.opts.length) || b.uses.length - a.uses.length || a.key.localeCompare(b.key));
   const sections = [];
-  const addVariant = (v, sample, heading) => {
+  const addVariant = (v, sample, heading, extra = {}) => {
     const opts = v.opts.map((o) => OPTION_NOTES[o] || o);
-    const description = `${spec.description || title(name.replace(/-/g, ' '))}${opts.length ? ` (${opts.join(', ')})` : ''}.`;
+    const description = `${spec.description || title(name.replace(/-/g, ' '))}${opts.length ? ` (${opts.join(', ')})` : ''}.${extra.note ? ` ${extra.note}` : ''}`;
     const fields = fieldRows(sample.block, spec);
     const empty = spec.multi && !sample.block.children.length;
     // a multi block needs a first item for its fields; an empty sample gets the description only
@@ -316,7 +361,7 @@ const missingSpec = [];
     sections.push(`<div>${heading ? `<h2>${esc(heading)}</h2>` : ''}${sampleHtml(sample.block, spec)}${meta}</div>`);
     const pages = [...new Set(v.uses.map((u) => u.page))];
     manifest[`${v.key}${heading ? ` [${heading}]` : ''}`] = {
-      block: name, variant: v.opts.join(', '), heading: heading || '', multi: !!spec.multi, sample: sample.page, pages, fieldsOmitted: empty,
+      block: name, variant: v.opts.join(', '), heading: heading || '', multi: !!spec.multi, sample: sample.page, pages, fieldsOmitted: empty, ...(extra.entry ? { entry: extra.entry } : {}), ...(sample.trimmed ? { trimmed: true } : {}),
     };
   };
   list.forEach((v) => {
@@ -329,7 +374,26 @@ const missingSpec = [];
       if (video.length) addVariant({ ...v, uses: video }, best(video.filter((u) => / \{mobile\}/.test(u.block.innerHTML))) || best(video), 'Article header with video');
       return;
     }
-    addVariant(v, pickSample(v, spec));
+    // one entry per structure the pages use (the first: the one the most blocks resolve against;
+    // the Block Inspector edits every block of the variant with it), samples cut to the model
+    const multi = !!spec.multi;
+    const entries = chooseModels(v.uses.map((u) => u.d), multi);
+    if (!entries.length) {
+      addVariant(v, pickSample(v, spec));
+      return;
+    }
+    const label = `${title(name.replace(/-/g, ' '))}${v.opts.length ? ` (${v.opts.join(', ')})` : ''}`;
+    entries.forEach((entry, i) => {
+      const sample = sampleFor(entry, v.uses, multi, i ? null : pickSample(v, spec));
+      if (!i) {
+        addVariant(v, sample);
+        return;
+      }
+      addVariant({ ...v, uses: v.uses.filter((u) => entry.fit.includes(u.d)) }, sample, `${label}: ${describeModel(entry.model, multi)}`, {
+        entry: i + 1,
+        note: `Another structure of this variant (${entry.fit.length} blocks), for inserting it: the Block Inspector edits every block of the variant with the first table of the variant.`,
+      });
+    });
   });
   fs.writeFileSync(path.join(OUT, `${name}.html`), `<body><header></header><main>${sections.join('')}</main><footer></footer></body>\n`);
   index.push({ name: title(name.replace(/-/g, ' ')), path: `https://content.da.live/${ORG_SITE}/library/blocks/${name}` });

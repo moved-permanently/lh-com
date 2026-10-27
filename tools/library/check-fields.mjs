@@ -16,7 +16,7 @@
  *    blocks every row is checked against the item schema.
  *
  * Writes tools/reports/block-library.md (one line per variant) and tools/reports/block-library.json.
- * Usage: node tools/library/check-fields.mjs
+ * Usage: node tools/library/check-fields.mjs [--lib dir] [--out dir] [--compare earlier/block-library.json --named "a; b"]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,9 +27,16 @@ import {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const CONTENT = path.join(root, 'content');
-const LIB = path.join(CONTENT, 'library/blocks');
-const index = JSON.parse(fs.readFileSync(path.join(CONTENT, 'library/blocks.json'), 'utf8'));
-const manifest = JSON.parse(fs.readFileSync(path.join(root, 'tools/library/library-variants.json'), 'utf8'));
+const argv = process.argv.slice(2);
+const opt = (name) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : undefined);
+// --lib dir: another copy of the library (blocks/*.html, blocks.json, library-variants.json)
+const LIB_DIR = opt('lib') ? path.resolve(opt('lib')) : path.join(CONTENT, 'library');
+const LIB = path.join(LIB_DIR, 'blocks');
+const index = JSON.parse(fs.readFileSync(path.join(LIB_DIR, 'blocks.json'), 'utf8'));
+const manifestFile = fs.existsSync(path.join(LIB_DIR, 'library-variants.json')) ? path.join(LIB_DIR, 'library-variants.json') : path.join(root, 'tools/library/library-variants.json');
+const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+// --out dir: where the reports go (default tools/reports)
+const OUT = opt('out') ? path.resolve(opt('out')) : path.join(root, 'tools/reports');
 const multiBlocks = new Set(index.editor.data.filter((r) => r.property === 'multi').map((r) => r.block));
 const LOCALES = ['/de/en/', '/de/de/'];
 
@@ -80,6 +87,8 @@ function checkPage(block, lib, multi, other = { rows: 0 }) {
     other.rows += 1;
     return false;
   }) : [[null, null]];
+  // a multi block without a row of the item's cells has nothing the sidebar can edit
+  if (multi && !rows.length && lib.defs.length) return [`no item row (${d.rows.length} rows, none with ${itemCells} cells)`];
   rows.forEach(([, itemIndex]) => {
     lib.defs.forEach((def) => {
       const row = d.rows[multi ? itemIndex : def.ri];
@@ -103,60 +112,122 @@ const pageBlocks = (page, name, variant) => {
 };
 
 const results = [];
-fs.readdirSync(LIB).filter((f) => f.endsWith('.html')).sort().forEach((file) => {
-  const html = fs.readFileSync(path.join(LIB, file), 'utf8');
-  libraryVariants(html).forEach((item) => {
-    const [name, ...opts] = item.block.className.trim().split(/\s+/);
-    const variant = opts.join(', ');
-    const key = `${variant ? `${name} (${variant})` : name}${item.heading ? ` [${item.heading}]` : ''}`;
-    const multi = multiBlocks.has(name);
-    const info = manifest[key] || { pages: [] };
-    if (info.fieldsOmitted) {
-      results.push({
-        key, status: 'NOTE', text: 'no fields: multi block whose pages have no rows (the extension needs a first item)', pages: info.pages.length,
-      });
-      return;
-    }
-    const lib = checkLibrary(item, multi);
-    if (lib.errors.length) {
-      results.push({
-        key, status: 'LIBRARY', text: lib.errors.join('; '), pages: info.pages.length,
-      }); return;
-    }
-    // every page, and the three named ones
-    const differing = [];
-    const other = { rows: 0 };
-    let blocks = 0;
-    info.pages.forEach((p) => pageBlocks(p, name, variant).forEach((b, i) => {
-      blocks += 1;
-      const issues = checkPage(b, lib, multi, other);
-      if (issues.length) differing.push({ page: i ? `${p} (block ${i + 1})` : p, issues });
-    }));
-    const named = [...LOCALES.map((l) => info.pages.find((p) => p.startsWith(l))), info.pages.find((p) => !LOCALES.some((l) => p.startsWith(l)))].filter(Boolean).slice(0, 3);
-    const namedIssues = named.map((p) => ({ page: p, issues: pageBlocks(p, name, variant).flatMap((b) => checkPage(b, lib, multi)) }));
-    const bad = namedIssues.filter((n) => n.issues.length);
+// the library entries per class combination, in library order: the Block Inspector edits every
+// block of a combination with its first entry (library.js getBlockFieldTemplate: the first match)
+const entries = fs.readdirSync(LIB).filter((f) => f.endsWith('.html')).sort().flatMap((file) => libraryVariants(fs.readFileSync(path.join(LIB, file), 'utf8')).map((item) => {
+  const [name, ...opts] = item.block.className.trim().split(/\s+/);
+  const variant = opts.join(', ');
+  return {
+    item, name, variant, cls: `${name}|${variant}`, key: `${variant ? `${name} (${variant})` : name}${item.heading ? ` [${item.heading}]` : ''}`,
+  };
+}));
+const firstOf = new Map();
+entries.forEach((e) => { if (!firstOf.has(e.cls)) firstOf.set(e.cls, e); });
+// every page of a class combination (the manifest lists a later entry's pages under its own key)
+const classPages = new Map();
+entries.forEach((e) => classPages.set(e.cls, [...new Set([...(classPages.get(e.cls) || []), ...((manifest[e.key] || {}).pages || [])])]));
+entries.forEach(({
+  item, name, variant, cls, key,
+}) => {
+  const multi = multiBlocks.has(name);
+  const later = firstOf.get(cls).item !== item;
+  const info = { ...(manifest[key] || { pages: [] }), pages: classPages.get(cls) };
+  if (info.fieldsOmitted) {
+    results.push({
+      key, status: 'NOTE', text: 'no fields: multi block whose pages have no rows (the extension needs a first item)', pages: info.pages.length,
+    });
+    return;
+  }
+  const lib = checkLibrary(item, multi);
+  if (lib.errors.length) {
+    results.push({
+      key, status: 'LIBRARY', text: lib.errors.join('; '), pages: info.pages.length,
+    }); return;
+  }
+  // every page, and the three named ones
+  const differing = [];
+  const other = { rows: 0 };
+  let blocks = 0;
+  info.pages.forEach((p) => pageBlocks(p, name, variant).forEach((b, i) => {
+    blocks += 1;
+    const issues = checkPage(b, lib, multi, other);
+    if (issues.length) differing.push({ page: i ? `${p} (block ${i + 1})` : p, issues });
+  }));
+  if (later) {
     results.push({
       key,
-      status: bad.length ? 'PAGES' : 'OK',
-      text: bad.length ? bad.map((n) => `${n.page}: ${n.issues.slice(0, 2).join('; ')}`).join(' | ') : `checked ${named.join(', ')}`,
+      status: 'SECOND',
+      text: `fits ${blocks - differing.length} of the ${blocks} blocks of the variant (${firstOf.get(cls).key} fits the others or none); not used by the Block Inspector, which edits the variant with its first entry`,
       pages: info.pages.length,
       blocks,
-      otherRows: other.rows,
+      fits: blocks - differing.length,
       differing,
     });
+    return;
+  }
+  const named = [...LOCALES.map((l) => info.pages.find((p) => p.startsWith(l))), info.pages.find((p) => !LOCALES.some((l) => p.startsWith(l)))].filter(Boolean).slice(0, 3);
+  const namedIssues = named.map((p) => ({ page: p, issues: pageBlocks(p, name, variant).flatMap((b) => checkPage(b, lib, multi)) }));
+  const bad = namedIssues.filter((n) => n.issues.length);
+  results.push({
+    key,
+    status: bad.length ? 'PAGES' : 'OK',
+    text: bad.length ? bad.map((n) => `${n.page}: ${n.issues.slice(0, 2).join('; ')}`).join(' | ') : `checked ${named.join(', ')}`,
+    pages: info.pages.length,
+    blocks,
+    otherRows: other.rows,
+    differing,
   });
 });
 
+// per class combination: the blocks no entry fits (a later entry would fit the others if the
+// Block Inspector picked the entry by structure)
+const byClass = new Map();
+results.forEach((r) => {
+  const cls = r.key.replace(/ \[.*\]$/, '');
+  if (!byClass.has(cls)) byClass.set(cls, []);
+  byClass.get(cls).push(r);
+});
+byClass.forEach((rs) => {
+  if (rs.length < 2 || !rs[0].differing) return;
+  const ids = (r) => new Set((r.differing || []).map((d) => d.page));
+  const none = rs.slice(1).reduce((acc, r) => new Set([...acc].filter((x) => ids(r).has(x))), ids(rs[0]));
+  rs[0].fitByNone = none.size;
+});
+
 const ok = results.filter((r) => r.status === 'OK').length;
+const countCell = (r) => {
+  if (r.status === 'SECOND') return `fits ${r.fits} / ${r.blocks}`;
+  return r.differing ? `${r.differing.length} / ${r.blocks}` : `- / ${r.pages} pages`;
+};
 const libErr = results.filter((r) => r.status === 'LIBRARY');
 const lines = [
   '# Block library check', '',
-  `${new Date().toISOString().slice(0, 10)}. ${results.length} library variants: ${ok} OK on the named pages, ${results.filter((r) => r.status === 'PAGES').length} with named pages that differ, ${libErr.length} with a library error, ${results.filter((r) => r.status === 'NOTE').length} notes. "Blocks differing" counts every block of the variant on all pages that does not resolve against the library table (tools/reports/block-library.json lists them); "Other rows" counts rows of multi blocks with another cell count than the item (label, intro or config rows), which the sidebar shows as items without editable fields.`, '',
-  '| Variant | Result | Detail | Blocks differing / all | Other rows (multi) |', '| --- | --- | --- | --- | --- |',
-  ...results.map((r) => `| ${r.key} | ${r.status} | ${r.text.replace(/\|/g, '\\|')} | ${r.differing ? `${r.differing.length} / ${r.blocks}` : `- / ${r.pages} pages`} | ${r.otherRows || ''} |`), '',
+  `${new Date().toISOString().slice(0, 10)}. ${results.length} library variants: ${ok} OK on the named pages, ${results.filter((r) => r.status === 'PAGES').length} with named pages that differ, ${libErr.length} with a library error, ${results.filter((r) => r.status === 'NOTE').length} notes, ${results.filter((r) => r.status === 'SECOND').length} second structures. "Blocks differing" counts every block of the variant on all pages that does not resolve against the library table (tools/reports/block-library.json lists them); "Other rows" counts rows of multi blocks with another cell count than the item (label, intro or config rows), which the sidebar shows as items without editable fields.`, '',
+  'SECOND: a later library entry of the same variant (another structure its pages use, for inserting it); the Block Inspector edits every block of a variant with the first entry (library.js getBlockFieldTemplate). "No entry fits" counts the blocks of a variant that none of its entries fits.', '',
+  '| Variant | Result | Detail | Blocks differing / all | No entry fits | Other rows (multi) |', '| --- | --- | --- | --- | --- | --- |',
+  ...results.map((r) => `| ${r.key} | ${r.status} | ${r.text.replace(/\|/g, '\\|')} | ${countCell(r)} | ${r.fitByNone ?? ''} | ${r.otherRows || ''} |`), '',
 ];
-fs.mkdirSync(path.join(root, 'tools/reports'), { recursive: true });
-fs.writeFileSync(path.join(root, 'tools/reports/block-library.md'), lines.join('\n'));
-fs.writeFileSync(path.join(root, 'tools/reports/block-library.json'), `${JSON.stringify(results, null, 1)}\n`);
+fs.mkdirSync(OUT, { recursive: true });
+fs.writeFileSync(path.join(OUT, 'block-library.md'), lines.join('\n'));
+fs.writeFileSync(path.join(OUT, 'block-library.json'), `${JSON.stringify(results, null, 1)}\n`);
+// --compare report.json (an earlier run): the counts before and after per variant
+if (opt('compare')) {
+  const before = new Map(JSON.parse(fs.readFileSync(path.resolve(opt('compare')), 'utf8')).map((r) => [r.key, r]));
+  const named = (opt('named') || '').split(';').map((k) => k.trim()).filter(Boolean);
+  const changed = results.filter((r) => r.status !== 'SECOND' && !named.includes(r.key) && r.differing && before.get(r.key)?.differing
+    && before.get(r.key).differing.length !== r.differing.length).map((r) => r.key);
+  const row = (key) => {
+    const a = before.get(key);
+    const b = results.find((r) => r.key === key);
+    if (!a || !b) return `| ${key} | ${a ? `${a.differing.length} / ${a.blocks}` : '-'} | ${b ? `${b.differing.length} / ${b.blocks}` : '-'} | | |`;
+    const later = results.filter((r) => r.status === 'SECOND' && r.key.startsWith(`${key} [`))
+      .map((r) => `${r.key.slice(key.length + 2, -1).split(': ').slice(1).join(': ')}: fits ${r.fits}`).join('; ');
+    return `| ${key} | ${a.differing.length} / ${a.blocks} | ${b.differing.length} / ${b.blocks} | ${b.fitByNone ?? b.differing.length} | ${later || '-'} |`;
+  };
+  fs.writeFileSync(path.join(OUT, 'block-library-fit.md'), [`# Block library: models fitted to the pages (${new Date().toISOString().slice(0, 10)})`, '',
+    'Blocks the Block Inspector cannot resolve with the variant\'s first library entry, before (the earlier library, checked with the same rules) and after. "No entry fits": the blocks none of the variant\'s entries fits. Later entries: the other structures the pages use, for inserting them; the Block Inspector edits every block of a variant with its first entry (library.js getBlockFieldTemplate). The variants named in the request first, then every other variant whose count changed.', '',
+    '| Variant | Differing before | Differing after | No entry fits | Later entries (structure: blocks it fits) |', '| --- | --- | --- | --- | --- |',
+    ...[...named, ...changed].map(row), ''].join('\n'));
+}
 console.log(`check-fields: ${results.length} variants, ${ok} OK, ${results.length - ok} not OK (library errors ${libErr.length})`);
 if (libErr.length) { libErr.forEach((r) => console.log(`  ${r.key}: ${r.text}`)); process.exitCode = 1; }

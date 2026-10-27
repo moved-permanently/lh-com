@@ -127,3 +127,127 @@ export function rowCovers(template, row) {
 /** Whether a page block resolves against a template block (same rows, every row covered). */
 export const blockCovers = (template, block) => template.rows.length === block.rows.length
   && template.rows.every((r, i) => rowCovers(r, block.rows[i]));
+
+/**
+ * A model row: per cell the field types a fields table labels (['image'], ['text', 'text']).
+ * A page row resolves against it as fields.js resolveBlockFields checks every labelled field:
+ * the same cell count, per cell at least as many fields (matchFieldCount) and the same type at
+ * each position.
+ */
+export function rowFits(model, row) {
+  if (!row || row.cells.length !== model.length) return false;
+  return model.every((types, i) => {
+    const fields = matchFieldCount(row.cells[i].fields, types.length);
+    return fields.length >= types.length && types.every((t, fi) => fields[fi].type === t);
+  });
+}
+
+/** The first n field types of a cell, as a model cell of n labels would see them. */
+const firstTypes = (cell, n) => matchFieldCount(cell.fields, n).slice(0, n).map((f) => f.type);
+
+/** The key of a row: its cell count and each cell's first field type (one label per cell). */
+const rowKey = (row) => row.cells.map((c) => firstTypes(c, 1).join('')).join('|');
+
+const groupBy = (items, key) => {
+  const groups = new Map();
+  items.forEach((x) => {
+    const k = key(x);
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(x);
+  });
+  return [...groups.values()];
+};
+
+/**
+ * The longest model all rows of one group (the same rowKey) resolve against: per cell the
+ * longest run of field types every row has, starting from the group's most common shape.
+ */
+function groupRowModel(group) {
+  const counts = new Map();
+  group.forEach((r) => counts.set(rowShape(r), (counts.get(rowShape(r)) || 0) + 1));
+  const refShape = [...counts].sort((a, b) => b[1] - a[1])[0][0];
+  const ref = group.find((r) => rowShape(r) === refShape);
+  const model = ref.cells.map((c) => firstTypes(c, 1));
+  ref.cells.forEach((cell, ci) => {
+    for (let n = 2; n <= cell.fields.length; n += 1) {
+      const types = firstTypes(cell, n);
+      if (types.length < n) break;
+      const trial = model.map((t, i) => (i === ci ? types : t));
+      if (!group.every((r) => rowFits(trial, r))) break;
+      model[ci] = types;
+    }
+  });
+  return model;
+}
+
+const fieldsOf = (rows) => rows.reduce((n, r) => n + r.cells.reduce((m, c) => m + c.fields.length, 0), 0);
+
+/**
+ * The model the most page rows resolve against, with as many fields as all of them share: the
+ * rows grouped by rowKey (a one-label-per-cell model fits exactly one group), the largest group
+ * (ties: the one whose rows have more fields), then groupRowModel. Returns {model, rows}.
+ */
+export function commonRowModel(rows) {
+  const [group] = groupBy(rows, rowKey).sort((a, b) => (b.length - a.length) || (fieldsOf(b) - fieldsOf(a)));
+  return group ? { model: groupRowModel(group), rows: group } : { model: [], rows: [] };
+}
+
+/** Whether a block resolves against a block model (one model row per row, the same row count). */
+export const blockFits = (model, block) => model.length === block.rows.length
+  && model.every((m, i) => rowFits(m, block.rows[i]));
+
+/**
+ * Whether a multi block resolves against an item model (one model row): it has item rows (the
+ * model's cell count) and every one of them resolves. Rows with another cell count (labels,
+ * intro, config) are not items; a block with none has nothing the sidebar can edit.
+ */
+export function itemsFit(model, block) {
+  const items = block.rows.filter((r) => r.cells.length === model.length);
+  return items.length > 0 && items.every((r) => rowFits(model, r));
+}
+
+export const modelFits = (model, block, multi) => (multi ? itemsFit(model, block) : blockFits(model, block));
+
+/** One model per structure group of the blocks: item models (multi) or block models. */
+export function candidateModels(blocks, multi) {
+  if (multi) return groupBy(blocks.flatMap((b) => b.rows), rowKey).map(groupRowModel);
+  return groupBy(blocks, (b) => b.rows.map(rowKey).join(' / '))
+    .map((group) => group[0].rows.map((_, ri) => groupRowModel(group.map((b) => b.rows[ri]))));
+}
+
+const modelSize = (model, multi) => (multi ? [model] : model).reduce((n, r) => n + r.reduce((m, c) => m + c.length, 0), 0);
+
+/**
+ * The library entries of a variant: the model the most blocks resolve against (ties: more
+ * fields), then, for the blocks it leaves, the next one, while another structure holds at least
+ * `min` blocks or a tenth of the variant (at most `max` entries). Returns [{model, fit: blocks}].
+ */
+export function chooseModels(blocks, multi, { max = 3, min = 4 } = {}) {
+  const entries = [];
+  let rest = blocks;
+  while (entries.length < max && rest.length) {
+    const pool = rest;
+    const [best] = candidateModels(pool, multi)
+      .map((model) => ({ model, fit: pool.filter((b) => modelFits(model, b, multi)) }))
+      .sort((a, b) => (b.fit.length - a.fit.length) || (modelSize(b.model, multi) - modelSize(a.model, multi)));
+    if (!best?.fit.length) break;
+    if (entries.length && best.fit.length < min && best.fit.length < blocks.length / 10) break;
+    entries.push(best);
+    rest = rest.filter((b) => !best.fit.includes(b));
+  }
+  return entries;
+}
+
+/** Whether a page structure is exactly the model (no fields beyond it): a sample needs no trim. */
+export function rowIsModel(model, row) {
+  return rowFits(model, row) && model.every((types, i) => matchFieldCount(row.cells[i].fields, types.length).length === types.length);
+}
+
+/** A model in words, for headings: "text | image", rows joined by " / " (more than two: "7 rows"). */
+export function describeModel(model, multi) {
+  const word = { image: 'image', text: 'text', list: 'list' };
+  const cell = (types) => [...new Set(types)].map((t) => word[t]).join(', ');
+  const row = (r) => r.map(cell).join(' | ');
+  if (multi) return row(model);
+  return model.length > 2 ? `${model.length} rows` : model.map(row).join(' / ');
+}
