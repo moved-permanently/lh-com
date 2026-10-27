@@ -40,6 +40,12 @@
   --body-font-family: lufthansatext, lufthansatext-fallback, arial, helvetica, mammilessymbol, sans-serif;
   --heading-font-family: lufthansahead, lufthansahead-fallback, arial, helvetica, mammilessymbol, sans-serif;
 
+  /* header: Discover's top bar is white with dark sky blue text (the menu panel keeps the brand) */
+  --header-bar-surface: #fff;
+  --header-bar-text: #003e7b;
+  --header-bar-text-hover: #1e73af;
+  --header-bar-line: #dedede;
+
   /* spacing: Discover's grid unit is 12px (Lufthansa 10px): a fifth more space between blocks */
   --spacing-default: 28px;
   --section-gap: 56px;

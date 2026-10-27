@@ -6,6 +6,12 @@
   --nav-brand: var(--lh-deepblue);
   --nav-text: #ebebeb;
   --nav-line: rgb(255 255 255 / 30%);
+
+  /* the top bar: a brand theme may make it light (styles/themes/*.css); defaults as above */
+  --nav-bar-surface: var(--header-bar-surface, var(--nav-brand));
+  --nav-bar-text: var(--header-bar-text, var(--nav-text));
+  --nav-bar-text-hover: var(--header-bar-text-hover, #fff);
+  --nav-bar-line: var(--header-bar-line, var(--nav-line));
   --nav-ease: cubic-bezier(0.5, 0, 0, 1);
 }
 
@@ -13,7 +19,7 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 1001;
-  background-color: var(--nav-brand);
+  background-color: var(--nav-bar-surface);
   transition: transform 0.36s cubic-bezier(0.36, 0, 0.15, 1);
 }
 
@@ -103,7 +109,7 @@
 .header .nav-quick-link {
   display: block;
   padding: 15px 20px;
-  color: var(--nav-text);
+  color: var(--nav-bar-text);
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
@@ -112,7 +118,7 @@
 }
 
 .header .nav-quick-link:hover {
-  color: #fff;
+  color: var(--nav-bar-text-hover);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -135,7 +141,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: var(--nav-text);
+  color: var(--nav-bar-text);
   text-decoration: none;
 }
 
@@ -159,7 +165,7 @@
   width: 1px;
   height: 20px;
   margin: 0 5px;
-  background-color: var(--nav-line);
+  background-color: var(--nav-bar-line);
 }
 
 .header .nav-menu-button {
@@ -172,7 +178,7 @@
   padding: 8px;
   border: 0;
   background: none;
-  color: var(--nav-text);
+  color: var(--nav-bar-text);
   font-family: var(--body-font-family);
   font-size: 14px;
   font-weight: 700;
@@ -198,7 +204,7 @@
 
 .header .nav-tool:hover,
 .header .nav-menu-button:hover {
-  color: #fff;
+  color: var(--nav-bar-text-hover);
 }
 
 @media (width >= 376px) {
