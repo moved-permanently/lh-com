@@ -127,9 +127,9 @@ export const ROUTES = [
     // market roots; elsewhere the two routes below as before
     name: 'market-sitemap',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isMarketSitemapPath(url.pathname),
-    handle: (request, env) => {
+    handle: (request, env, ctx) => {
       const gz = isSitemapGzPath(new URL(request.url).pathname);
-      return marketSitemap(request, env, gz ? sitemapGz : passThrough);
+      return marketSitemap(request, env, gz ? sitemapGz : passThrough, ctx);
     },
   },
   {

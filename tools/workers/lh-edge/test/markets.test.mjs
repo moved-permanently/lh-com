@@ -195,6 +195,9 @@ test('sitemaps: the market root\'s and the index with it on pilot hosts, the ori
   const index = await (await get('/sitemap/sitemap_lh.xml')).text();
   assert.deepEqual([...index.matchAll(/sitemap_lh_([a-z_]+)\.xml\.gz/g)].map((m) => m[1]), ['at_de', 'ch_de', 'ch_en', 'de_de', 'de_en', 'gb_en']);
   assert.equal(index.replace(/<sitemap><loc>[^<]*_ch_[a-z]{2}\.xml\.gz<\/loc><\/sitemap>/g, ''), SITEMAP_INDEX);
+  // files of 100 URLs: page 1 is the unnumbered name, past the last 404, no _1
+  assert.equal((await get('/sitemap/sitemap_lh_ch_en_2.xml')).status, 404);
+  assert.equal((await get('/sitemap/sitemap_lh_ch_en_1.xml')).status, 404);
   // elsewhere: the static index, and no market sitemap
   const plain = await get('/sitemap/sitemap_lh.xml', 'lhcom.example');
   assert.equal(await plain.text(), SITEMAP_INDEX);

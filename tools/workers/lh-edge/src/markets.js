@@ -457,38 +457,65 @@ const day = (lastModified) => {
   return Number.isFinite(n) && n > 0 ? new Date(n * 1000).toISOString().slice(0, 10) : '';
 };
 
+/** URLs per market sitemap file (as www, the sitemaps are split: alternates make them large). */
+export const SITEMAP_PAGE = 100;
+
 /**
- * The XML sitemap of a market root (helix-sitemap.yaml's format, URLs on www without .html):
- * the language pages it serves and its own pages, without the noindex ones (page-robots).
+ * The sitemap entries of a market root, sorted: [{path, suffix, lastmod, language}]: the
+ * language pages it serves and its own pages, without the noindex ones (page-robots).
  */
-export async function marketSitemapXml(request, env, root) {
-  const model = await marketModel(request, env);
-  const { lang } = LOCALE_TABLE[root];
-  const v = model.versions[lang];
-  const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
+function sitemapEntries(model, root) {
+  const v = model.versions[LOCALE_TABLE[root].lang];
   const entries = new Map();
   v.index.forEach((row, p) => {
     const suffix = p.slice(v.root.length + 1);
-    if (!suffix || /noindex/i.test(row.robots) || !serves(model, root, suffix) || model.own.has(`/${root}${suffix}`)) return;
-    entries.set(`/${root}${suffix}`, { lastmod: day(row.lastModified), alternates: alternates(model, lang, suffix) });
+    if (!suffix || /noindex/i.test(row.robots) || !serves(model, root, suffix)) return;
+    if (model.own.has(`/${root}${suffix}`)) return;
+    entries.set(`/${root}${suffix}`, { suffix, lastmod: day(row.lastModified), language: true });
   });
   model.own.forEach((row, p) => {
     if (!p.startsWith(`/${root}/`) || NOT_PAGES.test(p) || /noindex/i.test(row.robots)) return;
     const suffix = p.slice(root.length + 1);
-    const alts = v.index.has(`/${v.root}${suffix}`) ? alternates(model, lang, suffix) : [{ hreflang: LOCALE_TABLE[root].hreflang, path: p }];
-    entries.set(p, { lastmod: day(row.lastModified), alternates: alts });
+    entries.set(p, { suffix, lastmod: day(row.lastModified), language: v.index.has(`/${v.root}${suffix}`) });
   });
-  const urls = [...entries.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([p, e]) => [
-    '  <url>',
-    `    <loc>${xmlEscape(`${www}${p}`)}</loc>`,
-    ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
-    ...e.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(`${www}${a.path}`)}"/>`),
-    '  </url>',
-  ].join('\n'));
+  return [...entries.entries()].sort(([a], [b]) => a.localeCompare(b))
+    .map(([path, e]) => ({ path, ...e }));
+}
+
+/** The sitemap file names of a market root: sitemap_lh_<cc>_<ll>, then _2, _3 … */
+export async function sitemapNames(request, env, root) {
+  const model = await marketModel(request, env);
+  const pages = Math.max(1, Math.ceil(sitemapEntries(model, root).length / SITEMAP_PAGE));
+  const base = `sitemap_lh_${root.replace('/', '_')}`;
+  return Array.from({ length: pages }, (x, i) => (i ? `${base}_${i + 1}` : base));
+}
+
+/**
+ * One XML sitemap file of a market root (helix-sitemap.yaml's format, URLs on www without
+ * .html), SITEMAP_PAGE URLs each (page 1: sitemap_lh_<cc>_<ll>.xml, then _2, _3 …), or null
+ * past the last. Alternates are made for the file's own URLs only.
+ */
+export async function marketSitemapXml(request, env, root, page = 1) {
+  const model = await marketModel(request, env);
+  const { lang } = LOCALE_TABLE[root];
+  const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
+  const slice = sitemapEntries(model, root).slice((page - 1) * SITEMAP_PAGE, page * SITEMAP_PAGE);
+  if (page > 1 && !slice.length) return null;
+  const urls = slice.map((e) => {
+    const own = [{ hreflang: LOCALE_TABLE[root].hreflang, path: e.path }];
+    const alts = e.language ? alternates(model, lang, e.suffix) : own;
+    return [
+      '  <url>',
+      `    <loc>${xmlEscape(`${www}${e.path}`)}</loc>`,
+      ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
+      ...alts.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(`${www}${a.path}`)}"/>`),
+      '  </url>',
+    ].join('\n');
+  });
   return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`;
 }
 
-/** The sitemap index (the origin's static file) with the served market roots' sitemaps added. */
+/** The sitemap index (the origin's static file) with the served market roots' files added. */
 export async function sitemapIndexXml(request, env, roots) {
   const resp = await originFetch(new Request(request.url, { method: 'GET', headers: request.headers }), env, `https://${env.ORIGIN}/sitemap/sitemap_lh.xml`);
   if (!resp.ok) return null;
@@ -498,17 +525,21 @@ export async function sitemapIndexXml(request, env, roots) {
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
   const loc = (item) => (item.match(/<loc>([^<]*)<\/loc>/) || [])[1] || '';
   const have = new Set(items.map(loc));
-  roots.forEach((r) => {
-    const u = `${www}/sitemap/sitemap_lh_${r.replace('/', '_')}.xml.gz`;
+  const names = await Promise.all(roots.map((r) => sitemapNames(request, env, r)));
+  names.flat().forEach((n) => {
+    const u = `${www}/sitemap/${n}.xml.gz`;
     if (!have.has(u)) items.push(`<sitemap><loc>${u}</loc></sitemap>`);
   });
-  items.sort((a, b) => loc(a).localeCompare(loc(b)));
+  // www's order: by root, the numbered files after the root's first
+  const key = (item) => loc(item).replace(/\.xml\.gz$/, '')
+    .replace(/_(\d+)$/, (m, n) => `~${n.padStart(4, '0')}`);
+  items.sort((a, b) => key(a).localeCompare(key(b)));
   const start = xml.indexOf('<sitemap>');
   const end = xml.lastIndexOf('</sitemap>') + '</sitemap>'.length;
   return `${xml.slice(0, start)}${items.join('')}${xml.slice(end)}`;
 }
 
-const SITEMAP = /^\/sitemap\/sitemap_lh(?:_([a-z]{2})_([a-z]{2}))?\.xml(\.gz)?$/;
+const SITEMAP = /^\/sitemap\/sitemap_lh(?:_([a-z]{2})_([a-z]{2})(?:_(\d+))?)?\.xml(\.gz)?$/;
 
 /** Whether a path is a sitemap this module may generate (the index or a market root's). */
 export function isMarketSitemapPath(pathname) {
@@ -516,31 +547,44 @@ export function isMarketSitemapPath(pathname) {
   return Boolean(m) && (!m[1] || MARKET_ROOTS.includes(`${m[1]}/${m[2]}`));
 }
 
+const SITEMAP_TTL = 3600;
+
 /**
- * The sitemap route: generated where market roots are served, else what the origin route gave
- * before (fallback(request, env): the gzip route or the pass-through).
+ * The sitemap route: generated where market roots are served (kept an hour in the edge cache),
+ * else what the origin route gave before (fallback(request, env): the gzip route or the
+ * pass-through).
  */
-export async function marketSitemap(request, env, fallback) {
-  const m = new URL(request.url).pathname.match(SITEMAP);
+export async function marketSitemap(request, env, fallback, ctx) {
+  const url = new URL(request.url);
+  const m = url.pathname.match(SITEMAP);
   const roots = servedMarketRoots(request, env);
   const root = m[1] ? `${m[1]}/${m[2]}` : null;
   if (!roots.length || (root && !roots.includes(root))) return fallback(request, env);
+  const page = m[3] ? Number(m[3]) : 1;
+  if (m[3] && page < 2) return new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'market-sitemap' } });
+  const gz = Boolean(m[4]);
+  const cache = typeof caches !== 'undefined' ? caches.default : null;
+  const cacheKey = new Request(`${url.origin}${url.pathname}?market-sitemap=1`);
+  const hit = cache && request.method === 'GET' && await cache.match(cacheKey);
+  if (hit) return hit;
   let xml;
   try {
-    xml = root
-      ? await marketSitemapXml(request, env, root)
-      : await sitemapIndexXml(request, env, roots);
+    if (root) xml = await marketSitemapXml(request, env, root, page);
+    else xml = await sitemapIndexXml(request, env, roots);
   } catch (e) {
     return unavailable();
   }
-  if (xml === null) return fallback(request, env);
-  const gz = Boolean(m[3]);
+  if (xml === null) {
+    return root ? new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'market-sitemap' } }) : fallback(request, env);
+  }
   const headers = {
     'content-type': gz ? 'application/octet-stream' : 'application/xml',
-    'cache-control': 'public, max-age=14400',
+    'cache-control': `public, max-age=${SITEMAP_TTL}`,
     'x-lh-edge-route': 'market-sitemap',
   };
   if (request.method === 'HEAD') return new Response(null, { headers });
   const { body } = new Response(xml);
-  return new Response(gz ? body.pipeThrough(new CompressionStream('gzip')) : body, { headers });
+  const resp = new Response(gz ? body.pipeThrough(new CompressionStream('gzip')) : body, { headers });
+  if (cache && ctx && ctx.waitUntil) ctx.waitUntil(cache.put(cacheKey, resp.clone()));
+  return resp;
 }
