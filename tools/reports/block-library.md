@@ -1,6 +1,6 @@
 # Block library check
 
-2026-10-27. 116 library variants: 80 OK on the named pages, 9 with named pages that differ, 0 with a library error, 1 notes, 26 second structures. "Blocks differing" counts every block of the variant on all pages that does not resolve against the library table (tools/reports/block-library.json lists them); "Other rows" counts rows of multi blocks with another cell count than the item (label, intro or config rows), which the sidebar shows as items without editable fields.
+2026-10-27. 117 library variants: 81 OK on the named pages, 9 with named pages that differ, 0 with a library error, 1 notes, 26 second structures. "Blocks differing" counts every block of the variant on all pages that does not resolve against the library table (tools/reports/block-library.json lists them); "Other rows" counts rows of multi blocks with another cell count than the item (label, intro or config rows), which the sidebar shows as items without editable fields.
 
 SECOND: a later library entry of the same variant (another structure its pages use, for inserting it); the Block Inspector edits every block of a variant with the first entry (library.js getBlockFieldTemplate). "No entry fits" counts the blocks of a variant that none of its entries fits.
 
@@ -105,6 +105,7 @@ SECOND: a later library entry of the same variant (another structure its pages u
 | jump-links (columns) | OK | checked /de/en/100-years/chronicle, /de/de/100-years/chronicle, /at/de/100-years/chronicle | 0 / 8 |  |  |
 | lounge-finder | OK | checked /de/en/lounges, /de/de/lounges, /at/de/lounges | 0 / 8 |  |  |
 | message-center | OK | checked /de/en/prepare-for-your-trip/current-travel-information, /de/de/prepare-for-your-trip/current-travel-information, /at/de/prepare-for-your-trip/current-travel-information | 0 / 4 |  |  |
+| micro-frontend | OK | checked /de/en/book-and-manage/trip-management, /de/de/book-and-manage/trip-management, /at/de/book-and-manage/trip-management | 0 / 4 |  |  |
 | poi-map | OK | checked /de/en/100-years/destinations, /de/de/100-years/destinations, /at/de/100-years/destinations | 4 / 686 | 0 | 4696 |
 | poi-map [Poi map: text | text | text] | SECOND | fits 662 of the 686 blocks of the variant (poi-map fits the others or none); not used by the Block Inspector, which edits the variant with its first entry | fits 662 / 686 |  |  |
 | price-bar | OK | checked /de/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer, /de/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer, /at/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer | 0 / 1642 |  |  |

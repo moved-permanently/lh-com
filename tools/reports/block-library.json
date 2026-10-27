@@ -95118,6 +95118,15 @@
   "differing": []
  },
  {
+  "key": "micro-frontend",
+  "status": "OK",
+  "text": "checked /de/en/book-and-manage/trip-management, /de/de/book-and-manage/trip-management, /at/de/book-and-manage/trip-management",
+  "pages": 4,
+  "blocks": 4,
+  "otherRows": 0,
+  "differing": []
+ },
+ {
   "key": "poi-map",
   "status": "OK",
   "text": "checked /de/en/100-years/destinations, /de/de/100-years/destinations, /at/de/100-years/destinations",

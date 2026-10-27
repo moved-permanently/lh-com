@@ -14,8 +14,7 @@
  * tools/library/library-variants.json (variant -> sample page, pages), which
  * tools/library/check-fields.mjs reads.
  *
- * Left out: header and footer (loaded by the page), channels-demo, micro-frontend (an app
- * shell), and the blocks of the
+ * Left out: header and footer (loaded by the page), channels-demo, and the blocks of the
  * structured documents under /data/** (DA form documents from the GraphQL import, edited
  * with DA's form editor; their class names are generated ids).
  *
@@ -34,8 +33,7 @@ const CONTENT = path.join(root, 'content');
 const OUT = path.join(CONTENT, 'library/blocks');
 const ORG_SITE = 'moved-permanently/lh-com';
 const SKIP_DIRS = /^(drafts|lhg|library|media-da|data|demo)(\/|$)/;
-// micro-frontend: the trip-management app shell (its app name and config), not inserted by authors
-const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata', 'micro-frontend']);
+const SKIP_BLOCKS = new Set(['header', 'footer', 'channels-demo', 'section-metadata', 'metadata', 'library-metadata']);
 const LOCALE_ORDER = ['/de/en/', '/de/de/', '/gb/en/', '/at/de/', '/us/en/'];
 const MAX_ITEMS = 4;
 
@@ -91,6 +89,7 @@ const SPEC = {
   'jump-links': { multi: true, description: 'Links to sections of the page (anchors), one per row', item: [['Link']] },
   'lounge-finder': { description: 'Lounge search by city and status or travel class (labels and options in optional rows)' },
   'message-center': { description: 'Current messages of the Message Center above the travel information' },
+  'micro-frontend': { description: 'One of www\'s micro-frontend apps (today trip-management), loaded from www with its design system; the page\'s data comes from the system that opens it', rows: { 0: [['App']] } },
   'poi-map': { multi: true, description: 'Map with points of interest: one row per point (title, coordinates, link), plus source, caption and aside rows', item: [['Title'], ['Coordinates'], ['Link']] },
   'price-bar': { description: 'Sticky price bar at the bottom of the window: destination, price label and link' },
   'profile-nav': { description: 'Tabs of the profile pages, as a list of links', rows: { 0: [['Tabs']] } },

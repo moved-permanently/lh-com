@@ -12035,6 +12035,19 @@
    "/gb/en/prepare-for-your-trip/current-travel-information"
   ]
  },
+ "micro-frontend": {
+  "block": "micro-frontend",
+  "variant": "",
+  "heading": "",
+  "multi": false,
+  "sample": "/de/en/book-and-manage/trip-management",
+  "pages": [
+   "/at/de/book-and-manage/trip-management",
+   "/de/de/book-and-manage/trip-management",
+   "/de/en/book-and-manage/trip-management",
+   "/gb/en/book-and-manage/trip-management"
+  ]
+ },
  "poi-map": {
   "block": "poi-map",
   "variant": "",
