@@ -67,18 +67,58 @@ export async function loadApp() {
 // linkedom keeps a bare <body> as the root; a browser wraps it in <html> (as DA's documents need)
 export const parseDoc = (html) => new DOMParser().parseFromString(/^\s*<html/i.test(html) ? html : `<html><head></head>${html}</html>`, 'text/html');
 
+/** The page's DA metadata block (project/index.js 16, `body > .da-metadata`). */
+export const DA_METADATA_SELECTOR = 'body > .da-metadata';
+
+/**
+ * nx2/utils/getElementMetadata.js (not in the downloaded loc folder): the rows of a block as
+ * {key: {content, text}}; keys and texts trimmed and lower-cased, as the app reads them.
+ */
+export function getElementMetadata(el) {
+  if (!el) return {};
+  return [...el.childNodes].reduce((rdx, row) => {
+    if (row.children) {
+      const key = row.children[0].textContent.trim().toLowerCase();
+      const content = row.children[1];
+      const text = content.textContent.trim().toLowerCase();
+      if (key && content) rdx[key] = { content, text };
+    }
+    return rdx;
+  }, {});
+}
+
+/** project/index.js getPreviousHashes (237-241): the differences the author already decided. */
+export function previousHashes(metadata) {
+  return {
+    acceptedHashes: metadata.acceptedhashes?.text?.split(',') || [],
+    rejectedHashes: metadata.rejectedhashes?.text?.split(',') || [],
+  };
+}
+
+/** project/index.js replaceHtml (166-195) as saveHtml calls it (no link rewrite): the saved body. */
+export function saveBody(inner, daMetadata = {}) {
+  const rows = Object.entries(daMetadata)
+    .map(([key, value]) => `<div><div>${key}</div><div>${value?.text ?? value ?? ''}</div></div>`).join('');
+  const metadataHtml = rows ? `<div class="da-metadata">${rows}</div>` : '';
+  return `<body><header></header><main>${inner}</main>${metadataHtml}<footer></footer></body>`;
+}
+
 /**
  * The app's merge (project/index.js mergeCopy, lines 306-357) without its DA calls: the
- * translated document (langstore) against the existing page (regional). Returns the HTML to
- * save, or null when they are the same (the app saves nothing then).
+ * translated document (langstore) against the existing page (regional). The existing page's DA
+ * metadata (the accepted and rejected differences, labels) goes into the diff and is saved
+ * again, as the app does (332-348). Returns the HTML to save, or null when they are the same
+ * (the app saves nothing then). `app`: the app's modules (loadApp; a stand-in in tests).
  */
-export async function mergeLikeTheApp(translatedHtml, existingHtml) {
-  const { diff } = await loadApp();
+export async function mergeLikeTheApp(translatedHtml, existingHtml, app) {
+  const { diff } = app || await loadApp();
   const regional = parseDoc(existingHtml);
   const langstore = parseDoc(translatedHtml);
   diff.removeLocTags(regional);
   diff.removeLocTags(langstore);
   if (langstore.querySelector('body').outerHTML === regional.querySelector('body').outerHTML) return null;
-  const main = await diff.regionalDiff(langstore, regional, [], []);
-  return `<body><header></header><main>${main.innerHTML}</main><footer></footer></body>`;
+  const daMetadata = getElementMetadata(regional.querySelector(DA_METADATA_SELECTOR));
+  const { acceptedHashes, rejectedHashes } = previousHashes(daMetadata);
+  const main = await diff.regionalDiff(langstore, regional, acceptedHashes, rejectedHashes);
+  return saveBody(main.innerHTML, daMetadata);
 }

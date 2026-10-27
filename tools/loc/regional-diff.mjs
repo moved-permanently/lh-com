@@ -45,12 +45,14 @@ export async function daSource(page, { refresh = false } = {}) {
   const file = path.join(CACHE, `${page}.html`);
   if (!refresh && fs.existsSync(file)) return fs.readFileSync(file, 'utf8') || null;
   let resp;
+  // the DA login from a terminal, as slug-step.mjs daClient (never printed)
+  const headers = process.env.DA_TOKEN ? { authorization: `Bearer ${process.env.DA_TOKEN}` } : {};
   for (let i = 0; i < 3; i += 1) {
-    resp = await fetch(`${DA}${page}.html`);
+    resp = await fetch(`${DA}${page}.html`, { headers });
     if (resp.status !== 429 && resp.status < 500) break;
     await new Promise((r) => { setTimeout(r, 2000 * (i + 1)); });
   }
-  if (resp.status === 401 || resp.status === 403) throw new Error(`DA ${resp.status}: enable Document Authoring in Settings → LLM Permissions`);
+  if (resp.status === 401 || resp.status === 403) throw new Error(`DA ${resp.status}: ${process.env.DA_TOKEN ? 'DA_TOKEN was refused (expired or without access)' : 'no login (set DA_TOKEN, or enable Document Authoring in Settings → LLM Permissions)'}`);
   const html = resp.ok ? await resp.text() : '';
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);

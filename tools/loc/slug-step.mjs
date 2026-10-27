@@ -8,7 +8,8 @@
  *    ones; /de/en/<x> into /de/de/<german slug of x>), Parent included,
  * 3. sets primary-language-url to the English page (what helix-sitemap.yaml pairs by),
  * 4. moves it to /de/de/<german slug>, or merges it onto the German page there with the app's own
- *    merge (regionalDiff, as translate.conflict.behavior merge does; --behavior overwrite replaces),
+ *    merge (regionalDiff, as translate.conflict.behavior merge does, keeping the German page's DA
+ *    metadata: the differences already accepted or rejected; --behavior overwrite replaces),
  * 5. removes the copy at /de/de/<english slug>.
  * Pages whose German slug equals the English one are never touched. Never previews or publishes.
  *
@@ -36,23 +37,34 @@ export function loadMap() {
   return JSON.parse(fs.readFileSync(MAP_FILE, 'utf8'));
 }
 
-/** DA source I/O (fetchImpl for tests). */
-export function daClient(fetchImpl = fetch) {
+/**
+ * DA source I/O (fetchImpl for tests). From a terminal DA answers 401 without a login: with
+ * DA_TOKEN set (an IMS token, e.g. from da.live's console) every call sends
+ * `Authorization: Bearer $DA_TOKEN`; the token is never printed. Without it no header is sent
+ * (where the login is added for the tools).
+ */
+export function daClient(fetchImpl = fetch, token = process.env.DA_TOKEN) {
   const url = (p) => `${DA}${p}.html`;
+  const auth = token ? { authorization: `Bearer ${token}` } : {};
+  const denied = (status) => new Error(token
+    ? `DA ${status}: DA_TOKEN was refused (expired or without access to moved-permanently/lh-com)`
+    : `DA ${status}: no login (set DA_TOKEN, or enable Document Authoring in Settings → LLM Permissions)`);
   return {
     async get(p) {
-      const r = await fetchImpl(url(p), { headers: { 'cache-control': 'no-cache' } });
-      if (r.status === 401 || r.status === 403) throw new Error(`DA ${r.status}: enable Document Authoring in Settings → LLM Permissions`);
+      const r = await fetchImpl(url(p), { headers: { 'cache-control': 'no-cache', ...auth } });
+      if (r.status === 401 || r.status === 403) throw denied(r.status);
       return r.ok ? r.text() : null;
     },
     async put(p, html) {
       const body = new FormData();
       body.append('data', new Blob([html], { type: 'text/html' }));
-      const r = await fetchImpl(url(p), { method: 'POST', body });
+      const r = await fetchImpl(url(p), { method: 'POST', body, headers: { ...auth } });
+      if (r.status === 401 || r.status === 403) throw denied(r.status);
       if (!r.ok) throw new Error(`DA POST ${p}: ${r.status}`);
     },
     async remove(p) {
-      const r = await fetchImpl(url(p), { method: 'DELETE' });
+      const r = await fetchImpl(url(p), { method: 'DELETE', headers: { ...auth } });
+      if (r.status === 401 || r.status === 403) throw denied(r.status);
       if (!r.ok && r.status !== 404) throw new Error(`DA DELETE ${p}: ${r.status}`);
     },
   };

@@ -7,8 +7,11 @@ import fs from 'node:fs';
 import {
   buildSlugMap, germanHref, germanize, plan, translationPath,
 } from '../tools/loc/slug-lib.mjs';
-import { runStep } from '../tools/loc/slug-step.mjs';
+import { runStep, daClient } from '../tools/loc/slug-step.mjs';
 import { scopeRows } from '../tools/loc/regional-diff.mjs';
+import {
+  mergeLikeTheApp, getElementMetadata, previousHashes, saveBody, parseDoc, DA_METADATA_SELECTOR,
+} from '../tools/loc/da-nx.mjs';
 
 const fixture = (f) => fs.readFileSync(new URL(`./fixtures/loc/${f}`, import.meta.url), 'utf8');
 const MAP = JSON.parse(fs.readFileSync(new URL('../tools/loc/slug-map.json', import.meta.url), 'utf8'));
@@ -104,6 +107,87 @@ test('dry run: reads only; --apply merges onto the German slug and deletes the c
   assert.equal(da.docs['/de/de/flight-search'], undefined);
   assert.equal(da.docs['/de/de/homepage'], '<body>keep</body>');
   assert.ok(!da.calls.some(([, p]) => p === '/de/de/homepage'), 'a same-slug page is not even read');
+});
+
+/** The app's regional-diff module as a stand-in: records what the merge passes it. */
+function fakeDiffModule() {
+  const seen = [];
+  return {
+    seen,
+    diff: {
+      removeLocTags: () => {},
+      regionalDiff: async (langstore, regional, accepted, rejected) => {
+        seen.push({ accepted, rejected });
+        const main = regional.querySelector('main');
+        main.innerHTML = `<div><p da-diff-added="">${main.textContent.trim()}</p><da-diff-deleted><p>${langstore.querySelector('main').textContent.trim()}</p></da-diff-deleted></div>`;
+        return main;
+      },
+    },
+  };
+}
+const WITH_DA_METADATA = '<body><header></header><main><div><p>Flugsuche alt</p></div></main><div class="da-metadata"><div><div>acceptedHashes</div><div>a1b2c3,d4e5f6</div></div><div><div>rejectedHashes</div><div>0f9e8d</div></div><div><div>diff-label-local</div><div>Local</div></div></div><footer></footer></body>';
+
+test('merge keeps the target\'s DA metadata: accepted and rejected differences go into the diff and are saved again', async () => {
+  const app = fakeDiffModule();
+  const out = await mergeLikeTheApp('<body><header></header><main><div><p>Flugsuche neu</p></div></main><footer></footer></body>', WITH_DA_METADATA, app);
+  assert.deepEqual(app.seen, [{ accepted: ['a1b2c3', 'd4e5f6'], rejected: ['0f9e8d'] }]);
+  // as project/index.js replaceHtml writes it: after <main>, keys and values lower-cased (getElementMetadata)
+  assert.match(out, /<\/main><div class="da-metadata"><div><div>acceptedhashes<\/div><div>a1b2c3,d4e5f6<\/div><\/div><div><div>rejectedhashes<\/div><div>0f9e8d<\/div><\/div><div><div>diff-label-local<\/div><div>local<\/div><\/div><\/div><footer><\/footer><\/body>$/);
+  assert.match(out, /<da-diff-deleted><p>Flugsuche neu<\/p><\/da-diff-deleted>/);
+  const da = getElementMetadata(parseDoc(out).querySelector(DA_METADATA_SELECTOR));
+  assert.deepEqual(previousHashes(da), { acceptedHashes: ['a1b2c3', 'd4e5f6'], rejectedHashes: ['0f9e8d'] }, 'a second merge reads the same decisions');
+});
+
+test('merge without DA metadata: empty lists, no da-metadata block (as before); same content: nothing saved', async () => {
+  const app = fakeDiffModule();
+  const out = await mergeLikeTheApp(TRANSLATED, EXISTING, app);
+  assert.deepEqual(app.seen, [{ accepted: [], rejected: [] }]);
+  assert.ok(!out.includes('da-metadata'));
+  assert.match(out, /^<body><header><\/header><main>.*<\/main><footer><\/footer><\/body>$/s);
+  assert.equal(await mergeLikeTheApp(WITH_DA_METADATA, WITH_DA_METADATA, app), null);
+  assert.equal(saveBody('<div></div>', { 'diff-label-upstream': 'English' }), '<body><header></header><main><div></div></main><div class="da-metadata"><div><div>diff-label-upstream</div><div>English</div></div></div><footer></footer></body>');
+});
+
+/** A fetch that records each call's method and headers and answers `status`. */
+function fakeFetch(status = 200) {
+  const calls = [];
+  const impl = async (url, opts = {}) => {
+    calls.push({ url, method: opts.method || 'GET', headers: { ...opts.headers } });
+    return new Response(status === 200 ? '<body>x</body>' : '', { status });
+  };
+  return { calls, impl };
+}
+
+test('daClient: DA_TOKEN set: every call sends Authorization: Bearer; never in an error message', async () => {
+  const f = fakeFetch();
+  const da = daClient(f.impl, 'secret-ims-token');
+  assert.equal(await da.get('/de/de/x'), '<body>x</body>');
+  await da.put('/de/de/x', '<body>y</body>');
+  await da.remove('/de/de/x');
+  assert.deepEqual(f.calls.map((c) => [c.method, c.headers.authorization]), [
+    ['GET', 'Bearer secret-ims-token'], ['POST', 'Bearer secret-ims-token'], ['DELETE', 'Bearer secret-ims-token']]);
+  assert.equal(f.calls[0].url, 'https://admin.da.live/source/moved-permanently/lh-com/de/de/x.html');
+  assert.equal(f.calls[0].headers['cache-control'], 'no-cache');
+  await Promise.all([401, 403].map(async (status) => {
+    const denied = daClient(fakeFetch(status).impl, 'secret-ims-token');
+    await assert.rejects(denied.get('/de/de/x'), (e) => {
+      assert.match(e.message, new RegExp(`DA ${status}: DA_TOKEN was refused`));
+      assert.ok(!e.message.includes('secret-ims-token'), 'the token is never printed');
+      return true;
+    });
+    await assert.rejects(denied.put('/de/de/x', '<body></body>'), /DA_TOKEN was refused/);
+  }));
+});
+
+test('daClient: without DA_TOKEN no Authorization header (as before)', async () => {
+  const f = fakeFetch();
+  const da = daClient(f.impl, undefined);
+  await da.get('/de/de/x');
+  await da.put('/de/de/x', '<body>y</body>');
+  await da.remove('/de/de/x');
+  assert.ok(f.calls.every((c) => !('authorization' in c.headers)), JSON.stringify(f.calls));
+  assert.equal(await daClient(fakeFetch(404).impl, undefined).get('/de/de/missing'), null);
+  await assert.rejects(daClient(fakeFetch(401).impl, undefined).get('/de/de/x'), /DA 401: no login \(set DA_TOKEN/);
 });
 
 test('--apply moves when there is no German page; overwrite replaces; --root prefixes every DA path; --simulate never writes', async () => {
