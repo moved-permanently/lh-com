@@ -1,0 +1,1542 @@
+[
+ {
+  "template": "homepage",
+  "page": "/ch/en/homepage",
+  "reference": "/de/en/homepage",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-27",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 30,
+  "textOnlyHere": 26,
+  "textOnlyReference": 167,
+  "componentsSame": false,
+  "appTextDiffers": 3,
+  "examplesHere": [
+   "nonstop only",
+   "zurich cancun",
+   "zurich palma de mallorca",
+   "zurich vienna",
+   "zurich barcelona"
+  ],
+  "examplesReference": [
+   "frankfurt chicago",
+   "frankfurt washington d.c.",
+   "frankfurt istanbul",
+   "frankfurt ljubljana",
+   "frankfurt yerevan"
+  ],
+  "currencies": [],
+  "referenceCurrencies": [
+   "€"
+  ],
+  "served": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/ch/en/homepage",
+   "h1": [
+    "",
+    "lufthansa"
+   ],
+   "headingsFound": 12,
+   "wwwHeadings": 17
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/homepage",
+   "h1": [
+    "",
+    "lufthansa"
+   ],
+   "headingsFound": 29,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "homepage",
+  "page": "/ch/de/homepage",
+  "reference": "/de/de/homepage",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 64,
+  "textOnlyHere": 155,
+  "textOnlyReference": 135,
+  "componentsSame": true,
+  "appTextDiffers": 3,
+  "examplesHere": [
+   "nur nonstop flüge",
+   "zürich cancun",
+   "zürich palma de mallorca",
+   "zürich wien",
+   "zürich barcelona"
+  ],
+  "examplesReference": [
+   "frankfurt chicago",
+   "frankfurt washington d.c.",
+   "frankfurt istanbul",
+   "frankfurt ljubljana",
+   "frankfurt eriwan"
+  ],
+  "currencies": [],
+  "referenceCurrencies": [
+   "€"
+  ],
+  "served": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/ch/de/homepage",
+   "h1": [
+    "",
+    "lufthansa"
+   ],
+   "headingsFound": 29,
+   "wwwHeadings": 21
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/homepage",
+   "h1": [
+    "",
+    "lufthansa"
+   ],
+   "headingsFound": 29,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "hub",
+  "page": "/ch/en/additional-services",
+  "reference": "/de/en/additional-services",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 24,
+  "textOnlyHere": 0,
+  "textOnlyReference": 5,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "sometimes, you’d like a little more. more baggage. more comfort in a higher travel class. more anticipation of delicious menus. treat yourself to your personal plus while preparing for your trip.",
+   "the better the planning, the more memorable the experience – especially when the best hotel is waiting for you and your plan for excursions and tours is already in place. for even greater peace of mind, secure a rental car to get quickly and flexibly from a to b. all to ensure a stay that is tailor-made for you.",
+   "all signs point to comfort here: reserve your favorite seats in advance for yourself and your travel companions, book a free neighbor seat, or on long-haul flights, enjoy an entire row of seats to yourself.",
+   "whether you travel by train, by your own car, or stay digitally connected on the go: a range of services help make your journey to and from the airport, as well as your time at your destination, as comfortable as possible. travel with rail&fly from selected railway stations in germany directly to your flight and back again. if you arrive by car, you can reserve your airport parking space conveniently at the terminal. and with car sharing, you remain flexible and mobile at your destination. in addition, an esim ensures reliable connectivity throughout your trip.",
+   "with the insurance packages from our partner, you are fully protected when you travel. if you require medical assistance on your journey, you will be in good hands with a companion from medical travel companions. and if you take temperature-sensitive medication, a special transport cube is available for them."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/additional-services",
+   "h1": [
+    "your personal extra – choosing is now very easy",
+    "your personal extra – choosing is now very easy"
+   ],
+   "headingsFound": 18,
+   "wwwHeadings": 34
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/additional-services",
+   "h1": [
+    "your personal extra – choosing is now very easy",
+    "your personal extra – choosing is now very easy"
+   ],
+   "headingsFound": 18,
+   "wwwHeadings": 34
+  }
+ },
+ {
+  "template": "hub",
+  "page": "/ch/de/additional-services",
+  "reference": "/de/de/additional-services",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 24,
+  "textOnlyHere": 0,
+  "textOnlyReference": 5,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "manchmal darf es ein bisschen mehr sein. mehr gepäck. mehr komfort in einer höheren reiseklasse. mehr vorfreude auf köstliche menüs. gönnen sie sich schon bei der reisevorbereitung ihr persönliches plus.",
+   "je besser geplant, desto unvergesslicher das erlebnis – vor allem, wenn das beste hotel auf sie wartet und ihr plan für ausflüge und touren schon steht. für die extra portion gelassenheit sichern sie sich einen leihwagen, um schnell und flexibel von a nach b zu kommen. alles für einen aufenthalt, der ganz auf sie zugeschnitten ist.",
+   "alle zeichen stehen auf komfort – reservieren sie sich und ihrer reisebegleitung vorab ihren lieblingsplatz, buchen sie einen freien nachbarsitz dazu oder sichern sie sich auf langstrecke gleich eine ganze sitzreihe.",
+   "ob mit der bahn, dem eigenen auto oder digital vernetzt: verschiedene services unterstützen sie dabei, ihre an- und abreise sowie ihre zeit am zielort so komfortabel wie möglich zu gestalten. reisen sie mit rail&fly von ausgewählten bahnhöfen in deutschland bequem zu ihrem flug und wieder zurück. kommen sie mit dem eigenen auto an, können sie ihren flughafenparkplatz direkt am terminal reservieren. und mit carsharing bleiben sie auch vor ort flexibel und mobil. ergänzend sorgt eine esim für eine zuverlässige verbindung während ihrer reise.",
+   "mit den versicherungspaketen unseres partners sind sie unterwegs rundum geschützt. sollten sie auf ihrer reise medizinische unterstützung benötigen, sind sie in begleitung von medical travel companions in besten händen. und für temperaturempfindliche medikamente steht ihnen ein spezieller transportbehälter zur verfügung."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/additional-services",
+   "h1": [
+    "ihr persönliches extra – jetzt ganz einfach wählen",
+    "ihr persönliches extra – jetzt ganz einfach wählen"
+   ],
+   "headingsFound": 18,
+   "wwwHeadings": 34
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/additional-services",
+   "h1": [
+    "ihr persönliches extra – jetzt ganz einfach wählen",
+    "ihr persönliches extra – jetzt ganz einfach wählen"
+   ],
+   "headingsFound": 18,
+   "wwwHeadings": 34
+  }
+ },
+ {
+  "template": "hub",
+  "page": "/ch/en/baggage",
+  "reference": "/de/en/baggage",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 31,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [
+   "EUR"
+  ],
+  "referenceCurrencies": [
+   "EUR"
+  ],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/baggage",
+   "h1": [
+    "baggage",
+    "baggage"
+   ],
+   "headingsFound": 26,
+   "wwwHeadings": 27
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/baggage",
+   "h1": [
+    "baggage",
+    "baggage"
+   ],
+   "headingsFound": 26,
+   "wwwHeadings": 27
+  }
+ },
+ {
+  "template": "hub",
+  "page": "/ch/de/gepaeck",
+  "reference": "/de/de/gepaeck",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-27",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 31,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/gepaeck",
+   "h1": [
+    "gepäck",
+    "gepäck"
+   ],
+   "headingsFound": 26,
+   "wwwHeadings": 27
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/gepaeck",
+   "h1": [
+    "gepäck",
+    "gepäck"
+   ],
+   "headingsFound": 26,
+   "wwwHeadings": 27
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/en/accessible-travel",
+  "reference": "/de/en/accessible-travel",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 53,
+  "textOnlyHere": 2,
+  "textOnlyReference": 2,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [
+   "fax: +#email: ​ specialservice@dlh.de (monday to friday: #:#–#:#hours; saturday, sunday and public holidays: #:#–#:#hours)",
+   "specialservice@dlh.de"
+  ],
+  "examplesReference": [
+   "fax: +#email: ​ specialservice@dlh.‹cc› (monday to friday: #:#–#:#hours; saturday, sunday and public holidays: #:#–#:#hours)",
+   "specialservice@dlh.‹cc›"
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/accessible-travel",
+   "h1": [
+    "accessible travel",
+    "accessible travel"
+   ],
+   "headingsFound": 55,
+   "wwwHeadings": 31
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/accessible-travel",
+   "h1": [
+    "accessible travel",
+    "accessible travel"
+   ],
+   "headingsFound": 55,
+   "wwwHeadings": 31
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/de/accessible-travel",
+  "reference": "/de/de/accessible-travel",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 53,
+  "textOnlyHere": 2,
+  "textOnlyReference": 2,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [
+   "fax: +#e-mail: ​ ​specialservice@dlh.de (montag bis freitag: #:#–#:#uhr, samstag, sonntag, an feiertagen: #:#–#:#uhr)",
+   "​specialservice@dlh.de"
+  ],
+  "examplesReference": [
+   "fax: +#e-mail: ​ ​specialservice@dlh.‹cc› (montag bis freitag: #:#–#:#uhr, samstag, sonntag, an feiertagen: #:#–#:#uhr)",
+   "​specialservice@dlh.‹cc›"
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/accessible-travel",
+   "h1": [
+    "barrierefrei reisen",
+    "barrierefrei reisen"
+   ],
+   "headingsFound": 55,
+   "wwwHeadings": 31
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/accessible-travel",
+   "h1": [
+    "barrierefrei reisen",
+    "barrierefrei reisen"
+   ],
+   "headingsFound": 55,
+   "wwwHeadings": 31
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/en/add-sports-baggage",
+  "reference": "/de/en/add-sports-baggage",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 0,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/add-sports-baggage",
+   "h1": [
+    "add sports baggage",
+    "add sports baggage"
+   ],
+   "headingsFound": 3,
+   "wwwHeadings": 31
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/add-sports-baggage",
+   "h1": [
+    "add sports baggage",
+    "add sports baggage"
+   ],
+   "headingsFound": 3,
+   "wwwHeadings": 31
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/de/sportgepaeck-hinzufuegen",
+  "reference": "/de/de/sportgepaeck-hinzufuegen",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 0,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/sportgepaeck-hinzufuegen",
+   "h1": [
+    "sportgepäck hinzufügen",
+    "sportgepäck hinzufügen"
+   ],
+   "headingsFound": 3,
+   "wwwHeadings": 31
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/sportgepaeck-hinzufuegen",
+   "h1": [
+    "sportgepäck hinzufügen",
+    "sportgepäck hinzufügen"
+   ],
+   "headingsFound": 3,
+   "wwwHeadings": 31
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/en/group-travel",
+  "reference": "/de/en/group-travel",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 42,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/group-travel",
+   "h1": [
+    "group travel",
+    "group travel"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 25
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/group-travel",
+   "h1": [
+    "group travel",
+    "group travel"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 25
+  }
+ },
+ {
+  "template": "info",
+  "page": "/ch/de/group-travel",
+  "reference": "/de/de/group-travel",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-27",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 42,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/group-travel",
+   "h1": [
+    "gruppenreisen",
+    "gruppenreisen"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 25
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/group-travel",
+   "h1": [
+    "gruppenreisen",
+    "gruppenreisen"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 25
+  }
+ },
+ {
+  "template": "campaign",
+  "page": "/ch/en/100-years",
+  "reference": "/de/en/100-years",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 24,
+  "textOnlyHere": 0,
+  "textOnlyReference": 3,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "from aviation pioneer to daily travel companion",
+   "a timeline",
+   "from daring early flights via route records and political appropriation, to the jet age and a multi-hub network: lufthansa's eventful history shows how pioneering spirit, disruptions and new beginnings have made the skies ever fuller and distances ever smaller."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/100-years",
+   "h1": [
+    "#years of lufthansa",
+    "#years of lufthansa"
+   ],
+   "headingsFound": 48,
+   "wwwHeadings": 23
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/100-years",
+   "h1": [
+    "#years of lufthansa",
+    "#years of lufthansa"
+   ],
+   "headingsFound": 44,
+   "wwwHeadings": 25
+  }
+ },
+ {
+  "template": "campaign",
+  "page": "/ch/de/100-years",
+  "reference": "/de/de/100-years",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 24,
+  "textOnlyHere": 0,
+  "textOnlyReference": 3,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "vom pionier der luftfahrt zum täglichen begleiter",
+   "a timeline",
+   "von gewagten frühen flügen über streckenrekorde und politische vereinnahmung bis hin zum jet age und einem multi-hub-netzwerk: die ereignisreiche geschichte der lufthansa zeigt, wie pioniergeist, umbrüche und neuanfänge den himmel voller und die welt kleiner gemacht haben."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/100-years",
+   "h1": [
+    "#jahre lufthansa",
+    "#jahre lufthansa"
+   ],
+   "headingsFound": 48,
+   "wwwHeadings": 23
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/100-years",
+   "h1": [
+    "#jahre lufthansa",
+    "#jahre lufthansa"
+   ],
+   "headingsFound": 44,
+   "wwwHeadings": 25
+  }
+ },
+ {
+  "template": "campaign",
+  "page": "/ch/en/book-and-manage/stopover",
+  "reference": "/de/en/book-and-manage/stopover",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 161,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [
+   "€"
+  ],
+  "referenceCurrencies": [
+   "€"
+  ],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/book-and-manage/stopover",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 12,
+   "wwwHeadings": 42
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/book-and-manage/stopover",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 12,
+   "wwwHeadings": 42
+  }
+ },
+ {
+  "template": "campaign",
+  "page": "/ch/de/book-and-manage/stopover",
+  "reference": "/de/de/book-and-manage/stopover",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 161,
+  "textOnlyHere": 1,
+  "textOnlyReference": 1,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [
+   "nur nonstop flüge"
+  ],
+  "examplesReference": [
+   "stopover buchen und münchen erleben – mit dem lufthansa stopover- programm fügen sie ihrer reise ganz bequem einen kurzaufenthalt in münchen mit einer dauer von bis zu sieben tagen hinzu und erhalten exklusiven zugang zu ausgewählten angeboten unserer touristischen partner."
+  ],
+  "currencies": [
+   "€"
+  ],
+  "referenceCurrencies": [
+   "€"
+  ],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/book-and-manage/stopover",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 12,
+   "wwwHeadings": 42
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/book-and-manage/stopover",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 12,
+   "wwwHeadings": 42
+  }
+ },
+ {
+  "template": "fleet",
+  "page": "/ch/en/320",
+  "reference": "/de/en/320",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 33,
+  "textOnlyHere": 0,
+  "textOnlyReference": 1,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "discover an aircraft that shaped civil aviation – and that still connects people across europe to this day."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/320",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/320",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "fleet",
+  "page": "/ch/de/320",
+  "reference": "/de/de/320",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 33,
+  "textOnlyHere": 0,
+  "textOnlyReference": 1,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "entdecken sie ein flugzeug, das die zivile luftfahrt geprägt hat – und bis heute menschen in ganz europa verbindet."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/320",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/320",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "fleet",
+  "page": "/ch/en/32n",
+  "reference": "/de/en/32n",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 33,
+  "textOnlyHere": 0,
+  "textOnlyReference": 1,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "discover our modern short-haul aircraft – efficient, quiet and comfortable."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/32n",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/32n",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "fleet",
+  "page": "/ch/de/32n",
+  "reference": "/de/de/32n",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "differs",
+  "textShared": 33,
+  "textOnlyHere": 0,
+  "textOnlyReference": 1,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [
+   "entdecken sie unser modernes kurzstreckenflugzeug – effizient, leise und komfortabel."
+  ],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/32n",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/32n",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 43,
+   "wwwHeadings": 21
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "reference": "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 2,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 10,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "h1": [
+    "#years of lufthansa: seven people who shaped our history",
+    "#years of lufthansa: seven people who shaped our history"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 19
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "h1": [
+    "#years of lufthansa: seven people who shaped our history",
+    "#years of lufthansa: seven people who shaped our history"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 19
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "reference": "/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 2,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 25,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "h1": [
+    "#jahre lufthansa: sieben menschen, die unsere geschichte geprägt haben",
+    "#jahre lufthansa: sieben menschen, die unsere geschichte geprägt haben"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 19
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "h1": [
+    "#jahre lufthansa: sieben menschen, die unsere geschichte geprägt haben",
+    "#jahre lufthansa: sieben menschen, die unsere geschichte geprägt haben"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 19
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "reference": "/de/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "market": "ch/en",
+  "referenceCaptured": "",
+  "captured": "2026-10-27",
+  "status": "reference not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+   "h1": [
+    "a perfect day: amsterdam in one day",
+    "a perfect day: amsterdam in one day"
+   ],
+   "headingsFound": 45,
+   "wwwHeadings": 22
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+   "h1": [
+    "a perfect day: amsterdam in one day",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "reference": "/de/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "market": "ch/de",
+  "referenceCaptured": "",
+  "captured": "2026-10-27",
+  "status": "reference not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+   "h1": [
+    "a perfect day: amsterdam an einem tag",
+    "a perfect day: amsterdam an einem tag"
+   ],
+   "headingsFound": 45,
+   "wwwHeadings": 22
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+   "h1": [
+    "a perfect day: amsterdam an einem tag",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "reference": "/de/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "market": "ch/en",
+  "referenceCaptured": "",
+  "captured": "2026-10-27",
+  "status": "reference not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+   "h1": [
+    "great hope: a spirit of optimism for the germany national soccer team",
+    "great hope: a spirit of optimism for the germany national soccer team"
+   ],
+   "headingsFound": 35,
+   "wwwHeadings": 17
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+   "h1": [
+    "great hope: a spirit of optimism for the germany national soccer team",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  }
+ },
+ {
+  "template": "insights",
+  "page": "/ch/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "reference": "/de/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "market": "ch/de",
+  "referenceCaptured": "",
+  "captured": "2026-10-27",
+  "status": "reference not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+   "h1": [
+    "große hoffnung: aufbruchsstimmung bei der deutschen fußball-nationalmannschaft",
+    "große hoffnung: aufbruchsstimmung bei der deutschen fußball-nationalmannschaft"
+   ],
+   "headingsFound": 35,
+   "wwwHeadings": 17
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+   "h1": [
+    "große hoffnung: aufbruchsstimmung bei der deutschen fußball-nationalmannschaft",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  }
+ },
+ {
+  "template": "legal",
+  "page": "/ch/en/advance-seat-reservations-terms-and-conditions",
+  "reference": "/de/en/advance-seat-reservations-terms-and-conditions",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/advance-seat-reservations-terms-and-conditions",
+   "h1": [
+    "faqs seat reservations",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/advance-seat-reservations-terms-and-conditions",
+   "h1": [
+    "faqs seat reservations",
+    "faqs seat reservations"
+   ],
+   "headingsFound": 31,
+   "wwwHeadings": 16
+  }
+ },
+ {
+  "template": "legal",
+  "page": "/ch/de/sitzplatzreservierungen-konditionen",
+  "reference": "/de/de/sitzplatzreservierungen-konditionen",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/sitzplatzreservierungen-konditionen",
+   "h1": [
+    "bedingungen für sitzplatzreservierungen",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/sitzplatzreservierungen-konditionen",
+   "h1": [
+    "bedingungen für sitzplatzreservierungen",
+    "bedingungen für sitzplatzreservierungen"
+   ],
+   "headingsFound": 31,
+   "wwwHeadings": 16
+  }
+ },
+ {
+  "template": "legal",
+  "page": "/ch/en/besondere-befoerderungsbedingungen-bus",
+  "reference": "/de/en/besondere-befoerderungsbedingungen-bus",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/besondere-befoerderungsbedingungen-bus",
+   "h1": [
+    "special conditions of carriage of deutsche lufthansa ag for the lufthansa express bus (cc bus)",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/besondere-befoerderungsbedingungen-bus",
+   "h1": [
+    "special conditions of carriage of deutsche lufthansa ag for the lufthansa express bus (cc bus)",
+    "special conditions of carriage of deutsche lufthansa ag for the lufthansa express bus (cc bus)"
+   ],
+   "headingsFound": 5,
+   "wwwHeadings": 22
+  }
+ },
+ {
+  "template": "legal",
+  "page": "/ch/de/besondere-befoerderungsbedingungen-bus",
+  "reference": "/de/de/besondere-befoerderungsbedingungen-bus",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/besondere-befoerderungsbedingungen-bus",
+   "h1": [
+    "besondere beförderungsbedingungen der deutschen lufthansa ag für den lufthansa express bus (bb bus)",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/besondere-befoerderungsbedingungen-bus",
+   "h1": [
+    "besondere beförderungsbedingungen der deutschen lufthansa ag für den lufthansa express bus (bb bus)",
+    "besondere beförderungsbedingungen der deutschen lufthansa ag für den lufthansa express bus (bb bus)"
+   ],
+   "headingsFound": 5,
+   "wwwHeadings": 22
+  }
+ },
+ {
+  "template": "form",
+  "page": "/ch/en/anmeldung-tiere-frachtraum",
+  "reference": "/de/en/anmeldung-tiere-frachtraum",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/anmeldung-tiere-frachtraum",
+   "h1": [
+    "register an animal for carriage in the cargo hold",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/anmeldung-tiere-frachtraum",
+   "h1": [
+    "register an animal for carriage in the cargo hold",
+    "register an animal for carriage in the cargo hold"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 28
+  }
+ },
+ {
+  "template": "form",
+  "page": "/ch/de/anmeldung-tiere-frachtraum",
+  "reference": "/de/de/anmeldung-tiere-frachtraum",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/anmeldung-tiere-frachtraum",
+   "h1": [
+    "tier zum transport im frachtraum anmelden",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/anmeldung-tiere-frachtraum",
+   "h1": [
+    "tier zum transport im frachtraum anmelden",
+    "tier zum transport im frachtraum anmelden"
+   ],
+   "headingsFound": 4,
+   "wwwHeadings": 28
+  }
+ },
+ {
+  "template": "form",
+  "page": "/ch/en/farealert/best-price-alert",
+  "reference": "/de/en/farealert/best-price-alert",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/farealert/best-price-alert",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/farealert/best-price-alert",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 33,
+   "wwwHeadings": 18
+  }
+ },
+ {
+  "template": "form",
+  "page": "/ch/de/farealert/best-price-alert",
+  "reference": "/de/de/farealert/best-price-alert",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/farealert/best-price-alert",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/farealert/best-price-alert",
+   "h1": [
+    "",
+    ""
+   ],
+   "headingsFound": 35,
+   "wwwHeadings": 17
+  }
+ },
+ {
+  "template": "app-entry",
+  "page": "/ch/en/online-check-in",
+  "reference": "/de/en/online-check-in",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 25,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/online-check-in",
+   "h1": [
+    "online check-in",
+    "online check-in"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 24
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/online-check-in",
+   "h1": [
+    "online check-in",
+    "online check-in"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 24
+  }
+ },
+ {
+  "template": "app-entry",
+  "page": "/ch/de/online-check-in",
+  "reference": "/de/de/online-check-in",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "2026-10-27",
+  "status": "same",
+  "textShared": 25,
+  "textOnlyHere": 0,
+  "textOnlyReference": 0,
+  "componentsSame": true,
+  "appTextDiffers": 0,
+  "examplesHere": [],
+  "examplesReference": [],
+  "currencies": [],
+  "referenceCurrencies": [],
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/online-check-in",
+   "h1": [
+    "online-check-in",
+    "online-check-in"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 24
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/online-check-in",
+   "h1": [
+    "online-check-in",
+    "online-check-in"
+   ],
+   "headingsFound": 42,
+   "wwwHeadings": 24
+  }
+ },
+ {
+  "template": "app-entry",
+  "page": "/ch/en/book-and-manage/booking-services/manage-my-bookings",
+  "reference": "/de/en/book-and-manage/booking-services/manage-my-bookings",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/book-and-manage/booking-services/manage-my-bookings",
+   "h1": [
+    "manage bookings",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/book-and-manage/booking-services/manage-my-bookings",
+   "h1": [
+    "manage bookings",
+    "manage bookings"
+   ],
+   "headingsFound": 8,
+   "wwwHeadings": 12
+  }
+ },
+ {
+  "template": "app-entry",
+  "page": "/ch/de/book-and-manage/booking-services/manage-my-bookings",
+  "reference": "/de/de/book-and-manage/booking-services/manage-my-bookings",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/book-and-manage/booking-services/manage-my-bookings",
+   "h1": [
+    "buchungen verwalten",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/book-and-manage/booking-services/manage-my-bookings",
+   "h1": [
+    "buchungen verwalten",
+    "buchungen verwalten"
+   ],
+   "headingsFound": 8,
+   "wwwHeadings": 12
+  }
+ },
+ {
+  "template": "flight-status",
+  "page": "/ch/en/timetable-and-flight-status",
+  "reference": "/de/en/timetable-and-flight-status",
+  "market": "ch/en",
+  "referenceCaptured": "2026-10-21",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/en/timetable-and-flight-status",
+   "h1": [
+    "flight status",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/en/timetable-and-flight-status",
+   "h1": [
+    "flight status",
+    ""
+   ],
+   "headingsFound": 27,
+   "wwwHeadings": 15
+  }
+ },
+ {
+  "template": "flight-status",
+  "page": "/ch/de/flugplan-und-flugstatus",
+  "reference": "/de/de/flugplan-und-flugstatus",
+  "market": "ch/de",
+  "referenceCaptured": "2026-10-22",
+  "captured": "",
+  "status": "market page not captured",
+  "served": {
+   "status": 200,
+   "route": "market",
+   "canonical": "https://lhcom.bbird.live/ch/de/flugplan-und-flugstatus",
+   "h1": [
+    "flugstatus",
+    ""
+   ],
+   "headingsFound": null,
+   "wwwHeadings": 0
+  },
+  "languageServed": {
+   "status": 200,
+   "route": "pass-through",
+   "canonical": "https://lhcom.bbird.live/de/de/flugplan-und-flugstatus",
+   "h1": [
+    "flugstatus",
+    ""
+   ],
+   "headingsFound": 27,
+   "wwwHeadings": 15
+  }
+ }
+]

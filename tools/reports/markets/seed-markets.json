@@ -1,0 +1,70 @@
+{
+ "de/en": {
+  "markets": 96,
+  "pages": [
+   {
+    "path": "/de/en/event/dghm-2026",
+    "value": "de",
+    "have": 0,
+    "of": 96
+   }
+  ],
+  "unknown": [
+   "/de/en/articles",
+   "/de/en/articles/authors",
+   "/de/en/book-and-manage/cancellation-and-refund/refund/refund-form",
+   "/de/en/book-and-manage/destination",
+   "/de/en/book-and-manage/flights/lufthansa-voucher",
+   "/de/en/book-and-manage/trip-management",
+   "/de/en/common/baggage-conditions",
+   "/de/en/good-for-train",
+   "/de/en/help-and-contact",
+   "/de/en/local-page/south-africa-winter-promotion",
+   "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "/de/en/support/support",
+   "/de/en/travel-briefing"
+  ],
+  "kept": [],
+  "results": [
+   {
+    "path": "/de/en/event/dghm-2026",
+    "status": "written, previewed"
+   }
+  ]
+ },
+ "de/de": {
+  "markets": 96,
+  "pages": [
+   {
+    "path": "/de/de/event/dghm-2026",
+    "value": "de",
+    "have": 0,
+    "of": 96
+   }
+  ],
+  "unknown": [
+   "/de/de/articles",
+   "/de/de/articles/authors",
+   "/de/de/book-and-manage/cancellation-and-refund/refund/refund-form",
+   "/de/de/book-and-manage/destination",
+   "/de/de/book-and-manage/flights/lufthansa-voucher",
+   "/de/de/book-and-manage/trip-management",
+   "/de/de/common/baggage-conditions",
+   "/de/de/exclusive-charter",
+   "/de/de/fluege",
+   "/de/de/good-for-train",
+   "/de/de/help-and-contact",
+   "/de/de/local-page/south-africa-winter-promotion",
+   "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+   "/de/de/sepa-bedingungen",
+   "/de/de/travel-briefing"
+  ],
+  "kept": [],
+  "results": [
+   {
+    "path": "/de/de/event/dghm-2026",
+    "status": "written, previewed"
+   }
+  ]
+ }
+}

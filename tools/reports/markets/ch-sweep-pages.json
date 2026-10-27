@@ -1,0 +1,142 @@
+[
+ {
+  "template": "homepage",
+  "en": "/de/en/homepage",
+  "de": "/de/de/homepage",
+  "chen": "/ch/en/homepage",
+  "chde": "/ch/de/homepage"
+ },
+ {
+  "template": "hub",
+  "en": "/de/en/additional-services",
+  "de": "/de/de/additional-services",
+  "chen": "/ch/en/additional-services",
+  "chde": "/ch/de/additional-services"
+ },
+ {
+  "template": "hub",
+  "en": "/de/en/baggage",
+  "de": "/de/de/gepaeck",
+  "chen": "/ch/en/baggage",
+  "chde": "/ch/de/gepaeck"
+ },
+ {
+  "template": "info",
+  "en": "/de/en/accessible-travel",
+  "de": "/de/de/accessible-travel",
+  "chen": "/ch/en/accessible-travel",
+  "chde": "/ch/de/accessible-travel"
+ },
+ {
+  "template": "info",
+  "en": "/de/en/add-sports-baggage",
+  "de": "/de/de/sportgepaeck-hinzufuegen",
+  "chen": "/ch/en/add-sports-baggage",
+  "chde": "/ch/de/sportgepaeck-hinzufuegen"
+ },
+ {
+  "template": "info",
+  "en": "/de/en/group-travel",
+  "de": "/de/de/group-travel",
+  "chen": "/ch/en/group-travel",
+  "chde": "/ch/de/group-travel"
+ },
+ {
+  "template": "campaign",
+  "en": "/de/en/100-years",
+  "de": "/de/de/100-years",
+  "chen": "/ch/en/100-years",
+  "chde": "/ch/de/100-years"
+ },
+ {
+  "template": "campaign",
+  "en": "/de/en/book-and-manage/stopover",
+  "de": "/de/de/book-and-manage/stopover",
+  "chen": "/ch/en/book-and-manage/stopover",
+  "chde": "/ch/de/book-and-manage/stopover"
+ },
+ {
+  "template": "fleet",
+  "en": "/de/en/320",
+  "de": "/de/de/320",
+  "chen": "/ch/en/320",
+  "chde": "/ch/de/320"
+ },
+ {
+  "template": "fleet",
+  "en": "/de/en/32n",
+  "de": "/de/de/32n",
+  "chen": "/ch/en/32n",
+  "chde": "/ch/de/32n"
+ },
+ {
+  "template": "insights",
+  "en": "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "de": "/de/de/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "chen": "/ch/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "chde": "/ch/de/articles/explore-flying/7-people-who-shaped-lufthansa-history"
+ },
+ {
+  "template": "insights",
+  "en": "/de/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "de": "/de/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "chen": "/ch/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day",
+  "chde": "/ch/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day"
+ },
+ {
+  "template": "insights",
+  "en": "/de/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "de": "/de/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "chen": "/ch/en/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "chde": "/ch/de/articles/highlights-european-championship/european-championship-2024-great-hope"
+ },
+ {
+  "template": "legal",
+  "en": "/de/en/advance-seat-reservations-terms-and-conditions",
+  "de": "/de/de/sitzplatzreservierungen-konditionen",
+  "chen": "/ch/en/advance-seat-reservations-terms-and-conditions",
+  "chde": "/ch/de/sitzplatzreservierungen-konditionen"
+ },
+ {
+  "template": "legal",
+  "en": "/de/en/besondere-befoerderungsbedingungen-bus",
+  "de": "/de/de/besondere-befoerderungsbedingungen-bus",
+  "chen": "/ch/en/besondere-befoerderungsbedingungen-bus",
+  "chde": "/ch/de/besondere-befoerderungsbedingungen-bus"
+ },
+ {
+  "template": "form",
+  "en": "/de/en/anmeldung-tiere-frachtraum",
+  "de": "/de/de/anmeldung-tiere-frachtraum",
+  "chen": "/ch/en/anmeldung-tiere-frachtraum",
+  "chde": "/ch/de/anmeldung-tiere-frachtraum"
+ },
+ {
+  "template": "form",
+  "en": "/de/en/farealert/best-price-alert",
+  "de": "/de/de/farealert/best-price-alert",
+  "chen": "/ch/en/farealert/best-price-alert",
+  "chde": "/ch/de/farealert/best-price-alert"
+ },
+ {
+  "template": "app-entry",
+  "en": "/de/en/online-check-in",
+  "de": "/de/de/online-check-in",
+  "chen": "/ch/en/online-check-in",
+  "chde": "/ch/de/online-check-in"
+ },
+ {
+  "template": "app-entry",
+  "en": "/de/en/book-and-manage/booking-services/manage-my-bookings",
+  "de": "/de/de/book-and-manage/booking-services/manage-my-bookings",
+  "chen": "/ch/en/book-and-manage/booking-services/manage-my-bookings",
+  "chde": "/ch/de/book-and-manage/booking-services/manage-my-bookings"
+ },
+ {
+  "template": "flight-status",
+  "en": "/de/en/timetable-and-flight-status",
+  "de": "/de/de/flugplan-und-flugstatus",
+  "chen": "/ch/en/timetable-and-flight-status",
+  "chde": "/ch/de/flugplan-und-flugstatus"
+ }
+]

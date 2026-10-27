@@ -1,5 +1,5 @@
 {
-  "about": "Documents of lh-com outside its migration scope that da-upload.mjs may send (read in addition to transformers/scope-paths.js and the document families). The ch pilot (2026-10-27): the homepages and the own pages of ch/en and ch/de (tools/reports/markets/inventory.json), and their nav and footer (copies of de/en's and de/de's with ch links).",
+  "about": "Documents of lh-com outside its migration scope that da-upload.mjs may send (read in addition to transformers/scope-paths.js and the document families). The ch pilot (2026-10-27): the homepages and the own pages of ch/en and ch/de (tools/reports/markets/inventory.json), their nav and footer (copies of de/en's and de/de's with ch links), and the market versions the sweep found (choice B: a ch document only where www's ch page differs from the language version; tools/reports/markets/ch-sweep.md).",
   "paths": [
     "/ch/en/homepage",
     "/ch/en/local-page/experience-america",
@@ -15,6 +15,7 @@
     "/ch/de/fluege-vo-zurich-nach-china",
     "/ch/de/event/exklusives-event-angebot-dxb-1",
     "/ch/de/nav",
-    "/ch/de/footer"
+    "/ch/de/footer",
+    "/ch/de/fluege"
   ]
 }
