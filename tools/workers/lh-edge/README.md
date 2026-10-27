@@ -52,6 +52,7 @@ a custom domain in the Cloudflare dashboard (as the main host).
 | `csi-xf` | GET/HEAD `/content/experience-fragments/<folder>.csi-xf.json` | www's fragment catalog of a folder (`src/xf.js`), from the query index `/xf/query-index.json` (documents under `/xf/` with `xf-path`, `xf-kind`, `xf-tags`; `tools/importer/build-xf-docs.mjs`): sub-folders nested, `experienceFragments` with `sdui` links and variants; `no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires: 0`; outside `/content/experience-fragments/lh/` 400 `{}` |
 | `aircraft` | GET/HEAD `<any page>.aircraft.json` | `{"aircrafts":[{name, title, url}]}`: the aircraft pages of the page's locale in the fleet overview's order (`src/aircraft.js`), from the query index `/fleet-index.json` (metadata `aircraft-code`, `aircraft-order`; `tools/importer/add-fleet-metadata.mjs`); `application/json`, no cache headers; empty for a locale without fleet pages |
 | `changelocale` | POST `<page>.changelocale`, `<page>.changelocale.html` | www's country and language selector (`src/changelocale.js`): JSON `{"geolocation":true,...}` answers `{"country":"<CDN country, lower case, or empty>"}`; a form with `country` and `language` answers 302 to the page's counterpart (`/data/locale-map.json`), else the locale's homepage (www's for markets the replica does not have), the other fields as the query, and sets `dcep.prehpsettings=<cc>/<ll>` (Path=/, 400 days, Secure, not HttpOnly); only `language` valid keeps the market; any other body 400 |
+| `market-sitemap` | GET/HEAD `/sitemap/sitemap_lh.xml(.gz)`, `/sitemap/sitemap_lh_<cc>_<ll>.xml(.gz)` of a market root | where the host serves market roots (see "Market roots"): the market root's sitemap and the index with it, generated; elsewhere the `sitemap-gz` route or the pass-through, as before |
 | `sitemap-gz` | GET/HEAD `/sitemap/<name>.xml.gz` | the origin's `/sitemap/<name>.xml` gzipped (`src/sitemap.js`): the locale sitemaps of `helix-sitemap.yaml` and the static index `/sitemap/sitemap_lh.xml`; `application/octet-stream` as www, `public, max-age=14400`; the plain `.xml` names pass through |
 | `llms` | GET/HEAD `/<cc>/llms.txt`, `/<cc>/<ll>/llms.txt` | a static file at the path wins (the curated `/llms.txt`, `/de/llms.txt`); otherwise generated from the locale indexes (`src/llms.js`, columns `llms-include`, `llms-title`, `llms-description`, `llms-category`, `ai-guidance`, see `AUTHORING.md`): title line, per locale the homepage's `ai-guidance`, one section per category with `- [title](url): description` lines (ordered by category and title), a line to `https://www.lufthansa.com/llms.txt`; `text/plain`, `public, max-age=3600` and an hour in the edge cache; 404 for a market without a replica locale |
 | `service-worker` | GET/HEAD `/service-worker.js` | www's file (the code repository's `/service-worker.js`, from the origin) with `application/javascript`, `public, max-age=21600` |
@@ -76,6 +77,7 @@ a custom domain in the Cloudflare dashboard (as the main host).
 | `login-return` | GET/HEAD `/` or `/<cc>/<ll>/...` with `code` and `state=/<cc>/...` | lh-backends (the return from the login provider), before the entry redirects |
 | `entry` | GET/HEAD `/`, `/<cc>`, `/<cc>/<ll>` (with or without `/`) | 302 to the homepage of the market and language (`src/entry.js`, see "Entry redirects") |
 | `backends` | any method: `/service/secured/api/*` (but the four above, `search` and `captcha-verify`), `/apps/dcep/deeplink/*` (but the kiosk), `/deeplink/*`, `/sso/*`, `/loginservice`, `/seatmap/*`, `/_lh-backends/*` | lh-backends through the service binding `BACKENDS`, unchanged (`src/backends.js`) |
+| `market` | any method: `/<cc>/<ll>/<path>` of a market root (locale table `documents: language`: ch/en, ch/de) | GET/HEAD on a host that serves the root: its own document, else its language version's (`src/markets.js`, see "Market roots"); otherwise the pass-through, unchanged |
 | `pass-through` | everything else | the Edge Delivery origin |
 
 Packages add their routes before `login-return`, `entry` and `backends`; `pass-through` comes last.
@@ -176,6 +178,31 @@ www answers a set of server endpoints that are not pages: REST calls of its own 
 
 Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<two letters>` that is no country (ISO 3166-1, plus `xx`), such as `/en`, is left to the origin (404, as www). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live and lhcom.bbird.live don't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
 
+Market roots the host serves (see "Market roots") count as the replica's locales here: on `PILOT_HOSTS` `/ch`, `/ch/en`, `/ch/de` go to `/ch/<ll>/homepage` (`/ch` by the saved choice, else `Accept-Language`, else the country's first row in the locale table, German); on other hosts to www as before.
+
+## Market roots (`src/markets.js`)
+
+Ben's choice B (2026-10-27): one DA document per language page; a market root holds its own documents only where it differs (homepage, own pages, local versions). A root with `documents: language` in the locale table (`tools/markets/locale-data.json`, generated into `scripts/locale-table.js`) is answered from its language version (`LANGUAGE_VERSIONS`: en `de/en`, de `de/de`). For GET/HEAD `/<cc>/<ll>/<path>`:
+
+1. The root's own document: the origin's answer for the path, unless it is 404 (pages, `.plain.html`, JSON, the redirect sheet's rows: a market path with another slug gets a document of its own or a redirect row, not code).
+2. Else the language version's document, if the language's query index (`/<version>/search-index.json`) has the page and its `markets` field allows the country (`AUTHORING.md`): include `de, at`, exclude `-ch, -us`, empty every market of the language. What the index leaves out on purpose (nav, footer, fragments, form confirmations, `support/search`, `articles/config`) comes from the language version without that check. In the HTML (HTMLRewriter): links into the language version become the market root's where the market serves the target (the link step's rule, `tools/loc/link-lib.mjs`), the site's own hosts are stripped from links and images, `canonical` and `og:url` name the market URL (the origin's canonical host), `nav`/`footer`/`parent` metadata the market root's, and hreflang alternates are added from the indexes: the page in every language version and served market root, translated slugs paired by `primary-language-url` (at/de and gb/en have their own indexes and are not listed). Nav and footer are the root's own documents (`header.js`/`footer.js` load `/<cc>/<ll>/nav`).
+3. A path the language index doesn't have: the language version's redirect (redirect sheet) into the market root, else the origin's 404 for the market path, as www.
+
+JSON under the root (`search-index.json`, `articles/query-index.json` …) without an own file: the language version's sheet, rows whose `markets` excludes the country left out, path values rewritten as links, paged by the request's `offset`/`limit`; `search-index.json` gets the root's own pages from the index `/market-pages.json` (`helix-query.yaml` `market-pages`: every two-letter root but the four with their own indexes). Media and other files pass through.
+
+Caching: every origin request goes through `originFetch` (edge cache `EDGE_TTL`, `cache-tag` of the origin answer kept: the language page's tags, so a publish of the language page purges every market copy where push invalidation runs). The indexes are kept a minute per isolate as compact maps (path, markets, robots, primary-language-url, lastModified).
+
+Sitemaps: `/sitemap/sitemap_lh_<cc>_<ll>.xml` (and `.xml.gz`) of a served root: the language pages it serves and its own pages, without `page-robots` noindex, `lastmod` and alternates as `helix-sitemap.yaml`, URLs on `https://<WWW_HOST>`. `/sitemap/sitemap_lh.xml(.gz)`: the origin's static index with the served roots' sitemaps added in order. Robots (`robots.txt`, the noindex metadata) are unchanged.
+
+Pilot rows (`status: pilot`) are served only where the public host (see "Public host") is one of `PILOT_HOSTS` (`lhedge.bbird.live`); lhcom.bbird.live sends `X-LH-Public-Host: lhcom.bbird.live`, so nothing changes there. The site code does not link pilot roots (they are no `LOCALES`).
+
+Test against the preview origin (documents on preview only):
+
+```sh
+wrangler dev --port 8787 --local-upstream lhedge.bbird.live --var ORIGIN:main--lh-com--moved-permanently.aem.page
+node tools/markets/check-market-route.mjs --base http://localhost:8787 --root ch/en --root ch/de --links /ch/en/homepage
+```
+
 ## Login link (`src/login.js`)
 
 `GET /service/secured/api/core/authenticate/loginPageUrl?state=<page>` answers www's JSON `{"loginPageUrl": "<Travel ID authorize URL>"}`, built from public parameters only: client id, redirect URI and scopes from the vars `TRAVELID_AUTHORIZE_URL`, `TRAVELID_CLIENT_ID`, `TRAVELID_REDIRECT_URI`, `TRAVELID_SCOPE` (www's values when unset), country and language from `X-Portal-Site` and `X-Portal-Language`, `state` from the query. Headers as www: `cache-control: private, no-cache, no-store, must-revalidate`, `access-control-allow-origin: *`. Without the X-Portal headers www answers 500 with an HTML page; here 400 `{"error":"missing-headers"}`. The header block's login link asks for it (and falls back to the link of the nav document where nothing answers).
@@ -220,6 +247,8 @@ www's authoring system posts one JSON message per page or fragment it publishes 
 Absolute links of the app screens (other screens, images) use `X-LH-Public-Host` (a CDN in front that sends chosen paths to lh-edge), else `X-Forwarded-Host`, else `PUBLIC_HOST`, else the request's host.
 
 ## Tests and deployment
+
+`node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --out before.json` records status, location, content type and a body hash (nonces masked) of today's paths (the four roots, app screens, feeds, DAM, entry redirects, sitemaps, llms, search); `--compare before.json after.json` lists what differs. Run it twice before a deploy (the noise floor), once after.
 
 `npm test` (Node 24, no install; `fetch` mocked, `test/htmlrewriter-shim.mjs` stands in for the runtime's HTMLRewriter, `test/cloudflare-workers-shim.mjs` (a loader hook) for `cloudflare:workers`): one test per route and the pass-through. `.github/workflows/deploy-lh-edge.yaml` tests and deploys on pushes to main that touch this folder (secret `CLOUDFLARE_API_TOKEN`).
 

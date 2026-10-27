@@ -2,7 +2,8 @@
 /**
  * A small stand-in for the Workers runtime's HTMLRewriter (node --test has none): element
  * handlers for "tag" and "tag[attr]" selectors (comma lists), getAttribute / setAttribute /
- * prepend(html) on opening tags. Enough for lh-edge's rewriting; not a parser.
+ * prepend(html) on opening tags; after(html) and remove() on void elements (link, meta, img).
+ * Enough for lh-edge's rewriting; not a parser.
  */
 const parseSelector = (selector) => selector.split(',').map((s) => {
   const m = s.trim().match(/^([a-z0-9-]+)(?:\[([a-z-]+)\])?$/i);
@@ -27,6 +28,8 @@ export default class HTMLRewriter {
         return m;
       });
       let prepend = '';
+      let after = '';
+      let removed = false;
       let changed = false;
       const el = {
         tagName: tag,
@@ -37,13 +40,16 @@ export default class HTMLRewriter {
           changed = true;
         },
         prepend: (content) => { prepend += content; },
+        after: (content) => { after += content; },
+        remove: () => { removed = true; },
       };
       handlers.forEach(({ selectors, handler }) => {
         const hit = selectors.some((s) => s.tag === tag && (!s.attr || el.getAttribute(s.attr) !== null));
         if (hit) handler.element(el);
       });
       const open = changed ? `<${tagName}${attrs.map(([k, v]) => ` ${k}="${String(v).replace(/"/g, '&quot;')}"`).join('')}>` : whole;
-      return `${open}${prepend}`;
+      if (removed) return after;
+      return `${open}${prepend}${after}`;
     }));
     const stream = new ReadableStream({
       async start(controller) {

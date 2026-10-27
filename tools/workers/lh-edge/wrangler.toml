@@ -62,6 +62,10 @@ EDGE_TTL = "60"
 # version of lh-edge's edge cache (?lh-edge-cache=<value> on every cached origin request): a new
 # value drops the cache (no custom cache keys or per-host purge on this plan); empty: not added
 EDGE_CACHE_VERSION = "2026-10-25a"
+# hosts that answer the pilot rows of the locale table (src/markets.js: ch/en, ch/de from their
+# language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
+# X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before
+PILOT_HOSTS = "lhedge.bbird.live"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL

@@ -38,6 +38,9 @@ import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
+import {
+  market, marketPath, marketSitemap, isMarketSitemapPath,
+} from './markets.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -118,6 +121,16 @@ export const ROUTES = [
     name: 'csi-offline',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isOfflinePath(url.pathname),
     handle: csiOffline,
+  },
+  {
+    // market roots' sitemaps and the index with them (src/markets.js), where the host serves
+    // market roots; elsewhere the two routes below as before
+    name: 'market-sitemap',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isMarketSitemapPath(url.pathname),
+    handle: (request, env) => {
+      const gz = isSitemapGzPath(new URL(request.url).pathname);
+      return marketSitemap(request, env, gz ? sitemapGz : passThrough);
+    },
   },
   {
     // AMS rest A7: www's gzipped sitemap names
@@ -234,6 +247,13 @@ export const ROUTES = [
     name: 'backends',
     match: (url) => isBackendsPath(url.pathname),
     handle: backends,
+  },
+  {
+    // market roots answered from their language's documents (src/markets.js; pilot roots only on
+    // PILOT_HOSTS, elsewhere the pass-through)
+    name: 'market',
+    match: (url) => marketPath(url.pathname) !== null,
+    handle: market,
   },
   {
     name: 'pass-through',

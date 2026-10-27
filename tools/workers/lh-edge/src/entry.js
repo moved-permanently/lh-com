@@ -10,10 +10,13 @@
  *   international market xx in English with ?showLanguageSelection=true; the language as above.
  * Not cached at the edge (cookie, country and language decide): cache-control private, no-store,
  * Vary: Cookie, Accept-Language.
+ * Market roots the host serves (src/markets.js servedMarketRoots: pilot rows on PILOT_HOSTS only)
+ * count as the replica's: /ch, /ch/en, /ch/de go to their homepages there; elsewhere to www's.
  */
 /* eslint-disable import/no-relative-packages */
 import { LOCALES, LIVE_ORIGIN } from '../../../../scripts/locale.js';
 /* eslint-enable import/no-relative-packages */
+import { servedMarketRoots } from './markets.js';
 
 /** www's markets and the languages they offer (the first is the market's default). */
 export const MARKETS = {
@@ -72,20 +75,23 @@ export function acceptLanguages(request) {
     .map((l) => l.lang);
 }
 
-/** The language for a market: saved choice, Accept-Language, market default ('' if unknown). */
-export function pickLanguage(cc, request) {
+/**
+ * The language for a market: saved choice, Accept-Language, market default ('' if unknown).
+ * served: the market roots the host serves besides LOCALES (their first row is the default).
+ */
+export function pickLanguage(cc, request, served = []) {
   const saved = savedChoice(request);
   if (saved && saved.cc === cc) return saved.ll;
-  const offered = MARKETS[cc] || Object.keys(LOCALES).filter((k) => k.startsWith(`${cc}/`)).map((k) => k.slice(3));
+  const offered = MARKETS[cc] || [...Object.keys(LOCALES), ...served].filter((k) => k.startsWith(`${cc}/`)).map((k) => k.slice(3));
   const accepted = acceptLanguages(request).find((l) => offered.includes(l));
   return accepted || offered[0] || '';
 }
 
-/** The homepage of a market and language: the replica's, else www's. */
-export function homepageUrl(cc, ll, search = '') {
+/** The homepage of a market and language: the replica's (served: market roots too), else www's. */
+export function homepageUrl(cc, ll, search = '', served = []) {
   if (!ll) return `${LIVE_ORIGIN}/${cc}${search}`;
   const path = `/${cc}/${ll}/homepage`;
-  return LOCALES[`${cc}/${ll}`] ? `${path}${search}` : `${LIVE_ORIGIN}${path}${search}`;
+  return LOCALES[`${cc}/${ll}`] || served.includes(`${cc}/${ll}`) ? `${path}${search}` : `${LIVE_ORIGIN}${path}${search}`;
 }
 
 function redirect(location) {
@@ -101,12 +107,13 @@ function redirect(location) {
 }
 
 /** The route. */
-export function entry(request) {
+export function entry(request, env = {}) {
   const url = new URL(request.url);
   const { cc, ll } = entryPath(url.pathname);
   const { search } = url;
-  if (cc && ll) return redirect(homepageUrl(cc, ll, search));
-  if (cc) return redirect(homepageUrl(cc, pickLanguage(cc, request), search));
+  const served = servedMarketRoots(request, env);
+  if (cc && ll) return redirect(homepageUrl(cc, ll, search, served));
+  if (cc) return redirect(homepageUrl(cc, pickLanguage(cc, request, served), search, served));
   const saved = savedChoice(request);
   const country = String(request.headers.get('cf-ipcountry') || '').trim().toLowerCase();
   const market = (saved && saved.cc) || (/^[a-z]{2}$/.test(country) && country !== 'xx' ? country : '');
@@ -115,5 +122,5 @@ export function entry(request) {
     params.set('showLanguageSelection', 'true');
     return redirect(homepageUrl('xx', 'en', `?${params}`));
   }
-  return redirect(homepageUrl(market, pickLanguage(market, request), search));
+  return redirect(homepageUrl(market, pickLanguage(market, request, served), search, served));
 }

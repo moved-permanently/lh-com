@@ -34,6 +34,21 @@ Example (`/at/de/gepaeck`):
 | `primary-language-url` | the de/en page this page translates, e.g. `/de/en/baggage` | pairs pages with translated slugs (`/de/de/gepaeck`) as alternates in the sitemaps |
 | `Canonical` | a URL | the canonical link (only where it differs from the page itself) |
 
+## Market roots (`markets`)
+
+Market roots such as ch/en and ch/de have no copy of every page: lh-edge answers them from the language version (de/en
+for English, de/de for German, `tools/workers/lh-edge/README.md` "Market roots"). `markets` on a **language version's**
+page says which markets of its language get it:
+
+| Key | Value | Used for |
+| --- | --- | --- |
+| `markets` | empty: every market of the language; an include list of countries `de, at`; an exclude list `-ch, -us` | a market root not allowed answers 404 for the page, leaves it out of its sitemap and search index, and links to it stay on the language version |
+
+A market that needs its own version of a page gets a document at its own path (`/ch/de/<path>`): it wins over the
+language page, whatever `markets` says. A market page with another slug on www gets its own document or a row in the
+redirect sheet. The field was seeded once from www's sitemaps (`tools/markets/seed-markets.mjs`); from then on it is kept
+here. The language index takes the value when the page is **published**.
+
 ## Fleet pages (AMS rest A3)
 
 | Key | Value | Used for |

@@ -26,3 +26,6 @@ migration-work/templates/*/images/
 
 # other sites' document trees and captures (tools/importer/da-upload.mjs --site, bd-session.mjs --pages-dir)
 content-sites/
+
+# wrangler dev state (local tests of the Workers)
+.wrangler/

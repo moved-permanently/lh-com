@@ -129,7 +129,8 @@ function capBrowserCache(resp, env) {
  */
 export async function originFetch(request, env, target, options = {}) {
   const url = target ? new URL(target) : originUrl(request.url, env);
-  if (!url.origin.match(/^https:\/\/main--.*--.*\.aem\.live/)) {
+  // aem.page: a test against the preview origin (wrangler dev --var ORIGIN:main--…aem.page)
+  if (!url.origin.match(/^https:\/\/main--.*--.*\.aem\.(live|page)$/)) {
     return new Response('Invalid ORIGIN', { status: 500 });
   }
   const edgeCache = options.edgeCache !== false;

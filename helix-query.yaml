@@ -847,6 +847,12 @@ indices:
       ai-guidance:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
@@ -914,6 +920,12 @@ indices:
         value: attribute(el, "content")
       ai-guidance:
         select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
+      # Market roots (lh-edge src/markets.js): the countries of the language whose market roots
+      # get this page from its language version (include "de, at", exclude "-ch, -us"; empty:
+      # all). tools/markets/seed-markets.mjs seeded it; authors keep it in DA (AUTHORING.md)
+      markets:
+        select: head > meta[name="markets"]
         value: attribute(el, "content")
       lastModified:
         select: none
@@ -1100,3 +1112,64 @@ indices:
       aircraft-order:
         select: head > meta[name="aircraft-order"]
         value: attribute(el, "content")
+
+  # Market roots' own documents (lh-edge src/markets.js): the pages a root answered from its
+  # language version (locale table documents "language": ch/en, ch/de) holds itself, where it
+  # differs (homepage, own pages, local versions). The search columns as search-<cc>-<ll>: lh-edge
+  # adds these rows to the root's search-index.json and sitemap. Every two-letter root but the
+  # four with their own indexes; folders that hold no market pages left out.
+  market-pages:
+    include:
+      - /*/*/**
+    exclude:
+      - /de/en/**
+      - /de/de/**
+      - /at/de/**
+      - /gb/en/**
+      - /content/**
+      - /data/**
+      - /drafts/**
+      - /lhg/**
+      - /library/**
+      - /xf/**
+      - /app/**
+      - /message-center/**
+      - /media-da/**
+      - /*/*/nav
+      - /*/*/footer
+      - /*/*/fragments/**
+      - /*/*/drafts/**
+      - /**/confirmation
+      - /**/*-confirmation
+    target: /market-pages.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      headings:
+        select: main h1, main h2, main h3
+        values: textContent(el)
+      content:
+        select: main p, main li, main div > a
+        values: textContent(el)
+      parent:
+        select: head > meta[name="parent"]
+        value: attribute(el, "content")
+      hide-in-search:
+        select: head > meta[name="hide-in-search"]
+        value: attribute(el, "content")
+      primary-language-url:
+        select: head > meta[name="primary-language-url"]
+        value: attribute(el, "content")
+      robots:
+        select: head > meta[name="page-robots"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
