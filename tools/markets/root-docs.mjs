@@ -15,7 +15,7 @@
  * migration scope link into their own root on www (the importer's rule for pages outside the
  * scope); this makes those links root-relative (https://www.lufthansa.com/ch/en/x -> /ch/en/x)
  * and lists the targets that have no document in content/ (they answer 404 until the root's
- * shared pages exist).
+ * shared pages exist). A link whose text is its www URL (the Parent row) gets the path as text.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -64,11 +64,19 @@ export function rootCopy(html, from, to, map = rootMap(from, to)) {
 export function ownRootLinks(html, rootKey) {
   const links = [];
   const re = new RegExp(`href="https://www\\.lufthansa\\.com(/${rootKey.replace('/', '\\/')}(?=[/"?#])[^"]*)"`, 'g');
-  const out = html.replace(re, (m, p) => {
+  let out = html.replace(re, (m, p) => {
     links.push(p.replace(/&amp;/g, '&'));
     return `href="${p}"`;
   });
-  return { html: out, links };
+  // a link whose text is its own URL (the metadata Parent row, read by the breadcrumb) names the
+  // new path, as the link step does
+  let texts = 0;
+  out = out.replace(/<a href="(\/[^"]+)">https:\/\/www\.lufthansa\.com(\/[^<]+)<\/a>/g, (m, href, text) => {
+    if (href !== text) return m;
+    texts += 1;
+    return `<a href="${href}">${href}</a>`;
+  });
+  return { html: out, links, texts };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
@@ -83,7 +91,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
       const r = ownRootLinks(fs.readFileSync(file, 'utf8'), rootKey);
       if (!argv.includes('--dry')) fs.writeFileSync(file, r.html);
       const missing = [...new Set(r.links.filter((l) => !exists(l)))].sort();
-      console.log(`${page}: ${r.links.length} links into /${rootKey} made relative; without a document (404 on preview): ${missing.length}`);
+      console.log(`${page}: ${r.links.length} links into /${rootKey} made relative, ${r.texts} link texts named the path; without a document (404 on preview): ${missing.length}`);
       missing.forEach((l) => console.log(`  ${l}`));
     });
     process.exit(0);
