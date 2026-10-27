@@ -16,6 +16,7 @@ Files here:
 | `translate.json` | the app's configuration, to upload as the DA document `/.da/translate.json` of the site (an admin uploads it; tools never write site-wide documents) |
 | `check-config.mjs` | runs the app's own code (pinned commit, downloaded to a temp folder) on `translate.json` and on lh-com pages; report `tools/reports/loc-config-check.md` |
 | `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en; report `tools/reports/loc-regional-diff.md` |
+| `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; dry run report `tools/reports/loc-slug-step.md` |
 | `da-nx.mjs` | loads the app's code at the pinned commit for the two scripts above |
 
@@ -38,8 +39,12 @@ All line numbers below are adobe/da-nx at `f0c63255` (`nx/blocks/loc/…`), the 
    replaced: the differences are marked in it (see "What merge does").
 6. Pages with their own German slug (72, e.g. `/de/en/flight-search` = `/de/de/flugsuche`):
    run the **slug step** now (below). Until then their translation sits at `/de/de/flight-search`.
+   Then run the **link step** `--from de/en --to de/de` over the translated pages (below): every
+   translated page comes back with absolute aem.page links to `/de/en/…`.
 7. Rollout: when the German translation is complete the German row shows **Ready**; roll it out to
    `/at/de` (rollout/index.js 184-198), and the English rollout to `/gb/en`.
+   After each rollout run the **link step** for it (`--from de/de --to at/de`,
+   `--from de/en --to gb/en`) over the rolled-out pages.
 8. Review the merged pages in DA (accept or reject each difference), then preview and publish as
    usual. The app never previews or publishes.
 
@@ -71,9 +76,43 @@ already at the destination (project/index.js `mergeCopy`, 306-357):
 A rollout copies links as they are (no link rewriting: project/index.js `saveHtml` 197-201 passes
 `replaceRelative: false`). The market pages link to their own market (`/gb/en/…`, `country=GB`);
 the source page links to `/de/en/…`. So a rollout with merge marks those links as differences:
-**keep the local side**. With overwrite the market's links would point at the source market. Of the
-910 gb/en pages that are otherwise identical to de/en, 904 differ only in that way (regional
-differences report).
+**keep the local side**, or run the link step after the rollout (below), which makes the incoming
+links the market's too. With overwrite the market's links would point at the source market until
+the link step runs. Of the 910 gb/en pages that are otherwise identical to de/en, 904 differ only in
+that way (regional differences report).
+
+### The link step (after every rollout and translation)
+
+```sh
+node tools/loc/link-step.mjs --from de/de --to at/de --page /at/de/gepaeck          # dry run
+node tools/loc/link-step.mjs --from de/de --to at/de --page /at/de/gepaeck --apply  # write
+node tools/loc/link-step.mjs --from de/en --to gb/en                                # all gb/en pages
+node tools/loc/link-step.mjs --from de/en --to de/de                                # after a translation
+node tools/loc/link-step.mjs --all                  # dry run of the three pairs: the report
+```
+
+On each page of the target locale (the `--page` ones, else every page of that locale in
+`tools/migration-scope/pages.csv`):
+
+- links to the site's own hosts (`main--lh-com--moved-permanently.aem.page`/`.aem.live`,
+  `lhcom.bbird.live`, `lhedge.bbird.live`) become root-relative – the app writes aem.page links into
+  every translation (dnt.js 46-52) and a merge aem.live ones (regional-diff.js 103-117);
+- a link into the source locale (`/de/de/<x>` in an `/at/de` page, `/de/en/<x>` in a `/gb/en` or
+  translated `/de/de` page) becomes the target locale's page of `<x>`, from the `pages.csv` row
+  that holds it (own German slugs included: `/de/en/flight-search` → `/de/de/flugsuche`); the
+  metadata Parent link too, text included;
+- a link into the source locale without a counterpart in the target locale stays as it is and is
+  listed; links to other hosts (www.lufthansa.com, partners) and anchors stay.
+
+Links inside merge marks are changed like all others; the marks stay for the author. Dry run by
+default; `--apply` writes the changed pages only (and reads them back); `--root /drafts/loc-test`
+works on copies below that folder; `/lhg/`, login and profile pages are refused. It never
+deletes, previews or publishes. Running it twice changes nothing the second time.
+
+The dry run over DA today (`tools/reports/loc-link-step.md`) finds cross-locale links already in
+the imported content: 87 at/de pages link into `/de/de` and 89 gb/en pages into `/de/en` (www's
+own articles do: e.g. www's at/de "7 people" article links to `/de/de/articles/…`); 2 translated
+de/de pages hold a `/de/en` link.
 
 ### The slug step (after a translation into /de/de)
 
@@ -106,8 +145,8 @@ another page's German page (`conflict`), and never previews or publishes. `--roo
 runs it on copies below that folder; `--simulate` (dry run only) uses the English page as the
 translation to show the work before any project ran.
 
-Links in translated pages whose slug did not change keep the app's absolute aem.page links to
-`/de/en/…`: the slug step does not touch those pages (as specified). See "Limits".
+The slug step uses the link step's fix (`link-lib.mjs`) for the page it moves. Translated pages
+whose slug did not change are the link step's (`--from de/en --to de/de`).
 
 ## The configuration (`translate.json`) and the code it relies on
 
@@ -212,11 +251,9 @@ stay. GlobalLink's language codes may need the region (`de-DE`): `code` is sent 
 - **No at/de rollout for the 72 own German slugs**: the German rollout reads `/de/de/<English path>`
   (rollout/index.js 107-120), which does not exist for them. With #793/#870 a project with the
   `/de/de/<german slug>` URLs rolls them out.
-- **Links in translated same-slug pages** stay absolute aem.page links to `/de/en/…` (dnt.js
-  46-52). Proposed: run the slug step's link part over every translated page (the step leaves
-  same-slug pages alone by design).
-- **Links in rollouts** keep the source market (see "What merge does"). Proposed: a rollout link
-  step (`/de/en/` → `/gb/en/`, `/de/de/` → `/at/de/`, `country=` of the market) after each rollout.
+- **Links**: the app leaves absolute aem.page links in translations (dnt.js 46-52) and copies a
+  rollout's links as they are: the link step (above) fixes both. External links that carry the
+  market in their query (Travel ID's `state=/de/de/…&country=DE`) are not changed by it.
 - Google is called with `fromlang=en` always (connectors/google/index.js 25).
 
 ## Pages safe for a first test

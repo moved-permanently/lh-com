@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies -- dev tooling */
+/* eslint-disable import/no-extraneous-dependencies, import/extensions -- dev tooling */
 /**
  * The slug step's pure parts (tools/loc/slug-step.mjs; tests: test/loc-slug-step.test.mjs).
  *
@@ -9,8 +9,11 @@
  * the copy at the English slug. A page whose German slug equals the English one is never touched.
  */
 import { parseHTML } from 'linkedom';
+import { localizeHref, localizeDoc, SITE_HOSTS } from './link-lib.mjs';
 
-export const SITE_HOSTS = /^https:\/\/(main--lh-com--moved-permanently\.aem\.(page|live)|lhcom\.bbird\.live)(?=\/)/;
+export { SITE_HOSTS };
+/** The link step's map of the translation (/de/en -> /de/de) from the slug map's paths. */
+const translationMap = (map) => ({ from: 'de/en', to: 'de/de', paths: map.paths });
 
 /**
  * The slug map from pages.csv rows: {slugs: {"/de/en/x": "/de/de/y"}} for the rows whose German
@@ -40,16 +43,7 @@ export const translationPath = (enPath) => enPath.replace(/^\/de\/en(?=\/|$)/, '
  * - /de/en/<x> -> the German page of <x> (slug map), else unchanged and reported.
  */
 export function germanHref(href, map, report = () => {}) {
-  const raw = String(href || '');
-  let v = raw.replace(SITE_HOSTS, '');
-  const m = v.match(/^(\/de\/en(?:\/[^?#]*)?)([?#].*)?$/);
-  if (m) {
-    const target = m[1].replace(/\.html$/, '').replace(/\/$/, '') || '/de/en';
-    const german = map.paths[target];
-    if (german) v = `${german}${m[2] || ''}`;
-    else report(target);
-  }
-  return v === raw ? null : v;
+  return localizeHref(href, translationMap(map), report);
 }
 
 /** The metadata block's rows as [key cell, value cell]. */
@@ -65,24 +59,10 @@ function metadataRows(document) {
  * @param {string} enPath the English page (/de/en/flight-search)
  */
 export function germanize(html, enPath, map) {
-  const { document } = parseHTML(/^\s*<html/i.test(html) ? html : `<html><head></head>${html}</html>`);
-  const unmapped = new Set();
-  let links = 0;
-  document.querySelectorAll('[href], img[src], source[srcset]').forEach((el) => {
-    ['href', 'src', 'srcset'].forEach((attr) => {
-      if (!el.hasAttribute(attr)) return;
-      const value = el.getAttribute(attr);
-      const stripped = value.replace(SITE_HOSTS, '');
-      let next = stripped !== value ? stripped : null;
-      if (attr === 'href') next = germanHref(value, map, (p) => unmapped.add(p));
-      if (next !== null) {
-        el.setAttribute(attr, next);
-        links += 1;
-        // a link whose text is its own URL (the metadata Parent row) says the new URL too
-        if (el.tagName === 'A' && [value, value.replace(SITE_HOSTS, '')].includes(el.textContent.trim())) el.textContent = next;
-      }
-    });
-  });
+  // the links: the link step's translation fix (tools/loc/link-lib.mjs)
+  const localized = localizeDoc(html, translationMap(map));
+  const { links, unmapped } = localized;
+  const { document } = parseHTML(`<html><head></head>${localized.html}</html>`);
   let primary = 'kept';
   const rows = metadataRows(document);
   const found = rows.find(([k]) => k && k.textContent.trim().toLowerCase() === 'primary-language-url');
@@ -107,7 +87,7 @@ export function germanize(html, enPath, map) {
   }
   const body = document.querySelector('body');
   return {
-    html: body.outerHTML, links, unmapped: [...unmapped].sort(), primary,
+    html: body.outerHTML, links, unmapped, primary,
   };
 }
 
