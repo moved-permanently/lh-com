@@ -11,9 +11,10 @@ import {
   CHECKS, GROUPS, runChecks, scores,
 } from './checks.js';
 import { edsDamPath } from '../../scripts/dam-path.js';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const OFF_KEY = 'lh-page-check:off';
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const LOCALES = LIVE_ROOTS;
 const $ = (sel) => document.querySelector(sel);
 const parse = (html) => new DOMParser().parseFromString(`<!doctype html><html><body>${html}</body></html>`, 'text/html');
 const off = () => new Set(JSON.parse(localStorage.getItem(OFF_KEY) || '[]'));

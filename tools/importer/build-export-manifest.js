@@ -10,12 +10,13 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
 const LIVE = 'https://www.lufthansa.com';
-const LOCALES = [
-  { col: 'de_en', country: 'de', lang: 'en' },
-  { col: 'de_de', country: 'de', lang: 'de' },
-  { col: 'at_de', country: 'at', lang: 'de' },
-  { col: 'gb_en', country: 'gb', lang: 'en' },
-];
+// the migrated locales (status live) of the locale table's source, tools/markets/locale-data.json
+const LIVE_ROOTS = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, '../markets/locale-data.json'), 'utf8')).roots)
+  .filter(([, row]) => row.status === 'live').map(([key]) => key);
+const LOCALES = LIVE_ROOTS.map((k) => {
+  const [country, lang] = k.split('/');
+  return { col: `${country}_${lang}`, country, lang };
+});
 
 function readCsv(file) {
   const [head, ...lines] = fs.readFileSync(file, 'utf8').trim().split(/\r?\n/);

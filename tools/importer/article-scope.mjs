@@ -16,13 +16,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const EXPORT = path.join(root, 'tools/source-export/articles');
 const PAGES = path.join(root, 'tools/migration-scope/pages.csv');
 const TEMPLATES = path.join(root, 'tools/importer/page-templates.json');
 const REPORT = path.join(root, 'tools/reports/articles/article-scope.json');
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const LOCALES = LIVE_ROOTS;
 const LIVE = 'https://www.lufthansa.com';
 
 /** CSV with quoted fields. */
@@ -47,7 +48,9 @@ function parseCsv(text) {
   return body.map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] || ''])));
 }
 
-const report = { generatedAt: new Date().toISOString(), in: {}, out: {}, outPaths: {} };
+const report = {
+  generatedAt: new Date().toISOString(), in: {}, out: {}, outPaths: {},
+};
 const slugs = new Map(); // path below /<cc>/<ll>/ -> { de_en: path, ... }
 LOCALES.forEach((loc) => {
   const key = loc.replace('/', '-');

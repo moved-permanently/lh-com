@@ -14,9 +14,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-export const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+export const LOCALES = LIVE_ROOTS;
 
 const decode = (s) => s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   .replace(/&quot;/g, '"')

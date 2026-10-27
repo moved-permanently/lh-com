@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { requestKey, fnv1a } from '../../scripts/lh-data.js';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, all) => (
@@ -22,7 +23,7 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, all) =>
 const src = path.resolve(root, args.src || 'tools/source-export');
 const out = path.resolve(root, args.out || 'data/recorded');
 
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const LOCALES = LIVE_ROOTS;
 // the lh-proxy allowlist plus the recorded-only route of the poi-map block
 // (/service/secured/api/pointsOfInterest, recorded in-page by bd-record-api.mjs --set poi)
 const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder)|service\/secured\/api\/pointsOfInterest)(\/|$)/;

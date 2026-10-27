@@ -1,7 +1,8 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import {
-  getLocale, LOCALES, LIVE_ORIGIN, getCounterpartPath, getHomepageUrl, isMigratedLocale,
+  getLocale, LOCALES, LOCALE_TABLE, LIVE_ORIGIN, getCounterpartPath, getHomepageUrl,
+  isMigratedLocale,
 } from '../../scripts/locale.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
@@ -25,13 +26,9 @@ const DESKTOP = window.matchMedia('(width >= 1025px)');
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 const TRANSITION_MS = 800;
 
-/** Names of the migrated locales in their own language (country | language). */
-const LOCALE_NAMES = {
-  'de/en': 'Germany | English',
-  'de/de': 'Deutschland | Deutsch',
-  'at/de': 'Österreich | Deutsch',
-  'gb/en': 'United Kingdom | English',
-};
+/** Names of the locales in their own language (country | language), from the locale table. */
+const LOCALE_NAMES = Object.fromEntries(Object.entries(LOCALE_TABLE)
+  .map(([key, row]) => [key, row.name]));
 
 const LABELS = {
   en: {

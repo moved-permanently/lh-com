@@ -1,31 +1,54 @@
 /**
- * Locale handling for the four migrated lufthansa.com markets.
- * Pages live under /{country}/{lang}/...
+ * Locale handling. Pages live under /{country}/{lang}/...; the locale data is one table,
+ * scripts/locale-table.js (generated from www's sitemap dataset and
+ * tools/markets/locale-data.json).
  */
+import {
+  LOCALE_TABLE, DEFAULT_LOCALE, LANGUAGE_VERSIONS, FALLBACK_LANGUAGE_VERSION, WWW_ROOTS,
+} from './locale-table.js';
+
+export { LOCALE_TABLE, DEFAULT_LOCALE };
 
 export const LIVE_ORIGIN = 'https://www.lufthansa.com';
 
-export const LOCALES = {
-  'de/en': {
-    country: 'de', lang: 'en', homeAirport: 'FRA', currency: 'EUR',
-  },
-  'de/de': {
-    country: 'de', lang: 'de', homeAirport: 'FRA', currency: 'EUR',
-  },
-  'at/de': {
-    country: 'at', lang: 'de', homeAirport: 'VIE', currency: 'EUR',
-  },
-  'gb/en': {
-    country: 'gb', lang: 'en', homeAirport: 'LHR', currency: 'GBP',
-  },
-};
+/** The migrated locales (status live): local links, the language switch, lh-edge's routes. */
+export const LOCALES = Object.fromEntries(Object.entries(LOCALE_TABLE)
+  .filter(([, row]) => row.status === 'live'));
 
-export const DEFAULT_LOCALE = 'de/de';
+/** The keys of the migrated locales, e.g. for tools: ['de/en', 'de/de', 'at/de', 'gb/en']. */
+export const LIVE_ROOTS = Object.keys(LOCALES);
+
+const wwwRoots = new Set(WWW_ROOTS.split(' '));
+
+/** Whether a cc/ll key is one of www's market-language roots (de/en yes, xf/lh no). */
+export const isWwwRoot = (key) => wwwRoots.has(key);
+
+/**
+ * The defaults of a root without a row (e.g. /us/en/ccpa): its own country and language, no
+ * home airport, currency or time zone, and the documents (nav, footer, indexes) of its
+ * language's version (en de/en, de de/de, other languages de/en, whose texts are English).
+ */
+export function languageDefaults(country, lang) {
+  const key = LANGUAGE_VERSIONS[lang] || FALLBACK_LANGUAGE_VERSION;
+  return {
+    country,
+    lang,
+    hreflang: `${lang}-${country.toUpperCase()}`,
+    status: 'none',
+    name: null,
+    homeAirport: null,
+    currency: null,
+    timeZone: null,
+    shopLang: null,
+    key,
+  };
+}
 
 /**
  * Resolves the locale of a path.
  * @param {string} [pathname] Page path, defaults to the current page
- * @returns {Object} locale with key and base path
+ * @returns {Object} locale: the table row (country, lang, homeAirport, currency …), key (the
+ *   root whose documents the page uses), base (its path prefix) and root (the page's own root)
  */
 export function getLocale(pathname = window.location.pathname) {
   // the local dev server (aem up --html-folder content) serves pages under /content/
@@ -35,16 +58,28 @@ export function getLocale(pathname = window.location.pathname) {
   // /content/lh/markets/{country}/{lang}/...
   const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
   const match = rest.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  let key = match && LOCALES[`${match[1]}/${match[2]}`] ? `${match[1]}/${match[2]}` : DEFAULT_LOCALE;
-  // a market the replica does not have (market-only pages, /us/en/ccpa): the migrated locale of
-  // the same language, for texts and the default nav and footer
-  if (match && !LOCALES[`${match[1]}/${match[2]}`]) {
-    key = Object.keys(LOCALES).find((k) => k.endsWith(`/${match[2]}`)) || DEFAULT_LOCALE;
+  // no root in the path (app screens, experience fragments, /index): the default locale
+  if (!match) {
+    return {
+      ...LOCALE_TABLE[DEFAULT_LOCALE], key: DEFAULT_LOCALE, base: `${prefix}/${DEFAULT_LOCALE}`, root: DEFAULT_LOCALE,
+    };
   }
+  const root = `${match[1]}/${match[2]}`;
+  // a root of the table (live or pilot) is its own locale
+  if (LOCALE_TABLE[root]) {
+    return {
+      ...LOCALE_TABLE[root], key: root, base: `${prefix}/${root}`, root,
+    };
+  }
+  // a root of www without a row (market-only pages, /us/en/ccpa): its language's defaults
+  if (isWwwRoot(root)) {
+    const defaults = languageDefaults(match[1], match[2]);
+    return { ...defaults, base: `${prefix}/${defaults.key}`, root };
+  }
+  // two segments that are no root (/xf/lh/…): a migrated locale of that language, else the default
+  const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${match[2]}`)) || DEFAULT_LOCALE;
   return {
-    ...LOCALES[key],
-    key,
-    base: `${prefix}/${key}`,
+    ...LOCALE_TABLE[key], key, base: `${prefix}/${key}`, root: key,
   };
 }
 

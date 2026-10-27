@@ -1,4 +1,4 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
+import { getLocale, LIVE_ORIGIN, LOCALE_TABLE } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels,
 } from '../../scripts/block-config.js';
@@ -38,12 +38,12 @@ export const PARTNER_IDS = {
   'lh-rentalcar': '105.11',
 };
 
-/** Country shown in "I live in" (the live app shows the visitor's country by geo). */
-const COUNTRY_NAMES = {
-  de: { de: 'Deutschland', en: 'Germany' },
-  at: { de: 'Österreich', en: 'Austria' },
-  gb: { de: 'Vereinigtes Königreich', en: 'United Kingdom' },
-};
+/**
+ * Country shown in "I live in" (the live app shows the visitor's country by geo): the locale
+ * table's country names in German and English.
+ */
+const COUNTRY_NAMES = Object.fromEntries(Object.values(LOCALE_TABLE)
+  .map((row) => [row.country, row.countryName]));
 
 /**
  * Texts of the empty Meili search form, from the live snapshots (de/de and de/en sixt,

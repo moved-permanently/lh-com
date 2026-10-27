@@ -51,7 +51,7 @@ test('readTimeTravel: the parameter on a preview host, the market\'s time zone, 
   const bad = readTimeTravel(at('?time-travel=soon'));
   assert.ok(Number.isNaN(bad.ts), 'unreadable: the bar says so, the clock keeps the real time');
   assert.equal(marketOf('/content/lh/markets/gb/en/lounges'), 'gb');
-  assert.deepEqual(Object.keys(MARKET_TIME_ZONES), ['de', 'at', 'gb']);
+  assert.deepEqual(Object.keys(MARKET_TIME_ZONES), ['de', 'at', 'gb', 'ch'], 'the locale table\'s markets');
 });
 
 test('now(): the time travelled to, else the real time (no parameter, unreadable, live host)', () => {

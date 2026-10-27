@@ -14,6 +14,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { LOCALE_TABLE } from '../../scripts/locale.js';
 
 export const ORG = 'moved-permanently';
 export const DEFAULT_SITE = 'lh-com';
@@ -24,7 +25,9 @@ export const NEVER = /^\/lhg(?:\/|$)/;
 // app shells (login, profile) are built elsewhere: never uploaded, even if listed
 export const APP_SHELL = /^\/[a-z]{2}\/[a-z]{2}\/(?:login|profile)(?:\/|$)/;
 
-const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)$/;
+// the nav, footer and fragments of every root of the locale table (live and pilot, e.g. /ch/en/nav)
+const TABLE_ROOT = new RegExp(`^/(${Object.keys(LOCALE_TABLE).map((k) => k.replace('/', '\\/')).join('|')})/`);
+const LOCALE_DOC = { test: (p) => TABLE_ROOT.test(p) && /^\/[a-z]{2}\/[a-z]{2}\/(nav|footer|fragments\/[a-z0-9-]+)$/.test(p) };
 // the Lufthansa app's screen documents (tools/importer/sdui-import.mjs; lh-edge renders them)
 const APP_SCREEN = /^\/content\/mobile\/lh\/[a-z]{2}\//;
 // the GraphQL feed documents (structured content, companion documents) and their DA schemas

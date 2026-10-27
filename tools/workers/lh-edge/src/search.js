@@ -17,12 +17,14 @@
 import { originFetch } from './edge.js';
 /* eslint-disable import/no-relative-packages */
 import { prepareRow, searchAnswer } from '../../../../scripts/site-search.js';
+import { LIVE_ROOTS } from '../../../../scripts/locale.js';
 /* eslint-enable import/no-relative-packages */
 
 export const SEARCH_PATH = '/service/secured/api/search';
 export const isSearchPath = (pathname) => pathname === SEARCH_PATH;
 
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+// the migrated locales, from the locale table (scripts/locale-table.js)
+const LOCALES = LIVE_ROOTS;
 const INVALID = { error: 'Invalid input', errors: [], validationErrors: [] };
 const INDEX_TTL_MS = 60000;
 const PAGE = 1000;

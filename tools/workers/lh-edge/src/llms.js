@@ -20,7 +20,9 @@ import { readSheet } from './sheet.js';
 
 const PATH = /^\/([a-z]{2})(?:\/([a-z]{2}))?\/llms\.txt$/;
 export const GLOBAL_INDEX = `${LIVE_ORIGIN}/llms.txt`;
-const COUNTRIES = { at: 'Austria', de: 'Germany', gb: 'United Kingdom' };
+// the English country names of the migrated locales (the locale table)
+const COUNTRIES = Object.fromEntries(Object.values(LOCALES)
+  .map((row) => [row.country, row.countryName.en]));
 const LANGUAGES = { de: 'GERMAN', en: 'ENGLISH' };
 const RULE = '#'.repeat(72);
 const TTL = 3600;

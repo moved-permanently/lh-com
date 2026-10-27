@@ -26,7 +26,10 @@ const { parseArgs } = require('util');
 const ExcelJS = require('exceljs');
 
 const ROOT = path.resolve(__dirname, '../..');
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+// the migrated locales (status live) of the locale table's source, tools/markets/locale-data.json
+const LIVE_ROOTS = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, '../markets/locale-data.json'), 'utf8')).roots)
+  .filter(([, row]) => row.status === 'live').map(([key]) => key);
+const LOCALES = LIVE_ROOTS;
 const SCOPE_FILE = 'tools/importer/transformers/scope-paths.js';
 
 /**

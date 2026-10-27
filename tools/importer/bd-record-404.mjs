@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
 const SCRAPE = path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts');
@@ -22,7 +23,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const LIVE = 'https://www.lufthansa.com';
 const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification/i;
 const outDir = path.join(root, 'tools/source-export/not-found');
-const MARKETS = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const MARKETS = LIVE_ROOTS;
 const sleep = (ms) => new Promise((r) => { setTimeout(r, ms); });
 const wait = () => sleep(5000 + Math.random() * 5000);
 fs.mkdirSync(outDir, { recursive: true });
@@ -64,8 +65,12 @@ try {
     }).catch((e) => ({ error: e.message }));
     const base = path.join(outDir, market.replace('/', '-'));
     fs.writeFileSync(`${base}.html`, await page.content().catch(() => ''));
-    await page.screenshot({ path: `${base}.jpg`, type: 'jpeg', quality: 70, fullPage: true }).catch(() => {});
-    fs.writeFileSync(`${base}.json`, `${JSON.stringify({ url, status: resp ? resp.status() : null, title, ...info, recordedAt: new Date().toISOString() }, null, 1)}\n`);
+    await page.screenshot({
+      path: `${base}.jpg`, type: 'jpeg', quality: 70, fullPage: true,
+    }).catch(() => {});
+    fs.writeFileSync(`${base}.json`, `${JSON.stringify({
+      url, status: resp ? resp.status() : null, title, ...info, recordedAt: new Date().toISOString(),
+    }, null, 1)}\n`);
     console.log(`${resp ? resp.status() : '-'} ${url}: "${title}", ${info.headings ? info.headings.join(' | ') : info.error}`);
     await wait();
   }

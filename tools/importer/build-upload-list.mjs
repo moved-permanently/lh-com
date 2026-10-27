@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const content = path.join(root, 'content');
@@ -19,7 +20,7 @@ const docsIn = (dir) => {
     : [];
 };
 
-const locales = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const locales = LIVE_ROOTS;
 // fragments no page shows any more (the payment/follow-us band was shown on the /lhg/ pages
 // only): not uploaded; their DA documents are removed by hand
 const RETIRED_FRAGMENTS = ['payment-social'];

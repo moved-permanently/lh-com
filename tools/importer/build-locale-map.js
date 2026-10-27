@@ -10,9 +10,10 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
-const KEYS = {
-  de_en: 'de/en', de_de: 'de/de', at_de: 'at/de', gb_en: 'gb/en',
-};
+// the migrated locales (status live) of the locale table's source, tools/markets/locale-data.json
+const LIVE_ROOTS = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, '../markets/locale-data.json'), 'utf8')).roots)
+  .filter(([, row]) => row.status === 'live').map(([key]) => key);
+const KEYS = Object.fromEntries(LIVE_ROOTS.map((k) => [k.replace('/', '_'), k]));
 
 function readCsv(file) {
   if (!fs.existsSync(file)) return [];
