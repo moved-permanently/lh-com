@@ -44,6 +44,14 @@ page says which markets of its language get it:
 | --- | --- | --- |
 | `markets` | empty: every market of the language; an include list of countries `de, at`; an exclude list `-ch, -us` | a market root not allowed answers 404 for the page, leaves it out of its sitemap and search index, and links to it stay on the language version |
 
+**A part of a page for some markets only:** put it in a section of its own and give that section a **Section
+Metadata** row `Markets` with the same values (`de`; `-de` for every market but Germany). The site leaves another
+market's sections out before anything of them loads, and lh-edge leaves them out of the market roots' copies. A section
+with `Markets` sits flush with its neighbours (24 px, as two blocks inside one section), so a variant can replace part
+of a section without changing the page's spacing. Example `/de/de/fluege` (preview, 2026-10-27): the carousel twice,
+with "Parken am Terminal" (`Markets: de`) and with "Einreisebestimmungen" (`Markets: -de`); de/de shows the first,
+ch/de, be/de and dk/de the second. Both variants are in the page's search index text.
+
 A market that needs its own version of a page gets a document at its own path (`/ch/de/<path>`): it wins over the
 language page, whatever `markets` says. A market page with another slug on www gets its own document or a row in the
 redirect sheet. The field was seeded once from www's sitemaps (`tools/markets/seed-markets.mjs`); from then on it is kept
