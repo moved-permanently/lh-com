@@ -406,6 +406,12 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
 
+  // page metadata Links: new-tab (meta pages such as the guides): links in main open in a new tab
+  if (/^new-tab$/i.test(getMetadata('links').trim())) {
+    const { default: openLinksInNewTab } = await import('./link-target.js');
+    openLinksInNewTab(main, new URL(window.location.href));
+  }
+
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();

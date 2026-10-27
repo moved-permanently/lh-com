@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
-import { wantsNewTab, openLinksInNewTab } from '../scripts/link-target.js';
+import openLinksInNewTab from '../scripts/link-target.js';
 
 const here = new URL('https://main--lh-com--moved-permanently.aem.page/migration-status/author-guide');
 
@@ -11,14 +11,6 @@ function main(html) {
   const { document } = parseHTML(`<html><body><main>${html}</main></body></html>`);
   return document.querySelector('main');
 }
-
-test('wantsNewTab: only the value new-tab', () => {
-  assert.ok(wantsNewTab('new-tab'));
-  assert.ok(wantsNewTab(' New-Tab '));
-  assert.ok(!wantsNewTab(''));
-  assert.ok(!wantsNewTab(undefined));
-  assert.ok(!wantsNewTab('same-tab'));
-});
 
 test('every link to another page or site gets target _blank and rel noopener', () => {
   const m = main('<p><a href="https://da.live/edit#/moved-permanently/lh-com/de/en/homepage">DA</a>'
