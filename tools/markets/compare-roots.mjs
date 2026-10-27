@@ -6,10 +6,13 @@
  * rendered <head> (meta, links), header, main and footer, after the page's blocks have loaded.
  * Masked before comparing (they change on every load): nonce values, cache-busting and RUM
  * query parameters, ISO timestamps, the elapsed time of rotating teasers, randomised ids, and the
- * order of a block's data-lh-sources (the order its requests finished).
+ * order of a block's data-lh-sources (the order its requests finished), and the preview host
+ * (main--… or <branch>--…) in absolute URLs.
  *
  * Usage:
  *   node tools/markets/compare-roots.mjs --capture <base> --out <dir> [--prefix /content]
+ *     [--sitekey 1x00000000000000000000AA]   (Cloudflare's test key on both hosts: the form's
+ *     bot check renders the same on a branch preview as on main's)
  *   node tools/markets/compare-roots.mjs --compare <dirA> <dirB> [--report tools/reports/markets/compare-roots.md]
  * Example (branch against main):
  *   --capture https://main--lh-com--moved-permanently.aem.page --out /tmp/main
@@ -37,6 +40,8 @@ export const PAGES = {
 export function mask(html) {
   return String(html || '')
     .replace(/\snonce="[^"]*"/g, '')
+    // the host of the compared preview (main--… or <branch>--…) in absolute URLs
+    .replace(/https:\/\/[a-z0-9-]+--lh-com--moved-permanently\.aem\.(page|live)/g, '‹origin›')
     // the sources a block records, in the order its requests happened to finish
     .replace(/data-lh-sources="([^"]*)"/g, (m, list) => `data-lh-sources="${list.split(' ').sort().join(' ')}"`)
     .replace(/([?&])(ck|_|t|cb|v|rum|cachebust)=[^&"'\s]*/gi, '$1$2=…')
@@ -47,7 +52,7 @@ export function mask(html) {
     .replace(/\s+/g, ' ');
 }
 
-async function capture(base, outDir, prefix) {
+async function capture(base, outDir, prefix, sitekey) {
   fs.mkdirSync(outDir, { recursive: true });
   const executablePath = process.env.CHROMIUM_PATH
     || ['/ms-playwright/chromium-1208/chrome-linux64/chrome'].find((p) => fs.existsSync(p));
@@ -55,6 +60,9 @@ async function capture(base, outDir, prefix) {
   try {
     for (const pagePath of Object.values(PAGES).flat()) {
       const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'en-GB' });
+      // --sitekey: the same Turnstile key on every host (the real key renders only on main's
+      // preview and the live hosts; scripts/lh-forms.js reads localStorage lh-forms-sitekey)
+      if (sitekey) await context.addInitScript((k) => window.localStorage.setItem('lh-forms-sitekey', k), sitekey);
       const page = await context.newPage();
       page.setDefaultTimeout(30000);
       const url = `${base}${prefix}${pagePath}`;
@@ -122,7 +130,7 @@ function compare(dirA, dirB, report) {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
-  if (argv.includes('--capture')) await capture(opt('capture'), path.resolve(opt('out')), opt('prefix', ''));
+  if (argv.includes('--capture')) await capture(opt('capture'), path.resolve(opt('out')), opt('prefix', ''), opt('sitekey'));
   else if (argv.includes('--compare')) {
     const i = argv.indexOf('--compare');
     compare(path.resolve(argv[i + 1]), path.resolve(argv[i + 2]), opt('report'));
