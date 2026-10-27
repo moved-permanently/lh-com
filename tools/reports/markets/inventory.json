@@ -1,0 +1,4176 @@
+{
+ "generated": "2026-10-27T15:42:01.376Z",
+ "dataset": {
+  "source": "tools/source-export/feeds/sitemaps",
+  "fetched": "2026-10-27T14:01:44.470Z"
+ },
+ "summary": {
+  "roots": 253,
+  "withSitemap": 240,
+  "alternateOnly": 13,
+  "countries": 97,
+  "languages": [
+   {
+    "language": "de",
+    "roots": 97
+   },
+   {
+    "language": "el",
+    "roots": 2
+   },
+   {
+    "language": "en",
+    "roots": 97
+   },
+   {
+    "language": "es",
+    "roots": 13
+   },
+   {
+    "language": "fr",
+    "roots": 14
+   },
+   {
+    "language": "hk",
+    "roots": 3
+   },
+   {
+    "language": "it",
+    "roots": 2
+   },
+   {
+    "language": "ja",
+    "roots": 1
+   },
+   {
+    "language": "ko",
+    "roots": 1
+   },
+   {
+    "language": "pl",
+    "roots": 1
+   },
+   {
+    "language": "pt",
+    "roots": 3
+   },
+   {
+    "language": "ru",
+    "roots": 3
+   },
+   {
+    "language": "zh",
+    "roots": 3
+   }
+  ],
+  "urls": 220152,
+  "pages": 214957,
+  "configPages": 5152,
+  "staleOnly": 1944,
+  "groups": 1932,
+  "marketOnlyUrls": 2590,
+  "notReplica": 236
+ },
+ "languages": [
+  {
+   "language": "de",
+   "reference": "de/de",
+   "referencePages": 1042,
+   "roots": [
+    {
+     "root": "ae/de",
+     "urls": 1024,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1020,
+     "shared": 1020,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 22,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "al/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 2,
+     "missing": 21,
+     "ownSample": [
+      "/common/testperformance",
+      "/local-page/reply-to-check/yes"
+     ],
+     "replica": false
+    },
+    {
+     "root": "am/de",
+     "urls": 1024,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1020,
+     "shared": 1020,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 22,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ao/de",
+     "urls": 1024,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1020,
+     "shared": 1020,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 22,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ar/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "at/de",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1025,
+     "otherSlug": 0,
+     "own": 8,
+     "ownMarketOnly": 2,
+     "missing": 17,
+     "ownSample": [
+      "/book-and-manage/offers-and-destination/companion_special_business_class",
+      "/book-and-manage/offers-and-destination/nordamerika-angebote",
+      "/companion-special-business-class-eu",
+      "/companion-special-first-class",
+      "/event/esorics-2027",
+      "/local-page/black-friday",
+      "/book-and-manage/offers-and-destination/europe-offers",
+      "/book-and-manage/offers-and-destination/weltweite-angebote"
+     ],
+     "replica": true
+    },
+    {
+     "root": "au/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/event/test-cug"
+     ],
+     "replica": false
+    },
+    {
+     "root": "az/de",
+     "urls": 1031,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1027,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 2,
+     "missing": 20,
+     "ownSample": [
+      "/overview-additional-services",
+      "/overview-services-on-board",
+      "/overview-travel-classes",
+      "/archived-contents/overview",
+      "/articles/tags/destinations"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ba/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "be/de",
+     "urls": 1030,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1026,
+     "shared": 1025,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 17,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "bg/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "bh/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "br/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "by/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ca/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cd/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ch/de",
+     "urls": 1032,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1028,
+     "shared": 1023,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 1,
+     "missing": 19,
+     "ownSample": [
+      "/local-page/black-friday",
+      "/companion-special-first-class",
+      "/companion-special-premium-economy-class",
+      "/fluege-vo-zurich-nach-china",
+      "/event/exklusives-event-angebot-dxb-1"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cl/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cn/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "co/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cr/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cy/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cz/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "de/de",
+     "urls": 1049,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1042,
+     "shared": 1042,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 9,
+     "missing": 0,
+     "ownSample": [],
+     "replica": true
+    },
+    {
+     "root": "dk/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "dz/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ec/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ee/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "eg/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "er/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "es/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "et/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "fi/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "fr/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "gb/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ge/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "gq/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "gr/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hk/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "hr/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hu/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "id/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ie/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "il/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "in/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "iq/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ir/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "is/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "it/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "jo/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "jp/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ke/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "kr/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "kw/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "kz/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lb/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lt/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lu/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lv/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 20,
+     "ownSample": [
+      "/check-in-information"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ly/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ma/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "md/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "mk/de",
+     "urls": 1511,
+     "config": 386,
+     "staleOnly": 437,
+     "pages": 1060,
+     "shared": 1019,
+     "otherSlug": 0,
+     "own": 41,
+     "ownMarketOnly": 20,
+     "missing": 23,
+     "ownSample": [
+      "/articles/category",
+      "/articles/category/template",
+      "/articles/highlights/winter-destinations-backup",
+      "/registrierung",
+      "/73w",
+      "/articles/back-up-explore-flying",
+      "/articles/garage-fuer-elemente",
+      "/common/privacy-statement/biometrical-identification-privacy-statement"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mt/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mu/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "mv/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "mx/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "my/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ng/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "nl/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "no/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "nz/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "om/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "pa/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "pe/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ph/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "pl/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pt/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "qa/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ro/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "rs/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ru/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "sa/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "sd/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "se/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "sg/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "si/de",
+     "urls": 1027,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1023,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "sk/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [
+      "/local-page/black-friday"
+     ],
+     "replica": false
+    },
+    {
+     "root": "th/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "tn/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "tr/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "tw/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1020,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 22,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ua/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "us/de",
+     "urls": 2794,
+     "config": 1778,
+     "staleOnly": 0,
+     "pages": 1017,
+     "shared": 999,
+     "otherSlug": 0,
+     "own": 18,
+     "ownMarketOnly": 2,
+     "missing": 43,
+     "ownSample": [
+      "/overview-additional-services",
+      "/overview-services-on-board",
+      "/overview-travel-classes",
+      "/73w",
+      "/common/privacy-statement/biometrical-identification-privacy-statement",
+      "/delights-to-go",
+      "/first-class-hotlines",
+      "/flugunregelmaessigkeiten-faq"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ve/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "vn/de",
+     "urls": 1025,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1021,
+     "shared": 1021,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 21,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "za/de",
+     "urls": 1026,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1022,
+     "shared": 1022,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 20,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "el",
+   "reference": "majority of 2 el roots",
+   "referencePages": 335,
+   "roots": [
+    {
+     "root": "cy/el",
+     "urls": 334,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 329,
+     "shared": 329,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 6,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "gr/el",
+     "urls": 338,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 333,
+     "shared": 333,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 2,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "reference": "de/en",
+   "referencePages": 1056,
+   "roots": [
+    {
+     "root": "ae/en",
+     "urls": 1043,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1038,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 9,
+     "ownMarketOnly": 2,
+     "missing": 27,
+     "ownSample": [
+      "/companion-special-business-class",
+      "/companion-special-jun2021",
+      "/companion-special-premium-economy-class",
+      "/offers-to-europe",
+      "/promotion-code-information",
+      "/special-offers-to-north-america",
+      "/smart-bags",
+      "/local-page/dxb-50th-anniversary-promotion"
+     ],
+     "replica": false
+    },
+    {
+     "root": "al/en",
+     "urls": 1032,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1027,
+     "shared": 1027,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 29,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "am/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ao/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ar/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/faq-entering-us",
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "at/en",
+     "urls": 1046,
+     "config": 5,
+     "staleOnly": 1,
+     "pages": 1040,
+     "shared": 1032,
+     "otherSlug": 0,
+     "own": 8,
+     "ownMarketOnly": 3,
+     "missing": 24,
+     "ownSample": [
+      "/book-and-manage/offers-and-destination/companion_special_business_class",
+      "/book-and-manage/offers-and-destination/nordamerika-angebote",
+      "/companion-special-business-class-eu",
+      "/companion-special-first-class",
+      "/event/esorics-2027",
+      "/book-and-manage/offers-and-destination/europe-offers1",
+      "/book-and-manage/offers-and-destination/weltweite-angebote1",
+      "/oneway-fares"
+     ],
+     "replica": false
+    },
+    {
+     "root": "au/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 2,
+     "missing": 28,
+     "ownSample": [
+      "/event/test-cug",
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/au-multi-city",
+      "/local-page/star-alliance-au"
+     ],
+     "replica": false
+    },
+    {
+     "root": "az/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 1,
+     "missing": 28,
+     "ownSample": [
+      "/smart-bags",
+      "/prepare-for-your-trip/travel-classes/fice"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ba/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/homepage/promotion_teaserfr",
+      "/invoice-request-bosnia",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "be/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1034,
+     "shared": 1031,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 2,
+     "missing": 25,
+     "ownSample": [
+      "/local-page/experience-america",
+      "/early-bird-september2022",
+      "/first-class-companion"
+     ],
+     "replica": false
+    },
+    {
+     "root": "bg/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 2,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/full-flex-promo-aug2021",
+      "/smart-bags",
+      "/invoice-request",
+      "/local-page/invoice-request-bg"
+     ],
+     "replica": false
+    },
+    {
+     "root": "bh/en",
+     "urls": 1043,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1038,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 8,
+     "ownMarketOnly": 1,
+     "missing": 26,
+     "ownSample": [
+      "/companion-special-business-class",
+      "/companion-special-jun2021",
+      "/companion-special-premium-economy-class",
+      "/offers-to-europe",
+      "/promotion-code-information",
+      "/special-offers-to-north-america",
+      "/promotion-code-information-kaust",
+      "/local-page/bahrain-airport-new-terminal"
+     ],
+     "replica": false
+    },
+    {
+     "root": "br/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/btg-terminal-en",
+      "/local-page/ski-campaign-2026"
+     ],
+     "replica": false
+    },
+    {
+     "root": "by/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ca/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 1,
+     "pages": 1033,
+     "shared": 1028,
+     "otherSlug": 1,
+     "own": 4,
+     "ownMarketOnly": 3,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/flightreservation-priceguarantee",
+      "/local-page/lufthansa-student-fares",
+      "/local-page/transfer-ita/travelling-with-children/child-in-businessclass",
+      "/local-page/transfer-ita/travelling-with-children/planning-with-kids"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cd/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ch/en",
+     "urls": 1041,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1033,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/experience-america",
+      "/companion-special-first-class",
+      "/companion-special-premium-economy-class",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cl/en",
+     "urls": 1033,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1028,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cn/en",
+     "urls": 1051,
+     "config": 5,
+     "staleOnly": 2,
+     "pages": 1044,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 16,
+     "ownMarketOnly": 14,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/cnypromocode26",
+      "/visa-mastercard-with-unionpay",
+      "/local-page/1212-specials",
+      "/local-page/china-euro-cup-2024",
+      "/local-page/china-euro-cup-2024/european-championship-2024-player-videos-anton",
+      "/local-page/china-euro-cup-2024/european-championship-2024-player-videos-beier",
+      "/local-page/china-euro-cup-2024/european-championship-2024-player-videos-fuellkrug",
+      "/local-page/china-euro-cup-2024/european-championship-2024-player-videos-kimmich"
+     ],
+     "replica": false
+    },
+    {
+     "root": "co/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cr/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1027,
+     "otherSlug": 1,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 29,
+     "ownSample": [
+      "/faq-entering-us",
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cy/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/homepage/promotion_teaserfr"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cz/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1034,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/invoice-request-czech-republic",
+      "/autumn-campaign22",
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "de/en",
+     "urls": 1066,
+     "config": 5,
+     "staleOnly": 5,
+     "pages": 1056,
+     "shared": 1056,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 15,
+     "missing": 0,
+     "ownSample": [],
+     "replica": true
+    },
+    {
+     "root": "dk/en",
+     "urls": 1046,
+     "config": 5,
+     "staleOnly": 2,
+     "pages": 1039,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 9,
+     "ownMarketOnly": 1,
+     "missing": 26,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/local-page/ski-campaign-2026",
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/companion-special-2024",
+      "/europe-offers",
+      "/local-page/north_america_offers",
+      "/sale"
+     ],
+     "replica": false
+    },
+    {
+     "root": "dz/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ec/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 1,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ee/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/smart-bags",
+      "/local-page/worldwide_offers1"
+     ],
+     "replica": false
+    },
+    {
+     "root": "eg/en",
+     "urls": 1055,
+     "config": 5,
+     "staleOnly": 2,
+     "pages": 1048,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 18,
+     "ownMarketOnly": 13,
+     "missing": 26,
+     "ownSample": [
+      "/companion-special-jun2021",
+      "/discover-lufthansa/carbon-offsetting1/climate-protection-projects",
+      "/discover-lufthansa/carbon-offsetting1/environmental-cost-surcharge",
+      "/discover-lufthansa/carbon-offsetting1/faq-saf",
+      "/discover-lufthansa/carbon-offsetting1/saf",
+      "/discover-lufthansa/carbon-offsetting/carbon-offsetting/climate-protection-projects",
+      "/discover-lufthansa/carbon-offsetting/carbon-offsetting/environmental-cost-surcharge",
+      "/discover-lufthansa/carbon-offsetting/carbon-offsetting/faq-saf"
+     ],
+     "replica": false
+    },
+    {
+     "root": "er/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "es/en",
+     "urls": 1040,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 1,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags",
+      "/local-page/all-colors-on-board",
+      "/lgtbiq"
+     ],
+     "replica": false
+    },
+    {
+     "root": "et/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "fi/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1034,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 2,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/smart-bags",
+      "/local-page/europe_offers",
+      "/book-and-manage/offers-and-destination/worldwide_offers1",
+      "/worldwide-offers"
+     ],
+     "replica": false
+    },
+    {
+     "root": "fr/en",
+     "urls": 1041,
+     "config": 5,
+     "staleOnly": 2,
+     "pages": 1034,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 2,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags",
+      "/all-colors-on-board",
+      "/winter-sun-in-asia",
+      "/yes"
+     ],
+     "replica": false
+    },
+    {
+     "root": "gb/en",
+     "urls": 1043,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1035,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 7,
+     "ownMarketOnly": 4,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/ski-campaign-2026",
+      "/sale",
+      "/companion-special-business-class",
+      "/autumn-campaign22",
+      "/book-and-manage/offers-and-destination/business-class-special",
+      "/grouptravel",
+      "/unhide-fashion"
+     ],
+     "replica": true
+    },
+    {
+     "root": "ge/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags",
+      "/worldwide-sale"
+     ],
+     "replica": false
+    },
+    {
+     "root": "gq/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "gr/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/invoice-request-greece-en"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hk/en",
+     "urls": 1051,
+     "config": 5,
+     "staleOnly": 1,
+     "pages": 1045,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 15,
+     "ownMarketOnly": 12,
+     "missing": 26,
+     "ownSample": [
+      "/local-page/companion-deal",
+      "/local-page/fps",
+      "/local-page/one-way-special-fare",
+      "/local-page/apac-sales-and-station-leaderhip-meeting-hkg-oct23",
+      "/local-page/hongkong-euro-cup-2024",
+      "/local-page/hongkong-euro-cup-2024/european-championship-2024-player-videos-anton",
+      "/local-page/hongkong-euro-cup-2024/european-championship-2024-player-videos-beier",
+      "/local-page/hongkong-euro-cup-2024/european-championship-2024-player-videos-fuellkrug"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hr/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/homepage/promotion_teaserfr",
+      "/invoice-request-croatia",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hu/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/invoice-request-hungary",
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "id/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ie/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "il/en",
+     "urls": 1043,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1035,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 6,
+     "ownMarketOnly": 4,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/ski-campaign-2026",
+      "/smart-bags",
+      "/cancellation-refund-webform",
+      "/cancellation-rights",
+      "/passenger-rights-israel",
+      "/updated-cancellation-and-change-of-tickets"
+     ],
+     "replica": false
+    },
+    {
+     "root": "in/en",
+     "urls": 1054,
+     "config": 5,
+     "staleOnly": 6,
+     "pages": 1043,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 13,
+     "ownMarketOnly": 11,
+     "missing": 26,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/APAC-market-conference-test",
+      "/local-page/india20",
+      "/local-page/new-destinations",
+      "/local-page/new-destinations-india",
+      "/local-page/new_menu_indian_routes/test_260526",
+      "/local-page/raffle-north-america-in/terms-and-conditions-in"
+     ],
+     "replica": false
+    },
+    {
+     "root": "iq/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ir/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 2,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags",
+      "/local-page/new-payment-option",
+      "/tehran-frankfurt-restart"
+     ],
+     "replica": false
+    },
+    {
+     "root": "is/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "it/en",
+     "urls": 1040,
+     "config": 5,
+     "staleOnly": 2,
+     "pages": 1033,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags",
+      "/first_class_chauffeur_service",
+      "/invoice-italy"
+     ],
+     "replica": false
+    },
+    {
+     "root": "jo/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 1,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/companion-special",
+      "/local-page/amm-relaunch-offer"
+     ],
+     "replica": false
+    },
+    {
+     "root": "jp/en",
+     "urls": 1038,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1033,
+     "shared": 1030,
+     "otherSlug": 1,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags",
+      "/local-page/schedule-for-japan-routes"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ke/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/companion-special0",
+      "/2-pieces-of-checked-bag",
+      "/black-friday-2024"
+     ],
+     "replica": false
+    },
+    {
+     "root": "kr/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/lufthansa-rail-air",
+      "/local-page/naverpay-points",
+      "/premiumoffers"
+     ],
+     "replica": false
+    },
+    {
+     "root": "kw/en",
+     "urls": 1040,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1035,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 1,
+     "missing": 26,
+     "ownSample": [
+      "/offers-to-europe",
+      "/promotion-code-information",
+      "/special-offers-to-north-america",
+      "/smart-bags",
+      "/local-page/jarallah"
+     ],
+     "replica": false
+    },
+    {
+     "root": "kz/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lb/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/companion-special"
+     ],
+     "replica": false
+    },
+    {
+     "root": "lt/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/local-page/worldwide_offers1"
+     ],
+     "replica": false
+    },
+    {
+     "root": "lu/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 1,
+     "missing": 28,
+     "ownSample": [
+      "/companion-special-in-business-class",
+      "/smart-bags",
+      "/sale",
+      "/local-page/companion-special-oct21"
+     ],
+     "replica": false
+    },
+    {
+     "root": "lv/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/smart-bags",
+      "/local-page/worldwide_offers1"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ly/en",
+     "urls": 1033,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1028,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ma/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "md/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mk/en",
+     "urls": 2890,
+     "config": 1803,
+     "staleOnly": 1457,
+     "pages": 1063,
+     "shared": 1027,
+     "otherSlug": 0,
+     "own": 36,
+     "ownMarketOnly": 14,
+     "missing": 29,
+     "ownSample": [
+      "/support/contact/hotlines",
+      "/73w",
+      "/articles/back-up-explore-flying",
+      "/articles/garage-fuer-elemente",
+      "/currency-converter",
+      "/delights-to-go",
+      "/lufthansa-first-class-hotlines",
+      "/flight-disruptions-faq"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mt/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/homepage/promotion_teaserfr",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mu/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "mv/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "mx/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "my/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 26,
+     "ownSample": [
+      "/local-page/kul-promo-code-oct26"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ng/en",
+     "urls": 1041,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1036,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 7,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/companion-special-jul2021",
+      "/discover-lufthansa/carbon-offsetting1/climate-protection-projects",
+      "/discover-lufthansa/carbon-offsetting1/environmental-cost-surcharge",
+      "/discover-lufthansa/carbon-offsetting1/faq-saf",
+      "/discover-lufthansa/carbon-offsetting1/saf",
+      "/2-pieces-of-checked-bag",
+      "/black-friday-2024"
+     ],
+     "replica": false
+    },
+    {
+     "root": "nl/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1034,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/companion-special",
+      "/local-page/ski-campaign-2026",
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/sale"
+     ],
+     "replica": false
+    },
+    {
+     "root": "no/en",
+     "urls": 1042,
+     "config": 5,
+     "staleOnly": 1,
+     "pages": 1036,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 8,
+     "ownMarketOnly": 1,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/local-page/ski-campaign-2026",
+      "/companion-special-2024",
+      "/local-page/europe_offers",
+      "/local-page/north_america_offers",
+      "/sale",
+      "/yes",
+      "/worldwide-offers"
+     ],
+     "replica": false
+    },
+    {
+     "root": "nz/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/nz-multi-city"
+     ],
+     "replica": false
+    },
+    {
+     "root": "om/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pa/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 1,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pe/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ph/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pl/en",
+     "urls": 1042,
+     "config": 5,
+     "staleOnly": 1,
+     "pages": 1036,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 7,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/invoice-request-poland",
+      "/autumn-campaign22",
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/spring-holiday-planner",
+      "/lodz"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pt/en",
+     "urls": 1049,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1041,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 13,
+     "ownMarketOnly": 10,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/smart-bags",
+      "/companion-special-business-class",
+      "/73w",
+      "/book-and-manage/offers-and-destination/ofertas-especiais",
+      "/companion-special-first-class",
+      "/benefits",
+      "/business-class-offers"
+     ],
+     "replica": false
+    },
+    {
+     "root": "qa/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ro/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/full-flex-promo-aug2021",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "rs/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/invoice-request-serbia",
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ru/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1026,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 1,
+     "missing": 30,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/worldwide-offers",
+      "/first-class-offers",
+      "/north-america-offers",
+      "/local-page/DME-flights-information"
+     ],
+     "replica": false
+    },
+    {
+     "root": "sa/en",
+     "urls": 1041,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1036,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 6,
+     "ownMarketOnly": 2,
+     "missing": 26,
+     "ownSample": [
+      "/offers-to-europe",
+      "/promotion-code-information",
+      "/special-offers-to-north-america",
+      "/promotion-code-information-kaust",
+      "/local-page/companion-special-riyadh---munich-2025",
+      "/offers-to-europe1"
+     ],
+     "replica": false
+    },
+    {
+     "root": "sd/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "se/en",
+     "urls": 1049,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1041,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 12,
+     "ownMarketOnly": 4,
+     "missing": 27,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/local-page/ski-campaign-2026",
+      "/smart-bags",
+      "/companion-special-2024",
+      "/europe-offers",
+      "/local-page/north_america_offers",
+      "/sale",
+      "/worldwide-offers"
+     ],
+     "replica": false
+    },
+    {
+     "root": "sg/en",
+     "urls": 1039,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1034,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 5,
+     "ownMarketOnly": 3,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags",
+      "/local-page/changi-terminal-2",
+      "/local-page/corporate-offer-sg",
+      "/local-page/jewel"
+     ],
+     "replica": false
+    },
+    {
+     "root": "si/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 28,
+     "ownSample": [
+      "/homepage/promotion_teaserfr",
+      "/invoice-request-slovenia"
+     ],
+     "replica": false
+    },
+    {
+     "root": "sk/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "th/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 2,
+     "missing": 26,
+     "ownSample": [
+      "/local-page/promocode-th-europe3000",
+      "/local-page/promptpay"
+     ],
+     "replica": false
+    },
+    {
+     "root": "tn/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/flynet-hotspot",
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "tr/en",
+     "urls": 1037,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1032,
+     "shared": 1028,
+     "otherSlug": 0,
+     "own": 4,
+     "ownMarketOnly": 3,
+     "missing": 28,
+     "ownSample": [
+      "/smart-bags",
+      "/flights-ankara-munich",
+      "/istanbul-airport-transfer",
+      "/local-page/natl-campaign"
+     ],
+     "replica": false
+    },
+    {
+     "root": "tw/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 2,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [
+      "/smart-bags",
+      "/double-11-promotion"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ua/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "us/en",
+     "urls": 1054,
+     "config": 5,
+     "staleOnly": 3,
+     "pages": 1046,
+     "shared": 1028,
+     "otherSlug": 1,
+     "own": 17,
+     "ownMarketOnly": 14,
+     "missing": 28,
+     "ownSample": [
+      "/local-page/ski-campaign-2026",
+      "/local-page/flightreservation-priceguarantee",
+      "/local-page/tarmac-delay-contingency-plan",
+      "/smart-bags",
+      "/baggage-and-other-fees",
+      "/companion",
+      "/current-fees",
+      "/customer_service_plan"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ve/en",
+     "urls": 1035,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1030,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "vn/en",
+     "urls": 1036,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1031,
+     "shared": 1030,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 26,
+     "ownSample": [
+      "/smart-bags"
+     ],
+     "replica": false
+    },
+    {
+     "root": "za/en",
+     "urls": 1034,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 1029,
+     "shared": 1029,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 27,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "es",
+   "reference": "majority of 13 es roots",
+   "referencePages": 341,
+   "roots": [
+    {
+     "root": "ar/es",
+     "urls": 346,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 341,
+     "shared": 338,
+     "otherSlug": 2,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 3,
+     "ownSample": [
+      "/articles/highlights/allegris-premium-economy-san-diego"
+     ],
+     "replica": false
+    },
+    {
+     "root": "br/es",
+     "urls": 346,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 341,
+     "shared": 341,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ca/es",
+     "urls": 346,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 341,
+     "shared": 341,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cl/es",
+     "urls": 346,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 341,
+     "shared": 338,
+     "otherSlug": 3,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 3,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "co/es",
+     "urls": 347,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 342,
+     "shared": 340,
+     "otherSlug": 1,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 1,
+     "ownSample": [
+      "/homepage/teasers/IRREG-TEASER"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cr/es",
+     "urls": 343,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 338,
+     "shared": 335,
+     "otherSlug": 3,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 6,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ec/es",
+     "urls": 344,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 339,
+     "shared": 335,
+     "otherSlug": 3,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 6,
+     "ownSample": [
+      "/homepage/teasers/IRREG-TEASER"
+     ],
+     "replica": false
+    },
+    {
+     "root": "es/es",
+     "urls": 357,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 352,
+     "shared": 340,
+     "otherSlug": 0,
+     "own": 12,
+     "ownMarketOnly": 7,
+     "missing": 1,
+     "ownSample": [
+      "/local-page/ski-campaign-2026",
+      "/articles/highlights/allegris-premium-economy-san-diego",
+      "/feedback",
+      "/feedback/feedbackai",
+      "/asia-specials",
+      "/bizum",
+      "/companion-special",
+      "/local-page/descubre-la-belleza-de-alemania"
+     ],
+     "replica": false
+    },
+    {
+     "root": "mx/es",
+     "urls": 345,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 340,
+     "shared": 339,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 2,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "pa/es",
+     "urls": 346,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 341,
+     "shared": 340,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 1,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "pe/es",
+     "urls": 345,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 340,
+     "shared": 336,
+     "otherSlug": 4,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 5,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "us/es",
+     "urls": 347,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 342,
+     "shared": 341,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 0,
+     "ownSample": [
+      "/homepage/teasers/irreg"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ve/es",
+     "urls": 345,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 340,
+     "shared": 339,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 2,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "fr",
+   "reference": "majority of 14 fr roots",
+   "referencePages": 343,
+   "roots": [
+    {
+     "root": "ar/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "be/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ca/fr",
+     "urls": 350,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 345,
+     "shared": 342,
+     "otherSlug": 1,
+     "own": 2,
+     "ownMarketOnly": 2,
+     "missing": 1,
+     "ownSample": [
+      "/homepage/teasers/irreg_teaser",
+      "/lufthansa-id"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ch/fr",
+     "urls": 351,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 346,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [
+      "/companion-special-first-class",
+      "/companion-special-premium-economy-class",
+      "/vol-zurich-chine"
+     ],
+     "replica": false
+    },
+    {
+     "root": "cl/fr",
+     "urls": 347,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 342,
+     "shared": 342,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 1,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "co/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "cr/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "dz/fr",
+     "urls": 349,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 344,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 0,
+     "ownSample": [
+      "/local-page/information-importante"
+     ],
+     "replica": false
+    },
+    {
+     "root": "fr/fr",
+     "urls": 350,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 345,
+     "shared": 342,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 1,
+     "missing": 1,
+     "ownSample": [
+      "/asia-specials",
+      "/Yes",
+      "/toutes-les-couleurs-a-bord"
+     ],
+     "replica": false
+    },
+    {
+     "root": "gq/fr",
+     "urls": 347,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 342,
+     "shared": 342,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 1,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "lu/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "ma/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "tn/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "us/fr",
+     "urls": 348,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 343,
+     "shared": 343,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "hk",
+   "reference": "majority of 3 hk roots",
+   "referencePages": 328,
+   "roots": [
+    {
+     "root": "cn/hk",
+     "urls": 333,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 328,
+     "shared": 328,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "hk/hk",
+     "urls": 341,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 336,
+     "shared": 328,
+     "otherSlug": 0,
+     "own": 8,
+     "ownMarketOnly": 2,
+     "missing": 0,
+     "ownSample": [
+      "/prepare-for-your-trip/all-check-in/emergency-contact",
+      "/feedback",
+      "/feedback/feedbackai",
+      "/local-page/companion-deal",
+      "/local-page/fps",
+      "/local-page/one-way-special-fare",
+      "/local-page/hk-black-friday-deals",
+      "/local-page/upstream-hkg-hk"
+     ],
+     "replica": false
+    },
+    {
+     "root": "tw/hk",
+     "urls": 334,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 329,
+     "shared": 328,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [
+      "/double-11-tw"
+     ],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "it",
+   "reference": "majority of 2 it roots",
+   "referencePages": 332,
+   "roots": [
+    {
+     "root": "ch/it",
+     "urls": 329,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 324,
+     "shared": 324,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 8,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "it/it",
+     "urls": 336,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 331,
+     "shared": 331,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 2,
+     "missing": 1,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "ja",
+   "reference": "majority of 1 ja roots",
+   "referencePages": 337,
+   "roots": [
+    {
+     "root": "jp/ja",
+     "urls": 342,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 337,
+     "shared": 337,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 4,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "ko",
+   "reference": "majority of 1 ko roots",
+   "referencePages": 335,
+   "roots": [
+    {
+     "root": "kr/ko",
+     "urls": 340,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 335,
+     "shared": 335,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 3,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "pl",
+   "reference": "majority of 1 pl roots",
+   "referencePages": 335,
+   "roots": [
+    {
+     "root": "pl/pl",
+     "urls": 340,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 335,
+     "shared": 335,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "pt",
+   "reference": "majority of 3 pt roots",
+   "referencePages": 330,
+   "roots": [
+    {
+     "root": "ao/pt",
+     "urls": 333,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 328,
+     "shared": 327,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 3,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "br/pt",
+     "urls": 343,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 338,
+     "shared": 329,
+     "otherSlug": 1,
+     "own": 8,
+     "ownMarketOnly": 6,
+     "missing": 1,
+     "ownSample": [
+      "/terminal-btg",
+      "/local-page/ski-campaign-2026",
+      "/local-page/lufthansa-in-brazil/anac-report",
+      "/local-page/lufthansa-in-brazil/carrying-values",
+      "/local-page/lufthansa-in-brazil/international-transit-in-gru",
+      "/local-page/lufthansa-in-brazil/online-tickets-cancellation",
+      "/local-page/lufthansa-in-brazil/sac",
+      "/pix"
+     ],
+     "replica": false
+    },
+    {
+     "root": "pt/pt",
+     "urls": 345,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 340,
+     "shared": 330,
+     "otherSlug": 0,
+     "own": 10,
+     "ownMarketOnly": 3,
+     "missing": 0,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/full-flex-promo-aug2021",
+      "/companion-special-premium-economy-class",
+      "/unionpay",
+      "/companion-special-business-class",
+      "/book-and-manage/offers-and-destination/ofertas-especiais",
+      "/companion-special-first-class",
+      "/book-and-manage/offers-and-destination/companion_special_business"
+     ],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "ru",
+   "reference": "majority of 3 ru roots",
+   "referencePages": 326,
+   "roots": [
+    {
+     "root": "by/ru",
+     "urls": 331,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 326,
+     "shared": 326,
+     "otherSlug": 0,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 0,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "kz/ru",
+     "urls": 334,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 329,
+     "shared": 326,
+     "otherSlug": 0,
+     "own": 3,
+     "ownMarketOnly": 2,
+     "missing": 0,
+     "ownSample": [
+      "/worldwide-sale",
+      "/companion-business",
+      "/companion-premium"
+     ],
+     "replica": false
+    },
+    {
+     "root": "ru/ru",
+     "urls": 338,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 333,
+     "shared": 326,
+     "otherSlug": 0,
+     "own": 7,
+     "ownMarketOnly": 1,
+     "missing": 0,
+     "ownSample": [
+      "/local-page/companion-special-in-business-class",
+      "/feedback",
+      "/feedback/feedbackai",
+      "/local-page/worldwide-business-class-offers",
+      "/first-class-offers",
+      "/north-america-offers",
+      "/local-page/current-flight-information-ru"
+     ],
+     "replica": false
+    }
+   ]
+  },
+  {
+   "language": "zh",
+   "reference": "majority of 3 zh roots",
+   "referencePages": 330,
+   "roots": [
+    {
+     "root": "cn/zh",
+     "urls": 342,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 337,
+     "shared": 330,
+     "otherSlug": 0,
+     "own": 7,
+     "ownMarketOnly": 4,
+     "missing": 0,
+     "ownSample": [
+      "/local-page/cnypromocode26",
+      "/visa-mastercard-with-unionpay",
+      "/local-page/tarmac-delay-contingency-plan",
+      "/irreg-handling-plan",
+      "/local-page/cn-ewallet-payment",
+      "/local-page/promocode-100--anniversary-1",
+      "/wechat-profile"
+     ],
+     "replica": false
+    },
+    {
+     "root": "hk/zh",
+     "urls": 335,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 330,
+     "shared": 329,
+     "otherSlug": 1,
+     "own": 0,
+     "ownMarketOnly": 0,
+     "missing": 1,
+     "ownSample": [],
+     "replica": false
+    },
+    {
+     "root": "tw/zh",
+     "urls": 334,
+     "config": 5,
+     "staleOnly": 0,
+     "pages": 329,
+     "shared": 328,
+     "otherSlug": 0,
+     "own": 1,
+     "ownMarketOnly": 1,
+     "missing": 2,
+     "ownSample": [
+      "/travel-care"
+     ],
+     "replica": false
+    }
+   ]
+  }
+ ],
+ "alternateOnly": [
+  {
+   "root": "xx/de",
+   "hreflang": [
+    "de"
+   ],
+   "urls": 1047,
+   "groups": 1045
+  },
+  {
+   "root": "xx/el",
+   "hreflang": [
+    "el"
+   ],
+   "urls": 335,
+   "groups": 334
+  },
+  {
+   "root": "xx/en",
+   "hreflang": [
+    "en"
+   ],
+   "urls": 1054,
+   "groups": 1053
+  },
+  {
+   "root": "xx/es",
+   "hreflang": [
+    "es"
+   ],
+   "urls": 349,
+   "groups": 348
+  },
+  {
+   "root": "xx/fr",
+   "hreflang": [
+    "fr"
+   ],
+   "urls": 351,
+   "groups": 351
+  },
+  {
+   "root": "xx/hk",
+   "hreflang": [
+    "zh"
+   ],
+   "urls": 335,
+   "groups": 335
+  },
+  {
+   "root": "xx/it",
+   "hreflang": [
+    "it"
+   ],
+   "urls": 330,
+   "groups": 330
+  },
+  {
+   "root": "xx/ja",
+   "hreflang": [
+    "ja"
+   ],
+   "urls": 335,
+   "groups": 334
+  },
+  {
+   "root": "xx/ko",
+   "hreflang": [
+    "ko"
+   ],
+   "urls": 332,
+   "groups": 332
+  },
+  {
+   "root": "xx/pl",
+   "hreflang": [
+    "pl"
+   ],
+   "urls": 335,
+   "groups": 334
+  },
+  {
+   "root": "xx/pt",
+   "hreflang": [
+    "pt"
+   ],
+   "urls": 334,
+   "groups": 333
+  },
+  {
+   "root": "xx/ru",
+   "hreflang": [
+    "ru"
+   ],
+   "urls": 333,
+   "groups": 332
+  },
+  {
+   "root": "xx/zh",
+   "hreflang": [
+    "zh"
+   ],
+   "urls": 334,
+   "groups": 333
+  }
+ ]
+}

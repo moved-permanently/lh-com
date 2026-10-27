@@ -1,0 +1,482 @@
+[
+ {
+  "page": "homepage",
+  "lang": "en",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/en/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "en",
+  "market": "ae",
+  "url": "https://www.lufthansa.com/ae/en/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "en",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/en/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "de",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/de/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "de",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/de/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "de",
+  "market": "dk",
+  "url": "https://www.lufthansa.com/dk/de/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "fr",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/fr/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "fr",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/fr/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "fr",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/fr/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "es",
+  "market": "ar",
+  "url": "https://www.lufthansa.com/ar/es/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "es",
+  "market": "cl",
+  "url": "https://www.lufthansa.com/cl/es/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "homepage",
+  "lang": "es",
+  "market": "co",
+  "url": "https://www.lufthansa.com/co/es/homepage",
+  "ref_en": "/de/en/homepage",
+  "ref_de": "/de/de/homepage"
+ },
+ {
+  "page": "flights",
+  "lang": "en",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/en/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "en",
+  "market": "ae",
+  "url": "https://www.lufthansa.com/ae/en/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "en",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/en/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "de",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/de/fluege",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "de",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/de/fluege",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "de",
+  "market": "dk",
+  "url": "https://www.lufthansa.com/dk/de/fluege",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "fr",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/fr/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "fr",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/fr/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "fr",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/fr/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "es",
+  "market": "ar",
+  "url": "https://www.lufthansa.com/ar/es/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "es",
+  "market": "cl",
+  "url": "https://www.lufthansa.com/cl/es/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "flights",
+  "lang": "es",
+  "market": "co",
+  "url": "https://www.lufthansa.com/co/es/flights",
+  "ref_en": "/de/en/flights",
+  "ref_de": "/de/de/fluege"
+ },
+ {
+  "page": "group-travel",
+  "lang": "en",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/en/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "en",
+  "market": "ae",
+  "url": "https://www.lufthansa.com/ae/en/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "en",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/en/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "de",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/de/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "de",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/de/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "de",
+  "market": "dk",
+  "url": "https://www.lufthansa.com/dk/de/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "fr",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/fr/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "fr",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/fr/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "fr",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/fr/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "es",
+  "market": "ar",
+  "url": "https://www.lufthansa.com/ar/es/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "es",
+  "market": "cl",
+  "url": "https://www.lufthansa.com/cl/es/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "group-travel",
+  "lang": "es",
+  "market": "co",
+  "url": "https://www.lufthansa.com/co/es/group-travel",
+  "ref_en": "/de/en/group-travel",
+  "ref_de": "/de/de/group-travel"
+ },
+ {
+  "page": "baggage",
+  "lang": "en",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/en/baggage",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "en",
+  "market": "ae",
+  "url": "https://www.lufthansa.com/ae/en/baggage",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "en",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/en/baggage",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "de",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/de/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "de",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/de/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "de",
+  "market": "dk",
+  "url": "https://www.lufthansa.com/dk/de/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "fr",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/fr/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "fr",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/fr/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "fr",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/fr/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "es",
+  "market": "ar",
+  "url": "https://www.lufthansa.com/ar/es/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "es",
+  "market": "cl",
+  "url": "https://www.lufthansa.com/cl/es/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "baggage",
+  "lang": "es",
+  "market": "co",
+  "url": "https://www.lufthansa.com/co/es/gepaeck",
+  "ref_en": "/de/en/baggage",
+  "ref_de": "/de/de/gepaeck"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "en",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/en/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "en",
+  "market": "ae",
+  "url": "https://www.lufthansa.com/ae/en/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "en",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/en/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "de",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/de/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "de",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/de/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "de",
+  "market": "dk",
+  "url": "https://www.lufthansa.com/dk/de/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "fr",
+  "market": "be",
+  "url": "https://www.lufthansa.com/be/fr/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "fr",
+  "market": "ca",
+  "url": "https://www.lufthansa.com/ca/fr/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "fr",
+  "market": "ch",
+  "url": "https://www.lufthansa.com/ch/fr/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "es",
+  "market": "ar",
+  "url": "https://www.lufthansa.com/ar/es/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "es",
+  "market": "cl",
+  "url": "https://www.lufthansa.com/cl/es/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ },
+ {
+  "page": "online-check-in",
+  "lang": "es",
+  "market": "co",
+  "url": "https://www.lufthansa.com/co/es/online-check-in",
+  "ref_en": "/de/en/online-check-in",
+  "ref_de": "/de/de/online-check-in"
+ }
+]
