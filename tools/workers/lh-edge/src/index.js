@@ -36,6 +36,7 @@ import { sitemapGz, isSitemapGzPath } from './sitemap.js';
 import { llmsTxt, isLlmsPath } from './llms.js';
 import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
+import { csiOffline, isOfflinePath } from './offline.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -110,6 +111,12 @@ export const ROUTES = [
     name: 'mfe',
     match: (url) => isMfePath(url.pathname),
     handle: mfe,
+  },
+  {
+    // brief 80 part 4: www's offline page list (full content paths; the short form 404)
+    name: 'csi-offline',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isOfflinePath(url.pathname),
+    handle: csiOffline,
   },
   {
     // AMS rest A7: www's gzipped sitemap names
