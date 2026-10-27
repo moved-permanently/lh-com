@@ -40,6 +40,9 @@
   --body-font-family: lufthansatext, lufthansatext-fallback, arial, helvetica, mammilessymbol, sans-serif;
   --heading-font-family: lufthansahead, lufthansahead-fallback, arial, helvetica, mammilessymbol, sans-serif;
 
+  /* the hero card's headline (hero-card-overlay light): sky blue, as Discover's main stage */
+  --hero-card-heading-color: #1e73af;
+
   /* header: Discover's top bar is white with dark sky blue text (the menu panel keeps the brand) */
   --header-bar-surface: #fff;
   --header-bar-text: #003e7b;

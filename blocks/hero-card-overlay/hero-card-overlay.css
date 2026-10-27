@@ -173,8 +173,9 @@ main > .section > .hero-card-overlay-wrapper {
   color: var(--lh-deepblue);
 }
 
+/* --hero-card-heading-color: a brand theme's headline colour (styles/themes/*.css) */
 .hero-card-overlay.light .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--lh-deepblue);
+  color: var(--hero-card-heading-color, var(--lh-deepblue));
 }
 
 .hero-card-overlay.light .hero-card-overlay-card a:focus-visible {
