@@ -15,7 +15,10 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
-const LOCALE_COLUMNS = ['de_en', 'de_de', 'at_de', 'gb_en', 'path'];
+// the migrated locales (status live) of the locale table's source, tools/markets/locale-data.json
+const LIVE_ROOTS = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, '../markets/locale-data.json'), 'utf8')).roots)
+  .filter(([, row]) => row.status === 'live').map(([key]) => key);
+const LOCALE_COLUMNS = [...LIVE_ROOTS.map((k) => k.replace('/', '_')), 'path'];
 const SOURCES = [
   'tools/migration-scope/pages.csv',
   'tools/migration-scope/local-pages.csv',

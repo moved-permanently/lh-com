@@ -52,7 +52,8 @@ const FORMS = {
     de: 'Anfrage bezüglich einem Passagierbeleg',
   },
 };
-const LOCALES = ['de-en', 'de-de', 'at-de', 'gb-en'];
+// any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones)
+const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
@@ -559,7 +560,7 @@ async function submit(request, env, origin) {
 
   const { form, locale } = text;
   if (!Object.prototype.hasOwnProperty.call(FORMS, form || '')) return fail(400, 'unknown-form', origin);
-  if (!LOCALES.includes(locale)) return fail(400, 'unknown-locale', origin);
+  if (!LOCALE.test(String(locale || ''))) return fail(400, 'unknown-locale', origin);
   const page = validPage(text.page);
   if (!page) return fail(400, 'invalid-page', origin);
   const checked = validateFields(text.fields);

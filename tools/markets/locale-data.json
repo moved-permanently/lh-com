@@ -1,0 +1,32 @@
+{
+  "about": "Hand-kept locale data that www's sitemap dataset (tools/source-export/feeds/sitemaps/roots.json) does not have. tools/markets/build-locale-table.mjs joins both into scripts/locale-table.js. status: live (on Edge Delivery: the site treats it as migrated) or pilot (rendered with its own row, links to it still go to www). shopLang null: the shop handoff's default (en-GB).",
+  "defaultLocale": "de/de",
+  "languageVersions": { "en": "de/en", "de": "de/de" },
+  "fallbackLanguageVersion": "de/en",
+  "roots": {
+    "de/en": {
+      "status": "live", "name": "Germany | English", "countryName": { "en": "Germany", "de": "Deutschland" },
+      "homeAirport": "FRA", "currency": "EUR", "timeZone": "Europe/Berlin", "shopLang": "en-GB"
+    },
+    "de/de": {
+      "status": "live", "name": "Deutschland | Deutsch", "countryName": { "en": "Germany", "de": "Deutschland" },
+      "homeAirport": "FRA", "currency": "EUR", "timeZone": "Europe/Berlin", "shopLang": "de-DE", "unverified": ["shopLang"]
+    },
+    "at/de": {
+      "status": "live", "name": "Österreich | Deutsch", "countryName": { "en": "Austria", "de": "Österreich" },
+      "homeAirport": "VIE", "currency": "EUR", "timeZone": "Europe/Vienna", "shopLang": "de-AT", "unverified": ["shopLang"]
+    },
+    "gb/en": {
+      "status": "live", "name": "United Kingdom | English", "countryName": { "en": "United Kingdom", "de": "Vereinigtes Königreich" },
+      "homeAirport": "LHR", "currency": "GBP", "timeZone": "Europe/London", "shopLang": "en-GB", "unverified": ["shopLang"]
+    },
+    "ch/en": {
+      "status": "pilot", "name": "Switzerland | English", "countryName": { "en": "Switzerland", "de": "Schweiz" },
+      "homeAirport": "ZRH", "currency": "CHF", "timeZone": "Europe/Zurich", "shopLang": null
+    },
+    "ch/de": {
+      "status": "pilot", "name": "Schweiz | Deutsch", "countryName": { "en": "Switzerland", "de": "Schweiz" },
+      "homeAirport": "ZRH", "currency": "CHF", "timeZone": "Europe/Zurich", "shopLang": null
+    }
+  }
+}

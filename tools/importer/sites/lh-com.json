@@ -1,0 +1,20 @@
+{
+  "about": "Documents of lh-com outside its migration scope that da-upload.mjs may send (read in addition to transformers/scope-paths.js and the document families). The ch pilot (2026-10-27): the homepages and the own pages of ch/en and ch/de (tools/reports/markets/inventory.json), and their nav and footer (copies of de/en's and de/de's with ch links).",
+  "paths": [
+    "/ch/en/homepage",
+    "/ch/en/local-page/experience-america",
+    "/ch/en/companion-special-first-class",
+    "/ch/en/companion-special-premium-economy-class",
+    "/ch/en/smart-bags",
+    "/ch/en/nav",
+    "/ch/en/footer",
+    "/ch/de/homepage",
+    "/ch/de/local-page/black-friday",
+    "/ch/de/companion-special-first-class",
+    "/ch/de/companion-special-premium-economy-class",
+    "/ch/de/fluege-vo-zurich-nach-china",
+    "/ch/de/event/exklusives-event-angebot-dxb-1",
+    "/ch/de/nav",
+    "/ch/de/footer"
+  ]
+}

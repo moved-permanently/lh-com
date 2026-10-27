@@ -187,6 +187,13 @@ test('recipients: form "*" entry, invalid addresses dropped, default subject', a
   assert.equal(sent[0].subject, 'Default subject');
 });
 
+test('a root beyond the four (ch-de): accepted, the form "*" recipients, the German title', async () => {
+  const { res } = await post({ locale: 'ch-de' });
+  assert.equal(res.status, 200);
+  assert.deepEqual(sent[0].to, ['fb-any@example.com']);
+  assert.match(sent[0].html, /<h1>Feedback zu einem vergangenen Flug<\/h1>/);
+});
+
 test('recipients: entry without a valid address falls through to default', async () => {
   const { res } = await post({ form: 'refund-form', locale: 'gb-en' });
   assert.equal(res.status, 200);
@@ -314,7 +321,9 @@ test('unknown form, locale, page or bad fields → 400, nothing sent', async () 
     [{ form: 'contact-us' }, 'unknown-form'],
     [{ form: '__proto__' }, 'unknown-form'],
     [{ form: null }, 'unknown-form'],
-    [{ locale: 'fr-fr' }, 'unknown-locale'],
+    [{ locale: 'fr_FR' }, 'unknown-locale'],
+    [{ locale: 'de-de-x' }, 'unknown-locale'],
+    [{ locale: '' }, 'unknown-locale'],
     [{ page: 'data:text/html,hi' }, 'invalid-page'],
     [{ page: 'not a url' }, 'invalid-page'],
     [{ fields: null }, 'missing-fields'],

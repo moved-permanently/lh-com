@@ -12,7 +12,10 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
 const LIVE = 'https://www.lufthansa.com';
-const COLS = ['de_en', 'de_de', 'at_de', 'gb_en'];
+// the migrated locales (status live) of the locale table's source, tools/markets/locale-data.json
+const LIVE_ROOTS = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, '../markets/locale-data.json'), 'utf8')).roots)
+  .filter(([, row]) => row.status === 'live').map(([key]) => key);
+const COLS = LIVE_ROOTS.map((k) => k.replace('/', '_'));
 const OUT = path.join(__dirname, 'page-templates.json');
 
 const TEMPLATES = {

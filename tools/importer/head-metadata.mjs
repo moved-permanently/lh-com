@@ -38,6 +38,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -117,7 +118,7 @@ fs.readFileSync(path.join(root, 'tools/migration-scope/pages.csv'), 'utf8').trim
 // market-only pages of a market the replica has no nav or footer for (us/en): the nav and footer
 // of the locale with the same language (local-pages.csv locale us/en -> /de/en/nav, /de/en/footer)
 const LOCALE_DOCS = { en: 'de/en', de: 'de/de' };
-const MIGRATED = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const MIGRATED = LIVE_ROOTS;
 const borrowed = {};
 fs.readFileSync(path.join(root, 'tools/migration-scope/local-pages.csv'), 'utf8').trim().split('\n').slice(1)
   .forEach((l) => {

@@ -17,6 +17,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../../scripts/locale.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -48,7 +49,7 @@ let worker;
 if (local) {
   const { searchRows } = await import(path.join(root, 'tools/importer/build-search-index.mjs'));
   const sheets = {};
-  ['de/en', 'de/de', 'at/de', 'gb/en'].forEach((l) => { sheets[`/${l}/search-index.json`] = searchRows(l); });
+  LIVE_ROOTS.forEach((l) => { sheets[`/${l}/search-index.json`] = searchRows(l); });
   globalThis.fetch = async (input) => {
     const req = input instanceof Request ? input : new Request(input);
     const u = new URL(req.url);

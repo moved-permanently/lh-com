@@ -3,17 +3,15 @@
  * like www's flight manager, a POST form navigation to shop.lufthansa.com/booking/availability.
  */
 
+import { LOCALE_TABLE } from './locale-table.js';
+
 /**
- * Shop language per market (the `lang` field and query parameter of the handoff).
- * de/en: en-GB, captured from a real live search. UNVERIFIED (no capture, chosen by
- * language-country): de/de de-DE, at/de de-AT, gb/en en-GB.
+ * Shop language per market (the `lang` field and query parameter of the handoff): the locale
+ * table's shopLang (tools/markets/locale-data.json). de/en: en-GB, captured from a real live
+ * search. UNVERIFIED (no capture, chosen by language-country): de/de de-DE, at/de de-AT,
+ * gb/en en-GB. Without one: en-GB.
  */
-const SHOP_LANG = {
-  'de/en': 'en-GB',
-  'de/de': 'de-DE', // UNVERIFIED
-  'at/de': 'de-AT', // UNVERIFIED
-  'gb/en': 'en-GB', // UNVERIFIED
-};
+const shopLang = (key) => LOCALE_TABLE[key]?.shopLang || 'en-GB';
 
 /** Authored cabin codes (Cabin row) to the shop's cabin values. */
 const SHOP_CABINS = {
@@ -42,7 +40,7 @@ const PORTAL_FACT_GROUPS = { performance: 'C0002', targeting: 'C0004', functiona
  * @returns {{action: string, fields: Object<string, string>}}
  */
 export function buildShopHandoff(query, locale) {
-  const lang = SHOP_LANG[locale.key] || 'en-GB';
+  const lang = shopLang(locale.key);
   const portalCountry = locale.country.toUpperCase();
   const itineraries = [{
     departureDateTime: query.departureDate,

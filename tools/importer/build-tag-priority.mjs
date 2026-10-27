@@ -12,9 +12,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const LOCALES = LIVE_ROOTS;
 const OUT = path.join(root, 'tools/importer/tag-priority-sheet.json');
 
 const tagsIn = (html) => [...new Set([...html.matchAll(/\/articles\/tags\/([a-z0-9-]+)"/g)].map((m) => `articles:${m[1]}`))];

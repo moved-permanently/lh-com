@@ -15,17 +15,16 @@
  * outsideUrl(), which drops the time-travel parameters.
  */
 
+import { LOCALE_TABLE } from './locale-table.js';
+
 export const PARAM = 'time-travel';
 export const ZONE_PARAM = 'time-zone';
 const LEGACY_PARAM = 'stage-time';
 const PARAMS = [PARAM, ZONE_PARAM, LEGACY_PARAM];
 
-/** The time zone a time without an offset is read in, per market. */
-export const MARKET_TIME_ZONES = {
-  de: 'Europe/Berlin',
-  at: 'Europe/Vienna',
-  gb: 'Europe/London',
-};
+/** The time zone a time without an offset is read in, per market (the locale table). */
+export const MARKET_TIME_ZONES = Object.fromEntries(Object.values(LOCALE_TABLE)
+  .filter((row) => row.timeZone).map((row) => [row.country, row.timeZone]));
 export const DEFAULT_TIME_ZONE = MARKET_TIME_ZONES.de;
 
 // main and branch previews (…--lh-com--moved-permanently.aem.page), the local dev server

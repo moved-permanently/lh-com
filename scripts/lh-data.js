@@ -20,7 +20,7 @@
  * 3. Recorded: the responses recorded at import time under /data/recorded/ (never for prices:
  *    PRICE_ROUTES answer live or not at all).
  */
-import { getLocale, LOCALES, LIVE_ORIGIN } from './locale.js';
+import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
 
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md).
 export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
@@ -102,7 +102,7 @@ export function isDirectRoute(route) {
  * @returns {Object<string, string>}
  */
 export function portalHeaders(market) {
-  const locale = LOCALES[market];
+  const locale = LOCALE_TABLE[market];
   if (!locale) return {};
   return {
     'X-Portal': 'LH',
@@ -336,7 +336,7 @@ export async function lhRecorded(pathPrefix, { method = 'GET', market = getLocal
 
 /** Accept-Language of a market (the proxy forwards it; the live site localizes by it). */
 function acceptLanguage(market) {
-  const locale = LOCALES[market];
+  const locale = LOCALE_TABLE[market];
   if (!locale) return '';
   return `${locale.lang}-${locale.country.toUpperCase()},${locale.lang};q=0.9`;
 }

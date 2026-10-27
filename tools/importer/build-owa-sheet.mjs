@@ -20,10 +20,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildHeader, buildFooter } from '../workers/lh-edge/src/owa.js';
+import { LIVE_ROOTS } from '../../scripts/locale.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
-const LOCALES = ['de/en', 'de/de', 'at/de', 'gb/en'];
+const LOCALES = LIVE_ROOTS;
 const FIX = path.join(root, 'tools/source-export/feeds/owa');
 const fixture = (locale, part) => JSON.parse(fs.readFileSync(path.join(FIX, `${locale.replace('/', '-')}-homepage.${part}.json`), 'utf8'));
 const doc = (locale, name) => path.join(root, 'content', locale, `${name}.plain.html`);

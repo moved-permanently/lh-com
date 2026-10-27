@@ -5,7 +5,8 @@
  *
  * - lh-com (the default): documents from content/, state tools/importer/da-upload-state.json, the
  *   migration scope (transformers/scope-paths.js) plus its document families (nav, footer,
- *   fragments, app screens, feeds, xf, the Page check test page), author-edits.json applied.
+ *   fragments, app screens, feeds, xf, the Page check test page), plus the explicit paths of
+ *   tools/importer/sites/lh-com.json (the ch pilot's pages), author-edits.json applied.
  * - any other site: documents from content-sites/<site>/content/ (or --content-dir), state
  *   tools/importer/da-upload-state-<site>.json, only the paths of its allowlist
  *   tools/importer/sites/<site>.json ({"paths": [...], "patterns": ["^/regex$"]}); no lh-com
@@ -14,6 +15,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { LOCALE_TABLE } from '../../scripts/locale.js';
 
 export const ORG = 'moved-permanently';
 export const DEFAULT_SITE = 'lh-com';
@@ -24,7 +26,9 @@ export const NEVER = /^\/lhg(?:\/|$)/;
 // app shells (login, profile) are built elsewhere: never uploaded, even if listed
 export const APP_SHELL = /^\/[a-z]{2}\/[a-z]{2}\/(?:login|profile)(?:\/|$)/;
 
-const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)$/;
+// the nav, footer and fragments of every root of the locale table (live and pilot, e.g. /ch/en/nav)
+const TABLE_ROOT = new RegExp(`^/(${Object.keys(LOCALE_TABLE).map((k) => k.replace('/', '\\/')).join('|')})/`);
+const LOCALE_DOC = { test: (p) => TABLE_ROOT.test(p) && /^\/[a-z]{2}\/[a-z]{2}\/(nav|footer|fragments\/[a-z0-9-]+)$/.test(p) };
 // the Lufthansa app's screen documents (tools/importer/sdui-import.mjs; lh-edge renders them)
 const APP_SCREEN = /^\/content\/mobile\/lh\/[a-z]{2}\//;
 // the GraphQL feed documents (structured content, companion documents) and their DA schemas
@@ -63,7 +67,11 @@ export async function siteSettings(root, loadScope, { site = DEFAULT_SITE, conte
   let allowed;
   let authorEdits = {};
   if (lhCom) {
-    allowed = lhComAllowed(await loadScope());
+    const scopeAllowed = lhComAllowed(await loadScope());
+    // documents outside the scope that may be sent all the same (exact paths only)
+    const extraFile = path.join(root, 'tools/importer/sites/lh-com.json');
+    const extra = fs.existsSync(extraFile) ? allowlistAllowed({ paths: JSON.parse(fs.readFileSync(extraFile, 'utf8')).paths }) : () => false;
+    allowed = (p) => scopeAllowed(p) || (!APP_SHELL.test(p) && extra(p));
     const editsFile = path.join(root, 'tools/importer/author-edits.json');
     authorEdits = fs.existsSync(editsFile) ? JSON.parse(fs.readFileSync(editsFile, 'utf8')) : {};
   } else {
