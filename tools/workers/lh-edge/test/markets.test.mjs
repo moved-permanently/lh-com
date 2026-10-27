@@ -23,7 +23,7 @@ const row = (path, extra = {}) => ({
 const INDEX = {
   '/de/en/search-index.json': sheet([
     row('/de/en/homepage'), row('/de/en/baggage'), row('/de/en/event/dghm-2026', { markets: 'de' }),
-    row('/de/en/addresses-worldwide'), row('/de/en/feedback', { robots: 'noindex,nofollow' }), row('/de/en/only-not-ch', { markets: '-ch, -us' }), row('/de/en/articles/a'),
+    row('/de/en/addresses-worldwide'), row('/de/en/addresses-worldwide-de'), row('/de/en/feedback', { robots: 'noindex,nofollow' }), row('/de/en/only-not-ch', { markets: '-ch, -us' }), row('/de/en/articles/a'),
   ]),
   '/de/de/search-index.json': sheet([
     row('/de/de/homepage'), row('/de/de/baggage'), row('/de/de/adressen-weltweit', { 'primary-language-url': '/de/en/addresses-worldwide' }),
@@ -44,6 +44,7 @@ const DOCS = {
   '/de/en/addresses-worldwide': page('/de/en/addresses-worldwide'),
   '/de/de/adressen-weltweit': page('/de/de/adressen-weltweit'),
   '/de/en/event/dghm-2026': page('/de/en/event/dghm-2026'),
+  '/de/en/addresses-worldwide-de': page('/de/en/addresses-worldwide-de').replace('<title>', '<meta name="markets" content="de, at"><title>'),
   '/ch/en/homepage': '<html><head><link rel="canonical" href="https://lhcom.bbird.live/ch/en/homepage"></head><body>own ch homepage</body></html>',
   '/de/en/fragments/teaser.plain.html': '<div><a href="/de/en/baggage">Baggage</a></div>',
   '/ch/en/old': 301,
@@ -148,7 +149,7 @@ test('own documents and redirects of the market root win; markets and missing in
   const moved = await get('/ch/en/old');
   assert.equal(moved.status, 301);
   assert.equal(moved.headers.get('location'), '/ch/en/new');
-  for (const p of ['/ch/en/event/dghm-2026', '/ch/en/only-not-ch', '/ch/en/carry-on', '/ch/en/x.pdf']) {
+  for (const p of ['/ch/en/event/dghm-2026', '/ch/en/addresses-worldwide-de', '/ch/en/only-not-ch', '/ch/en/carry-on', '/ch/en/x.pdf']) {
     const r = await get(p);
     assert.equal(r.status, 404, p);
     assert.equal(await r.text(), '<html>404</html>', p);
@@ -174,10 +175,11 @@ test('fragments fall back to the language version; HEAD has no body', async () =
 
 test('JSON: the language rows the market serves, paths rewritten, own pages in the search index', async () => {
   const idx = await (await get('/ch/en/search-index.json?limit=3&offset=1')).json();
-  assert.equal(idx.total, 6);
-  assert.deepEqual(idx.data.map((r) => r.path), ['/ch/en/articles/a', '/ch/en/baggage', '/ch/en/feedback']);
+  // the index has no markets value for addresses-worldwide-de yet (it takes it on publish)
+  assert.equal(idx.total, 7);
+  assert.deepEqual(idx.data.map((r) => r.path), ['/ch/en/addresses-worldwide-de', '/ch/en/articles/a', '/ch/en/baggage']);
   const all = await (await get('/ch/en/search-index.json')).json();
-  assert.deepEqual(all.data.map((r) => r.path), ['/ch/en/addresses-worldwide', '/ch/en/articles/a', '/ch/en/baggage', '/ch/en/feedback', '/ch/en/homepage', '/ch/en/own-page']);
+  assert.deepEqual(all.data.map((r) => r.path), ['/ch/en/addresses-worldwide', '/ch/en/addresses-worldwide-de', '/ch/en/articles/a', '/ch/en/baggage', '/ch/en/feedback', '/ch/en/homepage', '/ch/en/own-page']);
   const art = await (await get('/ch/en/articles/query-index.json')).json();
   assert.deepEqual(art.data.map((r) => [r.path, r.image]), [['/ch/en/articles/a', '/de/en/media_1.jpg']]);
 });
@@ -185,7 +187,7 @@ test('JSON: the language rows the market serves, paths rewritten, own pages in t
 test('sitemaps: the market root\'s and the index with it on pilot hosts, the origin\'s elsewhere', async () => {
   const xml = await (await get('/sitemap/sitemap_lh_ch_en.xml')).text();
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  assert.deepEqual(locs, ['https://www.lufthansa.com/ch/en/addresses-worldwide', 'https://www.lufthansa.com/ch/en/articles/a', 'https://www.lufthansa.com/ch/en/baggage', 'https://www.lufthansa.com/ch/en/homepage', 'https://www.lufthansa.com/ch/en/own-page']);
+  assert.deepEqual(locs, ['https://www.lufthansa.com/ch/en/addresses-worldwide', 'https://www.lufthansa.com/ch/en/addresses-worldwide-de', 'https://www.lufthansa.com/ch/en/articles/a', 'https://www.lufthansa.com/ch/en/baggage', 'https://www.lufthansa.com/ch/en/homepage', 'https://www.lufthansa.com/ch/en/own-page']);
   assert.match(xml, /<lastmod>2026-10-26<\/lastmod>/);
   assert.match(xml, /<xhtml:link rel="alternate" hreflang="de-CH" href="https:\/\/www\.lufthansa\.com\/ch\/de\/adressen-weltweit"\/>/);
   const gz = await get('/sitemap/sitemap_lh_ch_en.xml.gz');

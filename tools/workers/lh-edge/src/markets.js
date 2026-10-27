@@ -8,7 +8,8 @@
  *   redirect sheet);
  * - else the language version's document, when the language's query index
  *   (/<version>/search-index.json) has the page and its `markets` metadata allows the country
- *   (an include list "de, at", an exclude list "-ch, -us"; empty: every market of the language).
+ *   (an include list "de, at", an exclude list "-ch, -us"; empty: every market of the language;
+ *   the page's own <meta name="markets"> too, which counts before a publish updates the index).
  *   Links into the language version become the market root's when the market serves the target
  *   (the link step's rule, tools/loc/link-lib.mjs), the site's own hosts are stripped, canonical
  *   and og:url name the market URL, hreflang alternates come from the indexes, nav and footer are
@@ -357,8 +358,12 @@ export async function market(request, env) {
   const headers = new Headers(doc.headers);
   headers.set('x-lh-edge-route', 'market');
   headers.delete('content-length');
-  const resp = new Response(doc.body, { status: doc.status, headers });
-  if (request.method === 'HEAD') return resp;
+  if (request.method === 'HEAD') return new Response(null, { status: doc.status, headers });
+  // the page's own markets metadata counts at once (the index takes it on publish)
+  const html = await doc.text();
+  const meta = kind === 'page' && html.match(/<meta name="markets" content="([^"]*)"/);
+  if (meta && !marketAllows(meta[1], root.split('/')[0])) return own;
+  const resp = new Response(html, { status: doc.status, headers });
   return marketHtml(resp, {
     ...ctx,
     marketPath: `/${root}${suffix}`,
@@ -451,7 +456,7 @@ export async function marketSitemap(request, env, fallback) {
   if (xml === null) return fallback(request, env);
   const gz = Boolean(m[3]);
   const headers = {
-    'content-type': gz ? 'application/octet-stream' : 'application/xml; charset=utf-8',
+    'content-type': gz ? 'application/octet-stream' : 'application/xml',
     'cache-control': 'public, max-age=14400',
     'x-lh-edge-route': 'market-sitemap',
   };
