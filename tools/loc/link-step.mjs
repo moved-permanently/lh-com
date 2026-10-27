@@ -7,14 +7,16 @@
  *   translation --from de/en --to de/de   absolute aem.page/aem.live/lhcom links -> root-relative;
  *                                         /de/en/<x> -> /de/de/<German slug of x>
  * Links to pages without a counterpart in the target locale stay as they are and are listed;
- * links to other hosts stay. Pages: every page of the target locale in
- * tools/migration-scope/pages.csv (or --page /at/de/x ...). Run the slug step first after a
+ * links to other hosts stay. Pages: --page /at/de/x ... (repeatable), else (dry run) every page
+ * of the target locale in tools/migration-scope/pages.csv. Run the slug step first after a
  * translation (it moves the 72 own-slug pages and uses the same link fix).
  *
- * Default: a dry run that lists what would change. --apply writes (DA POST, read back).
+ * Default: a dry run that lists what would change. --apply writes (DA POST, read back), only
+ * with --page, or with --all-pages --yes (every page of the target locale: selectPages).
  * --root /drafts/loc-test: every DA path below that folder. Never previews or publishes.
  * Report (dry run over the scope, all three pairs with --all): tools/reports/loc-link-step.md
  * Usage: node tools/loc/link-step.mjs --from de/de --to at/de [--page …] [--apply] [--root …]
+ *        node tools/loc/link-step.mjs --from de/de --to at/de --all-pages --apply [--yes]
  *        node tools/loc/link-step.mjs --all        (dry run of the three pairs, the report)
  */
 import fs from 'node:fs';
@@ -38,6 +40,26 @@ async function pool(items, n, fn) {
     }
   }));
   return out;
+}
+
+/**
+ * The pages to run: the --page ones, else every page of the target locale in the scope (a dry
+ * run). --apply writes only with --page, or with an explicit --all-pages plus --yes: the scope's
+ * at/de and gb/en pages hold links from www into /de/de and /de/en (87 and 89 pages) that stay
+ * until their own rollout. Returns {pages} or {stop: message}.
+ */
+export function selectPages({
+  listed = [], scope = [], to, apply = false, allPages = false, yes = false,
+}) {
+  if (listed.length && allPages) return { stop: 'either --page … or --all-pages, not both' };
+  if (listed.length) return { pages: listed };
+  if (apply && !allPages) {
+    return { stop: `--apply needs --page /${to}/… (one or more), or --all-pages to write every /${to} page of the scope (${scope.length})` };
+  }
+  if (apply && !yes) {
+    return { stop: `--all-pages --apply would rewrite the links of up to ${scope.length} /${to} pages; run again with --yes to write them` };
+  }
+  return { pages: scope };
 }
 
 /** Runs the step for one pair: [{page, links, unmapped, status}]. */
@@ -91,7 +113,15 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     const col = {
       'de/en': 'de_en', 'de/de': 'de_de', 'at/de': 'at_de', 'gb/en': 'gb_en',
     }[to];
-    const pages = listed.length ? listed : [...new Set(rows.map((r) => r[col]).filter(Boolean))];
+    const scope = [...new Set(rows.map((r) => r[col]).filter(Boolean))];
+    const { pages, stop } = selectPages({
+      listed, scope, to, apply, allPages: argv.includes('--all-pages'), yes: argv.includes('--yes'),
+    });
+    if (stop) {
+      console.error(`link-step: ${stop}`);
+      process.exit(1);
+    }
+    if (apply) console.log(`link-step: writing ${pages.length} /${to} page${pages.length > 1 ? 's' : ''}`);
     const results = await runLinkStep({
       from, to, pages, rows, da, apply, rootDir: opt('root') || '',
     });

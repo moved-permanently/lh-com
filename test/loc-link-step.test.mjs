@@ -4,8 +4,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { pairMap, localizeHref, localizeDoc } from '../tools/loc/link-lib.mjs';
-import { runLinkStep } from '../tools/loc/link-step.mjs';
+import { runLinkStep, selectPages } from '../tools/loc/link-step.mjs';
 import { scopeRows } from '../tools/loc/regional-diff.mjs';
 
 const ROWS = scopeRows();
@@ -58,6 +59,39 @@ test('translation de/en -> de/de: the app\'s absolute links become relative Germ
   assert.deepEqual(doc.unmapped, []);
   const at = pairMap(ROWS, 'de/de', 'at/de');
   assert.equal(localizeHref('/de/de/flugsuche', at), '/at/de/flugsuche', 'own German slugs roll out by their German path');
+});
+
+test('selectPages: --apply only with --page, or --all-pages with --yes; the dry run takes the scope', () => {
+  const scope = [...new Set(ROWS.map((r) => r.at_de).filter(Boolean))];
+  assert.ok(scope.length > 87, String(scope.length));
+  assert.deepEqual(selectPages({ scope, to: 'at/de' }), { pages: scope }, 'dry run: every at/de page');
+  assert.deepEqual(selectPages({
+    listed: ['/at/de/gepaeck'], scope, to: 'at/de', apply: true,
+  }), { pages: ['/at/de/gepaeck'] });
+  const bare = selectPages({ scope, to: 'at/de', apply: true });
+  assert.equal(bare.pages, undefined);
+  assert.match(bare.stop, /--apply needs --page \/at\/de\//);
+  const unconfirmed = selectPages({
+    scope, to: 'at/de', apply: true, allPages: true,
+  });
+  assert.equal(unconfirmed.pages, undefined);
+  assert.match(unconfirmed.stop, new RegExp(`up to ${scope.length} /at/de pages; run again with --yes`));
+  assert.deepEqual(selectPages({
+    scope, to: 'at/de', apply: true, allPages: true, yes: true,
+  }), { pages: scope });
+  assert.match(selectPages({
+    listed: ['/at/de/gepaeck'], scope, to: 'at/de', allPages: true,
+  }).stop, /not both/);
+});
+
+test('link-step CLI: --apply without --page stops before reading or writing DA', () => {
+  const script = new URL('../tools/loc/link-step.mjs', import.meta.url).pathname;
+  [[], ['--all-pages']].forEach((extra) => {
+    const r = spawnSync(process.execPath, [script, '--from', 'de/en', '--to', 'gb/en', '--apply', ...extra], { encoding: 'utf8', env: { ...process.env, DA_TOKEN: '' } });
+    assert.equal(r.status, 1, r.stdout + r.stderr);
+    assert.match(r.stderr, extra.length ? /run again with --yes/ : /--apply needs --page/);
+    assert.ok(!r.stdout.includes('pages:'), 'no page was read');
+  });
 });
 
 /** An in-memory DA: path -> html; records writes. */
