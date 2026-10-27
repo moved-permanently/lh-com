@@ -116,8 +116,9 @@ class RequestForPublishPlugin extends LitElement {
   }
 
   get contentPath() {
-    // Remove org/site prefix to get the content path
-    return this.path.replace(/^\/[^/]+\/[^/]+/, '');
+    // Remove org/site prefix to get the content path. The Experience Workspace
+    // editor passes the document path with its .html extension (lh-com change).
+    return this.path.replace(/^\/[^/]+\/[^/]+/, '').replace(/\.html$/, '');
   }
 
   get previewUrl() {
