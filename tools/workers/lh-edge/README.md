@@ -23,6 +23,26 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 | `EVENTS_LOG`, `EVENTS_SITE` | publish events: the audit log URL (`https://admin.hlx.page/log/<org>/<site>/main`) and `<org>/<site>`, which the webhook body must name |
 | KV `EVENTS`; secrets `AUDIT_LOG_KEY`, `WEBHOOK_TOKEN`, `EVENTS_SINK_URL` | publish events: the relay's state (one key); the site's API key with the author role (reads the audit log); the site config webhook's token; optional: where each event is POSTed (unset: logged) |
 
+## Alias hosts (`src/alias.js`, brief 94)
+
+A request whose host is in `ALIAS_HOSTS` (demo `lhcn.bbird.live`, the replica's www.lufthansa.cn) is
+routed exactly like one to the main host: same routes, same origin, same Workers behind them. On its
+answers:
+
+- `text/html`: absolute `href`, `src`, `srcset` and `action` URLs whose host is in
+  `ALIAS_REWRITE_HOSTS` (the replica's own hosts, demo `lhcom.bbird.live,lhedge.bbird.live`) point at
+  the alias host, so visitors stay on it. `<link rel="canonical">` and `<link rel="alternate"
+  hreflang>` stay (one canonical host for search engines); links to other hosts stay
+  (`www.lufthansa.com`: pages the replica does not have would 404 on the alias); relative links and
+  meta tags are untouched.
+- `text/html` gets `Cache-Control: public, max-age=28800` (`ALIAS_HTML_CACHE_CONTROL`; www's .cn host
+  sends 8 hours, the .com host 300 s). Other answers keep their own headers.
+- A redirect to one of `ALIAS_REWRITE_HOSTS` goes to the alias host; `/` redirects like `/` on the
+  main host (no `cn` market).
+
+Hosts without an entry in `ALIAS_HOSTS` are not touched. The alias host is attached to the Worker as
+a custom domain in the Cloudflare dashboard (as the main host).
+
 ## Routes (first match wins, `src/index.js` `ROUTES`)
 
 | Route | Match | Answer |

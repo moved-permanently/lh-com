@@ -62,6 +62,12 @@ EDGE_TTL = "60"
 # version of lh-edge's edge cache (?lh-edge-cache=<value> on every cached origin request): a new
 # value drops the cache (no custom cache keys or per-host purge on this plan); empty: not added
 EDGE_CACHE_VERSION = "2026-10-25a"
+# alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
+# on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
+# host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
+ALIAS_HOSTS = "lhcn.bbird.live"
+ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live"
+ALIAS_HTML_CACHE_CONTROL = "public, max-age=28800"
 # GraphQL feeds (/graphql/execute.json/...): origins that get CORS (host patterns: a domain is the
 # domain and its subdomains, * one label, localhost any port; https only except localhost)
 CORS_ORIGINS = "lufthansa.com,swiss.com,austrian.com,brusselsairlines.com,discover-airlines.com,ita-airways.com,lufthansagroup.com,miles-and-more.com,partnerplusbenefit.com,dlh.de,*--lh-com--moved-permanently.aem.page,*--lh-com--moved-permanently.aem.live,localhost"

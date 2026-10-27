@@ -37,6 +37,7 @@ import { llmsTxt, isLlmsPath } from './llms.js';
 import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
+import { aliasHostOf, forAlias } from './alias.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -248,9 +249,13 @@ export function routeOf(request) {
 
 export default {
   async fetch(request, env, ctx) {
+    const alias = aliasHostOf(request, env);
     const early = prelude(request);
-    if (early) return early;
-    return routeOf(request).handle(request, env, ctx);
+    if (early) return alias ? forAlias(early, alias, env) : early;
+    const resp = await routeOf(request).handle(request, env, ctx);
+    // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's
+    // own hosts kept on the alias host
+    return alias ? forAlias(resp, alias, env) : resp;
   },
 };
 
