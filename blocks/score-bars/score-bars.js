@@ -6,7 +6,8 @@
  * empty, then one cell per category. Every other row is a line: cell 1 the item (text and links;
  * empty: same item as the line above), cell 2 the line label (e.g. Mobile), then one value per
  * category, "before → after". A value is a score from 0 to 100 or a fraction such as 2/3, with an
- * optional "(n)" after it: the score without a known penalty, drawn as a dashed extension.
+ * optional "(n)" after it: the score without a known penalty, drawn as a dashed extension; the bar
+ * then takes the colour of that score.
  * Option "large": taller bars.
  */
 
@@ -43,6 +44,11 @@ export function band(pct) {
   return 'fail';
 }
 
+/** The colour band of a bar: that of the score without the penalty when there is one. */
+export function colour(value) {
+  return band(value.adjusted ?? value.pct);
+}
+
 const clean = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : '');
 
 function make(tag, className, ...children) {
@@ -53,7 +59,7 @@ function make(tag, className, ...children) {
 }
 
 function bar(side, value) {
-  const node = make('span', `score-bars-bar score-bars-${side} score-bars-${band(value.pct)}`);
+  const node = make('span', `score-bars-bar score-bars-${side} score-bars-${colour(value)}`);
   node.style.setProperty('--score', value.pct);
   const label = make('span', 'score-bars-value', value.label);
   if (value.adjustedLabel) label.append(make('small', '', `(${value.adjustedLabel})`));

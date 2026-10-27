@@ -13,7 +13,8 @@ striped.
   line to the item above), cell 2 the line label (for example Mobile), then one value per
   category: `before → after`. A value is a score from 0 to 100 or a fraction such as `2/3`. A
   number in brackets after a score, `63 (100)`, is the score without a known penalty; it is
-  drawn as a dashed extension.
+  drawn as a dashed extension, and the bar takes the colour of that score (green for
+  `63 (100)`).
 
 Cells that are not a pair stay empty.
 

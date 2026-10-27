@@ -1,7 +1,8 @@
 /*
  * score-bars: a before and an after score per category as two bars side by side (meta pages such
  * as /migration-status/psi-scores, not a www.lufthansa.com component). Colours as in PageSpeed
- * Insights; the before bar is striped, a dashed extension shows the score without a penalty.
+ * Insights; the before bar is striped, a dashed extension shows the score without a penalty, and
+ * the bar takes that score's colour.
  */
 .score-bars {
   --score-bars-track: 72px;
@@ -182,7 +183,7 @@
   box-sizing: border-box;
   width: 100%;
   height: calc((var(--adjusted) - var(--score)) * var(--score-bars-track) / 100);
-  border: 2px dashed var(--lh-grey-6);
+  border: 2px dashed var(--score-bars-color);
   border-bottom: 0;
   border-radius: 3px 3px 0 0;
 }
