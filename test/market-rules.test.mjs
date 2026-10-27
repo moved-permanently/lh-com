@@ -23,6 +23,21 @@ test('sectionMarkets reads the Markets row of the section metadata only', () => 
   // a Markets row of the page's metadata block is no section value
   assert.equal(sectionMarkets('<div><div class="metadata"><div><div>Markets</div><div>de</div></div></div></div>'), null);
   assert.equal(sectionMarkets('<div><div class="section-metadata"><div><div>Style</div><div>grey</div></div><div><div>markets</div><div>de, at</div></div></div></div>'), 'de, at');
+  // as Edge Delivery renders it: an attribute of the section
+  assert.equal(sectionMarkets('<div data-markets="-de"><p>x</p></div>'), '-de');
+  assert.equal(sectionMarkets('<div class="x" data-markets="de, at"><p>x</p></div>'), 'de, at');
+  assert.equal(sectionMarkets('<div><p data-markets="de">x</p></div>'), null, 'only the section\'s own attribute');
+});
+
+test('dropMarketSections on Edge Delivery\'s rendering (data-markets on the section)', () => {
+  const head = '<div><h1>Flüge</h1></div>';
+  const parking = '<div data-markets="de"><div class="carousel-cards"><div><div>Parken</div></div></div></div>';
+  const entry = '<div data-markets="-de"><div class="carousel-cards"><div><div>Einreise</div></div></div></div>';
+  const rest = '<div><h2>Mit Flugangeboten</h2></div>';
+  const page = `<html><body><main>${head}${parking}${entry}${rest}</main></body></html>`;
+  assert.equal(dropMarketSections(page, 'de'), page.replace(entry, ''));
+  assert.equal(dropMarketSections(page, 'be'), page.replace(parking, ''));
+  assert.equal(dropMarketSections(`${head}${parking}${entry}${rest}`, 'ch'), `${head}${entry}${rest}`);
 });
 
 test('dropMarketSections: another market\'s sections go, the rest stays byte for byte', () => {

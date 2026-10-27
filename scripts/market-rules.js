@@ -18,8 +18,15 @@ export function marketAllows(value, country) {
   return !include.length || include.includes(country);
 }
 
-/** The `markets` value of a section's section metadata in document HTML, or null without one. */
+/**
+ * The `markets` value of a section in document HTML, or null without one: Edge Delivery renders
+ * section metadata as attributes of the section's <div> (data-markets="-de"); a document with the
+ * block still in it (DA's HTML, the local dev server) has the Markets row of its
+ * section-metadata block.
+ */
 export function sectionMarkets(sectionHtml) {
+  const open = sectionHtml.match(/^<div\b[^>]*?\sdata-markets="([^"]*)"/);
+  if (open) return open[1].replace(/&amp;/g, '&').trim();
   const at = sectionHtml.indexOf('<div class="section-metadata">');
   if (at < 0) return null;
   // the section metadata block: to its own closing tag
@@ -47,7 +54,7 @@ export function sectionMarkets(sectionHtml) {
  * .plain.html); HTML without a section metadata block comes back as it is.
  */
 export function dropMarketSections(html, country) {
-  if (!html.includes('class="section-metadata"')) return html;
+  if (!html.includes('class="section-metadata"') && !html.includes('data-markets="')) return html;
   const open = html.indexOf('<main>');
   const start = open < 0 ? 0 : open + '<main>'.length;
   const close = html.lastIndexOf('</main>');
