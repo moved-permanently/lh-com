@@ -2,7 +2,7 @@
  "checkedAt": "2026-10-26T15:32:21.536Z",
  "assets": 7884,
  "copied": 6227,
- "notDeliverable": 1,
+ "notDeliverable": 0,
  "notOnWww": 237,
  "wwwFallback": 528,
  "blockedByWww": 891,
@@ -30,7 +30,8 @@
    "copied": 4583,
    "not on www": 9,
    "blocked by www": 815,
-   "not deliverable": 1
+   "not deliverable": 0,
+   "servedFromR2": 1
   },
   "destination": {
    "copied": 657,
@@ -3500,9 +3501,10 @@
    "sources": [
     "articles"
    ],
-   "status": "not deliverable",
+   "status": "served from R2 by lh-edge",
    "bytes": 28936167,
-   "why": "27.6 MB, over Edge Delivery's 20 MB limit for .pdf"
+   "why": "27.6 MB, over Edge Delivery's 20 MB limit for .pdf: R2 bucket lh-dam-media (since 2026-10-27), answered by lh-edge (src/dam-media.js)",
+   "r2Key": "content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf"
   },
   {
    "www": "/content/dam/video/c3/202405-em/austragungsorte/lh_em_de_audiodescription_lh_com.vtt",
@@ -16879,5 +16881,6 @@
    "why": "www 302 -> https://www.lufthansa.com/content/dam/lufthansa-group/images/destination/ksf-panorama.jpg"
   }
  ],
- "loungeIds": 237
+ "loungeIds": 237,
+ "servedFromR2": 1
 }

@@ -1,11 +1,13 @@
 /**
- * www's videos and subtitles that Edge Delivery can't hold (mp4 over 36 MB, every .vtt): objects
+ * www's files that Edge Delivery can't hold (mp4 over 36 MB, every .vtt, PDFs over 20 MB): objects
  * of the R2 bucket bound as DAM_MEDIA (bucket name in wrangler.toml), key = the Edge Delivery
  * name of the www path without the leading slash (scripts/dam-path.js edsDamPath, the same as the
  * DA copies). A DAM step (src/dam.js DAM_STEPS): it answers when the object exists, otherwise the
  * request goes on to the next steps and the DA copies.
- * - .vtt: text/vtt; charset=utf-8; .mp4: video/mp4 with range requests (206, content-range,
- *   accept-ranges: bytes): browsers seek in videos.
+ * - .vtt: text/vtt; charset=utf-8; .mp4: video/mp4 and .pdf: application/pdf with range requests
+ *   (206, content-range, accept-ranges: bytes): browsers seek in videos and load large PDFs in
+ *   parts. A PDF that is not in R2 (the usual case: Edge Delivery holds PDFs up to 20 MB) goes on
+ *   to the DA copies.
  * - cache-control public, max-age=2592000, as the other DAM answers; etag and last-modified of
  *   the object.
  */
@@ -13,10 +15,11 @@
 import { edsDamPath } from '../../../../scripts/dam-path.js';
 /* eslint-enable import/no-relative-packages */
 
-// the file types kept in R2 (no lookup for images and documents: they live in DA)
+// the file types kept in R2 (no lookup for images and other documents: they live in DA)
 export const MEDIA_TYPES = {
   mp4: 'video/mp4',
   vtt: 'text/vtt; charset=utf-8',
+  pdf: 'application/pdf',
 };
 
 /** The R2 key of a www DAM asset path. */

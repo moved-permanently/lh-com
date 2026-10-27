@@ -2,7 +2,7 @@
 
 2026-10-26T15:32:21.536Z
 
-7884 assets: 6227 copied and previewed, 528 answered by www with its missing-image fallback (302; lh-edge answers the same, the targets are copied), 237 not found on www (404), 891 refused by www to scripts (403 Cloudflare challenge: the videos and subtitles), 1 not deliverable by Edge Delivery, 0 upload or preview failed, 0 pending.
+7884 assets: 6227 copied and previewed, 528 answered by www with its missing-image fallback (302; lh-edge answers the same, the targets are copied), 237 not found on www (404), 891 refused by www to scripts (403 Cloudflare challenge: the videos and subtitles), 1 over Edge Delivery's limit and served from R2 by lh-edge, 0 upload or preview failed, 0 pending.
 
 Not deliverable at all: .vtt and .txt (Edge Delivery delivers HTML, JSON, MP4, PDF, SVG, JPG, PNG, AVIF and WEBP); size limits: images and PDF 20 MB, MP4 36 MB, SVG 40 KB.
 
@@ -12,7 +12,7 @@ Misnamed copies replaced: 350 (folders with "--" or "," that admin refuses to pr
 |---|---|
 | aircore | copied 418, www fallback 294 |
 | app-screens | copied 181 |
-| articles | copied 4583, not on www 9, blocked by www 815, not deliverable 1 |
+| articles | copied 4583, not on www 9, blocked by www 815, from R2 1 |
 | destination | copied 657, www fallback 25 |
 | destination-fallback | copied 210 |
 | finder-cities | copied 785, www fallback 443 |
@@ -356,7 +356,7 @@ Misnamed copies replaced: 350 (folders with "--" or "," that admin refuses to pr
 | `/content/dam/lh/video/lh_essentials_header_animation_cdg.mp4` | www 403 | articles |
 | `/content/dam/lh/video/lh_essentials_header_animation_sfo.mp4` | www 403 | articles |
 | `/content/dam/lufthansa-group/images/local_images/blog_article_img/in-my-hood-out-and-about-in-gulou-beijing/lh_blog_beijing_skyline_forbidden-city_shutterstock2504296035_16x9.jpg` | www 404 | articles |
-| `/content/dam/lufthansa-group/pdfs/LH_Poster_Antonio_Colomboni_48x73cm.pdf` | 27.6 MB, over Edge Delivery's 20 MB limit for .pdf | articles |
+| `/content/dam/lufthansa-group/pdfs/LH_Poster_Antonio_Colomboni_48x73cm.pdf` | 27.6 MB, over Edge Delivery's 20 MB limit for .pdf: served from R2 by lh-edge (bucket `lh-dam-media`, key `content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf`) | articles |
 | `/content/dam/video/c3/202405-em/austragungsorte/lh_em_de_audiodescription_lh_com.vtt` | www 403 | articles |
 | `/content/dam/video/c3/202405-em/austragungsorte/lh_em_de_uts_closedcaptions_lh_com.vtt` | www 403 | articles |
 | `/content/dam/video/c3/202405-em/austragungsorte/lh_em_en_audiodescription_lh_com.vtt` | www 403 | articles |
