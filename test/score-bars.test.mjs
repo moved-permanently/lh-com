@@ -1,7 +1,7 @@
 /* Score bars (blocks/score-bars): before/after values. Run: node --test test/ */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parsePair, band } from '../blocks/score-bars/score-bars.js';
+import { parsePair, band, colour } from '../blocks/score-bars/score-bars.js';
 
 test('a score pair', () => {
   const { before, after } = parsePair('4 → 83');
@@ -44,4 +44,13 @@ test('bands as in PageSpeed Insights', () => {
   assert.equal(band(50), 'average');
   assert.equal(band(49), 'fail');
   assert.equal(band(0), 'fail');
+});
+
+test('a bar is coloured by its score without the penalty', () => {
+  const { before, after } = parsePair('100 → 63 (100)');
+  assert.equal(colour(before), 'pass');
+  assert.equal(colour(after), 'pass');
+  assert.equal(colour(parsePair('40 (70) → 30').before), 'average');
+  assert.equal(colour(parsePair('40 → 30 (45)').after), 'fail');
+  assert.equal(colour(parsePair('4 → 83').after), 'average');
 });
