@@ -614,7 +614,10 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const locale = getLocale();
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : `${locale.base}/nav`;
-  const fragment = await loadFragment(navPath);
+  // a root answered from its language version without a nav of its own on this host: the
+  // language version's (as before the root had a row)
+  const fragment = await loadFragment(navPath)
+    || (!navMeta && locale.versionBase ? await loadFragment(`${locale.versionBase}/nav`) : null);
   if (!fragment) return;
 
   const labels = LABELS[locale.lang] || LABELS.en;

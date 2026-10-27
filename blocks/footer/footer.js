@@ -254,7 +254,10 @@ export default async function decorate(block) {
   const labels = LABELS[locale.lang] || LABELS.en;
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : `${locale.base}/footer`;
-  const fragment = await loadFragment(footerPath);
+  // a root answered from its language version without a footer of its own on this host: the
+  // language version's (as before the root had a row)
+  const fragment = await loadFragment(footerPath)
+    || (!footerMeta && locale.versionBase ? await loadFragment(`${locale.versionBase}/footer`) : null);
   if (!fragment) return;
   if (getChannel() === 'flynet') {
     fragment.querySelectorAll('li a[href]').forEach((a) => {

@@ -65,10 +65,14 @@ export function getLocale(pathname = window.location.pathname) {
     };
   }
   const root = `${match[1]}/${match[2]}`;
-  // a root of the table (live or pilot) is its own locale
+  // a root of the table (live or pilot) is its own locale; a root answered from its language
+  // version (documents "language") also names that version's base: its nav and footer where the
+  // host has none of the root's own (lh-edge serves them on its pilot hosts)
   if (LOCALE_TABLE[root]) {
+    const row = LOCALE_TABLE[root];
+    const version = row.documents === 'language' ? LANGUAGE_VERSIONS[row.lang] : null;
     return {
-      ...LOCALE_TABLE[root], key: root, base: `${prefix}/${root}`, root,
+      ...row, key: root, base: `${prefix}/${root}`, root, ...(version ? { versionBase: `${prefix}/${version}` } : {}),
     };
   }
   // a root of www without a row (market-only pages, /us/en/ccpa): its language's defaults
