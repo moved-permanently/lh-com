@@ -62,6 +62,14 @@ export function daClient(fetchImpl = fetch, token = process.env.DA_TOKEN) {
       if (r.status === 401 || r.status === 403) throw denied(r.status);
       if (!r.ok) throw new Error(`DA POST ${p}: ${r.status}`);
     },
+    /** A labelled version of the document (DA's version history, as the app's saveVersion). */
+    async version(p, label) {
+      const r = await fetchImpl(url(p).replace('/source/', '/versionsource/'), {
+        method: 'POST', body: JSON.stringify({ label }), headers: { 'content-type': 'application/json', ...auth },
+      });
+      if (r.status === 401 || r.status === 403) throw denied(r.status);
+      if (!r.ok) throw new Error(`DA version ${p}: ${r.status}`);
+    },
     async remove(p) {
       const r = await fetchImpl(url(p), { method: 'DELETE', headers: { ...auth } });
       if (r.status === 401 || r.status === 403) throw denied(r.status);

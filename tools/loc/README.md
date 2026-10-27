@@ -18,6 +18,8 @@ Files here:
 | `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en; report `tools/reports/loc-regional-diff.md` |
 | `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; dry run report `tools/reports/loc-slug-step.md` |
+| `clear-review.mjs` | removes a target page's `da-metadata` block (the review record) after a review: labelled DA version first, read-back after, dry run by default |
+| `block-check.mjs`, `review-lib.mjs` | read only: every heading, paragraph, image and block of a target's copy from before a step that is missing after it |
 | `marker-check.mjs` | read only: the style markers (`{caption}`, `{heading-small}`, `{divider-25}` …) of each translated page against its English source; report `tools/reports/loc-marker-check.md` |
 | `da-nx.mjs` | loads the app's code at the pinned commit for check-config and the slug step |
 
@@ -85,7 +87,8 @@ read -rs DA_TOKEN && export DA_TOKEN      # paste, Enter: not echoed, not in the
    (translate/index.js 106). With `merge` an existing German page is not replaced: the
    differences are marked in it (see "What merge does").
 7. **Check every target page in DA** against your copy (see "What merge does": the app can show
-   Complete after a failed write, and a failed read of a target turns merge into overwrite).
+   Complete after a failed write, and a failed read of a target turns merge into overwrite), and
+   run the **block check** for each (below). A missing item means: stop and restore that page.
 8. Pages with their own German slug (72, e.g. `/de/en/children-on-board` = `/de/de/kinder-an-bord`):
    run the **slug step** now (below); until then their translation sits at
    `/de/de/children-on-board`. Then the **link step** `--from de/en --to de/de --page …` over the
@@ -95,13 +98,15 @@ read -rs DA_TOKEN && export DA_TOKEN      # paste, Enter: not echoed, not in the
    sent from or into those pages. Review the metadata block separately, row by row: accepting an
    incoming metadata block brings the English page's values (canonical, theme, paths: the keys
    that are not translated keep the English value). Never preview a page that still has marks.
+   Then **clear the review record** of each reviewed page (`clear-review.mjs`, below) before
+   anything is sent into it again.
 10. Rollout to `/at/de`, only now: the rollout refuses a source page that still has marks
     (rollout/index.js 41-46). The German row shows **Ready** (rollout/index.js 184-198); the
     project's URLs are the `/de/en/…` ones. **Not for the 72 own-slug pages yet** (the app reads
     `/de/de/<English path>`, which the slug step removed: see "Limits"). Same checks as in 2 and 7
-    for the at/de pages, then the **link step** `--from de/de --to at/de --page …`.
-11. Resolve the at/de marks, then preview and publish as usual. The app never previews or
-    publishes.
+    for the at/de pages (the block check included), then the **link step** `--from de/de --to at/de --page …`.
+11. Resolve the at/de marks and clear their review records, then preview and publish as usual.
+    The app never previews or publishes.
 
 ### A rollout only (a market keeps its edits)
 
@@ -113,8 +118,8 @@ read -rs DA_TOKEN && export DA_TOKEN      # paste, Enter: not echoed, not in the
   works for pages whose German path equals the English one; the 72 pages with an own German slug
   cannot be rolled out to at/de by the app yet (see "Limits"). The German pages must have no
   unresolved marks (rollout/index.js 41-46).
-- Afterwards: check every target page in DA, the link step for the pair with `--page`, resolve
-  the marks, then preview.
+- Afterwards: check every target page in DA and run the block check, the link step for the pair
+  with `--page`, resolve the marks and clear the review records, then preview.
 
 ### What merge does
 
@@ -149,7 +154,36 @@ The app's status is not proof that a page was written:
   `overwriteCopy`): the market's page is replaced, not merged.
 
 So after every run open every target page in DA and compare it with the copy from "Before every
-run".
+run", with the block check (below).
+
+### The review record and the block check (after every review and every app step)
+
+DA's editor keeps the hashes of the incoming blocks a reviewer accepted or rejected in the target
+page's `da-metadata` block (`acceptedHashes`, `rejectedHashes`), and the next merge reads them
+(project/index.js 332-343). A rejected incoming block that equals one of the page's own blocks
+apart from its id (a heading: the page's has an id, the incoming one none) has the same hash, so
+the next merge drops the page's own block without a mark (regional-diff/regional-diff.js 434-438:
+a local block whose hash is rejected is skipped). The supervised test run of 2026-10-27 lost the
+German H1 of `/de/de/book-and-manage/rebook` this way (restored). Until it is fixed in the app:
+
+```sh
+node tools/loc/clear-review.mjs --page /de/de/book-and-manage/rebook            # dry run: the rows
+node tools/loc/clear-review.mjs --page /de/de/book-and-manage/rebook --apply    # remove the block
+node tools/loc/block-check.mjs --before ~/loc-backup/2026-10-28/de/de/book-and-manage/rebook.html \
+  --after /de/de/book-and-manage/rebook                                          # after each step
+```
+
+- **clear-review** after each review, before anything is sent into that page again: it takes a
+  labelled DA version (`before clear-review <date>`), writes the page without its `da-metadata`
+  block and reads it back (no block left, the rest unchanged). Blocks the author kept local are
+  marked again in the next round, as they already are.
+- **block-check** after every app step (translation, rollout, sync) on every target: it compares
+  the copy from "Before every run" (or a DA path) with the read-back and lists every heading,
+  paragraph, image and block that is missing after the step. Heading ids, `<p>` in metadata
+  cells, `<source>` in pictures and the `da-metadata` block are ignored; content only inside an
+  incoming mark (`da-diff-deleted`) counts as missing (it goes when that block is rejected). A
+  missing item means: stop and restore the page from its labelled version or the local copy.
+  Exit code 1 when something is missing; `--pair <before> <after>` repeats for several pages.
 
 `overwrite` replaces the destination page; sheets (`.json`) are always overwritten
 (translate/index.js 111, rollout/index.js 78).
