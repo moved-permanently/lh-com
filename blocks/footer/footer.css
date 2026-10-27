@@ -3,7 +3,7 @@
  * .footer-logos); columns become accordions below 768px. */
 
 .footer {
-  --footer-brand: #05164d;
+  --footer-brand: var(--lh-deepblue);
   --footer-text: #fff;
   --footer-muted: #b4b4b4;
   --footer-line: #8696cb;

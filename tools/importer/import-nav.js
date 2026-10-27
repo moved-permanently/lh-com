@@ -345,7 +345,8 @@ function footerLinks(document, list) {
 
 function buildFooter(document, locale) {
   const footer = document.querySelector('footer');
-  const area = footer && footer.querySelector('.footer-area');
+  // .footer-area: lufthansa.com; .footer-container: the brand sites on the same platform (Discover)
+  const area = footer && footer.querySelector('.footer-area, .footer-container');
   const sections = [];
 
   // 1. search + current locale
@@ -361,7 +362,7 @@ function buildFooter(document, locale) {
     [...area.querySelectorAll('.link-list')].forEach((col) => {
       const list = col.querySelector('ul.vertical');
       if (!list) return;
-      const heading = visibleText(col.querySelector('.hidden-sm-down h3, h3'));
+      const heading = visibleText(col.querySelector('.hidden-sm-down h3, h3, .hidden-sm-down .heading-copytext-large'));
       if (heading) columns.push(el(document, 'h3', {}, heading));
       const ul = footerLinks(document, list);
       if (ul.children.length) columns.push(ul);

@@ -418,7 +418,7 @@
    form-section, container-white p-7 card, .form-text-align 33.5rem fields, maui-* controls)
    ------------------------------------------------------------------------------------------ */
 .form.core {
-  --form-control-border: #52627c; /* maui checkbox / radio outline, --maui-color-interaction */
+  --form-control-border: var(--lh-whale-blue); /* maui checkbox / radio outline, --maui-color-interaction */
   --form-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.4' d='M1.5 6l4.5 4.5L14.5 1.5'/%3E%3C/svg%3E");
   --form-icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M7 0h2v7h7v2H9v7H7V9H0V7h7z'/%3E%3C/svg%3E");
   --form-icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 7h16v2H0z'/%3E%3C/svg%3E");

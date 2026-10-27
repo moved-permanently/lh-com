@@ -3,7 +3,7 @@
  * live breakpoints 376 / 768 / 1025 / 1281 / 1440px. */
 
 .header {
-  --nav-brand: #05164d;
+  --nav-brand: var(--lh-deepblue);
   --nav-text: #ebebeb;
   --nav-line: rgb(255 255 255 / 30%);
   --nav-ease: cubic-bezier(0.5, 0, 0, 1);

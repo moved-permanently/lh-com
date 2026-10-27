@@ -106,7 +106,7 @@ main > .section > .message-center-wrapper:not(.message-center-empty) + div {
 }
 
 .message-center .message-center-panel a:any-link {
-  color: #52627c;
+  color: var(--lh-whale-blue);
   font-weight: 700;
 }
 

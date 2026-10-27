@@ -1,6 +1,7 @@
 /**
  * Showcase notice: a modal telling visitors that this replica is a technical showcase, not an
- * official Lufthansa website. English on every locale and channel (website, FlyNet, app view).
+ * official website of the site's brand (Lufthansa; Discover Airlines on lh-discover:
+ * scripts/brand.js). English on every locale and channel (website, FlyNet, app view).
  *
  * - Loaded from loadDelayed() (scripts/scripts.js), about 3.5 s after load: no LCP impact.
  * - Native <dialog> opened with showModal(). Escape does not close it (the cancel event is
@@ -15,12 +16,13 @@
  */
 import { loadCSS } from './aem.js';
 import { isAuthoringContext } from './consent.js';
+import { brandName } from './brand.js';
 
 export const STORAGE_KEY = 'lh-showcase-acknowledged';
 
 const TEXT = {
   title: 'Technical showcase',
-  text: 'This page is a technical showcase, not an official Lufthansa website. It is for demonstration purposes only.',
+  text: (brand) => `This page is a technical showcase, not an official ${brand} website. It is for demonstration purposes only.`,
   button: 'I understand',
 };
 
@@ -70,7 +72,7 @@ function buildDialog() {
   const text = document.createElement('p');
   text.id = 'showcase-notice-text';
   text.className = 'showcase-notice-text';
-  text.textContent = TEXT.text;
+  text.textContent = TEXT.text(brandName());
 
   const button = document.createElement('button');
   button.type = 'button';

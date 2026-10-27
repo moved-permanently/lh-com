@@ -138,7 +138,7 @@ main > .section > .flash-teaser-wrapper.flash-teaser-empty + div {
   align-items: center;
   gap: 10px;
   padding-left: 10px;
-  color: #52627c;
+  color: var(--lh-whale-blue);
 }
 
 .flash-teaser-pager {

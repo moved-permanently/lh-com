@@ -5,7 +5,6 @@
   "/de/en/homepage",
   "/de/en/new-destinations",
   "/de/en/discover/ocean-blue",
-  "/de/en/culinaryjourney",
   "/de/en/book/special-requests/pets",
   "/de/en/book/baggage",
   "/de/en/my-bookings/services/upgrades",
@@ -14,7 +13,6 @@
   "/de/de/homepage",
   "/de/de/new-destinations",
   "/de/de/discover/ocean-blue",
-  "/de/de/culinaryjourney",
   "/de/de/my-bookings/services/additional-services/europ-assistance",
   "/de/de/book/baggage",
   "/de/de/my-bookings/services/upgrades",
@@ -27,5 +25,9 @@
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
- ]
+ ],
+ "dropped": {
+  "/de/en/culinaryjourney": "a micro-frontend (<culinary-hub>) without page content; lh-com has no block for it",
+  "/de/de/culinaryjourney": "the same"
+ }
 }

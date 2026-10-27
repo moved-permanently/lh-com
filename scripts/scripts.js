@@ -18,6 +18,7 @@ import {
 import { getLocale } from './locale.js';
 import { initConsent, isAuthoringContext } from './consent.js';
 import { applyChannel } from './channel.js';
+import { loadBrandTheme } from './brand.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -342,6 +343,8 @@ async function loadEager(doc) {
   // pages outside the locale trees (e.g. /demo/channels) may name their language in metadata
   document.documentElement.lang = getMetadata('language') || locale.lang;
   decorateTemplateAndTheme();
+  // a brand site (metadata brand, e.g. lh-discover): its design tokens before the first section
+  await loadBrandTheme();
   const main = doc.querySelector('main');
   // channel (website, flynet by page metadata, app by ?channel=app): see scripts/channel.js
   let channel = 'website';

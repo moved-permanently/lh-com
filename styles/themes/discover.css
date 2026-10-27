@@ -1,0 +1,46 @@
+/*
+ * Discover Airlines (brief 95): design tokens only, loaded by scripts/brand.js on a site whose
+ * metadata sets `brand: discover` (lh-discover's /metadata.json). Values from www's design system
+ * release v1.38.0 (/digitalhangar/design-system/releases/v1.38.0/standalone/css/discover.css,
+ * --maui-color-brand-*) and the Discover site's own stylesheet: headlines sky blue, text and links
+ * dark sky blue, the primary action sunny yellow. Fonts: Discover uses the same LufthansaHead and
+ * LufthansaText faces as Lufthansa (only the font stacks gain the Miles & More symbol font). The
+ * logo is the image in the site's nav documents. lh-com's own pages never load this file.
+ */
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with Discover's values */
+  --lh-deepblue: #003e7b; /* dark sky blue: text, borders, dark surfaces */
+  --lh-deepblue-transparent: #003e7b1a;
+  --lh-midnight: #002554; /* night sky blue: the darkest surfaces */
+  --lh-whale-blue: #003e7b;
+  --lh-marble-blue: #002554;
+  --lh-yellow: #ffcd00; /* sunny yellow: primary actions */
+  --lh-sunglow-yellow: #fbde40;
+  --lh-red: #ce323b;
+  --lh-green: #076a52;
+  --lh-grey-1: #f4f4f4;
+  --lh-grey-2: #e9f2fb;
+  --lh-grey-3: #e9e9e9;
+  --lh-grey-4: #dedede;
+  --lh-grey-5: #c8c8c8;
+  --lh-grey-6: #7f868f;
+  --lh-grey-7: #373b3f;
+  --lh-grey-8: #373b3f;
+
+  /* roles */
+  --text-color: #003e7b;
+  --heading-color: #1e73af; /* sky blue */
+  --link-color: #003e7b;
+  --link-hover-color: #1e73af;
+  --brand-color: #1e73af;
+  --border-color: #dedede;
+  --border-light-color: #e9e9e9;
+
+  /* fonts: the same faces, with the Miles & More symbol font as Discover's stacks */
+  --body-font-family: lufthansatext, lufthansatext-fallback, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: lufthansahead, lufthansahead-fallback, arial, helvetica, mammilessymbol, sans-serif;
+
+  /* spacing: Discover's grid unit is 12px (Lufthansa 10px): a fifth more space between blocks */
+  --spacing-default: 28px;
+  --section-gap: 56px;
+}
