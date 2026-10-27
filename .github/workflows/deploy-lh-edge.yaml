@@ -11,6 +11,8 @@ on:
       - 'scripts/site-search.js'
       # and the locales (the country and language selector, AMS rest A4)
       - 'scripts/locale.js'
+      # and the article helpers (web pages as SDUI: date line, related articles)
+      - 'scripts/articles.js'
       - '.github/workflows/deploy-lh-edge.yaml'
   workflow_dispatch:
 

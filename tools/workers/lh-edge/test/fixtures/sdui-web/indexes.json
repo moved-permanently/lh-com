@@ -1,0 +1,112 @@
+{
+ "articles": [
+  {
+   "path": "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "title": "100 Years of Lufthansa: Seven People Who Shaped Our History",
+   "description": "In our 100-year history, there have been many formative events and successes: spectacular long-distance flights in the early years, new aircraft types, technical innovations, and ever-increasing comfort on board. All of this has been made possible by people. Meet seven of them who paved the way and shaped Lufthansa into the iconic airline it is today",
+   "image": "",
+   "image-alt": "A smiling pilot wearing goggles and a flight cap waves from an aircraft decorated with a floral wreath.",
+   "page-type": "article",
+   "category": "explore-flying",
+   "tag-ids": "articles:history, articles:inside-lufthansa",
+   "author": "Lufthansa Editorial Team",
+   "author-id": "lh/lufthansa-editorial-team",
+   "publication-date": "2026-09-07T12:24:00.000+00:00",
+   "reading-time": "8 min read",
+   "keywords": "",
+   "destinations": "",
+   "tags": [
+    "History",
+    "Inside Lufthansa"
+   ],
+   "lastModified": 1792993488
+  },
+  {
+   "path": "/de/en/articles/explore-flying/everyone-wants-to-fly-with-the-cranes",
+   "title": "“Everyone wants to fly with the cranes”",
+   "description": "The crane symbolizes longing and wanderlust, which is one of the reasons it has always been featured on Lufthansa aircraft. To protect this migratory bird, Lufthansa works closely with Crane Protection Germany. Volunteer crane ranger Hildegard Lamberty and Dr. Günter Nowald, director of the NABU Crane Center in Vorpommern, explain what makes these animals so special",
+   "image": "",
+   "image-alt": "A flock of six cranes flying across a clear blue sky",
+   "page-type": "article",
+   "category": "explore-flying",
+   "tag-ids": "articles:history, articles:inside-lufthansa",
+   "author": "Interview: Aileen Tiedemann",
+   "author-id": "lh/interview--aileen-tiedemann",
+   "publication-date": "2026-05-29T13:19:00.000+00:00",
+   "reading-time": "7 min read",
+   "keywords": "",
+   "destinations": "",
+   "tags": [
+    "History",
+    "Inside Lufthansa"
+   ],
+   "lastModified": 1792993747
+  },
+  {
+   "path": "/de/en/articles/explore-flying/lufthansa-in-the-spotlight",
+   "title": "Lufthansa in the Spotlight",
+   "description": "Gold records, Hollywood film shoots, famous passengers, and its own orchestra: the Lufthansa brand has been shaping pop culture for decades",
+   "image": "",
+   "image-alt": "A concert in a glamorous theater hall with a band, orchestra, spotlights, and confetti",
+   "page-type": "article",
+   "category": "explore-flying",
+   "tag-ids": "articles:history, articles:inside-lufthansa",
+   "author": "100 years Lufthansa",
+   "author-id": "lh/100-years-lufthansa",
+   "publication-date": "2026-07-23T10:39:00.000+00:00",
+   "reading-time": "4 min read",
+   "keywords": "",
+   "destinations": "",
+   "tags": [
+    "History",
+    "Inside Lufthansa"
+   ],
+   "lastModified": 1792994061
+  },
+  {
+   "path": "/de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+   "title": "Welcome to My World: Elyas M’Barek",
+   "description": "Elyas M’Barek’s new film is called “Der perfekte Urlaub” (“The Perfect Vacation”) and was shot in Mallorca, but in his free time, the actor prefers to go kitesurfing in the Caribbean or take a city break in Japan. M’Barek spoke with Lufthansa Insights about his travel experiences and the three years he spent living in New York",
+   "image": "",
+   "image-alt": "Close-up of a man with dark hair and beard wearing a beige shirt against a light blue background.",
+   "page-type": "article",
+   "category": "explore-flying",
+   "tag-ids": "articles:new-york, articles:munich, articles:mallorca, articles:my-world",
+   "author": "Interview: Aileen Tiedemann",
+   "author-id": "lh/interview--aileen-tiedemann",
+   "publication-date": "2026-10-19T12:24:00.000+00:00",
+   "reading-time": "8 min read",
+   "keywords": "",
+   "destinations": "",
+   "tags": [
+    "New York",
+    "Munich",
+    "Mallorca",
+    "My World"
+   ],
+   "lastModified": 1792994340
+  }
+ ],
+ "search": [
+  {
+   "path": "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+   "title": "100 Years of Lufthansa: Seven People Who Shaped Our History | Lufthansa",
+   "image": "/de/en/articles/explore-flying/media_12c1a865a76527c9ebf95192978d3128e04a44334.jpg?width=1200&format=pjpg&optimize=medium"
+  },
+  {
+   "path": "/de/en/articles/explore-flying/everyone-wants-to-fly-with-the-cranes",
+   "title": "Crane Conservation: Lufthansa Supports Migratory Birds | Lufthansa",
+   "image": "/de/en/articles/explore-flying/media_154d57d7e6c997a5280bb3477069db3d98f57f78f.jpg?width=1200&format=pjpg&optimize=medium"
+  },
+  {
+   "path": "/de/en/articles/explore-flying/lufthansa-in-the-spotlight",
+   "title": "Lufthansa in the Spotlight: Pop Culture, Stars, and Film | Lufthansa",
+   "image": "/de/en/articles/explore-flying/media_1d4d080f8cbe940d2577e06b3b81ee4b876070c55.jpg?width=1200&format=pjpg&optimize=medium"
+  },
+  {
+   "path": "/de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek",
+   "title": "Elyas M’Barek Talks Travel, Favorite Places, and His Perfect Getaway | Lufthansa",
+   "image": "/de/en/articles/explore-flying/media_1632d340510d637dd4cf59fd1088ada22f16e5d7a.jpg?width=1200&format=pjpg&optimize=medium"
+  }
+ ]
+}

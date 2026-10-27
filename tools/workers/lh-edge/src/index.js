@@ -10,6 +10,9 @@ import { WorkerEntrypoint } from 'cloudflare:workers';
 import { prelude, passThrough, originFetch } from './edge.js';
 import { solo, soloPath } from './solo.js';
 import { sdui, isSduiPath } from './sdui-route.js';
+import {
+  sduiWeb, isWebSduiPath, shortSdui, isShortSduiPath,
+} from './sdui-web.js';
 import { graphql, isGraphqlPath, graphqlPath } from './graphql.js';
 import { dam, isDamPath } from './dam.js';
 import { siteSearch, isSearchPath } from './search.js';
@@ -144,6 +147,17 @@ export const ROUTES = [
     name: 'sdui',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isSduiPath(url.pathname),
     handle: sdui,
+  },
+  {
+    // web pages as SDUI on their full content paths (brief 78 part 2); short spellings: the page
+    name: 'sdui-web',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isWebSduiPath(url.pathname),
+    handle: sduiWeb,
+  },
+  {
+    name: 'sdui-web-short',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isShortSduiPath(url.pathname),
+    handle: shortSdui,
   },
   {
     name: 'search',

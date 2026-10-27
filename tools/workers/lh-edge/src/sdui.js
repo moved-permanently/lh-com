@@ -40,19 +40,23 @@ const metaKey = (k) => String(k || '').trim().toLowerCase().replace(/[^a-z0-9]+/
 /** Cells of a block: rows of cells (each cell an element). */
 const rowsOf = (blk) => elements(blk).map((r) => elements(r));
 
-/** Inline HTML of SDUI texts: b (from strong/b), i, ul/li, br; text escaped as www does. */
-export function inlineHtml(nodes) {
+/**
+ * Inline HTML of SDUI texts: b (from strong/b), i, ul/li, br; text escaped as www does. Links are
+ * dropped (app screens) unless opts.link(a, innerHtml) renders them (web pages, src/sdui-web.js).
+ */
+export function inlineHtml(nodes, opts = {}) {
   return nodes.map((n) => {
     if (!isElement(n)) {
       return n.text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\u00a0/g, '&nbsp;');
     }
-    const inner = (kids) => inlineHtml(kids);
+    const inner = (kids) => inlineHtml(kids, opts);
     switch (n.tag) {
       case 'strong': case 'b': return `<b>${inner(n.children)}</b>`;
       case 'em': case 'i': return `<i>${inner(n.children)}</i>`;
       case 'br': return '<br>';
       case 'ul': case 'ol': return `<${n.tag}>${inner(n.children.filter((c) => isElement(c) || c.text.trim()))}</${n.tag}>`;
       case 'li': return `<li>${inner(n.children)}</li>`;
+      case 'a': return opts.link ? opts.link(n, inner(n.children)) : inner(n.children);
       default: return inner(n.children);
     }
   }).join('');
@@ -317,8 +321,9 @@ export function articlesOf(ctx, category) {
 let idSeq = 0;
 const nextId = (ctx) => { idSeq += 1; return `${ctx.path}/i${idSeq}`; };
 
-function itemsV1(ctx, item, container) {
+export function itemsV1(ctx, item, container) {
   switch (item.kind) {
+    case 'divider': return [{ type: 'divider' }];
     case 'headline': {
       if (item.level === 3) {
         return [{
@@ -404,9 +409,10 @@ function itemsV1(ctx, item, container) {
   }
 }
 
-function itemsV2(ctx, item, container) {
+export function itemsV2(ctx, item, container) {
   const id = () => nextId(ctx);
   switch (item.kind) {
+    case 'divider': return [{ type: 'divider', id: id() }];
     case 'headline': {
       if (item.level === 3) {
         return [{

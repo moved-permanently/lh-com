@@ -2,7 +2,7 @@ import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import { cleanText, keepImageSize } from '../../scripts/block-config.js';
 import {
-  loadArticles, loadTagPriority, listOf, normalizeTag, normalizeCategory, currentPath,
+  loadArticles, loadTagPriority, listOf, normalizeTag, normalizeCategory, currentPath, pickRelated,
 } from '../../scripts/articles.js';
 
 const CACHE_KEY = 'lh-related-articles:';
@@ -245,39 +245,6 @@ const fromIndex = (article) => ({
   readingTime: article.readingTime,
   author: article.author,
 });
-
-/**
- * Three related articles from the locale's article index, after the authored ones:
- * two that share tags with the page (more shared priority-1 tags first, then priority-2, then
- * other shared tags, then the newest), and one more of the page's category (the newest not yet
- * shown; www fills its third card at random). Fewer matches: filled with the newest of the
- * category, then the newest of the locale.
- * @param {Object[]} articles index rows (newest first)
- * @param {{tagIds: string[], category: string, exclude: Set<string>}} page
- * @param {{p1: Set<string>, p2: Set<string>}} priority
- * @param {number} count
- */
-export function pickRelated(articles, page, priority, count) {
-  const pool = articles.filter((a) => !page.exclude.has(a.path));
-  const own = new Set(page.tagIds);
-  const score = (a) => {
-    const shared = a.tagIds.filter((t) => own.has(t));
-    return [shared.filter((t) => priority.p1.has(t)).length,
-      shared.filter((t) => priority.p2.has(t)).length, shared.length];
-  };
-  const picks = [];
-  const take = (list, n) => list.filter((a) => !picks.includes(a)).slice(0, n)
-    .forEach((a) => picks.push(a));
-  const tagged = pool.map((a, i) => ({ a, s: score(a), i })).filter((x) => x.s[2] > 0)
-    .sort((x, y) => y.s[0] - x.s[0] || y.s[1] - x.s[1] || y.s[2] - x.s[2] || x.i - y.i)
-    .map((x) => x.a);
-  take(tagged, Math.min(2, count));
-  const sameCategory = pool.filter((a) => page.category && a.category === page.category);
-  take(sameCategory, count - picks.length);
-  take(tagged, count - picks.length);
-  take(pool, count - picks.length);
-  return picks;
-}
 
 const MAX_CARDS = 3;
 
