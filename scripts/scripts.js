@@ -16,6 +16,7 @@ import {
   toClassName,
 } from './aem.js';
 import { getLocale } from './locale.js';
+import { marketAllows } from './market-rules.js';
 import { initConsent, isAuthoringContext } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
@@ -179,9 +180,16 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 function decorateSectionMetadata(main) {
+  const { country } = getLocale();
   main.querySelectorAll(':scope > div > div.section-metadata').forEach((sectionMeta) => {
     const section = sectionMeta.parentElement;
     const meta = readBlockConfig(sectionMeta);
+    // `markets` (AUTHORING.md): a section for some markets only; another market's goes before
+    // anything of it loads (lh-edge leaves it out of market copies the same way)
+    if (meta.markets !== undefined && !marketAllows(meta.markets, country)) {
+      section.remove();
+      return;
+    }
     Object.entries(meta).forEach(([key, value]) => {
       if (key === 'style') {
         String(value).split(',').map((style) => toClassName(style.trim()))

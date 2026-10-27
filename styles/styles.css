@@ -608,6 +608,18 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* a section for some markets only (section metadata `markets`): flush with its neighbours, as
+   a block inside one section, so a market variant can replace part of a section */
+main > .section:has(+ .section[data-markets]),
+main > .section[data-markets] {
+  margin-bottom: 0;
+}
+
+main > .section[data-markets],
+main > .section[data-markets] + .section {
+  margin-top: var(--spacing-default);
+}
+
 /* .contentpage { padding-top: 2.5rem }: AEM pages start 25px below the header on every
    breakpoint. A leading breadcrumb sits above .contentpage and brings its own offset (17px +
    18px box + 25px = h1 box 60px below the header, as nav padding + 24px section spacing here);

@@ -10,6 +10,8 @@
  *   (/<version>/search-index.json) has the page and its `markets` metadata allows the country
  *   (an include list "de, at", an exclude list "-ch, -us"; empty: every market of the language;
  *   the page's own <meta name="markets"> too, which counts before a publish updates the index).
+ *   Sections whose section metadata `markets` excludes the country are left out (the site does
+ *   the same for the roots it renders, scripts/scripts.js).
  *   Links into the language version become the market root's when the market serves the target
  *   (the link step's rule, tools/loc/link-lib.mjs), links into it on www (pages not migrated)
  *   www's market root's, the site's own hosts are stripped, canonical
@@ -34,6 +36,7 @@ import {
 } from './edge.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
+import { marketAllows, dropMarketSections } from '../../../../scripts/market-rules.js';
 /* eslint-enable import/no-relative-packages */
 
 /** The roots answered from their language's documents, e.g. ['ch/de', 'ch/en']. */
@@ -67,14 +70,8 @@ export function servedMarketRoots(request, env) {
   return MARKET_ROOTS.filter((k) => LOCALE_TABLE[k].status === 'live' || (pilot && LOCALE_TABLE[k].status === 'pilot'));
 }
 
-/** Whether a `markets` value allows a country (include "de, at", exclude "-ch, -us", empty all). */
-export function marketAllows(value, cc) {
-  const items = String(value || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
-  const exclude = items.filter((i) => i.startsWith('-')).map((i) => i.slice(1));
-  const include = items.filter((i) => !i.startsWith('-'));
-  if (exclude.includes(cc)) return false;
-  return !include.length || include.includes(cc);
-}
+// the `markets` rule, shared with the site (page and section metadata)
+export { marketAllows, dropMarketSections };
 
 /** The market root and the rest of a path (/ch/en/x -> {root: 'ch/en', rest: '/x'}), or null. */
 export function marketPath(pathname) {
@@ -445,7 +442,8 @@ export async function market(request, env) {
   const html = await doc.text();
   const meta = kind === 'page' && html.match(/<meta name="markets" content="([^"]*)"/);
   if (meta && !marketAllows(meta[1], root.split('/')[0])) return own;
-  const resp = new Response(html, { status: doc.status, headers });
+  // sections whose section metadata `markets` excludes the country are left out
+  const resp = new Response(dropMarketSections(html, root.split('/')[0]), { status: doc.status, headers });
   return marketHtml(resp, {
     ...ctx,
     marketPath: `/${root}${suffix}`,
