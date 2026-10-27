@@ -23,7 +23,7 @@ The promotions document (`/de/en/fragments/stage-promotions`, `/de/de/…`, `/at
 
 1. Open the locale's promotions document in Document Authoring, copy an existing section (stage block plus its Section Metadata), and change image, texts and link.
 2. Set its Start and End (and end the promotion it replaces, or let the later Start win).
-3. Preview the document. On the preview host you can check any moment with `?stage-time=…` on the homepage, e.g. `https://main--lh-com--moved-permanently.aem.page/de/en/homepage?stage-time=2026-11-01T00:00` (accepted only on `*.aem.page`, the DA hosts and localhost, never on the live site).
+3. Preview the document. On the preview host you can check any moment with time travel (`?time-travel=…` on the homepage, README "Time travel"), e.g. `https://main--lh-com--moved-permanently.aem.page/de/en/homepage?time-travel=2026-11-01T00:00` (the market's local time; accepted only on `*.aem.page` and localhost, never on the live site). The earlier `?stage-time=…` still works the same way.
 4. Publish the promotions document (well before the start). The homepage itself is not touched.
 
 ### When the switch shows up

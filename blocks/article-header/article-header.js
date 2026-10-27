@@ -1,5 +1,6 @@
 import { createOptimizedPicture, getMetadata, toClassName } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
+import { outsideUrl } from '../../scripts/clock.js';
 import {
   readConfigRows, resolveLabels, cleanText, toConfigKey, keepImageSize,
 } from '../../scripts/block-config.js';
@@ -325,7 +326,8 @@ function buildShare(labels, title) {
   share.setAttribute('aria-label', labels['share label']);
 
   const list = document.createElement('ul');
-  const url = () => encodeURIComponent(window.location.href);
+  // shared and copied without the preview's time-travel parameters (scripts/clock.js)
+  const url = () => encodeURIComponent(outsideUrl(window.location.href));
   const text = () => encodeURIComponent(title || document.title);
   const networks = [
     ['facebook', () => `https://www.facebook.com/sharer/sharer.php?u=${url()}`],
@@ -358,7 +360,7 @@ function buildShare(labels, title) {
   status.className = 'article-header-share-status';
   status.setAttribute('role', 'status');
   copy.addEventListener('click', async () => {
-    const ok = await copyText(window.location.href);
+    const ok = await copyText(outsideUrl(window.location.href));
     status.textContent = ok ? labels['link copied label'] : '';
     if (ok) setTimeout(() => { status.textContent = ''; }, 3000);
   });

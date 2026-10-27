@@ -152,6 +152,17 @@ LufthansaHead regular to the bold font file: there every light heading (300) dra
 importer records this as page metadata `Theme: digital-assistant` (`body.digital-assistant`,
 styles.css / fonts.css); remove the row to get the light headings.
 
+## Time travel (preview)
+
+Preview the site as it will look at a chosen moment: the stage promotion of the homepage and the Message Center's disruption and flash banners are those of that moment (`scripts/clock.js`, the page's one clock). Add `?time-travel=` to a preview URL:
+
+- `https://main--lh-com--moved-permanently.aem.page/de/en/homepage?time-travel=2026-12-24T09:00`: 09:00 in the market's time zone (de Europe/Berlin, at Europe/Vienna, gb Europe/London), summer time included.
+- Another zone: an offset (`2026-12-24T09:00+01:00`, `2026-12-24T08:00Z`) or `&time-zone=America/New_York`. A date alone (`2026-12-24`) is the start of that day; `24.12.2026 09:00` works too.
+- A bar at the bottom shows the chosen time and its time zone, with **Back to now**. An unreadable time says so in the bar, and the page shows now.
+- Only on `*.aem.page` (main and branch previews) and localhost. On `*.aem.live`, lhcom/lhedge/lhcn.bbird.live the parameter is ignored. Without it the page behaves exactly as without time travel.
+- The parameter is not passed on: forms send the page URL without it, share and copy links leave it out. Links on the page do not carry it either; add it again on the next page.
+- The moment is fixed while the page is open (reload for a new one). Booking parts (flight search dates, prices, flight status) keep the real date: they ask Lufthansa's live services. The Message Center's GraphQL paths for www and the app (lh-messages) decide by the real time on the server; time travel is for the website preview.
+
 ## Installation
 
 ```sh

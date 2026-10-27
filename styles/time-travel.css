@@ -1,0 +1,37 @@
+/* Time-travel bar (scripts/clock.js showTimeTravelBar): loaded only while time travel is on */
+body.time-travel {
+  padding-bottom: 56px;
+}
+
+.time-travel-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483000;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  background: #ffad00;
+  color: #05164d;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgb(0 0 0 / 20%);
+}
+
+.time-travel-bar a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media print {
+  .time-travel-bar {
+    display: none;
+  }
+}

@@ -11,6 +11,8 @@
  * webPath with {cc}/{ll}, contentPath).
  */
 
+import { now as clockNow } from './clock.js';
+
 export const TENANT = 'lh';
 export const TOUCHPOINT = 'web';
 export const TYPES = ['irreg', 'tech-outage', 'promo'];
@@ -86,14 +88,15 @@ const recency = (msg) => msg.from ?? msg.lastModified * 1000;
  * @param {Object} options
  * @param {string} options.market the page's market (country code, e.g. 'de')
  * @param {string} options.lang the page's language (e.g. 'en')
- * @param {number} [options.now] ms since the epoch (default: now)
+ * @param {number} [options.now] ms since the epoch (default: the page's clock, scripts/clock.js:
+ *   the real time, or the time travelled to on a preview host)
  * @param {string[]} [options.types] the types the block shows (default: all three)
  * @param {string} [options.tenant] default 'lh'
  * @param {string} [options.touchpoint] default 'web'
  * @returns {Object[]} messages (parseRow shape)
  */
 export function selectMessages(rows, {
-  market, lang, now = Date.now(), types = TYPES, tenant = TENANT, touchpoint = TOUCHPOINT,
+  market, lang, now = clockNow(), types = TYPES, tenant = TENANT, touchpoint = TOUCHPOINT,
 } = {}) {
   const parsed = (rows || []).map(parseRow).filter(Boolean);
   // one row per message: the page's language, else English

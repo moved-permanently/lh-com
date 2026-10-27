@@ -19,6 +19,7 @@ import { getLocale } from './locale.js';
 import { initConsent, isAuthoringContext } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
+import { timeTravel, showTimeTravelBar } from './clock.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -396,6 +397,13 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // time travel (?time-travel= on a preview host, scripts/clock.js): the bar with the chosen time
+  if (timeTravel()) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/time-travel.css`);
+    doc.body.classList.add('time-travel');
+    showTimeTravelBar(doc);
+  }
 }
 
 /**

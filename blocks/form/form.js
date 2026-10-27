@@ -1,5 +1,6 @@
 import { loadScript } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
+import { outsideUrl } from '../../scripts/clock.js';
 import {
   cleanText, stripZeroWidth, toConfigKey, resolveLabels, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -1289,7 +1290,8 @@ function buildSubmission(form, fieldWrappers, ctx, formId, token) {
   const data = new FormData();
   data.append('form', formId);
   data.append('locale', getLocale().key.replace('/', '-'));
-  data.append('page', window.location.href);
+  // without the preview's time-travel parameters (scripts/clock.js)
+  data.append('page', outsideUrl(window.location.href));
   data.append('fields', JSON.stringify(collectFields(fieldWrappers, ctx)));
   const trap = form.querySelector('input[name="lh_hp"]');
   data.append('lh_hp', trap ? trap.value : '');
