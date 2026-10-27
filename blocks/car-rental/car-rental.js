@@ -43,6 +43,8 @@ export const PARTNER_IDS = {
  * table's country names in German and English.
  */
 const COUNTRY_NAMES = Object.fromEntries(Object.values(LOCALE_TABLE)
+  // a country's live rows last: they decide its names (a pilot row's come from www's labels)
+  .sort((a, b) => (a.status === 'live') - (b.status === 'live'))
   .map((row) => [row.country, row.countryName]));
 
 /**

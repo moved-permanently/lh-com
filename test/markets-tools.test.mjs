@@ -8,6 +8,34 @@ import {
 } from '../tools/markets/seed-markets.mjs';
 import { wwwPaths, reason } from '../tools/markets/check-market-route.mjs';
 import { rootMap, ownRootLinks } from '../tools/markets/root-docs.mjs';
+import { batches, ownPages, homepageFacts } from '../tools/markets/rollout.mjs';
+
+test('rollout: batches of about 10 countries (only en and de first), a small remainder joins the batch before', () => {
+  const r = (root) => ({
+    root, cc: root.slice(0, 2), ll: root.slice(3), ownSitemap: true,
+  });
+  const roots = ['de/en', 'de/de', 'at/de', 'at/en', 'aa/en', 'bb/de', 'cc/en', 'cc/fr', 'dd/en', 'dd/de', 'dd/es'].map(r);
+  const table = {
+    'de/en': {}, 'de/de': {}, 'at/de': {}, 'aa/en': { batch: 1 },
+  };
+  const b = batches(roots, table, 2);
+  assert.deepEqual(b.map((x) => x.roots), [['aa/en', 'at/en', 'bb/de'], ['cc/en', 'dd/de', 'dd/en']]);
+});
+
+test('rollout: own pages without AEM configuration pages, stale-file URLs and test pages', () => {
+  const o = ownPages('xy/en', { 'xy/en': [['/xy/en/local-page/offer', 'x'], ['/xy/en/configuration/seo-pages/a', 'x'], ['/xy/en/old', 'x'], ['/xy/en/testLTS', 'x'], ['/xy/en/test-page', 'x']] }, { urlsOnlyInStaleFiles: ['/xy/en/old'] });
+  assert.deepEqual(o.keep, ['/xy/en/local-page/offer']);
+  assert.deepEqual(o.left.map((x) => x.why), ['AEM configuration page', 'only in a stale sitemap file', 'test page', 'test page']);
+});
+
+test('rollout: homepage facts: the label of www, the preselected origin (else the fare teaser origin), the currency of the prices', () => {
+  const dcep = (o) => `data-dcep="${JSON.stringify(o).replace(/"/g, '&quot;')}"`;
+  const html = `<span class="country-language-text">Dänemark | Deutsch</span><div ${dcep({ preselectedOrigin: '' })}></div>
+    <div ${dcep({ fareTeaserManualTravels: [{ origin: 'CPH' }, { origin: 'CPH' }] })}></div><a href="/x?OriginCode=AAL">a</a><a href="/y?OriginCode=AAL">b</a>
+    <a aria-label="nach Rom ab 99 DKK">Rom</a><span>ab 120&nbsp;DKK</span><span>EUR 5</span>`;
+  assert.deepEqual(homepageFacts(html), { label: 'Dänemark | Deutsch', airport: 'CPH', currency: 'DKK' });
+  assert.deepEqual(homepageFacts('<span class="country-language-skeleton"></span>'), { label: null, airport: null, currency: null });
+});
 
 const ROOTS = ['de/en', 'gb/en', 'ch/en', 'at/en', 'us/en'].map((root) => ({ root, ll: 'en', ownSitemap: true }));
 const g = (paths) => ({ paths });

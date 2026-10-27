@@ -11,6 +11,7 @@ import {
 globalThis.HTMLRewriter = HTMLRewriter;
 
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
+const KEEP = new Set(['en-DE', 'en-GB', 'en-CH', 'de-DE', 'de-AT', 'de-CH']);
 const env = (extra = {}) => ({
   ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lhcom.bbird.live,lhedge.bbird.live', EDGE_TTL: '60', ...extra,
 });
@@ -84,7 +85,8 @@ test('markets values: include and exclude lists, empty is every market', () => {
   assert.ok(!marketAllows('-ch, -us', 'ch'));
   assert.ok(marketAllows('-us', 'ch'));
   assert.ok(marketAllows(' DE ; CH ', 'ch'));
-  assert.deepEqual(MARKET_ROOTS, ['ch/de', 'ch/en']);
+  assert.ok(MARKET_ROOTS.includes('ch/de') && MARKET_ROOTS.includes('ch/en'));
+  assert.ok(!MARKET_ROOTS.some((k) => ['de/en', 'de/de', 'at/de', 'gb/en'].includes(k)));
   assert.deepEqual(marketPath('/ch/en/baggage'), { root: 'ch/en', rest: '/baggage' });
   ['/de/en/baggage', '/at/de/x', '/gb/en/x', '/ch/fr/x', '/ch/en', '/content/mobile/lh/en/homepage'].forEach((p) => assert.equal(marketPath(p), null, p));
 });
@@ -119,7 +121,7 @@ test('a language page for the market root: links, canonical, og:url, hreflang, c
   assert.match(html, /<meta property="og:url" content="https:\/\/lhcom\.bbird\.live\/ch\/en\/baggage">/);
   assert.match(html, /<meta name="parent" content="\/ch\/en\/homepage">/);
   assert.match(html, /<meta name="robots" content="noindex, nofollow">/, 'robots as on lhcom');
-  const alts = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map((m) => `${m[1]} ${m[2]}`);
+  const alts = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2]}`);
   assert.deepEqual(alts, [
     'en-DE https://lhcom.bbird.live/de/en/baggage', 'en-CH https://lhcom.bbird.live/ch/en/baggage',
     'de-DE https://lhcom.bbird.live/de/de/baggage', 'de-CH https://lhcom.bbird.live/ch/de/baggage',
@@ -135,7 +137,7 @@ test('a language page for the market root: links, canonical, og:url, hreflang, c
 
 test('translated slugs pair by primary-language-url in the alternates', async () => {
   const html = await (await get('/ch/de/adressen-weltweit')).text();
-  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => `${m[1]} ${m[2]}`);
+  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2]}`);
   assert.deepEqual(alts, [
     'de-DE https://lhcom.bbird.live/de/de/adressen-weltweit', 'de-CH https://lhcom.bbird.live/ch/de/adressen-weltweit',
     'en-DE https://lhcom.bbird.live/de/en/addresses-worldwide', 'en-CH https://lhcom.bbird.live/ch/en/addresses-worldwide',
@@ -193,8 +195,11 @@ test('sitemaps: the market root\'s and the index with it on pilot hosts, the ori
   const gz = await get('/sitemap/sitemap_lh_ch_en.xml.gz');
   assert.equal(gunzipSync(Buffer.from(await gz.arrayBuffer())).toString(), xml);
   const index = await (await get('/sitemap/sitemap_lh.xml')).text();
-  assert.deepEqual([...index.matchAll(/sitemap_lh_([a-z_]+)\.xml\.gz/g)].map((m) => m[1]), ['at_de', 'ch_de', 'ch_en', 'de_de', 'de_en', 'gb_en']);
-  assert.equal(index.replace(/<sitemap><loc>[^<]*_ch_[a-z]{2}\.xml\.gz<\/loc><\/sitemap>/g, ''), SITEMAP_INDEX);
+  const names = [...index.matchAll(/sitemap_lh_([a-z0-9_]+)\.xml\.gz/g)].map((m) => m[1]);
+  assert.deepEqual(names.filter((n) => /^(at_de|ch_de|ch_en|de_de|de_en|gb_en)$/.test(n)), ['at_de', 'ch_de', 'ch_en', 'de_de', 'de_en', 'gb_en']);
+  // the static index's entries stay as they are; every market root's files come in order
+  assert.equal(index.replace(/<sitemap><loc>[^<]*sitemap_lh_(?!(?:at_de|de_de|de_en|gb_en)\.)[a-z0-9_]+\.xml\.gz<\/loc><\/sitemap>/g, ''), SITEMAP_INDEX);
+  assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b)));
   // files of 100 URLs: page 1 is the unnumbered name, past the last 404, no _1
   assert.equal((await get('/sitemap/sitemap_lh_ch_en_2.xml')).status, 404);
   assert.equal((await get('/sitemap/sitemap_lh_ch_en_1.xml')).status, 404);

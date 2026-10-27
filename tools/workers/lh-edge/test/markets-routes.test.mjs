@@ -77,10 +77,11 @@ const get = (p, host = 'lhedge.example', init = {}) => worker.fetch(new Request(
 
 test('hreflang of a market copy lists at/de and gb/en where their indexes have the page', async () => {
   const html = await (await get('/ch/en/baggage')).text();
-  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => `${m[1]} ${m[2].replace('https://lhcom.bbird.live', '')}`);
+  const KEEP = new Set(['en-DE', 'en-GB', 'en-CH', 'de-DE', 'de-AT', 'de-CH']);
+  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2].replace('https://lhcom.bbird.live', '')}`);
   assert.deepEqual(alts, ['en-DE /de/en/baggage', 'en-GB /gb/en/baggage', 'en-CH /ch/en/baggage', 'de-DE /de/de/gepaeck', 'de-AT /at/de/gepaeck', 'de-CH /ch/de/gepaeck']);
   const de = await (await get('/ch/en/addresses-worldwide')).text();
-  assert.deepEqual([...de.matchAll(/hreflang="([^"]+)"/g)].map((m) => m[1]), ['en-DE', 'en-CH'], 'gb/en has no such page');
+  assert.deepEqual([...de.matchAll(/hreflang="([^"]+)"/g)].map((m) => m[1]).filter((h) => KEEP.has(h)), ['en-DE', 'en-CH'], 'gb/en has no such page');
 });
 
 test('the app view of a market page: the market route\'s page, links in the solo form under the market root', async () => {
