@@ -18,43 +18,103 @@ Files here:
 | `regional-diff.mjs` | what a rollout would replace: DA sources of /at/de against /de/de and /gb/en against /de/en; report `tools/reports/loc-regional-diff.md` |
 | `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; dry run report `tools/reports/loc-slug-step.md` |
-| `da-nx.mjs` | loads the app's code at the pinned commit for the two scripts above |
+| `marker-check.mjs` | read only: the style markers (`{caption}`, `{heading-small}`, `{divider-25}` …) of each translated page against its English source; report `tools/reports/loc-marker-check.md` |
+| `da-nx.mjs` | loads the app's code at the pinned commit for check-config and the slug step |
 
-All line numbers below are adobe/da-nx at `f0c63255` (`nx/blocks/loc/…`), the commit the scripts pin.
+All line numbers below are adobe/da-nx at `f0c63255` (`nx/blocks/loc/…`), the commit the scripts pin;
+`nx/blocks/loc` is unchanged at `52201f9`.
+
+The tools read and write DA from a terminal with your login: set `DA_TOKEN` to an Adobe IMS
+access token with access to `moved-permanently/lh-com`, and every call sends
+`Authorization: Bearer $DA_TOKEN`; the tools never print it. Without it DA answers 401, except
+where the login is added for the tools. A refused token (401/403) stops the tool with that
+message.
+
+```sh
+read -rs DA_TOKEN && export DA_TOKEN      # paste, Enter: not echoed, not in the shell history
+```
+
+## Before every run
+
+1. **A copy of every page the project writes.** For each target page (`/de/de/…`, and `/at/de/…`,
+   `/gb/en/…` for a rollout; for the 72 own-slug pages both `/de/de/<english slug>` and the German
+   page): a labelled DA version (label e.g. `before loc 2026-10-28`; the same call the app makes
+   for its versions, project/index.js 126-128) and a local copy, kept outside the repository:
+
+   ```sh
+   d=~/loc-backup/$(date +%F); label="before loc $(date +%F)"
+   for p in /de/de/kinder-an-bord /at/de/kinder-an-bord; do
+     curl -sf --create-dirs -o "$d$p.html" -H "Authorization: Bearer $DA_TOKEN" \
+       "https://admin.da.live/source/moved-permanently/lh-com$p.html" || { echo "not in DA: $p"; continue; }
+     curl -sf -X POST -H "Authorization: Bearer $DA_TOKEN" -d "{\"label\":\"$label\"}" \
+       "https://admin.da.live/versionsource/moved-permanently/lh-com$p.html" >/dev/null || echo "no version: $p"
+   done
+   ```
+
+   The app saves a version of its own (project/index.js `saveVersion` 122-132, label
+   `<project> - Rolled Out`), but only **after** it wrote the page (232, 292, 351): it holds the
+   new state, not the one to go back to.
+2. **Which pages.** Never in a project: pages with a form (the form block's column 5 holds option
+   keys such as `airport=` that Google would translate: `feedback`, `group-travel`,
+   `register-animal-cabin`, `refund-form`, `register-ammunition`, … all pages with a `form`
+   block), the nav and footer documents, the homepage, the flight search
+   (`/de/en/flight-search`), the Message Center anchor page
+   (`/prepare-for-your-trip/current-travel-information`), and `/lhg/`, login and profile pages.
+3. **Nothing else writes those pages while the project runs**: the migration's uploads
+   (`da-upload.mjs`) and previews stay off them until the marks are resolved.
+4. **Open the app in a fresh tab** (da.live/apps/loc): it keeps the first site's `translate.json`
+   for the tab's lifetime, whatever site you choose later (utils/utils.js `fetchConfig` 205-206:
+   one cache, not keyed by site).
 
 ## For authors
 
 ### A translation project (English → German, and on to Austria)
 
 1. Edit the English page under `/de/en`.
-2. Open da.live/apps/loc, choose the site, **New project**, add the **`/de/en/…` URLs** (only
-   `/de/en` ones, see "Limits").
-3. Validate: each URL must exist; uncheck the ones marked "not found" (validate.js 98-116, 147).
+2. "Before every run" (above): versions and local copies of the target pages, the page list.
+3. Open da.live/apps/loc in a fresh tab, choose the site, **New project**, add the **`/de/en/…`
+   URLs** (only `/de/en` ones, see "Limits").
+4. Validate: each URL must exist; uncheck the ones marked "not found" (validate.js 98-116, 147).
    Fragments linked from a page are only added when their link is absolute on lh-com's hosts
    (`source.fragment.hostnames`, validate.js 58-66): add relative `/fragments/` links yourself.
-4. Options: **German → Translate** (Google), **English → Rollout** if gb/en should get the English
-   change too, otherwise **Skip**.
-5. The app sends the pages to Google and saves the German pages to `/de/de/<same path>`
-   (translate/index.js 106). With `merge` (the default here) an existing German page is not
-   replaced: the differences are marked in it (see "What merge does").
-6. Pages with their own German slug (72, e.g. `/de/en/flight-search` = `/de/de/flugsuche`):
-   run the **slug step** now (below). Until then their translation sits at `/de/de/flight-search`.
-   Then run the **link step** `--from de/en --to de/de` over the translated pages (below): every
-   translated page comes back with absolute aem.page links to `/de/en/…`.
-7. Rollout: when the German translation is complete the German row shows **Ready**; roll it out to
-   `/at/de` (rollout/index.js 184-198), and the English rollout to `/gb/en`.
-   After each rollout run the **link step** for it (`--from de/de --to at/de`,
-   `--from de/en --to gb/en`) over the rolled-out pages.
-8. Review the merged pages in DA (accept or reject each difference), then preview and publish as
-   usual. The app never previews or publishes.
+5. Options: **German → Translate** (Google). **Every language you don't want: Skip.** English
+   starts on **Rollout** in every project (its first action, options/utils/utils.js 139-149), so
+   a German-only project would also roll the English pages out to `/gb/en` unless you set English
+   to Skip. Check that every conflict setting on Options says **merge**.
+6. The app sends the pages to Google and saves the German pages to `/de/de/<same path>`
+   (translate/index.js 106). With `merge` an existing German page is not replaced: the
+   differences are marked in it (see "What merge does").
+7. **Check every target page in DA** against your copy (see "What merge does": the app can show
+   Complete after a failed write, and a failed read of a target turns merge into overwrite).
+8. Pages with their own German slug (72, e.g. `/de/en/children-on-board` = `/de/de/kinder-an-bord`):
+   run the **slug step** now (below); until then their translation sits at
+   `/de/de/children-on-board`. Then the **link step** `--from de/en --to de/de --page …` over the
+   translated pages (below): every translated page comes back with absolute aem.page links to
+   `/de/en/…`. Then the **marker check** over the same pages (below).
+9. **Resolve the German marks** in DA (accept or reject each difference) before anything else is
+   sent from or into those pages. Review the metadata block separately, row by row: accepting an
+   incoming metadata block brings the English page's values (canonical, theme, paths: the keys
+   that are not translated keep the English value). Never preview a page that still has marks.
+10. Rollout to `/at/de`, only now: the rollout refuses a source page that still has marks
+    (rollout/index.js 41-46). The German row shows **Ready** (rollout/index.js 184-198); the
+    project's URLs are the `/de/en/…` ones. **Not for the 72 own-slug pages yet** (the app reads
+    `/de/de/<English path>`, which the slug step removed: see "Limits"). Same checks as in 2 and 7
+    for the at/de pages, then the **link step** `--from de/de --to at/de --page …`.
+11. Resolve the at/de marks, then preview and publish as usual. The app never previews or
+    publishes.
 
 ### A rollout only (a market keeps its edits)
+
+"Before every run" applies here too (versions and copies of the market's pages).
 
 - English to gb/en: a project with the `/de/en/…` URLs, **English → Rollout**, German → Skip.
 - German to at/de: a project with the **`/de/en/…` URLs of the pages** (the app reads
   `/de/de/<same path>`, rollout/index.js 107-120), **German → Rollout**, English → Skip. This
   works for pages whose German path equals the English one; the 72 pages with an own German slug
-  cannot be rolled out to at/de by the app yet (see "Limits").
+  cannot be rolled out to at/de by the app yet (see "Limits"). The German pages must have no
+  unresolved marks (rollout/index.js 41-46).
+- Afterwards: check every target page in DA, the link step for the pair with `--page`, resolve
+  the marks, then preview.
 
 ### What merge does
 
@@ -67,8 +127,29 @@ already at the destination (project/index.js `mergeCopy`, 306-357):
 - otherwise both versions stay in the document, marked: the incoming (upstream) content as
   `da-diff-deleted`, the market's own (local) content as `da-diff-added`
   (regional-diff/regional-diff.js `regionalDiff`, 482-500). The author accepts or rejects each one
-  in the DA editor; a page with unresolved marks cannot be sent again (translate/index.js 61-66,
-  rollout/index.js 41-46).
+  in the DA editor. The page's DA metadata (the differences already accepted or rejected) is
+  read and saved again (332-348).
+
+Unresolved marks:
+
+- they stop a send **from** that page only: a translation or rollout refuses a source page with
+  marks (translate/index.js 61-66, rollout/index.js 41-46);
+- a second send **into** a page that still has marks is not refused: the merge first removes the
+  marks of the target, keeping its local side and dropping its pending incoming blocks
+  (project/index.js 323, regional-diff.js `removeLocTags` 460-480), then marks the new
+  differences. What the author had not accepted yet is gone. Resolve before the next project.
+
+The app's status is not proof that a page was written:
+
+- a failed write leaves no error the rollout view counts (project/index.js 225-228, 348-353 set
+  the page's status, rollout/index.js 89-101 counts `url.error`), so the language shows
+  **Complete** (172-173: "no errors means success");
+- a failed **read** of the target (any error, not only a missing page: project/index.js
+  `getHtml` 147-158) makes merge write the incoming page over it (312-316, 354-356 →
+  `overwriteCopy`): the market's page is replaced, not merged.
+
+So after every run open every target page in DA and compare it with the copy from "Before every
+run".
 
 `overwrite` replaces the destination page; sheets (`.json`) are always overwritten
 (translate/index.js 111, rollout/index.js 78).
@@ -86,13 +167,16 @@ that way (regional differences report).
 ```sh
 node tools/loc/link-step.mjs --from de/de --to at/de --page /at/de/gepaeck          # dry run
 node tools/loc/link-step.mjs --from de/de --to at/de --page /at/de/gepaeck --apply  # write
-node tools/loc/link-step.mjs --from de/en --to gb/en                                # all gb/en pages
-node tools/loc/link-step.mjs --from de/en --to de/de                                # after a translation
+node tools/loc/link-step.mjs --from de/en --to gb/en                     # dry run, all gb/en pages
+node tools/loc/link-step.mjs --from de/en --to de/de --page /de/de/x --apply   # after a translation
 node tools/loc/link-step.mjs --all                  # dry run of the three pairs: the report
 ```
 
 On each page of the target locale (the `--page` ones, else every page of that locale in
-`tools/migration-scope/pages.csv`):
+`tools/migration-scope/pages.csv`). **`--apply` writes only the `--page` pages**: give the pages
+the project wrote. Without `--page` it stops; `--all-pages --apply` (every page of the locale)
+prints the page count and needs `--yes` as well. Don't use it: 87 at/de and 89 gb/en pages hold
+www's links into `/de/de` and `/de/en`, and they stay until those pages' own rollout.
 
 - links to the site's own hosts (`main--lh-com--moved-permanently.aem.page`/`.aem.live`,
   `lhcom.bbird.live`, `lhedge.bbird.live`) become root-relative – the app writes aem.page links into
@@ -137,8 +221,11 @@ For each page with a translation at `/de/de/<english slug>` it:
    slugs by; the German pages carry it today);
 3. writes it to `/de/de/<german slug>`: moved when there is no German page yet, otherwise merged
    with **the app's own merge** (the same `regionalDiff` as above, downloaded at the pinned
-   commit), or replaced with `--behavior overwrite`;
+   commit; the German page's DA metadata, its accepted and rejected differences, goes into the
+   merge and is saved again, as `mergeCopy` does), or replaced with `--behavior overwrite`;
 4. deletes the copy at `/de/de/<english slug>`.
+
+The 72 own-slug pages: translation and slug step yes; the at/de rollout not yet (see "Limits").
 
 It never touches a page whose German slug equals the English one, never removes a path that is
 another page's German page (`conflict`), and never previews or publishes. `--root /drafts/loc-test`
@@ -147,6 +234,31 @@ translation to show the work before any project ran.
 
 The slug step uses the link step's fix (`link-lib.mjs`) for the page it moves. Translated pages
 whose slug did not change are the link step's (`--from de/en --to de/de`).
+
+### The marker check (after a translation)
+
+The authoring markers (`Ticket refunds {heading-medium}`, `{caption}`, `{divider-25}`,
+`{full-width}` …, the site's README "Authoring conventions") are text: they go to Google like any
+text, and the site only reads them **exact and at the end of the text** (a separator: a
+paragraph of its own; `scripts/scripts.js` 198-205). `{Bildunterschrift}`, `{Copytext-klein}` or
+a marker moved to the start of the sentence show as text on the page.
+
+```sh
+node tools/loc/marker-check.mjs --page /de/en/children-on-board   # the project's English URLs
+node tools/loc/marker-check.mjs                                   # every page: the report
+```
+
+For each English page it reads the translation (an own-slug page at `/de/de/<english slug>`
+while it sits there, else at its German page) and lists every marker of the English page that
+**changed** (another brace text in its place), is **not read** (the same text, not where the site
+reads it) or **vanished**, and markers the translation has but the English page not (**added**).
+Markers inside merge marks count: an incoming block (`da-diff-deleted`, what you accept) is
+checked like the page; the page's own local blocks are left out. Read only (a dry run; `--apply`
+is refused); `--root /drafts/loc-test` for copies. Fix the markers in DA when you resolve the marks.
+
+Today's report (`tools/reports/loc-marker-check.md`, before any project) is a baseline: the German
+pages are still www's own, and 75 of 968 differ from the English page where www's pages differ
+(other spacers, an extra heading style). Compare a page's findings with it.
 
 ## The configuration (`translate.json`) and the code it relies on
 
@@ -208,7 +320,9 @@ dnt/decorateTable.js 25-27):
   labels and link texts are translated. A rule with `unless` was tried and dropped: decorateTable
   then marks the whole row (check-config's synthetic tables show it).
 - `carousel-images`, `carousel-lightbox`: the label keys; `hero-banner`: the Overlay row.
-- `form`: the header row, the columns Type, Name, Required and Rules, and the `config` rows.
+- `form`: the header row, the columns Type, Name, Required and Rules, and the `config` rows. The
+  option keys in column 5 (`airport=` …) are translated all the same: form pages stay out of
+  projects ("Before every run").
 
 Alt texts are translated, except a URL at their start; link texts that are URLs are not
 (dnt/processAltText.js 7-45); `code` elements never (dnt.js 5).
@@ -255,6 +369,9 @@ stay. GlobalLink's language codes may need the region (`de-DE`): `code` is sent 
   rollout's links as they are: the link step (above) fixes both. External links that carry the
   market in their query (Travel ID's `state=/de/de/…&country=DE`) are not changed by it.
 - Google is called with `fromlang=en` always (connectors/google/index.js 25).
+- **No form pages**: the form block's option keys (column 5, `airport=` …) are text Google would
+  translate, and the form would send the translated keys.
+- **Style markers** are translated like text: the marker check (above) finds the broken ones.
 
 ## Pages safe for a first test
 
@@ -262,10 +379,12 @@ stay. GlobalLink's language codes may need the region (`de-DE`): `code` is sent 
   `/good-for-train`, `/book-and-manage/trip-management`, `/lufthansa-city/culinaryjourney`,
   `/articles/authors`,
   `/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation`
-  (de/en → gb/en and de/de → at/de), and `/prepare-for-your-trip/current-travel-information`
-  (de/en → gb/en).
-- **Translation that creates only a new document**: one of the 72 own-slug pages, e.g.
-  `/de/en/flight-search` → the app writes the new `/de/de/flight-search` (no page there, checked:
-  no conflicts); `/de/de/flugsuche` is untouched until you run the slug step with `--apply`.
-- **Slug step**: `--root /drafts/loc-test` (`/drafts/loc-test/de/de/flugsuche` holds a merge
-  result of a test run).
+  (de/en → gb/en and de/de → at/de). Not `/prepare-for-your-trip/current-travel-information`:
+  it is the Message Center's anchor page.
+- **Translation that creates only a new document**: one of the 72 own-slug pages without a form,
+  e.g. `/de/en/children-on-board` (text and images, one link, one `{limited-width}` marker) → the
+  app writes the new `/de/de/children-on-board` (no page there, checked 2026-10-27; not another
+  page's German path); `/de/de/kinder-an-bord` is untouched until you run the slug step with
+  `--apply`. Then the marker check with `--page /de/en/children-on-board`.
+- **Slug step**: `--root /drafts/loc-test` on copies (the folder was deleted on 2026-10-27; copy
+  the pages there first, and never preview `/drafts/`).
