@@ -13,6 +13,7 @@
  * url and text there override the document where www's answer differs from it.
  */
 import { readOrigin, readSheet } from './sheet.js';
+import { siteFetch, servedLocale } from './markets.js';
 
 export const OWA = /^\/content\/lh\/markets\/([a-z]{2})\/([a-z]{2})\/[^/]+(?:\/[^/]+)*\.csi-owa-(header|footer|portal-config)\.json$/;
 const SHEET = '/app/config/owa-tracking.json?limit=10000';
@@ -197,15 +198,36 @@ export function buildFooter(footerHtml, locale, rows) {
 
 export const PORTAL_CONFIG = { appShellJs: '', remoteEntries: [] };
 
+/**
+ * The sheet rows of a market root (src/markets.js) without rows of its own: its language
+ * version's, their URLs moved to the market root (as the market route moves links).
+ */
+export function marketRows(rows, locale, version) {
+  if (version === locale || rows.some((r) => String(r.locale || '').trim() === locale)) return rows;
+  const from = new RegExp(`^((?:https://www\\.lufthansa\\.com)?)/${version.replace('/', '\\/')}(?=/|$)`);
+  return [...rows, ...rows.filter((r) => String(r.locale || '').trim() === version)
+    .map((r) => ({ ...r, locale, url: String(r.url ?? '').replace(from, `$1/${locale}`) }))];
+}
+
 /** The route. */
 export async function owa(request, env) {
   const m = new URL(request.url).pathname.match(OWA);
   const locale = `${m[1]}/${m[2]}`;
   const kind = m[3];
   if (kind === 'portal-config') return new Response(JSON.stringify(PORTAL_CONFIG), { headers: { ...HEADERS, 'x-lh-edge-route': 'owa' } });
-  const doc = await readOrigin(request, env, `/${locale}/${kind === 'header' ? 'nav' : 'footer'}.plain.html`);
+  const docPath = `/${locale}/${kind === 'header' ? 'nav' : 'footer'}.plain.html`;
+  // a market root this host serves: its nav and footer as the market route answers them (its
+  // own documents, else the language version's); every other locale as before
+  const market = servedLocale(request, env, locale);
+  let doc;
+  if (market && market.version !== locale) {
+    const resp = await siteFetch(new Request(request.url, { method: 'GET' }), env, new URL(docPath, `https://${env.ORIGIN}`));
+    doc = resp.ok ? await resp.text() : null;
+  } else {
+    doc = await readOrigin(request, env, docPath);
+  }
   if (!doc) return new Response('Not Found', { status: 404, headers: { 'cache-control': 'max-age=60', 'x-lh-edge-route': 'owa' } });
-  const rows = await readSheet(request, env, SHEET);
+  const rows = marketRows(await readSheet(request, env, SHEET), locale, market ? market.version : locale);
   const body = kind === 'header' ? buildHeader(doc, locale, rows) : buildFooter(doc, locale, rows);
   return new Response(JSON.stringify(body), { headers: { ...HEADERS, 'x-lh-edge-route': 'owa' } });
 }

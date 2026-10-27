@@ -1170,6 +1170,22 @@ indices:
       robots:
         select: head > meta[name="page-robots"]
         value: attribute(el, "content")
+      # llms.txt of market roots (lh-edge src/llms.js): as search-<cc>-<ll>
+      llms-include:
+        select: head > meta[name="llms-include"]
+        value: attribute(el, "content")
+      llms-title:
+        select: head > meta[name="llms-title"]
+        value: attribute(el, "content")
+      llms-description:
+        select: head > meta[name="llms-description"]
+        value: attribute(el, "content")
+      llms-category:
+        select: head > meta[name="llms-category"]
+        value: attribute(el, "content")
+      ai-guidance:
+        select: head > meta[name="ai-guidance"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

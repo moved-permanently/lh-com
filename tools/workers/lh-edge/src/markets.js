@@ -102,6 +102,38 @@ async function sheetRows(request, env, path) {
   return { rows, first };
 }
 
+/**
+ * The paths of a root's search index (a Set), a minute per isolate: read with a scan for the
+ * path values instead of JSON.parse (an index is about a megabyte; the scan takes a fifth of the
+ * CPU time), for the hreflang of roots with their own documents (at/de, gb/en).
+ */
+async function pathIndex(request, env, root) {
+  const key = `${env.ORIGIN}/${root}/search-index.json#paths`;
+  const cached = indexes.get(key);
+  if (cached && Date.now() - cached.at < INDEX_TTL_MS) return cached.index;
+  const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
+  const index = new Set();
+  for (let offset = 0; offset < 50000; offset += PAGE) {
+    // eslint-disable-next-line no-await-in-loop
+    const resp = await originFetch(get, env, `https://${env.ORIGIN}/${root}/search-index.json?limit=${PAGE}&offset=${offset}`);
+    if (!resp.ok) break;
+    // eslint-disable-next-line no-await-in-loop
+    const text = await resp.text();
+    const before = index.size;
+    [...text.matchAll(/"path":"([^"\\]*)"/g)].forEach((m) => index.add(m[1]));
+    const total = Number((text.match(/"total":(\d+)/) || [])[1] || 0);
+    if (index.size - before < PAGE || index.size >= total) break;
+  }
+  indexes.set(key, { at: Date.now(), index });
+  return index;
+}
+
+// roots with every page as their own document besides the language versions (at/de, gb/en):
+// listed in the hreflang of market copies where their index has the page (same path, as
+// helix-sitemap.yaml pairs them)
+const OWN_ROOTS = Object.keys(LOCALE_TABLE).filter((k) => LOCALE_TABLE[k].documents === 'own'
+  && LOCALE_TABLE[k].status === 'live' && !Object.values(LANGUAGE_VERSIONS).includes(k));
+
 /** A compact index (path -> {markets, robots, primary, lastModified}), a minute per isolate. */
 async function compactIndex(request, env, path) {
   const key = `${env.ORIGIN}${path}`;
@@ -120,8 +152,9 @@ async function compactIndex(request, env, path) {
 }
 
 /**
- * What the served market roots have: {roots, versions: {lang: {root, index, byPrimary}}, own}.
- * own: the market roots' own documents (the market index; empty while it has no rows).
+ * What the served market roots have: {roots, versions: {lang: {root, index, byPrimary}}, own,
+ * others: {root: Set of paths}}. own: the market roots' own documents (the market index; empty
+ * while it has no rows); others: the roots with their own documents of the same languages.
  */
 export async function marketModel(request, env, roots = servedMarketRoots(request, env)) {
   const langs = [...new Set(roots.map((r) => LOCALE_TABLE[r].lang))];
@@ -139,7 +172,13 @@ export async function marketModel(request, env, roots = servedMarketRoots(reques
   } catch (e) {
     own = new Map();
   }
-  return { roots, versions, own };
+  const others = {};
+  await Promise.all(OWN_ROOTS.filter((r) => langs.includes(LOCALE_TABLE[r].lang)).map(async (r) => {
+    others[r] = await pathIndex(request, env, r).catch(() => new Set());
+  }));
+  return {
+    roots, versions, own, others,
+  };
 }
 
 /** Whether a market root serves a path after its prefix ('' is the root itself). */
@@ -155,7 +194,8 @@ export function serves(model, root, suffix) {
 
 /**
  * The alternates of a page of a language version (its path after the prefix): every language
- * version and served market root of the indexed languages that has it, [{hreflang, path}]. The
+ * version, root with its own documents (at/de, gb/en: the same path as the language version's)
+ * and served market root of the indexed languages that has it, [{hreflang, path}]. The
  * other language's page is the same path, or the one that names it (or that it names) as its
  * primary-language-url (translated slugs, as helix-sitemap.yaml pairs them).
  */
@@ -176,6 +216,8 @@ export function alternates(model, lang, suffix) {
   Object.entries(suffixes).forEach(([l, s]) => {
     const version = model.versions[l].root;
     if (model.versions[l].index.has(`/${version}${s}`)) out.push({ hreflang: LOCALE_TABLE[version].hreflang, path: `/${version}${s}` });
+    Object.entries(model.others || {}).filter(([r, paths]) => LOCALE_TABLE[r].lang === l && paths.has(`/${r}${s}`))
+      .forEach(([r]) => out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` }));
     model.roots.filter((r) => LOCALE_TABLE[r].lang === l && serves(model, r, s))
       .forEach((r) => out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` }));
   });
@@ -306,6 +348,38 @@ async function marketJson(request, env, ctx, own404) {
     ...sheet, total: rows.length, offset, limit, data: rows.slice(offset, offset + limit),
   };
   return new Response(request.method === 'HEAD' ? null : JSON.stringify(body), { headers: out });
+}
+
+/**
+ * What the site answers for an origin URL, for the routes ahead of this one (the app view, SDUI,
+ * offline list, micro-frontend page, llms.txt): under a market root this host serves, the market
+ * route's answer for that path (the root's own document, else the language version's,
+ * rewritten); every other path exactly as before (originFetch with the same arguments).
+ */
+export async function siteFetch(request, env, target, options) {
+  const url = new URL(target);
+  const mp = marketPath(url.pathname);
+  if (!mp || !servedMarketRoots(request, env).includes(mp.root)) {
+    return originFetch(request, env, target, options);
+  }
+  const pub = new URL(request.url);
+  const req = new Request(`${pub.origin}${url.pathname}${url.search}`, {
+    method: request.method === 'HEAD' ? 'HEAD' : 'GET', headers: request.headers,
+  });
+  // eslint-disable-next-line no-use-before-define
+  return market(req, env);
+}
+
+/**
+ * The locale row of a root the request may use: a live root, or a market root this host serves
+ * (with its language version: the documents and sheet rows it falls back to), else null.
+ */
+export function servedLocale(request, env, key) {
+  const row = LOCALE_TABLE[key];
+  if (!row) return null;
+  if (row.documents !== 'language') return row.status === 'live' ? { ...row, version: key } : null;
+  if (!servedMarketRoots(request, env).includes(key)) return null;
+  return { ...row, version: LANGUAGE_VERSIONS[row.lang] };
 }
 
 const unavailable = () => new Response('Market index unavailable', {

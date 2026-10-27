@@ -24,6 +24,13 @@ export const CHECKS = [
   { path: '/content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf', method: 'HEAD' },
   // entry redirects (no cookie; the country and language headers fixed)
   ...['/', '/de', '/de/en', '/at', '/gb/en', '/us', '/xx', '/fr/fr', '/ch', '/ch/en', '/ch/de'].map((path) => ({ path, headers: { 'cf-ipcountry': 'DE', 'accept-language': 'en' } })),
+  // the routes ahead of the market route (app view, SDUI, header and footer JSON, offline list,
+  // micro-frontend page, aircraft list, llms.txt): the four roots, and ch (on lhedge a market root)
+  ...['/de/en/baggage.solo_continue', '/de/de/gepaeck.solo_continue', '/content/lh/markets/de/en/addresses-worldwide.sdui', '/de/en/addresses-worldwide.sdui',
+    '/content/lh/markets/de/en/homepage.csi-owa-header.json', '/content/lh/markets/at/de/homepage.csi-owa-footer.json', '/content/lh/markets/gb/en/homepage.csi-offline.json',
+    '/de/en/book-and-manage/trip-management.mfe.html', '/de/en/addresses-worldwide.aircraft.json', '/de/de/llms.txt', '/at/llms.txt',
+    '/ch/en/baggage.solo_continue', '/content/lh/markets/ch/en/addresses-worldwide.sdui', '/content/lh/markets/ch/de/homepage.csi-owa-header.json',
+    '/content/lh/markets/ch/en/homepage.csi-offline.json', '/ch/en/addresses-worldwide.aircraft.json', '/ch/llms.txt'].map((path) => ({ path })),
   // sitemaps, llms, well-known, search
   ...['/sitemap/sitemap_lh.xml', '/sitemap/sitemap_lh.xml.gz', '/sitemap/sitemap_lh_de_en.xml', '/sitemap/sitemap_lh_at_de.xml.gz', '/de/llms.txt', '/gb/llms.txt', '/robots.txt', '/service-worker.js'].map((path) => ({ path })),
   {

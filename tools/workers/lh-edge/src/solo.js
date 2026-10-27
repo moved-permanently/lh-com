@@ -9,6 +9,7 @@
  */
 /* global HTMLRewriter */
 import { originFetch } from './edge.js';
+import { siteFetch } from './markets.js';
 
 export const SOLO_SUFFIX = new RegExp(`(${[
   '.solo.continue.solo_continue', '.solo_continue.genapp.html', '.solo_continue.html', '.solo.continue', '.solo_continue',
@@ -146,7 +147,8 @@ export async function solo(request, env) {
   const aliases = await loadAliases(request, env);
   const page = aliases.get(appPath) || appPath;
   const target = new URL(page, `https://${env.ORIGIN}`);
-  const resp = await originFetch(request, env, target);
+  // a market root's page as the market route answers it (src/markets.js)
+  const resp = await siteFetch(request, env, target);
   if (resp.status === 301 || resp.status === 302) {
     // a redirect of the site (redirects sheet): to the solo form of its target
     const location = resp.headers.get('location');

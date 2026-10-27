@@ -10,7 +10,7 @@
  * `,`. The answer is never cached (it carries the visitor's data). GET and HEAD answer like the
  * page. Fields are never logged.
  */
-import { originFetch } from './edge.js';
+import { siteFetch } from './markets.js';
 
 const SUFFIX = /\.mfe\.html$/;
 const MAX_BODY = 64 * 1024;
@@ -99,7 +99,7 @@ export async function mfe(request, env) {
   const page = mfePage(url.pathname);
   const target = new URL(`${page}${url.search}`, `https://${env.ORIGIN}`);
   if (request.method === 'GET' || request.method === 'HEAD') {
-    const resp = await originFetch(request, env, target);
+    const resp = await siteFetch(request, env, target);
     resp.headers.set('x-lh-edge-route', 'mfe');
     return resp;
   }
@@ -110,7 +110,7 @@ export async function mfe(request, env) {
   // the page itself, fetched with GET and the visitor's headers but without the body
   const headers = new Headers(request.headers);
   ['content-type', 'content-length'].forEach((h) => headers.delete(h));
-  const resp = await originFetch(new Request(url.href, { headers }), env, target);
+  const resp = await siteFetch(new Request(url.href, { headers }), env, target);
   const html = resp.status === 200 && (resp.headers.get('content-type') || '').includes('text/html')
     ? await resp.text() : '';
   if (!html || !acceptsPost(html)) return text(403, 'This page does not accept posted data.\n');

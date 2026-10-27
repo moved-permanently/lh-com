@@ -5,7 +5,8 @@
  * root-relative, a link into the source root becomes the target root's page of the same page
  * group (www's sitemap dataset, tools/source-export/feeds/sitemaps/groups.json.gz: the pages
  * www lists as each other's alternates), a link without such a page stays as it is and is listed,
- * links to other hosts stay. The locale's name (the country and language selector label) becomes
+ * a www link into the source root (a page that was not migrated) goes to www's target root, links
+ * to other hosts stay. The locale's name (the country and language selector label) becomes
  * the target's (scripts/locale-table.js).
  *
  * For a root answered from its language version (scripts/locale-table.js documents "language",
@@ -61,7 +62,14 @@ export function rootMap(from, to, list = loadGroups()) {
 export function rootCopy(html, from, to, map = rootMap(from, to)) {
   // a .plain.html file is the inner content: localizeDoc reads a DA document with its <body>
   const r = localizeDoc(`<body>${html}</body>`, map);
-  let out = r.html.replace(/^<body>|<\/body>$/g, '');
+  // www links into the source root (pages that were not migrated) go to www's target root, same
+  // path, as lh-edge's market route does (www's market roots have the language version's paths)
+  let www = 0;
+  let out = r.html.replace(/^<body>|<\/body>$/g, '')
+    .replace(new RegExp(`(href=")https://www\\.lufthansa\\.com/${from.replace('/', '\\/')}(?=[/"?#])`, 'g'), (m, a) => {
+      www += 1;
+      return `${a}https://www.lufthansa.com/${to}`;
+    });
   let names = 0;
   const [a, b] = [LOCALE_TABLE[from]?.name, LOCALE_TABLE[to]?.name];
   if (a && b) {
@@ -69,7 +77,7 @@ export function rootCopy(html, from, to, map = rootMap(from, to)) {
     names = html.split(a).length - 1;
   }
   return {
-    html: out, links: r.links, unmapped: r.unmapped, names,
+    html: out, links: r.links, unmapped: r.unmapped, names, www,
   };
 }
 
@@ -152,6 +160,6 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
       fs.mkdirSync(path.dirname(dest), { recursive: true });
       fs.writeFileSync(dest, r.html);
     }
-    console.log(`/${to}/${doc} from /${from}/${doc}: ${r.links} links made /${to}'s, ${r.names} locale names; left as they are (no ${to} page): ${r.unmapped.join(', ') || 'none'}`);
+    console.log(`/${to}/${doc} from /${from}/${doc}: ${r.links} links made /${to}'s, ${r.www} www links moved to www's /${to}, ${r.names} locale names; left as they are (no ${to} page): ${r.unmapped.join(', ') || 'none'}`);
   });
 }

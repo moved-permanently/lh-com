@@ -13,7 +13,7 @@
  * related-articles block), the search index the title of a content page and teaser images.
  * Content pages: the generated list src/web-pages.js (www's `content` template). See ../SDUI.md.
  */
-import { originFetch, publicHost } from './edge.js';
+import { publicHost } from './edge.js';
 import {
   readDocument, inlineHtml, itemsV1, itemsV2, iosLayout, parseSduiPath,
 } from './sdui.js';
@@ -21,6 +21,7 @@ import {
   elements, hasClass, find, findAll, textOf, isElement,
 } from './html.js';
 import CONTENT_PAGES from './web-pages.js';
+import { siteFetch, servedLocale } from './markets.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALES } from '../../../../scripts/locale.js';
 import {
@@ -52,8 +53,9 @@ async function rowsOf(request, env, sheet) {
   try {
     for (let offset = 0; offset < 20000; offset += 1000) {
       const target = new URL(`${sheet}?offset=${offset}&limit=1000`, `https://${env.ORIGIN}`);
+      // a market root's sheet as the market route answers it (rows filtered, paths rewritten)
       // eslint-disable-next-line no-await-in-loop
-      const resp = await originFetch(new Request(request.url, { headers: request.headers }), env, target, { edgeCache: false });
+      const resp = await siteFetch(new Request(request.url, { headers: request.headers }), env, target, { edgeCache: false });
       if (!resp.ok) break;
       // eslint-disable-next-line no-await-in-loop
       const json = await resp.json();
@@ -323,7 +325,10 @@ const json = (body, status, cacheControl) => new Response(JSON.stringify(body), 
 /** The related articles of an article page, as the related-articles block picks them. */
 async function relatedOf(request, env, locKey, row, articles) {
   const prioRows = await rowsOf(request, env, '/articles/config/tag-priority.json');
-  const prio = prioRows.find((r) => String(r.locale || '').trim() === locKey) || {};
+  // a market root without a row of its own: its language version's
+  const version = servedLocale(request, env, locKey)?.version || locKey;
+  const prio = prioRows.find((r) => String(r.locale || '').trim() === locKey)
+    || prioRows.find((r) => String(r.locale || '').trim() === version) || {};
   const priority = { p1: new Set(listOf(prio['priority-1']).map(normalizeTag)), p2: new Set(listOf(prio['priority-2']).map(normalizeTag)) };
   const picks = pickRelated(articles, {
     tagIds: row.tagIds, category: normalizeCategory(row.category), exclude: new Set([row.path]),
@@ -342,15 +347,18 @@ export async function sduiWeb(request, env) {
   const fullPath = spelling.path;
   const page = m[1].replace(/\.html$/, '');
   const locKey = page.split('/').slice(1, 3).join('/');
-  const locale = LOCALES[locKey];
+  // the migrated locales, and the market roots this host serves (src/markets.js)
+  const locale = LOCALES[locKey] || servedLocale(request, env, locKey);
   if (!locale) return json({ error: 'not-found' }, 404, 'no-store');
+  // a market root's content pages are its language version's
+  const version = locale.version || locKey;
 
   const articleRows = await rowsOf(request, env, `/${locKey}/articles/query-index.json`);
   const articles = articleRows.filter((r) => String(r['page-type'] || '').trim() === 'article' && r.path).map(toArticle).sort(byDate);
   const article = articles.find((a) => a.path === page);
-  if (!article && !CONTENT_PAGES.has(page)) return json({ error: 'not-found' }, 404, 'no-store');
+  if (!article && !CONTENT_PAGES.has(page) && !CONTENT_PAGES.has(`/${version}${page.slice(locKey.length + 1)}`)) return json({ error: 'not-found' }, 404, 'no-store');
 
-  const plain = await originFetch(new Request(request.url, { headers: request.headers }), env, new URL(`${page}.plain.html`, `https://${env.ORIGIN}`));
+  const plain = await siteFetch(new Request(request.url, { headers: request.headers }), env, new URL(`${page}.plain.html`, `https://${env.ORIGIN}`));
   if (plain.status !== 200) return json({ error: 'not-found' }, 404, 'no-store');
   const html = await plain.text();
 
@@ -372,7 +380,7 @@ export async function sduiWeb(request, env) {
 export async function shortSdui(request, env) {
   const url = new URL(request.url);
   const spelling = parseSduiPath(url.pathname);
-  const resp = await originFetch(request, env, new URL(`${spelling.path}${url.search}`, `https://${env.ORIGIN}`));
+  const resp = await siteFetch(request, env, new URL(`${spelling.path}${url.search}`, `https://${env.ORIGIN}`));
   resp.headers.set('x-lh-edge-route', 'sdui-web-short');
   return resp;
 }

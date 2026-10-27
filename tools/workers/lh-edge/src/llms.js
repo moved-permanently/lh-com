@@ -13,15 +13,16 @@
  * pages for a minute and not at the edge, so the first published page shows at once.
  */
 /* eslint-disable import/no-relative-packages */
-import { LOCALES, LIVE_ORIGIN } from '../../../../scripts/locale.js';
+import { LOCALES, LOCALE_TABLE, LIVE_ORIGIN } from '../../../../scripts/locale.js';
 /* eslint-enable import/no-relative-packages */
 import { originFetch } from './edge.js';
 import { readSheet } from './sheet.js';
+import { siteFetch, servedMarketRoots, MARKET_INDEX } from './markets.js';
 
 const PATH = /^\/([a-z]{2})(?:\/([a-z]{2}))?\/llms\.txt$/;
 export const GLOBAL_INDEX = `${LIVE_ORIGIN}/llms.txt`;
-// the English country names of the migrated locales (the locale table)
-const COUNTRIES = Object.fromEntries(Object.values(LOCALES)
+// the English country names of the locale table's rows
+const COUNTRIES = Object.fromEntries(Object.values(LOCALE_TABLE)
   .map((row) => [row.country, row.countryName.en]));
 const LANGUAGES = { de: 'GERMAN', en: 'ENGLISH' };
 const RULE = '#'.repeat(72);
@@ -32,14 +33,37 @@ const isTrue = (v) => String(v || '').trim().toLowerCase() === 'true';
 const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
 const titleOf = (r) => clean(r['llms-title']) || clean(r.title).replace(/\s*\|\s*Lufthansa\s*$/, '');
 
-/** The locales of a request path: [cc/ll] or every locale of the market cc. */
-export function localesOf(pathname) {
+/**
+ * The locales of a request path: [cc/ll] or every locale of the market cc. served: the market
+ * roots the host serves besides LOCALES (src/markets.js).
+ */
+export function localesOf(pathname, served = []) {
   const m = pathname.match(PATH);
   if (!m) return [];
   const [, cc, ll] = m;
+  const known = (k) => Boolean(LOCALES[k]) || served.includes(k);
   // the market's locales in alphabetical order (de/de before de/en, as the curated /de/llms.txt)
-  const keys = ll ? [`${cc}/${ll}`] : Object.keys(LOCALES).filter((k) => k.startsWith(`${cc}/`)).sort();
-  return keys.filter((k) => LOCALES[k]);
+  const keys = ll ? [`${cc}/${ll}`] : [...Object.keys(LOCALES), ...served].filter((k) => k.startsWith(`${cc}/`)).sort();
+  return keys.filter(known);
+}
+
+/**
+ * The index rows of a market root: the market route's search index (the language version's
+ * rows it serves, its own pages added), the homepage's ai-guidance only from the root's own
+ * homepage (the language version's speaks for its own market).
+ */
+async function marketRows(request, env, key) {
+  const get = new Request(request.url, { method: 'GET', headers: request.headers });
+  const resp = await siteFetch(get, env, new URL(`/${key}/search-index.json?limit=5000`, `https://${env.ORIGIN}`));
+  let rows = [];
+  try {
+    rows = resp.ok ? ((await resp.json()).data || []) : [];
+  } catch (e) {
+    rows = [];
+  }
+  const own = (await readSheet(request, env, `${MARKET_INDEX}?limit=5000`)).find((r) => r.path === `/${key}/homepage`);
+  const guidance = (own && own['ai-guidance']) || '';
+  return rows.map((r) => (r.path === `/${key}/homepage` ? { ...r, 'ai-guidance': guidance } : r));
 }
 
 /** The llms.txt text of the locales from their index rows ({ 'at/de': rows }). */
@@ -78,14 +102,19 @@ export async function llmsTxt(request, env, ctx) {
   // a curated static file at this path wins (/llms.txt, /de/llms.txt)
   const own = await originFetch(new Request(request.url, { method: 'GET', headers: request.headers }), env, new URL(url.pathname, `https://${env.ORIGIN}`));
   if (own.ok) return own;
-  const keys = localesOf(url.pathname);
+  const served = servedMarketRoots(request, env);
+  const keys = localesOf(url.pathname, served);
   if (!keys.length) return new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'llms' } });
   const cache = typeof caches !== 'undefined' ? caches.default : null;
   // the cache key's version drops what an earlier version cached
   const cacheKey = new Request(`${url.origin}${url.pathname}?llms-cache=2`);
   const hit = cache && await cache.match(cacheKey);
   if (hit) return hit;
-  const rowsByLocale = Object.fromEntries(await Promise.all(keys.map(async (k) => [k, await readSheet(request, env, `/${k}/search-index.json?limit=5000`)])));
+  const rowsOf = (k) => (served.includes(k)
+    ? marketRows(request, env, k)
+    : readSheet(request, env, `/${k}/search-index.json?limit=5000`));
+  const lists = await Promise.all(keys.map((k) => rowsOf(k)));
+  const rowsByLocale = Object.fromEntries(keys.map((k, i) => [k, lists[i]]));
   const body = buildLlms(keys, rowsByLocale);
   const listed = /^- \[/m.test(body);
   // a file without pages is not kept at the edge: the first published page shows at once

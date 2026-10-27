@@ -11,7 +11,8 @@
  * on the page (/blocks/<name>/<name>.js and .css, as Edge Delivery loads them); the images of the
  * page (img src and the first URL of each source srcset). Unknown page: 404.
  */
-import { originFetch, publicHost } from './edge.js';
+import { publicHost } from './edge.js';
+import { siteFetch } from './markets.js';
 import {
   parseHtml, find, findAll, elements,
 } from './html.js';
@@ -78,7 +79,7 @@ export async function csiOffline(request, env) {
   const page = m[1].replace(/\.html$/, '').replace(/\/$/, '');
   const host = publicHost(request, env);
   const get = new Request(request.url, { headers: request.headers });
-  const resp = await originFetch(get, env, new URL(page, `https://${env.ORIGIN}`));
+  const resp = await siteFetch(get, env, new URL(page, `https://${env.ORIGIN}`));
   if (resp.status !== 200 || !(resp.headers.get('content-type') || '').includes('text/html')) return json(404, { error: 'not-found' });
   const html = await resp.text();
   return json(200, { targetPage: `https://${host}${page}`, resources: offlineResources(html, page, host) });

@@ -6,9 +6,11 @@
  * /<cc>/<ll>/discover-lufthansa/lufthansa-fleet/<code>), `title` the page title without the
  * " | Lufthansa" suffix, `url` the page path. From the query index /fleet-index.json (metadata
  * aircraft-code, aircraft-order). `application/json`, no cache headers; an empty list for a
- * locale without fleet pages.
+ * locale without fleet pages. A market root the host serves (src/markets.js) lists its language
+ * version's aircraft under its own paths.
  */
 import { readSheet } from './sheet.js';
+import { servedLocale } from './markets.js';
 
 export const FLEET_INDEX = '/fleet-index.json';
 const SUFFIX = /\.aircraft\.json$/;
@@ -31,7 +33,12 @@ export function aircraftOf(rows, locale) {
 export async function aircraftList(request, env) {
   const pathname = new URL(request.url).pathname.replace(SUFFIX, '');
   const rows = await readSheet(request, env, FLEET_INDEX);
-  const body = JSON.stringify({ aircrafts: aircraftOf(rows, localeOf(pathname)) });
+  const locale = localeOf(pathname);
+  const market = locale && servedLocale(request, env, locale.slice(1));
+  const aircrafts = market && market.version !== locale.slice(1)
+    ? aircraftOf(rows, `/${market.version}`).map((a) => ({ ...a, url: `${locale}${a.url.slice(market.version.length + 1)}` }))
+    : aircraftOf(rows, locale);
+  const body = JSON.stringify({ aircrafts });
   return new Response(request.method === 'HEAD' ? null : body, {
     headers: { 'content-type': 'application/json', 'x-lh-edge-route': 'aircraft' },
   });
