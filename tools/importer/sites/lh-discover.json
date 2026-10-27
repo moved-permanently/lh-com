@@ -1,0 +1,31 @@
+{
+ "site": "moved-permanently/lh-discover",
+ "source": "www.discover-airlines.com (brief 95 demo scope: the two homepages, up to 8 pages per language they link to most prominently, nav and footer)",
+ "paths": [
+  "/de/en/homepage",
+  "/de/en/new-destinations",
+  "/de/en/discover/ocean-blue",
+  "/de/en/culinaryjourney",
+  "/de/en/book/special-requests/pets",
+  "/de/en/book/baggage",
+  "/de/en/my-bookings/services/upgrades",
+  "/de/en/book/assistance-requirements/accessible-travel",
+  "/de/en/my-bookings/manage/customer-service",
+  "/de/de/homepage",
+  "/de/de/new-destinations",
+  "/de/de/discover/ocean-blue",
+  "/de/de/culinaryjourney",
+  "/de/de/my-bookings/services/additional-services/europ-assistance",
+  "/de/de/book/baggage",
+  "/de/de/my-bookings/services/upgrades",
+  "/de/de/book/assistance-requirements/accessible-travel",
+  "/de/de/my-bookings/manage/customer-service",
+  "/de/en/nav",
+  "/de/en/footer",
+  "/de/de/nav",
+  "/de/de/footer"
+ ],
+ "patterns": [
+  "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
+ ]
+}

@@ -1,7 +1,13 @@
 /* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, no-continue */
+/* eslint-disable import/extensions -- the site rules module */
 /**
  * Uploads local content documents to Document Authoring and previews them on
- * main--lh-com--moved-permanently.aem.page. Preview only, never publishes.
+ * main--<site>--moved-permanently.aem.page. Preview only, never publishes.
+ *
+ * --site (default lh-com) chooses the DA site; --content-dir another document tree (default
+ * content/ for lh-com, content-sites/<site>/content/ otherwise). The rules per site are in
+ * da-upload-sites.mjs: lh-com as below; another site only the paths of its allowlist
+ * tools/importer/sites/<site>.json, its own state file, no author edits.
  *
  * Only documents that belong to the site are sent: pages in the migration scope
  * (tools/importer/transformers/scope-paths.js) and the per-locale nav, footer and
@@ -17,52 +23,32 @@
  * in the last min(30, budget/10) seconds), the state is saved and the summary printed.
  *
  * Usage: node tools/importer/da-upload.mjs (--path /de/en/homepage ... | --list paths.txt)
- *          [--no-preview] [--dry-run] [--force] [--budget 500]
+ *          [--no-preview] [--dry-run] [--force] [--budget 500] [--site lh-com] [--content-dir dir]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { siteSettings, APP_SHELL } from './da-upload-sites.mjs';
 
-const ORG = 'moved-permanently';
-const SITE = 'lh-com';
 const started = Date.now();
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
 const has = (n) => argv.includes(`--${n}`);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
-const stateFile = process.env.DA_UPLOAD_STATE
-  ? path.resolve(process.env.DA_UPLOAD_STATE)
-  : path.join(root, 'tools/importer/da-upload-state.json');
+const loadScope = async () => (await import(path.join(root, 'tools/importer/transformers/scope-paths.js'))).default;
+const settings = await siteSettings(root, loadScope, {
+  site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE,
+});
+const {
+  org: ORG, site: SITE, contentDir, stateFile, allowed, authorEdits: AUTHOR_EDITS,
+} = settings;
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : { docs: {}, media: {} };
 state.docs ||= {};
 state.media ||= {};
 const save = () => { if (!has('dry-run')) fs.writeFileSync(stateFile, `${JSON.stringify(state, null, 1)}\n`); };
 const budget = Number(opt('budget')) || 0;
 const margin = Math.min(30, budget / 10);
-
-const { default: SCOPE } = await import(path.join(root, 'tools/importer/transformers/scope-paths.js'));
-// documents authors edited in DA: the edits are re-applied to every upload (or the doc is skipped)
-const editsFile = path.join(root, 'tools/importer/author-edits.json');
-const AUTHOR_EDITS = fs.existsSync(editsFile) ? JSON.parse(fs.readFileSync(editsFile, 'utf8')) : {};
-const LOCALE_DOC = /^\/(de\/en|de\/de|at\/de|gb\/en)\/(nav|footer|fragments\/[a-z0-9-]+)$/;
-// the AirCore pages (/lhg/) left the replica on 2026-10-25; their DA documents are taken off
-// preview and live by hand: never upload, preview or delete anything there
-const NEVER = /^\/lhg(?:\/|$)/;
-// app shells (login, profile) are built elsewhere: never uploaded, even if listed
-const APP_SHELL = /^\/[a-z]{2}\/[a-z]{2}\/(?:login|profile)(?:\/|$)/;
-// the Lufthansa app's screen documents (tools/importer/sdui-import.mjs; lh-edge renders them)
-const APP_SCREEN = /^\/content\/mobile\/lh\/[a-z]{2}\//;
-// the GraphQL feed documents (structured content, companion documents) and their DA schemas
-// (tools/importer/graphql-import.mjs; lh-edge answers the persisted queries from them)
-const FEED_DOC = /^\/data\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$|^\/\.da\/forms\/schemas\/lh-[a-z0-9-]+$/;
-// the experience fragment documents of www's fragment catalogs (tools/importer/build-xf-docs.mjs;
-// lh-edge answers <folder>.csi-xf.json from their index)
-const XF_DOC = /^\/xf\/lh\/[a-z0-9-]+(?:\/[a-z0-9-]+)+$/;
-// the Page check plugin's test page (AMS rest A11): one issue of each kind, under /drafts/
-const TEST_DOC = /^\/drafts\/page-check\/[a-z0-9-]+$/;
-const allowed = (p) => !NEVER.test(p)
-  && (SCOPE.has(p) || LOCALE_DOC.test(p) || APP_SCREEN.test(p) || FEED_DOC.test(p) || XF_DOC.test(p) || TEST_DOC.test(p));
 
 const listFile = opt('list');
 const paths = (listFile ? fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/) : argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : [])))
@@ -115,7 +101,7 @@ for (const p of paths) {
   done += 1;
   if (APP_SHELL.test(p)) { problem(`${p}: app shell (login/profile, built elsewhere), refused`); continue; }
   if (!allowed(p)) { problem(`${p}: not in scope, skipped`); continue; }
-  const file = path.join(root, 'content', `${p}.plain.html`);
+  const file = path.join(contentDir, `${p}.plain.html`);
   if (!fs.existsSync(file)) { problem(`${p}: no local document`); continue; }
   const edit = AUTHOR_EDITS[p];
   if (edit?.skip) { problem(`${p}: author-owned (author-edits.json), not uploaded`); continue; }
@@ -138,7 +124,7 @@ for (const p of paths) {
   const media = [...new Set([...html.matchAll(/["(](\/media-da\/[^"')\s]+)/g)].map((m) => m[1]))];
   for (const m of media) {
     if (state.media[m] && !has('force')) continue;
-    const local = path.join(root, 'content', m);
+    const local = path.join(contentDir, m);
     if (!fs.existsSync(local)) { problem(`${p}: missing image ${m}`); continue; }
     if (has('dry-run')) { console.log(`would upload ${m}`); continue; }
     const r = curl(['-X', 'POST', '-F', `data=@${local}`, `https://admin.da.live/source/${ORG}/${SITE}${m}`]);

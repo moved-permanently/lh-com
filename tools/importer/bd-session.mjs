@@ -15,6 +15,7 @@
  * Usage: node tools/importer/bd-session.mjs (--list urls.txt | --url <url> ...) [--batch 20]
  *          [--model] [--force] [--min-delay 5000] [--max-delay 10000] [--widths 1440,768,390]
  *          [--parity-list urls-parity.txt] [--since 2026-10-21T18:46:00Z]
+ *          [--anchor <warm-up URL>] [--state <file>] [--pages-dir <dir>]   (another site)
  * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
  * parity check, so a page is never loaded again just for a screenshot.
  * --shots-only: a recapture for the parity check (pages whose screenshots were faulty: missed lazy
@@ -41,7 +42,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const argv = process.argv.slice(2);
 const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : def);
 const has = (name) => argv.includes(`--${name}`);
-const ANCHOR = 'https://www.lufthansa.com/de/en/homepage';
+// --anchor: the warm-up page of another site (Discover: https://www.discover-airlines.com/de/en/homepage)
+const ANCHOR = opt('anchor', 'https://www.lufthansa.com/de/en/homepage');
 const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification/i;
 const MAX_HEIGHT = 8000;
 const batch = Number(opt('batch', 20));
@@ -74,13 +76,15 @@ async function quickScroll(page) {
     window.scrollTo(0, 0);
   }, MAX_HEIGHT).catch(() => {});
 }
-const stateFile = path.join(root, 'tools/source-export/bd-session-state.json');
+// --state, --pages-dir: another site's capture state and page data (its paths would collide
+// with www.lufthansa.com's under tools/source-export/pages)
+const stateFile = path.resolve(root, opt('state', 'tools/source-export/bd-session-state.json'));
 // API responses the live page loads by itself while it is captured (no extra requests);
 // tools/importer/record-live-data.mjs turns them into data/recorded/
 const apiDir = path.join(root, 'tools/source-export/api');
 const RECORDABLE = /^\/(service\/api\/(suggestions|catalogs|defaultAirport|labels|lhg-fare-teaser|destinationfinder))(\/|$)/;
 let pageResponses = [];
-const pagesDir = path.join(root, 'tools/source-export/pages');
+const pagesDir = path.resolve(root, opt('pages-dir', 'tools/source-export/pages'));
 
 const listFile = opt('list');
 const urls = (listFile
