@@ -3,9 +3,10 @@
  * The documents' links to www's PDFs (https://www.lufthansa.com/content/dam/...pdf) become links
  * to the site's copies (/content/dam/<Edge Delivery name>, scripts/dam-path.js edsDamPath, copied
  * by dam-copy.mjs from tools/source-export/feeds/dam/linked-assets.csv). A link is switched only
- * when its copy is published (aem.live answers it: 301 to the media file); the others keep www's
- * link (the 27.6 MB poster, the PDFs gone on www, copies not published yet). Idempotent: run it
- * again after more publishing.
+ * when its copy is published (aem.live answers it: 301 to the media file) or lh-edge serves it
+ * from R2 (PDFs over Edge Delivery's 20 MB limit, the 27.6 MB poster: src/dam-media.js, answer
+ * with x-lh-edge-route dam-media); the others keep www's link (the PDFs gone on www, copies not
+ * published yet). Idempotent: run it again after more publishing.
  *
  * Usage: node tools/importer/switch-dam-pdfs.mjs [--dry]
  *   writes tools/importer/dam-pdf-documents.txt (the documents changed by this run, for
@@ -19,6 +20,8 @@ import { edsDamPath, decodePath } from '../../scripts/dam-path.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const dry = process.argv.includes('--dry');
 const LIVE_SITE = 'https://main--lh-com--moved-permanently.aem.live';
+// lh-edge's demo host: the PDFs it serves from R2 (aem.live has no copy of them)
+const EDGE_HOST = process.env.LH_EDGE_HOST || 'https://lhedge.bbird.live';
 const CONTENT = path.join(root, 'content');
 const WWW_PDF = /href="https:\/\/www\.lufthansa\.com(\/content\/dam\/[^"?#]+\.pdf)"/gi;
 
@@ -39,7 +42,15 @@ const published = new Map();
 for (let i = 0; i < assets.length; i += 8) {
   await Promise.all(assets.slice(i, i + 8).map(async (a) => {
     const r = await fetch(`${LIVE_SITE}${edsDamPath(a)}`, { method: 'HEAD', redirect: 'manual' });
-    published.set(a, r.status === 200 || r.status === 301 ? 'published' : `not published (${r.status})`);
+    if (r.status === 200 || r.status === 301) {
+      published.set(a, 'published');
+      return;
+    }
+    const edge = await fetch(`${EDGE_HOST}${edsDamPath(a)}`, { method: 'HEAD', redirect: 'manual' });
+    const fromR2 = edge.status === 200 && edge.headers.get('x-lh-edge-route') === 'dam-media';
+    // 'published' for the switch below: lh-edge answers the site's path from R2
+    published.set(a, fromR2 ? 'published' : `not published (${r.status})`);
+    if (fromR2) console.log(`${a}: served from R2 by lh-edge`);
   }));
 }
 
