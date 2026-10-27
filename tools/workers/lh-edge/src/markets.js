@@ -11,7 +11,8 @@
  *   (an include list "de, at", an exclude list "-ch, -us"; empty: every market of the language;
  *   the page's own <meta name="markets"> too, which counts before a publish updates the index).
  *   Links into the language version become the market root's when the market serves the target
- *   (the link step's rule, tools/loc/link-lib.mjs), the site's own hosts are stripped, canonical
+ *   (the link step's rule, tools/loc/link-lib.mjs), links into it on www (pages not migrated)
+ *   www's market root's, the site's own hosts are stripped, canonical
  *   and og:url name the market URL, hreflang alternates come from the indexes, nav and footer are
  *   the market root's (its own documents, else the language version's);
  *   what the language index leaves out on purpose (nav, footer, fragments, form confirmations, the
@@ -189,14 +190,21 @@ function siteHosts(env) {
   return new RegExp(`^https://(${alt})(?=/|$)`, 'i');
 }
 
-/** A link of a language document for the market root, or null to leave it. */
+/**
+ * A link of a language document for the market root, or null to leave it. A link into the
+ * language version on www (a page that was not migrated) goes to www's market root, same path
+ * (www's market roots have the language version's paths).
+ */
 export function marketHref(href, {
-  from, to, allowed, hosts,
+  from, to, allowed, hosts, www = 'www.lufthansa.com',
 }) {
   const raw = String(href || '');
+  const prefix = from.replace('/', '\\/');
+  const onWww = raw.match(new RegExp(`^https://${www.replace(/\./g, '\\.')}/${prefix}((?:/[^?#]*)?)([?#].*)?$`));
+  if (onWww) return `https://${www}/${to}${onWww[1]}${onWww[2] || ''}`;
   let v = raw.replace(hosts, '');
   if (v === '' && raw !== '') v = '/';
-  const m = v.match(new RegExp(`^/${from.replace('/', '\\/')}((?:/[^?#]*)?)([?#].*)?$`));
+  const m = v.match(new RegExp(`^/${prefix}((?:/[^?#]*)?)([?#].*)?$`));
   if (m) {
     const suffix = m[1].replace(/\.html$/, '').replace(/\/$/, '');
     if (allowed(suffix)) v = `/${to}${m[1]}${m[2] || ''}`;
@@ -327,7 +335,7 @@ export async function market(request, env) {
     return unavailable();
   }
   const ctx = {
-    from, to: root, rest, hosts: siteHosts(env), allowed: (s) => serves(model, root, s),
+    from, to: root, rest, hosts: siteHosts(env), www: env.WWW_HOST || 'www.lufthansa.com', allowed: (s) => serves(model, root, s),
   };
   if (kind === 'json') {
     try {

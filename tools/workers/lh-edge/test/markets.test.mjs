@@ -127,7 +127,7 @@ test('a language page for the market root: links, canonical, og:url, hreflang, c
   const hrefs = [...html.matchAll(/<a href="([^"]+)"/g)].map((m) => m[1]);
   assert.deepEqual(hrefs, [
     '/ch/en/homepage', '/de/en/carry-on', '/de/en/event/dghm-2026', '/ch/en/addresses-worldwide#x',
-    'https://www.lufthansa.com/de/en/travel-briefing', '/ch/en/fragments/teaser', '/de/de/baggage', '/ch/en/baggage?x=1',
+    'https://www.lufthansa.com/ch/en/travel-briefing', '/ch/en/fragments/teaser', '/de/de/baggage', '/ch/en/baggage?x=1',
   ]);
   assert.match(html, /<img src="\/de\/en\/media_1234\.jpg\?width=750"/);
   assert.deepEqual(calls.slice(0, 1), ['/ch/en/baggage'], 'the own document first');
@@ -225,4 +225,6 @@ test('link rule: site hosts stripped, links into the language version only where
   assert.equal(marketHref('/de/en', ctx), '/ch/en');
   assert.equal(marketHref('/de/enx/a', ctx), null);
   assert.equal(marketHref('#top', ctx), null);
+  assert.equal(marketHref('https://www.lufthansa.com/de/en/x?a=1', ctx), 'https://www.lufthansa.com/ch/en/x?a=1', 'www pages that were not migrated: www\'s market root');
+  assert.equal(marketHref('https://www.lufthansa.com/de/de/x', ctx), null);
 });
