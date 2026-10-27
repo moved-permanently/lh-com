@@ -1,0 +1,5584 @@
+{
+ "source": "https://www.lufthansa.com/sitemap/sitemap_lh.xml.gz",
+ "fetched": "2026-10-27T14:01:44.470Z",
+ "roots": [
+  {
+   "root": "ae/de",
+   "cc": "ae",
+   "ll": "de",
+   "hreflang": [
+    "de-AE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ae_de_1.xml.gz",
+    "sitemap_lh_ae_de_2.xml.gz",
+    "sitemap_lh_ae_de_3.xml.gz",
+    "sitemap_lh_ae_de_4.xml.gz",
+    "sitemap_lh_ae_de_5.xml.gz",
+    "sitemap_lh_ae_de_6.xml.gz",
+    "sitemap_lh_ae_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1024,
+   "alternateOnlyCount": 22,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ae/en",
+   "cc": "ae",
+   "ll": "en",
+   "hreflang": [
+    "en-AE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ae_en_1.xml.gz",
+    "sitemap_lh_ae_en_2.xml.gz",
+    "sitemap_lh_ae_en_3.xml.gz",
+    "sitemap_lh_ae_en_4.xml.gz",
+    "sitemap_lh_ae_en_5.xml.gz",
+    "sitemap_lh_ae_en_6.xml.gz",
+    "sitemap_lh_ae_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1043,
+   "alternateOnlyCount": 19,
+   "groupCount": 1059,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "al/de",
+   "cc": "al",
+   "ll": "de",
+   "hreflang": [
+    "de-AL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_al_de_1.xml.gz",
+    "sitemap_lh_al_de_2.xml.gz",
+    "sitemap_lh_al_de_3.xml.gz",
+    "sitemap_lh_al_de_4.xml.gz",
+    "sitemap_lh_al_de_5.xml.gz",
+    "sitemap_lh_al_de_6.xml.gz",
+    "sitemap_lh_al_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1044,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "al/en",
+   "cc": "al",
+   "ll": "en",
+   "hreflang": [
+    "en-AL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_al_en_1.xml.gz",
+    "sitemap_lh_al_en_2.xml.gz",
+    "sitemap_lh_al_en_3.xml.gz",
+    "sitemap_lh_al_en_4.xml.gz",
+    "sitemap_lh_al_en_5.xml.gz",
+    "sitemap_lh_al_en_6.xml.gz",
+    "sitemap_lh_al_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1032,
+   "alternateOnlyCount": 20,
+   "groupCount": 1051,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "am/de",
+   "cc": "am",
+   "ll": "de",
+   "hreflang": [
+    "de-AM"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_am_de_1.xml.gz",
+    "sitemap_lh_am_de_2.xml.gz",
+    "sitemap_lh_am_de_3.xml.gz",
+    "sitemap_lh_am_de_4.xml.gz",
+    "sitemap_lh_am_de_5.xml.gz",
+    "sitemap_lh_am_de_6.xml.gz",
+    "sitemap_lh_am_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1024,
+   "alternateOnlyCount": 22,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "am/en",
+   "cc": "am",
+   "ll": "en",
+   "hreflang": [
+    "en-AM"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_am_en_1.xml.gz",
+    "sitemap_lh_am_en_2.xml.gz",
+    "sitemap_lh_am_en_3.xml.gz",
+    "sitemap_lh_am_en_4.xml.gz",
+    "sitemap_lh_am_en_5.xml.gz",
+    "sitemap_lh_am_en_6.xml.gz",
+    "sitemap_lh_am_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ao/de",
+   "cc": "ao",
+   "ll": "de",
+   "hreflang": [
+    "de-AO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ao_de_1.xml.gz",
+    "sitemap_lh_ao_de_2.xml.gz",
+    "sitemap_lh_ao_de_3.xml.gz",
+    "sitemap_lh_ao_de_4.xml.gz",
+    "sitemap_lh_ao_de_5.xml.gz",
+    "sitemap_lh_ao_de_6.xml.gz",
+    "sitemap_lh_ao_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1024,
+   "alternateOnlyCount": 21,
+   "groupCount": 1043,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ao/en",
+   "cc": "ao",
+   "ll": "en",
+   "hreflang": [
+    "en-AO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ao_en_1.xml.gz",
+    "sitemap_lh_ao_en_2.xml.gz",
+    "sitemap_lh_ao_en_3.xml.gz",
+    "sitemap_lh_ao_en_4.xml.gz",
+    "sitemap_lh_ao_en_5.xml.gz",
+    "sitemap_lh_ao_en_6.xml.gz",
+    "sitemap_lh_ao_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ao/pt",
+   "cc": "ao",
+   "ll": "pt",
+   "hreflang": [
+    "pt-AO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ao_pt_1.xml.gz",
+    "sitemap_lh_ao_pt_2.xml.gz",
+    "sitemap_lh_ao_pt.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 333,
+   "alternateOnlyCount": 1,
+   "groupCount": 333,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ar/de",
+   "cc": "ar",
+   "ll": "de",
+   "hreflang": [
+    "de-AR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ar_de_1.xml.gz",
+    "sitemap_lh_ar_de_2.xml.gz",
+    "sitemap_lh_ar_de_3.xml.gz",
+    "sitemap_lh_ar_de_4.xml.gz",
+    "sitemap_lh_ar_de_5.xml.gz",
+    "sitemap_lh_ar_de_6.xml.gz",
+    "sitemap_lh_ar_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ar/en",
+   "cc": "ar",
+   "ll": "en",
+   "hreflang": [
+    "en-AR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ar_en_1.xml.gz",
+    "sitemap_lh_ar_en_2.xml.gz",
+    "sitemap_lh_ar_en_3.xml.gz",
+    "sitemap_lh_ar_en_4.xml.gz",
+    "sitemap_lh_ar_en_5.xml.gz",
+    "sitemap_lh_ar_en_6.xml.gz",
+    "sitemap_lh_ar_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ar/es",
+   "cc": "ar",
+   "ll": "es",
+   "hreflang": [
+    "es-AR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ar_es_1.xml.gz",
+    "sitemap_lh_ar_es_2.xml.gz",
+    "sitemap_lh_ar_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 346,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ar/fr",
+   "cc": "ar",
+   "ll": "fr",
+   "hreflang": [
+    "fr-AR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ar_fr_1.xml.gz",
+    "sitemap_lh_ar_fr_2.xml.gz",
+    "sitemap_lh_ar_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "at/de",
+   "cc": "at",
+   "ll": "de",
+   "hreflang": [
+    "de-AT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_at_de_1.xml.gz",
+    "sitemap_lh_at_de_2.xml.gz",
+    "sitemap_lh_at_de_3.xml.gz",
+    "sitemap_lh_at_de_4.xml.gz",
+    "sitemap_lh_at_de_5.xml.gz",
+    "sitemap_lh_at_de_6.xml.gz",
+    "sitemap_lh_at_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1037,
+   "alternateOnlyCount": 21,
+   "groupCount": 1054,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "at/en",
+   "cc": "at",
+   "ll": "en",
+   "hreflang": [
+    "en-AT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_at_en_1.xml.gz",
+    "sitemap_lh_at_en_2.xml.gz",
+    "sitemap_lh_at_en_3.xml.gz",
+    "sitemap_lh_at_en_4.xml.gz",
+    "sitemap_lh_at_en_5.xml.gz",
+    "sitemap_lh_at_en_6.xml.gz",
+    "sitemap_lh_at_en_7.xml.gz",
+    "sitemap_lh_at_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1046,
+   "alternateOnlyCount": 17,
+   "groupCount": 1059,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "au/de",
+   "cc": "au",
+   "ll": "de",
+   "hreflang": [
+    "de-AU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_au_de_1.xml.gz",
+    "sitemap_lh_au_de_2.xml.gz",
+    "sitemap_lh_au_de_3.xml.gz",
+    "sitemap_lh_au_de_4.xml.gz",
+    "sitemap_lh_au_de_5.xml.gz",
+    "sitemap_lh_au_de_6.xml.gz",
+    "sitemap_lh_au_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "au/en",
+   "cc": "au",
+   "ll": "en",
+   "hreflang": [
+    "en-AU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_au_en_1.xml.gz",
+    "sitemap_lh_au_en_2.xml.gz",
+    "sitemap_lh_au_en_3.xml.gz",
+    "sitemap_lh_au_en_4.xml.gz",
+    "sitemap_lh_au_en_5.xml.gz",
+    "sitemap_lh_au_en_6.xml.gz",
+    "sitemap_lh_au_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1038,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "az/de",
+   "cc": "az",
+   "ll": "de",
+   "hreflang": [
+    "de-AZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_az_de_1.xml.gz",
+    "sitemap_lh_az_de_2.xml.gz",
+    "sitemap_lh_az_de_3.xml.gz",
+    "sitemap_lh_az_de_4.xml.gz",
+    "sitemap_lh_az_de_5.xml.gz",
+    "sitemap_lh_az_de_6.xml.gz",
+    "sitemap_lh_az_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1031,
+   "alternateOnlyCount": 24,
+   "groupCount": 1051,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "az/en",
+   "cc": "az",
+   "ll": "en",
+   "hreflang": [
+    "en-AZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_az_en_1.xml.gz",
+    "sitemap_lh_az_en_2.xml.gz",
+    "sitemap_lh_az_en_3.xml.gz",
+    "sitemap_lh_az_en_4.xml.gz",
+    "sitemap_lh_az_en_5.xml.gz",
+    "sitemap_lh_az_en_6.xml.gz",
+    "sitemap_lh_az_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1035,
+   "alternateOnlyCount": 21,
+   "groupCount": 1054,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ba/de",
+   "cc": "ba",
+   "ll": "de",
+   "hreflang": [
+    "de-BA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ba_de_1.xml.gz",
+    "sitemap_lh_ba_de_2.xml.gz",
+    "sitemap_lh_ba_de_3.xml.gz",
+    "sitemap_lh_ba_de_4.xml.gz",
+    "sitemap_lh_ba_de_5.xml.gz",
+    "sitemap_lh_ba_de_6.xml.gz",
+    "sitemap_lh_ba_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ba/en",
+   "cc": "ba",
+   "ll": "en",
+   "hreflang": [
+    "en-BA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ba_en_1.xml.gz",
+    "sitemap_lh_ba_en_2.xml.gz",
+    "sitemap_lh_ba_en_3.xml.gz",
+    "sitemap_lh_ba_en_4.xml.gz",
+    "sitemap_lh_ba_en_5.xml.gz",
+    "sitemap_lh_ba_en_6.xml.gz",
+    "sitemap_lh_ba_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "be/de",
+   "cc": "be",
+   "ll": "de",
+   "hreflang": [
+    "de-BE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_be_de_1.xml.gz",
+    "sitemap_lh_be_de_2.xml.gz",
+    "sitemap_lh_be_de_3.xml.gz",
+    "sitemap_lh_be_de_4.xml.gz",
+    "sitemap_lh_be_de_5.xml.gz",
+    "sitemap_lh_be_de_6.xml.gz",
+    "sitemap_lh_be_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1030,
+   "alternateOnlyCount": 21,
+   "groupCount": 1049,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "be/en",
+   "cc": "be",
+   "ll": "en",
+   "hreflang": [
+    "en-BE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_be_en_1.xml.gz",
+    "sitemap_lh_be_en_2.xml.gz",
+    "sitemap_lh_be_en_3.xml.gz",
+    "sitemap_lh_be_en_4.xml.gz",
+    "sitemap_lh_be_en_5.xml.gz",
+    "sitemap_lh_be_en_6.xml.gz",
+    "sitemap_lh_be_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1039,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "be/fr",
+   "cc": "be",
+   "ll": "fr",
+   "hreflang": [
+    "fr-BE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_be_fr_1.xml.gz",
+    "sitemap_lh_be_fr_2.xml.gz",
+    "sitemap_lh_be_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "bg/de",
+   "cc": "bg",
+   "ll": "de",
+   "hreflang": [
+    "de-BG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_bg_de_1.xml.gz",
+    "sitemap_lh_bg_de_2.xml.gz",
+    "sitemap_lh_bg_de_3.xml.gz",
+    "sitemap_lh_bg_de_4.xml.gz",
+    "sitemap_lh_bg_de_5.xml.gz",
+    "sitemap_lh_bg_de_6.xml.gz",
+    "sitemap_lh_bg_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "bg/en",
+   "cc": "bg",
+   "ll": "en",
+   "hreflang": [
+    "en-BG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_bg_en_1.xml.gz",
+    "sitemap_lh_bg_en_2.xml.gz",
+    "sitemap_lh_bg_en_3.xml.gz",
+    "sitemap_lh_bg_en_4.xml.gz",
+    "sitemap_lh_bg_en_5.xml.gz",
+    "sitemap_lh_bg_en_6.xml.gz",
+    "sitemap_lh_bg_en_7.xml.gz",
+    "sitemap_lh_bg_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1038,
+   "alternateOnlyCount": 20,
+   "groupCount": 1055,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "bh/de",
+   "cc": "bh",
+   "ll": "de",
+   "hreflang": [
+    "de-BH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_bh_de_1.xml.gz",
+    "sitemap_lh_bh_de_2.xml.gz",
+    "sitemap_lh_bh_de_3.xml.gz",
+    "sitemap_lh_bh_de_4.xml.gz",
+    "sitemap_lh_bh_de_5.xml.gz",
+    "sitemap_lh_bh_de_6.xml.gz",
+    "sitemap_lh_bh_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "bh/en",
+   "cc": "bh",
+   "ll": "en",
+   "hreflang": [
+    "en-BH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_bh_en_1.xml.gz",
+    "sitemap_lh_bh_en_2.xml.gz",
+    "sitemap_lh_bh_en_3.xml.gz",
+    "sitemap_lh_bh_en_4.xml.gz",
+    "sitemap_lh_bh_en_5.xml.gz",
+    "sitemap_lh_bh_en_6.xml.gz",
+    "sitemap_lh_bh_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1043,
+   "alternateOnlyCount": 18,
+   "groupCount": 1059,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "br/de",
+   "cc": "br",
+   "ll": "de",
+   "hreflang": [
+    "de-BR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_br_de_1.xml.gz",
+    "sitemap_lh_br_de_2.xml.gz",
+    "sitemap_lh_br_de_3.xml.gz",
+    "sitemap_lh_br_de_4.xml.gz",
+    "sitemap_lh_br_de_5.xml.gz",
+    "sitemap_lh_br_de_6.xml.gz",
+    "sitemap_lh_br_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "br/en",
+   "cc": "br",
+   "ll": "en",
+   "hreflang": [
+    "en-BR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_br_en_1.xml.gz",
+    "sitemap_lh_br_en_2.xml.gz",
+    "sitemap_lh_br_en_3.xml.gz",
+    "sitemap_lh_br_en_4.xml.gz",
+    "sitemap_lh_br_en_5.xml.gz",
+    "sitemap_lh_br_en_6.xml.gz",
+    "sitemap_lh_br_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "br/es",
+   "cc": "br",
+   "ll": "es",
+   "hreflang": [
+    "es-BR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_br_es_1.xml.gz",
+    "sitemap_lh_br_es_2.xml.gz",
+    "sitemap_lh_br_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 346,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "br/pt",
+   "cc": "br",
+   "ll": "pt",
+   "hreflang": [
+    "pt-BR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_br_pt_1.xml.gz",
+    "sitemap_lh_br_pt_2.xml.gz",
+    "sitemap_lh_br_pt.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 343,
+   "alternateOnlyCount": 1,
+   "groupCount": 337,
+   "marketOnlyCount": 6,
+   "ownSitemap": true
+  },
+  {
+   "root": "by/de",
+   "cc": "by",
+   "ll": "de",
+   "hreflang": [
+    "de-BY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_by_de_1.xml.gz",
+    "sitemap_lh_by_de_2.xml.gz",
+    "sitemap_lh_by_de_3.xml.gz",
+    "sitemap_lh_by_de_4.xml.gz",
+    "sitemap_lh_by_de_5.xml.gz",
+    "sitemap_lh_by_de_6.xml.gz",
+    "sitemap_lh_by_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "by/en",
+   "cc": "by",
+   "ll": "en",
+   "hreflang": [
+    "en-BY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_by_en_1.xml.gz",
+    "sitemap_lh_by_en_2.xml.gz",
+    "sitemap_lh_by_en_3.xml.gz",
+    "sitemap_lh_by_en_4.xml.gz",
+    "sitemap_lh_by_en_5.xml.gz",
+    "sitemap_lh_by_en_6.xml.gz",
+    "sitemap_lh_by_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "by/ru",
+   "cc": "by",
+   "ll": "ru",
+   "hreflang": [
+    "ru-BY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_by_ru_1.xml.gz",
+    "sitemap_lh_by_ru_2.xml.gz",
+    "sitemap_lh_by_ru.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 331,
+   "alternateOnlyCount": 1,
+   "groupCount": 331,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ca/de",
+   "cc": "ca",
+   "ll": "de",
+   "hreflang": [
+    "de-CA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ca_de_1.xml.gz",
+    "sitemap_lh_ca_de_2.xml.gz",
+    "sitemap_lh_ca_de_3.xml.gz",
+    "sitemap_lh_ca_de_4.xml.gz",
+    "sitemap_lh_ca_de_5.xml.gz",
+    "sitemap_lh_ca_de_6.xml.gz",
+    "sitemap_lh_ca_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ca/en",
+   "cc": "ca",
+   "ll": "en",
+   "hreflang": [
+    "en-CA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ca_en_1.xml.gz",
+    "sitemap_lh_ca_en_2.xml.gz",
+    "sitemap_lh_ca_en_3.xml.gz",
+    "sitemap_lh_ca_en_4.xml.gz",
+    "sitemap_lh_ca_en_5.xml.gz",
+    "sitemap_lh_ca_en_6.xml.gz",
+    "sitemap_lh_ca_en_7.xml.gz",
+    "sitemap_lh_ca_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1039,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "ca/es",
+   "cc": "ca",
+   "ll": "es",
+   "hreflang": [
+    "es-CA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ca_es_1.xml.gz",
+    "sitemap_lh_ca_es_2.xml.gz",
+    "sitemap_lh_ca_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 346,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ca/fr",
+   "cc": "ca",
+   "ll": "fr",
+   "hreflang": [
+    "fr-CA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ca_fr_1.xml.gz",
+    "sitemap_lh_ca_fr_2.xml.gz",
+    "sitemap_lh_ca_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 350,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "cd/de",
+   "cc": "cd",
+   "ll": "de",
+   "hreflang": [
+    "de-CD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cd_de_1.xml.gz",
+    "sitemap_lh_cd_de_2.xml.gz",
+    "sitemap_lh_cd_de_3.xml.gz",
+    "sitemap_lh_cd_de_4.xml.gz",
+    "sitemap_lh_cd_de_5.xml.gz",
+    "sitemap_lh_cd_de_6.xml.gz",
+    "sitemap_lh_cd_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cd/en",
+   "cc": "cd",
+   "ll": "en",
+   "hreflang": [
+    "en-CD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cd_en_1.xml.gz",
+    "sitemap_lh_cd_en_2.xml.gz",
+    "sitemap_lh_cd_en_3.xml.gz",
+    "sitemap_lh_cd_en_4.xml.gz",
+    "sitemap_lh_cd_en_5.xml.gz",
+    "sitemap_lh_cd_en_6.xml.gz",
+    "sitemap_lh_cd_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ch/de",
+   "cc": "ch",
+   "ll": "de",
+   "hreflang": [
+    "de-CH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ch_de_1.xml.gz",
+    "sitemap_lh_ch_de_2.xml.gz",
+    "sitemap_lh_ch_de_3.xml.gz",
+    "sitemap_lh_ch_de_4.xml.gz",
+    "sitemap_lh_ch_de_5.xml.gz",
+    "sitemap_lh_ch_de_6.xml.gz",
+    "sitemap_lh_ch_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1032,
+   "alternateOnlyCount": 22,
+   "groupCount": 1051,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ch/en",
+   "cc": "ch",
+   "ll": "en",
+   "hreflang": [
+    "en-CH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ch_en_1.xml.gz",
+    "sitemap_lh_ch_en_2.xml.gz",
+    "sitemap_lh_ch_en_3.xml.gz",
+    "sitemap_lh_ch_en_4.xml.gz",
+    "sitemap_lh_ch_en_5.xml.gz",
+    "sitemap_lh_ch_en_6.xml.gz",
+    "sitemap_lh_ch_en_7.xml.gz",
+    "sitemap_lh_ch_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1041,
+   "alternateOnlyCount": 17,
+   "groupCount": 1057,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ch/fr",
+   "cc": "ch",
+   "ll": "fr",
+   "hreflang": [
+    "fr-CH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ch_fr_1.xml.gz",
+    "sitemap_lh_ch_fr_2.xml.gz",
+    "sitemap_lh_ch_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 351,
+   "alternateOnlyCount": 3,
+   "groupCount": 354,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ch/it",
+   "cc": "ch",
+   "ll": "it",
+   "hreflang": [
+    "it-CH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ch_it_1.xml.gz",
+    "sitemap_lh_ch_it_2.xml.gz",
+    "sitemap_lh_ch_it.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 329,
+   "alternateOnlyCount": 2,
+   "groupCount": 331,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cl/de",
+   "cc": "cl",
+   "ll": "de",
+   "hreflang": [
+    "de-CL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cl_de_1.xml.gz",
+    "sitemap_lh_cl_de_2.xml.gz",
+    "sitemap_lh_cl_de_3.xml.gz",
+    "sitemap_lh_cl_de_4.xml.gz",
+    "sitemap_lh_cl_de_5.xml.gz",
+    "sitemap_lh_cl_de_6.xml.gz",
+    "sitemap_lh_cl_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cl/en",
+   "cc": "cl",
+   "ll": "en",
+   "hreflang": [
+    "en-CL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cl_en_1.xml.gz",
+    "sitemap_lh_cl_en_2.xml.gz",
+    "sitemap_lh_cl_en_3.xml.gz",
+    "sitemap_lh_cl_en_4.xml.gz",
+    "sitemap_lh_cl_en_5.xml.gz",
+    "sitemap_lh_cl_en_6.xml.gz",
+    "sitemap_lh_cl_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1033,
+   "alternateOnlyCount": 20,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cl/es",
+   "cc": "cl",
+   "ll": "es",
+   "hreflang": [
+    "es-CL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cl_es_1.xml.gz",
+    "sitemap_lh_cl_es_2.xml.gz",
+    "sitemap_lh_cl_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 346,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cl/fr",
+   "cc": "cl",
+   "ll": "fr",
+   "hreflang": [
+    "fr-CL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cl_fr_1.xml.gz",
+    "sitemap_lh_cl_fr_2.xml.gz",
+    "sitemap_lh_cl_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 347,
+   "alternateOnlyCount": 3,
+   "groupCount": 350,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cn/de",
+   "cc": "cn",
+   "ll": "de",
+   "hreflang": [
+    "de-CN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cn_de_1.xml.gz",
+    "sitemap_lh_cn_de_2.xml.gz",
+    "sitemap_lh_cn_de_3.xml.gz",
+    "sitemap_lh_cn_de_4.xml.gz",
+    "sitemap_lh_cn_de_5.xml.gz",
+    "sitemap_lh_cn_de_6.xml.gz",
+    "sitemap_lh_cn_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cn/en",
+   "cc": "cn",
+   "ll": "en",
+   "hreflang": [
+    "en-CN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cn_en_1.xml.gz",
+    "sitemap_lh_cn_en_2.xml.gz",
+    "sitemap_lh_cn_en_3.xml.gz",
+    "sitemap_lh_cn_en_4.xml.gz",
+    "sitemap_lh_cn_en_5.xml.gz",
+    "sitemap_lh_cn_en_6.xml.gz",
+    "sitemap_lh_cn_en_7.xml.gz",
+    "sitemap_lh_cn_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1051,
+   "alternateOnlyCount": 18,
+   "groupCount": 1054,
+   "marketOnlyCount": 14,
+   "ownSitemap": true
+  },
+  {
+   "root": "cn/hk",
+   "cc": "cn",
+   "ll": "hk",
+   "hreflang": [
+    "zh-CN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cn_hk_1.xml.gz",
+    "sitemap_lh_cn_hk_2.xml.gz",
+    "sitemap_lh_cn_hk.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 333,
+   "alternateOnlyCount": 1,
+   "groupCount": 334,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cn/zh",
+   "cc": "cn",
+   "ll": "zh",
+   "hreflang": [
+    "zh-CN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cn_zh_1.xml.gz",
+    "sitemap_lh_cn_zh_2.xml.gz",
+    "sitemap_lh_cn_zh.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 342,
+   "alternateOnlyCount": 1,
+   "groupCount": 338,
+   "marketOnlyCount": 4,
+   "ownSitemap": true
+  },
+  {
+   "root": "co/de",
+   "cc": "co",
+   "ll": "de",
+   "hreflang": [
+    "de-CO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_co_de_1.xml.gz",
+    "sitemap_lh_co_de_2.xml.gz",
+    "sitemap_lh_co_de_3.xml.gz",
+    "sitemap_lh_co_de_4.xml.gz",
+    "sitemap_lh_co_de_5.xml.gz",
+    "sitemap_lh_co_de_6.xml.gz",
+    "sitemap_lh_co_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "co/en",
+   "cc": "co",
+   "ll": "en",
+   "hreflang": [
+    "en-CO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_co_en_1.xml.gz",
+    "sitemap_lh_co_en_2.xml.gz",
+    "sitemap_lh_co_en_3.xml.gz",
+    "sitemap_lh_co_en_4.xml.gz",
+    "sitemap_lh_co_en_5.xml.gz",
+    "sitemap_lh_co_en_6.xml.gz",
+    "sitemap_lh_co_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "co/es",
+   "cc": "co",
+   "ll": "es",
+   "hreflang": [
+    "es-CO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_co_es_1.xml.gz",
+    "sitemap_lh_co_es_2.xml.gz",
+    "sitemap_lh_co_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 347,
+   "alternateOnlyCount": 2,
+   "groupCount": 348,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "co/fr",
+   "cc": "co",
+   "ll": "fr",
+   "hreflang": [
+    "fr-CO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_co_fr_1.xml.gz",
+    "sitemap_lh_co_fr_2.xml.gz",
+    "sitemap_lh_co_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cr/de",
+   "cc": "cr",
+   "ll": "de",
+   "hreflang": [
+    "de-CR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cr_de_1.xml.gz",
+    "sitemap_lh_cr_de_2.xml.gz",
+    "sitemap_lh_cr_de_3.xml.gz",
+    "sitemap_lh_cr_de_4.xml.gz",
+    "sitemap_lh_cr_de_5.xml.gz",
+    "sitemap_lh_cr_de_6.xml.gz",
+    "sitemap_lh_cr_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 21,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cr/en",
+   "cc": "cr",
+   "ll": "en",
+   "hreflang": [
+    "en-CR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cr_en_1.xml.gz",
+    "sitemap_lh_cr_en_2.xml.gz",
+    "sitemap_lh_cr_en_3.xml.gz",
+    "sitemap_lh_cr_en_4.xml.gz",
+    "sitemap_lh_cr_en_5.xml.gz",
+    "sitemap_lh_cr_en_6.xml.gz",
+    "sitemap_lh_cr_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 20,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cr/es",
+   "cc": "cr",
+   "ll": "es",
+   "hreflang": [
+    "es-CR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cr_es_1.xml.gz",
+    "sitemap_lh_cr_es_2.xml.gz",
+    "sitemap_lh_cr_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 343,
+   "alternateOnlyCount": 2,
+   "groupCount": 344,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cr/fr",
+   "cc": "cr",
+   "ll": "fr",
+   "hreflang": [
+    "fr-CR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cr_fr_1.xml.gz",
+    "sitemap_lh_cr_fr_2.xml.gz",
+    "sitemap_lh_cr_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cy/de",
+   "cc": "cy",
+   "ll": "de",
+   "hreflang": [
+    "de-CY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cy_de_1.xml.gz",
+    "sitemap_lh_cy_de_2.xml.gz",
+    "sitemap_lh_cy_de_3.xml.gz",
+    "sitemap_lh_cy_de_4.xml.gz",
+    "sitemap_lh_cy_de_5.xml.gz",
+    "sitemap_lh_cy_de_6.xml.gz",
+    "sitemap_lh_cy_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cy/el",
+   "cc": "cy",
+   "ll": "el",
+   "hreflang": [
+    "el-CY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cy_el_1.xml.gz",
+    "sitemap_lh_cy_el_2.xml.gz",
+    "sitemap_lh_cy_el.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 334,
+   "alternateOnlyCount": 1,
+   "groupCount": 334,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cy/en",
+   "cc": "cy",
+   "ll": "en",
+   "hreflang": [
+    "en-CY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cy_en_1.xml.gz",
+    "sitemap_lh_cy_en_2.xml.gz",
+    "sitemap_lh_cy_en_3.xml.gz",
+    "sitemap_lh_cy_en_4.xml.gz",
+    "sitemap_lh_cy_en_5.xml.gz",
+    "sitemap_lh_cy_en_6.xml.gz",
+    "sitemap_lh_cy_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cz/de",
+   "cc": "cz",
+   "ll": "de",
+   "hreflang": [
+    "de-CZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cz_de_1.xml.gz",
+    "sitemap_lh_cz_de_2.xml.gz",
+    "sitemap_lh_cz_de_3.xml.gz",
+    "sitemap_lh_cz_de_4.xml.gz",
+    "sitemap_lh_cz_de_5.xml.gz",
+    "sitemap_lh_cz_de_6.xml.gz",
+    "sitemap_lh_cz_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "cz/en",
+   "cc": "cz",
+   "ll": "en",
+   "hreflang": [
+    "en-CZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_cz_en_1.xml.gz",
+    "sitemap_lh_cz_en_2.xml.gz",
+    "sitemap_lh_cz_en_3.xml.gz",
+    "sitemap_lh_cz_en_4.xml.gz",
+    "sitemap_lh_cz_en_5.xml.gz",
+    "sitemap_lh_cz_en_6.xml.gz",
+    "sitemap_lh_cz_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1039,
+   "alternateOnlyCount": 18,
+   "groupCount": 1056,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "de/de",
+   "cc": "de",
+   "ll": "de",
+   "hreflang": [
+    "de-DE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_de_de_1.xml.gz",
+    "sitemap_lh_de_de_2.xml.gz",
+    "sitemap_lh_de_de_3.xml.gz",
+    "sitemap_lh_de_de_4.xml.gz",
+    "sitemap_lh_de_de_5.xml.gz",
+    "sitemap_lh_de_de_6.xml.gz",
+    "sitemap_lh_de_de_7.xml.gz",
+    "sitemap_lh_de_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1049,
+   "alternateOnlyCount": 19,
+   "groupCount": 1057,
+   "marketOnlyCount": 9,
+   "ownSitemap": true
+  },
+  {
+   "root": "de/en",
+   "cc": "de",
+   "ll": "en",
+   "hreflang": [
+    "en-DE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_de_en_1.xml.gz",
+    "sitemap_lh_de_en_2.xml.gz",
+    "sitemap_lh_de_en_3.xml.gz",
+    "sitemap_lh_de_en_4.xml.gz",
+    "sitemap_lh_de_en_5.xml.gz",
+    "sitemap_lh_de_en_6.xml.gz",
+    "sitemap_lh_de_en_7.xml.gz",
+    "sitemap_lh_de_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1066,
+   "alternateOnlyCount": 15,
+   "groupCount": 1063,
+   "marketOnlyCount": 17,
+   "ownSitemap": true
+  },
+  {
+   "root": "dk/de",
+   "cc": "dk",
+   "ll": "de",
+   "hreflang": [
+    "de-DK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_dk_de_1.xml.gz",
+    "sitemap_lh_dk_de_2.xml.gz",
+    "sitemap_lh_dk_de_3.xml.gz",
+    "sitemap_lh_dk_de_4.xml.gz",
+    "sitemap_lh_dk_de_5.xml.gz",
+    "sitemap_lh_dk_de_6.xml.gz",
+    "sitemap_lh_dk_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "dk/en",
+   "cc": "dk",
+   "ll": "en",
+   "hreflang": [
+    "en-DK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_dk_en_1.xml.gz",
+    "sitemap_lh_dk_en_2.xml.gz",
+    "sitemap_lh_dk_en_3.xml.gz",
+    "sitemap_lh_dk_en_4.xml.gz",
+    "sitemap_lh_dk_en_5.xml.gz",
+    "sitemap_lh_dk_en_6.xml.gz",
+    "sitemap_lh_dk_en_7.xml.gz",
+    "sitemap_lh_dk_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1046,
+   "alternateOnlyCount": 16,
+   "groupCount": 1060,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "dz/de",
+   "cc": "dz",
+   "ll": "de",
+   "hreflang": [
+    "de-DZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_dz_de_1.xml.gz",
+    "sitemap_lh_dz_de_2.xml.gz",
+    "sitemap_lh_dz_de_3.xml.gz",
+    "sitemap_lh_dz_de_4.xml.gz",
+    "sitemap_lh_dz_de_5.xml.gz",
+    "sitemap_lh_dz_de_6.xml.gz",
+    "sitemap_lh_dz_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "dz/en",
+   "cc": "dz",
+   "ll": "en",
+   "hreflang": [
+    "en-DZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_dz_en_1.xml.gz",
+    "sitemap_lh_dz_en_2.xml.gz",
+    "sitemap_lh_dz_en_3.xml.gz",
+    "sitemap_lh_dz_en_4.xml.gz",
+    "sitemap_lh_dz_en_5.xml.gz",
+    "sitemap_lh_dz_en_6.xml.gz",
+    "sitemap_lh_dz_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "dz/fr",
+   "cc": "dz",
+   "ll": "fr",
+   "hreflang": [
+    "fr-DZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_dz_fr_1.xml.gz",
+    "sitemap_lh_dz_fr_2.xml.gz",
+    "sitemap_lh_dz_fr.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 349,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ec/de",
+   "cc": "ec",
+   "ll": "de",
+   "hreflang": [
+    "de-EC"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ec_de_1.xml.gz",
+    "sitemap_lh_ec_de_2.xml.gz",
+    "sitemap_lh_ec_de_3.xml.gz",
+    "sitemap_lh_ec_de_4.xml.gz",
+    "sitemap_lh_ec_de_5.xml.gz",
+    "sitemap_lh_ec_de_6.xml.gz",
+    "sitemap_lh_ec_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 21,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ec/en",
+   "cc": "ec",
+   "ll": "en",
+   "hreflang": [
+    "en-EC"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ec_en_1.xml.gz",
+    "sitemap_lh_ec_en_2.xml.gz",
+    "sitemap_lh_ec_en_3.xml.gz",
+    "sitemap_lh_ec_en_4.xml.gz",
+    "sitemap_lh_ec_en_5.xml.gz",
+    "sitemap_lh_ec_en_6.xml.gz",
+    "sitemap_lh_ec_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ec/es",
+   "cc": "ec",
+   "ll": "es",
+   "hreflang": [
+    "es-EC"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ec_es_1.xml.gz",
+    "sitemap_lh_ec_es_2.xml.gz",
+    "sitemap_lh_ec_es.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 344,
+   "alternateOnlyCount": 2,
+   "groupCount": 345,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ee/de",
+   "cc": "ee",
+   "ll": "de",
+   "hreflang": [
+    "de-EE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ee_de_1.xml.gz",
+    "sitemap_lh_ee_de_2.xml.gz",
+    "sitemap_lh_ee_de_3.xml.gz",
+    "sitemap_lh_ee_de_4.xml.gz",
+    "sitemap_lh_ee_de_5.xml.gz",
+    "sitemap_lh_ee_de_6.xml.gz",
+    "sitemap_lh_ee_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ee/en",
+   "cc": "ee",
+   "ll": "en",
+   "hreflang": [
+    "en-EE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ee_en_1.xml.gz",
+    "sitemap_lh_ee_en_2.xml.gz",
+    "sitemap_lh_ee_en_3.xml.gz",
+    "sitemap_lh_ee_en_4.xml.gz",
+    "sitemap_lh_ee_en_5.xml.gz",
+    "sitemap_lh_ee_en_6.xml.gz",
+    "sitemap_lh_ee_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1036,
+   "alternateOnlyCount": 20,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "eg/de",
+   "cc": "eg",
+   "ll": "de",
+   "hreflang": [
+    "de-EG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_eg_de_1.xml.gz",
+    "sitemap_lh_eg_de_2.xml.gz",
+    "sitemap_lh_eg_de_3.xml.gz",
+    "sitemap_lh_eg_de_4.xml.gz",
+    "sitemap_lh_eg_de_5.xml.gz",
+    "sitemap_lh_eg_de_6.xml.gz",
+    "sitemap_lh_eg_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "eg/en",
+   "cc": "eg",
+   "ll": "en",
+   "hreflang": [
+    "en-EG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_eg_en_1.xml.gz",
+    "sitemap_lh_eg_en_2.xml.gz",
+    "sitemap_lh_eg_en_3.xml.gz",
+    "sitemap_lh_eg_en_4.xml.gz",
+    "sitemap_lh_eg_en_5.xml.gz",
+    "sitemap_lh_eg_en_6.xml.gz",
+    "sitemap_lh_eg_en_7.xml.gz",
+    "sitemap_lh_eg_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1055,
+   "alternateOnlyCount": 16,
+   "groupCount": 1057,
+   "marketOnlyCount": 13,
+   "ownSitemap": true
+  },
+  {
+   "root": "er/de",
+   "cc": "er",
+   "ll": "de",
+   "hreflang": [
+    "de-ER"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_er_de_1.xml.gz",
+    "sitemap_lh_er_de_2.xml.gz",
+    "sitemap_lh_er_de_3.xml.gz",
+    "sitemap_lh_er_de_4.xml.gz",
+    "sitemap_lh_er_de_5.xml.gz",
+    "sitemap_lh_er_de_6.xml.gz",
+    "sitemap_lh_er_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "er/en",
+   "cc": "er",
+   "ll": "en",
+   "hreflang": [
+    "en-ER"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_er_en_1.xml.gz",
+    "sitemap_lh_er_en_2.xml.gz",
+    "sitemap_lh_er_en_3.xml.gz",
+    "sitemap_lh_er_en_4.xml.gz",
+    "sitemap_lh_er_en_5.xml.gz",
+    "sitemap_lh_er_en_6.xml.gz",
+    "sitemap_lh_er_en.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "es/de",
+   "cc": "es",
+   "ll": "de",
+   "hreflang": [
+    "de-ES"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_es_de_1.xml.gz",
+    "sitemap_lh_es_de_2.xml.gz",
+    "sitemap_lh_es_de_3.xml.gz",
+    "sitemap_lh_es_de_4.xml.gz",
+    "sitemap_lh_es_de_5.xml.gz",
+    "sitemap_lh_es_de_6.xml.gz",
+    "sitemap_lh_es_de.xml.gz"
+   ],
+   "inIndex": true,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "es/en",
+   "cc": "es",
+   "ll": "en",
+   "hreflang": [
+    "en-ES"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_es_en_1.xml.gz",
+    "sitemap_lh_es_en_2.xml.gz",
+    "sitemap_lh_es_en_3.xml.gz",
+    "sitemap_lh_es_en_4.xml.gz",
+    "sitemap_lh_es_en_5.xml.gz",
+    "sitemap_lh_es_en_6.xml.gz",
+    "sitemap_lh_es_en_7.xml.gz",
+    "sitemap_lh_es_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1040,
+   "alternateOnlyCount": 17,
+   "groupCount": 1055,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "es/es",
+   "cc": "es",
+   "ll": "es",
+   "hreflang": [
+    "es-ES"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_es_es_1.xml.gz",
+    "sitemap_lh_es_es_2.xml.gz",
+    "sitemap_lh_es_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 357,
+   "alternateOnlyCount": 2,
+   "groupCount": 351,
+   "marketOnlyCount": 7,
+   "ownSitemap": true
+  },
+  {
+   "root": "et/de",
+   "cc": "et",
+   "ll": "de",
+   "hreflang": [
+    "de-ET"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_et_de_1.xml.gz",
+    "sitemap_lh_et_de_2.xml.gz",
+    "sitemap_lh_et_de_3.xml.gz",
+    "sitemap_lh_et_de_4.xml.gz",
+    "sitemap_lh_et_de_5.xml.gz",
+    "sitemap_lh_et_de_6.xml.gz",
+    "sitemap_lh_et_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "et/en",
+   "cc": "et",
+   "ll": "en",
+   "hreflang": [
+    "en-ET"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_et_en_1.xml.gz",
+    "sitemap_lh_et_en_2.xml.gz",
+    "sitemap_lh_et_en_3.xml.gz",
+    "sitemap_lh_et_en_4.xml.gz",
+    "sitemap_lh_et_en_5.xml.gz",
+    "sitemap_lh_et_en_6.xml.gz",
+    "sitemap_lh_et_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "fi/de",
+   "cc": "fi",
+   "ll": "de",
+   "hreflang": [
+    "de-FI"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_fi_de_1.xml.gz",
+    "sitemap_lh_fi_de_2.xml.gz",
+    "sitemap_lh_fi_de_3.xml.gz",
+    "sitemap_lh_fi_de_4.xml.gz",
+    "sitemap_lh_fi_de_5.xml.gz",
+    "sitemap_lh_fi_de_6.xml.gz",
+    "sitemap_lh_fi_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "fi/en",
+   "cc": "fi",
+   "ll": "en",
+   "hreflang": [
+    "en-FI"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_fi_en_1.xml.gz",
+    "sitemap_lh_fi_en_2.xml.gz",
+    "sitemap_lh_fi_en_3.xml.gz",
+    "sitemap_lh_fi_en_4.xml.gz",
+    "sitemap_lh_fi_en_5.xml.gz",
+    "sitemap_lh_fi_en_6.xml.gz",
+    "sitemap_lh_fi_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1039,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "fr/de",
+   "cc": "fr",
+   "ll": "de",
+   "hreflang": [
+    "de-FR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_fr_de_1.xml.gz",
+    "sitemap_lh_fr_de_2.xml.gz",
+    "sitemap_lh_fr_de_3.xml.gz",
+    "sitemap_lh_fr_de_4.xml.gz",
+    "sitemap_lh_fr_de_5.xml.gz",
+    "sitemap_lh_fr_de_6.xml.gz",
+    "sitemap_lh_fr_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "fr/en",
+   "cc": "fr",
+   "ll": "en",
+   "hreflang": [
+    "en-FR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_fr_en_1.xml.gz",
+    "sitemap_lh_fr_en_2.xml.gz",
+    "sitemap_lh_fr_en_3.xml.gz",
+    "sitemap_lh_fr_en_4.xml.gz",
+    "sitemap_lh_fr_en_5.xml.gz",
+    "sitemap_lh_fr_en_6.xml.gz",
+    "sitemap_lh_fr_en_7.xml.gz",
+    "sitemap_lh_fr_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1041,
+   "alternateOnlyCount": 16,
+   "groupCount": 1054,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "fr/fr",
+   "cc": "fr",
+   "ll": "fr",
+   "hreflang": [
+    "fr-FR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_fr_fr_1.xml.gz",
+    "sitemap_lh_fr_fr_2.xml.gz",
+    "sitemap_lh_fr_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 350,
+   "alternateOnlyCount": 3,
+   "groupCount": 352,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "gb/de",
+   "cc": "gb",
+   "ll": "de",
+   "hreflang": [
+    "de-GB"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gb_de_1.xml.gz",
+    "sitemap_lh_gb_de_2.xml.gz",
+    "sitemap_lh_gb_de_3.xml.gz",
+    "sitemap_lh_gb_de_4.xml.gz",
+    "sitemap_lh_gb_de_5.xml.gz",
+    "sitemap_lh_gb_de_6.xml.gz",
+    "sitemap_lh_gb_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gb/en",
+   "cc": "gb",
+   "ll": "en",
+   "hreflang": [
+    "en-GB"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gb_en_1.xml.gz",
+    "sitemap_lh_gb_en_2.xml.gz",
+    "sitemap_lh_gb_en_3.xml.gz",
+    "sitemap_lh_gb_en_4.xml.gz",
+    "sitemap_lh_gb_en_5.xml.gz",
+    "sitemap_lh_gb_en_6.xml.gz",
+    "sitemap_lh_gb_en_7.xml.gz",
+    "sitemap_lh_gb_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1043,
+   "alternateOnlyCount": 17,
+   "groupCount": 1055,
+   "marketOnlyCount": 4,
+   "ownSitemap": true
+  },
+  {
+   "root": "ge/de",
+   "cc": "ge",
+   "ll": "de",
+   "hreflang": [
+    "de-GE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ge_de_1.xml.gz",
+    "sitemap_lh_ge_de_2.xml.gz",
+    "sitemap_lh_ge_de_3.xml.gz",
+    "sitemap_lh_ge_de_4.xml.gz",
+    "sitemap_lh_ge_de_5.xml.gz",
+    "sitemap_lh_ge_de_6.xml.gz",
+    "sitemap_lh_ge_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ge/en",
+   "cc": "ge",
+   "ll": "en",
+   "hreflang": [
+    "en-GE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ge_en_1.xml.gz",
+    "sitemap_lh_ge_en_2.xml.gz",
+    "sitemap_lh_ge_en_3.xml.gz",
+    "sitemap_lh_ge_en_4.xml.gz",
+    "sitemap_lh_ge_en_5.xml.gz",
+    "sitemap_lh_ge_en_6.xml.gz",
+    "sitemap_lh_ge_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gq/de",
+   "cc": "gq",
+   "ll": "de",
+   "hreflang": [
+    "de-GQ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gq_de_1.xml.gz",
+    "sitemap_lh_gq_de_2.xml.gz",
+    "sitemap_lh_gq_de_3.xml.gz",
+    "sitemap_lh_gq_de_4.xml.gz",
+    "sitemap_lh_gq_de_5.xml.gz",
+    "sitemap_lh_gq_de_6.xml.gz",
+    "sitemap_lh_gq_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gq/en",
+   "cc": "gq",
+   "ll": "en",
+   "hreflang": [
+    "en-GQ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gq_en_1.xml.gz",
+    "sitemap_lh_gq_en_2.xml.gz",
+    "sitemap_lh_gq_en_3.xml.gz",
+    "sitemap_lh_gq_en_4.xml.gz",
+    "sitemap_lh_gq_en_5.xml.gz",
+    "sitemap_lh_gq_en_6.xml.gz",
+    "sitemap_lh_gq_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 20,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gq/fr",
+   "cc": "gq",
+   "ll": "fr",
+   "hreflang": [
+    "fr-GQ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gq_fr_1.xml.gz",
+    "sitemap_lh_gq_fr_2.xml.gz",
+    "sitemap_lh_gq_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 347,
+   "alternateOnlyCount": 3,
+   "groupCount": 350,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gr/de",
+   "cc": "gr",
+   "ll": "de",
+   "hreflang": [
+    "de-GR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gr_de_1.xml.gz",
+    "sitemap_lh_gr_de_2.xml.gz",
+    "sitemap_lh_gr_de_3.xml.gz",
+    "sitemap_lh_gr_de_4.xml.gz",
+    "sitemap_lh_gr_de_5.xml.gz",
+    "sitemap_lh_gr_de_6.xml.gz",
+    "sitemap_lh_gr_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gr/el",
+   "cc": "gr",
+   "ll": "el",
+   "hreflang": [
+    "el-GR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gr_el_1.xml.gz",
+    "sitemap_lh_gr_el_2.xml.gz",
+    "sitemap_lh_gr_el.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 338,
+   "alternateOnlyCount": 1,
+   "groupCount": 338,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "gr/en",
+   "cc": "gr",
+   "ll": "en",
+   "hreflang": [
+    "en-GR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_gr_en_1.xml.gz",
+    "sitemap_lh_gr_en_2.xml.gz",
+    "sitemap_lh_gr_en_3.xml.gz",
+    "sitemap_lh_gr_en_4.xml.gz",
+    "sitemap_lh_gr_en_5.xml.gz",
+    "sitemap_lh_gr_en_6.xml.gz",
+    "sitemap_lh_gr_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 20,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hk/de",
+   "cc": "hk",
+   "ll": "de",
+   "hreflang": [
+    "de-HK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hk_de_1.xml.gz",
+    "sitemap_lh_hk_de_2.xml.gz",
+    "sitemap_lh_hk_de_3.xml.gz",
+    "sitemap_lh_hk_de_4.xml.gz",
+    "sitemap_lh_hk_de_5.xml.gz",
+    "sitemap_lh_hk_de_6.xml.gz",
+    "sitemap_lh_hk_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hk/en",
+   "cc": "hk",
+   "ll": "en",
+   "hreflang": [
+    "en-HK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hk_en_1.xml.gz",
+    "sitemap_lh_hk_en_2.xml.gz",
+    "sitemap_lh_hk_en_3.xml.gz",
+    "sitemap_lh_hk_en_4.xml.gz",
+    "sitemap_lh_hk_en_5.xml.gz",
+    "sitemap_lh_hk_en_6.xml.gz",
+    "sitemap_lh_hk_en_7.xml.gz",
+    "sitemap_lh_hk_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1051,
+   "alternateOnlyCount": 17,
+   "groupCount": 1055,
+   "marketOnlyCount": 12,
+   "ownSitemap": true
+  },
+  {
+   "root": "hk/hk",
+   "cc": "hk",
+   "ll": "hk",
+   "hreflang": [
+    "zh-HK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hk_hk_1.xml.gz",
+    "sitemap_lh_hk_hk_2.xml.gz",
+    "sitemap_lh_hk_hk.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 341,
+   "alternateOnlyCount": 1,
+   "groupCount": 340,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "hk/zh",
+   "cc": "hk",
+   "ll": "zh",
+   "hreflang": [
+    "zh-HK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hk_zh_1.xml.gz",
+    "sitemap_lh_hk_zh_2.xml.gz",
+    "sitemap_lh_hk_zh.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 335,
+   "alternateOnlyCount": 1,
+   "groupCount": 335,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hr/de",
+   "cc": "hr",
+   "ll": "de",
+   "hreflang": [
+    "de-HR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hr_de_1.xml.gz",
+    "sitemap_lh_hr_de_2.xml.gz",
+    "sitemap_lh_hr_de_3.xml.gz",
+    "sitemap_lh_hr_de_4.xml.gz",
+    "sitemap_lh_hr_de_5.xml.gz",
+    "sitemap_lh_hr_de_6.xml.gz",
+    "sitemap_lh_hr_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hr/en",
+   "cc": "hr",
+   "ll": "en",
+   "hreflang": [
+    "en-HR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hr_en_1.xml.gz",
+    "sitemap_lh_hr_en_2.xml.gz",
+    "sitemap_lh_hr_en_3.xml.gz",
+    "sitemap_lh_hr_en_4.xml.gz",
+    "sitemap_lh_hr_en_5.xml.gz",
+    "sitemap_lh_hr_en_6.xml.gz",
+    "sitemap_lh_hr_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1038,
+   "alternateOnlyCount": 18,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hu/de",
+   "cc": "hu",
+   "ll": "de",
+   "hreflang": [
+    "de-HU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hu_de_1.xml.gz",
+    "sitemap_lh_hu_de_2.xml.gz",
+    "sitemap_lh_hu_de_3.xml.gz",
+    "sitemap_lh_hu_de_4.xml.gz",
+    "sitemap_lh_hu_de_5.xml.gz",
+    "sitemap_lh_hu_de_6.xml.gz",
+    "sitemap_lh_hu_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "hu/en",
+   "cc": "hu",
+   "ll": "en",
+   "hreflang": [
+    "en-HU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_hu_en_1.xml.gz",
+    "sitemap_lh_hu_en_2.xml.gz",
+    "sitemap_lh_hu_en_3.xml.gz",
+    "sitemap_lh_hu_en_4.xml.gz",
+    "sitemap_lh_hu_en_5.xml.gz",
+    "sitemap_lh_hu_en_6.xml.gz",
+    "sitemap_lh_hu_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 20,
+   "groupCount": 1056,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "id/de",
+   "cc": "id",
+   "ll": "de",
+   "hreflang": [
+    "de-ID"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_id_de_1.xml.gz",
+    "sitemap_lh_id_de_2.xml.gz",
+    "sitemap_lh_id_de_3.xml.gz",
+    "sitemap_lh_id_de_4.xml.gz",
+    "sitemap_lh_id_de_5.xml.gz",
+    "sitemap_lh_id_de_6.xml.gz",
+    "sitemap_lh_id_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "id/en",
+   "cc": "id",
+   "ll": "en",
+   "hreflang": [
+    "en-ID"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_id_en_1.xml.gz",
+    "sitemap_lh_id_en_2.xml.gz",
+    "sitemap_lh_id_en_3.xml.gz",
+    "sitemap_lh_id_en_4.xml.gz",
+    "sitemap_lh_id_en_5.xml.gz",
+    "sitemap_lh_id_en_6.xml.gz",
+    "sitemap_lh_id_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ie/de",
+   "cc": "ie",
+   "ll": "de",
+   "hreflang": [
+    "de-IE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ie_de_1.xml.gz",
+    "sitemap_lh_ie_de_2.xml.gz",
+    "sitemap_lh_ie_de_3.xml.gz",
+    "sitemap_lh_ie_de_4.xml.gz",
+    "sitemap_lh_ie_de_5.xml.gz",
+    "sitemap_lh_ie_de_6.xml.gz",
+    "sitemap_lh_ie_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ie/en",
+   "cc": "ie",
+   "ll": "en",
+   "hreflang": [
+    "en-IE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ie_en_1.xml.gz",
+    "sitemap_lh_ie_en_2.xml.gz",
+    "sitemap_lh_ie_en_3.xml.gz",
+    "sitemap_lh_ie_en_4.xml.gz",
+    "sitemap_lh_ie_en_5.xml.gz",
+    "sitemap_lh_ie_en_6.xml.gz",
+    "sitemap_lh_ie_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 20,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "il/de",
+   "cc": "il",
+   "ll": "de",
+   "hreflang": [
+    "de-IL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_il_de_1.xml.gz",
+    "sitemap_lh_il_de_2.xml.gz",
+    "sitemap_lh_il_de_3.xml.gz",
+    "sitemap_lh_il_de_4.xml.gz",
+    "sitemap_lh_il_de_5.xml.gz",
+    "sitemap_lh_il_de_6.xml.gz",
+    "sitemap_lh_il_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "il/en",
+   "cc": "il",
+   "ll": "en",
+   "hreflang": [
+    "en-IL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_il_en_1.xml.gz",
+    "sitemap_lh_il_en_2.xml.gz",
+    "sitemap_lh_il_en_3.xml.gz",
+    "sitemap_lh_il_en_4.xml.gz",
+    "sitemap_lh_il_en_5.xml.gz",
+    "sitemap_lh_il_en_6.xml.gz",
+    "sitemap_lh_il_en_7.xml.gz",
+    "sitemap_lh_il_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1043,
+   "alternateOnlyCount": 16,
+   "groupCount": 1054,
+   "marketOnlyCount": 4,
+   "ownSitemap": true
+  },
+  {
+   "root": "in/de",
+   "cc": "in",
+   "ll": "de",
+   "hreflang": [
+    "de-IN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_in_de_1.xml.gz",
+    "sitemap_lh_in_de_2.xml.gz",
+    "sitemap_lh_in_de_3.xml.gz",
+    "sitemap_lh_in_de_4.xml.gz",
+    "sitemap_lh_in_de_5.xml.gz",
+    "sitemap_lh_in_de_6.xml.gz",
+    "sitemap_lh_in_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "in/en",
+   "cc": "in",
+   "ll": "en",
+   "hreflang": [
+    "en-IN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_in_en_1.xml.gz",
+    "sitemap_lh_in_en_2.xml.gz",
+    "sitemap_lh_in_en_3.xml.gz",
+    "sitemap_lh_in_en_4.xml.gz",
+    "sitemap_lh_in_en_5.xml.gz",
+    "sitemap_lh_in_en_6.xml.gz",
+    "sitemap_lh_in_en_7.xml.gz",
+    "sitemap_lh_in_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1054,
+   "alternateOnlyCount": 15,
+   "groupCount": 1054,
+   "marketOnlyCount": 14,
+   "ownSitemap": true
+  },
+  {
+   "root": "iq/de",
+   "cc": "iq",
+   "ll": "de",
+   "hreflang": [
+    "de-IQ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_iq_de_1.xml.gz",
+    "sitemap_lh_iq_de_2.xml.gz",
+    "sitemap_lh_iq_de_3.xml.gz",
+    "sitemap_lh_iq_de_4.xml.gz",
+    "sitemap_lh_iq_de_5.xml.gz",
+    "sitemap_lh_iq_de_6.xml.gz",
+    "sitemap_lh_iq_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "iq/en",
+   "cc": "iq",
+   "ll": "en",
+   "hreflang": [
+    "en-IQ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_iq_en_1.xml.gz",
+    "sitemap_lh_iq_en_2.xml.gz",
+    "sitemap_lh_iq_en_3.xml.gz",
+    "sitemap_lh_iq_en_4.xml.gz",
+    "sitemap_lh_iq_en_5.xml.gz",
+    "sitemap_lh_iq_en_6.xml.gz",
+    "sitemap_lh_iq_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ir/de",
+   "cc": "ir",
+   "ll": "de",
+   "hreflang": [
+    "de-IR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ir_de_1.xml.gz",
+    "sitemap_lh_ir_de_2.xml.gz",
+    "sitemap_lh_ir_de_3.xml.gz",
+    "sitemap_lh_ir_de_4.xml.gz",
+    "sitemap_lh_ir_de_5.xml.gz",
+    "sitemap_lh_ir_de_6.xml.gz",
+    "sitemap_lh_ir_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ir/en",
+   "cc": "ir",
+   "ll": "en",
+   "hreflang": [
+    "en-IR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ir_en_1.xml.gz",
+    "sitemap_lh_ir_en_2.xml.gz",
+    "sitemap_lh_ir_en_3.xml.gz",
+    "sitemap_lh_ir_en_4.xml.gz",
+    "sitemap_lh_ir_en_5.xml.gz",
+    "sitemap_lh_ir_en_6.xml.gz",
+    "sitemap_lh_ir_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1038,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "is/de",
+   "cc": "is",
+   "ll": "de",
+   "hreflang": [
+    "de-IS"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_is_de_1.xml.gz",
+    "sitemap_lh_is_de_2.xml.gz",
+    "sitemap_lh_is_de_3.xml.gz",
+    "sitemap_lh_is_de_4.xml.gz",
+    "sitemap_lh_is_de_5.xml.gz",
+    "sitemap_lh_is_de_6.xml.gz",
+    "sitemap_lh_is_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "is/en",
+   "cc": "is",
+   "ll": "en",
+   "hreflang": [
+    "en-IS"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_is_en_1.xml.gz",
+    "sitemap_lh_is_en_2.xml.gz",
+    "sitemap_lh_is_en_3.xml.gz",
+    "sitemap_lh_is_en_4.xml.gz",
+    "sitemap_lh_is_en_5.xml.gz",
+    "sitemap_lh_is_en_6.xml.gz",
+    "sitemap_lh_is_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 18,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "it/de",
+   "cc": "it",
+   "ll": "de",
+   "hreflang": [
+    "de-IT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_it_de_1.xml.gz",
+    "sitemap_lh_it_de_2.xml.gz",
+    "sitemap_lh_it_de_3.xml.gz",
+    "sitemap_lh_it_de_4.xml.gz",
+    "sitemap_lh_it_de_5.xml.gz",
+    "sitemap_lh_it_de_6.xml.gz",
+    "sitemap_lh_it_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "it/en",
+   "cc": "it",
+   "ll": "en",
+   "hreflang": [
+    "en-IT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_it_en_1.xml.gz",
+    "sitemap_lh_it_en_2.xml.gz",
+    "sitemap_lh_it_en_3.xml.gz",
+    "sitemap_lh_it_en_4.xml.gz",
+    "sitemap_lh_it_en_5.xml.gz",
+    "sitemap_lh_it_en_6.xml.gz",
+    "sitemap_lh_it_en_7.xml.gz",
+    "sitemap_lh_it_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1040,
+   "alternateOnlyCount": 17,
+   "groupCount": 1056,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "it/it",
+   "cc": "it",
+   "ll": "it",
+   "hreflang": [
+    "it-IT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_it_it_1.xml.gz",
+    "sitemap_lh_it_it_2.xml.gz",
+    "sitemap_lh_it_it.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 336,
+   "alternateOnlyCount": 2,
+   "groupCount": 336,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "jo/de",
+   "cc": "jo",
+   "ll": "de",
+   "hreflang": [
+    "de-JO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_jo_de_1.xml.gz",
+    "sitemap_lh_jo_de_2.xml.gz",
+    "sitemap_lh_jo_de_3.xml.gz",
+    "sitemap_lh_jo_de_4.xml.gz",
+    "sitemap_lh_jo_de_5.xml.gz",
+    "sitemap_lh_jo_de_6.xml.gz",
+    "sitemap_lh_jo_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "jo/en",
+   "cc": "jo",
+   "ll": "en",
+   "hreflang": [
+    "en-JO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_jo_en_1.xml.gz",
+    "sitemap_lh_jo_en_2.xml.gz",
+    "sitemap_lh_jo_en_3.xml.gz",
+    "sitemap_lh_jo_en_4.xml.gz",
+    "sitemap_lh_jo_en_5.xml.gz",
+    "sitemap_lh_jo_en_6.xml.gz",
+    "sitemap_lh_jo_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1038,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "jp/de",
+   "cc": "jp",
+   "ll": "de",
+   "hreflang": [
+    "de-JP"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_jp_de_1.xml.gz",
+    "sitemap_lh_jp_de_2.xml.gz",
+    "sitemap_lh_jp_de_3.xml.gz",
+    "sitemap_lh_jp_de_4.xml.gz",
+    "sitemap_lh_jp_de_5.xml.gz",
+    "sitemap_lh_jp_de_6.xml.gz",
+    "sitemap_lh_jp_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "jp/en",
+   "cc": "jp",
+   "ll": "en",
+   "hreflang": [
+    "en-JP"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_jp_en_1.xml.gz",
+    "sitemap_lh_jp_en_2.xml.gz",
+    "sitemap_lh_jp_en_3.xml.gz",
+    "sitemap_lh_jp_en_4.xml.gz",
+    "sitemap_lh_jp_en_5.xml.gz",
+    "sitemap_lh_jp_en_6.xml.gz",
+    "sitemap_lh_jp_en_7.xml.gz",
+    "sitemap_lh_jp_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1038,
+   "alternateOnlyCount": 18,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "jp/ja",
+   "cc": "jp",
+   "ll": "ja",
+   "hreflang": [
+    "ja-JP"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_jp_ja_1.xml.gz",
+    "sitemap_lh_jp_ja_2.xml.gz",
+    "sitemap_lh_jp_ja.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 342,
+   "alternateOnlyCount": 1,
+   "groupCount": 338,
+   "marketOnlyCount": 4,
+   "ownSitemap": true
+  },
+  {
+   "root": "ke/de",
+   "cc": "ke",
+   "ll": "de",
+   "hreflang": [
+    "de-KE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ke_de_1.xml.gz",
+    "sitemap_lh_ke_de_2.xml.gz",
+    "sitemap_lh_ke_de_3.xml.gz",
+    "sitemap_lh_ke_de_4.xml.gz",
+    "sitemap_lh_ke_de_5.xml.gz",
+    "sitemap_lh_ke_de_6.xml.gz",
+    "sitemap_lh_ke_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ke/en",
+   "cc": "ke",
+   "ll": "en",
+   "hreflang": [
+    "en-KE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ke_en_1.xml.gz",
+    "sitemap_lh_ke_en_2.xml.gz",
+    "sitemap_lh_ke_en_3.xml.gz",
+    "sitemap_lh_ke_en_4.xml.gz",
+    "sitemap_lh_ke_en_5.xml.gz",
+    "sitemap_lh_ke_en_6.xml.gz",
+    "sitemap_lh_ke_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kr/de",
+   "cc": "kr",
+   "ll": "de",
+   "hreflang": [
+    "de-KR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kr_de_1.xml.gz",
+    "sitemap_lh_kr_de_2.xml.gz",
+    "sitemap_lh_kr_de_3.xml.gz",
+    "sitemap_lh_kr_de_4.xml.gz",
+    "sitemap_lh_kr_de_5.xml.gz",
+    "sitemap_lh_kr_de_6.xml.gz",
+    "sitemap_lh_kr_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kr/en",
+   "cc": "kr",
+   "ll": "en",
+   "hreflang": [
+    "en-KR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kr_en_1.xml.gz",
+    "sitemap_lh_kr_en_2.xml.gz",
+    "sitemap_lh_kr_en_3.xml.gz",
+    "sitemap_lh_kr_en_4.xml.gz",
+    "sitemap_lh_kr_en_5.xml.gz",
+    "sitemap_lh_kr_en_6.xml.gz",
+    "sitemap_lh_kr_en_7.xml.gz",
+    "sitemap_lh_kr_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kr/ko",
+   "cc": "kr",
+   "ll": "ko",
+   "hreflang": [
+    "ko-KR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kr_ko_1.xml.gz",
+    "sitemap_lh_kr_ko_2.xml.gz",
+    "sitemap_lh_kr_ko.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 340,
+   "alternateOnlyCount": 1,
+   "groupCount": 338,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "kw/de",
+   "cc": "kw",
+   "ll": "de",
+   "hreflang": [
+    "de-KW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kw_de_1.xml.gz",
+    "sitemap_lh_kw_de_2.xml.gz",
+    "sitemap_lh_kw_de_3.xml.gz",
+    "sitemap_lh_kw_de_4.xml.gz",
+    "sitemap_lh_kw_de_5.xml.gz",
+    "sitemap_lh_kw_de_6.xml.gz",
+    "sitemap_lh_kw_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kw/en",
+   "cc": "kw",
+   "ll": "en",
+   "hreflang": [
+    "en-KW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kw_en_1.xml.gz",
+    "sitemap_lh_kw_en_2.xml.gz",
+    "sitemap_lh_kw_en_3.xml.gz",
+    "sitemap_lh_kw_en_4.xml.gz",
+    "sitemap_lh_kw_en_5.xml.gz",
+    "sitemap_lh_kw_en_6.xml.gz",
+    "sitemap_lh_kw_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1040,
+   "alternateOnlyCount": 18,
+   "groupCount": 1056,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "kz/de",
+   "cc": "kz",
+   "ll": "de",
+   "hreflang": [
+    "de-KZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kz_de_1.xml.gz",
+    "sitemap_lh_kz_de_2.xml.gz",
+    "sitemap_lh_kz_de_3.xml.gz",
+    "sitemap_lh_kz_de_4.xml.gz",
+    "sitemap_lh_kz_de_5.xml.gz",
+    "sitemap_lh_kz_de_6.xml.gz",
+    "sitemap_lh_kz_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kz/en",
+   "cc": "kz",
+   "ll": "en",
+   "hreflang": [
+    "en-KZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kz_en_1.xml.gz",
+    "sitemap_lh_kz_en_2.xml.gz",
+    "sitemap_lh_kz_en_3.xml.gz",
+    "sitemap_lh_kz_en_4.xml.gz",
+    "sitemap_lh_kz_en_5.xml.gz",
+    "sitemap_lh_kz_en_6.xml.gz",
+    "sitemap_lh_kz_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "kz/ru",
+   "cc": "kz",
+   "ll": "ru",
+   "hreflang": [
+    "ru-KZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_kz_ru_1.xml.gz",
+    "sitemap_lh_kz_ru_2.xml.gz",
+    "sitemap_lh_kz_ru.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 334,
+   "alternateOnlyCount": 1,
+   "groupCount": 332,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "lb/de",
+   "cc": "lb",
+   "ll": "de",
+   "hreflang": [
+    "de-LB"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lb_de_1.xml.gz",
+    "sitemap_lh_lb_de_2.xml.gz",
+    "sitemap_lh_lb_de_3.xml.gz",
+    "sitemap_lh_lb_de_4.xml.gz",
+    "sitemap_lh_lb_de_5.xml.gz",
+    "sitemap_lh_lb_de_6.xml.gz",
+    "sitemap_lh_lb_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lb/en",
+   "cc": "lb",
+   "ll": "en",
+   "hreflang": [
+    "en-LB"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lb_en_1.xml.gz",
+    "sitemap_lh_lb_en_2.xml.gz",
+    "sitemap_lh_lb_en_3.xml.gz",
+    "sitemap_lh_lb_en_4.xml.gz",
+    "sitemap_lh_lb_en_5.xml.gz",
+    "sitemap_lh_lb_en_6.xml.gz",
+    "sitemap_lh_lb_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 20,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lt/de",
+   "cc": "lt",
+   "ll": "de",
+   "hreflang": [
+    "de-LT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lt_de_1.xml.gz",
+    "sitemap_lh_lt_de_2.xml.gz",
+    "sitemap_lh_lt_de_3.xml.gz",
+    "sitemap_lh_lt_de_4.xml.gz",
+    "sitemap_lh_lt_de_5.xml.gz",
+    "sitemap_lh_lt_de_6.xml.gz",
+    "sitemap_lh_lt_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lt/en",
+   "cc": "lt",
+   "ll": "en",
+   "hreflang": [
+    "en-LT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lt_en_1.xml.gz",
+    "sitemap_lh_lt_en_2.xml.gz",
+    "sitemap_lh_lt_en_3.xml.gz",
+    "sitemap_lh_lt_en_4.xml.gz",
+    "sitemap_lh_lt_en_5.xml.gz",
+    "sitemap_lh_lt_en_6.xml.gz",
+    "sitemap_lh_lt_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 20,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lu/de",
+   "cc": "lu",
+   "ll": "de",
+   "hreflang": [
+    "de-LU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lu_de_1.xml.gz",
+    "sitemap_lh_lu_de_2.xml.gz",
+    "sitemap_lh_lu_de_3.xml.gz",
+    "sitemap_lh_lu_de_4.xml.gz",
+    "sitemap_lh_lu_de_5.xml.gz",
+    "sitemap_lh_lu_de_6.xml.gz",
+    "sitemap_lh_lu_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lu/en",
+   "cc": "lu",
+   "ll": "en",
+   "hreflang": [
+    "en-LU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lu_en_1.xml.gz",
+    "sitemap_lh_lu_en_2.xml.gz",
+    "sitemap_lh_lu_en_3.xml.gz",
+    "sitemap_lh_lu_en_4.xml.gz",
+    "sitemap_lh_lu_en_5.xml.gz",
+    "sitemap_lh_lu_en_6.xml.gz",
+    "sitemap_lh_lu_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 20,
+   "groupCount": 1055,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "lu/fr",
+   "cc": "lu",
+   "ll": "fr",
+   "hreflang": [
+    "fr-LU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lu_fr_1.xml.gz",
+    "sitemap_lh_lu_fr_2.xml.gz",
+    "sitemap_lh_lu_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "lv/de",
+   "cc": "lv",
+   "ll": "de",
+   "hreflang": [
+    "de-LV"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lv_de_1.xml.gz",
+    "sitemap_lh_lv_de_2.xml.gz",
+    "sitemap_lh_lv_de_3.xml.gz",
+    "sitemap_lh_lv_de_4.xml.gz",
+    "sitemap_lh_lv_de_5.xml.gz",
+    "sitemap_lh_lv_de_6.xml.gz",
+    "sitemap_lh_lv_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "lv/en",
+   "cc": "lv",
+   "ll": "en",
+   "hreflang": [
+    "en-LV"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_lv_en_1.xml.gz",
+    "sitemap_lh_lv_en_2.xml.gz",
+    "sitemap_lh_lv_en_3.xml.gz",
+    "sitemap_lh_lv_en_4.xml.gz",
+    "sitemap_lh_lv_en_5.xml.gz",
+    "sitemap_lh_lv_en_6.xml.gz",
+    "sitemap_lh_lv_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ly/de",
+   "cc": "ly",
+   "ll": "de",
+   "hreflang": [
+    "de-LY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ly_de_1.xml.gz",
+    "sitemap_lh_ly_de_2.xml.gz",
+    "sitemap_lh_ly_de_3.xml.gz",
+    "sitemap_lh_ly_de_4.xml.gz",
+    "sitemap_lh_ly_de_5.xml.gz",
+    "sitemap_lh_ly_de_6.xml.gz",
+    "sitemap_lh_ly_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ly/en",
+   "cc": "ly",
+   "ll": "en",
+   "hreflang": [
+    "en-LY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ly_en_1.xml.gz",
+    "sitemap_lh_ly_en_2.xml.gz",
+    "sitemap_lh_ly_en_3.xml.gz",
+    "sitemap_lh_ly_en_4.xml.gz",
+    "sitemap_lh_ly_en_5.xml.gz",
+    "sitemap_lh_ly_en_6.xml.gz",
+    "sitemap_lh_ly_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1033,
+   "alternateOnlyCount": 20,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ma/de",
+   "cc": "ma",
+   "ll": "de",
+   "hreflang": [
+    "de-MA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ma_de_1.xml.gz",
+    "sitemap_lh_ma_de_2.xml.gz",
+    "sitemap_lh_ma_de_3.xml.gz",
+    "sitemap_lh_ma_de_4.xml.gz",
+    "sitemap_lh_ma_de_5.xml.gz",
+    "sitemap_lh_ma_de_6.xml.gz",
+    "sitemap_lh_ma_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ma/en",
+   "cc": "ma",
+   "ll": "en",
+   "hreflang": [
+    "en-MA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ma_en_1.xml.gz",
+    "sitemap_lh_ma_en_2.xml.gz",
+    "sitemap_lh_ma_en_3.xml.gz",
+    "sitemap_lh_ma_en_4.xml.gz",
+    "sitemap_lh_ma_en_5.xml.gz",
+    "sitemap_lh_ma_en_6.xml.gz",
+    "sitemap_lh_ma_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ma/fr",
+   "cc": "ma",
+   "ll": "fr",
+   "hreflang": [
+    "fr-MA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ma_fr_1.xml.gz",
+    "sitemap_lh_ma_fr_2.xml.gz",
+    "sitemap_lh_ma_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "md/de",
+   "cc": "md",
+   "ll": "de",
+   "hreflang": [
+    "de-MD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_md_de_1.xml.gz",
+    "sitemap_lh_md_de_2.xml.gz",
+    "sitemap_lh_md_de_3.xml.gz",
+    "sitemap_lh_md_de_4.xml.gz",
+    "sitemap_lh_md_de_5.xml.gz",
+    "sitemap_lh_md_de_6.xml.gz",
+    "sitemap_lh_md_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "md/en",
+   "cc": "md",
+   "ll": "en",
+   "hreflang": [
+    "en-MD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_md_en_1.xml.gz",
+    "sitemap_lh_md_en_2.xml.gz",
+    "sitemap_lh_md_en_3.xml.gz",
+    "sitemap_lh_md_en_4.xml.gz",
+    "sitemap_lh_md_en_5.xml.gz",
+    "sitemap_lh_md_en_6.xml.gz",
+    "sitemap_lh_md_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mk/de",
+   "cc": "mk",
+   "ll": "de",
+   "hreflang": [
+    "de-MK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mk_de_1.xml.gz",
+    "sitemap_lh_mk_de_2.xml.gz",
+    "sitemap_lh_mk_de_3.xml.gz",
+    "sitemap_lh_mk_de_4.xml.gz",
+    "sitemap_lh_mk_de_5.xml.gz",
+    "sitemap_lh_mk_de_6.xml.gz",
+    "sitemap_lh_mk_de_7.xml.gz",
+    "sitemap_lh_mk_de_8.xml.gz",
+    "sitemap_lh_mk_de_9.xml.gz",
+    "sitemap_lh_mk_de_10.xml.gz",
+    "sitemap_lh_mk_de_11.xml.gz",
+    "sitemap_lh_mk_de_12.xml.gz",
+    "sitemap_lh_mk_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1511,
+   "alternateOnlyCount": 258,
+   "groupCount": 1704,
+   "marketOnlyCount": 63,
+   "ownSitemap": true
+  },
+  {
+   "root": "mk/en",
+   "cc": "mk",
+   "ll": "en",
+   "hreflang": [
+    "en-MK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mk_en_1.xml.gz",
+    "sitemap_lh_mk_en_2.xml.gz",
+    "sitemap_lh_mk_en_3.xml.gz",
+    "sitemap_lh_mk_en_4.xml.gz",
+    "sitemap_lh_mk_en_5.xml.gz",
+    "sitemap_lh_mk_en_6.xml.gz",
+    "sitemap_lh_mk_en_7.xml.gz",
+    "sitemap_lh_mk_en_8.xml.gz",
+    "sitemap_lh_mk_en_9.xml.gz",
+    "sitemap_lh_mk_en_10.xml.gz",
+    "sitemap_lh_mk_en_11.xml.gz",
+    "sitemap_lh_mk_en_12.xml.gz",
+    "sitemap_lh_mk_en_13.xml.gz",
+    "sitemap_lh_mk_en_14.xml.gz",
+    "sitemap_lh_mk_en_15.xml.gz",
+    "sitemap_lh_mk_en_16.xml.gz",
+    "sitemap_lh_mk_en_17.xml.gz",
+    "sitemap_lh_mk_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 2890,
+   "alternateOnlyCount": 0,
+   "groupCount": 1603,
+   "marketOnlyCount": 1286,
+   "ownSitemap": true
+  },
+  {
+   "root": "mt/de",
+   "cc": "mt",
+   "ll": "de",
+   "hreflang": [
+    "de-MT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mt_de_1.xml.gz",
+    "sitemap_lh_mt_de_2.xml.gz",
+    "sitemap_lh_mt_de_3.xml.gz",
+    "sitemap_lh_mt_de_4.xml.gz",
+    "sitemap_lh_mt_de_5.xml.gz",
+    "sitemap_lh_mt_de_6.xml.gz",
+    "sitemap_lh_mt_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mt/en",
+   "cc": "mt",
+   "ll": "en",
+   "hreflang": [
+    "en-MT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mt_en_1.xml.gz",
+    "sitemap_lh_mt_en_2.xml.gz",
+    "sitemap_lh_mt_en_3.xml.gz",
+    "sitemap_lh_mt_en_4.xml.gz",
+    "sitemap_lh_mt_en_5.xml.gz",
+    "sitemap_lh_mt_en_6.xml.gz",
+    "sitemap_lh_mt_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mu/de",
+   "cc": "mu",
+   "ll": "de",
+   "hreflang": [
+    "de-MU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mu_de_1.xml.gz",
+    "sitemap_lh_mu_de_2.xml.gz",
+    "sitemap_lh_mu_de_3.xml.gz",
+    "sitemap_lh_mu_de_4.xml.gz",
+    "sitemap_lh_mu_de_5.xml.gz",
+    "sitemap_lh_mu_de_6.xml.gz",
+    "sitemap_lh_mu_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mu/en",
+   "cc": "mu",
+   "ll": "en",
+   "hreflang": [
+    "en-MU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mu_en_1.xml.gz",
+    "sitemap_lh_mu_en_2.xml.gz",
+    "sitemap_lh_mu_en_3.xml.gz",
+    "sitemap_lh_mu_en_4.xml.gz",
+    "sitemap_lh_mu_en_5.xml.gz",
+    "sitemap_lh_mu_en_6.xml.gz",
+    "sitemap_lh_mu_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mv/de",
+   "cc": "mv",
+   "ll": "de",
+   "hreflang": [
+    "de-MV"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mv_de_1.xml.gz",
+    "sitemap_lh_mv_de_2.xml.gz",
+    "sitemap_lh_mv_de_3.xml.gz",
+    "sitemap_lh_mv_de_4.xml.gz",
+    "sitemap_lh_mv_de_5.xml.gz",
+    "sitemap_lh_mv_de_6.xml.gz",
+    "sitemap_lh_mv_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 21,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mv/en",
+   "cc": "mv",
+   "ll": "en",
+   "hreflang": [
+    "en-MV"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mv_en_1.xml.gz",
+    "sitemap_lh_mv_en_2.xml.gz",
+    "sitemap_lh_mv_en_3.xml.gz",
+    "sitemap_lh_mv_en_4.xml.gz",
+    "sitemap_lh_mv_en_5.xml.gz",
+    "sitemap_lh_mv_en_6.xml.gz",
+    "sitemap_lh_mv_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mx/de",
+   "cc": "mx",
+   "ll": "de",
+   "hreflang": [
+    "de-MX"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mx_de_1.xml.gz",
+    "sitemap_lh_mx_de_2.xml.gz",
+    "sitemap_lh_mx_de_3.xml.gz",
+    "sitemap_lh_mx_de_4.xml.gz",
+    "sitemap_lh_mx_de_5.xml.gz",
+    "sitemap_lh_mx_de_6.xml.gz",
+    "sitemap_lh_mx_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mx/en",
+   "cc": "mx",
+   "ll": "en",
+   "hreflang": [
+    "en-MX"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mx_en_1.xml.gz",
+    "sitemap_lh_mx_en_2.xml.gz",
+    "sitemap_lh_mx_en_3.xml.gz",
+    "sitemap_lh_mx_en_4.xml.gz",
+    "sitemap_lh_mx_en_5.xml.gz",
+    "sitemap_lh_mx_en_6.xml.gz",
+    "sitemap_lh_mx_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "mx/es",
+   "cc": "mx",
+   "ll": "es",
+   "hreflang": [
+    "es-MX"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_mx_es_1.xml.gz",
+    "sitemap_lh_mx_es_2.xml.gz",
+    "sitemap_lh_mx_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 345,
+   "alternateOnlyCount": 2,
+   "groupCount": 346,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "my/de",
+   "cc": "my",
+   "ll": "de",
+   "hreflang": [
+    "de-MY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_my_de_1.xml.gz",
+    "sitemap_lh_my_de_2.xml.gz",
+    "sitemap_lh_my_de_3.xml.gz",
+    "sitemap_lh_my_de_4.xml.gz",
+    "sitemap_lh_my_de_5.xml.gz",
+    "sitemap_lh_my_de_6.xml.gz",
+    "sitemap_lh_my_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "my/en",
+   "cc": "my",
+   "ll": "en",
+   "hreflang": [
+    "en-MY"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_my_en_1.xml.gz",
+    "sitemap_lh_my_en_2.xml.gz",
+    "sitemap_lh_my_en_3.xml.gz",
+    "sitemap_lh_my_en_4.xml.gz",
+    "sitemap_lh_my_en_5.xml.gz",
+    "sitemap_lh_my_en_6.xml.gz",
+    "sitemap_lh_my_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 18,
+   "groupCount": 1052,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ng/de",
+   "cc": "ng",
+   "ll": "de",
+   "hreflang": [
+    "de-NG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ng_de_1.xml.gz",
+    "sitemap_lh_ng_de_2.xml.gz",
+    "sitemap_lh_ng_de_3.xml.gz",
+    "sitemap_lh_ng_de_4.xml.gz",
+    "sitemap_lh_ng_de_5.xml.gz",
+    "sitemap_lh_ng_de_6.xml.gz",
+    "sitemap_lh_ng_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ng/en",
+   "cc": "ng",
+   "ll": "en",
+   "hreflang": [
+    "en-NG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ng_en_1.xml.gz",
+    "sitemap_lh_ng_en_2.xml.gz",
+    "sitemap_lh_ng_en_3.xml.gz",
+    "sitemap_lh_ng_en_4.xml.gz",
+    "sitemap_lh_ng_en_5.xml.gz",
+    "sitemap_lh_ng_en_6.xml.gz",
+    "sitemap_lh_ng_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1041,
+   "alternateOnlyCount": 19,
+   "groupCount": 1059,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "nl/de",
+   "cc": "nl",
+   "ll": "de",
+   "hreflang": [
+    "de-NL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_nl_de_1.xml.gz",
+    "sitemap_lh_nl_de_2.xml.gz",
+    "sitemap_lh_nl_de_3.xml.gz",
+    "sitemap_lh_nl_de_4.xml.gz",
+    "sitemap_lh_nl_de_5.xml.gz",
+    "sitemap_lh_nl_de_6.xml.gz",
+    "sitemap_lh_nl_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "nl/en",
+   "cc": "nl",
+   "ll": "en",
+   "hreflang": [
+    "en-NL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_nl_en_1.xml.gz",
+    "sitemap_lh_nl_en_2.xml.gz",
+    "sitemap_lh_nl_en_3.xml.gz",
+    "sitemap_lh_nl_en_4.xml.gz",
+    "sitemap_lh_nl_en_5.xml.gz",
+    "sitemap_lh_nl_en_6.xml.gz",
+    "sitemap_lh_nl_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1039,
+   "alternateOnlyCount": 19,
+   "groupCount": 1057,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "no/de",
+   "cc": "no",
+   "ll": "de",
+   "hreflang": [
+    "de-NO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_no_de_1.xml.gz",
+    "sitemap_lh_no_de_2.xml.gz",
+    "sitemap_lh_no_de_3.xml.gz",
+    "sitemap_lh_no_de_4.xml.gz",
+    "sitemap_lh_no_de_5.xml.gz",
+    "sitemap_lh_no_de_6.xml.gz",
+    "sitemap_lh_no_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "no/en",
+   "cc": "no",
+   "ll": "en",
+   "hreflang": [
+    "en-NO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_no_en_1.xml.gz",
+    "sitemap_lh_no_en_2.xml.gz",
+    "sitemap_lh_no_en_3.xml.gz",
+    "sitemap_lh_no_en_4.xml.gz",
+    "sitemap_lh_no_en_5.xml.gz",
+    "sitemap_lh_no_en_6.xml.gz",
+    "sitemap_lh_no_en_7.xml.gz",
+    "sitemap_lh_no_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1042,
+   "alternateOnlyCount": 19,
+   "groupCount": 1059,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "nz/de",
+   "cc": "nz",
+   "ll": "de",
+   "hreflang": [
+    "de-NZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_nz_de_1.xml.gz",
+    "sitemap_lh_nz_de_2.xml.gz",
+    "sitemap_lh_nz_de_3.xml.gz",
+    "sitemap_lh_nz_de_4.xml.gz",
+    "sitemap_lh_nz_de_5.xml.gz",
+    "sitemap_lh_nz_de_6.xml.gz",
+    "sitemap_lh_nz_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "nz/en",
+   "cc": "nz",
+   "ll": "en",
+   "hreflang": [
+    "en-NZ"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_nz_en_1.xml.gz",
+    "sitemap_lh_nz_en_2.xml.gz",
+    "sitemap_lh_nz_en_3.xml.gz",
+    "sitemap_lh_nz_en_4.xml.gz",
+    "sitemap_lh_nz_en_5.xml.gz",
+    "sitemap_lh_nz_en_6.xml.gz",
+    "sitemap_lh_nz_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "om/de",
+   "cc": "om",
+   "ll": "de",
+   "hreflang": [
+    "de-OM"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_om_de_1.xml.gz",
+    "sitemap_lh_om_de_2.xml.gz",
+    "sitemap_lh_om_de_3.xml.gz",
+    "sitemap_lh_om_de_4.xml.gz",
+    "sitemap_lh_om_de_5.xml.gz",
+    "sitemap_lh_om_de_6.xml.gz",
+    "sitemap_lh_om_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "om/en",
+   "cc": "om",
+   "ll": "en",
+   "hreflang": [
+    "en-OM"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_om_en_1.xml.gz",
+    "sitemap_lh_om_en_2.xml.gz",
+    "sitemap_lh_om_en_3.xml.gz",
+    "sitemap_lh_om_en_4.xml.gz",
+    "sitemap_lh_om_en_5.xml.gz",
+    "sitemap_lh_om_en_6.xml.gz",
+    "sitemap_lh_om_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 20,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pa/de",
+   "cc": "pa",
+   "ll": "de",
+   "hreflang": [
+    "de-PA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pa_de_1.xml.gz",
+    "sitemap_lh_pa_de_2.xml.gz",
+    "sitemap_lh_pa_de_3.xml.gz",
+    "sitemap_lh_pa_de_4.xml.gz",
+    "sitemap_lh_pa_de_5.xml.gz",
+    "sitemap_lh_pa_de_6.xml.gz",
+    "sitemap_lh_pa_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pa/en",
+   "cc": "pa",
+   "ll": "en",
+   "hreflang": [
+    "en-PA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pa_en_1.xml.gz",
+    "sitemap_lh_pa_en_2.xml.gz",
+    "sitemap_lh_pa_en_3.xml.gz",
+    "sitemap_lh_pa_en_4.xml.gz",
+    "sitemap_lh_pa_en_5.xml.gz",
+    "sitemap_lh_pa_en_6.xml.gz",
+    "sitemap_lh_pa_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pa/es",
+   "cc": "pa",
+   "ll": "es",
+   "hreflang": [
+    "es-PA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pa_es_1.xml.gz",
+    "sitemap_lh_pa_es_2.xml.gz",
+    "sitemap_lh_pa_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 346,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pe/de",
+   "cc": "pe",
+   "ll": "de",
+   "hreflang": [
+    "de-PE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pe_de_1.xml.gz",
+    "sitemap_lh_pe_de_2.xml.gz",
+    "sitemap_lh_pe_de_3.xml.gz",
+    "sitemap_lh_pe_de_4.xml.gz",
+    "sitemap_lh_pe_de_5.xml.gz",
+    "sitemap_lh_pe_de_6.xml.gz",
+    "sitemap_lh_pe_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pe/en",
+   "cc": "pe",
+   "ll": "en",
+   "hreflang": [
+    "en-PE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pe_en_1.xml.gz",
+    "sitemap_lh_pe_en_2.xml.gz",
+    "sitemap_lh_pe_en_3.xml.gz",
+    "sitemap_lh_pe_en_4.xml.gz",
+    "sitemap_lh_pe_en_5.xml.gz",
+    "sitemap_lh_pe_en_6.xml.gz",
+    "sitemap_lh_pe_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pe/es",
+   "cc": "pe",
+   "ll": "es",
+   "hreflang": [
+    "es-PE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pe_es_1.xml.gz",
+    "sitemap_lh_pe_es_2.xml.gz",
+    "sitemap_lh_pe_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 345,
+   "alternateOnlyCount": 2,
+   "groupCount": 346,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ph/de",
+   "cc": "ph",
+   "ll": "de",
+   "hreflang": [
+    "de-PH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ph_de_1.xml.gz",
+    "sitemap_lh_ph_de_2.xml.gz",
+    "sitemap_lh_ph_de_3.xml.gz",
+    "sitemap_lh_ph_de_4.xml.gz",
+    "sitemap_lh_ph_de_5.xml.gz",
+    "sitemap_lh_ph_de_6.xml.gz",
+    "sitemap_lh_ph_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ph/en",
+   "cc": "ph",
+   "ll": "en",
+   "hreflang": [
+    "en-PH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ph_en_1.xml.gz",
+    "sitemap_lh_ph_en_2.xml.gz",
+    "sitemap_lh_ph_en_3.xml.gz",
+    "sitemap_lh_ph_en_4.xml.gz",
+    "sitemap_lh_ph_en_5.xml.gz",
+    "sitemap_lh_ph_en_6.xml.gz",
+    "sitemap_lh_ph_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pl/de",
+   "cc": "pl",
+   "ll": "de",
+   "hreflang": [
+    "de-PL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pl_de_1.xml.gz",
+    "sitemap_lh_pl_de_2.xml.gz",
+    "sitemap_lh_pl_de_3.xml.gz",
+    "sitemap_lh_pl_de_4.xml.gz",
+    "sitemap_lh_pl_de_5.xml.gz",
+    "sitemap_lh_pl_de_6.xml.gz",
+    "sitemap_lh_pl_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pl/en",
+   "cc": "pl",
+   "ll": "en",
+   "hreflang": [
+    "en-PL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pl_en_1.xml.gz",
+    "sitemap_lh_pl_en_2.xml.gz",
+    "sitemap_lh_pl_en_3.xml.gz",
+    "sitemap_lh_pl_en_4.xml.gz",
+    "sitemap_lh_pl_en_5.xml.gz",
+    "sitemap_lh_pl_en_6.xml.gz",
+    "sitemap_lh_pl_en_7.xml.gz",
+    "sitemap_lh_pl_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1042,
+   "alternateOnlyCount": 18,
+   "groupCount": 1059,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pl/pl",
+   "cc": "pl",
+   "ll": "pl",
+   "hreflang": [
+    "pl-PL"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pl_pl_1.xml.gz",
+    "sitemap_lh_pl_pl_2.xml.gz",
+    "sitemap_lh_pl_pl.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 340,
+   "alternateOnlyCount": 1,
+   "groupCount": 340,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pt/de",
+   "cc": "pt",
+   "ll": "de",
+   "hreflang": [
+    "de-PT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pt_de_1.xml.gz",
+    "sitemap_lh_pt_de_2.xml.gz",
+    "sitemap_lh_pt_de_3.xml.gz",
+    "sitemap_lh_pt_de_4.xml.gz",
+    "sitemap_lh_pt_de_5.xml.gz",
+    "sitemap_lh_pt_de_6.xml.gz",
+    "sitemap_lh_pt_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "pt/en",
+   "cc": "pt",
+   "ll": "en",
+   "hreflang": [
+    "en-PT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pt_en_1.xml.gz",
+    "sitemap_lh_pt_en_2.xml.gz",
+    "sitemap_lh_pt_en_3.xml.gz",
+    "sitemap_lh_pt_en_4.xml.gz",
+    "sitemap_lh_pt_en_5.xml.gz",
+    "sitemap_lh_pt_en_6.xml.gz",
+    "sitemap_lh_pt_en_7.xml.gz",
+    "sitemap_lh_pt_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1049,
+   "alternateOnlyCount": 17,
+   "groupCount": 1055,
+   "marketOnlyCount": 10,
+   "ownSitemap": true
+  },
+  {
+   "root": "pt/pt",
+   "cc": "pt",
+   "ll": "pt",
+   "hreflang": [
+    "pt-PT"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_pt_pt_1.xml.gz",
+    "sitemap_lh_pt_pt_2.xml.gz",
+    "sitemap_lh_pt_pt.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 345,
+   "alternateOnlyCount": 1,
+   "groupCount": 342,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "qa/de",
+   "cc": "qa",
+   "ll": "de",
+   "hreflang": [
+    "de-QA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_qa_de_1.xml.gz",
+    "sitemap_lh_qa_de_2.xml.gz",
+    "sitemap_lh_qa_de_3.xml.gz",
+    "sitemap_lh_qa_de_4.xml.gz",
+    "sitemap_lh_qa_de_5.xml.gz",
+    "sitemap_lh_qa_de_6.xml.gz",
+    "sitemap_lh_qa_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "qa/en",
+   "cc": "qa",
+   "ll": "en",
+   "hreflang": [
+    "en-QA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_qa_en_1.xml.gz",
+    "sitemap_lh_qa_en_2.xml.gz",
+    "sitemap_lh_qa_en_3.xml.gz",
+    "sitemap_lh_qa_en_4.xml.gz",
+    "sitemap_lh_qa_en_5.xml.gz",
+    "sitemap_lh_qa_en_6.xml.gz",
+    "sitemap_lh_qa_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ro/de",
+   "cc": "ro",
+   "ll": "de",
+   "hreflang": [
+    "de-RO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ro_de_1.xml.gz",
+    "sitemap_lh_ro_de_2.xml.gz",
+    "sitemap_lh_ro_de_3.xml.gz",
+    "sitemap_lh_ro_de_4.xml.gz",
+    "sitemap_lh_ro_de_5.xml.gz",
+    "sitemap_lh_ro_de_6.xml.gz",
+    "sitemap_lh_ro_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ro/en",
+   "cc": "ro",
+   "ll": "en",
+   "hreflang": [
+    "en-RO"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ro_en_1.xml.gz",
+    "sitemap_lh_ro_en_2.xml.gz",
+    "sitemap_lh_ro_en_3.xml.gz",
+    "sitemap_lh_ro_en_4.xml.gz",
+    "sitemap_lh_ro_en_5.xml.gz",
+    "sitemap_lh_ro_en_6.xml.gz",
+    "sitemap_lh_ro_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "rs/de",
+   "cc": "rs",
+   "ll": "de",
+   "hreflang": [
+    "de-RS"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_rs_de_1.xml.gz",
+    "sitemap_lh_rs_de_2.xml.gz",
+    "sitemap_lh_rs_de_3.xml.gz",
+    "sitemap_lh_rs_de_4.xml.gz",
+    "sitemap_lh_rs_de_5.xml.gz",
+    "sitemap_lh_rs_de_6.xml.gz",
+    "sitemap_lh_rs_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "rs/en",
+   "cc": "rs",
+   "ll": "en",
+   "hreflang": [
+    "en-RS"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_rs_en_1.xml.gz",
+    "sitemap_lh_rs_en_2.xml.gz",
+    "sitemap_lh_rs_en_3.xml.gz",
+    "sitemap_lh_rs_en_4.xml.gz",
+    "sitemap_lh_rs_en_5.xml.gz",
+    "sitemap_lh_rs_en_6.xml.gz",
+    "sitemap_lh_rs_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 19,
+   "groupCount": 1055,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ru/de",
+   "cc": "ru",
+   "ll": "de",
+   "hreflang": [
+    "de-RU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ru_de_1.xml.gz",
+    "sitemap_lh_ru_de_2.xml.gz",
+    "sitemap_lh_ru_de_3.xml.gz",
+    "sitemap_lh_ru_de_4.xml.gz",
+    "sitemap_lh_ru_de_5.xml.gz",
+    "sitemap_lh_ru_de_6.xml.gz",
+    "sitemap_lh_ru_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ru/en",
+   "cc": "ru",
+   "ll": "en",
+   "hreflang": [
+    "en-RU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ru_en_1.xml.gz",
+    "sitemap_lh_ru_en_2.xml.gz",
+    "sitemap_lh_ru_en_3.xml.gz",
+    "sitemap_lh_ru_en_4.xml.gz",
+    "sitemap_lh_ru_en_5.xml.gz",
+    "sitemap_lh_ru_en_6.xml.gz",
+    "sitemap_lh_ru_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ru/ru",
+   "cc": "ru",
+   "ll": "ru",
+   "hreflang": [
+    "ru-RU"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ru_ru_1.xml.gz",
+    "sitemap_lh_ru_ru_2.xml.gz",
+    "sitemap_lh_ru_ru.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 338,
+   "alternateOnlyCount": 1,
+   "groupCount": 337,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "sa/de",
+   "cc": "sa",
+   "ll": "de",
+   "hreflang": [
+    "de-SA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sa_de_1.xml.gz",
+    "sitemap_lh_sa_de_2.xml.gz",
+    "sitemap_lh_sa_de_3.xml.gz",
+    "sitemap_lh_sa_de_4.xml.gz",
+    "sitemap_lh_sa_de_5.xml.gz",
+    "sitemap_lh_sa_de_6.xml.gz",
+    "sitemap_lh_sa_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "sa/en",
+   "cc": "sa",
+   "ll": "en",
+   "hreflang": [
+    "en-SA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sa_en_1.xml.gz",
+    "sitemap_lh_sa_en_2.xml.gz",
+    "sitemap_lh_sa_en_3.xml.gz",
+    "sitemap_lh_sa_en_4.xml.gz",
+    "sitemap_lh_sa_en_5.xml.gz",
+    "sitemap_lh_sa_en_6.xml.gz",
+    "sitemap_lh_sa_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1041,
+   "alternateOnlyCount": 18,
+   "groupCount": 1056,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "sd/de",
+   "cc": "sd",
+   "ll": "de",
+   "hreflang": [
+    "de-SD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sd_de_1.xml.gz",
+    "sitemap_lh_sd_de_2.xml.gz",
+    "sitemap_lh_sd_de_3.xml.gz",
+    "sitemap_lh_sd_de_4.xml.gz",
+    "sitemap_lh_sd_de_5.xml.gz",
+    "sitemap_lh_sd_de_6.xml.gz",
+    "sitemap_lh_sd_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "sd/en",
+   "cc": "sd",
+   "ll": "en",
+   "hreflang": [
+    "en-SD"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sd_en_1.xml.gz",
+    "sitemap_lh_sd_en_2.xml.gz",
+    "sitemap_lh_sd_en_3.xml.gz",
+    "sitemap_lh_sd_en_4.xml.gz",
+    "sitemap_lh_sd_en_5.xml.gz",
+    "sitemap_lh_sd_en_6.xml.gz",
+    "sitemap_lh_sd_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "se/de",
+   "cc": "se",
+   "ll": "de",
+   "hreflang": [
+    "de-SE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_se_de_1.xml.gz",
+    "sitemap_lh_se_de_2.xml.gz",
+    "sitemap_lh_se_de_3.xml.gz",
+    "sitemap_lh_se_de_4.xml.gz",
+    "sitemap_lh_se_de_5.xml.gz",
+    "sitemap_lh_se_de_6.xml.gz",
+    "sitemap_lh_se_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "se/en",
+   "cc": "se",
+   "ll": "en",
+   "hreflang": [
+    "en-SE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_se_en_1.xml.gz",
+    "sitemap_lh_se_en_2.xml.gz",
+    "sitemap_lh_se_en_3.xml.gz",
+    "sitemap_lh_se_en_4.xml.gz",
+    "sitemap_lh_se_en_5.xml.gz",
+    "sitemap_lh_se_en_6.xml.gz",
+    "sitemap_lh_se_en_7.xml.gz",
+    "sitemap_lh_se_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1049,
+   "alternateOnlyCount": 16,
+   "groupCount": 1060,
+   "marketOnlyCount": 4,
+   "ownSitemap": true
+  },
+  {
+   "root": "sg/de",
+   "cc": "sg",
+   "ll": "de",
+   "hreflang": [
+    "de-SG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sg_de_1.xml.gz",
+    "sitemap_lh_sg_de_2.xml.gz",
+    "sitemap_lh_sg_de_3.xml.gz",
+    "sitemap_lh_sg_de_4.xml.gz",
+    "sitemap_lh_sg_de_5.xml.gz",
+    "sitemap_lh_sg_de_6.xml.gz",
+    "sitemap_lh_sg_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "sg/en",
+   "cc": "sg",
+   "ll": "en",
+   "hreflang": [
+    "en-SG"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sg_en_1.xml.gz",
+    "sitemap_lh_sg_en_2.xml.gz",
+    "sitemap_lh_sg_en_3.xml.gz",
+    "sitemap_lh_sg_en_4.xml.gz",
+    "sitemap_lh_sg_en_5.xml.gz",
+    "sitemap_lh_sg_en_6.xml.gz",
+    "sitemap_lh_sg_en_7.xml.gz",
+    "sitemap_lh_sg_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1039,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "si/de",
+   "cc": "si",
+   "ll": "de",
+   "hreflang": [
+    "de-SI"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_si_de_1.xml.gz",
+    "sitemap_lh_si_de_2.xml.gz",
+    "sitemap_lh_si_de_3.xml.gz",
+    "sitemap_lh_si_de_4.xml.gz",
+    "sitemap_lh_si_de_5.xml.gz",
+    "sitemap_lh_si_de_6.xml.gz",
+    "sitemap_lh_si_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1027,
+   "alternateOnlyCount": 21,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "si/en",
+   "cc": "si",
+   "ll": "en",
+   "hreflang": [
+    "en-SI"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_si_en_1.xml.gz",
+    "sitemap_lh_si_en_2.xml.gz",
+    "sitemap_lh_si_en_3.xml.gz",
+    "sitemap_lh_si_en_4.xml.gz",
+    "sitemap_lh_si_en_5.xml.gz",
+    "sitemap_lh_si_en_6.xml.gz",
+    "sitemap_lh_si_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 20,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "sk/de",
+   "cc": "sk",
+   "ll": "de",
+   "hreflang": [
+    "de-SK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sk_de_1.xml.gz",
+    "sitemap_lh_sk_de_2.xml.gz",
+    "sitemap_lh_sk_de_3.xml.gz",
+    "sitemap_lh_sk_de_4.xml.gz",
+    "sitemap_lh_sk_de_5.xml.gz",
+    "sitemap_lh_sk_de_6.xml.gz",
+    "sitemap_lh_sk_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 22,
+   "groupCount": 1046,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "sk/en",
+   "cc": "sk",
+   "ll": "en",
+   "hreflang": [
+    "en-SK"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_sk_en_1.xml.gz",
+    "sitemap_lh_sk_en_2.xml.gz",
+    "sitemap_lh_sk_en_3.xml.gz",
+    "sitemap_lh_sk_en_4.xml.gz",
+    "sitemap_lh_sk_en_5.xml.gz",
+    "sitemap_lh_sk_en_6.xml.gz",
+    "sitemap_lh_sk_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 19,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "th/de",
+   "cc": "th",
+   "ll": "de",
+   "hreflang": [
+    "de-TH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_th_de_1.xml.gz",
+    "sitemap_lh_th_de_2.xml.gz",
+    "sitemap_lh_th_de_3.xml.gz",
+    "sitemap_lh_th_de_4.xml.gz",
+    "sitemap_lh_th_de_5.xml.gz",
+    "sitemap_lh_th_de_6.xml.gz",
+    "sitemap_lh_th_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "th/en",
+   "cc": "th",
+   "ll": "en",
+   "hreflang": [
+    "en-TH"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_th_en_1.xml.gz",
+    "sitemap_lh_th_en_2.xml.gz",
+    "sitemap_lh_th_en_3.xml.gz",
+    "sitemap_lh_th_en_4.xml.gz",
+    "sitemap_lh_th_en_5.xml.gz",
+    "sitemap_lh_th_en_6.xml.gz",
+    "sitemap_lh_th_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 18,
+   "groupCount": 1052,
+   "marketOnlyCount": 2,
+   "ownSitemap": true
+  },
+  {
+   "root": "tn/de",
+   "cc": "tn",
+   "ll": "de",
+   "hreflang": [
+    "de-TN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tn_de_1.xml.gz",
+    "sitemap_lh_tn_de_2.xml.gz",
+    "sitemap_lh_tn_de_3.xml.gz",
+    "sitemap_lh_tn_de_4.xml.gz",
+    "sitemap_lh_tn_de_5.xml.gz",
+    "sitemap_lh_tn_de_6.xml.gz",
+    "sitemap_lh_tn_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tn/en",
+   "cc": "tn",
+   "ll": "en",
+   "hreflang": [
+    "en-TN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tn_en_1.xml.gz",
+    "sitemap_lh_tn_en_2.xml.gz",
+    "sitemap_lh_tn_en_3.xml.gz",
+    "sitemap_lh_tn_en_4.xml.gz",
+    "sitemap_lh_tn_en_5.xml.gz",
+    "sitemap_lh_tn_en_6.xml.gz",
+    "sitemap_lh_tn_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tn/fr",
+   "cc": "tn",
+   "ll": "fr",
+   "hreflang": [
+    "fr-TN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tn_fr_1.xml.gz",
+    "sitemap_lh_tn_fr_2.xml.gz",
+    "sitemap_lh_tn_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tr/de",
+   "cc": "tr",
+   "ll": "de",
+   "hreflang": [
+    "de-TR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tr_de_1.xml.gz",
+    "sitemap_lh_tr_de_2.xml.gz",
+    "sitemap_lh_tr_de_3.xml.gz",
+    "sitemap_lh_tr_de_4.xml.gz",
+    "sitemap_lh_tr_de_5.xml.gz",
+    "sitemap_lh_tr_de_6.xml.gz",
+    "sitemap_lh_tr_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tr/en",
+   "cc": "tr",
+   "ll": "en",
+   "hreflang": [
+    "en-TR"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tr_en_1.xml.gz",
+    "sitemap_lh_tr_en_2.xml.gz",
+    "sitemap_lh_tr_en_3.xml.gz",
+    "sitemap_lh_tr_en_4.xml.gz",
+    "sitemap_lh_tr_en_5.xml.gz",
+    "sitemap_lh_tr_en_6.xml.gz",
+    "sitemap_lh_tr_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1037,
+   "alternateOnlyCount": 18,
+   "groupCount": 1051,
+   "marketOnlyCount": 3,
+   "ownSitemap": true
+  },
+  {
+   "root": "tw/de",
+   "cc": "tw",
+   "ll": "de",
+   "hreflang": [
+    "de-TW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tw_de_1.xml.gz",
+    "sitemap_lh_tw_de_2.xml.gz",
+    "sitemap_lh_tw_de_3.xml.gz",
+    "sitemap_lh_tw_de_4.xml.gz",
+    "sitemap_lh_tw_de_5.xml.gz",
+    "sitemap_lh_tw_de_6.xml.gz",
+    "sitemap_lh_tw_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 21,
+   "groupCount": 1044,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tw/en",
+   "cc": "tw",
+   "ll": "en",
+   "hreflang": [
+    "en-TW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tw_en_1.xml.gz",
+    "sitemap_lh_tw_en_2.xml.gz",
+    "sitemap_lh_tw_en_3.xml.gz",
+    "sitemap_lh_tw_en_4.xml.gz",
+    "sitemap_lh_tw_en_5.xml.gz",
+    "sitemap_lh_tw_en_6.xml.gz",
+    "sitemap_lh_tw_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 19,
+   "groupCount": 1054,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tw/hk",
+   "cc": "tw",
+   "ll": "hk",
+   "hreflang": [
+    "zh-TW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tw_hk_1.xml.gz",
+    "sitemap_lh_tw_hk_2.xml.gz",
+    "sitemap_lh_tw_hk.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 334,
+   "alternateOnlyCount": 1,
+   "groupCount": 335,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "tw/zh",
+   "cc": "tw",
+   "ll": "zh",
+   "hreflang": [
+    "zh-TW"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_tw_zh_1.xml.gz",
+    "sitemap_lh_tw_zh_2.xml.gz",
+    "sitemap_lh_tw_zh.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 334,
+   "alternateOnlyCount": 1,
+   "groupCount": 333,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "ua/de",
+   "cc": "ua",
+   "ll": "de",
+   "hreflang": [
+    "de-UA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ua_de_1.xml.gz",
+    "sitemap_lh_ua_de_2.xml.gz",
+    "sitemap_lh_ua_de_3.xml.gz",
+    "sitemap_lh_ua_de_4.xml.gz",
+    "sitemap_lh_ua_de_5.xml.gz",
+    "sitemap_lh_ua_de_6.xml.gz",
+    "sitemap_lh_ua_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ua/en",
+   "cc": "ua",
+   "ll": "en",
+   "hreflang": [
+    "en-UA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ua_en_1.xml.gz",
+    "sitemap_lh_ua_en_2.xml.gz",
+    "sitemap_lh_ua_en_3.xml.gz",
+    "sitemap_lh_ua_en_4.xml.gz",
+    "sitemap_lh_ua_en_5.xml.gz",
+    "sitemap_lh_ua_en_6.xml.gz",
+    "sitemap_lh_ua_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "us/de",
+   "cc": "us",
+   "ll": "de",
+   "hreflang": [
+    "de-US"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_us_de_1.xml.gz",
+    "sitemap_lh_us_de_2.xml.gz",
+    "sitemap_lh_us_de_3.xml.gz",
+    "sitemap_lh_us_de_4.xml.gz",
+    "sitemap_lh_us_de_5.xml.gz",
+    "sitemap_lh_us_de_6.xml.gz",
+    "sitemap_lh_us_de_7.xml.gz",
+    "sitemap_lh_us_de_8.xml.gz",
+    "sitemap_lh_us_de_9.xml.gz",
+    "sitemap_lh_us_de_10.xml.gz",
+    "sitemap_lh_us_de_11.xml.gz",
+    "sitemap_lh_us_de_12.xml.gz",
+    "sitemap_lh_us_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 2794,
+   "alternateOnlyCount": 51,
+   "groupCount": 1806,
+   "marketOnlyCount": 1037,
+   "ownSitemap": true
+  },
+  {
+   "root": "us/en",
+   "cc": "us",
+   "ll": "en",
+   "hreflang": [
+    "en-US"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_us_en_1.xml.gz",
+    "sitemap_lh_us_en_2.xml.gz",
+    "sitemap_lh_us_en_3.xml.gz",
+    "sitemap_lh_us_en_4.xml.gz",
+    "sitemap_lh_us_en_5.xml.gz",
+    "sitemap_lh_us_en_6.xml.gz",
+    "sitemap_lh_us_en_7.xml.gz",
+    "sitemap_lh_us_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1054,
+   "alternateOnlyCount": 16,
+   "groupCount": 1055,
+   "marketOnlyCount": 14,
+   "ownSitemap": true
+  },
+  {
+   "root": "us/es",
+   "cc": "us",
+   "ll": "es",
+   "hreflang": [
+    "es-US"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_us_es_1.xml.gz",
+    "sitemap_lh_us_es_2.xml.gz",
+    "sitemap_lh_us_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 347,
+   "alternateOnlyCount": 2,
+   "groupCount": 347,
+   "marketOnlyCount": 1,
+   "ownSitemap": true
+  },
+  {
+   "root": "us/fr",
+   "cc": "us",
+   "ll": "fr",
+   "hreflang": [
+    "fr-US"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_us_fr_1.xml.gz",
+    "sitemap_lh_us_fr_2.xml.gz",
+    "sitemap_lh_us_fr.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 348,
+   "alternateOnlyCount": 3,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ve/de",
+   "cc": "ve",
+   "ll": "de",
+   "hreflang": [
+    "de-VE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ve_de_1.xml.gz",
+    "sitemap_lh_ve_de_2.xml.gz",
+    "sitemap_lh_ve_de_3.xml.gz",
+    "sitemap_lh_ve_de_4.xml.gz",
+    "sitemap_lh_ve_de_5.xml.gz",
+    "sitemap_lh_ve_de_6.xml.gz",
+    "sitemap_lh_ve_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ve/en",
+   "cc": "ve",
+   "ll": "en",
+   "hreflang": [
+    "en-VE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ve_en_1.xml.gz",
+    "sitemap_lh_ve_en_2.xml.gz",
+    "sitemap_lh_ve_en_3.xml.gz",
+    "sitemap_lh_ve_en_4.xml.gz",
+    "sitemap_lh_ve_en_5.xml.gz",
+    "sitemap_lh_ve_en_6.xml.gz",
+    "sitemap_lh_ve_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1035,
+   "alternateOnlyCount": 18,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "ve/es",
+   "cc": "ve",
+   "ll": "es",
+   "hreflang": [
+    "es-VE"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_ve_es_1.xml.gz",
+    "sitemap_lh_ve_es_2.xml.gz",
+    "sitemap_lh_ve_es.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 345,
+   "alternateOnlyCount": 2,
+   "groupCount": 346,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "vn/de",
+   "cc": "vn",
+   "ll": "de",
+   "hreflang": [
+    "de-VN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_vn_de_1.xml.gz",
+    "sitemap_lh_vn_de_2.xml.gz",
+    "sitemap_lh_vn_de_3.xml.gz",
+    "sitemap_lh_vn_de_4.xml.gz",
+    "sitemap_lh_vn_de_5.xml.gz",
+    "sitemap_lh_vn_de_6.xml.gz",
+    "sitemap_lh_vn_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1025,
+   "alternateOnlyCount": 22,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "vn/en",
+   "cc": "vn",
+   "ll": "en",
+   "hreflang": [
+    "en-VN"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_vn_en_1.xml.gz",
+    "sitemap_lh_vn_en_2.xml.gz",
+    "sitemap_lh_vn_en_3.xml.gz",
+    "sitemap_lh_vn_en_4.xml.gz",
+    "sitemap_lh_vn_en_5.xml.gz",
+    "sitemap_lh_vn_en_6.xml.gz",
+    "sitemap_lh_vn_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1036,
+   "alternateOnlyCount": 18,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "xx/de",
+   "cc": "xx",
+   "ll": "de",
+   "hreflang": [
+    "de"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 1047,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/el",
+   "cc": "xx",
+   "ll": "el",
+   "hreflang": [
+    "el"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 335,
+   "groupCount": 334,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/en",
+   "cc": "xx",
+   "ll": "en",
+   "hreflang": [
+    "en"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 1054,
+   "groupCount": 1053,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/es",
+   "cc": "xx",
+   "ll": "es",
+   "hreflang": [
+    "es"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 349,
+   "groupCount": 348,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/fr",
+   "cc": "xx",
+   "ll": "fr",
+   "hreflang": [
+    "fr"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 351,
+   "groupCount": 351,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/hk",
+   "cc": "xx",
+   "ll": "hk",
+   "hreflang": [
+    "zh"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 335,
+   "groupCount": 335,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/it",
+   "cc": "xx",
+   "ll": "it",
+   "hreflang": [
+    "it"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 330,
+   "groupCount": 330,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/ja",
+   "cc": "xx",
+   "ll": "ja",
+   "hreflang": [
+    "ja"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 335,
+   "groupCount": 334,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/ko",
+   "cc": "xx",
+   "ll": "ko",
+   "hreflang": [
+    "ko"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 332,
+   "groupCount": 332,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/pl",
+   "cc": "xx",
+   "ll": "pl",
+   "hreflang": [
+    "pl"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 335,
+   "groupCount": 334,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/pt",
+   "cc": "xx",
+   "ll": "pt",
+   "hreflang": [
+    "pt"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 334,
+   "groupCount": 333,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/ru",
+   "cc": "xx",
+   "ll": "ru",
+   "hreflang": [
+    "ru"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 333,
+   "groupCount": 332,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "xx/zh",
+   "cc": "xx",
+   "ll": "zh",
+   "hreflang": [
+    "zh"
+   ],
+   "sitemapFiles": [],
+   "inIndex": false,
+   "urlCount": 0,
+   "alternateOnlyCount": 334,
+   "groupCount": 333,
+   "marketOnlyCount": 0,
+   "ownSitemap": false
+  },
+  {
+   "root": "za/de",
+   "cc": "za",
+   "ll": "de",
+   "hreflang": [
+    "de-ZA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_za_de_1.xml.gz",
+    "sitemap_lh_za_de_2.xml.gz",
+    "sitemap_lh_za_de_3.xml.gz",
+    "sitemap_lh_za_de_4.xml.gz",
+    "sitemap_lh_za_de_5.xml.gz",
+    "sitemap_lh_za_de_6.xml.gz",
+    "sitemap_lh_za_de.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1026,
+   "alternateOnlyCount": 21,
+   "groupCount": 1045,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  },
+  {
+   "root": "za/en",
+   "cc": "za",
+   "ll": "en",
+   "hreflang": [
+    "en-ZA"
+   ],
+   "sitemapFiles": [
+    "sitemap_lh_za_en_1.xml.gz",
+    "sitemap_lh_za_en_2.xml.gz",
+    "sitemap_lh_za_en_3.xml.gz",
+    "sitemap_lh_za_en_4.xml.gz",
+    "sitemap_lh_za_en_5.xml.gz",
+    "sitemap_lh_za_en_6.xml.gz",
+    "sitemap_lh_za_en.xml.gz"
+   ],
+   "inIndex": false,
+   "urlCount": 1034,
+   "alternateOnlyCount": 19,
+   "groupCount": 1052,
+   "marketOnlyCount": 0,
+   "ownSitemap": true
+  }
+ ]
+}
