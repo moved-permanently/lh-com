@@ -5,7 +5,8 @@
  *
  * - lh-com (the default): documents from content/, state tools/importer/da-upload-state.json, the
  *   migration scope (transformers/scope-paths.js) plus its document families (nav, footer,
- *   fragments, app screens, feeds, xf, the Page check test page), author-edits.json applied.
+ *   fragments, app screens, feeds, xf, the Page check test page), plus the explicit paths of
+ *   tools/importer/sites/lh-com.json (the ch pilot's pages), author-edits.json applied.
  * - any other site: documents from content-sites/<site>/content/ (or --content-dir), state
  *   tools/importer/da-upload-state-<site>.json, only the paths of its allowlist
  *   tools/importer/sites/<site>.json ({"paths": [...], "patterns": ["^/regex$"]}); no lh-com
@@ -66,7 +67,11 @@ export async function siteSettings(root, loadScope, { site = DEFAULT_SITE, conte
   let allowed;
   let authorEdits = {};
   if (lhCom) {
-    allowed = lhComAllowed(await loadScope());
+    const scopeAllowed = lhComAllowed(await loadScope());
+    // documents outside the scope that may be sent all the same (exact paths only)
+    const extraFile = path.join(root, 'tools/importer/sites/lh-com.json');
+    const extra = fs.existsSync(extraFile) ? allowlistAllowed({ paths: JSON.parse(fs.readFileSync(extraFile, 'utf8')).paths }) : () => false;
+    allowed = (p) => scopeAllowed(p) || (!APP_SHELL.test(p) && extra(p));
     const editsFile = path.join(root, 'tools/importer/author-edits.json');
     authorEdits = fs.existsSync(editsFile) ? JSON.parse(fs.readFileSync(editsFile, 'utf8')) : {};
   } else {

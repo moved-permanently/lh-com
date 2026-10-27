@@ -19998,5 +19998,60 @@
   "template": "mfe",
   "status": "ok",
   "at": "2026-10-26T22:46:20.495Z"
+ },
+ "https://www.lufthansa.com/ch/en/homepage": {
+  "template": "homepage",
+  "status": "ok",
+  "at": "2026-10-27T16:53:34.307Z"
+ },
+ "https://www.lufthansa.com/ch/de/homepage": {
+  "template": "homepage",
+  "status": "ok",
+  "at": "2026-10-27T16:53:34.314Z"
+ },
+ "https://www.lufthansa.com/ch/en/local-page/experience-america": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.241Z"
+ },
+ "https://www.lufthansa.com/ch/en/companion-special-first-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.245Z"
+ },
+ "https://www.lufthansa.com/ch/en/companion-special-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.248Z"
+ },
+ "https://www.lufthansa.com/ch/en/smart-bags": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.251Z"
+ },
+ "https://www.lufthansa.com/ch/de/local-page/black-friday": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.257Z"
+ },
+ "https://www.lufthansa.com/ch/de/companion-special-first-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.260Z"
+ },
+ "https://www.lufthansa.com/ch/de/companion-special-premium-economy-class": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.264Z"
+ },
+ "https://www.lufthansa.com/ch/de/fluege-vo-zurich-nach-china": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.267Z"
+ },
+ "https://www.lufthansa.com/ch/de/event/exklusives-event-angebot-dxb-1": {
+  "template": "info",
+  "status": "ok",
+  "at": "2026-10-27T16:54:32.270Z"
  }
 }

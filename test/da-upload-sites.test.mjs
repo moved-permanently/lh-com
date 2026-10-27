@@ -25,9 +25,11 @@ test('lh-com is the default: content/, its state file, its scope and families, a
   assert.equal(typeof s.authorEdits, 'object');
   ['/de/en/homepage', '/de/en/nav', '/gb/en/footer', '/de/de/fragments/stage-promotions', '/content/mobile/lh/en/homepage', '/data/lufthansa-group/x', '/xf/lh/markets/de/x', '/drafts/page-check/test-page']
     .forEach((p) => assert.ok(s.allowed(p), p));
-  ['/de/en/not-in-scope', '/lhg/de/en/x', '/drafts/other', '/fr/fr/nav', '/ch/en/not-in-scope'].forEach((p) => assert.ok(!s.allowed(p), p));
+  ['/de/en/not-in-scope', '/lhg/de/en/x', '/drafts/other', '/fr/fr/nav', '/ch/en/not-listed'].forEach((p) => assert.ok(!s.allowed(p), p));
   // a root of the locale table (pilot ch): its nav, footer and fragments
-  ['/ch/en/nav', '/ch/de/footer'].forEach((p) => assert.ok(s.allowed(p), p));
+  ['/ch/en/nav', '/ch/de/footer', '/ch/de/fragments/stage-promotions'].forEach((p) => assert.ok(s.allowed(p), p));
+  // the explicit paths of tools/importer/sites/lh-com.json (the ch pilot), exactly these
+  ['/ch/en/homepage', '/ch/de/event/exklusives-event-angebot-dxb-1'].forEach((p) => assert.ok(s.allowed(p), p));
   const env = await siteSettings(root, loadScope, { stateEnv: '/tmp/x-state.json' });
   assert.equal(env.stateFile, '/tmp/x-state.json', '$DA_UPLOAD_STATE as before');
 });
