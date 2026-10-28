@@ -1138,6 +1138,366 @@
         "shopLang"
       ],
       "batch": 3
+    },
+    "kw/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kuwait | Deutsch",
+      "countryName": {
+        "en": "Kuwait",
+        "de": "Kuwait"
+      },
+      "homeAirport": "KWI",
+      "currency": "KWD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "kw/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kuwait | English",
+      "countryName": {
+        "en": "Kuwait",
+        "de": "Kuwait"
+      },
+      "homeAirport": "KWI",
+      "currency": "KWD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lb/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Libanon | Deutsch",
+      "countryName": {
+        "en": "Lebanon",
+        "de": "Libanon"
+      },
+      "homeAirport": "BEY",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lb/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Lebanon | English",
+      "countryName": {
+        "en": "Lebanon",
+        "de": "Libanon"
+      },
+      "homeAirport": "BEY",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lt/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Litauen | Deutsch",
+      "countryName": {
+        "en": "Lithuania",
+        "de": "Litauen"
+      },
+      "homeAirport": "VNO",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lt/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Lithuania | English",
+      "countryName": {
+        "en": "Lithuania",
+        "de": "Litauen"
+      },
+      "homeAirport": "VNO",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lv/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Lettland | Deutsch",
+      "countryName": {
+        "en": "Latvia",
+        "de": "Lettland"
+      },
+      "homeAirport": "RIX",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "lv/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Latvia | English",
+      "countryName": {
+        "en": "Latvia",
+        "de": "Lettland"
+      },
+      "homeAirport": "RIX",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "ly/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Libyen | Deutsch",
+      "countryName": {
+        "en": "Libya",
+        "de": "Libyen"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "ly/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Libya | English",
+      "countryName": {
+        "en": "Libya",
+        "de": "Libyen"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "md/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Moldawien | Deutsch",
+      "countryName": {
+        "en": "Moldawien",
+        "de": "Moldawien"
+      },
+      "homeAirport": "RMO",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "md/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Moldawien | English",
+      "countryName": {
+        "en": "Moldawien",
+        "de": "Moldawien"
+      },
+      "homeAirport": "RMO",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mk/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Nordmazedonien | Deutsch",
+      "countryName": {
+        "en": "MK",
+        "de": "Nordmazedonien"
+      },
+      "homeAirport": "SKP",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mk/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "MK | EN",
+      "countryName": {
+        "en": "MK",
+        "de": "Nordmazedonien"
+      },
+      "homeAirport": "SKP",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mt/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "MT | DE",
+      "countryName": {
+        "en": "MT",
+        "de": "MT"
+      },
+      "homeAirport": "MLA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mt/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "MT | EN",
+      "countryName": {
+        "en": "MT",
+        "de": "MT"
+      },
+      "homeAirport": "MLA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mu/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Mauritius | Deutsch",
+      "countryName": {
+        "en": "Mauritius",
+        "de": "Mauritius"
+      },
+      "homeAirport": "MRU",
+      "currency": "MUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mu/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Mauritius | English",
+      "countryName": {
+        "en": "Mauritius",
+        "de": "Mauritius"
+      },
+      "homeAirport": "MRU",
+      "currency": "MUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mv/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Malediven | Deutsch",
+      "countryName": {
+        "en": "Maldives",
+        "de": "Malediven"
+      },
+      "homeAirport": "MLE",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
+    },
+    "mv/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Maldives | English",
+      "countryName": {
+        "en": "Maldives",
+        "de": "Malediven"
+      },
+      "homeAirport": "MLE",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 4
     }
   }
 }

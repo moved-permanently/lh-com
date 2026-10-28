@@ -1074,6 +1074,9 @@ export async function marketSitemapXml(request, env, root, page = 1) {
   return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${lines.join('\n')}\n</urlset>\n`;
 }
 
+// localeCompare's order, without making a collator per comparison
+const collator = new Intl.Collator();
+
 /** The sitemap index (the origin's static file) with the served market roots' files added. */
 export async function sitemapIndexXml(request, env, roots) {
   const resp = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}/sitemap/sitemap_lh.xml`);
@@ -1090,13 +1093,15 @@ export async function sitemapIndexXml(request, env, roots) {
     const u = `${www}/sitemap/${n}.xml.gz`;
     if (!have.has(u)) items.push(`<sitemap><loc>${u}</loc></sitemap>`);
   });
-  // www's order: by root, the numbered files after the root's first
+  // www's order: by root, the numbered files after the root's first (each item's key made once:
+  // in the comparator the regular expressions ran thousands of times with 80 roots)
   const key = (item) => loc(item).replace(/\.xml\.gz$/, '')
     .replace(/_(\d+)$/, (m, n) => `~${n.padStart(4, '0')}`);
-  items.sort((a, b) => key(a).localeCompare(key(b)));
+  const sorted = items.map((item) => ({ item, k: key(item) }))
+    .sort((a, b) => collator.compare(a.k, b.k)).map((x) => x.item);
   const start = xml.indexOf('<sitemap>');
   const end = xml.lastIndexOf('</sitemap>') + '</sitemap>'.length;
-  return `${xml.slice(0, start)}${items.join('')}${xml.slice(end)}`;
+  return `${xml.slice(0, start)}${sorted.join('')}${xml.slice(end)}`;
 }
 
 const SITEMAP = /^\/sitemap\/sitemap_lh(?:_([a-z]{2})_([a-z]{2})(?:_(\d+))?)?\.xml(\.gz)?$/;

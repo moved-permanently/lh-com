@@ -293,3 +293,160 @@ Local runtime, `rollout-batch3-check.json`:
   the root.
 - in/en's extra 404s are its left-out test and stale-file pages and `india20`.
 - Every link on the 20 homepages, navs and footers (60 documents, 1,700 links) answers 200.
+
+## Batch 4 (2026-10-28): KW LB LT LV LY MD MK MT MU MV, 20 roots
+
+### Captures
+
+- Plan: 106 pages: 20 homepages, 26 own pages, 60 compared with the language version. The same-day
+  references of de/en and de/de are batch 3's (08:05 UTC the same day).
+- One warm session at a time, one page every 5 to 10 s, 18:02 to 20:34 UTC.
+- **Four 403 blocks** (18:32, 19:04, 19:44, 20:34), each followed by a 31-minute pause; one crash
+  (the browser closed, 18:30, a new session after a minute). Every block hit one of mk's own pages
+  (the archive and garage pages of www's mk market): twice
+  `/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1`, then
+  `/mk/en/archived-contents/meetings-and-events/exclusive-event-offer-dubai` and
+  `/mk/en/articles/back-up-explore-the-world-manual`. After the second block the blocked page went
+  to the end of the list, after the third all of mk's own pages; the runner stopped after the
+  fourth, as set.
+- **94 captured**: every homepage, every compared page, 14 own pages. Every capture has its own
+  URL as canonical, except two own pages that are www's aliases (below).
+- **Not captured** (12 of mk's own pages):
+  - www answers 500: `/mk/en/archived-contents/flight-desruptions`,
+    `/mk/en/archived-contents/meetings-and-events/exclusive-event-offer-dubai` (no document, as
+    in/en's `india20`);
+  - blocked or not reached before the run stopped: `/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1`,
+    `/mk/de/overview-additional-services`, `/mk/de/overview-services-on-board`,
+    `/mk/de/overview-travel-classes`, `/mk/en/articles/back-up-explore-the-world-manual`,
+    `/mk/en/articles/highlights/winter-destinations1`,
+    `/mk/en/business-services/for-corporate-customers/meetings-and-events/exclusive-event-offer-dubai`,
+    `/mk/en/lounge-news`, `/mk/en/protection-measures`, `/mk/en/support/refund`. To be captured
+    with batch 5's session (last in its list); until then lh-edge answers them 404 on lhedge.
+- **Left out by rule** (`rollout.mjs --own`), new with mk (www's sandbox-like market: 1,270 AEM
+  configuration pages in mk/en's sitemap): pages named `do-not-publish` or `garage`
+  (`/mk/de/discover_temporarygarage---do-not-publish/families`, `…/travel-tips`) and the component
+  test pages mk/de lists under `testseiten-teaseruebersicht-teaser-garagen`
+  (`/mk/en/teaser-overview/…` ×3, `/mk/en/Videoplayer`, `/mk/en/panorama-viewer`). No page of
+  batches 1 to 3 is affected.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| kw/de, kw/en | Kuwait \| Deutsch, Kuwait \| English | Kuwait / Kuwait | KWI | KWD |
+| lb/de, lb/en | Libanon \| Deutsch, Lebanon \| English | Lebanon / Libanon | BEY | USD |
+| lt/de, lt/en | Litauen \| Deutsch, Lithuania \| English | Lithuania / Litauen | VNO | EUR |
+| lv/de, lv/en | Lettland \| Deutsch, Latvia \| English | Latvia / Lettland | RIX | EUR |
+| ly/de, ly/en | Libyen \| Deutsch, Libya \| English | Libya / Libyen | FRA | EUR |
+| md/de, md/en | Moldawien \| Deutsch, Moldawien \| English | Moldawien / Moldawien | RMO | EUR |
+| mk/de | Nordmazedonien \| Deutsch | MK / Nordmazedonien | SKP | USD |
+| mk/en | MK \| EN | MK / Nordmazedonien | SKP | USD |
+| mt/de, mt/en | MT \| DE, MT \| EN | MT / MT | MLA | EUR |
+| mu/de, mu/en | Mauritius \| Deutsch, Mauritius \| English | Mauritius / Mauritius | MRU | MUR |
+| mv/de, mv/en | Malediven \| Deutsch, Maldives \| English | Maldives / Malediven | MLE | USD |
+
+Every value was found. www's own oddities, taken as they are: codes only for mk/en and mt (like am),
+a German country name on md/en (Moldawien), ly preselects FRA (prices in EUR, like iq and ir), lb,
+mk and mv show prices in USD. timeZone and shopLang: null for every root, as in batches 1 to 3.
+
+### Documents
+
+- 20 homepages, 12 own pages (kw/en `local-page/jarallah`, 11 of mk/de's: articles, article tag
+  pages, the emergency contact form `formular-notfallkontakt` with the site's form block
+  `form core`, and its confirmation page) and nav and footer of every root: 72 documents uploaded
+  and previewed (not published).
+- **www's aliases**: two own pages name another page as canonical; `rollout.mjs --docs` now makes
+  no document for such a page (the root serves the canonical page from its language version).
+  Redirect rows keep www's URLs; they go in the redirect sheet, which is yours to upload:
+  - `/lv/de/check-in-information` → `/lv/de/all-check-in`
+  - `/mk/de/satellit-muenchen` → `/mk/de/lufthansa-terminal-muenchen`
+
+  Batch 1 has one such page that was imported as a document of its own:
+  `/az/en/prepare-for-your-trip/travel-classes/fice` (canonical `/az/en/discover-lufthansa/allegris`).
+  It answers, so it stays; deleting it in Document Authoring and adding the row
+  `/az/en/prepare-for-your-trip/travel-classes/fice` → `/az/en/discover-lufthansa/allegris` is
+  yours if you want it the same way.
+- **The first root document of the rollout: `/lb/en/flights`.** www's lb/en flight page has a
+  promotion of its own in front of the language page's content: the headline "Exclusive Economy
+  and Business Class Offers for your European and North American adventures.", an image and the
+  offer (valid until 26 November 2026, travel 2 December 2026 to 31 March 2027, USD savings).
+  The document is `/de/en/flights` copied with root-docs.mjs (the link rule of every root copy)
+  with that section in front; uploaded and previewed. It is a dated offer: once www drops it, the
+  document goes (a delete in Document Authoring, yours), and lb/en is served from de/en again.
+
+### Local versions
+
+`rollout-batch4-compare.json`:
+- The de roots' flight offers page: the same entry-rules teaser as batches 1 to 3 (section
+  `markets`).
+- The en roots' flight pages: the destination offers differ (per origin); ly, mk, mt and mu show
+  none and are the same.
+- lb/en's flight page: its promotion (above, the root document).
+- Everything else: the same.
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch4-check.json` (run again after the redirect fix below):
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| kw/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| kw/en | 1,058 | 958 | | 99 | 1 | 86 | 13 |
+| lb/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| lb/en | 1,056 | 958 | | 98 | | 85 | 13 |
+| lt/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| lt/en | 1,055 | 956 | | 97 | 2 | 84 | 13 |
+| lv/de | 1,048 | 953 | 1 | 94 | | 82 | 12 |
+| lv/en | 1,056 | 956 | | 98 | 2 | 85 | 13 |
+| ly/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| ly/en | 1,053 | 958 | | 95 | | 82 | 13 |
+| md/de | 1,047 | 950 | 1 | 93 | 3 | 81 | 12 |
+| md/en | 1,054 | 958 | | 96 | | 83 | 13 |
+| mk/de | 1,769 | 964 | 1 | 803 | 1 | 792 | 12 |
+| mk/en | 2,890 | 955 | | 1,930 | 5 | 1,919 | 13 |
+| mt/de | 1,048 | 953 | 1 | 94 | | 82 | 12 |
+| mt/en | 1,055 | 956 | | 97 | 2 | 84 | 13 |
+| mu/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| mu/en | 1,053 | 957 | | 95 | 1 | 82 | 13 |
+| mv/de | 1,046 | 953 | 1 | 92 | | 80 | 12 |
+| mv/en | 1,053 | 956 | | 95 | 2 | 82 | 13 |
+
+- Every 200 has the root's canonical. The 301 is de/de's `support/support` redirect, moved into
+  the root.
+- mk's large 404 counts are its AEM configuration pages (`configuration/seo-pages/…`) and the own
+  pages left out or not captured.
+- **The 500s (24 URLs, 3 links) are the local runtime's**: "the Worker's code had hung", under
+  eight concurrent requests in one process. Fetched again one at a time, every one answers as it
+  should (200 through the market route, the configuration pages 404). The same check for hu/en
+  against lhedge itself (production, eight concurrent requests) gives no 500 (958 × 200, 99 × 404,
+  as batch 3). Likely cause: since 15170c2 concurrent requests share one pending index read, and
+  workerd cancels a request that waits for another request's promise when that one ends. Not seen
+  in production so far; a candidate for a fix (share only the finished values) if `wrangler tail`
+  shows "hung" errors.
+- **The redirect fix**: the first run found every de root's `support/support` at 404 instead of 301.
+  The request without its conditions (ea9bd9a) had lost Workers' manual redirect mode, so the
+  language version's redirect was followed and the root's 404 answered: on lhedge from 17:38 UTC.
+  Fixed in 4b6f42d (deployed 21:15 UTC), with a test.
+- Every link on the 20 homepages, navs and footers (60 documents, 1,701 links) answers 200.
+
+### CPU (Workers Free: 10 ms per request)
+
+Locally, `bench-market.mjs` with the same recorded origin answers for both code versions, lean
+sources (the path these answers take once the lean indexes are filled), medians of 25 runs, today's
+60 pilot roots and deployed code against batch 4's 80 roots, back to back (ms of CPU, cold / warm):
+
+| Answer | 60 roots | 80 roots |
+| --- | --- | --- |
+| pilot page `/hu/en/baggage` | 6.8–7.3 / 1.9–2.0 | 6.2–7.0 / 1.6–1.9 |
+| pilot `search-index.json` (4.5 MB) | 36–57 / 40–48 | 27–40 / 47–51 |
+| sitemap index `.xml` | 8.6–9.1 / 3.6–4.1 | 9.2–9.7 / 4.0 |
+| sitemap index `.gz` | 9.6–9.7 / 4.5–4.6 | 10.0–10.1 / 4.8–5.0 |
+| market sitemap file `.xml` | 13.0–13.7 / 7.5–7.8 | 13.4 / 7.7–8.1 |
+| market sitemap file `.gz` | 18.4–19.2 / 13.3–14.3 | 19.4–19.8 / 13.0–14.9 |
+
+- The sitemap index grows with every root (54 KB → 93 KB). Its sort made each item's key with two
+  regular expressions in every comparison; the key is now made once per item (answers byte for byte
+  the same), which takes about 1.5 ms off and keeps the index at today's cost. Market sitemap files
+  stay the same size (the alternates budget: 880 KB → 845 KB). The pilot JSON is the same.
+- The numbers are upper bounds (Node's fetch and Response plumbing, the test's HTMLRewriter
+  stand-in); the large JSON answers were already over 10 ms after 128.

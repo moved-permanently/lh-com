@@ -93,6 +93,10 @@ export function ownPages(rootKey, marketOnly = read(path.join(DATA, 'market-only
     if (/\/configuration(\/|$)/.test(p)) left.push({ path: p, why: 'AEM configuration page' });
     else if (stale.has(p)) left.push({ path: p, why: 'only in a stale sitemap file' });
     else if (/(^|[/-])test([-/]|$)|\/test[a-z0-9_-]*$|[-_]test$/i.test(p)) left.push({ path: p, why: 'test page' });
+    // www's own markers (mk: discover_temporarygarage---do-not-publish/...), and the component
+    // test pages mk/de lists under testseiten-teaseruebersicht-teaser-garagen
+    else if (/do-not-publish|garage/i.test(p)) left.push({ path: p, why: 'garage or do-not-publish page' });
+    else if (/\/(teaser-overview|videoplayer|panorama-viewer)(\/|$)/i.test(p)) left.push({ path: p, why: 'component test page' });
     else keep.push(p);
   });
   return { keep: keep.sort(), left };
@@ -235,7 +239,12 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     const url = (p) => `https://www.lufthansa.com${p}`;
     const captured = (p) => fs.existsSync(path.join(SNAP, `${p}.html`));
     const homes = b.roots.map((k) => `/${k}/homepage`).filter(captured);
-    const own = b.roots.flatMap((k) => ownPages(k).keep).filter(captured);
+    // an own page whose capture names another page as canonical is www's alias of it
+    // (/lv/de/check-in-information is /lv/de/all-check-in, which the root serves from its
+    // language version): no document of its own, a redirect row keeps www's URL
+    const canonicalOf = (p) => (fs.readFileSync(path.join(SNAP, `${p}.html`), 'utf8').match(/<link rel="canonical" href="https:\/\/www\.lufthansa\.com([^"?#]+)"/) || [])[1] || p;
+    const aliases = b.roots.flatMap((k) => ownPages(k).keep).filter(captured).filter((p) => canonicalOf(p) !== p);
+    const own = b.roots.flatMap((k) => ownPages(k).keep).filter(captured).filter((p) => !aliases.includes(p));
     const restore = () => execFileSync('git', ['checkout', '--', 'tools/importer/import-progress.json', ...['homepage', 'info'].flatMap((t) => [`tools/importer/urls-${t}.txt`, `tools/importer/reports/import-${t}.report.xlsx`])], { cwd: root });
     // the importer's document name: Edge Delivery has no upper case or underscores in names
     // (www's /fi/en/.../worldwide_offers1 is the document worldwide-offers1: a redirect row)
@@ -259,6 +268,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     console.log(out.join('\n'));
     const docs = [...homes, ...own.map(docName), ...b.roots.flatMap((k) => [`/${k}/nav`, `/${k}/footer`])].filter((p) => fs.existsSync(path.join(root, 'content', `${p}.plain.html`)));
     renamed.forEach((p) => console.log(`www's ${p} is the document ${docName(p)}: a redirect row ${p} -> ${docName(p)} keeps www's URL`));
+    aliases.forEach((p) => console.log(`www's ${p} has the canonical ${canonicalOf(p)}: no document, a redirect row ${p} -> ${canonicalOf(p)} keeps www's URL`));
     const sites = path.join(root, 'tools/importer/sites/lh-com.json');
     const allow = read(sites);
     allow.paths = [...new Set([...allow.paths, ...docs])];
