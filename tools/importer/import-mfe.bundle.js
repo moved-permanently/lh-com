@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_801250_exports = {};
-  __export(tmp_bundle_mfe_801250_exports, {
-    default: () => tmp_bundle_mfe_801250_default
+  var tmp_bundle_mfe_914066_exports = {};
+  __export(tmp_bundle_mfe_914066_exports, {
+    default: () => tmp_bundle_mfe_914066_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -120,6 +120,53 @@ var CustomImportScript = (() => {
       div.append(...header.childNodes);
       header.replaceWith(div);
     });
+  }
+  var ENTITY_TEXT = /&(#\d{1,7}|#x[0-9a-f]{1,6}|[a-z][a-z0-9]{1,31});/gi;
+  var MARKUP_ENTITY = /^(amp|lt|gt|quot|apos|#0*(38|60|62|34|39)|#x0*(26|3c|3e|22|27))$/i;
+  function decodeEntityText(document) {
+    const cache = /* @__PURE__ */ new Map();
+    const Parser = typeof DOMParser !== "undefined" ? DOMParser : document.defaultView && document.defaultView.DOMParser;
+    const parser = Parser ? new Parser() : null;
+    const scratch = document.createElement("div");
+    const decode = (entity) => {
+      if (!cache.has(entity)) {
+        let text;
+        if (parser) {
+          text = parser.parseFromString(`<!doctype html><html><body><p>${entity}</p></body></html>`, "text/html").querySelector("p").textContent;
+        } else {
+          scratch.innerHTML = entity;
+          text = scratch.textContent;
+        }
+        cache.set(entity, text && text !== entity ? text : null);
+      }
+      return cache.get(entity);
+    };
+    const decodeString = (value, keepMarkup) => String(value).replace(ENTITY_TEXT, (m, name) => {
+      if (keepMarkup && MARKUP_ENTITY.test(name)) return m;
+      const c = decode(m);
+      return c === null ? m : c;
+    });
+    const walk = (node) => {
+      if (node.nodeType === 3) {
+        if (node.data.includes("&")) {
+          const next = decodeString(node.data, false);
+          if (next !== node.data) node.data = next;
+        }
+        return;
+      }
+      if (node.nodeType !== 1) return;
+      [...node.attributes].forEach((a) => {
+        if (!a.value.includes("&")) return;
+        const next = decodeString(a.value, true);
+        if (next !== a.value) node.setAttribute(a.name, next);
+      });
+      const tag = node.tagName.toLowerCase();
+      if (tag === "script" || tag === "style") return;
+      [...node.childNodes].forEach(walk);
+    };
+    const top = document.documentElement || document;
+    if (typeof top.normalize === "function") top.normalize();
+    walk(top);
   }
   function removeAll(root, selectors) {
     selectors.forEach((sel) => {
@@ -1151,6 +1198,7 @@ var CustomImportScript = (() => {
   function transform(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
+      decodeEntityText(document);
       const titleEl = document.querySelector("title");
       if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
@@ -1481,7 +1529,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_801250_default = {
+  var tmp_bundle_mfe_914066_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -1511,5 +1559,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_801250_exports);
+  return __toCommonJS(tmp_bundle_mfe_914066_exports);
 })();

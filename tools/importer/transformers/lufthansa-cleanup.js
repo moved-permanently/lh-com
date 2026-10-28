@@ -141,6 +141,70 @@ function keepSubpageNavHeader(document, payload) {
   });
 }
 
+/*
+ * Entity text. www's Insights articles carry their text escaped twice: the HTML has `f&amp;uuml;r`
+ * and `(&amp;copy; Side Gallery)` in captions, image credits, body text and the JSON of their
+ * components, and www's web components (maui-caption ...) decode it once more when they render.
+ * Parsed, that text reads `f&uuml;r`, and the import wrote it into DA as text: the replica
+ * showed "f&uuml;r" where www shows "für" (2,227 article documents, fixed 2026-10-28 with
+ * tools/importer/fix-entity-text.mjs). decodeEntityText decodes that text once, first of all:
+ * - text nodes (not script/style): every entity (`&uuml;` -> ü, `&amp;` -> &);
+ * - attributes (alt, title, content, data-* JSON): every entity but the markup ones (`&amp;`,
+ *   `&lt;`, `&gt;`, `&quot;`, `&apos;`, also numeric), so a JSON value stays JSON.
+ * Text without entity text is not touched (the other templates' pages have none).
+ */
+const ENTITY_TEXT = /&(#\d{1,7}|#x[0-9a-f]{1,6}|[a-z][a-z0-9]{1,31});/gi;
+const MARKUP_ENTITY = /^(amp|lt|gt|quot|apos|#0*(38|60|62|34|39)|#x0*(26|3c|3e|22|27))$/i;
+
+function decodeEntityText(document) {
+  const cache = new Map();
+  // the HTML parser decodes an entity (DOMParser: the importer's browser page, linkedom in the
+  // tests; innerHTML where there is none)
+  const Parser = typeof DOMParser !== 'undefined' ? DOMParser : (document.defaultView && document.defaultView.DOMParser);
+  const parser = Parser ? new Parser() : null;
+  const scratch = document.createElement('div');
+  const decode = (entity) => {
+    if (!cache.has(entity)) {
+      let text;
+      if (parser) {
+        text = parser.parseFromString(`<!doctype html><html><body><p>${entity}</p></body></html>`, 'text/html').querySelector('p').textContent;
+      } else {
+        scratch.innerHTML = entity;
+        text = scratch.textContent;
+      }
+      cache.set(entity, text && text !== entity ? text : null);
+    }
+    return cache.get(entity);
+  };
+  const decodeString = (value, keepMarkup) => String(value).replace(ENTITY_TEXT, (m, name) => {
+    if (keepMarkup && MARKUP_ENTITY.test(name)) return m;
+    const c = decode(m);
+    return c === null ? m : c;
+  });
+  const walk = (node) => {
+    if (node.nodeType === 3) {
+      if (node.data.includes('&')) {
+        const next = decodeString(node.data, false);
+        if (next !== node.data) node.data = next;
+      }
+      return;
+    }
+    if (node.nodeType !== 1) return;
+    [...node.attributes].forEach((a) => {
+      if (!a.value.includes('&')) return;
+      const next = decodeString(a.value, true);
+      if (next !== a.value) node.setAttribute(a.name, next);
+    });
+    const tag = node.tagName.toLowerCase();
+    if (tag === 'script' || tag === 'style') return;
+    [...node.childNodes].forEach(walk);
+  };
+  const top = document.documentElement || document;
+  // one text node per run of text (a parser may split it at an entity)
+  if (typeof top.normalize === 'function') top.normalize();
+  walk(top);
+}
+
 function removeAll(root, selectors) {
   selectors.forEach((sel) => {
     let nodes = [];
@@ -1536,6 +1600,8 @@ export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
 
   if (hookName === 'beforeTransform') {
+    // www's twice-escaped text (Insights articles), once decoded, before anything reads it
+    decodeEntityText(document);
     // a few live titles repeat the site suffix ("Help & Contact | Lufthansa | Lufthansa"): one, as
     // on the other pages
     const titleEl = document.querySelector('title');
