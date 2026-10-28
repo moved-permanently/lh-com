@@ -753,9 +753,9 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 208,
-  "hash": "40548656c1860a19",
-  "route": "sitemap-gz"
+  "length": 275,
+  "hash": "4a515e657a39724b",
+  "route": "market-sitemap"
  },
  {
   "key": "GET /sitemap/sitemap_lh_de_en.xml",
