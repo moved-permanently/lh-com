@@ -389,18 +389,18 @@
   "language": "/de/de/fluege",
   "status": "differs",
   "reference": "same day",
-  "textShared": 0,
-  "onlyHere": [],
-  "onlyLanguage": [
-   "travel id",
-   "grenzenloser zugang zu den lufthansa group airlines und miles & more.",
-   "parken am terminal",
-   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!",
-   "digitale services"
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
   ],
-  "nHere": 0,
-  "nLanguage": 8,
-  "components": "+ -teaser,teaser,teaser,image,headline,text,link"
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
  },
  {
   "root": "er/de",

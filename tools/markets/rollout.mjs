@@ -92,7 +92,7 @@ export function ownPages(rootKey, marketOnly = read(path.join(DATA, 'market-only
   (marketOnly[rootKey] || []).forEach(([p]) => {
     if (/\/configuration(\/|$)/.test(p)) left.push({ path: p, why: 'AEM configuration page' });
     else if (stale.has(p)) left.push({ path: p, why: 'only in a stale sitemap file' });
-    else if (/(^|[/-])test([-/]|$)|\/test[a-z0-9-]*$|-test$/i.test(p)) left.push({ path: p, why: 'test page' });
+    else if (/(^|[/-])test([-/]|$)|\/test[a-z0-9_-]*$|[-_]test$/i.test(p)) left.push({ path: p, why: 'test page' });
     else keep.push(p);
   });
   return { keep: keep.sort(), left };

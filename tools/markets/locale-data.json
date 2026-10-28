@@ -778,6 +778,366 @@
         "shopLang"
       ],
       "batch": 2
+    },
+    "hu/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ungarn | Deutsch",
+      "countryName": {
+        "en": "Hungary",
+        "de": "Ungarn"
+      },
+      "homeAirport": "BUD",
+      "currency": "HUF",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "hu/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Hungary | English",
+      "countryName": {
+        "en": "Hungary",
+        "de": "Ungarn"
+      },
+      "homeAirport": "BUD",
+      "currency": "HUF",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "id/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Indonesien | Deutsch",
+      "countryName": {
+        "en": "Indonesia",
+        "de": "Indonesien"
+      },
+      "homeAirport": "DPS",
+      "currency": "IDR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "id/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Indonesia | English",
+      "countryName": {
+        "en": "Indonesia",
+        "de": "Indonesien"
+      },
+      "homeAirport": "DPS",
+      "currency": "IDR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ie/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Irland | Deutsch",
+      "countryName": {
+        "en": "Ireland",
+        "de": "Irland"
+      },
+      "homeAirport": "DUB",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ie/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ireland | English",
+      "countryName": {
+        "en": "Ireland",
+        "de": "Irland"
+      },
+      "homeAirport": "DUB",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "il/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Israel | Deutsch",
+      "countryName": {
+        "en": "Israel",
+        "de": "Israel"
+      },
+      "homeAirport": "TLV",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "il/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Israel | English",
+      "countryName": {
+        "en": "Israel",
+        "de": "Israel"
+      },
+      "homeAirport": "TLV",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "in/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Indien | Deutsch",
+      "countryName": {
+        "en": "Indien",
+        "de": "Indien"
+      },
+      "homeAirport": "DEL",
+      "currency": "INR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "in/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Indien | English",
+      "countryName": {
+        "en": "Indien",
+        "de": "Indien"
+      },
+      "homeAirport": "DEL",
+      "currency": "INR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "iq/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Irak | Deutsch",
+      "countryName": {
+        "en": "Iraq",
+        "de": "Irak"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "iq/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Iraq | English",
+      "countryName": {
+        "en": "Iraq",
+        "de": "Irak"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ir/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Iran | Deutsch",
+      "countryName": {
+        "en": "Iran",
+        "de": "Iran"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ir/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Iran | English",
+      "countryName": {
+        "en": "Iran",
+        "de": "Iran"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "is/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "IS | DE",
+      "countryName": {
+        "en": "Iceland",
+        "de": "IS"
+      },
+      "homeAirport": "REK",
+      "currency": "ISK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "is/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Iceland | English",
+      "countryName": {
+        "en": "Iceland",
+        "de": "IS"
+      },
+      "homeAirport": "REK",
+      "currency": "ISK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "jo/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Jordanien | Deutsch",
+      "countryName": {
+        "en": "Jordan",
+        "de": "Jordanien"
+      },
+      "homeAirport": "AMM",
+      "currency": "JOD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "jo/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Jordan | English",
+      "countryName": {
+        "en": "Jordan",
+        "de": "Jordanien"
+      },
+      "homeAirport": "AMM",
+      "currency": "JOD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ke/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kenia | Deutsch",
+      "countryName": {
+        "en": "Kenya",
+        "de": "Kenia"
+      },
+      "homeAirport": "NBO",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
+    },
+    "ke/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kenya | English",
+      "countryName": {
+        "en": "Kenya",
+        "de": "Kenia"
+      },
+      "homeAirport": "NBO",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 3
     }
   }
 }

@@ -23,9 +23,9 @@ test('rollout: batches of about 10 countries (only en and de first), a small rem
 });
 
 test('rollout: own pages without AEM configuration pages, stale-file URLs and test pages', () => {
-  const o = ownPages('xy/en', { 'xy/en': [['/xy/en/local-page/offer', 'x'], ['/xy/en/configuration/seo-pages/a', 'x'], ['/xy/en/old', 'x'], ['/xy/en/testLTS', 'x'], ['/xy/en/test-page', 'x']] }, { urlsOnlyInStaleFiles: ['/xy/en/old'] });
+  const o = ownPages('xy/en', { 'xy/en': [['/xy/en/local-page/offer', 'x'], ['/xy/en/configuration/seo-pages/a', 'x'], ['/xy/en/old', 'x'], ['/xy/en/testLTS', 'x'], ['/xy/en/test-page', 'x'], ['/xy/en/local-page/new_menu/test_260526', 'x']] }, { urlsOnlyInStaleFiles: ['/xy/en/old'] });
   assert.deepEqual(o.keep, ['/xy/en/local-page/offer']);
-  assert.deepEqual(o.left.map((x) => x.why), ['AEM configuration page', 'only in a stale sitemap file', 'test page', 'test page']);
+  assert.deepEqual(o.left.map((x) => x.why), ['AEM configuration page', 'only in a stale sitemap file', 'test page', 'test page', 'test page']);
 });
 
 test('rollout: homepage facts: the label of www, the preselected origin (else the fare teaser origin), the currency of the prices', () => {

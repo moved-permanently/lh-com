@@ -187,8 +187,10 @@ Not found (`–`) and www's own oddities:
 - The de roots' flight offers page: the same entry-rules teaser as batch 1 (section `markets`).
 - The en roots' flight pages: only the destination offers differ.
 - er/en: a masking artifact ("Palma de Mallorca").
-- er/de's flight page lacks the whole teaser carousel. Its capture came back without a status (the
-  screenshot timed out), so it is likely incomplete: unsettled, to be recaptured.
+- er/de's flight page lacked the whole teaser carousel in its first capture (no status, the
+  screenshot timed out). Recaptured on 2026-10-28 in a fresh session: the carousel is there, and
+  the page differs from de/de only by the entry-rules teaser (section `markets`), like every de
+  root. It shows no price either, so er/de's `currency` stays `null` (er/en: EUR).
 - **Root documents made: none.**
 
 ### Checks against the preview origin
@@ -199,3 +201,95 @@ Not found (`–`) and www's own oddities:
 - The 404s: pages the replica has in neither language version, the login and profile pages, and
   fi/en's underscore URL.
 - Every link on the 19 homepages, navs and footers answers 200.
+
+## Batch 3 (2026-10-28): HU ID IE IL IN IQ IR IS JO KE, 20 roots
+
+### Captures
+
+- 93 pages: 20 homepages, 13 own pages, 60 compared with the language version; 6 same-day
+  references of de/en and de/de.
+- No 403. One session hung at warm-up (17 minutes, restarted); one could not connect (retried);
+  the workspace restarted once in between (the captures and their state survived, the run went on).
+- **Wrong pages:** after a navigation timeout (90 s, no response) the session saved the page still
+  open under the next URL: `/ie/de/homepage` held www's `/id/en/additional-services`, five such
+  captures in all (canonical check). `tools/importer/bd-session.mjs` now saves nothing when a
+  navigation got no response and the browser is not on the requested path (`wrong-page`, retried
+  like a net error). The five were moved aside and captured again; every batch 3 capture now has
+  its own URL as canonical (batch 1 and 2 captures checked too: none affected).
+- 5 homepages without a rendered country label (ie/de, is/de, is/en, jo/en, ke/de) were
+  recaptured in a fresh session (en first); ie/de needed two more tries.
+- `/in/en/local-page/india20` (in www's sitemap): www answers 404, so no document.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| hu/de, hu/en | Ungarn \| Deutsch, Hungary \| English | Hungary / Ungarn | BUD | HUF |
+| id/de, id/en | Indonesien \| Deutsch, Indonesia \| English | Indonesia / Indonesien | DPS | IDR |
+| ie/de, ie/en | Irland \| Deutsch, Ireland \| English | Ireland / Irland | DUB | EUR |
+| il/de, il/en | Israel \| Deutsch, Israel \| English | Israel / Israel | TLV | USD |
+| in/de, in/en | Indien \| Deutsch, Indien \| English | Indien / Indien | DEL | INR |
+| iq/de, iq/en | Irak \| Deutsch, Iraq \| English | Iraq / Irak | FRA | EUR |
+| ir/de, ir/en | Iran \| Deutsch, Iran \| English | Iran / Iran | FRA | EUR |
+| is/de | IS \| DE | Iceland / IS | REK | ISK |
+| is/en | Iceland \| English | Iceland / IS | REK | ISK |
+| jo/de, jo/en | Jordanien \| Deutsch, Jordan \| English | Jordan / Jordanien | AMM | JOD |
+| ke/de, ke/en | Kenia \| Deutsch, Kenya \| English | Kenya / Kenia | NBO | USD |
+
+Every value was found. www's own oddities, taken as they are:
+- in/en has a German country name (Indien), is/de's label is codes only (IS | DE).
+- id preselects Denpasar (DPS), iq and ir preselect FRA (prices in EUR), is gives the city code REK.
+- il and ke show prices in USD.
+- timeZone and shopLang: null for every root, as in batches 1 and 2.
+
+### Documents
+
+- 20 homepages, 12 own pages (il/en 4, in/en 5, ir/en 2, jo/en 1) and nav and footer of every
+  root: 72 documents uploaded and previewed (not published).
+- `/il/en/cancellation-refund-webform` has the site's form block (`form core`), as the de/en forms.
+- Left out of in/en: 5 test pages and 3 URLs only in stale sitemap files. The test-page rule now
+  also matches an underscore name (`/in/en/local-page/new_menu_indian_routes/test_260526`; it
+  would have become a renamed document with a redirect row).
+
+### Local versions
+
+`rollout-batch3-compare.json`:
+- The de roots' flight offers page: the same entry-rules teaser as batches 1 and 2 (section
+  `markets`).
+- The en roots' flight pages: only the destination offers differ (per origin); ir/en shows none and
+  is the same.
+- id, in and is: masking artifacts ("travel id", "fly in comfort", "is now very easy": the country
+  codes are words); unmasked identical.
+- Everything else: the same. **Root documents made: none.**
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch3-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- |
+| hu/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| hu/en | 1,057 | 958 | | 99 | 86 | 13 |
+| id/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| id/en | 1,055 | 958 | | 97 | 84 | 13 |
+| ie/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| ie/en | 1,054 | 958 | | 96 | 83 | 13 |
+| il/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| il/en | 1,059 | 962 | | 97 | 84 | 13 |
+| in/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| in/en | 1,069 | 963 | | 106 | 93 | 13 |
+| iq/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| iq/en | 1,054 | 958 | | 96 | 83 | 13 |
+| ir/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| ir/en | 1,056 | 960 | | 96 | 83 | 13 |
+| is/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| is/en | 1,055 | 958 | | 97 | 84 | 13 |
+| jo/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| jo/en | 1,057 | 959 | | 98 | 85 | 13 |
+| ke/de | 1,047 | 953 | 1 | 93 | 81 | 12 |
+| ke/en | 1,056 | 958 | | 98 | 85 | 13 |
+
+- Every 200 has the root's canonical. The 301 is de/de's `support/support` redirect, moved into
+  the root.
+- in/en's extra 404s are its left-out test and stale-file pages and `india20`.
+- Every link on the 20 homepages, navs and footers (60 documents, 1,700 links) answers 200.
