@@ -4,6 +4,17 @@ A Cloudflare Worker that serves the lh-com Message Center as public JSON in the 
 
 URL: https://lh-messages.aem-poc-lab.workers.dev (`workers_dev = true`, no routes).
 
+## Two accounts (the parallel run, `../README.md` "Two accounts")
+
+lh-messages deploys to Blackbird and to the second Cloudflare account with the same code; the
+second account's config has its own KV (`accounts/benpeter.sed`: KV `lh-messages-state`). The
+minute cron runs in both accounts, each with its own KV state; `PUSH_TARGET` stays unset in both
+(the only secret). EVENTS_RELAY binds that account's lh-edge: on the first deploy there lh-edge
+did not exist yet, so the workflow deployed without the binding, waited for lh-edge and deployed
+again with it (it does so whenever Cloudflare refuses the binding for a missing lh-edge).
+`https://lufthansa.turnsthe.page` is an allowed origin next to `https://lhcom.bbird.live`.
+Rollback: git revert (both accounts redeploy).
+
 ## Source
 
 `SOURCE_ORIGIN` (`[vars]`, default `https://main--lh-com--moved-permanently.aem.live`: published messages only):

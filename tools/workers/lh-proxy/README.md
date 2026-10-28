@@ -5,6 +5,15 @@ A Cloudflare Worker for the lufthansa.com replica (`moved-permanently/lh-com`). 
 same-origin APIs, which are cross-origin on those hosts. This worker forwards an allowlist of
 routes to `UPSTREAM_ORIGIN` and adds CORS. It has no dependencies.
 
+## Two accounts (the parallel run, `../README.md` "Two accounts")
+
+lh-proxy deploys to Blackbird (https://lh-proxy.aem-poc-lab.workers.dev) and to the second
+Cloudflare account (https://lh-proxy.benpeter.workers.dev) with the same code and vars; no
+resource ids, bindings or secrets. The site's pages on the turnsthe.page hosts use the second one
+(`scripts/lh-data.js` `PROXY_ORIGIN_TURNSTHE_PAGE`). Its allowlist (below) names neither
+lhcom.bbird.live nor lufthansa.turnsthe.page, so from the main host the proxy refuses (403) and
+the widgets fall back as they do on lhcom today. Rollback: git revert (both accounts redeploy).
+
 ## Behaviour
 
 - `GET /health` returns `200 {"ok":true,"upstream":"..."}`.

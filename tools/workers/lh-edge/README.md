@@ -4,6 +4,63 @@ The router Worker in front of lh-com. Clients of www.lufthansa.com ask URLs that
 
 URL: the workers.dev host of the account (`workers_dev = true`); a demo host on bbird.live is attached in the Cloudflare dashboard. No routes or custom domains in `wrangler.toml`.
 
+## Two accounts (the parallel run, `../README.md` "Two accounts")
+
+lh-edge deploys to Blackbird and to the second Cloudflare account with the same code and vars;
+the second account's config replaces the KV id of EVENTS (`accounts/benpeter.sed`: KV
+`lh-events-state`). Its bindings go by name there too (lh-messages, lh-backends, lh-forms'
+BotCheck, the R2 bucket `lh-dam-media`); its second deploy leg waits until lh-backends, lh-forms
+and lh-messages exist in the account.
+
+| Blackbird | Second account | Treatment (vars) |
+| --- | --- | --- |
+| lhedge.bbird.live | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
+| lhcom.bbird.live (through Adobe's CDN) | lufthansa.turnsthe.page (`FRONT_DOOR_HOSTS`, below) | `PILOT_COUNTRIES_BY_HOST` (ch), `ALIAS_REWRITE_HOSTS` |
+| lhcn.bbird.live | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS` |
+| lh-edge.aem-poc-lab.workers.dev | lh-edge.benpeter.workers.dev | (none) |
+
+Secrets in the second account (set there, not by the workflow): `AUDIT_LOG_KEY` and
+`WEBHOOK_TOKEN` (the publish events; the site config's webhook must point at that account's host
+to use them); `EVENTS_SINK_URL` stays unset; `ORIGIN_AUTHENTICATION` only if the origin needs a
+token (as on Blackbird). Rollback: git revert (both accounts redeploy).
+
+## Front door (`src/front-door.js`, `FRONT_DOOR_HOSTS`)
+
+On lufthansa.turnsthe.page lh-edge is the front door and stands in for the CDN that sits in
+front of lhcom.bbird.live (scdemos/demo `workers/adobe/config/cdn.yaml`, origin selectors
+`lhcom-*`, copied in `EDGE_PATHS` and `GATE_PATH`):
+- the paths those rules send to lh-edge (solo pages; feeds: app screens, DAM, GraphQL, well-known,
+  login link, search, default airport, booking list, the kiosk; www endpoints: entry redirects,
+  fragment catalog, service worker, gzipped sitemaps, llms.txt, captcha, market pages as app
+  screens and offline lists, aircraft lists, changelocale, mfe; the ch market and its sitemaps;
+  service endpoints `/service/secured/api/*`, `/sso/*`, `/deeplink/*`, `/apps/dcep/deeplink/*`,
+  `/apps/selectlanguage`, `*.v2.sdui`): the routes below, with `X-LH-Public-Host` set to the host
+  (a client's own value is replaced, as the CDN rule set it);
+- `/migration-status*` and `/_lh-auth/*`: lh-backends' gate over BACKENDS with `X-LH-Public-Host`
+  (the gate trusts lufthansa.turnsthe.page), cookies and Set-Cookie passed on;
+- everything else: the pass-through (the reference Worker) and not the routes, so paths lh-edge
+  answers on lhedge but lhcom leaves to the origin answer as on lhcom (the short
+  `/<cc>/<ll>/<page>.sdui` 404, pilot roots other than ch, `/loginservice` from the origin).
+
+Freshness: pages within `EDGE_TTL` (60 s) as on every host; the pass-through sends
+`x-push-invalidation: enabled` and the origin's cache tags reach Cloudflare's cache, so once the
+site's push invalidation targets the turnsthe.page zone a publish shows within seconds.
+
+Headers that differ from lhcom.bbird.live (bodies are the same apart from the host name):
+
+| Header | lhcom.bbird.live (Adobe's CDN) | lufthansa.turnsthe.page (lh-edge) |
+| --- | --- | --- |
+| `cache-control` of pages, `.plain.html`, JSON | the origin's `max-age=7200, must-revalidate` | capped to `EDGE_TTL`: `max-age=60, must-revalidate` |
+| `cdn-cache-control` | none | `max-age=60, must-revalidate` (pages), the origin's `max-age=172800` (sitemap XML, robots.txt) |
+| `x-robots-tag` (the origin's `noindex, nofollow` on `.plain.html`) | kept | removed, as the reference Worker removes it |
+| `server`, `cf-cache-status`, `cf-ray` | none | Cloudflare's |
+| `via` (`1.1 varnish`), `x-cache-tag`, `surrogate-key`, `fastly-debug-*` | removed | the origin's, passed on |
+| `vary` | `Accept-Encoding` | the origin's `Accept-Encoding,X-Forwarded-Host` |
+| `accept-ranges: bytes` (static files), `x-skyint-fetch-pass` (paths sent to lh-edge), `fastly-restarts` | the CDN's | none |
+
+And `/` (entry redirect by `CF-IPCountry`): lhcom's CDN reaches lh-edge from a US data centre, so
+lhcom sends every visitor to www's us/en homepage; the front door sees the visitor's country.
+
 ## Portability
 
 Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindings). Hosts and origins are `[vars]`, the optional origin token is a secret, the binding has a generic name (`MESSAGES`); no workers.dev host or account in the code. To move it: deploy the folder to the other account, bind `MESSAGES` to that account's messages Worker, set the vars.
@@ -297,7 +354,7 @@ The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` po
 
 ## Smoke check (`smoke.mjs`)
 
-Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live).
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live and their twins lufthansa-edge.turnsthe.page, lufthansa.turnsthe.page). The replica's own host names (both families) are masked as `HOST` in bodies and locations, so a host and its twin share one baseline: `--derive` writes the twins' files from their hosts' (`TWINS` in `smoke.mjs`), and the first run against a new host shows only real differences.
 
 ```sh
 node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --check    # against smoke/lhedge.bbird.live.json

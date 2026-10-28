@@ -11,9 +11,13 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
 1. **How it deploys.** `.github/workflows/deploy-lh-proxy.yaml` runs on every push to `main`
    that changes `tools/workers/lh-proxy/**` or the workflow file, and on manual dispatch. It
    runs `npm test` in `tools/workers/lh-proxy/` (node:test, no dependencies), then
-   `npx -y wrangler@4 deploy` with `CLOUDFLARE_ACCOUNT_ID=ac7ee4615628005dc5ba0a22f0aae2a6`.
-2. **Credentials.** The repository secret `CLOUDFLARE_API_TOKEN` must exist (Settings → Secrets
-   and variables → Actions) with *Workers Scripts: Edit* on that account. If a run fails at
+   `npx -y wrangler@4 deploy` in both Cloudflare accounts of the parallel run
+   (`tools/workers/README.md` "Two accounts"): Blackbird with
+   `CLOUDFLARE_ACCOUNT_ID=ac7ee4615628005dc5ba0a22f0aae2a6`, the second account with the
+   repository variable `CLOUDFLARE_ACCOUNT_ID_BENPETER`.
+2. **Credentials.** The repository secrets `CLOUDFLARE_API_TOKEN` (Blackbird) and
+   `CLOUDFLARE_API_TOKEN_BENPETER` (the second account) must exist (Settings → Secrets and
+   variables → Actions) with *Workers Scripts: Edit* on their account. If a run fails at
    "Check Cloudflare credentials", add the secret and re-run the workflow (Actions →
    "Deploy lh-proxy" → Run workflow). No other secrets are needed.
 3. **Variables** live in `tools/workers/lh-proxy/wrangler.toml` `[vars]`; change them there

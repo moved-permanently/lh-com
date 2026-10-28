@@ -47,6 +47,8 @@ jobs:
   # Blackbird one (bbird.live hosts) as before and the second one (turnsthe.page hosts) with its
   # resource ids from accounts/benpeter.sed. Drop the blackbird row when Blackbird is retired.
   deploy:
+    # the job's name shows the account only (the matrix values would show its id)
+    name: deploy (${{ matrix.account }})
     needs: test
     runs-on: ubuntu-latest
     strategy:

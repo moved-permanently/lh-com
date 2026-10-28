@@ -18,6 +18,8 @@ jobs:
   # account-specific ids (da-msm's wrangler.toml has vars only). Drop the blackbird row when
   # Blackbird is retired.
   deploy:
+    # the job's name shows the account only (the matrix values would show its id)
+    name: deploy (${{ matrix.account }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

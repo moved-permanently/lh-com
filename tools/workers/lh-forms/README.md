@@ -13,6 +13,22 @@ keeps https://lh-forms.aem-poc-lab.workers.dev as well. The custom domain is att
 Cloudflare dashboard (Workers & Pages → lh-forms → Settings → Domains & Routes); `wrangler.toml`
 has no routes or custom domain, because the deploy token cannot manage the bbird.live zone.
 
+## Two accounts (the parallel run, `../README.md` "Two accounts")
+
+lh-forms deploys to Blackbird (https://lhforms.bbird.live, https://lh-forms.aem-poc-lab.workers.dev)
+and to the second Cloudflare account (https://lufthansa-forms.turnsthe.page,
+https://lh-forms.benpeter.workers.dev) with the same code. The second account's config takes its
+own Turnstile widget's site key (`accounts/benpeter.sed`: `0x4AAAAAAFqInbtR3tz5FcF4`); the
+Durable Object migration (`HourlyLimiter`) and the rate limit namespace apply there on the first
+deploy; DELIVERY binds that account's lh-backends (the deploy waits for it). The site's pages on
+the turnsthe.page hosts post here (`scripts/lh-forms.js` `FORMS_ENDPOINT_TURNSTHE_PAGE`);
+`https://lufthansa.turnsthe.page` is an allowed origin next to `https://lhcom.bbird.live`.
+
+Secrets in the second account (set there, not by the workflow): `TURNSTILE_SECRET` (its widget),
+`FORM_SENDER`, `FORM_CONFIG`, `FORM_MAIL_ACCOUNT_ID`, `FORM_MAIL_TOKEN`, and `FORMS_DELIVERY_TOKEN`
+once `FORM_DELIVERY` includes backends. Without them that copy answers but sends no mail.
+Rollback: git revert (both accounts redeploy).
+
 ## Endpoints
 
 | Method | Path | Answer |

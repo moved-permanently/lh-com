@@ -32,6 +32,8 @@ jobs:
   # ids from accounts/benpeter.sed (the KV namespace). The minute cron runs in both accounts, each
   # with its own KV. Drop the blackbird row when Blackbird is retired.
   deploy:
+    # the job's name shows the account only (the matrix values would show its id)
+    name: deploy (${{ matrix.account }})
     needs: test
     runs-on: ubuntu-latest
     strategy:
