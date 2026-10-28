@@ -25,7 +25,7 @@
 
 export const MAX_RESULTS = 30;
 export const PAGE_SIZE = 10;
-const WEIGHTS = {
+export const WEIGHTS = {
   title: 5, headings: 2, path: 4, description: 4, content: 1,
 };
 const STOPWORDS = new Set([
@@ -107,7 +107,7 @@ export function prepareRow(row) {
 // "Handgepäck" for "gepäck") counts for terms of six letters or more, at half weight
 const INFIX_MIN = 6;
 
-function wordMatch(w, term) {
+export function wordMatch(w, term) {
   if (w.startsWith(term)) return w === term || /^(es|en|s|e|n)$/.test(w.slice(term.length)) ? 1 : 0.8;
   if (term.length >= INFIX_MIN && w.includes(term)) return 0.5;
   return 0;
@@ -131,7 +131,7 @@ function termCounts(prepared, term) {
 const K1 = 1.2;
 const B = 0.9;
 
-function bm25(counts, prepared, avg, idf) {
+export function bm25(counts, prepared, avg, idf) {
   let tf = 0;
   Object.entries(WEIGHTS).forEach(([field, weight]) => {
     if (!counts[field]) return;
@@ -179,13 +179,27 @@ export function search(rows, phrase, { limit = MAX_RESULTS } = {}) {
   return out.slice(0, limit);
 }
 
-/** Where the terms stand in a text: [{start, end}] (word starts that match a term). */
-export function matches(text, ts) {
+// a word's first character folded, kept (matches() asks once per word of a text)
+const firstFolded = new Map();
+const foldFirst = (word) => {
+  const c = String.fromCodePoint(word.codePointAt(0));
+  if (!firstFolded.has(c)) firstFolded.set(c, fold(c).charAt(0));
+  return firstFolded.get(c);
+};
+
+/**
+ * Where the terms stand in a text: [{start, end}] (word starts that match a term). window: stop
+ * that many characters after the first match (the excerpt reads no further).
+ */
+export function matches(text, ts, { window = Infinity } = {}) {
   const out = [];
+  // a folded word starts with a term only if its first character folds to the term's first
+  // (folding works per character there), so the other words are not folded whole
+  const starts = new Set(ts.map((t) => t.charAt(0)));
   const re = /[\p{L}\p{N}]+/gu;
   let m = re.exec(text);
-  while (m) {
-    const w = fold(m[0]);
+  while (m && !(out.length && m.index > out[0].start + window)) {
+    const w = starts.has(foldFirst(m[0])) ? fold(m[0]) : '';
     if (ts.some((t) => w.startsWith(t))) {
       const t = ts.filter((x) => w.startsWith(x)).sort((a, b) => b.length - a.length)[0];
       // the matched part of the word: the term's length in the original (folding keeps lengths
@@ -205,7 +219,8 @@ export function matches(text, ts) {
 export function excerpt(prepared, phrase) {
   const ts = terms(phrase);
   const pick = (text) => {
-    const hits = matches(text, ts);
+    // the matches up to the excerpt's end at most (it starts at or before the first)
+    const hits = matches(text, ts, { window: EXCERPT_LENGTH });
     if (!hits.length) return null;
     const first = hits[0].start;
     let start = Math.max(0, first - 60);

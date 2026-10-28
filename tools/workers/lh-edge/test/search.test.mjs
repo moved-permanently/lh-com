@@ -82,7 +82,8 @@ test('search route: www\'s shape and headers, hidden pages left out', async () =
   assert.deepEqual(body.results.map((r) => r.link), ['/de/en/during-your-trip/lhg-wifi', '/de/en/internet-overview']);
   assert.deepEqual(Object.keys(body.results[0]).sort(), ['description', 'headline', 'link']);
   assert.equal(body.results[0].headline, 'Lufthansa Group Wi-Fi');
-  assert.ok(calls[0].startsWith('/de/en/search-index.json'));
+  // without search data (none here) the locale's index is read, as before
+  assert.ok(calls.some((c) => c.startsWith('/de/en/search-index.json')));
 });
 
 test('search route: 400 without X-Portal headers or phrase, as www', async () => {

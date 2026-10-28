@@ -1,0 +1,55 @@
+name: Search data
+# The site search's prebuilt data for lh-edge (tools/workers/lh-edge/src/search-data.js): built
+# from the four live search indexes on aem.live and kept on the branch `search-data` (one commit,
+# replaced only when the data changed; never main). lh-edge uses a locale's data only while it
+# matches the live index, so a failed or late run only means the search reads the index as
+# before. Pushes with the workflow token start no other workflow (no lh-edge deploy).
+# By hand: Actions, "Search data", Run workflow. Off: disable the workflow (Actions, "Search
+# data", ..., Disable workflow); lh-edge then keeps the old path once the index changes.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: search-data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: main
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - name: Build
+      run: node tools/workers/lh-edge/build-search-data.mjs --out "$RUNNER_TEMP/search-data"
+    - name: Replace the branch when the data changed
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        set -e
+        cd "$RUNNER_TEMP/search-data"
+        git init -q
+        git config user.name "search-data"
+        git config user.email "search-data@users.noreply.github.com"
+        git add -A
+        tree=$(git write-tree)
+        remote="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        current=$(git ls-remote "$remote" refs/heads/search-data | cut -f1)
+        if [ -n "$current" ]; then
+          git fetch -q --depth=1 "$remote" search-data
+          if [ "$(git rev-parse FETCH_HEAD^{tree})" = "$tree" ]; then
+            echo "search data unchanged"
+            exit 0
+          fi
+        fi
+        commit=$(git commit-tree "$tree" -m "search data $(date -u +%FT%TZ)")
+        git push -q -f "$remote" "$commit:refs/heads/search-data"
+        echo "search data replaced: $commit"

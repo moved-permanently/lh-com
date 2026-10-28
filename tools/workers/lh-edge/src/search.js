@@ -15,6 +15,7 @@
  *   the same language (de/de, de/en), as the site does for nav and footer.
  */
 import { originFetch } from './edge.js';
+import { dataSearchAnswer } from './search-data.js';
 /* eslint-disable import/no-relative-packages */
 import { prepareRow, searchAnswer } from '../../../../scripts/site-search.js';
 import { LIVE_ROOTS } from '../../../../scripts/locale.js';
@@ -84,6 +85,9 @@ export async function siteSearch(request, env) {
     phrase = '';
   }
   if (!locale || !phrase) return json(INVALID, 400);
+  // the prebuilt search data when it is the index's state (src/search-data.js), else the index
+  const fromData = await dataSearchAnswer(request, env, locale, phrase).catch(() => null);
+  if (fromData) return json(fromData);
   let rows;
   try {
     rows = await loadSearchIndex(request, env, locale);
