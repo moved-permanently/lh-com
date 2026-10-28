@@ -448,7 +448,7 @@
   "path": "/ch",
   "method": "GET",
   "status": 302,
-  "location": "https://www.lufthansa.com/ch",
+  "location": "/ch/en/homepage",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -459,7 +459,7 @@
   "path": "/ch/en",
   "method": "GET",
   "status": 302,
-  "location": "https://www.lufthansa.com/ch/en/homepage",
+  "location": "/ch/en/homepage",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -470,7 +470,7 @@
   "path": "/ch/de",
   "method": "GET",
   "status": 302,
-  "location": "https://www.lufthansa.com/ch/de/homepage",
+  "location": "/ch/de/homepage",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -620,20 +620,20 @@
   "key": "GET /ch/en/baggage.solo_continue",
   "path": "/ch/en/baggage.solo_continue",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0b9b30cc42d6566d",
-  "route": ""
+  "hash": "0842c902727c890a",
+  "route": "solo"
  },
  {
   "key": "GET /content/lh/markets/ch/en/addresses-worldwide.sdui",
   "path": "/content/lh/markets/ch/en/addresses-worldwide.sdui",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "803cb0e9b33bf52c",
+  "hash": "01f35230d0b41715",
   "route": "sdui-web"
  },
  {
@@ -643,7 +643,7 @@
   "status": 200,
   "location": "",
   "type": "application/json;charset=utf-8",
-  "hash": "729787ee12e14c47",
+  "hash": "9cc14cfb7387c897",
   "route": "owa"
  },
  {
@@ -663,17 +663,17 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "03d8eaeacad1daf7",
+  "hash": "ee6c6af5d5b55982",
   "route": "aircraft"
  },
  {
   "key": "GET /ch/llms.txt",
   "path": "/ch/llms.txt",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/plain;charset=UTF-8",
-  "hash": "0019dfc4b32d63c1",
+  "type": "text/plain; charset=utf-8",
+  "hash": "67deced53ad500c0",
   "route": "llms"
  },
  {
@@ -700,41 +700,41 @@
   "key": "GET /ch/en/baggage",
   "path": "/ch/en/baggage",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0b9b30cc42d6566d",
-  "route": ""
+  "hash": "1fde790708376319",
+  "route": "market"
  },
  {
   "key": "GET /ch/de/gepaeck",
   "path": "/ch/de/gepaeck",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0b9b30cc42d6566d",
-  "route": ""
+  "hash": "1a9a9189a2be4c7a",
+  "route": "market"
  },
  {
   "key": "GET /sitemap/sitemap_lh_ch_en.xml",
   "path": "/sitemap/sitemap_lh_ch_en.xml",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "7addd0370242dbf8",
-  "route": ""
+  "type": "application/xml",
+  "hash": "ac89fcde8f7188d4",
+  "route": "market-sitemap"
  },
  {
   "key": "GET /sitemap/sitemap_lh_ch_de.xml",
   "path": "/sitemap/sitemap_lh_ch_de.xml",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "7addd0370242dbf8",
-  "route": ""
+  "type": "application/xml",
+  "hash": "a65fd8f9100aaf83",
+  "route": "market-sitemap"
  },
  {
   "key": "GET /sitemap/sitemap_lh.xml",
@@ -743,8 +743,8 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "d908fab85a826fa0",
-  "route": ""
+  "hash": "d99a5950f083a123",
+  "route": "market-sitemap"
  },
  {
   "key": "GET /sitemap/sitemap_lh.xml.gz",
