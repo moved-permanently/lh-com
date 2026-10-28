@@ -135,7 +135,7 @@
       "documents": "language",
       "name": "Albanien | Deutsch",
       "countryName": {
-        "en": null,
+        "en": "Albania",
         "de": "Albanien"
       },
       "homeAirport": "TIA",
@@ -143,7 +143,6 @@
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "countryName.en",
         "timeZone",
         "shopLang"
       ],
@@ -152,20 +151,16 @@
     "al/en": {
       "status": "pilot",
       "documents": "language",
-      "name": null,
+      "name": "Albania | English",
       "countryName": {
-        "en": null,
+        "en": "Albania",
         "de": "Albanien"
       },
-      "homeAirport": null,
-      "currency": null,
+      "homeAirport": "TIA",
+      "currency": "EUR",
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "name",
-        "homeAirport",
-        "currency",
-        "countryName.en",
         "timeZone",
         "shopLang"
       ],
@@ -264,18 +259,16 @@
     "az/de": {
       "status": "pilot",
       "documents": "language",
-      "name": null,
+      "name": "Aserbaidschan | Deutsch",
       "countryName": {
         "en": "Azerbaijan",
-        "de": null
+        "de": "Aserbaidschan"
       },
       "homeAirport": "BAK",
       "currency": "AZN",
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "name",
-        "countryName.de",
         "timeZone",
         "shopLang"
       ],
@@ -287,14 +280,13 @@
       "name": "Azerbaijan | English",
       "countryName": {
         "en": "Azerbaijan",
-        "de": null
+        "de": "Aserbaidschan"
       },
       "homeAirport": "BAK",
       "currency": "AZN",
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "countryName.de",
         "timeZone",
         "shopLang"
       ],
@@ -443,6 +435,349 @@
         "shopLang"
       ],
       "batch": 1
+    },
+    "cz/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Tschechische Republik | Deutsch",
+      "countryName": {
+        "en": "Czech Republic",
+        "de": "Tschechische Republik"
+      },
+      "homeAirport": "PRG",
+      "currency": "CZK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "cz/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Czech Republic | English",
+      "countryName": {
+        "en": "Czech Republic",
+        "de": "Tschechische Republik"
+      },
+      "homeAirport": "PRG",
+      "currency": "CZK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "dk/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Dänemark | Deutsch",
+      "countryName": {
+        "en": "Denmark",
+        "de": "Dänemark"
+      },
+      "homeAirport": "CPH",
+      "currency": "DKK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "dk/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Denmark | English",
+      "countryName": {
+        "en": "Denmark",
+        "de": "Dänemark"
+      },
+      "homeAirport": "CPH",
+      "currency": "DKK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "ee/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Estland | Deutsch",
+      "countryName": {
+        "en": "Estonia",
+        "de": "Estland"
+      },
+      "homeAirport": "TLL",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "ee/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Estonia | English",
+      "countryName": {
+        "en": "Estonia",
+        "de": "Estland"
+      },
+      "homeAirport": "TLL",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "eg/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ägypten | Deutsch",
+      "countryName": {
+        "en": "Egypt",
+        "de": "Ägypten"
+      },
+      "homeAirport": "CAI",
+      "currency": "EGP",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "eg/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Egypt | English",
+      "countryName": {
+        "en": "Egypt",
+        "de": "Ägypten"
+      },
+      "homeAirport": "CAI",
+      "currency": "EGP",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "er/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Eritrea | Deutsch",
+      "countryName": {
+        "en": "Eritrea",
+        "de": "Eritrea"
+      },
+      "homeAirport": "FRA",
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "er/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Eritrea | English",
+      "countryName": {
+        "en": "Eritrea",
+        "de": "Eritrea"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "et/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Äthiopien | Deutsch",
+      "countryName": {
+        "en": "Ethiopia",
+        "de": "Äthiopien"
+      },
+      "homeAirport": "ADD",
+      "currency": "ETB",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "et/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ethiopia | English",
+      "countryName": {
+        "en": "Ethiopia",
+        "de": "Äthiopien"
+      },
+      "homeAirport": "ADD",
+      "currency": "ETB",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "fi/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "FI | DE",
+      "countryName": {
+        "en": "Finland",
+        "de": "FI"
+      },
+      "homeAirport": "HEL",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "fi/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Finland | English",
+      "countryName": {
+        "en": "Finland",
+        "de": "FI"
+      },
+      "homeAirport": "HEL",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "gb/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Vereinigtes Königreich | Deutsch",
+      "countryName": {
+        "en": "United Kingdom",
+        "de": "Vereinigtes Königreich"
+      },
+      "homeAirport": "LON",
+      "currency": "GBP",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "ge/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Georgien | Deutsch",
+      "countryName": {
+        "en": "Georgia",
+        "de": "Georgien"
+      },
+      "homeAirport": "TBS",
+      "currency": "GEL",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "ge/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Georgia | English",
+      "countryName": {
+        "en": "Georgia",
+        "de": "Georgien"
+      },
+      "homeAirport": "TBS",
+      "currency": "GEL",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "hr/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kroatien | Deutsch",
+      "countryName": {
+        "en": "Kroatien",
+        "de": "Kroatien"
+      },
+      "homeAirport": "ZAG",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
+    },
+    "hr/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kroatien | English",
+      "countryName": {
+        "en": "Kroatien",
+        "de": "Kroatien"
+      },
+      "homeAirport": "ZAG",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 2
     }
   }
 }

@@ -131,3 +131,71 @@ Local runtime, `rollout-batch1-check.json`:
   - 12–13 are the login and profile pages (left alone).
 - The 301 is de/de's `support/support` redirect, moved into the root.
 - Every link on the 19 homepages, navs and footers (57 documents) answers 200.
+
+All of batch 1's values were found after a fresh-session recapture:
+- al/en: Albania | English, TIA, EUR;
+- az/de: Aserbaidschan | Deutsch;
+- the country names en Albania and de Aserbaidschan.
+
+Only am keeps www's code label ("AM | DE", "AM | EN").
+
+## Batch 2 (2026-10-28): CZ DK EE EG ER ET FI GB(de) GE HR, 19 roots
+
+### Captures
+
+- 92 pages: 19 homepages, 16 own pages, 57 compared.
+- No 403. The session crashed twice (the browser closed: a stall); it was restarted.
+- 4 homepages without a rendered label were recaptured once (en first, a fresh session) and
+  then had it.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| cz/de, cz/en | Tschechische Republik \| Deutsch, Czech Republic \| English | Czech Republic / Tschechische Republik | PRG | CZK |
+| dk/de, dk/en | Dänemark \| Deutsch, Denmark \| English | Denmark / Dänemark | CPH | DKK |
+| ee/de, ee/en | Estland \| Deutsch, Estonia \| English | Estonia / Estland | TLL | EUR |
+| eg/de, eg/en | Ägypten \| Deutsch, Egypt \| English | Egypt / Ägypten | CAI | EGP |
+| er/de | Eritrea \| Deutsch | Eritrea / Eritrea | FRA | – |
+| er/en | Eritrea \| English | Eritrea / Eritrea | FRA | EUR |
+| et/de, et/en | Äthiopien \| Deutsch, Ethiopia \| English | Ethiopia / Äthiopien | ADD | ETB |
+| fi/de | FI \| DE | Finland / FI | HEL | EUR |
+| fi/en | Finland \| English | Finland / FI | HEL | EUR |
+| gb/de | Vereinigtes Königreich \| Deutsch | United Kingdom / Vereinigtes Königreich | LON | GBP |
+| ge/de, ge/en | Georgien \| Deutsch, Georgia \| English | Georgia / Georgien | TBS | GEL |
+| hr/de, hr/en | Kroatien \| Deutsch, Kroatien \| English | Kroatien / Kroatien | ZAG | EUR |
+
+Not found (`–`) and www's own oddities:
+- er/de: currency (no price on the homepage).
+- er preselects FRA in the booking form; fi/de's label is codes only (FI | DE); hr/en has a
+  German country name; gb/de gives the city code LON.
+- timeZone and shopLang: null for every root, as in batch 1.
+
+### Documents
+
+- 19 homepages, 16 own pages and nav and footer of every root; 73 documents uploaded and
+  previewed.
+- www's `/fi/en/book-and-manage/offers-and-destination/worldwide_offers1` became the document
+  `…/worldwide-offers1` (Edge Delivery allows no underscores). www's URL keeps working only with a
+  redirect row `/fi/en/book-and-manage/offers-and-destination/worldwide_offers1` →
+  `/fi/en/book-and-manage/offers-and-destination/worldwide-offers1` in the redirect sheet, which
+  is yours to upload.
+
+### Local versions
+
+`rollout-batch2-compare.json`:
+- The de roots' flight offers page: the same entry-rules teaser as batch 1 (section `markets`).
+- The en roots' flight pages: only the destination offers differ.
+- er/en: a masking artifact ("Palma de Mallorca").
+- er/de's flight page lacks the whole teaser carousel. Its capture came back without a status (the
+  screenshot timed out), so it is likely incomplete: unsettled, to be recaptured.
+- **Root documents made: none.**
+
+### Checks against the preview origin
+
+`rollout-batch2-check.json`:
+- Every root has 953–971 of its 1,047–1,071 www URLs at 200, with the root's canonical; one 301
+  per de root (`support/support`).
+- The 404s: pages the replica has in neither language version, the login and profile pages, and
+  fi/en's underscore URL.
+- Every link on the 19 homepages, navs and footers answers 200.

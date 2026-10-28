@@ -25040,14 +25040,14 @@
    "preview": "2026-10-27T23:53:06.202Z"
   },
   "/al/en/nav": {
-   "uploaded": "2026-10-27T23:07:15.620Z",
-   "mtime": 1793142073216,
-   "preview": "2026-10-27T23:07:17.558Z"
+   "uploaded": "2026-10-28T00:21:00.080Z",
+   "mtime": 1793146853635,
+   "preview": "2026-10-28T00:21:02.358Z"
   },
   "/al/en/footer": {
-   "uploaded": "2026-10-27T23:07:18.829Z",
-   "mtime": 1793142073247,
-   "preview": "2026-10-27T23:07:21.118Z"
+   "uploaded": "2026-10-28T00:21:03.858Z",
+   "mtime": 1793146853668,
+   "preview": "2026-10-28T00:21:06.196Z"
   },
   "/am/de/nav": {
    "uploaded": "2026-10-27T23:07:22.636Z",
@@ -25100,14 +25100,14 @@
    "preview": "2026-10-27T23:07:54.441Z"
   },
   "/az/de/nav": {
-   "uploaded": "2026-10-27T23:07:55.808Z",
-   "mtime": 1793142092630,
-   "preview": "2026-10-27T23:07:57.822Z"
+   "uploaded": "2026-10-28T00:21:07.630Z",
+   "mtime": 1793146859013,
+   "preview": "2026-10-28T00:21:10.156Z"
   },
   "/az/de/footer": {
-   "uploaded": "2026-10-27T23:07:59.452Z",
-   "mtime": 1793142092661,
-   "preview": "2026-10-27T23:08:01.748Z"
+   "uploaded": "2026-10-28T00:21:11.481Z",
+   "mtime": 1793146859053,
+   "preview": "2026-10-28T00:21:14.236Z"
   },
   "/az/en/nav": {
    "uploaded": "2026-10-27T23:08:02.969Z",
@@ -25198,6 +25198,371 @@
    "uploaded": "2026-10-27T23:08:58.141Z",
    "mtime": 1793142119968,
    "preview": "2026-10-27T23:09:00.117Z"
+  },
+  "/cz/de/homepage": {
+   "uploaded": "2026-10-28T01:12:45.634Z",
+   "mtime": 1793149901637,
+   "preview": "2026-10-28T01:12:48.633Z"
+  },
+  "/cz/en/homepage": {
+   "uploaded": "2026-10-28T01:12:49.932Z",
+   "mtime": 1793149904505,
+   "preview": "2026-10-28T01:12:52.612Z"
+  },
+  "/dk/de/homepage": {
+   "uploaded": "2026-10-28T01:12:53.958Z",
+   "mtime": 1793149907340,
+   "preview": "2026-10-28T01:12:56.907Z"
+  },
+  "/dk/en/homepage": {
+   "uploaded": "2026-10-28T01:12:58.271Z",
+   "mtime": 1793149910069,
+   "preview": "2026-10-28T01:13:01.126Z"
+  },
+  "/ee/de/homepage": {
+   "uploaded": "2026-10-28T01:13:02.899Z",
+   "mtime": 1793149912911,
+   "preview": "2026-10-28T01:13:06.099Z"
+  },
+  "/ee/en/homepage": {
+   "uploaded": "2026-10-28T01:13:07.266Z",
+   "mtime": 1793149915662,
+   "preview": "2026-10-28T01:13:09.949Z"
+  },
+  "/eg/de/homepage": {
+   "uploaded": "2026-10-28T01:13:11.258Z",
+   "mtime": 1793149918595,
+   "preview": "2026-10-28T01:13:14.114Z"
+  },
+  "/eg/en/homepage": {
+   "uploaded": "2026-10-28T01:13:15.563Z",
+   "mtime": 1793149921371,
+   "preview": "2026-10-28T01:13:17.543Z"
+  },
+  "/er/de/homepage": {
+   "uploaded": "2026-10-28T01:13:18.964Z",
+   "mtime": 1793149924564,
+   "preview": "2026-10-28T01:13:20.945Z"
+  },
+  "/er/en/homepage": {
+   "uploaded": "2026-10-28T01:13:22.239Z",
+   "mtime": 1793149927233,
+   "preview": "2026-10-28T01:13:25.374Z"
+  },
+  "/et/de/homepage": {
+   "uploaded": "2026-10-28T01:13:26.527Z",
+   "mtime": 1793149930051,
+   "preview": "2026-10-28T01:13:29.073Z"
+  },
+  "/et/en/homepage": {
+   "uploaded": "2026-10-28T01:13:30.297Z",
+   "mtime": 1793149932871,
+   "preview": "2026-10-28T01:13:32.299Z"
+  },
+  "/fi/de/homepage": {
+   "uploaded": "2026-10-28T01:13:33.697Z",
+   "mtime": 1793149935670,
+   "preview": "2026-10-28T01:13:35.817Z"
+  },
+  "/fi/en/homepage": {
+   "uploaded": "2026-10-28T01:13:37.366Z",
+   "mtime": 1793149938394,
+   "preview": "2026-10-28T01:13:40.365Z"
+  },
+  "/gb/de/homepage": {
+   "uploaded": "2026-10-28T01:13:41.670Z",
+   "mtime": 1793149941341,
+   "preview": "2026-10-28T01:13:44.066Z"
+  },
+  "/ge/de/homepage": {
+   "uploaded": "2026-10-28T01:13:45.501Z",
+   "mtime": 1793149944114,
+   "preview": "2026-10-28T01:13:48.313Z"
+  },
+  "/ge/en/homepage": {
+   "uploaded": "2026-10-28T01:13:49.422Z",
+   "mtime": 1793149946864,
+   "preview": "2026-10-28T01:13:52.215Z"
+  },
+  "/hr/de/homepage": {
+   "uploaded": "2026-10-28T01:13:53.556Z",
+   "mtime": 1793149949681,
+   "preview": "2026-10-28T01:13:55.287Z"
+  },
+  "/hr/en/homepage": {
+   "uploaded": "2026-10-28T01:13:56.646Z",
+   "mtime": 1793149952494,
+   "preview": "2026-10-28T01:13:59.140Z"
+  },
+  "/dk/en/yes": {
+   "uploaded": "2026-10-28T01:14:00.444Z",
+   "mtime": 1793149910099,
+   "preview": "2026-10-28T01:14:02.858Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/climate-protection-projects": {
+   "uploaded": "2026-10-28T01:14:04.178Z",
+   "mtime": 1793149921399,
+   "preview": "2026-10-28T01:14:06.706Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/environmental-cost-surcharge": {
+   "uploaded": "2026-10-28T01:14:07.998Z",
+   "mtime": 1793149921419,
+   "preview": "2026-10-28T01:14:10.594Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/faq-saf": {
+   "uploaded": "2026-10-28T01:14:11.937Z",
+   "mtime": 1793149921453,
+   "preview": "2026-10-28T01:14:14.060Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/saf": {
+   "uploaded": "2026-10-28T01:14:15.543Z",
+   "mtime": 1793149921479,
+   "preview": "2026-10-28T01:14:17.987Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/climate-protection-projects": {
+   "uploaded": "2026-10-28T01:14:19.352Z",
+   "mtime": 1793149921505,
+   "preview": "2026-10-28T01:14:21.970Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/environmental-cost-surcharge": {
+   "uploaded": "2026-10-28T01:14:23.156Z",
+   "mtime": 1793149921528,
+   "preview": "2026-10-28T01:14:25.088Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/faq-saf": {
+   "uploaded": "2026-10-28T01:14:26.337Z",
+   "mtime": 1793149921554,
+   "preview": "2026-10-28T01:14:28.620Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/saf": {
+   "uploaded": "2026-10-28T01:14:29.919Z",
+   "mtime": 1793149921580,
+   "preview": "2026-10-28T01:14:32.058Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/climate-protection-projects": {
+   "uploaded": "2026-10-28T01:14:33.253Z",
+   "mtime": 1793149921605,
+   "preview": "2026-10-28T01:14:35.605Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/environmental-cost-surcharge": {
+   "uploaded": "2026-10-28T01:14:36.901Z",
+   "mtime": 1793149921628,
+   "preview": "2026-10-28T01:14:39.345Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/faq-saf": {
+   "uploaded": "2026-10-28T01:14:40.674Z",
+   "mtime": 1793149921653,
+   "preview": "2026-10-28T01:14:42.619Z"
+  },
+  "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/saf": {
+   "uploaded": "2026-10-28T01:14:43.866Z",
+   "mtime": 1793149921685,
+   "preview": "2026-10-28T01:14:46.134Z"
+  },
+  "/eg/en/speedlab": {
+   "uploaded": "2026-10-28T01:14:47.444Z",
+   "mtime": 1793149921710,
+   "preview": "2026-10-28T01:14:49.801Z"
+  },
+  "/fi/en/book-and-manage/offers-and-destination/worldwide-offers1": {
+   "uploaded": "2026-10-28T01:14:51.437Z",
+   "mtime": 1793149938419,
+   "preview": "2026-10-28T01:14:54.087Z"
+  },
+  "/fi/en/worldwide-offers": {
+   "uploaded": "2026-10-28T01:14:55.341Z",
+   "mtime": 1793149938442,
+   "preview": "2026-10-28T01:14:57.684Z"
+  },
+  "/cz/de/nav": {
+   "uploaded": "2026-10-28T01:14:58.894Z",
+   "mtime": 1793149903180,
+   "preview": "2026-10-28T01:15:00.970Z"
+  },
+  "/cz/de/footer": {
+   "uploaded": "2026-10-28T01:15:02.368Z",
+   "mtime": 1793149903210,
+   "preview": "2026-10-28T01:15:04.598Z"
+  },
+  "/cz/en/nav": {
+   "uploaded": "2026-10-28T01:15:05.977Z",
+   "mtime": 1793149906056,
+   "preview": "2026-10-28T01:15:08.435Z"
+  },
+  "/cz/en/footer": {
+   "uploaded": "2026-10-28T01:15:09.922Z",
+   "mtime": 1793149906085,
+   "preview": "2026-10-28T01:15:12.801Z"
+  },
+  "/dk/de/nav": {
+   "uploaded": "2026-10-28T01:15:14.383Z",
+   "mtime": 1793149908839,
+   "preview": "2026-10-28T01:15:16.739Z"
+  },
+  "/dk/de/footer": {
+   "uploaded": "2026-10-28T01:15:17.833Z",
+   "mtime": 1793149908868,
+   "preview": "2026-10-28T01:15:19.814Z"
+  },
+  "/dk/en/nav": {
+   "uploaded": "2026-10-28T01:15:21.082Z",
+   "mtime": 1793149911675,
+   "preview": "2026-10-28T01:15:23.818Z"
+  },
+  "/dk/en/footer": {
+   "uploaded": "2026-10-28T01:15:25.658Z",
+   "mtime": 1793149911704,
+   "preview": "2026-10-28T01:15:28.383Z"
+  },
+  "/ee/de/nav": {
+   "uploaded": "2026-10-28T01:15:29.626Z",
+   "mtime": 1793149914452,
+   "preview": "2026-10-28T01:15:31.669Z"
+  },
+  "/ee/de/footer": {
+   "uploaded": "2026-10-28T01:15:33.322Z",
+   "mtime": 1793149914481,
+   "preview": "2026-10-28T01:15:35.467Z"
+  },
+  "/ee/en/nav": {
+   "uploaded": "2026-10-28T01:15:36.807Z",
+   "mtime": 1793149917325,
+   "preview": "2026-10-28T01:15:39.078Z"
+  },
+  "/ee/en/footer": {
+   "uploaded": "2026-10-28T01:15:40.560Z",
+   "mtime": 1793149917356,
+   "preview": "2026-10-28T01:15:42.636Z"
+  },
+  "/eg/de/nav": {
+   "uploaded": "2026-10-28T01:15:43.962Z",
+   "mtime": 1793149920128,
+   "preview": "2026-10-28T01:15:46.231Z"
+  },
+  "/eg/de/footer": {
+   "uploaded": "2026-10-28T01:15:47.658Z",
+   "mtime": 1793149920155,
+   "preview": "2026-10-28T01:15:49.947Z"
+  },
+  "/eg/en/nav": {
+   "uploaded": "2026-10-28T01:15:51.424Z",
+   "mtime": 1793149923261,
+   "preview": "2026-10-28T01:15:53.825Z"
+  },
+  "/eg/en/footer": {
+   "uploaded": "2026-10-28T01:15:54.955Z",
+   "mtime": 1793149923287,
+   "preview": "2026-10-28T01:15:57.461Z"
+  },
+  "/er/de/nav": {
+   "uploaded": "2026-10-28T01:15:58.950Z",
+   "mtime": 1793149926075,
+   "preview": "2026-10-28T01:16:00.798Z"
+  },
+  "/er/de/footer": {
+   "uploaded": "2026-10-28T01:16:02.115Z",
+   "mtime": 1793149926102,
+   "preview": "2026-10-28T01:16:04.624Z"
+  },
+  "/er/en/nav": {
+   "uploaded": "2026-10-28T01:16:06.041Z",
+   "mtime": 1793149928756,
+   "preview": "2026-10-28T01:16:08.065Z"
+  },
+  "/er/en/footer": {
+   "uploaded": "2026-10-28T01:16:09.383Z",
+   "mtime": 1793149928784,
+   "preview": "2026-10-28T01:16:11.672Z"
+  },
+  "/et/de/nav": {
+   "uploaded": "2026-10-28T01:16:12.827Z",
+   "mtime": 1793149931640,
+   "preview": "2026-10-28T01:16:15.316Z"
+  },
+  "/et/de/footer": {
+   "uploaded": "2026-10-28T01:16:16.761Z",
+   "mtime": 1793149931667,
+   "preview": "2026-10-28T01:16:18.828Z"
+  },
+  "/et/en/nav": {
+   "uploaded": "2026-10-28T01:16:20.155Z",
+   "mtime": 1793149934450,
+   "preview": "2026-10-28T01:16:22.354Z"
+  },
+  "/et/en/footer": {
+   "uploaded": "2026-10-28T01:16:23.923Z",
+   "mtime": 1793149934480,
+   "preview": "2026-10-28T01:16:25.982Z"
+  },
+  "/fi/de/nav": {
+   "uploaded": "2026-10-28T01:16:27.376Z",
+   "mtime": 1793149937210,
+   "preview": "2026-10-28T01:16:29.743Z"
+  },
+  "/fi/de/footer": {
+   "uploaded": "2026-10-28T01:16:31.055Z",
+   "mtime": 1793149937237,
+   "preview": "2026-10-28T01:16:33.644Z"
+  },
+  "/fi/en/nav": {
+   "uploaded": "2026-10-28T01:16:35.184Z",
+   "mtime": 1793149940041,
+   "preview": "2026-10-28T01:16:37.779Z"
+  },
+  "/fi/en/footer": {
+   "uploaded": "2026-10-28T01:16:39.037Z",
+   "mtime": 1793149940070,
+   "preview": "2026-10-28T01:16:41.697Z"
+  },
+  "/gb/de/nav": {
+   "uploaded": "2026-10-28T01:16:43.135Z",
+   "mtime": 1793149942857,
+   "preview": "2026-10-28T01:16:45.714Z"
+  },
+  "/gb/de/footer": {
+   "uploaded": "2026-10-28T01:16:47.047Z",
+   "mtime": 1793149942888,
+   "preview": "2026-10-28T01:16:49.270Z"
+  },
+  "/ge/de/nav": {
+   "uploaded": "2026-10-28T01:16:50.681Z",
+   "mtime": 1793149945599,
+   "preview": "2026-10-28T01:16:52.703Z"
+  },
+  "/ge/de/footer": {
+   "uploaded": "2026-10-28T01:16:53.923Z",
+   "mtime": 1793149945628,
+   "preview": "2026-10-28T01:16:55.948Z"
+  },
+  "/ge/en/nav": {
+   "uploaded": "2026-10-28T01:16:57.191Z",
+   "mtime": 1793149948435,
+   "preview": "2026-10-28T01:16:59.599Z"
+  },
+  "/ge/en/footer": {
+   "uploaded": "2026-10-28T01:17:01.262Z",
+   "mtime": 1793149948464,
+   "preview": "2026-10-28T01:17:03.676Z"
+  },
+  "/hr/de/nav": {
+   "uploaded": "2026-10-28T01:17:05.386Z",
+   "mtime": 1793149951243,
+   "preview": "2026-10-28T01:17:07.549Z"
+  },
+  "/hr/de/footer": {
+   "uploaded": "2026-10-28T01:17:09.502Z",
+   "mtime": 1793149951269,
+   "preview": "2026-10-28T01:17:11.905Z"
+  },
+  "/hr/en/nav": {
+   "uploaded": "2026-10-28T01:17:13.206Z",
+   "mtime": 1793149953993,
+   "preview": "2026-10-28T01:17:15.871Z"
+  },
+  "/hr/en/footer": {
+   "uploaded": "2026-10-28T01:17:17.453Z",
+   "mtime": 1793149954021,
+   "preview": "2026-10-28T01:17:19.747Z"
   }
  },
  "media": {

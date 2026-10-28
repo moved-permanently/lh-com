@@ -237,21 +237,28 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     const homes = b.roots.map((k) => `/${k}/homepage`).filter(captured);
     const own = b.roots.flatMap((k) => ownPages(k).keep).filter(captured);
     const restore = () => execFileSync('git', ['checkout', '--', 'tools/importer/import-progress.json', ...['homepage', 'info'].flatMap((t) => [`tools/importer/urls-${t}.txt`, `tools/importer/reports/import-${t}.report.xlsx`])], { cwd: root });
-    try {
-      if (homes.length) console.log(run(['tools/importer/import-batch.mjs', 'homepage', '--force', ...homes.flatMap((p) => ['--url', url(p)])]).trim().split('\n').pop());
-      if (own.length) console.log(run(['tools/importer/import-batch.mjs', 'info', '--force', ...own.flatMap((p) => ['--url', url(p)])]).trim().split('\n').pop());
-    } finally {
-      restore();
+    // the importer's document name: Edge Delivery has no upper case or underscores in names
+    // (www's /fi/en/.../worldwide_offers1 is the document worldwide-offers1: a redirect row)
+    const docName = (p) => p.toLowerCase().replace(/_/g, '-');
+    const renamed = own.filter((p) => docName(p) !== p);
+    if (!argv.includes('--no-import')) {
+      try {
+        if (homes.length) console.log(run(['tools/importer/import-batch.mjs', 'homepage', '--force', ...homes.flatMap((p) => ['--url', url(p)])]).trim().split('\n').pop());
+        if (own.length) console.log(run(['tools/importer/import-batch.mjs', 'info', '--force', ...own.flatMap((p) => ['--url', url(p)])]).trim().split('\n').pop());
+      } finally {
+        restore();
+      }
+      if (homes.length) console.log(run(['tools/importer/postprocess-media.mjs', ...homes]).trim().split('\n').pop());
     }
-    if (homes.length) console.log(run(['tools/importer/postprocess-media.mjs', ...homes]).trim().split('\n').pop());
     const out = [];
     b.roots.forEach((k) => {
-      const pages = [...homes, ...own].filter((p) => p.startsWith(`/${k}/`) && fs.existsSync(path.join(root, 'content', `${p}.plain.html`)));
+      const pages = [...homes, ...own.map(docName)].filter((p) => p.startsWith(`/${k}/`) && fs.existsSync(path.join(root, 'content', `${p}.plain.html`)));
       if (pages.length) out.push(run(['tools/markets/root-docs.mjs', '--own-root', k, ...pages.flatMap((p) => ['--page', p])]).trim());
       out.push(run(['tools/markets/root-docs.mjs', '--from', VERSIONS[k.split('/')[1]], '--to', k, '--doc', 'nav', '--doc', 'footer']).trim());
     });
     console.log(out.join('\n'));
-    const docs = [...homes, ...own, ...b.roots.flatMap((k) => [`/${k}/nav`, `/${k}/footer`])].filter((p) => fs.existsSync(path.join(root, 'content', `${p}.plain.html`)));
+    const docs = [...homes, ...own.map(docName), ...b.roots.flatMap((k) => [`/${k}/nav`, `/${k}/footer`])].filter((p) => fs.existsSync(path.join(root, 'content', `${p}.plain.html`)));
+    renamed.forEach((p) => console.log(`www's ${p} is the document ${docName(p)}: a redirect row ${p} -> ${docName(p)} keeps www's URL`));
     const sites = path.join(root, 'tools/importer/sites/lh-com.json');
     const allow = read(sites);
     allow.paths = [...new Set([...allow.paths, ...docs])];
