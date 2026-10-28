@@ -289,11 +289,44 @@ export async function marketModel(request, env, roots = servedMarketRoots(reques
   return fullModel(request, env, roots);
 }
 
+/**
+ * What alternates() reads for every page, made once per model: the served roots and the roots
+ * with their own documents by language (in model order), the own pages by suffix.
+ */
+function lookups(model) {
+  if (!model.lookups) {
+    const rootsByLang = new Map();
+    model.roots.forEach((r) => {
+      const { lang } = LOCALE_TABLE[r];
+      if (!rootsByLang.has(lang)) rootsByLang.set(lang, []);
+      rootsByLang.get(lang).push(r);
+    });
+    const othersByLang = new Map();
+    Object.entries(model.others || {}).forEach(([r, paths]) => {
+      const { lang } = LOCALE_TABLE[r];
+      if (!othersByLang.has(lang)) othersByLang.set(lang, []);
+      othersByLang.get(lang).push([r, paths]);
+    });
+    // own.has(`/${r}${s}`) as ownBySuffix.get(s).has(r)
+    const ownBySuffix = new Map();
+    model.own.forEach((row, p) => {
+      const m = p.match(/^\/([a-z]{2}\/[a-z]{2})(.*)$/);
+      if (!m) return;
+      if (!ownBySuffix.has(m[2])) ownBySuffix.set(m[2], new Set());
+      ownBySuffix.get(m[2]).add(m[1]);
+    });
+    model.lookups = { rootsByLang, othersByLang, ownBySuffix };
+  }
+  return model.lookups;
+}
+
 /** Whether a market root serves a path after its prefix ('' is the root itself). */
 export function serves(model, root, suffix) {
-  if (!model.roots.includes(root)) return false;
+  // a Set kept with the model (a sheet asks once per path value)
+  model.rootSet ||= new Set(model.roots);
+  if (!model.rootSet.has(root)) return false;
   if (!suffix || suffix === '/') return true;
-  if (model.own.has(`/${root}${suffix}`)) return true;
+  if (lookups(model).ownBySuffix.get(suffix)?.has(root)) return true;
   if (LANGUAGE_ONLY.test(suffix)) return true;
   const v = model.versions[LOCALE_TABLE[root].lang];
   const row = v && v.index.get(`/${v.root}${suffix}`);
@@ -309,6 +342,7 @@ export function serves(model, root, suffix) {
  */
 export function alternates(model, lang, suffix) {
   const v = model.versions[lang];
+  const { rootsByLang, othersByLang, ownBySuffix } = lookups(model);
   const suffixes = { [lang]: suffix };
   Object.entries(model.versions).forEach(([l, other]) => {
     if (l === lang) return;
@@ -323,17 +357,19 @@ export function alternates(model, lang, suffix) {
   const out = [];
   Object.entries(suffixes).forEach(([l, s]) => {
     const version = model.versions[l].root;
-    if (model.versions[l].index.has(`/${version}${s}`)) out.push({ hreflang: LOCALE_TABLE[version].hreflang, path: `/${version}${s}` });
-    Object.entries(model.others || {}).filter(([r, paths]) => LOCALE_TABLE[r].lang === l && paths.has(`/${r}${s}`))
-      .forEach(([r]) => out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` }));
+    const item = (r) => ({
+      hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}`, root: r, suffix: s,
+    });
+    if (model.versions[l].index.has(`/${version}${s}`)) out.push(item(version));
+    (othersByLang.get(l) || []).forEach(([r, paths]) => { if (paths.has(`/${r}${s}`)) out.push(item(r)); });
     // serves(model, r, s) for every served root of the language, the language row read once
     // (a sitemap file asks for 100 pages times every root)
     const always = !s || s === '/' || LANGUAGE_ONLY.test(s);
     const row = always ? null : model.versions[l].index.get(`/${version}${s}`);
-    model.roots.forEach((r) => {
-      if (LOCALE_TABLE[r].lang !== l) return;
-      if (always || model.own.has(`/${r}${s}`) || (row && (!row.markets || marketAllows(row.markets, r.split('/')[0])))) {
-        out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` });
+    const own = ownBySuffix.get(s);
+    (rootsByLang.get(l) || []).forEach((r) => {
+      if (always || (own && own.has(r)) || (row && (!row.markets || marketAllows(row.markets, r.split('/')[0])))) {
+        out.push(item(r));
       }
     });
   });
@@ -353,16 +389,47 @@ function siteHosts(env) {
  * language version on www (a page that was not migrated) goes to www's market root, same path
  * (www's market roots have the language version's paths).
  */
+// marketHref's patterns per host and language version, compiled once (a sheet has thousands of
+// path values)
+const hrefPatterns = new Map();
+function hrefPattern(www, from) {
+  const key = `${www} ${from}`;
+  if (!hrefPatterns.has(key)) {
+    const prefix = from.replace('/', '\\/');
+    hrefPatterns.set(key, {
+      onWww: new RegExp(`^https://${www.replace(/\./g, '\\.')}/${prefix}((?:/[^?#]*)?)([?#].*)?$`),
+      local: new RegExp(`^/${prefix}((?:/[^?#]*)?)([?#].*)?$`),
+    });
+  }
+  return hrefPatterns.get(key);
+}
+
 export function marketHref(href, {
   from, to, allowed, hosts, www = 'www.lufthansa.com',
 }) {
   const raw = String(href || '');
-  const prefix = from.replace('/', '\\/');
-  const onWww = raw.match(new RegExp(`^https://${www.replace(/\./g, '\\.')}/${prefix}((?:/[^?#]*)?)([?#].*)?$`));
+  // a path into the language version (most links, every path value of a sheet): no host to
+  // strip, not on www; the local pattern by slicing (the same groups; with a line break, which
+  // the pattern's `.` does not take, the pattern itself)
+  if (raw.startsWith(`/${from}`) && !/[\n\r\u2028\u2029]/.test(raw)) {
+    const rest = raw.slice(from.length + 1);
+    const c = rest.charCodeAt(0);
+    if (rest && c !== 47 && c !== 63 && c !== 35) return null;
+    let q = rest.length;
+    ['?', '#'].forEach((ch) => { const i = rest.indexOf(ch); if (i >= 0 && i < q) q = i; });
+    const path = c === 47 ? rest.slice(0, q) : '';
+    const tail = c === 47 ? rest.slice(q) : rest;
+    const suffix = path.replace(/\.html$/, '').replace(/\/$/, '');
+    if (!allowed(suffix)) return null;
+    const next = `/${to}${path}${tail}`;
+    return next === raw ? null : next;
+  }
+  const pattern = hrefPattern(www, from);
+  const onWww = raw.match(pattern.onWww);
   if (onWww) return `https://${www}/${to}${onWww[1]}${onWww[2] || ''}`;
   let v = raw.replace(hosts, '');
   if (v === '' && raw !== '') v = '/';
-  const m = v.match(new RegExp(`^/${prefix}((?:/[^?#]*)?)([?#].*)?$`));
+  const m = v.match(pattern.local);
   if (m) {
     const suffix = m[1].replace(/\.html$/, '').replace(/\/$/, '');
     if (allowed(suffix)) v = `/${to}${m[1]}${m[2] || ''}`;
@@ -471,6 +538,223 @@ export async function marketLlmsRows(request, env, key) {
     .map((r) => (r.path === `/${key}/homepage` ? { ...r, 'ai-guidance': guidance } : r));
 }
 
+// A query index page as the origin writes it: {"total":…,"offset":…,"limit":…,"data":[rows],
+// "columns":[…],":type":"sheet"}, every row an object of strings starting with its path, the
+// same keys in every row, limit the number of rows. JSON.stringify of a parsed origin sheet gives
+// the origin's bytes, so rows can be copied as bytes and only rewritten values re-encoded. Found
+// with single-byte indexOf on the bytes (decoding a 4.5 MB index alone takes about 10 ms): inside
+// a JSON string a quote is escaped, so `{"path":"` and `":"` before a value only stand where they
+// mean that.
+const SHEET_HEAD = /^\{"total":(\d+),"offset":(\d+),"limit":(\d+),"data":\[/;
+const SHEET_TAIL = '],"columns":';
+const ascii = (s) => Uint8Array.from(s, (c) => c.charCodeAt(0));
+const ROW_PATH = ascii('{"path":"');
+const MARKETS_EMPTY = ascii(',"markets":""}');
+const utf8 = new TextDecoder();
+const encoder = new TextEncoder();
+
+const bytesAt = (b, i, pattern) => {
+  if (i < 0 || i + pattern.length > b.length) return false;
+  for (let k = 0; k < pattern.length; k += 1) if (b[i + k] !== pattern[k]) return false;
+  return true;
+};
+
+/** The closing quote of the JSON string whose content starts at i (not an escaped one). */
+function quoteEnd(b, i) {
+  let end = b.indexOf(34, i);
+  while (end > 0) {
+    let n = 0;
+    for (let j = end - 1; j >= i && b[j] === 92; j -= 1) n += 1;
+    if (n % 2 === 0) return end;
+    end = b.indexOf(34, end + 1);
+  }
+  return -1;
+}
+
+const stringAt = (b, from, to) => {
+  const s = utf8.decode(b.subarray(from, to));
+  return s.includes('\\') ? JSON.parse(`"${s}"`) : s;
+};
+
+/**
+ * A sheet page's rows as byte spans: {rows: [{start, end, path, values, markets}], tailStart},
+ * values the string values that start with /<from> ({from, to: the quotes' span, value}),
+ * markets '' unless the row has a markets value; null when the page is shaped otherwise.
+ */
+function sheetSpans(b, from) {
+  const head = utf8.decode(b.subarray(0, Math.min(b.length, 120))).match(SHEET_HEAD);
+  if (!head) return null;
+  const dataStart = head[0].length;
+  // the data's end: the last `],"columns":` (searched from the end, the tail is short)
+  let dataEnd = -1;
+  const tailMark = ascii(SHEET_TAIL);
+  for (let i = b.lastIndexOf(93); i >= dataStart; i = b.lastIndexOf(93, i - 1)) {
+    if (bytesAt(b, i, tailMark)) { dataEnd = i; break; }
+  }
+  if (dataEnd < dataStart) return null;
+  const tail = utf8.decode(b.subarray(dataEnd + 1));
+  if (!tail.endsWith(',":type":"sheet"}')) return null;
+  let columns;
+  try {
+    ({ columns } = JSON.parse(`{${tail.slice(1)}`));
+  } catch (e) {
+    return null;
+  }
+  if (!Array.isArray(columns) || columns[0] !== 'path') return null;
+  const marketsAt = columns.indexOf('markets');
+  // markets read at a row's end only: another place of the column -> parsed as before
+  if (marketsAt >= 0 && marketsAt !== columns.length - 1) return null;
+  const prefix = from ? ascii(`/${from}`) : null;
+  const rows = [];
+  for (let i = b.indexOf(47, dataStart); i >= 0 && i < dataEnd; i = b.indexOf(47, i + 1)) {
+    // a '/' that starts a string value (`":"` before it; most '/' are inside text): a row's path
+    // or a value into the language version
+    const valueStart = b[i - 1] === 34 && b[i - 2] === 58 && b[i - 3] === 34;
+    const rowStart = valueStart && bytesAt(b, i - ROW_PATH.length, ROW_PATH);
+    const prefixed = valueStart && prefix && bytesAt(b, i, prefix);
+    if (rowStart || prefixed) {
+      const end = quoteEnd(b, i);
+      if (end < 0) return null;
+      const value = stringAt(b, i, end);
+      if (rowStart) {
+        const start = i - ROW_PATH.length;
+        // rows follow each other: the first right after "data":[, each next after "},"
+        const joined = rows.length
+          ? b[start - 1] === 44 && b[start - 2] === 125
+          : start === dataStart;
+        if (!joined) return null;
+        if (rows.length) rows[rows.length - 1].end = start - 1;
+        rows.push({
+          start, end: dataEnd, path: value, values: [], markets: '',
+        });
+      }
+      if (prefixed) rows[rows.length - 1].values.push({ from: i - 1, to: end + 1, value });
+      i = end;
+    }
+  }
+  // as many rows as the page says, the last one closed before the data's end
+  if (rows.length !== Number(head[3]) || (rows.length && b[dataEnd - 1] !== 125)) return null;
+  if (marketsAt >= 0) {
+    rows.forEach((r) => {
+      if (!bytesAt(b, r.end - MARKETS_EMPTY.length, MARKETS_EMPTY)) r.markets = JSON.parse(utf8.decode(b.subarray(r.start, r.end))).markets || '';
+    });
+  }
+  return { rows, tailStart: dataEnd, total: Number(head[1]) };
+}
+
+/** Every page of a sheet as bytes with its spans, null for a 404, false for another shape. */
+async function sheetPages(request, env, path, from) {
+  const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
+  const pages = [];
+  let count = 0;
+  for (let offset = 0; offset < 50000; offset += PAGE) {
+    // eslint-disable-next-line no-await-in-loop
+    const resp = await originFetch(get, env, `https://${env.ORIGIN}${path}?limit=${PAGE}&offset=${offset}`);
+    if (resp.status === 404) return null;
+    if (!resp.ok) throw new Error(`${path}: HTTP ${resp.status}`);
+    // eslint-disable-next-line no-await-in-loop
+    const bytes = new Uint8Array(await resp.arrayBuffer());
+    const spans = sheetSpans(bytes, from);
+    if (!spans) return false;
+    pages.push({ bytes, spans, headers: resp.headers });
+    count += spans.rows.length;
+    // as sheetRows: a short page or every row read ends it
+    if (spans.rows.length < PAGE || count >= spans.total) break;
+  }
+  return pages;
+}
+
+/**
+ * The language version's JSON for the market root, as marketJson, from the sheet's bytes: rows
+ * copied as they are, only the values into the language version rewritten (marketRow), only rows
+ * with a markets value parsed. null when the sheet is shaped otherwise (marketJson then).
+ */
+async function marketJsonBytes(request, env, ctx, own404) {
+  const url = new URL(request.url);
+  const pages = await sheetPages(request, env, `/${ctx.from}${ctx.rest}`, ctx.from);
+  if (pages === null) return own404;
+  if (!pages) return null;
+  const cc = ctx.to.split('/')[0];
+  // a row: {path, bytes, start, end, patches: [offset in the row], parts (a row re-encoded)}.
+  // A rewritten value is /<to><rest> for /<from><rest>, roots are cc/ll: as long as before, so
+  // its bytes are the original's with <from> patched to <to>
+  const toBytes = ascii(ctx.to);
+  const hrefs = new Map();
+  let rows = [];
+  pages.forEach(({ bytes, spans }) => {
+    spans.rows.forEach((r) => {
+      if (r.markets && !marketAllows(r.markets, cc)) return;
+      const row = {
+        path: r.path, bytes, start: r.start, end: r.end, patches: [],
+      };
+      r.values.forEach((v) => {
+        // the same value (a parent, an image) answered once per sheet
+        if (!hrefs.has(v.value)) hrefs.set(v.value, marketHref(v.value, ctx));
+        const next = hrefs.get(v.value);
+        if (next === null || next === v.value) return;
+        if (next.length === v.value.length && next.startsWith(`/${ctx.to}`) && next.slice(ctx.to.length + 1) === v.value.slice(ctx.from.length + 1)) {
+          row.patches.push(v.from + 2 - r.start);
+        } else {
+          row.complex = true;
+        }
+        if (v.from === r.start + ROW_PATH.length - 1) row.path = next;
+      });
+      if (row.complex) {
+        // another rewrite (not the same length): the row as marketRow makes it
+        const parsed = JSON.parse(utf8.decode(bytes.subarray(r.start, r.end)));
+        row.parts = encoder.encode(JSON.stringify(marketRow(parsed, ctx)));
+      }
+      rows.push(row);
+    });
+  });
+  if (ctx.rest === '/search-index.json') {
+    // the root's own pages (the market index has the search columns) replace the language's
+    let own = [];
+    try {
+      const ownPages = await sheetPages(request, env, MARKET_INDEX, null);
+      if (ownPages === false) return null;
+      own = (ownPages || []).flatMap(({ bytes, spans }) => spans.rows
+        .filter((r) => r.path.startsWith(`/${ctx.to}/`) && !NOT_PAGES.test(r.path))
+        .map((r) => ({
+          path: r.path, bytes, start: r.start, end: r.end, patches: [],
+        })));
+    } catch (e) {
+      own = [];
+    }
+    const ownPaths = new Set(own.map((r) => r.path));
+    rows = [...rows.filter((r) => !ownPaths.has(r.path)), ...own]
+      .sort((a, b) => String(a.path).localeCompare(String(b.path)));
+  }
+  const headers = new Headers(pages[0].headers);
+  headers.delete('content-length');
+  headers.set('content-type', 'application/json');
+  headers.set('x-lh-edge-route', 'market');
+  if (request.method === 'HEAD') return new Response(null, { headers });
+  const offset = Math.max(0, Number.parseInt(url.searchParams.get('offset'), 10) || 0);
+  const limit = Math.max(1, Number.parseInt(url.searchParams.get('limit'), 10) || PAGE);
+  const head = encoder.encode(`{"total":${rows.length},"offset":${offset},"limit":${limit},"data":[`);
+  const first = pages[0];
+  const tail = first.bytes.subarray(first.spans.tailStart);
+  const slice = rows.slice(offset, offset + limit);
+  const size = slice.reduce((n, r) => n + (r.parts ? r.parts.length : r.end - r.start), 0);
+  const body = new Uint8Array(head.length + size + Math.max(0, slice.length - 1) + tail.length);
+  body.set(head, 0);
+  let at = head.length;
+  slice.forEach((r, i) => {
+    if (i) { body[at] = 44; at += 1; }
+    if (r.parts) {
+      body.set(r.parts, at);
+      at += r.parts.length;
+      return;
+    }
+    body.set(r.bytes.subarray(r.start, r.end), at);
+    r.patches.forEach((p) => body.set(toBytes, at + p));
+    at += r.end - r.start;
+  });
+  body.set(tail, at);
+  return new Response(body, { headers });
+}
+
 /** The language version's JSON for the market root, paged as the request asks. */
 async function marketJson(request, env, ctx, own404) {
   const url = new URL(request.url);
@@ -567,6 +851,9 @@ export async function market(request, env) {
   };
   if (kind === 'json') {
     try {
+      // the sheet's text when it is shaped as expected (var MARKET_MODEL=full: parsed as before)
+      const fast = env.MARKET_MODEL !== 'full' ? await marketJsonBytes(request, env, ctx, own) : null;
+      if (fast) return fast;
       return await marketJson(request, env, ctx, own);
     } catch (e) {
       return unavailable();
@@ -617,6 +904,18 @@ const day = (lastModified) => {
 
 /** URLs per market sitemap file (as www, the sitemaps are split: alternates make them large). */
 export const SITEMAP_PAGE = 100;
+// a file's alternates at most (today 100 URLs times 64: the two language versions, at/de and
+// gb/en, 60 served roots): every URL lists every root, so with more roots a file gets fewer URLs
+// and its size (and the CPU to make and gzip it) stays as today's
+export const SITEMAP_ALTERNATES = 6400;
+
+/** URLs per market sitemap file (var MARKET_SITEMAP=fixed: always SITEMAP_PAGE). */
+export function sitemapPage(model, env = {}) {
+  if (env.MARKET_SITEMAP === 'fixed') return SITEMAP_PAGE;
+  const perUrl = Object.keys(model.versions).length + Object.keys(model.others || {}).length
+    + model.roots.length;
+  return Math.max(1, Math.min(SITEMAP_PAGE, Math.floor(SITEMAP_ALTERNATES / Math.max(1, perUrl))));
+}
 
 /**
  * The sitemap entries of a market root, sorted: [{path, suffix, lastModified, language}]: the
@@ -691,21 +990,23 @@ export function sitemapCount(model, root) {
 /** The sitemap file names of a market root: sitemap_lh_<cc>_<ll>, then _2, _3 … */
 export async function sitemapNames(request, env, root, given = null) {
   const model = given || await marketModel(request, env);
-  const pages = Math.max(1, Math.ceil(sitemapCount(model, root) / SITEMAP_PAGE));
+  const pages = Math.max(1, Math.ceil(sitemapCount(model, root) / sitemapPage(model, env)));
   const base = `sitemap_lh_${root.replace('/', '_')}`;
   return Array.from({ length: pages }, (x, i) => (i ? `${base}_${i + 1}` : base));
 }
 
 /**
  * One XML sitemap file of a market root (helix-sitemap.yaml's format, URLs on www without
- * .html), SITEMAP_PAGE URLs each (page 1: sitemap_lh_<cc>_<ll>.xml, then _2, _3 …), or null
+ * .html), sitemapPage() URLs each (page 1: sitemap_lh_<cc>_<ll>.xml, then _2, _3 …), or null
  * past the last. Alternates are made for the file's own URLs only.
  */
 export async function marketSitemapXml(request, env, root, page = 1) {
   const model = await marketModel(request, env);
   const { lang } = LOCALE_TABLE[root];
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
-  const slice = sitemapEntries(model, root).slice((page - 1) * SITEMAP_PAGE, page * SITEMAP_PAGE);
+  const wwwEscaped = xmlEscape(www);
+  const per = sitemapPage(model, env);
+  const slice = sitemapEntries(model, root).slice((page - 1) * per, page * per);
   if (page > 1 && !slice.length) return null;
   // one list of lines (a file has thousands of alternates)
   const lines = [];
@@ -716,7 +1017,17 @@ export async function marketSitemapXml(request, env, root, page = 1) {
     const lastmod = day(e.lastModified);
     lines.push('  <url>', `    <loc>${xmlEscape(`${www}${e.path}`)}</loc>`);
     if (lastmod) lines.push(`    <lastmod>${lastmod}</lastmod>`);
-    alts.forEach((a) => lines.push(`    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(`${www}${a.path}`)}"/>`));
+    const escaped = new Map();
+    alts.forEach((a) => {
+      let href;
+      if (a.root !== undefined) {
+        if (!escaped.has(a.suffix)) escaped.set(a.suffix, xmlEscape(a.suffix));
+        href = `${wwwEscaped}/${a.root}${escaped.get(a.suffix)}`;
+      } else {
+        href = xmlEscape(`${www}${a.path}`);
+      }
+      lines.push(`    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${href}"/>`);
+    });
     lines.push('  </url>');
   });
   return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${lines.join('\n')}\n</urlset>\n`;
