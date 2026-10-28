@@ -6,7 +6,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "cc3f3cd19ba25869",
+  "hash": "206367bf406c42dd",
   "route": ""
  },
  {
@@ -16,7 +16,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "feb4a7f9742fa430",
+  "hash": "7e67bad2fd31a0f8",
   "route": ""
  },
  {
@@ -26,7 +26,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "e038df93baa24f70",
+  "hash": "d90416341b397dac",
   "route": ""
  },
  {
@@ -36,7 +36,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "fcfd20099dd1b5f9",
+  "hash": "dfb9c6293b91ea3a",
   "route": ""
  },
  {
@@ -46,7 +46,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "d4e38376578c199d",
+  "hash": "d058fd9239694d1f",
   "route": ""
  },
  {
@@ -56,7 +56,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "7bdec1a44b2371c3",
+  "hash": "566712d3aa916133",
   "route": ""
  },
  {
@@ -66,7 +66,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "d4c43f4ff3aa66aa",
+  "hash": "5c9f6e068498dae3",
   "route": ""
  },
  {
@@ -76,7 +76,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "930307a1a6ecceec",
+  "hash": "7b94181ce79715c4",
   "route": ""
  },
  {
@@ -86,7 +86,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "ac3c29df4cd22a35",
+  "hash": "0cc71ab247bca843",
   "route": ""
  },
  {
@@ -126,7 +126,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "8db9a943c609ee3b",
+  "hash": "df18995b2ca1d36b",
   "route": ""
  },
  {
@@ -146,7 +146,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "c02f3e6946cab3f2",
+  "hash": "2485432b09602454",
   "route": "sdui"
  },
  {
@@ -156,7 +156,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "12bf5f0d6e6a19c7",
+  "hash": "60766d9200ea17d8",
   "route": "sdui"
  },
  {
@@ -166,7 +166,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "851983a7adbe71c7",
+  "hash": "182c9ad25476aff8",
   "route": "sdui"
  },
  {
@@ -327,7 +327,7 @@
   "path": "/content/dam/lh/images/offers/destination/zzq-square.jpg",
   "method": "GET",
   "status": 302,
-  "location": "https://lhedge.bbird.live/content/dam/lh/images/offers/fallback/generic-square.jpg",
+  "location": "https://HOST/content/dam/lh/images/offers/fallback/generic-square.jpg",
   "type": "",
   "length": 0,
   "hash": "e3b0c44298fc1c14",
@@ -483,7 +483,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "2c9fd65714cc6ae1",
+  "hash": "574dc7edd818fca6",
   "route": "solo"
  },
  {
@@ -493,7 +493,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "4c82da2928ebb83b",
+  "hash": "6fb2a8a46aceb38f",
   "route": "solo"
  },
  {
@@ -503,7 +503,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "d31d499413e4ba6d",
+  "hash": "b005cf8aff617b3c",
   "route": "solo"
  },
  {
@@ -513,7 +513,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "62ba5cd3349404a2",
+  "hash": "105ccf8ccd1a4f09",
   "route": "solo"
  },
  {
@@ -533,7 +533,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "8248bd3381c8549d",
+  "hash": "39b1dce2c90b4a9a",
   "route": "sdui-web-short"
  },
  {
@@ -573,7 +573,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "b38d6c4a71018e7d",
+  "hash": "612a218bc8929cbd",
   "route": "csi-offline"
  },
  {
@@ -583,7 +583,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "b8c55b1e7cf16582",
+  "hash": "3c0e9ea0dc106cff",
   "route": "mfe"
  },
  {
@@ -623,7 +623,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "9409ce42cc6b3824",
+  "hash": "7850c0c1c11683ec",
   "route": "solo"
  },
  {
@@ -653,7 +653,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "cd53f0fcf587c9d5",
+  "hash": "d56f44e643604b73",
   "route": "csi-offline"
  },
  {
@@ -683,7 +683,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "edb810a7407f3b67",
+  "hash": "1b8a6cee850da296",
   "route": ""
  },
  {
@@ -693,7 +693,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0a71e92ab04a4297",
+  "hash": "1f9aadc68f7a7758",
   "route": ""
  },
  {
@@ -703,7 +703,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "96cf5b1c21544ea7",
+  "hash": "fe795f5dbb9ee45e",
   "route": "market"
  },
  {
@@ -713,7 +713,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "65fcb8876f30af7e",
+  "hash": "ebc7ea30bb94d545",
   "route": "market"
  },
  {
