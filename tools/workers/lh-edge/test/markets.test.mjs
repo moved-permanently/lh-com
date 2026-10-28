@@ -167,6 +167,22 @@ test('the language version\'s redirects and the pages its index leaves out on pu
   assert.match(await conf.text(), /<link rel="canonical" href="https:\/\/lhcom\.bbird\.live\/ch\/en\/book-and-manage\/refund\/confirmation">/);
 });
 
+test('the language version\'s redirect with Workers\' manual redirect mode, also on a revalidation (the redirect is not followed)', async () => {
+  const plain = globalThis.fetch;
+  // a real fetch follows a redirect unless the request says manual
+  globalThis.fetch = async (input, init) => {
+    const req = input instanceof Request ? input : new Request(input);
+    const resp = await plain(input, init);
+    if ([301, 302].includes(resp.status) && req.redirect === 'follow') return plain(new URL(resp.headers.get('location'), req.url).href);
+    return resp;
+  };
+  await Promise.all([{}, { 'if-modified-since': 'Tue, 27 Oct 2026 15:46:24 GMT' }].map(async (headers) => {
+    const resp = await worker.fetch(new Request('https://lhedge.example/ch/en/support/support', { headers, redirect: 'manual' }), env(), {});
+    assert.equal(resp.status, 302, JSON.stringify(headers));
+    assert.equal(resp.headers.get('location'), '/ch/en/baggage');
+  }));
+});
+
 test('fragments fall back to the language version; HEAD has no body', async () => {
   const frag = await get('/ch/en/fragments/teaser.plain.html');
   assert.equal(frag.status, 200);

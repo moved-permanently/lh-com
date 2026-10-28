@@ -850,7 +850,10 @@ export function servedLocale(request, env, key) {
  * index, which lhcom's CDN then kept).
  */
 export function withoutConditions(request, method = request.method) {
-  const req = new Request(request.url, { method, headers: request.headers });
+  // the redirect mode too (Workers' incoming requests are manual: a redirect is an answer)
+  const req = new Request(request.url, {
+    method, headers: request.headers, redirect: request.redirect,
+  });
   req.headers.delete('if-modified-since');
   req.headers.delete('if-none-match');
   return req;
