@@ -1,0 +1,79 @@
+{
+ "host": "https://main--lh-com--moved-permanently.aem.page",
+ "results": 2773,
+ "per": {
+  "at/de": {
+   "documents": 691,
+   "notOk": 0,
+   "withEntities": 0
+  },
+  "content/mobile": {
+   "documents": 1,
+   "notOk": 0,
+   "withEntities": 0
+  },
+  "de/de": {
+   "documents": 692,
+   "notOk": 0,
+   "withEntities": 0
+  },
+  "de/en": {
+   "documents": 695,
+   "notOk": 0,
+   "withEntities": 0
+  },
+  "gb/en": {
+   "documents": 693,
+   "notOk": 0,
+   "withEntities": 0
+  },
+  "library/blocks": {
+   "documents": 1,
+   "notOk": 0,
+   "withEntities": 0
+  }
+ },
+ "bad": [],
+ "index": {
+  "/de/en/articles/query-index.json": {
+   "rows": 560,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/de/en/search-index.json": {
+   "rows": 971,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/de/de/articles/query-index.json": {
+   "rows": 557,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/de/de/search-index.json": {
+   "rows": 968,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/at/de/articles/query-index.json": {
+   "rows": 556,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/at/de/search-index.json": {
+   "rows": 967,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/gb/en/articles/query-index.json": {
+   "rows": 559,
+   "withEntities": 0,
+   "sample": []
+  },
+  "/gb/en/search-index.json": {
+   "rows": 968,
+   "withEntities": 0,
+   "sample": []
+  }
+ }
+}
