@@ -34,6 +34,9 @@
 import {
   originFetch, publicHost, isMediaRequest, passThrough,
 } from './edge.js';
+import {
+  leanSource, leanModelPath, leanLlmsPath, resetLeanCache,
+} from './market-lean.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
 import { marketAllows, dropMarketSections } from '../../../../scripts/market-rules.js';
@@ -59,6 +62,7 @@ const indexes = new Map();
 /** Drops the cached indexes (tests). */
 export function resetMarketCache() {
   indexes.clear();
+  resetLeanCache();
 }
 
 const listVar = (v) => String(v || '').split(',').map((h) => h.trim().toLowerCase()).filter(Boolean);
@@ -100,14 +104,19 @@ async function sheetRows(request, env, path) {
 }
 
 /**
- * The paths of a root's search index (a Set), a minute per isolate: read with a scan for the
- * path values instead of JSON.parse (an index is about a megabyte; the scan takes a fifth of the
- * CPU time), for the hreflang of roots with their own documents (at/de, gb/en).
+ * An index kept a minute per isolate; concurrent callers share the pending read (the sitemap
+ * index asks once per market root at the same time), a failed read is not kept.
  */
-async function pathIndex(request, env, root) {
-  const key = `${env.ORIGIN}/${root}/search-index.json#paths`;
+function cachedIndex(key, read) {
   const cached = indexes.get(key);
-  if (cached && Date.now() - cached.at < INDEX_TTL_MS) return cached.index;
+  if (cached && Date.now() - cached.at < INDEX_TTL_MS) return cached.promise;
+  const promise = read();
+  indexes.set(key, { at: Date.now(), promise });
+  promise.catch(() => { if (indexes.get(key)?.promise === promise) indexes.delete(key); });
+  return promise;
+}
+
+async function readPathIndex(request, env, root) {
   const get = new Request(request.url, { method: 'GET', headers: { accept: 'application/json' } });
   const index = new Set();
   for (let offset = 0; offset < 50000; offset += PAGE) {
@@ -121,8 +130,17 @@ async function pathIndex(request, env, root) {
     const total = Number((text.match(/"total":(\d+)/) || [])[1] || 0);
     if (index.size - before < PAGE || index.size >= total) break;
   }
-  indexes.set(key, { at: Date.now(), index });
   return index;
+}
+
+/**
+ * The paths of a root's search index (a Set), a minute per isolate: read with a scan for the
+ * path values instead of JSON.parse (an index is about a megabyte; the scan takes a fifth of the
+ * CPU time), for the hreflang of roots with their own documents (at/de, gb/en).
+ */
+async function pathIndex(request, env, root) {
+  const key = `${env.ORIGIN}/${root}/search-index.json#paths`;
+  return cachedIndex(key, () => readPathIndex(request, env, root));
 }
 
 // roots with every page as their own document besides the language versions (at/de, gb/en):
@@ -131,37 +149,116 @@ async function pathIndex(request, env, root) {
 const OWN_ROOTS = Object.keys(LOCALE_TABLE).filter((k) => LOCALE_TABLE[k].documents === 'own'
   && LOCALE_TABLE[k].status === 'live' && !Object.values(LANGUAGE_VERSIONS).includes(k));
 
-/** A compact index (path -> {markets, robots, primary, lastModified}), a minute per isolate. */
-async function compactIndex(request, env, path) {
-  const key = `${env.ORIGIN}${path}`;
-  const cached = indexes.get(key);
-  if (cached && Date.now() - cached.at < INDEX_TTL_MS) return cached.index;
-  const all = await sheetRows(request, env, path);
+/** Index rows as the model keeps them (path -> {markets, robots, primary, lastModified}). */
+function compactRows(rows) {
   const index = new Map();
-  (all ? all.rows : []).forEach((r) => {
+  rows.forEach((r) => {
     if (!r || typeof r.path !== 'string') return;
     index.set(r.path, {
       markets: r.markets || '', robots: r.robots || '', primary: r['primary-language-url'] || '', lastModified: r.lastModified || '',
     });
   });
-  indexes.set(key, { at: Date.now(), index });
   return index;
 }
 
+/** A compact index (path -> {markets, robots, primary, lastModified}), a minute per isolate. */
+async function compactIndex(request, env, path) {
+  return cachedIndex(`${env.ORIGIN}${path}`, async () => compactRows((await sheetRows(request, env, path))?.rows || []));
+}
+
+/** The language version's pages by the language page they name (primary-language-url). */
+function primaryMap(rows) {
+  const byPrimary = new Map();
+  rows.forEach((row, p) => { if (row.primary) byPrimary.set(row.primary, p); });
+  return byPrimary;
+}
+
+const NO_VALUES = { markets: '', robots: '', primary: '' };
+
 /**
- * What the served market roots have: {roots, versions: {lang: {root, index, byPrimary}}, own,
- * others: {root: Set of paths}}. own: the market roots' own documents (the market index; empty
- * while it has no rows); others: the roots with their own documents of the same languages.
+ * A lean source as the model's index: has and get from the path set and the sparse rows (no
+ * parse of the whole source), forEach (the sitemaps) from every row, as compactIndex.
  */
-export async function marketModel(request, env, roots = servedMarketRoots(request, env)) {
+function newLeanIndex(src) {
+  let sparse;
+  let full;
+  let byPrimary;
+  const got = new Map();
+  const sparseRows = () => {
+    sparse ||= compactRows(src.rowsWith(['markets', 'robots', 'primary-language-url']));
+    return sparse;
+  };
+  const fullRows = () => {
+    full ||= compactRows(src.all());
+    return full;
+  };
+  return {
+    has: (p) => src.has(p),
+    get: (p) => {
+      if (full) return full.get(p);
+      if (!src.has(p)) return undefined;
+      // kept per path: a page's links and a sitemap file ask for the same rows many times
+      if (!got.has(p)) {
+        const row = sparseRows().get(p) || NO_VALUES;
+        got.set(p, {
+          markets: row.markets,
+          robots: row.robots,
+          primary: row.primary,
+          get lastModified() { return fullRows().get(p)?.lastModified || ''; },
+        });
+      }
+      return got.get(p);
+    },
+    forEach: (fn) => fullRows().forEach(fn),
+    byPrimary: (p) => {
+      byPrimary ||= primaryMap(sparseRows());
+      return byPrimary.get(p);
+    },
+  };
+}
+
+// one index object per lean source (its path set and parsed rows kept with the source)
+const leanIndexes = new WeakMap();
+function leanIndex(src) {
+  if (!leanIndexes.has(src)) leanIndexes.set(src, newLeanIndex(src));
+  return leanIndexes.get(src);
+}
+
+/**
+ * The model from the lean sources (src/market-lean.js), or null when one of them is missing or
+ * not complete (the caller reads the full indexes).
+ */
+async function leanModel(request, env, roots) {
+  const langs = [...new Set(roots.map((r) => LOCALE_TABLE[r].lang))];
+  const others = OWN_ROOTS.filter((r) => langs.includes(LOCALE_TABLE[r].lang));
+  const versionRoots = langs.map((l) => LANGUAGE_VERSIONS[l]);
+  const read = (r) => leanSource(request, env, leanModelPath(r), r ? `/${r}/search-index.json` : MARKET_INDEX);
+  const [own, ...srcs] = await Promise.all([
+    read(null), ...versionRoots.map(read), ...others.map(read),
+  ]);
+  if (!own || srcs.some((s) => !s)) return null;
+  const versions = {};
+  langs.forEach((lang, i) => {
+    const index = leanIndex(srcs[i]);
+    versions[lang] = { root: versionRoots[i], index, byPrimary: { get: index.byPrimary } };
+  });
+  return {
+    roots,
+    versions,
+    own: leanIndex(own),
+    others: Object.fromEntries(others.map((r, i) => [r, srcs[langs.length + i]])),
+    lean: true,
+  };
+}
+
+/** The model from the full search indexes and the market index (before the lean sources). */
+async function fullModel(request, env, roots) {
   const langs = [...new Set(roots.map((r) => LOCALE_TABLE[r].lang))];
   const versions = {};
   await Promise.all(langs.map(async (lang) => {
     const root = LANGUAGE_VERSIONS[lang];
     const index = await compactIndex(request, env, `/${root}/search-index.json`);
-    const byPrimary = new Map();
-    index.forEach((row, p) => { if (row.primary) byPrimary.set(row.primary, p); });
-    versions[lang] = { root, index, byPrimary };
+    versions[lang] = { root, index, byPrimary: primaryMap(index) };
   }));
   let own;
   try {
@@ -178,6 +275,20 @@ export async function marketModel(request, env, roots = servedMarketRoots(reques
   };
 }
 
+/**
+ * What the served market roots have: {roots, versions: {lang: {root, index, byPrimary}}, own,
+ * others: {root: Set of paths}}. own: the market roots' own documents (the market index; empty
+ * while it has no rows); others: the roots with their own documents of the same languages.
+ * From the lean sources when they are complete (var MARKET_MODEL=full: always the full indexes).
+ */
+export async function marketModel(request, env, roots = servedMarketRoots(request, env)) {
+  if (env.MARKET_MODEL !== 'full') {
+    const lean = await leanModel(request, env, roots).catch(() => null);
+    if (lean) return lean;
+  }
+  return fullModel(request, env, roots);
+}
+
 /** Whether a market root serves a path after its prefix ('' is the root itself). */
 export function serves(model, root, suffix) {
   if (!model.roots.includes(root)) return false;
@@ -186,7 +297,7 @@ export function serves(model, root, suffix) {
   if (LANGUAGE_ONLY.test(suffix)) return true;
   const v = model.versions[LOCALE_TABLE[root].lang];
   const row = v && v.index.get(`/${v.root}${suffix}`);
-  return Boolean(row) && marketAllows(row.markets, root.split('/')[0]);
+  return Boolean(row) && (!row.markets || marketAllows(row.markets, root.split('/')[0]));
 }
 
 /**
@@ -215,8 +326,16 @@ export function alternates(model, lang, suffix) {
     if (model.versions[l].index.has(`/${version}${s}`)) out.push({ hreflang: LOCALE_TABLE[version].hreflang, path: `/${version}${s}` });
     Object.entries(model.others || {}).filter(([r, paths]) => LOCALE_TABLE[r].lang === l && paths.has(`/${r}${s}`))
       .forEach(([r]) => out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` }));
-    model.roots.filter((r) => LOCALE_TABLE[r].lang === l && serves(model, r, s))
-      .forEach((r) => out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` }));
+    // serves(model, r, s) for every served root of the language, the language row read once
+    // (a sitemap file asks for 100 pages times every root)
+    const always = !s || s === '/' || LANGUAGE_ONLY.test(s);
+    const row = always ? null : model.versions[l].index.get(`/${version}${s}`);
+    model.roots.forEach((r) => {
+      if (LOCALE_TABLE[r].lang !== l) return;
+      if (always || model.own.has(`/${r}${s}`) || (row && (!row.markets || marketAllows(row.markets, r.split('/')[0])))) {
+        out.push({ hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}` });
+      }
+    });
   });
   return out;
 }
@@ -312,6 +431,44 @@ function marketRow(row, ctx) {
     out[k] = typeof v === 'string' && v.startsWith(`/${ctx.from}`) ? (marketHref(v, ctx) ?? v) : v;
   });
   return out;
+}
+
+const isTrue = (v) => String(v || '').trim().toLowerCase() === 'true';
+
+/**
+ * The llms.txt rows of a market root from the lean llms sources (src/market-lean.js), or null
+ * when they are missing or not complete (llms.js then reads the market route's search index):
+ * the rows the market route's search-index.json gives that llms.txt reads (llms-include true;
+ * the language's filtered by markets, their paths the root's, the root's own pages replacing
+ * them, ordered by path), the homepage's ai-guidance only from the root's own homepage.
+ */
+export async function marketLlmsRows(request, env, key) {
+  if (env.MARKET_MODEL === 'full' || !servedMarketRoots(request, env).includes(key)) return null;
+  const from = LANGUAGE_VERSIONS[LOCALE_TABLE[key].lang];
+  const [lang, own] = await Promise.all([
+    leanSource(request, env, leanLlmsPath(from), `/${from}/search-index.json`),
+    leanSource(request, env, leanLlmsPath(null), MARKET_INDEX),
+  ]);
+  if (!lang || !own) return null;
+  let model;
+  try {
+    model = await marketModel(request, env);
+  } catch (e) {
+    return null;
+  }
+  const ctx = {
+    from, to: key, rest: '/search-index.json', hosts: siteHosts(env), www: env.WWW_HOST || 'www.lufthansa.com', allowed: (s) => serves(model, key, s),
+  };
+  const cc = key.split('/')[0];
+  const langRows = lang.rowsWhere('llms-include', isTrue)
+    .filter((r) => !r || typeof r.path !== 'string' || marketAllows(r.markets, cc)).map((r) => marketRow(r, ctx));
+  const ownRows = own.rowsUnder(`/${key}/`).filter((r) => r && typeof r.path === 'string' && !NOT_PAGES.test(r.path));
+  const ownPaths = new Set(ownRows.map((r) => r.path));
+  const home = ownRows.find((r) => r.path === `/${key}/homepage`);
+  const guidance = (home && home['ai-guidance']) || '';
+  return [...langRows.filter((r) => !ownPaths.has(r.path)), ...ownRows]
+    .sort((a, b) => String(a.path).localeCompare(String(b.path)))
+    .map((r) => (r.path === `/${key}/homepage` ? { ...r, 'ai-guidance': guidance } : r));
 }
 
 /** The language version's JSON for the market root, paged as the request asks. */
@@ -451,7 +608,8 @@ export async function market(request, env) {
   });
 }
 
-const xmlEscape = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// most URLs have nothing to escape: no replace then (a sitemap file has thousands)
+const xmlEscape = (s) => (/[&<>]/.test(s) ? String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : String(s));
 const day = (lastModified) => {
   const n = Number(lastModified);
   return Number.isFinite(n) && n > 0 ? new Date(n * 1000).toISOString().slice(0, 10) : '';
@@ -461,31 +619,79 @@ const day = (lastModified) => {
 export const SITEMAP_PAGE = 100;
 
 /**
- * The sitemap entries of a market root, sorted: [{path, suffix, lastmod, language}]: the
- * language pages it serves and its own pages, without the noindex ones (page-robots).
+ * The sitemap entries of a market root, sorted: [{path, suffix, lastModified, language}]: the
+ * language pages it serves and its own pages, without the noindex ones (page-robots). The
+ * lastmod date is made for the URLs of a file only (day(lastModified)).
  */
-function sitemapEntries(model, root) {
+export function sitemapEntries(model, root) {
   const v = model.versions[LOCALE_TABLE[root].lang];
   const entries = new Map();
   v.index.forEach((row, p) => {
     const suffix = p.slice(v.root.length + 1);
     if (!suffix || /noindex/i.test(row.robots) || !serves(model, root, suffix)) return;
     if (model.own.has(`/${root}${suffix}`)) return;
-    entries.set(`/${root}${suffix}`, { suffix, lastmod: day(row.lastModified), language: true });
+    entries.set(`/${root}${suffix}`, { suffix, lastModified: row.lastModified, language: true });
   });
   model.own.forEach((row, p) => {
     if (!p.startsWith(`/${root}/`) || NOT_PAGES.test(p) || /noindex/i.test(row.robots)) return;
     const suffix = p.slice(root.length + 1);
-    entries.set(p, { suffix, lastmod: day(row.lastModified), language: v.index.has(`/${v.root}${suffix}`) });
+    entries.set(p, { suffix, lastModified: row.lastModified, language: v.index.has(`/${v.root}${suffix}`) });
   });
   return [...entries.entries()].sort(([a], [b]) => a.localeCompare(b))
     .map(([path, e]) => ({ path, ...e }));
 }
 
+/**
+ * The number of sitemap entries of a market root (sitemapEntries(model, root).length) without
+ * building them: the language pages counted once per language, grouped by their markets value,
+ * then per root the groups its country gets, less the pages it has as its own documents; and its
+ * own pages. The model keeps the counts (the sitemap index asks for every served root).
+ */
+export function sitemapCount(model, root) {
+  const v = model.versions[LOCALE_TABLE[root].lang];
+  model.counts ||= {};
+  if (!model.counts[v.root]) {
+    // language rows that can be entries: a suffix, not noindex; by markets value
+    const groups = new Map();
+    v.index.forEach((row, p) => {
+      const suffix = p.slice(v.root.length + 1);
+      if (!suffix || /noindex/i.test(row.robots)) return;
+      const g = groups.get(row.markets) || { all: 0, languageOnly: 0 };
+      g.all += 1;
+      if (suffix === '/' || LANGUAGE_ONLY.test(suffix)) g.languageOnly += 1;
+      groups.set(row.markets, g);
+    });
+    // own rows by market root
+    const own = new Map();
+    model.own.forEach((row, p) => {
+      const m = p.match(/^\/([a-z]{2}\/[a-z]{2})\//);
+      if (!m) return;
+      if (!own.has(m[1])) own.set(m[1], []);
+      own.get(m[1]).push([p, row]);
+    });
+    model.counts[v.root] = { groups, own };
+  }
+  const { groups, own } = model.counts[v.root];
+  if (!model.roots.includes(root)) return (own.get(root) || []).filter(([p, row]) => !NOT_PAGES.test(p) && !/noindex/i.test(row.robots)).length;
+  const cc = root.split('/')[0];
+  let count = 0;
+  groups.forEach((g, markets) => {
+    count += !markets || marketAllows(markets, cc) ? g.all : g.languageOnly;
+  });
+  (own.get(root) || []).forEach(([p, row]) => {
+    const suffix = p.slice(root.length + 1);
+    // a language page the root has as its own document is no language entry
+    const lang = v.index.get(`/${v.root}${suffix}`);
+    if (lang && suffix && !/noindex/i.test(lang.robots) && (suffix === '/' || LANGUAGE_ONLY.test(suffix) || !lang.markets || marketAllows(lang.markets, cc))) count -= 1;
+    if (!NOT_PAGES.test(p) && !/noindex/i.test(row.robots)) count += 1;
+  });
+  return count;
+}
+
 /** The sitemap file names of a market root: sitemap_lh_<cc>_<ll>, then _2, _3 … */
-export async function sitemapNames(request, env, root) {
-  const model = await marketModel(request, env);
-  const pages = Math.max(1, Math.ceil(sitemapEntries(model, root).length / SITEMAP_PAGE));
+export async function sitemapNames(request, env, root, given = null) {
+  const model = given || await marketModel(request, env);
+  const pages = Math.max(1, Math.ceil(sitemapCount(model, root) / SITEMAP_PAGE));
   const base = `sitemap_lh_${root.replace('/', '_')}`;
   return Array.from({ length: pages }, (x, i) => (i ? `${base}_${i + 1}` : base));
 }
@@ -501,18 +707,19 @@ export async function marketSitemapXml(request, env, root, page = 1) {
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
   const slice = sitemapEntries(model, root).slice((page - 1) * SITEMAP_PAGE, page * SITEMAP_PAGE);
   if (page > 1 && !slice.length) return null;
-  const urls = slice.map((e) => {
-    const own = [{ hreflang: LOCALE_TABLE[root].hreflang, path: e.path }];
-    const alts = e.language ? alternates(model, lang, e.suffix) : own;
-    return [
-      '  <url>',
-      `    <loc>${xmlEscape(`${www}${e.path}`)}</loc>`,
-      ...(e.lastmod ? [`    <lastmod>${e.lastmod}</lastmod>`] : []),
-      ...alts.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(`${www}${a.path}`)}"/>`),
-      '  </url>',
-    ].join('\n');
+  // one list of lines (a file has thousands of alternates)
+  const lines = [];
+  slice.forEach((e) => {
+    const alts = e.language
+      ? alternates(model, lang, e.suffix)
+      : [{ hreflang: LOCALE_TABLE[root].hreflang, path: e.path }];
+    const lastmod = day(e.lastModified);
+    lines.push('  <url>', `    <loc>${xmlEscape(`${www}${e.path}`)}</loc>`);
+    if (lastmod) lines.push(`    <lastmod>${lastmod}</lastmod>`);
+    alts.forEach((a) => lines.push(`    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(`${www}${a.path}`)}"/>`));
+    lines.push('  </url>');
   });
-  return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${lines.join('\n')}\n</urlset>\n`;
 }
 
 /** The sitemap index (the origin's static file) with the served market roots' files added. */
@@ -525,7 +732,8 @@ export async function sitemapIndexXml(request, env, roots) {
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
   const loc = (item) => (item.match(/<loc>([^<]*)<\/loc>/) || [])[1] || '';
   const have = new Set(items.map(loc));
-  const names = await Promise.all(roots.map((r) => sitemapNames(request, env, r)));
+  const model = await marketModel(request, env);
+  const names = await Promise.all(roots.map((r) => sitemapNames(request, env, r, model)));
   names.flat().forEach((n) => {
     const u = `${www}/sitemap/${n}.xml.gz`;
     if (!have.has(u)) items.push(`<sitemap><loc>${u}</loc></sitemap>`);

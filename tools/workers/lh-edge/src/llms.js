@@ -17,7 +17,10 @@ import { LOCALES, LOCALE_TABLE, LIVE_ORIGIN } from '../../../../scripts/locale.j
 /* eslint-enable import/no-relative-packages */
 import { originFetch, publicHost } from './edge.js';
 import { readSheet } from './sheet.js';
-import { siteFetch, servedMarketRoots, MARKET_INDEX } from './markets.js';
+import {
+  siteFetch, servedMarketRoots, MARKET_INDEX, marketLlmsRows,
+} from './markets.js';
+import { leanSource, leanLlmsPath } from './market-lean.js';
 
 const PATH = /^\/([a-z]{2})(?:\/([a-z]{2}))?\/llms\.txt$/;
 export const GLOBAL_INDEX = `${LIVE_ORIGIN}/llms.txt`;
@@ -66,6 +69,17 @@ async function marketRows(request, env, key) {
   return rows.map((r) => (r.path === `/${key}/homepage` ? { ...r, 'ai-guidance': guidance } : r));
 }
 
+/**
+ * The llms.txt rows of a locale with its own documents from its lean llms source, or null when
+ * it is missing or not complete: the homepage and the pages with llms-include true, in index
+ * order (all llms.txt reads of the index).
+ */
+async function leanLocaleRows(request, env, key) {
+  if (env.MARKET_MODEL === 'full') return null;
+  const src = await leanSource(request, env, leanLlmsPath(key), `/${key}/search-index.json`);
+  return src ? src.rowsWhere('llms-include', isTrue, [`/${key}/homepage`]) : null;
+}
+
 /** The llms.txt text of the locales from their index rows ({ 'at/de': rows }). */
 export function buildLlms(keys, rowsByLocale) {
   const cc = keys[0].split('/')[0];
@@ -112,9 +126,10 @@ export async function llmsTxt(request, env, ctx) {
   const cacheKey = new Request(`${url.origin}${url.pathname}?llms-cache=3&host=${encodeURIComponent(publicHost(request, env))}`);
   const hit = cache && await cache.match(cacheKey);
   if (hit) return hit;
-  const rowsOf = (k) => (served.includes(k)
-    ? marketRows(request, env, k)
-    : readSheet(request, env, `/${k}/search-index.json?limit=5000`));
+  // the lean llms sources when they are complete (src/market-lean.js), else the search indexes
+  const rowsOf = async (k) => (served.includes(k)
+    ? (await marketLlmsRows(request, env, k)) || marketRows(request, env, k)
+    : (await leanLocaleRows(request, env, k)) || readSheet(request, env, `/${k}/search-index.json?limit=5000`));
   const lists = await Promise.all(keys.map((k) => rowsOf(k)));
   const rowsByLocale = Object.fromEntries(keys.map((k, i) => [k, lists[i]]));
   const body = buildLlms(keys, rowsByLocale);
