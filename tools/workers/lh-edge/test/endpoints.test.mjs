@@ -159,7 +159,7 @@ test('entry: / by cookie, CF-IPCountry, else xx/en with the language selection',
 
 /* ------------------------------------------------------- 2. login link, header/footer ---- */
 
-test('login URL: www\'s answers for the four locales; 400 without the headers', async () => {
+test('login URL: www\'s answers for the four locales; without the headers www\'s 500 page', async () => {
   const fixture = JSON.parse(read(path.join(FEEDS, 'login/loginpageurl.json')));
   const answers = fixture.answers.filter((a) => a.status === 200);
   assert.equal(answers.length, 4);
@@ -171,9 +171,21 @@ test('login URL: www\'s answers for the four locales; 400 without the headers', 
     assert.equal(resp.headers.get('access-control-allow-origin'), a.acao);
     assert.equal(await resp.text(), a.body);
   }));
-  const bad = await get('/service/secured/api/core/authenticate/loginPageUrl?state=%2Fde%2Fen%2Fhomepage');
-  assert.equal(bad.status, 400);
-  assert.deepEqual(await bad.json(), { error: 'missing-headers' });
+  // www's 500 answers: status, type, cache and CORS headers; the body of the complete recording
+  // without the script www's CDN adds (the other recording also has a cut-off stack trace)
+  const errors = fixture.answers.filter((a) => a.status === 500);
+  assert.equal(errors.length, 2);
+  const page = errors[0].body.replace(/<script>[\s\S]*?<\/script>/, '');
+  await Promise.all(errors.map(async (a) => {
+    const resp = await get(a.url, { headers: a.headers });
+    assert.equal(resp.status, 500);
+    assert.equal(resp.headers.get('content-type'), a.ct);
+    assert.equal(resp.headers.get('cache-control'), a.cc);
+    assert.equal(resp.headers.get('access-control-allow-origin'), a.acao);
+    assert.equal(await resp.text(), page);
+  }));
+  const partial = await get('/service/secured/api/core/authenticate/loginPageUrl', { headers: { 'X-Portal': 'LH', 'X-Portal-Site': 'DE' } });
+  assert.equal(partial.status, 500, 'a missing X-Portal-Language too');
 });
 
 test('header and footer JSON: equal to www\'s for the four locales; portal config; vanity form not answered', async () => {
