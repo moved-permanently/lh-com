@@ -152,3 +152,22 @@ test('llms.txt of a market: its locales from the market route\'s index, no ai-gu
   const other = await get('/ch/llms.txt', 'lhcom.example');
   assert.equal(other.status, 404, 'not served there: as before');
 });
+
+test('llms.txt in the edge cache: one entry per public host (a CDN in front calls under lh-edge\'s own host)', async () => {
+  const store = new Map();
+  globalThis.caches = {
+    default: {
+      match: async (req) => (store.has(req.url) ? store.get(req.url).clone() : undefined),
+      put: async (req, resp) => { store.set(req.url, resp); },
+    },
+  };
+  const waits = [];
+  const ctx = { waitUntil: (p) => waits.push(p) };
+  const call = (host) => worker.fetch(new Request('https://lhedge.example/ch/llms.txt', { headers: host ? { 'x-lh-public-host': host } : {} }), env, ctx);
+  const pilot = await call();
+  assert.equal(pilot.status, 200);
+  await Promise.all(waits);
+  const viaCdn = await call('lhcom.example');
+  assert.equal(viaCdn.status, 404, 'the CDN host gets its own answer, not the pilot host\'s cached one');
+  delete globalThis.caches;
+});

@@ -15,7 +15,7 @@
 /* eslint-disable import/no-relative-packages */
 import { LOCALES, LOCALE_TABLE, LIVE_ORIGIN } from '../../../../scripts/locale.js';
 /* eslint-enable import/no-relative-packages */
-import { originFetch } from './edge.js';
+import { originFetch, publicHost } from './edge.js';
 import { readSheet } from './sheet.js';
 import { siteFetch, servedMarketRoots, MARKET_INDEX } from './markets.js';
 
@@ -107,7 +107,9 @@ export async function llmsTxt(request, env, ctx) {
   if (!keys.length) return new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'llms' } });
   const cache = typeof caches !== 'undefined' ? caches.default : null;
   // the cache key's version drops what an earlier version cached
-  const cacheKey = new Request(`${url.origin}${url.pathname}?llms-cache=2`);
+  // the public host in the key: the answer depends on it (market roots served on pilot hosts),
+  // and a CDN in front calls lh-edge under lh-edge's own host
+  const cacheKey = new Request(`${url.origin}${url.pathname}?llms-cache=3&host=${encodeURIComponent(publicHost(request, env))}`);
   const hit = cache && await cache.match(cacheKey);
   if (hit) return hit;
   const rowsOf = (k) => (served.includes(k)

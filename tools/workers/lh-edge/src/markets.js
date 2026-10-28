@@ -564,7 +564,9 @@ export async function marketSitemap(request, env, fallback, ctx) {
   if (m[3] && page < 2) return new Response('Not Found', { status: 404, headers: { 'x-lh-edge-route': 'market-sitemap' } });
   const gz = Boolean(m[4]);
   const cache = typeof caches !== 'undefined' ? caches.default : null;
-  const cacheKey = new Request(`${url.origin}${url.pathname}?market-sitemap=1`);
+  // the public host in the key: the answer depends on it (a CDN in front calls lh-edge under
+  // lh-edge's own host)
+  const cacheKey = new Request(`${url.origin}${url.pathname}?market-sitemap=2&host=${encodeURIComponent(publicHost(request, env))}`);
   const hit = cache && request.method === 'GET' && await cache.match(cacheKey);
   if (hit) return hit;
   let xml;
