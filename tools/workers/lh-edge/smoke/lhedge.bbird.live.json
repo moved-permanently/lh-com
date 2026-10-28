@@ -862,10 +862,10 @@
   "key": "GET /service/secured/api/core/authenticate/loginPageUrl?state=smoke",
   "path": "/service/secured/api/core/authenticate/loginPageUrl?state=smoke",
   "method": "GET",
-  "status": 400,
+  "status": 500,
   "location": "",
-  "type": "application/json",
-  "hash": "eaf7e0ed8d019810",
+  "type": "text/html;charset=iso-8859-1",
+  "hash": "5d47d2d13370a35d",
   "route": "login-url"
  },
  {
