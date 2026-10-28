@@ -11,7 +11,9 @@
  * - Every change is announced with the 'consent.update' event,
  *   detail { consented, groups, source }. 'consent.preferences' (footer link
  *   "Change Privacy Settings") reopens OneTrust's preference center or the fallback.
- * - No analytics, tagging or personalisation scripts are loaded; consented.js is an empty hook.
+ * - Tagging is scripts/martech.js's (the tag manager and www's data layer, waiting for a choice
+ *   here): off by default, on only for a host in MARTECH_HOSTS below; consented.js stays an
+ *   empty hook.
  */
 
 import { loadCSS } from './aem.js';
@@ -21,6 +23,21 @@ const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
 const ONETRUST_DOMAIN_SCRIPT = '01994cb2-af99-7dbe-8fb0-56427773e54e';
 const STORAGE_KEY = 'lh-consent';
 const FALLBACK_DELAY = 5000;
+
+/**
+ * The tag manager's hosts (scripts/martech.js): one row per hostname,
+ * { mode: 'live', tealium: { account: '<TEALIUM_ACCOUNT>', profile: '<TEALIUM_PROFILE>',
+ * env: '<TEALIUM_ENV>' } }. Empty: martech is off on every host. Kept here, in a module the page
+ * loads anyway, so scripts.js can tell without loading martech.js (no request) that a host has
+ * none.
+ */
+export const MARTECH_HOSTS = {};
+
+/** Whether the page loads scripts/martech.js: its host has a row, or the page asks ?martech=dry. */
+export function martechWanted(location = window.location, hosts = MARTECH_HOSTS) {
+  return Object.prototype.hasOwnProperty.call(hosts, location.hostname)
+    || new URLSearchParams(location.search).getAll('martech').includes('dry');
+}
 
 /** OneTrust category ids: strictly necessary first */
 export const NECESSARY = 'C0001';
