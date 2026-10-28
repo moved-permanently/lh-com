@@ -29,3 +29,6 @@ content-sites/
 
 # wrangler dev state (local tests of the Workers)
 .wrangler/
+
+# the second account's generated configs (CI only, tools/workers/account-config.sh)
+tools/workers/*/wrangler.*.gen.toml

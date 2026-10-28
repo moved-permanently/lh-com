@@ -13,11 +13,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # The parallel run (tools/workers/README.md "Two accounts"): every deploy goes to both Cloudflare
+  # accounts, the Blackbird one as before and the second one (lh-msm.benpeter.workers.dev). No
+  # account-specific ids (da-msm's wrangler.toml has vars only). Drop the blackbird row when
+  # Blackbird is retired.
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - account: blackbird
+            token: CLOUDFLARE_API_TOKEN
+            account_id: ac7ee4615628005dc5ba0a22f0aae2a6
+          - account: benpeter
+            token: CLOUDFLARE_API_TOKEN_BENPETER
+            account_id: ${{ vars.CLOUDFLARE_ACCOUNT_ID_BENPETER }}
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ac7ee4615628005dc5ba0a22f0aae2a6
+      CLOUDFLARE_API_TOKEN: ${{ secrets[matrix.token] }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ matrix.account_id }}
     steps:
     - uses: actions/checkout@v7
       with:
@@ -29,8 +43,8 @@ jobs:
         node-version: 24
     - name: Check Cloudflare credentials
       run: |
-        if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-          echo "::error::Repository secret CLOUDFLARE_API_TOKEN is not set. It needs Workers Scripts:Edit on the Blackbird account."
+        if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+          echo "::error::Set the secret ${{ matrix.token }} (Workers Scripts:Edit on the ${{ matrix.account }} account) and, for the second account, the variable CLOUDFLARE_ACCOUNT_ID_BENPETER."
           exit 1
         fi
     - name: Deploy

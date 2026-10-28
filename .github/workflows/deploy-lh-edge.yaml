@@ -20,6 +20,9 @@ on:
       - 'scripts/market-rules.js'
       # and the article helpers (web pages as SDUI: date line, related articles)
       - 'scripts/articles.js'
+      # and the second account's config (tools/workers/README.md "Two accounts")
+      - 'tools/workers/account-config.sh'
+      - 'tools/workers/wait-for-workers.sh'
       - '.github/workflows/deploy-lh-edge.yaml'
   workflow_dispatch:
 
@@ -28,24 +31,64 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: tools/workers/lh-edge
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ac7ee4615628005dc5ba0a22f0aae2a6
     steps:
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v6
       with:
         node-version: 24
     - run: npm test
+
+  # The parallel run (README "Two accounts"): every deploy goes to both Cloudflare accounts, the
+  # Blackbird one (bbird.live hosts) as before and the second one (turnsthe.page hosts) with its
+  # resource ids from accounts/benpeter.sed. Drop the blackbird row when Blackbird is retired.
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - account: blackbird
+            token: CLOUDFLARE_API_TOKEN
+            account_id: ac7ee4615628005dc5ba0a22f0aae2a6
+            ids: ''
+          - account: benpeter
+            token: CLOUDFLARE_API_TOKEN_BENPETER
+            account_id: ${{ vars.CLOUDFLARE_ACCOUNT_ID_BENPETER }}
+            ids: accounts/benpeter.sed
+    defaults:
+      run:
+        working-directory: tools/workers/lh-edge
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets[matrix.token] }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ matrix.account_id }}
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
     - name: Check Cloudflare credentials
       run: |
-        if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-          echo "::error::Repository secret CLOUDFLARE_API_TOKEN is not set. It needs Workers Scripts:Edit on the Blackbird account."
+        if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+          echo "::error::Set the secret ${{ matrix.token }} (Workers Scripts:Edit on the ${{ matrix.account }} account) and, for the second account, the variable CLOUDFLARE_ACCOUNT_ID_BENPETER."
           exit 1
         fi
-    - run: npx -y wrangler@4 deploy
+    - name: Config for ${{ matrix.account }}
+      run: |
+        if [ -n "${{ matrix.ids }}" ]; then
+          bash ../account-config.sh "${{ matrix.ids }}" wrangler.toml wrangler.${{ matrix.account }}.gen.toml
+          echo "WRANGLER_CONFIG=wrangler.${{ matrix.account }}.gen.toml" >> "$GITHUB_ENV"
+        else
+          echo "WRANGLER_CONFIG=wrangler.toml" >> "$GITHUB_ENV"
+        fi
+    # a first deploy to the second account: the Workers it binds must exist there (lh-messages
+    # deploys itself without its lh-edge binding first, then again once lh-edge is there)
+    - name: Bound Workers in the account
+      if: matrix.account != 'blackbird'
+      run: bash ../wait-for-workers.sh lh-backends lh-forms lh-messages
+    - run: npx -y wrangler@4 deploy -c "$WRANGLER_CONFIG"
