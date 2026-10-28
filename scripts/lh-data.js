@@ -21,10 +21,13 @@
  *    PRICE_ROUTES answer live or not at all).
  */
 import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
-import { isDemoHost } from './demo.js';
+import { isDemoHost, isTurnsThePageHost } from './demo.js';
 
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md).
 export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
+// the same worker in the second Cloudflare account, for pages on the turnsthe.page hosts
+export const PROXY_ORIGIN_TURNSTHE_PAGE = 'https://lh-proxy.benpeter.workers.dev';
+const defaultProxy = () => (isTurnsThePageHost() ? PROXY_ORIGIN_TURNSTHE_PAGE : PROXY_ORIGIN);
 
 /**
  * Routes www.lufthansa.com serves cross-origin (ACAO *, preflight passes with X-Portal-*).
@@ -69,9 +72,9 @@ const RECORDED_BASE = '/data/recorded';
 function proxyOrigin() {
   try {
     // lets a tester point a page at another worker without a code change
-    return window.localStorage.getItem('lh-proxy') || PROXY_ORIGIN;
+    return window.localStorage.getItem('lh-proxy') || defaultProxy();
   } catch (e) {
-    return PROXY_ORIGIN;
+    return defaultProxy();
   }
 }
 

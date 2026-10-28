@@ -2,7 +2,7 @@
  * The lh-forms worker (tools/workers/lh-forms/README.md) that the Form (core) block posts its
  * submissions to, and the form ids it knows.
  */
-import { isDemoHost } from './demo.js';
+import { isDemoHost, isTurnsThePageHost } from './demo.js';
 
 /**
  * Public address of the lh-forms worker (custom domain, attached in the Cloudflare dashboard;
@@ -10,6 +10,10 @@ import { isDemoHost } from './demo.js';
  * `${origin}/submit`.
  */
 export const FORMS_ENDPOINT = 'https://lhforms.bbird.live';
+/** The same worker in the second Cloudflare account, for pages on the turnsthe.page hosts. */
+export const FORMS_ENDPOINT_TURNSTHE_PAGE = 'https://lufthansa-forms.turnsthe.page';
+const defaultEndpoint = () => (
+  isTurnsThePageHost() ? FORMS_ENDPOINT_TURNSTHE_PAGE : FORMS_ENDPOINT);
 
 /** Where the block goes when a submission fails (live: origin + "/error.html"). */
 export const DEFAULT_ERROR_PAGE = '/error.html';
@@ -41,9 +45,9 @@ export function formsEndpoint() {
     return meta ? meta.content.replace(/\/+$/, '') : '';
   }
   try {
-    return (window.localStorage.getItem('lh-forms') || FORMS_ENDPOINT).replace(/\/+$/, '');
+    return (window.localStorage.getItem('lh-forms') || defaultEndpoint()).replace(/\/+$/, '');
   } catch (e) {
-    return FORMS_ENDPOINT;
+    return defaultEndpoint();
   }
 }
 

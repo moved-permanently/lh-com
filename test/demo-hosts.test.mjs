@@ -73,3 +73,26 @@ test('forms: the demo worker on demo hosts, a production host its own meta (none
   globalThis.document = { querySelector: () => ({ content: 'https://forms.lufthansa.example/' }) };
   assert.equal(formsEndpoint(), 'https://forms.lufthansa.example');
 });
+
+test('turnsthe.page hosts: the second account\'s forms worker and proxy; every other host as today', async () => {
+  ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page'].forEach((h) => {
+    at(h);
+    assert.equal(formsEndpoint(), 'https://lufthansa-forms.turnsthe.page', h);
+  });
+  at('lufthansa.turnsthe.page');
+  await lhFetch('/service/api/lhg-fare-teaser/fareteaser/recommend', { market: 'de/en' }).catch(() => null);
+  assert.ok(calls.some((c) => c.url.startsWith('https://lh-proxy.benpeter.workers.dev/')), 'the second account\'s proxy');
+  assert.ok(!calls.some((c) => c.url.includes('aem-poc-lab')));
+  ['lhcom.bbird.live', 'lhedge.bbird.live', 'main--lh-com--moved-permanently.aem.page', 'localhost', 'demo2.turnsthe.page'].forEach((h) => {
+    at(h);
+    assert.equal(formsEndpoint(), h === 'demo2.turnsthe.page' ? '' : 'https://lhforms.bbird.live', h);
+  });
+  calls = [];
+  at('main--lh-com--moved-permanently.aem.page');
+  await lhFetch('/service/api/lhg-fare-teaser/fareteaser/recommend', { market: 'de/en' }).catch(() => null);
+  assert.ok(calls.some((c) => c.url.startsWith('https://lh-proxy.aem-poc-lab.workers.dev/')));
+  // a tester's override still wins on a demo host
+  at('lufthansa.turnsthe.page');
+  window.localStorage.setItem('lh-forms', 'https://tester.example');
+  assert.equal(formsEndpoint(), 'https://tester.example');
+});

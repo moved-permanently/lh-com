@@ -1,5 +1,7 @@
 // Pure helpers of the admin apps (no DOM, no network), so they can be tested with node --test.
 
+// The admin apps' lh-backends: Blackbird's for now. At the switch to the second Cloudflare account
+// this one constant becomes 'https://lh-backends.benpeter.workers.dev'.
 export const DEFAULT_API = 'https://lh-backends.aem-poc-lab.workers.dev';
 
 // ?api= may only point at a local Worker or another deployment of the same Worker, so a crafted
