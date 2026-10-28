@@ -101,6 +101,10 @@ ROUTER_CONFIG = ""
 REFERRER_FILTER = "off"
 REFERRER_ALLOW_HOSTS = ""
 REFERRER_ALLOW_EMPTY = "false"
+# hosts where lh-edge is the front door and answers as lhcom.bbird.live does through its CDN rules
+# (src/front-door.js: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to the
+# routes, everything else to the origin); lhcom.bbird.live itself keeps its CDN
+FRONT_DOOR_HOSTS = "lufthansa.turnsthe.page"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL

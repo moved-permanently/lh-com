@@ -45,6 +45,7 @@ import {
   routerConfig, choose, defaultOrigin, finish,
 } from './router.js';
 import { referrerRefusal } from './referrer.js';
+import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -283,10 +284,21 @@ const conditional = (request) => ['GET', 'HEAD'].includes(request.method)
   && (request.headers.has('if-modified-since') || request.headers.has('if-none-match'));
 
 export default {
-  async fetch(request, env, ctx) {
-    const alias = aliasHostOf(request, env);
-    const early = prelude(request);
+  async fetch(incoming, env, ctx) {
+    const alias = aliasHostOf(incoming, env);
+    const early = prelude(incoming);
     if (early) return alias ? forAlias(early, alias, env) : early;
+    // a front-door host (FRONT_DOOR_HOSTS, src/front-door.js) answers as its twin does through the
+    // CDN in front of it: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to
+    // the routes below (X-LH-Public-Host: the host), everything else to the origin
+    let request = incoming;
+    const door = frontDoorOf(incoming, env);
+    if (door) {
+      request = withPublicHost(incoming, door);
+      const target = frontDoorTarget(new URL(request.url).pathname);
+      if (target === 'gate') return finish(await backends(request, env), request, env, 'gate');
+      if (target === 'origin') return finish(await passThrough(request, env), request, env, 'pass-through');
+    }
     // production mode (src/router.js): off without its vars and KV entry (the first matching
     // route, as before)
     const cfg = await routerConfig(env);
