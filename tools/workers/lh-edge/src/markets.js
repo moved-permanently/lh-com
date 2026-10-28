@@ -860,6 +860,14 @@ export async function market(request, env) {
   if (own.status !== 404) return own;
   const { root, rest } = mp;
   const from = LANGUAGE_VERSIONS[LOCALE_TABLE[root].lang];
+  // the language version's document in full: a revalidation (If-Modified-Since, If-None-Match
+  // from a browser or the CDN in front) is about this answer, not the language version's (its
+  // 304 read as "not ok" answered the 404, which lhcom's CDN then kept)
+  const versionRequest = new Request(request.url, {
+    method: request.method, headers: request.headers,
+  });
+  versionRequest.headers.delete('if-modified-since');
+  versionRequest.headers.delete('if-none-match');
   const last = rest.split('/').pop();
   const kind = (/\.plain\.html$/.test(last) && 'plain') || (/\.json$/.test(last) && 'json') || (last.includes('.') ? 'file' : 'page');
   if (kind === 'file') return own;
@@ -890,7 +898,7 @@ export async function market(request, env) {
   if (!indexed && !LANGUAGE_ONLY.test(suffix)) {
     // not a page of the language version: its redirect (redirect sheet), else the 404
     if (kind !== 'page') return own;
-    const moved = await originFetch(request, env, `https://${env.ORIGIN}/${from}${rest}`);
+    const moved = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
     const location = moved.headers.get('location');
     if (![301, 302, 307, 308].includes(moved.status) || !location) return own;
     const target = marketHref(location, ctx) ?? location;
@@ -899,7 +907,7 @@ export async function market(request, env) {
       headers: { location: target, 'cache-control': moved.headers.get('cache-control') || 'max-age=60', 'x-lh-edge-route': 'market' },
     });
   }
-  const doc = await originFetch(request, env, `https://${env.ORIGIN}/${from}${rest}`);
+  const doc = await originFetch(versionRequest, env, `https://${env.ORIGIN}/${from}${rest}`);
   if (!doc.ok) return own;
   const headers = new Headers(doc.headers);
   headers.set('x-lh-edge-route', 'market');

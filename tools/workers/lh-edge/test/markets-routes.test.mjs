@@ -84,6 +84,23 @@ test('hreflang of a market copy lists at/de and gb/en where their indexes have t
   assert.deepEqual([...de.matchAll(/hreflang="([^"]+)"/g)].map((m) => m[1]).filter((h) => KEEP.has(h)), ['en-DE', 'en-CH'], 'gb/en has no such page');
 });
 
+test('a revalidation of a market copy gets the page, not the 404 (the language version is fetched without the conditions)', async () => {
+  const plain = globalThis.fetch;
+  globalThis.fetch = async (input, init) => {
+    const req = input instanceof Request ? input : new Request(input);
+    if (req.headers.get('if-modified-since') || req.headers.get('if-none-match')) {
+      if (new URL(req.url).pathname === '/de/en/baggage') return new Response(null, { status: 304 });
+    }
+    return plain(input, init);
+  };
+  await Promise.all([{ 'if-modified-since': 'Tue, 27 Oct 2026 15:46:24 GMT' }, { 'if-none-match': '"abc"' }].map(async (h) => {
+    const resp = await get('/ch/en/baggage', 'lhedge.example', { headers: h });
+    assert.equal(resp.status, 200, JSON.stringify(h));
+    assert.equal(resp.headers.get('x-lh-edge-route'), 'market');
+    assert.match(await resp.text(), /Addresses/);
+  }));
+});
+
 test('the app view of a market page: the market route\'s page, links in the solo form under the market root', async () => {
   const resp = await get('/ch/en/addresses-worldwide.solo_continue');
   assert.equal(resp.status, 200);
