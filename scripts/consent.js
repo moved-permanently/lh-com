@@ -15,6 +15,7 @@
  */
 
 import { loadCSS } from './aem.js';
+import { isDemoHost } from './demo.js';
 
 const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
 const ONETRUST_DOMAIN_SCRIPT = '01994cb2-af99-7dbe-8fb0-56427773e54e';
@@ -127,7 +128,9 @@ function oneTrustVisible() {
 }
 
 async function showFallback(view = 'banner') {
-  if (state.suppressed) return;
+  // the look-alike banner exists because OneTrust's .lufthansa.com cookies don't work on the
+  // demo's hosts: demo hosts only
+  if (state.suppressed || !isDemoHost()) return;
   window.clearTimeout(state.timer);
   document.documentElement.classList.add('lh-consent-fallback');
   if (!state.fallback) state.fallback = await import('./consent-banner.js');

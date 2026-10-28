@@ -14,7 +14,8 @@ const store = () => {
     clear: () => m.clear(),
   };
 };
-globalThis.window = { sessionStorage: store(), localStorage: store(), location: { pathname: '/de/en/homepage' } };
+// a demo host (scripts/demo.js): the page calls www directly, as on the replica
+globalThis.window = { sessionStorage: store(), localStorage: store(), location: { pathname: '/de/en/homepage', hostname: 'main--lh-com--moved-permanently.aem.page' } };
 
 let calls;
 let plan;

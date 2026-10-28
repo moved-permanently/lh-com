@@ -6,6 +6,7 @@ import {
 } from '../../scripts/locale.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
+import { isDemoHost } from '../../scripts/demo.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -623,7 +624,8 @@ export default async function decorate(block) {
   const labels = LABELS[locale.lang] || LABELS.en;
   const flynet = getChannel() === 'flynet';
   if (flynet) dropHiddenLinks(fragment);
-  const flightBar = flynet ? buildFlightBar(labels) : null;
+  // the sample flight ("Sample data"): demo hosts only
+  const flightBar = flynet && isDemoHost() ? buildFlightBar(labels) : null;
   const {
     brand, quick, menu, tools,
   } = classifySections(fragment);

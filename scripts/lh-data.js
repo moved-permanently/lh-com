@@ -21,6 +21,7 @@
  *    PRICE_ROUTES answer live or not at all).
  */
 import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
+import { isDemoHost } from './demo.js';
 
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md).
 export const PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev';
@@ -322,6 +323,8 @@ async function fetchRecorded(market, key, exact) {
  * @returns {Promise<Array<*>>} response bodies; unreadable recordings are skipped
  */
 export async function lhRecorded(pathPrefix, { method = 'GET', market = getLocale().key } = {}) {
+  // recordings are the demo's (shown when www can't be called): none on a production host
+  if (!isDemoHost()) return [];
   const { entries = {} } = await loadRecordedIndex();
   const prefix = `${market}|${method.toUpperCase()} ${pathPrefix}`;
   const files = Object.keys(entries)
@@ -391,6 +394,18 @@ function proxyRequest(origin, route, { method, body, market }) {
 export async function lhFetch(route, {
   method = 'GET', body, market = getLocale().key, exact = false,
 } = {}) {
+  // a production host (scripts/demo.js) is www itself: every route same-origin with the market's
+  // X-Portal-* headers, no proxy, no tester overrides, no recorded answers (a failing call fails)
+  if (!isDemoHost()) {
+    const init = { method, credentials: 'same-origin', headers: portalHeaders(market) };
+    if (body !== undefined && body !== null) {
+      init.body = bodyText(body);
+      init.headers['Content-Type'] = 'application/json';
+    }
+    const { data, error } = await timedFetch(route, init, DIRECT_TIMEOUT_MS);
+    if (error) throw new Error(`no live answer for ${route}: ${error}`);
+    return { data, source: 'live', via: 'same-origin' };
+  }
   const key = requestKey(method, route, body);
   const options = { method, body, market };
   const priceRoute = isPriceRoute(route);

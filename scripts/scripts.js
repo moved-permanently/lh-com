@@ -21,6 +21,7 @@ import { initConsent, isAuthoringContext } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
 import { timeTravel, showTimeTravelBar } from './clock.js';
+import { isDemoHost } from './demo.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -435,7 +436,8 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // showcase notice ("not an official Lufthansa website"), well after LCP
+  // showcase notice ("not an official Lufthansa website"), well after LCP; demo hosts only
+  if (!isDemoHost()) return;
   window.setTimeout(() => {
     import('./showcase-notice.js').then(({ default: showShowcaseNotice }) => showShowcaseNotice());
   }, 3500);
@@ -443,8 +445,9 @@ function loadDelayed() {
 
 async function loadPage() {
   // the live site sends / to the German homepage for a visitor in Germany (not inside DA)
-  // (keeps the query, e.g. ?channel=app; on lh-flynet this lands on the FlyNet start page)
-  if (window.location.pathname === '/' && !isAuthoringContext()) {
+  // (keeps the query, e.g. ?channel=app; on lh-flynet this lands on the FlyNet start page);
+  // demo hosts only: in production the router answers / (lh-edge entry redirects)
+  if (window.location.pathname === '/' && !isAuthoringContext() && isDemoHost()) {
     window.location.replace(`/de/de/homepage${window.location.search}`);
     return;
   }

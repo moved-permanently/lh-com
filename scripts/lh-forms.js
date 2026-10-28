@@ -2,6 +2,7 @@
  * The lh-forms worker (tools/workers/lh-forms/README.md) that the Form (core) block posts its
  * submissions to, and the form ids it knows.
  */
+import { isDemoHost } from './demo.js';
 
 /**
  * Public address of the lh-forms worker (custom domain, attached in the Cloudflare dashboard;
@@ -33,6 +34,12 @@ export const FORM_IDS = {
 
 /** Worker origin; localStorage "lh-forms" lets a tester point a page at another worker. */
 export function formsEndpoint() {
+  // the demo's forms worker on demo hosts only; a production host submits to its own
+  // <meta name="forms-endpoint"> (none: the form doesn't submit), no tester override
+  if (!isDemoHost()) {
+    const meta = typeof document !== 'undefined' && document.querySelector('meta[name="forms-endpoint"]');
+    return meta ? meta.content.replace(/\/+$/, '') : '';
+  }
   try {
     return (window.localStorage.getItem('lh-forms') || FORMS_ENDPOINT).replace(/\/+$/, '');
   } catch (e) {
@@ -54,6 +61,7 @@ let configRequest;
  * once per page. When it cannot be read: no site key (the worker decides at submit).
  */
 export function formsConfig() {
+  if (!configRequest && !formsEndpoint()) configRequest = Promise.resolve(CONFIG_OFF);
   if (!configRequest) {
     configRequest = fetch(`${formsEndpoint()}/config`, { credentials: 'omit' })
       .then((res) => (res.ok ? res.json() : CONFIG_OFF))
@@ -79,7 +87,8 @@ export function resetFormsConfig() {
 export function turnstileSiteKey(config) {
   let override = '';
   try {
-    override = (window.localStorage.getItem('lh-forms-sitekey') || '').trim();
+    // demo hosts only (a production host renders the configuration's key)
+    if (isDemoHost()) override = (window.localStorage.getItem('lh-forms-sitekey') || '').trim();
   } catch (e) {
     override = '';
   }

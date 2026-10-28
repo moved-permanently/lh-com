@@ -5,6 +5,8 @@
  * skipped; a missing label falls back to the link's host.
  */
 
+import { isDemoHost } from '../../scripts/demo.js';
+
 const FRAME_WIDTH = 390;
 const FRAME_HEIGHT = 780;
 
@@ -25,6 +27,11 @@ function rowParts(row) {
 }
 
 export default function decorate(block) {
+  // a demo of the channels: nothing on a production host
+  if (!isDemoHost()) {
+    block.replaceChildren();
+    return;
+  }
   const items = [...block.children].map(rowParts).filter(Boolean);
   const list = document.createElement('ul');
   list.className = 'channels-demo-list';

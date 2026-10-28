@@ -1334,7 +1334,10 @@ async function sendForm(form, fieldWrappers, ctx, button, status) {
     const formId = config.form || forms.formIdFromPath();
     const token = ctx.botCheck ? await ctx.botCheck.token() : '';
     const body = buildSubmission(form, fieldWrappers, ctx, formId, token);
-    const response = await fetch(`${forms.formsEndpoint()}/submit`, {
+    // no forms endpoint (a production host without <meta name="forms-endpoint">): not sent
+    const endpoint = forms.formsEndpoint();
+    if (!endpoint) throw new Error('no forms endpoint');
+    const response = await fetch(`${endpoint}/submit`, {
       method: 'POST', body, credentials: 'omit',
     });
     if (ctx.botCheck) ctx.botCheck.reset();

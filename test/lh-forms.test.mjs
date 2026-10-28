@@ -15,7 +15,8 @@ const store = () => {
     removeItem: (k) => m.delete(k),
   };
 };
-globalThis.window = { localStorage: store() };
+// a demo host (scripts/demo.js): the demo forms worker and the tester overrides
+globalThis.window = { localStorage: store(), location: { hostname: 'main--lh-com--moved-permanently.aem.page' } };
 
 let calls;
 let reply;
