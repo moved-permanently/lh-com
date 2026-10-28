@@ -101,6 +101,33 @@ test('a revalidation of a market copy gets the page, not the 404 (the language v
   }));
 });
 
+test('routes that make their answer from documents answer a revalidation in full (the origin\'s 304 is about the document)', async () => {
+  const plain = globalThis.fetch;
+  globalThis.fetch = async (input, init) => {
+    const req = input instanceof Request ? input : new Request(input);
+    if (req.headers.get('if-modified-since') || req.headers.get('if-none-match')) return new Response(null, { status: 304 });
+    return plain(input, init);
+  };
+  const cases = [
+    ['/ch/en/addresses-worldwide.solo_continue', 'solo'],
+    ['/ch/en/addresses-worldwide.sdui', 'sdui-web-short'],
+    ['/content/lh/markets/ch/en/addresses-worldwide.sdui', 'sdui-web'],
+    ['/content/lh/markets/ch/en/addresses-worldwide.csi-offline.json', 'csi-offline'],
+    ['/ch/en/book-and-manage/trip-management.mfe.html', 'mfe'],
+    ['/content/lh/markets/ch/en/homepage.csi-owa-header.json', 'owa'],
+  ];
+  const conds = [{ 'if-modified-since': 'Tue, 27 Oct 2026 15:46:24 GMT' }, { 'if-none-match': '"abc"' }];
+  const want = await Promise.all(cases.map(async ([p]) => (await get(p)).status));
+  assert.deepEqual(want, cases.map(() => 200));
+  await Promise.all(cases.flatMap(([p, route]) => conds.map(async (h) => {
+    const resp = await get(p, 'lhedge.example', { headers: h });
+    assert.equal(resp.status, 200, `${p} ${JSON.stringify(h)}`);
+    assert.equal(resp.headers.get('x-lh-edge-route'), route, p);
+  })));
+  // the pass-through keeps the conditions: the origin's 304
+  assert.equal((await get('/de/en/baggage', 'lhedge.example', { headers: conds[0] })).status, 304);
+});
+
 test('the app view of a market page: the market route\'s page, links in the solo form under the market root', async () => {
   const resp = await get('/ch/en/addresses-worldwide.solo_continue');
   assert.equal(resp.status, 200);

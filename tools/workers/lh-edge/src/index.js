@@ -39,7 +39,7 @@ import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
 import {
-  market, marketPath, marketSitemap, isMarketSitemapPath,
+  market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
 } from './markets.js';
 import {
   routerConfig, choose, defaultOrigin, finish,
@@ -274,6 +274,14 @@ export function routeOf(request) {
 // the POSTs lh-edge answers itself that change state: the referrer check (src/referrer.js)
 const REFERRER_CHECKED = new Set(['changelocale', 'mfe', 'g4t-kiosk']);
 
+// routes that hand on a document or a backend's answer as it is keep a revalidation's conditions
+// (the origin's or the backend's 304 is right); every other route makes its answer from
+// documents, so a GET or HEAD reaches it without them and gets the whole answer (with them, the
+// source document's 304 or a 404 came back: app screens, solo pages, offline lists)
+const KEEPS_CONDITIONS = new Set(['pass-through', 'market', 'dam', 'backends', 'message-center']);
+const conditional = (request) => ['GET', 'HEAD'].includes(request.method)
+  && (request.headers.has('if-modified-since') || request.headers.has('if-none-match'));
+
 export default {
   async fetch(request, env, ctx) {
     const alias = aliasHostOf(request, env);
@@ -288,7 +296,9 @@ export default {
       resp = await defaultOrigin(request, env);
     } else {
       const refused = REFERRER_CHECKED.has(route.name) && request.method === 'POST' ? referrerRefusal(request, env) : null;
-      resp = refused || await route.handle(request, env, ctx);
+      const strip = !KEEPS_CONDITIONS.has(route.name) && conditional(request);
+      const req = strip ? withoutConditions(request) : request;
+      resp = refused || await route.handle(req, env, ctx);
     }
     resp = finish(resp, request, env, route ? route.name : 'default', setCookie);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's

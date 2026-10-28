@@ -843,6 +843,19 @@ export function servedLocale(request, env, key) {
   return { ...row, version: LANGUAGE_VERSIONS[row.lang] };
 }
 
+/**
+ * The request without its conditions (If-Modified-Since, If-None-Match), for an origin document an
+ * answer is made from: a revalidation by a browser or the CDN in front is about that answer, not
+ * the document's (the document's 304 read as "not ok" answered a 404 or the old static sitemap
+ * index, which lhcom's CDN then kept).
+ */
+export function withoutConditions(request, method = request.method) {
+  const req = new Request(request.url, { method, headers: request.headers });
+  req.headers.delete('if-modified-since');
+  req.headers.delete('if-none-match');
+  return req;
+}
+
 const unavailable = () => new Response('Market index unavailable', {
   status: 503, headers: { 'cache-control': 'no-store', 'x-lh-edge-route': 'market' },
 });
@@ -860,14 +873,8 @@ export async function market(request, env) {
   if (own.status !== 404) return own;
   const { root, rest } = mp;
   const from = LANGUAGE_VERSIONS[LOCALE_TABLE[root].lang];
-  // the language version's document in full: a revalidation (If-Modified-Since, If-None-Match
-  // from a browser or the CDN in front) is about this answer, not the language version's (its
-  // 304 read as "not ok" answered the 404, which lhcom's CDN then kept)
-  const versionRequest = new Request(request.url, {
-    method: request.method, headers: request.headers,
-  });
-  versionRequest.headers.delete('if-modified-since');
-  versionRequest.headers.delete('if-none-match');
+  // the language version's document in full (see withoutConditions)
+  const versionRequest = withoutConditions(request);
   const last = rest.split('/').pop();
   const kind = (/\.plain\.html$/.test(last) && 'plain') || (/\.json$/.test(last) && 'json') || (last.includes('.') ? 'file' : 'page');
   if (kind === 'file') return own;
@@ -1066,7 +1073,7 @@ export async function marketSitemapXml(request, env, root, page = 1) {
 
 /** The sitemap index (the origin's static file) with the served market roots' files added. */
 export async function sitemapIndexXml(request, env, roots) {
-  const resp = await originFetch(new Request(request.url, { method: 'GET', headers: request.headers }), env, `https://${env.ORIGIN}/sitemap/sitemap_lh.xml`);
+  const resp = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}/sitemap/sitemap_lh.xml`);
   if (!resp.ok) return null;
   const xml = await resp.text();
   const items = [...xml.matchAll(/<sitemap>[\s\S]*?<\/sitemap>/g)].map((m) => m[0]);

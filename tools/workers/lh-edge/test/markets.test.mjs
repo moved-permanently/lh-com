@@ -210,6 +210,22 @@ test('sitemaps: the market root\'s and the index with it on pilot hosts, the ori
   assert.equal((await get('/sitemap/sitemap_lh_ch_en.xml', 'lhcom.example')).status, 404);
 });
 
+test('a revalidation of the sitemap index gets the index with the market roots, not the static file\'s 304', async () => {
+  const plain = globalThis.fetch;
+  globalThis.fetch = async (input, init) => {
+    const req = input instanceof Request ? input : new Request(input);
+    const conditional = req.headers.get('if-modified-since') || req.headers.get('if-none-match');
+    if (conditional && new URL(req.url).pathname === '/sitemap/sitemap_lh.xml') return new Response(null, { status: 304 });
+    return plain(input, init);
+  };
+  await Promise.all([{ 'if-modified-since': 'Tue, 27 Oct 2026 15:46:24 GMT' }, { 'if-none-match': '"abc"' }].map(async (h) => {
+    const resp = await get('/sitemap/sitemap_lh.xml', 'lhedge.example', h);
+    assert.equal(resp.status, 200, JSON.stringify(h));
+    assert.equal(resp.headers.get('x-lh-edge-route'), 'market-sitemap');
+    assert.match(await resp.text(), /sitemap_lh_ch_en\.xml\.gz/);
+  }));
+});
+
 test('entry redirects: pilot roots to their homepages on pilot hosts, to www elsewhere', async () => {
   const loc = async (path, host, headers) => (await get(path, host, headers)).headers.get('location');
   assert.equal(await loc('/ch', 'lhedge.example'), '/ch/de/homepage');
