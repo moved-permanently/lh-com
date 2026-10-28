@@ -147,3 +147,9 @@ kind a publish-event relay meets: the bulk request entry (202 with `paths`) of a
 job summaries, per-resource publishes (`route: live`, `POST`, 200) and unpublishes (`DELETE`, 204), a single sheet preview,
 index and indexer entries, and a code sync request. `user`, `ip`, `contentBusId` and `details` are replaced, long `paths`
 and `changes` lists are cut. The log API answers `{from, to, entries}` plus `nextToken` and `links.next` when there is more.
+
+## Answers for the ch market routes, `ch-market/`
+
+16 answers for lh-edge's ch checks, recorded 2026-10-28 02:06-02:07 UTC: ch/en and ch/de `.csi-owa-*` header, footer and
+portal config, `.sdui` (two address pages, one article), `.solo_continue` (baggage en, gepaeck de), `.csi-offline.json`,
+and the answers that are 404 on www (`.mfe.html`, `.aircraft.json`, `/ch/llms.txt`, `/ch/en/llms.txt`). See `ch-market/README.md`.
