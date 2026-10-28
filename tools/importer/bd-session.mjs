@@ -201,9 +201,13 @@ try {
     // nothing is saved and the URL stays pending for a later session
     const netError = nav.status === null && await page.evaluate(() => Boolean(document.querySelector('#offline-resources, #main-frame-error'))
       || /ERR_[A-Z_]+/.test(document.body?.innerText || '')).catch(() => false);
-    if (netError) {
+    // a navigation that timed out without a response leaves the previous page open (batch 3:
+    // /ie/de/homepage saved www's /ie/de/additional-services): not saved, retried like a net error
+    const onPath = (() => { try { return new URL(page.url()).pathname === new URL(url).pathname; } catch (e) { return false; } })();
+    const wrongPage = nav.status === null && !onPath;
+    if (netError || wrongPage) {
       state.pages[url] = { status: 'net-error', attempts: (state.pages[url]?.attempts || 0) + 1, at: new Date().toISOString() };
-      console.log(`net-error ${url} (not saved; retried in a later session)`);
+      console.log(`${wrongPage ? `wrong-page ${url} (still on ${page.url()})` : `net-error ${url}`} (not saved; retried in a later session)`);
     } else if (detection.isError || nav.status === 404) {
       state.pages[url] = { status: nav.status === 404 ? '404' : 'error-page', http: nav.status, at: new Date().toISOString() };
       console.log(`${nav.status} error page ${url}`);
