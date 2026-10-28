@@ -164,7 +164,13 @@ page's `da-metadata` block (`acceptedHashes`, `rejectedHashes`), and the next me
 apart from its id (a heading: the page's has an id, the incoming one none) has the same hash, so
 the next merge drops the page's own block without a mark (regional-diff/regional-diff.js 434-438:
 a local block whose hash is rejected is skipped). The supervised test run of 2026-10-27 lost the
-German H1 of `/de/de/book-and-manage/rebook` this way (restored). Until it is fixed in the app:
+German H1 of `/de/de/book-and-manage/rebook` this way (restored).
+
+The fix is [adobe/da-nx#920](https://github.com/adobe/da-nx/pull/920), merged into the branch of
+[adobe/da-nx#801](https://github.com/adobe/da-nx/pull/801), not yet into da-nx `main`, which
+da.live runs. With #801 the code cited here moves from `nx/blocks/loc/regional-diff/regional-diff.js`
+to `nx/public/loc/regional-diff.js`; the line numbers above (434-438) are the code da.live runs
+today. Until the fix is on da-nx `main` and da.live, keep both guards below for every run:
 
 ```sh
 node tools/loc/clear-review.mjs --page /de/de/book-and-manage/rebook            # dry run: the rows
