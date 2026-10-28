@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'tools/workers/lh-edge/**'
+      # but not the smoke baselines (answers recorded after a deploy, no code)
+      - '!tools/workers/lh-edge/smoke/**'
       # the DAM names lh-edge shares with the site
       - 'scripts/dam-path.js'
       - 'scripts/dam-collisions.js'

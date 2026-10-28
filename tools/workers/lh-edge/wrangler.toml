@@ -74,7 +74,7 @@ EDGE_CACHE_VERSION = "2026-10-25a"
 PILOT_HOSTS = "lhedge.bbird.live"
 # hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (lhcom.bbird.live=ch:
 # lhcom's CDN sends /ch/... and the sitemaps to lh-edge, nothing else); empty: none
-PILOT_COUNTRIES_BY_HOST = ""
+PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch"
 # Production mode (src/router.js, README "Production mode"): all off here, every request routed as
 # before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
 # current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
