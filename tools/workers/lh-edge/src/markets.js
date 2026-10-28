@@ -67,11 +67,34 @@ export function resetMarketCache() {
 
 const listVar = (v) => String(v || '').split(',').map((h) => h.trim().toLowerCase()).filter(Boolean);
 
-/** The market roots this request's host serves: live ones everywhere, pilot ones on PILOT_HOSTS. */
+/**
+ * The pilot countries a host shows (var PILOT_COUNTRIES_BY_HOST: "host=cc|cc; host2=cc", e.g.
+ * "lhcom.bbird.live=ch"), parsed once per value: {host: Set of countries}.
+ */
+const pilotCountries = new Map();
+function pilotCountriesOf(value) {
+  const key = String(value || '');
+  if (!pilotCountries.has(key)) {
+    const map = {};
+    key.split(';').forEach((entry) => {
+      const [host, ccs] = entry.split('=').map((s) => (s || '').trim().toLowerCase());
+      if (host && ccs) map[host] = new Set(ccs.split('|').map((c) => c.trim()).filter(Boolean));
+    });
+    pilotCountries.set(key, map);
+  }
+  return pilotCountries.get(key);
+}
+
+/**
+ * The market roots this request's host serves: live ones everywhere, pilot ones on PILOT_HOSTS
+ * (all of them) and on the hosts of PILOT_COUNTRIES_BY_HOST (those countries' only).
+ */
 export function servedMarketRoots(request, env) {
   const host = publicHost(request, env).toLowerCase();
   const pilot = listVar(env.PILOT_HOSTS).includes(host);
-  return MARKET_ROOTS.filter((k) => LOCALE_TABLE[k].status === 'live' || (pilot && LOCALE_TABLE[k].status === 'pilot'));
+  const countries = pilot ? null : pilotCountriesOf(env.PILOT_COUNTRIES_BY_HOST)[host];
+  return MARKET_ROOTS.filter((k) => LOCALE_TABLE[k].status === 'live'
+    || (LOCALE_TABLE[k].status === 'pilot' && (pilot || Boolean(countries && countries.has(LOCALE_TABLE[k].country)))));
 }
 
 // the `markets` rule, shared with the site (page and section metadata)

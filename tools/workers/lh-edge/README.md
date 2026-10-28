@@ -201,7 +201,7 @@ Sections for some markets only: Edge Delivery renders a section's section metada
 
 The routes ahead of `market` answer a served market root's paths by the same rule (`siteFetch` in `src/markets.js`: the market route's answer for the page, `.plain.html` or sheet; every other path exactly the `originFetch` as before): the app view (`.solo_continue` and its spellings), `.sdui` (short spelling: the page; full content path: rendered from the market page's `.plain.html` and the market root's article and search indexes, content pages by the language version's list), `.csi-offline.json`, `.mfe.html`, `.aircraft.json` (the language version's aircraft under the market root's paths), the OWA header and footer JSON (the root's nav and footer through the market route; tracking rows of the language version where the root has none, their URLs moved to the root) and `llms.txt` (`/<cc>/llms.txt`, `/<cc>/<ll>/llms.txt` from the market route's search index; `ai-guidance` only from the root's own homepage row in `/market-pages.json`, never the language version's). hreflang of market copies also lists the roots with their own documents (at/de, gb/en) where their search index has the same path (read with a scan for the path values: a fifth of a JSON parse's CPU time); the four roots' own pages don't list market roots.
 
-Pilot rows (`status: pilot`) are served only where the public host (see "Public host") is one of `PILOT_HOSTS` (`lhedge.bbird.live`); lhcom.bbird.live sends `X-LH-Public-Host: lhcom.bbird.live`, so nothing changes there. The site code does not link pilot roots (they are no `LOCALES`).
+Pilot rows (`status: pilot`) are served only where the public host (see "Public host") is one of `PILOT_HOSTS` (`lhedge.bbird.live`, every pilot root), or one of `PILOT_COUNTRIES_BY_HOST` (`host=cc|cc; host2=cc`: only those countries' pilot roots; `lhcom.bbird.live=ch`, as lhcom's CDN sends only `/ch/...` and the sitemaps to lh-edge, so its sitemap index lists ch and no other pilot root). lhcom.bbird.live sends `X-LH-Public-Host: lhcom.bbird.live`. The site code does not link pilot roots (they are no `LOCALES`). Rollback for a host: remove it from the var and deploy.
 
 Test against the preview origin (documents on preview only):
 
@@ -253,9 +253,63 @@ www's authoring system posts one JSON message per page or fragment it publishes 
 
 Absolute links of the app screens (other screens, images) use `X-LH-Public-Host` (a CDN in front that sends chosen paths to lh-edge), else `X-Forwarded-Host`, else `PUBLIC_HOST`, else the request's host.
 
-## Tests and deployment
+## Production mode (`src/router.js`)
 
-`node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --out before.json` records status, location, content type and a body hash (nonces masked) of today's paths (the four roots, app screens, feeds, DAM, entry redirects, sitemaps, llms, search); `--compare before.json after.json` lists what differs. Run it twice before a deploy (the noise floor), once after.
+In production Lufthansa's own Cloudflare zone is the front door and runs lh-edge, Edge Delivery behind it as in Adobe's reference Worker, with push invalidation into that zone. Traffic moves path by path from the current origin to Edge Delivery; which answer a request gets is configuration, not code. Everything is off by default: without the settings below every request is routed exactly as before (the route table, then the Edge Delivery pass-through), and the dispatch adds about 0.01 ms of CPU with all of it on (no parse of anything large: the KV entry is read once per isolate per 30 s).
+
+| Setting | Where | Default | Production |
+| --- | --- | --- | --- |
+| `DEFAULT_ORIGIN` | var | `""`: Edge Delivery (the pass-through) | the current origin's host, e.g. `origin-www.lufthansa.com` (never the zone's own host: a loop). Then Edge Delivery answers only the configured `paths` |
+| `ROUTER` | KV binding, key `router` | not bound | the switches below without a deploy |
+| `ROUTER_CONFIG` | var | `""` | the same JSON as the KV entry (a deploy); the KV entry wins |
+| `ROUTER_KILL` | var | `""` | `"on"`: every request to the default origin (a deploy; the KV entry's `"kill": true` without one) |
+| `ROUTER_HEADER` | var | `""` | e.g. `x-lh-edge-router`: on every answer, the route that answered (`default` for the default origin) |
+| `DEMO_HOSTS` | var | `""` | demo hosts, e.g. `lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live`: `X-Robots-Tag: noindex` on their answers |
+| `PRODUCTION_HOSTS` | var | `""` | e.g. `www.lufthansa.com`: never noindex, even when also a demo host |
+
+The KV entry (JSON):
+
+```json
+{"kill": false,
+ "routes": {"sdui": "on", "solo": 25, "graphql": "off"},
+ "paths": {"/de/en/baggage": "on", "/de/en/book-and-manage/**": 25}}
+```
+
+- `routes`: a route by its name (`ROUTES` in `src/index.js`) on (as configured or not listed), off (falls to the default origin, not the next route) or a percentage: that share of visitors, decided once per visitor by the cookie `lhe-<name>` (1 in, 0 out, 30 days).
+- `paths` (only with `DEFAULT_ORIGIN`): the paths the pass-through to Edge Delivery claims, exact or a prefix ending `/**` (the longest pattern wins), values as for routes (cookie `lhe-path<pattern>`). Every other path no route claims goes to the default origin.
+- `kill`: everything to the default origin at once.
+
+Moving one route (or path) to Edge Delivery, e.g. `/de/en/baggage`, without a deploy:
+
+```sh
+# 10 % of visitors first (sticky), then everyone
+npx wrangler kv key put --binding ROUTER router '{"paths":{"/de/en/baggage":10}}'
+npx wrangler kv key put --binding ROUTER router '{"paths":{"/de/en/baggage":"on"}}'
+# check: the route header names pass-through for it, default for the rest
+curl -sI https://www.lufthansa.com/de/en/baggage | grep -i x-lh-edge-router
+```
+
+Rollback of that path: `"off"` (or remove it) in the entry; everything at once: `{"kill": true}` (or `ROUTER_KILL = "on"` and a deploy). The edge reads a changed entry within a minute (KV cache 60 s, isolate 30 s). Rollback of the code: git revert (lh-edge redeploys).
+
+## Referrer check (`src/referrer.js`)
+
+The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` posts, the Good for Train kiosk `/apps/dcep/deeplink/goodfortrain/stele`) can be checked as AEM's Sling referrer filter checks them on www (production's filter: a browser POST to /deeplink/partner with Referer example.com 403, austrian.com and flyedelweiss.com 200). `REFERRER_FILTER` `off` (default, every demo host) | `on`; `REFERRER_ALLOW_HOSTS` exact (`www.example.com`) or wildcard (`*.example.com`: subdomains; not `x.example.com.other.test`); `REFERRER_ALLOW_EMPTY` `true` | `false`. Referer first, then Origin; a relative value, the literal Origin `null` and the request's own public host pass; only browsers (User-Agent with `Mozilla` or `Opera`) are checked; a refusal answers 403 (`x-lh-edge-route: referrer-filter`). An example list is in `wrangler.toml`.
+
+## Smoke check (`smoke.mjs`)
+
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live).
+
+```sh
+node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --check    # against smoke/lhedge.bbird.live.json
+node tools/workers/lh-edge/smoke.mjs --host https://lhcom.bbird.live --check
+node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --update   # a new baseline (after an intended change)
+node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --out before.json
+node tools/workers/lh-edge/smoke.mjs --compare before.json after.json
+```
+
+`--check` exits 1 on a difference and lists new and missing checks; `--video` and `--subtitle` choose another DAM video. Run it before and after every deploy; a deploy that changes an answer on purpose updates the baseline in the same commit.
+
+## Tests and deployment
 
 `npm test` (Node 24, no install; `fetch` mocked, `test/htmlrewriter-shim.mjs` stands in for the runtime's HTMLRewriter, `test/cloudflare-workers-shim.mjs` (a loader hook) for `cloudflare:workers`): one test per route and the pass-through. `.github/workflows/deploy-lh-edge.yaml` tests and deploys on pushes to main that touch this folder (secret `CLOUDFLARE_API_TOKEN`).
 

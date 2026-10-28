@@ -41,6 +41,10 @@ import { aliasHostOf, forAlias } from './alias.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath,
 } from './markets.js';
+import {
+  routerConfig, choose, defaultOrigin, finish,
+} from './router.js';
+import { referrerRefusal } from './referrer.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -267,12 +271,26 @@ export function routeOf(request) {
   return ROUTES.find((r) => r.match(url, request));
 }
 
+// the POSTs lh-edge answers itself that change state: the referrer check (src/referrer.js)
+const REFERRER_CHECKED = new Set(['changelocale', 'mfe', 'g4t-kiosk']);
+
 export default {
   async fetch(request, env, ctx) {
     const alias = aliasHostOf(request, env);
     const early = prelude(request);
     if (early) return alias ? forAlias(early, alias, env) : early;
-    const resp = await routeOf(request).handle(request, env, ctx);
+    // production mode (src/router.js): off without its vars and KV entry (the first matching
+    // route, as before)
+    const cfg = await routerConfig(env);
+    const { route, setCookie } = choose(ROUTES, request, env, cfg);
+    let resp;
+    if (!route) {
+      resp = await defaultOrigin(request, env);
+    } else {
+      const refused = REFERRER_CHECKED.has(route.name) && request.method === 'POST' ? referrerRefusal(request, env) : null;
+      resp = refused || await route.handle(request, env, ctx);
+    }
+    resp = finish(resp, request, env, route ? route.name : 'default', setCookie);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's
     // own hosts kept on the alias host
     return alias ? forAlias(resp, alias, env) : resp;

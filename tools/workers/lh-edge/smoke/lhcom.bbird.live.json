@@ -1,0 +1,902 @@
+[
+ {
+  "key": "GET /de/en/homepage",
+  "path": "/de/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "cc3f3cd19ba25869",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/baggage",
+  "path": "/de/en/baggage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "feb4a7f9742fa430",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/feedback-past-flight",
+  "path": "/de/en/feedback-past-flight",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "e038df93baa24f70",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/homepage",
+  "path": "/de/de/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "fcfd20099dd1b5f9",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/gepaeck",
+  "path": "/de/de/gepaeck",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "d4e38376578c199d",
+  "route": ""
+ },
+ {
+  "key": "GET /at/de/homepage",
+  "path": "/at/de/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7bdec1a44b2371c3",
+  "route": ""
+ },
+ {
+  "key": "GET /at/de/fluege",
+  "path": "/at/de/fluege",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "d4c43f4ff3aa66aa",
+  "route": ""
+ },
+ {
+  "key": "GET /gb/en/homepage",
+  "path": "/gb/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "930307a1a6ecceec",
+  "route": ""
+ },
+ {
+  "key": "GET /gb/en/flights",
+  "path": "/gb/en/flights",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "ac3c29df4cd22a35",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/nav.plain.html",
+  "path": "/de/en/nav.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "574eb016d4b2e95d",
+  "route": ""
+ },
+ {
+  "key": "GET /de/de/footer.plain.html",
+  "path": "/de/de/footer.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "9c63978cb4416217",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/homepage.plain.html",
+  "path": "/de/en/homepage.plain.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "8dd8a14dd798bdd8",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "path": "/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "8db9a943c609ee3b",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/no-such-page",
+  "path": "/de/en/no-such-page",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /content/mobile/lh/en/homepage.sdui",
+  "path": "/content/mobile/lh/en/homepage.sdui",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "ef39acb5ff631626",
+  "route": "sdui"
+ },
+ {
+  "key": "GET /content/mobile/lh/de/articles.sdui",
+  "path": "/content/mobile/lh/de/articles.sdui",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "9b17765a9f781244",
+  "route": "sdui"
+ },
+ {
+  "key": "GET /content/mobile/lh/en/articles.v2.sdui",
+  "path": "/content/mobile/lh/en/articles.v2.sdui",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "a551c15fd368943a",
+  "route": "sdui"
+ },
+ {
+  "key": "GET /graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
+  "path": "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "6d5fa6c17f39858a",
+  "route": "graphql"
+ },
+ {
+  "key": "GET /graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LH",
+  "path": "/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList;airline=LH",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "d11f8fed9332c7da",
+  "route": "graphql"
+ },
+ {
+  "key": "GET /graphql/execute.json/Travel-Regulations/TravelRegulationList",
+  "path": "/graphql/execute.json/Travel-Regulations/TravelRegulationList",
+  "method": "GET",
+  "status": 500,
+  "location": "",
+  "type": "application/json",
+  "hash": "ddbe92871225f90a",
+  "route": "graphql"
+ },
+ {
+  "key": "GET /graphql/execute.json/mobileapp/whatsnewList",
+  "path": "/graphql/execute.json/mobileapp/whatsnewList",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "5f188bedf9d26544",
+  "route": "graphql"
+ },
+ {
+  "key": "GET /graphql/execute.json/Message-Center/CTI_Pages_for_APP",
+  "path": "/graphql/execute.json/Message-Center/CTI_Pages_for_APP",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "f8c2085d2864a1bd",
+  "route": ""
+ },
+ {
+  "key": "GET /api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
+  "path": "/api/content/graphql/execute.json/AllegrisUpgrade/AllegrisAircraftsList",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "6d5fa6c17f39858a",
+  "route": "graphql"
+ },
+ {
+  "key": "GET /de/en/search-index.json",
+  "path": "/de/en/search-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "72127a98c97510aa",
+  "route": ""
+ },
+ {
+  "key": "GET /data/locale-map.json",
+  "path": "/data/locale-map.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "984b9f248916ac60",
+  "route": ""
+ },
+ {
+  "key": "GET /xf/query-index.json",
+  "path": "/xf/query-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "1351364aacd37aa8",
+  "route": ""
+ },
+ {
+  "key": "GET /fleet-index.json",
+  "path": "/fleet-index.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "a8f7f4ef9ed33f6d",
+  "route": ""
+ },
+ {
+  "key": "GET /de/en/homepage.csi-owa-header.json",
+  "path": "/de/en/homepage.csi-owa-header.json",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "e3b0c44298fc1c14",
+  "route": ""
+ },
+ {
+  "key": "GET /message-center/config/cti-pages.json",
+  "path": "/message-center/config/cti-pages.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "7702f894cd1c4e10",
+  "route": ""
+ },
+ {
+  "key": "HEAD /content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf",
+  "path": "/content/dam/lufthansa-group/pdfs/lhg-power-of-attorney-form-en.pdf",
+  "method": "HEAD",
+  "status": 200,
+  "location": "",
+  "type": "application/pdf",
+  "length": 171474,
+  "hash": "e3b0c44298fc1c14",
+  "route": "dam"
+ },
+ {
+  "key": "HEAD /content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf",
+  "path": "/content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf",
+  "method": "HEAD",
+  "status": 200,
+  "location": "",
+  "type": "application/pdf",
+  "length": 28936167,
+  "hash": "e3b0c44298fc1c14",
+  "route": "dam-media"
+ },
+ {
+  "key": "GET /content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png",
+  "path": "/content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "image/png",
+  "length": 546284,
+  "hash": "c015cabc8e0ed931",
+  "route": "dam"
+ },
+ {
+  "key": "GET /content/dam/lh/images/offers/destination/zzq-square.jpg",
+  "path": "/content/dam/lh/images/offers/destination/zzq-square.jpg",
+  "method": "GET",
+  "status": 302,
+  "location": "https://lhedge.bbird.live/content/dam/lh/images/offers/fallback/generic-square.jpg",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "dam"
+ },
+ {
+  "key": "GET /content/dam/video/c3/202405-em/austragungsorte/lh-em-en-uts-lh-com.mp4 [range 0-99]",
+  "path": "/content/dam/video/c3/202405-em/austragungsorte/lh-em-en-uts-lh-com.mp4",
+  "method": "GET",
+  "status": 206,
+  "location": "",
+  "type": "video/mp4",
+  "range": "bytes 0-99/73722503",
+  "length": 100,
+  "hash": "2765f358c8241ee6",
+  "route": "dam-media"
+ },
+ {
+  "key": "GET /content/dam/video/c3/202405-em/austragungsorte/lh-em-de-audiodescription-lh-com.vtt",
+  "path": "/content/dam/video/c3/202405-em/austragungsorte/lh-em-de-audiodescription-lh-com.vtt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/vtt; charset=utf-8",
+  "hash": "430ae2efe3a73abb",
+  "route": "dam-media"
+ },
+ {
+  "key": "GET /",
+  "path": "/",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /de",
+  "path": "/de",
+  "method": "GET",
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /de/en",
+  "path": "/de/en",
+  "method": "GET",
+  "status": 302,
+  "location": "/de/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /at",
+  "path": "/at",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/at/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /gb/en",
+  "path": "/gb/en",
+  "method": "GET",
+  "status": 302,
+  "location": "/gb/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /us",
+  "path": "/us",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/us/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /xx",
+  "path": "/xx",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/xx/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /fr/fr",
+  "path": "/fr/fr",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/fr/fr/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /ch",
+  "path": "/ch",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/ch",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /ch/en",
+  "path": "/ch/en",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/ch/en/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /ch/de",
+  "path": "/ch/de",
+  "method": "GET",
+  "status": 302,
+  "location": "https://www.lufthansa.com/ch/de/homepage",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "entry"
+ },
+ {
+  "key": "GET /de/en/baggage.solo_continue",
+  "path": "/de/en/baggage.solo_continue",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "2c9fd65714cc6ae1",
+  "route": "solo"
+ },
+ {
+  "key": "GET /de/de/gepaeck.solo_continue",
+  "path": "/de/de/gepaeck.solo_continue",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "4c82da2928ebb83b",
+  "route": "solo"
+ },
+ {
+  "key": "GET /de/en/airport-information.solo_continue",
+  "path": "/de/en/airport-information.solo_continue",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "d31d499413e4ba6d",
+  "route": "solo"
+ },
+ {
+  "key": "GET /de/de/homepage.solo.continue.solo_continue",
+  "path": "/de/de/homepage.solo.continue.solo_continue",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "62ba5cd3349404a2",
+  "route": "solo"
+ },
+ {
+  "key": "GET /content/lh/markets/de/en/addresses-worldwide.sdui",
+  "path": "/content/lh/markets/de/en/addresses-worldwide.sdui",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "01f35230d0b41715",
+  "route": "sdui-web"
+ },
+ {
+  "key": "GET /de/en/addresses-worldwide.sdui",
+  "path": "/de/en/addresses-worldwide.sdui",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7addd0370242dbf8",
+  "route": ""
+ },
+ {
+  "key": "GET /content/lh/markets/de/en/homepage.csi-owa-header.json",
+  "path": "/content/lh/markets/de/en/homepage.csi-owa-header.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json;charset=utf-8",
+  "hash": "68504a83d63ede51",
+  "route": "owa"
+ },
+ {
+  "key": "GET /content/lh/markets/de/de/homepage.csi-owa-footer.json",
+  "path": "/content/lh/markets/de/de/homepage.csi-owa-footer.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json;charset=utf-8",
+  "hash": "d93837cd078d96d0",
+  "route": "owa"
+ },
+ {
+  "key": "GET /content/lh/markets/at/de/homepage.csi-owa-footer.json",
+  "path": "/content/lh/markets/at/de/homepage.csi-owa-footer.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json;charset=utf-8",
+  "hash": "0476eb9d6425d338",
+  "route": "owa"
+ },
+ {
+  "key": "GET /content/lh/markets/gb/en/homepage.csi-offline.json",
+  "path": "/content/lh/markets/gb/en/homepage.csi-offline.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "c68d87bbb845d255",
+  "route": "csi-offline"
+ },
+ {
+  "key": "GET /de/en/book-and-manage/trip-management.mfe.html",
+  "path": "/de/en/book-and-manage/trip-management.mfe.html",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "b8c55b1e7cf16582",
+  "route": "mfe"
+ },
+ {
+  "key": "GET /de/en/addresses-worldwide.aircraft.json",
+  "path": "/de/en/addresses-worldwide.aircraft.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "9ee071de490e6bff",
+  "route": "aircraft"
+ },
+ {
+  "key": "GET /de/de/llms.txt",
+  "path": "/de/de/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "b89230e010e48c51",
+  "route": "llms"
+ },
+ {
+  "key": "GET /at/llms.txt",
+  "path": "/at/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "406b712c0c6e372e",
+  "route": "llms"
+ },
+ {
+  "key": "GET /ch/en/baggage.solo_continue",
+  "path": "/ch/en/baggage.solo_continue",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /content/lh/markets/ch/en/addresses-worldwide.sdui",
+  "path": "/content/lh/markets/ch/en/addresses-worldwide.sdui",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "application/json",
+  "hash": "803cb0e9b33bf52c",
+  "route": "sdui-web"
+ },
+ {
+  "key": "GET /content/lh/markets/ch/de/homepage.csi-owa-header.json",
+  "path": "/content/lh/markets/ch/de/homepage.csi-owa-header.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json;charset=utf-8",
+  "hash": "729787ee12e14c47",
+  "route": "owa"
+ },
+ {
+  "key": "GET /content/lh/markets/ch/en/homepage.csi-offline.json",
+  "path": "/content/lh/markets/ch/en/homepage.csi-offline.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "80c2f18b49d28114",
+  "route": "csi-offline"
+ },
+ {
+  "key": "GET /ch/en/addresses-worldwide.aircraft.json",
+  "path": "/ch/en/addresses-worldwide.aircraft.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "03d8eaeacad1daf7",
+  "route": "aircraft"
+ },
+ {
+  "key": "GET /ch/llms.txt",
+  "path": "/ch/llms.txt",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/plain;charset=UTF-8",
+  "hash": "0019dfc4b32d63c1",
+  "route": "llms"
+ },
+ {
+  "key": "GET /ch/en/homepage",
+  "path": "/ch/en/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "edb810a7407f3b67",
+  "route": ""
+ },
+ {
+  "key": "GET /ch/de/homepage",
+  "path": "/ch/de/homepage",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0a71e92ab04a4297",
+  "route": ""
+ },
+ {
+  "key": "GET /ch/en/baggage",
+  "path": "/ch/en/baggage",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /ch/de/gepaeck",
+  "path": "/ch/de/gepaeck",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh_ch_en.xml",
+  "path": "/sitemap/sitemap_lh_ch_en.xml",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7addd0370242dbf8",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh_ch_de.xml",
+  "path": "/sitemap/sitemap_lh_ch_de.xml",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7addd0370242dbf8",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh.xml",
+  "path": "/sitemap/sitemap_lh.xml",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/xml",
+  "hash": "d908fab85a826fa0",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh.xml.gz",
+  "path": "/sitemap/sitemap_lh.xml.gz",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/octet-stream",
+  "length": 208,
+  "hash": "40548656c1860a19",
+  "route": "sitemap-gz"
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh_de_en.xml",
+  "path": "/sitemap/sitemap_lh_de_en.xml",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/xml",
+  "hash": "61a86aa5a102ada4",
+  "route": ""
+ },
+ {
+  "key": "GET /sitemap/sitemap_lh_at_de.xml.gz",
+  "path": "/sitemap/sitemap_lh_at_de.xml.gz",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/octet-stream",
+  "length": 28222,
+  "hash": "6f8dfc56746b49eb",
+  "route": "sitemap-gz"
+ },
+ {
+  "key": "GET /de/llms.txt",
+  "path": "/de/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "2d2f32da44f57b26",
+  "route": "llms"
+ },
+ {
+  "key": "GET /gb/llms.txt",
+  "path": "/gb/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "1756aba3795e93ea",
+  "route": "llms"
+ },
+ {
+  "key": "GET /robots.txt",
+  "path": "/robots.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "331ea9090db0c9f6",
+  "route": ""
+ },
+ {
+  "key": "GET /service-worker.js",
+  "path": "/service-worker.js",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/javascript",
+  "hash": "2ddc80833646111f",
+  "route": "service-worker"
+ },
+ {
+  "key": "GET /.well-known/assetlinks.json",
+  "path": "/.well-known/assetlinks.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "b8c2598435bca297",
+  "route": "well-known"
+ },
+ {
+  "key": "GET /.well-known/apple-app-site-association",
+  "path": "/.well-known/apple-app-site-association",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "556c963835cba4ea",
+  "route": "well-known"
+ },
+ {
+  "key": "POST /service/secured/api/search",
+  "path": "/service/secured/api/search",
+  "method": "POST",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "537ed05f33362ff4",
+  "route": "search"
+ },
+ {
+  "key": "POST /service/secured/api/search [DE en]",
+  "path": "/service/secured/api/search",
+  "method": "POST",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "43af34144f75a2a1",
+  "route": "search"
+ },
+ {
+  "key": "GET /service/secured/api/core/authenticate/loginPageUrl?state=smoke",
+  "path": "/service/secured/api/core/authenticate/loginPageUrl?state=smoke",
+  "method": "GET",
+  "status": 400,
+  "location": "",
+  "type": "application/json",
+  "hash": "eaf7e0ed8d019810",
+  "route": "login-url"
+ },
+ {
+  "key": "GET /service/secured/api/core/booking/defaultairport",
+  "path": "/service/secured/api/core/booking/defaultairport",
+  "method": "GET",
+  "status": 400,
+  "location": "",
+  "type": "application/json",
+  "hash": "7929a898a1f92af0",
+  "route": "default-airport"
+ },
+ {
+  "key": "GET /service/secured/api/core/booking/bookinglist",
+  "path": "/service/secured/api/core/booking/bookinglist",
+  "method": "GET",
+  "status": 204,
+  "location": "",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "booking-list"
+ },
+ {
+  "key": "POST /apps/dcep/deeplink/goodfortrain/stele",
+  "path": "/apps/dcep/deeplink/goodfortrain/stele",
+  "method": "POST",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "a88c8e1b14695042",
+  "route": "g4t-kiosk"
+ }
+]

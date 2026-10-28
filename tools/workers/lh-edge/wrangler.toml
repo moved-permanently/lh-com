@@ -40,6 +40,12 @@ bucket_name = "lh-dam-media"
 binding = "EVENTS"
 id = "14bc4c87921a41179f044e3d635919d5"
 
+# Production mode's route switches (src/router.js), not bound here: create a namespace
+# (npx wrangler kv namespace create ROUTER) and add
+# [[kv_namespaces]]
+# binding = "ROUTER"
+# id = "<the namespace id>"
+
 [vars]
 # the audit log the publish events come from, and its org/site (checked on the webhook body)
 EVENTS_LOG = "https://admin.hlx.page/log/moved-permanently/lh-com/main"
@@ -66,6 +72,31 @@ EDGE_CACHE_VERSION = "2026-10-25a"
 # language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
 # X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before
 PILOT_HOSTS = "lhedge.bbird.live"
+# hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (lhcom.bbird.live=ch:
+# lhcom's CDN sends /ch/... and the sitemaps to lh-edge, nothing else); empty: none
+PILOT_COUNTRIES_BY_HOST = ""
+# Production mode (src/router.js, README "Production mode"): all off here, every request routed as
+# before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
+# current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
+# paths); ROUTER_KILL "on": everything to the default origin; ROUTER_HEADER: a header naming the
+# route on every answer (e.g. x-lh-edge-router); DEMO_HOSTS: public hosts whose answers get
+# X-Robots-Tag: noindex (e.g. lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live), never the
+# PRODUCTION_HOSTS (e.g. www.lufthansa.com). Route and path switches: the KV binding ROUTER, key
+# "router" (no deploy), or ROUTER_CONFIG with the same JSON (a deploy).
+DEFAULT_ORIGIN = ""
+ROUTER_KILL = ""
+ROUTER_HEADER = ""
+DEMO_HOSTS = ""
+PRODUCTION_HOSTS = ""
+ROUTER_CONFIG = ""
+# The referrer check of AEM's Sling filter on the POSTs lh-edge answers (src/referrer.js):
+# REFERRER_FILTER "on" | "off"; REFERRER_ALLOW_HOSTS exact or *.domain, e.g. www.lufthansa.com,
+# *.lufthansa.com,*.austrian.com,*.swiss.com,*.brusselsairlines.com,*.discover-airlines.com,
+# *.ita-airways.com,*.lufthansagroup.com,*.ana.co.jp,*.airdolomiti.it,*.flyedelweiss.com;
+# REFERRER_ALLOW_EMPTY "true" | "false". Off on every demo host.
+REFERRER_FILTER = "off"
+REFERRER_ALLOW_HOSTS = ""
+REFERRER_ALLOW_EMPTY = "false"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
