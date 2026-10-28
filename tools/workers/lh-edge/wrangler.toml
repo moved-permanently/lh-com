@@ -70,17 +70,21 @@ EDGE_TTL = "60"
 EDGE_CACHE_VERSION = "2026-10-25a"
 # hosts that answer the pilot rows of the locale table (src/markets.js: ch/en, ch/de from their
 # language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
-# X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before
-PILOT_HOSTS = "lhedge.bbird.live"
+# X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before.
+# Every bbird.live host has its turnsthe.page twin with the same treatment (the parallel run on the
+# second Cloudflare account, README "Two accounts"; the site test test/host-twins.test.mjs checks
+# the pairs)
+PILOT_HOSTS = "lhedge.bbird.live,lufthansa-edge.turnsthe.page"
 # hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (lhcom.bbird.live=ch:
 # lhcom's CDN sends /ch/... and the sitemaps to lh-edge, nothing else); empty: none
-PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch"
+PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch; lufthansa.turnsthe.page=ch"
 # Production mode (src/router.js, README "Production mode"): all off here, every request routed as
 # before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
 # current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
 # paths); ROUTER_KILL "on": everything to the default origin; ROUTER_HEADER: a header naming the
 # route on every answer (e.g. x-lh-edge-router); DEMO_HOSTS: public hosts whose answers get
-# X-Robots-Tag: noindex (e.g. lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live), never the
+# X-Robots-Tag: noindex (e.g. lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live and their twins
+# lufthansa-edge.turnsthe.page,lufthansa.turnsthe.page,lufthansa-cn.turnsthe.page), never the
 # PRODUCTION_HOSTS (e.g. www.lufthansa.com). Route and path switches: the KV binding ROUTER, key
 # "router" (no deploy), or ROUTER_CONFIG with the same JSON (a deploy).
 DEFAULT_ORIGIN = ""
@@ -100,8 +104,8 @@ REFERRER_ALLOW_EMPTY = "false"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
-ALIAS_HOSTS = "lhcn.bbird.live"
-ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live"
+ALIAS_HOSTS = "lhcn.bbird.live,lufthansa-cn.turnsthe.page"
+ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live,lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page"
 ALIAS_HTML_CACHE_CONTROL = "public, max-age=28800"
 # GraphQL feeds (/graphql/execute.json/...): origins that get CORS (host patterns: a domain is the
 # domain and its subdomains, * one label, localhost any port; https only except localhost)

@@ -103,7 +103,7 @@ beforeEach(() => {
 const env = (extra = {}) => ({
   SOURCE_ORIGIN: SOURCE,
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--lh-com--moved-permanently\\.aem\\.(page|live)$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,http://localhost:3000',
+  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,https://lufthansa.turnsthe.page,http://localhost:3000',
   STATE: memoryKv(),
   ...extra,
 });
@@ -208,7 +208,7 @@ test('routes, headers and CORS', async () => {
   assert.equal(r1.headers.get('content-type'), 'application/json');
   assert.equal(r1.headers.get('access-control-allow-origin'), ORIGIN);
   assert.equal((await r1.json()).data.lhgMessageList.items[0].headline, 'Test 1');
-  for (const o of ['https://lhcom.bbird.live', 'http://localhost:3000', 'https://main--lh-com--moved-permanently.aem.live']) { // eslint-disable-line no-restricted-syntax
+  for (const o of ['https://lhcom.bbird.live', 'https://lufthansa.turnsthe.page', 'http://localhost:3000', 'https://main--lh-com--moved-permanently.aem.live']) { // eslint-disable-line no-restricted-syntax
     assert.equal((await get('/graphql/execute.json/Message-Center/lhgMessageListWithCalendar', o)).headers.get('access-control-allow-origin'), o); // eslint-disable-line no-await-in-loop
   }
   const foreign = await get('/graphql/execute.json/Message-Center/lhgMessageListWithCalendar', 'https://evil.example');

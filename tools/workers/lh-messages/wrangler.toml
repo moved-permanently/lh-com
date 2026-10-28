@@ -27,4 +27,4 @@ entrypoint = "EventsRelay"
 # the site the messages come from (published messages only: the live host)
 SOURCE_ORIGIN = "https://main--lh-com--moved-permanently.aem.live"
 ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--lh-com--moved-permanently\\.aem\\.(page|live)$"
-EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,http://localhost:3000"
+EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,https://lufthansa.turnsthe.page,http://localhost:3000"

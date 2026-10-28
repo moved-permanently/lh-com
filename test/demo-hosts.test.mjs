@@ -32,9 +32,12 @@ beforeEach(() => {
 });
 
 test('demo hosts: the replica, Edge Delivery hosts and previews, workers.dev, localhost; not www', () => {
-  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live', 'main--lh-com--moved-permanently.aem.page', 'branch--lh-com--moved-permanently.aem.live', 'x.hlx.page', 'lh-edge.aem-poc-lab.workers.dev', 'localhost', '127.0.0.1']
+  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live', 'main--lh-com--moved-permanently.aem.page', 'branch--lh-com--moved-permanently.aem.live', 'x.hlx.page', 'lh-edge.aem-poc-lab.workers.dev', 'localhost', '127.0.0.1',
+    'lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'lufthansa-forms.turnsthe.page', 'lh-proxy.benpeter.workers.dev']
     .forEach((h) => assert.ok(isDemoHost(h), h));
-  ['www.lufthansa.com', 'lufthansa.com', 'www.lufthansa.cn', 'aem.page.example.com', 'bbird.live.example.com']
+  // turnsthe.page: the lufthansa hosts only (other demos may live on the domain)
+  ['www.lufthansa.com', 'lufthansa.com', 'www.lufthansa.cn', 'aem.page.example.com', 'bbird.live.example.com',
+    'turnsthe.page', 'demo2.turnsthe.page', 'xlufthansa.turnsthe.page', 'lufthansa.turnsthe.page.example.com', 'www.lufthansa.turnsthe.page']
     .forEach((h) => assert.ok(!isDemoHost(h), h));
 });
 

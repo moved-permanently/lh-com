@@ -1,5 +1,7 @@
 /**
- * The demo hosts: the replica (lhcom, lhedge, lhcn on bbird.live), its Edge Delivery hosts and
+ * The demo hosts: the replica (lhcom, lhedge, lhcn on bbird.live and their twins on turnsthe.page:
+ * lufthansa, lufthansa-edge, lufthansa-cn; only lufthansa and lufthansa-* there, other demos may
+ * share the domain), its Edge Delivery hosts and
  * branch previews (*.aem.page, *.aem.live, *.hlx.page, *.hlx.live), Workers' own hosts and local
  * development. The parts of the site that only make sense on the demo are on only there (the
  * showcase notice, answers recorded from www shown when a live call fails, the cross-origin proxy
@@ -10,6 +12,7 @@
 export const DEMO_HOSTS = [
   /^(localhost|127\.0\.0\.1)$/,
   /\.bbird\.live$/,
+  /^lufthansa(-[a-z0-9-]+)?\.turnsthe\.page$/,
   /\.aem\.(page|live)$/,
   /\.hlx\.(page|live)$/,
   /\.workers\.dev$/,

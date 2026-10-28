@@ -57,7 +57,7 @@ const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,http://localhost:3000',
+  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,https://lufthansa.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;

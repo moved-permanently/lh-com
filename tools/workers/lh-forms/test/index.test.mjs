@@ -301,12 +301,13 @@ test('disallowed origin or no Origin on POST → 403', async () => {
   assert.equal(sent.length, 0);
 });
 
-test('allowed origins: aem.live, DA preview, lhcom.bbird.live, localhost:3000', async () => {
+test('allowed origins: aem.live, DA preview, lhcom.bbird.live and its twin, localhost:3000', async () => {
   const origins = [
     'https://feat-x--lh-com--moved-permanently.aem.live',
     'https://main--lh-flynet--moved-permanently.aem.page',
     'https://main--lh-com--moved-permanently.preview.da.live',
     'https://lhcom.bbird.live',
+    'https://lufthansa.turnsthe.page',
     'http://localhost:3000',
   ];
   const results = await Promise.all(origins.map((origin, i) => post({ origin, ip: `198.51.100.${i}` })));
