@@ -8,7 +8,7 @@ import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import {
   fareTeaserRecommendRequest, catalogRequest, fetchRequest, resolveOrigin,
   mapRecommendedOrigins, mapConditions, mapLocaleData, findOrigin, filterAirports,
-  searchAirports, formatFare, destinationImageUrl, htmlToParagraphs,
+  searchAirports, formatFare, destinationImageUrl, htmlToParagraphs, damPathReady,
   destinationFinderOffersRequest, mapDestinationFinderOffers, mapAffinities, mapRegions,
   fetchLabels, pickLabels, fillLabel,
 } from '../../scripts/lh-api.js';
@@ -90,7 +90,7 @@ export async function loadDestinations(state, locale) {
   try {
     const request = destinationFinderRequests(state, locale).offers;
     // a price route: live or nothing (scripts/lh-data.js)
-    const { data, source } = await fetchRequest(request, locale);
+    const [{ data, source }] = await Promise.all([fetchRequest(request, locale), damPathReady()]);
     return {
       destinations: sliderOrder(mapDestinationFinderOffers(data).offers)
         .filter((d) => d.code !== state.origin.code)
@@ -782,6 +782,8 @@ function selectField(id, text, options, value) {
 }
 
 async function decorateGrid(block, uid) {
+  // the tiles' images need scripts/dam-path.js (lh-api damPathReady): loading while the rest runs
+  const damReady = damPathReady();
   const locale = getLocale();
   const config = readConfigRows(block);
   const settings = readGridSettings(config, locale);
@@ -790,6 +792,7 @@ async function decorateGrid(block, uid) {
     const { code, name } = await resolveOrigin(null, locale);
     settings.origin = { code, name };
   }
+  await damReady;
   const cell = (...keys) => (pick(config, ...keys) || {}).cell;
   const disclaimer = moveCell(cell('disclaimer'), 'destination-finder-disclaimer');
   const conditions = moveCell(cell('conditions', 'conditions-label'), 'destination-finder-conditions');

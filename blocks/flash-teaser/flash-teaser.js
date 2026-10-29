@@ -4,7 +4,6 @@
  * (scripts/message-center.js). One message per slide; several rotate every 7 s.
  */
 import { getLocale } from '../../scripts/locale.js';
-import { fetchLabels } from '../../scripts/lh-api.js';
 import {
   loadIndex, loadCtiPages, selectMessages, messageHref, readTypes, ICONS, iconOf,
 } from '../../scripts/message-center.js';
@@ -239,8 +238,9 @@ export default async function decorate(block) {
   const labels = { ...(LABELS[locale.lang] || LABELS.en) };
   const view = strip(messages, labels, ctiRows, locale);
   block.append(view.region);
-  // the live label bundle (the built-in copies are the same texts; only screen reader labels)
-  fetchLabels(['flashteaser'], locale).then((live) => {
+  // the live label bundle (the built-in copies are the same texts; only screen reader labels):
+  // scripts/lh-api.js loaded here, not with the block, so the visible strip doesn't wait for it
+  import('../../scripts/lh-api.js').then(({ fetchLabels }) => fetchLabels(['flashteaser'], locale)).then((live) => {
     const picked = Object.fromEntries(Object.entries(LIVE_KEYS)
       .filter(([, k]) => live.labels[k]).map(([key, k]) => [key, live.labels[k]]));
     if (Object.keys(picked).length) {

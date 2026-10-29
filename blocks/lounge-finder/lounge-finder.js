@@ -2,7 +2,7 @@ import { getLocale } from '../../scripts/locale.js';
 import { readConfigRows, pick, toConfigKey } from '../../scripts/block-config.js';
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import {
-  LOUNGE_STATUSES, loungeCitiesRequest, loungesRequest, mapLoungeCities, mapLounges,
+  LOUNGE_STATUSES, loungeCitiesRequest, loungesRequest, mapLoungeCities, mapLounges, damPathReady,
   fetchRequest, fetchLabels, fillLabel, filterAirports,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
@@ -186,6 +186,7 @@ export async function loadLounges({ status, city }, locale, settings) {
     const request = loungesRequest({ status: economy ? 'BUS' : status, city });
     const { data, source } = await fetchRequest(request, locale, { exact: true });
     sources.lounges = source;
+    await damPathReady();
     lounges = mapLounges(data, settings.imageBase);
   } catch (e) {
     sources.lounges = 'none';

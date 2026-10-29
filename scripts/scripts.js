@@ -20,7 +20,6 @@ import { marketAllows } from './market-rules.js';
 import { initConsent, isAuthoringContext, martechWanted } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
-import { timeTravel, showTimeTravelBar } from './clock.js';
 import { isDemoHost } from './demo.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -382,12 +381,20 @@ async function loadEager(doc) {
     if (main.querySelector('.flash-teaser, .message-center')) {
       import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
     }
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    // the first section's blocks: every block's JS and CSS at once (loadSection loads them one
+    // after another); loadBlock then finds the modules loaded. The section waits for the
+    // stylesheets, as loadBlock would (loadCSS of a link already there resolves at once)
+    const first = main.querySelector('.section');
+    const names = [...new Set([...(first ? first.querySelectorAll('[data-block-name]') : [])]
+      .map((b) => b.dataset.blockName))];
+    names.forEach((name) => import(`${window.hlx.codeBasePath}/blocks/${name}/${name}.js`).catch(() => {}));
+    await Promise.allSettled(names.map((name) => loadCSS(`${window.hlx.codeBasePath}/blocks/${name}/${name}.css`)));
+    await loadSection(first, waitForFirstImage);
   }
 
   try {
     /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
+    if (matchMedia('(min-width: 900px)').matches || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
   } catch (e) {
@@ -435,11 +442,16 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
-  // time travel (?time-travel= on a preview host, scripts/clock.js): the bar with the chosen time
-  if (timeTravel()) {
-    loadCSS(`${window.hlx.codeBasePath}/styles/time-travel.css`);
-    doc.body.classList.add('time-travel');
-    showTimeTravelBar(doc);
+  // time travel (?time-travel= on a preview host, scripts/clock.js): the bar with the chosen time;
+  // clock.js only when the page asks for it (its parameters: clock.js PARAM and LEGACY_PARAM)
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('time-travel') || params.has('stage-time')) {
+    const { timeTravel, showTimeTravelBar } = await import('./clock.js');
+    if (timeTravel()) {
+      loadCSS(`${window.hlx.codeBasePath}/styles/time-travel.css`);
+      doc.body.classList.add('time-travel');
+      showTimeTravelBar(doc);
+    }
   }
 }
 

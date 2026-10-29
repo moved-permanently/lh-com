@@ -5,7 +5,7 @@ import {
 import {
   ALL_TRAVEL_MONTHS, destinationFinderOffersRequest, labelsRequest, catalogRequest, fetchRequest,
   fetchLabels, pickLabels, mapDestinationFinderOffers, mapConditions, mapLocaleData, formatFare,
-  destinationImageUrl, fillLabel, htmlToParagraphs, resolveOrigin, knownAirports,
+  destinationImageUrl, fillLabel, htmlToParagraphs, resolveOrigin, knownAirports, damPathReady,
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource } from '../../scripts/lh-data.js';
@@ -307,6 +307,8 @@ function applyOffer(li, offer, route, labels, locale, localeData) {
 }
 
 export default async function decorate(block) {
+  // the cards' images need scripts/dam-path.js (lh-api damPathReady): loading while the rest runs
+  const damReady = damPathReady();
   const locale = getLocale();
   const config = readConfigRows(block);
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
@@ -327,6 +329,7 @@ export default async function decorate(block) {
     origin: d.origin || settings.origin,
     originName: d.origin ? d.originName : settings.originName,
   });
+  await damReady;
   const list = el('ul', 'fare-teaser-list');
   list.append(...settings.destinations
     .map((d) => renderItem(routeFor(d), labels, locale, settings.pattern)));

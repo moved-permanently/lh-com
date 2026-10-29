@@ -7,7 +7,6 @@
  * www.lufthansa.com, the fare teaser services through lh-proxy, the recordings as
  * fallback).
  */
-import { localDamUrl } from './dam-path.js';
 import { lhFetch, lhRecorded } from './lh-data.js';
 
 /* ------------------------------------------------------------------------------------------- */
@@ -522,6 +521,25 @@ export function mapLoungeCities(data) {
     .map((c) => ({ code: c.code.toUpperCase(), name: c.city }));
 }
 
+// scripts/dam-path.js (the site's DAM names, with its collision table) for the image helpers
+// below only: loaded on first use, so a block that needs this module for other things (the flight
+// search in the first section) doesn't wait for it
+let damPath = null;
+let damPathLoad = null;
+
+/** Resolves once the image helpers can run (loads scripts/dam-path.js once). */
+export function damPathReady() {
+  if (!damPathLoad) {
+    damPathLoad = import('./dam-path.js').then((m) => { damPath = m; return m; });
+  }
+  return damPathLoad;
+}
+
+function localDamUrl(path, options) {
+  if (!damPath) throw new Error('lh-api: await damPathReady() before the image helpers');
+  return damPath.localDamUrl(path, options);
+}
+
 /** Image width of the live lounge card (MauiImage size S) and its srcset widths. */
 const LOUNGE_IMAGE_WIDTHS = [2560, 1440, 720, 360, 180];
 
@@ -694,7 +712,7 @@ export function htmlToParagraphs(html) {
 /**
  * Square destination image of the live fare widgets (720 or 180 px wide): www's
  * /content/dam/lh/images/offers/destination/{code}-square.jpg rendition, from the site's own copy
- * (scripts/dam-path.js localDamUrl).
+ * (scripts/dam-path.js localDamUrl; after damPathReady()).
  */
 export function destinationImageUrl(code, width = 720) {
   if (!isCode(code)) return '';
