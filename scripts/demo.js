@@ -1,7 +1,7 @@
 /**
- * The demo hosts: the replica (lhcom, lhedge, lhcn on bbird.live and their twins on turnsthe.page:
- * lufthansa, lufthansa-edge, lufthansa-cn; only lufthansa and lufthansa-* there, other demos may
- * share the domain), its Edge Delivery hosts and
+ * The demo hosts: the replica on turnsthe.page (the brand hosts below; lufthansa.turnsthe.page is
+ * the main host) and its old hosts on bbird.live (lhcom, lhedge, lhcn, until they are retired),
+ * its Edge Delivery hosts and
  * branch previews (*.aem.page, *.aem.live, *.hlx.page, *.hlx.live), Workers' own hosts and local
  * development. The parts of the site that only make sense on the demo are on only there (the
  * showcase notice, answers recorded from www shown when a live call fails, the cross-origin proxy
@@ -9,8 +9,22 @@
  * flight, the client-side root redirect, the channels demo block); on any other host (production:
  * www.lufthansa.com) they are off. tools/reports/production-mode.md lists them and how to check.
  */
-// the replica's hosts on turnsthe.page (the second Cloudflare account of the parallel run)
-export const TURNSTHE_PAGE_HOST = /^lufthansa(-[a-z0-9-]+)?\.turnsthe\.page$/;
+/**
+ * The Lufthansa group brands on turnsthe.page, the demo's domain (its main host
+ * lufthansa.turnsthe.page): each brand has its first-level host <brand>.turnsthe.page and helper
+ * hosts <brand>-<role>.turnsthe.page (lufthansa-edge, lufthansa-cn, lufthansa-forms). Only these
+ * brands, not the whole domain (other demos may live there). The one list: the site
+ * (isTurnsThePageHost, isDemoHost) and lh-edge (the head-URL rewrite) read it.
+ */
+export const TURNSTHE_PAGE_BRANDS = ['lufthansa', 'discover'];
+export const TURNSTHE_PAGE_DOMAIN = 'turnsthe.page';
+export const TURNSTHE_PAGE_HOST = new RegExp(`^(${TURNSTHE_PAGE_BRANDS.join('|')})(-[a-z0-9-]+)?\\.turnsthe\\.page$`);
+
+/** The brand of a turnsthe.page host (lufthansa-cn.turnsthe.page: lufthansa), or null. */
+export function turnsThePageBrandOf(hostname) {
+  const m = String(hostname || '').toLowerCase().match(TURNSTHE_PAGE_HOST);
+  return m ? m[1] : null;
+}
 
 export const DEMO_HOSTS = [
   /^(localhost|127\.0\.0\.1)$/,
