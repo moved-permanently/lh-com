@@ -1,0 +1,348 @@
+[
+ {
+  "n": 1,
+  "group": "upper-case",
+  "url": "/de/en/Homepage",
+  "method": "GET",
+  "t": "2026-10-29T01:27:31.503Z",
+  "status": 301,
+  "redirect": true,
+  "location": "/de/en/homepage",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=UTF-8"
+  }
+ },
+ {
+  "n": 2,
+  "group": "upper-case",
+  "url": "/de/de/Handgepaeck",
+  "method": "GET",
+  "t": "2026-10-29T01:27:34.590Z",
+  "status": 301,
+  "redirect": true,
+  "location": "/de/de/handgepaeck",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=UTF-8"
+  }
+ },
+ {
+  "n": 3,
+  "group": "upper-case",
+  "url": "/de/en/CARRY-ON-BAGGAGE",
+  "method": "GET",
+  "t": "2026-10-29T01:27:37.589Z",
+  "status": 301,
+  "redirect": true,
+  "location": "/de/en/carry-on-baggage",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=UTF-8"
+  }
+ },
+ {
+  "n": 4,
+  "group": "upper-case",
+  "url": "/content/dam/hcl/FF_pdp.jpg",
+  "method": "GET",
+  "t": "2026-10-29T01:27:40.616Z",
+  "status": 404,
+  "redirect": false,
+  "bytes": 1,
+  "h": {
+   "access-control-max-age": "600",
+   "cache-control": "public, max-age=2592000",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e66300effa167-FRA",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Sat, 28 Nov 2026 01:27:41 GMT",
+   "server": "cloudflare",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/content_dam_hcl_FF_pdp.jpg.head.html",
+  "fileNote": "whole body",
+  "redacted": []
+ },
+ {
+  "n": 5,
+  "group": "html-and-slash",
+  "url": "/de/en/homepage.html",
+  "method": "GET",
+  "t": "2026-10-29T01:27:43.589Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 216266,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "27",
+   "cache-control": "public, max-age=28800",
+   "cf-cache-status": "HIT",
+   "cf-ray": "a51e6642a972a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 09:27:43 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:27:15 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_homepage.html.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 6,
+  "group": "html-and-slash",
+  "url": "/de/en/carry-on-baggage.html",
+  "method": "GET",
+  "t": "2026-10-29T01:27:46.589Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 127362,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=300",
+   "cf-cache-status": "EXPIRED",
+   "cf-ray": "a51e6654fd09a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 01:32:48 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:27:48 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_carry-on-baggage.html.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 7,
+  "group": "html-and-slash",
+  "url": "/de/en/carry-on-baggage/",
+  "method": "GET",
+  "t": "2026-10-29T01:27:51.589Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 127363,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=300",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e66743864a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 01:32:53 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:27:53 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_carry-on-baggage.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 8,
+  "group": "html-and-slash",
+  "url": "/de/de/handgepaeck/",
+  "method": "GET",
+  "t": "2026-10-29T01:27:56.589Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 127296,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=300",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e6693a940a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 01:32:58 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:27:58 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_de_handgepaeck.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 9,
+  "group": "long-aem-path",
+  "url": "/content/lh/markets/de/en/homepage",
+  "method": "GET",
+  "t": "2026-10-29T01:28:01.590Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 216529,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "28086",
+   "cache-control": "max-age=28800",
+   "cf-cache-status": "DYNAMIC",
+   "cf-ray": "a51e66b2cb1ea167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/content_lh_markets_de_en_homepage.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 10,
+  "group": "long-aem-path",
+  "url": "/content/lh/markets/de/en/homepage.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:04.590Z",
+  "status": 302,
+  "redirect": true,
+  "location": "/content/lh/markets/de/en/homepage",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=iso-8859-1"
+  }
+ },
+ {
+  "n": 11,
+  "group": "long-aem-path",
+  "url": "/content/lh/markets/de/de/prepare-for-your-trip/baggage/carry-on-baggage.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:07.590Z",
+  "status": 302,
+  "redirect": true,
+  "location": "/content/lh/markets/de/de/prepare-for-your-trip/baggage/carry-on-baggage",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=iso-8859-1"
+  }
+ },
+ {
+  "n": 12,
+  "group": "long-aem-path",
+  "url": "/content/lh/markets/gb/en/homepage.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:10.590Z",
+  "status": 302,
+  "redirect": true,
+  "location": "/content/lh/markets/gb/en/homepage",
+  "locationNote": "path the browser requested next (the Location header itself is not readable from a page)",
+  "h": {
+   "content-type": "text/html; charset=iso-8859-1"
+  }
+ },
+ {
+  "n": 13,
+  "group": "selector",
+  "url": "/de/en/homepage.nocache.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:13.591Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 216263,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=28800",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e66fdbda7a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 09:28:14 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:28:14 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_homepage.nocache.html.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 14,
+  "group": "selector",
+  "url": "/de/en/homepage.external.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:17.590Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 216257,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=28800",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e6716dd90a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 09:28:18 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:28:18 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_homepage.external.html.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ },
+ {
+  "n": 15,
+  "group": "selector",
+  "url": "/de/en/homepage.solo.html",
+  "method": "GET",
+  "t": "2026-10-29T01:28:21.590Z",
+  "status": 200,
+  "redirect": false,
+  "bytes": 122628,
+  "h": {
+   "access-control-max-age": "600",
+   "age": "0",
+   "cache-control": "public, max-age=28800",
+   "cf-cache-status": "MISS",
+   "cf-ray": "a51e672fcbb6a167-FRA",
+   "content-encoding": "gzip",
+   "content-type": "text/html;charset=utf-8",
+   "expires": "Thu, 29 Oct 2026 09:28:22 GMT",
+   "last-modified": "Thu, 29 Oct 2026 01:28:22 GMT",
+   "server": "cloudflare",
+   "vary": "Accept-Encoding",
+   "x-dispatcher": "",
+   "x-vhost": "publish"
+  },
+  "file": "bodies/de_en_homepage.solo.html.head.html",
+  "fileNote": "first 2,048 characters of the body",
+  "redacted": [
+   "content-page-ref"
+  ]
+ }
+]

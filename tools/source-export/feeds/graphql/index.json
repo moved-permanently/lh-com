@@ -440,6 +440,54 @@
    "bytes": 209,
    "recorded": "2026-10-25T21:38:19Z",
    "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/FLMA/flightManagerConfig": {
+   "file": "graphql/FLMA-flightManagerConfig.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 209,
+   "recorded": "2026-10-29T01:28:25Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/FLMA/FlightManagerConfig": {
+   "file": "graphql/FLMA-FlightManagerConfig.upper.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 209,
+   "recorded": "2026-10-29T01:28:28Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/FLMA/flmaConfig": {
+   "file": "graphql/FLMA-flmaConfig.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 200,
+   "recorded": "2026-10-29T01:28:31Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/Flash-teaser/flashTeaserList": {
+   "file": "graphql/Flash-teaser-flashTeaserList.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 213,
+   "recorded": "2026-10-29T01:28:34Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/Flash-teaser/FlashTeaserList": {
+   "file": "graphql/Flash-teaser-FlashTeaserList.upper.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 213,
+   "recorded": "2026-10-29T01:28:37Z",
+   "cache-control": "public, max-age=120"
+  },
+  "/graphql/execute.json/Flash-teaser/flashTeaser": {
+   "file": "graphql/Flash-teaser-flashTeaser.json",
+   "status": 404,
+   "content-type": "application/json",
+   "bytes": 209,
+   "recorded": "2026-10-29T01:28:40Z",
+   "cache-control": "public, max-age=120"
   }
  }
 }

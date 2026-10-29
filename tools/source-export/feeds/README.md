@@ -40,11 +40,16 @@ headers (`cache-control: public, max-age=120`, `last-modified` is the query's ow
   looks like a token; names, image URLs and airport lists are kept (30 values blanked, 15 kept).
 - Data errors in www's answers, not to be reproduced (to report to Lufthansa): links to `qa-www.lufthansa.com` in the
   ancillary catalog (7), and doubled image URLs there.
+- `FLMA` and `Flash-teaser`: no public query name found; six guessed names answer 404 (2026-10-29), see `graphql/README.md`.
 - Message Center queries are not here: `tools/workers/lh-messages/test/fixtures/` has them.
 - Failing and unknown queries (recorded 2026-10-25 21:38 UTC, bodies byte for byte): `TravelRegulationList` and
   `benefitcardimageList` answer 500 with a `QueryValidationError` body and no `cache-control`; `B2BNeo/getLoginConfig`
   answers 200 with a missing-fragment error; `B2BNeo/getLoginConfigByPath` without `path` 200 with a variable error;
   an unknown query or configuration 404 with "... does not resolve to an existing Persistent Query".
+
+## URL forms, `url-forms/`
+
+www's first answer to other spellings of a page URL (upper case, `.html`, trailing slash, long AEM paths, selectors), 2026-10-29: `url-forms/README.md`.
 
 ## Login URL, `login/loginpageurl.json`
 
