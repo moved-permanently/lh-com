@@ -1498,6 +1498,366 @@
         "shopLang"
       ],
       "batch": 4
+    },
+    "my/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Malaysia | Deutsch",
+      "countryName": {
+        "en": "Malaysia",
+        "de": "Malaysia"
+      },
+      "homeAirport": "KUL",
+      "currency": "MYR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "my/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Malaysia | English",
+      "countryName": {
+        "en": "Malaysia",
+        "de": "Malaysia"
+      },
+      "homeAirport": "KUL",
+      "currency": "MYR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ng/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Nigeria | Deutsch",
+      "countryName": {
+        "en": "Nigeria",
+        "de": "Nigeria"
+      },
+      "homeAirport": "ABV",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ng/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Nigeria | English",
+      "countryName": {
+        "en": "Nigeria",
+        "de": "Nigeria"
+      },
+      "homeAirport": "ABV",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "nl/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Niederlande | Deutsch",
+      "countryName": {
+        "en": "Netherlands",
+        "de": "Niederlande"
+      },
+      "homeAirport": "AMS",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "nl/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Netherlands | English",
+      "countryName": {
+        "en": "Netherlands",
+        "de": "Niederlande"
+      },
+      "homeAirport": "AMS",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "no/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Norwegen | Deutsch",
+      "countryName": {
+        "en": "Norway",
+        "de": "Norwegen"
+      },
+      "homeAirport": "OSL",
+      "currency": "NOK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "no/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Norway | English",
+      "countryName": {
+        "en": "Norway",
+        "de": "Norwegen"
+      },
+      "homeAirport": "OSL",
+      "currency": "NOK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "nz/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Neuseeland | Deutsch",
+      "countryName": {
+        "en": "New Zealand",
+        "de": "Neuseeland"
+      },
+      "homeAirport": "AKL",
+      "currency": "NZD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "nz/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "New Zealand | English",
+      "countryName": {
+        "en": "New Zealand",
+        "de": "Neuseeland"
+      },
+      "homeAirport": "AKL",
+      "currency": "NZD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "om/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Oman | Deutsch",
+      "countryName": {
+        "en": "Oman",
+        "de": "Oman"
+      },
+      "homeAirport": "MCT",
+      "currency": "OMR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "om/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Oman | English",
+      "countryName": {
+        "en": "Oman",
+        "de": "Oman"
+      },
+      "homeAirport": "MCT",
+      "currency": "OMR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ph/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Philippinen | Deutsch",
+      "countryName": {
+        "en": "Philippines",
+        "de": "Philippinen"
+      },
+      "homeAirport": "MNL",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ph/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Philippines | English",
+      "countryName": {
+        "en": "Philippines",
+        "de": "Philippinen"
+      },
+      "homeAirport": "MNL",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "qa/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Katar | Deutsch",
+      "countryName": {
+        "en": "Qatar",
+        "de": "Katar"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "qa/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Qatar | English",
+      "countryName": {
+        "en": "Qatar",
+        "de": "Katar"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ro/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Rumänien | Deutsch",
+      "countryName": {
+        "en": "Romania",
+        "de": "Rumänien"
+      },
+      "homeAirport": "BUH",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "ro/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Romania | English",
+      "countryName": {
+        "en": "Romania",
+        "de": "Rumänien"
+      },
+      "homeAirport": "BUH",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "rs/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Serbien | Deutsch",
+      "countryName": {
+        "en": "Serbia",
+        "de": "Serbien"
+      },
+      "homeAirport": "BEG",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
+    },
+    "rs/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Serbia | English",
+      "countryName": {
+        "en": "Serbia",
+        "de": "Serbien"
+      },
+      "homeAirport": "BEG",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 5
     }
   }
 }

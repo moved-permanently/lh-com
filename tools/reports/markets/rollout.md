@@ -450,3 +450,129 @@ sources (the path these answers take once the lean indexes are filled), medians 
   stay the same size (the alternates budget: 880 KB → 845 KB). The pilot JSON is the same.
 - The numbers are upper bounds (Node's fetch and Response plumbing, the test's HTMLRewriter
   stand-in); the large JSON answers were already over 10 ms after 128.
+
+## Batch 5 (2026-10-29): MY NG NL NO NZ OM PH QA RO RS, 20 roots
+
+### Captures
+
+- Plan: 83 pages: 20 homepages, 3 own pages, 60 compared with the language version; 6 same-day
+  references of de/en and de/de; then the 12 own pages of mk that batch 4 did not capture.
+- One warm session at a time, one page every 5 to 10 s, 01:22 to 03:01 UTC.
+- **The 83 pages**: all captured, no 403, one crash (the browser closed, a new session after a
+  minute); every capture has its own URL as canonical.
+- **The references**: one 403 (02:16, the first one, `/de/de/fluege`), a 31-minute pause, then all
+  six (02:47 to 02:57).
+- **mk's 12 pages** (forced, to try www's 500 pages again; the run would have stopped after a second
+  block): no 403. www answers:
+  - 200 for six: `/mk/en/articles/highlights/winter-destinations1`,
+    `/mk/en/business-services/for-corporate-customers/meetings-and-events/exclusive-event-offer-dubai`,
+    `/mk/en/support/refund`, `/mk/en/articles/back-up-explore-the-world-manual`,
+    `/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1` and `/mk/en/lounge-news`
+    (www's alias of `/mk/en/lounges`, its canonical: no document, below);
+  - 500 for six, so no document: the two archive pages as in batch 4
+    (`/mk/en/archived-contents/flight-desruptions`,
+    `/mk/en/archived-contents/meetings-and-events/exclusive-event-offer-dubai`) and now also
+    `/mk/de/overview-additional-services`, `/mk/de/overview-services-on-board`,
+    `/mk/de/overview-travel-classes` and `/mk/en/protection-measures` (they had not been reached in
+    batch 4).
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| my/de, my/en | Malaysia \| Deutsch, Malaysia \| English | Malaysia / Malaysia | KUL | MYR |
+| ng/de, ng/en | Nigeria \| Deutsch, Nigeria \| English | Nigeria / Nigeria | ABV | USD |
+| nl/de, nl/en | Niederlande \| Deutsch, Netherlands \| English | Netherlands / Niederlande | AMS | EUR |
+| no/de, no/en | Norwegen \| Deutsch, Norway \| English | Norway / Norwegen | OSL | NOK |
+| nz/de, nz/en | Neuseeland \| Deutsch, New Zealand \| English | New Zealand / Neuseeland | AKL | NZD |
+| om/de, om/en | Oman \| Deutsch, Oman \| English | Oman / Oman | MCT | OMR |
+| ph/de, ph/en | Philippinen \| Deutsch, Philippines \| English | Philippines / Philippinen | MNL | USD |
+| qa/de, qa/en | Katar \| Deutsch, Qatar \| English | Qatar / Katar | FRA | EUR |
+| ro/de, ro/en | Rumänien \| Deutsch, Romania \| English | Romania / Rumänien | BUH | EUR |
+| rs/de, rs/en | Serbien \| Deutsch, Serbia \| English | Serbia / Serbien | BEG | EUR |
+
+Every value was found. www's own oddities, taken as they are: qa preselects FRA (prices in EUR, like
+iq, ir and ly), ro gives the city code BUH, ng and ph show prices in USD, ro and rs in EUR.
+timeZone and shopLang: null for every root, as in batches 1 to 4.
+
+### Documents
+
+- 20 homepages, 3 own pages (`/my/en/local-page/kul-promo-code-oct26`, `/no/en/worldwide-offers`,
+  `/nz/en/local-page/nz-multi-city`) and nav and footer of every root: 63 documents uploaded and
+  previewed (not published).
+- mk (batch 4's root): the five pages above with www's 200, imported and made mk's own like batch
+  4's (`/mk/en/support/refund` has the site's form block `form core`): 5 documents uploaded and
+  previewed.
+- www's alias, a redirect row for the redirect sheet (yours to upload):
+  `/mk/en/lounge-news` → `/mk/en/lounges`.
+- `/my/en/local-page/kul-promo-code-oct26` is a dated promotion page (October 2026); it goes when www
+  drops it (a delete in Document Authoring, yours).
+
+### Local versions
+
+`rollout-batch5-compare.json`, against same-day de/en and de/de:
+- 40 of 60 the same.
+- The de roots' flight offers page: the same entry-rules teaser as batches 1 to 4 (section
+  `markets` of `/de/de/fluege`).
+- The en roots' flight pages: only the destination offers differ (per origin; today's de/en page
+  lists many more of them, 289 to 591 items only there); no component differs.
+- **Root documents made: none.**
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch5-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| my/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| my/en | 1,054 | 959 | | 95 | | 82 | 13 |
+| ng/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| ng/en | 1,060 | 956 | | 102 | 2 | 89 | 13 |
+| nl/de | 1,048 | 951 | 1 | 94 | 2 | 82 | 12 |
+| nl/en | 1,058 | 956 | | 100 | 2 | 87 | 13 |
+| no/de | 1,047 | 953 | 1 | 92 | 1 | 81 | 12 |
+| no/en | 1,061 | 958 | | 102 | 1 | 89 | 13 |
+| nz/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| nz/en | 1,054 | 957 | | 95 | 2 | 82 | 13 |
+| om/de | 1,047 | 952 | 1 | 92 | 2 | 81 | 12 |
+| om/en | 1,055 | 957 | | 97 | 1 | 84 | 13 |
+| ph/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| ph/en | 1,054 | 955 | | 96 | 3 | 83 | 13 |
+| qa/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| qa/en | 1,053 | 957 | | 95 | 1 | 82 | 13 |
+| ro/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| ro/en | 1,055 | 957 | | 97 | 1 | 84 | 13 |
+| rs/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| rs/en | 1,056 | 956 | | 97 | 3 | 85 | 13 |
+
+- Every 200 has the root's canonical. The 301 is de/de's `support/support` redirect, moved into
+  the root.
+- **The 500s (26 URLs, 2 links) are the local runtime's again** ("the Worker's code had hung",
+  28 times in its log, eight concurrent requests in one process): fetched again one at a time, 23
+  answer 200 through the market route, 3 answer 404, the 2 links 200. Production showed no such
+  error (wrangler tail on lh-edge, 80 s, 639 requests); the shared index read stays as it is.
+- Every link on the 20 homepages, navs and footers (60 documents, 1,700 links) answers 200.
+
+### CPU (Workers Free: 10 ms per request)
+
+Locally, `bench-market.mjs`, the same recorded origin answers, lean sources, medians of 25 runs,
+batch 4's 80 pilot roots against batch 5's 100, back to back twice (ms of CPU, cold / warm):
+
+| Answer | 80 roots | 100 roots |
+| --- | --- | --- |
+| pilot page `/hu/en/baggage` | 6.1–6.5 / 1.7–1.8 | 6.7 / 1.9 |
+| pilot `search-index.json` (4.5 MB) | 50–61 / 19 | 49–50 / 19 |
+| pilot `articles/query-index.json` | 7.2–8.2 / 3.6–4.3 | 6.9–7.1 / 3.5–3.6 |
+| sitemap index `.xml` | 9.5–9.6 / 4.3 | 10.3–10.4 / 5.7–5.8 |
+| sitemap index `.gz` | 9.9–10.1 / 5.1 | 11.9 / 6.7–6.8 |
+| market sitemap file `.xml` | 12.6–13.9 / 7.4–8.0 | 11.9–12.0 / 7.0–7.5 |
+| market sitemap file `.gz` | 17.8–18.4 / 12.9–13.3 | 18.2–18.4 / 13.5 |
+
+- **The sitemap index grows**: 93 KB → 143 KB, about 1 to 2 ms more CPU. It lists every file of
+  every root, and the alternates budget gives each root more, smaller files as roots are added
+  (6,400 alternates per file, and every URL lists every root), so its entries grow faster than the roots
+  (about with their square). Its answer is kept in the edge cache an hour per host, so the cost
+  falls on one request per hour and data centre. With all 187 en and de roots it would be several
+  times today's; to keep it at today's cost, the index could list a fixed number of files per root
+  or be built ahead like the search data.
+- Everything else costs what batch 4's did; market sitemap files stay the same size (845 → 815 KB).
