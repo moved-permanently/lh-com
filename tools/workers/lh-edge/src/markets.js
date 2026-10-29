@@ -39,13 +39,16 @@ import {
 } from './market-lean.js';
 import { sitemapIndexKey, storedIndex, localeTableHash } from './sitemap-index.js';
 /* eslint-disable import/no-relative-packages */
-import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
 import { marketAllows, dropMarketSections } from '../../../../scripts/market-rules.js';
 /* eslint-enable import/no-relative-packages */
+// the locale tables: lh-com's (scripts/locale-table.js), or another site's on its host
+// (src/sites.js; tables(env) is lh-com's unless the request is a site's)
+import { LH_TABLES, tables } from './sites.js';
 
-/** The roots answered from their language's documents, e.g. ['ch/de', 'ch/en']. */
-export const MARKET_ROOTS = Object.keys(LOCALE_TABLE)
-  .filter((k) => LOCALE_TABLE[k].documents === 'language');
+/** lh-com's roots answered from their language's documents, e.g. ['ch/de', 'ch/en']. */
+export const MARKET_ROOTS = LH_TABLES.marketRoots;
+// the tables a model was made with (a model made elsewhere, e.g. in a test: lh-com's)
+const tablesOfModel = (model) => model.site || LH_TABLES;
 
 /** The index of the market roots' own documents (helix-query.yaml market-pages). */
 export const MARKET_INDEX = '/market-pages.json';
@@ -94,17 +97,21 @@ export function servedMarketRoots(request, env) {
   const host = publicHost(request, env).toLowerCase();
   const pilot = listVar(env.PILOT_HOSTS).includes(host);
   const countries = pilot ? null : pilotCountriesOf(env.PILOT_COUNTRIES_BY_HOST)[host];
-  return MARKET_ROOTS.filter((k) => LOCALE_TABLE[k].status === 'live'
-    || (LOCALE_TABLE[k].status === 'pilot' && (pilot || Boolean(countries && countries.has(LOCALE_TABLE[k].country)))));
+  const { table, marketRoots } = tables(env);
+  return marketRoots.filter((k) => table[k].status === 'live'
+    || (table[k].status === 'pilot' && (pilot || Boolean(countries && countries.has(table[k].country)))));
 }
 
 // the `markets` rule, shared with the site (page and section metadata)
 export { marketAllows, dropMarketSections };
 
-/** The market root and the rest of a path (/ch/en/x -> {root: 'ch/en', rest: '/x'}), or null. */
-export function marketPath(pathname) {
+/**
+ * The market root and the rest of a path (/ch/en/x -> {root: 'ch/en', rest: '/x'}), or null;
+ * t: the tables (lh-com's unless given).
+ */
+export function marketPath(pathname, t = LH_TABLES) {
   const m = pathname.match(/^\/([a-z]{2}\/[a-z]{2})(\/.+)$/);
-  return m && MARKET_ROOTS.includes(m[1]) ? { root: m[1], rest: m[2] } : null;
+  return m && t.marketRoots.includes(m[1]) ? { root: m[1], rest: m[2] } : null;
 }
 
 /** Every row of a sheet (paged), or null when the origin has none (404). */
@@ -169,9 +176,7 @@ async function pathIndex(request, env, root) {
 
 // roots with every page as their own document besides the language versions (at/de, gb/en):
 // listed in the hreflang of market copies where their index has the page (same path, as
-// helix-sitemap.yaml pairs them)
-const OWN_ROOTS = Object.keys(LOCALE_TABLE).filter((k) => LOCALE_TABLE[k].documents === 'own'
-  && LOCALE_TABLE[k].status === 'live' && !Object.values(LANGUAGE_VERSIONS).includes(k));
+// helix-sitemap.yaml pairs them): tables(env).ownRoots
 
 /** Index rows as the model keeps them (path -> {markets, robots, primary, lastModified}). */
 function compactRows(rows) {
@@ -253,9 +258,10 @@ function leanIndex(src) {
  * not complete (the caller reads the full indexes).
  */
 async function leanModel(request, env, roots) {
-  const langs = [...new Set(roots.map((r) => LOCALE_TABLE[r].lang))];
-  const others = OWN_ROOTS.filter((r) => langs.includes(LOCALE_TABLE[r].lang));
-  const versionRoots = langs.map((l) => LANGUAGE_VERSIONS[l]);
+  const t = tables(env);
+  const langs = [...new Set(roots.map((r) => t.table[r].lang))];
+  const others = t.ownRoots.filter((r) => langs.includes(t.table[r].lang));
+  const versionRoots = langs.map((l) => t.versions[l]);
   const read = (r) => leanSource(request, env, leanModelPath(r), r ? `/${r}/search-index.json` : MARKET_INDEX);
   const [own, ...srcs] = await Promise.all([
     read(null), ...versionRoots.map(read), ...others.map(read),
@@ -272,15 +278,17 @@ async function leanModel(request, env, roots) {
     own: leanIndex(own),
     others: Object.fromEntries(others.map((r, i) => [r, srcs[langs.length + i]])),
     lean: true,
+    ...(t === LH_TABLES ? {} : { site: t }),
   };
 }
 
 /** The model from the full search indexes and the market index (before the lean sources). */
 async function fullModel(request, env, roots) {
-  const langs = [...new Set(roots.map((r) => LOCALE_TABLE[r].lang))];
+  const t = tables(env);
+  const langs = [...new Set(roots.map((r) => t.table[r].lang))];
   const versions = {};
   await Promise.all(langs.map(async (lang) => {
-    const root = LANGUAGE_VERSIONS[lang];
+    const root = t.versions[lang];
     const index = await compactIndex(request, env, `/${root}/search-index.json`);
     versions[lang] = { root, index, byPrimary: primaryMap(index) };
   }));
@@ -291,11 +299,11 @@ async function fullModel(request, env, roots) {
     own = new Map();
   }
   const others = {};
-  await Promise.all(OWN_ROOTS.filter((r) => langs.includes(LOCALE_TABLE[r].lang)).map(async (r) => {
+  await Promise.all(t.ownRoots.filter((r) => langs.includes(t.table[r].lang)).map(async (r) => {
     others[r] = await pathIndex(request, env, r).catch(() => new Set());
   }));
   return {
-    roots, versions, own, others,
+    roots, versions, own, others, ...(t === LH_TABLES ? {} : { site: t }),
   };
 }
 
@@ -319,15 +327,16 @@ export async function marketModel(request, env, roots = servedMarketRoots(reques
  */
 function lookups(model) {
   if (!model.lookups) {
+    const { table } = tablesOfModel(model);
     const rootsByLang = new Map();
     model.roots.forEach((r) => {
-      const { lang } = LOCALE_TABLE[r];
+      const { lang } = table[r];
       if (!rootsByLang.has(lang)) rootsByLang.set(lang, []);
       rootsByLang.get(lang).push(r);
     });
     const othersByLang = new Map();
     Object.entries(model.others || {}).forEach(([r, paths]) => {
-      const { lang } = LOCALE_TABLE[r];
+      const { lang } = table[r];
       if (!othersByLang.has(lang)) othersByLang.set(lang, []);
       othersByLang.get(lang).push([r, paths]);
     });
@@ -352,7 +361,7 @@ export function serves(model, root, suffix) {
   if (!suffix || suffix === '/') return true;
   if (lookups(model).ownBySuffix.get(suffix)?.has(root)) return true;
   if (LANGUAGE_ONLY.test(suffix)) return true;
-  const v = model.versions[LOCALE_TABLE[root].lang];
+  const v = model.versions[tablesOfModel(model).table[root].lang];
   const row = v && v.index.get(`/${v.root}${suffix}`);
   return Boolean(row) && (!row.markets || marketAllows(row.markets, root.split('/')[0]));
 }
@@ -366,6 +375,7 @@ export function serves(model, root, suffix) {
  */
 export function alternates(model, lang, suffix) {
   const v = model.versions[lang];
+  const { table } = tablesOfModel(model);
   const { rootsByLang, othersByLang, ownBySuffix } = lookups(model);
   const suffixes = { [lang]: suffix };
   Object.entries(model.versions).forEach(([l, other]) => {
@@ -382,7 +392,7 @@ export function alternates(model, lang, suffix) {
   Object.entries(suffixes).forEach(([l, s]) => {
     const version = model.versions[l].root;
     const item = (r) => ({
-      hreflang: LOCALE_TABLE[r].hreflang, path: `/${r}${s}`, root: r, suffix: s,
+      hreflang: table[r].hreflang, path: `/${r}${s}`, root: r, suffix: s,
     });
     if (model.versions[l].index.has(`/${version}${s}`)) out.push(item(version));
     (othersByLang.get(l) || []).forEach(([r, paths]) => { if (paths.has(`/${r}${s}`)) out.push(item(r)); });
@@ -535,7 +545,8 @@ const isTrue = (v) => String(v || '').trim().toLowerCase() === 'true';
  */
 export async function marketLlmsRows(request, env, key) {
   if (env.MARKET_MODEL === 'full' || !servedMarketRoots(request, env).includes(key)) return null;
-  const from = LANGUAGE_VERSIONS[LOCALE_TABLE[key].lang];
+  const t = tables(env);
+  const from = t.versions[t.table[key].lang];
   const [lang, own] = await Promise.all([
     leanSource(request, env, leanLlmsPath(from), `/${from}/search-index.json`),
     leanSource(request, env, leanLlmsPath(null), MARKET_INDEX),
@@ -820,7 +831,7 @@ async function marketJson(request, env, ctx, own404) {
  */
 export async function siteFetch(request, env, target, options) {
   const url = new URL(target);
-  const mp = marketPath(url.pathname);
+  const mp = marketPath(url.pathname, tables(env));
   if (!mp || !servedMarketRoots(request, env).includes(mp.root)) {
     return originFetch(request, env, target, options);
   }
@@ -837,11 +848,12 @@ export async function siteFetch(request, env, target, options) {
  * (with its language version: the documents and sheet rows it falls back to), else null.
  */
 export function servedLocale(request, env, key) {
-  const row = LOCALE_TABLE[key];
+  const t = tables(env);
+  const row = t.table[key];
   if (!row) return null;
   if (row.documents !== 'language') return row.status === 'live' ? { ...row, version: key } : null;
   if (!servedMarketRoots(request, env).includes(key)) return null;
-  return { ...row, version: LANGUAGE_VERSIONS[row.lang] };
+  return { ...row, version: t.versions[row.lang] };
 }
 
 /**
@@ -867,7 +879,8 @@ const unavailable = () => new Response('Market index unavailable', {
 /** The route. */
 export async function market(request, env) {
   const url = new URL(request.url);
-  const mp = marketPath(url.pathname);
+  const t = tables(env);
+  const mp = marketPath(url.pathname, t);
   const roots = servedMarketRoots(request, env);
   if (!mp || !roots.includes(mp.root) || !['GET', 'HEAD'].includes(request.method) || isMediaRequest(url)) {
     return passThrough(request, env);
@@ -876,7 +889,7 @@ export async function market(request, env) {
   const own = await passThrough(request, env);
   if (own.status !== 404) return own;
   const { root, rest } = mp;
-  const from = LANGUAGE_VERSIONS[LOCALE_TABLE[root].lang];
+  const from = t.versions[t.table[root].lang];
   // the language version's document in full (see withoutConditions)
   const versionRequest = withoutConditions(request);
   const last = rest.split('/').pop();
@@ -903,7 +916,7 @@ export async function market(request, env) {
   }
   const suffix = kind === 'plain' ? rest.replace(/\.plain\.html$/, '') : rest.replace(/\/$/, '');
   if (model.own.has(`/${root}${suffix}`)) return own;
-  const v = model.versions[LOCALE_TABLE[root].lang];
+  const v = model.versions[t.table[root].lang];
   const indexed = v.index.has(`/${from}${suffix}`);
   if (indexed && !serves(model, root, suffix)) return own;
   if (!indexed && !LANGUAGE_ONLY.test(suffix)) {
@@ -933,7 +946,7 @@ export async function market(request, env) {
   return marketHtml(resp, {
     ...ctx,
     marketPath: `/${root}${suffix}`,
-    alternates: kind === 'page' ? alternates(model, LOCALE_TABLE[root].lang, suffix) : [],
+    alternates: kind === 'page' ? alternates(model, t.table[root].lang, suffix) : [],
   });
 }
 
@@ -965,7 +978,7 @@ export function sitemapPage(model, env = {}) {
  * lastmod date is made for the URLs of a file only (day(lastModified)).
  */
 export function sitemapEntries(model, root) {
-  const v = model.versions[LOCALE_TABLE[root].lang];
+  const v = model.versions[tablesOfModel(model).table[root].lang];
   const entries = new Map();
   v.index.forEach((row, p) => {
     const suffix = p.slice(v.root.length + 1);
@@ -989,7 +1002,7 @@ export function sitemapEntries(model, root) {
  * own pages. The model keeps the counts (the sitemap index asks for every served root).
  */
 export function sitemapCount(model, root) {
-  const v = model.versions[LOCALE_TABLE[root].lang];
+  const v = model.versions[tablesOfModel(model).table[root].lang];
   model.counts ||= {};
   if (!model.counts[v.root]) {
     // language rows that can be entries: a suffix, not noindex; by markets value
@@ -1044,7 +1057,8 @@ export async function sitemapNames(request, env, root, given = null) {
  */
 export async function marketSitemapXml(request, env, root, page = 1) {
   const model = await marketModel(request, env);
-  const { lang } = LOCALE_TABLE[root];
+  const { table } = tablesOfModel(model);
+  const { lang } = table[root];
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
   const wwwEscaped = xmlEscape(www);
   const per = sitemapPage(model, env);
@@ -1055,7 +1069,7 @@ export async function marketSitemapXml(request, env, root, page = 1) {
   slice.forEach((e) => {
     const alts = e.language
       ? alternates(model, lang, e.suffix)
-      : [{ hreflang: LOCALE_TABLE[root].hreflang, path: e.path }];
+      : [{ hreflang: table[root].hreflang, path: e.path }];
     const lastmod = day(e.lastModified);
     lines.push('  <url>', `    <loc>${xmlEscape(`${www}${e.path}`)}</loc>`);
     if (lastmod) lines.push(`    <lastmod>${lastmod}</lastmod>`);

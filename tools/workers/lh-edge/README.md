@@ -122,6 +122,41 @@ answers:
 Hosts without an entry in `ALIAS_HOSTS` are not touched. The alias host is attached to the Worker as
 a custom domain in the Cloudflare dashboard (as the main host).
 
+## Other sites (`src/sites.js`, `SITE_HOSTS`, `SITE_ORIGINS`, `SITE_WWW_HOSTS`)
+
+A host listed in `SITE_HOSTS` (`host=site; host2=site`) is answered for that site only: its own locale table
+(`SITES` in `src/sites.js`: roots, languages, hreflang, which roots hold the language documents and which are market
+roots answered from them by the market route), its own Edge Delivery origin (`SITE_ORIGINS`, `site=main--<repo>--<owner>.aem.live`,
+checked like `ORIGIN`; `.aem.page` only for a test against the preview origin) and the host its links name on the
+source web site (`SITE_WWW_HOSTS`, `site=www.example.com`). `/` redirects (302) to the homepage of the site's first
+language version; every other path goes to the market route with the site's tables and origin (market roots from the
+language documents, the rest passed through to the site's origin). No other route of lh-com runs there. A site
+without a valid origin is not served. All three vars are empty by default: every host answers as before (lh-com's
+tables are `LH_TABLES`, the routes read them unchanged; `bench-market.mjs --record/--replay --dump`: 3,006 answers
+byte-identical with and without the change).
+
+Discover Airlines (`discover`, DA `moved-permanently/lh-discover`): de/en, de/de, xx/fr hold the language documents;
+us/en, ca/en, xx/en, us/de, xx/de, ca/fr are market roots. For `discover.turnsthe.page`:
+
+```toml
+SITE_HOSTS = "discover.turnsthe.page=discover"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com"
+```
+
+Check first against the preview origin (documents on preview only):
+
+```sh
+cd tools/workers/lh-edge
+npx -y wrangler@4 dev --port 8787 --local-upstream discover.turnsthe.page \
+  --var SITE_HOSTS:discover.turnsthe.page=discover \
+  --var SITE_ORIGINS:discover=main--lh-discover--moved-permanently.aem.page \
+  --var SITE_WWW_HOSTS:discover=www.discover-airlines.com
+curl -sI http://localhost:8787/us/en/book/baggage   # 200, x-lh-edge-route: market
+```
+
+Rollback for a host: remove it from `SITE_HOSTS` and deploy.
+
 ## URL forms (`src/url-forms.js`, `URL_FORMS`)
 
 Before the routes (and before the front door's rules), other spellings of a page URL answer one 301 to the page, as

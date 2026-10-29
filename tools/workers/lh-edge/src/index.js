@@ -39,6 +39,7 @@ import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
 import { csiOffline, isOfflinePath } from './offline.js';
 import { aliasHostOf, forAlias } from './alias.js';
+import { siteOf, siteEnv } from './sites.js';
 import {
   market, marketPath, marketSitemap, isMarketSitemapPath, withoutConditions,
 } from './markets.js';
@@ -330,10 +331,29 @@ async function respond(incoming, env, ctx, forms = true) {
   return finish(resp, request, env, route ? route.name : 'default', setCookie);
 }
 
+/**
+ * A request for another site (src/sites.js: a host of SITE_HOSTS): its market roots from its
+ * language documents (src/markets.js with the site's tables and origin), everything else from the
+ * site's origin; / to the homepage of its first language version. No other route of lh-com.
+ */
+async function siteRespond(incoming, env, site) {
+  const early = prelude(incoming);
+  if (early) return early;
+  const senv = siteEnv(env, site);
+  const url = new URL(incoming.url);
+  if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {
+    const home = `/${Object.values(site.tables.versions)[0]}/homepage${url.search}`;
+    return finish(new Response(null, { status: 302, headers: { location: home, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
+  }
+  return finish(await market(incoming, senv), incoming, senv, 'site');
+}
+
 export default {
   async fetch(incoming, env, ctx) {
     const alias = aliasHostOf(incoming, env);
-    let resp = await respond(incoming, env, ctx);
+    // another site's host (var SITE_HOSTS, empty: none): answered for that site only
+    const site = siteOf(incoming, env);
+    let resp = site ? await siteRespond(incoming, env, site) : await respond(incoming, env, ctx);
     // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
     // (HEAD_URLS_FROM, lhcom.bbird.live) point at the host; no rewriter anywhere else
     const head = headUrlHost(incoming, env, alias);

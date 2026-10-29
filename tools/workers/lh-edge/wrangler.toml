@@ -121,6 +121,13 @@ ALIAS_HOME_ROOT = "cn/en"
 # other spellings of a page URL (src/url-forms.js: upper case, .html, .nocache.html, a trailing
 # slash, the long /content/lh/markets/<cc>/<ll>/ path): one 301 to the page; "off": as before
 URL_FORMS = "on"
+# other sites on lh-com's code (src/sites.js): SITE_HOSTS "host=site; ..." answers a host for that
+# site (its locale table, its market roots from its language documents), SITE_ORIGINS
+# "site=main--<repo>--<owner>.aem.live" its origin, SITE_WWW_HOSTS "site=www.example.com" the host
+# its links name on the source site; "": none (every host as before)
+SITE_HOSTS = ""
+SITE_ORIGINS = ""
+SITE_WWW_HOSTS = ""
 # www's large DAM files (mp4, vtt, the PDFs R2 holds) from this AEM publish tier first, R2 as the
 # fallback (src/dam-aem.js); "": R2 only. AEM_KEEPALIVE_URLS: one GET each an hour from the
 # poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none
