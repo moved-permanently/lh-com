@@ -1,8 +1,13 @@
 // Pure helpers of the admin apps (no DOM, no network), so they can be tested with node --test.
 
-// The admin apps' lh-backends: Blackbird's for now. At the switch to the second Cloudflare account
-// this one constant becomes 'https://lh-backends.benpeter.workers.dev'.
-export const DEFAULT_API = 'https://lh-backends.aem-poc-lab.workers.dev';
+// The admin apps' lh-backends: the second Cloudflare account's; an app opened on one of the old
+// bbird.live hosts keeps Blackbird's (API_BBIRD) until those hosts are retired.
+export const DEFAULT_API = 'https://lh-backends.benpeter.workers.dev';
+export const API_BBIRD = 'https://lh-backends.aem-poc-lab.workers.dev';
+
+/** The default API origin for the host an app runs on. */
+export const defaultApi = (hostname = '') => (
+  /(^|\.)bbird\.live$/.test(String(hostname).toLowerCase()) ? API_BBIRD : DEFAULT_API);
 
 // ?api= may only point at a local Worker or another deployment of the same Worker, so a crafted
 // link cannot send the editor's sign-in token to a foreign host.
@@ -10,20 +15,21 @@ const LOCAL_HOSTS = ['localhost', '127.0.0.1'];
 // (both Cloudflare accounts of the parallel run: aem-poc-lab and benpeter)
 const WORKER_HOST = /^([a-z0-9-]+-)?lh-backends\.(aem-poc-lab|benpeter)\.workers\.dev$/;
 
-/** The API origin: DEFAULT_API, or an allowed ?api= value from the page's query string. */
-export function resolveApiBase(search) {
+/** The API origin: the host's default, or an allowed ?api= value from the page's query string. */
+export function resolveApiBase(search, hostname = '') {
+  const fallback = defaultApi(hostname);
   const value = new URLSearchParams(search || '').get('api');
-  if (!value) return DEFAULT_API;
+  if (!value) return fallback;
   let url;
   try {
     url = new URL(value);
   } catch {
-    return DEFAULT_API;
+    return fallback;
   }
-  if (url.username || url.password || (url.pathname !== '/' && url.pathname !== '')) return DEFAULT_API;
+  if (url.username || url.password || (url.pathname !== '/' && url.pathname !== '')) return fallback;
   const local = LOCAL_HOSTS.includes(url.hostname) && ['http:', 'https:'].includes(url.protocol);
   const worker = url.protocol === 'https:' && !url.port && WORKER_HOST.test(url.hostname);
-  return local || worker ? url.origin : DEFAULT_API;
+  return local || worker ? url.origin : fallback;
 }
 
 const SERVICE_DOWN = 'The admin service is not available right now. Try again in a few minutes.';

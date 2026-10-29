@@ -6,7 +6,7 @@
 import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 import { errorMessage, hasTool, resolveApiBase } from './helpers.js';
 
-export const API = resolveApiBase(window.location.search);
+export const API = resolveApiBase(window.location.search, window.location.hostname);
 const SDK_TIMEOUT_MS = 10000;
 
 let token = null;
