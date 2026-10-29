@@ -309,7 +309,7 @@
   "type": "application/pdf",
   "length": 28936167,
   "hash": "e3b0c44298fc1c14",
-  "route": "dam-media"
+  "route": "dam-aem"
  },
  {
   "key": "GET /content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png",
@@ -343,7 +343,7 @@
   "range": "bytes 0-99/73722503",
   "length": 100,
   "hash": "2765f358c8241ee6",
-  "route": "dam-media"
+  "route": "dam-aem"
  },
  {
   "key": "GET /content/dam/video/c3/202405-em/austragungsorte/lh-em-de-audiodescription-lh-com.vtt",
@@ -353,7 +353,7 @@
   "location": "",
   "type": "text/vtt; charset=utf-8",
   "hash": "430ae2efe3a73abb",
-  "route": "dam-media"
+  "route": "dam-aem"
  },
  {
   "key": "GET /",
