@@ -51,8 +51,11 @@ export default function decorate(block) {
     const img = picture.querySelector('img');
     const section = block.closest('.section');
     const sections = section ? [...section.parentElement.querySelectorAll(':scope > .section')] : [];
-    // the stage sits near the top of most templates, so load it eagerly there
-    const eager = !section || sections.indexOf(section) < 2;
+    // the stage sits near the top of most templates, so load it eagerly there; with
+    // no-mobile-image the CSS hides it below 768px: lazy there (a lazy image under display: none
+    // isn't fetched), desktop and tablet as before
+    const hidden = block.classList.contains('no-mobile-image') && !matchMedia('(min-width: 768px)').matches;
+    const eager = !hidden && (!section || sections.indexOf(section) < 2);
     const optimized = img
       ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 900px)', width: '2000' },

@@ -411,6 +411,10 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
+  // fonts.css right after the first section (on desktop, or with the session flag, loadEager has
+  // started it already), not after all sections: font-display swap and the size-adjusted
+  // fallbacks stay
+  loadFonts();
   // the app view has no header and footer (removed by applyChannel)
   const header = doc.querySelector('body > header');
   if (header) loadHeader(header);
@@ -432,7 +436,6 @@ async function loadLazy(doc) {
   if (footer) loadFooter(footer);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  loadFonts();
 
   // time travel (?time-travel= on a preview host, scripts/clock.js): the bar with the chosen time;
   // clock.js only when the page asks for it (its parameters: clock.js PARAM and LEGACY_PARAM)
