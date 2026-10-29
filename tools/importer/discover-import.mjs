@@ -85,10 +85,13 @@ if (isMain) {
     const made = Object.keys(out).map(docName).filter((p) => fs.existsSync(path.join(W, 'content', `${p}.plain.html`)));
     allow.paths = [...new Set([...allow.paths, ...made])];
     fs.writeFileSync(sites, `${JSON.stringify(allow, null, 1)}\n`);
-    console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-discover', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
+    // the host mapping only for this batch's documents (earlier ones have their own Lufthansa URLs
+    // back); links to the new documents become relative in every document
+    const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
+    fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
+    console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-discover', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
       .join('\n'));
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
-    fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.join('\n')}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }
 }

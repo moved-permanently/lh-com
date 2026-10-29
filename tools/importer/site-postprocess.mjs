@@ -12,7 +12,10 @@
  *    locale roots /<cc>/<ll> to /<cc>/<ll>/homepage.
  * Idempotent. Usage: node tools/importer/site-postprocess.mjs --site lh-discover
  *   --source-host www.discover-airlines.com [--content-dir dir] [--dry-run]
- *   [--snapshots dir --real-placeholder host]
+ *   [--snapshots dir --real-placeholder host] [--map-only file]
+ * --map-only: a file of document paths (/de/en/x, one per line) that step 2 maps: the documents
+ * just imported. Documents of earlier runs only get step 3, so the source pages' own
+ * www.lufthansa.com URLs, put back after their import, stay (without it: every document, as before).
  * --snapshots: the source pages the import read (default tools/importer/bd-snapshots/<host>);
  * --real-placeholder: the host the source pages' own lufthansa.com URLs were given before the
  * import (discover-import.mjs: www.lufthansa-com.invalid, so the importers leave them alone and
@@ -28,8 +31,8 @@ const argv = process.argv.slice(2);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
 
 /** The changed document and what changed. */
-export function postprocess(html, { sourceHost, sitePaths }) {
-  let out = html.replace(/https:\/\/www\.lufthansa\.com(?=[/"'?#)\s]|$)/g, `https://${sourceHost}`);
+export function postprocess(html, { sourceHost, sitePaths, mapHosts = true }) {
+  let out = !mapHosts ? html : html.replace(/https:\/\/www\.lufthansa\.com(?=[/"'?#)\s]|$)/g, `https://${sourceHost}`);
   const hosts = out.split(`https://${sourceHost}`).length - html.split(`https://${sourceHost}`).length;
   let relative = 0;
   const esc = sourceHost.replace(/\./g, '\\.');
@@ -62,13 +65,15 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const sitePaths = new Set(list.paths);
   const snapshots = path.resolve(root, opt('snapshots') || path.join('tools/importer/bd-snapshots', sourceHost));
   const placeholder = opt('real-placeholder');
+  const mapOnly = opt('map-only') ? new Set(fs.readFileSync(path.resolve(root, opt('map-only')), 'utf8').split('\n').map((x) => x.trim()).filter(Boolean)) : null;
   const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
   const own = walk(snapshots).filter((f) => f.endsWith('.html')).filter((f) => fs.readFileSync(f, 'utf8').includes('https://www.lufthansa.com'));
   if (own.length) throw new Error(`source pages with their own www.lufthansa.com URLs (cannot map): ${own.map((f) => path.relative(snapshots, f)).join(', ')}`);
   let changed = 0;
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
-    const r = postprocess(before, { sourceHost, sitePaths });
+    const doc = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
+    const r = postprocess(before, { sourceHost, sitePaths, mapHosts: !mapOnly || mapOnly.has(doc) });
     // the source pages' own Lufthansa URLs, kept apart during the import
     if (placeholder) r.html = r.html.split(`https://${placeholder}`).join('https://www.lufthansa.com');
     if (r.html === before) return;
