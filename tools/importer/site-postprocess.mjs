@@ -1,4 +1,4 @@
-/* eslint-disable no-console -- tooling */
+/* eslint-disable no-console, max-len, import/prefer-default-export -- tooling */
 /**
  * Post-import step for another site's document tree (brief 95; da-upload.mjs --site): lh-com's
  * import scripts resolve every relative URL against https://www.lufthansa.com (LIVE_ORIGIN of the
@@ -12,6 +12,12 @@
  *    locale roots /<cc>/<ll> to /<cc>/<ll>/homepage.
  * Idempotent. Usage: node tools/importer/site-postprocess.mjs --site lh-discover
  *   --source-host www.discover-airlines.com [--content-dir dir] [--dry-run]
+ *   [--snapshots dir --real-placeholder host]
+ * --snapshots: the source pages the import read (default tools/importer/bd-snapshots/<host>);
+ * --real-placeholder: the host the source pages' own lufthansa.com URLs were given before the
+ * import (discover-import.mjs: www.lufthansa-com.invalid, so the importers leave them alone and
+ * step 2 can't take them for the importers' own URLs); turned back into https://www.lufthansa.com
+ * after step 2.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -54,7 +60,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const dir = path.resolve(root, opt('content-dir') || `content-sites/${site}/content`);
   const list = JSON.parse(fs.readFileSync(path.join(root, `tools/importer/sites/${site}.json`), 'utf8'));
   const sitePaths = new Set(list.paths);
-  const snapshots = path.join(root, 'tools/importer/bd-snapshots', sourceHost);
+  const snapshots = path.resolve(root, opt('snapshots') || path.join('tools/importer/bd-snapshots', sourceHost));
+  const placeholder = opt('real-placeholder');
   const walk = (d) => (fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)])) : []);
   const own = walk(snapshots).filter((f) => f.endsWith('.html')).filter((f) => fs.readFileSync(f, 'utf8').includes('https://www.lufthansa.com'));
   if (own.length) throw new Error(`source pages with their own www.lufthansa.com URLs (cannot map): ${own.map((f) => path.relative(snapshots, f)).join(', ')}`);
@@ -62,6 +69,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
     const r = postprocess(before, { sourceHost, sitePaths });
+    // the source pages' own Lufthansa URLs, kept apart during the import
+    if (placeholder) r.html = r.html.split(`https://${placeholder}`).join('https://www.lufthansa.com');
     if (r.html === before) return;
     changed += 1;
     console.log(`${path.relative(dir, f)}: ${r.hosts} URLs to ${sourceHost}, ${r.relative} links to site pages made relative, ${r.absolute} to pages it lacks made absolute`);
