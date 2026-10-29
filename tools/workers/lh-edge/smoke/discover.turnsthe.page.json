@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "ea8786addc6cd3f3",
+  "hash": "75cf662e51791682",
   "route": ""
  },
  {
@@ -295,19 +295,20 @@
   "method": "HEAD",
   "status": 404,
   "location": "",
-  "type": "text/html; charset=utf-8",
+  "type": "text/plain; charset=utf-8",
   "hash": "e3b0c44298fc1c14",
-  "route": ""
+  "route": "dam"
  },
  {
   "key": "HEAD /content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf",
   "path": "/content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf",
   "method": "HEAD",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/html; charset=utf-8",
+  "type": "application/pdf",
+  "length": 28936167,
   "hash": "e3b0c44298fc1c14",
-  "route": ""
+  "route": "dam-aem"
  },
  {
   "key": "GET /content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png",
@@ -315,39 +316,42 @@
   "method": "GET",
   "status": 404,
   "location": "",
-  "type": "text/plain",
-  "hash": "7d04f7431bbfa41a",
-  "route": ""
+  "type": "text/plain; charset=utf-8",
+  "hash": "0019dfc4b32d63c1",
+  "route": "dam"
  },
  {
   "key": "GET /content/dam/lh/images/offers/destination/zzq-square.jpg",
   "path": "/content/dam/lh/images/offers/destination/zzq-square.jpg",
   "method": "GET",
-  "status": 404,
-  "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "7addd0370242dbf8",
-  "route": ""
+  "status": 302,
+  "location": "https://discover.turnsthe.page/content/dam/lh/images/offers/fallback/generic-square.jpg",
+  "type": "",
+  "length": 0,
+  "hash": "e3b0c44298fc1c14",
+  "route": "dam"
  },
  {
   "key": "GET /content/dam/video/c3/202405-em/austragungsorte/lh-em-en-uts-lh-com.mp4 [range 0-99]",
   "path": "/content/dam/video/c3/202405-em/austragungsorte/lh-em-en-uts-lh-com.mp4",
   "method": "GET",
-  "status": 404,
+  "status": 206,
   "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "7addd0370242dbf8",
-  "route": ""
+  "type": "video/mp4",
+  "range": "bytes 0-99/73722503",
+  "length": 100,
+  "hash": "2765f358c8241ee6",
+  "route": "dam-aem"
  },
  {
   "key": "GET /content/dam/video/c3/202405-em/austragungsorte/lh-em-de-audiodescription-lh-com.vtt",
   "path": "/content/dam/video/c3/202405-em/austragungsorte/lh-em-de-audiodescription-lh-com.vtt",
   "method": "GET",
-  "status": 404,
+  "status": 200,
   "location": "",
-  "type": "text/html; charset=utf-8",
-  "hash": "7addd0370242dbf8",
-  "route": ""
+  "type": "text/vtt; charset=utf-8",
+  "hash": "430ae2efe3a73abb",
+  "route": "dam-aem"
  },
  {
   "key": "GET /",
@@ -777,7 +781,7 @@
   "status": 200,
   "location": "",
   "type": "text/xml",
-  "hash": "ac35b6af67bf4e31",
+  "hash": "2023218e00a7cb3b",
   "route": ""
  },
  {
