@@ -43,13 +43,24 @@ export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)
 // site's own pages relative) touch them; Discover's host afterwards, in the batch's documents
 export const LINK_OUT = 'link-out.invalid';
 
+// iframes lh-com's embed block plays (parsers/media-nodes.js embedUrl): imported as embeds
+const EMBEDDED = /^https:\/\/(?:www\.)?(?:youtube(?:-nocookie)?\.com|lufthansa-inflightentertainment\.com)\//;
+const text = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
 /**
  * A snapshot whose live widgets are a link to the page on www (the importers flatten them into
- * text): the security waiting times (an airport select), labelled with the select's own label.
+ * text or drop them): the security waiting times (an airport select), labelled with the select's
+ * own label; an iframe component the embed block doesn't play (the timetable, the claims form),
+ * labelled with the iframe's title, else the page's H1.
  */
 export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaitingtime">[\s\S]*?<\/maui-select><\/form><\/div><\/div><\/div>/g, (m) => {
   const label = (m.match(/buttontriggerlabel="([^"]+)"/) || [])[1] || HOST;
   return `<div class="securitywaitingtime"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
+}).replace(/<div class="iframe[ "][^>]*>\s*<div class="iframe-wrapper[^>]*>\s*<iframe\b([^>]*)>[\s\S]*?<\/iframe>\s*<\/div>\s*<\/div>/g, (m, attrs) => {
+  const src = (attrs.match(/\ssrc="([^"]+)"/) || [])[1] || '';
+  if (EMBEDDED.test(src)) return m;
+  const label = (attrs.match(/\stitle="([^"]+)"/) || [])[1] || text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '') || HOST;
+  return `<div class="iframe-link-out"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
 });
 
 /** The template of a page from its path and snapshot. */
