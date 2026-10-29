@@ -381,15 +381,7 @@ async function loadEager(doc) {
     if (main.querySelector('.flash-teaser, .message-center')) {
       import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
     }
-    // the first section's blocks: every block's JS and CSS at once (loadSection loads them one
-    // after another); loadBlock then finds the modules loaded. The section waits for the
-    // stylesheets, as loadBlock would (loadCSS of a link already there resolves at once)
-    const first = main.querySelector('.section');
-    const names = [...new Set([...(first ? first.querySelectorAll('[data-block-name]') : [])]
-      .map((b) => b.dataset.blockName))];
-    names.forEach((name) => import(`${window.hlx.codeBasePath}/blocks/${name}/${name}.js`).catch(() => {}));
-    await Promise.allSettled(names.map((name) => loadCSS(`${window.hlx.codeBasePath}/blocks/${name}/${name}.css`)));
-    await loadSection(first, waitForFirstImage);
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
   try {
