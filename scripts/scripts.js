@@ -371,6 +371,10 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     channel = applyChannel(main);
+    // cookie banner (OneTrust as on lufthansa.com, where it sits in the <head>) at page start, so
+    // its requests run alongside the first section's; initConsent keeps its rules (never in DA
+    // or authoring, nothing when a choice is stored); the app view leaves consent to the app
+    if (channel !== 'app') initConsent();
     if (channel !== 'website') await loadCSS(`${window.hlx.codeBasePath}/styles/channels.css`);
     document.body.classList.add('appear');
     // Message Center blocks: start loading the index before the first section's blocks load, so
@@ -390,8 +394,7 @@ async function loadEager(doc) {
     // do nothing
   }
 
-  // cookie banner (OneTrust as on lufthansa.com) right after the first section;
-  // runs once per page and never inside DA authoring; the app view leaves consent to the app
+  // a page without main: the cookie banner now (initConsent runs once per page)
   if (channel !== 'app') initConsent();
 }
 
