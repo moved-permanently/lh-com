@@ -16,6 +16,7 @@
  *          [--model] [--force] [--min-delay 5000] [--max-delay 10000] [--widths 1440,768,390]
  *          [--parity-list urls-parity.txt] [--since 2026-10-21T18:46:00Z]
  *          [--anchor <warm-up URL>] [--state <file>] [--pages-dir <dir>]   (another site)
+ *          [--keep-error-pages]   (save a 200 page that reads like an error page: a site's own /error page)
  * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
  * parity check, so a page is never loaded again just for a screenshot.
  * --shots-only: a recapture for the parity check (pages whose screenshots were faulty: missed lazy
@@ -46,6 +47,9 @@ const has = (name) => argv.includes(`--${name}`);
 const ANCHOR = opt('anchor', 'https://www.lufthansa.com/de/en/homepage');
 const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification/i;
 const MAX_HEIGHT = 8000;
+// --keep-error-pages: a 200 page that reads like an error page (a site's own /error page, e.g.
+// Discover's form error pages) is saved as captured; bot checks and 404s as without it
+const keepErrorPages = has('keep-error-pages');
 const batch = Number(opt('batch', 20));
 const minDelay = Number(opt('min-delay', 5000));
 const maxDelay = Number(opt('max-delay', 10000));
@@ -208,7 +212,7 @@ try {
     if (netError || wrongPage) {
       state.pages[url] = { status: 'net-error', attempts: (state.pages[url]?.attempts || 0) + 1, at: new Date().toISOString() };
       console.log(`${wrongPage ? `wrong-page ${url} (still on ${page.url()})` : `net-error ${url}`} (not saved; retried in a later session)`);
-    } else if (detection.isError || nav.status === 404) {
+    } else if ((detection.isError && !(keepErrorPages && nav.status === 200)) || nav.status === 404) {
       state.pages[url] = { status: nav.status === 404 ? '404' : 'error-page', http: nav.status, at: new Date().toISOString() };
       console.log(`${nav.status} error page ${url}`);
     } else {
