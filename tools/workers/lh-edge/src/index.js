@@ -33,6 +33,7 @@ import { xfCatalog, isXfPath } from './xf.js';
 import { aircraftList, isAircraftPath } from './aircraft.js';
 import { changeLocale, isChangeLocalePath } from './changelocale.js';
 import { sitemapGz, isSitemapGzPath } from './sitemap.js';
+import { aemKeepAlive } from './aem-keepalive.js';
 import { llmsTxt, isLlmsPath } from './llms.js';
 import { captchaVerify, CAPTCHA_PATH } from './captcha.js';
 import { mfe, isMfePath } from './mfe.js';
@@ -340,6 +341,13 @@ export default {
  */
 export class EventsRelay extends WorkerEntrypoint {
   async poll() {
+    try {
+      // the AEM sandbox's hourly keep-alive (src/aem-keepalive.js): in waitUntil, never throws
+      aemKeepAlive(this.env, this.ctx);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(`aem-keepalive: ${e.message}`);
+    }
     try {
       return await relay(this.env, this.ctx, { source: 'poll' });
     } catch (e) {

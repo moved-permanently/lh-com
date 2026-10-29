@@ -50,7 +50,8 @@ export async function damMedia(request, env, ctx, info) {
   const type = MEDIA_TYPES[ext];
   if (!type) return null;
   const key = mediaKey(info.asset);
-  const head = await env.DAM_MEDIA.head(key);
+  // the AEM step may have read it already (src/dam-aem.js mediaHead)
+  const head = await (info.mediaHead || env.DAM_MEDIA.head(key));
   if (!head) return null;
   const headers = new Headers({
     'content-type': type,

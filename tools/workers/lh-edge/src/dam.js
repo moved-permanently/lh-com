@@ -22,6 +22,7 @@
  */
 import { originFetch } from './edge.js';
 import { damMedia } from './dam-media.js';
+import { damAem } from './dam-aem.js';
 // the site's own module: one naming rule for the site, the copies and the Worker (wrangler
 // bundles it)
 /* eslint-disable import/no-relative-packages */
@@ -36,7 +37,8 @@ export const isDamPath = (pathname) => pathname.startsWith('/content/dam/');
  * Steps before the copies: async (request, env, ctx, dam) => Response | null. The first: the
  * videos and subtitles in R2 (src/dam-media.js).
  */
-export const DAM_STEPS = [damMedia];
+// AEM's publish tier first (var AEM_PUBLISH), R2 as its fallback
+export const DAM_STEPS = [damAem, damMedia];
 
 // brand assets Lufthansa manages in Frontify, kept in sync by lh-backends (binding BACKENDS):
 // /content/dam/<tenant>/(images|videos)/frontify/..., renditions included; not the author-made

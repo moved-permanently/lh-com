@@ -121,6 +121,11 @@ ALIAS_HOME_ROOT = "cn/en"
 # other spellings of a page URL (src/url-forms.js: upper case, .html, .nocache.html, a trailing
 # slash, the long /content/lh/markets/<cc>/<ll>/ path): one 301 to the page; "off": as before
 URL_FORMS = "on"
+# www's large DAM files (mp4, vtt, the PDFs R2 holds) from this AEM publish tier first, R2 as the
+# fallback (src/dam-aem.js); "": R2 only. AEM_KEEPALIVE_URLS: one GET each an hour from the
+# poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none
+AEM_PUBLISH = ""
+AEM_KEEPALIVE_URLS = ""
 ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live,lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page"
 ALIAS_HTML_CACHE_CONTROL = "public, max-age=28800"
 # GraphQL feeds (/graphql/execute.json/...): origins that get CORS (host patterns: a domain is the
