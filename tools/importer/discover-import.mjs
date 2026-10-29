@@ -8,7 +8,9 @@
  * app-entry; homepages: homepage; everything else: info), then site-postprocess.mjs (the
  * www.lufthansa.com URLs of lh-com's importers back to www.discover-airlines.com, links between
  * the site's pages relative), after adding the batch's documents to the allowlist
- * tools/importer/sites/lh-discover.json. Pages whose snapshot is missing are listed.
+ * tools/importer/sites/lh-discover.json. Live widgets the importers would flatten into text (the
+ * security waiting times) become a link to the page on www.discover-airlines.com (withLinkOuts).
+ * Pages whose snapshot is missing are listed.
  * Writes content-sites/lh-discover/runs/<name>-import.json: path -> template.
  *
  * Usage: node tools/importer/discover-import.mjs --list content-sites/lh-discover/runs/batch-01.txt [--dry-run]
@@ -34,6 +36,20 @@ const MAPPED = path.join(W, 'snapshots');
 
 /** A snapshot with its own lufthansa.com URLs on the placeholder host. */
 export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?=[/"'?#\s)]|$)/gi, `https://${PLACEHOLDER}`);
+
+// links out to the page on Discover's host (a widget a service answers on www): on this host
+// during the import, so neither the importers nor site-postprocess.mjs (which makes links to the
+// site's own pages relative) touch them; Discover's host afterwards, in the batch's documents
+export const LINK_OUT = 'link-out.invalid';
+
+/**
+ * A snapshot whose live widgets are a link to the page on www (the importers flatten them into
+ * text): the security waiting times (an airport select), labelled with the select's own label.
+ */
+export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaitingtime">[\s\S]*?<\/maui-select><\/form><\/div><\/div><\/div>/g, (m) => {
+  const label = (m.match(/buttontriggerlabel="([^"]+)"/) || [])[1] || HOST;
+  return `<div class="securitywaitingtime"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
+});
 
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
@@ -63,7 +79,7 @@ if (isMain) {
     const t = templateOf(p, html);
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    fs.writeFileSync(copy, withPlaceholder(html));
+    fs.writeFileSync(copy, withLinkOuts(withPlaceholder(html), p));
     (byTemplate[t] ||= []).push(u);
     out[p] = t;
   });
@@ -91,6 +107,11 @@ if (isMain) {
     fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
     console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-discover', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
       .join('\n'));
+    made.forEach((p) => {
+      const f = path.join(W, 'content', `${p}.plain.html`);
+      const doc = fs.readFileSync(f, 'utf8');
+      if (doc.includes(`https://${LINK_OUT}`)) fs.writeFileSync(f, doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`));
+    });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }
