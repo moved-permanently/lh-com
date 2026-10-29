@@ -6,6 +6,13 @@ URL: https://lh-messages.aem-poc-lab.workers.dev (`workers_dev = true`, no route
 
 ## Two accounts (the parallel run, `../README.md` "Two accounts")
 
+The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
+answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
+there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
+head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
+moves from lhcom.bbird.live to turnsthe.page.
+
 lh-messages deploys to Blackbird and to the second Cloudflare account with the same code; the
 second account's config has its own KV (`accounts/benpeter.sed`: KV `lh-messages-state`). The
 minute cron runs in both accounts, each with its own KV state; `PUSH_TARGET` stays unset in both

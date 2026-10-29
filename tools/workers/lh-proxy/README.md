@@ -7,10 +7,18 @@ routes to `UPSTREAM_ORIGIN` and adds CORS. It has no dependencies.
 
 ## Two accounts (the parallel run, `../README.md` "Two accounts")
 
+The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
+answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
+there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
+head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
+moves from lhcom.bbird.live to turnsthe.page.
+
 lh-proxy deploys to Blackbird (https://lh-proxy.aem-poc-lab.workers.dev) and to the second
 Cloudflare account (https://lh-proxy.benpeter.workers.dev) with the same code and vars; no
 resource ids, bindings or secrets. The site's pages on the turnsthe.page hosts use the second one
-(`scripts/lh-data.js` `PROXY_ORIGIN_TURNSTHE_PAGE`). Its allowlist (below) names neither
+(`scripts/lh-data.js` `PROXY_ORIGIN`) on every demo host but the old bbird.live ones (they keep
+Blackbird's, `PROXY_ORIGIN_BBIRD`, until they are retired). Its allowlist (below) names neither
 lhcom.bbird.live nor lufthansa.turnsthe.page, so from the main host the proxy refuses (403) and
 the widgets fall back as they do on lhcom today. Rollback: git revert (both accounts redeploy).
 
@@ -90,7 +98,8 @@ The worker deploys itself: every push to `main` that changes `tools/workers/lh-p
 (repository secret `CLOUDFLARE_API_TOKEN`). It can also be started by hand (workflow_dispatch).
 
 - URL: https://lh-proxy.aem-poc-lab.workers.dev (`/health` answers `{"ok":true,...}`)
-- The site's live-data client uses it by default: `PROXY_ORIGIN` in `scripts/lh-data.js`.
+- The site's live-data client uses it by default: `PROXY_ORIGIN` in `scripts/lh-data.js` (the
+  second account's), `PROXY_ORIGIN_BBIRD` on the bbird.live hosts.
 - After a worker change, check the run under Actions → "Deploy lh-proxy", then
   `curl https://lh-proxy.aem-poc-lab.workers.dev/health`.
 - Lufthansa's Cloudflare currently refuses the worker's upstream calls, so data routes answer

@@ -12,6 +12,11 @@ the second account's config replaces the KV id of EVENTS (`accounts/benpeter.sed
 BotCheck, the R2 bucket `lh-dam-media`); its second deploy leg waits until lh-backends, lh-forms
 and lh-messages exist in the account.
 
+lufthansa.turnsthe.page is the demo's main host; the bbird.live hosts are the old ones and keep
+answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (the brands: `scripts/demo.js`
+`TURNSTHE_PAGE_BRANDS`, `../README.md` "Brand hosts"); the head-URL rewrite below runs on them.
+
 | Blackbird | Second account | Treatment (vars) |
 | --- | --- | --- |
 | lhedge.bbird.live | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
@@ -23,6 +28,23 @@ Secrets in the second account (set there, not by the workflow): `AUDIT_LOG_KEY` 
 `WEBHOOK_TOKEN` (the publish events; the site config's webhook must point at that account's host
 to use them); `EVENTS_SINK_URL` stays unset; `ORIGIN_AUTHENTICATION` only if the origin needs a
 token (as on Blackbird). Rollback: git revert (both accounts redeploy).
+
+## Head URLs (`src/head-urls.js`, `HEAD_URLS_FROM`)
+
+The site config's production host is still lhcom.bbird.live (lhcom's CDN purge depends on it), so
+Edge Delivery writes `https://lhcom.bbird.live/...` into every page's `link[rel=canonical]`,
+`link[rel=alternate]` (hreflang), `meta[property=og:url]`, `og:image`, `og:image:*` and
+`twitter:*`. On an HTML answer whose request host is a turnsthe.page brand host
+(`scripts/demo.js` `TURNSTHE_PAGE_BRANDS`) a streaming HTMLRewriter moves those absolute URLs of
+`HEAD_URLS_FROM` (`lhcom.bbird.live`) to the request's host; on an alias host (lufthansa-cn) to
+its brand's main host (lufthansa.turnsthe.page), as an alias keeps one canonical host. Body links,
+other head elements, `.plain.html` and non-HTML answers are untouched. On every other host, the
+bbird.live hosts included (also with a forged `X-LH-Public-Host`), no rewriter is made. CPU per
+page: 1.0 to 1.9 ms with the tests' JavaScript HTMLRewriter, 1.3 to 2.4 ms with lol-html's
+WebAssembly build (19 to 44 KB pages), upper bounds for workerd's native rewriter; the turnsthe.page
+hosts run on Workers Paid. **It goes away** when the production host moves to turnsthe.page: set
+`HEAD_URLS_FROM = ""` (or drop the module). The smoke check masks the replica's host names, so it
+does not show the rewrite; `tools/workers/lh-edge/test/head-urls.test.mjs` does.
 
 ## Front door (`src/front-door.js`, `FRONT_DOOR_HOSTS`)
 

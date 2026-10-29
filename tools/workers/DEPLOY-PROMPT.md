@@ -46,7 +46,8 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
    - `head -c 70000 /dev/zero | curl -i -X POST --data-binary @- -H "Content-Type: application/json" $W/service/api/lhg-fare-teaser/fareteaser/manual`
      should return 413.
 6. **Site wiring.** `scripts/lh-data.js` already has
-   `PROXY_ORIGIN = 'https://lh-proxy.aem-poc-lab.workers.dev'`. In the browser, on
+   `PROXY_ORIGIN = 'https://lh-proxy.benpeter.workers.dev'` (the second account; the bbird.live
+   hosts use `PROXY_ORIGIN_BBIRD = 'https://lh-proxy.aem-poc-lab.workers.dev'`). In the browser, on
    `$O/de/en/homepage`, the flight-search and fare-teaser calls go to `$W` (200, or 502 followed
    by a request to `/data/recorded/...`).
 7. **Report back:** the latest "Deploy lh-proxy" run (commit, conclusion) and the status of each

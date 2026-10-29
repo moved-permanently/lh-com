@@ -12,9 +12,10 @@ lh-backends lives in its own repository (moved-permanently/lh-backends) and depl
 
 ## Two accounts
 
-The demo moves to a second Cloudflare account and the domain turnsthe.page. During the parallel
-run both accounts run the same code: every deploy goes to both, and each turnsthe.page host
-answers like its bbird.live twin.
+The demo lives on a second Cloudflare account and the domain turnsthe.page; its main host is
+**lufthansa.turnsthe.page**. The bbird.live hosts on Blackbird are the old ones: they keep answering
+exactly as before until they are retired. Until then both accounts run the same code: every deploy
+goes to both, and each turnsthe.page twin answers like its bbird.live host.
 
 | | Blackbird | Second account |
 | --- | --- | --- |
@@ -24,8 +25,20 @@ answers like its bbird.live twin.
 | Account id | in the workflows | the repository variable `CLOUDFLARE_ACCOUNT_ID_BENPETER` (not in the repository) |
 | Config | `wrangler.toml` | `wrangler.toml` with `accounts/benpeter.sed` applied |
 
-Host pairs (the new host gets its twin's treatment in every list of the code and config;
-`test/host-twins.test.mjs` and `lh-edge/test/twins.test.mjs` check them):
+### Brand hosts
+
+On turnsthe.page each Lufthansa group brand has its own first-level host, `<brand>.turnsthe.page`,
+and `<brand>-<role>.turnsthe.page` for its helper hosts: `lufthansa`, `lufthansa-edge`,
+`lufthansa-cn`, `lufthansa-forms`; Discover is `discover.turnsthe.page`; later brands the same
+(`austrian.turnsthe.page`, `austrian-cn.turnsthe.page`). The brands are one list,
+`scripts/demo.js` `TURNSTHE_PAGE_BRANDS` (not the whole domain: other demos may live on
+turnsthe.page); the site's demo-host checks and lh-edge's head-URL rewrite read it. Brand hosts that
+are no twin (discover and later) have no bbird.live host and never get one.
+
+### Host pairs
+
+The twin gets its bbird.live host's treatment in every list of the code and config
+(`test/host-twins.test.mjs` and `lh-edge/test/twins.test.mjs` check them):
 
 | Blackbird | Second account |
 | --- | --- |
@@ -33,12 +46,21 @@ Host pairs (the new host gets its twin's treatment in every list of the code and
 | lhedge.bbird.live | lufthansa-edge.turnsthe.page |
 | lhcn.bbird.live | lufthansa-cn.turnsthe.page |
 | lhforms.bbird.live | lufthansa-forms.turnsthe.page |
-| lhdiscover.bbird.live | lufthansa-discover.turnsthe.page |
 | `*.aem-poc-lab.workers.dev` | `*.benpeter.workers.dev` |
 
-The site picks the second account's Workers on the turnsthe.page hosts (`scripts/demo.js`
-`isTurnsThePageHost`: the form block's worker, the data widgets' proxy); the admin apps' default
-lh-backends (`tools/admin/shared/helpers.js` `DEFAULT_API`) stays Blackbird's until the switch.
+The site calls the second account's Workers everywhere but on the old bbird.live hosts
+(`scripts/demo.js` `isBbirdLiveHost`): the form block's worker (`scripts/lh-forms.js`
+`FORMS_ENDPOINT`), the data widgets' proxy (`scripts/lh-data.js` `PROXY_ORIGIN`) and the admin
+apps' lh-backends (`tools/admin/shared/helpers.js` `DEFAULT_API`); on lhcom, lhedge and lhcn the
+`*_BBIRD` constants, Blackbird's, until those hosts are retired.
+
+### Head URLs on turnsthe.page
+
+The site config's production host is still lhcom.bbird.live (lhcom's CDN purge depends on it), so
+Edge Delivery writes it into every page's canonical, hreflang, og:* and twitter:* URLs. lh-edge
+rewrites them on the turnsthe.page brand hosts to the host (an alias host such as lufthansa-cn: to
+its brand's main host), see `lh-edge/README.md` "Head URLs". It goes away (`HEAD_URLS_FROM` empty)
+when the production host moves to turnsthe.page.
 
 ### The id maps
 

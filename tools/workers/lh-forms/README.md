@@ -15,13 +15,22 @@ has no routes or custom domain, because the deploy token cannot manage the bbird
 
 ## Two accounts (the parallel run, `../README.md` "Two accounts")
 
+The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
+answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
+there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
+head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
+moves from lhcom.bbird.live to turnsthe.page.
+
 lh-forms deploys to Blackbird (https://lhforms.bbird.live, https://lh-forms.aem-poc-lab.workers.dev)
 and to the second Cloudflare account (https://lufthansa-forms.turnsthe.page,
 https://lh-forms.benpeter.workers.dev) with the same code. The second account's config takes its
 own Turnstile widget's site key (`accounts/benpeter.sed`: `0x4AAAAAAFqInbtR3tz5FcF4`); the
 Durable Object migration (`HourlyLimiter`) and the rate limit namespace apply there on the first
 deploy; DELIVERY binds that account's lh-backends (the deploy waits for it). The site's pages on
-the turnsthe.page hosts post here (`scripts/lh-forms.js` `FORMS_ENDPOINT_TURNSTHE_PAGE`);
+every demo host but the old bbird.live ones post to the second account's worker
+(`scripts/lh-forms.js` `FORMS_ENDPOINT`; lhcom, lhedge and lhcn `FORMS_ENDPOINT_BBIRD` until they
+are retired);
 `https://lufthansa.turnsthe.page` is an allowed origin next to `https://lhcom.bbird.live`.
 
 Secrets in the second account (set there, not by the workflow): `TURNSTILE_SECRET` (its widget),
