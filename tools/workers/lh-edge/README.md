@@ -122,6 +122,32 @@ answers:
 Hosts without an entry in `ALIAS_HOSTS` are not touched. The alias host is attached to the Worker as
 a custom domain in the Cloudflare dashboard (as the main host).
 
+## URL forms (`src/url-forms.js`, `URL_FORMS`)
+
+Before the routes (and before the front door's rules), other spellings of a page URL answer one 301 to the page, as
+www answers them (`tools/source-export/feeds/url-forms`, recorded 2026-10-29):
+
+| Request | www | Here |
+| --- | --- | --- |
+| upper case in a page path (`/de/en/Homepage`) | 301 to lower case | 301 to lower case (not under `lufthansa-fleet`, as www) |
+| `<page>.html`, `<page>/` | 200 with the page (canonical without the suffix) | 301 to `<page>` |
+| `<page>.nocache.html` | 200 with the page | 301 to `<page>` |
+| `/content/lh/markets/<cc>/<ll>/<page>` | 200 with the page | 301 to `/<cc>/<ll>/<page>` |
+| `/content/lh/markets/<cc>/<ll>/<page>.html` | 302 to the long path | 301 to `/<cc>/<ll>/<page>` |
+| `.external.html`, `.solo.html`, `.sdui.html` | 200 | 404, as before |
+
+A 301 instead of www's 200: under the suffixed or long URL the page breaks, its images are relative (`./media_…`) and the
+site's scripts read the path (the form block's form id, the language switch, the sub-page navigation). Combined forms
+take one hop (`/DE/EN/Carry-On-Baggage.html` to `/de/en/carry-on-baggage`); the query is kept. Page paths only:
+`/<cc>/<ll>/…` (a country code) or `/content/lh/markets/<cc>/<ll>/…` whose last segment has no dot once the suffix
+is gone, so `.plain.html`, `.sdui`, `.solo_continue`, `.csi-*.json`, `.mfe.html`, `.changelocale`, `.aircraft.json`
+and every file keep their answers, and nothing under the code paths, `/drafts`, `/content/dam`, `/content/mobile`,
+`/content/experience-fragments`, `/service`, `/deeplink`, `/graphql`, `/api`, `/etc`, the sitemaps, `/.well-known`,
+`/migration-status*`, `/_lh-auth` and lh-backends' families; `/<cc>/<ll>[/]` stays the entry redirect's
+(`test/url-forms.test.mjs` checks every one). `URL_FORMS = "off"` turns it off. Structural AEM paths
+(`/de/en/prepare-for-your-trip/baggage/carry-on-baggage`) answer 301 to the vanity URL through the redirects sheet
+(`tools/reports/structural-redirects.tsv`), so a long structural path takes two hops.
+
 ## Routes (first match wins, `src/index.js` `ROUTES`)
 
 | Route | Match | Answer |
@@ -256,7 +282,7 @@ www answers a set of server endpoints that are not pages: REST calls of its own 
 
 ## Entry redirects (`src/entry.js`)
 
-Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<two letters>` that is no country (ISO 3166-1, plus `xx`), such as `/en`, is left to the origin (404, as www). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live and lhcom.bbird.live don't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
+Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<two letters>` that is no country (ISO 3166-1, plus `xx`), such as `/en`, is left to the origin (404, as www). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. On the alias hosts (the China hosts lhcn.bbird.live and lufthansa-cn.turnsthe.page) `/` goes to `/<ALIAS_HOME_ROOT>/homepage` (`cn/en`, as www's China host) once that root is in the locale table (`aliasHome`); until then by country as above. With a pilot `cn/en` row the China hosts serve it (`PILOT_COUNTRIES_BY_HOST` `cn`). Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live and lhcom.bbird.live don't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
 
 Market roots the host serves (see "Market roots") count as the replica's locales here: on `PILOT_HOSTS` `/ch`, `/ch/en`, `/ch/de` go to `/ch/<ll>/homepage` (`/ch` by the saved choice, else `Accept-Language`, else the country's first row in the locale table, German); on other hosts to www as before.
 

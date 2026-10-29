@@ -77,7 +77,7 @@ EDGE_CACHE_VERSION = "2026-10-25a"
 PILOT_HOSTS = "lhedge.bbird.live,lufthansa-edge.turnsthe.page"
 # hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (lhcom.bbird.live=ch:
 # lhcom's CDN sends /ch/... and the sitemaps to lh-edge, nothing else); empty: none
-PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch; lufthansa.turnsthe.page=ch"
+PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch; lufthansa.turnsthe.page=ch; lhcn.bbird.live=cn; lufthansa-cn.turnsthe.page=cn"
 # Production mode (src/router.js, README "Production mode"): all off here, every request routed as
 # before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
 # current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
@@ -114,6 +114,13 @@ FRONT_DOOR_HOSTS = "lufthansa.turnsthe.page"
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
 ALIAS_HOSTS = "lhcn.bbird.live,lufthansa-cn.turnsthe.page"
+# the alias hosts' home (www's China host answers / with /cn/en/homepage): / goes to
+# /<root>/homepage once the root is in the locale table (cn/en comes with its rollout batch; with
+# a pilot row the China hosts serve it through PILOT_COUNTRIES_BY_HOST cn); until then / by country
+ALIAS_HOME_ROOT = "cn/en"
+# other spellings of a page URL (src/url-forms.js: upper case, .html, .nocache.html, a trailing
+# slash, the long /content/lh/markets/<cc>/<ll>/ path): one 301 to the page; "off": as before
+URL_FORMS = "on"
 ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live,lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page"
 ALIAS_HTML_CACHE_CONTROL = "public, max-age=28800"
 # GraphQL feeds (/graphql/execute.json/...): origins that get CORS (host patterns: a domain is the

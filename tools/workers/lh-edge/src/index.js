@@ -47,6 +47,7 @@ import {
 import { referrerRefusal } from './referrer.js';
 import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
+import { urlForm } from './url-forms.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -288,6 +289,10 @@ const conditional = (request) => ['GET', 'HEAD'].includes(request.method)
 async function respond(incoming, env, ctx) {
   const early = prelude(incoming);
   if (early) return early;
+  // another spelling of a page URL (upper case, .html, .nocache.html, a trailing slash, the long
+  // /content/lh/markets/<cc>/<ll>/ path): one 301 to the page (src/url-forms.js)
+  const form = urlForm(incoming, env);
+  if (form) return finish(form, incoming, env, 'url-form');
   // a front-door host (FRONT_DOOR_HOSTS, src/front-door.js) answers as its twin does through the
   // CDN in front of it: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to
   // the routes below (X-LH-Public-Host: the host), everything else to the origin

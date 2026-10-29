@@ -15,8 +15,10 @@
  */
 /* eslint-disable import/no-relative-packages */
 import { LOCALES, LIVE_ORIGIN } from '../../../../scripts/locale.js';
+import { LOCALE_TABLE } from '../../../../scripts/locale-table.js';
 /* eslint-enable import/no-relative-packages */
 import { servedMarketRoots } from './markets.js';
+import { aliasHostOf } from './alias.js';
 
 /** www's markets and the languages they offer (the first is the market's default). */
 export const MARKETS = {
@@ -31,7 +33,7 @@ const ENTRY = /^\/(?:([a-z]{2})(?:\/([a-z]{2}))?)?\/?$/;
 
 // ISO 3166-1 alpha-2 codes and www's international market xx: /<two letters> that is no country,
 // such as /en, is a page path (404 from the origin, as www)
-const COUNTRIES = new Set([
+export const COUNTRIES = new Set([
   'ad ae af ag ai al am ao aq ar as at au aw ax az ba bb bd be bf bg bh bi bj bl bm bn',
   'bo bq br bs bt bv bw by bz ca cc cd cf cg ch ci ck cl cm cn co cr cu cv cw cx cy cz',
   'de dj dk dm do dz ec ee eg eh er es et fi fj fk fm fo fr ga gb gd ge gf gg gh gi gl',
@@ -106,6 +108,16 @@ function redirect(location) {
   });
 }
 
+/**
+ * The home of an alias host (the China hosts: www's China host answers / with /cn/en/homepage):
+ * /<ALIAS_HOME_ROOT>/homepage once that root is in the locale table, else null (/ by country).
+ */
+export function aliasHome(request, env = {}, table = LOCALE_TABLE) {
+  const root = String(env.ALIAS_HOME_ROOT || '').trim();
+  if (!root || !table[root] || !aliasHostOf(request, env)) return null;
+  return `/${root}/homepage`;
+}
+
 /** The route. */
 export function entry(request, env = {}) {
   const url = new URL(request.url);
@@ -114,6 +126,8 @@ export function entry(request, env = {}) {
   const served = servedMarketRoots(request, env);
   if (cc && ll) return redirect(homepageUrl(cc, ll, search, served));
   if (cc) return redirect(homepageUrl(cc, pickLanguage(cc, request, served), search, served));
+  const home = aliasHome(request, env);
+  if (home) return redirect(`${home}${search}`);
   const saved = savedChoice(request);
   const country = String(request.headers.get('cf-ipcountry') || '').trim().toLowerCase();
   const market = (saved && saved.cc) || (/^[a-z]{2}$/.test(country) && country !== 'xx' ? country : '');
