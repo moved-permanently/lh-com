@@ -623,7 +623,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "fc6f0cdbe5b289f3",
+  "hash": "f321e91fe9d5e797",
   "route": "solo"
  },
  {
@@ -703,7 +703,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "235c2f830a5d6b66",
+  "hash": "5ff181f9a3bb10f7",
   "route": "market"
  },
  {
@@ -713,7 +713,7 @@
   "status": 200,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "427c6c7ea711e875",
+  "hash": "618573da6df3668c",
   "route": "market"
  },
  {
@@ -723,7 +723,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "5a016d11d1943dcb",
+  "hash": "1540256b85183576",
   "route": "market-sitemap"
  },
  {
@@ -733,7 +733,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "b53d9985fd816db2",
+  "hash": "6b7ba5d842d725bb",
   "route": "market-sitemap"
  },
  {
@@ -743,7 +743,7 @@
   "status": 200,
   "location": "",
   "type": "application/xml",
-  "hash": "9db598880133e573",
+  "hash": "be7ae5bc809c71a8",
   "route": "market-sitemap"
  },
  {
@@ -753,8 +753,8 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 5101,
-  "hash": "c9b7d7feabdd84b5",
+  "length": 7599,
+  "hash": "a4edf53d6c01b2c1",
   "route": "market-sitemap"
  },
  {
