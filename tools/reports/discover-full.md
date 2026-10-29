@@ -7,12 +7,32 @@ collects the results; the sections below grow with the batches.
 
 ## Open points
 
-### Forms: preview only
+### Forms: preview only, until the test submissions
 
-The forms can't work on lh-discover: lh-forms answers 403 to the lh-discover origin, and Discover's form pages are not
-in `FORM_IDS`. Every Discover page with a `form` block stays on preview (not published) and is marked "form, preview only"
-in the batch reports; nothing is built for them until this is decided. The seven of batch 1 were taken off live again on
-2026-10-29 (they stay on preview).
+Since 2026-10-29 (lh-forms 3dba488, deployed in both accounts) the Discover forms submit like the Lufthansa forms: lh-forms
+accepts the lh-discover origins and discover.turnsthe.page, knows the ten `discover-*` form ids (titles from www's h1 in en
+and de) and takes files on the two contact forms by www's rule; no recipient entry, so they mail to the worker's
+default recipient. Every form block on lh-discover has its `form` config row with its id, and `success` and `error`
+rows to the language version's thank-you and error pages (`discover-import.mjs` withDiscoverForm, also for later
+batches and roots). They stay on preview, marked "form, preview only" in the batch reports, until the bot check's host
+list has lh-discover's hosts and the test submissions are made; then they are published with their thank-you and error
+pages.
+
+| page | form id | success | error | fields | uploads |
+| --- | --- | --- | --- | ---: | --- |
+| `/de/en/book/assistance-requirements/accessible-travel/register-assistance-requirements-online` | `discover-assistance` | none (www 404) | `/de/en/my-bookings/manage/customer-service/contact-form/error` (www 404) | 22 | no |
+| `/de/en/book/baggage/sports-baggage-and-special-baggage/add-sports-baggage` | `discover-add-sports-baggage` | `…/add-sports-baggage/thank-you` | `…/add-sports-baggage/error` | 60 | no |
+| `/de/en/book/baggage/sports-baggage-and-special-baggage/register-ammunition` | `discover-register-ammunition` | `…/register-ammunition/thank-you` | `…/register-ammunition/error` | 20 | no |
+| `/de/en/book/baggage/sports-baggage-and-special-baggage/register-hunting-firearm` | `discover-register-hunting-firearm` | `…/register-hunting-firearm/thank-you` | `…/register-hunting-firearm/error` | 39 | no |
+| `/de/en/book/baggage/sports-baggage-and-special-baggage/register-sporting-firearm` | `discover-register-sporting-firearm` | `…/register-sporting-firearm/thank-you` | `…/register-sporting-firearm/error` | 39 | no |
+| `/de/en/book/special-requests/pets/animal-cargo-hold/register-animal-cargo-hold` | `discover-register-animal-cargo-hold` | `…/register-animal-cargo-hold/thank-you` | `…/register-animal-cargo-hold/error` | 21 | no |
+| `/de/en/book/special-requests/pets/animal-in-cabin/register-animal-cabin` | `discover-register-animal-cabin` | none (www 404) | `/de/en/my-bookings/manage/customer-service/contact-form/error` (www 404) | 17 | no |
+| `/de/en/my-bookings/manage/customer-service/contact-form/compensation-baggage` | `discover-compensation-baggage` | `…/contact-form/thank-you` | `…/contact-form/error` | 28 | yes: 5 files, 3,145,728 bytes each, JPEG/PDF |
+| `/de/en/my-bookings/manage/customer-service/contact-form/other-concerns` | `discover-other-concerns` | `…/contact-form/thank-you` | `…/contact-form/error` | 24 | yes: as above |
+| `/us/de/buccaneers-season-kickoff`, `/xx/de/buccaneers-season-kickoff` (own pages, noindex) | `discover-buccaneers-season-kickoff` | none (www 404) | `/de/de/my-bookings/manage/customer-service/contact-form/error` | 4 | no |
+
+The claims page (`…/contact-form/compensation-flight-irregularities`) stays a link to www: the claims app forbids
+framing outside discover-airlines.com and lufthansa.com. The tables below are the state before (2026-10-29, morning).
 
 Discover's form pages so far (batches 1 to 3, de/en). Fields: input rows of the form block (text, email, tel, date,
 select, radio, checkbox, textarea, file), without steps, fieldsets, notes and the submit button. Where www's form posts,

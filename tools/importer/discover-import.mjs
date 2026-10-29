@@ -10,6 +10,8 @@
  * the site's pages relative), after adding the batch's documents to the allowlist
  * tools/importer/sites/lh-discover.json. Live widgets the importers would flatten into text (the
  * security waiting times) become a link to the page on www.discover-airlines.com (withLinkOuts).
+ * Discover's forms get their lh-forms id, the same root's thank-you and error pages and www's
+ * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots).
  * Pages whose snapshot is missing are listed.
  * Writes content-sites/lh-discover/runs/<name>-import.json: path -> template.
  *
@@ -62,6 +64,95 @@ export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaiti
   const label = (attrs.match(/\stitle="([^"]+)"/) || [])[1] || text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '') || HOST;
   return `<div class="iframe-link-out"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
 });
+
+// Discover's forms (the info template's form-core parser writes lufthansa.com's form ids and its
+// /error.html): the lh-forms id per page name, the same root's thank-you and error pages where www
+// has them (www.discover-airlines.com's answers, 2026-10-29), www's maxlength values
+export const DISCOVER_FORMS = {
+  'register-assistance-requirements-online': 'discover-assistance',
+  'add-sports-baggage': 'discover-add-sports-baggage',
+  'register-ammunition': 'discover-register-ammunition',
+  'register-hunting-firearm': 'discover-register-hunting-firearm',
+  'register-sporting-firearm': 'discover-register-sporting-firearm',
+  'register-animal-cargo-hold': 'discover-register-animal-cargo-hold',
+  'register-animal-cabin': 'discover-register-animal-cabin',
+  'compensation-baggage': 'discover-compensation-baggage',
+  'other-concerns': 'discover-other-concerns',
+  'buccaneers-season-kickoff': 'discover-buccaneers-season-kickoff',
+};
+// the contact forms share contact-form/thank-you and contact-form/error
+const CONTACT = /\/my-bookings\/manage\/customer-service\/contact-form\/[^/]+$/;
+// roots where www answers 404 for a form's thank-you or error page ('*': every root)
+const THANK_YOU_404 = {
+  'register-animal-cabin': ['de/en', 'ca/en', 'ca/fr', 'us/en', 'xx/en', 'xx/fr'],
+  'register-assistance-requirements-online': ['de/en', 'us/en', 'xx/en'],
+  'register-ammunition': ['us/en', 'xx/en'],
+  'buccaneers-season-kickoff': '*',
+};
+const ERROR_404 = {
+  'register-animal-cabin': ['de/en'],
+  'register-assistance-requirements-online': ['de/en'],
+  'buccaneers-season-kickoff': '*',
+};
+// a root's language version (option B: the language documents; market roots get them there)
+const LANGUAGE_VERSIONS = { en: 'de/en', de: 'de/de', fr: 'xx/fr' };
+const CONFIG_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>(?:form|success|error)<\/div>(?:<div><\/div>){7}<\/div>/g;
+const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
+const linkRow = (name, href) => configRow(name, `<a href="${href}">${href}</a>`);
+const is404 = (table, page, key) => table[page] === '*' || (table[page] || []).includes(key);
+
+/**
+ * www's maxlength from the value its markup shows: the attribute often holds a value written twice
+ * (2020, 100100, 66) or two values run together (1413: 14 and 13); a doubled value is its half, two
+ * run-together values the larger (never stricter than www), any other value as it is.
+ */
+export function maxlengthOf(value) {
+  const s = String(value);
+  const half = s.length / 2;
+  if (s.length % 2 === 0 && s.slice(0, half) === s.slice(half)) return s.slice(0, half);
+  if (Number(s) < 1000) return s;
+  const splits = [...Array(s.length - 1).keys()].map((i) => [s.slice(0, i + 1), s.slice(i + 1)])
+    .filter(([, b]) => !b.startsWith('0'))
+    .sort((x, y) => Math.abs(x[0].length - x[1].length) - Math.abs(y[0].length - y[1].length));
+  return splits.length ? String(Math.max(Number(splits[0][0]), Number(splits[0][1]))) : s;
+}
+
+/**
+ * A Discover form document with its config rows (form: the lh-forms id; success and error: the
+ * language version's thank-you and error pages, none where www has none) and www's maxlengths; a
+ * document without a Discover form as it is. Also used for later batches and roots.
+ */
+export function withDiscoverForm(doc, p) {
+  const m = p.match(/^\/([a-z]{2})\/([a-z]{2})\/(.+)$/);
+  if (!m || !/<div class="form[ "]/.test(doc)) return doc;
+  const [, cc, ll, rest] = m;
+  const key = `${cc}/${ll}`;
+  const page = rest.split('/').pop();
+  const id = DISCOVER_FORMS[page];
+  if (!id) return doc;
+  const version = LANGUAGE_VERSIONS[ll] || key;
+  const own = `/${version}/${rest}`;
+  const base = CONTACT.test(own) ? own.replace(/\/[^/]+$/, '') : own;
+  const contactError = `/${version}/my-bookings/manage/customer-service/contact-form/error`;
+  const rows = [configRow('form', id)];
+  if (!is404(THANK_YOU_404, page, key)) rows.push(linkRow('success', `${base}/thank-you`));
+  rows.push(linkRow('error', is404(ERROR_404, page, key) ? contactError : `${base}/error`));
+  let placed = false;
+  const out = doc.replace(CONFIG_ROW, () => {
+    if (placed) return '';
+    placed = true;
+    return rows.join('');
+  });
+  return out.replace(/maxlength=(\d+)/g, (x, v) => `maxlength=${maxlengthOf(v)}`);
+}
+
+/** A document with www's robots value when its snapshot is noindex (the sweepstake). */
+export function withRobots(doc, html) {
+  const robots = ((html || '').match(/<meta name="robots" content="([^"]*)"/i) || [])[1] || '';
+  if (!/noindex/i.test(robots) || /<div><div>Robots<\/div>/i.test(doc)) return doc;
+  const value = robots.split(',').map((x) => x.trim()).filter(Boolean).join(', ');
+  return doc.replace('<div class="metadata">', `<div class="metadata"><div><div>Robots</div><div>${value}</div></div>`);
+}
 
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
@@ -118,6 +209,14 @@ if (isMain) {
     // their links out stay absolute in later runs too (site-postprocess.mjs)
     if (linkOuts.length) allow.linkOuts = [...new Set([...(allow.linkOuts || []), ...linkOuts.map(docName)])];
     fs.writeFileSync(sites, `${JSON.stringify(allow, null, 1)}\n`);
+    // Discover's forms (config rows, maxlengths) and www's noindex, before the links are mapped
+    made.forEach((p) => {
+      const f = path.join(W, 'content', `${p}.plain.html`);
+      const doc = fs.readFileSync(f, 'utf8');
+      const src = Object.keys(out).find((k) => docName(k) === p);
+      const next = withRobots(withDiscoverForm(doc, p), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
+      if (next !== doc) fs.writeFileSync(f, next);
+    });
     // the host mapping only for this batch's documents (earlier ones have their own Lufthansa URLs
     // back); links to the new documents become relative in every document
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
