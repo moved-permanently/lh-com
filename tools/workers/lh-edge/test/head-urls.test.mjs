@@ -71,12 +71,13 @@ test('the bbird.live hosts, .plain.html, non-HTML and HEAD_URLS_FROM empty: byte
   assert.equal(headUrlHost(new Request('https://lhcom.bbird.live/x'), env(), null), null);
 });
 
-test('alias hosts: as before (the rewrite comes to them with their main host)', async () => {
-  for (const host of ['lufthansa-cn.turnsthe.page', 'lhcn.bbird.live']) { // eslint-disable-line no-restricted-syntax
-    const html = await get(host); // eslint-disable-line no-await-in-loop
-    assert.deepEqual([...new Set(heads(html))].sort(), ['https://lhcom.bbird.live', 'https://www.lufthansa.com'].sort(), host);
-    assert.ok(html.includes(`<a href="https://${host}/de/en/homepage">`));
-  }
+test('alias hosts: lufthansa-cn points its head URLs at lufthansa.turnsthe.page, lhcn keeps lhcom', async () => {
+  const cn = await get('lufthansa-cn.turnsthe.page');
+  assert.deepEqual([...new Set(heads(cn))].sort(), ['https://lufthansa.turnsthe.page', 'https://www.lufthansa.com'].sort());
+  assert.ok(cn.includes('<a href="https://lufthansa-cn.turnsthe.page/de/en/homepage">'), 'the alias still moves body links to itself');
+  const lhcn = await get('lhcn.bbird.live');
+  assert.deepEqual([...new Set(heads(lhcn))].sort(), ['https://lhcom.bbird.live', 'https://www.lufthansa.com'].sort());
+  assert.ok(lhcn.includes('<a href="https://lhcn.bbird.live/de/en/homepage">'));
 });
 
 test('URL forms: the host itself, a path, a query or fragment; not another host that starts the same', () => {

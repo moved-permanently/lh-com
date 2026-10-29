@@ -3,8 +3,8 @@
  * lhcom.bbird.live (lhcom's CDN purge depends on it), so Edge Delivery writes it into every page's
  * canonical, hreflang alternates, og:url, og:image(:*) and twitter:* URLs. On an HTML answer for a
  * brand host of turnsthe.page (scripts/demo.js TURNSTHE_PAGE_BRANDS) those absolute URLs of the var
- * HEAD_URLS_FROM (lhcom.bbird.live) point at the host instead (alias hosts such as lufthansa-cn:
- * not rewritten). A
+ * HEAD_URLS_FROM (lhcom.bbird.live) point at the host instead; on an alias host (lufthansa-cn) at
+ * its brand's main host (lufthansa.turnsthe.page), as an alias keeps one canonical host. A
  * streaming HTMLRewriter on those head elements only; body links, .plain.html and non-HTML answers
  * are not touched, and on every other host (bbird.live included) no rewriter is made at all.
  * Goes away (HEAD_URLS_FROM empty) when the production host moves to turnsthe.page.
@@ -12,7 +12,7 @@
 /* global HTMLRewriter */
 /* eslint-disable import/no-relative-packages */
 // the brand list of the site (one place: scripts/demo.js)
-import { turnsThePageBrandOf } from '../../../../scripts/demo.js';
+import { turnsThePageBrandOf, TURNSTHE_PAGE_DOMAIN } from '../../../../scripts/demo.js';
 /* eslint-enable import/no-relative-packages */
 
 const META = /^(og:url|og:image(:.*)?|twitter:.+)$/i;
@@ -23,8 +23,9 @@ export function headUrlHost(request, env, alias) {
   if (!from) return null;
   const host = new URL(request.url).hostname.toLowerCase();
   const brand = turnsThePageBrandOf(host);
-  if (!brand || host === from || alias) return null;
-  return host;
+  if (!brand || host === from) return null;
+  // an alias host (lufthansa-cn) keeps one canonical host: its brand's main host
+  return alias ? `${brand}.${TURNSTHE_PAGE_DOMAIN}` : host;
 }
 
 /** An absolute URL of `from` moved to `to`, or null when it is another URL. */
