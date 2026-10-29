@@ -874,3 +874,92 @@ test('BotCheck entrypoint (service binding): verify(token, ip) with the test key
   assert.equal(await verifyToken({ TURNSTILE_SECRET: PASS_SECRET }, DUMMY_TOKEN), true);
   assert.deepEqual(verifyCalls.map((c) => c.remoteip), ['203.0.113.9', undefined, undefined]);
 });
+
+/* ---------- Discover Airlines (lh-discover) ---------- */
+
+const DISCOVER = 'https://main--lh-discover--moved-permanently.aem.page';
+const DISCOVER_PAGE = `${DISCOVER}/de/en/my-bookings/manage/customer-service/contact-form/compensation-baggage`;
+const DISCOVER_IDS = ['discover-assistance', 'discover-add-sports-baggage', 'discover-register-ammunition',
+  'discover-register-hunting-firearm', 'discover-register-sporting-firearm', 'discover-register-animal-cargo-hold',
+  'discover-register-animal-cabin', 'discover-compensation-baggage', 'discover-other-concerns',
+  'discover-buccaneers-season-kickoff'];
+
+test('lh-discover origins are accepted (aem.page, aem.live, DA preview, discover.turnsthe.page); other sites refused', async () => {
+  const origins = [DISCOVER, 'https://main--lh-discover--moved-permanently.aem.live',
+    'https://main--lh-discover--moved-permanently.preview.da.live', 'https://discover.turnsthe.page'];
+  const ok = await Promise.all(origins.map((origin, i) => post({
+    origin, form: 'discover-other-concerns', page: DISCOVER_PAGE, ip: `198.51.100.${50 + i}`,
+  })));
+  ok.forEach(({ res }, i) => {
+    assert.equal(res.status, 200, origins[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), origins[i]);
+  });
+  const refused = ['https://main--lh-discoverx--moved-permanently.aem.page', 'https://main--lh-discover--someone-else.aem.page',
+    'https://main--other-site--moved-permanently.aem.live', 'https://discover.turnsthe.page.evil.example', 'https://evil.turnsthe.page'];
+  const bad = await Promise.all(refused.map((origin, i) => post({ origin, form: 'discover-other-concerns', ip: `198.51.100.${80 + i}` })));
+  bad.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 403, refused[i]);
+    assert.deepEqual(body, { ok: false, error: 'origin-not-allowed' });
+  });
+});
+
+test('each Discover form id is known: one mail to the default recipient, titled by www\'s h1 per language', async () => {
+  const results = await Promise.all(DISCOVER_IDS.flatMap((form, i) => ['de-en', 'de-de'].map((locale, j) => post({
+    origin: DISCOVER, form, locale, page: DISCOVER_PAGE, ip: `203.0.113.${100 + i * 2 + j}`,
+  }))));
+  results.forEach(({ res, body }) => {
+    assert.equal(res.status, 200);
+    assert.deepEqual(body, { ok: true });
+  });
+  assert.equal(sent.length, DISCOVER_IDS.length * 2);
+  sent.forEach((m) => assert.deepEqual(m.to, ['default@example.com']));
+  const titles = sent.map((m) => m.html.match(/<h1>([^<]*)<\/h1>/)[1]);
+  assert.ok(titles.includes('Compensation for late or damaged baggage'));
+  assert.ok(titles.includes('Gewinnspiel zum Season Kick-Off der Tampa Bay Buccaneers'));
+  assert.ok(titles.every((t) => t && !t.startsWith('@@')), 'every title is set');
+});
+
+test('files on Discover\'s contact forms: www\'s rule (5 files, 3,145,728 bytes each, JPEG or PDF); other Discover forms take none', async () => {
+  const sized = (bytes, size, name, type) => {
+    const b = new Uint8Array(Math.max(size, bytes.length));
+    b.set(bytes);
+    return ['Dokumente', file(b, name, type)];
+  };
+  const pdf = (name = 'a.pdf', size = 0) => sized(PDF, size, name, 'application/pdf');
+  const cases = [
+    [[pdf(), pdf(), pdf(), pdf(), pdf(), pdf()], 400, 'too-many-files'],
+    [[pdf('a.pdf', 3145729)], 413, 'file-too-large'],
+    [[['Dokumente', file(PNG, 'photo.png', 'image/png')]], 400, 'invalid-file-type'],
+    // a PNG under a JPEG name and type: its bytes decide
+    [[['Dokumente', file(PNG, 'photo.jpg', 'image/jpeg')]], 400, 'invalid-file-type'],
+    [[pdf('bad#name.pdf')], 400, 'invalid-file-name'],
+  ];
+  for (const form of ['discover-compensation-baggage', 'discover-other-concerns']) { // eslint-disable-line no-restricted-syntax
+    // eslint-disable-next-line no-await-in-loop
+    const results = await Promise.all(cases.map(([files], i) => post({
+      origin: DISCOVER, form, page: DISCOVER_PAGE, files, ip: `192.0.2.${form.length + i * 3}`,
+    })));
+    results.forEach(({ res, body }, i) => {
+      assert.equal(res.status, cases[i][1], `${form} ${cases[i][2]}`);
+      assert.deepEqual(body, { ok: false, error: cases[i][2] });
+    });
+  }
+  assert.equal(sent.length, 0);
+  // the limit itself, a JPEG and a PDF: accepted
+  const ok = await post({
+    origin: DISCOVER,
+    form: 'discover-compensation-baggage',
+    page: DISCOVER_PAGE,
+    ip: '192.0.2.240',
+    files: [pdf('receipt.pdf', 3145728), sized(JPG, 10, 'tag.JPG', 'image/jpeg')],
+  });
+  assert.equal(ok.res.status, 200);
+  assert.deepEqual(sent[0].attachments.map((a) => [a.filename, a.type]), [['receipt.pdf', 'application/pdf'], ['tag.JPG', 'image/jpeg']]);
+  const none = await post({
+    origin: DISCOVER, form: 'discover-assistance', page: DISCOVER_PAGE, ip: '192.0.2.241', files: [pdf()],
+  });
+  assert.deepEqual(none.body, { ok: false, error: 'files-not-allowed' });
+  // feedback-past-flight keeps its own rule: a PNG is fine there
+  const fb = await post({ ip: '192.0.2.243', files: [['Attachments', file(PNG, 'photo.png', 'image/png')]] });
+  assert.equal(fb.res.status, 200);
+});

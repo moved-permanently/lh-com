@@ -51,13 +51,52 @@ const FORMS = {
     en: 'Enquiry about passenger receipt',
     de: 'Anfrage bezüglich einem Passagierbeleg',
   },
+  // Discover Airlines (lh-discover): the h1 of www.discover-airlines.com's /de/en/ and /de/de/
+  // pages (2026-10-29); the sweepstake exists in German only (us/de, xx/de)
+  'discover-assistance': {
+    en: 'Register assistance requirements online',
+    de: 'Betreuungsbedarf online anmelden',
+  },
+  'discover-add-sports-baggage': {
+    en: 'Register sports baggage',
+    de: 'Sportgepäck anmelden',
+  },
+  'discover-register-ammunition': {
+    en: 'Registering just ammunition for transport in hold',
+    de: 'Nur Munition zum Transport im Frachtraum anmelden',
+  },
+  'discover-register-hunting-firearm': {
+    en: 'Registering a hunting weapon for transport in hold',
+    de: 'Jagdwaffe zum Transport im Frachtraum anmelden',
+  },
+  'discover-register-sporting-firearm': {
+    en: 'Register a sports weapon for transport in hold',
+    de: 'Sportwaffe zum Transport im Frachtraum anmelden',
+  },
+  'discover-register-animal-cargo-hold': {
+    en: 'Register animal for transport in hold',
+    de: 'Tier zum Transport im Frachtraum anmelden',
+  },
+  'discover-register-animal-cabin': {
+    en: 'Register an animal for transport in the cabin',
+    de: 'Tier zum Transport in der Kabine anmelden',
+  },
+  'discover-compensation-baggage': {
+    en: 'Compensation for late or damaged baggage',
+    de: 'Kompensation bei verspätetem oder beschädigtem Gepäck',
+  },
+  'discover-other-concerns': { en: 'Other issues', de: 'Anderes Anliegen' },
+  'discover-buccaneers-season-kickoff': {
+    en: 'Gewinnspiel zum Season Kick-Off der Tampa Bay Buccaneers',
+    de: 'Gewinnspiel zum Season Kick-Off der Tampa Bay Buccaneers',
+  },
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones)
 const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,https://lufthansa.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lhcom.bbird.live,https://lufthansa.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
@@ -73,20 +112,33 @@ const LIMITS = {
   perHour: 20,
 };
 
-// Files: the rules of the live feedback-past-flight dropzone (content/de/en/feedback-past-flight:
-// accept=image/png, image/jpeg, image/jpg, application/pdf; max-files=5; max-size=3700000;
-// not-allowed=#$%^*()[]) plus a total cap that keeps the mail under the Email Service limit:
-// the whole JSON message must stay under 5 MiB, attachments base64-encoded (+33 %), so the
-// files may total 3.5 MB before encoding.
-const FILE_FORMS = ['feedback-past-flight'];
-const FILE_RULES = {
-  types: ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'],
-  extensions: ['.png', '.jpg', '.jpeg', '.pdf'],
+// Files, per form that has a dropzone: the rules of its live dropzone plus a total cap that keeps
+// the mail under the Email Service limit: the whole JSON message must stay under 5 MiB,
+// attachments base64-encoded (+33 %), so the files may total 3.5 MB before encoding. A file's
+// sniffed type must be one of the form's types.
+const MAIL_FILES = { maxTotal: 3.5 * MB, notAllowed: '#$%^*()[]', maxName: 200 };
+// Discover's contact forms (www.discover-airlines.com compensation-baggage, other-concerns:
+// accept=image/jpeg, image/jpg, application/pdf; max-files=5; max-size=3145728;
+// not-allowed=#$%^*()[])
+const DISCOVER_CONTACT_FILES = {
+  types: ['image/jpeg', 'image/jpg', 'application/pdf'],
+  extensions: ['.jpg', '.jpeg', '.pdf'],
   maxFiles: 5,
-  maxSize: 3700000,
-  maxTotal: 3.5 * MB,
-  notAllowed: '#$%^*()[]',
-  maxName: 200,
+  maxSize: 3145728,
+  ...MAIL_FILES,
+};
+const FILE_RULES = {
+  // content/de/en/feedback-past-flight: accept=image/png, image/jpeg, image/jpg, application/pdf;
+  // max-files=5; max-size=3700000; not-allowed=#$%^*()[]
+  'feedback-past-flight': {
+    types: ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'],
+    extensions: ['.png', '.jpg', '.jpeg', '.pdf'],
+    maxFiles: 5,
+    maxSize: 3700000,
+    ...MAIL_FILES,
+  },
+  'discover-compensation-baggage': DISCOVER_CONTACT_FILES,
+  'discover-other-concerns': DISCOVER_CONTACT_FILES,
 };
 
 const HONEYPOT = 'lh_hp';
@@ -368,29 +420,30 @@ async function sendMail(env, message) {
 /** @returns {Promise<{status:number,error:string}|{attachments:object[]}>} */
 async function validateFiles(files, form) {
   if (!files.length) return { attachments: [] };
-  if (!FILE_FORMS.includes(form)) return { status: 400, error: 'files-not-allowed' };
-  if (files.length > FILE_RULES.maxFiles) return { status: 400, error: 'too-many-files' };
+  const rules = Object.prototype.hasOwnProperty.call(FILE_RULES, form) ? FILE_RULES[form] : null;
+  if (!rules) return { status: 400, error: 'files-not-allowed' };
+  if (files.length > rules.maxFiles) return { status: 400, error: 'too-many-files' };
   let total = 0;
   const bad = files.map((file) => {
     const name = String(file.name || '');
     const lower = name.toLowerCase();
     total += file.size;
-    if (!name || name.length > FILE_RULES.maxName || /[\x00-\x1f\x7f/\\]/.test(name) // eslint-disable-line no-control-regex
-      || [...FILE_RULES.notAllowed].some((c) => name.includes(c))) return [400, 'invalid-file-name'];
-    if (file.size > FILE_RULES.maxSize) return [413, 'file-too-large'];
-    if (!FILE_RULES.extensions.some((e) => lower.endsWith(e))
-      || !FILE_RULES.types.includes(String(file.type || '').toLowerCase())) return [400, 'invalid-file-type'];
+    if (!name || name.length > rules.maxName || /[\x00-\x1f\x7f/\\]/.test(name) // eslint-disable-line no-control-regex
+      || [...rules.notAllowed].some((c) => name.includes(c))) return [400, 'invalid-file-name'];
+    if (file.size > rules.maxSize) return [413, 'file-too-large'];
+    if (!rules.extensions.some((e) => lower.endsWith(e))
+      || !rules.types.includes(String(file.type || '').toLowerCase())) return [400, 'invalid-file-type'];
     return null;
   }).find(Boolean);
   if (bad) return { status: bad[0], error: bad[1] };
-  if (total > FILE_RULES.maxTotal) return { status: 413, error: 'files-too-large' };
+  if (total > rules.maxTotal) return { status: 413, error: 'files-too-large' };
   const attachments = await Promise.all(files.map(async (file) => {
     const bytes = new Uint8Array(await file.arrayBuffer());
     return {
       content: base64(bytes), filename: file.name, type: sniffType(bytes), disposition: 'attachment',
     };
   }));
-  if (attachments.some((a) => !a.type)) return { status: 400, error: 'invalid-file-type' };
+  if (attachments.some((a) => !a.type || !rules.types.includes(a.type))) return { status: 400, error: 'invalid-file-type' };
   return { attachments };
 }
 

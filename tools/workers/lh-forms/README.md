@@ -52,9 +52,9 @@ Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method an
 ## CORS and Origin
 
 An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern as lh-proxy:
-`{branch}--lh-com|lh-flynet--moved-permanently` on aem.page/live and the DA preview, Quick Edit
-and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (`https://lhcom.bbird.live`,
-`http://localhost:3000`). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
+`{branch}--lh-com|lh-flynet|lh-discover--moved-permanently` on aem.page/live and the DA preview,
+Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (`https://lhcom.bbird.live`,
+`https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `http://localhost:3000`). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`
 (for curl).
@@ -65,13 +65,13 @@ The body is `multipart/form-data` (for example a `FormData`). It has these parts
 
 | Part | Content |
 | --- | --- |
-| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90` |
+| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff` |
 | `locale` | `de-en`, `de-de`, `at-de` or `gb-en` |
 | `page` | the page URL (`http:` or `https:`, at most 2000 characters) |
 | `fields` | a JSON array in page order: `[{"section":"...","label":"...","name":"...","value":"..."}]`. All four keys are required and must be strings (`""` is allowed). |
 | `cf-turnstile-response` | the Turnstile token (bot check below); needed when `BOT_CHECK` is on, ignored when off |
 | `lh_hp` | the honeypot: a hidden, empty text input. If it is not empty, the worker answers `200 {"ok":true}` and sends nothing. |
-| any other name | an uploaded file (only for `feedback-past-flight`). An empty part (an empty file input) is ignored. A non-empty text part under any other name gets `400 invalid-parts`. |
+| any other name | an uploaded file (only for `feedback-past-flight`, `discover-compensation-baggage` and `discover-other-concerns`). An empty part (an empty file input) is ignored. A non-empty text part under any other name gets `400 invalid-parts`. |
 
 Limits for `fields`: at most 400 entries and 256 KB of JSON. `section` can be up to 300
 characters, `label` 1000, `name` 200 and `value` 10000.
@@ -87,6 +87,13 @@ image/jpeg, image/jpg, application/pdf`, `max-files=5`, `max-size=3700000`,
 - a part type from the list above
 - content that really is a PNG, JPEG or PDF (checked by its first bytes)
 - no `#$%^*()[]`, slashes or control characters in the file name
+
+Discover's contact forms (`discover-compensation-baggage`, `discover-other-concerns`) have their own
+rule, www.discover-airlines.com's dropzone (`accept=image/jpeg, image/jpg, application/pdf`,
+`max-files=5`, `max-size=3145728`, `not-allowed=#$%^*()[]`): at most 5 files of at most 3,145,728
+bytes each, `.jpg`, `.jpeg` or `.pdf`, content a JPEG or PDF; the 3,500,000-byte total, the name
+rules and the first-byte check as above (the total keeps the mail under the Email Service
+limit; www's own dropzone has none). The rules are `FILE_RULES` per form in `src/index.js`.
 
 The REST API takes the attachments base64-encoded in its JSON body and caps the whole message at
 5 MiB including that encoding (+33 %), hence the 3.5 MB total before encoding.
