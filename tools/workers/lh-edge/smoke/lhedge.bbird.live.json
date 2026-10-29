@@ -737,6 +737,36 @@
   "route": "market-sitemap"
  },
  {
+  "key": "GET /content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+  "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "d462c2965db5cc5b",
+  "route": ""
+ },
+ {
+  "key": "GET /content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+  "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "48b8ea8de28d50d8",
+  "route": ""
+ },
+ {
+  "key": "GET /content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+  "path": "/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "52ced3e9b310f653",
+  "route": ""
+ },
+ {
   "key": "GET /sitemap/sitemap_lh.xml",
   "path": "/sitemap/sitemap_lh.xml",
   "method": "GET",
