@@ -1,4 +1,4 @@
-/* eslint-disable no-console, max-len, import/prefer-default-export -- tooling */
+/* eslint-disable no-console, max-len, import/prefer-default-export, import/extensions -- tooling */
 /**
  * Imports one capture batch of Discover's pages (brief 124) offline from their snapshots
  * (tools/importer/bd-snapshots/www.discover-airlines.com) with lh-com's import scripts into
@@ -12,6 +12,9 @@
  * security waiting times) become a link to the page on www.discover-airlines.com (withLinkOuts).
  * Discover's forms get their lh-forms id, the same root's thank-you and error pages and www's
  * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots).
+ * Links to www's DAM files become site-relative edsDamPath links (discover-dam.mjs relativeDamLinks;
+ * the batch's files are copied with discover-dam.mjs --list --download --upload, its posters and
+ * subtitle tracks switched with --switch).
  * Pages whose snapshot is missing are listed.
  * Writes content-sites/lh-discover/runs/<name>-import.json: path -> template.
  *
@@ -21,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { relativeDamLinks } from './discover-dam.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -226,7 +230,10 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      if (doc.includes(`https://${LINK_OUT}`)) fs.writeFileSync(f, doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`));
+      // links to www's DAM files: site-relative links to their copies (edsDamPath; DA, AEM and R2
+      // through lh-edge's DAM route), made by discover-dam.mjs for each batch
+      const next = relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`));
+      if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
