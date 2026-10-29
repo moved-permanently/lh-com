@@ -22,14 +22,21 @@ const PREVIEW = opt('origin') || 'https://main--lh-discover--moved-permanently.a
 const W = path.join(root, 'content-sites/lh-discover');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots/www.discover-airlines.com');
 
+// & as the source page (&amp;) and the preview (&#x26;) write it
+const amp = (s) => s.replace(/&(?:amp|#x26|#38);/gi, '&');
+
 /** The www.lufthansa.com URLs of a document that its source page does not have. */
-export function madeLufthansaLinks(doc, source) {
+export function madeLufthansaLinks(page, sourcePage) {
+  const doc = amp(page);
+  const source = amp(sourcePage);
   const urls = [...new Set([...doc.matchAll(/https:\/\/www\.lufthansa\.com[^"'\s<)]*/g)].map((m) => m[0]))];
-  return urls.filter((u) => !source.includes(u.replace(/&amp;/g, '&')) && !source.includes(u));
+  return urls.filter((u) => !source.includes(u));
 }
 
 /** The www.lufthansa.com links of a source page that the document has on the source host instead. */
-export function lostLufthansaLinks(doc, source, sourceHost = 'www.discover-airlines.com') {
+export function lostLufthansaLinks(page, sourcePage, sourceHost = 'www.discover-airlines.com') {
+  const doc = amp(page);
+  const source = amp(sourcePage);
   const paths = [...new Set([...source.matchAll(/href="https:\/\/www\.lufthansa\.com(\/[^"]+)"/g)].map((m) => m[1]))];
   return paths.filter((x) => doc.includes(`"https://${sourceHost}${x}"`) && !doc.includes(`"https://www.lufthansa.com${x}"`))
     .map((x) => `https://www.lufthansa.com${x}`);
