@@ -3,7 +3,9 @@
  * official website of the site's brand (Lufthansa; Discover Airlines on lh-discover:
  * scripts/brand.js). English on every locale and channel (website, FlyNet, app view).
  *
- * - Loaded from loadDelayed() (scripts/scripts.js), about 3.5 s after load: no LCP impact.
+ * - Started from the end of loadEager() (scripts/scripts.js) at a fixed early time, 1.8 s after
+ *   navigation start (at once when the first section took longer): it no longer opens in the
+ *   middle of the lazy phase at a time that varies from load to load.
  * - Native <dialog> opened with showModal(). Escape does not close it (the cancel event is
  *   prevented, closedby="none" where supported, and a close without the button reopens it);
  *   only the "I understand" button does.

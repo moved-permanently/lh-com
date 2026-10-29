@@ -396,6 +396,15 @@ async function loadEager(doc) {
 
   // a page without main: the cookie banner now (initConsent runs once per page)
   if (channel !== 'app') initConsent();
+
+  // showcase notice ("not an official Lufthansa website"): at a fixed early time, 1.8 s after
+  // navigation start (at once if that has passed), so it never lands in the middle of a later
+  // phase; demo hosts only (scripts/showcase-notice.js has its other rules)
+  if (isDemoHost()) {
+    window.setTimeout(() => {
+      import('./showcase-notice.js').then(({ default: showShowcaseNotice }) => showShowcaseNotice());
+    }, Math.max(0, 1800 - performance.now()));
+  }
 }
 
 /**
@@ -446,11 +455,6 @@ function loadDelayed() {
       import('./martech.js').then(({ default: initMartech }) => initMartech());
     }, 3500);
   }
-  // showcase notice ("not an official Lufthansa website"), well after LCP; demo hosts only
-  if (!isDemoHost()) return;
-  window.setTimeout(() => {
-    import('./showcase-notice.js').then(({ default: showShowcaseNotice }) => showShowcaseNotice());
-  }, 3500);
 }
 
 async function loadPage() {
