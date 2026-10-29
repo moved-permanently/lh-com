@@ -101,3 +101,10 @@ test('sites: with the vars set lh-com\'s hosts answer as before (tables and orig
   assert.equal(await resp.text(), 'lh-com /us/en/book/baggage');
   assert.ok(calls.every((c) => !c.startsWith(DISCOVER)));
 });
+
+test('sites: a DAM path on the site\'s host is passed to the site\'s origin as it is (no DAM route: no lh-com copy, AEM or R2)', async () => {
+  const e = env({ ...SITE_VARS, AEM_PUBLISH: 'https://publish-p1-e2.adobeaemcloud.com' });
+  const resp = await get('https://discover.example/content/dam/four_y/pdfs/large-brochure.pdf', e);
+  assert.equal(resp.status, 404);
+  assert.deepEqual(calls, [`${DISCOVER}/content/dam/four_y/pdfs/large-brochure.pdf`]);
+});

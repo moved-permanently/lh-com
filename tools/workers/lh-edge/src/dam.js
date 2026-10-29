@@ -19,6 +19,8 @@
  * - The synced brand assets (/content/dam/<tenant>/(images|videos)/frontify/...) go to
  *   lh-backends first (syncedAsset); its 404 falls through to the copies.
  * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
+ *   PDFs: DA first (one request), the steps (AEM, then R2) only when DA answers 404; any other
+ *   DA answer for a PDF (200, 206, 5xx, a timeout's error) is answered as before.
  */
 import { originFetch } from './edge.js';
 import { damMedia } from './dam-media.js';
@@ -166,6 +168,19 @@ export async function dam(request, env, ctx) {
   }
   const resp = await fetchDamAsset(request, env, edsDamPath(parsed.asset), params);
   if (resp.status === 200 || resp.status === 206) return assetResponse(request, resp);
+  if (resp.status === 404 && /\.pdf$/i.test(parsed.asset)) {
+    // a PDF DA doesn't hold (over its 20 MB): the steps again, AEM then R2, after this one DA
+    // request (they skip PDFs until afterDa)
+    info.afterDa = true;
+    for (let i = 0; i < DAM_STEPS.length; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      const answer = await DAM_STEPS[i](request, env, ctx, info);
+      if (answer) {
+        if (resp.body) resp.body.cancel().catch(() => {});
+        return answer;
+      }
+    }
+  }
   if (resp.status === 404) {
     const raw = decodePath(url.pathname);
     // the rendition, or the site's own media parameters, go with the redirect

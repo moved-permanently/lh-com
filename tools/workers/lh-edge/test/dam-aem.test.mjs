@@ -10,6 +10,9 @@ const HOST = 'https://lh-edge.example';
 const MP4 = '/content/dam/video/c3/202405-em/austragungsorte/lh-em-en-uts-lh-com.mp4';
 const VTT = '/content/dam/video/dbb/meet_the_makers-2024/caynova/240725-mtm-caynova-en-ad.vtt';
 const POSTER = '/content/dam/lufthansa-group/pdfs/lh-poster-antonio-colomboni-48x73cm.pdf';
+// a PDF DA holds (under 20 MB) and a brand's large PDF R2 doesn't hold
+const SMALL = '/content/dam/lh/pdfs/conditions.pdf';
+const LARGE = '/content/dam/four_y/pdfs/large-brochure.pdf';
 const BYTES = new Uint8Array(Array.from({ length: 1000 }, (_, i) => i % 256));
 
 /** A fake R2 bucket with the given keys (head and get, as src/dam-media.js reads them). */
@@ -24,8 +27,11 @@ const bucket = (keys) => ({
 
 let calls;
 let aem;
+let da;
 beforeEach(() => {
   calls = [];
+  // the DA copies' answer per test (default: none)
+  da = () => new Response('Not found', { status: 404 });
   // AEM's answer per test (default: the file, ranges as the publish tier answers them)
   aem = (req) => {
     const range = req.headers.get('range');
@@ -41,6 +47,7 @@ beforeEach(() => {
       url: req.url, method: req.method, headers: Object.fromEntries(req.headers), signal: init.signal, cache: init.cache,
     });
     if (req.url.startsWith(AEM)) return aem(req, init);
+    if (new URL(req.url).hostname === ORIGIN) return da(req, init);
     return new Response('Not found', { status: 404 });
   };
 });
@@ -50,6 +57,7 @@ const env = (extra = {}) => ({
 });
 const get = (p, init, e = env()) => worker.fetch(new Request(`${HOST}${p}`, init), e, {});
 const aemCalls = () => calls.filter((c) => c.url.startsWith(AEM));
+const daCalls = () => calls.filter((c) => new URL(c.url).hostname === ORIGIN);
 
 test('dam aem: 200 mp4 from the publish tier, streamed, with R2\'s header set and only content-length, etag, last-modified from AEM', async () => {
   const resp = await get(MP4, { headers: { cookie: 'x=y', 'accept-language': 'de', 'if-none-match': '"old"' } });
@@ -126,29 +134,94 @@ test('dam aem: 404, 5xx, a hibernated sandbox\'s 200 text/html, a timeout and a 
   assert.equal((await get(VTT)).status, 404);
 });
 
-test('dam aem: a PDF goes to AEM only when R2 has its key (the R2 head read once); no AEM_PUBLISH: no AEM call', async () => {
-  aem = () => new Response(BYTES, { headers: { 'content-type': 'application/pdf', 'content-length': '1000' } });
+test('dam aem: a PDF DA serves (200, a range 206) is answered from DA: no AEM call, no R2 call, one DA request', async () => {
+  aem = () => new Response(BYTES, { headers: { 'content-type': 'application/pdf' } });
+  da = (req) => (req.headers.get('range')
+    ? new Response(BYTES.slice(0, 100), { status: 206, headers: { 'content-type': 'application/pdf', 'content-range': 'bytes 0-99/1000' } })
+    : new Response(BYTES, { headers: { 'content-type': 'application/pdf' } }));
+  const e = env();
+  const whole = await get(SMALL, {}, e);
+  assert.equal(whole.status, 200);
+  assert.equal(whole.headers.get('x-lh-edge-route'), 'dam');
+  const part = await get(SMALL, { headers: { range: 'bytes=0-99' } }, e);
+  assert.equal(part.status, 206);
+  assert.equal(part.headers.get('content-range'), 'bytes 0-99/1000');
+  assert.equal(aemCalls().length, 0);
+  assert.equal(e.DAM_MEDIA.heads, 0);
+  assert.equal(daCalls().length, 2, 'one DA request each');
+});
+
+test('dam aem: a PDF DA answers 404: AEM\'s application/pdf; AEM 404, 200 text/html and a timeout go to R2, then the 404', async () => {
+  // AEM has it (a brand's large PDF R2 doesn't hold)
+  aem = (req) => new Response(req.method === 'HEAD' ? null : BYTES, { headers: { 'content-type': 'application/pdf', 'content-length': '1000' } });
+  const e = env();
+  const big = await get(LARGE, {}, e);
+  assert.equal(big.status, 200);
+  assert.equal(big.headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.equal(big.headers.get('content-type'), 'application/pdf');
+  assert.deepEqual(new Uint8Array(await big.arrayBuffer()), BYTES);
+  assert.equal(daCalls().length, 1);
+  assert.equal(aemCalls().length, 1);
+  assert.equal(aemCalls()[0].url, `${AEM}${LARGE}`);
+  assert.equal(e.DAM_MEDIA.heads, 0, 'AEM answered: no R2 call');
+  // a 200 to a range request is no answer (R2 answers the range for the poster)
+  const range = await get(POSTER, { headers: { range: 'bytes=0-99' } }, e);
+  assert.equal(range.status, 206);
+  assert.equal(range.headers.get('x-lh-edge-route'), 'dam-media');
+  // no usable AEM answer: the poster from R2, a PDF R2 doesn't hold the 404
+  const none = [
+    () => new Response('Not found', { status: 404 }),
+    () => new Response('<html>This environment is hibernated</html>', { headers: { 'content-type': 'text/html;charset=utf-8' } }),
+    (req, init) => new Promise((resolve, reject) => { init.signal.addEventListener('abort', () => reject(new Error('aborted'))); }),
+  ];
+  for (const a of none) {
+    aem = a;
+    const t = env({ AEM_HEADER_TIMEOUT_MS: '50' });
+    const poster = await get(POSTER, {}, t); // eslint-disable-line no-await-in-loop
+    assert.equal(poster.status, 200);
+    assert.equal(poster.headers.get('x-lh-edge-route'), 'dam-media');
+    assert.deepEqual(new Uint8Array(await poster.arrayBuffer()), BYTES); // eslint-disable-line no-await-in-loop
+    const missing = await get(LARGE, {}, t); // eslint-disable-line no-await-in-loop
+    assert.equal(missing.status, 404);
+    assert.equal(missing.headers.get('x-lh-edge-route'), 'dam');
+  }
+});
+
+test('dam aem: lh-com\'s poster PDF (not in DA) still answers dam-aem, after one DA request; HEAD too', async () => {
+  aem = (req) => new Response(req.method === 'HEAD' ? null : BYTES, { headers: { 'content-type': 'application/pdf', 'content-length': '1000' } });
   const e = env();
   const poster = await get(POSTER, {}, e);
+  assert.equal(poster.status, 200);
   assert.equal(poster.headers.get('x-lh-edge-route'), 'dam-aem');
-  assert.equal(poster.headers.get('content-type'), 'application/pdf');
-  assert.equal(aemCalls().length, 1);
-  const small = await get('/content/dam/lh/pdfs/conditions.pdf', {}, e);
-  assert.notEqual(small.headers.get('x-lh-edge-route'), 'dam-aem');
-  assert.equal(aemCalls().length, 1, 'a PDF R2 doesn\'t hold: no AEM call');
-  // the PDF falling back to R2 reads R2's head once
-  aem = () => new Response('<html></html>', { headers: { 'content-type': 'text/html' } });
-  const before = e.DAM_MEDIA.heads;
-  assert.equal((await get(POSTER, {}, e)).headers.get('x-lh-edge-route'), 'dam-media');
-  assert.equal(e.DAM_MEDIA.heads - before, 1);
-  calls.length = 0;
-  const off = await get(MP4, {}, env({ AEM_PUBLISH: '' }));
-  assert.equal(off.headers.get('x-lh-edge-route'), 'dam-media');
+  assert.deepEqual(calls.map((c) => (c.url.startsWith(AEM) ? 'aem' : 'da')), ['da', 'aem']);
+  const head = await get(POSTER, { method: 'HEAD' }, e);
+  assert.equal(head.headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.equal(head.headers.get('content-length'), '1000');
+  assert.equal(calls.at(-2).method, 'HEAD');
+  assert.equal(calls.at(-1).method, 'HEAD');
+});
+
+test('dam aem: no AEM_PUBLISH: no AEM call (the poster from R2); a DA 5xx for a PDF is passed on, no AEM or R2 call', async () => {
+  const off = env({ AEM_PUBLISH: '' });
+  const poster = await get(POSTER, {}, off);
+  assert.equal(poster.headers.get('x-lh-edge-route'), 'dam-media');
+  assert.equal((await get(LARGE, {}, off)).status, 404);
   assert.equal(aemCalls().length, 0);
-  // renditions and other methods: no AEM call
+  da = () => new Response('upstream error', { status: 503 });
+  const e = env();
+  const err = await get(POSTER, {}, e);
+  assert.equal(err.status, 503);
+  assert.equal(aemCalls().length, 0);
+  assert.equal(e.DAM_MEDIA.heads, 0);
+  // mp4 and vtt: AEM before DA, as before; renditions and other methods: no AEM call
+  calls.length = 0;
+  da = () => new Response('Not found', { status: 404 });
+  aem = () => new Response(BYTES, { headers: { 'content-type': 'video/mp4' } });
+  assert.equal((await get(MP4)).headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.equal(daCalls().length, 0);
   await get(MP4, { method: 'POST' });
   await get('/content/dam/lh/images/x.jpg.transform/lh-dcep-transform-width-720/img.jpg');
-  assert.equal(aemCalls().length, 0);
+  assert.equal(aemCalls().length, 1);
 });
 
 test('dam aem: a 200 to a range request (Cloudflare\'s cache fetching the whole file) goes to R2, which answers the range; the subrequest goes past Cloudflare\'s cache', async () => {

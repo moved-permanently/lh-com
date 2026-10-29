@@ -6,8 +6,8 @@
  * request goes on to the next steps and the DA copies.
  * - .vtt: text/vtt; charset=utf-8; .mp4: video/mp4 and .pdf: application/pdf with range requests
  *   (206, content-range, accept-ranges: bytes): browsers seek in videos and load large PDFs in
- *   parts. A PDF that is not in R2 (the usual case: Edge Delivery holds PDFs up to 20 MB) goes on
- *   to the DA copies.
+ *   parts. PDFs are asked last, after the DA copies answered 404 and AEM had no answer (src/dam.js:
+ *   Edge Delivery holds PDFs up to 20 MB, so a PDF DA serves costs no R2 call).
  * - cache-control public, max-age=2592000, as the other DAM answers; etag and last-modified of
  *   the object.
  */
@@ -49,9 +49,10 @@ export async function damMedia(request, env, ctx, info) {
   const ext = (info.asset.match(/\.([a-z0-9]+)$/i) || [])[1]?.toLowerCase();
   const type = MEDIA_TYPES[ext];
   if (!type) return null;
+  // PDFs: after DA and AEM (src/dam.js info.afterDa), mp4 and vtt: before DA
+  if ((ext === 'pdf') !== Boolean(info.afterDa)) return null;
   const key = mediaKey(info.asset);
-  // the AEM step may have read it already (src/dam-aem.js mediaHead)
-  const head = await (info.mediaHead || env.DAM_MEDIA.head(key));
+  const head = await env.DAM_MEDIA.head(key);
   if (!head) return null;
   const headers = new Headers({
     'content-type': type,

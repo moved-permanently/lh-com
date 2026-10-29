@@ -3,8 +3,9 @@
  * empty: off), ahead of the R2 copies (src/dam-media.js): the files Edge Delivery can't hold are
  * published there under the same names (scripts/dam-path.js edsDamPath, the R2 key with its
  * leading slash). A DAM step (src/dam.js DAM_STEPS):
- * - GET and HEAD of a valid asset path without rendition: .mp4 and .vtt always; .pdf only when R2
- *   has the key (most PDFs live in DA: no AEM round trip for them).
+ * - GET and HEAD of a valid asset path without rendition: .mp4 and .vtt first (before DA); .pdf
+ *   only after the DA copies answered 404 (src/dam.js: info.afterDa; most PDFs live in DA, every
+ *   brand's large ones on AEM: DA, then AEM, then R2).
  * - The AEM request has the same method and only range, if-none-match and if-modified-since; its
  *   headers must arrive within AEM_HEADER_TIMEOUT_MS, the body is streamed (an 869 MB video, the
  *   10 ms CPU limit of Workers Free).
@@ -21,7 +22,7 @@
  *   accept-ranges bytes; content-length, content-range, etag and last-modified from AEM; no other
  *   AEM header. x-lh-edge-route: dam-aem.
  */
-import { MEDIA_TYPES, mediaKey } from './dam-media.js';
+import { MEDIA_TYPES } from './dam-media.js';
 /* eslint-disable import/no-relative-packages */
 import { edsDamPath } from '../../../../scripts/dam-path.js';
 /* eslint-enable import/no-relative-packages */
@@ -30,13 +31,6 @@ import { edsDamPath } from '../../../../scripts/dam-path.js';
 export const AEM_HEADER_TIMEOUT_MS = 5000;
 const FORWARD = ['range', 'if-none-match', 'if-modified-since'];
 const KEEP = ['content-length', 'content-range', 'etag', 'last-modified'];
-
-/** The R2 head of an asset, once per request (the R2 step reads the same). */
-export function mediaHead(env, info) {
-  if (!env.DAM_MEDIA) return Promise.resolve(null);
-  if (!info.mediaHead) info.mediaHead = env.DAM_MEDIA.head(mediaKey(info.asset));
-  return info.mediaHead;
-}
 
 /** fetch with a time limit on the response headers (the body is not limited). */
 async function fetchHeaders(url, init, ms) {
@@ -57,7 +51,8 @@ export async function damAem(request, env, ctx, info) {
   const ext = (info.asset.match(/\.([a-z0-9]+)$/i) || [])[1]?.toLowerCase();
   const type = MEDIA_TYPES[ext];
   if (!type) return null;
-  if (ext === 'pdf' && !(await mediaHead(env, info))) return null;
+  // PDFs: after DA (src/dam.js), mp4 and vtt: before it
+  if ((ext === 'pdf') !== Boolean(info.afterDa)) return null;
   const headers = new Headers();
   FORWARD.forEach((h) => { if (request.headers.has(h)) headers.set(h, request.headers.get(h)); });
   let resp;

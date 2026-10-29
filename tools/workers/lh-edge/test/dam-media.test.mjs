@@ -103,7 +103,8 @@ test('dam media: a PDF over 20 MB from R2 as application/pdf, whole, in ranges a
   const head = await get(path, { method: 'HEAD' });
   assert.equal(head.status, 200);
   assert.equal(head.headers.get('content-length'), '600');
-  assert.equal(originCalls.length, 0, 'R2 answers, no DA copy asked');
+  // the DA copy is asked first (404: not in DA), once per request, then R2
+  assert.equal(originCalls.length, 3, 'one DA request each, then R2');
 });
 
 test('dam media: a PDF that is not in R2 goes on to the DA copies, as before', async () => {
