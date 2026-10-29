@@ -37,6 +37,7 @@ import {
 import {
   leanSource, leanModelPath, leanLlmsPath, resetLeanCache,
 } from './market-lean.js';
+import { sitemapIndexKey, storedIndex, localeTableHash } from './sitemap-index.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
 import { marketAllows, dropMarketSections } from '../../../../scripts/market-rules.js';
@@ -1074,34 +1075,47 @@ export async function marketSitemapXml(request, env, root, page = 1) {
   return `<?xml version="1.0" encoding="utf-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${lines.join('\n')}\n</urlset>\n`;
 }
 
-// localeCompare's order, without making a collator per comparison
-const collator = new Intl.Collator();
-
-/** The sitemap index (the origin's static file) with the served market roots' files added. */
-export async function sitemapIndexXml(request, env, roots) {
+/**
+ * What the sitemap index is made of: the origin's static file and the served market roots' file
+ * names (sitemapNames, per root), or null without the static file.
+ */
+export async function sitemapIndexSources(request, env, roots) {
   const resp = await originFetch(withoutConditions(request, 'GET'), env, `https://${env.ORIGIN}/sitemap/sitemap_lh.xml`);
   if (!resp.ok) return null;
   const xml = await resp.text();
+  if (!xml.includes('<sitemap>')) return { xml, names: [] };
+  const model = await marketModel(request, env);
+  return { xml, names: await Promise.all(roots.map((r) => sitemapNames(request, env, r, model))) };
+}
+
+/** The sitemap index of its sources (sitemapIndexSources): the static file with the names added. */
+export function sitemapIndexOf({ xml, names }, env = {}) {
   const items = [...xml.matchAll(/<sitemap>[\s\S]*?<\/sitemap>/g)].map((m) => m[0]);
   if (!items.length) return xml;
   const www = `https://${env.WWW_HOST || 'www.lufthansa.com'}`;
   const loc = (item) => (item.match(/<loc>([^<]*)<\/loc>/) || [])[1] || '';
   const have = new Set(items.map(loc));
-  const model = await marketModel(request, env);
-  const names = await Promise.all(roots.map((r) => sitemapNames(request, env, r, model)));
   names.flat().forEach((n) => {
     const u = `${www}/sitemap/${n}.xml.gz`;
     if (!have.has(u)) items.push(`<sitemap><loc>${u}</loc></sitemap>`);
   });
-  // www's order: by root, the numbered files after the root's first (each item's key made once:
-  // in the comparator the regular expressions ran thousands of times with 80 roots)
+  // www's order: by root, the numbered files after the root's first (each item's key made once).
+  // The keys are lower-case URLs that differ in letters, digits and the '~' after a root: the
+  // code-unit order is the collator's here, and cheaper (with 187 roots, 5,600 files, the
+  // collator's comparisons cost a few ms)
   const key = (item) => loc(item).replace(/\.xml\.gz$/, '')
     .replace(/_(\d+)$/, (m, n) => `~${n.padStart(4, '0')}`);
   const sorted = items.map((item) => ({ item, k: key(item) }))
-    .sort((a, b) => collator.compare(a.k, b.k)).map((x) => x.item);
+    .sort((a, b) => (a.k < b.k ? -1 : Number(a.k > b.k))).map((x) => x.item);
   const start = xml.indexOf('<sitemap>');
   const end = xml.lastIndexOf('</sitemap>') + '</sitemap>'.length;
   return `${xml.slice(0, start)}${sorted.join('')}${xml.slice(end)}`;
+}
+
+/** The sitemap index (the origin's static file) with the served market roots' files added. */
+export async function sitemapIndexXml(request, env, roots) {
+  const sources = await sitemapIndexSources(request, env, roots);
+  return sources && sitemapIndexOf(sources, env);
 }
 
 const SITEMAP = /^\/sitemap\/sitemap_lh(?:_([a-z]{2})_([a-z]{2})(?:_(\d+))?)?\.xml(\.gz)?$/;
@@ -1130,14 +1144,21 @@ export async function marketSitemap(request, env, fallback, ctx) {
   const gz = Boolean(m[4]);
   const cache = typeof caches !== 'undefined' ? caches.default : null;
   // the public host in the key: the answer depends on it (a CDN in front calls lh-edge under
-  // lh-edge's own host)
-  const cacheKey = new Request(`${url.origin}${url.pathname}?market-sitemap=2&host=${encodeURIComponent(publicHost(request, env))}`);
+  // lh-edge's own host); the locale table's hash: a batch deploy changes every sitemap at once
+  const cacheKey = new Request(`${url.origin}${url.pathname}?market-sitemap=3&host=${encodeURIComponent(publicHost(request, env))}&table=${localeTableHash()}`);
   const hit = cache && request.method === 'GET' && await cache.match(cacheKey);
   if (hit) return hit;
   let xml;
+  // the index built ahead (src/sitemap-index.js): its stored bytes, gzipped already
+  let stored = null;
   try {
-    if (root) xml = await marketSitemapXml(request, env, root, page);
-    else xml = await sitemapIndexXml(request, env, roots);
+    if (root) {
+      xml = await marketSitemapXml(request, env, root, page);
+    } else {
+      const sources = await sitemapIndexSources(request, env, roots);
+      if (sources) stored = await storedIndex(env, await sitemapIndexKey(sources, env, roots), gz);
+      xml = sources && (stored ? '' : sitemapIndexOf(sources, env));
+    }
   } catch (e) {
     return unavailable();
   }
@@ -1149,9 +1170,17 @@ export async function marketSitemap(request, env, fallback, ctx) {
     'cache-control': `public, max-age=${SITEMAP_TTL}`,
     'x-lh-edge-route': 'market-sitemap',
   };
-  if (request.method === 'HEAD') return new Response(null, { headers });
-  const { body } = new Response(xml);
-  const resp = new Response(gz ? body.pipeThrough(new CompressionStream('gzip')) : body, { headers });
+  if (!root) headers['x-lh-edge-sitemap-index'] = stored ? 'stored' : 'made';
+  if (request.method === 'HEAD') {
+    if (stored) await stored.cancel();
+    return new Response(null, { headers });
+  }
+  let out = stored;
+  if (!out) {
+    const { body } = new Response(xml);
+    out = gz ? body.pipeThrough(new CompressionStream('gzip')) : body;
+  }
+  const resp = new Response(out, { headers });
   if (cache && ctx && ctx.waitUntil) ctx.waitUntil(cache.put(cacheKey, resp.clone()));
   return resp;
 }

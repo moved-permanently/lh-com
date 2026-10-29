@@ -14,23 +14,44 @@
  * HTML answers go through the test's HTMLRewriter stand-in (JavaScript, slower than the
  * runtime's), so their numbers are an upper bound; the model build is reported on its own.
  *
- * Usage: node --import ./test/cloudflare-workers-shim.mjs bench-market.mjs [--runs 5] [--compare] [--path /hu/en/baggage …]
+ * The sitemap index built ahead (src/sitemap-index.js) is made here from the recorded answers, as
+ * the Action does, and answered from memory (--stored off: SITEMAP_INDEX=off, the index made).
+ * --roots <n>: a projection, synthetic pilot rows added to the locale table up to n pilot roots
+ * (the de and en roots of www's countries not in the table, copied from hu/de and hu/en: their
+ * pages are the language versions', they have no own pages).
+ *
+ * Usage: node --import ./test/cloudflare-workers-shim.mjs bench-market.mjs [--runs 5] [--compare] [--roots 187] [--stored off] [--path /hu/en/baggage …]
  */
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import zlib from 'node:zlib';
 import HTMLRewriter from './test/htmlrewriter-shim.mjs';
-import worker from './src/index.js';
-import {
-  marketModel, resetMarketCache, MARKET_ROOTS, sitemapCount, sitemapEntries,
-} from './src/markets.js';
-import { resetSheetCache } from './src/sheet.js';
-import { resetSearchCache } from './src/search.js';
-import { LOCALE_TABLE } from '../../../scripts/locale-table.js';
-import { MODEL_COLUMNS, LLMS_COLUMNS } from './src/market-lean.js';
+import { LOCALE_TABLE, WWW_ROOTS } from '../../../scripts/locale-table.js';
 
 globalThis.HTMLRewriter = HTMLRewriter;
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
+// --roots: the synthetic rows go in before the Worker's modules read the table (imported below)
+const pilotCount = () => Object.values(LOCALE_TABLE).filter((r) => r.status === 'pilot').length;
+if (opt('roots')) {
+  const todo = WWW_ROOTS.split(' ').filter((k) => /^[a-w][a-z]\/(de|en)$/.test(k) && !LOCALE_TABLE[k]);
+  for (const k of todo) {
+    if (pilotCount() >= Number(opt('roots'))) break;
+    const [cc, ll] = k.split('/');
+    LOCALE_TABLE[k] = {
+      ...LOCALE_TABLE[`hu/${ll}`], country: cc, hreflang: `${ll}-${cc.toUpperCase()}`, name: `${cc} ${ll} (synthetic)`, countryName: { en: cc, de: cc },
+    };
+  }
+}
+const { default: worker } = await import('./src/index.js');
+const {
+  marketModel, resetMarketCache, MARKET_ROOTS, sitemapCount, sitemapEntries, servedMarketRoots, sitemapIndexSources, sitemapIndexOf,
+} = await import('./src/markets.js');
+const { resetSheetCache } = await import('./src/sheet.js');
+const { resetSearchCache } = await import('./src/search.js');
+const { MODEL_COLUMNS, LLMS_COLUMNS } = await import('./src/market-lean.js');
+// code before the stored index (an older commit benched with this file) has no sitemap-index.js
+const { sitemapIndexKey, storedNames } = await import('./src/sitemap-index.js').catch(() => ({}));
 const runs = Number(opt('runs', 5));
 const listed = argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : []));
 const HOST = 'lhedge.bbird.live';
@@ -106,9 +127,15 @@ async function searchDataFile(pathname) {
   }
   return searchData.get(locale)[m[3]] ?? null;
 }
+// the stored sitemap index (made after the first pass, from the recorded answers)
+const storedIndex = new Map();
 globalThis.fetch = async (input, init) => {
   const req = input instanceof Request ? input : new Request(input, init);
   const key = `${req.method} ${req.url}`;
+  if (new URL(req.url).hostname.startsWith('sitemap-index--')) {
+    const body = storedIndex.get(new URL(req.url).pathname);
+    return body ? new Response(body) : new Response('not found', { status: 404 });
+  }
   if (new URL(req.url).hostname.startsWith('search-data--')) {
     const text = await searchDataFile(new URL(req.url).pathname);
     return text === null ? new Response('not found', { status: 404 }) : new Response(text, { headers: { 'content-type': 'text/plain' } });
@@ -173,8 +200,10 @@ const median = (xs) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
 const same = (a, b) => a.status === b.status && a.headers === b.headers && a.body.length === b.body.length && a.body.every((x, i) => x === b.body[i]);
 
 // the old paths: the full indexes, the parsed JSON, the search over the index, 100 URLs a sitemap file
-const FULL = env({ MARKET_MODEL: 'full', SEARCH_DATA: 'off', MARKET_SITEMAP: 'fixed' });
-const LEAN = env();
+const FULL = env({
+  MARKET_MODEL: 'full', SEARCH_DATA: 'off', MARKET_SITEMAP: 'fixed', SITEMAP_INDEX: 'off',
+});
+const LEAN = env(opt('stored') === 'off' ? { SITEMAP_INDEX: 'off' } : {});
 const paths = (argv.includes('--compare') || opt('dump')) && !listed.length ? COMPARE : PATHS;
 // --mode full|lean: only one of them (a profile of one path; a dump of code without lean sources)
 const MODES = [['full', FULL], ['lean', LEAN]].filter(([m]) => argv.includes('--compare') || !opt('mode') || opt('mode') === m);
@@ -184,12 +213,27 @@ for (const [, e] of MODES) {
   await marketModel(new Request(`https://${HOST}/`), e);
   for (const p of paths) { reset(); await ask(p, e); }
 }
+// the sitemap index as the Action stores it, per mode
+if (sitemapIndexKey) {
+  for (const [, e] of MODES) {
+    reset();
+    const req = new Request(`https://${HOST}/sitemap/sitemap_lh.xml`);
+    const roots = servedMarketRoots(req, e);
+    const sources = await sitemapIndexSources(req, e, roots);
+    if (sources) {
+      const key = await sitemapIndexKey(sources, e, roots);
+      const xml = sitemapIndexOf(sources, e);
+      storedIndex.set(`/sitemap-index/${storedNames(key).xml}`, new TextEncoder().encode(xml));
+      storedIndex.set(`/sitemap-index/${storedNames(key).gz}`, new Uint8Array(zlib.gzipSync(xml)));
+    }
+  }
+}
 record = false;
 if (opt('record')) {
   fs.writeFileSync(opt('record'), JSON.stringify(Object.fromEntries([...recorded].map(([k, v]) => [k, { ...v, body: Buffer.from(v.body).toString('base64') }]))));
 }
 const bytes = [...recorded.values()].reduce((s, r) => s + r.body.byteLength, 0);
-console.log(`recorded ${recorded.size} origin answers, ${(bytes / 1e6).toFixed(1)} MB; ${PILOTS.length} pilot roots`);
+console.log(`recorded ${recorded.size} origin answers, ${(bytes / 1e6).toFixed(1)} MB; ${PILOTS.length} pilot roots${opt('roots') ? ' (synthetic rows added)' : ''}; sitemap index ${opt('stored') === 'off' || !sitemapIndexKey ? 'made' : 'stored'}`);
 
 if (opt('dump')) {
   // every compared answer's status, main headers and body as a hash, per mode: to compare two

@@ -1,12 +1,14 @@
 /* eslint-disable max-len, no-restricted-syntax, no-await-in-loop */
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
-import { gunzipSync } from 'node:zlib';
+import { gunzipSync, gzipSync } from 'node:zlib';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker, { routeOf } from '../src/index.js';
 import {
   marketAllows, marketPath, resetMarketCache, MARKET_ROOTS, marketHref,
+  servedMarketRoots, sitemapIndexSources, sitemapIndexOf,
 } from '../src/markets.js';
+import { sitemapIndexKey, localeTableHash } from '../src/sitemap-index.js';
 
 globalThis.HTMLRewriter = HTMLRewriter;
 
@@ -240,6 +242,66 @@ test('a revalidation of the sitemap index gets the index with the market roots, 
     assert.equal(resp.headers.get('x-lh-edge-route'), 'market-sitemap');
     assert.match(await resp.text(), /sitemap_lh_ch_en\.xml\.gz/);
   }));
+});
+
+test('the sitemap index built ahead: served while its key is the one lh-edge works out, else made; the edge cache key has the locale table\'s hash', async () => {
+  const made = await get('/sitemap/sitemap_lh.xml');
+  assert.equal(made.headers.get('x-lh-edge-sitemap-index'), 'made');
+  const xml = await made.text();
+  const madeGz = Buffer.from(await (await get('/sitemap/sitemap_lh.xml.gz')).arrayBuffer());
+  // the build's way (build-sitemap-index.mjs): the index and the key of its sources, Node's gzip
+  // (the same bytes as the runtime's CompressionStream)
+  const request = new Request('https://lhedge.example/sitemap/sitemap_lh.xml');
+  const roots = servedMarketRoots(request, env());
+  const sources = await sitemapIndexSources(request, env(), roots);
+  assert.equal(sitemapIndexOf(sources, env()), xml);
+  assert.deepEqual(madeGz, gzipSync(xml));
+  const key = await sitemapIndexKey(sources, env(), roots);
+  assert.match(key, /^[0-9a-f]{32}$/);
+  const stored = { [`/sitemap-index/${key}.xml`]: xml, [`/sitemap-index/${key}.gz.bin`]: gzipSync(xml) };
+  const plain = globalThis.fetch;
+  const asked = [];
+  globalThis.fetch = async (input, init) => {
+    const u = new URL(input instanceof Request ? input.url : input);
+    if (!u.hostname.startsWith('sitemap-index--')) return plain(input, init);
+    asked.push(`${u.hostname}${u.pathname}`);
+    return stored[u.pathname] ? new Response(stored[u.pathname]) : new Response('Not Found', { status: 404 });
+  };
+  const a = await get('/sitemap/sitemap_lh.xml');
+  assert.equal(a.headers.get('x-lh-edge-sitemap-index'), 'stored');
+  assert.equal(await a.text(), xml);
+  const g = await get('/sitemap/sitemap_lh.xml.gz');
+  assert.equal(g.headers.get('x-lh-edge-sitemap-index'), 'stored');
+  assert.equal(g.headers.get('content-type'), 'application/octet-stream');
+  assert.deepEqual(Buffer.from(await g.arrayBuffer()), madeGz);
+  assert.deepEqual(asked, [`sitemap-index--lh-com--moved-permanently.aem.live/sitemap-index/${key}.xml`, `sitemap-index--lh-com--moved-permanently.aem.live/sitemap-index/${key}.gz.bin`]);
+  assert.equal((await worker.fetch(new Request('https://lhedge.example/sitemap/sitemap_lh.xml', { method: 'HEAD' }), env(), {})).headers.get('x-lh-edge-sitemap-index'), 'stored');
+  // the key changes with a root's number of files, the roots and the static file: made then
+  assert.notEqual(await sitemapIndexKey({ ...sources, names: sources.names.map((n, i) => (i ? n : [...n, 'more'])) }, env(), roots), key);
+  assert.notEqual(await sitemapIndexKey(sources, env(), roots.slice(1)), key);
+  assert.notEqual(await sitemapIndexKey({ ...sources, xml: `${sources.xml} ` }, env(), roots), key);
+  delete stored[`/sitemap-index/${key}.xml`];
+  const missing = await get('/sitemap/sitemap_lh.xml');
+  assert.equal(missing.headers.get('x-lh-edge-sitemap-index'), 'made');
+  assert.equal(await missing.text(), xml);
+  // off: made, the branch not asked
+  asked.length = 0;
+  const off = await worker.fetch(new Request('https://lhedge.example/sitemap/sitemap_lh.xml.gz'), env({ SITEMAP_INDEX: 'off' }), {});
+  assert.equal(off.headers.get('x-lh-edge-sitemap-index'), 'made');
+  assert.deepEqual(Buffer.from(await off.arrayBuffer()), madeGz);
+  assert.deepEqual(asked, []);
+  // hosts without market roots: the static file, as before (no key, no branch)
+  assert.equal(await (await get('/sitemap/sitemap_lh.xml', 'lhcom.example')).text(), SITEMAP_INDEX);
+  assert.deepEqual(asked, []);
+  // the edge cache key: the public host and the locale table's hash
+  const store = new Map();
+  globalThis.caches = { default: { match: async (r) => store.get(r.url)?.clone(), put: async (r, resp) => { store.set(r.url, resp); } } };
+  const waits = [];
+  await worker.fetch(new Request('https://lhedge.example/sitemap/sitemap_lh.xml'), env(), { waitUntil: (p) => waits.push(p) });
+  await Promise.all(waits);
+  delete globalThis.caches;
+  assert.deepEqual([...store.keys()], [`https://lhedge.example/sitemap/sitemap_lh.xml?market-sitemap=3&host=lhedge.example&table=${localeTableHash()}`]);
+  assert.match(localeTableHash(), /^[0-9a-f]{8}$/);
 });
 
 test('entry redirects: pilot roots to their homepages on pilot hosts, to www elsewhere', async () => {

@@ -1,0 +1,66 @@
+name: Sitemap index
+# lh-edge's sitemap index built ahead (tools/workers/lh-edge/src/sitemap-index.js): made with
+# lh-edge's code and vars from the origin (aem.live) and kept on the branch `sitemap-index` (one
+# commit, replaced only when the files changed; never main). lh-edge serves a stored index only
+# while its key is the one it works out from the model, so a failed or late run only means it
+# makes the index as before. Runs on pushes that can change the index (the locale table, lh-edge's
+# code or vars, the static index), every 10 minutes (content: a publish changes the files per
+# root) and by hand. Pushes with the workflow token start no other workflow (no lh-edge deploy).
+# Off: disable the workflow, or the var SITEMAP_INDEX=off in lh-edge's wrangler.toml.
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/locale-table.js
+      - scripts/market-rules.js
+      - sitemap/**
+      - tools/workers/lh-edge/src/**
+      - tools/workers/lh-edge/wrangler.toml
+      - tools/workers/lh-edge/build-sitemap-index.mjs
+      - .github/workflows/sitemap-index.yaml
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sitemap-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: main
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - name: Build
+      run: node tools/workers/lh-edge/build-sitemap-index.mjs --out "$RUNNER_TEMP/sitemap-index"
+    - name: Replace the branch when the files changed
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        set -e
+        cd "$RUNNER_TEMP/sitemap-index"
+        git init -q
+        git config user.name "sitemap-index"
+        git config user.email "sitemap-index@users.noreply.github.com"
+        git add -A
+        tree=$(git write-tree)
+        remote="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        current=$(git ls-remote "$remote" refs/heads/sitemap-index | cut -f1)
+        if [ -n "$current" ]; then
+          git fetch -q --depth=1 "$remote" sitemap-index
+          if [ "$(git rev-parse FETCH_HEAD^{tree})" = "$tree" ]; then
+            echo "sitemap index unchanged"
+            exit 0
+          fi
+        fi
+        commit=$(git commit-tree "$tree" -m "sitemap index $(date -u +%FT%TZ)")
+        git push -q -f "$remote" "$commit:refs/heads/sitemap-index"
+        echo "sitemap index replaced: $commit"
