@@ -260,8 +260,10 @@ screens.forEach((p) => {
     const slider = v1.items.find((i) => i.type === 'teaserSlider');
     if (slider) sections[sections.length - 1] += teaserSliderBlock(slider);
   }
+  // a content page (a PAGE whose headline has the container screens' size, v2 HEADING_XXL)
+  const contentPage = !container && JSON.stringify(v2.body).includes('"variant":"HEADING_XXL"');
   docs[p] = {
-    sections, title: v2.metadata.title, container, v1, v2,
+    sections, title: v2.metadata.title, container, contentPage, v1, v2,
   };
 });
 
@@ -278,6 +280,7 @@ let written = 0;
 Object.entries(docs).forEach(([p, d]) => {
   const meta = [['Title', esc(d.title)], ['Robots', 'noindex, nofollow']];
   if (d.container) meta.push(['SDUI type', 'container']);
+  if (d.contentPage) meta.push(['SDUI type', 'content-page']);
   const am = articleMeta[p];
   if (am) {
     const dateLine = d.v1.items.find((i) => i.type === 'copyText' && i.size === 'SMALL');

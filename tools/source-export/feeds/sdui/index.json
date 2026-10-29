@@ -1,6 +1,6 @@
 {
  "recorded": "2026-10-25T18:21Z/2026-10-25T18:35:59.167Z",
- "note": "GET https://www.lufthansa.com<url>, no special headers (the dispatcher does not vary on the app headers)",
+ "note": "GET https://www.lufthansa.com<url>, no special headers (the dispatcher does not vary on the app headers); 2026-10-29 06:00-06:05 UTC: 6 more (zh homepage, en/de content-pages/100-years-of-lufthansa, v1 and v2) from inside a www page over the Bright Data browser (tools/importer/bd-fetch.mjs), 'recorded' per entry",
  "urls": {
   "/content/mobile/lh/de/articles.sdui": {
    "file": "sdui/de/articles.sdui.json",
@@ -1057,6 +1057,60 @@
    "cache-control": null,
    "cf-cache-status": "DYNAMIC",
    "bytes": 2115
+  },
+  "/content/mobile/lh/zh/homepage.sdui": {
+   "file": "sdui/zh/homepage.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 50,
+   "recorded": "2026-10-29T06:00:46.942Z"
+  },
+  "/content/mobile/lh/en/content-pages/100-years-of-lufthansa.sdui": {
+   "file": "sdui/en/content-pages/100-years-of-lufthansa.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 3811,
+   "recorded": "2026-10-29T06:01:06.524Z"
+  },
+  "/content/mobile/lh/en/content-pages/100-years-of-lufthansa.v2.sdui": {
+   "file": "sdui/en/content-pages/100-years-of-lufthansa.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 5273,
+   "recorded": "2026-10-29T06:01:12.933Z"
+  },
+  "/content/mobile/lh/de/content-pages/100-years-of-lufthansa.sdui": {
+   "file": "sdui/de/content-pages/100-years-of-lufthansa.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 3798,
+   "recorded": "2026-10-29T06:01:20.325Z"
+  },
+  "/content/mobile/lh/de/content-pages/100-years-of-lufthansa.v2.sdui": {
+   "file": "sdui/de/content-pages/100-years-of-lufthansa.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 5260,
+   "recorded": "2026-10-29T06:01:26.694Z"
+  },
+  "/content/mobile/lh/zh/homepage.v2.sdui": {
+   "file": "sdui/zh/homepage.v2.sdui.json",
+   "status": 200,
+   "content-type": "application/json",
+   "cache-control": null,
+   "cf-cache-status": null,
+   "bytes": 600,
+   "recorded": "2026-10-29T06:05:21.367Z"
   }
  }
 }

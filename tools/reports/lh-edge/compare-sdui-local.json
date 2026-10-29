@@ -1,6 +1,6 @@
 {
  "host": "local",
- "checkedAt": "2026-10-25T20:57:26.340Z",
+ "checkedAt": "2026-10-29T06:29:40.299Z",
  "leftOut": [
   "id: www sends AEM node paths; lh-edge generates stable ids of its own"
  ],
@@ -1512,10 +1512,16 @@
    "status": 200,
    "missing": [],
    "extra": [],
-   "different": [],
+   "different": [
+    {
+     "path": "items[3].description",
+     "www": "Purser&nbsp;Julia Buth aus Frankfurt verbringt regelmäßig Zeit in Buenos Aires und verrät die besten Tipps für einen perfekten Tag in der argentinischen Hauptstadt.",
+     "ours": "Purser Julia Buth aus Frankfurt verbringt regelmäßig Zeit in Buenos Aires und verrät die besten Tipps für einen perfekten Tag in der argentinischen Hauptstadt."
+    }
+   ],
    "leftOut": [],
    "normalised": [],
-   "equal": true
+   "equal": false
   },
   {
    "url": "/content/mobile/lh/de/articles/south-america.v2.sdui",
@@ -1523,7 +1529,13 @@
    "status": 200,
    "missing": [],
    "extra": [],
-   "different": [],
+   "different": [
+    {
+     "path": "body.items[0].items[2].description",
+     "www": "Purser&nbsp;Julia Buth aus Frankfurt verbringt regelmäßig Zeit in Buenos Aires und verrät die besten Tipps für einen perfekten Tag in der argentinischen Hauptstadt.",
+     "ours": "Purser Julia Buth aus Frankfurt verbringt regelmäßig Zeit in Buenos Aires und verrät die besten Tipps für einen perfekten Tag in der argentinischen Hauptstadt."
+    }
+   ],
    "leftOut": [
     "body.id",
     "body.items[0].id",
@@ -1536,7 +1548,7 @@
     "body.items[0].items[6].id"
    ],
    "normalised": [],
-   "equal": true
+   "equal": false
   },
   {
    "url": "/content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires.sdui",
@@ -3687,6 +3699,126 @@
     "body.items[0].items[2].id",
     "body.items[0].items[3].id",
     "body.items[0].items[4].id"
+   ],
+   "normalised": [],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/zh/homepage.sdui",
+   "version": "v1",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [],
+   "normalised": [],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa.sdui",
+   "version": "v1",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [],
+   "normalised": [
+    {
+     "path": "items[11].description",
+     "www": "Star Alliance, inflight internet, Airbus A380, and Allegris – starting in 1997, the trend increasingly pointed toward globalization and international partnerships. ",
+     "ours": "Star Alliance, inflight internet, Airbus A380, and Allegris – starting in 1997, the trend increasingly pointed toward globalization and international partnerships."
+    }
+   ],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/en/content-pages/100-years-of-lufthansa.v2.sdui",
+   "version": "v2",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [
+    "body.id",
+    "body.items[0].id",
+    "body.items[1].id",
+    "body.items[1].items[0].id",
+    "body.items[1].items[1].id",
+    "body.items[1].items[2].id",
+    "body.items[1].items[3].id",
+    "body.items[1].items[4].id",
+    "body.items[1].items[5].id",
+    "body.items[1].items[6].id",
+    "body.items[1].items[7].id",
+    "body.items[1].items[8].id",
+    "body.items[1].items[9].id"
+   ],
+   "normalised": [
+    {
+     "path": "body.items[1].items[9].description",
+     "www": "Star Alliance, inflight internet, Airbus A380, and Allegris – starting in 1997, the trend increasingly pointed toward globalization and international partnerships. ",
+     "ours": "Star Alliance, inflight internet, Airbus A380, and Allegris – starting in 1997, the trend increasingly pointed toward globalization and international partnerships."
+    }
+   ],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa.sdui",
+   "version": "v1",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [],
+   "normalised": [
+    {
+     "path": "items[11].description",
+     "www": "Star Alliance, Internet an Bord, Airbus A380 und Allegris – ab 1997 stehen die Zeichen vermehrt auf Globalisierung und internationale Partnerschaften. ",
+     "ours": "Star Alliance, Internet an Bord, Airbus A380 und Allegris – ab 1997 stehen die Zeichen vermehrt auf Globalisierung und internationale Partnerschaften."
+    }
+   ],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/de/content-pages/100-years-of-lufthansa.v2.sdui",
+   "version": "v2",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [
+    "body.id",
+    "body.items[0].id",
+    "body.items[1].id",
+    "body.items[1].items[0].id",
+    "body.items[1].items[1].id",
+    "body.items[1].items[2].id",
+    "body.items[1].items[3].id",
+    "body.items[1].items[4].id",
+    "body.items[1].items[5].id",
+    "body.items[1].items[6].id",
+    "body.items[1].items[7].id",
+    "body.items[1].items[8].id",
+    "body.items[1].items[9].id"
+   ],
+   "normalised": [
+    {
+     "path": "body.items[1].items[9].description",
+     "www": "Star Alliance, Internet an Bord, Airbus A380 und Allegris – ab 1997 stehen die Zeichen vermehrt auf Globalisierung und internationale Partnerschaften. ",
+     "ours": "Star Alliance, Internet an Bord, Airbus A380 und Allegris – ab 1997 stehen die Zeichen vermehrt auf Globalisierung und internationale Partnerschaften."
+    }
+   ],
+   "equal": true
+  },
+  {
+   "url": "/content/mobile/lh/zh/homepage.v2.sdui",
+   "version": "v2",
+   "status": 200,
+   "missing": [],
+   "extra": [],
+   "different": [],
+   "leftOut": [
+    "body.id"
    ],
    "normalised": [],
    "equal": true

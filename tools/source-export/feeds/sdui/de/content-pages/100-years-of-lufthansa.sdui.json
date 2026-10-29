@@ -1,0 +1,148 @@
+{
+ "title": "100 Jahre Lufthansa",
+ "type": "PAGE",
+ "items": [
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  },
+  {
+   "type": "image",
+   "url": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/new_mobile_100y_content_overview_header.png.transform/lh-dcep-transform-width-1440/img.jpg"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "Lufthansa: ein bewegtes Jahrhundert über den Wolken",
+   "variant": "HEADLINE"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "copyText",
+   "text": "Begleiten Sie uns auf einer faszinierenden Reise und lernen Sie eine Ikone der Luftfahrt neu kennen.",
+   "size": "SMALL",
+   "variant": "BODY"
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Aufstieg und Fall",
+   "description": "Ein Blick zurück auf die Anfänge der ersten Lufthansa – eine Ära, geprägt von Wagemut, Pioniergeist und politischer Vereinnahmung.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_teaser_image_part_1.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "cp_teaser_lufthansa_part_1_080626"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "100 Jahre Lufthansa",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Neubeginn einer Erfolgsgeschichte",
+   "description": "Aufregende Zeiten: Von 1946 bis 1996 erlebt Lufthansa einen rasanten Aufstieg. Lesen Sie mehr vom ersten Linienflug bis zum Jumbo-Jet.",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_part_2_image_00_header.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "cp_teaser_lufthansa_part_2_080626"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "100 Jahre Lufthansa",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "X_SMALL"
+  },
+  {
+   "type": "offerBox_v2",
+   "onDisplayTracking": {
+    "key": "redirect opportunity display",
+    "category": "redirect opportunity",
+    "action": "display",
+    "label": "offer_box"
+   },
+   "title": "Weiter in Richtung Zukunft",
+   "description": "Star Alliance, Internet an Bord, Airbus A380 und Allegris – ab 1997 stehen die Zeichen vermehrt auf Globalisierung und internationale Partnerschaften. ",
+   "textLink": "Artikel lesen",
+   "imageURL": "https://www.lufthansa.com/content/dam/lh/images/local_images/mobile/100-years/mobile_timeline_content_teaser_image_part_3.jpg.transform/lh-dcep-transform-width-1440/img.jpg",
+   "imageVariant": "IMAGE",
+   "imageScale": "FILL",
+   "action_v2": {
+    "tracking": {
+     "key": "offer box click",
+     "category": "offer box",
+     "action": "click",
+     "label": "cp_teaser_lufthansa_part_3_080626"
+    },
+    "type": "getAndShowViewDefinition",
+    "initialTitle": "100 Jahre Lufthansa",
+    "request": {
+     "type": "urlRequest",
+     "method": {
+      "type": "get"
+     },
+     "url": "https://www.lufthansa.com/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3.sdui"
+    },
+    "isDisabled": false
+   }
+  },
+  {
+   "type": "spacer",
+   "size": "LARGE"
+  }
+ ]
+}

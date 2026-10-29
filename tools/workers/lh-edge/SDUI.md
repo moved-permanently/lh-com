@@ -34,7 +34,7 @@ The image's link matters, not the image: Edge Delivery copies images into its me
 
 Tracking keys and categories follow from the item (`link button click`, `offer box click`, `blog overview click`, `sm teaser click`); the document holds only the labels.
 
-**Metadata**: `Title` (the screen title; v1 `title`, v2 `metadata.title`), `Robots` (`noindex, nofollow`), `SDUI type` (`container` for the home screen: v1 `CONTAINER`, v2 body padding top/bottom `NONE`). Articles: `Description` and `Teaser image` (their offer box in the category list), `Category` (the category screen), `Date` (ISO, from the date line), `Order` (the position among articles of the same date; www's order).
+**Metadata**: `Title` (the screen title; v1 `title`, v2 `metadata.title`), `Robots` (`noindex, nofollow`), `SDUI type` (`container` for the home screen: v1 `CONTAINER`, v2 body padding top/bottom `NONE`; `content-page` for a content page such as `content-pages/100-years-of-lufthansa`: a v1 `PAGE` whose headline has the container screens' size, v1 `HEADLINE` without size, v2 `HEADING_XXL`). A screen with only v2 items (zh's home screen: the service slot) is an empty v1 screen, without the padding spacers, as www. Articles: `Description` and `Teaser image` (their offer box in the category list), `Category` (the category screen), `Date` (ISO, from the date line), `Order` (the position among articles of the same date; www's order).
 
 ## Example: `/content/mobile/lh/en/articles/europe`
 

@@ -234,9 +234,13 @@ export function screenModel(doc) {
       ? true : items.length === 1 && items[0].kind === 'image';
     return { spacing: (s.attrs.spacing || 'large').toUpperCase(), direct, items };
   });
+  const type = (doc.meta['sdui-type'] || '').toLowerCase();
   return {
     title: doc.meta.title || '',
-    container: (doc.meta['sdui-type'] || '').toLowerCase() === 'container',
+    container: type === 'container',
+    // a content page (content-pages/100-years-of-lufthansa): a page with the container screens'
+    // headline (v1 HEADLINE without size, v2 HEADING_XXL)
+    largeHeadline: type === 'container' || type === 'content-page',
     sections,
   };
 }
@@ -519,7 +523,11 @@ export function iosLayout(items) {
 export function renderV1(model, ctx) {
   const c = { ...ctx, v2: false };
   const pad = { type: 'spacer', size: model.container ? 'M_LARGE' : 'LARGE' };
-  const items = model.sections.flatMap((s) => s.items.flatMap((i) => itemsV1(c, i, model.container)));
+  const large = model.largeHeadline ?? model.container;
+  const items = model.sections.flatMap((s) => s.items.flatMap((i) => itemsV1(c, i, large)));
+  // a screen whose items are all v2-only (zh's home screen: the service slot): an empty v1 screen,
+  // without the padding spacers (as www)
+  if (!items.length) return { title: model.title, type: model.container ? 'CONTAINER' : 'PAGE', items: [] };
   if (ctx.ios) {
     const laid = iosLayout(items);
     return { title: model.title, type: model.container ? 'CONTAINER' : 'PAGE', items: model.container ? [pad, ...laid, pad] : laid };
@@ -532,7 +540,7 @@ export function renderV2(model, ctx) {
   const c = { ...ctx, v2: true };
   idSeq = 0;
   const body = model.sections.flatMap((s, n) => {
-    const items = s.items.flatMap((i) => itemsV2(c, i, model.container));
+    const items = s.items.flatMap((i) => itemsV2(c, i, model.largeHeadline ?? model.container));
     if (s.direct) return items;
     return [{
       type: 'column',

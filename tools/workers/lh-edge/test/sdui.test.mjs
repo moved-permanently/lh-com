@@ -13,6 +13,8 @@ const env = { ORIGIN, PUBLIC_HOST: '', EDGE_TTL: '60' };
 const docs = {
   '/content/mobile/lh/en/articles/europe': fs.readFileSync(new URL('europe.plain.html', FIX), 'utf8'),
   '/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt': fs.readFileSync(new URL('a-perfect-day-in-frankfurt.plain.html', FIX), 'utf8'),
+  '/content/mobile/lh/en/content-pages/100-years-of-lufthansa': fs.readFileSync(new URL('content-page-100-years-en.plain.html', FIX), 'utf8'),
+  '/content/mobile/lh/zh/homepage': fs.readFileSync(new URL('homepage-zh.plain.html', FIX), 'utf8'),
 };
 const INDEX = fs.readFileSync(new URL('query-index-en.json', FIX), 'utf8');
 
@@ -57,6 +59,21 @@ test('sdui: v2 and v1 screens as www (ids aside), list from the index, public ho
   const first = await (await worker.fetch(new Request('https://lh-edge.example/content/mobile/lh/en/articles/europe.v2.sdui'), env, {})).json();
   assert.equal(JSON.stringify(again), JSON.stringify(first));
   assert.equal(first.id, '/content/mobile/lh/en/articles/europe');
+});
+
+test('sdui: a content page (SDUI type content-page) and zh\'s home screen as www, recorded 2026-10-29', async () => {
+  const zhFeed = new URL('../../../source-export/feeds/sdui/zh/', import.meta.url);
+  const zhExpected = (file, host) => JSON.parse(fs.readFileSync(new URL(file, zhFeed), 'utf8'), (k, v) => (k === 'id' ? undefined : v)
+    && (typeof v === 'string' ? v.replace(/https:\/\/www\.lufthansa\.com(?=\/content\/)/g, `https://${host}`) : v));
+  const get = async (p) => (await worker.fetch(new Request(`https://lh-edge.example${p}`), env, {})).json();
+  // www's texts may end in a space (the documents' don't): compared trimmed, as compare-sdui.mjs
+  const trim = (o) => JSON.parse(JSON.stringify(o), (k, v) => (typeof v === 'string' ? v.trim() : v));
+  // the page's headline in the container screens' size: v1 HEADLINE without size, v2 HEADING_XXL
+  assert.deepEqual(trim(await get('/content/mobile/lh/en/content-pages/100-years-of-lufthansa.sdui')), trim(expected('content-pages/100-years-of-lufthansa.sdui.json', 'lh-edge.example')));
+  assert.deepEqual(trim(withoutIds(await get('/content/mobile/lh/en/content-pages/100-years-of-lufthansa.v2.sdui'))), trim(expected('content-pages/100-years-of-lufthansa.v2.sdui.json', 'lh-edge.example')));
+  // a screen with only v2 items (the service slot): v1 empty, without padding spacers
+  assert.deepEqual(await get('/content/mobile/lh/zh/homepage.sdui'), zhExpected('homepage.sdui.json', 'lh-edge.example'));
+  assert.deepEqual(withoutIds(await get('/content/mobile/lh/zh/homepage.v2.sdui')), zhExpected('homepage.v2.sdui.json', 'lh-edge.example'));
 });
 
 test('sdui: no document answers 404 (JSON); web pages have no .sdui', async () => {

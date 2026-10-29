@@ -1,0 +1,27 @@
+{
+ "id": "/content/mobile/lh/zh/homepage",
+ "metadata": {
+  "title": "Homepage"
+ },
+ "body": {
+  "type": "column",
+  "id": "/content/mobile/lh/zh/homepage/par",
+  "items": [
+   {
+    "type": "sduiServiceIntegration",
+    "serviceId": "/content/dam/content-fragments/orchestrator_services/sdui-services/salesandmarketingteaserhub",
+    "auxiliaryData": "{\"headline\":\"探索更多主题\",\"maximumNumberOfTeasers\":8,\"variation\":\"NO_COLOUR\",\"domain\":\"www.lufthansa.com\",\"timeoutInSeconds\":3}",
+    "tenant": "app_lh",
+    "market": "",
+    "language": "zh"
+   }
+  ],
+  "padding": {
+   "bottom": "NONE",
+   "top": "NONE"
+  },
+  "spacing": "MEDIUM"
+ },
+ "cacheEnabled": true,
+ "version": "V2"
+}

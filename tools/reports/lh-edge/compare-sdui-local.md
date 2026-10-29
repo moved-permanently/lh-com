@@ -1,14 +1,14 @@
 # lh-edge app screens vs www (local render)
 
-2026-10-25T20:57:26.377Z
+2026-10-29T06:29:40.335Z
 
-v1: 66 URLs, 66 equal apart from the fields left out, 0 with differences (missing 0, extra 0, different 0)
+v1: 69 URLs, 68 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
 
-v2: 66 URLs, 66 equal apart from the fields left out, 0 with differences (missing 0, extra 0, different 0)
+v2: 69 URLs, 68 equal apart from the fields left out, 1 with differences (missing 0, extra 0, different 1)
 
 Left out on purpose:
 - id: www sends AEM node paths; lh-edge generates stable ids of its own
-- normalised (listed per URL in the JSON): whitespace Document Authoring does not keep (spaces, &nbsp; and <br> at the end of a text or of a bold run, "\n" at the end of a text, leading spaces, runs of spaces) and an editor style on <b> (<b style="font-size: 16px;">)
+- normalised (listed per URL in the JSON): whitespace Document Authoring does not keep (spaces, &nbsp; and <br> at the end of a text, of a bold run or of a list item, at the start of a list item, "\n" at the end of a text, leading spaces, runs of spaces) and an editor style on <b> (<b style="font-size: 16px;">)
 
 | URL | status | equal | missing | extra | different (first) |
 |---|---|---|---|---|---|
@@ -66,8 +66,8 @@ Left out on purpose:
 | /content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives.v2.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/de/articles/north-america.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/de/articles/north-america.v2.sdui | 200 | yes |  |  |  |
-| /content/mobile/lh/de/articles/south-america.sdui | 200 | yes |  |  |  |
-| /content/mobile/lh/de/articles/south-america.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/articles/south-america.sdui | 200 | no |  |  | items[3].description: "Purser&nbsp;Julia Buth aus Frankfurt verbringt regelmäßig Z / "Purser Julia Buth aus Frankfurt verbringt regelmäßig Zeit i |
+| /content/mobile/lh/de/articles/south-america.v2.sdui | 200 | no |  |  | body.items[0].items[2].description: "Purser&nbsp;Julia Buth aus Frankfurt verbringt regelmäßig Z / "Purser Julia Buth aus Frankfurt verbringt regelmäßig Zeit i |
 | /content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires.v2.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro.sdui | 200 | yes |  |  |  |
@@ -144,3 +144,9 @@ Left out on purpose:
 | /content/mobile/lh/en/articles/what-the-hack-travel-with-kids.v2.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/en/homepage.sdui | 200 | yes |  |  |  |
 | /content/mobile/lh/en/homepage.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/zh/homepage.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/en/content-pages/100-years-of-lufthansa.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/de/content-pages/100-years-of-lufthansa.v2.sdui | 200 | yes |  |  |  |
+| /content/mobile/lh/zh/homepage.v2.sdui | 200 | yes |  |  |  |
