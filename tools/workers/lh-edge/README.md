@@ -134,7 +134,14 @@ www answers them (`tools/source-export/feeds/url-forms`, recorded 2026-10-29):
 | `<page>.nocache.html` | 200 with the page | 301 to `<page>` |
 | `/content/lh/markets/<cc>/<ll>/<page>` | 200 with the page | 301 to `/<cc>/<ll>/<page>` |
 | `/content/lh/markets/<cc>/<ll>/<page>.html` | 302 to the long path | 301 to `/<cc>/<ll>/<page>` |
+| the same, the site has a page at the long path | 200 with the page; `.html`: 302 to the long path | as www; other spellings 301 to the long path |
 | `.external.html`, `.solo.html`, `.sdui.html` | 200 | 404, as before |
+
+A long path the site has a page at (DA documents under `/content/lh/markets/`, such as
+`/content/lh/markets/de/en/during-your-trip/lounges/loungenet`) keeps its answer: the long path's own answer decides, and
+only a 404 from it becomes the 301 to the short path (no extra request, no index: correct as soon as an author's page is
+on the origin). Its other spellings (`.html`, upper case, a trailing slash, `.nocache.html`) first ask the origin with one
+HEAD for the long page: found, to it (`.html` with www's 302, the rest 301); not found, to the short path as before.
 
 A 301 instead of www's 200: under the suffixed or long URL the page breaks, its images are relative (`./media_…`) and the
 site's scripts read the path (the form block's form id, the language switch, the sub-page navigation). Combined forms
@@ -405,7 +412,7 @@ The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` po
 
 ## Smoke check (`smoke.mjs`)
 
-Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live and their twins lufthansa-edge.turnsthe.page, lufthansa.turnsthe.page). The replica's own host names (both families) are masked as `HOST` in bodies and locations, so a host and its twin share one baseline: `--derive` writes the twins' files from their hosts' (`TWINS` in `smoke.mjs`), and the first run against a new host shows only real differences.
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live and their twins lufthansa-edge.turnsthe.page, lufthansa.turnsthe.page). The replica's own host names (both families) are masked as `HOST` in bodies and locations, so a host and its twin share one baseline: `--derive` writes the twins' files from their hosts' (`TWINS` in `smoke.mjs`), and the first run against a new host shows only real differences.
 
 ```sh
 node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --check    # against smoke/lhedge.bbird.live.json

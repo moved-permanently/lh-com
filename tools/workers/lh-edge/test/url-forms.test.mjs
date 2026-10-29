@@ -118,6 +118,53 @@ test('the 301 itself: GET and HEAD, the page URL, cacheable; other methods and U
   assert.equal((await fetchOn('lhedge.bbird.live', '/de/en/Homepage', { URL_FORMS: 'off' })).status, 404);
 });
 
+// DA documents at the long path (aem.live answers them 200; their short paths are 404)
+const LOUNGENET = [
+  '/content/lh/markets/de/en/during-your-trip/lounges/loungenet',
+  '/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b',
+  '/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge',
+];
+
+test('a long path the site has a page at answers as itself; its other spellings go to it (www: .html a 302)', async () => {
+  const seen = [];
+  globalThis.fetch = async (input, init = {}) => {
+    const req = input instanceof Request ? input : new Request(input);
+    const u = new URL(req.url);
+    seen.push(`${init.method || req.method} ${u.pathname}`);
+    const page = LOUNGENET.includes(u.pathname);
+    return new Response(page ? `<html><body>eds ${u.pathname}</body></html>` : 'not found', { status: page ? 200 : 404, headers: { 'content-type': 'text/html; charset=utf-8' } });
+  };
+  for (const host of ['lhedge.bbird.live', 'lufthansa-edge.turnsthe.page', 'lufthansa.turnsthe.page', 'lhcom.bbird.live']) { // eslint-disable-line no-restricted-syntax
+    for (const p of LOUNGENET) { // eslint-disable-line no-restricted-syntax
+      seen.length = 0;
+      const on = await answer(await fetchOn(host, p)); // eslint-disable-line no-await-in-loop
+      assert.equal(on.status, 200, `${host}${p}`);
+      assert.equal(on.body, `<html><body>eds ${p}</body></html>`, `${host}${p}`);
+      assert.notEqual(on.route, 'url-form', `${host}${p}`);
+      // the page's own answer decided: one origin request, no extra HEAD
+      assert.deepEqual(seen, [`GET ${p}`], `${host}${p}`);
+      const off = await answer(await fetchOn(host, p, { URL_FORMS: 'off' })); // eslint-disable-line no-await-in-loop
+      assert.deepEqual(on, off, `${host}${p}`);
+      const head = await worker.fetch(new Request(`https://${host}${p}`, { method: 'HEAD' }), env(), {}); // eslint-disable-line no-await-in-loop
+      assert.equal(head.status, 200, `HEAD ${host}${p}`);
+      // www's recorded answer for a long path with .html: 302 to the long path
+      const html = await fetchOn(host, `${p}.html?a=1`); // eslint-disable-line no-await-in-loop
+      assert.deepEqual([html.status, html.headers.get('location'), html.headers.get('x-lh-edge-route')], [302, `${p}?a=1`, 'url-form'], `${host}${p}.html`);
+      // the other spellings: one 301 to the long path
+      for (const form of [`${p}/`, `${p}.nocache.html`, p.replace('/loungenet', '/LoungeNet'), p.replace('/markets/de/en/', '/markets/DE/EN/')]) { // eslint-disable-line no-restricted-syntax
+        const r = await fetchOn(host, form); // eslint-disable-line no-await-in-loop
+        assert.deepEqual([r.status, r.headers.get('location')], [301, p], `${host}${form}`);
+      }
+    }
+    // a long path with no page at it: the 301 to the short path, as before
+    const missing = '/content/lh/markets/de/en/during-your-trip/lounges/no-such-lounge';
+    for (const form of [missing, `${missing}.html`, `${missing}/`]) { // eslint-disable-line no-restricted-syntax
+      const r = await fetchOn(host, form); // eslint-disable-line no-await-in-loop
+      assert.deepEqual([r.status, r.headers.get('location'), r.headers.get('x-lh-edge-route')], [301, '/de/en/during-your-trip/lounges/no-such-lounge', 'url-form'], `${host}${form}`);
+    }
+  }
+});
+
 test('China hosts: / to /cn/en/homepage once cn/en is in the locale table; until then by country, as today', async () => {
   const lhcn = new Request('https://lhcn.bbird.live/', { headers: { 'cf-ipcountry': 'DE' } });
   const cn = new Request('https://lufthansa-cn.turnsthe.page/', { headers: { 'cf-ipcountry': 'DE' } });

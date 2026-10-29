@@ -2,8 +2,8 @@
 /**
  * Smoke check of lh-edge's answers for today's paths (the four roots, app screens, feeds, DAM
  * images and video, entry redirects, sitemaps, llms, search, the server endpoints lh-edge answers,
- * the ch market rows): status, location, content type, content range and a hash of the body
- * (nonces masked) per request. Run before and after a deploy: every answer must be the same.
+ * the ch market rows, the DA documents at long paths): status, location, content type, content
+ * range and a hash of the body (nonces masked) per request. Run before and after a deploy: every answer must be the same.
  * Baselines per host are kept in smoke/<host>.json (README "Smoke check"). The replica's own host
  * names (bbird.live and their turnsthe.page twins, TWINS) are masked as HOST in bodies and
  * locations, so a host and its twin share one baseline: a twin's is derived from its host's.
@@ -60,6 +60,9 @@ export const CHECKS = [
   // the ch market roots' pages and sitemaps (lhedge: market roots; lhcom: its CDN sends /ch/... and
   // the sitemaps to lh-edge)
   ...['/ch/en/homepage', '/ch/de/homepage', '/ch/en/baggage', '/ch/de/gepaeck', '/sitemap/sitemap_lh_ch_en.xml', '/sitemap/sitemap_lh_ch_de.xml'].map((p) => ({ path: p })),
+  // DA documents at the long path (src/url-forms.js: a page there answers as itself, 200)
+  ...['/content/lh/markets/de/en/during-your-trip/lounges/loungenet', '/content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b',
+    '/content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge'].map((p) => ({ path: p })),
   // sitemaps, llms, well-known
   ...['/sitemap/sitemap_lh.xml', '/sitemap/sitemap_lh.xml.gz', '/sitemap/sitemap_lh_de_en.xml', '/sitemap/sitemap_lh_at_de.xml.gz', '/de/llms.txt', '/gb/llms.txt', '/robots.txt', '/service-worker.js',
     '/.well-known/assetlinks.json', '/.well-known/apple-app-site-association'].map((p) => ({ path: p })),
