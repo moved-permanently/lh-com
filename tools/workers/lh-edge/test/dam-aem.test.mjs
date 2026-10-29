@@ -16,7 +16,10 @@ const BYTES = new Uint8Array(Array.from({ length: 1000 }, (_, i) => i % 256));
 const bucket = (keys) => ({
   heads: 0,
   async head(key) { this.heads += 1; return keys.includes(key) ? { size: BYTES.length, httpEtag: '"r2"', uploaded: new Date('2026-10-26T12:00:00Z') } : null; },
-  async get(key) { return keys.includes(key) ? { body: new Blob([BYTES]).stream(), size: BYTES.length } : null; },
+  async get(key, { range } = {}) {
+    const part = range ? BYTES.slice(range.offset, range.offset + range.length) : BYTES;
+    return keys.includes(key) ? { body: new Blob([part]).stream(), size: BYTES.length } : null;
+  },
 });
 
 let calls;
@@ -35,7 +38,7 @@ beforeEach(() => {
   globalThis.fetch = async (input, init = {}) => {
     const req = input instanceof Request ? input : new Request(input, init);
     calls.push({
-      url: req.url, method: req.method, headers: Object.fromEntries(req.headers), signal: init.signal,
+      url: req.url, method: req.method, headers: Object.fromEntries(req.headers), signal: init.signal, cache: init.cache,
     });
     if (req.url.startsWith(AEM)) return aem(req, init);
     return new Response('Not found', { status: 404 });
@@ -146,6 +149,23 @@ test('dam aem: a PDF goes to AEM only when R2 has its key (the R2 head read once
   await get(MP4, { method: 'POST' });
   await get('/content/dam/lh/images/x.jpg.transform/lh-dcep-transform-width-720/img.jpg');
   assert.equal(aemCalls().length, 0);
+});
+
+test('dam aem: a 200 to a range request (Cloudflare\'s cache fetching the whole file) goes to R2, which answers the range; the subrequest goes past Cloudflare\'s cache', async () => {
+  // what the first range request on the 869 MB file got: the whole file
+  aem = () => new Response(BYTES, { headers: { 'content-type': 'video/mp4', 'content-length': String(BYTES.length) } });
+  const part = await get(MP4, { headers: { range: 'bytes=900-999' } });
+  assert.equal(part.status, 206);
+  assert.equal(part.headers.get('x-lh-edge-route'), 'dam-media');
+  assert.equal(part.headers.get('content-range'), 'bytes 900-999/1000');
+  assert.equal((await part.arrayBuffer()).byteLength, 100);
+  assert.equal(aemCalls().at(-1).headers.range, 'bytes=900-999');
+  assert.equal(aemCalls().at(-1).cache, 'no-store');
+  // without a range the same 200 is the answer
+  const whole = await get(MP4);
+  assert.equal(whole.status, 200);
+  assert.equal(whole.headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.equal(aemCalls().at(-1).cache, 'no-store');
 });
 
 test('aem keep-alive: one GET per URL in minute KEEPALIVE_MINUTE with ?keepalive=<epoch s>, no-store, logged; else and without URLs none', async () => {

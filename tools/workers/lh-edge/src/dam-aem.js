@@ -10,7 +10,13 @@
  *   10 ms CPU limit of Workers Free).
  * - Used when AEM answers 200 or 206 with the file's media type, 304 or 416. Anything else (404,
  *   5xx, a timeout, a network error, and a hibernated sandbox's 200 text/html page for every path)
- *   is null: the R2 step answers as before.
+ *   is null: the R2 step answers as before. So is a 200 to a request with a Range header: R2
+ *   answers the range (206).
+ * - The subrequest goes past Cloudflare's cache (cache: 'no-store'): on a cold miss Cloudflare's
+ *   cache fetches the whole file without the Range and answers 200 with all of it (Cloudflare's
+ *   "Range request behavior"), and a file over the 512 MB cacheable size (Free to Business) is
+ *   never stored, so the 869 MB video's first range request in a data centre got 869 MB. The
+ *   publish tier's own CDN still caches (it ignores the request's no-cache headers).
  * - Headers as the R2 step's: content-type of MEDIA_TYPES, cache-control public, max-age=2592000,
  *   accept-ranges bytes; content-length, content-range, etag and last-modified from AEM; no other
  *   AEM header. x-lh-edge-route: dam-aem.
@@ -56,12 +62,16 @@ export async function damAem(request, env, ctx, info) {
   FORWARD.forEach((h) => { if (request.headers.has(h)) headers.set(h, request.headers.get(h)); });
   let resp;
   try {
-    resp = await fetchHeaders(`${base}${edsDamPath(info.asset)}`, { method: request.method, headers, redirect: 'manual' }, Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS);
+    resp = await fetchHeaders(`${base}${edsDamPath(info.asset)}`, {
+      method: request.method, headers, redirect: 'manual', cache: 'no-store',
+    }, Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS);
   } catch (e) {
     return null;
   }
   const got = (resp.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  const usable = ((resp.status === 200 || resp.status === 206) && got === type.split(';')[0])
+  // a 200 to a range request (the whole file) is no answer: R2 answers the range
+  const whole = resp.status === 200 && request.headers.has('range');
+  const usable = (((resp.status === 200 && !whole) || resp.status === 206) && got === type.split(';')[0])
     || resp.status === 304 || resp.status === 416;
   if (!usable) {
     if (resp.body) resp.body.cancel().catch(() => {});
