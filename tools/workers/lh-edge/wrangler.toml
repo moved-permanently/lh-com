@@ -101,6 +101,11 @@ ROUTER_CONFIG = ""
 REFERRER_FILTER = "off"
 REFERRER_ALLOW_HOSTS = ""
 REFERRER_ALLOW_EMPTY = "false"
+# the site config's production host (Edge Delivery writes it into canonical, hreflang, og:* and
+# twitter:* URLs): on the turnsthe.page brand hosts (scripts/demo.js) those head URLs point at the
+# host instead (src/head-urls.js; an alias host: its brand's main host); empty once the production
+# host moves to turnsthe.page (the rewrite goes away); never runs on other hosts
+HEAD_URLS_FROM = "lhcom.bbird.live"
 # hosts where lh-edge is the front door and answers as lhcom.bbird.live does through its CDN rules
 # (src/front-door.js: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to the
 # routes, everything else to the origin); lhcom.bbird.live itself keeps its CDN

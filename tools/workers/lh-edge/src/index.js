@@ -46,6 +46,7 @@ import {
 } from './router.js';
 import { referrerRefusal } from './referrer.js';
 import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
+import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -283,36 +284,45 @@ const KEEPS_CONDITIONS = new Set(['pass-through', 'market', 'dam', 'backends', '
 const conditional = (request) => ['GET', 'HEAD'].includes(request.method)
   && (request.headers.has('if-modified-since') || request.headers.has('if-none-match'));
 
+/** The answer for a request, before the head-URL and alias steps. */
+async function respond(incoming, env, ctx) {
+  const early = prelude(incoming);
+  if (early) return early;
+  // a front-door host (FRONT_DOOR_HOSTS, src/front-door.js) answers as its twin does through the
+  // CDN in front of it: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to
+  // the routes below (X-LH-Public-Host: the host), everything else to the origin
+  let request = incoming;
+  const door = frontDoorOf(incoming, env);
+  if (door) {
+    request = withPublicHost(incoming, door);
+    const target = frontDoorTarget(new URL(request.url).pathname);
+    if (target === 'gate') return finish(await backends(request, env), request, env, 'gate');
+    if (target === 'origin') return finish(await passThrough(request, env), request, env, 'pass-through');
+  }
+  // production mode (src/router.js): off without its vars and KV entry (the first matching
+  // route, as before)
+  const cfg = await routerConfig(env);
+  const { route, setCookie } = choose(ROUTES, request, env, cfg);
+  let resp;
+  if (!route) {
+    resp = await defaultOrigin(request, env);
+  } else {
+    const refused = REFERRER_CHECKED.has(route.name) && request.method === 'POST' ? referrerRefusal(request, env) : null;
+    const strip = !KEEPS_CONDITIONS.has(route.name) && conditional(request);
+    const req = strip ? withoutConditions(request) : request;
+    resp = refused || await route.handle(req, env, ctx);
+  }
+  return finish(resp, request, env, route ? route.name : 'default', setCookie);
+}
+
 export default {
   async fetch(incoming, env, ctx) {
     const alias = aliasHostOf(incoming, env);
-    const early = prelude(incoming);
-    if (early) return alias ? forAlias(early, alias, env) : early;
-    // a front-door host (FRONT_DOOR_HOSTS, src/front-door.js) answers as its twin does through the
-    // CDN in front of it: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to
-    // the routes below (X-LH-Public-Host: the host), everything else to the origin
-    let request = incoming;
-    const door = frontDoorOf(incoming, env);
-    if (door) {
-      request = withPublicHost(incoming, door);
-      const target = frontDoorTarget(new URL(request.url).pathname);
-      if (target === 'gate') return finish(await backends(request, env), request, env, 'gate');
-      if (target === 'origin') return finish(await passThrough(request, env), request, env, 'pass-through');
-    }
-    // production mode (src/router.js): off without its vars and KV entry (the first matching
-    // route, as before)
-    const cfg = await routerConfig(env);
-    const { route, setCookie } = choose(ROUTES, request, env, cfg);
-    let resp;
-    if (!route) {
-      resp = await defaultOrigin(request, env);
-    } else {
-      const refused = REFERRER_CHECKED.has(route.name) && request.method === 'POST' ? referrerRefusal(request, env) : null;
-      const strip = !KEEPS_CONDITIONS.has(route.name) && conditional(request);
-      const req = strip ? withoutConditions(request) : request;
-      resp = refused || await route.handle(req, env, ctx);
-    }
-    resp = finish(resp, request, env, route ? route.name : 'default', setCookie);
+    let resp = await respond(incoming, env, ctx);
+    // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
+    // (HEAD_URLS_FROM, lhcom.bbird.live) point at the host; no rewriter anywhere else
+    const head = headUrlHost(incoming, env, alias);
+    if (head) resp = rewriteHeadUrls(resp, incoming, env, head);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's
     // own hosts kept on the alias host
     return alias ? forAlias(resp, alias, env) : resp;

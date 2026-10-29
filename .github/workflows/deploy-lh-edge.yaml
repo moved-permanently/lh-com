@@ -20,6 +20,8 @@ on:
       - 'scripts/market-rules.js'
       # and the article helpers (web pages as SDUI: date line, related articles)
       - 'scripts/articles.js'
+      # and the turnsthe.page brand list (the head-URL rewrite)
+      - 'scripts/demo.js'
       # and the second account's config (tools/workers/README.md "Two accounts")
       - 'tools/workers/account-config.sh'
       - 'tools/workers/wait-for-workers.sh'
