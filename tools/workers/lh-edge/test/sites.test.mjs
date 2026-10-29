@@ -5,6 +5,8 @@ import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker from '../src/index.js';
 import { resetMarketCache } from '../src/markets.js';
 import { siteOf, SITES } from '../src/sites.js';
+/* eslint-disable-next-line import/no-relative-packages */
+import { edsDamPath } from '../../../../scripts/dam-path.js';
 
 globalThis.HTMLRewriter = HTMLRewriter;
 
@@ -102,9 +104,66 @@ test('sites: with the vars set lh-com\'s hosts answer as before (tables and orig
   assert.ok(calls.every((c) => !c.startsWith(DISCOVER)));
 });
 
-test('sites: a DAM path on the site\'s host is passed to the site\'s origin as it is (no DAM route: no lh-com copy, AEM or R2)', async () => {
-  const e = env({ ...SITE_VARS, AEM_PUBLISH: 'https://publish-p1-e2.adobeaemcloud.com' });
-  const resp = await get('https://discover.example/content/dam/four_y/pdfs/large-brochure.pdf', e);
-  assert.equal(resp.status, 404);
-  assert.deepEqual(calls, [`${DISCOVER}/content/dam/four_y/pdfs/large-brochure.pdf`]);
+// the DAM route on a site's host: the site's own copies (its origin), then AEM, then R2
+const AEM = 'https://publish-p1-e2.adobeaemcloud.com';
+const BIG = '/content/dam/four_y/videos/250120_FM_Discover_Retrofit_HeroBanner_Uebersicht_v01.mp4';
+const damEnv = (extra = {}) => env({ ...SITE_VARS, AEM_PUBLISH: AEM, ...extra });
+const r2 = (keys) => ({
+  heads: 0,
+  async head(key) { this.heads += 1; return keys.includes(key) ? { size: 4, httpEtag: '"r2"', uploaded: new Date('2026-10-29T12:00:00Z') } : null; },
+  async get(key) { return keys.includes(key) ? { body: new Blob([new Uint8Array([1, 2, 3, 4])]).stream(), size: 4 } : null; },
+});
+const damFetch = ({ aemDelay = 0 } = {}) => async (input, init = {}) => {
+  const req = input instanceof Request ? input : new Request(input, init);
+  const u = new URL(req.url);
+  calls.push(`${u.hostname}${u.pathname}`);
+  if (req.url.startsWith(AEM)) {
+    return new Promise((resolve, reject) => {
+      const t = setTimeout(() => resolve(new Response(new Uint8Array([9, 9]), { headers: { 'content-type': 'video/mp4', 'content-length': '2' } })), aemDelay);
+      init.signal?.addEventListener('abort', () => { clearTimeout(t); reject(new Error('aborted')); });
+    });
+  }
+  if (u.hostname === DISCOVER && u.pathname === edsDamPath('/content/dam/four_y/pdfs/legal/4y_terms-of-use_de.pdf')) {
+    return new Response('%PDF-1.7', { headers: { 'content-type': 'application/pdf' } });
+  }
+  return new Response('Not found', { status: 404 });
+};
+
+test('sites: a DAM path on the site\'s host is answered by the DAM route from the site\'s own copies (its origin)', async () => {
+  globalThis.fetch = damFetch();
+  const resp = await get('https://discover.example/content/dam/four_y/pdfs/legal/4y_terms-of-use_de.pdf', damEnv());
+  assert.equal(resp.status, 200);
+  assert.equal(resp.headers.get('x-lh-edge-route'), 'dam');
+  assert.equal(await resp.text(), '%PDF-1.7');
+  assert.deepEqual(calls, [`${DISCOVER}${edsDamPath('/content/dam/four_y/pdfs/legal/4y_terms-of-use_de.pdf')}`], 'one DA request, on the site\'s origin, no AEM or R2');
+  // a file the site doesn't have: the DAM route's 404, never lh-com's copies
+  calls = [];
+  const missing = await get('https://discover.example/content/dam/four_y/pdfs/none.pdf', damEnv({ AEM_PUBLISH: '' }));
+  assert.equal(missing.status, 404);
+  assert.ok(calls.every((c) => c.startsWith(DISCOVER)));
+  // lh-com's hosts read lh-com's copies, as before
+  calls = [];
+  await get('https://lhedge.example/content/dam/four_y/pdfs/legal/4y_terms-of-use_de.pdf', damEnv());
+  assert.ok(calls.length && calls.every((c) => !c.startsWith(DISCOVER)));
+});
+
+test('sites: a large mp4 R2 has no copy of answers from AEM after 8 s (20 s limit); with an R2 copy R2 answers after 5 s', async () => {
+  const key = edsDamPath(BIG).slice(1);
+  // no R2 copy: AEM's 8 s answer is used (the default 20 s limit)
+  globalThis.fetch = damFetch({ aemDelay: 8000 });
+  let e = damEnv({ DAM_MEDIA: r2([]) });
+  let t0 = Date.now();
+  const slow = await get(`https://discover.example${BIG}`, e);
+  assert.equal(slow.status, 200);
+  assert.equal(slow.headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.ok(Date.now() - t0 >= 7900);
+  assert.equal(e.DAM_MEDIA.heads, 1, 'one R2 lookup');
+  // an R2 copy: AEM is given up after 5 s (the default), R2 answers
+  e = damEnv({ DAM_MEDIA: r2([key]) });
+  t0 = Date.now();
+  const copy = await get(`https://discover.example${BIG}`, e);
+  const took = Date.now() - t0;
+  assert.equal(copy.headers.get('x-lh-edge-route'), 'dam-media');
+  assert.ok(took >= 4900 && took < 7000, `${took} ms`);
+  assert.equal(e.DAM_MEDIA.heads, 1, 'one R2 lookup, shared by both steps');
 });

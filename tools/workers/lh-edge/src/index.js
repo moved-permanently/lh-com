@@ -336,11 +336,13 @@ async function respond(incoming, env, ctx, forms = true) {
  * language documents (src/markets.js with the site's tables and origin), everything else from the
  * site's origin; / to the homepage of its first language version. No other route of lh-com.
  */
-async function siteRespond(incoming, env, site) {
+async function siteRespond(incoming, env, site, ctx) {
   const early = prelude(incoming);
   if (early) return early;
   const senv = siteEnv(env, site);
   const url = new URL(incoming.url);
+  // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM and R2
+  if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {
     const home = `/${Object.values(site.tables.versions)[0]}/homepage${url.search}`;
     return finish(new Response(null, { status: 302, headers: { location: home, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
@@ -353,7 +355,9 @@ export default {
     const alias = aliasHostOf(incoming, env);
     // another site's host (var SITE_HOSTS, empty: none): answered for that site only
     const site = siteOf(incoming, env);
-    let resp = site ? await siteRespond(incoming, env, site) : await respond(incoming, env, ctx);
+    let resp = site
+      ? await siteRespond(incoming, env, site, ctx)
+      : await respond(incoming, env, ctx);
     // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
     // (HEAD_URLS_FROM, lhcom.bbird.live) point at the host; no rewriter anywhere else
     const head = headUrlHost(incoming, env, alias);

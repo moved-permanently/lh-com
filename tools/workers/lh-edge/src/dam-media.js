@@ -52,7 +52,8 @@ export async function damMedia(request, env, ctx, info) {
   // PDFs: after DA and AEM (src/dam.js info.afterDa), mp4 and vtt: before DA
   if ((ext === 'pdf') !== Boolean(info.afterDa)) return null;
   const key = mediaKey(info.asset);
-  const head = await env.DAM_MEDIA.head(key);
+  // the AEM step's lookup when it ran (src/dam-aem.js mediaHead): one R2 lookup per request
+  const head = await (info.mediaHead || env.DAM_MEDIA.head(key));
   if (!head) return null;
   const headers = new Headers({
     'content-type': type,

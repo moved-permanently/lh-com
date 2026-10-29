@@ -7,8 +7,11 @@
  *   only after the DA copies answered 404 (src/dam.js: info.afterDa; most PDFs live in DA, every
  *   brand's large ones on AEM: DA, then AEM, then R2).
  * - The AEM request has the same method and only range, if-none-match and if-modified-since; its
- *   headers must arrive within AEM_HEADER_TIMEOUT_MS, the body is streamed (an 869 MB video, the
- *   10 ms CPU limit of Workers Free).
+ *   headers must arrive within AEM_HEADER_TIMEOUT_MS (5 s) when R2 holds a copy to fall back to,
+ *   within AEM_HEADER_TIMEOUT_NO_COPY_MS (20 s: a cold publish tier takes about 10 s) when it
+ *   doesn't (every new brand's large files); the R2 lookup runs alongside the AEM request, once
+ *   per request (the R2 step reads the same). The body is streamed (an 869 MB video, the 10 ms CPU
+ *   limit of Workers Free).
  * - Used when AEM answers 200 or 206 with the file's media type, 304 or 416. Anything else (404,
  *   5xx, a timeout, a network error, and a hibernated sandbox's 200 text/html page for every path)
  *   is null: the R2 step answers as before. So is a 200 to a request with a Range header: R2
@@ -22,23 +25,41 @@
  *   accept-ranges bytes; content-length, content-range, etag and last-modified from AEM; no other
  *   AEM header. x-lh-edge-route: dam-aem.
  */
-import { MEDIA_TYPES } from './dam-media.js';
+import { MEDIA_TYPES, mediaKey } from './dam-media.js';
 /* eslint-disable import/no-relative-packages */
 import { edsDamPath } from '../../../../scripts/dam-path.js';
 /* eslint-enable import/no-relative-packages */
 
-/** How long AEM may take for its response headers before R2 answers. */
+/** How long AEM may take for its response headers before R2 answers (R2 has a copy). */
 export const AEM_HEADER_TIMEOUT_MS = 5000;
+/** How long AEM may take when R2 has no copy (nothing to fall back to but the 404). */
+export const AEM_HEADER_TIMEOUT_NO_COPY_MS = 20000;
 const FORWARD = ['range', 'if-none-match', 'if-modified-since'];
 const KEEP = ['content-length', 'content-range', 'etag', 'last-modified'];
 
-/** fetch with a time limit on the response headers (the body is not limited). */
-async function fetchHeaders(url, init, ms) {
+/** The R2 head of an asset, once per request (the R2 step reads the same). */
+export function mediaHead(env, info) {
+  if (!env.DAM_MEDIA) return Promise.resolve(null);
+  if (!info.mediaHead) info.mediaHead = env.DAM_MEDIA.head(mediaKey(info.asset)).catch(() => null);
+  return info.mediaHead;
+}
+
+/**
+ * fetch with a time limit on the response headers (the body is not limited); limit: a promise of
+ * the limit in ms from the start (it waits for the R2 lookup, which runs alongside).
+ */
+async function fetchHeaders(url, init, limit) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), ms);
+  const start = Date.now();
+  let timer;
+  let done = false;
+  limit.then((ms) => {
+    if (!done) timer = setTimeout(() => controller.abort(), Math.max(0, ms - (Date.now() - start)));
+  });
   try {
     return await fetch(url, { ...init, signal: controller.signal });
   } finally {
+    done = true;
     clearTimeout(timer);
   }
 }
@@ -55,11 +76,15 @@ export async function damAem(request, env, ctx, info) {
   if ((ext === 'pdf') !== Boolean(info.afterDa)) return null;
   const headers = new Headers();
   FORWARD.forEach((h) => { if (request.headers.has(h)) headers.set(h, request.headers.get(h)); });
+  // 5 s with an R2 copy to fall back to, 20 s without one
+  const limit = mediaHead(env, info).then((copy) => (copy
+    ? Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS
+    : Number(env.AEM_HEADER_TIMEOUT_NO_COPY_MS) || AEM_HEADER_TIMEOUT_NO_COPY_MS));
   let resp;
   try {
     resp = await fetchHeaders(`${base}${edsDamPath(info.asset)}`, {
       method: request.method, headers, redirect: 'manual', cache: 'no-store',
-    }, Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS);
+    }, limit);
   } catch (e) {
     return null;
   }

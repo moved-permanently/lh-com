@@ -163,7 +163,7 @@ test('dam aem: a PDF DA answers 404: AEM\'s application/pdf; AEM 404, 200 text/h
   assert.equal(daCalls().length, 1);
   assert.equal(aemCalls().length, 1);
   assert.equal(aemCalls()[0].url, `${AEM}${LARGE}`);
-  assert.equal(e.DAM_MEDIA.heads, 0, 'AEM answered: no R2 call');
+  assert.equal(e.DAM_MEDIA.heads, 1, 'one R2 lookup (it sets the AEM time limit), no R2 read');
   // a 200 to a range request is no answer (R2 answers the range for the poster)
   const range = await get(POSTER, { headers: { range: 'bytes=0-99' } }, e);
   assert.equal(range.status, 206);
