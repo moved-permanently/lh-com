@@ -35,7 +35,8 @@ export const PLACEHOLDER = 'www.lufthansa-com.invalid';
 const MAPPED = path.join(W, 'snapshots');
 
 /** A snapshot with its own lufthansa.com URLs on the placeholder host. */
-export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?=[/"'?#\s)]|$)/gi, `https://${PLACEHOLDER}`);
+// (the host ends where no host character follows: also redirect_uri=https://www.lufthansa.com&amp;…)
+export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?![\w.-])/gi, `https://${PLACEHOLDER}`);
 
 // links out to the page on Discover's host (a widget a service answers on www): on this host
 // during the import, so neither the importers nor site-postprocess.mjs (which makes links to the
@@ -71,6 +72,7 @@ if (isMain) {
   const byTemplate = {};
   const missing = [];
   const out = {};
+  const linkOuts = [];
   urls.forEach((u) => {
     const p = new URL(u).pathname;
     const f = path.join(SNAP, `${p}.html`);
@@ -79,7 +81,9 @@ if (isMain) {
     const t = templateOf(p, html);
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    fs.writeFileSync(copy, withLinkOuts(withPlaceholder(html), p));
+    const mapped = withLinkOuts(withPlaceholder(html), p);
+    if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
+    fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);
     out[p] = t;
   });
@@ -100,6 +104,8 @@ if (isMain) {
     const docName = (p) => p.toLowerCase().replace(/_/g, '-').replace(/-{2,}/g, '-');
     const made = Object.keys(out).map(docName).filter((p) => fs.existsSync(path.join(W, 'content', `${p}.plain.html`)));
     allow.paths = [...new Set([...allow.paths, ...made])];
+    // their links out stay absolute in later runs too (site-postprocess.mjs)
+    if (linkOuts.length) allow.linkOuts = [...new Set([...(allow.linkOuts || []), ...linkOuts.map(docName)])];
     fs.writeFileSync(sites, `${JSON.stringify(allow, null, 1)}\n`);
     // the host mapping only for this batch's documents (earlier ones have their own Lufthansa URLs
     // back); links to the new documents become relative in every document

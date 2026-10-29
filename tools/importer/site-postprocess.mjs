@@ -16,6 +16,8 @@
  * --map-only: a file of document paths (/de/en/x, one per line) that step 2 maps: the documents
  * just imported. Documents of earlier runs only get step 3, so the source pages' own
  * www.lufthansa.com URLs, put back after their import, stay (without it: every document, as before).
+ * The allowlist's linkOuts: documents whose link to their own page on the source host is a link
+ * out (a live widget answered there); that one link stays absolute.
  * --snapshots: the source pages the import read (default tools/importer/bd-snapshots/<host>);
  * --real-placeholder: the host the source pages' own lufthansa.com URLs were given before the
  * import (discover-import.mjs: www.lufthansa-com.invalid, so the importers leave them alone and
@@ -31,7 +33,9 @@ const argv = process.argv.slice(2);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
 
 /** The changed document and what changed. */
-export function postprocess(html, { sourceHost, sitePaths, mapHosts = true }) {
+export function postprocess(html, {
+  sourceHost, sitePaths, mapHosts = true, linkOut = null,
+}) {
   let out = !mapHosts ? html : html.replace(/https:\/\/www\.lufthansa\.com(?=[/"'?#)\s]|$)/g, `https://${sourceHost}`);
   const hosts = out.split(`https://${sourceHost}`).length - html.split(`https://${sourceHost}`).length;
   let relative = 0;
@@ -40,6 +44,8 @@ export function postprocess(html, { sourceHost, sitePaths, mapHosts = true }) {
     const page = p.replace(/\.html$/, '').replace(/\/$/, '');
     const target = /^\/[a-z]{2}\/[a-z]{2}$/.test(page) ? `${page}/homepage` : page;
     if (!sitePaths.has(target)) return m;
+    // the document's link out to its own page on the source host (a live widget there)
+    if (target === linkOut && !rest) return m;
     relative += 1;
     return `href="${target}${rest}"`;
   });
@@ -63,6 +69,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const dir = path.resolve(root, opt('content-dir') || `content-sites/${site}/content`);
   const list = JSON.parse(fs.readFileSync(path.join(root, `tools/importer/sites/${site}.json`), 'utf8'));
   const sitePaths = new Set(list.paths);
+  // documents whose link to their own page on the source host is a link out (stays absolute)
+  const linkOuts = new Set(list.linkOuts || []);
   const snapshots = path.resolve(root, opt('snapshots') || path.join('tools/importer/bd-snapshots', sourceHost));
   const placeholder = opt('real-placeholder');
   const mapOnly = opt('map-only') ? new Set(fs.readFileSync(path.resolve(root, opt('map-only')), 'utf8').split('\n').map((x) => x.trim()).filter(Boolean)) : null;
@@ -73,7 +81,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
     const doc = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
-    const r = postprocess(before, { sourceHost, sitePaths, mapHosts: !mapOnly || mapOnly.has(doc) });
+    const r = postprocess(before, {
+      sourceHost, sitePaths, mapHosts: !mapOnly || mapOnly.has(doc), linkOut: linkOuts.has(doc) ? doc : null,
+    });
     // the source pages' own Lufthansa URLs, kept apart during the import
     if (placeholder) r.html = r.html.split(`https://${placeholder}`).join('https://www.lufthansa.com');
     if (r.html === before) return;
