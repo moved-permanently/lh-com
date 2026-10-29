@@ -576,3 +576,149 @@ batch 4's 80 pilot roots against batch 5's 100, back to back twice (ms of CPU, c
   times today's; to keep it at today's cost, the index could list a fixed number of files per root
   or be built ahead like the search data.
 - Everything else costs what batch 4's did; market sitemap files stay the same size (845 → 815 KB).
+
+## Batch 6 (2026-10-29): SA SD SE SG SI SK TH TR UA VN ZA, 22 roots
+
+The last batch of the countries with only en and de (za as the remainder). With it, batches 1 to 6
+cover those 62 countries: 122 pilot roots.
+
+### Captures
+
+- Plan: 102 pages: 22 homepages, 14 own pages, 66 compared with the language version; 6 same-day
+  references of de/en and de/de; then the 12 app screens 123 left.
+- One warm session at a time, one page every 5 to 10 s, 07:09 to 08:52 UTC.
+- **The 102 pages**: all captured, no 403, one crash (the browser closed, 07:52, a new session
+  after a minute); every capture has its own URL as canonical.
+- **The references**: all six, no 403 (08:03 to 08:13).
+- **Two homepages without a label** (the country selector had not rendered, as az/de in batch 1),
+  captured again in a fresh session: sd/de got its label (08:18); sa/en's first try timed out
+  while warming up (08:17).
+- **The 12 app screens** (`/content/mobile/lh/{en,de}/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-{1,2,3}.sdui`
+  and `.v2.sdui`), at the end of the list over bd-fetch (from inside a www page, one every 6 s):
+  **403 on the first one** (08:19, `…/en/…/100-years-of-lufthansa-part-1.sdui`, the URL that drew
+  the 403 in 123 too); stopped there as agreed, all 12 left.
+- **sa/en's homepage again after the 30-minute pause**: 403 (08:52). With the app screens' 403 that
+  is the second block in a row: the run stopped there. Left: the sa/en homepage capture (its name
+  and sa's English country name, below) and the 12 app screens.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| sa/de | Saudi-Arabien \| Deutsch | – / Saudi-Arabien | RUH | SAR |
+| sa/en | – | – / Saudi-Arabien | RUH | SAR |
+| sd/de, sd/en | Sudan \| Deutsch, Sudan \| English | Sudan / Sudan | FRA | EUR |
+| se/de, se/en | Schweden \| Deutsch, Schweden \| English | Schweden / Schweden | STO | SEK |
+| sg/de, sg/en | Singapore \| Deutsch, Singapur \| English | Singapur / Singapore | SIN | SGD |
+| si/de, si/en | Slovenia \| Deutsch, Slowenien \| English | Slowenien / Slovenia | LJU | EUR |
+| sk/de, sk/en | Slowakei \| Deutsch, Slovakia \| English | Slovakia / Slowakei | KSC | EUR |
+| th/de, th/en | Thailand \| Deutsch, Thailand \| English | Thailand / Thailand | BKK | THB |
+| tr/de, tr/en | Türkei \| Deutsch, Türkei \| English | Türkei / Türkei | IST | USD |
+| ua/de, ua/en | Ukraine \| Deutsch, Ukraine \| English | Ukraine / Ukraine | FRA | EUR |
+| vn/de, vn/en | Vietnam \| Deutsch, Vietnam \| English | Vietnam / Vietnam | HAN | VND |
+| za/de, za/en | Südafrika \| Deutsch, South Africa \| English | South Africa / Südafrika | CPT | ZAR |
+
+- Not found (`–`): sa/en's name and sa's English country name (the sa/en capture without its
+  selector; the recapture was blocked): `null` until a later session captures sa/en's homepage.
+- www's own oddities, taken as they are: sg and si have their labels the other way round (the
+  English name on the German root, the German name on the English one), se and tr show German
+  country names on their English roots, se gives the city code STO and sk KSC (Košice), sd and ua
+  preselect FRA (prices in EUR, like iq, ir, ly and qa), tr shows prices in USD.
+- timeZone and shopLang: null for every root, as in batches 1 to 5.
+
+### Documents
+
+- 22 homepages, 14 own pages and nav and footer of every root: 80 documents uploaded and previewed
+  (not published).
+- Own pages: sa/en `offers-to-europe1` and `local-page/companion-special-riyadh---munich-2025` (an
+  offer of October/November 2025 that www still serves), se/en `discoverymode2023`, `yes`, `yes2`,
+  `yes3` (campaign pages), sg/en `local-page/changi-terminal-2`, `corporate-offer-sg`, `jewel`,
+  th/en `local-page/promocode-th-europe3000`, `promptpay`, tr/en `flights-ankara-munich`,
+  `istanbul-airport-transfer`, `local-page/natl-campaign`.
+- **`/se/en/yes3`** holds www's destination finder grid (the 315 offers of the flight offers page).
+  The info template has no parser for it and took the rendered tiles as images; with 319 images
+  the preview failed (409: Edge Delivery takes at most 200 images a document). Imported again with
+  the hub template, whose `destination-finder (grid)` parser makes the block (the tiles are live
+  data, none authored), with the info import's `flight-search` block in place of the search
+  widget's text the hub template has no parser for; uploaded and previewed.
+- **A document name**: Edge Delivery makes one dash of several, so www's
+  `/sa/en/local-page/companion-special-riyadh---munich-2025` is the document
+  `/sa/en/local-page/companion-special-riyadh-munich-2025`. `rollout.mjs --docs` now names such
+  pages so (it had left the document out of the upload list), and a redirect row keeps www's URL.
+- **Redirect rows for the redirect sheet** (yours to add):
+  - `/sa/en/local-page/companion-special-riyadh---munich-2025` → `/sa/en/local-page/companion-special-riyadh-munich-2025`
+- No www aliases (every own page has its own URL as canonical). None of www's 500 pages of batches
+  4 and 5 is in this batch; they keep no document.
+
+### Local versions
+
+`rollout-batch6-compare.json`, against same-day de/en and de/de:
+- 44 of 66 the same.
+- The de roots' flight offers page: the same entry-rules teaser as batches 1 to 5 (section
+  `markets` of `/de/de/fluege`).
+- The en roots' flight pages: only the destination offers differ (per origin); sa/en and ua/en
+  show none (as ly, mk, mt and mu); sd/en's five items are a masking artifact ("de" in "Palma de
+  Mallorca" read as the language version's country code); no component differs.
+- **Root documents made: none.**
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch6-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| sa/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| sa/en | 1,059 | 959 | 1 | 99 | | 87 | 13 |
+| sd/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| sd/en | 1,055 | 957 | 1 | 94 | 3 | 84 | 13 |
+| se/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| se/en | 1,065 | 961 | 1 | 102 | 1 | 90 | 13 |
+| sg/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| sg/en | 1,058 | 959 | 1 | 96 | 2 | 84 | 13 |
+| si/de | 1,048 | 952 | 1 | 94 | 1 | 82 | 12 |
+| si/en | 1,055 | 957 | 1 | 96 | 1 | 84 | 13 |
+| sk/de | 1,048 | 953 | 1 | 94 | | 82 | 12 |
+| sk/en | 1,054 | 958 | 1 | 95 | | 83 | 13 |
+| th/de | 1,047 | 952 | 1 | 92 | 2 | 81 | 12 |
+| th/en | 1,055 | 959 | 1 | 94 | 1 | 82 | 13 |
+| tr/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| tr/en | 1,055 | 959 | 1 | 94 | 1 | 82 | 13 |
+| ua/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| ua/en | 1,053 | 958 | 1 | 94 | | 82 | 13 |
+| vn/de | 1,047 | 953 | 1 | 92 | 1 | 81 | 12 |
+| vn/en | 1,054 | 958 | 1 | 95 | | 83 | 13 |
+| za/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| za/en | 1,053 | 958 | 1 | 94 | | 82 | 13 |
+
+- Every 200 has the root's canonical. The de roots' 301 is de/de's `support/support` redirect,
+  moved into the root. The en roots' 301 is new since 123's URL forms: www lists
+  `/<cc>/en/profile/Best-price-alert`, which now answers a 301 to the lower-case
+  `/<cc>/en/profile/best-price-alert` (a profile page, left alone: 404).
+- **The 500s (17 URLs, 1 link) are the local runtime's again** ("the Worker's code had hung", 18
+  times in its log): fetched again one at a time, 13 answer 200 through the market route, 4
+  answer 404, the link 200.
+- Every link on the 22 homepages, navs and footers (66 documents, 1,871 links) answers 200.
+
+### CPU (Workers Free: 10 ms per request)
+
+Locally, `bench-market.mjs`, the same recorded origin answers, lean sources, medians of 25 runs,
+the code before batch 6 (100 pilot roots) against batch 6's 122, back to back twice, the sitemap
+index as served since 3934c9b (built ahead, stored); then all 187 en and de roots (the 65 still to
+come as synthetic rows, `--roots 187`) (ms of CPU, cold / warm):
+
+| Answer | 100 roots | 122 roots | 187 roots (projection) |
+| --- | --- | --- | --- |
+| pilot page `/hu/en/baggage` | 7.1–7.5 / 2.2–2.3 | 7.0–7.3 / 2.2–2.3 | 7.2 / 2.3 |
+| pilot `search-index.json` (4.5 MB) | 26–41 / 36–48 | 26–28 / 45–50 | 26 / 52 |
+| pilot `articles/query-index.json` | 7.4–7.5 / 3.6–3.9 | 7.5–7.8 / 3.7–3.9 | 7.7 / 4.1 |
+| sitemap index `.xml` (stored) | 6.0–6.4 / 1.9–2.0 | 6.2–8.4 / 2.0–2.6 | 6.9 / 2.9 |
+| sitemap index `.gz` (stored) | 5.5–5.8 / 1.5–1.8 | 5.9–6.2 / 1.8–2.0 | 7.1 / 2.7 |
+| market sitemap file `.xml` | 12.0–12.1 / 7.0–7.1 | 12.0–13.3 / 6.8–7.4 | 11.0 / 6.8 |
+| market sitemap file `.gz` | 18.5–18.8 / 13.5–13.6 | 19.4–20.2 / 13.6–13.7 | 17.9 / 12.7 |
+
+- **The sitemap index** (3934c9b, built ahead): 143 KB → 219 KB with batch 6, 503 KB with 187
+  roots; served from the stored bytes it costs the model and the counts only: `.gz` cold 5.9–6.2 ms
+  with 122 roots and 7.1 ms with 187, below batch 4's 10.0 ms. Made per request (until the Action
+  has stored the new key, `x-lh-edge-sitemap-index: made`) it costs 14.7 / 9.0 ms with 122 roots
+  and 20.9 / 16.5 ms with 187.
+- Everything else costs what batch 5's did; market sitemap files stay the same size (815 → 785 KB).

@@ -1858,6 +1858,405 @@
         "shopLang"
       ],
       "batch": 5
+    },
+    "sa/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Saudi-Arabien | Deutsch",
+      "countryName": {
+        "en": null,
+        "de": "Saudi-Arabien"
+      },
+      "homeAirport": "RUH",
+      "currency": "SAR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "countryName.en",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sa/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": null,
+      "countryName": {
+        "en": null,
+        "de": "Saudi-Arabien"
+      },
+      "homeAirport": "RUH",
+      "currency": "SAR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "name",
+        "countryName.en",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sd/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Sudan | Deutsch",
+      "countryName": {
+        "en": "Sudan",
+        "de": "Sudan"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sd/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Sudan | English",
+      "countryName": {
+        "en": "Sudan",
+        "de": "Sudan"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "se/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Schweden | Deutsch",
+      "countryName": {
+        "en": "Schweden",
+        "de": "Schweden"
+      },
+      "homeAirport": "STO",
+      "currency": "SEK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "se/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Schweden | English",
+      "countryName": {
+        "en": "Schweden",
+        "de": "Schweden"
+      },
+      "homeAirport": "STO",
+      "currency": "SEK",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sg/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Singapore | Deutsch",
+      "countryName": {
+        "en": "Singapur",
+        "de": "Singapore"
+      },
+      "homeAirport": "SIN",
+      "currency": "SGD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sg/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Singapur | English",
+      "countryName": {
+        "en": "Singapur",
+        "de": "Singapore"
+      },
+      "homeAirport": "SIN",
+      "currency": "SGD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "si/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Slovenia | Deutsch",
+      "countryName": {
+        "en": "Slowenien",
+        "de": "Slovenia"
+      },
+      "homeAirport": "LJU",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "si/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Slowenien | English",
+      "countryName": {
+        "en": "Slowenien",
+        "de": "Slovenia"
+      },
+      "homeAirport": "LJU",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sk/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Slowakei | Deutsch",
+      "countryName": {
+        "en": "Slovakia",
+        "de": "Slowakei"
+      },
+      "homeAirport": "KSC",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "sk/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Slovakia | English",
+      "countryName": {
+        "en": "Slovakia",
+        "de": "Slowakei"
+      },
+      "homeAirport": "KSC",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "th/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Thailand | Deutsch",
+      "countryName": {
+        "en": "Thailand",
+        "de": "Thailand"
+      },
+      "homeAirport": "BKK",
+      "currency": "THB",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "th/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Thailand | English",
+      "countryName": {
+        "en": "Thailand",
+        "de": "Thailand"
+      },
+      "homeAirport": "BKK",
+      "currency": "THB",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "tr/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Türkei | Deutsch",
+      "countryName": {
+        "en": "Türkei",
+        "de": "Türkei"
+      },
+      "homeAirport": "IST",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "tr/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Türkei | English",
+      "countryName": {
+        "en": "Türkei",
+        "de": "Türkei"
+      },
+      "homeAirport": "IST",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "ua/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ukraine | Deutsch",
+      "countryName": {
+        "en": "Ukraine",
+        "de": "Ukraine"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "ua/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Ukraine | English",
+      "countryName": {
+        "en": "Ukraine",
+        "de": "Ukraine"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "vn/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Vietnam | Deutsch",
+      "countryName": {
+        "en": "Vietnam",
+        "de": "Vietnam"
+      },
+      "homeAirport": "HAN",
+      "currency": "VND",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "vn/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Vietnam | English",
+      "countryName": {
+        "en": "Vietnam",
+        "de": "Vietnam"
+      },
+      "homeAirport": "HAN",
+      "currency": "VND",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "za/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Südafrika | Deutsch",
+      "countryName": {
+        "en": "South Africa",
+        "de": "Südafrika"
+      },
+      "homeAirport": "CPT",
+      "currency": "ZAR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
+    },
+    "za/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "South Africa | English",
+      "countryName": {
+        "en": "South Africa",
+        "de": "Südafrika"
+      },
+      "homeAirport": "CPT",
+      "currency": "ZAR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 6
     }
   }
 }
