@@ -111,7 +111,11 @@ async function download() {
     if (!state[www] || state[www].status !== 'aem') state[www] = { status: 'aem', ...(Number(note) ? { bytes: Number(note) } : { note }), at: new Date().toISOString() };
   });
   save();
-  const todo = files.filter((x) => !state[x.www] || !['cached', 'aem'].includes(state[x.www].status));
+  // --skip <www path prefix>: files not requested in this run (a folder www refuses to the session)
+  const skip = all('skip');
+  // done: in the cache, for AEM, or www's own answer (www-404: a file www lacks)
+  const done = (s) => s && (['cached', 'aem'].includes(s.status) || /^www-/.test(s.status));
+  const todo = files.filter((x) => !done(state[x.www]) && !skip.some((p) => x.www.startsWith(p)));
   if (!todo.length) { console.log('discover-dam download: nothing to do'); return 0; }
   const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
   const { connectBrowser } = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/browser-source.js'));
@@ -138,8 +142,17 @@ async function download() {
         let b = '';
         for (let i = 0; i < bytes.length; i += 0x8000) b += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
         return { status: r.status, type, b64: btoa(b) };
-      }, url);
-      if (got.status === 403 || got.status === 429 || (/text\/html/.test(got.type) && got.status >= 400)) {
+      }, url).catch((e) => ({
+        status: 0, type: '', b64: '', error: e.message.split('\n')[0],
+      }));
+      if (got.error) {
+        state[x.www] = { status: 'fetch-failed', error: got.error, at: new Date().toISOString() };
+        blocked = true;
+        console.error(`discover-dam: fetch failed at ${x.www} (${got.error}); stopping`);
+        break;
+      }
+      // a block: 403, 429 (a challenge page comes as one of them); a 404 is a file www lacks
+      if (got.status === 403 || got.status === 429) {
         state[x.www] = { ...state[x.www], status: `blocked-${got.status}`, at: new Date().toISOString() };
         blocked = true;
         console.error(`discover-dam: ${got.status} at ${x.www}; stopping`);

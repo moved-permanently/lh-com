@@ -5,6 +5,27 @@ runs in batches of about 40 pages (`content-sites/lh-discover/runs/batch-NN.txt`
 `tools/importer/discover-check.mjs`); each batch is uploaded and previewed, checked, and published by hand. This file
 collects the results; the sections below grow with the batches.
 
+## Media (brief 147, 2026-10-29)
+
+The documents' links to www's DAM files are site-relative links to the replica's copies (`edsDamPath`), answered by
+lh-edge's DAM route on discover.turnsthe.page (lh-discover's DA copies, then AEM, then R2; e386aa6). Copies:
+`tools/importer/discover-dam.mjs` (list, download through one warm Bright Data session, upload and preview, switch);
+the importer writes the relative links for every later batch. 72 files on 26 documents: 66 in lh-discover's DA
+(60 PDFs, 2 videos under 36 MB, 4 posters), 5 for the AEM publish tier, 1 missing on www (404):
+`/content/dam/four_y/pdfs/raffle/4y_season-kick-off-raffle-terms-and-conditions.pdf`, linked from the sweepstake (left as
+www's link). The check-in poster `thumbnail_checkinvideo.jpg` (28,508,716 bytes, 9504 x 5346) is in DA recompressed to
+6,857,881 bytes at the same pixel size (JPEG quality 90, metadata stripped).
+
+Files for AEM (Edge Delivery can't hold them):
+
+| www path | edsDamPath | bytes |
+| --- | --- | ---: |
+| `/content/dam/four_y/videos/250120_FM_Discover_Retrofit_HeroBanner_Uebersicht_v01.mp4` | `/content/dam/four_y/videos/250120-fm-discover-retrofit-herobanner-uebersicht-v01.mp4` | 68,286,566 (on AEM) |
+| `/content/dam/four_y/videos/ocean_blue_video_v06.mp4` | `/content/dam/four_y/videos/ocean-blue-video-v06.mp4` | 200,615,093 (on AEM) |
+| `/content/dam/four_y/videos/checkinvideo_en.mp4` | `/content/dam/four_y/videos/checkinvideo-en.mp4` | about 41.6 MB (not fetched) |
+| `/content/dam/four_y/videos/checkinvideo_cc_en.vtt` | `/content/dam/four_y/videos/checkinvideo-cc-en.vtt` | 72 |
+| `/content/dam/four_y/videos/checkinvideo_ad_en.vtt` | `/content/dam/four_y/videos/checkinvideo-ad-en.vtt` | 751 |
+
 ## Open points
 
 ### Forms: preview only, until the test submissions
