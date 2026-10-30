@@ -11,7 +11,9 @@
  * tools/importer/sites/lh-discover.json. Live widgets the importers would flatten into text (the
  * security waiting times) become a link to the page on www.discover-airlines.com (withLinkOuts).
  * Discover's forms get their lh-forms id, the same root's thank-you and error pages and www's
- * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots).
+ * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots), www's visually hidden
+ * H1 (the homepages': "Discover") an H1 of the first section, hidden by its section style
+ * hidden-heading (withHiddenH1; styles/styles.css).
  * Links to www's DAM files become site-relative edsDamPath links (discover-dam.mjs relativeDamLinks;
  * the batch's files are copied with discover-dam.mjs --list --download --upload, its posters and
  * subtitle tracks switched with --switch).
@@ -159,6 +161,36 @@ export function withRobots(doc, html) {
   return doc.replace('<div class="metadata">', `<div class="metadata"><div><div>Robots</div><div>${value}</div></div>`);
 }
 
+/** The end of a document's first section (the index after its closing </div>), or -1. */
+function firstSectionEnd(doc) {
+  const tags = /<div\b[^>]*>|<\/div>/g;
+  let depth = 0;
+  let m = tags.exec(doc);
+  while (m) {
+    depth += m[0] === '</div>' ? -1 : 1;
+    if (depth === 0) return m.index + m[0].length;
+    m = tags.exec(doc);
+  }
+  return -1;
+}
+
+/**
+ * A document with www's visually hidden H1 (h1.sr-only; the homepages': "Discover") when the
+ * document has no H1: the first section's first element, the section's style hidden-heading (its
+ * H1 visually hidden, styles/styles.css). Documents with an H1 or snapshots without one: as they are.
+ */
+export function withHiddenH1(doc, html) {
+  const h1 = (html || '').match(/<h1\b[^>]*class="[^"]*\bsr-only\b[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
+  const heading = h1 && h1[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!heading || /<h1\b/i.test(doc) || !doc.startsWith('<div>')) return doc;
+  const end = firstSectionEnd(doc);
+  if (end < 0) return doc;
+  const esc = heading.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const meta = '<div class="section-metadata"><div><div>Style</div><div>hidden-heading</div></div></div>';
+  const first = doc.slice(0, end - '</div>'.length);
+  return `<div><h1>${esc}</h1>${first.slice('<div>'.length)}${meta}</div>${doc.slice(end)}`;
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -219,7 +251,8 @@ if (isMain) {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
-      const next = withRobots(withDiscoverForm(doc, p), fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'));
+      const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      const next = withHiddenH1(withRobots(withDiscoverForm(doc, p), html), html);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the host mapping only for this batch's documents (earlier ones have their own Lufthansa URLs

@@ -1118,8 +1118,10 @@ main .default-content-wrapper > p.spacer.divider {
   }
 }
 
-/* utility for screen-reader-only text (.sr-only) */
-.sr-only {
+/* utility for screen-reader-only text (.sr-only); section style hidden-heading: the section's H1
+   (www's homepages carry a visually hidden H1) */
+.sr-only,
+main .section.hidden-heading .default-content-wrapper h1 {
   position: absolute;
   width: 1px;
   height: 1px;
