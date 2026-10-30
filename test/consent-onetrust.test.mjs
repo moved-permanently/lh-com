@@ -1,4 +1,5 @@
-/* OneTrust's stub URL and geolocation answer (scripts/consent.js, brief 150). Run: node --test test/*.test.mjs */
+/* OneTrust's stub URL and geolocation answer (scripts/consent.js, brief 150).
+   Run: node --test test/*.test.mjs */
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -11,7 +12,7 @@ window.location = {
 Object.defineProperty(window, 'origin', { value: 'https://lufthansa.turnsthe.page', configurable: true });
 globalThis.window = window;
 globalThis.document = document;
-const { oneTrustStubUrl, geolocationCountry } = await import('../scripts/consent.js');
+const { oneTrustStubUrl, geolocationOf } = await import('../scripts/consent.js');
 
 test('oneTrustStubUrl: the own host where lh-edge serves the page, cdn.cookielaw.org elsewhere', () => {
   ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'discover.turnsthe.page'].forEach((h) => {
@@ -22,14 +23,16 @@ test('oneTrustStubUrl: the own host where lh-edge serves the page, cdn.cookielaw
   });
 });
 
-test('geolocationCountry: the lh-geo cookie, else the page market, else none', () => {
-  assert.equal(geolocationCountry('a=1; lh-geo=AT; b=2', '/de/de/homepage'), 'AT');
-  assert.equal(geolocationCountry('lh-geo=ch', '/de/en/homepage'), 'CH');
-  assert.equal(geolocationCountry('', '/de/de/homepage'), 'DE');
-  assert.equal(geolocationCountry('x=lh-geo=US', '/gb/en/baggage'), 'GB');
-  assert.equal(geolocationCountry('', '/content/lh/markets/at/de/loungenet'), 'AT');
-  assert.equal(geolocationCountry('lh-geo=XYZ', '/us/en'), 'US');
-  assert.equal(geolocationCountry('', '/xx/en/homepage'), '');
-  assert.equal(geolocationCountry('', '/index'), '');
-  assert.equal(geolocationCountry('lh-geo=FR', '/xx/fr/homepage'), 'FR');
+test('geolocationOf: country and state from lh-geo only, never from the page', () => {
+  assert.deepEqual(geolocationOf('a=1; lh-geo=DE-HH; b=2'), { countryCode: 'DE', stateCode: 'HH' });
+  assert.deepEqual(geolocationOf('lh-geo=us-ca'), { countryCode: 'US', stateCode: 'CA' });
+  assert.deepEqual(geolocationOf('lh-geo=DE'), { countryCode: 'DE', stateCode: '' }, 'the old value: the country');
+  assert.deepEqual(geolocationOf('lh-geo=IT-RM'), { countryCode: 'IT', stateCode: 'RM' });
+  assert.deepEqual(geolocationOf('lh-geo=GB-ENG'), { countryCode: 'GB', stateCode: 'ENG' });
+  assert.equal(geolocationOf('lh-geo=US'), null, 'US without a state: OneTrust asks itself');
+  assert.equal(geolocationOf(''), null, 'no cookie: OneTrust asks itself');
+  assert.equal(geolocationOf('x=lh-geo=AT'), null, 'another cookie\'s value');
+  assert.equal(geolocationOf('lh-geo=XYZ'), null);
+  assert.equal(geolocationOf('lh-geo=DE-'), null);
+  assert.equal(geolocationOf('lh-geo=DE-HHHH'), null);
 });

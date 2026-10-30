@@ -16,8 +16,11 @@
  * - On the hosts lh-edge serves (the turnsthe.page brand hosts) the stub comes from the page's own
  *   host (/onetrust/, lh-edge's onetrust route: cdn.cookielaw.org byte for byte), and so does
  *   everything OneTrust derives from the stub's URL; elsewhere (aem.page, aem.live) from
- *   cdn.cookielaw.org. OneTrust gets its geolocation answer up front (the lh-geo cookie lh-edge
- *   sets, else the page's market), so it doesn't ask geolocation.onetrust.com.
+ *   cdn.cookielaw.org. OneTrust picks the law from the visitor's location, so it is never
+ *   guessed: OneTrust gets its geolocation answer up front only from the lh-geo cookie lh-edge
+ *   sets (Cloudflare's country and region, DE-HH, US-CA; the country alone without a region);
+ *   without the cookie, or for a US visitor without a state, OneTrust asks
+ *   geolocation.onetrust.com itself.
  * - Tagging is scripts/martech.js's (the tag manager and www's data layer, waiting for a choice
  *   here): off by default, on only for a host in MARTECH_HOSTS below; consented.js stays an
  *   empty hook.
@@ -53,14 +56,17 @@ export function oneTrustStubUrl(hostname = window.location.hostname) {
 }
 
 /**
- * The visitor's country for OneTrust's geolocation answer: the lh-geo cookie (lh-edge, the
- * visitor's country), else the page's market (/de/... DE, /at/... AT); '' for /xx/ (no market).
+ * OneTrust's geolocation answer from the lh-geo cookie (lh-edge: DE, DE-HH, US-CA):
+ * { countryCode, stateCode } ('' without a region), or null: no cookie, an unreadable value, or a
+ * US value without a state (US law differs per state). Never from the page or its market.
  */
-export function geolocationCountry(cookie = document.cookie, pathname = window.location.pathname) {
-  const geo = String(cookie || '').match(/(?:^|;\s*)lh-geo=([A-Za-z]{2})(?:;|$)/);
-  if (geo) return geo[1].toUpperCase();
-  const market = String(pathname || '').replace(/^\/content\/lh\/markets(?=\/)/, '').match(/^\/([a-z]{2})\/[a-z]{2}(?:\/|$)/);
-  return market && market[1] !== 'xx' ? market[1].toUpperCase() : '';
+export function geolocationOf(cookie = document.cookie) {
+  const geo = String(cookie || '').match(/(?:^|;\s*)lh-geo=([A-Za-z]{2})(?:-([A-Za-z0-9]{1,3}))?(?:;|$)/);
+  if (!geo) return null;
+  const countryCode = geo[1].toUpperCase();
+  const stateCode = (geo[2] || '').toUpperCase();
+  if (countryCode === 'US' && !stateCode) return null;
+  return { countryCode, stateCode };
 }
 
 /** OneTrust category ids: strictly necessary first */
@@ -225,11 +231,12 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
     onOneTrustReady(onReady);
   };
 
-  // the geolocation answer up front: OneTrust skips its call to geolocation.onetrust.com
-  const countryCode = geolocationCountry();
-  if (countryCode) {
+  // the geolocation answer up front, only from lh-geo: OneTrust skips its call to
+  // geolocation.onetrust.com; without it OneTrust asks there
+  const geolocation = geolocationOf();
+  if (geolocation) {
     window.OneTrust = window.OneTrust || {};
-    window.OneTrust.geolocationResponse ||= { countryCode, stateCode: '' };
+    window.OneTrust.geolocationResponse ||= geolocation;
   }
 
   const script = document.createElement('script');
