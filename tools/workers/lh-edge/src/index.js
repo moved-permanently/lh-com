@@ -50,6 +50,9 @@ import { referrerRefusal } from './referrer.js';
 import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
 import { urlForm, urlFormUnlessPage, isLongPagePath } from './url-forms.js';
+import {
+  onetrust, isOnetrustPath, fonts, isFontsPath, withGeoCookie,
+} from './onetrust.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -91,6 +94,18 @@ async function messages(request, env) {
  * Packages add their routes before login-return, entry and backends; pass-through comes last.
  */
 export const ROUTES = [
+  {
+    // brief 150: OneTrust from the page's own host (/onetrust/*, /logos/*: cdn.cookielaw.org)
+    name: 'onetrust',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isOnetrustPath(url.pathname),
+    handle: onetrust,
+  },
+  {
+    // the site's versioned brand fonts, immutable
+    name: 'fonts',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isFontsPath(url.pathname),
+    handle: (request, env) => fonts(request, env, passThrough),
+  },
   {
     // publish events (package 6): the stored events and the site config's webhook
     name: 'events',
@@ -341,6 +356,10 @@ async function siteRespond(incoming, env, site, ctx) {
   if (early) return early;
   const senv = siteEnv(env, site);
   const url = new URL(incoming.url);
+  const read = ['GET', 'HEAD'].includes(incoming.method);
+  // OneTrust from the host and the immutable fonts, as on lh-com's hosts
+  if (read && isOnetrustPath(url.pathname)) return finish(await onetrust(incoming), incoming, senv, 'onetrust');
+  if (read && isFontsPath(url.pathname)) return finish(await fonts(incoming, senv, passThrough), incoming, senv, 'fonts');
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {
@@ -364,7 +383,9 @@ export default {
     if (head) resp = rewriteHeadUrls(resp, incoming, env, head);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's
     // own hosts kept on the alias host
-    return alias ? forAlias(resp, alias, env) : resp;
+    if (alias) resp = forAlias(resp, alias, env);
+    // HTML pages: the visitor's country as lh-geo (src/onetrust.js), after every cache
+    return withGeoCookie(resp, incoming);
   },
 };
 

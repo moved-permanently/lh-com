@@ -56,7 +56,8 @@ host):
   fragment catalog, service worker, gzipped sitemaps, llms.txt, captcha, market pages as app
   screens and offline lists, aircraft lists, changelocale, mfe; the ch market and its sitemaps;
   service endpoints `/service/secured/api/*`, `/sso/*`, `/deeplink/*`, `/apps/dcep/deeplink/*`,
-  `/apps/selectlanguage`, `*.v2.sdui`): the routes below, with `X-LH-Public-Host` set to the host
+  `/apps/selectlanguage`, `*.v2.sdui`; OneTrust `/onetrust/*`, `/logos/*` and the versioned
+  fonts `/fonts/lufthansa/v<version>/*`): the routes below, with `X-LH-Public-Host` set to the host
   (a client's own value is replaced);
 - `/migration-status*` and `/_lh-auth/*`: lh-backends' gate over BACKENDS with `X-LH-Public-Host`
   (the gate trusts lufthansa.turnsthe.page), cookies and Set-Cookie passed on;
@@ -194,6 +195,8 @@ and every file keep their answers, and nothing under the code paths, `/drafts`, 
 
 | Route | Match | Answer |
 | --- | --- | --- |
+| `onetrust` | GET/HEAD `/onetrust/*`, `/logos/*` (every host, also other sites' and the front door) | `https://cdn.cookielaw.org/*` and `https://cdn.cookielaw.org/logos/*` byte for byte with their headers, cached at the edge for the upstream's `cache-control` (`src/onetrust.js`): the cookie banner from the page's own host (brief 150; OneTrust derives the SDK, config, language and asset URLs from its stub's URL, the two logos come from `<origin>/logos/`); no request cookies upstream, upstream `set-cookie` dropped |
+| `fonts` | GET/HEAD `/fonts/lufthansa/v<version>/<file>` (every host) | the origin's file with `cache-control: public, max-age=31536000, immutable` (a versioned path); other statuses unchanged |
 | `events` | GET/HEAD `/_lh/events.json` | the last 500 publish events, newest first (`src/events.js`, see "Publish events"); `cache-control: no-store` |
 | `events-webhook` | POST `/_lh/events/webhook` | the site config's webhook: reads the audit log range of its `nextToken` (see "Publish events") |
 | `csi-xf` | GET/HEAD `/content/experience-fragments/<folder>.csi-xf.json` | www's fragment catalog of a folder (`src/xf.js`), from the query index `/xf/query-index.json` (documents under `/xf/` with `xf-path`, `xf-kind`, `xf-tags`; `tools/importer/build-xf-docs.mjs`): sub-folders nested, `experienceFragments` with `sdui` links and variants; `no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires: 0`; outside `/content/experience-fragments/lh/` 400 `{}` |
@@ -228,6 +231,8 @@ and every file keep their answers, and nothing under the code paths, `/drafts`, 
 | `pass-through` | everything else | the Edge Delivery origin |
 
 Packages add their routes before `login-return`, `entry` and `backends`; `pass-through` comes last.
+
+Every HTML answer on every host also gets `lh-geo=<the visitor's country, upper case>` (`Path=/; SameSite=Lax; Secure`, a session cookie, readable by the page) when Cloudflare knows the country and the request doesn't carry the same value already, added after every cache (`src/onetrust.js` `withGeoCookie`): the site hands it to OneTrust as its geolocation answer, so the banner doesn't call geolocation.onetrust.com (`scripts/consent.js`).
 
 ## Pass-through (Adobe's reference Worker)
 
