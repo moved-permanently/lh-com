@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_259258_exports = {};
-  __export(tmp_bundle_insights_259258_exports, {
-    default: () => tmp_bundle_insights_259258_default
+  var tmp_bundle_insights_273982_exports = {};
+  __export(tmp_bundle_insights_273982_exports, {
+    default: () => tmp_bundle_insights_273982_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -4746,6 +4746,13 @@ var CustomImportScript = (() => {
         const p = document.createElement("p");
         [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
         captionCell = p;
+      } else {
+        const parts = [...slide.querySelectorAll(".richtext")].flatMap((rt) => [...rt.children]).filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean2(n.textContent)).map((n) => {
+          const copy = n.cloneNode(true);
+          copy.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
+          return copy;
+        });
+        if (parts.length) captionCell = parts;
       }
       cells.push([img, captionCell]);
     });
@@ -6634,7 +6641,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_259258_default = {
+  var tmp_bundle_insights_273982_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6664,5 +6671,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_259258_exports);
+  return __toCommonJS(tmp_bundle_insights_273982_exports);
 })();

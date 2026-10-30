@@ -31,6 +31,18 @@ export default function parse(element, { document }) {
       const p = document.createElement('p');
       [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
       captionCell = p;
+    } else {
+      // the slide's own text next to its image (Discover's /about-us/career values carousel:
+      // .text > .richtext, no figcaption): its paragraphs, headings and lists as the caption
+      const parts = [...slide.querySelectorAll('.richtext')]
+        .flatMap((rt) => [...rt.children])
+        .filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean(n.textContent))
+        .map((n) => {
+          const copy = n.cloneNode(true);
+          copy.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((x) => x.remove());
+          return copy;
+        });
+      if (parts.length) captionCell = parts;
     }
     cells.push([img, captionCell]);
   });
