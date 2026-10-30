@@ -4229,6 +4229,7 @@ var CustomImportScript = (() => {
     });
     return ul;
   }
+  var LOGO_GRAPHICS = { "gfx-carrier-4Y-logo-inverted": "discover-airlines-inverted" };
   function buildFooter(document, locale) {
     const footer = document.querySelector("footer");
     const area = footer && footer.querySelector(".footer-area, .footer-container");
@@ -4295,6 +4296,9 @@ var CustomImportScript = (() => {
         } else if (graphic && /star-alliance/.test(graphic.className)) {
           const label = clean(graphic.getAttribute("aria-label")) || "Star Alliance";
           li.append(link(document, href, ":star-alliance:", { title: label }));
+        } else if (graphic && LOGO_GRAPHICS[graphic.getAttribute("use")]) {
+          const label = clean(graphic.getAttribute("aria-label"));
+          li.append(link(document, href, `:${LOGO_GRAPHICS[graphic.getAttribute("use")]}:`, { title: label }));
         } else if (visibleText(a)) {
           li.append(link(document, href, visibleText(a)));
         }

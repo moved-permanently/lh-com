@@ -358,6 +358,10 @@ function footerLinks(document, list) {
   return ul;
 }
 
+// design-system graphics of the brand sites' logo row: the icon (/icons/<name>.svg) the footer
+// shows for them (Discover's inverted logo, read from www's rendered graphic 2026-10-30)
+const LOGO_GRAPHICS = { 'gfx-carrier-4Y-logo-inverted': 'discover-airlines-inverted' };
+
 function buildFooter(document, locale) {
   const footer = document.querySelector('footer');
   // .footer-area: lufthansa.com; .footer-container: the brand sites on the same platform (Discover)
@@ -439,6 +443,9 @@ function buildFooter(document, locale) {
         // rendered by a web component on the live site: icon /icons/star-alliance.svg
         const label = clean(graphic.getAttribute('aria-label')) || 'Star Alliance';
         li.append(link(document, href, ':star-alliance:', { title: label }));
+      } else if (graphic && LOGO_GRAPHICS[graphic.getAttribute('use')]) {
+        const label = clean(graphic.getAttribute('aria-label'));
+        li.append(link(document, href, `:${LOGO_GRAPHICS[graphic.getAttribute('use')]}:`, { title: label }));
       } else if (visibleText(a)) {
         li.append(link(document, href, visibleText(a)));
       }

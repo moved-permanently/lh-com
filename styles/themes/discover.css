@@ -49,6 +49,10 @@
   --header-bar-text-hover: #1e73af;
   --header-bar-line: #dedede;
 
+  /* footer: the logo row (Discover's inverted logo, the white "Member of Lufthansa Group") on the
+     footer's dark sky blue, as www's (no row surface of its own there) */
+  --footer-logos-surface: var(--lh-deepblue);
+
   /* spacing: Discover's grid unit is 12px (Lufthansa 10px): a fifth more space between blocks */
   --spacing-default: 28px;
   --section-gap: 56px;

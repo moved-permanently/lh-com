@@ -8,6 +8,7 @@
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 
 globalThis.WebImporter = { DOMUtils: { remove: () => {} }, Blocks: {} };
@@ -70,4 +71,22 @@ test('footerPlain: one <div> per section, the section metadata table as its bloc
   assert.ok(divs.every((d) => d.tagName === 'DIV'));
   assert.equal(divs[2].querySelector('.section-metadata').outerHTML, '<div class="section-metadata"><div><div>Style</div><div>badges</div></div></div>');
   assert.equal(document.querySelector('table'), null);
+});
+
+test('the logo row: Discover\'s inverted logo graphic as its icon token before the Lufthansa Group logo; Star Alliance as before', () => {
+  const logos = (inner) => parseHTML(`<!DOCTYPE html><html><body><footer><div class="footer-container">${COLUMN}</div><div class="footer-logos">${inner}</div></footer></body></html>`).document;
+  const discover = footer('https://www.discover-airlines.com/de/en/homepage', logos('<maui-navigation-link href="https://www.discover-airlines.com"><maui-graphic use="gfx-carrier-4Y-logo-inverted" aria-label="Discover Airlines homepage"></maui-graphic></maui-navigation-link><maui-navigation-link class="lhg-logo" href="https://www.lufthansagroup.com"><img src="/etc/designs/dcep/clientlib-all/vite/img/member-of-lhg-white.svg" alt="Member of Lufthansa Group"></maui-navigation-link>'));
+  const links = (el) => [...parseHTML(`<!DOCTYPE html><html><body>${sections(el).at(-1)}</body></html>`).document.querySelectorAll('li > a')]
+    .map((x) => [x.getAttribute('href'), x.getAttribute('title'), x.textContent || (x.querySelector('img') && 'img')]);
+  assert.deepEqual(links(discover), [
+    ['https://www.discover-airlines.com', 'Discover Airlines homepage', ':discover-airlines-inverted:'],
+    ['https://www.lufthansagroup.com', null, 'img'],
+  ]);
+  const lh = footer('https://www.lufthansa.com/de/en/homepage', logos('<a href="https://www.staralliance.com"><maui-graphic class="star-alliance-logo" aria-label="Star Alliance"></maui-graphic></a><a href="https://x.example"><maui-graphic use="gfx-other"></maui-graphic></a>'));
+  assert.deepEqual(links(lh), [['https://www.staralliance.com', 'Star Alliance', ':star-alliance:']], 'another graphic: left out, as before');
+  // the icon the token names (blocks/footer: /icons/<name>.svg), white for the dark row
+  const svg = fs.readFileSync(new URL('../icons/discover-airlines-inverted.svg', import.meta.url), 'utf8');
+  assert.match(svg, /^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg"[^>]* viewBox="0 0 252 27"/);
+  assert.match(svg, /fill="#fff"/);
+  assert.match(fs.readFileSync(new URL('../styles/themes/discover.css', import.meta.url), 'utf8'), /--footer-logos-surface: var\(--lh-deepblue\);/);
 });
