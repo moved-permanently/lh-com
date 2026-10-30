@@ -151,6 +151,26 @@ export function withDiscoverForm(doc, p) {
   return out.replace(/maxlength=(\d+)/g, (x, v) => `maxlength=${maxlengthOf(v)}`);
 }
 
+/**
+ * A market root's own document (us/en, ca/en, xx/en, us/de, xx/de, ca/fr: not a language
+ * version) with its links to www's pages of the same root relative where the language version has
+ * the page as a document (sitePaths, the allowlist): lh-edge passes own documents through
+ * unchanged and answers those paths from the language version (src/markets.js). Links to pages
+ * the language version lacks stay on www; any other document as it is.
+ */
+export function marketLinks(doc, p, sitePaths) {
+  const m = p.match(/^\/([a-z]{2})\/([a-z]{2})\//);
+  if (!m) return doc;
+  const own = `${m[1]}/${m[2]}`;
+  const version = LANGUAGE_VERSIONS[m[2]];
+  if (!version || version === own) return doc;
+  const esc = own.replace('/', '\\/');
+  return doc.replace(new RegExp(`href="https://${HOST.replace(/\./g, '\\.')}/${esc}(/[^"?#]*)?([?#][^"]*)?"`, 'g'), (x, rest = '', tail = '') => {
+    const suffix = rest.replace(/\.html$/, '').replace(/\/$/, '') || '/homepage';
+    return sitePaths.has(`/${version}${suffix}`) ? `href="/${own}${suffix}${tail}"` : x;
+  });
+}
+
 /** A document with www's robots value when its snapshot is noindex (the sweepstake). */
 export function withRobots(doc, html) {
   const robots = ((html || '').match(/<meta name="robots" content="([^"]*)"/i) || [])[1] || '';
@@ -228,12 +248,14 @@ if (isMain) {
     fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
     console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-discover', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
       .join('\n'));
+    const sitePaths = new Set(allow.paths);
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
       // links to www's DAM files: site-relative links to their copies (edsDamPath; DA, AEM and R2
-      // through lh-edge's DAM route), made by discover-dam.mjs for each batch
-      const next = relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`));
+      // through lh-edge's DAM route), made by discover-dam.mjs for each batch; a market root's own
+      // document links its root's pages the language version has relative
+      const next = relativeDamLinks(marketLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`), p, sitePaths));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
