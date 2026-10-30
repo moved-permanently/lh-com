@@ -214,6 +214,16 @@ if (isMain) {
   });
   console.log(`${name}: ${Object.entries(byTemplate).map(([t, l]) => `${t} ${l.length}`).join(', ')}; no snapshot: ${missing.length ? missing.join(' ') : 'none'}`);
   if (!argv.includes('--dry-run')) {
+    // the bulk importer writes its reports into lh-com's tree (tools/importer/reports/<path>),
+    // where lh-com has reports of its own at paths ITA has too (/de/de/homepage, /gb/en/feedback):
+    // those are set aside before the import and put back after it
+    const REPORTS = path.join(root, 'tools/importer/reports');
+    const ASIDE = path.join(W, 'reports-aside');
+    const aside = Object.keys(out).filter((p) => fs.existsSync(path.join(REPORTS, `${p}.report.json`)));
+    aside.forEach((p) => {
+      fs.mkdirSync(path.dirname(path.join(ASIDE, `${p}.report.json`)), { recursive: true });
+      fs.copyFileSync(path.join(REPORTS, `${p}.report.json`), path.join(ASIDE, `${p}.report.json`));
+    });
     Object.entries(byTemplate).forEach(([t, l]) => {
       const listFile = path.join(W, `urls-${name}-${t}.txt`);
       fs.writeFileSync(listFile, `${l.join('\n')}\n`);
@@ -223,16 +233,21 @@ if (isMain) {
       const lines = log.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x));
       console.log(`${t}: ${lines.slice(-2).join(' | ')}`);
     });
-    // the bulk importer writes its reports into lh-com's tree (tools/importer/reports/<path>):
-    // this batch's go to content-sites/lh-ita/reports (lh-com's it/en reports stay lh-com's)
+    // this batch's reports go to content-sites/lh-ita/reports; lh-com's set-aside ones come back
     Object.keys(out).forEach((p) => {
-      const from = path.join(root, 'tools/importer/reports', `${p}.report.json`);
-      if (!fs.existsSync(from) || fs.statSync(from).mtimeMs < started) return;
-      const to = path.join(W, 'reports', `${p}.report.json`);
-      fs.mkdirSync(path.dirname(to), { recursive: true });
-      fs.renameSync(from, to);
+      const from = path.join(REPORTS, `${p}.report.json`);
+      if (fs.existsSync(from) && fs.statSync(from).mtimeMs >= started) {
+        const to = path.join(W, 'reports', `${p}.report.json`);
+        fs.mkdirSync(path.dirname(to), { recursive: true });
+        fs.renameSync(from, to);
+      }
+      if (aside.includes(p)) {
+        fs.mkdirSync(path.dirname(from), { recursive: true });
+        fs.renameSync(path.join(ASIDE, `${p}.report.json`), from);
+        return;
+      }
       // and the folders it leaves empty
-      for (let d = path.dirname(from); d.startsWith(path.join(root, 'tools/importer/reports/')) && !fs.readdirSync(d).length; d = path.dirname(d)) fs.rmdirSync(d);
+      for (let d = path.dirname(from); d.startsWith(`${REPORTS}/`) && fs.existsSync(d) && !fs.readdirSync(d).length; d = path.dirname(d)) fs.rmdirSync(d);
     });
     const sites = path.join(root, 'tools/importer/sites/lh-ita.json');
     const allow = JSON.parse(fs.readFileSync(sites, 'utf8'));
