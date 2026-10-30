@@ -5,11 +5,25 @@ import {
 } from '../../scripts/block-config.js';
 
 const DEFAULT_LABELS = {
-  en: { 'pause label': 'Pause background video', 'play label': 'Play background video' },
-  de: { 'pause label': 'Hintergrundvideo anhalten', 'play label': 'Hintergrundvideo abspielen' },
+  en: {
+    'pause label': 'Pause background video',
+    'play label': 'Play background video',
+    'slider label': 'Stage',
+    'previous label': 'Previous slide',
+    'next label': 'Next slide',
+    'slide label': '{n} of {total}',
+  },
+  de: {
+    'pause label': 'Hintergrundvideo anhalten',
+    'play label': 'Hintergrundvideo abspielen',
+    'slider label': 'Bühne',
+    'previous label': 'Vorherige Folie',
+    'next label': 'Nächste Folie',
+    'slide label': '{n} von {total}',
+  },
 };
 
-const LABEL_KEYS = ['pause-label', 'play-label'];
+const LABEL_KEYS = ['pause-label', 'play-label', 'slider-label', 'previous-label', 'next-label', 'slide-label'];
 
 /** A paragraph after the heading up to this length is the subtitle (.subheadline). */
 const SUBTITLE_MAX_LENGTH = 100;
@@ -88,13 +102,14 @@ function trackScrollbar(block) {
  * @param {Element} media
  * @param {string} src
  * @param {Object} labels
+ * @param {string} uid the stage's id suffix (the block's number, a slide's number-slide)
  */
-function addBackgroundVideo(block, media, src, labels) {
+function addBackgroundVideo(block, media, src, labels, uid) {
   // kept when the video fails (e.g. a browser without H.264): the stage still had one
   block.dataset.backgroundVideo = 'true';
   const img = media.querySelector('img');
   const video = document.createElement('video');
-  video.id = `hero-campaign-video-${instanceCount}`;
+  video.id = `hero-campaign-video-${uid}`;
   video.muted = true;
   video.defaultMuted = true;
   video.loop = true;
@@ -139,25 +154,29 @@ function addBackgroundVideo(block, media, src, labels) {
   if (playing && playing.catch) playing.catch(() => setState(true));
 }
 
-/**
- * Full-bleed campaign stage: background image (optionally with a muted looping background video)
- * and text placed directly on the media.
- * @param {Element} block
- */
-export default function decorate(block) {
-  instanceCount += 1;
-  const labels = resolveLabels(DEFAULT_LABELS, takeLabelRows(block), getLocale().lang);
+/** Whether the stage's image loads eagerly: the block is in one of the first two sections. */
+function stageEager(block) {
+  const section = block.closest('.section');
+  const sections = section && section.parentElement
+    ? [...section.parentElement.querySelectorAll(':scope > .section')] : [];
+  return !section || sections.indexOf(section) < 2;
+}
 
+/**
+ * One stage: background image (optionally with a muted looping background video) and text placed
+ * directly on the media, out of the rows the element holds.
+ * @param {Element} block the block, or one slide of option slider
+ * @param {Object} labels
+ * @param {{eager: boolean, region: boolean, uid: string}} options region: the block is the region
+ *   its heading names (a slide is a group of the slider instead)
+ */
+function decorateStage(block, labels, { eager, region, uid }) {
   // background image: the first picture anywhere in the block
   const media = document.createElement('div');
   media.className = 'hero-campaign-media';
   const picture = block.querySelector('picture');
   if (picture) {
     const img = picture.querySelector('img');
-    const section = block.closest('.section');
-    const sections = section && section.parentElement
-      ? [...section.parentElement.querySelectorAll(':scope > .section')] : [];
-    const eager = !section || sections.indexOf(section) < 2;
     const optimized = img && img.src
       ? keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, [
         { media: '(min-width: 600px)', width: '2000' },
@@ -205,9 +224,11 @@ export default function decorate(block) {
 
   const heading = content.querySelector('h1, h2, h3, h4, h5, h6');
   if (heading) {
-    heading.id = heading.id || `hero-campaign-heading-${instanceCount}`;
-    block.setAttribute('role', 'region');
-    block.setAttribute('aria-labelledby', heading.id);
+    heading.id = heading.id || `hero-campaign-heading-${uid}`;
+    if (region) {
+      block.setAttribute('role', 'region');
+      block.setAttribute('aria-labelledby', heading.id);
+    }
     // subtitle: a short plain paragraph directly after the heading (longer ones are body text)
     const next = heading.nextElementSibling;
     if (next && next.tagName === 'P' && !next.querySelector('a, picture')
@@ -234,12 +255,130 @@ export default function decorate(block) {
   if (content.children.length) inner.append(content);
   block.replaceChildren(media, inner);
   if (!media.children.length) block.classList.add('hero-campaign-no-image');
-  trackScrollbar(block);
 
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (videoSrc && !reducedMotion) {
     // after the load event and after the stage image has loaded and decoded
     afterLoad(() => imageReady(media.querySelector('img'))
-      .then(() => addBackgroundVideo(block, media, videoSrc, labels)));
+      .then(() => addBackgroundVideo(block, media, videoSrc, labels, uid)));
   }
+}
+
+/** The rows of option slider per slide: a row with a picture starts one (earlier rows join it). */
+function slideRows(block) {
+  const groups = [];
+  [...block.children].forEach((row) => {
+    if (row.querySelector('picture, img') || !groups.length) groups.push([]);
+    groups[groups.length - 1].push(row);
+  });
+  return groups;
+}
+
+/**
+ * Option slider: several stages, one at a time (www.lufthansa-cargo.com's homepage stage): each row
+ * with a picture starts a slide, the rows after it are its text (a slide reads like a hero-campaign
+ * of its own); the block's other options apply to every slide. As carousel-images: a region
+ * (aria-roledescription carousel), slides as groups labelled "1 of 3", previous/next buttons,
+ * dots (aria-current), arrow keys on the track; no automatic rotation. Only the first slide's
+ * image loads eagerly. Fewer than two slides: false (the block is one stage as without the option).
+ * @param {Element} block
+ * @param {Object} labels
+ * @param {boolean} eager
+ */
+function buildSlider(block, labels, eager) {
+  const groups = slideRows(block);
+  if (groups.length < 2) return false;
+  const uid = `hero-campaign-${instanceCount}`;
+  const options = [...block.classList].filter((c) => !['block', 'hero-campaign', 'slider'].includes(c) && !c.startsWith('hero-campaign'));
+  const slideLabel = (i) => labels['slide label'].replace('{n}', i + 1).replace('{total}', groups.length);
+  const track = document.createElement('div');
+  track.className = 'hero-campaign-track';
+  track.id = `${uid}-track`;
+  const slides = groups.map((rows, i) => {
+    const slide = document.createElement('div');
+    slide.className = ['hero-campaign', 'hero-campaign-slide', ...options].join(' ');
+    slide.append(...rows);
+    decorateStage(slide, labels, { eager: eager && i === 0, region: false, uid: `${instanceCount}-${i + 1}` });
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'slide');
+    slide.setAttribute('aria-label', slideLabel(i));
+    track.append(slide);
+    return slide;
+  });
+  block.setAttribute('role', 'region');
+  block.setAttribute('aria-roledescription', 'carousel');
+  block.setAttribute('aria-label', labels['slider label']);
+
+  const current = () => {
+    const i = Math.round((track.scrollLeft || 0) / (track.clientWidth || 1));
+    return Math.max(0, Math.min(slides.length - 1, i));
+  };
+  const goTo = (i) => {
+    const index = (i + slides.length) % slides.length;
+    track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+  };
+  const button = (dir) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `hero-campaign-${dir}`;
+    btn.setAttribute('aria-controls', track.id);
+    btn.setAttribute('aria-label', labels[`${dir === 'next' ? 'next' : 'previous'} label`]);
+    btn.addEventListener('click', () => goTo(current() + (dir === 'next' ? 1 : -1)));
+    return btn;
+  };
+  const prev = button('prev');
+  const next = button('next');
+  const dots = document.createElement('ol');
+  dots.className = 'hero-campaign-dots';
+  const dotButtons = slides.map((slide, i) => {
+    const li = document.createElement('li');
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'hero-campaign-dot';
+    dot.setAttribute('aria-label', slideLabel(i));
+    dot.setAttribute('aria-controls', track.id);
+    dot.addEventListener('click', () => goTo(i));
+    li.append(dot);
+    dots.append(li);
+    return dot;
+  });
+  const update = () => {
+    const index = current();
+    dotButtons.forEach((dot, i) => {
+      if (i === index) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+    slides.forEach((slide, i) => slide.classList.toggle('hero-campaign-current', i === index));
+  };
+  let frame;
+  track.addEventListener('scroll', () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(update);
+  }, { passive: true });
+  track.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    goTo(current() + (e.key === 'ArrowRight' ? 1 : -1));
+  });
+  track.tabIndex = 0;
+  block.replaceChildren(track, prev, next, dots);
+  update();
+  return true;
+}
+
+/**
+ * Full-bleed campaign stage: background image (optionally with a muted looping background video)
+ * and text placed directly on the media. Option slider: several stages (buildSlider).
+ * @param {Element} block
+ */
+export default function decorate(block) {
+  instanceCount += 1;
+  const labels = resolveLabels(DEFAULT_LABELS, takeLabelRows(block), getLocale().lang);
+  const eager = stageEager(block);
+  if (block.classList.contains('slider') && buildSlider(block, labels, eager)) {
+    trackScrollbar(block);
+    return;
+  }
+  decorateStage(block, labels, { eager, region: true, uid: String(instanceCount) });
+  trackScrollbar(block);
 }
