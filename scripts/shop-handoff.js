@@ -13,6 +13,8 @@ import { LOCALE_TABLE } from './locale-table.js';
  */
 const shopLang = (key) => LOCALE_TABLE[key]?.shopLang || 'en-GB';
 
+const SHOP_URL = 'https://shop.lufthansa.com/booking/availability';
+
 /** Authored cabin codes (Cabin row) to the shop's cabin values. */
 const SHOP_CABINS = {
   E: 'ECONOMY',
@@ -35,11 +37,14 @@ const PORTAL_FACT_GROUPS = { performance: 'C0002', targeting: 'C0004', functiona
  * round trip, 1 adult, Economy, consent declined); see tools/importer/IMPORT-NOTES.md.
  * This function is the single place where the widget values are mapped to the shop's fields.
  * The nonstop checkbox has no field in the captured payload and is not sent.
+ * A brand site's own shop (the flight-search block's Shop row, lh-ita: shop.ita-airways.com) takes
+ * the same handoff at its own availability URL; without one: Lufthansa's.
  * @param {Object} query collected form values
  * @param {Object} locale result of getLocale()
+ * @param {string} [shop] the shop's availability URL (default: Lufthansa's)
  * @returns {{action: string, fields: Object<string, string>}}
  */
-export function buildShopHandoff(query, locale) {
+export function buildShopHandoff(query, locale, shop = '') {
   const lang = shopLang(locale.key);
   const portalCountry = locale.country.toUpperCase();
   const itineraries = [{
@@ -64,7 +69,12 @@ export function buildShopHandoff(query, locale) {
     portalFacts: Object.fromEntries(Object.entries(PORTAL_FACT_GROUPS)
       .map(([fact, group]) => [fact, groups.includes(group)])),
   };
-  const action = new URL('https://shop.lufthansa.com/booking/availability');
+  let action;
+  try {
+    action = new URL(shop && /^https:\/\/shop\.[a-z0-9.-]+\//.test(shop) ? shop : SHOP_URL);
+  } catch (e) {
+    action = new URL(SHOP_URL);
+  }
   action.searchParams.set('lang', lang);
   action.searchParams.set('portalCountry', portalCountry);
   return {

@@ -88,4 +88,5 @@
   --footer-line-color: rgb(255 255 255 / 50%);
   --footer-field-color: #fff;
   --footer-logos-surface: #0b2340;
+  --footer-star-alliance-filter: brightness(0) invert(1); /* www's inverted graphic: white */
 }

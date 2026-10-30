@@ -61,6 +61,8 @@ export function readFlightSearchSettings(config, locale) {
     travellerLabel: text('traveller-label', 'travellers-label'),
     nonstopLabel: text('nonstop-label', 'nonstop'),
     fallbackOrigin: locale.homeAirport,
+    // the shop the search is handed to (a brand site's own, lh-ita); none: Lufthansa's
+    shop: ((pick(config, 'shop') || {}).link || {}).href || text('shop'),
   };
 }
 
@@ -658,7 +660,7 @@ export default function decorate(block) {
       .then(({ getStoredConsent }) => (getStoredConsent() || {}).groups)
       .catch(() => [])
       .then((consentGroups) => {
-        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale));
+        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale, settings.shop));
       });
   });
 

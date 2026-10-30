@@ -10,6 +10,11 @@ import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
  *  3. legal row: list of links
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:)
+ * Optional sections, marked with section metadata (Style), for brand sites (lh-ita):
+ *  - badges: rows of a heading and a list of linked images (payment methods, social links),
+ *    shown between the link columns and the legal row
+ *  - note: a paragraph below the legal row (the company's registration line)
+ * Footers without them (lh-com) look as before.
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
 
@@ -74,13 +79,17 @@ function footerLink(a, className, labels, ...prefix) {
 /* ---------------------------------------------------------------- sections ----------- */
 
 function classifySections(fragment) {
-  const sections = [...fragment.querySelectorAll(':scope > .section')];
+  const all = [...fragment.querySelectorAll(':scope > .section')];
+  const marked = (name) => all.filter((s) => s.classList.contains(name));
+  const badges = marked('badges');
+  const notes = marked('note');
+  const sections = all.filter((s) => !badges.includes(s) && !notes.includes(s));
   const columns = sections.find((s) => s.querySelector('h2, h3, h4, h5, h6') && s.querySelector('ul'));
   const top = sections.find((s) => s !== columns && !s.querySelector('ul'));
   const logos = sections.find((s) => ![columns, top].includes(s) && s.querySelector('img, picture'));
   const legal = sections.find((s) => ![columns, top, logos].includes(s) && s.querySelector('ul'));
   return {
-    top, columns, legal, logos,
+    top, columns, legal, logos, badges, notes,
   };
 }
 
@@ -197,6 +206,50 @@ function buildLegal(section, labels) {
   return list.children.length ? list : null;
 }
 
+/** The badges sections: per group a heading and its linked images (payments, social links). */
+function buildBadges(sections, labels) {
+  if (!sections.length) return null;
+  const wrapper = el('div', { className: 'footer-badges' });
+  sections.forEach((section) => {
+    const content = section.querySelector('.default-content-wrapper') || section;
+    let group = null;
+    [...content.children].forEach((child) => {
+      if (/^H[1-6]$/.test(child.tagName) || !group) {
+        group = el('div', { className: 'footer-badge-group' });
+        wrapper.append(group);
+      }
+      if (/^H[1-6]$/.test(child.tagName)) {
+        group.append(el('h3', { className: 'footer-badge-heading' }, text(child)));
+        return;
+      }
+      const list = group.querySelector('ul') || group.appendChild(el('ul'));
+      child.querySelectorAll('a[href]').forEach((a) => {
+        const img = a.querySelector('img');
+        const link = el('a', { href: a.getAttribute('href') });
+        if (img) {
+          if (!img.alt) img.alt = a.title || text(a);
+          img.loading = 'lazy';
+          link.append(a.querySelector('picture') || img);
+        } else {
+          link.textContent = text(a);
+        }
+        if (isExternal(link.href)) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.setAttribute('aria-label', `${img ? img.alt : text(a)} (${labels.newTab})`);
+        }
+        list.append(el('li', {}, link));
+      });
+    });
+  });
+  return wrapper.querySelector('li') ? wrapper : null;
+}
+
+function buildNotes(sections) {
+  const paras = sections.flatMap((s) => [...s.querySelectorAll('p')]).map((p) => text(p)).filter(Boolean);
+  return paras.length ? el('div', { className: 'footer-note' }, ...paras.map((t) => el('p', {}, t))) : null;
+}
+
 /*
  * Logo row icon variants: the footer shows the horizontal "STAR ALLIANCE" graphic
  * (maui-graphic star-alliance-logo-horizontal-transparent) for the :star-alliance: token.
@@ -266,7 +319,7 @@ export default async function decorate(block) {
   }
 
   const {
-    top, columns, legal, logos,
+    top, columns, legal, logos, badges, notes,
   } = classifySections(fragment);
 
   const inner = el('div', { className: 'footer-inner' });
@@ -276,8 +329,13 @@ export default async function decorate(block) {
   ]);
   const columnsEl = buildColumns(columns, labels);
   const legalEl = buildLegal(legal, labels);
-  inner.append(...[search, localeEl, columnsEl].filter(Boolean));
+  const badgesEl = buildBadges(badges, labels);
+  const noteEl = buildNotes(notes);
+  inner.append(...[search, localeEl, columnsEl, badgesEl].filter(Boolean));
   if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
+  if (noteEl) inner.append(noteEl);
+  // the grid with the optional rows (brand sites); without them the areas are as before
+  if (badgesEl || noteEl) inner.classList.add('has-extras');
 
   block.textContent = '';
   block.append(el('div', { className: 'footer-main' }, inner));

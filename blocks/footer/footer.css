@@ -262,6 +262,72 @@
   height: 16px;
 }
 
+/* ------------------------------------------- badges and note (brand sites) ------------ */
+
+/* rows of payment and social logos (section Style: badges) and a note below the legal row
+   (Style: note); only footers that have them get .has-extras */
+.footer .footer-inner.has-extras {
+  grid-template-areas:
+    'search'
+    'columns'
+    'badges'
+    'locale'
+    'divider'
+    'legal'
+    'note';
+}
+
+.footer .footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: badges;
+  gap: 24px 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--footer-line);
+}
+
+.footer .footer-badge-heading {
+  margin: 0 0 12px;
+  color: var(--footer-text);
+  font-family: var(--heading-font-family);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer .footer-badges ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer .footer-badges a {
+  display: block;
+  line-height: 0;
+}
+
+.footer .footer-badges img {
+  display: block;
+  width: auto;
+  height: 32px;
+}
+
+.footer .footer-note {
+  grid-area: note;
+  margin: 24px 0 0;
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-text);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer .footer-note p {
+  margin: 0;
+}
+
 /* ----------------------------------------------------------------- logos ------------ */
 
 .footer .footer-logos {
@@ -317,6 +383,11 @@
   height: 20px;
 }
 
+/* --footer-star-alliance-filter: a dark logo row (styles/themes/*.css) shows the graphic white */
+.footer .footer-logos a.footer-logo-star-alliance {
+  filter: var(--footer-star-alliance-filter, none);
+}
+
 .footer .footer-logos li:nth-child(2) img {
   width: 160px;
   height: 8px;
@@ -333,6 +404,16 @@
       'legal legal';
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 20px;
+  }
+
+  .footer .footer-inner.has-extras {
+    grid-template-areas:
+      'search locale'
+      'columns columns'
+      'badges badges'
+      'divider divider'
+      'legal legal'
+      'note note';
   }
 
   /* live (de/de, at/de): 16px globe, 10px gap, text 70px below the footer top */
