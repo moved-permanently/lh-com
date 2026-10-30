@@ -8,35 +8,26 @@ The sending account is another Cloudflare account than the one the worker runs i
 REST API and not a `send_email` binding. Recipients come from a secret. It has no dependencies, and it never logs field values, file
 names or addresses.
 
-URL: https://lhforms.bbird.live (public address, used by the form block); `workers_dev = true`
-keeps https://lh-forms.aem-poc-lab.workers.dev as well. The custom domain is attached to the worker in the
-Cloudflare dashboard (Workers & Pages → lh-forms → Settings → Domains & Routes); `wrangler.toml`
-has no routes or custom domain, because the deploy token cannot manage the bbird.live zone.
+URL: https://lufthansa-forms.turnsthe.page (public address, used by the form block);
+`workers_dev = true` keeps https://lh-forms.benpeter.workers.dev as well. The custom domain is
+attached to the worker in the Cloudflare dashboard (Workers & Pages → lh-forms → Settings →
+Domains & Routes); `wrangler.toml` has no routes or custom domain, because the deploy token cannot
+manage the zone.
 
-## Two accounts (the parallel run, `../README.md` "Two accounts")
+## Account (`../README.md` "Account")
 
-The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
-answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
-`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
-there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
-head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
-moves from lhcom.bbird.live to turnsthe.page.
+The demo's main host is lufthansa.turnsthe.page, the site config's production host; the
+bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts").
 
-lh-forms deploys to Blackbird (https://lhforms.bbird.live, https://lh-forms.aem-poc-lab.workers.dev)
-and to the second Cloudflare account (https://lufthansa-forms.turnsthe.page,
-https://lh-forms.benpeter.workers.dev) with the same code. The second account's config takes its
-own Turnstile widget's site key (`accounts/benpeter.sed`: `0x4AAAAAAFqInbtR3tz5FcF4`); the
-Durable Object migration (`HourlyLimiter`) and the rate limit namespace apply there on the first
-deploy; DELIVERY binds that account's lh-backends (the deploy waits for it). The site's pages on
-every demo host but the old bbird.live ones post to the second account's worker
-(`scripts/lh-forms.js` `FORMS_ENDPOINT`; lhcom, lhedge and lhcn `FORMS_ENDPOINT_BBIRD` until they
-are retired);
-`https://lufthansa.turnsthe.page` is an allowed origin next to `https://lhcom.bbird.live`.
+lh-forms deploys `wrangler.toml` as is (`TURNSTILE_SITE_KEY`: the account's widget,
+`0x4AAAAAAFqInbtR3tz5FcF4`); DELIVERY binds the account's lh-backends (the deploy waits for it).
+The site's pages post to it on every host (`scripts/lh-forms.js` `FORMS_ENDPOINT`).
 
-Secrets in the second account (set there, not by the workflow): `TURNSTILE_SECRET` (its widget),
+Secrets (set in the account, not by the workflow): `TURNSTILE_SECRET` (its widget),
 `FORM_SENDER`, `FORM_CONFIG`, `FORM_MAIL_ACCOUNT_ID`, `FORM_MAIL_TOKEN`, and `FORMS_DELIVERY_TOKEN`
-once `FORM_DELIVERY` includes backends. Without them that copy answers but sends no mail.
-Rollback: git revert (both accounts redeploy).
+once `FORM_DELIVERY` includes backends. Without them the worker answers but sends no mail.
+Rollback: git revert.
 
 ## Endpoints
 
@@ -53,7 +44,7 @@ Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method an
 
 An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern as lh-proxy:
 `{branch}--lh-com|lh-flynet|lh-discover--moved-permanently` on aem.page/live and the DA preview,
-Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (`https://lhcom.bbird.live`,
+Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
 `https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `http://localhost:3000`). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`
@@ -130,8 +121,8 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 ## Bot check (Turnstile, `BOT_CHECK`)
 
 Cloudflare Turnstile widget "lh-com forms (lh-forms)", managed mode. It accepts only
-`main--lh-com--moved-permanently.aem.page`, `.aem.live` and `lhcom.bbird.live`; branch previews
-and localhost cannot render it (use Cloudflare's test keys there, see the form block).
+lh-com's and lh-discover's `main--…--moved-permanently.aem.page` and `.aem.live` hosts and the
+turnsthe.page hosts; branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
 
 - `TURNSTILE_SITE_KEY` (`[vars]`, public): served to the block by `GET /config`, never hard-coded
   in the block.
@@ -258,9 +249,9 @@ real network requests.
 
 Every push to `main` that changes `tools/workers/lh-forms/**` (or
 `.github/workflows/deploy-lh-forms.yaml`) runs the "Deploy lh-forms" workflow. It runs `npm test`
-in this folder and then `npx wrangler@4 deploy` to the Blackbird Cloudflare account, using the
-repository secret `CLOUDFLARE_API_TOKEN`, the same as lh-proxy. You can also start it by hand
-(workflow_dispatch). The worker `lh-forms` exists in that account with the four secrets and the
-custom domain lhforms.bbird.live; a deploy replaces only the code (the secrets and the domain
-stay). The Durable Object class comes with migration `v1`. Check with
-`curl https://lhforms.bbird.live/health`.
+in this folder and then `npx wrangler@4 deploy` to the account (`../README.md` "Account"), using
+the repository secret `CLOUDFLARE_API_TOKEN_BENPETER`, the same as lh-proxy. You can also start it
+by hand (workflow_dispatch). The worker `lh-forms` exists in that account with its secrets and the
+custom domain lufthansa-forms.turnsthe.page; a deploy replaces only the code (the secrets and the
+domain stay). The Durable Object class comes with migration `v1`. Check with
+`curl https://lufthansa-forms.turnsthe.page/health`.

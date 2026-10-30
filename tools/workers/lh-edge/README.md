@@ -4,13 +4,11 @@ The router Worker in front of lh-com. Clients of www.lufthansa.com ask URLs that
 
 URL: the workers.dev host of the account (`workers_dev = true`, lh-edge.benpeter.workers.dev); the turnsthe.page hosts are attached in the Cloudflare dashboard. No routes or custom domains in `wrangler.toml`.
 
-## Two accounts (the parallel run, `../README.md` "Two accounts")
+## Account (`../README.md` "Account")
 
-lh-edge deploys to Blackbird and to the second Cloudflare account with the same code and vars;
-the second account's config replaces the KV id of EVENTS (`accounts/benpeter.sed`: KV
-`lh-events-state`). Its bindings go by name there too (lh-messages, lh-backends, lh-forms'
-BotCheck); its second deploy leg waits until lh-backends, lh-forms
-and lh-messages exist in the account.
+lh-edge deploys `wrangler.toml` as is (EVENTS: the account's KV `lh-events-state`). Its bindings
+go by name (lh-messages, lh-backends, lh-forms' BotCheck); the deploy waits until lh-backends,
+lh-forms and lh-messages exist in the account.
 
 lufthansa.turnsthe.page is the demo's main host (the site config's production host); the
 bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
@@ -25,13 +23,12 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
-`ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: content still
-names them in places, and on the alias host those links move to it.
+`ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
+to them (no published content names them today) moves to the alias host.
 
-Secrets in the second account (set there, not by the workflow): `AUDIT_LOG_KEY` and
-`WEBHOOK_TOKEN` (the publish events; the site config's webhook must point at that account's host
-to use them); `EVENTS_SINK_URL` stays unset; `ORIGIN_AUTHENTICATION` only if the origin needs a
-token (as on Blackbird). Rollback: git revert (both accounts redeploy).
+Secrets (set in the account, not by the workflow): `AUDIT_LOG_KEY` and `WEBHOOK_TOKEN` (the
+publish events; the site config's webhook points at the account's host); `EVENTS_SINK_URL` stays
+unset; `ORIGIN_AUTHENTICATION` only if the origin needs a token. Rollback: git revert.
 
 ## Head URLs (`src/head-urls.js`, `HEAD_URLS_FROM`)
 
@@ -305,7 +302,7 @@ Image and file URLs under `https://www.lufthansa.com/content/dam/...` keep worki
 - `<asset>.transform/lh-dcep-transform-width-<n>/img.<ext>`: the media with `width=<n>` (180, 360, 720, 1440, 2560; 2880 adds `height=2880`), `format=webply` (webp), `jpeg` (jpg), none (png), `optimize=medium`; another rendition name answers 404 as on www. Without a rendition: the original file. The site's own form (`/content/dam/<name>?width=...&format=...`) keeps its media parameters.
 - Edge Delivery answers an asset path with a 301 to its media (`media_<hash>.<ext>`); the route follows it (same origin, at most three hops) and returns the bytes with `cache-control: public, max-age=2592000`; 404s `max-age=60`.
 - A missing image under `/content/dam/(lh|lx|bel|four_y|ita|austrian/global)/images/offers/` answers 302 as www: to `/content/dam/lufthansa-group/images/destination/<name>.jpg` when that copy exists (not for ita and four_y), else to `<tenant>/images/offers/fallback/generic<suffix>.jpg` (`zzq-square.jpg` gives `generic-square.jpg`), the rendition kept. As on www, the other airlines' fallbacks go to their sites (`www.swiss.com`, `www.austrian.com`, `www.brusselsairlines.com`, `www.ita-airways.com`, `www.discover-airlines.com`); Lufthansa's stay on the request's host.
-- Videos over 36 MB, the subtitles (`.vtt`) and PDFs over 20 MB, which Edge Delivery can't hold, come from an AEM as a Cloud Service publish tier only (var `AEM_PUBLISH`, its origin; `""`: off), `src/dam-aem.js`, the one step of `DAM_STEPS` (the R2 copies were a one-off copy and are gone). GET and HEAD of `.mp4` and `.vtt` (before the DA copies), and of a `.pdf` only after the DA copies answered 404 (`src/dam.js`: the route's one DA request; a PDF DA serves, 200 or 206, costs no AEM call, any other DA answer is passed on as before). The request goes to `${AEM_PUBLISH}${edsDamPath(asset)}` with only `range`, `if-none-match` and `if-modified-since`, its headers within 30 s (`AEM_HEADER_TIMEOUT_MS`: a cold publish tier takes 10-20 s for its first answers, then about 0.5 s; a cold file loads slowly instead of failing), the body streamed. Used when AEM answers 200 or 206 with the file's media type (a 200 to a request with `Range` too: the whole file), 304 or 416: `.vtt` as `text/vtt; charset=utf-8`, `.mp4` as `video/mp4`, `.pdf` as `application/pdf`, `cache-control: public, max-age=2592000`, `accept-ranges: bytes`, `content-length`, `content-range`, `etag`, `last-modified` from AEM, `x-lh-edge-route: dam-aem`. AEM's 404 (403, 410): the DA copies (the mp4s up to 36 MB live there), else the 404. A hibernated environment (its 200 `text/html` page for every path), 5xx, a timeout or a network error: the DA copy when there is one, else 503 with `Retry-After: 120`, `cache-control: no-store`, `x-lh-edge-route: dam-aem-unavailable`, never AEM's page. The subrequest has `cache: 'no-store'` (past Cloudflare's cache: on a cold miss it fetches the whole file without the `Range` and answers 200 with all of it, and it never stores a file over 512 MB, so the 869 MB video's first range request got 869 MB); the publish tier's own CDN still caches. The sandbox hibernates after 8 hours without requests: `src/aem-keepalive.js`, in the poller's run (lh-messages' minute cron, `EventsRelay.poll`, both accounts) of minute 17 of each hour, sends one GET per URL of `AEM_KEEPALIVE_URLS` (comma list; `""`: none) with `?keepalive=<epoch seconds>` and `cache: 'no-store'`, logged as `aem-keepalive <url> <status> <content-type>`; its errors never reach the relay.
+- Videos over 36 MB, the subtitles (`.vtt`) and PDFs over 20 MB, which Edge Delivery can't hold, come from an AEM as a Cloud Service publish tier only (var `AEM_PUBLISH`, its origin; `""`: off), `src/dam-aem.js`, the one step of `DAM_STEPS` (the R2 copies were a one-off copy and are gone). GET and HEAD of `.mp4` and `.vtt` (before the DA copies), and of a `.pdf` only after the DA copies answered 404 (`src/dam.js`: the route's one DA request; a PDF DA serves, 200 or 206, costs no AEM call, any other DA answer is passed on as before). The request goes to `${AEM_PUBLISH}${edsDamPath(asset)}` with only `range`, `if-none-match` and `if-modified-since`, its headers within 30 s (`AEM_HEADER_TIMEOUT_MS`: a cold publish tier takes 10-20 s for its first answers, then about 0.5 s; a cold file loads slowly instead of failing), the body streamed. Used when AEM answers 200 or 206 with the file's media type (a 200 to a request with `Range` too: the whole file), 304 or 416: `.vtt` as `text/vtt; charset=utf-8`, `.mp4` as `video/mp4`, `.pdf` as `application/pdf`, `cache-control: public, max-age=2592000`, `accept-ranges: bytes`, `content-length`, `content-range`, `etag`, `last-modified` from AEM, `x-lh-edge-route: dam-aem`. AEM's 404 (403, 410): the DA copies (the mp4s up to 36 MB live there), else the 404. A hibernated environment (its 200 `text/html` page for every path), 5xx, a timeout or a network error: the DA copy when there is one, else 503 with `Retry-After: 120`, `cache-control: no-store`, `x-lh-edge-route: dam-aem-unavailable`, never AEM's page. The subrequest has `cache: 'no-store'` (past Cloudflare's cache: on a cold miss it fetches the whole file without the `Range` and answers 200 with all of it, and it never stores a file over 512 MB, so the 869 MB video's first range request got 869 MB); the publish tier's own CDN still caches. The sandbox hibernates after 8 hours without requests: `src/aem-keepalive.js`, in the poller's run (lh-messages' minute cron, `EventsRelay.poll`) of minute 17 of each hour, sends one GET per URL of `AEM_KEEPALIVE_URLS` (comma list; `""`: none) with `?keepalive=<epoch seconds>` and `cache: 'no-store'`, logged as `aem-keepalive <url> <status> <content-type>`; its errors never reach the relay.
 - `DAM_STEPS` (exported by `src/dam.js`) run before the copies: a step `async (request, env, ctx, { asset, rendition, valid, url })` returns a Response or `null`. The lookup of the synced brand assets (`/content/dam/<tenant>/images/frontify/...`) goes there.
 
 The copies are served from `ORIGIN` (aem.live): a copy answers once it is published.
@@ -449,7 +446,7 @@ The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` po
 
 ## Smoke check (`smoke.mjs`)
 
-Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lufthansa.turnsthe.page, lufthansa-edge.turnsthe.page, discover.turnsthe.page). The replica's own host names (and the retired bbird.live names content may carry) are masked as `HOST` in bodies and locations.
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lufthansa.turnsthe.page, lufthansa-edge.turnsthe.page, discover.turnsthe.page). The replica's own host names (and the retired bbird.live names an old link may carry) are masked as `HOST` in bodies and locations.
 
 ```sh
 node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --check    # against smoke/lufthansa-edge.turnsthe.page.json

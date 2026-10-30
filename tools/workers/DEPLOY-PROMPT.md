@@ -11,27 +11,24 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
 1. **How it deploys.** `.github/workflows/deploy-lh-proxy.yaml` runs on every push to `main`
    that changes `tools/workers/lh-proxy/**` or the workflow file, and on manual dispatch. It
    runs `npm test` in `tools/workers/lh-proxy/` (node:test, no dependencies), then
-   `npx -y wrangler@4 deploy` in both Cloudflare accounts of the parallel run
-   (`tools/workers/README.md` "Two accounts"): Blackbird with
-   `CLOUDFLARE_ACCOUNT_ID=ac7ee4615628005dc5ba0a22f0aae2a6`, the second account with the
-   repository variable `CLOUDFLARE_ACCOUNT_ID_BENPETER`.
-2. **Credentials.** The repository secrets `CLOUDFLARE_API_TOKEN` (Blackbird) and
-   `CLOUDFLARE_API_TOKEN_BENPETER` (the second account) must exist (Settings → Secrets and
-   variables → Actions) with *Workers Scripts: Edit* on their account. If a run fails at
+   `npx -y wrangler@4 deploy` in the Cloudflare account (`tools/workers/README.md` "Account"),
+   the repository variable `CLOUDFLARE_ACCOUNT_ID_BENPETER`.
+2. **Credentials.** The repository secret `CLOUDFLARE_API_TOKEN_BENPETER` must exist (Settings →
+   Secrets and variables → Actions) with *Workers Scripts: Edit* on the account. If a run fails at
    "Check Cloudflare credentials", add the secret and re-run the workflow (Actions →
    "Deploy lh-proxy" → Run workflow). No other secrets are needed.
 3. **Variables** live in `tools/workers/lh-proxy/wrangler.toml` `[vars]`; change them there
    and push (that triggers a deploy):
    - `UPSTREAM_ORIGIN = "https://www.lufthansa.com"`
    - `ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"` (aem.page/live and the DA preview, Quick Edit and UE hosts)
-   - `EXTRA_ALLOWED_ORIGINS = "http://localhost:3000"` (comma list)
+   - `EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://lufthansa-edge.turnsthe.page,https://lufthansa-cn.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000"` (comma list)
    - `CACHE_TTL = "300"` (seconds; the Cache API has no effect on `*.workers.dev`)
    - `UPSTREAM_TIMEOUT_MS` (default 8000)
-4. **Routes.** The worker is served at `https://lh-proxy.aem-poc-lab.workers.dev`. The allowlist
+4. **Routes.** The worker is served at `https://lh-proxy.benpeter.workers.dev`. The allowlist
    (see `tools/workers/lh-proxy/README.md`) forwards only these `/service/api/*` routes:
    suggestions/airports, catalogs, defaultAirport, labels, lhg-fare-teaser, destinationfinder,
    plus `/aircore/weather/` and `/aircore/geolocation/`.
-5. **Verify** with `W=https://lh-proxy.aem-poc-lab.workers.dev` and
+5. **Verify** with `W=https://lh-proxy.benpeter.workers.dev` and
    `O=https://main--lh-com--moved-permanently.aem.page`:
    - `curl -i $W/health` should return 200 `{"ok":true,"upstream":"https://www.lufthansa.com"}`.
    - `curl -i $W/nope` should return 404 `{"error":"not-allowed"}`.
@@ -46,8 +43,7 @@ Make sure the lh-proxy Cloudflare Worker (`tools/workers/lh-proxy/`) is deployed
    - `head -c 70000 /dev/zero | curl -i -X POST --data-binary @- -H "Content-Type: application/json" $W/service/api/lhg-fare-teaser/fareteaser/manual`
      should return 413.
 6. **Site wiring.** `scripts/lh-data.js` already has
-   `PROXY_ORIGIN = 'https://lh-proxy.benpeter.workers.dev'` (the second account; the bbird.live
-   hosts use `PROXY_ORIGIN_BBIRD = 'https://lh-proxy.aem-poc-lab.workers.dev'`). In the browser, on
+   `PROXY_ORIGIN = 'https://lh-proxy.benpeter.workers.dev'`. In the browser, on
    `$O/de/en/homepage`, the flight-search and fare-teaser calls go to `$W` (200, or 502 followed
    by a request to `/data/recorded/...`).
 7. **Report back:** the latest "Deploy lh-proxy" run (commit, conclusion) and the status of each

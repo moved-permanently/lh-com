@@ -33,12 +33,12 @@ beforeEach(() => {
 });
 
 test('forms config: read once from the worker, without cookies', async () => {
-  reply = { status: 200, body: { botCheck: 'on', turnstileSiteKey: ' 0x4AAAAAAFnIbr4JnmqxGNVc ' } };
+  reply = { status: 200, body: { botCheck: 'on', turnstileSiteKey: ' 0x4AAAAAAFqInbtR3tz5FcF4 ' } };
   const [a, b] = await Promise.all([formsConfig(), formsConfig()]);
-  assert.deepEqual(a, { botCheck: 'on', turnstileSiteKey: '0x4AAAAAAFnIbr4JnmqxGNVc' });
+  assert.deepEqual(a, { botCheck: 'on', turnstileSiteKey: '0x4AAAAAAFqInbtR3tz5FcF4' });
   assert.equal(a, b);
   assert.deepEqual(calls.map((c) => [c.url, c.init.credentials]), [[`${FORMS_ENDPOINT}/config`, 'omit']]);
-  assert.equal(turnstileSiteKey(a), '0x4AAAAAAFnIbr4JnmqxGNVc');
+  assert.equal(turnstileSiteKey(a), '0x4AAAAAAFqInbtR3tz5FcF4');
 });
 
 test('forms config: an error, a failed request or odd values give no site key', async () => {
@@ -55,7 +55,7 @@ test('forms config: an error, a failed request or odd values give no site key', 
 
 test('forms config: the tester\'s worker and test site key from localStorage', async () => {
   window.localStorage.setItem('lh-forms', 'http://localhost:8787/');
-  reply = { status: 200, body: { botCheck: 'off', turnstileSiteKey: '0x4AAAAAAFnIbr4JnmqxGNVc' } };
+  reply = { status: 200, body: { botCheck: 'off', turnstileSiteKey: '0x4AAAAAAFqInbtR3tz5FcF4' } };
   const config = await formsConfig();
   assert.equal(calls[0].url, 'http://localhost:8787/config');
   window.localStorage.setItem('lh-forms-sitekey', '1x00000000000000000000AA');

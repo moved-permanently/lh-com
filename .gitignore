@@ -30,5 +30,5 @@ content-sites/
 # wrangler dev state (local tests of the Workers)
 .wrangler/
 
-# the second account's generated configs (CI only, tools/workers/account-config.sh)
+# generated Worker configs (CI only: lh-messages' bootstrap config, deploy-lh-messages.yaml)
 tools/workers/*/wrangler.*.gen.toml

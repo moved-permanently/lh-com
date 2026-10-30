@@ -2,25 +2,19 @@
 
 A Cloudflare Worker that serves the lh-com Message Center as public JSON in the shapes of www.lufthansa.com's persisted queries (`/graphql/execute.json/Message-Center/*`), which the apps and other clients read. The website itself reads the query index directly (`scripts/message-center.js`).
 
-URL: https://lh-messages.aem-poc-lab.workers.dev (`workers_dev = true`, no routes).
+URL: https://lh-messages.benpeter.workers.dev (`workers_dev = true`, no routes).
 
-## Two accounts (the parallel run, `../README.md` "Two accounts")
+## Account (`../README.md` "Account")
 
-The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
-answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
-`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
-there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
-head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
-moves from lhcom.bbird.live to turnsthe.page.
+The demo's main host is lufthansa.turnsthe.page, the site config's production host; the
+bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts").
 
-lh-messages deploys to Blackbird and to the second Cloudflare account with the same code; the
-second account's config has its own KV (`accounts/benpeter.sed`: KV `lh-messages-state`). The
-minute cron runs in both accounts, each with its own KV state; `PUSH_TARGET` stays unset in both
-(the only secret). EVENTS_RELAY binds that account's lh-edge: on the first deploy there lh-edge
-did not exist yet, so the workflow deployed without the binding, waited for lh-edge and deployed
-again with it (it does so whenever Cloudflare refuses the binding for a missing lh-edge).
-`https://lufthansa.turnsthe.page` is an allowed origin next to `https://lhcom.bbird.live`.
-Rollback: git revert (both accounts redeploy).
+lh-messages deploys `wrangler.toml` as is (STATE: the account's KV `lh-messages-state`);
+`PUSH_TARGET` stays unset (the only secret). EVENTS_RELAY binds the account's lh-edge: on the
+first deploy lh-edge did not exist yet, so the workflow deployed without the binding, waited for
+lh-edge and deployed again with it (it does so whenever Cloudflare refuses the binding for a
+missing lh-edge). `https://lufthansa.turnsthe.page` is an allowed origin. Rollback: git revert.
 
 ## Source
 
@@ -46,7 +40,7 @@ Persisted query parameters after `;` are ignored. Other paths: 404.
 
 Message items, keys in www's order: `_path` (`/content/dam/lufthansa-group/message-center/<type>/<id>`), `_tags` (`lufthansa-group:tenant/<x>`, `lufthansa-group:markets/<cc>` (none when the message is for all markets), `lufthansa-group:touchpoint/<x>`), `language` (from the path), `headline`, `criticality`, `link` (`null` when empty), `activatedAt` (when the worker first saw the message active, from KV; before the first cron run its last modification), `_metadata` (`stringMetadata` title = internal-title and description `""`; `calendarMetadata` `jcr:created` = activatedAt, as the index has no creation time, and `cq:lastModified` = lastModified). One item per message and language; ordered by path, the English variation first (as www). The lists contain only the messages of the index (published) inside their `from`/`to` window (from inclusive, to exclusive, UTC). CTI page references are ordered as on www (ita, four_y, sn, lx, os, lh), other tenants after them.
 
-Headers: `content-type: application/json`, `cache-control: public, max-age=120` (as www), `last-modified` (the newest message). CORS (`Access-Control-Allow-Origin`) only for the lh-com hosts: `ALLOWED_ORIGIN_PATTERN` (`{branch}--lh-com--moved-permanently.aem.page|live`) and `EXTRA_ALLOWED_ORIGINS` (`https://lhcom.bbird.live`, `http://localhost:3000`); other origins get the JSON without CORS headers (clients that are not browsers are not affected).
+Headers: `content-type: application/json`, `cache-control: public, max-age=120` (as www), `last-modified` (the newest message). CORS (`Access-Control-Allow-Origin`) only for the lh-com hosts: `ALLOWED_ORIGIN_PATTERN` (`{branch}--lh-com--moved-permanently.aem.page|live`) and `EXTRA_ALLOWED_ORIGINS` (`https://lufthansa.turnsthe.page`, `http://localhost:3000`); other origins get the JSON without CORS headers (clients that are not browsers are not affected).
 
 ## Cron and KV
 
@@ -62,6 +56,6 @@ For messages with `push` set, when they become active and when they disappear (w
 
 `npm test` in this folder (Node 24, no install): shapes and key order against the www fixture (`test/fixtures/www-message-center-2026-10-25.json`), tags, `_path`, ordering, the window, CTI pages, outage-b2b, routes and CORS, the 30 s source cache, the cron diff and KV writes, the push stub. `fetch` and KV are mocked.
 
-`.github/workflows/deploy-lh-messages.yaml` runs the tests and `wrangler deploy` on every push to main that touches this folder, with the repository secret `CLOUDFLARE_API_TOKEN` (same account as lh-proxy).
+`.github/workflows/deploy-lh-messages.yaml` runs the tests and `wrangler deploy` on every push to main that touches this folder, with the repository secret `CLOUDFLARE_API_TOKEN_BENPETER` (same account as lh-proxy, `../README.md` "Account").
 
 `node tools/workers/lh-messages/compare-www.mjs` compares the deployed worker with the recorded www answers: the JSON shape of every route, and, for messages both have (same id and language), every field.

@@ -5,22 +5,16 @@ A Cloudflare Worker for the lufthansa.com replica (`moved-permanently/lh-com`). 
 same-origin APIs, which are cross-origin on those hosts. This worker forwards an allowlist of
 routes to `UPSTREAM_ORIGIN` and adds CORS. It has no dependencies.
 
-## Two accounts (the parallel run, `../README.md` "Two accounts")
+## Account (`../README.md` "Account")
 
-The demo's main host is lufthansa.turnsthe.page; the bbird.live hosts are the old ones and keep
-answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
-`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts"). Pages
-there name their own host in canonical, hreflang, og:* and twitter:* URLs through lh-edge's
-head-URL rewrite (`../lh-edge/README.md` "Head URLs"), until the site config's production host
-moves from lhcom.bbird.live to turnsthe.page.
+The demo's main host is lufthansa.turnsthe.page, the site config's production host; the
+bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
+`<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (`../README.md` "Brand hosts").
 
-lh-proxy deploys to Blackbird (https://lh-proxy.aem-poc-lab.workers.dev) and to the second
-Cloudflare account (https://lh-proxy.benpeter.workers.dev) with the same code and vars; no
-resource ids, bindings or secrets. The site's pages on the turnsthe.page hosts use the second one
-(`scripts/lh-data.js` `PROXY_ORIGIN`) on every demo host but the old bbird.live ones (they keep
-Blackbird's, `PROXY_ORIGIN_BBIRD`, until they are retired). Its allowlist (below) names neither
-lhcom.bbird.live nor lufthansa.turnsthe.page, so from the main host the proxy refuses (403) and
-the widgets fall back as they do on lhcom today. Rollback: git revert (both accounts redeploy).
+lh-proxy deploys to the account (https://lh-proxy.benpeter.workers.dev); no resource ids,
+bindings or secrets. The site's pages use it on every host (`scripts/lh-data.js`
+`PROXY_ORIGIN`); `EXTRA_ALLOWED_ORIGINS` lets the turnsthe.page hosts that load the site in
+(lufthansa, lufthansa-edge, lufthansa-cn, discover). Rollback: git revert.
 
 ## Behaviour
 
@@ -75,7 +69,7 @@ encoded slashes or backslashes (`%2f`, `%5c`, `\`) are always rejected.
 | --- | --- |
 | `UPSTREAM_ORIGIN` | `https://www.lufthansa.com` |
 | `ALLOWED_ORIGIN_PATTERN` | `^https://[a-z0-9-]+--(lh-com\|lh-flynet)--moved-permanently\.(aem\.(page\|live)\|(stage-)?(preview\|ue)\.da\.(live\|page))$` (aem.page/live plus DA preview, Quick Edit and UE hosts) |
-| `EXTRA_ALLOWED_ORIGINS` | `http://localhost:3000` (comma-separated) |
+| `EXTRA_ALLOWED_ORIGINS` | the four turnsthe.page hosts above, `http://localhost:3000` (comma-separated) |
 | `CACHE_TTL` | `300` (seconds; `0` disables caching) |
 | `UPSTREAM_TIMEOUT_MS` | `8000` |
 
@@ -94,14 +88,13 @@ The tests stub `globalThis.fetch` and `globalThis.caches`, so they make no netwo
 
 The worker deploys itself: every push to `main` that changes `tools/workers/lh-proxy/**` (or
 `.github/workflows/deploy-lh-proxy.yaml`) runs the "Deploy lh-proxy" workflow, which runs
-`npm test` in this folder and then `npx wrangler@4 deploy` to the Blackbird Cloudflare account
-(repository secret `CLOUDFLARE_API_TOKEN`). It can also be started by hand (workflow_dispatch).
+`npm test` in this folder and then `npx wrangler@4 deploy` to the account (`../README.md`
+"Account", repository secret `CLOUDFLARE_API_TOKEN_BENPETER`). It can also be started by hand (workflow_dispatch).
 
-- URL: https://lh-proxy.aem-poc-lab.workers.dev (`/health` answers `{"ok":true,...}`)
-- The site's live-data client uses it by default: `PROXY_ORIGIN` in `scripts/lh-data.js` (the
-  second account's), `PROXY_ORIGIN_BBIRD` on the bbird.live hosts.
+- URL: https://lh-proxy.benpeter.workers.dev (`/health` answers `{"ok":true,...}`)
+- The site's live-data client uses it by default: `PROXY_ORIGIN` in `scripts/lh-data.js`.
 - After a worker change, check the run under Actions → "Deploy lh-proxy", then
-  `curl https://lh-proxy.aem-poc-lab.workers.dev/health`.
+  `curl https://lh-proxy.benpeter.workers.dev/health`.
 - Lufthansa's Cloudflare currently refuses the worker's upstream calls, so data routes answer
   `502 {"error":"upstream-blocked"}` and the widgets use the responses recorded in
   `data/recorded/`. That is expected; nothing to fix in the worker.

@@ -4,8 +4,7 @@ on:
     branches: [main]
     paths:
       - 'tools/workers/lh-messages/**'
-      # and the second account's config (tools/workers/README.md "Two accounts")
-      - 'tools/workers/account-config.sh'
+      # and the bound Workers' check (tools/workers/README.md "Account")
       - 'tools/workers/wait-for-workers.sh'
       - '.github/workflows/deploy-lh-messages.yaml'
   workflow_dispatch:
@@ -27,33 +26,17 @@ jobs:
         node-version: 24
     - run: npm test
 
-  # The parallel run (README "Two accounts"): every deploy goes to both Cloudflare accounts, the
-  # Blackbird one (bbird.live hosts) as before and the second one (turnsthe.page hosts) with its
-  # ids from accounts/benpeter.sed (the KV namespace). The minute cron runs in both accounts, each
-  # with its own KV. Drop the blackbird row when Blackbird is retired.
+  # One Cloudflare account (tools/workers/README.md "Account"): CLOUDFLARE_API_TOKEN_BENPETER,
+  # vars.CLOUDFLARE_ACCOUNT_ID_BENPETER, the turnsthe.page hosts; wrangler.toml as is.
   deploy:
-    # the job's name shows the account only (the matrix values would show its id)
-    name: deploy (${{ matrix.account }})
     needs: test
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - account: blackbird
-            token: CLOUDFLARE_API_TOKEN
-            account_id: ac7ee4615628005dc5ba0a22f0aae2a6
-            ids: ''
-          - account: benpeter
-            token: CLOUDFLARE_API_TOKEN_BENPETER
-            account_id: ${{ vars.CLOUDFLARE_ACCOUNT_ID_BENPETER }}
-            ids: accounts/benpeter.sed
     defaults:
       run:
         working-directory: tools/workers/lh-messages
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets[matrix.token] }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ matrix.account_id }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_BENPETER }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID_BENPETER }}
     steps:
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v6
@@ -62,31 +45,23 @@ jobs:
     - name: Check Cloudflare credentials
       run: |
         if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-          echo "::error::Set the secret ${{ matrix.token }} (Workers Scripts:Edit on the ${{ matrix.account }} account) and, for the second account, the variable CLOUDFLARE_ACCOUNT_ID_BENPETER."
+          echo "::error::Set the secret CLOUDFLARE_API_TOKEN_BENPETER (Workers Scripts:Edit on the account) and the variable CLOUDFLARE_ACCOUNT_ID_BENPETER."
           exit 1
         fi
-    - name: Config for ${{ matrix.account }}
-      run: |
-        if [ -n "${{ matrix.ids }}" ]; then
-          bash ../account-config.sh "${{ matrix.ids }}" wrangler.toml wrangler.${{ matrix.account }}.gen.toml
-          echo "WRANGLER_CONFIG=wrangler.${{ matrix.account }}.gen.toml" >> "$GITHUB_ENV"
-        else
-          echo "WRANGLER_CONFIG=wrangler.toml" >> "$GITHUB_ENV"
-        fi
-    # lh-messages and lh-edge bind each other (EVENTS_RELAY here, MESSAGES there). On the first
-    # deploy to the second account lh-edge is not there yet: when Cloudflare refuses the binding,
+    # lh-messages and lh-edge bind each other (EVENTS_RELAY here, MESSAGES there). On a first
+    # deploy to an empty account lh-edge is not there yet: when Cloudflare refuses the binding,
     # lh-messages goes out without EVENTS_RELAY (the code skips the relay without it), lh-edge's
     # deploy (which waits for lh-messages) follows, and lh-messages goes out again with the binding.
     - name: Deploy
       run: |
         set -o pipefail
-        if npx -y wrangler@4 deploy -c "$WRANGLER_CONFIG" 2>&1 | tee /tmp/deploy.log; then exit 0; fi
-        if [ "${{ matrix.account }}" = blackbird ] || bash ../wait-for-workers.sh --check lh-edge; then exit 1; fi
+        if npx -y wrangler@4 deploy 2>&1 | tee /tmp/deploy.log; then exit 0; fi
+        if bash ../wait-for-workers.sh --check lh-edge; then exit 1; fi
         # only a refused binding (any other error stays an error)
         if ! grep -qiE "binding|lh-edge|EventsRelay" /tmp/deploy.log; then exit 1; fi
-        echo "::warning::lh-edge is not in the ${{ matrix.account }} account yet: lh-messages without EVENTS_RELAY first, then again once lh-edge is there"
-        sed '/^\[\[services\]\]$/,/^entrypoint = "EventsRelay"$/d' "$WRANGLER_CONFIG" > wrangler.bootstrap.gen.toml
+        echo "::warning::lh-edge is not in the account yet: lh-messages without EVENTS_RELAY first, then again once lh-edge is there"
+        sed '/^\[\[services\]\]$/,/^entrypoint = "EventsRelay"$/d' wrangler.toml > wrangler.bootstrap.gen.toml
         if grep -q EVENTS_RELAY wrangler.bootstrap.gen.toml; then echo "::error::EVENTS_RELAY still in the bootstrap config"; exit 1; fi
         npx -y wrangler@4 deploy -c wrangler.bootstrap.gen.toml
         bash ../wait-for-workers.sh lh-edge
-        npx -y wrangler@4 deploy -c "$WRANGLER_CONFIG"
+        npx -y wrangler@4 deploy

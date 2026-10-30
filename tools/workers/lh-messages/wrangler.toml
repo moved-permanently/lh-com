@@ -7,7 +7,7 @@ workers_dev = true
 # something changed: Workers Free has a small daily KV write quota)
 [[kv_namespaces]]
 binding = "STATE"
-id = "8d235edea06d4ac3910dec7b713914b5"
+id = "d004215e3ce045b997cfd1040d246514"
 
 # compare the index with the last state every minute (activatedAt, push on appear/disappear);
 # the same cron polls lh-edge's publish event relay (the account's cron triggers are all in use)

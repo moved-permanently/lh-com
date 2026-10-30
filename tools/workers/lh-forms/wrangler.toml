@@ -30,7 +30,7 @@ EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnst
 # hosts: lh-com's and lh-discover's aem.page/.aem.live hosts and the turnsthe.page hosts). The site
 # key is public; the secret TURNSTILE_SECRET is set in the dashboard. BOT_CHECK on: /submit
 # needs a valid token; off: no check (www has it off).
-TURNSTILE_SITE_KEY = "0x4AAAAAAFnIbr4JnmqxGNVc"
+TURNSTILE_SITE_KEY = "0x4AAAAAAFqInbtR3tz5FcF4"
 BOT_CHECK = "on"
 
 # 5 submissions per minute per client IP (the binding only supports periods of 10 or 60 s).
