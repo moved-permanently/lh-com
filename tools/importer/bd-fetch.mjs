@@ -9,6 +9,7 @@
  * Usage: node tools/importer/bd-fetch.mjs (--list urls.txt | --url <url> ...) [--batch 60]
  *          [--delay 2500] [--anchor https://www.lufthansa.com/de/en/homepage]
  *          [--post '<json body>'] (POST body for every --url, for fare-teaser calls)
+ *          [--wait-until domcontentloaded] (the anchor's goto; default load)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,10 +26,13 @@ const urlArgs = argv.flatMap((a, i) => (a === '--url' ? [argv[i + 1]] : []));
 const batch = Number(opt('batch', 60));
 const delay = Number(opt('delay', 2500));
 const anchor = opt('anchor', 'https://www.lufthansa.com/de/en/homepage');
+// --wait-until domcontentloaded: a site whose load event never comes (www.ita-airways.com)
+const waitUntil = opt('wait-until', 'load');
 const post = opt('post');
 const outDir = path.join(root, 'tools/source-export/bundles');
 const stateFile = path.join(root, 'tools/source-export/bd-fetch-state.json');
-const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human/i;
+// ^blocked$: www.ita-airways.com's block page (403, title "Blocked")
+const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|^blocked$/i;
 
 const listFile = opt('list');
 const urls = listFile
@@ -59,7 +63,7 @@ const browser = await connectBrowser('bd');
 try {
   const page = await browser.newPage();
   try {
-    await page.goto(anchor, { timeout: 90000 });
+    await page.goto(anchor, { timeout: 90000, waitUntil });
   } catch (e) {
     // the challenge solves by navigating the frame, which detaches it mid-goto
     console.error(`bd-fetch: navigation interrupted (${e.message.split('\n')[0]}), waiting for the page`);
@@ -75,7 +79,8 @@ try {
       const init = body ? { method: 'POST', body, headers: { 'Content-Type': 'application/json', Accept: 'application/json' } } : {};
       const resp = await fetch(u, { credentials: 'include', ...init });
       const contentType = resp.headers.get('content-type') || '';
-      const gz = u.endsWith('.gz') && !contentType.includes('xml');
+      // binary answers (gzipped sitemaps, fonts such as ITA's OpenSans .woff) as base64
+      const gz = (u.endsWith('.gz') && !contentType.includes('xml')) || /font\/|woff|octet-stream/.test(contentType) || /\.woff2?$/.test(u);
       let text;
       if (gz) {
         let s = '';

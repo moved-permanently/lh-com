@@ -17,6 +17,7 @@
  *          [--parity-list urls-parity.txt] [--since 2026-10-21T18:46:00Z]
  *          [--anchor <warm-up URL>] [--state <file>] [--pages-dir <dir>]   (another site)
  *          [--keep-error-pages]   (save a 200 page that reads like an error page: a site's own /error page)
+ *          [--wait-until domcontentloaded]   (every goto; default load)
  * Screenshots: screenshot.png (1440) plus screenshot-{width}.png for each extra width, for the
  * parity check, so a page is never loaded again just for a screenshot.
  * --shots-only: a recapture for the parity check (pages whose screenshots were faulty: missed lazy
@@ -45,7 +46,11 @@ const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${
 const has = (name) => argv.includes(`--${name}`);
 // --anchor: the warm-up page of another site (Discover: https://www.discover-airlines.com/de/en/homepage)
 const ANCHOR = opt('anchor', 'https://www.lufthansa.com/de/en/homepage');
-const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification/i;
+// --wait-until domcontentloaded: a site whose load event never comes (www.ita-airways.com); the
+// network-idle and fonts waits after it still run
+const waitUntil = opt('wait-until', 'load');
+// ^blocked$: www.ita-airways.com's block page (403, title "Blocked")
+const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$/i;
 const MAX_HEIGHT = 8000;
 // --keep-error-pages: a 200 page that reads like an error page (a site's own /error page, e.g.
 // Discover's form error pages) is saved as captured; bot checks and 404s as without it
@@ -135,7 +140,7 @@ const lap = (label) => { if (process.env.BD_TIMING) console.log(`  ${label} ${((
 async function open(page, url) {
   mainStatus = null;
   try {
-    const resp = await page.goto(url, { timeout: 90000 });
+    const resp = await page.goto(url, { timeout: 90000, waitUntil });
     if (resp && mainStatus === null) mainStatus = resp.status();
   } catch (e) {
     // the challenge solves by navigating the frame, which detaches it mid-goto
