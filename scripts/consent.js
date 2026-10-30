@@ -1,6 +1,8 @@
 /**
- * Cookie consent: Lufthansa's OneTrust banner as on www.lufthansa.com, with a visually
- * identical fallback (consent-banner.js) when OneTrust does not show up.
+ * Cookie consent: the brand's OneTrust banner as on its www (Lufthansa's on lh-com, Discover's
+ * and ITA's on theirs: scripts/brand.js oneTrustId), with a visually identical fallback
+ * (consent-banner.js) when OneTrust does not show up. A brand without a OneTrust id gets no
+ * banner and only the strictly necessary group: nothing that needs consent runs on its pages.
  *
  * - Nothing is loaded when the page renders inside DA (preview pane, quick edit,
  *   Universal Editor); see isAuthoringContext().
@@ -23,10 +25,10 @@
 
 import { loadCSS } from './aem.js';
 import { isDemoHost, isTurnsThePageHost } from './demo.js';
+import { oneTrustId } from './brand.js';
 
 const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
 const ONETRUST_STUB_OWN = '/onetrust/scripttemplates/otSDKStub.js';
-const ONETRUST_DOMAIN_SCRIPT = '01994cb2-af99-7dbe-8fb0-56427773e54e';
 const STORAGE_KEY = 'lh-consent';
 const FALLBACK_DELAY = 5000;
 
@@ -212,6 +214,8 @@ function onOneTrustReady(onReady) {
  */
 function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
   if (state.oneTrust !== 'idle') return;
+  const domainScript = oneTrustId();
+  if (!domainScript) return;
   state.oneTrust = 'loading';
   loadCSS(`${window.hlx.codeBasePath}/styles/consent-banner.css`);
 
@@ -231,7 +235,7 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
   const script = document.createElement('script');
   script.src = oneTrustStubUrl();
   script.type = 'text/javascript';
-  script.dataset.domainScript = ONETRUST_DOMAIN_SCRIPT;
+  script.dataset.domainScript = domainScript;
   script.dataset.documentLanguage = 'true';
   script.async = true;
   script.addEventListener('error', () => {
@@ -316,6 +320,12 @@ export function initConsent() {
   if (isAuthoringContext()) {
     state.suppressed = true;
     announce([NECESSARY], 'authoring');
+    return;
+  }
+  // a brand without a OneTrust id: no banner (not another brand's), no preferences, necessary only
+  if (!oneTrustId()) {
+    state.suppressed = true;
+    announce([NECESSARY], 'no-banner');
     return;
   }
 
