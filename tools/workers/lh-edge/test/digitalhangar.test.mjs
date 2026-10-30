@@ -70,7 +70,7 @@ test('/digitalhangar/* on every kind of host: the brand www\'s answer, its heade
     assert.equal(resp.headers.get('set-cookie'), null);
     assert.equal(calls.length, 1, host);
     assert.equal(calls[0].url, `https://${www}${FONTS}/lufthansa/LufthansaTextWeb-Regular.woff2`);
-    assert.deepEqual(calls[0].init.cf, { cacheEverything: true, cacheTtlByStatus: { '200-299': 31536000, '300-599': -1 } });
+    assert.deepEqual(calls[0].init.cf, { cacheEverything: true });
     assert.equal(calls[0].headers.cookie, undefined);
     assert.equal(calls[0].headers['accept-encoding'], 'gzip');
   }
