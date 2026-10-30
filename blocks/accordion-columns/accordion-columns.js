@@ -104,6 +104,90 @@ function groupColumns(block) {
   row.append(...run);
 }
 
+// option tabs: a tab bar from this width (www.lufthansa-cargo.com's tabs), the accordion below it
+export const TABS_MEDIA = '(width >= 1025px)';
+let tabsCount = 0;
+
+/**
+ * Option tabs: the same items as the accordion; from 1025px a tab bar (WAI-ARIA tabs: arrow keys,
+ * Home and End move between the tabs and select them) shows one item's panel at a time, below it
+ * the accordion as it is. The first item is selected; on the way back to the accordion the
+ * selected item stays open, the others close.
+ * @param {Element} block
+ * @param {HTMLDetailsElement[]} items
+ * @param {MediaQueryList} [media] the tab bar's media query (tests pass their own)
+ */
+export function buildTabs(block, items, media = window.matchMedia(TABS_MEDIA)) {
+  if (items.length < 2) return null;
+  tabsCount += 1;
+  const id = `accordion-columns-tabs-${tabsCount}`;
+  const bar = document.createElement('div');
+  bar.className = 'accordion-columns-tablist';
+  bar.setAttribute('role', 'tablist');
+  let selected = 0;
+  const tabs = items.map((item, i) => {
+    const panel = item.querySelector(':scope > .accordion-columns-panel');
+    panel.id = `${id}-panel-${i + 1}`;
+    const tab = document.createElement('button');
+    tab.type = 'button';
+    tab.className = 'accordion-columns-tab';
+    tab.id = `${id}-tab-${i + 1}`;
+    tab.textContent = item.querySelector(':scope > summary').textContent.trim();
+    tab.setAttribute('aria-controls', panel.id);
+    bar.append(tab);
+    return { tab, panel, item };
+  });
+  const applied = () => block.classList.contains('is-tabbed');
+  const select = (index, focus) => {
+    selected = index;
+    tabs.forEach(({ tab, panel, item }, i) => {
+      const on = i === index;
+      tab.setAttribute('aria-selected', String(on));
+      tab.setAttribute('tabindex', on ? '0' : '-1');
+      item.classList.toggle('is-selected', on);
+      if (applied()) {
+        item.setAttribute('open', '');
+        panel.setAttribute('aria-hidden', String(!on));
+      } else {
+        panel.removeAttribute('aria-hidden');
+      }
+    });
+    if (focus) tabs[index].tab.focus();
+  };
+  const mode = () => {
+    if (media.matches) {
+      block.classList.add('is-tabbed');
+      tabs.forEach(({ panel }, i) => {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tabs[i].tab.id);
+      });
+    } else if (applied()) {
+      block.classList.remove('is-tabbed');
+      tabs.forEach(({ panel, item }, i) => {
+        panel.removeAttribute('role');
+        panel.removeAttribute('aria-labelledby');
+        panel.removeAttribute('aria-hidden');
+        if (i === selected) item.setAttribute('open', '');
+        else item.removeAttribute('open');
+      });
+    }
+    select(selected, false);
+  };
+  tabs.forEach(({ tab }, i) => tab.addEventListener('click', () => select(i, false)));
+  bar.addEventListener('keydown', (e) => {
+    const keys = {
+      ArrowRight: selected + 1, ArrowLeft: selected - 1, Home: 0, End: tabs.length - 1,
+    };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    select((keys[e.key] + tabs.length) % tabs.length, true);
+  });
+  block.prepend(bar);
+  mode();
+  media.addEventListener('change', mode);
+  return { bar, select };
+}
+
 /**
  * Accordion whose panels split their content into columns at each heading.
  * One row per item: cell 1 title, cell 2 content. A single-cell row uses its first element
@@ -162,6 +246,7 @@ export default async function decorate(block) {
   });
 
   block.replaceChildren(...items);
+  if (block.classList.contains('tabs')) buildTabs(block, items);
   // item grids first (one-row tables of pictures), then the data tables that are left
   block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
   // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box
