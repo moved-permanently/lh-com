@@ -174,7 +174,8 @@ export function withFlightSearch(doc, p) {
 
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
-  if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
+  // (homepage-new: the variant homepage some Italian-language roots have, al/it, be/it, ch/it)
+  if (/^\/[a-z]{2}\/[a-z]{2}\/homepage(-new)?$/.test(p)) return 'homepage';
   if (/class="topoffersdestinationfinder/.test(html)) return 'hub';
   if (/class="flightstatustimetable/.test(html)) return 'flight-status';
   if (/class="slideshow/.test(html)) return 'fleet';
