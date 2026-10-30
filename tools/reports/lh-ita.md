@@ -230,7 +230,15 @@ footer targets (28 pages) and one xx/el page. 404 on www (no document, the links
 (jp/ja's footer), `/xx/el/legal/company-transparency`. DAM: 303 files linked, 288 in lh-ita's DA,
 6 for AEM (all on AEM already), 9 that www answers 404 for. Spot checks at 1440 and 390 (preview
 only): every block loads, no broken images; one script error once at 390 on
-`/br/pt/legal/additional-bag-during-check-in-conditions`, not reproduced.
+`/br/pt/legal/additional-bag-during-check-in-conditions`, not reproduced; one load timeout at
+1440 on `/jp/ja/support/support-faq/ita-airways-business-faq`, clean on the second load (2,431
+runs in all for batches 23-60).
+
+The import reports: the bulk importer writes them to lh-com's `tools/importer/reports/<path>`;
+on six paths both sites have (`/at/de/homepage`, `/de/de/homepage`, `/de/de/help-and-contact`,
+`/de/en/homepage`, `/gb/en/homepage`, `/gb/en/feedback`) ITA's run overwrote lh-com's reports in
+the working tree and moved them away (never committed; restored from git). `ita-import.mjs` now
+sets lh-com's reports aside during the import (c29049ec).
 
 The login pages `/it/it/iscrizione`, `/fr/fr/connexion`, `/es/es/inicio-de-sesion`: off live
 (by hand), no document links them (the it/it sitemap page links www's `/it/it/profile/login`);
