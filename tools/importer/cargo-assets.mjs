@@ -48,6 +48,20 @@ const MB = 1024 * 1024;
 export const LIMITS = { pdf: 20 * MB, mp4: 36 * MB, image: 20 * MB };
 const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$/i;
 const PAUSE_AFTER_BLOCK = 30 * 60 * 1000;
+const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
+const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, `${JSON.stringify(v, null, 1)}\n`); };
+const BLOCK_FILE = path.join(W, 'source-blocked.json');
+
+/** The end of the 30 minutes' stop after the last challenge or block on www (null: none). */
+export function blockedUntil() {
+  const at = [readJson(BLOCK_FILE, {}).at, readJson(STATE, {}).blockedAt].filter(Boolean).map(Date.parse).sort().pop();
+  return at && Date.now() - at < PAUSE_AFTER_BLOCK ? new Date(at + PAUSE_AFTER_BLOCK) : null;
+}
+
+/** Records a challenge or block on www (every Cargo tool stops for 30 minutes). */
+export function recordBlock(where) {
+  writeJson(BLOCK_FILE, { at: new Date().toISOString(), where });
+}
 const sleep = (ms) => new Promise((r) => { setTimeout(r, ms); });
 const pause = () => sleep(5000 + Math.floor(Math.random() * 5000));
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
@@ -89,17 +103,31 @@ export function edsName(key, kind, type) {
   return `/documents/${name}-${sha1(key).slice(0, 6)}.${ext}`;
 }
 
-const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
-const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, `${JSON.stringify(v, null, 1)}\n`); };
 const tsv = (f) => {
   if (!fs.existsSync(f)) return [];
   const [head, ...rows] = fs.readFileSync(f, 'utf8').split(/\r?\n/).filter(Boolean).map((l) => l.split('\t'));
   return rows.map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] || ''])));
 };
 
+/** Each file's Edge Delivery name, or why it stays a link to the source (size, spreadsheet, broken). */
+function settle(files) {
+  Object.entries(files).forEach(([key, f]) => {
+    const limit = f.kind === 'video' ? LIMITS.mp4 : (f.kind === 'image' ? LIMITS.image : LIMITS.pdf);
+    if (f.bytes && f.bytes > limit) f.linkSource = `${(f.bytes / MB).toFixed(1)} MB: over Edge Delivery's ${limit / MB} MB, linked on the source`;
+    // spreadsheets: Edge Delivery's preview refuses them as files (415), they stay on the source
+    else if (/spreadsheet|excel/.test(f.type || '')) f.linkSource = 'spreadsheet: Edge Delivery serves no .xlsx files, linked on the source';
+    else delete f.linkSource;
+    f.eds = f.linkSource || f.broken ? null : edsName(key, f.kind, f.type);
+  });
+}
+
 async function list() {
   const { parseHTML } = await import('linkedom');
-  const snapDir = path.resolve(root, opt('snapshots', path.join(DELIVERY, 'snapshots/www.lufthansa-cargo.com')));
+  const dirs = argv.flatMap((a, i) => (a === '--snapshots' ? [path.resolve(root, argv[i + 1])] : []));
+  if (!dirs.length) dirs.push(path.join(DELIVERY, 'snapshots/www.lufthansa-cargo.com'));
+  // --pages <file>: only these source pages (one URL or path per line)
+  const only = opt('pages') ? new Set(fs.readFileSync(path.resolve(root, opt('pages')), 'utf8').split(/\r?\n/).filter(Boolean)
+    .map((u) => new URL(u.trim(), `${HOST}/`).pathname.replace(/\/+$/, ''))) : null;
   const files = readJson(LIST, {});
   const add = (key, kind, page, extra = {}) => {
     if (!key) return;
@@ -108,8 +136,9 @@ async function list() {
     files[key] = { ...f, ...extra };
   };
   const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
-  for (const f of walk(snapDir).filter((x) => x.endsWith('.html'))) {
+  for (const [snapDir, f] of dirs.filter((d) => fs.existsSync(d)).flatMap((d) => walk(d).filter((x) => x.endsWith('.html')).map((x) => [d, x]))) {
     const page = `/${path.relative(snapDir, f).replace(/\.html$/, '')}`;
+    if (only && !only.has(page)) continue;
     const { document } = parseHTML(fs.readFileSync(f, 'utf8'));
     const areas = ['#content.pagebody', '#banner', '#footer'].map((s) => document.querySelector(s)).filter(Boolean);
     areas.forEach((area) => {
@@ -120,6 +149,16 @@ async function list() {
         if (m) add(fileKey(m[1]), 'image', page);
       });
       area.querySelectorAll('video[poster]').forEach((v) => add(fileKey(v.getAttribute('poster')), 'image', page));
+      // linked documents (type and size come with the download) and self-hosted videos
+      area.querySelectorAll('a[href*="/documents/"]').forEach((a) => {
+        const key = fileKey(a.getAttribute('href'));
+        if (key && !files[key]) add(key, 'document', page);
+        else if (key) add(key, files[key].kind, page);
+      });
+      area.querySelectorAll('video[src], video source[src], a[href$=".mp4"]').forEach((v) => {
+        const key = fileKey(v.getAttribute('src') || v.getAttribute('href'));
+        if (key && key.startsWith(STATIC_HOST)) add(key, 'video', page);
+      });
     });
   }
   // documents (HEAD results of the delivery: size and type) and videos
@@ -140,14 +179,7 @@ async function list() {
       };
     }
   });
-  Object.entries(files).forEach(([key, f]) => {
-    const limit = f.kind === 'video' ? LIMITS.mp4 : (f.kind === 'image' ? LIMITS.image : LIMITS.pdf);
-    if (f.bytes && f.bytes > limit) f.linkSource = `${(f.bytes / MB).toFixed(1)} MB: over Edge Delivery's ${limit / MB} MB, linked on the source`;
-    // spreadsheets: Edge Delivery's preview refuses them as files (415), they stay on the source
-    else if (/spreadsheet|excel/.test(f.type || '')) f.linkSource = 'spreadsheet: Edge Delivery serves no .xlsx files, linked on the source';
-    else delete f.linkSource;
-    f.eds = f.linkSource || f.broken ? null : edsName(key, f.kind, f.type);
-  });
+  settle(files);
   writeJson(LIST, files);
   const kinds = {};
   Object.values(files).forEach((f) => { kinds[f.kind] = (kinds[f.kind] || 0) + 1; });
@@ -158,8 +190,9 @@ async function download() {
   const files = readJson(LIST, null);
   if (!files) throw new Error('run --list first');
   const state = readJson(STATE, { done: {} });
-  if (state.blockedAt && Date.now() - Date.parse(state.blockedAt) < PAUSE_AFTER_BLOCK) {
-    console.error(`blocked at ${state.blockedAt}: no requests before ${new Date(Date.parse(state.blockedAt) + PAUSE_AFTER_BLOCK).toISOString()}`);
+  const until = blockedUntil();
+  if (until) {
+    console.error(`blocked: no requests to www before ${until.toISOString()}`);
     process.exit(2);
   }
   const project = readJson(path.join(root, '.migration/project.json'), {});
@@ -183,7 +216,7 @@ async function download() {
         page.once('response', (r) => { status = r.status(); });
         try { await page.goto(`${HOST}/en/home`, { timeout: 90000, waitUntil: 'domcontentloaded' }); } catch (e) { console.error(`navigation interrupted (${e.message.split('\n')[0]})`); }
         const title = await page.title().catch(() => '');
-        if (CHALLENGE.test(title) || status === 403 || status === 429) { console.error(`BLOCKED at /en/home (${status} ${title})`); return false; }
+        if (CHALLENGE.test(title) || status === 403 || status === 429) { recordBlock(`/en/home ${status} ${title}`); console.error(`BLOCKED at /en/home (${status} ${title})`); return false; }
         console.log(`anchor /en/home ${status} "${title}"`);
         return true;
       };
@@ -202,14 +235,16 @@ async function download() {
         const htmlBody = /text\/html/.test(got.type) ? buf.toString('utf8', 0, 4000) : '';
         if (got.status === 403 || got.status === 429 || (htmlBody && CHALLENGE.test((htmlBody.match(/<title>([^<]*)/i) || [])[1] || ''))) {
           blocked = true;
-          state.blockedAt = new Date().toISOString();
-          writeJson(STATE, state);
+          recordBlock(`${key} ${got.status}`);
           console.error(`BLOCKED at ${key} (${got.status})`);
           break;
         }
         if (got.status === 0) { console.error(`${key}: ${got.error}`); if (!await open()) { blocked = true; } continue; }
         if (got.status !== 200 || htmlBody) { record(key, { status: got.status, type: got.type }); console.log(`${got.status} ${got.type} ${key}`); continue; }
         fs.writeFileSync(path.join(CACHE, sha1(key)), buf);
+        // a document's type and size are known now (its name and whether Edge Delivery holds it)
+        [files[key].type] = got.type.split(';');
+        files[key].bytes = buf.length;
         record(key, {
           status: 200, type: got.type, bytes: buf.length, at: new Date().toISOString(),
         });
@@ -222,6 +257,16 @@ async function download() {
   for (const [key] of blocked ? [] : vids) {
     await pause();
     const out = path.join(CACHE, sha1(key));
+    // the size first (static.lufthansa-cargo.com answers HEAD): larger videos stay links to the file
+    if (!files[key].bytes) {
+      try {
+        const head = execFileSync('curl', ['-sSI', key]).toString();
+        files[key].bytes = Number((head.match(/content-length:\s*(\d+)/i) || [])[1]) || undefined;
+      } catch (e) { /* the GET tells */ }
+      settle(files);
+      if (!files[key].eds) { console.log(`${key}: ${files[key].linkSource}`); continue; }
+      await pause();
+    }
     try {
       execFileSync('curl', ['-sS', '-f', '-o', out, key], { stdio: 'inherit' });
       record(key, {
@@ -230,6 +275,7 @@ async function download() {
       console.log(`200 ${fs.statSync(out).size}B ${key}`);
     } catch (e) { console.error(`${key}: ${e.message.split('\n')[0]}`); }
   }
+  settle(files);
   // images into the document tree, where da-upload.mjs finds them
   let placed = 0;
   Object.entries(files).forEach(([key, f]) => {

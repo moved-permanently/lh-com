@@ -11,7 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  scopePages, sourcePath, REDIRECT_ONLY, redirectRows,
+  scopePages, sourcePath, REDIRECT_ONLY, redirectRows, EXTRA_URLS,
 } from './cargo-paths.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -24,18 +24,32 @@ const edsOf = Object.fromEntries(pages.map((p) => [p.source, p.eds]));
 const manifest = JSON.parse(fs.readFileSync(path.join(D, 'manifest.json'), 'utf8'));
 const snapped = new Set(manifest.filter((r) => r.file).map((r) => sourcePath(r.url)));
 
-// batches: 1 = the delivered snapshots; 2.. = the delivery's proposal (en pages, de pages, en articles, de articles)
+// batches: 1 = the delivered snapshots; 2-4 = the delivery's page batches (en pages, de pages);
+// then the articles (one template) in batches of about 100: en (the added stories first, then the
+// delivery's order: newest lastmod first), de
+const delivered = fs.readdirSync(path.join(D, 'batches')).filter((f) => /^batch-\d+\.txt$/.test(f)).sort()
+  .map((f) => lines(path.join(D, 'batches', f)));
+const isArticleUrl = (u) => /^\/[a-z]{2}\/-\//.test(sourcePath(u));
+const pageBatches = delivered.map((urls) => urls.filter((u) => !isArticleUrl(u))).filter((b) => b.length);
+const extra = pages.filter((p) => p.row.reason && /taken into scope/.test(p.row.reason)).map((p) => p.row.url);
+const articleUrls = [...extra, ...delivered.flat().filter(isArticleUrl)];
+const chunk = (list, size) => {
+  const n = Math.max(1, Math.round(list.length / size));
+  const per = Math.ceil(list.length / n);
+  return Array.from({ length: n }, (_, i) => list.slice(i * per, (i + 1) * per)).filter((b) => b.length);
+};
 const batches = [{ n: 1, urls: lines(path.join(D, 'batch-01.txt')) }];
-fs.readdirSync(path.join(D, 'batches')).filter((f) => /^batch-\d+\.txt$/.test(f)).sort()
-  .forEach((f) => batches.push({ n: Number(f.match(/\d+/)[0]), urls: lines(path.join(D, 'batches', f)) }));
+[...pageBatches, ...chunk(articleUrls.filter((u) => sourcePath(u).startsWith('/en/')), 100), ...chunk(articleUrls.filter((u) => sourcePath(u).startsWith('/de/')), 100)]
+  .forEach((urls, i) => batches.push({ n: i + 2, urls }));
 const batchOf = {};
 batches.forEach((b) => b.urls.forEach((u) => { batchOf[sourcePath(u)] ||= b.n; }));
 fs.mkdirSync(path.join(W, 'batches'), { recursive: true });
+fs.readdirSync(path.join(W, 'batches')).filter((f) => /^batch-\d+\.txt$/.test(f)).forEach((f) => fs.unlinkSync(path.join(W, 'batches', f)));
 batches.forEach((b) => fs.writeFileSync(path.join(W, 'batches', `batch-${String(b.n).padStart(2, '0')}.txt`), `${b.urls.join('\n')}\n`));
 
 const count = (list, f) => list.reduce((a, r) => { const k = f(r); a[k] = (a[k] || 0) + 1; return a; }, {});
 const sections = [...new Set(rows.map((r) => r.section))];
-const all = fs.readFileSync(path.join(D, 'urls-all.tsv'), 'utf8').split(/\r?\n/).filter(Boolean).slice(1)
+const all = [path.join(D, 'urls-all.tsv'), EXTRA_URLS].flatMap((f) => fs.readFileSync(f, 'utf8').split(/\r?\n/).filter(Boolean).slice(1))
   .map((l) => {
     const [url, language, alternate, source, lastmod, inOut, reason, section] = l.split('\t');
     return {
@@ -78,7 +92,7 @@ Object.entries(count(enDe.filter((r) => r.inOut === 'out'), (r) => r.reason)).so
 out.push('');
 
 out.push('## Batches', '');
-out.push('About 40 pages each: en pages first, then de pages, then en articles and de articles (newest lastmod first). Lists: `content-sites/lh-cargo/batches/batch-NN.txt`; one line per batch in `runs/` when it is previewed.', '');
+out.push('Pages about 40 per batch (en pages, then de pages); articles (one template) about 100 per batch: en (the stories added from the story hubs first, then newest lastmod first), then de. Lists: `content-sites/lh-cargo/batches/batch-NN.txt`; one line per batch in `runs/` when it is previewed.', '');
 out.push('| batch | pages | en | de | content |', '| --- | --- | --- | --- | --- |');
 batches.forEach((b) => {
   const ps = b.urls.map(sourcePath);

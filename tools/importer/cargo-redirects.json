@@ -1,0 +1,66 @@
+[
+ {
+  "Source": "/en/-/142.-arctic-temperatures-on-board",
+  "Destination": "/en/news/142-arctic-temperatures-on-board"
+ },
+ {
+  "Source": "/en/-/aerologic-fleet-set-to-grow-to-eleven-freighters",
+  "Destination": "/en/news/aerologic-fleet-set-to-grow-to-eleven-freighters"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2010-page-4-2",
+  "Destination": "/en/news/lhc-press-media-details-2010-page-4-2"
+ },
+ {
+  "Source": "/en/-/the-value-of-the-rose-17",
+  "Destination": "/en/news/the-value-of-the-rose-17"
+ },
+ {
+  "Source": "/en/",
+  "Destination": "/en/home"
+ },
+ {
+  "Source": "/de/",
+  "Destination": "/de/home"
+ },
+ {
+  "Source": "/en/newsroom",
+  "Destination": "/en/ci/newsroom"
+ },
+ {
+  "Source": "/en/footer/bottomnav/privacy",
+  "Destination": "/en/data-protection"
+ },
+ {
+  "Source": "/en",
+  "Destination": "/en/home"
+ },
+ {
+  "Source": "/de",
+  "Destination": "/de/home"
+ },
+ {
+  "Source": "/",
+  "Destination": "/en/home"
+ },
+ {
+  "Source": "/home",
+  "Destination": "/en/home"
+ },
+ {
+  "Source": "/footer/bottomnav/imprint",
+  "Destination": "/en/footer/bottomnav/imprint"
+ },
+ {
+  "Source": "/data-protection",
+  "Destination": "/en/data-protection"
+ },
+ {
+  "Source": "/footer/bottomnav/terms-of-use",
+  "Destination": "/en/footer/bottomnav/terms-of-use"
+ },
+ {
+  "Source": "/meta/meta/company/general-terms",
+  "Destination": "/en/meta/meta/company/general-terms"
+ }
+]
