@@ -384,4 +384,9 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
   .accordion-columns.faq.column .accordion-columns-panel :is(p, ul, ol, h2, h3, h4, h5, h6) {
     max-width: none;
   }
+
+  /* so are an item grid's items (www: img.w-100, the text in the item's column) */
+  .accordion-columns.faq .accordion-columns-panel .accordion-columns-grid-item :is(p, ul, ol, h2, h3, h4, h5, h6) {
+    max-width: none;
+  }
 }
