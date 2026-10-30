@@ -14,6 +14,7 @@
 import { loadCSS } from './aem.js';
 import { cleanText } from './block-config.js';
 import { getLocale } from './locale.js';
+import { trackLang } from './track-lang.js';
 
 /** Playback settings a video link can carry (marker after the link: "{autoplay muted loop}"). */
 export const VIDEO_SETTINGS = ['autoplay', 'muted', 'loop', 'controls', 'round-play-button'];
@@ -165,12 +166,13 @@ function takeVideoSettings(link) {
 function createVideo(src, img, settings, tracks = []) {
   const authored = settings.size > 0;
   const video = document.createElement('video');
-  // text tracks (same origin): captions and audio description in the page language
+  // text tracks (same origin): captions and audio description in the language the file names,
+  // else the page language
   tracks.forEach(({ src: trackSrc, label: trackLabel, kind }) => {
     const track = document.createElement('track');
     track.kind = kind;
     track.src = trackSrc;
-    track.srclang = getLocale().lang;
+    track.srclang = trackLang(trackSrc, getLocale().lang);
     if (trackLabel) track.label = trackLabel;
     video.append(track);
   });

@@ -29,6 +29,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { edsDamPath, parseDamPath } from '../../scripts/dam-path.js';
+import { trackLang } from '../../scripts/track-lang.js';
 
 const run = promisify(execFile);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -278,16 +279,17 @@ const TRACK_LABELS = { en: ['Subtitles', 'Audio description'], de: ['Untertitel'
 /**
  * A document's video links followed by their subtitle tracks (as lh-com's video pages:
  * <a href=".mp4">…</a> <a href=".vtt">Subtitles</a> <a href=".vtt">Audio description</a>), for
- * the tracks www's viewer names and `accept` takes; tracks already there are kept.
+ * the tracks www's viewer names and `accept` takes; tracks already there are kept. Each label is
+ * in the track's language (scripts/track-lang.js: the file name's, else the page's `lang`).
  */
 export function withTracks(doc, tracks, lang, accept = () => true) {
-  const [ccLabel, adLabel] = TRACK_LABELS[lang] || TRACK_LABELS.en;
+  const labels = (t) => TRACK_LABELS[trackLang(t, lang)] || TRACK_LABELS.en;
   return doc.replace(/(<a href="([^"]+\.mp4)">[^<]*<\/a>)((?:\s*<a href="[^"]+\.vtt">[^<]*<\/a>)*)/g, (m, link, href, existing) => {
     const video = Object.keys(tracks).find((v) => href === v || href.endsWith(edsDamPath(v)) || href.endsWith(v));
     if (!video || existing) return m;
     const { cc, ad } = tracks[video];
-    const add = [[cc, ccLabel], [ad, adLabel]].filter(([t]) => t && accept(t))
-      .map(([t, label]) => ` <a href="${edsDamPath(t)}">${label}</a>`);
+    const add = [[cc, 0], [ad, 1]].filter(([t]) => t && accept(t))
+      .map(([t, i]) => ` <a href="${edsDamPath(t)}">${labels(t)[i]}</a>`);
     return `${link}${add.join('')}`;
   });
 }
