@@ -18,7 +18,9 @@
  *    .dcep-header-flyout[data-dcep] (mega menu items, flyout image, accessibility/support
  *    links), .dcep-login-portlet, .dcep-shopping-cart, .header-and-flyout-burger-menu,
  *    .dcep-country-and-language-selection, maui-modal.country-language-selector-modal
- *  - footer: footer .footer-area (search bar, link columns, legal row), .footer-logos
+ *  - footer: footer .footer-area (search bar, link columns, legal row), .footer-logos; the brand
+ *    sites' .footer-container also has a heading over a row of linked images (Discover's "Follow
+ *    us"): a badges section (blocks/footer), and the legal row is its text links' row
  *
  * Links: in-scope pages become root-relative, locale roots /{cc}/{ll}/homepage, everything
  * else on lufthansa.com absolute https://www.lufthansa.com/..., other domains unchanged.
@@ -37,8 +39,10 @@ const LOCALE_LABELS = {
   'de/de': 'Deutschland | Deutsch',
   'at/de': 'Österreich | Deutsch',
   'gb/en': 'United Kingdom | English',
-  // lh-discover's French nav and footer (brief 157): www's ca/fr label
+  // lh-discover's French nav and footer (brief 157): www's ca/fr label; xx/fr's (81 of its 104
+  // labelled captures, 2026-10-30)
   'ca/fr': 'Canada | Français',
+  'xx/fr': 'Autre pays | Français',
 };
 
 const FALLBACK_LABELS = {
@@ -253,8 +257,12 @@ function countryList(document) {
 }
 
 function localeLabel(document, root, locale) {
-  const text = root && root.querySelector('.dcep-country-and-language-selection .country-language-text');
-  return visibleText(text) || LOCALE_LABELS[locale.key] || locale.key.toUpperCase();
+  const selector = '.dcep-country-and-language-selection .country-language-text';
+  const text = root && root.querySelector(selector);
+  // the brand sites' footer has no selector of its own: the table's label, else the header's (a
+  // capture can carry another root's label: www's xx/fr homepage once said "Etats-Unis d'Amérique")
+  return visibleText(text) || LOCALE_LABELS[locale.key]
+    || visibleText(document.querySelector(selector)) || locale.key.toUpperCase();
 }
 
 function searchConfig(document, locale) {
@@ -377,11 +385,43 @@ function buildFooter(document, locale) {
   }
   sections.push(columns);
 
-  // 3. legal row
-  const legal = area && area.querySelector('.link-list ul.horizontal');
+  // 3. social links (the brand sites: Discover's "Follow us"): per heading its row of linked
+  // images, one badges section (section metadata Style: badges)
+  const badges = [];
+  if (area) {
+    [...area.querySelectorAll('.link-list')].forEach((col) => {
+      const list = col.querySelector('ul.horizontal');
+      const heading = visibleText(col.querySelector('h3'));
+      if (!list || !heading || !list.querySelector('a[href] img')) return;
+      const ul = el(document, 'ul');
+      [...list.querySelectorAll('a[href]')].forEach((a) => {
+        const img = a.querySelector('img');
+        if (!img) return;
+        ul.append(el(document, 'li', {}, link(document, a.getAttribute('href'), el(document, 'img', {
+          src: absoluteImageUrl(img.getAttribute('src')),
+          alt: clean(img.getAttribute('alt') || img.getAttribute('title')),
+        }))));
+      });
+      if (ul.children.length) badges.push(el(document, 'h3', {}, heading), ul);
+    });
+  }
+  if (badges.length) {
+    const meta = el(document, 'table');
+    const head = el(document, 'tr');
+    head.append(el(document, 'th', { colspan: '2' }, 'Section Metadata'));
+    const row = el(document, 'tr');
+    row.append(el(document, 'td', {}, 'Style'), el(document, 'td', {}, 'badges'));
+    meta.append(head, row);
+    sections.push([...badges, meta]);
+  }
+
+  // 4. legal row: the horizontal list of text links (on the brand sites the social row's images
+  // come first)
+  const legal = area && [...area.querySelectorAll('.link-list ul.horizontal')]
+    .find((ul) => [...ul.querySelectorAll('li')].some((li) => visibleText(li.querySelector('a[href], maui-navigation-link[href], maui-link[href]'))));
   if (legal) sections.push([footerLinks(document, legal)]);
 
-  // 4. logos (Lufthansa, member of Lufthansa Group, Star Alliance)
+  // 5. logos (Lufthansa, member of Lufthansa Group, Star Alliance)
   const logos = footer && footer.querySelector('.footer-logos');
   if (logos) {
     const ul = el(document, 'ul');

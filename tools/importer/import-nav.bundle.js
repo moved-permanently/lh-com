@@ -3951,8 +3951,10 @@ var CustomImportScript = (() => {
     "de/de": "Deutschland | Deutsch",
     "at/de": "\xD6sterreich | Deutsch",
     "gb/en": "United Kingdom | English",
-    // lh-discover's French nav and footer (brief 157): www's ca/fr label
-    "ca/fr": "Canada | Fran\xE7ais"
+    // lh-discover's French nav and footer (brief 157): www's ca/fr label; xx/fr's (81 of its 104
+    // labelled captures, 2026-10-30)
+    "ca/fr": "Canada | Fran\xE7ais",
+    "xx/fr": "Autre pays | Fran\xE7ais"
   };
   var FALLBACK_LABELS = {
     en: {
@@ -4150,8 +4152,9 @@ var CustomImportScript = (() => {
     return options.length ? options : null;
   }
   function localeLabel(document, root, locale) {
-    const text = root && root.querySelector(".dcep-country-and-language-selection .country-language-text");
-    return visibleText(text) || LOCALE_LABELS[locale.key] || locale.key.toUpperCase();
+    const selector = ".dcep-country-and-language-selection .country-language-text";
+    const text = root && root.querySelector(selector);
+    return visibleText(text) || LOCALE_LABELS[locale.key] || visibleText(document.querySelector(selector)) || locale.key.toUpperCase();
   }
   function searchConfig(document, locale) {
     const data = readDcep(document, ".dcep-search-bar") || {};
@@ -4247,7 +4250,34 @@ var CustomImportScript = (() => {
       });
     }
     sections.push(columns);
-    const legal = area && area.querySelector(".link-list ul.horizontal");
+    const badges = [];
+    if (area) {
+      [...area.querySelectorAll(".link-list")].forEach((col) => {
+        const list = col.querySelector("ul.horizontal");
+        const heading = visibleText(col.querySelector("h3"));
+        if (!list || !heading || !list.querySelector("a[href] img")) return;
+        const ul = el(document, "ul");
+        [...list.querySelectorAll("a[href]")].forEach((a) => {
+          const img = a.querySelector("img");
+          if (!img) return;
+          ul.append(el(document, "li", {}, link(document, a.getAttribute("href"), el(document, "img", {
+            src: absoluteImageUrl(img.getAttribute("src")),
+            alt: clean(img.getAttribute("alt") || img.getAttribute("title"))
+          }))));
+        });
+        if (ul.children.length) badges.push(el(document, "h3", {}, heading), ul);
+      });
+    }
+    if (badges.length) {
+      const meta = el(document, "table");
+      const head = el(document, "tr");
+      head.append(el(document, "th", { colspan: "2" }, "Section Metadata"));
+      const row = el(document, "tr");
+      row.append(el(document, "td", {}, "Style"), el(document, "td", {}, "badges"));
+      meta.append(head, row);
+      sections.push([...badges, meta]);
+    }
+    const legal = area && [...area.querySelectorAll(".link-list ul.horizontal")].find((ul) => [...ul.querySelectorAll("li")].some((li) => visibleText(li.querySelector("a[href], maui-navigation-link[href], maui-link[href]"))));
     if (legal) sections.push([footerLinks(document, legal)]);
     const logos = footer && footer.querySelector(".footer-logos");
     if (logos) {
