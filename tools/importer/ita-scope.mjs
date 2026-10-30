@@ -38,6 +38,8 @@ export function leftOut(p) {
   if (!/^\/[a-z]{2}\/[a-z]{2}(\/|$)/.test(p)) return 'no market root';
   const rest = p.replace(/^\/[a-z]{2}\/[a-z]{2}/, '');
   if (/^\/(login|profile)(\/|$)/i.test(rest)) return 'login or profile app shell';
+  // the login page in the other languages (www's hreflang group of /profile/login: the login widget)
+  if (/^\/(iscrizione|connexion|inicio-de-sesion|registo)$/i.test(rest)) return 'login or profile app shell';
   if (/(^|\/)configuration(\/|$)/i.test(rest)) return 'configuration page';
   if (/feedbackai/i.test(rest)) return 'feedbackai questionnaire';
   if (/descoped-local-page/i.test(rest)) return 'descoped-local-page';

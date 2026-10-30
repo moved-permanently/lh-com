@@ -358,6 +358,10 @@ function switchLinks() {
     const p = `/${path.relative(DOCS, f).replace(/\.plain\.html$/, '')}`;
     const before = fs.readFileSync(f, 'utf8');
     let doc = relativeDamLinks(before, ready);
+    // a file www itself answers 404 for: the link stays www's own (as on Discover), not a copy
+    files.filter((x) => /^www-4/.test(state[x.www]?.status || '')).forEach((x) => {
+      doc = doc.split(`href="${x.eds}"`).join(`href="${HOST}${x.www.split('/').map((seg) => encodeURIComponent(seg)).join('/')}"`);
+    });
     doc = doc.replace(/<img src="(?:https:\/\/www\.ita-airways\.com)?(\/content\/dam\/[^"?]+)"/g, (m, src) => {
       const www = decodeURIComponent(src);
       return posters.has(www) && inDa(www) ? `<img src="${DA_CONTENT}${edsDamPath(assetOf(www))}"` : m;

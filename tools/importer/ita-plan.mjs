@@ -46,15 +46,19 @@ if (isMain) {
   const notInScope = FIRST.filter((p) => !scope.documents[p]);
   // batch 1 as chosen; the rest in batches of --size (snapshotted or not: the import reads the
   // snapshots, the capture fills only the gaps)
-  const listed = new Set(FIRST);
+  // the batches already imported stay as they are (their files, pages and numbers); the rest of
+  // the order follows them in batches of --size, written anew
+  const imported = [];
+  for (let n = 1; fs.existsSync(path.join(dir, `batch-${String(n).padStart(2, '0')}-import.json`)); n += 1) {
+    imported.push(fs.readFileSync(path.join(dir, `batch-${String(n).padStart(2, '0')}.txt`), 'utf8').split('\n').filter(Boolean).map((u) => new URL(u).pathname));
+  }
+  const listed = new Set([...FIRST, ...imported.flat()]);
   const todo = order.filter((p) => !listed.has(p));
-  const batches = [FIRST];
+  const batches = imported.length ? [...imported] : [FIRST];
   for (let i = 0; i < todo.length; i += size) batches.push(todo.slice(i, i + size));
-  // a batch already imported keeps its file; the others are written anew
   batches.forEach((b, i) => {
-    const name = `batch-${String(i + 1).padStart(2, '0')}`;
-    if (fs.existsSync(path.join(dir, `${name}-import.json`))) return;
-    fs.writeFileSync(path.join(dir, `${name}.txt`), `${b.map((p) => `https://${HOST}${p}`).join('\n')}\n`);
+    if (i < imported.length) return;
+    fs.writeFileSync(path.join(dir, `batch-${String(i + 1).padStart(2, '0')}.txt`), `${b.map((p) => `https://${HOST}${p}`).join('\n')}\n`);
   });
   const markets = Object.fromEntries(Object.entries(scope.documents).filter(([, d]) => d.markets.length).map(([p, d]) => [p, d.markets]));
   const snapshotted = (b) => b.filter((p) => fs.existsSync(path.join(SNAP, `${p}.html`))).length;
