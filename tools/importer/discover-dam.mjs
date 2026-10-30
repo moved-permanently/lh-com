@@ -20,7 +20,8 @@
  *               for AEM), the posters in DA are taken from DA, video links get their subtitle
  *               tracks (www's video viewer, recorded for AEM): runs/dam-switch-upload.txt
  *   --report    content-sites/lh-discover/runs/dam-report.json and a summary
- * State: content-sites/lh-discover/dam-state.json. Options: --extra <www path> (repeatable).
+ * State: content-sites/lh-discover/dam-state.json. Options: --extra <www path> (repeatable),
+ *   --min-delay / --max-delay <ms> (the download's pace, default 3000 / 5000).
  * Usage: node tools/importer/discover-dam.mjs --list | --download | --upload | --report
  */
 import fs from 'node:fs';
@@ -131,7 +132,9 @@ async function download() {
     for (let i = 0; i < 60 && (CHALLENGE.test(await title()) || !(await title())); i += 1) await page.waitForTimeout(1000);
     if (CHALLENGE.test(await title())) throw new Error('homepage still behind the challenge');
     await page.waitForTimeout(2000);
-    const pause = () => page.waitForTimeout(3000 + Math.floor(Math.random() * 2000));
+    // --min-delay / --max-delay (ms): the pace (default one request every 3-5 s)
+    const [minDelay, maxDelay] = [Number(all('min-delay')[0] || 3000), Number(all('max-delay')[0] || 5000)];
+    const pause = () => page.waitForTimeout(minDelay + Math.floor(Math.random() * Math.max(0, maxDelay - minDelay)));
     for (const x of todo) {
       const url = `${HOST}${x.www.split('/').map((seg) => encodeURIComponent(seg)).join('/')}`;
       // one GET per file, no HEAD (2026-10-29: www answered a HEAD of a large video with 403)
