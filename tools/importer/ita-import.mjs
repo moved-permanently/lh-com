@@ -40,6 +40,7 @@ const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-
 // the source pages' own lufthansa.com URLs on a placeholder host during the import (as Discover)
 export const PLACEHOLDER = 'www.lufthansa-com.invalid';
 const MAPPED = path.join(W, 'snapshots');
+const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
 export const withPlaceholder = (html) => html.replace(/(?:https?:)?\/\/(?:www\.)?lufthansa\.com(?![\w.-])/gi, `https://${PLACEHOLDER}`);
 
 // links out to the page on www (a widget a service answers there): on this host during the import
@@ -158,14 +159,15 @@ export function withItaMetadata(doc, p, html, markets = []) {
 // the flight search hands the search to ITA's shop (www's flight manager: shop.ita-airways.com, the
 // same booking platform as Lufthansa's) and starts from the market's airport (www: Rome for it/*)
 export const ITA_SHOP = 'https://shop.ita-airways.com/booking/availability';
-const DEFAULT_ORIGIN = { it: 'Rome (ROM)' };
+// the market's airport per root, named in the root's language (www: Rome for the Italian market)
+const DEFAULT_ORIGIN = { 'it/en': 'Rome (ROM)', 'it/it': 'Roma (ROM)' };
 
 /** The document's flight-search blocks with the Shop row and the market's default origin. */
 export function withFlightSearch(doc, p) {
-  const cc = p.split('/')[1];
+  const key = p.split('/').slice(1, 3).join('/');
   return doc.replace(/<div class="flight-search(?: [^"]*)?">/g, (m) => {
     const rows = [`<div><div>Shop</div><div><a href="${ITA_SHOP}">${ITA_SHOP}</a></div></div>`];
-    if (DEFAULT_ORIGIN[cc]) rows.push(`<div><div>Default origin</div><div>${DEFAULT_ORIGIN[cc]}</div></div>`);
+    if (DEFAULT_ORIGIN[key]) rows.push(`<div><div>Default origin</div><div>${DEFAULT_ORIGIN[key]}</div></div>`);
     return `${m}${rows.join('')}`;
   });
 }
@@ -200,8 +202,9 @@ if (isMain) {
     const t = templateOf(p, html);
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
-    // (the help centre app's screen-reader announcement "Help page loaded." is no page text)
-    const mapped = withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(html), p)))
+    // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
+    // the Studio's snapshots keep www's scripts, which must not run in the import browser)
+    const mapped = withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p)))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);

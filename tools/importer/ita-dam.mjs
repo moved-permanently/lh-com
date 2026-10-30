@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, no-continue, no-loop-func, max-len, import/extensions -- tooling */
+/* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, no-continue, no-loop-func, max-len, import/extensions, no-use-before-define -- tooling */
 /**
  * ITA's DAM files (lh-ita, as discover-dam.mjs for lh-discover): the /content/dam files lh-ita's documents link to (the
  * PDFs and videos they link, the posters of their videos, and the files given with --extra, e.g.
@@ -95,11 +95,18 @@ function list() {
     const p = `/${path.relative(DOCS, f).replace(/\.plain\.html$/, '')}`;
     const snap = path.join(SNAPS, `${p}.html`);
     const own = new Map();
-    if (fs.existsSync(snap)) {
-      [...fs.readFileSync(snap, 'utf8').matchAll(/(?:https:\/\/www\.ita-airways\.com)?(\/content\/dam\/[^"'?#\s)&,]+)/g)]
-        .forEach((m) => { const www = decodeURIComponent(m[1]); own.set(edsDamPath(assetOf(www)), www); });
-    }
-    damFiles(fs.readFileSync(f, 'utf8')).forEach(([link, kind]) => add(own.get(edsDamPath(assetOf(link))) || link, p, kind));
+    const snapHtml = fs.existsSync(snap) ? fs.readFileSync(snap, 'utf8') : '';
+    const decode = (s) => { try { return decodeURIComponent(s); } catch (e) { return s; } };
+    [...snapHtml.matchAll(/(?:https:\/\/www\.ita-airways\.com)?(\/content\/dam\/[^"'?#\s)&,]+)/g)]
+      .forEach((m) => { const www = decode(m[1]); own.set(edsDamPath(assetOf(www)), www); });
+    const linked = damFiles(fs.readFileSync(f, 'utf8')).map(([link, kind]) => [own.get(edsDamPath(assetOf(link))) || link, kind]);
+    linked.forEach(([www, kind]) => add(www, p, kind));
+    // the subtitle tracks of the page's videos (www's video viewer): for AEM with their video
+    const tracks = tracksOf(snapHtml);
+    linked.filter(([www]) => /\.mp4$/i.test(www)).forEach(([www]) => {
+      const t = tracks[www] || Object.entries(tracks).find(([v]) => edsDamPath(v) === edsDamPath(www))?.[1];
+      if (t) [t.cc, t.ad].filter(Boolean).forEach((v) => add(v, p, 'track'));
+    });
   });
   all('extra').forEach((www) => add(www, null, 'extra'));
   const out = [...files.values()].map((x) => ({ ...x, pages: [...x.pages].sort() }));

@@ -44,6 +44,10 @@ export function leftOut(p) {
   if (/(^|\/)drafts?(\/|$)/i.test(rest)) return 'draft';
   if (/(^|\/)(error|404|500|errorpage|error-page)[^/]*$/i.test(rest)) return 'error page';
   if (/templates|(^|[/_-])test([/_-]|$)|_deact/i.test(rest)) return 'template, test or deactivated';
+  // the homepage's irregularity teaser is a fragment the sitemap lists (no page body)
+  if (/^\/homepage\/teasers(\/|$)/.test(rest)) return 'homepage teaser fragment';
+  // www answers 403 every time on these (a rule on the paths, not a rate limit)
+  if (/^\/it\/it\/local-page\/(ministero-interno-amministrazione-centrale|ministero-istruzione-merito)$/.test(p)) return 'answers 403 every time';
   return '';
 }
 
