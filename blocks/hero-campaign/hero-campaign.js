@@ -53,6 +53,22 @@ function afterLoad(callback) {
 }
 
 /**
+ * Resolves once the stage image has loaded and decoded (at once without an image, or when it
+ * fails), so the video starts after it: its poster is then the image's own currentSrc (no second
+ * request) and the video doesn't take over as the page's largest paint.
+ */
+function imageReady(img) {
+  if (!img) return Promise.resolve();
+  const loaded = img.complete && img.naturalWidth
+    ? Promise.resolve()
+    : new Promise((resolve) => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    });
+  return loaded.then(() => (img.decode ? img.decode().catch(() => {}) : undefined));
+}
+
+/**
  * Keeps the full-bleed stage at the layout width (no horizontal overflow under a classic
  * scrollbar, whether or not the browser's 100vw includes it).
  */
@@ -222,6 +238,8 @@ export default function decorate(block) {
 
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (videoSrc && !reducedMotion) {
-    afterLoad(() => addBackgroundVideo(block, media, videoSrc, labels));
+    // after the load event and after the stage image has loaded and decoded
+    afterLoad(() => imageReady(media.querySelector('img'))
+      .then(() => addBackgroundVideo(block, media, videoSrc, labels)));
   }
 }
