@@ -131,17 +131,85 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  /** A Lufthansa <maui-table> (div.table) as a plain <table>; its head row as <th> cells. */
+  const convertTable = (node) => {
+    const table = document.createElement('table');
+    const rowEls = [...node.querySelectorAll('maui-table-row, tr')]
+      .filter((r) => !r.parentElement.closest('maui-table-row, tr'));
+    rowEls.forEach((rowEl) => {
+      const head = !!rowEl.closest('maui-table-head, thead');
+      const tr = document.createElement('tr');
+      [...rowEl.querySelectorAll('maui-table-cell, td, th')]
+        .filter((c) => c.closest('maui-table-row, tr') === rowEl)
+        .forEach((cellEl) => {
+          const cell = document.createElement(head ? 'th' : 'td');
+          const wrap = document.createElement('div');
+          [...cellEl.childNodes].forEach((n) => wrap.append(n.cloneNode(true)));
+          const nodes = convertRichText(wrap);
+          // a cell of plain text stays text; paragraphs and lists stay as they are
+          if (nodes.length === 1 && nodes[0].tagName === 'P') cell.append(...nodes[0].childNodes);
+          else if (nodes.length) cell.append(...nodes);
+          else cell.textContent = visibleText(cellEl);
+          tr.append(cell);
+        });
+      if (tr.children.length) table.append(tr);
+    });
+    if (!table.children.length) return [];
+    const caption = visibleText(node.querySelector('maui-table-caption, caption'));
+    if (!caption) return [table];
+    const p = document.createElement('p');
+    p.textContent = caption;
+    return [p, table];
+  };
+
+  /** An image of the panel (.image: a picture or a moving image's img) as <p><picture><img>. */
+  const convertImage = (node) => {
+    const img = node.querySelector('img');
+    const src = img && (img.getAttribute('src') || img.getAttribute('data-src'));
+    if (!src || /^(data|blob):/i.test(src)) return [];
+    const picture = document.createElement('picture');
+    const out = document.createElement('img');
+    out.setAttribute('src', src);
+    out.setAttribute('alt', clean(img.getAttribute('alt')));
+    picture.append(out);
+    const p = document.createElement('p');
+    p.append(picture);
+    return [p];
+  };
+
+  const PANEL_NODES = 'h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe), div.table:has(maui-table, table)';
+
+  /**
+   * The panel's link columns (.column-view-item), or none when content of the panel sits outside
+   * them: a column view nested in the text (a row of images, /book/special-requests/families) is
+   * not the panel's column layout, the panel is read as a whole then.
+   */
+  const panelColumns = (panel) => {
+    const columns = [...panel.querySelectorAll('.column-view-item')]
+      .filter((c) => !c.parentElement.closest('.column-view-item'));
+    if (!columns.length) return [];
+    const outside = [...panel.querySelectorAll(PANEL_NODES)]
+      .some((n) => !columns.some((c) => c.contains(n)) && (visibleText(n) || n.querySelector('img, iframe')));
+    return outside ? [] : columns;
+  };
+
   /** Panel content: column by column (heading + links), or the rich text as a whole. */
   const convertPanel = (panel) => {
     const content = [];
-    const columns = [...panel.querySelectorAll('.column-view-item')];
+    const columns = panelColumns(panel);
     const parts = columns.length ? columns : [panel];
+    // read as a whole: the images of nested column views too (in column mode none, as before)
+    const selector = columns.length ? PANEL_NODES : `${PANEL_NODES}, .image:has(img)`;
     parts.forEach((part) => {
-      part.querySelectorAll('h1, h2, h3, h4, h5, h6, .richtext, ul, ol, maui-navigation-link[href], maui-link[href], maui-button-link[href], .videoViewer, .video:has(> .video-player iframe), .iframe:has(> .iframe-wrapper iframe)').forEach((node) => {
+      part.querySelectorAll(selector).forEach((node) => {
         // only outermost nodes: rich text containers are converted as a whole
         if (node.parentElement && node.parentElement.closest('.richtext, ul, ol') && part.contains(node.parentElement.closest('.richtext, ul, ol'))) return;
-        if (node.parentElement && node.parentElement.closest('.videoViewer, .video-player, .iframe-wrapper')) return;
-        if (node.matches('.videoViewer')) {
+        if (node.parentElement && node.parentElement.closest('.videoViewer, .video-player, .iframe-wrapper, div.table')) return;
+        if (node.matches('div.table')) {
+          content.push(...convertTable(node));
+        } else if (node.matches('.image')) {
+          content.push(...convertImage(node));
+        } else if (node.matches('.videoViewer')) {
           content.push(...viewerNodes(node, document));
         } else if (node.matches('.video, .iframe')) {
           content.push(...embedNodes(node, document));
@@ -191,7 +259,7 @@ export default function parse(element, { document }) {
    *                 instead of spaced
    */
   const options = [];
-  if (items.length && !items.some((item) => item.querySelector('.column-view-item'))) options.push('faq');
+  if (items.length && !items.some((item) => panelColumns(item).length)) options.push('faq');
   if (element.closest('maui-limited-width') || element.querySelector('maui-limited-width maui-collapsible, maui-limited-width .accordionitem')) options.push('limited-width');
   const columnItem = element.parentElement && element.parentElement.closest('.column-view-item');
   const columnView = columnItem && columnItem.closest('.column-view');

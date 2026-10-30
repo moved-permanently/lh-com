@@ -134,6 +134,13 @@ export default async function decorate(block) {
   });
 
   block.replaceChildren(...items);
+  // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box
+  block.querySelectorAll('.accordion-columns-panel table').forEach((table) => {
+    const box = document.createElement('div');
+    box.className = 'accordion-columns-table';
+    table.before(box);
+    box.append(table);
+  });
   cleanTextNodes(block);
   decorateExternalLinks(block);
   await decorateMedia(block);

@@ -88,6 +88,61 @@
   margin-bottom: 0;
 }
 
+/* tables in a panel (Discover: maui-table in maui-collapsible-item, /book/special-requests/families
+   fees, /discover/travel-classes fares): the table-striped look (same maui-table component), in
+   a box that scrolls sideways when the columns don't fit (6 columns on a phone) */
+.accordion-columns .accordion-columns-table {
+  margin: 24px 0;
+  overflow-x: auto;
+}
+
+.accordion-columns .accordion-columns-table table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.accordion-columns .accordion-columns-table :is(th, td) {
+  box-sizing: border-box;
+  min-width: 120px;
+  padding: 16px 12px;
+  border: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: var(--body-line-height);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+.accordion-columns .accordion-columns-table th {
+  font-weight: 700;
+}
+
+.accordion-columns .accordion-columns-table tr:nth-child(odd) {
+  background-color: var(--light-color);
+}
+
+.accordion-columns .accordion-columns-table tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.accordion-columns .accordion-columns-table :is(th, td) > :first-child {
+  margin-top: 0;
+}
+
+.accordion-columns .accordion-columns-table :is(th, td) > :last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 768px) {
+  .accordion-columns .accordion-columns-table :is(th, td) {
+    padding: 32px 20px;
+  }
+}
+
 /* .column-view > .row > .column-view-item { margin-bottom: 1rem } (2rem >= 768); 2rem grid gutter */
 .accordion-columns .accordion-columns-columns {
   display: grid;
