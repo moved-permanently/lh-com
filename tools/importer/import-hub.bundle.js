@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_259258_exports = {};
-  __export(tmp_bundle_hub_259258_exports, {
-    default: () => tmp_bundle_hub_259258_default
+  var tmp_bundle_hub_266621_exports = {};
+  __export(tmp_bundle_hub_266621_exports, {
+    default: () => tmp_bundle_hub_266621_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1157,6 +1157,20 @@ var CustomImportScript = (() => {
         note(el);
         return;
       }
+      if (el.matches("maui-navigation-link[href], maui-link[href], maui-button-link[href]")) {
+        const clone = el.cloneNode(true);
+        clone.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((n) => n.remove());
+        const label = clean2(clone.textContent) || attr(el, "label");
+        if (!label) return;
+        const a = document.createElement("a");
+        a.setAttribute("href", el.getAttribute("href"));
+        a.textContent = label;
+        const p = document.createElement("p");
+        p.append(a);
+        rows.push(COLUMNS.map((c) => c === "label" ? [p] : c === "type" ? cell("note") : ""));
+        return;
+      }
+      if (el.matches('[slot="box"]') && el.closest("maui-tooltip")) return;
       if (el.matches('[data-cmp-type="checkbox"]')) {
         checkbox(el);
         return;
@@ -4474,7 +4488,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_259258_default = {
+  var tmp_bundle_hub_266621_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -4504,5 +4518,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_259258_exports);
+  return __toCommonJS(tmp_bundle_hub_266621_exports);
 })();

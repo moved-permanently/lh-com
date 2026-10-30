@@ -359,6 +359,23 @@ export default function parse(element, { document, url, params }) {
     if (el.matches('div.forms-repeatable-section[id^="subsection-"]')) { repeatable(el); return; }
     if (el.matches('div[id^="subsection-"]')) { fieldset(el); return; }
     if (el.matches('.richtext')) { note(el); return; }
+    // a link of its own between the fields (Discover's contact forms: "Vollmacht herunterladen
+    // (PDF)", a maui-navigation-link in an external-link tooltip): a note row with the link
+    if (el.matches('maui-navigation-link[href], maui-link[href], maui-button-link[href]')) {
+      const clone = el.cloneNode(true);
+      clone.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((n) => n.remove());
+      const label = clean(clone.textContent) || attr(el, 'label');
+      if (!label) return;
+      const a = document.createElement('a');
+      a.setAttribute('href', el.getAttribute('href'));
+      a.textContent = label;
+      const p = document.createElement('p');
+      p.append(a);
+      rows.push(COLUMNS.map((c) => (c === 'label' ? [p] : c === 'type' ? cell('note') : '')));
+      return;
+    }
+    // an external-link tooltip's box (its "you are leaving" text) is no field
+    if (el.matches('[slot="box"]') && el.closest('maui-tooltip')) return;
     if (el.matches('[data-cmp-type="checkbox"]')) { checkbox(el); return; }
     if (el.matches('.forms-region-dropdown-wrapper')) { region(el); return; }
     if (el.matches('maui-radio-group')) { radio(el); return; }
