@@ -341,7 +341,7 @@ async function siteRespond(incoming, env, site, ctx) {
   if (early) return early;
   const senv = siteEnv(env, site);
   const url = new URL(incoming.url);
-  // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM and R2
+  // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {
     const home = `/${Object.values(site.tables.versions)[0]}/homepage${url.search}`;

@@ -1,67 +1,71 @@
 /**
  * www's large DAM files from an AEM as a Cloud Service publish tier (var AEM_PUBLISH, its origin;
- * empty: off), ahead of the R2 copies (src/dam-media.js): the files Edge Delivery can't hold are
- * published there under the same names (scripts/dam-path.js edsDamPath, the R2 key with its
- * leading slash). A DAM step (src/dam.js DAM_STEPS):
+ * empty: off), the only source of the files Edge Delivery can't hold (mp4 over 36 MB, every
+ * .vtt, PDFs over 20 MB): they are published there under the same names (scripts/dam-path.js
+ * edsDamPath). A DAM step (src/dam.js DAM_STEPS):
  * - GET and HEAD of a valid asset path without rendition: .mp4 and .vtt first (before DA); .pdf
- *   only after the DA copies answered 404 (src/dam.js: info.afterDa; most PDFs live in DA, every
- *   brand's large ones on AEM: DA, then AEM, then R2).
+ *   only after the DA copies answered 404 (src/dam.js: info.afterDa; Edge Delivery holds PDFs up
+ *   to 20 MB, so a PDF DA serves costs no AEM call).
  * - The AEM request has the same method and only range, if-none-match and if-modified-since; its
- *   headers must arrive within AEM_HEADER_TIMEOUT_MS (5 s) when R2 holds a copy to fall back to,
- *   within AEM_HEADER_TIMEOUT_NO_COPY_MS (20 s: a cold publish tier takes about 10 s) when it
- *   doesn't (every new brand's large files); the R2 lookup runs alongside the AEM request, once
- *   per request (the R2 step reads the same). The body is streamed (an 869 MB video, the 10 ms CPU
- *   limit of Workers Free).
- * - Used when AEM answers 200 or 206 with the file's media type, 304 or 416. Anything else (404,
- *   5xx, a timeout, a network error, and a hibernated sandbox's 200 text/html page for every path)
- *   is null: the R2 step answers as before. So is a 200 to a request with a Range header: R2
- *   answers the range (206).
+ *   headers must arrive within AEM_HEADER_TIMEOUT_MS (30 s: a cold publish tier takes 10-20 s for
+ *   its first answers, then about 0.5 s; a cold file loads slowly instead of failing). The body
+ *   is streamed (an 869 MB video, the 10 ms CPU limit of Workers Free).
+ * - Used when AEM answers 200 or 206 with the file's media type (a 200 to a request with a Range
+ *   header too: the whole file, valid HTTP, players handle it), 304 or 416.
+ * - Not there: 404 (also 403, 410): null, the DA copies answer (the mp4s up to 36 MB live there),
+ *   else the route's 404.
+ * - Unavailable: a 200 or 206 of another type (a hibernated environment answers every path with
+ *   a 200 text/html page), 5xx, a timeout, a network error: null with info.aemUnavailable, and the
+ *   route answers aemUnavailable() (503, Retry-After: 120, no-store, x-lh-edge-route:
+ *   dam-aem-unavailable) unless the DA copies have the file; never AEM's page.
  * - The subrequest goes past Cloudflare's cache (cache: 'no-store'): on a cold miss Cloudflare's
  *   cache fetches the whole file without the Range and answers 200 with all of it (Cloudflare's
  *   "Range request behavior"), and a file over the 512 MB cacheable size (Free to Business) is
- *   never stored, so the 869 MB video's first range request in a data centre got 869 MB. The
- *   publish tier's own CDN still caches (it ignores the request's no-cache headers).
- * - Headers as the R2 step's: content-type of MEDIA_TYPES, cache-control public, max-age=2592000,
- *   accept-ranges bytes; content-length, content-range, etag and last-modified from AEM; no other
- *   AEM header. x-lh-edge-route: dam-aem.
+ *   never stored. The publish tier's own CDN still caches (it ignores the request's no-cache
+ *   headers).
+ * - Headers: content-type of MEDIA_TYPES, cache-control public, max-age=2592000, accept-ranges
+ *   bytes; content-length, content-range, etag and last-modified from AEM; no other AEM header.
+ *   x-lh-edge-route: dam-aem.
  */
-import { MEDIA_TYPES, mediaKey } from './dam-media.js';
 /* eslint-disable import/no-relative-packages */
 import { edsDamPath } from '../../../../scripts/dam-path.js';
 /* eslint-enable import/no-relative-packages */
 
-/** How long AEM may take for its response headers before R2 answers (R2 has a copy). */
-export const AEM_HEADER_TIMEOUT_MS = 5000;
-/** How long AEM may take when R2 has no copy (nothing to fall back to but the 404). */
-export const AEM_HEADER_TIMEOUT_NO_COPY_MS = 20000;
+/** The file types on the publish tier and the media type each is answered with. */
+export const MEDIA_TYPES = {
+  mp4: 'video/mp4',
+  vtt: 'text/vtt; charset=utf-8',
+  pdf: 'application/pdf',
+};
+
+/** How long AEM may take for its response headers. */
+export const AEM_HEADER_TIMEOUT_MS = 30000;
 const FORWARD = ['range', 'if-none-match', 'if-modified-since'];
 const KEEP = ['content-length', 'content-range', 'etag', 'last-modified'];
+const NOT_THERE = [403, 404, 410];
 
-/** The R2 head of an asset, once per request (the R2 step reads the same). */
-export function mediaHead(env, info) {
-  if (!env.DAM_MEDIA) return Promise.resolve(null);
-  if (!info.mediaHead) info.mediaHead = env.DAM_MEDIA.head(mediaKey(info.asset)).catch(() => null);
-  return info.mediaHead;
-}
-
-/**
- * fetch with a time limit on the response headers (the body is not limited); limit: a promise of
- * the limit in ms from the start (it waits for the R2 lookup, which runs alongside).
- */
-async function fetchHeaders(url, init, limit) {
+/** fetch with a time limit on the response headers (the body is not limited). */
+async function fetchHeaders(url, init, ms) {
   const controller = new AbortController();
-  const start = Date.now();
-  let timer;
-  let done = false;
-  limit.then((ms) => {
-    if (!done) timer = setTimeout(() => controller.abort(), Math.max(0, ms - (Date.now() - start)));
-  });
+  const timer = setTimeout(() => controller.abort(), ms);
   try {
     return await fetch(url, { ...init, signal: controller.signal });
   } finally {
-    done = true;
     clearTimeout(timer);
   }
+}
+
+/** The answer when the publish tier can't answer and DA has no copy. */
+export function aemUnavailable(request) {
+  return new Response(request.method === 'HEAD' ? null : 'Service Unavailable', {
+    status: 503,
+    headers: {
+      'content-type': 'text/plain; charset=utf-8',
+      'retry-after': '120',
+      'cache-control': 'no-store',
+      'x-lh-edge-route': 'dam-aem-unavailable',
+    },
+  });
 }
 
 /** The DAM step. */
@@ -76,25 +80,21 @@ export async function damAem(request, env, ctx, info) {
   if ((ext === 'pdf') !== Boolean(info.afterDa)) return null;
   const headers = new Headers();
   FORWARD.forEach((h) => { if (request.headers.has(h)) headers.set(h, request.headers.get(h)); });
-  // 5 s with an R2 copy to fall back to, 20 s without one
-  const limit = mediaHead(env, info).then((copy) => (copy
-    ? Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS
-    : Number(env.AEM_HEADER_TIMEOUT_NO_COPY_MS) || AEM_HEADER_TIMEOUT_NO_COPY_MS));
   let resp;
   try {
     resp = await fetchHeaders(`${base}${edsDamPath(info.asset)}`, {
       method: request.method, headers, redirect: 'manual', cache: 'no-store',
-    }, limit);
+    }, Number(env.AEM_HEADER_TIMEOUT_MS) || AEM_HEADER_TIMEOUT_MS);
   } catch (e) {
+    // a timeout or a network error
+    info.aemUnavailable = true;
     return null;
   }
   const got = (resp.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
-  // a 200 to a range request (the whole file) is no answer: R2 answers the range
-  const whole = resp.status === 200 && request.headers.has('range');
-  const usable = (((resp.status === 200 && !whole) || resp.status === 206) && got === type.split(';')[0])
-    || resp.status === 304 || resp.status === 416;
-  if (!usable) {
+  const file = (resp.status === 200 || resp.status === 206) && got === type.split(';')[0];
+  if (!file && resp.status !== 304 && resp.status !== 416) {
     if (resp.body) resp.body.cancel().catch(() => {});
+    if (!NOT_THERE.includes(resp.status)) info.aemUnavailable = true;
     return null;
   }
   const out = new Headers({

@@ -25,12 +25,6 @@ entrypoint = "BotCheck"
 
 # Secret (optional, not here): ORIGIN_AUTHENTICATION, the site token when the origin needs one.
 
-# www's videos over 36 MB and the subtitles (.vtt) under their /content/dam names
-# (src/dam-media.js)
-[[r2_buckets]]
-binding = "DAM_MEDIA"
-bucket_name = "lh-dam-media"
-
 # publish events (src/events.js): the relay's position and the last 500 events, one key, written
 # only when events arrive or the position moves (Workers Free: about 1,000 KV writes a day for
 # the account). Secrets (not here): AUDIT_LOG_KEY (lh-com API key, author role: reads the audit

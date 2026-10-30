@@ -76,8 +76,7 @@ Worker that has one keeps them in `<worker>/accounts/benpeter.sed` (`s/<Blackbir
 
 `account-config.sh <map> wrangler.toml <out>` writes the second account's config and fails when
 an id of the map is not in `wrangler.toml` (the map is out of date) or still in the output. The
-R2 bucket `lh-dam-media` and the service bindings (lh-backends, lh-forms, lh-messages, lh-edge)
-go by name.
+service bindings (lh-backends, lh-forms, lh-messages, lh-edge) go by name.
 
 ### How a deploy works
 

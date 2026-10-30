@@ -19,12 +19,12 @@
  * - The synced brand assets (/content/dam/<tenant>/(images|videos)/frontify/...) go to
  *   lh-backends first (syncedAsset); its 404 falls through to the copies.
  * - DAM_STEPS run next (a step returns a Response or null): for paths another source answers.
- *   PDFs: DA first (one request), the steps (AEM, then R2) only when DA answers 404; any other
- *   DA answer for a PDF (200, 206, 5xx, a timeout's error) is answered as before.
+ *   PDFs: DA first (one request), the steps (AEM) only when DA answers 404; any other DA
+ *   answer for a PDF (200, 206, 5xx, a timeout's error) is answered as before. When AEM can't
+ *   answer (src/dam-aem.js: info.aemUnavailable) and DA has no copy: 503 (aemUnavailable).
  */
 import { originFetch } from './edge.js';
-import { damMedia } from './dam-media.js';
-import { damAem } from './dam-aem.js';
+import { damAem, aemUnavailable } from './dam-aem.js';
 // the site's own module: one naming rule for the site, the copies and the Worker (wrangler
 // bundles it)
 /* eslint-disable import/no-relative-packages */
@@ -36,11 +36,11 @@ import {
 export const isDamPath = (pathname) => pathname.startsWith('/content/dam/');
 
 /**
- * Steps before the copies: async (request, env, ctx, dam) => Response | null. The first: the
- * videos and subtitles in R2 (src/dam-media.js).
+ * Steps before the copies: async (request, env, ctx, dam) => Response | null: the large files on
+ * AEM's publish tier (var AEM_PUBLISH, src/dam-aem.js), the only source of what Edge Delivery
+ * can't hold.
  */
-// AEM's publish tier first (var AEM_PUBLISH), R2 as its fallback
-export const DAM_STEPS = [damAem, damMedia];
+export const DAM_STEPS = [damAem];
 
 // brand assets Lufthansa manages in Frontify, kept in sync by lh-backends (binding BACKENDS):
 // /content/dam/<tenant>/(images|videos)/frontify/..., renditions included; not the author-made
@@ -169,8 +169,8 @@ export async function dam(request, env, ctx) {
   const resp = await fetchDamAsset(request, env, edsDamPath(parsed.asset), params);
   if (resp.status === 200 || resp.status === 206) return assetResponse(request, resp);
   if (resp.status === 404 && /\.pdf$/i.test(parsed.asset)) {
-    // a PDF DA doesn't hold (over its 20 MB): the steps again, AEM then R2, after this one DA
-    // request (they skip PDFs until afterDa)
+    // a PDF DA doesn't hold (over its 20 MB): the steps again (AEM), after this one DA request
+    // (they skip PDFs until afterDa)
     info.afterDa = true;
     for (let i = 0; i < DAM_STEPS.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -180,6 +180,11 @@ export async function dam(request, env, ctx) {
         return answer;
       }
     }
+  }
+  // the file is AEM's (no DA copy) and AEM can't answer now: 503, never a 404 or AEM's page
+  if (resp.status === 404 && info.aemUnavailable) {
+    if (resp.body) resp.body.cancel().catch(() => {});
+    return aemUnavailable(request);
   }
   if (resp.status === 404) {
     const raw = decodePath(url.pathname);
