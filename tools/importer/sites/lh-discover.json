@@ -375,7 +375,14 @@
   "/de/de/articles/discover-the-world/santorini-off-the-tourist-trail",
   "/de/de/articles/discover-the-world/solo-trip-djerba",
   "/de/de/articles/discover-the-world/tips-seychelles",
-  "/de/de/articles/discover-the-world/winter-in-alta"
+  "/de/de/articles/discover-the-world/winter-in-alta",
+  "/us/en/homepage",
+  "/ca/en/homepage",
+  "/xx/en/homepage",
+  "/xx/en/book/new-destinations",
+  "/us/de/homepage",
+  "/xx/de/homepage",
+  "/xx/de/book/new-destinations"
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
