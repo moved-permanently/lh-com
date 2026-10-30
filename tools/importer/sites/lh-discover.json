@@ -382,7 +382,9 @@
   "/xx/en/book/new-destinations",
   "/us/de/homepage",
   "/xx/de/homepage",
-  "/xx/de/book/new-destinations"
+  "/xx/de/book/new-destinations",
+  "/xx/fr/nav",
+  "/xx/fr/footer"
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
@@ -398,5 +400,13 @@
   "/de/de/book/flights/timetable",
   "/de/de/book/travel-information/airport-info/security-check-time-slot",
   "/de/de/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities"
- ]
+ ],
+ "marketRoots": {
+  "us/en": "de/en",
+  "ca/en": "de/en",
+  "xx/en": "de/en",
+  "us/de": "de/de",
+  "xx/de": "de/de",
+  "ca/fr": "xx/fr"
+ }
 }

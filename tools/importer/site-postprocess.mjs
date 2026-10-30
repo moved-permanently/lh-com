@@ -18,6 +18,9 @@
  * www.lufthansa.com URLs, put back after their import, stay (without it: every document, as before).
  * The allowlist's linkOuts: documents whose link to their own page on the source host is a link
  * out (a live widget answered there); that one link stays absolute.
+ * The allowlist's marketRoots (root -> language version, as lh-edge's site entry): a market root's
+ * page /<root>/<x> counts as a site page where the language version has the document (lh-edge
+ * answers it from there; a root's own documents link their root's pages so).
  * --snapshots: the source pages the import read (default tools/importer/bd-snapshots/<host>);
  * --real-placeholder: the host the source pages' own lufthansa.com URLs were given before the
  * import (discover-import.mjs: www.lufthansa-com.invalid, so the importers leave them alone and
@@ -32,10 +35,19 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const argv = process.argv.slice(2);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
 
-/** The changed document and what changed. */
+/**
+ * The changed document and what changed. marketRoots (the allowlist's, root -> language version,
+ * as lh-edge's site entry): a page /<root>/<x> of a market root is a site page where the language
+ * version has /<version>/<x> (lh-edge answers it from there).
+ */
 export function postprocess(html, {
-  sourceHost, sitePaths, mapHosts = true, linkOut = null,
+  sourceHost, sitePaths, mapHosts = true, linkOut = null, marketRoots = {},
 }) {
+  const isPage = (p) => {
+    if (sitePaths.has(p)) return true;
+    const m = p.match(/^\/([a-z]{2}\/[a-z]{2})(\/.*)$/);
+    return Boolean(m && marketRoots[m[1]] && sitePaths.has(`/${marketRoots[m[1]]}${m[2]}`));
+  };
   let out = !mapHosts ? html : html.replace(/https:\/\/www\.lufthansa\.com(?=[/"'?#)\s]|$)/g, `https://${sourceHost}`);
   const hosts = out.split(`https://${sourceHost}`).length - html.split(`https://${sourceHost}`).length;
   let relative = 0;
@@ -43,7 +55,7 @@ export function postprocess(html, {
   out = out.replace(new RegExp(`href="https://${esc}(/[a-z]{2}/[a-z]{2}(?:/[^"?#]*)?)([?#][^"]*)?"`, 'g'), (m, p, rest = '') => {
     const page = p.replace(/\.html$/, '').replace(/\/$/, '');
     const target = /^\/[a-z]{2}\/[a-z]{2}$/.test(page) ? `${page}/homepage` : page;
-    if (!sitePaths.has(target)) return m;
+    if (!isPage(target)) return m;
     // the document's link out to its own page on the source host (a live widget there)
     if (target === linkOut && !rest) return m;
     relative += 1;
@@ -53,7 +65,7 @@ export function postprocess(html, {
   // the source site
   let absolute = 0;
   out = out.replace(/href="(\/[a-z]{2}\/[a-z]{2}(?:\/[^"?#]*)?)([?#][^"]*)?"/g, (m, p, rest = '') => {
-    if (sitePaths.has(p.replace(/\/$/, ''))) return m;
+    if (isPage(p.replace(/\/$/, ''))) return m;
     absolute += 1;
     return `href="https://${sourceHost}${p}${rest}"`;
   });
@@ -82,7 +94,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     const before = fs.readFileSync(f, 'utf8');
     const doc = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
     const r = postprocess(before, {
-      sourceHost, sitePaths, mapHosts: !mapOnly || mapOnly.has(doc), linkOut: linkOuts.has(doc) ? doc : null,
+      sourceHost, sitePaths, mapHosts: !mapOnly || mapOnly.has(doc), linkOut: linkOuts.has(doc) ? doc : null, marketRoots: list.marketRoots,
     });
     // the source pages' own Lufthansa URLs, kept apart during the import
     if (placeholder) r.html = r.html.split(`https://${placeholder}`).join('https://www.lufthansa.com');
