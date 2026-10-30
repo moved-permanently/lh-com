@@ -550,7 +550,8 @@
   "/xx/fr/feedback",
   "/xx/fr/homepage",
   "/xx/fr/cancun-promotion",
-  "/xx/fr/culinaryjourney"
+  "/xx/fr/culinaryjourney",
+  "/xx/fr/discover/ocean-blue"
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
