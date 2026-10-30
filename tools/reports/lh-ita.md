@@ -204,8 +204,38 @@ Left out on the way:
   `/it/it/local-page/ministero-istruzione-merito`: 403 every time.
 - `/it/en/legal/services-statement`: 404 on www (it/en's footer links it; only it/it has it).
 
-Batches 23 on (es/es from `/es/es/legal/privacy-policy-for-suppliers`, then de/de, nl/nl, br/pt,
-gr/el, jp/ja, the market roots' own pages) wait for the Studio's next archives.
+## Batches 23-60 (2026-10-30): the rest of the Studio capture
+
+Source: `ita-snapshots-007` to `-016` (1,498 pages, every file checked against its manifest),
+1,484 placed; kept own captures: 9 es/es legal pages (batch 22's gaps) and the nl/nl, br/pt,
+gr/el, jp/ja and it/en homepages (the same content as the Studio's); de/de's homepage replaced
+(its flight search had come out in English). The 216 pages the Studio found absent (404: 206
+xx/* own pages, 8 English `homepage-new`, `/gr/el/legal/company-transparency`,
+`/mv/en/testinggg`) are recorded as 404 (`ita-studio.mjs --absent`) and left out, with the
+three pages www blocks every time (the two ministero pages,
+`/us/en/local-page/national-italian-american-foundation`). A market root's homepage is now its
+own document (64 roots, each with its own nav and footer); the reference homepages carry no
+`markets` row any more (it/en, it/it, fr/fr, es/es re-imported and previewed again).
+`/al/it`, `/be/it`, `/ch/it/homepage-new` (a variant homepage, 200 on www) are those roots' own
+pages, imported with the homepage template. Left out as a draft:
+`/mv/en/Ita-draft-page-inspiration/draft-promo-page`.
+
+Previewed: 38 batches, 1,691 documents with the roots' nav and footer (23: 42, 24: 42, 25: 42,
+26: 45, 27: 42, 28: 42, 29: 42, 30: 42, 31: 44, 32: 43, 33: 42, 34: 42, 35: 42, 36: 42, 37: 42,
+38: 45, 39: 42, 40: 42, 41: 42, 42: 42, 43: 42, 44: 44, 45: 42, 46: 42, 47: 42, 48: 42, 49: 45,
+50: 42, 51: 42, 52: 42, 53: 42, 54: 41, 55: 48, 56: 81, 57: 72, 58: 63, 59: 52, 60: 18), every
+document 200, no www.lufthansa.com link made or lost. Own captures: the reference roots' nav and
+footer targets (28 pages) and one xx/el page. 404 on www (no document, the links stay www's):
+`/gr/el/book-and-prepare/offers/youth-offers` (gr/el's menu), `/jp/ja/support/utilities/invoicing`
+(jp/ja's footer), `/xx/el/legal/company-transparency`. DAM: 303 files linked, 288 in lh-ita's DA,
+6 for AEM (all on AEM already), 9 that www answers 404 for. Spot checks at 1440 and 390 (preview
+only): every block loads, no broken images; one script error once at 390 on
+`/br/pt/legal/additional-bag-during-check-in-conditions`, not reproduced.
+
+The login pages `/it/it/iscrizione`, `/fr/fr/connexion`, `/es/es/inicio-de-sesion`: off live
+(by hand), no document links them (the it/it sitemap page links www's `/it/it/profile/login`);
+their preview and DA documents are still there: the environment's permission check refused the
+preview delete (2026-10-30), so the DA delete was not tried either.
 
 ## For the Workers and shared config (not changed here)
 
