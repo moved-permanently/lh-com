@@ -53,6 +53,7 @@ import { urlForm, urlFormUnlessPage, isLongPagePath } from './url-forms.js';
 import {
   onetrust, isOnetrustPath, fonts, isFontsPath, withGeoCookie,
 } from './onetrust.js';
+import { digitalhangar, isDigitalhangarPath } from './digitalhangar.js';
 
 /**
  * /service-worker.js: www's file (the code repository's copy, served by the origin) with www's
@@ -105,6 +106,12 @@ export const ROUTES = [
     name: 'fonts',
     match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isFontsPath(url.pathname),
     handle: (request, env) => fonts(request, env, passThrough),
+  },
+  {
+    // www's design-system files (the brand fonts) from www, upstream's headers as they are
+    name: 'digitalhangar',
+    match: (url, request) => ['GET', 'HEAD'].includes(request.method) && isDigitalhangarPath(url.pathname),
+    handle: digitalhangar,
   },
   {
     // publish events (package 6): the stored events and the site config's webhook
@@ -298,7 +305,7 @@ const REFERRER_CHECKED = new Set(['changelocale', 'mfe', 'g4t-kiosk']);
 // (the origin's or the backend's 304 is right); every other route makes its answer from
 // documents, so a GET or HEAD reaches it without them and gets the whole answer (with them, the
 // source document's 304 or a 404 came back: app screens, solo pages, offline lists)
-const KEEPS_CONDITIONS = new Set(['pass-through', 'market', 'dam', 'backends', 'message-center']);
+const KEEPS_CONDITIONS = new Set(['pass-through', 'market', 'dam', 'backends', 'message-center', 'digitalhangar']);
 const conditional = (request) => ['GET', 'HEAD'].includes(request.method)
   && (request.headers.has('if-modified-since') || request.headers.has('if-none-match'));
 
@@ -357,9 +364,11 @@ async function siteRespond(incoming, env, site, ctx) {
   const senv = siteEnv(env, site);
   const url = new URL(incoming.url);
   const read = ['GET', 'HEAD'].includes(incoming.method);
-  // OneTrust from the host and the immutable fonts, as on lh-com's hosts
+  // OneTrust from the host and the immutable fonts, as on lh-com's hosts; www's design-system
+  // files from the site's own www
   if (read && isOnetrustPath(url.pathname)) return finish(await onetrust(incoming), incoming, senv, 'onetrust');
   if (read && isFontsPath(url.pathname)) return finish(await fonts(incoming, senv, passThrough), incoming, senv, 'fonts');
+  if (read && isDigitalhangarPath(url.pathname)) return finish(await digitalhangar(incoming, senv), incoming, senv, 'digitalhangar');
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {

@@ -13,16 +13,17 @@
  */
 
 // the main host's paths for lh-edge's routes: solo pages, feeds, www's endpoints, the ch market,
-// the service endpoints, OneTrust and the fonts (in this order; each expression is a search, as
-// RegExp.test)
+// the service endpoints, OneTrust, the fonts and www's design-system files (in this order; each
+// expression is a search, as RegExp.test)
 export const EDGE_PATHS = [
   /\.solo(_continue|\.continue)(\..*)?$/,
   /^(\/content\/(mobile|dam)\/.*|(\/api\/content)?\/graphql\/execute\.json\/.*|\/\.well-known\/(assetlinks\.json|apple-app-site-association)|\/service\/secured\/api\/core\/authenticate\/loginPageUrl|\/service\/secured\/api\/search|\/service\/secured\/api\/core\/booking\/(defaultairport|bookinglist)|\/apps\/dcep\/deeplink\/goodfortrain\/stele|.*\.csi-owa-[a-z-]+\.json)$/,
   /^(\/|\/[a-z]{2}(\/[a-z]{2})?\/?|\/content\/experience-fragments\/.+\.csi-xf\.json|\/service-worker\.js|\/sitemap\/[^/]+\.xml\.gz|\/[a-z]{2}(\/[a-z]{2})?\/llms\.txt|\/service\/secured\/api\/captcha\/verify|\/content\/lh\/markets\/.+\.(sdui|csi-offline\.json)|.+\.(aircraft\.json|changelocale(\.html)?|mfe\.html))$/,
   /^(\/ch\/.+|\/sitemap\/sitemap_lh(_ch_[a-z]{2})?\.xml)$/,
   /^(\/service\/secured\/api\/.+|\/sso\/.+|\/deeplink\/.+|\/apps\/dcep\/deeplink\/.+|\/apps\/selectlanguage|\/[a-z]{2}\/[a-z]{2}\/.+\.v2\.sdui)$/,
-  // OneTrust from the host (cdn.cookielaw.org) and the immutable brand fonts (src/onetrust.js)
-  /^(\/onetrust\/.+|\/logos\/.+|\/fonts\/lufthansa\/v\d+(\.\d+)*\/[^/]+)$/,
+  // OneTrust from the host (cdn.cookielaw.org) and the immutable brand fonts (src/onetrust.js),
+  // www's design-system files with the brand fonts (src/digitalhangar.js)
+  /^(\/onetrust\/.+|\/logos\/.+|\/fonts\/lufthansa\/v\d+(\.\d+)*\/[^/]+|\/digitalhangar\/.+)$/,
 ];
 // the gate's paths (lh-backends)
 export const GATE_PATH = /^\/(migration-status.*|_lh-auth\/.*)$/;

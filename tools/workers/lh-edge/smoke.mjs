@@ -65,6 +65,8 @@ export const CHECKS = [
   // sitemaps, llms, well-known
   ...['/sitemap/sitemap_lh.xml', '/sitemap/sitemap_lh.xml.gz', '/sitemap/sitemap_lh_de_en.xml', '/sitemap/sitemap_lh_at_de.xml.gz', '/de/llms.txt', '/gb/llms.txt', '/robots.txt', '/service-worker.js',
     '/.well-known/assetlinks.json', '/.well-known/apple-app-site-association'].map((p) => ({ path: p })),
+  // www's design-system fonts from the host's brand www (src/digitalhangar.js)
+  ...['lufthansa/LufthansaTextWeb-Regular.woff2', 'ita/OpenSans-Regular.woff'].map((f) => ({ path: `/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/${f}` })),
   // the server endpoints lh-edge answers itself
   {
     path: '/service/secured/api/search', method: 'POST', body: '{"phrase":"baggage"}', headers: { ...json, ...portal('GB', 'en') },
