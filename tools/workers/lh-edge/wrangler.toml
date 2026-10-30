@@ -114,10 +114,11 @@ URL_FORMS = "on"
 # site (its locale table, its market roots from its language documents), SITE_ORIGINS
 # "site=main--<repo>--<owner>.aem.live" its origin, SITE_WWW_HOSTS "site=www.example.com" the host
 # its links name on the source site; "": none (every host as before). discover.turnsthe.page:
-# Discover Airlines (DA moved-permanently/lh-discover, brief 124); rollback: the three vars ""
-SITE_HOSTS = "discover.turnsthe.page=discover"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com"
+# Discover Airlines (DA moved-permanently/lh-discover, brief 124); ita.turnsthe.page: ITA Airways
+# (DA moved-permanently/lh-ita, brief 158); rollback: a site's entries out of the three vars
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com"
 # www's large DAM files (mp4 over 36 MB, vtt, PDFs over 20 MB) from this AEM publish tier, the only
 # source of them (src/dam-aem.js); "": off. AEM_KEEPALIVE_URLS: one GET each an hour from the
 # poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none

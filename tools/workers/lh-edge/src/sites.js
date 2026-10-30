@@ -31,11 +31,23 @@ const row = (country, lang, hreflang, documents) => ({
   country, lang, hreflang, status: 'live', documents,
 });
 
+// rows of roots <cc>/<ll>: hreflang <ll>-<CC>, an xx root's the language alone (as Discover's)
+const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
+  const [cc, ll] = r.split('/');
+  return [r, row(cc, ll, cc === 'xx' ? ll : `${ll}-${cc.toUpperCase()}`, documents)];
+}));
+
 /**
  * The sites. Discover Airlines (DA moved-permanently/lh-discover, www.discover-airlines.com):
  * de/en, de/de and xx/fr hold the language documents (the largest root of each language), the
  * market roots get them where their sitemaps list the page (the page's `markets` metadata) and
  * hold their own homepage and own pages; hreflang as www's sitemaps (2026-10-29).
+ * ITA Airways (DA moved-permanently/lh-ita, www.ita-airways.com): the nine reference roots hold
+ * the language documents (tools/importer/ita-scope.mjs LANGUAGE_VERSIONS), the market roots get
+ * them where the document's `markets` row lists the root (written as roots, "be/fr, ch/fr":
+ * scripts/market-rules.js); the market roots as the published documents' markets rows and
+ * tools/reports/lh-ita.md name them (50 of www's 55: the de, nl, pt, el and ja ones beyond xx/nl,
+ * xx/pt and xx/ja come with those languages' documents).
  */
 export const SITES = {
   discover: tablesOf({
@@ -49,6 +61,21 @@ export const SITES = {
     'xx/de': row('xx', 'de', 'de', 'language'),
     'ca/fr': row('ca', 'fr', 'fr-CA', 'language'),
   }, { en: 'de/en', de: 'de/de', fr: 'xx/fr' }),
+  ita: tablesOf({
+    ...rowsOf('own', ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja']),
+    ...rowsOf('language', [
+      'ae/en', 'al/en', 'ar/en', 'at/en', 'au/en', 'be/en', 'bg/en', 'br/en', 'ca/en', 'ch/en',
+      'de/en', 'do/en', 'dz/en', 'eg/en', 'es/en', 'fr/en', 'gb/en', 'gh/en', 'gr/en', 'hr/en',
+      'il/en', 'in/en', 'jp/en', 'ly/en', 'mt/en', 'mu/en', 'mv/en', 'nl/en', 'sa/en', 'sn/en',
+      'th/en', 'tn/en', 'us/en', 've/en', 'xx/en',
+      'al/it', 'be/it', 'ch/it', 'xx/it',
+      'be/fr', 'ca/fr', 'ch/fr', 'tn/fr', 'xx/fr',
+      'ar/es', 'do/es', 'xx/es',
+      'xx/nl', 'xx/pt', 'xx/ja',
+    ]),
+  }, {
+    en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',
+  }),
 };
 
 const pairs = (value) => {

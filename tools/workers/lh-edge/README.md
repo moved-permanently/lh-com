@@ -21,6 +21,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
 | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS`, `PILOT_COUNTRIES_BY_HOST` (cn) |
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
@@ -139,10 +140,15 @@ byte-identical with and without the change).
 Discover Airlines (`discover`, DA `moved-permanently/lh-discover`): de/en, de/de, xx/fr hold the language documents;
 us/en, ca/en, xx/en, us/de, xx/de, ca/fr are market roots. For `discover.turnsthe.page`:
 
+ITA Airways (`ita`, DA `moved-permanently/lh-ita`): the nine reference roots it/en, it/it, fr/fr, es/es, de/de,
+nl/nl, br/pt, gr/el, jp/ja hold the language documents; 50 market roots (35 English, 4 Italian, 5 French, 3 Spanish,
+xx/nl, xx/pt, xx/ja) get them where the document's `markets` row lists the root (lh-ita writes roots, `be/fr, ch/fr`;
+`scripts/market-rules.js` reads a root as its country). hreflang `<ll>-<CC>`, an xx root's the language alone.
+
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com"
 ```
 
 Check first against the preview origin (documents on preview only):
@@ -156,7 +162,7 @@ npx -y wrangler@4 dev --port 8787 --local-upstream discover.turnsthe.page \
 curl -sI http://localhost:8787/us/en/book/baggage   # 200, x-lh-edge-route: market
 ```
 
-Rollback for a host: remove it from `SITE_HOSTS` and deploy.
+Rollback for a host: remove it from `SITE_HOSTS` and deploy (or `git revert` the commit that added it).
 
 ## URL forms (`src/url-forms.js`, `URL_FORMS`)
 

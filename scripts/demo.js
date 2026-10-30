@@ -15,7 +15,7 @@
  * brands, not the whole domain (other demos may live there). The one list: the site
  * (isTurnsThePageHost, isDemoHost) and lh-edge (the head-URL rewrite) read it.
  */
-export const TURNSTHE_PAGE_BRANDS = ['lufthansa', 'discover'];
+export const TURNSTHE_PAGE_BRANDS = ['lufthansa', 'discover', 'ita'];
 export const TURNSTHE_PAGE_DOMAIN = 'turnsthe.page';
 export const TURNSTHE_PAGE_HOST = new RegExp(`^(${TURNSTHE_PAGE_BRANDS.join('|')})(-[a-z0-9-]+)?\\.turnsthe\\.page$`);
 

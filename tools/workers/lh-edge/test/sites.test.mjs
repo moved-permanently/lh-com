@@ -34,6 +34,26 @@ const DISCOVER_FILES = {
   '/us/en/homepage': page('/us/en/homepage', '<h1>us/en own homepage</h1>'),
   '/de/en/homepage': page('/de/en/homepage', '<h1>de/en homepage</h1>'),
 };
+// the ITA origin (lh-ita): it/en and fr/fr language documents with their markets rows as lh-ita
+// writes them (market roots, cc/ll), ch/fr's own page; the other languages' indexes are missing
+// (no documents yet), as on lh-ita today
+const ITA = 'main--lh-ita--moved-permanently.aem.live';
+// pages of lh-ita's origin
+const itaPage = (path, body) => page(path, body).split(DISCOVER).join(ITA);
+const ITA_FILES = {
+  '/it/en/search-index.json': sheet([row('/it/en/homepage', { markets: 'ae/en, ch/en, us/en, xx/en' })]),
+  '/fr/fr/search-index.json': sheet([
+    row('/fr/fr/book-and-prepare/baggage', { markets: 'be/fr, ca/fr, ch/fr, tn/fr, xx/fr' }),
+    row('/fr/fr/legal/imprint', { markets: 'be/fr, ca/fr, ch/fr, tn/fr, xx/fr' }),
+    row('/fr/fr/book-and-prepare/offers/paris', { markets: 'be/fr' }),
+  ]),
+  '/market-pages.json': sheet([row('/ch/fr/swiss-offers')]),
+  '/it/en/homepage': itaPage('/it/en/homepage', '<h1>it/en homepage</h1>'),
+  '/fr/fr/book-and-prepare/baggage': itaPage('/fr/fr/book-and-prepare/baggage', '<h1>Bagages</h1><a href="/fr/fr/legal/imprint">Mentions légales</a> <a href="/fr/fr/book-and-prepare/offers/paris">Paris</a>'),
+  '/fr/fr/book-and-prepare/offers/paris': itaPage('/fr/fr/book-and-prepare/offers/paris', '<h1>Paris</h1>'),
+  '/ch/fr/swiss-offers': itaPage('/ch/fr/swiss-offers', '<h1>ch/fr own page</h1>'),
+};
+const BOTH = { SITE_HOSTS: 'discover.example=discover; ita.example=ita', SITE_ORIGINS: `discover=${DISCOVER}; ita=${ITA}`, SITE_WWW_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com' };
 let calls;
 beforeEach(() => {
   resetMarketCache();
@@ -42,8 +62,8 @@ beforeEach(() => {
     const req = input instanceof Request ? input : new Request(input);
     const u = new URL(req.url);
     calls.push(`${u.hostname}${u.pathname}`);
-    if (u.hostname === DISCOVER) {
-      const f = DISCOVER_FILES[u.pathname];
+    if (u.hostname === DISCOVER || u.hostname === ITA) {
+      const f = (u.hostname === ITA ? ITA_FILES : DISCOVER_FILES)[u.pathname];
       if (f && typeof f === 'object') return Response.json(f);
       if (f) return new Response(f, { headers: { 'content-type': 'text/html; charset=utf-8' } });
       return new Response('<html>404</html>', { status: 404, headers: { 'content-type': 'text/html' } });
@@ -149,4 +169,81 @@ test('sites: a large mp4 answers from AEM after 8 s on the site\'s host (the 30 
   assert.equal(slow.status, 200);
   assert.equal(slow.headers.get('x-lh-edge-route'), 'dam-aem');
   assert.ok(Date.now() - t0 >= 7900);
+});
+
+// ITA Airways (lh-ita): the same site mechanism on its own host and origin
+test('sites: ITA on its host: nine language roots, the market roots, its origin', () => {
+  const site = siteOf(new Request('https://ita.example/it/en/homepage'), env(BOTH));
+  assert.equal(site.name, 'ita');
+  assert.equal(site.origin, ITA);
+  assert.equal(site.www, 'www.ita-airways.com');
+  assert.deepEqual(site.tables.versions, {
+    en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',
+  });
+  assert.equal(site.tables.marketRoots.length, 50);
+  assert.equal(Object.keys(site.tables.table).length, 59);
+  assert.deepEqual(SITES.ita.ownRoots, []);
+  assert.equal(site.tables.table['xx/fr'].hreflang, 'fr');
+  assert.equal(site.tables.table['ch/fr'].hreflang, 'fr-CH');
+  assert.equal(site.tables.table['br/pt'].documents, 'own');
+  // Discover's host keeps Discover with both sites in the vars
+  assert.equal(siteOf(new Request('https://discover.example/de/en/homepage'), env(BOTH)).name, 'discover');
+});
+
+test('sites: an ITA reference root\'s page and / from lh-ita\'s origin, nothing from the others', async () => {
+  const resp = await get('https://ita.example/it/en/homepage', env(BOTH));
+  assert.equal(resp.status, 200);
+  assert.match(await resp.text(), /it\/en homepage/);
+  assert.ok(calls.every((c) => c.startsWith(ITA)), calls.join(' '));
+  const entry = await get('https://ita.example/', env(BOTH));
+  assert.equal(entry.status, 302);
+  assert.equal(entry.headers.get('location'), '/it/en/homepage');
+});
+
+test('sites: an ITA market root from its language document where its markets row lists the root', async () => {
+  const resp = await get('https://ita.example/ch/fr/book-and-prepare/baggage', env(BOTH));
+  assert.equal(resp.status, 200);
+  assert.equal(resp.headers.get('x-lh-edge-route'), 'market');
+  const html = await resp.text();
+  assert.match(html, /<h1>Bagages<\/h1>/);
+  assert.match(html, /href="\/ch\/fr\/legal\/imprint"/, 'a link into the language version ch/fr serves: ch/fr\'s');
+  assert.match(html, /href="\/fr\/fr\/book-and-prepare\/offers\/paris"/, 'a page ch/fr does not get (markets be/fr): left in fr/fr');
+  assert.match(html, /rel="canonical" href="https:\/\/main--lh-ita--moved-permanently\.aem\.live\/ch\/fr\/book-and-prepare\/baggage"/);
+  assert.ok(calls.every((c) => c.startsWith(ITA)), 'nothing from lh-com\'s or Discover\'s origin');
+  // the page its markets row doesn't list for ch/fr: ch/fr's 404; be/fr gets it
+  assert.equal((await get('https://ita.example/ch/fr/book-and-prepare/offers/paris', env(BOTH))).status, 404);
+  assert.equal((await get('https://ita.example/be/fr/book-and-prepare/offers/paris', env(BOTH))).status, 200);
+});
+
+test('sites: an ITA market root\'s own page from its own document', async () => {
+  const resp = await get('https://ita.example/ch/fr/swiss-offers', env(BOTH));
+  assert.equal(resp.status, 200);
+  assert.match(await resp.text(), /ch\/fr own page/);
+});
+
+test('sites: ITA\'s DAM paths: the video with its Range from AEM (dam-aem), a PDF from lh-ita\'s copies', async () => {
+  const VIDEO = '/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/ita-allebambinechevolano-def-16x19-vers-1.mp4';
+  const PDF = '/content/dam/ita/pdfs/legal/ita-conditions.pdf';
+  globalThis.fetch = async (input, init = {}) => {
+    const req = input instanceof Request ? input : new Request(input, init);
+    const u = new URL(req.url);
+    calls.push(`${u.hostname}${u.pathname}`);
+    if (req.url.startsWith(AEM) && u.pathname === edsDamPath(VIDEO)) {
+      return req.headers.get('range') === 'bytes=0-1'
+        ? new Response(new Uint8Array([9, 9]), { status: 206, headers: { 'content-type': 'video/mp4', 'content-range': 'bytes 0-1/146728263', 'content-length': '2' } })
+        : new Response('wrong range', { status: 400 });
+    }
+    if (u.hostname === ITA && u.pathname === edsDamPath(PDF)) return new Response('%PDF-1.7', { headers: { 'content-type': 'application/pdf' } });
+    return new Response('Not found', { status: 404 });
+  };
+  const itaDam = env({ ...BOTH, AEM_PUBLISH: AEM });
+  const video = await worker.fetch(new Request(`https://ita.example${VIDEO}`, { headers: { range: 'bytes=0-1' } }), itaDam, { waitUntil() {} });
+  assert.equal(video.status, 206);
+  assert.equal(video.headers.get('x-lh-edge-route'), 'dam-aem');
+  assert.equal(video.headers.get('content-range'), 'bytes 0-1/146728263');
+  calls = [];
+  const pdf = await get(`https://ita.example${PDF}`, itaDam);
+  assert.equal(pdf.status, 200);
+  assert.equal(await pdf.text(), '%PDF-1.7');
+  assert.deepEqual(calls, [`${ITA}${edsDamPath(PDF)}`], 'lh-ita\'s copy, no other origin');
 });

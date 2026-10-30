@@ -1,7 +1,8 @@
 /**
  * The `markets` rule of choice B (AUTHORING.md "Market roots"), shared by the site and lh-edge:
  * on a language version's page (page metadata) and on a section (section metadata), an include
- * list of countries (`de, at`), an exclude list (`-ch, -us`) or empty (every market).
+ * list of countries (`de, at`), an exclude list (`-ch, -us`) or empty (every market). An entry
+ * may be a market root (`ch/fr`, as lh-ita writes them): it counts as its country.
  */
 
 /**
@@ -11,7 +12,9 @@
  * @returns {boolean}
  */
 export function marketAllows(value, country) {
-  const items = String(value || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
+  // an entry may name a market root (lh-ita's documents: "be/fr, ch/fr"): its country counts
+  const items = String(value || '').toLowerCase().split(/[\s,;]+/).filter(Boolean)
+    .map((i) => i.replace(/^(-?[a-z]{2})\/[a-z]{2}$/, '$1'));
   const exclude = items.filter((i) => i.startsWith('-')).map((i) => i.slice(1));
   const include = items.filter((i) => !i.startsWith('-'));
   if (exclude.includes(country)) return false;

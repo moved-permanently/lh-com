@@ -14,6 +14,10 @@ test('marketAllows: include, exclude, empty', () => {
   assert.ok(!marketAllows('-de', 'de'));
   assert.ok(marketAllows('-de', 'ch'));
   assert.ok(marketAllows('DE, AT', 'at'));
+  // lh-ita's documents list market roots (cc/ll): a root counts as its country
+  assert.ok(marketAllows('be/fr, ca/fr, ch/fr, tn/fr, xx/fr', 'ch'));
+  assert.ok(!marketAllows('be/fr, ca/fr, ch/fr, tn/fr, xx/fr', 'de'));
+  assert.ok(!marketAllows('-ch/fr', 'ch'));
 });
 
 test('sectionMarkets reads the Markets row of the section metadata only', () => {
