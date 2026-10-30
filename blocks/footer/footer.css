@@ -3,11 +3,13 @@
  * .footer-logos); columns become accordions below 768px. */
 
 .footer {
-  --footer-brand: var(--lh-deepblue);
+  /* a brand theme may set the link area and the logo row (styles/themes/*.css); defaults as above */
+  --footer-brand: var(--footer-surface, var(--lh-deepblue));
   --footer-text: #fff;
-  --footer-muted: #b4b4b4;
-  --footer-line: #8696cb;
-  --footer-field: #ccc;
+  --footer-muted: var(--footer-muted-text, #b4b4b4);
+  --footer-line: var(--footer-line-color, #8696cb);
+  --footer-field: var(--footer-field-color, #ccc);
+  --footer-logos-bg: var(--footer-logos-surface, #fff);
   --footer-margin: var(--layout-margin, 22px);
 
   font-family: var(--body-font-family);
@@ -263,7 +265,7 @@
 /* ----------------------------------------------------------------- logos ------------ */
 
 .footer .footer-logos {
-  background-color: #fff;
+  background-color: var(--footer-logos-bg);
 }
 
 .footer .footer-logos-inner {

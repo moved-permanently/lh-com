@@ -9,6 +9,7 @@
 /** The known brands: metadata value -> display name. Unknown values are ignored. */
 export const BRANDS = {
   discover: { name: 'Discover Airlines' },
+  ita: { name: 'ITA Airways' },
 };
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
 

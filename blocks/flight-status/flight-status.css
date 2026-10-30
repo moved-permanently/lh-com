@@ -274,7 +274,7 @@ main > .section.flight-status-container + .section {
   min-width: 0;
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
 }
 
 .flight-status .flight-status-submit:hover,

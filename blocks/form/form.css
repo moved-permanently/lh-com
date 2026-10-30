@@ -347,7 +347,7 @@
 .form .form-actions .button {
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
 }
 
 .form .form-actions .button:hover,

@@ -222,7 +222,7 @@
   min-width: 0;
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
 }
 
 .booking-lookup .booking-lookup-submit:hover,

@@ -205,10 +205,11 @@ h1 {
   font-size: var(--heading-font-size-xxl);
 }
 
+/* --heading-light-weight: a brand theme whose headings are all bold (styles/themes/*.css) */
 h2 {
   margin-bottom: var(--heading-margin-xl);
   font-size: var(--heading-font-size-xl);
-  font-weight: 300;
+  font-weight: var(--heading-light-weight, 300);
 }
 
 h3,
@@ -234,13 +235,13 @@ main :is(h1, h2, h3, h4, h5, h6).heading-large {
 main :is(h1, h2, h3, h4, h5, h6).heading-medium {
   margin-bottom: var(--heading-margin-xl);
   font-size: var(--heading-font-size-xl);
-  font-weight: 300;
+  font-weight: var(--heading-light-weight, 300);
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-small {
   margin-bottom: var(--heading-margin-l);
   font-size: var(--heading-font-size-l);
-  font-weight: 300;
+  font-weight: var(--heading-light-weight, 300);
 }
 
 main :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
@@ -473,10 +474,10 @@ button.button {
   width: 100%;
   min-width: 150px;
   max-width: 100%;
-  min-height: 50px;
+  min-height: var(--button-min-height, 50px);
   margin: 0;
   border: 2px solid transparent;
-  border-radius: var(--radius-s);
+  border-radius: var(--button-radius, var(--radius-s));
   padding: 11px 30px;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -511,11 +512,13 @@ button.button:disabled {
   pointer-events: none;
 }
 
+/* --button-primary-text, --button-secondary-color, --button-secondary-hover, --button-radius,
+   --button-min-height: a brand theme's button (styles/themes/*.css); defaults as before */
 a.button.primary,
 button.button.primary {
   border-color: var(--lh-yellow);
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
 }
 
 a.button.primary:hover,
@@ -524,22 +527,22 @@ button.button.primary:hover,
 button.button.primary:focus-visible {
   border-color: var(--lh-sunglow-yellow);
   background-color: var(--lh-sunglow-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
 }
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--lh-deepblue);
+  border-color: var(--button-secondary-color, var(--lh-deepblue));
   background-color: var(--lh-white);
-  color: var(--lh-deepblue);
+  color: var(--button-secondary-color, var(--lh-deepblue));
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--lh-deepblue);
-  background-color: var(--lh-deepblue);
+  border-color: var(--button-secondary-hover, var(--lh-deepblue));
+  background-color: var(--button-secondary-hover, var(--lh-deepblue));
   color: var(--lh-white);
 }
 

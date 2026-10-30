@@ -13,6 +13,8 @@ test('brand: only known keys count; lh-com (no key) is Lufthansa', () => {
   assert.equal(brandName(meta({})), 'Lufthansa');
   assert.equal(brandOf(meta({ brand: ' Discover ' })), 'discover');
   assert.equal(brandName(meta({ brand: 'discover' })), 'Discover Airlines');
+  assert.equal(brandOf(meta({ brand: 'ita' })), 'ita');
+  assert.equal(brandName(meta({ brand: 'ita' })), 'ITA Airways');
   assert.equal(brandOf(meta({ brand: '../../evil' })), '', 'no arbitrary stylesheet paths');
   assert.equal(brandOf(meta({ brand: 'toString' })), '');
 });
@@ -22,6 +24,18 @@ test('brand: lh-com loads no theme; every known brand has its tokens file', asyn
   Object.keys(BRANDS).forEach((key) => {
     const css = fs.readFileSync(new URL(`../styles/themes/${key}.css`, import.meta.url), 'utf8');
     assert.match(css, /^:root \{/m, `${key}: tokens on :root`);
-    assert.ok(!/^\s*(?!:root)[.#a-z][^{]*\{/m.test(css.replace(/\/\*[\s\S]*?\*\//g, '')), `${key}: nothing but tokens`);
+    // tokens and the brand's own font faces (@font-face, ita), no rules
+    const rules = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/@font-face\s*\{[^}]*\}/g, '');
+    assert.ok(!/^\s*(?!:root)[.#a-z][^{]*\{/m.test(rules), `${key}: nothing but tokens`);
+  });
+});
+
+test('brand: ita serves its fonts from this repository', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/ita.css', import.meta.url), 'utf8');
+  const urls = [...css.matchAll(/url\('([^']+)'\)/g)].map((m) => m[1]);
+  assert.ok(urls.length >= 3);
+  urls.forEach((u) => {
+    assert.match(u, /^\.\.\/\.\.\/fonts\/ita\//, `${u}: from this repository`);
+    assert.ok(fs.existsSync(new URL(`../styles/themes/${u}`, import.meta.url)), `${u}: in the repository`);
   });
 });

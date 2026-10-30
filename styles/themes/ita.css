@@ -1,0 +1,91 @@
+/*
+ * ITA Airways: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * `brand: ita` (lh-ita's /metadata.json). Values from www.ita-airways.com's design system
+ * (mausy v1.40.1): text and headings ITA dark blue, ITA blue for the header bar, the footer, the
+ * primary button and links, ITA's greys and status colours. Fonts: www's Open Sans (Regular and
+ * Bold, cleared for the demo), served from this repository (/fonts/ita/). The logo is the image in
+ * the site's nav documents. lh-com's own pages never load this file.
+ */
+@font-face {
+  font-family: OpenSans;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../../fonts/ita/OpenSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: OpenSans;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../fonts/ita/OpenSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: OpenSans;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../fonts/ita/OpenSans-Bold.woff') format('woff');
+}
+
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with ITA's values */
+  --lh-deepblue: #0b2340; /* ITA dark blue: text, borders, dark surfaces */
+  --lh-deepblue-transparent: #0b23401a;
+  --lh-midnight: #0b2340;
+  --lh-whale-blue: #0171cf;
+  --lh-marble-blue: #01569d;
+  --lh-electric-blue: #040f72;
+  --lh-yellow: #0171cf; /* ITA blue: primary actions */
+  --lh-sunglow-yellow: #01569d; /* their hover */
+  --lh-red: #b01411; /* status error */
+  --lh-green: #05663f; /* status success (warning #ffa23a: lh-com's blocks have no warning colour) */
+  --lh-grey-1: #f8f8f9;
+  --lh-grey-2: #f3f3f4;
+  --lh-grey-3: #e7e7ea;
+  --lh-grey-4: #d1d1d5;
+  --lh-grey-5: #a4a4ad;
+  --lh-grey-6: #a4a4ad;
+  --lh-grey-7: #72727f;
+  --lh-grey-8: #0b2340;
+
+  /* roles */
+  --text-color: #0b2340;
+  --heading-color: #0b2340;
+  --link-color: #0171cf;
+  --link-hover-color: #01569d;
+  --focus-color: #040f72;
+  --brand-color: #0171cf;
+  --border-color: #d1d1d5;
+  --border-light-color: #e7e7ea;
+
+  /* fonts: Open Sans, with Discover's fallbacks */
+  --body-font-family: opensans, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: opensans, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-light-weight: 700; /* ITA's headings are bold */
+
+  /* buttons: primary white on ITA blue, secondary ITA blue on white; 8px radius, 48px high */
+  --button-primary-text: #fff;
+  --button-secondary-color: #0171cf;
+  --button-secondary-hover: #01569d;
+  --button-radius: 8px;
+  --button-min-height: 48px;
+
+  /* the hero card's headline (hero-card-overlay light) */
+  --hero-card-heading-color: #0b2340;
+
+  /* header: ITA blue bar with white text */
+  --header-bar-surface: #0171cf;
+  --header-bar-text: #fff;
+  --header-bar-text-hover: #fff;
+  --header-bar-line: rgb(255 255 255 / 30%);
+
+  /* footer: link area ITA blue with white text, logo row ITA dark blue */
+  --footer-surface: #0171cf;
+  --footer-muted-text: #fff;
+  --footer-line-color: rgb(255 255 255 / 50%);
+  --footer-field-color: #fff;
+  --footer-logos-surface: #0b2340;
+}

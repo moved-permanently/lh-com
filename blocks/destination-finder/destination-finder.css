@@ -1075,7 +1075,7 @@ main > .section > .destination-finder-wrapper:has(> .destination-finder.grid) {
   padding: 0 6px;
   border-radius: 2px;
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
   font-size: var(--body-font-size-xs);
   line-height: 20px;
 }

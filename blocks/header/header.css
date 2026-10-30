@@ -964,7 +964,7 @@ body.channel-flynet .header .nav-bar {
   border-radius: var(--radius-s);
   padding: 0 6px;
   background-color: var(--lh-yellow);
-  color: var(--lh-deepblue);
+  color: var(--button-primary-text, var(--lh-deepblue));
   font-size: 12px;
   font-weight: 700;
   line-height: 18px;
