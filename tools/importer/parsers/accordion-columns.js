@@ -193,15 +193,53 @@ export default function parse(element, { document }) {
     return outside ? [] : columns;
   };
 
+  const VIEWS = '.twocolumn, .threecolumn, .fourcolumn';
+  /** A nested column view's own items (.column-view-item of that view, not of a view in it). */
+  const viewItems = (view) => [...view.querySelectorAll('.column-view-item')]
+    .filter((c) => c.closest(VIEWS) === view);
+  /**
+   * A column view of image items: two or more items, each with an image and at most short text
+   * (no table, list or heading): www's item grid (/handgepaeck, /carry-on-baggage: four items,
+   * col-md-6 col-lg; Discover /book/special-requests/families: two images).
+   */
+  const isImageGrid = (view) => {
+    const items = viewItems(view);
+    return items.length >= 2 && items.every((c) => c.querySelector('.image img')
+      && !c.querySelector('maui-table, table, ul, ol, h1, h2, h3, h4, h5, h6, .accordion'));
+  };
+  /** An image grid as a one-row table: one cell per item, its image(s) then its text. */
+  const convertGrid = (view) => {
+    const table = document.createElement('table');
+    const tr = document.createElement('tr');
+    viewItems(view).forEach((item) => {
+      const td = document.createElement('td');
+      item.querySelectorAll('.image:has(img)').forEach((img) => td.append(...convertImage(img)));
+      item.querySelectorAll('.richtext').forEach((rt) => td.append(...convertRichText(rt)));
+      tr.append(td);
+    });
+    table.append(tr);
+    return [table];
+  };
+
   /** Panel content: column by column (heading + links), or the rich text as a whole. */
   const convertPanel = (panel) => {
     const content = [];
     const columns = panelColumns(panel);
     const parts = columns.length ? columns : [panel];
-    // read as a whole: the images of nested column views too (in column mode none, as before)
-    const selector = columns.length ? PANEL_NODES : `${PANEL_NODES}, .image:has(img)`;
+    // read as a whole: the images of nested column views too (in column mode none, as before),
+    // a nested view of image items as a grid
+    const selector = columns.length ? PANEL_NODES : `${PANEL_NODES}, .image:has(img), ${VIEWS}`;
+    const grids = new Set();
     parts.forEach((part) => {
       part.querySelectorAll(selector).forEach((node) => {
+        if ([...grids].some((g) => g.contains(node))) return;
+        if (!columns.length && node.matches(VIEWS)) {
+          if (!node.parentElement.closest(VIEWS) && isImageGrid(node)) {
+            grids.add(node);
+            content.push(...convertGrid(node));
+          }
+          return;
+        }
         // only outermost nodes: rich text containers are converted as a whole
         if (node.parentElement && node.parentElement.closest('.richtext, ul, ol') && part.contains(node.parentElement.closest('.richtext, ul, ol'))) return;
         if (node.parentElement && node.parentElement.closest('.videoViewer, .video-player, .iframe-wrapper, div.table')) return;

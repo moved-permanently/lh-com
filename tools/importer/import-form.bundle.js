@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_266621_exports = {};
-  __export(tmp_bundle_form_266621_exports, {
-    default: () => tmp_bundle_form_266621_default
+  var tmp_bundle_form_287832_exports = {};
+  __export(tmp_bundle_form_287832_exports, {
+    default: () => tmp_bundle_form_287832_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -1384,13 +1384,40 @@ var CustomImportScript = (() => {
       const outside = [...panel.querySelectorAll(PANEL_NODES)].some((n) => !columns.some((c) => c.contains(n)) && (visibleText(n) || n.querySelector("img, iframe")));
       return outside ? [] : columns;
     };
+    const VIEWS = ".twocolumn, .threecolumn, .fourcolumn";
+    const viewItems = (view) => [...view.querySelectorAll(".column-view-item")].filter((c) => c.closest(VIEWS) === view);
+    const isImageGrid = (view) => {
+      const items2 = viewItems(view);
+      return items2.length >= 2 && items2.every((c) => c.querySelector(".image img") && !c.querySelector("maui-table, table, ul, ol, h1, h2, h3, h4, h5, h6, .accordion"));
+    };
+    const convertGrid = (view) => {
+      const table = document.createElement("table");
+      const tr = document.createElement("tr");
+      viewItems(view).forEach((item) => {
+        const td = document.createElement("td");
+        item.querySelectorAll(".image:has(img)").forEach((img) => td.append(...convertImage(img)));
+        item.querySelectorAll(".richtext").forEach((rt) => td.append(...convertRichText(rt)));
+        tr.append(td);
+      });
+      table.append(tr);
+      return [table];
+    };
     const convertPanel = (panel) => {
       const content = [];
       const columns = panelColumns(panel);
       const parts = columns.length ? columns : [panel];
-      const selector = columns.length ? PANEL_NODES : `${PANEL_NODES}, .image:has(img)`;
+      const selector = columns.length ? PANEL_NODES : `${PANEL_NODES}, .image:has(img), ${VIEWS}`;
+      const grids = /* @__PURE__ */ new Set();
       parts.forEach((part) => {
         part.querySelectorAll(selector).forEach((node) => {
+          if ([...grids].some((g) => g.contains(node))) return;
+          if (!columns.length && node.matches(VIEWS)) {
+            if (!node.parentElement.closest(VIEWS) && isImageGrid(node)) {
+              grids.add(node);
+              content.push(...convertGrid(node));
+            }
+            return;
+          }
           if (node.parentElement && node.parentElement.closest(".richtext, ul, ol") && part.contains(node.parentElement.closest(".richtext, ul, ol"))) return;
           if (node.parentElement && node.parentElement.closest(".videoViewer, .video-player, .iframe-wrapper, div.table")) return;
           if (node.matches("div.table")) {
@@ -2994,7 +3021,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_266621_default = {
+  var tmp_bundle_form_287832_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3024,5 +3051,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_266621_exports);
+  return __toCommonJS(tmp_bundle_form_287832_exports);
 })();

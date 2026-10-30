@@ -88,6 +88,43 @@
   margin-bottom: 0;
 }
 
+/* item grids in a panel (www's column view of image items: /handgepaeck, /carry-on-baggage,
+   Discover's /book/special-requests/families): col-md-6 col-lg, one column on phones, two from
+   768px, all items in one row from 992px; images fill their column, the text below */
+.accordion-columns .accordion-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.accordion-columns .accordion-columns-grid-item > :first-child {
+  margin-top: 0;
+}
+
+.accordion-columns .accordion-columns-grid-item > :last-child {
+  margin-bottom: 0;
+}
+
+.accordion-columns .accordion-columns-grid-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 768px) {
+  .accordion-columns .accordion-columns-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+@media (width >= 992px) {
+  .accordion-columns .accordion-columns-grid {
+    grid-template-columns: repeat(var(--accordion-columns-grid-count, 4), minmax(0, 1fr));
+  }
+}
+
 /* tables in a panel (Discover: maui-table in maui-collapsible-item, /book/special-requests/families
    fees, /discover/travel-classes fares): the table-striped look (same maui-table component), in
    a box that scrolls sideways when the columns don't fit (6 columns on a phone) */

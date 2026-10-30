@@ -17,6 +17,34 @@ function cleanTextNodes(root) {
 }
 
 /**
+ * Item grids: the import writes www's grid of image items in a panel (a column view whose items
+ * are an image with a short text: /handgepaeck, /carry-on-baggage, Discover's families) as a
+ * one-row table, one item per cell. Such a table (one row, a picture in every cell) becomes
+ * div.accordion-columns-grid of div.accordion-columns-grid-item, the item count as
+ * --accordion-columns-grid-count (CSS: www's col-md-6 col-lg, one column on phones, two from
+ * 768px, all from 992px). Data tables (several rows, or a cell without a picture) stay tables.
+ * @param {Element} root a panel (or any element holding panel content)
+ */
+export function buildGrids(root) {
+  root.querySelectorAll('table').forEach((table) => {
+    const rows = [...table.querySelectorAll('tr')];
+    if (rows.length !== 1) return;
+    const cells = [...rows[0].children];
+    if (cells.length < 2 || !cells.every((c) => c.querySelector('picture, img'))) return;
+    const grid = document.createElement('div');
+    grid.className = 'accordion-columns-grid';
+    grid.style.setProperty('--accordion-columns-grid-count', String(Math.min(cells.length, 4)));
+    cells.forEach((c) => {
+      const item = document.createElement('div');
+      item.className = 'accordion-columns-grid-item';
+      item.append(...c.childNodes);
+      grid.append(item);
+    });
+    table.replaceWith(grid);
+  });
+}
+
+/**
  * Splits panel content into columns: each heading of the first heading level used starts a
  * column; content before the first such heading becomes an intro spanning all columns.
  * With `single` (variant faq) nothing is split: the whole content is one column.
@@ -134,6 +162,8 @@ export default async function decorate(block) {
   });
 
   block.replaceChildren(...items);
+  // item grids first (one-row tables of pictures), then the data tables that are left
+  block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
   // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box
   block.querySelectorAll('.accordion-columns-panel table').forEach((table) => {
     const box = document.createElement('div');

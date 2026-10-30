@@ -80,3 +80,44 @@ test('a link-column panel stays in column mode (headings and links per column)',
   assert.deepEqual([...panel.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['/de/de/fra', '/de/de/rom']);
   assert.equal(panel.querySelector('table'), null);
 });
+
+const GRID = `<div class="accordion"><maui-collapsible><maui-collapsible-item headline="Im Rahmen Ihrer Handgepäcksmenge"><div>
+  <div class="text"><div class="richtext limited-width"><p>Folgende Gegenstände dürfen Sie mitnehmen:</p></div></div>
+  <div class="fourcolumn column event"><div class="column-view flex-column"><div class="row">
+    <div class="col-md-6 col-lg column-view-item"><div class="image parbase section"><figure><img src="/content/dam/a.png.transform/w/img.png" alt="Kleidersack"></figure></div><div class="richtext"><p><b>Kleidersack</b></p><p>(max. 57 x 54 x 15 cm)</p></div></div>
+    <div class="col-md-6 col-lg column-view-item"><div class="image parbase section"><figure><img src="/content/dam/b.png.transform/w/img.png" alt="Buggy"></figure></div><div class="richtext"><p><b>Buggy</b></p></div></div>
+    <div class="col-md-6 col-lg column-view-item"><div class="image parbase section"><figure><img src="/content/dam/c.png.transform/w/img.png" alt="Einkauf"></figure></div><div class="richtext"><p><b>Duty Free</b></p></div></div>
+  </div></div></div>
+  <div class="text"><div class="richtext"><p>Bitte beachten Sie die Regeln.</p></div></div>
+</div></maui-collapsible-item>
+<maui-collapsible-item headline="Jetlag"><div>
+  <div class="text"><div class="richtext"><p>Was ist Jetlag?</p></div></div>
+  <div class="twocolumn column event"><div class="column-view"><div class="row">
+    <div class="col-md-6 col-lg column-view-item"><div class="text"><div class="richtext"><p>Gegen Jetlag hilft viel Licht.</p></div></div></div>
+    <div class="col-md-6 col-lg column-view-item"><div class="image parbase section"><figure><img src="/content/dam/j.jpg.transform/w/img.jpg" alt="Sonne"></figure></div></div>
+  </div></div></div>
+</div></maui-collapsible-item></maui-collapsible></div>`;
+
+test('a nested column view of image items is a one-row table, one item per cell, between the texts', () => {
+  const { rows } = run(GRID);
+  const panel = rows[0][1];
+  const table = panel.querySelector('table');
+  assert.ok(table, 'the item grid becomes a table');
+  const trs = [...table.querySelectorAll('tr')];
+  assert.equal(trs.length, 1);
+  const cells = [...trs[0].children];
+  assert.deepEqual(cells.map((c) => c.querySelector('img').getAttribute('alt')), ['Kleidersack', 'Buggy', 'Einkauf']);
+  assert.match(cells[0].textContent, /Kleidersack.*57 x 54 x 15 cm/s);
+  // the intro before the grid and the note after it stay outside the table, in order
+  const order = [...panel.children].map((n) => (n.tagName === 'TABLE' ? 'TABLE' : n.textContent.trim().slice(0, 12)));
+  assert.deepEqual(order, ['Folgende Geg', 'TABLE', 'Bitte beacht']);
+  assert.equal(panel.querySelectorAll('img').length, 3, 'no image outside the grid');
+});
+
+test('a text-and-image two-column view (not all items images) stays flat text then image', () => {
+  const { rows } = run(GRID);
+  const panel = rows[1][1];
+  assert.equal(panel.querySelector('table'), null);
+  assert.match(panel.textContent, /Gegen Jetlag hilft viel Licht\./);
+  assert.equal(panel.querySelectorAll('img').length, 1);
+});
