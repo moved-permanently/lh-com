@@ -32,6 +32,16 @@ test('initConsent: the stub carries the brand\'s OneTrust id', async () => {
   assert.equal(ita.stub.dataset.domainScript, '01994cb4-04ea-768d-baf8-f6ed09be97dd');
 });
 
+test('initConsent: Lufthansa Cargo and Air Dolomiti (no OneTrust on their www) show no banner, not Lufthansa\'s', async () => {
+  assert.equal(oneTrustId(meta({ brand: 'cargo' })), '');
+  assert.equal(oneTrustId(meta({ brand: 'airdolomiti' })), '');
+  for (const brand of ['cargo', 'airdolomiti']) { // eslint-disable-line no-restricted-syntax
+    const { stub, events } = await consentOn(brand); // eslint-disable-line no-await-in-loop
+    assert.equal(stub, null, brand);
+    assert.deepEqual(events.map((e) => [e.consented, e.groups.join()]), [[false, 'C0001']], brand);
+  }
+});
+
 test('initConsent: a brand without an id loads no banner and announces the necessary group only', async () => {
   BRANDS.nobanner = { name: 'No Banner Air' };
   try {

@@ -7,13 +7,20 @@
  */
 
 /**
- * The known brands: metadata value -> display name and OneTrust id (the data-domain-script of the
- * brand's www pages, 2026-10-30; scripts/consent.js). Unknown values are ignored. A brand without
- * a oneTrust id gets no consent banner (and nothing that needs consent runs on its pages).
+ * The known brands: metadata value -> display name, OneTrust id (the data-domain-script of the
+ * brand's www pages, 2026-10-30; scripts/consent.js) and theme (styles/themes/<key>.css; false:
+ * Lufthansa's look). Unknown values are ignored. A brand without a oneTrust id gets no consent
+ * banner (and nothing that needs consent runs on its pages).
  */
 export const BRANDS = {
   discover: { name: 'Discover Airlines', oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370' },
   ita: { name: 'ITA Airways', oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd' },
+  // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner
+  cargo: { name: 'Lufthansa Cargo', theme: false },
+  // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
+  // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
+  // OneTrust (2026-10-30)
+  airdolomiti: { name: 'Air Dolomiti' },
 };
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
 /** www.lufthansa.com's OneTrust id: lh-com (no brand key). */
@@ -43,12 +50,20 @@ export function oneTrustId(read = metadata) {
   return key ? BRANDS[key].oneTrust || '' : DEFAULT_ONETRUST;
 }
 
-/** Loads the brand's tokens (nothing for lh-com) and marks the body (body.brand-<key>). */
-export async function loadBrandTheme(read = metadata) {
+/**
+ * Loads the brand's tokens (nothing for lh-com, nor for a brand with theme false) and marks the
+ * body (body.brand-<key>). A theme file that isn't there (yet) leaves Lufthansa's look.
+ */
+export async function loadBrandTheme(read = metadata, loadStyles = null) {
   const key = brandOf(read);
   if (!key) return '';
   document.body.classList.add(`brand-${key}`);
-  const { loadCSS } = await import('./aem.js');
-  await loadCSS(`${window.hlx.codeBasePath}/styles/themes/${key}.css`);
+  if (BRANDS[key].theme === false) return key;
+  const load = loadStyles || (await import('./aem.js')).loadCSS;
+  try {
+    await load(`${window.hlx.codeBasePath}/styles/themes/${key}.css`);
+  } catch (e) {
+    // no theme file: the page renders with lh-com's tokens
+  }
   return key;
 }
