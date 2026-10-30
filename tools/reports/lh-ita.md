@@ -242,8 +242,162 @@ sets lh-com's reports aside during the import (c29049ec).
 
 The login pages `/it/it/iscrizione`, `/fr/fr/connexion`, `/es/es/inicio-de-sesion`: off live
 (by hand), no document links them (the it/it sitemap page links www's `/it/it/profile/login`);
-their preview and DA documents are still there: the environment's permission check refused the
-preview delete (2026-10-30), so the DA delete was not tried either.
+the environment's permission check refused the preview delete (2026-10-30); taken off preview
+and out of DA by hand, with the seven xx bookinglist pages (now left out by `ita-scope.mjs`, gone
+from the allowlist and the upload state; all ten answer 404 on preview and live).
+
+## Roots and lh-edge (2026-10-30)
+
+www's 64 roots (`content-sites/lh-ita/scope.json`): the nine reference roots hold the language
+documents; a market root uses its language's reference root for every page its sitemap shares
+with it (the document's `markets` row) and holds its own homepage and own pages. lh-edge's ITA
+entry (`tools/workers/lh-edge/src/sites.js`, read only) has 59 of them; **missing: at/de, ch/de,
+xx/de (German), xx/el (Greek), be/nl (Dutch)**. Their documents are on lh-ita (own homepage and
+pages, nav and footer, and the reference documents' `markets` rows name them).
+
+| root | language | documents from | own documents | in lh-edge sites.js |
+| --- | --- | --- | ---: | --- |
+| at/de | German | de/de | 2 | **missing** |
+| ch/de | German | de/de | 1 | **missing** |
+| xx/de | German | de/de | 1 | **missing** |
+| xx/el | Greek | gr/el | 2 | **missing** |
+| be/nl | Dutch | nl/nl | 1 | **missing** |
+| de/de | German | (reference) | 0 | yes |
+| gr/el | Greek | (reference) | 0 | yes |
+| ae/en | English | it/en | 2 | yes |
+| al/en | English | it/en | 1 | yes |
+| ar/en | English | it/en | 1 | yes |
+| at/en | English | it/en | 1 | yes |
+| au/en | English | it/en | 2 | yes |
+| be/en | English | it/en | 3 | yes |
+| bg/en | English | it/en | 10 | yes |
+| br/en | English | it/en | 2 | yes |
+| ca/en | English | it/en | 1 | yes |
+| ch/en | English | it/en | 1 | yes |
+| de/en | English | it/en | 1 | yes |
+| do/en | English | it/en | 1 | yes |
+| dz/en | English | it/en | 2 | yes |
+| eg/en | English | it/en | 2 | yes |
+| es/en | English | it/en | 1 | yes |
+| fr/en | English | it/en | 1 | yes |
+| gb/en | English | it/en | 2 | yes |
+| gh/en | English | it/en | 2 | yes |
+| gr/en | English | it/en | 2 | yes |
+| hr/en | English | it/en | 2 | yes |
+| il/en | English | it/en | 4 | yes |
+| in/en | English | it/en | 2 | yes |
+| it/en | English | (reference) | 0 | yes |
+| jp/en | English | it/en | 2 | yes |
+| ly/en | English | it/en | 2 | yes |
+| mt/en | English | it/en | 11 | yes |
+| mu/en | English | it/en | 2 | yes |
+| mv/en | English | it/en | 3 | yes |
+| nl/en | English | it/en | 1 | yes |
+| sa/en | English | it/en | 1 | yes |
+| sn/en | English | it/en | 1 | yes |
+| th/en | English | it/en | 2 | yes |
+| tn/en | English | it/en | 1 | yes |
+| us/en | English | it/en | 5 | yes |
+| ve/en | English | it/en | 10 | yes |
+| xx/en | English | it/en | 16 | yes |
+| ar/es | Spanish | es/es | 1 | yes |
+| do/es | Spanish | es/es | 5 | yes |
+| es/es | Spanish | (reference) | 0 | yes |
+| xx/es | Spanish | es/es | 10 | yes |
+| be/fr | French | fr/fr | 1 | yes |
+| ca/fr | French | fr/fr | 1 | yes |
+| ch/fr | French | fr/fr | 1 | yes |
+| fr/fr | French | (reference) | 0 | yes |
+| tn/fr | French | fr/fr | 1 | yes |
+| xx/fr | French | fr/fr | 10 | yes |
+| al/it | Italian | it/it | 2 | yes |
+| be/it | Italian | it/it | 2 | yes |
+| ch/it | Italian | it/it | 3 | yes |
+| it/it | Italian | (reference) | 0 | yes |
+| xx/it | Italian | it/it | 7 | yes |
+| jp/ja | Japanese | (reference) | 0 | yes |
+| xx/ja | Japanese | jp/ja | 5 | yes |
+| nl/nl | Dutch | (reference) | 0 | yes |
+| xx/nl | Dutch | nl/nl | 5 | yes |
+| br/pt | Portuguese | (reference) | 0 | yes |
+| xx/pt | Portuguese | br/pt | 8 | yes |
+
+## Completeness (2026-10-30)
+
+In scope: the documents of the plan (`ita-plan.mjs`): a reference root's pages, a market root's own
+pages and homepage (its shared pages are its language's documents). Left out: the sitemap URLs the
+rules leave out (`ita-scope.mjs leftOut`: 404 = the Studio found them absent; blocked = 403 every
+time). Preview 200: `.plain.html` on main--lh-ita--moved-permanently.aem.page answers 200 now. The
+128 nav and footer documents (64 roots) answer 200 too. Not in the table, gone from preview and DA
+(taken out by hand): the three localized login pages and the seven xx bookinglist pages.
+
+| root | kind | in scope | documents | preview 200 | left out (by rule) | in scope, no document |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| ae/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| al/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| al/it | market | 2 | 2 | 2 | teaser fragment 1, login/profile 16 |  |
+| ar/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| ar/es | market | 1 | 1 | 1 | login/profile 17 |  |
+| at/de | market | 2 | 2 | 2 | configuration 1, login/profile 15 |  |
+| at/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| au/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| be/en | market | 3 | 3 | 3 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| be/fr | market | 1 | 1 | 1 | configuration 1, login/profile 17 |  |
+| be/it | market | 2 | 2 | 2 | teaser fragment 1, login/profile 16 |  |
+| be/nl | market | 1 | 1 | 1 | configuration 2, login/profile 19 |  |
+| bg/en | market | 10 | 10 | 10 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| br/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| br/pt | reference | 242 | 242 | 242 | login/profile 18, feedbackai 1 |  |
+| ca/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, descoped 1 |  |
+| ca/fr | market | 1 | 1 | 1 | configuration 1, login/profile 16 |  |
+| ch/de | market | 1 | 1 | 1 | configuration 1, login/profile 15, feedbackai 1, descoped 2 |  |
+| ch/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1, descoped 1 |  |
+| ch/fr | market | 1 | 1 | 1 | configuration 1, login/profile 17, feedbackai 1 |  |
+| ch/it | market | 3 | 3 | 3 | teaser fragment 1, login/profile 16, feedbackai 1 |  |
+| de/de | reference | 232 | 232 | 232 | configuration 1, login/profile 15, feedbackai 1, descoped 1 |  |
+| de/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 2, descoped 1 |  |
+| do/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| do/es | market | 5 | 5 | 5 | login/profile 17 |  |
+| dz/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| eg/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| es/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| es/es | reference | 236 | 236 | 236 | login/profile 17, feedbackai 1 |  |
+| fr/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| fr/fr | reference | 237 | 237 | 237 | configuration 1, login/profile 17, feedbackai 1 |  |
+| gb/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, descoped 1, feedbackai 1 |  |
+| gh/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| gr/el | reference | 228 | 227 | 227 | login/profile 15, 404 1, feedbackai 1 | /gr/el/book-and-prepare/offers/youth-offers (404 on www (own capture)) |
+| gr/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| hr/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| il/en | market | 4 | 4 | 4 | teaser fragment 1, configuration 1, login/profile 16, 404 1, descoped 6 |  |
+| in/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, 404 1 |  |
+| it/en | reference | 246 | 245 | 245 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 | /it/en/legal/services-statement (404 on www (own capture)) |
+| it/it | reference | 280 | 280 | 280 | teaser fragment 1, login/profile 16, feedbackai 1, blocked 2 |  |
+| jp/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| jp/ja | reference | 244 | 243 | 243 | configuration 2, login/profile 18, feedbackai 1 | /jp/ja/support/utilities/invoicing (404 on www (own capture)) |
+| ly/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| mt/en | market | 11 | 11 | 11 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| mu/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| mv/en | market | 3 | 3 | 3 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1, draft 1, 404 2 |  |
+| nl/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16, feedbackai 1 |  |
+| nl/nl | reference | 244 | 244 | 244 | configuration 2, login/profile 19, feedbackai 1 |  |
+| sa/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| sn/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| th/en | market | 2 | 2 | 2 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| tn/en | market | 1 | 1 | 1 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| tn/fr | market | 1 | 1 | 1 | configuration 1, login/profile 17 |  |
+| us/en | market | 5 | 5 | 5 | teaser fragment 1, configuration 1, login/profile 16, blocked 1, feedbackai 1 |  |
+| ve/en | market | 10 | 10 | 10 | teaser fragment 1, configuration 1, login/profile 16 |  |
+| xx/de | market | 1 | 1 | 1 | configuration 1, login/profile 15 |  |
+| xx/el | market | 2 | 1 | 1 | login/profile 15, feedbackai 1 | /xx/el/legal/company-transparency (404 on www (own capture)) |
+| xx/en | market | 16 | 16 | 16 | 404 28, configuration 6, login/profile 18 |  |
+| xx/es | market | 10 | 10 | 10 | configuration 6, login/profile 16, 404 28 |  |
+| xx/fr | market | 10 | 10 | 10 | configuration 6, login/profile 17, 404 30 |  |
+| xx/it | market | 7 | 7 | 7 | 404 30, configuration 6, login/profile 18 |  |
+| xx/ja | market | 5 | 5 | 5 | 404 31, configuration 6, login/profile 17 |  |
+| xx/nl | market | 5 | 5 | 5 | 404 30, configuration 6, login/profile 17 |  |
+| xx/pt | market | 8 | 8 | 8 | configuration 6, login/profile 18, 404 29 |  |
+| **all 64** | | **2361** | **2357** | **2357** | 404 216, teaser fragment 39, configuration 92, login/profile 1044, feedbackai 25, descoped 13, blocked 3, draft 1 | 4 (404 on www) |
 
 ## For the Workers and shared config (not changed here)
 
@@ -252,3 +406,4 @@ preview delete (2026-10-30), so the DA delete was not tried either.
   names and the destination finder's prices should work on lh-ita.
 - lh-edge's DAM route: an lh-ita host, if www's DAM URLs should answer there as on
   discover.turnsthe.page.
+- lh-edge's ITA roots: at/de, ch/de, xx/de, xx/el, be/nl (see Roots and lh-edge).
