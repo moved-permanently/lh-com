@@ -27,8 +27,10 @@ export function tablesOf(table, versions) {
 /** lh-com's tables (scripts/locale-table.js). */
 export const LH_TABLES = tablesOf(LOCALE_TABLE, LANGUAGE_VERSIONS);
 
-const row = (country, lang, hreflang, documents) => ({
-  country, lang, hreflang, status: 'live', documents,
+// label: www's country and language label of the root (its header's selector), set where a
+// market root's nav and footer come from its language version's (src/markets.js)
+const row = (country, lang, hreflang, documents, label) => ({
+  country, lang, hreflang, status: 'live', documents, ...(label ? { label } : {}),
 });
 
 // rows of roots <cc>/<ll>: hreflang <ll>-<CC>, an xx root's the language alone (as Discover's)
@@ -41,7 +43,8 @@ const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
  * The sites. Discover Airlines (DA moved-permanently/lh-discover, www.discover-airlines.com):
  * de/en, de/de and xx/fr hold the language documents (the largest root of each language), the
  * market roots get them where their sitemaps list the page (the page's `markets` metadata) and
- * hold their own homepage and own pages; hreflang as www's sitemaps (2026-10-29).
+ * hold their own homepage and own pages; hreflang as www's sitemaps (2026-10-29); the market
+ * roots' labels as www's country and language selector (its snapshots, 2026-10-30).
  * ITA Airways (DA moved-permanently/lh-ita, www.ita-airways.com): the nine reference roots hold
  * the language documents (tools/importer/ita-scope.mjs LANGUAGE_VERSIONS), the market roots get
  * them where the document's `markets` row lists the root (written as roots, "be/fr, ch/fr":
@@ -54,12 +57,12 @@ export const SITES = {
     'de/en': row('de', 'en', 'en-DE', 'own'),
     'de/de': row('de', 'de', 'de-DE', 'own'),
     'xx/fr': row('xx', 'fr', 'fr', 'own'),
-    'us/en': row('us', 'en', 'en-US', 'language'),
-    'ca/en': row('ca', 'en', 'en-CA', 'language'),
-    'xx/en': row('xx', 'en', 'en', 'language'),
-    'us/de': row('us', 'de', 'de-US', 'language'),
-    'xx/de': row('xx', 'de', 'de', 'language'),
-    'ca/fr': row('ca', 'fr', 'fr-CA', 'language'),
+    'us/en': row('us', 'en', 'en-US', 'language', 'USA | English'),
+    'ca/en': row('ca', 'en', 'en-CA', 'language', 'Canada | English'),
+    'xx/en': row('xx', 'en', 'en', 'language', 'Other countries | English'),
+    'us/de': row('us', 'de', 'de-US', 'language', 'USA | Deutsch'),
+    'xx/de': row('xx', 'de', 'de', 'language', 'Andere Länder | Deutsch'),
+    'ca/fr': row('ca', 'fr', 'fr-CA', 'language', 'Canada | Français'),
   }, { en: 'de/en', de: 'de/de', fr: 'xx/fr' }),
   ita: tablesOf({
     ...rowsOf('own', ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja']),

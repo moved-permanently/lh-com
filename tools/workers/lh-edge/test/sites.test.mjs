@@ -3,8 +3,8 @@ import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker from '../src/index.js';
-import { resetMarketCache } from '../src/markets.js';
-import { siteOf, SITES } from '../src/sites.js';
+import { resetMarketCache, withRootLabel, MARKET_ROOTS } from '../src/markets.js';
+import { siteOf, SITES, LH_TABLES } from '../src/sites.js';
 /* eslint-disable-next-line import/no-relative-packages */
 import { edsDamPath } from '../../../../scripts/dam-path.js';
 
@@ -33,6 +33,11 @@ const DISCOVER_FILES = {
   '/de/en/book/north-america-promotion': page('/de/en/book/north-america-promotion', '<h1>Promo</h1>'),
   '/us/en/homepage': page('/us/en/homepage', '<h1>us/en own homepage</h1>'),
   '/de/en/homepage': page('/de/en/homepage', '<h1>de/en homepage</h1>'),
+  // the language versions' nav and footer (the market roots have none of their own)
+  '/de/en/footer.plain.html': '<div><p><span class="icon icon-search"></span><a href="https://www.discover-airlines.com/de/en/support/search/search-result?query=">Enter search term</a></p><p><span class="icon icon-globe"></span>Germany | English</p></div><div><ul><li><a href="/de/en/legal/imprint">Imprint</a></li></ul></div>',
+  '/de/en/nav.plain.html': '<div><ul><li><p><span class="icon icon-globe"></span>Germany | English</p><ul><li><a href="/de/en/homepage">Germany</a></li></ul></li></ul></div>',
+  '/de/de/footer.plain.html': '<div><p><span class="icon icon-globe"></span>Deutschland | Deutsch</p></div>',
+  '/xx/fr/footer.plain.html': '<div><p><span class="icon icon-globe"></span>Autre pays | Français</p></div>',
 };
 // the ITA origin (lh-ita): it/en and fr/fr language documents with their markets rows as lh-ita
 // writes them (market roots, cc/ll), ch/fr's own page; the other languages' indexes are missing
@@ -246,4 +251,28 @@ test('sites: ITA\'s DAM paths: the video with its Range from AEM (dam-aem), a PD
   assert.equal(pdf.status, 200);
   assert.equal(await pdf.text(), '%PDF-1.7');
   assert.deepEqual(calls, [`${ITA}${edsDamPath(PDF)}`], 'lh-ita\'s copy, no other origin');
+});
+
+test('sites: a market root\'s nav and footer name the root (www\'s label, the site\'s table), the language version\'s keep theirs', async () => {
+  const label = async (url) => ((await (await get(url)).text()).match(/icon-globe"><\/span>([^<]*)/) || [])[1];
+  assert.equal(await label('https://discover.example/us/en/footer.plain.html'), 'USA | English');
+  assert.equal(await label('https://discover.example/ca/en/footer.plain.html'), 'Canada | English');
+  assert.equal(await label('https://discover.example/xx/en/footer.plain.html'), 'Other countries | English');
+  assert.equal(await label('https://discover.example/us/de/footer.plain.html'), 'USA | Deutsch');
+  assert.equal(await label('https://discover.example/xx/de/footer.plain.html'), 'Andere Länder | Deutsch');
+  assert.equal(await label('https://discover.example/ca/fr/footer.plain.html'), 'Canada | Français');
+  assert.equal(await label('https://discover.example/us/en/nav.plain.html'), 'USA | English', 'the header\'s selector too');
+  const footer = await (await get('https://discover.example/us/en/footer.plain.html')).text();
+  assert.match(footer, /href="\/us\/en\/legal\/imprint"/, 'links as before');
+  assert.match(footer, /icon-search"><\/span><a href="https:\/\/www\.discover-airlines\.com\/us\/en\/support/, 'the search link as before (www\'s market root)');
+  assert.equal(await label('https://discover.example/de/en/footer.plain.html'), 'Germany | English', 'the language version: its own document');
+  assert.equal(await label('https://discover.example/xx/fr/footer.plain.html'), 'Autre pays | Français');
+  // lh-com's rows carry no label: its market roots' footers as before
+  assert.ok(MARKET_ROOTS.every((r) => !LH_TABLES.table[r].label));
+  assert.ok(Object.values(SITES.ita.table).every((r) => !r.label), 'ITA\'s rows: no label');
+});
+
+test('withRootLabel: the text after every globe icon, escaped; documents without one unchanged', () => {
+  assert.equal(withRootLabel('<p><span class="icon icon-globe"></span>Germany | English</p><p>x</p>', 'A & B <c>'), '<p><span class="icon icon-globe"></span>A &amp; B &lt;c></p><p>x</p>');
+  assert.equal(withRootLabel('<p>Germany | English</p>', 'USA | English'), '<p>Germany | English</p>');
 });

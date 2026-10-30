@@ -473,6 +473,14 @@ export function marketHref(href, {
 
 const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
+/**
+ * A nav or footer document with the root's country and language label (the text after the globe
+ * icon: the header's selector, the footer's locale button) instead of its language version's.
+ */
+export function withRootLabel(html, label) {
+  return html.replace(/(<span class="icon icon-globe"><\/span>)[^<]*/g, (m, icon) => `${icon}${escapeAttr(label)}`);
+}
+
 /** The language document's HTML for the market root (HTMLRewriter, streamed). */
 export function marketHtml(resp, ctx) {
   const link = (attr) => ({
@@ -941,8 +949,12 @@ export async function market(request, env) {
   const html = await doc.text();
   const meta = kind === 'page' && html.match(/<meta name="markets" content="([^"]*)"/);
   if (meta && !marketAllows(meta[1], root.split('/')[0])) return own;
-  // sections whose section metadata `markets` excludes the country are left out
-  const resp = new Response(dropMarketSections(html, root.split('/')[0]), { status: doc.status, headers });
+  // sections whose section metadata `markets` excludes the country are left out; the nav and
+  // footer of a root with a label of its own (a site's row) name the root, not the language version
+  const label = /^\/(nav|footer)$/.test(suffix) && t.table[root].label;
+  const kept = dropMarketSections(html, root.split('/')[0]);
+  const body = label ? withRootLabel(kept, label) : kept;
+  const resp = new Response(body, { status: doc.status, headers });
   return marketHtml(resp, {
     ...ctx,
     marketPath: `/${root}${suffix}`,
