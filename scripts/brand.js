@@ -10,7 +10,8 @@
  * The known brands: metadata value -> display name, OneTrust id (the data-domain-script of the
  * brand's www pages, 2026-10-30; scripts/consent.js) and theme (styles/themes/<key>.css; false:
  * Lufthansa's look). Unknown values are ignored. A brand without a oneTrust id gets no consent
- * banner (and nothing that needs consent runs on its pages).
+ * banner (and nothing that needs consent runs on its pages). The languages of the sites without
+ * <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
  */
 export const BRANDS = {
   discover: { name: 'Discover Airlines', oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370' },
