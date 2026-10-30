@@ -10,7 +10,8 @@
  *   --pages  cleaned.html and metadata.json (as bd-session.mjs writes them, source studio, no
  *       screenshots) for the placed snapshots that have none: each snapshot loaded into a local
  *       browser under its own URL with every other request aborted (nothing is loaded from www).
- * Usage: node tools/importer/ita-studio.mjs --place /tmp/x-ita-snapshots-001 ... | --pages
+ *   --absent <file.json>  the URLs the Studio found absent (404 on www): see absent()
+ * Usage: node tools/importer/ita-studio.mjs --place /tmp/x-ita-snapshots-001 ... [--absent list.json] | --pages
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -130,8 +131,40 @@ async function pages() {
   console.log(`ita-studio pages: ${done}/${todo.length} cleaned.html and metadata.json written`);
 }
 
+/**
+ * The pages the Studio's capture found absent on www (a JSON list of URLs: 404 there, no
+ * snapshot): recorded in the capture state as 404 (bd-session.mjs then never requests them) and
+ * in studio.json `absent` (ita-scope.mjs leaves them out). Pages with a snapshot are skipped.
+ */
+function absent(file) {
+  const urls = JSON.parse(fs.readFileSync(path.resolve(root, file), 'utf8'));
+  const state = readJson(STATE, { pages: {} });
+  const log = readJson(LOG, { archives: {}, placed: {}, kept: {} });
+  log.absent ||= {};
+  let n = 0;
+  urls.forEach((u) => {
+    if (fs.existsSync(snapshotPathFor(u, root))) return;
+    if (state.pages[u]?.status !== 'ok') {
+      state.pages[u] = {
+        status: '404', http: 404, source: 'studio', at: new Date().toISOString(),
+      };
+    }
+    log.absent[u] = { reason: 'www answers 404 (Studio capture)' };
+    n += 1;
+  });
+  fs.writeFileSync(STATE, JSON.stringify(state, null, 1));
+  fs.writeFileSync(LOG, `${JSON.stringify(log, null, 1)}\n`);
+  console.log(`ita-studio absent: ${n} pages recorded as 404`);
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  if (argv.includes('--place')) place(argv.slice(argv.indexOf('--place') + 1).filter((a) => !a.startsWith('--')));
+  // the archives' folders follow --place up to the next option
+  if (argv.includes('--place')) {
+    const rest = argv.slice(argv.indexOf('--place') + 1);
+    const end = rest.findIndex((a) => a.startsWith('--'));
+    place(end < 0 ? rest : rest.slice(0, end));
+  }
+  if (argv.includes('--absent')) absent(argv[argv.indexOf('--absent') + 1]);
   if (argv.includes('--pages')) await pages();
 }

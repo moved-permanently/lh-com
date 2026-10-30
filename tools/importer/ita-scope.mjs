@@ -31,6 +31,10 @@ export const LANGUAGE_VERSIONS = {
 };
 export const REFERENCE_ROOTS = Object.values(LANGUAGE_VERSIONS);
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
+// the pages the Studio's capture found absent on www (404; ita-studio.mjs --absent)
+const STUDIO = path.join(root, 'content-sites/lh-ita/studio.json');
+const ABSENT = new Set(Object.keys((fs.existsSync(STUDIO) ? JSON.parse(fs.readFileSync(STUDIO, 'utf8')) : {}).absent || {})
+  .map((u) => new URL(u).pathname));
 
 /** Why a page path is left out, or ''. */
 export function leftOut(p) {
@@ -43,13 +47,16 @@ export function leftOut(p) {
   if (/(^|\/)configuration(\/|$)/i.test(rest)) return 'configuration page';
   if (/feedbackai/i.test(rest)) return 'feedbackai questionnaire';
   if (/descoped-local-page/i.test(rest)) return 'descoped-local-page';
-  if (/(^|\/)drafts?(\/|$)/i.test(rest)) return 'draft';
+  // drafts: a "draft" folder, or a page or folder named as one (mv/en's draft promo page)
+  if (/(^|[/_-])drafts?([/_-]|$)/i.test(rest)) return 'draft';
   if (/(^|\/)(error|404|500|errorpage|error-page)[^/]*$/i.test(rest)) return 'error page';
   if (/templates|(^|[/_-])test([/_-]|$)|_deact/i.test(rest)) return 'template, test or deactivated';
   // the homepage's irregularity teaser is a fragment the sitemap lists (no page body)
   if (/^\/homepage\/teasers(\/|$)/.test(rest)) return 'homepage teaser fragment';
   // www answers 403 every time on these (a rule on the paths, not a rate limit)
   if (/^\/it\/it\/local-page\/(ministero-interno-amministrazione-centrale|ministero-istruzione-merito)$/.test(p)) return 'answers 403 every time';
+  if (p === '/us/en/local-page/national-italian-american-foundation') return 'answers 403 every time';
+  if (ABSENT.has(p)) return 'www answers 404 (Studio capture)';
   return '';
 }
 
@@ -133,14 +140,15 @@ export function buildScope(paths, extra = {}) {
   REFERENCE_ROOTS.forEach((ref) => {
     const lang = ref.split('/')[1];
     (out.roots[ref]?.suffixes || []).forEach((s) => {
-      const markets = Object.keys(out.roots).filter((r) => r !== ref && r.split('/')[1] === lang && out.roots[r].suffixes.includes(s));
+      // a market root's homepage is its own document (its local offers), never a market of it
+      const markets = s === '/homepage' ? [] : Object.keys(out.roots).filter((r) => r !== ref && r.split('/')[1] === lang && out.roots[r].suffixes.includes(s));
       out.documents[`/${ref}${s}`] = { markets };
     });
   });
   Object.entries(out.roots).forEach(([r, x]) => {
     if (!x.version || x.version === r) return;
     const v = new Set(out.roots[x.version]?.suffixes || []);
-    x.own = x.suffixes.filter((s) => !v.has(s));
+    x.own = x.suffixes.filter((s) => !v.has(s) || s === '/homepage');
   });
   return out;
 }
