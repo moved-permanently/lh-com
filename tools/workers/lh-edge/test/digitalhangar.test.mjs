@@ -63,14 +63,14 @@ test('/digitalhangar/* on every kind of host: the brand www\'s answer, its heade
     const resp = await get(host, `${FONTS}/lufthansa/LufthansaTextWeb-Regular.woff2`, { cookie: 'lh-geo=DE-HH', 'accept-encoding': 'gzip' }); // eslint-disable-line no-await-in-loop
     assert.equal(resp.status, 200, host);
     assert.equal(await resp.text(), `font from ${www}`, host); // eslint-disable-line no-await-in-loop
-    assert.equal(resp.headers.get('cache-control'), 'public, max-age=300', `${host}: www's cache-control, not immutable`);
+    assert.equal(resp.headers.get('cache-control'), 'public, max-age=31536000, immutable', `${host}: a release file: a year (test/digitalhangar-release.test.mjs)`);
     assert.equal(resp.headers.get('access-control-allow-origin'), '*');
     assert.equal(resp.headers.get('content-type'), 'font/woff2');
     assert.equal(resp.headers.get('etag'), '"f1"');
     assert.equal(resp.headers.get('set-cookie'), null);
     assert.equal(calls.length, 1, host);
     assert.equal(calls[0].url, `https://${www}${FONTS}/lufthansa/LufthansaTextWeb-Regular.woff2`);
-    assert.deepEqual(calls[0].init.cf, { cacheEverything: true });
+    assert.deepEqual(calls[0].init.cf, { cacheEverything: true, cacheTtlByStatus: { '200-299': 31536000, '300-599': -1 } });
     assert.equal(calls[0].headers.cookie, undefined);
     assert.equal(calls[0].headers['accept-encoding'], 'gzip');
   }

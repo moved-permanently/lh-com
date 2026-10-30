@@ -98,7 +98,7 @@ test('Cargo: /digitalhangar/ from www.lufthansa.com (its fonts), never www.lufth
   const font = await get(`https://cargo.turnsthe.page${FONT}`);
   assert.equal(font.status, 200);
   assert.equal(await font.text(), 'font from www.lufthansa.com');
-  assert.equal(font.headers.get('cache-control'), 'public, max-age=300');
+  assert.equal(font.headers.get('cache-control'), 'public, max-age=31536000, immutable', 'a release file: a year');
   assert.deepEqual(calls.map((c) => c.host), ['www.lufthansa.com']);
   await get('https://cargo.turnsthe.page/onetrust/scripttemplates/otSDKStub.js');
   assert.equal(calls.at(-1).host, 'cdn.cookielaw.org');
