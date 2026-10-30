@@ -5,8 +5,9 @@
  * another language's tracks (Discover's /de/en flight disruptions page has the German ones).
  * Shared by scripts/media.js (the track's srclang) and the importers (the track links' labels).
  */
+// fr: Discover's French tracks (…_cc_fr.vtt); not "fra", which names Frankfurt in www's files
 export const TRACK_LANGS = {
-  en: 'en', eng: 'en', de: 'de', deu: 'de', ger: 'de',
+  en: 'en', eng: 'en', de: 'de', deu: 'de', ger: 'de', fr: 'fr',
 };
 
 export function trackLang(href, fallback = '') {

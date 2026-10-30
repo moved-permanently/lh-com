@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions -- the importer tooling is .mjs */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { trackLang } from '../scripts/track-lang.js';
@@ -11,6 +12,10 @@ test('trackLang: the language a track file names, else the fallback', () => {
   // the last language part counts ("fra" is a place, not a language here)
   assert.equal(trackLang('/v/200326-lh-emea-0038-partnership-ad-1hy-fra-01-cc-eng.vtt', 'de'), 'en');
   assert.equal(trackLang('/v/chicago-lhcom-sport-de.vtt', 'en'), 'de');
+  // French (Discover's fr pages); "fra" stays a place (Frankfurt)
+  assert.equal(trackLang('/content/dam/four_y/videos/checkinvideo_cc_fr.vtt', 'en'), 'fr');
+  assert.equal(trackLang('/content/dam/four_y/videos/checkinvideo-ad-fr.vtt', 'de'), 'fr');
+  assert.equal(trackLang('/v/route-fra-muc.vtt', 'de'), 'de');
   // no language in the name: the page's
   assert.equal(trackLang('/v/subtitles.vtt', 'de'), 'de');
   assert.equal(trackLang('/v/legend.vtt', 'en'), 'en');
@@ -33,6 +38,12 @@ test('withTracks: labels in the track language', () => {
   assert.equal(
     withTracks(en, { '/v/ocean_blue_video_v06.mp4': { cc: '/v/ocean_blue_produktvideo_cc_en.vtt', ad: '/v/ocean_blue_produktvideo_ad_en.vtt' } }, 'en'),
     '<p><a href="/v/ocean-blue-video-v06.mp4">Video</a> <a href="/v/ocean-blue-produktvideo-cc-en.vtt">Subtitles</a> <a href="/v/ocean-blue-produktvideo-ad-en.vtt">Audio description</a></p>',
+  );
+  // French tracks (Discover's fr check-in page plays the English video with them)
+  const fr = '<p><a href="/v/checkinvideo-en.mp4">Video</a></p>';
+  assert.equal(
+    withTracks(fr, { '/v/checkinvideo_en.mp4': { cc: '/v/checkinvideo_cc_fr.vtt', ad: '/v/checkinvideo_ad_fr.vtt' } }, 'fr'),
+    '<p><a href="/v/checkinvideo-en.mp4">Video</a> <a href="/v/checkinvideo-cc-fr.vtt">Sous-titres</a> <a href="/v/checkinvideo-ad-fr.vtt">Audiodescription</a></p>',
   );
   // tracks already there stay
   const has = '<p><a href="/v/ocean-blue-video-v06.mp4">Video</a> <a href="/v/a.vtt">Subtitles</a></p>';

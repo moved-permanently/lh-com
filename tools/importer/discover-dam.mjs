@@ -277,7 +277,11 @@ export function tracksOf(html) {
   return out;
 }
 
-const TRACK_LABELS = { en: ['Subtitles', 'Audio description'], de: ['Untertitel', 'Audiodeskription'] };
+const TRACK_LABELS = {
+  en: ['Subtitles', 'Audio description'],
+  de: ['Untertitel', 'Audiodeskription'],
+  fr: ['Sous-titres', 'Audiodescription'],
+};
 
 /**
  * A document's video links followed by their subtitle tracks (as lh-com's video pages:
