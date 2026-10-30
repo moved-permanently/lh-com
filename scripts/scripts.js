@@ -381,6 +381,10 @@ async function loadEager(doc) {
     if (main.querySelector('.flash-teaser, .message-center')) {
       import('./message-center.js').then((mc) => { mc.loadIndex(); mc.loadCtiPages(); });
     }
+    // the flight search: its recorded data index the same way (the block reads it on render)
+    if (main.querySelector('.flight-search')) {
+      import('./lh-data.js').then((data) => data.loadRecordedIndex());
+    }
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 

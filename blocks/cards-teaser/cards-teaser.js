@@ -34,12 +34,17 @@ function bodyElements(row) {
  */
 export default function decorate(block) {
   const ul = document.createElement('ul');
+  // images in the first two sections load eagerly (the baggage page's first view), as hero-campaign
+  const section = block.closest('.section');
+  const sections = section && section.parentElement
+    ? [...section.parentElement.querySelectorAll(':scope > .section')] : [];
+  const eager = !section || sections.indexOf(section) < 2;
 
   [...block.children].forEach((row) => {
     const img = row.querySelector('picture img, img');
     let picture = null;
     if (img) {
-      picture = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', false, PICTURE_BREAKPOINTS));
+      picture = keepImageSize(img, createOptimizedPicture(img.src, img.alt || '', eager, PICTURE_BREAKPOINTS));
       (img.closest('picture') || img).remove();
     }
     const elements = bodyElements(row);

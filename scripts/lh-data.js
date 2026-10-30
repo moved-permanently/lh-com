@@ -278,7 +278,8 @@ export function requestKey(method, route, body) {
 
 let recordedIndex;
 
-async function loadRecordedIndex() {
+/** The recorded responses' index, fetched once (scripts.js starts it on flight-search pages). */
+export async function loadRecordedIndex() {
   if (!recordedIndex) {
     recordedIndex = fetch(`${RECORDED_BASE}/index.json`)
       .then((resp) => (resp.ok ? resp.json() : { entries: {} }))
