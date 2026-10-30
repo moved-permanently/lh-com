@@ -1,15 +1,27 @@
 /*
- * Lufthansa web fonts, loaded from www.lufthansa.com (served with CORS *).
- * Not copied into this repository: the fonts are licensed to Lufthansa.
+ * Lufthansa web fonts (design system v1.38.0, www.lufthansa.com's files; cleared for the demo),
+ * from the site's own host: /fonts/lufthansa/v1.38.0/ (lh-edge answers the versioned path with
+ * an immutable cache-control). Per face a Latin subset (Basic Latin, Latin-1, Latin Extended-A,
+ * general punctuation, euro, trade mark, arrows, minus; about 24 KB) and the full file (about
+ * 50 KB) for the rest of Unicode (the complement range), so a page in Greek or Cyrillic fetches
+ * the full file only then.
  */
 @font-face {
   font-family: LufthansaHead;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Light.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Light-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: LufthansaHead;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Light.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
 
 @font-face {
@@ -17,9 +29,17 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: LufthansaHead;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Bold.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
 
 @font-face {
@@ -27,9 +47,17 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Light.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Light.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Light-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Light.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
 
 @font-face {
@@ -37,9 +65,17 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Regular.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
 
 @font-face {
@@ -47,9 +83,17 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaTextWeb-Bold.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: LufthansaText;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Bold.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
 
 /* body.digital-assistant (styles.css): LufthansaHead as the digital assistant stylesheet leaves
@@ -59,7 +103,15 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src:
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff2') format('woff2'),
-    url('https://www.lufthansa.com/digitalhangar/design-system/releases/v1.38.0/standalone/fonts/lufthansa/LufthansaHeadWeb-Bold.woff') format('woff');
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-017F, U+2000-206F, U+20AC, U+2122, U+2190-2192, U+2212;
+}
+
+@font-face {
+  font-family: lufthansahead-digital-assistant;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/lufthansa/v1.38.0/LufthansaHeadWeb-Bold.woff2') format('woff2');
+  unicode-range: U+0180-1FFF, U+2070-20AB, U+20AD-2121, U+2123-218F, U+2193-2211, U+2213-10FFFF;
 }
