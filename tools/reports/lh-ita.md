@@ -149,6 +149,63 @@ homepage's flash teaser messages. Pairs (www left, preview right):
 | same | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/bambine-che-volano-ad-en.vtt` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/Bambine_che_volano_AD_EN.vtt` | 1,333 |
 
 In lh-ita's DA and previewed (relative links): 13 PDFs (42 KB to 2.1 MB) and the video's poster.
+The three files above are on the AEM environment (2026-10-30, answering through lh-edge's
+dam-aem route).
+
+Batches 2-22, for AEM before they go live (new):
+
+| page | edsDamPath | www path | bytes |
+| --- | --- | --- | ---: |
+| `/it/it/world-of-ita-airways/discover-ita-airways/inspired-by-alitalia` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/inspired-by-alitalia/24-09-video-logo.mp4` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/inspired-by-alitalia/24_09_Video_Logo.mp4` | 129,545,286 (Content-Range, not downloaded) |
+| `/it/it/world-of-ita-airways/discover-ita-airways/sustainability/female-talent` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/bambine-che-volano-sub-it.vtt` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/Bambine_che_volano_SUB_IT.vtt` | 2,190 |
+| same | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/bambine-che-volano-ad-it.vtt` | `/content/dam/ita/videos/world-of-ita-airways/discover-ita-airways/sustainability/female-talent/Bambine_che_volano_AD_IT.vtt` | 1,455 |
+
+The it/it and fr/fr female-talent pages link the same video as it/en (on AEM already); fr/fr
+uses the English tracks, as www does. Per batch: `content-sites/lh-ita/runs/batch-NN-aem.tsv`.
+
+## Batches 2-22 (2026-10-30): the Studio capture
+
+Source: the Studio's rendered pages (`ita-snapshots-001` to `-006`, 800 pages: it/it 270, it/en
+199, fr/fr 230, es/es 101), every file checked against its manifest (bytes, sha256), placed
+with `tools/importer/ita-studio.mjs --place` where lh-ita had no snapshot (797; the it/it,
+fr/fr and es/es homepages replace own captures whose flight search had come out in English,
+kept in `content-sites/lh-ita/own-replaced/`), recorded in the capture state (source studio,
+capture time); cleaned.html and metadata.json built offline (`--pages`, nothing loaded from www).
+Own captures only for the gaps (the nav and footer targets the sitemaps miss): 41 pages and one
+404, plus 4 fresh captures for the comparison below (kept apart, not imported); with the DAM
+files about 330 requests in this turn's sessions, no 403.
+
+Check of five pages, Studio against own captures (it/it homepage; fresh captures of
+offers-and-destinations, flight-status, check-in, checked-baggage): the same components, images
+(real URLs, no placeholders) and data-dcep; no OneTrust markup (only its stylesheet, as in own
+captures). The importers make byte-identical documents of flight-status, check-in and
+checked-baggage, one fare footnote character differs on offers-and-destinations (its lazily
+loaded destination tiles never reach the document), and the homepage is better from the Studio
+(the flight search's Italian labels). Fixed on lh-ita's side: the Studio files keep www's
+scripts; ita-import strips them before the import (as bd-session saves its own).
+
+`tools/importer/ita-batch.mjs` runs a batch end to end. Previewed (documents with the roots'
+nav and footer and documents a DAM switch changed): 2: 43, 3: 42, 4: 42, 5: 43, 6: 42, 7: 42,
+8: 42, 9: 45, 10: 42, 11: 41, 12: 42, 13: 42, 14: 44, 15: 42, 16: 42, 17: 42, 18: 42, 19: 42,
+20: 45, 21: 42, 22: 42; every document 200 on the preview, no www.lufthansa.com link made or
+lost; spot checks at 1440 and 390 (preview only, the Studio has no screenshots): every block
+loads, no broken images, no script errors. DAM: 300 files linked so far, 285 in lh-ita's DA,
+6 for AEM, 9 that www answers 404 for (their links stay www's own, as on Discover).
+
+Left out on the way:
+- `/it/it/iscrizione`, `/fr/fr/connexion`, `/es/es/inicio-de-sesion`: the login page in those
+  languages (www's hreflang group of `/profile/login`, the login widget); the Studio's lists
+  keep them. They were imported, uploaded and previewed in batches 4, 16 and 22 before the rule
+  (`ita-scope.mjs`: also `/registo`) caught them; now out of the allowlist and the batch lists,
+  still in lh-ita's DA on preview (not published): to be left out of publishing, or deleted.
+- `/it/it/homepage/teasers/irreg_teaser`, `/it/en/homepage/teasers/irreg_teaser`: the homepage's
+  irregularity teaser fragment, no page body.
+- `/it/it/local-page/ministero-interno-amministrazione-centrale`,
+  `/it/it/local-page/ministero-istruzione-merito`: 403 every time.
+- `/it/en/legal/services-statement`: 404 on www (it/en's footer links it; only it/it has it).
+
+Batches 23 on (es/es from `/es/es/legal/privacy-policy-for-suppliers`, then de/de, nl/nl, br/pt,
+gr/el, jp/ja, the market roots' own pages) wait for the Studio's next archives.
 
 ## For the Workers and shared config (not changed here)
 
