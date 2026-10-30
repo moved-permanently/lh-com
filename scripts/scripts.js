@@ -21,6 +21,7 @@ import { initConsent, isAuthoringContext, martechWanted } from './consent.js';
 import { applyChannel } from './channel.js';
 import { loadBrandTheme } from './brand.js';
 import { isDemoHost } from './demo.js';
+import prioritizeSecondSectionImage from './lcp-image.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
@@ -370,6 +371,9 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     channel = applyChannel(main);
+    // a first section without an image: the second section's first image is the LCP candidate,
+    // fetched now (eager, high priority) though its section stays hidden until loadLazy
+    prioritizeSecondSectionImage(main);
     // cookie banner (OneTrust as on lufthansa.com, where it sits in the <head>) at page start, so
     // its requests run alongside the first section's; initConsent keeps its rules (never in DA
     // or authoring, nothing when a choice is stored); the app view leaves consent to the app
