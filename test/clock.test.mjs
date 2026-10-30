@@ -33,13 +33,13 @@ test('parseLocalTime: the market\'s local time without an offset (DST included),
 
 test('isPreviewHost: main and branch previews and localhost; never the live site or the replica hosts', () => {
   [PREVIEW, 'time-travel--lh-com--moved-permanently.aem.page', 'main--lh-discover--moved-permanently.aem.page', 'localhost', '127.0.0.1'].forEach((h) => assert.ok(isPreviewHost(h), h));
-  ['main--lh-com--moved-permanently.aem.live', 'lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live', 'www.lufthansa.com', 'aem.page.example.com', ''].forEach((h) => assert.ok(!isPreviewHost(h), h));
+  ['main--lh-com--moved-permanently.aem.live', 'lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'www.lufthansa.com', 'aem.page.example.com', ''].forEach((h) => assert.ok(!isPreviewHost(h), h));
 });
 
 test('readTimeTravel: the parameter on a preview host, the market\'s time zone, &time-zone=, ?stage-time=', () => {
   assert.equal(readTimeTravel(at('')), null, 'no parameter: nothing');
   assert.equal(readTimeTravel(at('?time-travel=2026-12-24T09:00', '/de/de/homepage', 'main--lh-com--moved-permanently.aem.live')), null, 'ignored on aem.live');
-  assert.equal(readTimeTravel(at('?time-travel=2026-12-24T09:00', '/de/de/homepage', 'lhedge.bbird.live')), null, 'ignored on lhedge');
+  assert.equal(readTimeTravel(at('?time-travel=2026-12-24T09:00', '/de/de/homepage', 'lufthansa-edge.turnsthe.page')), null, 'ignored on lufthansa-edge');
   assert.deepEqual(readTimeTravel(at('?time-travel=2026-12-24T09:00')), { value: '2026-12-24T09:00', timeZone: 'Europe/Berlin', ts: Date.parse('2026-12-24T08:00:00Z') });
   assert.equal(readTimeTravel(at('?time-travel=2026-12-24T09:00', '/gb/en/homepage')).ts, Date.parse('2026-12-24T09:00:00Z'), 'gb: London');
   assert.equal(readTimeTravel(at('?time-travel=2026-12-24T09:00', '/content/at/de/homepage', 'localhost')).timeZone, 'Europe/Vienna', 'the dev server\'s /content/ paths');

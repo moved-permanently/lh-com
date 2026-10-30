@@ -5,7 +5,7 @@
  * each): status, cache-control and the JSON, normalised as sdui-web-diff.mjs describes; the parts
  * the replica's blocks don't have are listed there (MISSING). Also checks that the short spelling
  * answers HTML and a multiwidth page 404.
- * Usage: node tools/workers/lh-edge/compare-sdui-web.mjs [--host https://lhedge.bbird.live | --local]
+ * Usage: node tools/workers/lh-edge/compare-sdui-web.mjs [--host https://lufthansa-edge.turnsthe.page | --local]
  *   --local: the worker in Node against the live origin (before a deploy)
  * Report: tools/reports/lh-edge/compare-sdui-web.md
  */
@@ -19,7 +19,7 @@ const root = path.resolve(dir, '../../..');
 const FIX = path.join(root, 'tools/source-export/feeds/ams-rest/sdui-web');
 const argv = process.argv.slice(2);
 const local = argv.includes('--local');
-const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lhedge.bbird.live').replace(/\/$/, '');
+const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lufthansa-edge.turnsthe.page').replace(/\/$/, '');
 const PAGES = {
   '7people': '/content/lh/markets/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history',
   'faq-refund': '/content/lh/markets/de/en/support/faq/faq-refund',

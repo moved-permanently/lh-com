@@ -22,7 +22,7 @@ const env = (extra = {}) => ({
   ORIGIN,
   WWW_HOST: 'www.lufthansa.com',
   EDGE_TTL: '60',
-  ALIAS_HOSTS: 'lhcn.bbird.live,lufthansa-cn.turnsthe.page',
+  ALIAS_HOSTS: 'lufthansa-cn.turnsthe.page',
   ALIAS_HOME_ROOT: 'cn/en',
   FRONT_DOOR_HOSTS: 'lufthansa.turnsthe.page',
   BACKENDS: { fetch: async () => new Response('backends', { headers: { 'content-type': 'text/plain' } }) },
@@ -95,7 +95,7 @@ const UNTOUCHED = [
 ];
 
 test('every path no URL form may touch answers as before (URL forms on = off), on lhedge and on the front door', async () => {
-  for (const host of ['lhedge.bbird.live', 'lufthansa.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
+  for (const host of ['lufthansa-edge.turnsthe.page', 'lufthansa.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
     for (const p of UNTOUCHED) { // eslint-disable-line no-restricted-syntax
       assert.equal(urlFormTarget(new URL(`https://${host}${p}`)), null, p);
       const on = await answer(await fetchOn(host, p)); // eslint-disable-line no-await-in-loop
@@ -111,11 +111,11 @@ test('every path no URL form may touch answers as before (URL forms on = off), o
 test('the 301 itself: GET and HEAD, the page URL, cacheable; other methods and URL_FORMS off as before', async () => {
   const r = await fetchOn('lufthansa.turnsthe.page', '/de/en/Homepage.html?x=1');
   assert.deepEqual([r.status, r.headers.get('location'), r.headers.get('x-lh-edge-route')], [301, '/de/en/homepage?x=1', 'url-form']);
-  const head = await worker.fetch(new Request('https://lhedge.bbird.live/content/lh/markets/de/en/homepage', { method: 'HEAD' }), env(), {});
+  const head = await worker.fetch(new Request('https://lufthansa-edge.turnsthe.page/content/lh/markets/de/en/homepage', { method: 'HEAD' }), env(), {});
   assert.equal(head.headers.get('location'), '/de/en/homepage');
-  const post = await worker.fetch(new Request('https://lhedge.bbird.live/de/en/Homepage', { method: 'POST', body: 'x' }), env(), {});
+  const post = await worker.fetch(new Request('https://lufthansa-edge.turnsthe.page/de/en/Homepage', { method: 'POST', body: 'x' }), env(), {});
   assert.notEqual(post.status, 301);
-  assert.equal((await fetchOn('lhedge.bbird.live', '/de/en/Homepage', { URL_FORMS: 'off' })).status, 404);
+  assert.equal((await fetchOn('lufthansa-edge.turnsthe.page', '/de/en/Homepage', { URL_FORMS: 'off' })).status, 404);
 });
 
 // DA documents at the long path (aem.live answers them 200; their short paths are 404)
@@ -134,7 +134,7 @@ test('a long path the site has a page at answers as itself; its other spellings 
     const page = LOUNGENET.includes(u.pathname);
     return new Response(page ? `<html><body>eds ${u.pathname}</body></html>` : 'not found', { status: page ? 200 : 404, headers: { 'content-type': 'text/html; charset=utf-8' } });
   };
-  for (const host of ['lhedge.bbird.live', 'lufthansa-edge.turnsthe.page', 'lufthansa.turnsthe.page', 'lhcom.bbird.live']) { // eslint-disable-line no-restricted-syntax
+  for (const host of ['lufthansa-edge.turnsthe.page', 'lufthansa.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
     for (const p of LOUNGENET) { // eslint-disable-line no-restricted-syntax
       seen.length = 0;
       const on = await answer(await fetchOn(host, p)); // eslint-disable-line no-await-in-loop
@@ -166,11 +166,11 @@ test('a long path the site has a page at answers as itself; its other spellings 
 });
 
 test('China hosts: / to /cn/en/homepage once cn/en is in the locale table; until then by country, as today', async () => {
-  const lhcn = new Request('https://lhcn.bbird.live/', { headers: { 'cf-ipcountry': 'DE' } });
+  const lhcn = new Request('https://lufthansa-cn.turnsthe.page/', { headers: { 'cf-ipcountry': 'DE' } });
   const cn = new Request('https://lufthansa-cn.turnsthe.page/', { headers: { 'cf-ipcountry': 'DE' } });
   // today: no cn/en row
   assert.equal(aliasHome(lhcn, env()), null);
-  for (const host of ['lhcn.bbird.live', 'lufthansa-cn.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
+  for (const host of ['lufthansa-cn.turnsthe.page']) { // eslint-disable-line no-restricted-syntax
     const r = await worker.fetch(new Request(`https://${host}/`, { headers: { 'cf-ipcountry': 'DE', 'accept-language': 'de' } }), env(), {}); // eslint-disable-line no-await-in-loop
     assert.equal(r.headers.get('location'), '/de/de/homepage', host);
   }
@@ -183,6 +183,6 @@ test('China hosts: / to /cn/en/homepage once cn/en is in the locale table; until
   assert.equal(aliasHome(lhcn, env(), table), '/cn/en/homepage');
   assert.equal(aliasHome(cn, env(), table), '/cn/en/homepage');
   // not on the other hosts, not without the var
-  assert.equal(aliasHome(new Request('https://lhedge.bbird.live/'), env(), table), null);
+  assert.equal(aliasHome(new Request('https://lufthansa-edge.turnsthe.page/'), env(), table), null);
   assert.equal(aliasHome(lhcn, env({ ALIAS_HOME_ROOT: '' }), table), null);
 });

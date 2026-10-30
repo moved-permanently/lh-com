@@ -125,12 +125,10 @@ Anfrage wurde gesendet.; sending (status while posting) = Sending… / Wird gese
 
 Worker: `tools/workers/lh-forms` (README there), `POST {FORMS_ENDPOINT}/submit`. The URLs are in
 `scripts/lh-forms.js`: `FORMS_ENDPOINT` (`https://lufthansa-forms.turnsthe.page`, the worker in the
-second Cloudflare account; also `https://lh-forms.benpeter.workers.dev`) for every demo host, and
-for the old bbird.live hosts, until they are retired, `FORMS_ENDPOINT_BBIRD`
-(`https://lhforms.bbird.live`, Blackbird's; also `https://lh-forms.aem-poc-lab.workers.dev`);
+Cloudflare account; also `https://lh-forms.benpeter.workers.dev`) for every demo host;
 testers can point a page at another worker with `localStorage.setItem('lh-forms', 'https://...')`.
 The worker only accepts the Edge Delivery hosts of this site, the replica's main host
-(`https://lufthansa.turnsthe.page`, the old `https://lhcom.bbird.live`) and `http://localhost:3000`
+(`https://lufthansa.turnsthe.page`, the other turnsthe.page brand hosts) and `http://localhost:3000`
 (Origin).
 
 Only the "valid" branch of the submit changed; the validation is as described below. On a valid

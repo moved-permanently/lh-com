@@ -8,7 +8,7 @@
  * &time-zone=America/New_York sets another. Dates as the stage promotions read them work too
  * (2026-12-24, 24.12.2026 09:00). ?stage-time=… (the stage promotions' earlier parameter) is
  * read the same way. Only on preview hosts: *.aem.page (main and branch previews) and
- * localhost; on *.aem.live, lhcom/lhedge/lhcn.bbird.live and every other host the parameters
+ * localhost; on *.aem.live, the turnsthe.page hosts and every other host the parameters
  * are ignored and the page uses the real time. Without them nothing changes.
  *
  * What the page sends elsewhere (the form's page URL, share and copy links) goes through

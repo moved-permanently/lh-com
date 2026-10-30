@@ -21,13 +21,11 @@
  *    PRICE_ROUTES answer live or not at all).
  */
 import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
-import { isDemoHost, isBbirdLiveHost } from './demo.js';
+import { isDemoHost } from './demo.js';
 
-// Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md): the second
-// Cloudflare account's; the old bbird.live hosts keep Blackbird's until they are retired
+// Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md)
 export const PROXY_ORIGIN = 'https://lh-proxy.benpeter.workers.dev';
-export const PROXY_ORIGIN_BBIRD = 'https://lh-proxy.aem-poc-lab.workers.dev';
-const defaultProxy = () => (isBbirdLiveHost() ? PROXY_ORIGIN_BBIRD : PROXY_ORIGIN);
+const defaultProxy = () => PROXY_ORIGIN;
 
 /**
  * Routes www.lufthansa.com serves cross-origin (ACAO *, preflight passes with X-Portal-*).

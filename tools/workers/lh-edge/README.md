@@ -2,7 +2,7 @@
 
 The router Worker in front of lh-com. Clients of www.lufthansa.com ask URLs that the Edge Delivery site alone does not answer (the app's web view, JSON feeds, App Links files); lh-edge answers them with www's shapes and passes everything else to the Edge Delivery origin like Adobe's reference Worker.
 
-URL: the workers.dev host of the account (`workers_dev = true`); a demo host on bbird.live is attached in the Cloudflare dashboard. No routes or custom domains in `wrangler.toml`.
+URL: the workers.dev host of the account (`workers_dev = true`, lh-edge.benpeter.workers.dev); the turnsthe.page hosts are attached in the Cloudflare dashboard. No routes or custom domains in `wrangler.toml`.
 
 ## Two accounts (the parallel run, `../README.md` "Two accounts")
 
@@ -12,17 +12,21 @@ the second account's config replaces the KV id of EVENTS (`accounts/benpeter.sed
 BotCheck); its second deploy leg waits until lh-backends, lh-forms
 and lh-messages exist in the account.
 
-lufthansa.turnsthe.page is the demo's main host; the bbird.live hosts are the old ones and keep
-answering as before until they are retired. Hosts on turnsthe.page follow the brand pattern
+lufthansa.turnsthe.page is the demo's main host (the site config's production host); the
+bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 `<brand>.turnsthe.page` and `<brand>-<role>.turnsthe.page` (the brands: `scripts/demo.js`
 `TURNSTHE_PAGE_BRANDS`, `../README.md` "Brand hosts"); the head-URL rewrite below runs on them.
 
-| Blackbird | Second account | Treatment (vars) |
-| --- | --- | --- |
-| lhedge.bbird.live | lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
-| lhcom.bbird.live (through Adobe's CDN) | lufthansa.turnsthe.page (`FRONT_DOOR_HOSTS`, below) | `PILOT_COUNTRIES_BY_HOST` (ch), `ALIAS_REWRITE_HOSTS` |
-| lhcn.bbird.live | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS` |
-| lh-edge.aem-poc-lab.workers.dev | lh-edge.benpeter.workers.dev | (none) |
+| Host | Treatment (vars) |
+| --- | --- |
+| lufthansa.turnsthe.page | `FRONT_DOOR_HOSTS` (below), `PILOT_COUNTRIES_BY_HOST` (ch), `ALIAS_REWRITE_HOSTS` |
+| lufthansa-edge.turnsthe.page | `PILOT_HOSTS` (every pilot root), `ALIAS_REWRITE_HOSTS` |
+| lufthansa-cn.turnsthe.page | `ALIAS_HOSTS`, `PILOT_COUNTRIES_BY_HOST` (cn) |
+| discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| lh-edge.benpeter.workers.dev | (none) |
+
+`ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: content still
+names them in places, and on the alias host those links move to it.
 
 Secrets in the second account (set there, not by the workflow): `AUDIT_LOG_KEY` and
 `WEBHOOK_TOKEN` (the publish events; the site config's webhook must point at that account's host
@@ -31,46 +35,45 @@ token (as on Blackbird). Rollback: git revert (both accounts redeploy).
 
 ## Head URLs (`src/head-urls.js`, `HEAD_URLS_FROM`)
 
-The site config's production host is still lhcom.bbird.live (lhcom's CDN purge depends on it), so
-Edge Delivery writes `https://lhcom.bbird.live/...` into every page's `link[rel=canonical]`,
+Edge Delivery writes the site config's production host into every page's `link[rel=canonical]`,
 `link[rel=alternate]` (hreflang), `meta[property=og:url]`, `og:image`, `og:image:*` and
 `twitter:*`. On an HTML answer whose request host is a turnsthe.page brand host
 (`scripts/demo.js` `TURNSTHE_PAGE_BRANDS`) a streaming HTMLRewriter moves those absolute URLs of
-`HEAD_URLS_FROM` (`lhcom.bbird.live`) to the request's host; on an alias host (lufthansa-cn) to
+`HEAD_URLS_FROM` to the request's host; on an alias host (lufthansa-cn) to
 its brand's main host (lufthansa.turnsthe.page), as an alias keeps one canonical host. Body links,
-other head elements, `.plain.html` and non-HTML answers are untouched. On every other host, the
-bbird.live hosts included (also with a forged `X-LH-Public-Host`), no rewriter is made. CPU per
+other head elements, `.plain.html` and non-HTML answers are untouched. On every other host (also
+with a forged `X-LH-Public-Host`) no rewriter is made. CPU per
 page: 1.0 to 1.9 ms with the tests' JavaScript HTMLRewriter, 1.3 to 2.4 ms with lol-html's
 WebAssembly build (19 to 44 KB pages), upper bounds for workerd's native rewriter; the turnsthe.page
-hosts run on Workers Paid. **It goes away** when the production host moves to turnsthe.page: set
-`HEAD_URLS_FROM = ""` (or drop the module). The smoke check masks the replica's host names, so it
+hosts run on Workers Paid. **Off today** (`HEAD_URLS_FROM = ""`): the production host is
+lufthansa.turnsthe.page itself, so the head URLs already name it. The smoke check masks the replica's host names, so it
 does not show the rewrite; `tools/workers/lh-edge/test/head-urls.test.mjs` does.
 
 ## Front door (`src/front-door.js`, `FRONT_DOOR_HOSTS`)
 
-On lufthansa.turnsthe.page lh-edge is the front door and stands in for the CDN that sits in
-front of lhcom.bbird.live (scdemos/demo `workers/adobe/config/cdn.yaml`, origin selectors
-`lhcom-*`, copied in `EDGE_PATHS` and `GATE_PATH`):
-- the paths those rules send to lh-edge (solo pages; feeds: app screens, DAM, GraphQL, well-known,
+On lufthansa.turnsthe.page lh-edge is the front door, with its own rules for the main host
+(`EDGE_PATHS` and `GATE_PATH`; they began as the rules of the CDN in front of the retired first
+host):
+- lh-edge's paths (solo pages; feeds: app screens, DAM, GraphQL, well-known,
   login link, search, default airport, booking list, the kiosk; www endpoints: entry redirects,
   fragment catalog, service worker, gzipped sitemaps, llms.txt, captcha, market pages as app
   screens and offline lists, aircraft lists, changelocale, mfe; the ch market and its sitemaps;
   service endpoints `/service/secured/api/*`, `/sso/*`, `/deeplink/*`, `/apps/dcep/deeplink/*`,
   `/apps/selectlanguage`, `*.v2.sdui`): the routes below, with `X-LH-Public-Host` set to the host
-  (a client's own value is replaced, as the CDN rule set it);
+  (a client's own value is replaced);
 - `/migration-status*` and `/_lh-auth/*`: lh-backends' gate over BACKENDS with `X-LH-Public-Host`
   (the gate trusts lufthansa.turnsthe.page), cookies and Set-Cookie passed on;
 - everything else: the pass-through (the reference Worker) and not the routes, so paths lh-edge
-  answers on lhedge but lhcom leaves to the origin answer as on lhcom (the short
+  answers on lufthansa-edge but the main host leaves to the origin answer from the origin (the short
   `/<cc>/<ll>/<page>.sdui` 404, pilot roots other than ch, `/loginservice` from the origin).
 
 Freshness: pages within `EDGE_TTL` (60 s) as on every host; the pass-through sends
 `x-push-invalidation: enabled` and the origin's cache tags reach Cloudflare's cache, so once the
 site's push invalidation targets the turnsthe.page zone a publish shows within seconds.
 
-Headers that differ from lhcom.bbird.live (bodies are the same apart from the host name):
+Headers that differed from the retired lhcom.bbird.live behind Adobe's CDN (bodies were the same apart from the host name):
 
-| Header | lhcom.bbird.live (Adobe's CDN) | lufthansa.turnsthe.page (lh-edge) |
+| Header | lhcom.bbird.live (Adobe's CDN, retired) | lufthansa.turnsthe.page (lh-edge) |
 | --- | --- | --- |
 | `cache-control` of pages, `.plain.html`, JSON | the origin's `max-age=7200, must-revalidate` | capped to `EDGE_TTL`: `max-age=60, must-revalidate` |
 | `cdn-cache-control` | none | `max-age=60, must-revalidate` (pages), the origin's `max-age=172800` (sitemap XML, robots.txt) |
@@ -104,12 +107,12 @@ Standard Workers APIs only (fetch, Request/Response, HTMLRewriter, service bindi
 
 ## Alias hosts (`src/alias.js`, brief 94)
 
-A request whose host is in `ALIAS_HOSTS` (demo `lhcn.bbird.live`, the replica's www.lufthansa.cn) is
+A request whose host is in `ALIAS_HOSTS` (demo `lufthansa-cn.turnsthe.page`, the replica's www.lufthansa.cn) is
 routed exactly like one to the main host: same routes, same origin, same Workers behind them. On its
 answers:
 
 - `text/html`: absolute `href`, `src`, `srcset` and `action` URLs whose host is in
-  `ALIAS_REWRITE_HOSTS` (the replica's own hosts, demo `lhcom.bbird.live,lhedge.bbird.live`) point at
+  `ALIAS_REWRITE_HOSTS` (the replica's own hosts and the retired ones content still names) point at
   the alias host, so visitors stay on it. `<link rel="canonical">` and `<link rel="alternate"
   hreflang>` stay (one canonical host for search engines); links to other hosts stay
   (`www.lufthansa.com`: pages the replica does not have would 404 on the alias); relative links and
@@ -315,7 +318,7 @@ The copies are served from `ORIGIN` (aem.live): a copy answers once it is publis
 - Scoring: `scripts/site-search.js`, the same as the site's `search-results` block (folding, every term must match, BM25F over title, headings, path, description and content, excerpt with the matches in `<strong>`). Pages with the metadata `hide-in-search: true` are left out.
 - `link` is the page's path on this site: www sends its AEM paths (`/content/lh/markets/de/en/...`), which this site doesn't serve.
 - Markets without a replica of their own (`X-Portal-Site: CH` ...) search the migrated locale of the same language (de/de, de/en).
-- `compare-search.mjs --host https://lhedge.bbird.live` (or `--local`, the Worker in Node with the indexes computed from the local documents by `tools/importer/build-search-index.mjs`) compares the answers with www's for the recorded phrases.
+- `compare-search.mjs --host https://lufthansa-edge.turnsthe.page` (or `--local`, the Worker in Node with the indexes computed from the local documents by `tools/importer/build-search-index.mjs`) compares the answers with www's for the recorded phrases.
 - CPU (Workers Free, 10 ms): preparing an index takes about 550 ms and a search 30 to 90 ms, so the answer comes from prebuilt search data when it is the index's state (`src/search-data.js`): per locale the searchable pages with their word counts, the sorted vocabulary, the words' occurrences (`postings.bin`, read as bytes) and the excerpt texts, built with `scripts/site-search.js` by `build-search-data.mjs` in the GitHub Action `.github/workflows/search-data.yaml` (every 10 minutes and by hand; it replaces the branch `search-data` with one commit only when the data changed; served from `search-data--lh-com--moved-permanently.aem.live`). A search reads only its terms' occurrences and its results' texts and adds the counts in the words' order, so the answer is the same byte for byte. It is used only while its stamp (rows, newest and summed `lastModified`) equals the lean model index's and its format and `scripts/site-search.js` hash (`SEARCH_CODE`, checked by `test/search-data.test.mjs`) are this version's; else, and with the var `SEARCH_DATA=off`, the index as before. `compare-search-data.mjs [--reference <site-search.js>]` compares both paths on thousands of phrases with the live indexes.
 
 ## lh-backends (`src/backends.js`)
@@ -324,7 +327,7 @@ www answers a set of server endpoints that are not pages: REST calls of its own 
 
 ## Entry redirects (`src/entry.js`)
 
-Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<two letters>` that is no country (ISO 3166-1, plus `xx`), such as `/en`, is left to the origin (404, as www). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. On the alias hosts (the China hosts lhcn.bbird.live and lufthansa-cn.turnsthe.page) `/` goes to `/<ALIAS_HOME_ROOT>/homepage` (`cn/en`, as www's China host) once that root is in the locale table (`aliasHome`); until then by country as above. With a pilot `cn/en` row the China hosts serve it (`PILOT_COUNTRIES_BY_HOST` `cn`). Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live and lhcom.bbird.live don't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
+Before any page lookup: `/<cc>/<ll>` and `/<cc>/<ll>/` answer 302 to `/<cc>/<ll>/homepage` (query kept) for the replica's locales, else to www's homepage for that market and language (as `scripts/locale.js` does for links). `/<two letters>` that is no country (ISO 3166-1, plus `xx`), such as `/en`, is left to the origin (404, as www). `/<cc>` takes the language from the saved choice (cookie `dcep.prehpsettings`, `<cc>/<ll>`) when its country matches, else the first `Accept-Language` language the market offers (`MARKETS`), else the market's default language (www's `/de` lands on `/de/de/en/homepage`, a 404: not copied). `/` takes the market from the saved choice, else `CF-IPCountry`, else the international market: www's `/xx/en/homepage?showLanguageSelection=true`. On the alias hosts (the China host lufthansa-cn.turnsthe.page) `/` goes to `/<ALIAS_HOME_ROOT>/homepage` (`cn/en`, as www's China host) once that root is in the locale table (`aliasHome`); until then by country as above. With a pilot `cn/en` row the China hosts serve it (`PILOT_COUNTRIES_BY_HOST` `cn`). Answers carry `cache-control: private, no-store` and `Vary: Cookie, Accept-Language`. aem.live doesn't send `/` through lh-edge: the client-side redirect of `/` in `scripts/scripts.js` stays.
 
 Market roots the host serves (see "Market roots") count as the replica's locales here: on `PILOT_HOSTS` `/ch`, `/ch/en`, `/ch/de` go to `/ch/<ll>/homepage` (`/ch` by the saved choice, else `Accept-Language`, else the country's first row in the locale table, German); on other hosts to www as before.
 
@@ -350,12 +353,12 @@ Sections for some markets only: Edge Delivery renders a section's section metada
 
 The routes ahead of `market` answer a served market root's paths by the same rule (`siteFetch` in `src/markets.js`: the market route's answer for the page, `.plain.html` or sheet; every other path exactly the `originFetch` as before): the app view (`.solo_continue` and its spellings), `.sdui` (short spelling: the page; full content path: rendered from the market page's `.plain.html` and the market root's article and search indexes, content pages by the language version's list), `.csi-offline.json`, `.mfe.html`, `.aircraft.json` (the language version's aircraft under the market root's paths), the OWA header and footer JSON (the root's nav and footer through the market route; tracking rows of the language version where the root has none, their URLs moved to the root) and `llms.txt` (`/<cc>/llms.txt`, `/<cc>/<ll>/llms.txt` from the market route's search index; `ai-guidance` only from the root's own homepage row in `/market-pages.json`, never the language version's). hreflang of market copies also lists the roots with their own documents (at/de, gb/en) where their search index has the same path (read with a scan for the path values: a fifth of a JSON parse's CPU time); the four roots' own pages don't list market roots.
 
-Pilot rows (`status: pilot`) are served only where the public host (see "Public host") is one of `PILOT_HOSTS` (`lhedge.bbird.live`, every pilot root), or one of `PILOT_COUNTRIES_BY_HOST` (`host=cc|cc; host2=cc`: only those countries' pilot roots; `lhcom.bbird.live=ch`, as lhcom's CDN sends only `/ch/...` and the sitemaps to lh-edge, so its sitemap index lists ch and no other pilot root). lhcom.bbird.live sends `X-LH-Public-Host: lhcom.bbird.live`. The site code does not link pilot roots (they are no `LOCALES`). Rollback for a host: remove it from the var and deploy.
+Pilot rows (`status: pilot`) are served only where the public host (see "Public host") is one of `PILOT_HOSTS` (`lufthansa-edge.turnsthe.page`, every pilot root), or one of `PILOT_COUNTRIES_BY_HOST` (`host=cc|cc; host2=cc`: only those countries' pilot roots; `lufthansa.turnsthe.page=ch`: the front door sends only `/ch/...` and the sitemaps to lh-edge's routes, so its sitemap index lists ch and no other pilot root; `lufthansa-cn.turnsthe.page=cn`). The front door sets `X-LH-Public-Host` to its host. The site code does not link pilot roots (they are no `LOCALES`). Rollback for a host: remove it from the var and deploy.
 
 Test against the preview origin (documents on preview only):
 
 ```sh
-wrangler dev --port 8787 --local-upstream lhedge.bbird.live --var ORIGIN:main--lh-com--moved-permanently.aem.page
+wrangler dev --port 8787 --local-upstream lufthansa-edge.turnsthe.page --var ORIGIN:main--lh-com--moved-permanently.aem.page
 node tools/markets/check-market-route.mjs --base http://localhost:8787 --root ch/en --root ch/de --links /ch/en/homepage
 ```
 
@@ -413,7 +416,7 @@ In production Lufthansa's own Cloudflare zone is the front door and runs lh-edge
 | `ROUTER_CONFIG` | var | `""` | the same JSON as the KV entry (a deploy); the KV entry wins |
 | `ROUTER_KILL` | var | `""` | `"on"`: every request to the default origin (a deploy; the KV entry's `"kill": true` without one) |
 | `ROUTER_HEADER` | var | `""` | e.g. `x-lh-edge-router`: on every answer, the route that answered (`default` for the default origin) |
-| `DEMO_HOSTS` | var | `""` | demo hosts, e.g. `lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live`: `X-Robots-Tag: noindex` on their answers |
+| `DEMO_HOSTS` | var | `""` | demo hosts, e.g. `lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page,lufthansa-cn.turnsthe.page`: `X-Robots-Tag: noindex` on their answers |
 | `PRODUCTION_HOSTS` | var | `""` | e.g. `www.lufthansa.com`: never noindex, even when also a demo host |
 
 The KV entry (JSON):
@@ -446,13 +449,13 @@ The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` po
 
 ## Smoke check (`smoke.mjs`)
 
-Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lhedge.bbird.live, lhcom.bbird.live and their twins lufthansa-edge.turnsthe.page, lufthansa.turnsthe.page). The replica's own host names (both families) are masked as `HOST` in bodies and locations, so a host and its twin share one baseline: `--derive` writes the twins' files from their hosts' (`TWINS` in `smoke.mjs`), and the first run against a new host shows only real differences.
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lufthansa.turnsthe.page, lufthansa-edge.turnsthe.page, discover.turnsthe.page). The replica's own host names (and the retired bbird.live names content may carry) are masked as `HOST` in bodies and locations.
 
 ```sh
-node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --check    # against smoke/lhedge.bbird.live.json
-node tools/workers/lh-edge/smoke.mjs --host https://lhcom.bbird.live --check
-node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --update   # a new baseline (after an intended change)
-node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --out before.json
+node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --check    # against smoke/lufthansa-edge.turnsthe.page.json
+node tools/workers/lh-edge/smoke.mjs --host https://lufthansa.turnsthe.page --check
+node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --update   # a new baseline (after an intended change)
+node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --out before.json
 node tools/workers/lh-edge/smoke.mjs --compare before.json after.json
 ```
 

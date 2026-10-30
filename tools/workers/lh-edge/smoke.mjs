@@ -5,15 +5,14 @@
  * the ch market rows, the DA documents at long paths): status, location, content type, content
  * range and a hash of the body (nonces masked) per request. Run before and after a deploy: every answer must be the same.
  * Baselines per host are kept in smoke/<host>.json (README "Smoke check"). The replica's own host
- * names (bbird.live and their turnsthe.page twins, TWINS) are masked as HOST in bodies and
- * locations, so a host and its twin share one baseline: a twin's is derived from its host's.
+ * names (the lufthansa turnsthe.page hosts, and the retired bbird.live names content may still
+ * carry) are masked as HOST in bodies and locations.
  *
  * Usage:
- *   node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --check     (against smoke/lhedge.bbird.live.json)
- *   node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --update    (writes that baseline)
- *   node tools/workers/lh-edge/smoke.mjs --host https://lhedge.bbird.live --out before.json
+ *   node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --check     (against smoke/lufthansa-edge.turnsthe.page.json)
+ *   node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --update    (writes that baseline)
+ *   node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --out before.json
  *   node tools/workers/lh-edge/smoke.mjs --compare before.json after.json
- *   node tools/workers/lh-edge/smoke.mjs --derive    (smoke/<twin>.json from each TWINS host's)
  *   [--video /content/dam/…/x.mp4] [--subtitle /content/dam/…/x.vtt]: the DAM video checked with
  *   Range: bytes=0-99, and its subtitle file
  */
@@ -81,15 +80,8 @@ export const CHECKS = [
   },
 ];
 
-/**
- * The turnsthe.page twins of the bbird.live hosts (the parallel run on the second Cloudflare
- * account): each answers as its host does, lufthansa.turnsthe.page with lh-edge as the front door
- * where lhcom.bbird.live has the CDN.
- */
-export const TWINS = {
-  'lhedge.bbird.live': 'lufthansa-edge.turnsthe.page',
-  'lhcom.bbird.live': 'lufthansa.turnsthe.page',
-};
+// the replica's host names in bodies and locations (the retired bbird.live names too: content and
+// recorded answers may still carry them), masked so a page answers the same on each host
 const REPLICA_HOSTS = /\b(lhcom|lhedge|lhcn)\.bbird\.live\b|\blufthansa(-edge|-cn)?\.turnsthe\.page\b/g;
 const hostMasked = (text) => text.replace(REPLICA_HOSTS, 'HOST');
 
@@ -149,13 +141,7 @@ const report = (a, b) => {
 
 const baselineOf = (host) => path.join(here, 'smoke', `${new URL(host).host}.json`);
 
-if (argv.includes('--derive')) {
-  Object.entries(TWINS).forEach(([host, twin]) => {
-    const from = baselineOf(`https://${host}`);
-    fs.writeFileSync(baselineOf(`https://${twin}`), fs.readFileSync(from, 'utf8'));
-    console.log(`baseline written: smoke/${twin}.json (from smoke/${host}.json)`);
-  });
-} else if (argv.includes('--compare')) {
+if (argv.includes('--compare')) {
   const i = argv.indexOf('--compare');
   const [a, b] = [argv[i + 1], argv[i + 2]].map((f) => JSON.parse(fs.readFileSync(f, 'utf8')));
   report(a, b);

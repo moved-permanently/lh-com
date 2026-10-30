@@ -8,7 +8,7 @@
 #
 # DA_TOKEN is sent as Authorization to admin.da.live and admin.hlx.page and, for previews on
 # lh-flynet, also as x-content-source-authorization (the DA multi-site worker
-# https://lh-msm.aem-poc-lab.workers.dev answers 401 without it).
+# https://lh-msm.benpeter.workers.dev answers 401 without it).
 # The merge itself is done in the DA editor (Multi-site Manager plugin, see "merge" below).
 set -u
 ORG=moved-permanently

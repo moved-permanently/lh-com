@@ -58,7 +58,7 @@ test('csi-offline: the short form, unknown pages and other methods answer 404', 
 
 test('csi-offline: resources are deduplicated; data URLs and anchors left out', () => {
   const html = '<html><head><link rel="stylesheet" href="/styles/styles.css"><link rel="stylesheet" href="/styles/styles.css"></head><body><main><div><p><img src="data:image/png;base64,AAA"><img src="./media_b.png?width=750"></p></div></main></body></html>';
-  const r = offlineResources(html, '/gb/en/x', 'lhcom.bbird.live');
+  const r = offlineResources(html, '/gb/en/x', 'lufthansa.turnsthe.page');
   assert.equal(r.filter((x) => x === '/styles/styles.css').length, 1);
   assert.ok(r.includes('/gb/en/media_b.png?width=750'));
   assert.ok(!r.some((x) => x.startsWith('data:')));

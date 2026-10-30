@@ -1,12 +1,13 @@
 /**
  * Alias hosts (brief 94, the China host): a request whose host is in ALIAS_HOSTS (demo
- * `lhcn.bbird.live`) is routed exactly like one to the main host (same origin, routes and the
- * Workers behind them); then, on its answer:
+ * `lufthansa-cn.turnsthe.page`) is routed exactly like one to the main host (same origin, routes
+ * and the Workers behind them); then, on its answer:
  * - text/html: absolute href/src/srcset/action URLs whose host is one of the replica's own hosts
- *   (ALIAS_REWRITE_HOSTS, demo `lhcom.bbird.live,lhedge.bbird.live`) point at the alias host, so
- *   visitors stay on it (www.lufthansa.cn keeps its links on .cn). `<link rel="canonical">` and
- *   `<link rel="alternate" hreflang>` stay (one canonical host for search engines); links to other
- *   hosts (www.lufthansa.com: pages the replica does not have) stay;
+ *   (ALIAS_REWRITE_HOSTS, demo `lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page`) point at
+ *   the alias host, so visitors stay on it (www.lufthansa.cn keeps its links on .cn).
+ *   `<link rel="canonical">` and `<link rel="alternate" hreflang>` stay (one canonical host for
+ *   search engines); links to other hosts (www.lufthansa.com: pages the replica does not have)
+ *   stay;
  * - text/html gets `Cache-Control: public, max-age=28800` (www's .cn host;
  *   ALIAS_HTML_CACHE_CONTROL);
  * - a redirect to one of the replica's own hosts goes to the alias host (`/` redirects like `/`

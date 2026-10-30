@@ -8,7 +8,7 @@
  *   the state www's pages are);
  * - the vanity form /<cc>/<ll>/homepage.csi-owa-header.json answers 404, as www.
  *
- * Usage: node compare-owa.mjs --host https://lhedge.bbird.live | --local
+ * Usage: node compare-owa.mjs --host https://lufthansa-edge.turnsthe.page | --local
  *   --local: the Worker in Node with the local nav and footer documents and the seed sheet
  *            tools/importer/owa-tracking-sheet.json (before they are published)
  * Report: tools/reports/lh-edge/compare-owa[-local].md and .json
@@ -23,7 +23,7 @@ const argv = process.argv.slice(2);
 const local = argv.includes('--local');
 const host = argv.includes('--host') ? argv[argv.indexOf('--host') + 1].replace(/\/$/, '') : '';
 if (!local && !host) {
-  console.error('usage: compare-owa.mjs --host https://lhedge.bbird.live | --local');
+  console.error('usage: compare-owa.mjs --host https://lufthansa-edge.turnsthe.page | --local');
   process.exit(1);
 }
 const FEEDS = path.join(root, 'tools/source-export/feeds');

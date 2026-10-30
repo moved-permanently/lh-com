@@ -73,7 +73,7 @@ const listVar = (v) => String(v || '').split(',').map((h) => h.trim().toLowerCas
 
 /**
  * The pilot countries a host shows (var PILOT_COUNTRIES_BY_HOST: "host=cc|cc; host2=cc", e.g.
- * "lhcom.bbird.live=ch"), parsed once per value: {host: Set of countries}.
+ * "lufthansa.turnsthe.page=ch"), parsed once per value: {host: Set of countries}.
  */
 const pilotCountries = new Map();
 function pilotCountriesOf(value) {

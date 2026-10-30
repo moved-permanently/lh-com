@@ -65,21 +65,17 @@ EDGE_CACHE_VERSION = "2026-10-25a"
 # hosts that answer the pilot rows of the locale table (src/markets.js: ch/en, ch/de from their
 # language's documents, their sitemaps, /ch entry redirects), the public host (X-LH-Public-Host,
 # X-Forwarded-Host, PUBLIC_HOST, the request's host); elsewhere those paths pass through as before.
-# Every bbird.live host has its turnsthe.page twin with the same treatment (the parallel run on the
-# second Cloudflare account, README "Two accounts"; the site test test/host-twins.test.mjs checks
-# the pairs)
-PILOT_HOSTS = "lhedge.bbird.live,lufthansa-edge.turnsthe.page"
-# hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (lhcom.bbird.live=ch:
-# lhcom's CDN sends /ch/... and the sitemaps to lh-edge, nothing else); empty: none
-PILOT_COUNTRIES_BY_HOST = "lhcom.bbird.live=ch; lufthansa.turnsthe.page=ch; lhcn.bbird.live=cn; lufthansa-cn.turnsthe.page=cn"
+PILOT_HOSTS = "lufthansa-edge.turnsthe.page"
+# hosts that show only some countries' pilot rows: "host=cc|cc; host2=cc" (the main host: ch; the
+# China host: cn); empty: none
+PILOT_COUNTRIES_BY_HOST = "lufthansa.turnsthe.page=ch; lufthansa-cn.turnsthe.page=cn"
 # Production mode (src/router.js, README "Production mode"): all off here, every request routed as
 # before. DEFAULT_ORIGIN: the host of paths no route claims ('' : Edge Delivery; production: the
 # current origin, e.g. origin-www.lufthansa.com, then Edge Delivery answers only the configured
 # paths); ROUTER_KILL "on": everything to the default origin; ROUTER_HEADER: a header naming the
 # route on every answer (e.g. x-lh-edge-router); DEMO_HOSTS: public hosts whose answers get
-# X-Robots-Tag: noindex (e.g. lhedge.bbird.live,lhcom.bbird.live,lhcn.bbird.live and their twins
-# lufthansa-edge.turnsthe.page,lufthansa.turnsthe.page,lufthansa-cn.turnsthe.page), never the
-# PRODUCTION_HOSTS (e.g. www.lufthansa.com). Route and path switches: the KV binding ROUTER, key
+# X-Robots-Tag: noindex (e.g. lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page,
+# lufthansa-cn.turnsthe.page), never the PRODUCTION_HOSTS (e.g. www.lufthansa.com). Route and path switches: the KV binding ROUTER, key
 # "router" (no deploy), or ROUTER_CONFIG with the same JSON (a deploy).
 DEFAULT_ORIGIN = ""
 ROUTER_KILL = ""
@@ -95,19 +91,18 @@ ROUTER_CONFIG = ""
 REFERRER_FILTER = "off"
 REFERRER_ALLOW_HOSTS = ""
 REFERRER_ALLOW_EMPTY = "false"
-# the site config's production host (Edge Delivery writes it into canonical, hreflang, og:* and
-# twitter:* URLs): on the turnsthe.page brand hosts (scripts/demo.js) those head URLs point at the
-# host instead (src/head-urls.js; an alias host: its brand's main host); empty once the production
-# host moves to turnsthe.page (the rewrite goes away); never runs on other hosts
-HEAD_URLS_FROM = "lhcom.bbird.live"
-# hosts where lh-edge is the front door and answers as lhcom.bbird.live does through its CDN rules
-# (src/front-door.js: the gate's paths to lh-backends, the paths the CDN sends to lh-edge to the
-# routes, everything else to the origin); lhcom.bbird.live itself keeps its CDN
+# a production host to replace in head URLs (Edge Delivery writes the site config's production
+# host into canonical, hreflang, og:* and twitter:* URLs): on the turnsthe.page brand hosts
+# (scripts/demo.js) those head URLs then point at the host (src/head-urls.js; an alias host: its
+# brand's main host). "": no rewrite (the production host is lufthansa.turnsthe.page itself)
+HEAD_URLS_FROM = ""
+# hosts where lh-edge is the front door (src/front-door.js, its own rules for the main host: the
+# gate's paths to lh-backends, lh-edge's paths to the routes, everything else to the origin)
 FRONT_DOOR_HOSTS = "lufthansa.turnsthe.page"
 # alias hosts (src/alias.js; www.lufthansa.cn for www.lufthansa.com): routed like the main host;
 # on their HTML, absolute links to the replica's own hosts (ALIAS_REWRITE_HOSTS) point at the alias
 # host (canonical and hreflang links stay), Cache-Control as ALIAS_HTML_CACHE_CONTROL
-ALIAS_HOSTS = "lhcn.bbird.live,lufthansa-cn.turnsthe.page"
+ALIAS_HOSTS = "lufthansa-cn.turnsthe.page"
 # the alias hosts' home (www's China host answers / with /cn/en/homepage): / goes to
 # /<root>/homepage once the root is in the locale table (cn/en comes with its rollout batch; with
 # a pilot row the China hosts serve it through PILOT_COUNTRIES_BY_HOST cn); until then / by country
@@ -123,9 +118,11 @@ URL_FORMS = "on"
 SITE_HOSTS = "discover.turnsthe.page=discover"
 SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live"
 SITE_WWW_HOSTS = "discover=www.discover-airlines.com"
-# www's large DAM files (mp4, vtt, the PDFs R2 holds) from this AEM publish tier first, R2 as the
-# fallback (src/dam-aem.js); "": R2 only. AEM_KEEPALIVE_URLS: one GET each an hour from the
+# www's large DAM files (mp4 over 36 MB, vtt, PDFs over 20 MB) from this AEM publish tier, the only
+# source of them (src/dam-aem.js); "": off. AEM_KEEPALIVE_URLS: one GET each an hour from the
 # poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none
+# ALIAS_REWRITE_HOSTS: the replica's hosts whose absolute links in content point at the alias host
+# (old bbird.live hosts kept: content still names them in places)
 AEM_PUBLISH = "https://publish-p197609-e2272116.adobeaemcloud.com"
 AEM_KEEPALIVE_URLS = "https://author-p197609-e2272116.adobeaemcloud.com/libs/granite/core/content/login.html,https://publish-p197609-e2272116.adobeaemcloud.com/content/dam/lh-com-poc/keepalive.png"
 ALIAS_REWRITE_HOSTS = "lhcom.bbird.live,lhedge.bbird.live,lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page"

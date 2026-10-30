@@ -1,13 +1,12 @@
 /**
- * Head URLs on the turnsthe.page hosts. The site config's production host is still
- * lhcom.bbird.live (lhcom's CDN purge depends on it), so Edge Delivery writes it into every page's
- * canonical, hreflang alternates, og:url, og:image(:*) and twitter:* URLs. On an HTML answer for a
- * brand host of turnsthe.page (scripts/demo.js TURNSTHE_PAGE_BRANDS) those absolute URLs of the var
- * HEAD_URLS_FROM (lhcom.bbird.live) point at the host instead; on an alias host (lufthansa-cn) at
- * its brand's main host (lufthansa.turnsthe.page), as an alias keeps one canonical host. A
- * streaming HTMLRewriter on those head elements only; body links, .plain.html and non-HTML answers
- * are not touched, and on every other host (bbird.live included) no rewriter is made at all.
- * Goes away (HEAD_URLS_FROM empty) when the production host moves to turnsthe.page.
+ * Head URLs on the turnsthe.page hosts. Edge Delivery writes the site config's production host
+ * into every page's canonical, hreflang alternates, og:url, og:image(:*) and twitter:* URLs. When
+ * that host is another one (the var HEAD_URLS_FROM), on an HTML answer for a brand host of
+ * turnsthe.page (scripts/demo.js TURNSTHE_PAGE_BRANDS) those absolute URLs point at the host
+ * instead; on an alias host (lufthansa-cn) at its brand's main host (lufthansa.turnsthe.page), as
+ * an alias keeps one canonical host. A streaming HTMLRewriter on those head elements only; body
+ * links, .plain.html and non-HTML answers are not touched, and on every other host no rewriter is
+ * made at all. Off (HEAD_URLS_FROM empty) since the production host is lufthansa.turnsthe.page.
  */
 /* global HTMLRewriter */
 /* eslint-disable import/no-relative-packages */

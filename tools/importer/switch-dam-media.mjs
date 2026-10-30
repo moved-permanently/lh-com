@@ -16,7 +16,7 @@
  * are listed in tools/reports/dam/dam-media-documents.{md,json}: every file in DA, at least one
  * in R2, and the ones left with www's videos only.
  *
- * Usage: node tools/importer/switch-dam-media.mjs [--dry] [--edge https://lhedge.bbird.live]
+ * Usage: node tools/importer/switch-dam-media.mjs [--dry] [--edge https://lufthansa-edge.turnsthe.page]
  *   writes tools/importer/dam-media-documents.txt (the documents changed by this run, for da-upload.mjs)
  */
 import fs from 'node:fs';
@@ -27,7 +27,7 @@ import { edsDamPath, decodePath } from '../../scripts/dam-path.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
 const dry = argv.includes('--dry');
-const edge = argv.includes('--edge') ? argv[argv.indexOf('--edge') + 1].replace(/\/$/, '') : 'https://lhedge.bbird.live';
+const edge = argv.includes('--edge') ? argv[argv.indexOf('--edge') + 1].replace(/\/$/, '') : 'https://lufthansa-edge.turnsthe.page';
 const CONTENT = path.join(root, 'content');
 const SOURCES = [path.join(root, 'tools/source-export/articles-unpacked/pages'), path.join(root, 'tools/importer/bd-snapshots/www.lufthansa.com')];
 // gone from www itself (404 there, and their renditions): the documents keep www's link

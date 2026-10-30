@@ -1,19 +1,15 @@
 // Pure helpers of the admin apps (no DOM, no network), so they can be tested with node --test.
 
-// The admin apps' lh-backends: the second Cloudflare account's; an app opened on one of the old
-// bbird.live hosts keeps Blackbird's (API_BBIRD) until those hosts are retired.
+// The admin apps' lh-backends (the Cloudflare account's Worker).
 export const DEFAULT_API = 'https://lh-backends.benpeter.workers.dev';
-export const API_BBIRD = 'https://lh-backends.aem-poc-lab.workers.dev';
 
-/** The default API origin for the host an app runs on. */
-export const defaultApi = (hostname = '') => (
-  /(^|\.)bbird\.live$/.test(String(hostname).toLowerCase()) ? API_BBIRD : DEFAULT_API);
+/** The default API origin for the host an app runs on (one for every host). */
+export const defaultApi = () => DEFAULT_API;
 
 // ?api= may only point at a local Worker or another deployment of the same Worker, so a crafted
 // link cannot send the editor's sign-in token to a foreign host.
 const LOCAL_HOSTS = ['localhost', '127.0.0.1'];
-// (both Cloudflare accounts of the parallel run: aem-poc-lab and benpeter)
-const WORKER_HOST = /^([a-z0-9-]+-)?lh-backends\.(aem-poc-lab|benpeter)\.workers\.dev$/;
+const WORKER_HOST = /^([a-z0-9-]+-)?lh-backends\.benpeter\.workers\.dev$/;
 
 /** The API origin: the host's default, or an allowed ?api= value from the page's query string. */
 export function resolveApiBase(search, hostname = '') {

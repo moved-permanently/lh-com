@@ -4,14 +4,14 @@
  * JSON shape of every route, and for the messages both have (same message id and language;
  * '--' in www's ids counts as '-') every field.
  * Usage: node tools/workers/lh-messages/compare-www.mjs
- *   [--worker https://lh-messages.aem-poc-lab.workers.dev]
+ *   [--worker https://lh-messages.benpeter.workers.dev]
  *   [--fixture tools/workers/lh-messages/test/fixtures/www-message-center-2026-10-25.json]
  */
 import fs from 'node:fs';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
-const WORKER = opt('worker', 'https://lh-messages.aem-poc-lab.workers.dev');
+const WORKER = opt('worker', 'https://lh-messages.benpeter.workers.dev');
 const FIXTURE = opt('fixture', new URL('./test/fixtures/www-message-center-2026-10-25.json', import.meta.url));
 const www = JSON.parse(fs.readFileSync(FIXTURE, 'utf8'));
 

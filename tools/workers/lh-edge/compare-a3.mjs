@@ -2,7 +2,7 @@
 /**
  * AMS rest A3 on an lh-edge host: the two fragment catalogs against www's recordings (order
  * aside), `.aircraft.json` for a page of each locale, `/service-worker.js` byte for byte with
- * www's headers. Usage: node tools/workers/lh-edge/compare-a3.mjs --host https://lhedge.bbird.live
+ * www's headers. Usage: node tools/workers/lh-edge/compare-a3.mjs --host https://lufthansa-edge.turnsthe.page
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const AMS = path.join(root, 'tools/source-export/feeds/ams-rest');
 const argv = process.argv.slice(2);
-const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lhedge.bbird.live').replace(/\/$/, '');
+const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lufthansa-edge.turnsthe.page').replace(/\/$/, '');
 // strings trimmed: www keeps trailing spaces in some titles ("cash-miles "), Edge Delivery's
 // metadata does not (counted as normalised)
 let trimmed = 0;

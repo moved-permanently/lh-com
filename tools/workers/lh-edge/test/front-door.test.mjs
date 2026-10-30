@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
-/* lh-edge as the front door (src/front-door.js): on FRONT_DOOR_HOSTS the CDN rules of
-   lhcom.bbird.live (scdemos/demo workers/adobe/config/cdn.yaml): the gate's paths to lh-backends,
-   the paths the CDN sends to lh-edge to the routes, everything else to the origin; X-LH-Public-Host
-   is the host. Other hosts as before. */
+/* lh-edge as the front door (src/front-door.js): on FRONT_DOOR_HOSTS lh-edge's own rules for the
+   main host: the gate's paths to lh-backends, lh-edge's paths to the routes, everything else to
+   the origin; X-LH-Public-Host is the host. Other hosts as before. */
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/index.js';
@@ -75,9 +74,9 @@ test('the CDN rules: every sample path gets its target', () => {
   ORIGIN_PATHS.forEach((p) => assert.equal(frontDoorTarget(p), 'origin', p));
 });
 
-test('front-door hosts: FRONT_DOOR_HOSTS only (not lhcom, lhedge or the rest of turnsthe.page)', () => {
+test('front-door hosts: FRONT_DOOR_HOSTS only (not lufthansa-edge, the China host or the rest of turnsthe.page)', () => {
   assert.equal(frontDoorOf(new Request(`https://${DOOR}/`), env()), DOOR);
-  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lufthansa-edge.turnsthe.page', 'other.turnsthe.page'].forEach((h) => assert.equal(frontDoorOf(new Request(`https://${h}/`), env()), null, h));
+  ['lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'other.turnsthe.page'].forEach((h) => assert.equal(frontDoorOf(new Request(`https://${h}/`), env()), null, h));
 });
 
 test('the gate: lh-backends with X-LH-Public-Host = the host, the cookie and its Set-Cookie passed on', async () => {

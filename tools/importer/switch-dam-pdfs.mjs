@@ -21,7 +21,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const dry = process.argv.includes('--dry');
 const LIVE_SITE = 'https://main--lh-com--moved-permanently.aem.live';
 // lh-edge's demo host: the PDFs it serves from R2 (aem.live has no copy of them)
-const EDGE_HOST = process.env.LH_EDGE_HOST || 'https://lhedge.bbird.live';
+const EDGE_HOST = process.env.LH_EDGE_HOST || 'https://lufthansa-edge.turnsthe.page';
 const CONTENT = path.join(root, 'content');
 const WWW_PDF = /href="https:\/\/www\.lufthansa\.com(\/content\/dam\/[^"?#]+\.pdf)"/gi;
 

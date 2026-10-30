@@ -54,7 +54,7 @@ const { MODEL_COLUMNS, LLMS_COLUMNS } = await import('./src/market-lean.js');
 const { sitemapIndexKey, storedNames } = await import('./src/sitemap-index.js').catch(() => ({}));
 const runs = Number(opt('runs', 5));
 const listed = argv.flatMap((a, i) => (a === '--path' ? [argv[i + 1]] : []));
-const HOST = 'lhedge.bbird.live';
+const HOST = 'lufthansa-edge.turnsthe.page';
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
 const PILOTS = MARKET_ROOTS.filter((k) => LOCALE_TABLE[k].status === 'pilot');
 const PATHS = listed.length ? listed : ['/hu/en/baggage', '/ie/en/baggage', '/ke/en/homepage', '/hu/de/gepaeck', '/hu/en/baggage.plain.html', '/ch/llms.txt', '/gb/llms.txt', '/at/llms.txt',
@@ -77,7 +77,7 @@ const COMPARE = [...new Set([
   ...SEARCHES,
 ])];
 const env = (extra = {}) => ({
-  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: HOST, ALIAS_REWRITE_HOSTS: 'lhcom.bbird.live,lhedge.bbird.live', EDGE_TTL: '60', EDGE_CACHE_VERSION: 'bench', ...extra,
+  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: HOST, ALIAS_REWRITE_HOSTS: 'lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page', EDGE_TTL: '60', EDGE_CACHE_VERSION: 'bench', ...extra,
 });
 
 // the full index a lean source mirrors, and its columns
@@ -150,7 +150,7 @@ globalThis.fetch = async (input, init) => {
       } else {
         const offset = Number(u.searchParams.get('offset') || 0);
         const limit = Number(u.searchParams.get('limit') || 1000);
-        const data = rows.slice(offset, offset + limit).map((row) => ({ path: row.path, ...Object.fromEntries(lean.columns.map((c) => [c, row[c] ?? ''])), canonical: `https://lhcom.bbird.live${row.path}` }));
+        const data = rows.slice(offset, offset + limit).map((row) => ({ path: row.path, ...Object.fromEntries(lean.columns.map((c) => [c, row[c] ?? ''])), canonical: `https://lufthansa.turnsthe.page${row.path}` }));
         const body = JSON.stringify({
           total: rows.length, offset, limit, data, columns: ['path', ...lean.columns, 'canonical'], ':type': 'sheet',
         });

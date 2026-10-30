@@ -1,7 +1,6 @@
 /**
  * The demo hosts: the replica on turnsthe.page (the brand hosts below; lufthansa.turnsthe.page is
- * the main host) and its old hosts on bbird.live (lhcom, lhedge, lhcn, until they are retired),
- * its Edge Delivery hosts and
+ * the main host), its Edge Delivery hosts and
  * branch previews (*.aem.page, *.aem.live, *.hlx.page, *.hlx.live), Workers' own hosts and local
  * development. The parts of the site that only make sense on the demo are on only there (the
  * showcase notice, answers recorded from www shown when a live call fails, the cross-origin proxy
@@ -28,7 +27,6 @@ export function turnsThePageBrandOf(hostname) {
 
 export const DEMO_HOSTS = [
   /^(localhost|127\.0\.0\.1)$/,
-  /\.bbird\.live$/,
   TURNSTHE_PAGE_HOST,
   /\.aem\.(page|live)$/,
   /\.hlx\.(page|live)$/,
@@ -40,15 +38,6 @@ const pageHost = () => (typeof window !== 'undefined' ? window.location.hostname
 /** Whether a host name is one of the brand hosts on turnsthe.page (default: the page's). */
 export function isTurnsThePageHost(hostname = pageHost()) {
   return TURNSTHE_PAGE_HOST.test(String(hostname || '').toLowerCase());
-}
-
-/**
- * Whether a host name is one of the old bbird.live hosts (default: the page's): there the site
- * keeps calling Blackbird's Workers until those hosts are retired; every other host (turnsthe.page,
- * the aem.page and aem.live previews, DA preview, localhost) calls the second account's.
- */
-export function isBbirdLiveHost(hostname = pageHost()) {
-  return /(^|\.)bbird\.live$/.test(String(hostname || '').toLowerCase());
 }
 
 /** Whether a host name is a demo host (default: the page's). */

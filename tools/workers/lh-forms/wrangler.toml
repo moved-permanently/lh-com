@@ -1,9 +1,9 @@
 name = "lh-forms"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
-# also on https://lh-forms.aem-poc-lab.workers.dev; the public address https://lhforms.bbird.live is a
-# custom domain attached in the Cloudflare dashboard (no routes here: the deploy token cannot
-# manage that zone)
+# also on https://lh-forms.benpeter.workers.dev; the public address
+# https://lufthansa-forms.turnsthe.page is a custom domain attached in the Cloudflare dashboard (no
+# routes here: the deploy token cannot manage that zone)
 workers_dev = true
 
 # Secrets (not here): FORM_SENDER (from address), FORM_CONFIG (JSON, see README.md and
@@ -25,9 +25,9 @@ service = "lh-backends"
 FORM_DELIVERY = "email"
 # lh-discover (Discover Airlines, repoless on lh-com's code) and its host discover.turnsthe.page
 ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
-EXTRA_ALLOWED_ORIGINS = "https://lhcom.bbird.live,https://lufthansa.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000"
+EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000"
 # Bot check (AMS rest A6): Cloudflare Turnstile widget "lh-com forms (lh-forms)" (managed mode;
-# hosts main--lh-com--moved-permanently.aem.page/.aem.live and lhcom.bbird.live only). The site
+# hosts: lh-com's and lh-discover's aem.page/.aem.live hosts and the turnsthe.page hosts). The site
 # key is public; the secret TURNSTILE_SECRET is set in the dashboard. BOT_CHECK on: /submit
 # needs a valid token; off: no check (www has it off).
 TURNSTILE_SITE_KEY = "0x4AAAAAAFnIbr4JnmqxGNVc"

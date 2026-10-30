@@ -15,7 +15,7 @@ globalThis.HTMLRewriter = HTMLRewriter;
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
 const KEEP = new Set(['en-DE', 'en-GB', 'en-CH', 'de-DE', 'de-AT', 'de-CH']);
 const env = (extra = {}) => ({
-  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lhcom.bbird.live,lhedge.bbird.live', EDGE_TTL: '60', ...extra,
+  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page', EDGE_TTL: '60', ...extra,
 });
 const sheet = (data) => ({
   total: data.length, offset: 0, limit: 1000, data, ':type': 'sheet',
@@ -35,20 +35,20 @@ const INDEX = {
   '/de/en/articles/query-index.json': sheet([row('/de/en/articles/a', { image: '/de/en/media_1.jpg' })]),
 };
 const page = (path) => `<!DOCTYPE html><html><head><title>${path}</title>
-<link rel="canonical" href="https://lhcom.bbird.live${path}"><meta property="og:url" content="https://lhcom.bbird.live${path}">
+<link rel="canonical" href="https://lufthansa.turnsthe.page${path}"><meta property="og:url" content="https://lufthansa.turnsthe.page${path}">
 <meta name="parent" content="/de/en/homepage"><meta name="robots" content="noindex, nofollow"></head>
 <body><header></header><main><div><h1>Baggage</h1><p>
 <a href="/de/en/homepage">Home</a> <a href="/de/en/carry-on">not indexed</a> <a href="/de/en/event/dghm-2026">de only</a>
 <a href="https://main--lh-com--moved-permanently.aem.page/de/en/addresses-worldwide#x">addresses</a> <a href="https://www.lufthansa.com/de/en/travel-briefing">www</a>
 <a href="/de/en/fragments/teaser">fragment</a> <a href="/de/de/baggage">German</a> <a href="/de/en/baggage?x=1">self</a></p>
-<picture><img src="https://lhcom.bbird.live/de/en/media_1234.jpg?width=750" alt=""></picture></div></main><footer></footer></body></html>`;
+<picture><img src="https://lufthansa.turnsthe.page/de/en/media_1234.jpg?width=750" alt=""></picture></div></main><footer></footer></body></html>`;
 const DOCS = {
   '/de/en/baggage': page('/de/en/baggage'),
   '/de/en/addresses-worldwide': page('/de/en/addresses-worldwide'),
   '/de/de/adressen-weltweit': page('/de/de/adressen-weltweit'),
   '/de/en/event/dghm-2026': page('/de/en/event/dghm-2026'),
   '/de/en/addresses-worldwide-de': page('/de/en/addresses-worldwide-de').replace('<title>', '<meta name="markets" content="de, at"><title>'),
-  '/ch/en/homepage': '<html><head><link rel="canonical" href="https://lhcom.bbird.live/ch/en/homepage"></head><body>own ch homepage</body></html>',
+  '/ch/en/homepage': '<html><head><link rel="canonical" href="https://lufthansa.turnsthe.page/ch/en/homepage"></head><body>own ch homepage</body></html>',
   '/de/en/fragments/teaser.plain.html': '<div><a href="/de/en/baggage">Baggage</a></div>',
   '/ch/en/old': 301,
   '/de/en/support/support': 302,
@@ -107,7 +107,7 @@ test('a host without pilot roots: /ch/en/... passes through to the origin unchan
   assert.deepEqual(calls, ['/ch/en/baggage']);
   // the public host decides (the CDN in front sends X-LH-Public-Host)
   calls = [];
-  const via = await get('/ch/en/baggage', 'lhedge.example', { 'x-lh-public-host': 'lhcom.bbird.live' });
+  const via = await get('/ch/en/baggage', 'lhedge.example', { 'x-lh-public-host': 'lufthansa.turnsthe.page' });
   assert.equal(via.status, 404);
   assert.deepEqual(calls, ['/ch/en/baggage']);
 });
@@ -119,14 +119,14 @@ test('a language page for the market root: links, canonical, og:url, hreflang, c
   assert.equal(resp.headers.get('cache-tag'), 'main--lh-com--moved-permanently,/de/en/baggage');
   assert.equal(resp.headers.get('cache-control'), 'max-age=60, must-revalidate');
   const html = await resp.text();
-  assert.match(html, /<link rel="canonical" href="https:\/\/lhcom\.bbird\.live\/ch\/en\/baggage">/);
-  assert.match(html, /<meta property="og:url" content="https:\/\/lhcom\.bbird\.live\/ch\/en\/baggage">/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/lufthansa\.turnsthe\.page\/ch\/en\/baggage">/);
+  assert.match(html, /<meta property="og:url" content="https:\/\/lufthansa\.turnsthe\.page\/ch\/en\/baggage">/);
   assert.match(html, /<meta name="parent" content="\/ch\/en\/homepage">/);
   assert.match(html, /<meta name="robots" content="noindex, nofollow">/, 'robots as on lhcom');
   const alts = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2]}`);
   assert.deepEqual(alts, [
-    'en-DE https://lhcom.bbird.live/de/en/baggage', 'en-CH https://lhcom.bbird.live/ch/en/baggage',
-    'de-DE https://lhcom.bbird.live/de/de/baggage', 'de-CH https://lhcom.bbird.live/ch/de/baggage',
+    'en-DE https://lufthansa.turnsthe.page/de/en/baggage', 'en-CH https://lufthansa.turnsthe.page/ch/en/baggage',
+    'de-DE https://lufthansa.turnsthe.page/de/de/baggage', 'de-CH https://lufthansa.turnsthe.page/ch/de/baggage',
   ]);
   const hrefs = [...html.matchAll(/<a href="([^"]+)"/g)].map((m) => m[1]);
   assert.deepEqual(hrefs, [
@@ -141,8 +141,8 @@ test('translated slugs pair by primary-language-url in the alternates', async ()
   const html = await (await get('/ch/de/adressen-weltweit')).text();
   const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2]}`);
   assert.deepEqual(alts, [
-    'de-DE https://lhcom.bbird.live/de/de/adressen-weltweit', 'de-CH https://lhcom.bbird.live/ch/de/adressen-weltweit',
-    'en-DE https://lhcom.bbird.live/de/en/addresses-worldwide', 'en-CH https://lhcom.bbird.live/ch/en/addresses-worldwide',
+    'de-DE https://lufthansa.turnsthe.page/de/de/adressen-weltweit', 'de-CH https://lufthansa.turnsthe.page/ch/de/adressen-weltweit',
+    'en-DE https://lufthansa.turnsthe.page/de/en/addresses-worldwide', 'en-CH https://lufthansa.turnsthe.page/ch/en/addresses-worldwide',
   ]);
 });
 
@@ -166,7 +166,7 @@ test('the language version\'s redirects and the pages its index leaves out on pu
   assert.equal(moved.headers.get('location'), '/ch/en/baggage');
   const conf = await get('/ch/en/book-and-manage/refund/confirmation');
   assert.equal(conf.status, 200);
-  assert.match(await conf.text(), /<link rel="canonical" href="https:\/\/lhcom\.bbird\.live\/ch\/en\/book-and-manage\/refund\/confirmation">/);
+  assert.match(await conf.text(), /<link rel="canonical" href="https:\/\/lufthansa\.turnsthe\.page\/ch\/en\/book-and-manage\/refund\/confirmation">/);
 });
 
 test('the language version\'s redirect with Workers\' manual redirect mode, also on a revalidation (the redirect is not followed)', async () => {
@@ -319,11 +319,11 @@ test('entry redirects: pilot roots to their homepages on pilot hosts, to www els
 
 test('link rule: site hosts stripped, links into the language version only where the market serves them', () => {
   const ctx = {
-    from: 'de/en', to: 'ch/en', allowed: (s) => s !== '/x', hosts: /^https:\/\/(lhcom\.bbird\.live)(?=\/|$)/,
+    from: 'de/en', to: 'ch/en', allowed: (s) => s !== '/x', hosts: /^https:\/\/(lufthansa\.turnsthe\.page)(?=\/|$)/,
   };
   assert.equal(marketHref('/de/en/a', ctx), '/ch/en/a');
   assert.equal(marketHref('/de/en/x', ctx), null);
-  assert.equal(marketHref('https://lhcom.bbird.live/de/en/x', ctx), '/de/en/x');
+  assert.equal(marketHref('https://lufthansa.turnsthe.page/de/en/x', ctx), '/de/en/x');
   assert.equal(marketHref('/de/en', ctx), '/ch/en');
   assert.equal(marketHref('/de/enx/a', ctx), null);
   assert.equal(marketHref('#top', ctx), null);

@@ -5,7 +5,7 @@
  * sitemap_lh_de_en.xml.gz). Per locale: URL count, alternates to the three other locales, and
  * for up to 10 URLs that www's file knows (as a location or an alternate) the alternates of the
  * replica's four hreflangs (en-DE, de-DE, de-AT, en-GB) compared with www's.
- * Usage: node tools/workers/lh-edge/compare-sitemap.mjs [--host https://lhedge.bbird.live]
+ * Usage: node tools/workers/lh-edge/compare-sitemap.mjs [--host https://lufthansa-edge.turnsthe.page]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const argv = process.argv.slice(2);
-const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lhedge.bbird.live').replace(/\/$/, '');
+const HOST = (argv.includes('--host') ? argv[argv.indexOf('--host') + 1] : 'https://lufthansa-edge.turnsthe.page').replace(/\/$/, '');
 const LANGS = ['en-DE', 'de-DE', 'de-AT', 'en-GB'];
 const LOCALES = {
   'de/en': 'en-DE', 'de/de': 'de-DE', 'at/de': 'de-AT', 'gb/en': 'en-GB',

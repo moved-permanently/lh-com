@@ -2,17 +2,14 @@
  * The lh-forms worker (tools/workers/lh-forms/README.md) that the Form (core) block posts its
  * submissions to, and the form ids it knows.
  */
-import { isDemoHost, isBbirdLiveHost } from './demo.js';
+import { isDemoHost } from './demo.js';
 
 /**
- * Public address of the lh-forms worker in the second Cloudflare account (custom domain; also
- * https://lh-forms.benpeter.workers.dev); the block posts to `${origin}/submit`. The old
- * bbird.live hosts keep Blackbird's worker (FORMS_ENDPOINT_BBIRD, also
- * https://lh-forms.aem-poc-lab.workers.dev) until they are retired.
+ * Public address of the lh-forms worker (custom domain; also
+ * https://lh-forms.benpeter.workers.dev); the block posts to `${origin}/submit`.
  */
 export const FORMS_ENDPOINT = 'https://lufthansa-forms.turnsthe.page';
-export const FORMS_ENDPOINT_BBIRD = 'https://lhforms.bbird.live';
-const defaultEndpoint = () => (isBbirdLiveHost() ? FORMS_ENDPOINT_BBIRD : FORMS_ENDPOINT);
+const defaultEndpoint = () => FORMS_ENDPOINT;
 
 /** Where the block goes when a submission fails (live: origin + "/error.html"). */
 export const DEFAULT_ERROR_PAGE = '/error.html';

@@ -359,7 +359,7 @@ export default {
       ? await siteRespond(incoming, env, site, ctx)
       : await respond(incoming, env, ctx);
     // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
-    // (HEAD_URLS_FROM, lhcom.bbird.live) point at the host; no rewriter anywhere else
+    // (HEAD_URLS_FROM, "" today) point at the host; no rewriter anywhere else
     const head = headUrlHost(incoming, env, alias);
     if (head) resp = rewriteHeadUrls(resp, incoming, env, head);
     // alias hosts (ALIAS_HOSTS, src/alias.js): routed like the main host, links to the replica's

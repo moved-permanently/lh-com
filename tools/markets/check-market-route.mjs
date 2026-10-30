@@ -7,10 +7,10 @@
  * (not migrated: /lhg/, login and profile, pages out of scope), the path is one the language index
  * leaves out (confirmation pages, support/search), or `markets` excludes the country.
  * The host: lh-edge with the market roots served (wrangler dev against the preview origin,
- * --header X-LH-Public-Host: lhedge.bbird.live, or lhedge.bbird.live after a publish).
+ * --header X-LH-Public-Host: lufthansa-edge.turnsthe.page, or lufthansa-edge.turnsthe.page after a publish).
  * Usage: node tools/markets/check-market-route.mjs --base http://localhost:8787 --root ch/en --root ch/de
  *          [--links /ch/en/homepage --links /ch/en/nav.plain.html]
- *          [--header 'x-lh-public-host: lhedge.bbird.live'] [--out report.json] [--concurrency 4]
+ *          [--header 'x-lh-public-host: lufthansa-edge.turnsthe.page'] [--out report.json] [--concurrency 4]
  */
 import fs from 'node:fs';
 import path from 'node:path';

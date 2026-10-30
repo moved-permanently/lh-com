@@ -12,7 +12,7 @@
  * differ: Edge Delivery encodes its own renditions; originals are checked byte for byte by size).
  * www is asked at most 2 at a time.
  *
- * Usage: node compare-dam.mjs --host https://lhedge.bbird.live | --local [--limit N]
+ * Usage: node compare-dam.mjs --host https://lufthansa-edge.turnsthe.page | --local [--limit N]
  *   --local: the Worker in Node, with the origin's answers taken from the preview
  *            (main--lh-com--moved-permanently.aem.page) instead of aem.live: the check before
  *            the copies are published
@@ -30,7 +30,7 @@ const local = argv.includes('--local');
 const host = argv.includes('--host') ? argv[argv.indexOf('--host') + 1].replace(/\/$/, '') : '';
 const limit = argv.includes('--limit') ? Number(argv[argv.indexOf('--limit') + 1]) : Infinity;
 if (!local && !host) {
-  console.error('usage: compare-dam.mjs --host https://lhedge.bbird.live | --local');
+  console.error('usage: compare-dam.mjs --host https://lufthansa-edge.turnsthe.page | --local');
   process.exit(1);
 }
 const WWW = 'https://www.lufthansa.com';

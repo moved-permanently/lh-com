@@ -32,12 +32,13 @@ beforeEach(() => {
 });
 
 test('demo hosts: the replica, Edge Delivery hosts and previews, workers.dev, localhost; not www', () => {
-  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live', 'main--lh-com--moved-permanently.aem.page', 'branch--lh-com--moved-permanently.aem.live', 'x.hlx.page', 'lh-edge.aem-poc-lab.workers.dev', 'localhost', '127.0.0.1',
+  ['main--lh-com--moved-permanently.aem.page', 'branch--lh-com--moved-permanently.aem.live', 'x.hlx.page', 'lh-edge.benpeter.workers.dev', 'localhost', '127.0.0.1',
     'lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'lufthansa-forms.turnsthe.page', 'lh-proxy.benpeter.workers.dev',
     'discover.turnsthe.page', 'discover-cn.turnsthe.page']
     .forEach((h) => assert.ok(isDemoHost(h), h));
-  // turnsthe.page: the lufthansa hosts only (other demos may live on the domain)
-  ['www.lufthansa.com', 'lufthansa.com', 'www.lufthansa.cn', 'aem.page.example.com', 'bbird.live.example.com',
+  // turnsthe.page: the lufthansa hosts only (other demos may live on the domain); the retired
+  // bbird.live hosts are no demo hosts any more
+  ['www.lufthansa.com', 'lufthansa.com', 'www.lufthansa.cn', 'aem.page.example.com', 'lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live',
     'turnsthe.page', 'demo2.turnsthe.page', 'xlufthansa.turnsthe.page', 'lufthansa.turnsthe.page.example.com', 'www.lufthansa.turnsthe.page']
     .forEach((h) => assert.ok(!isDemoHost(h), h));
 });
@@ -58,14 +59,14 @@ test('production host: API routes same-origin with the market headers, no proxy,
 });
 
 test('demo host: as before (the proxy for a non-direct route, its recordings on failure)', async () => {
-  at('lhcom.bbird.live');
+  at('lufthansa.turnsthe.page');
   await lhFetch('/service/api/lhg-fare-teaser/fareteaser/recommend', { market: 'de/en' }).catch(() => null);
-  assert.ok(calls.some((c) => c.url.startsWith('https://lh-proxy.aem-poc-lab.workers.dev/')));
+  assert.ok(calls.some((c) => c.url.startsWith('https://lh-proxy.benpeter.workers.dev/')));
 });
 
 test('forms: the demo worker on demo hosts, a production host its own meta (none: no config read, nothing sent)', async () => {
-  at('lhcom.bbird.live');
-  assert.equal(formsEndpoint(), 'https://lhforms.bbird.live');
+  at('lufthansa.turnsthe.page');
+  assert.equal(formsEndpoint(), 'https://lufthansa-forms.turnsthe.page');
   at('www.lufthansa.com');
   window.localStorage.setItem('lh-forms', 'https://tester.example');
   assert.equal(formsEndpoint(), '', 'no tester override, no demo worker');
@@ -75,7 +76,7 @@ test('forms: the demo worker on demo hosts, a production host its own meta (none
   assert.equal(formsEndpoint(), 'https://forms.lufthansa.example');
 });
 
-test('the second account\'s forms worker and proxy on every demo host but the old bbird.live hosts', async () => {
+test('one forms worker and proxy on every demo host', async () => {
   ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page'].forEach((h) => {
     at(h);
     assert.equal(formsEndpoint(), 'https://lufthansa-forms.turnsthe.page', h);
@@ -84,11 +85,6 @@ test('the second account\'s forms worker and proxy on every demo host but the ol
   await lhFetch('/service/api/lhg-fare-teaser/fareteaser/recommend', { market: 'de/en' }).catch(() => null);
   assert.ok(calls.some((c) => c.url.startsWith('https://lh-proxy.benpeter.workers.dev/')), 'the second account\'s proxy');
   assert.ok(!calls.some((c) => c.url.includes('aem-poc-lab')));
-  // the old bbird.live hosts keep Blackbird's workers; every other demo host the second account's
-  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lhcn.bbird.live'].forEach((h) => {
-    at(h);
-    assert.equal(formsEndpoint(), 'https://lhforms.bbird.live', h);
-  });
   ['main--lh-com--moved-permanently.aem.page', 'main--lh-com--moved-permanently.aem.live', 'localhost'].forEach((h) => {
     at(h);
     assert.equal(formsEndpoint(), 'https://lufthansa-forms.turnsthe.page', h);
@@ -98,7 +94,7 @@ test('the second account\'s forms worker and proxy on every demo host but the ol
     at(h);
     assert.equal(formsEndpoint(), '', h);
   });
-  for (const [h, proxy] of [['main--lh-com--moved-permanently.aem.page', 'https://lh-proxy.benpeter.workers.dev/'], ['localhost', 'https://lh-proxy.benpeter.workers.dev/'], ['lhedge.bbird.live', 'https://lh-proxy.aem-poc-lab.workers.dev/']]) { // eslint-disable-line no-restricted-syntax
+  for (const [h, proxy] of [['main--lh-com--moved-permanently.aem.page', 'https://lh-proxy.benpeter.workers.dev/'], ['localhost', 'https://lh-proxy.benpeter.workers.dev/'], ['lufthansa-edge.turnsthe.page', 'https://lh-proxy.benpeter.workers.dev/']]) { // eslint-disable-line no-restricted-syntax
     calls = [];
     at(h);
     await lhFetch('/service/api/lhg-fare-teaser/fareteaser/recommend', { market: 'de/en' }).catch(() => null); // eslint-disable-line no-await-in-loop

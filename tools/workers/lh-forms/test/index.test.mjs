@@ -301,12 +301,11 @@ test('disallowed origin or no Origin on POST → 403', async () => {
   assert.equal(sent.length, 0);
 });
 
-test('allowed origins: aem.live, DA preview, lhcom.bbird.live and its twin, localhost:3000', async () => {
+test('allowed origins: aem.live, DA preview, the main host lufthansa.turnsthe.page, localhost:3000; the retired lhcom.bbird.live refused', async () => {
   const origins = [
     'https://feat-x--lh-com--moved-permanently.aem.live',
     'https://main--lh-flynet--moved-permanently.aem.page',
     'https://main--lh-com--moved-permanently.preview.da.live',
-    'https://lhcom.bbird.live',
     'https://lufthansa.turnsthe.page',
     'http://localhost:3000',
   ];
@@ -315,6 +314,8 @@ test('allowed origins: aem.live, DA preview, lhcom.bbird.live and its twin, loca
     assert.equal(res.status, 200, origins[i]);
     assert.equal(res.headers.get('access-control-allow-origin'), origins[i]);
   });
+  const retired = await post({ origin: 'https://lhcom.bbird.live', ip: '198.51.100.99' });
+  assert.equal(retired.res.status, 403);
 });
 
 test('unknown form, locale, page or bad fields → 400, nothing sent', async () => {

@@ -355,3 +355,29 @@ test('DA preview and Universal Editor hosts are accepted', async () => {
   const bad = await worker.fetch(req('/health', { headers: { Origin: 'https://main--other--org.preview.da.live' } }), ENV);
   assert.equal(bad.status, 403);
 });
+
+// eslint-disable-next-line max-len
+test('preflight from each turnsthe.page host that loads the site: 204 with its origin (wrangler.toml and the defaults)', async () => {
+  const toml = (await import('node:fs')).readFileSync(new URL('../wrangler.toml', import.meta.url), 'utf8');
+  const extra = toml.match(/^EXTRA_ALLOWED_ORIGINS = "([^"]*)"/m)[1];
+  const hosts = ['lufthansa', 'lufthansa-edge', 'lufthansa-cn', 'discover'].map((h) => `https://${h}.turnsthe.page`);
+  const envs = [{ ...ENV, EXTRA_ALLOWED_ORIGINS: extra }, ENV];
+  for (const env of envs) { // eslint-disable-line no-restricted-syntax
+    for (const origin of hosts) { // eslint-disable-line no-restricted-syntax
+      const res = await worker.fetch(req('/service/api/lhg-fare-teaser/fareteaser/recommend', { // eslint-disable-line no-await-in-loop
+        method: 'OPTIONS',
+        headers: { Origin: origin, 'Access-Control-Request-Method': 'GET', 'Access-Control-Request-Headers': 'accept' },
+      }), env);
+      assert.equal(res.status, 204, origin);
+      assert.equal(res.headers.get('access-control-allow-origin'), origin);
+    }
+    // the retired first hosts and other turnsthe.page names are refused
+    const refused = ['https://lhcom.bbird.live', 'https://lufthansa-x.turnsthe.page', 'https://evil.turnsthe.page'];
+    for (const origin of refused) { // eslint-disable-line no-restricted-syntax
+      const res = await worker.fetch(req('/service/api/lhg-fare-teaser/fareteaser/recommend', { // eslint-disable-line no-await-in-loop
+        method: 'OPTIONS', headers: { Origin: origin, 'Access-Control-Request-Method': 'GET' },
+      }), env);
+      assert.equal(res.status, 403, origin);
+    }
+  }
+});

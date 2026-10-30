@@ -9,7 +9,7 @@
  *   tools/importer/parsers/aem-path-map.js, in the migration scope) must be in lh-edge's top 10.
  * Also: the answers without X-Portal headers and with an empty phrase (www: 400).
  *
- * Usage: node compare-search.mjs --host https://lhedge.bbird.live | --local
+ * Usage: node compare-search.mjs --host https://lufthansa-edge.turnsthe.page | --local
  *   --local: the Worker in Node with the search indexes computed from the local documents
  *            (tools/importer/build-search-index.mjs): the check before the indexes are published
  * Report: tools/reports/lh-edge/compare-search[-local].md and .json
@@ -25,7 +25,7 @@ const argv = process.argv.slice(2);
 const local = argv.includes('--local');
 const host = argv.includes('--host') ? argv[argv.indexOf('--host') + 1].replace(/\/$/, '') : '';
 if (!local && !host) {
-  console.error('usage: compare-search.mjs --host https://lhedge.bbird.live | --local');
+  console.error('usage: compare-search.mjs --host https://lufthansa-edge.turnsthe.page | --local');
   process.exit(1);
 }
 const FIXTURES = path.join(root, 'tools/source-export/feeds/search');

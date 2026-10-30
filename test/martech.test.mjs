@@ -38,7 +38,7 @@ const page = (hostname, pathname = '/de/de/handgepaeck', search = '') => {
   globalThis.CustomEvent = window.CustomEvent;
   return window;
 };
-page('lhcom.bbird.live');
+page('lufthansa.turnsthe.page');
 globalThis.fetch = async (url) => { requests.push(String(url)); return new Response(IDS); };
 const { MARTECH_HOSTS, martechWanted } = await import('../scripts/consent.js');
 const martech = await import('../scripts/martech.js');
@@ -61,12 +61,12 @@ beforeEach(() => {
 
 test('the host table is empty: every current host is off, and the hook loads nothing', () => {
   assert.deepEqual(MARTECH_HOSTS, {});
-  ['lhcom.bbird.live', 'lhedge.bbird.live', 'lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'main--lh-com--moved-permanently.aem.page', 'www.lufthansa.com', 'localhost']
+  ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'main--lh-com--moved-permanently.aem.page', 'www.lufthansa.com', 'localhost']
     .forEach((hostname) => {
       assert.equal(martechWanted({ hostname, search: '' }), false, hostname);
       assert.equal(modeOf(hostname, ''), 'off', hostname);
     });
-  assert.equal(martechWanted({ hostname: 'lhcom.bbird.live', search: '?martech=dry' }), true);
+  assert.equal(martechWanted({ hostname: 'lufthansa.turnsthe.page', search: '?martech=dry' }), true);
   assert.equal(martechWanted({ hostname: 'live.test', search: '' }, LIVE), true);
   // scripts.js imports martech.js only behind that condition
   const src = fs.readFileSync(path.join(root, 'scripts/scripts.js'), 'utf8');
@@ -75,7 +75,7 @@ test('the host table is empty: every current host is off, and the hook loads not
 });
 
 test('off: no request, no lhgData, utag, utag_cfg_ovrd or dataLayer, no script', async () => {
-  page('lhcom.bbird.live');
+  page('lufthansa.turnsthe.page');
   assert.equal(await initMartech({ wait: now }), 'off');
   assert.deepEqual(requests, []);
   ['lhgData', 'utag', 'utag_cfg_ovrd', 'dataLayer', 'OnetrustActiveGroups'].forEach((k) => assert.equal(window[k], undefined, k));
@@ -83,7 +83,7 @@ test('off: no request, no lhgData, utag, utag_cfg_ovrd or dataLayer, no script',
 });
 
 test('dry (?martech=dry): lhgData, noview, the meta fallbacks, one martech.view; no vendor request, no script', async () => {
-  page('lhcom.bbird.live', '/de/de/handgepaeck', '?martech=dry');
+  page('lufthansa.turnsthe.page', '/de/de/handgepaeck', '?martech=dry');
   const views = [];
   window.addEventListener('martech.view', (e) => views.push(e.detail));
   assert.equal(await initMartech({ wait: now }), 'dry');
@@ -104,20 +104,20 @@ test('dry (?martech=dry): lhgData, noview, the meta fallbacks, one martech.view;
 });
 
 test('off wins: ?martech=off, an authoring context, the app view; and no query parameter makes live', async () => {
-  for (const [host, p, q] of [['lhcom.bbird.live', '/de/en/homepage', '?martech=dry&martech=off'], ['lhcom.bbird.live', '/de/en/homepage', '?martech=dry&dapreview=1'], ['lhcom.bbird.live', '/de/en/baggage.solo_continue', '?martech=dry']]) { // eslint-disable-line no-restricted-syntax
+  for (const [host, p, q] of [['lufthansa.turnsthe.page', '/de/en/homepage', '?martech=dry&martech=off'], ['lufthansa.turnsthe.page', '/de/en/homepage', '?martech=dry&dapreview=1'], ['lufthansa.turnsthe.page', '/de/en/baggage.solo_continue', '?martech=dry']]) { // eslint-disable-line no-restricted-syntax
     page(host, p, q);
     resetMartech();
     assert.equal(await initMartech({ wait: now }), 'off', `${p}${q}`); // eslint-disable-line no-await-in-loop
     assert.equal(window.lhgData, undefined);
   }
-  assert.equal(modeOf('lhcom.bbird.live', '?martech=live'), 'off');
-  assert.equal(modeOf('lhcom.bbird.live', '?martech=live&martech=dry'), 'dry');
+  assert.equal(modeOf('lufthansa.turnsthe.page', '?martech=live'), 'off');
+  assert.equal(modeOf('lufthansa.turnsthe.page', '?martech=live&martech=dry'), 'dry');
   assert.equal(modeOf('live.test', '?martech=dry', LIVE), 'live', 'a live row stays live');
 });
 
 test('live refuses: a hostname without a row, placeholders, other hosts and paths, prod without a row, non-tiqcdn URLs', () => {
   assert.equal(containerUrl('live.test', LIVE), 'https://tags.tiqcdn.com/utag/test-account/test-profile/qa/utag.js');
-  assert.equal(containerUrl('lhcom.bbird.live', LIVE), null);
+  assert.equal(containerUrl('lufthansa.turnsthe.page', LIVE), null);
   assert.equal(containerUrl('live.test', {}), null);
   const row = (tealium) => ({ 'live.test': { mode: 'live', tealium } });
   assert.equal(containerUrl('live.test', row({ account: '<TEALIUM_ACCOUNT>', profile: '<TEALIUM_PROFILE>', env: '<TEALIUM_ENV>' })), null, 'the placeholders never load');

@@ -22,7 +22,7 @@ const read = (p) => fs.readFileSync(p, 'utf8');
 const OWA_SHEET = read(path.join(root, 'tools/importer/owa-tracking-sheet.json'));
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
 const env = {
-  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lhcom.bbird.live,lhedge.bbird.live', EDGE_TTL: '60',
+  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page', EDGE_TTL: '60',
 };
 const sheet = (data) => ({
   total: data.length, offset: 0, limit: 1000, data, ':type': 'sheet',
@@ -30,7 +30,7 @@ const sheet = (data) => ({
 const row = (p, extra = {}) => ({
   path: p, title: `Page ${p.split('/').pop()} | Lufthansa`, description: `About ${p.split('/').pop()}`, markets: '', robots: '', 'primary-language-url': '', lastModified: '1793045388', ...extra,
 });
-const PAGE = (p) => `<!DOCTYPE html><html><head><title>${p}</title><link rel="canonical" href="https://lhcom.bbird.live${p}"></head>
+const PAGE = (p) => `<!DOCTYPE html><html><head><title>${p}</title><link rel="canonical" href="https://lufthansa.turnsthe.page${p}"></head>
 <body><header></header><main><div><h1>Addresses</h1><p><a href="/de/en/baggage">Baggage</a> <a href="/de/en/homepage">Home</a></p>
 <div class="micro-frontend"><div><div>app</div></div></div><picture><img src="./media_1.jpg?width=750" alt=""></picture></div></main><footer></footer></body></html>`;
 // the pages de/en's nav and footer link: in the language index, so the market serves them
@@ -78,7 +78,7 @@ const get = (p, host = 'lhedge.example', init = {}) => worker.fetch(new Request(
 test('hreflang of a market copy lists at/de and gb/en where their indexes have the page', async () => {
   const html = await (await get('/ch/en/baggage')).text();
   const KEEP = new Set(['en-DE', 'en-GB', 'en-CH', 'de-DE', 'de-AT', 'de-CH']);
-  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2].replace('https://lhcom.bbird.live', '')}`);
+  const alts = [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].filter((m) => KEEP.has(m[1])).map((m) => `${m[1]} ${m[2].replace('https://lufthansa.turnsthe.page', '')}`);
   assert.deepEqual(alts, ['en-DE /de/en/baggage', 'en-GB /gb/en/baggage', 'en-CH /ch/en/baggage', 'de-DE /de/de/gepaeck', 'de-AT /at/de/gepaeck', 'de-CH /ch/de/gepaeck']);
   const de = await (await get('/ch/en/addresses-worldwide')).text();
   assert.deepEqual([...de.matchAll(/hreflang="([^"]+)"/g)].map((m) => m[1]).filter((h) => KEEP.has(h)), ['en-DE', 'en-CH'], 'gb/en has no such page');
@@ -136,7 +136,7 @@ test('the app view of a market page: the market route\'s page, links in the solo
   assert.match(html, /<meta name="channel" content="app">/);
   assert.match(html, /href="\/ch\/en\/baggage\.solo_continue"/);
   assert.match(html, /href="https:\/\/www\.lufthansa\.com\.solo_continue\/"/, 'the homepage closes the web view');
-  assert.match(html, /<link rel="canonical" href="https:\/\/lhcom\.bbird\.live\/ch\/en\/addresses-worldwide">/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/lufthansa\.turnsthe\.page\/ch\/en\/addresses-worldwide">/);
   // another host: as before (the origin's answer for the ch path)
   assert.equal((await get('/ch/en/addresses-worldwide.solo_continue', 'lhcom.example')).status, 404);
 });
@@ -161,7 +161,7 @@ test('offline list and micro-frontend page of a market page', async () => {
   const mfe = await get('/ch/en/book-and-manage/trip-management.mfe.html');
   assert.equal(mfe.status, 200);
   assert.equal(mfe.headers.get('x-lh-edge-route'), 'mfe');
-  assert.match(await mfe.text(), /canonical" href="https:\/\/lhcom\.bbird\.live\/ch\/en\/book-and-manage\/trip-management"/);
+  assert.match(await mfe.text(), /canonical" href="https:\/\/lufthansa\.turnsthe\.page\/ch\/en\/book-and-manage\/trip-management"/);
   assert.equal((await get('/content/lh/markets/ch/en/addresses-worldwide.csi-offline.json', 'lhcom.example')).status, 404);
 });
 

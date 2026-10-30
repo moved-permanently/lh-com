@@ -17,7 +17,7 @@ globalThis.HTMLRewriter = HTMLRewriter;
 
 const ORIGIN = 'main--lh-com--moved-permanently.aem.live';
 const env = (extra = {}) => ({
-  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lhcom.bbird.live,lhedge.bbird.live', EDGE_TTL: '60', ...extra,
+  ORIGIN, WWW_HOST: 'www.lufthansa.com', PILOT_HOSTS: 'lhedge.example', ALIAS_REWRITE_HOSTS: 'lufthansa.turnsthe.page,lufthansa-edge.turnsthe.page', EDGE_TTL: '60', ...extra,
 });
 const row = (path, extra = {}) => ({
   path, title: `${path} | Lufthansa`, description: `About ${path}`, content: 'x'.repeat(200), markets: '', robots: '', 'primary-language-url': '', lastModified: '1793045388', 'llms-include': '', 'llms-title': '', 'llms-description': '', 'llms-category': '', 'ai-guidance': '', ...extra,
@@ -53,12 +53,12 @@ const leanOf = (pathname) => {
 const sheetJson = (rows, url, columns = null) => {
   const offset = Number(url.searchParams.get('offset') || 0);
   const limit = Number(url.searchParams.get('limit') || 1000);
-  const data = rows.slice(offset, offset + limit).map((r) => (columns ? { path: r.path, ...Object.fromEntries(columns.map((c) => [c, r[c] ?? ''])), canonical: `https://lhcom.bbird.live${r.path}` } : r));
+  const data = rows.slice(offset, offset + limit).map((r) => (columns ? { path: r.path, ...Object.fromEntries(columns.map((c) => [c, r[c] ?? ''])), canonical: `https://lufthansa.turnsthe.page${r.path}` } : r));
   return JSON.stringify({
     total: rows.length, offset, limit: data.length, data, columns: ['path', ...(columns || []), 'canonical'], ':type': 'sheet',
   });
 };
-const page = (path) => `<!DOCTYPE html><html><head><title>${path}</title><link rel="canonical" href="https://lhcom.bbird.live${path}"></head>
+const page = (path) => `<!DOCTYPE html><html><head><title>${path}</title><link rel="canonical" href="https://lufthansa.turnsthe.page${path}"></head>
 <body><header></header><main><div><p><a href="/de/en/baggage">b</a> <a href="/de/en/event/de-only">d</a> <a href="/de/en/not-ch">n</a> <a href="/de/en/flights">f</a></p></div></main><footer></footer></body></html>`;
 
 let calls;
