@@ -21,7 +21,8 @@ import { MODEL_COLUMNS, LLMS_COLUMNS } from '../workers/lh-edge/src/market-lean.
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const FILE = path.join(root, 'helix-query.yaml');
-export const ROOTS = ['de/en', 'de/de', 'at/de', 'gb/en'];
+// xx/fr: lh-discover's French language version (brief 124)
+export const ROOTS = ['de/en', 'de/de', 'at/de', 'gb/en', 'xx/fr'];
 // the columns lh-edge reads, kept in its module (its tests run without this tool's dependencies)
 export { MODEL_COLUMNS, LLMS_COLUMNS };
 
