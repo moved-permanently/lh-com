@@ -37,6 +37,8 @@ const LOCALE_LABELS = {
   'de/de': 'Deutschland | Deutsch',
   'at/de': 'Österreich | Deutsch',
   'gb/en': 'United Kingdom | English',
+  // lh-discover's French nav and footer (brief 157): www's ca/fr label
+  'ca/fr': 'Canada | Français',
 };
 
 const FALLBACK_LABELS = {
@@ -45,6 +47,11 @@ const FALLBACK_LABELS = {
   },
   de: {
     cart: 'Warenkorb', search: 'Suche', searchField: 'Suchbegriff eingeben', menu: 'Menü', login: 'Login',
+  },
+  // lh-discover's French roots: www's words where it has them (its footer's "Rechercher", its
+  // login's "Connexion", its "Menu")
+  fr: {
+    cart: 'Panier', search: 'Rechercher', searchField: 'Rechercher', menu: 'Menu', login: 'Connexion',
   },
 };
 
