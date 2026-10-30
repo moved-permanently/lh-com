@@ -5,7 +5,10 @@
  * which are market roots answered from them by src/markets.js), its own Edge Delivery origin (var
  * SITE_ORIGINS "site=main--<repo>--<owner>.aem.live", checked like ORIGIN) and the host its links
  * name on the source web site (var SITE_WWW_HOSTS "site=www.example.com"). Host names stay in
- * vars; a site without an origin in SITE_ORIGINS is not served.
+ * vars; a site without an origin in SITE_ORIGINS is not served. A site without <cc>/<ll> roots
+ * (PLAIN_SITES) has no locale table: its paths pass through to its origin as they are, only its
+ * entry paths redirect. www's design-system files (/digitalhangar/, the brand fonts) come from the
+ * site's host in the var SITE_DESIGN_HOSTS ("site=www.example.com"; none: the origin's answer).
  * lh-com's own table (scripts/locale-table.js) is LH_TABLES: every route reads it as before.
  */
 /* eslint-disable import/no-relative-packages */
@@ -81,6 +84,23 @@ export const SITES = {
   }),
 };
 
+/**
+ * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
+ * to the site's origin as it is; entry: the paths that redirect (302) as on the source.
+ */
+export const PLAIN_SITES = {
+  // Lufthansa Cargo (DA moved-permanently/lh-cargo, www.lufthansa-cargo.com): / redirects to
+  // /en/home there, /en/ and /de/ serve the homepage, whose documents are /en/home and /de/home
+  cargo: {
+    entry: {
+      '/': '/en/home', '/en': '/en/home', '/en/': '/en/home', '/de': '/de/home', '/de/': '/de/home',
+    },
+  },
+  // Air Dolomiti (DA moved-permanently/lh-airdolomiti, www.airdolomiti.it): Italian at /, English
+  // at /en/..., German at /de/..., as on the source: no redirects
+  airdolomiti: { entry: {} },
+};
+
 const pairs = (value) => {
   const map = {};
   String(value || '').split(';').forEach((entry) => {
@@ -101,11 +121,16 @@ const ORIGIN_SHAPE = /^main--[a-z0-9-]+--[a-z0-9-]+\.aem\.(live|page)$/;
 export function siteOf(request, env = {}) {
   const host = new URL(request.url).hostname.toLowerCase();
   const name = pairs(env.SITE_HOSTS)[host];
-  if (!name || !SITES[name]) return null;
+  if (!name || !(SITES[name] || PLAIN_SITES[name])) return null;
   const origin = pairs(env.SITE_ORIGINS)[name];
   if (!origin || !ORIGIN_SHAPE.test(origin)) return null;
   return {
-    name, tables: SITES[name], origin, www: pairs(env.SITE_WWW_HOSTS)[name] || '',
+    name,
+    tables: SITES[name] || null,
+    plain: SITES[name] ? null : PLAIN_SITES[name],
+    origin,
+    www: pairs(env.SITE_WWW_HOSTS)[name] || '',
+    design: pairs(env.SITE_DESIGN_HOSTS)[name] || '',
   };
 }
 
@@ -119,7 +144,9 @@ export function siteEnv(env, site) {
     ORIGIN: site.origin,
     WWW_HOST: site.www || env.WWW_HOST,
     SITE: site.name,
-    SITE_TABLES: site.tables,
+    // a plain site has none: no route of it reads the tables
+    SITE_TABLES: site.tables || undefined,
+    DESIGN_HOST: site.design,
     PILOT_HOSTS: '',
     PILOT_COUNTRIES_BY_HOST: '',
   };

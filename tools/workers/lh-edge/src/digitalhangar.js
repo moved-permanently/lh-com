@@ -1,8 +1,9 @@
 /**
  * /digitalhangar/*: www's design-system files, above all the brand fonts that every www loads from
  * /digitalhangar/design-system/releases/<release>/standalone/fonts/ (styles/fonts.css, the
- * themes), from the host's brand www: a site's SITE_WWW_HOSTS host (siteEnv's WWW_HOST), else
- * WWW_HOST, else www.lufthansa.com. Upstream's status and headers are handed on as they are
+ * themes), from the host's brand www: a site's SITE_DESIGN_HOSTS host (siteEnv's DESIGN_HOST;
+ * Cargo uses Lufthansa's; a site without one doesn't take this route), else WWW_HOST (lh-com's
+ * hosts), else www.lufthansa.com. Upstream's status and headers are handed on as they are
  * (cache-control included: www's max-age, no override), cached at the edge for that
  * cache-control (cacheEverything); a revalidation's conditions go upstream, so its 304 comes back.
  * No request cookies go upstream; no upstream cookie comes back (www's bot cookies are for www).
@@ -16,7 +17,7 @@ export const isDigitalhangarPath = (pathname) => DIGITALHANGAR.test(pathname);
 
 /** The www URL of a /digitalhangar/ request. */
 export function digitalhangarUpstream(url, env = {}) {
-  const host = String(env.WWW_HOST || '').trim() || DEFAULT_WWW;
+  const host = String(env.DESIGN_HOST || env.WWW_HOST || '').trim() || DEFAULT_WWW;
   return `https://${host}${url.pathname}${url.search}`;
 }
 

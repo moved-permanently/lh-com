@@ -1,0 +1,62 @@
+[
+ {
+  "key": "GET /metadata.json",
+  "path": "/metadata.json",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "application/json",
+  "hash": "7f6a5b7362bdfdf2",
+  "route": ""
+ },
+ {
+  "key": "GET /robots.txt",
+  "path": "/robots.txt",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "text/plain; charset=utf-8",
+  "hash": "331ea9090db0c9f6",
+  "route": ""
+ },
+ {
+  "key": "GET /",
+  "path": "/",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /en/",
+  "path": "/en/",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /de/",
+  "path": "/de/",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "0b9b30cc42d6566d",
+  "route": ""
+ },
+ {
+  "key": "GET /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "path": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "method": "GET",
+  "status": 404,
+  "location": "",
+  "type": "text/html; charset=utf-8",
+  "hash": "7addd0370242dbf8",
+  "route": ""
+ }
+]

@@ -146,10 +146,24 @@ nl/nl, br/pt, gr/el, jp/ja hold the language documents; 50 market roots (35 Engl
 xx/nl, xx/pt, xx/ja) get them where the document's `markets` row lists the root (lh-ita writes roots, `be/fr, ch/fr`;
 `scripts/market-rules.js` reads a root as its country). hreflang `<ll>-<CC>`, an xx root's the language alone.
 
+Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
+route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the
+site's `entry` paths redirect (302, `cache-control: max-age=60`). OneTrust and the immutable fonts as on every host.
+Lufthansa Cargo (`cargo`, DA `moved-permanently/lh-cargo`, www.lufthansa-cargo.com): `/`, `/en`, `/en/` to `/en/home`,
+`/de`, `/de/` to `/de/home` (the source redirects `/` to `/en/home` and serves the homepage at `/en/` and `/de/`).
+Air Dolomiti (`airdolomiti`, DA `moved-permanently/lh-airdolomiti`, www.airdolomiti.it): Italian at `/`, English at
+`/en/...`, German at `/de/...`, no redirects.
+
+`/digitalhangar/*` (www's design-system files, the brand fonts) on a site's host comes from its `SITE_DESIGN_HOSTS`
+host; a site without one gets its origin's answer (Air Dolomiti, until its theme brings its own fonts: 404). Cargo's is
+www.lufthansa.com: it uses Lufthansa's fonts, and www.lufthansa-cargo.com doesn't serve the design system (it answers
+scripts with a challenge), while its links still name www.lufthansa-cargo.com (`SITE_WWW_HOSTS`).
+
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa.com"
 ```
 
 Check first against the preview origin (documents on preview only):
@@ -204,7 +218,7 @@ and every file keep their answers, and nothing under the code paths, `/drafts`, 
 | --- | --- | --- |
 | `onetrust` | GET/HEAD `/onetrust/*`, `/logos/*` (every host, also other sites' and the front door) | `https://cdn.cookielaw.org/*` and `https://cdn.cookielaw.org/logos/*` byte for byte with their headers, cached at the edge for the upstream's `cache-control` (`src/onetrust.js`): the cookie banner from the page's own host (brief 150; OneTrust derives the SDK, config, language and asset URLs from its stub's URL, the two logos come from `<origin>/logos/`); no request cookies upstream, upstream `set-cookie` dropped |
 | `fonts` | GET/HEAD `/fonts/lufthansa/v<version>/<file>` (every host) | the origin's file with `cache-control: public, max-age=31536000, immutable` (a versioned path); other statuses unchanged |
-| `digitalhangar` | GET/HEAD `/digitalhangar/*` (every host, also other sites' and the front door) | the host's brand www (`SITE_WWW_HOSTS`, else `WWW_HOST`, else www.lufthansa.com): www's design-system files, above all the brand fonts under `/digitalhangar/design-system/releases/<release>/standalone/fonts/` that `styles/fonts.css` and the themes name; upstream's status and headers unchanged (www's `cache-control: public, max-age=300` and `access-control-allow-origin: *`, no override), cached at the edge for that cache-control, a revalidation's conditions go upstream (`src/digitalhangar.js`); no request cookies upstream, upstream `set-cookie` dropped |
+| `digitalhangar` | GET/HEAD `/digitalhangar/*` (every host, also other sites' and the front door) | the host's brand www (a site's `SITE_DESIGN_HOSTS` host, a site without one: its origin's answer; else `WWW_HOST`, else www.lufthansa.com): www's design-system files, above all the brand fonts under `/digitalhangar/design-system/releases/<release>/standalone/fonts/` that `styles/fonts.css` and the themes name; upstream's status and headers unchanged (www's `cache-control: public, max-age=300` and `access-control-allow-origin: *`, no override), cached at the edge for that cache-control, a revalidation's conditions go upstream (`src/digitalhangar.js`); no request cookies upstream, upstream `set-cookie` dropped |
 | `events` | GET/HEAD `/_lh/events.json` | the last 500 publish events, newest first (`src/events.js`, see "Publish events"); `cache-control: no-store` |
 | `events-webhook` | POST `/_lh/events/webhook` | the site config's webhook: reads the audit log range of its `nextToken` (see "Publish events") |
 | `csi-xf` | GET/HEAD `/content/experience-fragments/<folder>.csi-xf.json` | www's fragment catalog of a folder (`src/xf.js`), from the query index `/xf/query-index.json` (documents under `/xf/` with `xf-path`, `xf-kind`, `xf-tags`; `tools/importer/build-xf-docs.mjs`): sub-folders nested, `experienceFragments` with `sdui` links and variants; `no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires: 0`; outside `/content/experience-fragments/lh/` 400 `{}` |
@@ -459,7 +473,7 @@ The state-changing POSTs lh-edge answers itself (`.changelocale`, `.mfe.html` po
 
 ## Smoke check (`smoke.mjs`)
 
-Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lufthansa.turnsthe.page, lufthansa-edge.turnsthe.page, discover.turnsthe.page). The replica's own host names (and the retired bbird.live names an old link may carry) are masked as `HOST` in bodies and locations.
+Records per request status, location, content type, content range and a body hash (nonces masked) for today's paths: the four roots, app screens (SDUI, solo), GraphQL feeds and the Message Center, DAM images, a DAM video with `Range: bytes=0-99` and its subtitles, entry redirects, the ch market roots, the DA documents at long paths (`/content/lh/markets/de/en/during-your-trip/lounges/loungenet` and two below it), sitemaps, llms, the well-known files and the server endpoints lh-edge answers (search, login link, default airport, booking list, the kiosk POST). Baselines per host are in `smoke/<host>.json` (lufthansa.turnsthe.page, lufthansa-edge.turnsthe.page, discover.turnsthe.page, cargo.turnsthe.page, airdolomiti.turnsthe.page). The hosts of the sites without roots (cargo, airdolomiti) get `PLAIN_CHECKS` instead: `/metadata.json`, `/robots.txt`, the entry paths `/`, `/en/`, `/de/` and a font under `/digitalhangar/` (their pages join with their batches); `--set plain` chooses them for another host and `--name <host>` names the baseline, e.g. before a host is attached, against `npx -y wrangler@4 dev --port 8787 --local-upstream cargo.turnsthe.page`: `node smoke.mjs --host http://localhost:8787 --set plain --name cargo.turnsthe.page --update`. Before and after a deploy: lufthansa, lufthansa-edge, lufthansa-cn, discover, ita, cargo and airdolomiti.turnsthe.page. The replica's own host names (and the retired bbird.live names an old link may carry) are masked as `HOST` in bodies and locations.
 
 ```sh
 node tools/workers/lh-edge/smoke.mjs --host https://lufthansa-edge.turnsthe.page --check    # against smoke/lufthansa-edge.turnsthe.page.json

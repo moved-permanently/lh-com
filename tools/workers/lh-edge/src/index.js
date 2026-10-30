@@ -365,10 +365,18 @@ async function siteRespond(incoming, env, site, ctx) {
   const url = new URL(incoming.url);
   const read = ['GET', 'HEAD'].includes(incoming.method);
   // OneTrust from the host and the immutable fonts, as on lh-com's hosts; www's design-system
-  // files from the site's own www
+  // files from the site's design host (SITE_DESIGN_HOSTS; none: the origin's answer)
   if (read && isOnetrustPath(url.pathname)) return finish(await onetrust(incoming), incoming, senv, 'onetrust');
   if (read && isFontsPath(url.pathname)) return finish(await fonts(incoming, senv, passThrough), incoming, senv, 'fonts');
-  if (read && isDigitalhangarPath(url.pathname)) return finish(await digitalhangar(incoming, senv), incoming, senv, 'digitalhangar');
+  if (read && site.design && isDigitalhangarPath(url.pathname)) return finish(await digitalhangar(incoming, senv), incoming, senv, 'digitalhangar');
+  // a site without roots (src/sites.js PLAIN_SITES): its entry redirects, every other path as it is
+  if (site.plain) {
+    const target = read && site.plain.entry[url.pathname];
+    if (target) {
+      return finish(new Response(null, { status: 302, headers: { location: `${target}${url.search}`, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
+    }
+    return finish(await passThrough(incoming, senv), incoming, senv, 'site');
+  }
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
   if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {

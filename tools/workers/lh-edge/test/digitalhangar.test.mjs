@@ -16,6 +16,7 @@ const env = (extra = {}) => ({
   SITE_HOSTS: 'discover.example=discover; ita.example=ita',
   SITE_ORIGINS: 'discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live',
   SITE_WWW_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com',
+  SITE_DESIGN_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com',
   ...extra,
 });
 // www's headers for a font file (2026-10-30)

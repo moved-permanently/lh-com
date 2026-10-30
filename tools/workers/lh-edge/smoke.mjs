@@ -15,6 +15,9 @@
  *   node tools/workers/lh-edge/smoke.mjs --compare before.json after.json
  *   [--video /content/dam/…/x.mp4] [--subtitle /content/dam/…/x.vtt]: the DAM video checked with
  *   Range: bytes=0-99, and its subtitle file
+ * The hosts of the sites without roots (src/sites.js PLAIN_SITES: cargo, airdolomiti) get their own
+ * few checks (PLAIN_CHECKS; --set plain chooses them for another host, e.g. a wrangler dev run;
+ * --name <host> names the baseline file then).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -82,6 +85,15 @@ export const CHECKS = [
   },
 ];
 
+// the sites without roots (cargo.turnsthe.page, airdolomiti.turnsthe.page): their metadata and
+// robots, the entry paths, the fonts from /digitalhangar/ (their pages come with their batches)
+export const PLAIN_CHECKS = [
+  ...['/metadata.json', '/robots.txt', '/', '/en/', '/de/'].map((p) => ({ path: p })),
+  { path: '/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2' },
+];
+const PLAIN_HOSTS = /^(cargo|airdolomiti)\.turnsthe\.page$/;
+const checksOf = (host) => (opt('set') === 'plain' || PLAIN_HOSTS.test(new URL(host).hostname) ? PLAIN_CHECKS : CHECKS);
+
 // the replica's host names in bodies and locations (the retired bbird.live names too: content and
 // recorded answers may still carry them), masked so a page answers the same on each host
 const REPLICA_HOSTS = /\b(lhcom|lhedge|lhcn)\.bbird\.live\b|\blufthansa(-edge|-cn)?\.turnsthe\.page\b/g;
@@ -94,7 +106,7 @@ const mask = (text) => text.replace(/\snonce="[^"]*"/g, '').replace(/"(etag|date
 
 async function run(host) {
   const out = [];
-  for (const c of CHECKS) {
+  for (const c of checksOf(host)) {
     const resp = await fetch(`${host}${c.path}`, {
       method: c.method || 'GET', headers: c.headers || {}, body: c.body, redirect: 'manual',
     });
@@ -141,7 +153,7 @@ const report = (a, b) => {
   process.exitCode = diffs.length ? 1 : 0;
 };
 
-const baselineOf = (host) => path.join(here, 'smoke', `${new URL(host).host}.json`);
+const baselineOf = (host) => path.join(here, 'smoke', `${opt('name') || new URL(host).host}.json`);
 
 if (argv.includes('--compare')) {
   const i = argv.indexOf('--compare');
