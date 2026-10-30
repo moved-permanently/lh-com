@@ -473,6 +473,18 @@ export function marketHref(href, {
 
 const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
+const KEEP = 'data-lh-market-keep';
+
+/**
+ * A nav document whose country list (the list right after the globe label: each country's
+ * homepage, as www's selector) keeps its links: the language version's own homepage stays the
+ * language version's ("Germany" is /de/en/homepage on every root, as on www), not the market
+ * root's. The marked links are left alone by marketHtml.
+ */
+export function keepCountryList(html) {
+  return html.replace(/(<span class="icon icon-globe"><\/span>[^<]*<\/p>\s*<ul>)([\s\S]*?)(<\/ul>)/, (m, head, list, tail) => `${head}${list.replace(/<a /g, `<a ${KEEP} `)}${tail}`);
+}
+
 /**
  * A nav or footer document with the root's country and language label (the text after the globe
  * icon: the header's selector, the footer's locale button) instead of its language version's.
@@ -485,6 +497,11 @@ export function withRootLabel(html, label) {
 export function marketHtml(resp, ctx) {
   const link = (attr) => ({
     element(e) {
+      // a link the document keeps as it is (keepCountryList: the header's country list)
+      if (e.getAttribute(KEEP) !== null) {
+        e.removeAttribute(KEEP);
+        return;
+      }
       const next = marketHref(e.getAttribute(attr), ctx);
       if (next !== null) e.setAttribute(attr, next);
     },
@@ -951,9 +968,13 @@ export async function market(request, env) {
   if (meta && !marketAllows(meta[1], root.split('/')[0])) return own;
   // sections whose section metadata `markets` excludes the country are left out; the nav and
   // footer of a root with a label of its own (a site's row) name the root, not the language version
-  const label = /^\/(nav|footer)$/.test(suffix) && t.table[root].label;
+  // nav and footer name the root (a site's label, lh-com's name: www's label for the root) and the
+  // nav's country list keeps its targets
+  const row = t.table[root];
+  const label = /^\/(nav|footer)$/.test(suffix) && (row.label || row.name);
   const kept = dropMarketSections(html, root.split('/')[0]);
-  const body = label ? withRootLabel(kept, label) : kept;
+  const labelled = label ? withRootLabel(kept, label) : kept;
+  const body = suffix === '/nav' ? keepCountryList(labelled) : labelled;
   const resp = new Response(body, { status: doc.status, headers });
   return marketHtml(resp, {
     ...ctx,

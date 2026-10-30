@@ -38,6 +38,10 @@ export default class HTMLRewriter {
       const el = {
         tagName: tag,
         getAttribute: (n) => (attrs.find(([k]) => k === n) || [])[1] ?? null,
+        removeAttribute: (n) => {
+          const i = attrs.findIndex(([k]) => k === n);
+          if (i >= 0) { attrs.splice(i, 1); changed = true; }
+        },
         setAttribute: (n, v) => {
           const a = attrs.find(([k]) => k === n);
           if (a) a[1] = v; else attrs.push([n, v]);

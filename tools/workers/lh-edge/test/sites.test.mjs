@@ -3,7 +3,9 @@ import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker from '../src/index.js';
-import { resetMarketCache, withRootLabel, MARKET_ROOTS } from '../src/markets.js';
+import {
+  resetMarketCache, withRootLabel, keepCountryList, MARKET_ROOTS,
+} from '../src/markets.js';
 import { siteOf, SITES, LH_TABLES } from '../src/sites.js';
 /* eslint-disable-next-line import/no-relative-packages */
 import { edsDamPath } from '../../../../scripts/dam-path.js';
@@ -35,7 +37,7 @@ const DISCOVER_FILES = {
   '/de/en/homepage': page('/de/en/homepage', '<h1>de/en homepage</h1>'),
   // the language versions' nav and footer (the market roots have none of their own)
   '/de/en/footer.plain.html': '<div><p><span class="icon icon-search"></span><a href="https://www.discover-airlines.com/de/en/support/search/search-result?query=">Enter search term</a></p><p><span class="icon icon-globe"></span>Germany | English</p></div><div><ul><li><a href="/de/en/legal/imprint">Imprint</a></li></ul></div>',
-  '/de/en/nav.plain.html': '<div><ul><li><p><span class="icon icon-globe"></span>Germany | English</p><ul><li><a href="/de/en/homepage">Germany</a></li></ul></li></ul></div>',
+  '/de/en/nav.plain.html': '<div><p><a href="/de/en/homepage"><img src="./logo.svg" alt="Discover"></a></p><ul><li><p><span class="icon icon-globe"></span>Germany | English</p><ul><li><a href="/ca/en/homepage">Canada</a></li><li><a href="/de/en/homepage">Germany</a></li><li><a href="/us/en/homepage">USA</a></li></ul></li><li><a href="/de/en/legal/imprint">Imprint</a></li></ul></div>',
   '/de/de/footer.plain.html': '<div><p><span class="icon icon-globe"></span>Deutschland | Deutsch</p></div>',
   '/xx/fr/footer.plain.html': '<div><p><span class="icon icon-globe"></span>Autre pays | Français</p></div>',
 };
@@ -275,4 +277,16 @@ test('sites: a market root\'s nav and footer name the root (www\'s label, the si
 test('withRootLabel: the text after every globe icon, escaped; documents without one unchanged', () => {
   assert.equal(withRootLabel('<p><span class="icon icon-globe"></span>Germany | English</p><p>x</p>', 'A & B <c>'), '<p><span class="icon icon-globe"></span>A &amp; B &lt;c></p><p>x</p>');
   assert.equal(withRootLabel('<p>Germany | English</p>', 'USA | English'), '<p>Germany | English</p>');
+});
+
+test('sites: the header\'s country list on a market root keeps its targets ("Germany" is de/en\'s homepage, as on www); other links the root\'s', async () => {
+  const nav = await (await get('https://discover.example/us/en/nav.plain.html')).text();
+  assert.match(nav, /<a href="\/ca\/en\/homepage">Canada<\/a>/);
+  assert.match(nav, /<a href="\/de\/en\/homepage">Germany<\/a>/);
+  assert.match(nav, /<a href="\/us\/en\/homepage">USA<\/a>/);
+  assert.match(nav, /<a href="\/us\/en\/homepage"><img/, 'the logo: the market root\'s homepage');
+  assert.match(nav, /<a href="\/us\/en\/legal\/imprint">Imprint<\/a>/);
+  assert.doesNotMatch(nav, /data-lh-market-keep/);
+  const lhNav = '<li><span class="icon icon-globe"></span>Germany | English</li></ul><ul><li><a href="/de/en/x">x</a></li></ul>';
+  assert.equal(keepCountryList(lhNav), lhNav, 'no list right after the label (lh-com\'s nav): nothing kept');
 });

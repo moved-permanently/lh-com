@@ -215,3 +215,27 @@ test('llms.txt in the edge cache: one entry per public host (a CDN in front call
   assert.equal(viaCdn.status, 404, 'the CDN host gets its own answer, not the pilot host\'s cached one');
   delete globalThis.caches;
 });
+
+test('a pilot market root\'s nav and footer name the root (the locale table\'s name: www\'s label), the language version\'s keep de/en\'s', async () => {
+  const plain = globalThis.fetch;
+  const DOC = {
+    '/de/en/footer.plain.html': '<div><p><span class="icon icon-globe"></span>Germany | English</p></div><div><ul><li><a href="/de/en/baggage">Baggage</a></li></ul></div>',
+    '/de/en/nav.plain.html': '<div><ul><li><span class="icon icon-globe"></span>Germany | English</li></ul></div>',
+  };
+  globalThis.fetch = async (input, init) => {
+    const u = new URL(input instanceof Request ? input.url : input);
+    if (DOC[u.pathname]) return new Response(DOC[u.pathname], { headers: { 'content-type': 'text/html' } });
+    return plain(input, init);
+  };
+  try {
+    const label = async (p, host) => ((await (await get(p, host)).text()).match(/icon-globe"><\/span>([^<]*)/) || [])[1];
+    assert.equal(await label('/ae/en/footer.plain.html'), 'United Arab Emirates | English');
+    assert.equal(await label('/at/en/nav.plain.html'), 'Austria | English');
+    assert.match(await (await get('/ae/en/footer.plain.html')).text(), /href="\/ae\/en\/baggage"/, 'links as before');
+    assert.equal(await label('/de/en/footer.plain.html'), 'Germany | English', 'the language version: its own document');
+    // a host the pilot rows aren't served on: the origin's answer for the path, as before
+    assert.equal((await get('/ae/en/footer.plain.html', 'lhcom.example')).status, 404);
+  } finally {
+    globalThis.fetch = plain;
+  }
+});
