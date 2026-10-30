@@ -1,0 +1,204 @@
+{
+ "docs": {
+  "/it/en/book-and-prepare/travel-information/at-the-airport/lounges": {
+   "uploaded": "2026-10-30T05:23:56.807Z",
+   "mtime": 1793337780974,
+   "preview": "2026-10-30T05:23:59.289Z"
+  },
+  "/it/en/book-and-prepare/travel-information/baggage": {
+   "uploaded": "2026-10-30T05:23:50.794Z",
+   "mtime": 1793337781129,
+   "preview": "2026-10-30T05:23:52.503Z"
+  },
+  "/it/en/footer": {
+   "uploaded": "2026-10-30T05:25:38.429Z",
+   "mtime": 1793337809369,
+   "preview": "2026-10-30T05:25:40.634Z"
+  },
+  "/it/en/homepage": {
+   "uploaded": "2026-10-30T05:23:41.711Z",
+   "mtime": 1793337781192,
+   "preview": "2026-10-30T05:23:43.487Z"
+  },
+  "/it/en/manage-my-bookings/partners/car-rental": {
+   "uploaded": "2026-10-30T05:24:13.537Z",
+   "mtime": 1793337781526,
+   "preview": "2026-10-30T05:24:15.268Z"
+  },
+  "/it/en/nav": {
+   "uploaded": "2026-10-30T05:25:34.916Z",
+   "mtime": 1793337809339,
+   "preview": "2026-10-30T05:25:37.179Z"
+  },
+  "/it/en/book-and-prepare/book-flights": {
+   "uploaded": "2026-10-30T05:24:23.241Z",
+   "mtime": 1793337780848,
+   "preview": "2026-10-30T05:24:25.071Z"
+  },
+  "/it/en/book-and-prepare/offers-and-destinations": {
+   "uploaded": "2026-10-30T05:24:38.451Z",
+   "mtime": 1793337780892,
+   "preview": "2026-10-30T05:24:40.042Z"
+  },
+  "/it/en/book-and-prepare/other-requests/accessible-travel": {
+   "uploaded": "2026-10-30T05:24:16.512Z",
+   "mtime": 1793337781859,
+   "preview": "2026-10-30T05:24:18.548Z"
+  },
+  "/it/en/book-and-prepare/travel-information/at-the-airport/priority/priority-gates": {
+   "uploaded": "2026-10-30T05:24:10.289Z",
+   "mtime": 1793337780999,
+   "preview": "2026-10-30T05:24:12.222Z"
+  },
+  "/it/en/book-and-prepare/travel-information/baggage/carry-on-baggage": {
+   "uploaded": "2026-10-30T05:25:10.579Z",
+   "mtime": 1793337781051,
+   "preview": "2026-10-30T05:25:12.280Z"
+  },
+  "/it/en/book-and-prepare/travel-information/baggage/checked-baggage": {
+   "uploaded": "2026-10-30T05:25:07.384Z",
+   "mtime": 1793337781077,
+   "preview": "2026-10-30T05:25:09.353Z"
+  },
+  "/it/en/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items": {
+   "uploaded": "2026-10-30T05:24:03.571Z",
+   "mtime": 1793337781828,
+   "preview": "2026-10-30T05:24:05.906Z"
+  },
+  "/it/en/help-and-contact": {
+   "uploaded": "2026-10-30T05:24:20.287Z",
+   "mtime": 1793337781167,
+   "preview": "2026-10-30T05:24:21.967Z"
+  },
+  "/it/en/legal": {
+   "uploaded": "2026-10-30T05:24:47.297Z",
+   "mtime": 1793337781394,
+   "preview": "2026-10-30T05:24:48.691Z"
+  },
+  "/it/en/legal/accessibility-statement": {
+   "uploaded": "2026-10-30T05:24:58.531Z",
+   "mtime": 1793337781917,
+   "preview": "2026-10-30T05:25:00.069Z"
+  },
+  "/it/en/legal/conditions-of-carriage-group/conditions-of-carriage-ita": {
+   "uploaded": "2026-10-30T05:24:55.790Z",
+   "mtime": 1793337781254,
+   "preview": "2026-10-30T05:24:57.333Z"
+  },
+  "/it/en/legal/cookie-policy": {
+   "uploaded": "2026-10-30T05:24:52.858Z",
+   "mtime": 1793337781280,
+   "preview": "2026-10-30T05:24:54.557Z"
+  },
+  "/it/en/legal/data-protection-overview/data-protection-ita": {
+   "uploaded": "2026-10-30T05:25:04.460Z",
+   "mtime": 1793337781318,
+   "preview": "2026-10-30T05:25:05.979Z"
+  },
+  "/it/en/legal/imprint": {
+   "uploaded": "2026-10-30T05:25:01.494Z",
+   "mtime": 1793337781346,
+   "preview": "2026-10-30T05:25:02.932Z"
+  },
+  "/it/en/legal/passenger-rights": {
+   "uploaded": "2026-10-30T05:24:50.058Z",
+   "mtime": 1793337781372,
+   "preview": "2026-10-30T05:24:51.494Z"
+  },
+  "/it/en/manage-my-bookings/extra-services/seats-selection": {
+   "uploaded": "2026-10-30T05:23:53.731Z",
+   "mtime": 1793337781417,
+   "preview": "2026-10-30T05:23:55.378Z"
+  },
+  "/it/en/manage-my-bookings/manage/change-and-refund": {
+   "uploaded": "2026-10-30T05:24:35.527Z",
+   "mtime": 1793337781441,
+   "preview": "2026-10-30T05:24:37.202Z"
+  },
+  "/it/en/manage-my-bookings/manage/check-in": {
+   "uploaded": "2026-10-30T05:24:26.521Z",
+   "mtime": 1793337781464,
+   "preview": "2026-10-30T05:24:28.292Z"
+  },
+  "/it/en/manage-my-bookings/manage/flight-status": {
+   "uploaded": "2026-10-30T05:24:29.418Z",
+   "mtime": 1793337781486,
+   "preview": "2026-10-30T05:24:31.107Z"
+  },
+  "/it/en/manage-my-bookings/manage/manage-my-bookings": {
+   "uploaded": "2026-10-30T05:24:32.319Z",
+   "mtime": 1793337781505,
+   "preview": "2026-10-30T05:24:34.070Z"
+  },
+  "/it/en/manage-my-bookings/partners": {
+   "uploaded": "2026-10-30T05:24:00.651Z",
+   "mtime": 1793337781549,
+   "preview": "2026-10-30T05:24:02.314Z"
+  },
+  "/it/en/support/utilities/contact": {
+   "uploaded": "2026-10-30T05:23:44.889Z",
+   "mtime": 1793337781601,
+   "preview": "2026-10-30T05:23:46.465Z"
+  },
+  "/it/en/support/utilities/payment-methods": {
+   "uploaded": "2026-10-30T05:24:44.469Z",
+   "mtime": 1793337781623,
+   "preview": "2026-10-30T05:24:46.053Z"
+  },
+  "/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul": {
+   "uploaded": "2026-10-30T05:25:13.522Z",
+   "mtime": 1793337781648,
+   "preview": "2026-10-30T05:25:15.187Z"
+  },
+  "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app": {
+   "uploaded": "2026-10-30T05:24:41.240Z",
+   "mtime": 1793337781685,
+   "preview": "2026-10-30T05:24:42.889Z"
+  },
+  "/it/en/world-of-ita-airways/discover-ita-airways/roma-fiumicino": {
+   "uploaded": "2026-10-30T05:23:47.726Z",
+   "mtime": 1793337781711,
+   "preview": "2026-10-30T05:23:49.634Z"
+  },
+  "/it/en/world-of-ita-airways/services-on-board/catering/children-meals": {
+   "uploaded": "2026-10-30T05:24:07.353Z",
+   "mtime": 1793337781758,
+   "preview": "2026-10-30T05:24:08.990Z"
+  },
+  "/it/en/world-of-ita-airways/travel-classes/business-long-haul": {
+   "uploaded": "2026-10-30T05:25:16.446Z",
+   "mtime": 1793337781955,
+   "preview": "2026-10-30T05:25:18.426Z"
+  },
+  "/it/en/support/support-faq/baggage-faq": {
+   "uploaded": "2026-10-30T05:25:19.627Z",
+   "mtime": 1793337781577,
+   "preview": "2026-10-30T05:25:21.324Z"
+  },
+  "/it/en/world-of-ita-airways/discover-ita-airways/sustainability/female-talent": {
+   "uploaded": "2026-10-30T05:25:22.581Z",
+   "mtime": 1793337809956,
+   "preview": "2026-10-30T05:25:24.538Z"
+  },
+  "/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand": {
+   "uploaded": "2026-10-30T05:25:25.926Z",
+   "mtime": 1793337780949,
+   "preview": "2026-10-30T05:25:27.471Z"
+  },
+  "/it/en/book-and-prepare/travel-information/at-the-airport/security-waiting-times": {
+   "uploaded": "2026-10-30T05:32:06.598Z",
+   "mtime": 1793338325630,
+   "preview": "2026-10-30T05:32:08.255Z"
+  },
+  "/it/en/book-and-prepare/offers/mice": {
+   "uploaded": "2026-10-30T05:25:31.899Z",
+   "mtime": 1793337780870,
+   "preview": "2026-10-30T05:25:33.624Z"
+  }
+ },
+ "media": {
+  "/media-da/ita/paypal-white.png": {
+   "at": "2026-10-30T04:22:23.013Z"
+  }
+ }
+}
