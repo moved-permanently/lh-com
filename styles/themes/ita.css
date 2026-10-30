@@ -3,15 +3,20 @@
  * `brand: ita` (lh-ita's /metadata.json). Values from www.ita-airways.com's design system
  * (mausy v1.40.1): text and headings ITA dark blue, ITA blue for the header bar, the footer, the
  * primary button and links, ITA's greys and status colours. Fonts: www's Open Sans (Regular and
- * Bold, cleared for the demo), served from this repository (/fonts/ita/). The logo is the image in
- * the site's nav documents. lh-com's own pages never load this file.
+ * Bold, woff only, cleared for the demo) at www's own path
+ * /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/: from the site's own
+ * host where lh-edge serves it (its digitalhangar route: www.ita-airways.com's file and headers),
+ * else www.ita-airways.com's absolute URL of the same file (the second src). The logo is the image
+ * in the site's nav documents. lh-com's own pages never load this file.
  */
 @font-face {
   font-family: OpenSans;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('../../fonts/ita/OpenSans-Regular.woff') format('woff');
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff') format('woff'),
+    url('https://www.ita-airways.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -19,7 +24,9 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../../fonts/ita/OpenSans-Regular.woff') format('woff');
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff') format('woff'),
+    url('https://www.ita-airways.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -27,7 +34,9 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../../fonts/ita/OpenSans-Bold.woff') format('woff');
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Bold.woff') format('woff'),
+    url('https://www.ita-airways.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Bold.woff') format('woff');
 }
 
 :root {

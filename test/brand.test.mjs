@@ -29,13 +29,3 @@ test('brand: lh-com loads no theme; every known brand has its tokens file', asyn
     assert.ok(!/^\s*(?!:root)[.#a-z][^{]*\{/m.test(rules), `${key}: nothing but tokens`);
   });
 });
-
-test('brand: ita serves its fonts from this repository', () => {
-  const css = fs.readFileSync(new URL('../styles/themes/ita.css', import.meta.url), 'utf8');
-  const urls = [...css.matchAll(/url\('([^']+)'\)/g)].map((m) => m[1]);
-  assert.ok(urls.length >= 3);
-  urls.forEach((u) => {
-    assert.match(u, /^\.\.\/\.\.\/fonts\/ita\//, `${u}: from this repository`);
-    assert.ok(fs.existsSync(new URL(`../styles/themes/${u}`, import.meta.url)), `${u}: in the repository`);
-  });
-});
