@@ -182,6 +182,7 @@ export function templateOf(p, html) {
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
+  const started = Date.now();
   const list = opt('list');
   const name = path.basename(list).replace(/\.txt$/, '');
   const urls = fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean);
@@ -217,6 +218,17 @@ if (isMain) {
       });
       const lines = log.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x));
       console.log(`${t}: ${lines.slice(-2).join(' | ')}`);
+    });
+    // the bulk importer writes its reports into lh-com's tree (tools/importer/reports/<path>):
+    // this batch's go to content-sites/lh-ita/reports (lh-com's it/en reports stay lh-com's)
+    Object.keys(out).forEach((p) => {
+      const from = path.join(root, 'tools/importer/reports', `${p}.report.json`);
+      if (!fs.existsSync(from) || fs.statSync(from).mtimeMs < started) return;
+      const to = path.join(W, 'reports', `${p}.report.json`);
+      fs.mkdirSync(path.dirname(to), { recursive: true });
+      fs.renameSync(from, to);
+      // and the folders it leaves empty
+      for (let d = path.dirname(from); d.startsWith(path.join(root, 'tools/importer/reports/')) && !fs.readdirSync(d).length; d = path.dirname(d)) fs.rmdirSync(d);
     });
     const sites = path.join(root, 'tools/importer/sites/lh-ita.json');
     const allow = JSON.parse(fs.readFileSync(sites, 'utf8'));
