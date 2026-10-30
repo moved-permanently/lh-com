@@ -11,15 +11,21 @@
  * - Every change is announced with the 'consent.update' event,
  *   detail { consented, groups, source }. 'consent.preferences' (footer link
  *   "Change Privacy Settings") reopens OneTrust's preference center or the fallback.
+ * - On the hosts lh-edge serves (the turnsthe.page brand hosts) the stub comes from the page's own
+ *   host (/onetrust/, lh-edge's onetrust route: cdn.cookielaw.org byte for byte), and so does
+ *   everything OneTrust derives from the stub's URL; elsewhere (aem.page, aem.live) from
+ *   cdn.cookielaw.org. OneTrust gets its geolocation answer up front (the lh-geo cookie lh-edge
+ *   sets, else the page's market), so it doesn't ask geolocation.onetrust.com.
  * - Tagging is scripts/martech.js's (the tag manager and www's data layer, waiting for a choice
  *   here): off by default, on only for a host in MARTECH_HOSTS below; consented.js stays an
  *   empty hook.
  */
 
 import { loadCSS } from './aem.js';
-import { isDemoHost } from './demo.js';
+import { isDemoHost, isTurnsThePageHost } from './demo.js';
 
 const ONETRUST_STUB = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
+const ONETRUST_STUB_OWN = '/onetrust/scripttemplates/otSDKStub.js';
 const ONETRUST_DOMAIN_SCRIPT = '01994cb2-af99-7dbe-8fb0-56427773e54e';
 const STORAGE_KEY = 'lh-consent';
 const FALLBACK_DELAY = 5000;
@@ -37,6 +43,22 @@ export const MARTECH_HOSTS = {};
 export function martechWanted(location = window.location, hosts = MARTECH_HOSTS) {
   return Object.prototype.hasOwnProperty.call(hosts, location.hostname)
     || new URLSearchParams(location.search).getAll('martech').includes('dry');
+}
+
+/** The stub's URL: the page's own host where lh-edge answers /onetrust/, else cdn.cookielaw.org. */
+export function oneTrustStubUrl(hostname = window.location.hostname) {
+  return isTurnsThePageHost(hostname) ? ONETRUST_STUB_OWN : ONETRUST_STUB;
+}
+
+/**
+ * The visitor's country for OneTrust's geolocation answer: the lh-geo cookie (lh-edge, the
+ * visitor's country), else the page's market (/de/... DE, /at/... AT); '' for /xx/ (no market).
+ */
+export function geolocationCountry(cookie = document.cookie, pathname = window.location.pathname) {
+  const geo = String(cookie || '').match(/(?:^|;\s*)lh-geo=([A-Za-z]{2})(?:;|$)/);
+  if (geo) return geo[1].toUpperCase();
+  const market = String(pathname || '').replace(/^\/content\/lh\/markets(?=\/)/, '').match(/^\/([a-z]{2})\/[a-z]{2}(?:\/|$)/);
+  return market && market[1] !== 'xx' ? market[1].toUpperCase() : '';
 }
 
 /** OneTrust category ids: strictly necessary first */
@@ -199,8 +221,15 @@ function loadOneTrust({ onReady, fallbackView = 'banner' } = {}) {
     onOneTrustReady(onReady);
   };
 
+  // the geolocation answer up front: OneTrust skips its call to geolocation.onetrust.com
+  const countryCode = geolocationCountry();
+  if (countryCode) {
+    window.OneTrust = window.OneTrust || {};
+    window.OneTrust.geolocationResponse ||= { countryCode, stateCode: '' };
+  }
+
   const script = document.createElement('script');
-  script.src = ONETRUST_STUB;
+  script.src = oneTrustStubUrl();
   script.type = 'text/javascript';
   script.dataset.domainScript = ONETRUST_DOMAIN_SCRIPT;
   script.dataset.documentLanguage = 'true';
