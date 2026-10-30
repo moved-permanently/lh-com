@@ -53,3 +53,55 @@ export function counterpartPath(pathname, from, to) {
   if (!pathname.startsWith(from.path)) return null;
   return `${to.path}${pathname.slice(from.path.length)}`;
 }
+
+const pathOf = (href) => {
+  try {
+    return new URL(href, 'https://site.invalid').pathname;
+  } catch (e) {
+    return '';
+  }
+};
+
+/**
+ * The header's language switch of a brand site without roots: per other language its label, its
+ * homepage and the counterpart of the current page (counterpartPath). A nav tool link that points
+ * at another language's homepage is that language's entry (the importer writes www's switch so:
+ * Cargo's "Deutsch" to /de/home) and keeps its label; a language without one gets its own name.
+ * Returns { links, tools }: the switch's links, and the nav's tools without the language links.
+ * @param {Array<{href: string, label: string}>} tools the nav's tool items
+ * @param {string} pathname the current page's path
+ * @param {string} lang the current page's language (its locale)
+ * @param {Array} languages the site's languages (SITE_LANGUAGES)
+ */
+export function languageSwitch(tools, pathname, lang, languages) {
+  const current = languages.find((l) => l.lang === lang) || languageOfPath(pathname, languages);
+  const others = languages.filter((l) => l !== current);
+  const homeOf = (href) => others.find((l) => [l.home, l.path, l.path.replace(/\/$/, '') || '/'].includes(pathOf(href)));
+  const authored = new Map();
+  const rest = tools.filter((t) => {
+    const l = t.href && homeOf(t.href);
+    if (!l || authored.has(l.lang)) return !l;
+    authored.set(l.lang, t.label);
+    return false;
+  });
+  const links = others.map((l) => ({
+    lang: l.lang,
+    label: authored.get(l.lang) || l.name,
+    home: l.home,
+    counterpart: counterpartPath(pathname, current, l),
+  }));
+  return { links, tools: rest };
+}
+
+/**
+ * The address of a switch link: the counterpart when the site has that page (exists: a HEAD
+ * request of the path, true for a 2xx after redirects), else the language's homepage.
+ */
+export async function switchTarget(link, exists) {
+  if (!link.counterpart || link.counterpart === link.home) return link.home;
+  try {
+    return (await exists(link.counterpart)) ? link.counterpart : link.home;
+  } catch (e) {
+    return link.home;
+  }
+}
