@@ -95,7 +95,7 @@ const THANK_YOU_404 = {
   'buccaneers-season-kickoff': '*',
 };
 const ERROR_404 = {
-  'register-animal-cabin': ['de/en'],
+  'register-animal-cabin': ['de/en', 'xx/fr'],
   'register-assistance-requirements-online': ['de/en'],
   'buccaneers-season-kickoff': '*',
 };
