@@ -35,7 +35,7 @@ beforeEach(() => {
           },
         });
       }
-      if (u.pathname === '/logos/static/ot_company_logo.png') return new Response('PNG', { headers: { 'content-type': 'image/png', 'cache-control': 'max-age=86400' } });
+      if (u.pathname === '/logos/static/ot_company_logo.png') return new Response('PNG', { headers: [['content-type', 'image/png'], ['content-type', 'image/png'], ['cache-control', 'max-age=86400']] });
       return new Response('nope', { status: 404 });
     }
     if (u.pathname === '/fonts/lufthansa/v1.38.0/LufthansaTextWeb-Regular-latin.woff2') {
@@ -86,6 +86,8 @@ test('/onetrust/* on every kind of host: cdn.cookielaw.org bytes and cache-contr
   assert.equal(logo.status, 200);
   assert.equal(await logo.text(), 'PNG');
   assert.equal(calls.at(-1).url, 'https://cdn.cookielaw.org/logos/static/ot_company_logo.png');
+  // a header the edge fetch hands on twice: once
+  assert.equal(logo.headers.get('content-type'), 'image/png');
   const missing = await get('lh-edge.example', '/onetrust/nope.js');
   assert.equal(missing.status, 404);
 });

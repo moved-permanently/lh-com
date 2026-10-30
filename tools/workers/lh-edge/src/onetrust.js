@@ -45,6 +45,12 @@ export async function onetrust(request) {
   });
   const out = new Response(request.method === 'HEAD' ? null : resp.body, resp);
   out.headers.delete('set-cookie');
+  // the edge fetch can hand on one header twice (live: "application/javascript,
+  // application/javascript" where cdn.cookielaw.org sends it once): the value once
+  ['content-type', 'cache-control'].forEach((h) => {
+    const values = String(out.headers.get(h) || '').split(/,\s*/);
+    if (values.length > 1 && values.every((v) => v === values[0])) out.headers.set(h, values[0]);
+  });
   out.headers.set('x-lh-edge-route', 'onetrust');
   return out;
 }
