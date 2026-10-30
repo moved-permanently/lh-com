@@ -180,6 +180,8 @@ export function navDocument(document, key, sitePaths) {
   const tools = [
     data.accessibilityUrl && data.accessibilityTextLabel ? `<li>:wheelchair: ${a(data.accessibilityUrl, clean(data.accessibilityTextLabel), sitePaths)}</li>` : '',
     data.supportUrl && data.supportTextLabel ? `<li>:help: ${a(data.supportUrl, clean(data.supportTextLabel), sitePaths)}</li>` : '',
+    // the cart is a session overlay on www: a link to www's homepage (as lh-com's nav importer)
+    document.querySelector('.dcep-shopping-cart') ? `<li>:cart: <a href="${ORIGIN}/${key}/homepage">${esc(clean(document.querySelector('.dcep-shopping-cart [name]')?.getAttribute('name')) || 'Shopping cart')}</a></li>` : '',
     // the login is www's (Travel ID); the login and profile app shells are not on the site
     login.userAuthorizeUrl ? `<li>:login: <a href="${esc(login.userAuthorizeUrl.replace(/state=[^&]*/, `state=${encodeURIComponent(`/${key}/homepage`)}`))}">${esc(visible(document.querySelector('.dcep-login-portlet .login-portlet-link')) || 'Login')}</a></li>` : '',
     `<li>:globe: ${esc(localeLabel)}${countries.length ? `\n<ul>\n${countries.map((c) => `<li><a href="${ORIGIN}/${c.code}/${lang}/homepage">${esc(c.name)}</a></li>`).join('\n')}\n</ul>` : ''}</li>`,

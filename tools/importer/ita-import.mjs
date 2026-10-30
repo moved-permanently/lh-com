@@ -102,6 +102,17 @@ export function withCheckinTabs(html) {
   return editDivs(html, '<div class="checkinpassengerreceiptentry', (el) => `<div class="tabs section">${el}</div>`);
 }
 
+/**
+ * A snapshot whose teaser rows in a two-column view (ITA's "Related", "This might also interest
+ * you": two teasers side by side) are a three-column view, which lh-com's info importer makes a
+ * carousel-cards block (".threecolumn:has(.teaser)"; its two-column views with teasers are left
+ * to the text flow, where the teasers stack). Column views nested in it are left as they are.
+ */
+export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn', (el) => {
+  if (!el.includes('class="teaser') || /<div class="(?:two|three|four)column/.test(el.slice(1))) return el;
+  return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
+});
+
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
 export const withCheckinHandoff = (doc, p) => doc
@@ -189,7 +200,7 @@ if (isMain) {
     const copy = path.join(MAPPED, HOST, `${p}.html`);
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text)
-    const mapped = withCheckinTabs(withLinkOuts(withPlaceholder(html), p))
+    const mapped = withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(html), p)))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);

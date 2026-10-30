@@ -88,9 +88,18 @@ function list() {
     }
     if (page) files.get(www).pages.add(page);
   };
+  // the documents link the Edge Delivery names (ita-import.mjs writes relativeDamLinks): www's own
+  // path (capitals, underscores, spaces) comes from the page's snapshot, the file with that name
+  const SNAPS = path.join(root, 'tools/importer/bd-snapshots/www.ita-airways.com');
   walk(DOCS).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const p = `/${path.relative(DOCS, f).replace(/\.plain\.html$/, '')}`;
-    damFiles(fs.readFileSync(f, 'utf8')).forEach(([www, kind]) => add(www, p, kind));
+    const snap = path.join(SNAPS, `${p}.html`);
+    const own = new Map();
+    if (fs.existsSync(snap)) {
+      [...fs.readFileSync(snap, 'utf8').matchAll(/(?:https:\/\/www\.ita-airways\.com)?(\/content\/dam\/[^"'?#\s)&,]+)/g)]
+        .forEach((m) => { const www = decodeURIComponent(m[1]); own.set(edsDamPath(assetOf(www)), www); });
+    }
+    damFiles(fs.readFileSync(f, 'utf8')).forEach(([link, kind]) => add(own.get(edsDamPath(assetOf(link))) || link, p, kind));
   });
   all('extra').forEach((www) => add(www, null, 'extra'));
   const out = [...files.values()].map((x) => ({ ...x, pages: [...x.pages].sort() }));
@@ -138,6 +147,33 @@ async function download() {
     const pause = () => page.waitForTimeout(minDelay + Math.floor(Math.random() * Math.max(0, maxDelay - minDelay)));
     for (const x of todo) {
       const url = `${HOST}${x.www.split('/').map((seg) => encodeURIComponent(seg)).join('/')}`;
+      // a video: first its size from a one-byte GET (Range: bytes=0-0, Content-Range); over what
+      // Edge Delivery holds it is recorded for AEM without the download (a whole video read inside
+      // the page closed the remote browser, 2026-10-30)
+      if (extOf(x.www) === 'mp4') {
+        const size = await page.evaluate(async (u) => {
+          const r = await fetch(u, { credentials: 'include', headers: { Range: 'bytes=0-0' } });
+          await r.arrayBuffer();
+          const total = ((r.headers.get('content-range') || '').match(/\/(\d+)$/) || [])[1];
+          return { status: r.status, total: Number(total) || Number(r.headers.get('content-length')) || 0 };
+        }, url).catch((e) => ({ status: 0, error: e.message.split('\n')[0] }));
+        if (size.status === 403 || size.status === 429) {
+          state[x.www] = { ...state[x.www], status: `blocked-${size.status}`, at: new Date().toISOString() };
+          blocked = true;
+          console.error(`ita-dam: ${size.status} at ${x.www}; stopping`);
+          break;
+        }
+        if ((size.status === 206 || size.status === 200) && size.total > LIMITS.mp4) {
+          state[x.www] = {
+            status: 'aem', bytes: size.total, wwwBytes: size.total, note: 'size from Content-Range, not downloaded', at: new Date().toISOString(),
+          };
+          console.log(`${size.status} ${size.total}B ${x.www} (for AEM, not downloaded)`);
+          save();
+          await pause();
+          continue;
+        }
+        await pause();
+      }
       // one GET per file, no HEAD (2026-10-29: www answered a HEAD of a large video with 403)
       const got = await page.evaluate(async (u) => {
         const r = await fetch(u, { credentials: 'include' });
