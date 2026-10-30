@@ -8,10 +8,12 @@
  *   no upstream cookie comes back.
  * - /fonts/lufthansa/v<version>/*: the site's versioned brand fonts with
  *   `cache-control: public, max-age=31536000, immutable` (a new version is a new path).
- * - lh-geo=<the visitor's country> (upper case, Cloudflare's; readable, path /, SameSite=Lax, a
- *   session cookie) on HTML answers, so the site hands OneTrust its geolocation without a request
- *   to geolocation.onetrust.com (scripts/consent.js). Not set when the country is unknown or the
- *   request already carries the same value.
+ * - lh-geo=<the visitor's country>-<region> (upper case, Cloudflare's request.cf.country and
+ *   regionCode: DE-HH, US-CA; the country alone when Cloudflare has no region; readable, path /,
+ *   SameSite=Lax, a session cookie) on HTML answers, so the site hands OneTrust its geolocation
+ *   without a request to geolocation.onetrust.com (scripts/consent.js; a US value without a state
+ *   it leaves to OneTrust). Not set when the country is unknown or the request already carries
+ *   the same value.
  */
 import { visitorCountry } from './changelocale.js';
 
@@ -71,13 +73,21 @@ const cookieValue = (request, name) => {
   return m ? m[1] : null;
 };
 
-/** The answer with lh-geo=<country> when it is an HTML page and the cookie differs. */
+/** The visitor's location for lh-geo: DE-HH, US-CA, the country alone without a region, or ''. */
+export function visitorGeo(request) {
+  const country = visitorCountry(request).toUpperCase();
+  if (!country) return '';
+  const region = String((request.cf && request.cf.regionCode) || '').toUpperCase();
+  return /^[A-Z0-9]{1,3}$/.test(region) ? `${country}-${region}` : country;
+}
+
+/** The answer with lh-geo=<country>[-<region>] when it is an HTML page and the cookie differs. */
 export function withGeoCookie(resp, request) {
   const type = resp.headers.get('content-type') || '';
   if (!type.includes('text/html')) return resp;
-  const country = visitorCountry(request).toUpperCase();
-  if (!country || cookieValue(request, 'lh-geo') === country) return resp;
+  const geo = visitorGeo(request);
+  if (!geo || cookieValue(request, 'lh-geo') === geo) return resp;
   const out = new Response(resp.body, resp);
-  out.headers.append('set-cookie', `lh-geo=${country}; Path=/; SameSite=Lax; Secure`);
+  out.headers.append('set-cookie', `lh-geo=${geo}; Path=/; SameSite=Lax; Secure`);
   return out;
 }

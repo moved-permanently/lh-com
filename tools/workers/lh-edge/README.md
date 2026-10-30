@@ -238,7 +238,7 @@ and every file keep their answers, and nothing under the code paths, `/drafts`, 
 
 Packages add their routes before `login-return`, `entry` and `backends`; `pass-through` comes last.
 
-Every HTML answer on every host also gets `lh-geo=<the visitor's country, upper case>` (`Path=/; SameSite=Lax; Secure`, a session cookie, readable by the page) when Cloudflare knows the country and the request doesn't carry the same value already, added after every cache (`src/onetrust.js` `withGeoCookie`): the site hands it to OneTrust as its geolocation answer, so the banner doesn't call geolocation.onetrust.com (`scripts/consent.js`).
+Every HTML answer on every host also gets `lh-geo=<country>-<region>` (upper case, Cloudflare's `request.cf.country` and `regionCode`: `DE-HH`, `US-CA`; the country alone when Cloudflare has no region; `Path=/; SameSite=Lax; Secure`, a session cookie, readable by the page) when Cloudflare knows the country and the request doesn't carry the same value already, added after every cache (`src/onetrust.js` `withGeoCookie`): the site hands it to OneTrust as its geolocation answer, so the banner doesn't call geolocation.onetrust.com (`scripts/consent.js`; OneTrust picks the law from it, so the site never guesses: without the cookie, or for a US value without a state, OneTrust asks its own service).
 
 ## Pass-through (Adobe's reference Worker)
 

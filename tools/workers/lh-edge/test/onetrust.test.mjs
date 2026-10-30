@@ -4,7 +4,9 @@ import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
 import worker from '../src/index.js';
 import { frontDoorTarget } from '../src/front-door.js';
-import { onetrustUpstream, isFontsPath, IMMUTABLE } from '../src/onetrust.js';
+import {
+  onetrustUpstream, isFontsPath, IMMUTABLE, visitorGeo,
+} from '../src/onetrust.js';
 
 globalThis.HTMLRewriter = HTMLRewriter;
 
@@ -47,7 +49,12 @@ beforeEach(() => {
   };
 });
 
-const get = (host, path, headers = {}) => worker.fetch(new Request(`https://${host}${path}`, { headers }), env(), { waitUntil() {} });
+const get = (host, path, headers = {}, cf = undefined) => {
+  const req = new Request(`https://${host}${path}`, { headers });
+  // Cloudflare's request.cf (Node's Request has none)
+  if (cf) Object.defineProperty(req, 'cf', { value: cf });
+  return worker.fetch(req, env(), { waitUntil() {} });
+};
 
 test('onetrustUpstream: /onetrust/* and /logos/* on cdn.cookielaw.org, nothing else', () => {
   assert.equal(onetrustUpstream('/onetrust/scripttemplates/otSDKStub.js'), 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js');
@@ -119,4 +126,29 @@ test('lh-geo: the visitor\'s country on HTML answers, once', async () => {
   assert.equal((await get('lh-edge.example', '/onetrust/scripttemplates/otSDKStub.js', { 'cf-ipcountry': 'DE' })).headers.get('set-cookie'), null);
   // a changed country replaces the old value
   assert.match((await get('lh-edge.example', '/de/de/homepage', { 'cf-ipcountry': 'DE', cookie: 'lh-geo=AT' })).headers.get('set-cookie'), /^lh-geo=DE;/);
+});
+
+test('visitorGeo: Cloudflare\'s country and region, the country alone without a region', () => {
+  const req = (cf, headers = {}) => Object.defineProperty(new Request('https://x.example/', { headers }), 'cf', { value: cf });
+  assert.equal(visitorGeo(req({ country: 'DE', regionCode: 'HH' })), 'DE-HH');
+  assert.equal(visitorGeo(req({ country: 'US', regionCode: 'CA' })), 'US-CA');
+  assert.equal(visitorGeo(req({ country: 'gb', regionCode: 'eng' })), 'GB-ENG');
+  assert.equal(visitorGeo(req({ country: 'US' })), 'US', 'no region: the country alone');
+  assert.equal(visitorGeo(req({ country: 'DE', regionCode: '' })), 'DE');
+  assert.equal(visitorGeo(req({ country: 'DE', regionCode: 'H H' })), 'DE', 'an unusable region');
+  assert.equal(visitorGeo(req({ country: 'XX', regionCode: 'HH' })), '', 'no country, no cookie');
+  assert.equal(visitorGeo(req({ country: 'T1' })), '');
+  assert.equal(visitorGeo(req({}, { 'cf-ipcountry': 'AT' })), 'AT');
+});
+
+test('lh-geo: country and region on HTML answers of every kind of host, renewed when it changes', async () => {
+  for (const host of ['lh-edge.example', 'front.example', 'discover.example']) { // eslint-disable-line no-restricted-syntax
+    const page = await get(host, '/de/en/homepage', {}, { country: 'DE', regionCode: 'HH' }); // eslint-disable-line no-await-in-loop
+    assert.equal(page.headers.get('set-cookie'), 'lh-geo=DE-HH; Path=/; SameSite=Lax; Secure', host);
+  }
+  // the old value (country only) gets the region
+  assert.match((await get('lh-edge.example', '/de/de/homepage', { cookie: 'lh-geo=DE' }, { country: 'DE', regionCode: 'HH' })).headers.get('set-cookie'), /^lh-geo=DE-HH;/);
+  assert.equal((await get('lh-edge.example', '/de/de/homepage', { cookie: 'lh-geo=US-CA' }, { country: 'US', regionCode: 'CA' })).headers.get('set-cookie'), null);
+  assert.match((await get('lh-edge.example', '/de/de/homepage', { cookie: 'lh-geo=US-CA' }, { country: 'US', regionCode: 'NY' })).headers.get('set-cookie'), /^lh-geo=US-NY;/);
+  assert.match((await get('lh-edge.example', '/de/de/homepage', {}, { country: 'US' })).headers.get('set-cookie'), /^lh-geo=US;/);
 });
