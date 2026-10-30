@@ -208,9 +208,9 @@ async function download() {
   if (www.length) {
     const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
     const { connectBrowser } = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/browser-source.js'));
-    const browser = await connectBrowser('bd');
+    let browser = await connectBrowser('bd');
     try {
-      const page = await browser.newPage();
+      let page = await browser.newPage();
       const open = async () => {
         let status = null;
         page.once('response', (r) => { status = r.status(); });
@@ -239,7 +239,17 @@ async function download() {
           console.error(`BLOCKED at ${key} (${got.status})`);
           break;
         }
-        if (got.status === 0) { console.error(`${key}: ${got.error}`); if (!await open()) { blocked = true; } continue; }
+        if (got.status === 0) {
+          console.error(`${key}: ${got.error}`);
+          // the session ended (Bright Data closes long sessions): a new one, its anchor page, this file again later
+          if (/closed|disconnected/i.test(got.error)) {
+            await browser.close().catch(() => {});
+            browser = await connectBrowser('bd');
+            page = await browser.newPage();
+          }
+          if (!await open()) blocked = true;
+          continue;
+        }
         if (got.status !== 200 || htmlBody) { record(key, { status: got.status, type: got.type }); console.log(`${got.status} ${got.type} ${key}`); continue; }
         fs.writeFileSync(path.join(CACHE, sha1(key)), buf);
         // a document's type and size are known now (its name and whether Edge Delivery holds it)

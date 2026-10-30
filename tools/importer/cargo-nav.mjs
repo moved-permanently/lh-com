@@ -109,8 +109,13 @@ const written = [];
   const { document } = parseHTML(html);
   const page = new Page(`/${lang}/home`, lang, html);
   const L = LABELS[lang];
-  fs.writeFileSync(path.join(OUT, `${lang}/nav.plain.html`), nav(document, page, L));
-  fs.writeFileSync(path.join(OUT, `${lang}/footer.plain.html`), footer(document, page, L));
+  // unchanged documents keep their file (and time): da-upload.mjs sends only changed ones
+  const write = (file, doc) => {
+    const out = path.join(OUT, file);
+    if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== doc) fs.writeFileSync(out, doc);
+  };
+  write(`${lang}/nav.plain.html`, nav(document, page, L));
+  write(`${lang}/footer.plain.html`, footer(document, page, L));
   written.push(`/${lang}/nav`, `/${lang}/footer`);
 });
 console.log(`written: ${written.join(' ')}`);

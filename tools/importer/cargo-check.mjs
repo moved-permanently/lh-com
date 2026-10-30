@@ -21,10 +21,14 @@ import { fileKey } from './cargo-assets.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-cargo');
-const SNAP = path.join(W, 'delivery/snapshots/www.lufthansa-cargo.com');
+const SNAPS = [path.join(W, 'snapshots/www.lufthansa-cargo.com'), path.join(W, 'delivery/snapshots/www.lufthansa-cargo.com')];
 const argv = process.argv.slice(2);
 const name = argv.includes('--name') ? argv[argv.indexOf('--name') + 1] : 'check';
-const sources = argv.filter((a, i) => a.startsWith('/') && argv[i - 1] !== '--name');
+// --pages <file>: the sources of a batch (URLs or paths, one per line); else the paths given
+const pagesFile = argv.includes('--pages') ? argv[argv.indexOf('--pages') + 1] : null;
+const sources = pagesFile
+  ? fs.readFileSync(pagesFile, 'utf8').split(/\r?\n/).filter(Boolean).map((u) => new URL(u.trim(), 'https://www.lufthansa-cargo.com/').pathname.replace(/\/+$/, ''))
+  : argv.filter((a, i) => a.startsWith('/') && !['--name', '--pages'].includes(argv[i - 1]));
 const norm = (s) => (s || '').replace(/[\s\u200b\u00a0]+/g, ' ').replace(/[\u2010-\u2015]/g, '-').trim().toLowerCase();
 
 const visible = (n, stop) => {
@@ -67,7 +71,9 @@ const { paths } = loadSite();
 const report = {};
 sources.forEach((source) => {
   const eds = paths[source];
-  const html = fs.readFileSync(path.join(SNAP, `${source}.html`), 'utf8');
+  const snap = SNAPS.map((d) => path.join(d, `${source}.html`)).find((f) => fs.existsSync(f));
+  if (!eds || !snap || !fs.existsSync(path.join(W, 'content', `${eds}.plain.html`))) return;
+  const html = fs.readFileSync(snap, 'utf8');
   const doc = docParts(fs.readFileSync(path.join(W, 'content', `${eds}.plain.html`), 'utf8'));
   const src = sourceParts(html, source, source.slice(1, 3));
   const r = {

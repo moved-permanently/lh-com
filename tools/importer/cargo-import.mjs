@@ -52,6 +52,7 @@ const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-cargo');
 const SNAP = path.join(W, 'delivery/snapshots/www.lufthansa-cargo.com');
+const CAPTURED = path.join(W, 'snapshots/www.lufthansa-cargo.com');
 const OUT = path.join(W, 'content');
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
 
@@ -97,13 +98,16 @@ export function loadSite() {
         if (alt) alternates[sourcePath(url)] = sourcePath(alt);
       });
   }
+  const capture = readJson(path.join(W, 'capture-state.json'), {});
   site = {
-    paths, files, state, alternates,
+    paths, files, state, alternates, capture,
   };
   return site;
 }
 
 /* ------------------------------------------------------------------ helpers ------------ */
+
+const webGuest = (p) => p.replace(/^(\/[a-z]{2})?\/web\/guest(?=\/)/, '$1');
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
@@ -182,14 +186,25 @@ export class Page {
       return u.href;
     }
     if (/^\/documents\//.test(u.pathname)) return this.file(u.href) || `${HOST}${u.pathname}${u.search}`;
-    const { paths, alternates } = loadSite();
-    const p = sourcePath(u.href);
+    const { paths, alternates, capture } = loadSite();
+    // Liferay's default site prefix (/en/web/guest/x) is the same page as /en/x
+    const p = webGuest(sourcePath(u.href));
     const local = (sp) => {
+      // a page in scope that answers 404 on www stays a link to www
+      if (capture[sp] && capture[sp].status === 'not-found') return null;
       if (paths[sp]) return paths[sp];
       if (REDIRECT_ONLY[sp]) return REDIRECT_ONLY[sp];
       return null;
     };
     let target = local(p);
+    // www's shortcut addresses (/products-general-cargo), resolved once (cargo-capture.mjs
+    // --resolve) in an English session: the page they land on, its counterpart on a German page;
+    // a shortcut that asks for sign-in stays a link to www
+    const resolved = capture[p];
+    if (!target && resolved && resolved.status === 'resolved' && resolved.finalPath && !/LoginPortlet/.test(resolved.finalUrl || '')) {
+      const fp = webGuest(resolved.finalPath);
+      target = this.lang === 'en' || !fp.startsWith('/en/') ? local(fp) : (alternates[fp] && local(alternates[fp])) || local(fp);
+    }
     // language-less addresses (/speed-pro, /data-protection): the page of this language
     if (!target && !/^\/[a-z]{2}(\/|$)/.test(p)) {
       target = local(`/${this.lang}${p}`);
@@ -522,7 +537,7 @@ const keyOf = (n) => {
 function cellComponent(c, page) {
   if (hasCls(c, /(^|\s)(videoWrapper|flexi-video|video-container)(\s|$)/)) { const v = videoCell(c, page); return v ? [v] : []; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '') || hasCls(c, /maps_of_networks/)) return mapLink(page);
-  if (hasCls(c, /(^|\s)(owl-carousel|flexslider|swiper|gallerySlider)(\s|$)/)) return images(c, page).map((i) => `<p>${i}</p>`);
+  if (hasCls(c, /(^|\s)(owl-carousel|flexslider|swiper|gallerySlider)(\s|$)/) && isImageSlider(c)) return images(c, page).map((i) => `<p>${i}</p>`);
   return null;
 }
 
@@ -575,7 +590,8 @@ function component(c, page) {
   if (/(^|\s)content-slider(\s|$)/.test(k)) { carousel(c, page); return true; }
   if (/(^|\s)newssectiondetail(\s|$)/.test(k)) { article(c, page); return true; }
   if (/(^|\s)module--story(\s|$)/.test(k)) { story(c, page); return true; }
-  if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k)) { carousel(c, page); return true; }
+  if (/(^|\s)LHCTabs(\s|$)/.test(k)) { lhcTabs(c, page); return true; }
+  if (/(^|\s)(owl-carousel|flexslider|swiper)(\s|$)/.test(k) && isImageSlider(c)) { carousel(c, page); return true; }
   if (/portlet_com_lhcargo_eportal_maps_of_networks/.test(c.id || '')) { mapLink(page).forEach((h) => page.add(h)); return true; }
   if (/portlet_com_lhcargo_eportal_(contact_support|routing)/.test(c.id || '')) { formLink(page).forEach((h) => page.add(h)); return true; }
   if (/portlet_com_liferay_(site_navigation_breadcrumb|login)/.test(c.id || '')) return true;
@@ -658,6 +674,29 @@ function accordion(c, page) {
     return [esc(text(head)), body ? flow(body, page, 'cell').join('') : ''];
   }).filter((r) => r[0]);
   if (rows.length) page.block('accordion-columns (faq)', rows);
+}
+
+/** A slider of images (a carousel); www also builds tab panels on its slider (flexslider). */
+function isImageSlider(c) {
+  const clone = c.cloneNode(true);
+  clone.querySelectorAll('script, style, .clone, .cloned').forEach((x) => x.remove());
+  return text(clone).length < 200;
+}
+
+/**
+ * www's older tab component (.LHCTabs: a headline, a tab bar, one panel per tab on a slider):
+ * the headline, then accordion-columns (faq) with one item per tab; a single tab is default content.
+ */
+function lhcTabs(c, page) {
+  const head = c.querySelector('.content-tab-headline-container h1, .content-tab-headline-container h2, .content-tab-headline-container h3');
+  if (head) page.add(element(head, page, 'cell').join(''));
+  const panes = [...c.querySelectorAll('.tab-content')];
+  const titles = Object.fromEntries([...c.querySelectorAll('.tabs-selector a[href^="#"]')].map((a) => [a.getAttribute('href').slice(1), text(a)]));
+  if (panes.length < 2) {
+    panes.forEach((pane) => flow(pane, page, 'top').forEach((h) => page.add(h)));
+    return;
+  }
+  page.block('accordion-columns (faq)', panes.map((pane, i) => [esc(titles[pane.id] || `${i + 1}`), flow(pane, page, 'cell').join('')]));
 }
 
 /** Fleet and ULD lists (.nwAccordion): header, image, label | value rows. */
@@ -952,7 +991,7 @@ async function main() {
   if (!listFile) { console.log('usage: --list <batch file> [--name batch-1] [--dry-run]'); process.exit(1); }
   const name = opt('name') || path.basename(listFile, '.txt').replace(/^batch-0*/, 'batch-');
   const urls = fs.readFileSync(path.resolve(root, listFile), 'utf8').split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  const { paths } = loadSite();
+  const { paths, capture } = loadSite();
   const svgs = await prepareImages();
   if (svgs) console.log(`${svgs} SVG images as PNG`);
   const report = {};
@@ -961,15 +1000,26 @@ async function main() {
     const source = sourcePath(url);
     const eds = paths[source];
     if (!eds) { report[source] = { skipped: REDIRECT_ONLY[source] ? `redirect to ${REDIRECT_ONLY[source]}` : 'not a page in scope' }; return; }
-    const snap = path.join(SNAP, `${source}.html`);
-    if (!fs.existsSync(snap)) { report[source] = { eds, skipped: 'no snapshot' }; return; }
+    // our captures (cargo-capture.mjs) first, then the delivery's batch 1
+    const c = capture[source];
+    if (c && c.status !== 'ok') {
+      report[source] = { eds, skipped: c.status === 'redirect' ? `redirect on www to ${c.finalUrl}` : `${c.status} on www (HTTP ${c.http})` };
+      return;
+    }
+    const snap = [path.join(CAPTURED, `${source}.html`), path.join(SNAP, `${source}.html`)].find((f) => fs.existsSync(f));
+    if (!snap) { report[source] = { eds, skipped: 'no snapshot' }; return; }
     const lang = source.slice(1, 3);
     const { html, report: r } = convert(fs.readFileSync(snap, 'utf8'), source, lang);
     report[source] = { eds, ...r };
     if (!argv.includes('--dry-run')) {
       const out = path.join(OUT, `${eds}.plain.html`);
       fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, html);
+      // unchanged documents keep their file (and time): da-upload.mjs sends only changed ones
+      const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
+      if (before !== html) {
+        fs.writeFileSync(out, html);
+        report[source].changed = before === null ? 'new' : 'changed';
+      }
     }
     written.push(eds);
   });
