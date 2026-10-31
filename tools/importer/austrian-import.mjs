@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { ownPages, withOwnLinks } from './own-links.mjs';
 import { relativeDamLinks } from './austrian-dam.mjs';
 import { withLocalImages } from './austrian-nav.mjs';
 
@@ -320,10 +321,14 @@ if (isMain) {
     fs.writeFileSync(mapOnly, `${made.join('\n')}\n`);
     console.log(execFileSync('node', ['tools/importer/site-postprocess.mjs', '--site', 'lh-austrian', '--source-host', HOST, '--snapshots', path.join(MAPPED, HOST), '--real-placeholder', PLACEHOLDER, '--map-only', mapOnly], { cwd: root, encoding: 'utf8' }).trim().split('\n').slice(-3)
       .join('\n'));
+    // links to the site's pages relative (own-links.mjs: its documents and the market roots'
+    // pages lh-edge answers from them), after site-postprocess (which knows only the pages
+    // imported so far)
+    const pages = ownPages('lh-austrian');
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`)));
+      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

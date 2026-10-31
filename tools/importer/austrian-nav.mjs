@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
+import { ownPages, withOwnLinks } from './own-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.austrian.com';
@@ -244,8 +245,11 @@ if (isMain) {
   const sitePaths = new Set(allow.paths);
   const dir = path.join(root, 'content-sites/lh-austrian/content', key);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'nav.plain.html'), navDocument(document, key, sitePaths));
-  fs.writeFileSync(path.join(dir, 'footer.plain.html'), footerDocument(document, sitePaths));
+  // links to the site's pages relative (own-links.mjs), as the page importer does
+  const pages = ownPages('lh-austrian');
+  const own = (doc) => withOwnLinks(doc, 'www.austrian.com', pages).doc;
+  fs.writeFileSync(path.join(dir, 'nav.plain.html'), own(navDocument(document, key, sitePaths)));
+  fs.writeFileSync(path.join(dir, 'footer.plain.html'), own(footerDocument(document, sitePaths)));
   const { items } = menuOf(document);
   const f = footerOf(document);
   console.log(`${key}: nav ${items.length} top items, ${items.reduce((s, t) => s + t.columns.length, 0)} columns, ${items.reduce((s, t) => s + t.columns.reduce((x, c) => x + c.links.length, 0), 0)} links; footer ${f.columns.length} link lists, ${f.badges.map((g) => `${g.heading} ${g.links.length}`).join(', ')}, legal ${f.legal.length}, wordmark ${f.wordmark ? 'yes' : 'no'}, note ${f.note ? 'yes' : 'no'}`);
