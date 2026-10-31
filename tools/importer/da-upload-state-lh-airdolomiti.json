@@ -729,6 +729,206 @@
    "uploaded": "2026-10-31T13:04:19.110Z",
    "mtime": 1793451716148,
    "preview": "2026-10-31T13:04:20.952Z"
+  },
+  "/tratte/ginevra-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:21:50.736Z",
+   "mtime": 1793452522635,
+   "preview": "2026-10-31T13:21:52.256Z"
+  },
+  "/tratte/graz-francoforte": {
+   "uploaded": "2026-10-31T13:21:54.021Z",
+   "mtime": 1793452905379,
+   "preview": "2026-10-31T13:21:56.061Z"
+  },
+  "/tratte/graz-monaco": {
+   "uploaded": "2026-10-31T13:21:57.747Z",
+   "mtime": 1793452905477,
+   "preview": "2026-10-31T13:21:59.857Z"
+  },
+  "/tratte/katowice-francoforte": {
+   "uploaded": "2026-10-31T13:22:01.089Z",
+   "mtime": 1793452522729,
+   "preview": "2026-10-31T13:22:02.734Z"
+  },
+  "/tratte/lione-francoforte": {
+   "uploaded": "2026-10-31T13:22:03.818Z",
+   "mtime": 1793452522758,
+   "preview": "2026-10-31T13:22:05.415Z"
+  },
+  "/tratte/lubiana-monaco": {
+   "uploaded": "2026-10-31T13:22:06.518Z",
+   "mtime": 1793452522787,
+   "preview": "2026-10-31T13:22:08.367Z"
+  },
+  "/tratte/lussemburgo-monaco": {
+   "uploaded": "2026-10-31T13:22:09.389Z",
+   "mtime": 1793452522817,
+   "preview": "2026-10-31T13:22:11.560Z"
+  },
+  "/tratte/monaco-graz": {
+   "uploaded": "2026-10-31T13:22:13.269Z",
+   "mtime": 1793452905645,
+   "preview": "2026-10-31T13:22:15.174Z"
+  },
+  "/tratte/olbia-monaco": {
+   "uploaded": "2026-10-31T13:22:16.952Z",
+   "mtime": 1793452905757,
+   "preview": "2026-10-31T13:22:18.954Z"
+  },
+  "/tratte/praga-francoforte": {
+   "uploaded": "2026-10-31T13:22:19.996Z",
+   "mtime": 1793452523119,
+   "preview": "2026-10-31T13:22:21.683Z"
+  },
+  "/tratte/voli-da-torino-a-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:23.362Z",
+   "mtime": 1793452905865,
+   "preview": "2026-10-31T13:22:25.214Z"
+  },
+  "/tratte/volo-ancona-monaco": {
+   "uploaded": "2026-10-31T13:22:26.378Z",
+   "mtime": 1793452523178,
+   "preview": "2026-10-31T13:22:28.229Z"
+  },
+  "/tratte/volo-bari-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:29.282Z",
+   "mtime": 1793452523205,
+   "preview": "2026-10-31T13:22:31.130Z"
+  },
+  "/tratte/volo-bologna-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:32.723Z",
+   "mtime": 1793452905990,
+   "preview": "2026-10-31T13:22:34.545Z"
+  },
+  "/tratte/volo-cagliari-francoforte": {
+   "uploaded": "2026-10-31T13:22:35.720Z",
+   "mtime": 1793452523263,
+   "preview": "2026-10-31T13:22:37.598Z"
+  },
+  "/tratte/volo-da-verona-a-francoforte": {
+   "uploaded": "2026-10-31T13:22:38.673Z",
+   "mtime": 1793452523290,
+   "preview": "2026-10-31T13:22:40.369Z"
+  },
+  "/tratte/volo-firenze-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:41.568Z",
+   "mtime": 1793452523318,
+   "preview": "2026-10-31T13:22:43.298Z"
+  },
+  "/tratte/volo-genova-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:45.031Z",
+   "mtime": 1793452906165,
+   "preview": "2026-10-31T13:22:46.976Z"
+  },
+  "/tratte/volo-milano-linate-francoforte": {
+   "uploaded": "2026-10-31T13:22:48.100Z",
+   "mtime": 1793452523371,
+   "preview": "2026-10-31T13:22:49.793Z"
+  },
+  "/tratte/volo-milano-linate-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:51.764Z",
+   "mtime": 1793452906266,
+   "preview": "2026-10-31T13:22:53.498Z"
+  },
+  "/tratte/volo-milano-malpensa-francoforte": {
+   "uploaded": "2026-10-31T13:22:55.193Z",
+   "mtime": 1793452906354,
+   "preview": "2026-10-31T13:22:57.324Z"
+  },
+  "/tratte/volo-milano-malpensa-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:22:59.028Z",
+   "mtime": 1793452906450,
+   "preview": "2026-10-31T13:23:00.776Z"
+  },
+  "/tratte/volo-palermo-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:23:01.711Z",
+   "mtime": 1793452523489,
+   "preview": "2026-10-31T13:23:03.497Z"
+  },
+  "/tratte/volo-pisa-francoforte": {
+   "uploaded": "2026-10-31T13:23:05.117Z",
+   "mtime": 1793452906561,
+   "preview": "2026-10-31T13:23:06.720Z"
+  },
+  "/tratte/volo-rijeka-monaco": {
+   "uploaded": "2026-10-31T13:23:07.802Z",
+   "mtime": 1793452523545,
+   "preview": "2026-10-31T13:23:09.461Z"
+  },
+  "/tratte/volo-torino-francoforte": {
+   "uploaded": "2026-10-31T13:23:11.041Z",
+   "mtime": 1793452906668,
+   "preview": "2026-10-31T13:23:12.907Z"
+  },
+  "/tratte/volo-venezia-monaco-di-baviera": {
+   "uploaded": "2026-10-31T13:23:14.526Z",
+   "mtime": 1793452906758,
+   "preview": "2026-10-31T13:23:16.113Z"
+  },
+  "/tratte/zurigo-francoforte": {
+   "uploaded": "2026-10-31T13:23:17.139Z",
+   "mtime": 1793452523636,
+   "preview": "2026-10-31T13:23:18.775Z"
+  },
+  "/tratte/zurigo-monaco": {
+   "uploaded": "2026-10-31T13:23:19.798Z",
+   "mtime": 1793452523665,
+   "preview": "2026-10-31T13:23:21.547Z"
+  },
+  "/destinazioni/francoforte/cosa-fare": {
+   "uploaded": "2026-10-31T13:23:24.453Z",
+   "mtime": 1793452907005,
+   "preview": "2026-10-31T13:23:26.844Z"
+  },
+  "/destinazioni/francoforte/cosa-fare/fiera-francoforte": {
+   "uploaded": "2026-10-31T13:23:29.869Z",
+   "mtime": 1793452907206,
+   "preview": "2026-10-31T13:23:32.004Z"
+  },
+  "/destinazioni/francoforte/cosa-fare/main-tower": {
+   "uploaded": "2026-10-31T13:23:33.857Z",
+   "mtime": 1793452907305,
+   "preview": "2026-10-31T13:23:35.998Z"
+  },
+  "/destinazioni/francoforte/cosa-fare/mercatini-antiquariato": {
+   "uploaded": "2026-10-31T13:23:39.472Z",
+   "mtime": 1793452907566,
+   "preview": "2026-10-31T13:23:41.617Z"
+  },
+  "/destinazioni/francoforte/cosa-fare/tradizioni-natalizie": {
+   "uploaded": "2026-10-31T13:23:45.012Z",
+   "mtime": 1793452907840,
+   "preview": "2026-10-31T13:23:47.050Z"
+  },
+  "/destinazioni/francoforte/cosa-mangiare": {
+   "uploaded": "2026-10-31T13:23:48.752Z",
+   "mtime": 1793452907942,
+   "preview": "2026-10-31T13:23:50.920Z"
+  },
+  "/destinazioni/francoforte/cosa-mangiare/3-piatti-tipici-di-francoforte": {
+   "uploaded": "2026-10-31T13:23:52.893Z",
+   "mtime": 1793452908038,
+   "preview": "2026-10-31T13:23:54.874Z"
+  },
+  "/destinazioni/francoforte/cosa-vedere": {
+   "uploaded": "2026-10-31T13:23:59.576Z",
+   "mtime": 1793452908364,
+   "preview": "2026-10-31T13:24:01.822Z"
+  },
+  "/destinazioni/francoforte/cosa-vedere/borsa-tedesca": {
+   "uploaded": "2026-10-31T13:24:04.341Z",
+   "mtime": 1793452908520,
+   "preview": "2026-10-31T13:24:06.378Z"
+  },
+  "/destinazioni/francoforte/cosa-vedere/dintorni-di-francoforte": {
+   "uploaded": "2026-10-31T13:24:07.718Z",
+   "mtime": 1793452523998,
+   "preview": "2026-10-31T13:24:09.358Z"
+  },
+  "/destinazioni/francoforte/cosa-vedere/francoforte-in-3-giorni": {
+   "uploaded": "2026-10-31T13:24:11.116Z",
+   "mtime": 1793452908642,
+   "preview": "2026-10-31T13:24:13.049Z"
   }
  },
  "media": {
@@ -1601,6 +1801,120 @@
   },
   "/media-da/airdolomiti/francoforte-mainbanner-d-3-2fcca7e5.jpg": {
    "at": "2026-10-31T13:04:18.323Z"
+  },
+  "/media-da/airdolomiti/grz-fra-4a093960.jpg": {
+   "at": "2026-10-31T13:21:53.388Z"
+  },
+  "/media-da/airdolomiti/monaco-hoftgarten-531edd7b.jpg": {
+   "at": "2026-10-31T13:21:57.022Z"
+  },
+  "/media-da/airdolomiti/monaco-6-scaled-82e69758.jpg": {
+   "at": "2026-10-31T13:22:12.586Z"
+  },
+  "/media-da/airdolomiti/olbia-27c2aa9a.jpg": {
+   "at": "2026-10-31T13:22:16.252Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-9-e39f8c92.jpg": {
+   "at": "2026-10-31T13:22:22.679Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-1-57ac2b58.jpg": {
+   "at": "2026-10-31T13:22:32.070Z"
+  },
+  "/media-da/airdolomiti/goa-landing-page-d5acdbac.jpg": {
+   "at": "2026-10-31T13:22:44.430Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-4-38c68929.jpg": {
+   "at": "2026-10-31T13:22:51.026Z"
+  },
+  "/media-da/airdolomiti/destinazione-hero-francoforte-1a7809ad.jpg": {
+   "at": "2026-10-31T13:22:54.520Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-10-f2eeb73c.jpg": {
+   "at": "2026-10-31T13:22:58.294Z"
+  },
+  "/media-da/airdolomiti/francoforte-mainbanner-d-5-2e27702f.jpg": {
+   "at": "2026-10-31T13:23:04.445Z"
+  },
+  "/media-da/airdolomiti/francoforteo-full-img-2-15dca4db.jpg": {
+   "at": "2026-10-31T13:23:10.438Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-8-b411a5f5.jpg": {
+   "at": "2026-10-31T13:23:13.850Z"
+  },
+  "/media-da/airdolomiti/mercatino-vintage-francoforte-4f6578a4.jpg": {
+   "at": "2026-10-31T13:23:22.484Z"
+  },
+  "/media-da/airdolomiti/frankfurt-main-tower-1012x740-1-32ce3aa3.jpg": {
+   "at": "2026-10-31T13:23:23.068Z"
+  },
+  "/media-da/airdolomiti/tradizioni-natalizie-915b9629.jpg": {
+   "at": "2026-10-31T13:23:23.644Z"
+  },
+  "/media-da/airdolomiti/francoforte-fiera-6c6873b0.jpg": {
+   "at": "2026-10-31T13:23:27.836Z"
+  },
+  "/media-da/airdolomiti/francoforte-main-tower-1012x740-1-ea0567ee.jpg": {
+   "at": "2026-10-31T13:23:28.392Z"
+  },
+  "/media-da/airdolomiti/mercatini-delle-pulci-antiquariato-fb-thumbnail-a8411042.jpg": {
+   "at": "2026-10-31T13:23:29.132Z"
+  },
+  "/media-da/airdolomiti/francoforte-main-tower-17361d12.jpg": {
+   "at": "2026-10-31T13:23:32.983Z"
+  },
+  "/media-da/airdolomiti/cosafare-dettaglio-02-8-3a4f86cc.jpg": {
+   "at": "2026-10-31T13:23:36.900Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-01-35-49940bc2.jpg": {
+   "at": "2026-10-31T13:23:37.525Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-03-11-95031c5d.jpg": {
+   "at": "2026-10-31T13:23:38.156Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-04-33-026d7455.jpg": {
+   "at": "2026-10-31T13:23:38.788Z"
+  },
+  "/media-da/airdolomiti/biscotti-natale-df8663e6.jpg": {
+   "at": "2026-10-31T13:23:42.565Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-01-37-c2598079.jpg": {
+   "at": "2026-10-31T13:23:43.151Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-02-32-a95a6fc3.jpg": {
+   "at": "2026-10-31T13:23:43.748Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-03-12-b8fbf8f0.jpg": {
+   "at": "2026-10-31T13:23:44.328Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-01-48-d9a09f36.jpg": {
+   "at": "2026-10-31T13:23:48.018Z"
+  },
+  "/media-da/airdolomiti/formaggio-con-musica-piattotipico-75e456e5.jpg": {
+   "at": "2026-10-31T13:23:52.030Z"
+  },
+  "/media-da/airdolomiti/francoforte-air-dolomiti-1-ebaed783.jpg": {
+   "at": "2026-10-31T13:23:55.861Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-02-13-4fc4c4b7.jpg": {
+   "at": "2026-10-31T13:23:56.625Z"
+  },
+  "/media-da/airdolomiti/frankfurt-6de8c934.jpg": {
+   "at": "2026-10-31T13:23:57.309Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-48-a8eca002.jpg": {
+   "at": "2026-10-31T13:23:57.981Z"
+  },
+  "/media-da/airdolomiti/francoforte-vita-notturna-scaled-e1761210230215-ad668267.jpg": {
+   "at": "2026-10-31T13:23:58.791Z"
+  },
+  "/media-da/airdolomiti/cosavedere-dettaglio-02-3-9f353fcc.jpg": {
+   "at": "2026-10-31T13:24:02.933Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-49-75907cf7.jpg": {
+   "at": "2026-10-31T13:24:03.550Z"
+  },
+  "/media-da/airdolomiti/frankfurt-e1765985525544-eab72b99.jpg": {
+   "at": "2026-10-31T13:24:10.274Z"
   }
  }
 }

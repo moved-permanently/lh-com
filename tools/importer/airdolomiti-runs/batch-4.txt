@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-4 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T13:25Z; not published
+# documents (40 + /nav, /footer):
+/tratte/ginevra-monaco-di-baviera
+/tratte/graz-francoforte
+/tratte/graz-monaco
+/tratte/katowice-francoforte
+/tratte/lione-francoforte
+/tratte/lubiana-monaco
+/tratte/lussemburgo-monaco
+/tratte/monaco-graz
+/tratte/olbia-monaco
+/tratte/praga-francoforte
+/tratte/voli-da-torino-a-monaco-di-baviera
+/tratte/volo-ancona-monaco
+/tratte/volo-bari-monaco-di-baviera
+/tratte/volo-bologna-monaco-di-baviera
+/tratte/volo-cagliari-francoforte
+/tratte/volo-da-verona-a-francoforte
+/tratte/volo-firenze-monaco-di-baviera
+/tratte/volo-genova-monaco-di-baviera
+/tratte/volo-milano-linate-francoforte
+/tratte/volo-milano-linate-monaco-di-baviera
+/tratte/volo-milano-malpensa-francoforte
+/tratte/volo-milano-malpensa-monaco-di-baviera
+/tratte/volo-palermo-monaco-di-baviera
+/tratte/volo-pisa-francoforte
+/tratte/volo-rijeka-monaco
+/tratte/volo-torino-francoforte
+/tratte/volo-venezia-monaco-di-baviera
+/tratte/zurigo-francoforte
+/tratte/zurigo-monaco
+/destinazioni/francoforte/cosa-fare
+/destinazioni/francoforte/cosa-fare/fiera-francoforte
+/destinazioni/francoforte/cosa-fare/main-tower
+/destinazioni/francoforte/cosa-fare/mercatini-antiquariato
+/destinazioni/francoforte/cosa-fare/tradizioni-natalizie
+/destinazioni/francoforte/cosa-mangiare
+/destinazioni/francoforte/cosa-mangiare/3-piatti-tipici-di-francoforte
+/destinazioni/francoforte/cosa-vedere
+/destinazioni/francoforte/cosa-vedere/borsa-tedesca
+/destinazioni/francoforte/cosa-vedere/dintorni-di-francoforte
+/destinazioni/francoforte/cosa-vedere/francoforte-in-3-giorni
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): lazyblock/title-description-cta
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/tratte/ginevra-monaco-di-baviera -> /tratte/ginevra-monaco-di-baviera: text 8/8, images 0/0 (+2), links 2/2 (+0)
+#   https://www.airdolomiti.it/destinazioni/francoforte/cosa-fare -> /destinazioni/francoforte/cosa-fare: text 14/14, images 0/0 (+4), links 5/5 (+0)
+#   https://www.airdolomiti.it/tratte/volo-milano-malpensa-francoforte -> /tratte/volo-milano-malpensa-francoforte: text 9/9, images 0/0 (+2), links 3/3 (+1)
+#   https://www.airdolomiti.it/tratte/ginevra-monaco-di-baviera: no text, image or link of www's missing
+#   https://www.airdolomiti.it/destinazioni/francoforte/cosa-fare: no text, image or link of www's missing
+#   https://www.airdolomiti.it/tratte/volo-milano-malpensa-francoforte: no text, image or link of www's missing
