@@ -155,10 +155,15 @@
   margin: 0 calc(-1 * var(--footer-margin));
 }
 
+/* a brand theme may set --footer-heading-size, --footer-toggle-weight (the accordion rows below
+   768px), --footer-heading-transform, --footer-title-line and --footer-column-indent (the column
+   titles and links from 768px), --footer-link-size, --footer-link-weight, --footer-link-gap and
+   --footer-link-line-height (the column links; weight, gap and line height also the legal row's);
+   defaults as before */
 .footer .footer-column-heading {
   margin: 0;
   font-family: var(--heading-font-family);
-  font-size: calc(20px + 4 * (100vw - 375px) / 1065);
+  font-size: var(--footer-heading-size, calc(20px + 4 * (100vw - 375px) / 1065));
   font-weight: 700;
   line-height: 1.1;
 }
@@ -177,6 +182,7 @@
   background: none;
   color: var(--footer-text);
   font: inherit;
+  font-weight: var(--footer-toggle-weight, inherit);
   text-align: left;
   cursor: pointer;
 }
@@ -220,11 +226,11 @@
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--footer-link-gap, 20px);
   color: var(--footer-text);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
+  font-size: var(--footer-link-size, 18px);
+  font-weight: var(--footer-link-weight, 700);
+  line-height: var(--footer-link-line-height, 1.5);
   text-decoration: none;
 }
 
@@ -503,19 +509,20 @@
   .footer .footer-column-title {
     display: block;
     margin-bottom: 24px;
-    padding: 0 0 4px 12px;
-    border-bottom: 1px solid var(--footer-line);
+    padding: 0 0 4px var(--footer-column-indent, 12px);
+    border-bottom: 1px solid var(--footer-title-line, var(--footer-line));
     color: var(--footer-text);
+    text-transform: var(--footer-heading-transform, none);
   }
 
   .footer .footer-column-links,
   .footer .footer-column.is-open .footer-column-links {
     display: block;
-    padding: 0 0 0 12px;
+    padding: 0 0 0 var(--footer-column-indent, 12px);
   }
 
   .footer .footer-link {
-    font-size: 14px;
+    font-size: var(--footer-link-size, 14px);
   }
 
   /* live offsets in the 79px row: crane +31px, member +39px, Star Alliance +29px */
@@ -562,7 +569,7 @@
 
 @media (width >= 1281px) {
   .footer .footer-column-heading {
-    font-size: 24px;
+    font-size: var(--footer-heading-size, 24px);
   }
 }
 

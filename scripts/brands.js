@@ -130,6 +130,30 @@ export const BRANDS = {
       },
     },
   },
+  // Brussels Airlines (lh-brussels): www.brusselsairlines.com's be/en and be/fr homepages
+  // (2026-10-31): meta X-Portal SN, the fare widgets' origin BRU and imageBaseUrl, the OneTrust
+  // banner's links (xx/en, xx/fr); no Message Center tenant yet
+  brussels: {
+    name: 'Brussels Airlines',
+    oneTrust: '01994cb3-c7a3-7096-82a3-ae642c99e85e',
+    destinationImages: '/content/dam/bel/images/offers/destination',
+    www: 'www.brusselsairlines.com',
+    portal: 'SN',
+    hub: 'BRU',
+    airline: 'SN',
+    consentLinks: {
+      en: {
+        privacy: 'https://www.brusselsairlines.com/xx/en/legal-notices/data-protection-and-privacy-notice?hidebanner=true',
+        cookies: 'https://www.brusselsairlines.com/xx/en/legal-notices/cookie-notice?hidebanner=true',
+        imprint: 'https://www.brusselsairlines.com/xx/en/legal-notices/imprint?hidebanner=true',
+      },
+      fr: {
+        privacy: 'https://www.brusselsairlines.com/xx/fr/legal-notices/data-protection-and-privacy-notice?hidebanner=true',
+        cookies: 'https://www.brusselsairlines.com/xx/fr/legal-notices/cookie-notice?hidebanner=true',
+        imprint: 'https://www.brusselsairlines.com/xx/fr/legal-notices/imprint?hidebanner=true',
+      },
+    },
+  },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
   cargo: { name: 'Lufthansa Cargo', theme: false, www: 'www.lufthansa-cargo.com' },

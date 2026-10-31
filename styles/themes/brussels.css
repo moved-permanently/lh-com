@@ -1,0 +1,109 @@
+/*
+ * Brussels Airlines: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * `brand: brussels` (lh-brussels' /metadata.json). Values from the group design system's Brussels
+ * stylesheet (/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/css/brussels.css, the
+ * release www.brusselsairlines.com's be/en and be/fr homepages load, 2026-10-31; v1.38.0's file is
+ * the same) and those pages' computed styles: one family, Intelo (Regular, Bold), for headings and
+ * copy; text and headings sngrey8 #1a1a1a; Brussels red sn-red-2 #e5002b for actions and links in
+ * copy, sn-red-3 #ac0020 their hover; sn-blue-3 #0a1f62 and sn-blue-4 #051446 for selection and the
+ * footer's link area; greys sngrey1 to sngrey8; a white header bar. The secondary buttons as www
+ * shows them: a red outline with red text (the stylesheet's buttonsecondary blue fills no button on
+ * these pages). Fonts: woff2 only, cleared for the demo, at www's own path
+ * /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/brussels/: from the site's
+ * own host where lh-edge serves it, else www.brusselsairlines.com's absolute URL of the same file
+ * (the second src), as the austrian theme does. The logos are images in the site's nav and footer
+ * documents (www's /etc/designs/sn/clientlib-all/vite/img/brussel-logo.svg). lh-com's own pages
+ * never load this file.
+ */
+@font-face {
+  font-family: Intelo;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/brussels/Intelo-Regular.woff2') format('woff2'),
+    url('https://www.brusselsairlines.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/brussels/Intelo-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Intelo;
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/brussels/Intelo-Bold.woff2') format('woff2'),
+    url('https://www.brusselsairlines.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/brussels/Intelo-Bold.woff2') format('woff2');
+}
+
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with Brussels' values */
+  --lh-deepblue: #1a1a1a; /* sngrey8: text, borders, dark surfaces */
+  --lh-deepblue-transparent: #1a1a1a1a;
+  --lh-midnight: #051446; /* sn-blue-4 */
+  --lh-whale-blue: #e5002b; /* sn-red-2: links in copy */
+  --lh-marble-blue: #0a1f62; /* sn-blue-3: selection */
+  --lh-electric-blue: #0968f6; /* focus */
+  --lh-yellow: #e5002b; /* sn-red-2: primary actions */
+  --lh-sunglow-yellow: #ac0020; /* sn-red-3: their hover */
+  --lh-red: #ac0020; /* status error */
+  --lh-green: #3b813f; /* status success; warning #c94600: lh-com's blocks have no warning colour */
+  --lh-grey-1: #f8f8f8;
+  --lh-grey-2: #e8e8e8;
+  --lh-grey-3: #e8e8e8;
+  --lh-grey-4: #c5c5c5;
+  --lh-grey-5: #bababa;
+  --lh-grey-6: #afafaf;
+  --lh-grey-7: #696969;
+  --lh-grey-8: #1a1a1a;
+
+  /* roles */
+  --text-color: #1a1a1a;
+  --heading-color: #1a1a1a;
+  --link-color: #e5002b;
+  --link-hover-color: #ac0020;
+  --focus-color: #0968f6;
+  --brand-color: #e5002b;
+  --border-color: #c5c5c5; /* border-30 */
+  --border-light-color: #e8e8e8; /* border-10 */
+
+  /* fonts: Intelo for headings (Bold) and copy, 16 px body */
+  --body-font-family: intelo, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: intelo, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-light-weight: 700; /* Brussels' headings are Intelo Bold */
+  --body-font-size-m: 16px;
+
+  /* buttons: primary white on Brussels red, secondary red outline (www's); lh-com's 4 px radius */
+  --button-primary-text: #fff;
+  --button-secondary-color: #e5002b;
+  --button-secondary-hover: #ac0020;
+
+  /* the hero card's headline (hero-card-overlay light) */
+  --hero-card-heading-color: #1a1a1a;
+
+  /* header: white bar, its links, login and menu Brussels red, 16 px regular, hover sn-red-3;
+     the logo 26 px, 34 px from 1281 px */
+  --header-bar-surface: #fff;
+  --header-bar-text: #e5002b;
+  --header-bar-text-hover: #ac0020;
+  --header-bar-line: #e8e8e8;
+  --nav-bar-font-size: 16px;
+  --nav-bar-font-weight: 400;
+  --nav-logo-height: 26px;
+  --nav-logo-height-wide: 34px;
+
+  /* footer: dark blue link area with white text; the logo row white (lh-com's default);
+     headings 18 px, uppercase from 768 px, the accordion rows regular below */
+  --footer-surface: #051446;
+  --footer-muted-text: #fff;
+  --footer-line-color: rgb(255 255 255 / 30%);
+  --footer-field-color: #fff;
+  --footer-heading-size: 18px;
+  --footer-heading-transform: uppercase;
+  --footer-toggle-weight: 400;
+  --footer-link-size: 16px; /* www's column links: 16/22 regular, 15 px apart */
+  --footer-link-weight: 400;
+  --footer-link-line-height: 22px;
+  --footer-link-gap: 15px;
+  --footer-column-indent: 0; /* the titles flush left, no line under them */
+  --footer-title-line: transparent;
+}

@@ -13,6 +13,7 @@ export const BRAND_ICONS = {
   discover: { icon: '/etc/designs/four_y/favicon.ico', type: 'image/ico', manifest: '' },
   ita: { icon: '/etc/designs/ita/favicon.ico', type: 'image/ico', manifest: '/etc/designs/ita/manifest.json' },
   austrian: { icon: '/etc/designs/os/favicon.ico', type: 'image/ico', manifest: '/etc/designs/os/manifest.json' },
+  brussels: { icon: '/etc/designs/sn/favicon.ico', type: 'image/ico', manifest: '/etc/designs/sn/manifest.json' },
   cargo: { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' },
   // www.airdolomiti.it's favicon.ico is a PNG
   airdolomiti: { icon: '/favicon/favicon.ico', type: 'image/png', manifest: '' },
