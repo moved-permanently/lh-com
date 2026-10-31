@@ -9,15 +9,31 @@
  * from, to (ISO UTC or ""), push, internal-title, lastModified (seconds).
  * The current travel information page per tenant: /message-center/config/cti-pages.json (tenant,
  * webPath with {cc}/{ll}, contentPath).
+ * Each site reads its own index and sheet (same origin) and shows its own tenant's messages: the
+ * tenant of its brand (scripts/brand.js BRANDS messageCenter), lh-com's 'lh' without a brand.
  */
 
 import { now as clockNow } from './clock.js';
+import { BRANDS, brandOf } from './brand.js';
 
+/** lh-com's tenant (a site without a brand key, and no page at all). */
 export const TENANT = 'lh';
 export const TOUCHPOINT = 'web';
 export const TYPES = ['irreg', 'tech-outage', 'promo'];
 export const INDEX_PATH = '/message-center/index.json';
 export const CTI_PAGES_PATH = '/message-center/config/cti-pages.json';
+
+/**
+ * The site's Message Center tenant: its brand's, '' for a brand without one (no messages), TENANT
+ * for lh-com (no brand key) and outside a page.
+ * @param {Function} [read] metadata reader (default: the page's, as scripts/brand.js)
+ * @returns {string}
+ */
+export function siteTenant(read) {
+  if (!read && typeof document === 'undefined') return TENANT;
+  const key = brandOf(read);
+  return key ? BRANDS[key].messageCenter || '' : TENANT;
+}
 
 /** Display order: irreg high, tech-outage high, irreg low, tech-outage low, promo high, low. */
 const RANK = {
@@ -91,12 +107,12 @@ const recency = (msg) => msg.from ?? msg.lastModified * 1000;
  * @param {number} [options.now] ms since the epoch (default: the page's clock, scripts/clock.js:
  *   the real time, or the time travelled to on a preview host)
  * @param {string[]} [options.types] the types the block shows (default: all three)
- * @param {string} [options.tenant] default 'lh'
+ * @param {string} [options.tenant] default: the site's (siteTenant)
  * @param {string} [options.touchpoint] default 'web'
  * @returns {Object[]} messages (parseRow shape)
  */
 export function selectMessages(rows, {
-  market, lang, now = clockNow(), types = TYPES, tenant = TENANT, touchpoint = TOUCHPOINT,
+  market, lang, now = clockNow(), types = TYPES, tenant = siteTenant(), touchpoint = TOUCHPOINT,
 } = {}) {
   const parsed = (rows || []).map(parseRow).filter(Boolean);
   // one row per message: the page's language, else English
@@ -129,12 +145,12 @@ export function selectMessages(rows, {
  * @param {Object} msg parseRow shape
  * @param {Object[]} ctiRows rows of /message-center/config/cti-pages.json
  * @param {Object} locale getLocale() result (country, lang)
- * @param {string} [tenant]
+ * @param {string} [tenant] default: the site's (siteTenant)
  * @returns {string} the href, or '' when there is none
  */
-export function messageHref(msg, ctiRows, locale, tenant = TENANT) {
+export function messageHref(msg, ctiRows, locale, tenant = siteTenant()) {
   let href = msg.link;
-  if (!href) {
+  if (!href && tenant) {
     const row = (ctiRows || [])
       .find((r) => String(r.tenant || '').trim().toLowerCase() === tenant && r.webPath);
     if (row) {
