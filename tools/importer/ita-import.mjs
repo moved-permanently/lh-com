@@ -29,7 +29,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { ownPages, withOwnLinks } from './own-links.mjs';
+import { ownPages, ownAliases, withOwnLinks } from './own-links.mjs';
 import { relativeDamLinks } from './ita-dam.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -301,10 +301,11 @@ if (isMain) {
     // pages lh-edge answers from them), after site-postprocess (which knows only the pages
     // imported so far)
     const pages = ownPages('lh-ita');
+    const aliases = ownAliases('lh-ita');
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withOwnLinks(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`)), HOST, pages).doc;
+      const next = withOwnLinks(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`)), HOST, pages, aliases).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

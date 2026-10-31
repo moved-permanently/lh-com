@@ -54,6 +54,16 @@ export function ownPages(site) {
   return pages;
 }
 
+/**
+ * The site's aliases: www paths outside its sitemap that stand for one of its pages (www's own
+ * redirect or the page's canonical, read by austrian-resolve.mjs): tools/importer/sites/<site>-aliases.json
+ * {"www path": "site path"}; none: an empty map.
+ */
+export function ownAliases(site) {
+  const f = path.join(root, 'tools/importer/sites', `${site}-aliases.json`);
+  return new Map(fs.existsSync(f) ? Object.entries(JSON.parse(fs.readFileSync(f, 'utf8'))) : []);
+}
+
 /** The site path of a www URL's path (.html and a trailing slash dropped), or ''. */
 export function sitePath(pathname) {
   let p = pathname;
@@ -81,8 +91,10 @@ export function keptReason(p, pages) {
  * A document with its www links to the site's pages relative. Returns the document and the
  * counts: made (links made relative), kept {reason: count}, examples {reason: [paths]}.
  */
-export function withOwnLinks(doc, host, pages) {
-  const made = { href: 0, text: 0, back: 0 };
+export function withOwnLinks(doc, host, pages, aliases = new Map()) {
+  const made = {
+    href: 0, text: 0, back: 0, alias: 0,
+  };
   const kept = {};
   const examples = {};
   const esc = host.replace(/\./g, '\\.');
@@ -90,12 +102,17 @@ export function withOwnLinks(doc, host, pages) {
     let u;
     try { u = new URL(url.replace(/&amp;/g, '&')); } catch (e) { return null; }
     const p = sitePath(u.pathname);
-    return pages.has(p) ? { rel: `${p}${u.search}${u.hash}`.replace(/&/g, '&amp;'), p } : { p };
+    // a path that stands for another page (an alias): that page, when the site has it
+    const to = !pages.has(p) && aliases.has(p) && pages.has(aliases.get(p)) ? aliases.get(p) : p;
+    return pages.has(to) ? {
+      rel: `${to}${u.search}${u.hash}`.replace(/&/g, '&amp;'), p, alias: to !== p,
+    } : { p };
   };
   let out = doc.replace(new RegExp(`href="(https?://${esc}[^"]*)"`, 'g'), (m, url) => {
     const t = toSite(url);
     if (t && t.rel) {
       made.href += 1;
+      if (t.alias) made.alias += 1;
       return `href="${t.rel}"`;
     }
     const reason = keptReason(t ? t.p : '', pages);
@@ -134,17 +151,21 @@ if (isMain) {
     process.exit(1);
   }
   const pages = ownPages(site);
+  const aliases = ownAliases(site);
   const dir = path.join(root, 'content-sites', site, 'content');
-  const total = { href: 0, text: 0, back: 0 };
+  const total = {
+    href: 0, text: 0, back: 0, alias: 0,
+  };
   const kept = {};
   const examples = {};
   const changed = [];
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
-    const r = withOwnLinks(before, host, pages);
+    const r = withOwnLinks(before, host, pages, aliases);
     total.href += r.made.href;
     total.text += r.made.text;
     total.back += r.made.back;
+    total.alias += r.made.alias;
     Object.entries(r.kept).forEach(([k, n]) => { kept[k] = (kept[k] || 0) + n; });
     Object.entries(r.examples).forEach(([k, v]) => { (examples[k] ||= new Set()); v.forEach((x) => examples[k].add(x)); });
     if (r.doc !== before) {
@@ -158,5 +179,5 @@ if (isMain) {
   fs.mkdirSync(path.join(root, 'content-sites', site, 'runs'), { recursive: true });
   fs.writeFileSync(path.join(root, 'content-sites', site, 'runs', 'own-links.json'), `${JSON.stringify(report, null, 1)}\n`);
   if (argv.includes('--write')) fs.writeFileSync(path.join(root, 'content-sites', site, 'runs', 'own-links-upload.txt'), `${changed.join('\n')}\n`);
-  console.log(`${site}: ${pages.size} pages; ${changed.length} documents ${argv.includes('--write') ? 'changed' : 'would change'}; made relative: ${total.href} links, ${total.text} link texts; back to www: ${total.back}; kept on www: ${JSON.stringify(kept)}`);
+  console.log(`${site}: ${pages.size} pages; ${changed.length} documents ${argv.includes('--write') ? 'changed' : 'would change'}; made relative: ${total.href} links (${total.alias} by alias), ${total.text} link texts; back to www: ${total.back}; kept on www: ${JSON.stringify(kept)}`);
 }

@@ -61,3 +61,12 @@ test('a relative link to a page the site lacks goes back to www; the site\'s own
   assert.equal(r.made.back, 1);
   assert.equal(r.doc, '<a href="https://www.ita-airways.com/xx/de/book-and-prepare/baggage?a=1">de</a><a href="/it/en/homepage">home</a><a href="/content/dam/ita/x.pdf">pdf</a>');
 });
+
+test('aliases: a www path that stands for a site page (www\'s redirect or canonical) links that page; one whose page the site lacks stays', () => {
+  const aliases = new Map([['/it/en/plan/accessible-travel', '/it/en/book-and-prepare/offers'], ['/it/en/old', '/it/en/missing']]);
+  const doc = '<a href="https://www.ita-airways.com/it/en/plan/accessible-travel?x=1#a">a</a><a href="https://www.ita-airways.com/it/en/old">b</a>';
+  const r = withOwnLinks(doc, HOST, pages, aliases);
+  assert.equal(r.made.href, 1);
+  assert.equal(r.made.alias, 1);
+  assert.equal(r.doc, '<a href="/it/en/book-and-prepare/offers?x=1#a">a</a><a href="https://www.ita-airways.com/it/en/old">b</a>');
+});

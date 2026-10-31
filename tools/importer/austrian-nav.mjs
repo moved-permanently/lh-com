@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { ownPages, withOwnLinks } from './own-links.mjs';
+import { ownPages, ownAliases, withOwnLinks } from './own-links.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.austrian.com';
@@ -247,7 +247,8 @@ if (isMain) {
   fs.mkdirSync(dir, { recursive: true });
   // links to the site's pages relative (own-links.mjs), as the page importer does
   const pages = ownPages('lh-austrian');
-  const own = (doc) => withOwnLinks(doc, 'www.austrian.com', pages).doc;
+  const aliases = ownAliases('lh-austrian');
+  const own = (doc) => withOwnLinks(doc, 'www.austrian.com', pages, aliases).doc;
   fs.writeFileSync(path.join(dir, 'nav.plain.html'), own(navDocument(document, key, sitePaths)));
   fs.writeFileSync(path.join(dir, 'footer.plain.html'), own(footerDocument(document, sitePaths)));
   const { items } = menuOf(document);
