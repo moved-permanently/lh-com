@@ -2644,6 +2644,206 @@
    "uploaded": "2026-10-31T17:48:04.876Z",
    "mtime": 1793468736644,
    "preview": "2026-10-31T17:48:07.389Z"
+  },
+  "/en/routes/flight-from-munich-to-brindisi": {
+   "uploaded": "2026-10-31T18:08:04.094Z",
+   "mtime": 1793469868085,
+   "preview": "2026-10-31T18:08:05.943Z"
+  },
+  "/en/routes/flight-from-munich-to-cluj": {
+   "uploaded": "2026-10-31T18:08:07.856Z",
+   "mtime": 1793470079443,
+   "preview": "2026-10-31T18:08:10.127Z"
+  },
+  "/en/routes/flight-from-munich-to-dresden": {
+   "uploaded": "2026-10-31T18:08:11.962Z",
+   "mtime": 1793470079533,
+   "preview": "2026-10-31T18:08:14.368Z"
+  },
+  "/en/routes/flight-from-munich-to-florence": {
+   "uploaded": "2026-10-31T18:08:16.272Z",
+   "mtime": 1793470079631,
+   "preview": "2026-10-31T18:08:18.192Z"
+  },
+  "/en/routes/flight-from-munich-to-geneva": {
+   "uploaded": "2026-10-31T18:08:20.202Z",
+   "mtime": 1793470079721,
+   "preview": "2026-10-31T18:08:22.345Z"
+  },
+  "/en/routes/flight-from-munich-to-jersey": {
+   "uploaded": "2026-10-31T18:08:24.492Z",
+   "mtime": 1793470079803,
+   "preview": "2026-10-31T18:08:26.761Z"
+  },
+  "/en/routes/flight-from-munich-to-krakow": {
+   "uploaded": "2026-10-31T18:08:28.584Z",
+   "mtime": 1793470079895,
+   "preview": "2026-10-31T18:08:30.622Z"
+  },
+  "/en/routes/flight-from-munich-to-palermo": {
+   "uploaded": "2026-10-31T18:08:32.689Z",
+   "mtime": 1793470079985,
+   "preview": "2026-10-31T18:08:34.774Z"
+  },
+  "/en/routes/flight-from-munich-to-paris-orly": {
+   "uploaded": "2026-10-31T18:08:36.526Z",
+   "mtime": 1793470080073,
+   "preview": "2026-10-31T18:08:38.795Z"
+  },
+  "/en/routes/flight-from-munich-to-pula": {
+   "uploaded": "2026-10-31T18:08:40.575Z",
+   "mtime": 1793470080163,
+   "preview": "2026-10-31T18:08:42.712Z"
+  },
+  "/en/routes/flight-from-munich-to-turin": {
+   "uploaded": "2026-10-31T18:08:44.903Z",
+   "mtime": 1793470080249,
+   "preview": "2026-10-31T18:08:46.792Z"
+  },
+  "/en/routes/flight-from-munich-to-venice": {
+   "uploaded": "2026-10-31T18:08:48.712Z",
+   "mtime": 1793470080341,
+   "preview": "2026-10-31T18:08:51.055Z"
+  },
+  "/en/routes/flight-from-munich-to-verona": {
+   "uploaded": "2026-10-31T18:08:52.272Z",
+   "mtime": 1793469868428,
+   "preview": "2026-10-31T18:08:54.109Z"
+  },
+  "/en/routes/flight-from-paris-orly-to-munich": {
+   "uploaded": "2026-10-31T18:08:55.197Z",
+   "mtime": 1793469868455,
+   "preview": "2026-10-31T18:08:56.994Z"
+  },
+  "/en/routes/flight-from-pula-to-frankfurt": {
+   "uploaded": "2026-10-31T18:08:58.147Z",
+   "mtime": 1793469868482,
+   "preview": "2026-10-31T18:08:59.868Z"
+  },
+  "/en/routes/flight-from-pula-to-munich": {
+   "uploaded": "2026-10-31T18:09:01.031Z",
+   "mtime": 1793469868505,
+   "preview": "2026-10-31T18:09:02.972Z"
+  },
+  "/en/routes/flight-from-wroclaw-to-frankfurt": {
+   "uploaded": "2026-10-31T18:09:04.115Z",
+   "mtime": 1793469868529,
+   "preview": "2026-10-31T18:09:06.135Z"
+  },
+  "/en/routes/flight-munich-milan-linate": {
+   "uploaded": "2026-10-31T18:09:08.010Z",
+   "mtime": 1793470080527,
+   "preview": "2026-10-31T18:09:10.104Z"
+  },
+  "/en/routes/flight-munich-milan-malpensa": {
+   "uploaded": "2026-10-31T18:09:12.073Z",
+   "mtime": 1793470080628,
+   "preview": "2026-10-31T18:09:14.244Z"
+  },
+  "/en/routes/flight-munich-olbia": {
+   "uploaded": "2026-10-31T18:09:15.385Z",
+   "mtime": 1793469868602,
+   "preview": "2026-10-31T18:09:17.065Z"
+  },
+  "/en/routes/flight-munich-rijeka": {
+   "uploaded": "2026-10-31T18:09:18.266Z",
+   "mtime": 1793469868629,
+   "preview": "2026-10-31T18:09:19.974Z"
+  },
+  "/en/routes/flights-frankfurt-birmingham": {
+   "uploaded": "2026-10-31T18:09:21.267Z",
+   "mtime": 1793469868654,
+   "preview": "2026-10-31T18:09:23.298Z"
+  },
+  "/en/routes/flights-frankfurt-innsbruck": {
+   "uploaded": "2026-10-31T18:09:25.223Z",
+   "mtime": 1793470080784,
+   "preview": "2026-10-31T18:09:27.548Z"
+  },
+  "/en/routes/flights-munich-genoa": {
+   "uploaded": "2026-10-31T18:09:28.708Z",
+   "mtime": 1793469868708,
+   "preview": "2026-10-31T18:09:30.506Z"
+  },
+  "/en/routes/frankfurt-amsterdam-eu": {
+   "uploaded": "2026-10-31T18:09:32.228Z",
+   "mtime": 1793470080894,
+   "preview": "2026-10-31T18:09:34.563Z"
+  },
+  "/en/routes/frankfurt-billund-eu": {
+   "uploaded": "2026-10-31T18:09:35.671Z",
+   "mtime": 1793469868759,
+   "preview": "2026-10-31T18:09:37.402Z"
+  },
+  "/en/routes/frankfurt-bologna-eu": {
+   "uploaded": "2026-10-31T18:09:39.174Z",
+   "mtime": 1793470081007,
+   "preview": "2026-10-31T18:09:41.026Z"
+  },
+  "/en/routes/frankfurt-prague": {
+   "uploaded": "2026-10-31T18:09:42.220Z",
+   "mtime": 1793469868811,
+   "preview": "2026-10-31T18:09:44.252Z"
+  },
+  "/en/routes/frankfurt-to-lyon": {
+   "uploaded": "2026-10-31T18:09:46.112Z",
+   "mtime": 1793470081124,
+   "preview": "2026-10-31T18:09:47.729Z"
+  },
+  "/en/routes/graz-frankfurt": {
+   "uploaded": "2026-10-31T18:09:48.950Z",
+   "mtime": 1793469868863,
+   "preview": "2026-10-31T18:09:50.664Z"
+  },
+  "/en/routes/graz-munich": {
+   "uploaded": "2026-10-31T18:09:51.873Z",
+   "mtime": 1793469868888,
+   "preview": "2026-10-31T18:09:53.691Z"
+  },
+  "/en/routes/munich-basel": {
+   "uploaded": "2026-10-31T18:09:54.987Z",
+   "mtime": 1793469868915,
+   "preview": "2026-10-31T18:09:56.831Z"
+  },
+  "/en/routes/munich-billund": {
+   "uploaded": "2026-10-31T18:09:57.891Z",
+   "mtime": 1793469868947,
+   "preview": "2026-10-31T18:09:59.391Z"
+  },
+  "/en/routes/munich-graz": {
+   "uploaded": "2026-10-31T18:10:00.692Z",
+   "mtime": 1793469868973,
+   "preview": "2026-10-31T18:10:02.567Z"
+  },
+  "/en/routes/munich-ljubljana": {
+   "uploaded": "2026-10-31T18:10:04.300Z",
+   "mtime": 1793470081314,
+   "preview": "2026-10-31T18:10:06.277Z"
+  },
+  "/en/routes/munich-luxembourg": {
+   "uploaded": "2026-10-31T18:10:08.274Z",
+   "mtime": 1793470081424,
+   "preview": "2026-10-31T18:10:10.332Z"
+  },
+  "/en/routes/munich-zurich": {
+   "uploaded": "2026-10-31T18:10:11.484Z",
+   "mtime": 1793469869066,
+   "preview": "2026-10-31T18:10:13.718Z"
+  },
+  "/en/destinations/amsterdam-eu": {
+   "uploaded": "2026-10-31T18:10:15.552Z",
+   "mtime": 1793470081537,
+   "preview": "2026-10-31T18:10:17.770Z"
+  },
+  "/en/destinations/amsterdam-eu/amsterdam-city-break": {
+   "uploaded": "2026-10-31T18:10:19.602Z",
+   "mtime": 1793470081631,
+   "preview": "2026-10-31T18:10:21.727Z"
+  },
+  "/en/destinations/ancona-eu": {
+   "uploaded": "2026-10-31T18:10:23.639Z",
+   "mtime": 1793470081720,
+   "preview": "2026-10-31T18:10:26.224Z"
   }
  },
  "media": {
@@ -5469,6 +5669,72 @@
   },
   "/media-da/airdolomiti/istock-1402238769-bologna1920x1080-1e479ae3.jpg": {
    "at": "2026-10-31T17:48:04.100Z"
+  },
+  "/media-da/airdolomiti/cluj-1920x1080-1-cef3b82b.jpg": {
+   "at": "2026-10-31T18:08:06.948Z"
+  },
+  "/media-da/airdolomiti/palazzo-zwinger-dresda-1920x1080-1-e836f59d.jpg": {
+   "at": "2026-10-31T18:08:11.083Z"
+  },
+  "/media-da/airdolomiti/firenze-mainbanner-d-9-5210f1e4.jpg": {
+   "at": "2026-10-31T18:08:15.347Z"
+  },
+  "/media-da/airdolomiti/ginevra-veduta-aerea-1920x1080-1-235c13e8.jpg": {
+   "at": "2026-10-31T18:08:19.225Z"
+  },
+  "/media-da/airdolomiti/faro-jersey-1920x1080-1-e872af14.jpg": {
+   "at": "2026-10-31T18:08:23.422Z"
+  },
+  "/media-da/airdolomiti/cracovia-centro-storico-1920x1080-1-81efad2c.jpg": {
+   "at": "2026-10-31T18:08:27.818Z"
+  },
+  "/media-da/airdolomiti/palermo-pretoria-fountain-1920x1080-1-df3fbd95.jpg": {
+   "at": "2026-10-31T18:08:31.673Z"
+  },
+  "/media-da/airdolomiti/parigi-tour-eiffel-1920x1080-1-6ee47865.jpg": {
+   "at": "2026-10-31T18:08:35.732Z"
+  },
+  "/media-da/airdolomiti/pula-croatia-amphitheater-1920x1080-1-3ef6965c.jpg": {
+   "at": "2026-10-31T18:08:39.842Z"
+  },
+  "/media-da/airdolomiti/turin-mainbanner-d-5-2f865d68.jpg": {
+   "at": "2026-10-31T18:08:43.740Z"
+  },
+  "/media-da/airdolomiti/venice-mainbanner-d-4-7b2fcf2a.jpg": {
+   "at": "2026-10-31T18:08:47.896Z"
+  },
+  "/media-da/airdolomiti/milanogalleria-mainbanner-d-1-80030137.jpg": {
+   "at": "2026-10-31T18:09:07.261Z"
+  },
+  "/media-da/airdolomiti/milano-mainbannerd-b00c4fe7.jpg": {
+   "at": "2026-10-31T18:09:11.134Z"
+  },
+  "/media-da/airdolomiti/innsbruck-1-657b05da.jpg": {
+   "at": "2026-10-31T18:09:24.336Z"
+  },
+  "/media-da/airdolomiti/amsterdam-bike-canal-48571f5e.jpg": {
+   "at": "2026-10-31T18:09:31.524Z"
+  },
+  "/media-da/airdolomiti/bologna-mainbanner-d-5-4430bc93.jpg": {
+   "at": "2026-10-31T18:09:38.420Z"
+  },
+  "/media-da/airdolomiti/lyon-place-des-terreaux-1012x740-1-ee2ea7a8.jpg": {
+   "at": "2026-10-31T18:09:45.304Z"
+  },
+  "/media-da/airdolomiti/ljubljana-airdolomiti-1-0ad842cc.jpg": {
+   "at": "2026-10-31T18:10:03.603Z"
+  },
+  "/media-da/airdolomiti/luxembourg-city-pfaffenthal-kirchberg-funicular-e17383155759-2ac32aed.jpg": {
+   "at": "2026-10-31T18:10:07.430Z"
+  },
+  "/media-da/airdolomiti/amsterdam-canal-89de4439.jpg": {
+   "at": "2026-10-31T18:10:14.690Z"
+  },
+  "/media-da/airdolomiti/amsterdam-bikes-on-canal-1920x1080-1-c0f6581d.jpg": {
+   "at": "2026-10-31T18:10:18.765Z"
+  },
+  "/media-da/airdolomiti/ancona-clementine-arch-1920x1080-1-fd45fb3b.webp": {
+   "at": "2026-10-31T18:10:22.741Z"
   }
  }
 }

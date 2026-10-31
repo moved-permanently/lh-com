@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-14 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T18:11Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/routes/flight-from-munich-to-brindisi
+/en/routes/flight-from-munich-to-cluj
+/en/routes/flight-from-munich-to-dresden
+/en/routes/flight-from-munich-to-florence
+/en/routes/flight-from-munich-to-geneva
+/en/routes/flight-from-munich-to-jersey
+/en/routes/flight-from-munich-to-krakow
+/en/routes/flight-from-munich-to-palermo
+/en/routes/flight-from-munich-to-paris-orly
+/en/routes/flight-from-munich-to-pula
+/en/routes/flight-from-munich-to-turin
+/en/routes/flight-from-munich-to-venice
+/en/routes/flight-from-munich-to-verona
+/en/routes/flight-from-paris-orly-to-munich
+/en/routes/flight-from-pula-to-frankfurt
+/en/routes/flight-from-pula-to-munich
+/en/routes/flight-from-wroclaw-to-frankfurt
+/en/routes/flight-munich-milan-linate
+/en/routes/flight-munich-milan-malpensa
+/en/routes/flight-munich-olbia
+/en/routes/flight-munich-rijeka
+/en/routes/flights-frankfurt-birmingham
+/en/routes/flights-frankfurt-innsbruck
+/en/routes/flights-munich-genoa
+/en/routes/frankfurt-amsterdam-eu
+/en/routes/frankfurt-billund-eu
+/en/routes/frankfurt-bologna-eu
+/en/routes/frankfurt-prague
+/en/routes/frankfurt-to-lyon
+/en/routes/graz-frankfurt
+/en/routes/graz-munich
+/en/routes/munich-basel
+/en/routes/munich-billund
+/en/routes/munich-graz
+/en/routes/munich-ljubljana
+/en/routes/munich-luxembourg
+/en/routes/munich-zurich
+/en/destinations/amsterdam-eu
+/en/destinations/amsterdam-eu/amsterdam-city-break
+/en/destinations/ancona-eu
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/routes/flight-from-munich-to-brindisi -> /en/routes/flight-from-munich-to-brindisi: text 7/7, images 0/0 (+2), links 2/2 (+0)
+#   https://www.airdolomiti.eu/destinations/amsterdam-eu -> /en/destinations/amsterdam-eu: text 19/19, images 0/0 (+2), links 5/5 (+0)
+#   https://www.airdolomiti.eu/routes/flight-munich-rijeka -> /en/routes/flight-munich-rijeka: text 7/7, images 0/0 (+2), links 2/2 (+1)
+#   https://www.airdolomiti.eu/routes/flight-from-munich-to-brindisi: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/destinations/amsterdam-eu: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/routes/flight-munich-rijeka: no text, image or link of www's missing
