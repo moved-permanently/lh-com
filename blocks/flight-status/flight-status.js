@@ -1,4 +1,6 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
+import {
+  getLocale, LIVE_ORIGIN, siteOrigin, brandEntry,
+} from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
@@ -29,15 +31,21 @@ const TAB_KEYS = ['number', 'route', 'airport'];
  * @param {Object} locale result of getLocale()
  * @param {string} [submitUrl] authored live page URL
  * @returns {string}
+ * On a brand page (locale.brand: Discover, ITA) the brand's www, and without an authored page
+ * the same page there (this page is its migrated copy); lh-com: www.lufthansa.com's timetable
+ * page.
  */
-function buildFlightStatusUrl(query, locale, submitUrl) {
+export function buildFlightStatusUrl(query, locale, submitUrl) {
+  const origin = locale.brand ? siteOrigin() : LIVE_ORIGIN;
+  const fallback = locale.brand
+    ? window.location.pathname.replace(/^\/content(?=\/)/, '') : `${locale.base}/timetable-and-flight-status`;
   let url;
   try {
-    url = new URL(submitUrl || `${locale.base}/timetable-and-flight-status`, LIVE_ORIGIN);
+    url = new URL(submitUrl || fallback, origin);
     // a relative or local link means the live page: this page is its migrated copy
-    if (url.origin === window.location.origin) url = new URL(`${url.pathname}${url.search}`, LIVE_ORIGIN);
+    if (url.origin === window.location.origin) url = new URL(`${url.pathname}${url.search}`, origin);
   } catch (e) {
-    url = new URL(`${locale.base}/timetable-and-flight-status`, LIVE_ORIGIN);
+    url = new URL(fallback, origin);
   }
   const params = { tab: query.type, date: query.date };
   if (query.type === 'number') params.flightNumber = `${query.airline}${query.flightNumber}`;
@@ -59,6 +67,12 @@ function buildFlightStatusUrl(query, locale, submitUrl) {
 
 const DEFAULT_AIRLINES = ['OS', '4Y', 'EN', 'LX', 'EW', 'WK', 'VL', 'AZ', 'SN', 'LH'];
 const DEFAULT_AIRLINE = 'LH';
+
+/** The airline selected first: the brand's (scripts/brands.js airline: AZ, 4Y), else LH. */
+export function defaultAirline() {
+  const brand = brandEntry();
+  return (brand && brand.airline) || DEFAULT_AIRLINE;
+}
 
 /** UI strings that are not visible authored content; any can be overridden by a block row. */
 const DEFAULT_LABELS = {
@@ -264,17 +278,19 @@ function buildTabs(id, tabs, panels, active, label) {
  * type code (e.g. 359, 32N) is one of the locale's fleet pages (rows of /fleet-index.json, column
  * aircraft-code), `/<cc>/<ll>/discover-lufthansa/lufthansa-fleet/<code>` (the redirects sheet
  * sends it to the page's short URL); otherwise null. Results are handed off to www today, so no
- * caller yet.
+ * caller yet. A brand site (its fleet pages have no Lufthansa slug): the fleet page's own path.
  * @param {string} code the aircraft type code of the flight
  * @param {Array<{path: string, 'aircraft-code': string}>} fleet the fleet index rows
  * @param {string} base the locale prefix, e.g. /de/en
+ * @param {string} [brand] the page's brand key ('' for lh-com)
  */
-export function aircraftLink(code, fleet, base) {
+export function aircraftLink(code, fleet, base, brand = '') {
   const c = String(code || '').trim().toLowerCase();
   if (!c || !base) return null;
-  const known = (fleet || []).some((r) => String(r.path || '').startsWith(`${base}/`)
+  const row = (fleet || []).find((r) => String(r.path || '').startsWith(`${base}/`)
     && String(r['aircraft-code'] || '').toLowerCase() === c);
-  return known ? `${base}/discover-lufthansa/lufthansa-fleet/${c}` : null;
+  if (!row) return null;
+  return brand ? row.path : `${base}/discover-lufthansa/lufthansa-fleet/${c}`;
 }
 
 export default async function decorate(block) {
@@ -295,10 +311,11 @@ export default async function decorate(block) {
   const airlines = (pick(config, 'airlines') || { list: [] }).list
     .map((a) => a.toUpperCase()).filter((a) => /^[A-Z0-9]{2}$/.test(a));
   const airlineList = airlines.length ? airlines : DEFAULT_AIRLINES;
-  const defaultAirline = text('default-airline').toUpperCase();
-  let selectedAirline = DEFAULT_AIRLINE;
-  if (airlineList.includes(defaultAirline)) selectedAirline = defaultAirline;
-  else if (!airlineList.includes(DEFAULT_AIRLINE)) [selectedAirline] = airlineList;
+  const authoredAirline = text('default-airline').toUpperCase();
+  const siteAirline = defaultAirline();
+  let selectedAirline = siteAirline;
+  if (airlineList.includes(authoredAirline)) selectedAirline = authoredAirline;
+  else if (!airlineList.includes(siteAirline)) [selectedAirline] = airlineList;
 
   const daysBefore = clampInt(text('days-before'), 1, 7);
   const daysAfter = clampInt(text('days-after'), 5, 14);

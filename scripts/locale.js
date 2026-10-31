@@ -204,6 +204,28 @@ export function ownRoots(read = pageMeta) {
   return Object.keys(site.rows).filter((root) => site.names[root] || site.rows[root].label);
 }
 
+/** The page's brand entry (scripts/brands.js BRANDS), or null (lh-com and no page). */
+export function brandEntry(read = pageMeta) {
+  const key = brandKey(read);
+  return key ? BRANDS[key] : null;
+}
+
+/**
+ * The portal of a locale's /service/api calls (X-Portal): its brand's on www (Discover FOUR_Y,
+ * ITA ITA), else Lufthansa's (LH: lh-com, the brands without one).
+ * @param {Object} locale getLocale() result (or a table row)
+ * @returns {string}
+ */
+export function portalOf(locale) {
+  const brand = locale && locale.brand;
+  return (brand && BRANDS[brand] && BRANDS[brand].portal) || 'LH';
+}
+
+/** The tenant of a locale's label bundles (/service/api/labels/{bundle}/{tenant}/{lang}). */
+export function labelTenant(locale) {
+  return portalOf(locale).toLowerCase();
+}
+
 /**
  * Whether a country/language pair is one of the migrated locales.
  * @param {string} country two-letter country code

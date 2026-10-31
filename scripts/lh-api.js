@@ -8,6 +8,7 @@
  * fallback).
  */
 import { lhFetch, lhRecorded } from './lh-data.js';
+import { labelTenant } from './locale.js';
 import { destinationImageBase } from './brand.js';
 
 /* ------------------------------------------------------------------------------------------- */
@@ -55,9 +56,12 @@ export function catalogRequest(name) {
   return { method: 'GET', route: `/service/api/catalogs/${name}` };
 }
 
-/** UI labels of a component, e.g. GET /service/api/labels/flightmanager/lh/de */
+/**
+ * UI labels of a component, e.g. GET /service/api/labels/flightmanager/lh/de; a brand page's
+ * under its tenant (scripts/locale.js labelTenant: .../flightmanager/ita/it, .../four_y/fr).
+ */
 export function labelsRequest(bundle, locale) {
-  return { method: 'GET', route: `/service/api/labels/${bundle}/lh/${locale.lang}` };
+  return { method: 'GET', route: `/service/api/labels/${bundle}/${labelTenant(locale)}/${locale.lang}` };
 }
 
 /** Default origin of the market (by geo on the live site): GET /service/api/defaultAirport */

@@ -1,8 +1,8 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import {
-  getLocale, LOCALES, LOCALE_TABLE, LIVE_ORIGIN, getCounterpartPath, getHomepageUrl,
-  isMigratedLocale,
+  getLocale, LOCALE_TABLE, getCounterpartPath, getHomepageUrl,
+  isMigratedLocale, portalOf, ownRoots, siteLocales, siteOrigin,
 } from '../../scripts/locale.js';
 import { languageSwitch, switchTarget } from '../../scripts/site-languages.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
@@ -227,7 +227,7 @@ function useLoginUrl(a) {
       const state = window.location.pathname.replace(/^\/content(?=\/)/, '');
       const resp = await fetch(`${LOGIN_URL}?state=${encodeURIComponent(state)}`, {
         headers: {
-          'X-Portal': 'LH', 'X-Portal-Site': locale.country.toUpperCase(), 'X-Portal-Language': locale.lang,
+          'X-Portal': portalOf(locale), 'X-Portal-Site': locale.country.toUpperCase(), 'X-Portal-Language': locale.lang,
         },
         signal: AbortSignal.timeout(3000),
       });
@@ -254,7 +254,7 @@ async function countryTarget(href) {
 }
 
 function buildLocaleDialog(locale, currentLabel, countries, labels, {
-  localeKeys = Object.keys(LOCALES), otherCountries = true,
+  localeKeys = ownRoots(), otherCountries = true,
 } = {}) {
   const titleId = 'nav-locale-title';
   const dialog = el('dialog', { className: 'nav-locale', 'aria-labelledby': titleId });
@@ -262,15 +262,18 @@ function buildLocaleDialog(locale, currentLabel, countries, labels, {
   close.addEventListener('click', () => dialog.close());
 
   const list = el('ul', { className: 'nav-locale-list' });
+  // the site's roots: lh-com's migrated locales, a brand site's own (scripts/locale.js)
+  const locales = siteLocales();
   localeKeys.forEach((key) => {
     const current = key === locale.key;
+    const row = locales[key];
     const a = el('a', {
       href: `/${key}/homepage`,
-      hreflang: `${LOCALES[key].lang}-${LOCALES[key].country.toUpperCase()}`,
-      lang: LOCALES[key].lang,
+      hreflang: `${row.lang}-${row.country.toUpperCase()}`,
+      lang: row.lang,
       'data-locale': key,
       'aria-current': current ? 'true' : false,
-    }, el('span', {}, LOCALE_NAMES[key] || key), current ? uiIcon('check') : null);
+    }, el('span', {}, row.name || LOCALE_NAMES[key] || key), current ? uiIcon('check') : null);
     list.append(el('li', {}, a));
   });
 
@@ -291,7 +294,7 @@ function buildLocaleDialog(locale, currentLabel, countries, labels, {
       window.location.href = await countryTarget(select.value);
     });
   } else if (otherCountries) {
-    other = el('p', { className: 'nav-locale-other' }, el('a', { href: `${LIVE_ORIGIN}/` }, labels.otherCountries, uiIcon('arrow-right')));
+    other = el('p', { className: 'nav-locale-other' }, el('a', { href: `${siteOrigin()}/` }, labels.otherCountries, uiIcon('arrow-right')));
   }
 
   dialog.append(
@@ -671,7 +674,7 @@ export default async function decorate(block) {
   const menuLabel = text(tools && tools.querySelector('.default-content-wrapper > p')) || labels.menu;
   const byRole = (role) => toolItems.find((t) => t.role === role);
   const localeTool = byRole('locale') || {
-    icon: 'globe', label: LOCALE_NAMES[locale.key] || locale.key, countries: [],
+    icon: 'globe', label: (siteLocales()[locale.key] || {}).name || LOCALE_NAMES[locale.key] || locale.key, countries: [],
   };
   const { dialog, open: openLocale } = buildLocaleDialog(
     locale,

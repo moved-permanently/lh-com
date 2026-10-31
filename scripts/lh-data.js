@@ -20,7 +20,9 @@
  * 3. Recorded: the responses recorded at import time under /data/recorded/ (never for prices:
  *    PRICE_ROUTES answer live or not at all).
  */
-import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
+import {
+  getLocale, LOCALE_TABLE, LIVE_ORIGIN, siteLocales, portalOf,
+} from './locale.js';
 import { FALLBACK_LANGUAGE_VERSION } from './locale-table.js';
 import { isDemoHost } from './demo.js';
 
@@ -101,14 +103,16 @@ export function isDirectRoute(route) {
  * X-Portal-CountryId: ''. The live page also sends "line: b" and an Accept-Language built from
  * navigator.languages; neither is sent here (the cross-origin preflight was verified with the
  * X-Portal-* headers only, and the browser sends the visitor's own Accept-Language).
+ * A brand page (scripts/locale.js siteLocales): its root's row and the brand's portal (www's
+ * meta X-Portal: Discover FOUR_Y, X-Portal-Site XX on its xx roots; ITA ITA).
  * @param {string} market locale key, e.g. 'de/en'
  * @returns {Object<string, string>}
  */
 export function portalHeaders(market) {
-  const locale = LOCALE_TABLE[market];
+  const locale = siteLocales()[market] || LOCALE_TABLE[market];
   if (!locale) return {};
   return {
-    'X-Portal': 'LH',
+    'X-Portal': portalOf(locale),
     'X-Portal-Site': locale.country.toUpperCase(),
     'X-Portal-Language': locale.lang,
     'X-Portal-Taxonomy': '',
@@ -347,7 +351,7 @@ export async function lhRecorded(pathPrefix, { method = 'GET', market = getLocal
 
 /** Accept-Language of a market (the proxy forwards it; the live site localizes by it). */
 function acceptLanguage(market) {
-  const locale = LOCALE_TABLE[market];
+  const locale = siteLocales()[market] || LOCALE_TABLE[market];
   if (!locale) return '';
   return `${locale.lang}-${locale.country.toUpperCase()},${locale.lang};q=0.9`;
 }

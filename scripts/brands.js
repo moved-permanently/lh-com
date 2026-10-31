@@ -24,7 +24,8 @@
  * links open like lufthansa.com's on lh-com: isOwnWwwHost; its pages replace www.lufthansa.com's
  * in links: scripts/locale.js siteOrigin). portal: www's X-Portal of the brand's pages (their
  * meta X-Portal: Discover FOUR_Y; ITA ITA), the tenant of its /service/api calls and label
- * bundles (lowercase); hub: the home airport of a root without one. The brands' favicons and
+ * bundles (lowercase); hub: the home airport of a root without one; airline: its IATA code (the
+ * flight status' default airline). The brands' favicons and
  * manifests: scripts/brand-icons.js. The languages of the sites without <cc>/<ll> roots (Cargo,
  * Air Dolomiti): scripts/site-languages.js.
  */
@@ -37,6 +38,7 @@ export const BRANDS = {
     www: 'www.discover-airlines.com',
     portal: 'FOUR_Y',
     hub: 'FRA',
+    airline: '4Y',
   },
   ita: {
     name: 'ITA Airways',
@@ -46,6 +48,7 @@ export const BRANDS = {
     www: 'www.ita-airways.com',
     portal: 'ITA',
     hub: 'ROM',
+    airline: 'AZ',
   },
   // Austrian Airlines (lh-austrian): its icons row: scripts/brand-icons.js; destination images:
   // the fare widgets' imageBaseUrl on www's homepage (2026-10-31)
