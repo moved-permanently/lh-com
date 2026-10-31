@@ -151,9 +151,9 @@
    "preview": "2026-10-31T01:58:35.034Z"
   },
   "/at/en/emergency-contact": {
-   "uploaded": "2026-10-31T01:58:36.200Z",
-   "mtime": 1793411463115,
-   "preview": "2026-10-31T01:58:38.046Z"
+   "uploaded": "2026-10-31T11:12:06.466Z",
+   "mtime": 1793443993132,
+   "preview": "2026-10-31T11:12:08.038Z"
   },
   "/at/en/book/additional-services/seat-reservation": {
    "uploaded": "2026-10-31T01:58:39.377Z",
@@ -376,9 +376,9 @@
    "preview": "2026-10-31T02:01:35.259Z"
   },
   "/at/en/contact-form-baggage": {
-   "uploaded": "2026-10-31T02:01:36.611Z",
-   "mtime": 1793411462981,
-   "preview": "2026-10-31T02:01:38.993Z"
+   "uploaded": "2026-10-31T11:06:52.070Z",
+   "mtime": 1793443990608,
+   "preview": "2026-10-31T11:06:53.780Z"
   },
   "/at/en/internet-on-board": {
    "uploaded": "2026-10-31T02:01:40.056Z",
@@ -406,14 +406,14 @@
    "preview": "2026-10-31T04:55:35.100Z"
   },
   "/at/de/nav": {
-   "uploaded": "2026-10-31T04:55:23.188Z",
-   "mtime": 1793422426089,
-   "preview": "2026-10-31T04:55:24.944Z"
+   "uploaded": "2026-10-31T11:02:26.752Z",
+   "mtime": 1793444399165,
+   "preview": "2026-10-31T11:02:28.429Z"
   },
   "/at/de/footer": {
-   "uploaded": "2026-10-31T04:55:26.093Z",
-   "mtime": 1793422426115,
-   "preview": "2026-10-31T04:55:28.126Z"
+   "uploaded": "2026-10-31T11:02:29.807Z",
+   "mtime": 1793444399195,
+   "preview": "2026-10-31T11:02:31.775Z"
   },
   "/at/de/online-check-in": {
    "uploaded": "2026-10-31T02:10:13.523Z",
@@ -541,9 +541,9 @@
    "preview": "2026-10-31T02:11:39.343Z"
   },
   "/at/de/notfallkontakt": {
-   "uploaded": "2026-10-31T02:11:40.347Z",
-   "mtime": 1793412347159,
-   "preview": "2026-10-31T02:11:42.368Z"
+   "uploaded": "2026-10-31T11:06:49.351Z",
+   "mtime": 1793443990584,
+   "preview": "2026-10-31T11:06:50.907Z"
   },
   "/at/de/book/additional-services/seat-reservation": {
    "uploaded": "2026-10-31T02:11:43.454Z",
@@ -751,9 +751,9 @@
    "preview": "2026-10-31T02:14:05.824Z"
   },
   "/at/de/anfrage-gepaeck": {
-   "uploaded": "2026-10-31T02:14:07.089Z",
-   "mtime": 1793412345807,
-   "preview": "2026-10-31T02:14:09.085Z"
+   "uploaded": "2026-10-31T11:04:28.284Z",
+   "mtime": 1793443989259,
+   "preview": "2026-10-31T11:04:30.006Z"
   },
   "/at/de/internet-on-board": {
    "uploaded": "2026-10-31T02:14:10.233Z",
@@ -836,9 +836,9 @@
    "preview": "2026-10-31T02:43:55.096Z"
   },
   "/at/en/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T02:43:56.302Z",
-   "mtime": 1793413038675,
-   "preview": "2026-10-31T02:43:58.300Z"
+   "uploaded": "2026-10-31T11:04:41.084Z",
+   "mtime": 1793443989353,
+   "preview": "2026-10-31T11:04:42.933Z"
   },
   "/at/en/arrival-regional-airports": {
    "uploaded": "2026-10-31T02:43:59.377Z",
@@ -901,9 +901,9 @@
    "preview": "2026-10-31T02:44:44.605Z"
   },
   "/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T02:44:45.918Z",
-   "mtime": 1793413039401,
-   "preview": "2026-10-31T02:44:47.632Z"
+   "uploaded": "2026-10-31T11:05:30.576Z",
+   "mtime": 1793443989805,
+   "preview": "2026-10-31T11:05:32.365Z"
   },
   "/at/en/book/rebook/voluntary-rebooking": {
    "uploaded": "2026-10-31T02:44:48.839Z",
@@ -931,54 +931,54 @@
    "preview": "2026-10-31T02:45:04.409Z"
   },
   "/at/en/contact-form-booking": {
-   "uploaded": "2026-10-31T02:45:05.587Z",
-   "mtime": 1793413039786,
-   "preview": "2026-10-31T02:45:07.389Z"
+   "uploaded": "2026-10-31T11:07:44.207Z",
+   "mtime": 1793443991033,
+   "preview": "2026-10-31T11:07:45.732Z"
   },
   "/at/en/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T02:45:08.417Z",
-   "mtime": 1793413039762,
-   "preview": "2026-10-31T02:45:10.216Z"
+   "uploaded": "2026-10-31T11:07:18.882Z",
+   "mtime": 1793443990823,
+   "preview": "2026-10-31T11:07:20.385Z"
   },
   "/at/en/contact-form-charter": {
-   "uploaded": "2026-10-31T02:45:11.325Z",
-   "mtime": 1793413039811,
-   "preview": "2026-10-31T02:45:13.179Z"
+   "uploaded": "2026-10-31T11:08:10.235Z",
+   "mtime": 1793443991246,
+   "preview": "2026-10-31T11:08:11.866Z"
   },
   "/at/en/contact-form-medical-request": {
-   "uploaded": "2026-10-31T02:45:14.317Z",
-   "mtime": 1793413041346,
-   "preview": "2026-10-31T02:45:16.217Z"
+   "uploaded": "2026-10-31T11:08:35.745Z",
+   "mtime": 1793443991452,
+   "preview": "2026-10-31T11:08:37.395Z"
   },
   "/at/en/contact-form-other": {
-   "uploaded": "2026-10-31T02:45:17.323Z",
-   "mtime": 1793413039861,
-   "preview": "2026-10-31T02:45:19.037Z"
+   "uploaded": "2026-10-31T11:09:02.137Z",
+   "mtime": 1793443991661,
+   "preview": "2026-10-31T11:09:03.801Z"
   },
   "/at/en/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T02:45:20.209Z",
-   "mtime": 1793413039884,
-   "preview": "2026-10-31T02:45:22.199Z"
+   "uploaded": "2026-10-31T11:09:28.798Z",
+   "mtime": 1793443991863,
+   "preview": "2026-10-31T11:09:30.412Z"
   },
   "/at/en/contact-form-rebooking": {
-   "uploaded": "2026-10-31T02:45:23.434Z",
-   "mtime": 1793413039909,
-   "preview": "2026-10-31T02:45:25.343Z"
+   "uploaded": "2026-10-31T11:09:54.236Z",
+   "mtime": 1793443992070,
+   "preview": "2026-10-31T11:09:55.753Z"
   },
   "/at/en/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T02:45:26.635Z",
-   "mtime": 1793413039935,
-   "preview": "2026-10-31T02:45:28.516Z"
+   "uploaded": "2026-10-31T11:10:20.989Z",
+   "mtime": 1793443992283,
+   "preview": "2026-10-31T11:10:22.651Z"
   },
   "/at/en/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T02:45:29.895Z",
-   "mtime": 1793413039963,
-   "preview": "2026-10-31T02:45:31.758Z"
+   "uploaded": "2026-10-31T11:10:47.345Z",
+   "mtime": 1793443992500,
+   "preview": "2026-10-31T11:10:49.129Z"
   },
   "/at/en/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T02:45:33.398Z",
-   "mtime": 1793413039988,
-   "preview": "2026-10-31T02:45:35.130Z"
+   "uploaded": "2026-10-31T11:11:13.473Z",
+   "mtime": 1793443992717,
+   "preview": "2026-10-31T11:11:15.247Z"
   },
   "/at/en/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T02:45:36.229Z",
@@ -996,9 +996,9 @@
    "preview": "2026-10-31T02:45:44.411Z"
   },
   "/at/en/data-protection-contact": {
-   "uploaded": "2026-10-31T02:45:45.500Z",
-   "mtime": 1793413040091,
-   "preview": "2026-10-31T02:45:47.223Z"
+   "uploaded": "2026-10-31T11:11:40.345Z",
+   "mtime": 1793443992923,
+   "preview": "2026-10-31T11:11:42.001Z"
   },
   "/at/en/data-protection-rights": {
    "uploaded": "2026-10-31T02:45:48.440Z",
@@ -1126,9 +1126,9 @@
    "preview": "2026-10-31T02:50:40.254Z"
   },
   "/at/en/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T02:50:41.382Z",
-   "mtime": 1793414948897,
-   "preview": "2026-10-31T02:50:43.917Z"
+   "uploaded": "2026-10-31T11:06:02.022Z",
+   "mtime": 1793443990134,
+   "preview": "2026-10-31T11:06:03.608Z"
   },
   "/at/en/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T04:52:53.324Z",
@@ -1366,9 +1366,9 @@
    "preview": "2026-10-31T03:21:07.204Z"
   },
   "/at/en/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T03:21:08.278Z",
-   "mtime": 1793415311560,
-   "preview": "2026-10-31T03:21:10.046Z"
+   "uploaded": "2026-10-31T11:12:32.163Z",
+   "mtime": 1793443993333,
+   "preview": "2026-10-31T11:12:33.722Z"
   },
   "/at/en/reservation-priceguarantee": {
    "uploaded": "2026-10-31T03:21:11.209Z",
@@ -1431,9 +1431,9 @@
    "preview": "2026-10-31T03:21:54.218Z"
   },
   "/at/en/footer-pages/help-and-contact/request-for-refund-of-expenses": {
-   "uploaded": "2026-10-31T03:21:55.425Z",
-   "mtime": 1793415312144,
-   "preview": "2026-10-31T03:21:57.201Z"
+   "uploaded": "2026-10-31T11:06:43.616Z",
+   "mtime": 1793443990536,
+   "preview": "2026-10-31T11:06:45.443Z"
   },
   "/at/en/fly-more-sustainably-search": {
    "uploaded": "2026-10-31T03:21:58.350Z",
@@ -1471,9 +1471,9 @@
    "preview": "2026-10-31T03:22:17.840Z"
   },
   "/at/en/footer-pages/help-and-contact/bagdamage": {
-   "uploaded": "2026-10-31T03:22:18.971Z",
-   "mtime": 1793415310399,
-   "preview": "2026-10-31T03:22:20.821Z"
+   "uploaded": "2026-10-31T11:06:35.141Z",
+   "mtime": 1793443990451,
+   "preview": "2026-10-31T11:06:36.701Z"
   },
   "/at/en/medical-clearance": {
    "uploaded": "2026-10-31T03:22:22.009Z",
@@ -1511,9 +1511,9 @@
    "preview": "2026-10-31T03:22:44.894Z"
   },
   "/at/en/anfrage-gruppenreisen": {
-   "uploaded": "2026-10-31T03:22:46.116Z",
-   "mtime": 1793415309072,
-   "preview": "2026-10-31T03:22:48.529Z"
+   "uploaded": "2026-10-31T11:04:34.900Z",
+   "mtime": 1793443989307,
+   "preview": "2026-10-31T11:04:36.607Z"
   },
   "/at/en/voucher-conditions": {
    "uploaded": "2026-10-31T03:22:49.647Z",
@@ -1601,44 +1601,44 @@
    "preview": "2026-10-31T03:28:01.546Z"
   },
   "/at/de/anfrage-bestaetigung": {
-   "uploaded": "2026-10-31T03:28:02.710Z",
-   "mtime": 1793417173589,
-   "preview": "2026-10-31T03:28:04.405Z"
+   "uploaded": "2026-10-31T11:04:19.057Z",
+   "mtime": 1793443989187,
+   "preview": "2026-10-31T11:04:20.577Z"
   },
   "/at/de/anfrage-charterfluege": {
-   "uploaded": "2026-10-31T03:28:05.629Z",
-   "mtime": 1793417173614,
-   "preview": "2026-10-31T03:28:07.425Z"
+   "uploaded": "2026-10-31T11:04:21.992Z",
+   "mtime": 1793443989211,
+   "preview": "2026-10-31T11:04:23.951Z"
   },
   "/at/de/anfrage-flugbuchung": {
-   "uploaded": "2026-10-31T03:28:08.476Z",
-   "mtime": 1793417173644,
-   "preview": "2026-10-31T03:28:10.479Z"
+   "uploaded": "2026-10-31T11:04:25.237Z",
+   "mtime": 1793443989236,
+   "preview": "2026-10-31T11:04:27.105Z"
   },
   "/at/de/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T03:28:11.577Z",
-   "mtime": 1793417173673,
-   "preview": "2026-10-31T03:28:13.107Z"
+   "uploaded": "2026-10-31T11:04:37.902Z",
+   "mtime": 1793443989330,
+   "preview": "2026-10-31T11:04:39.885Z"
   },
   "/at/de/anfrage-rechnung": {
-   "uploaded": "2026-10-31T03:28:14.209Z",
-   "mtime": 1793417173697,
-   "preview": "2026-10-31T03:28:15.914Z"
+   "uploaded": "2026-10-31T11:05:08.309Z",
+   "mtime": 1793443989616,
+   "preview": "2026-10-31T11:05:10.940Z"
   },
   "/at/de/anfrage-reisen-mit-tieren": {
-   "uploaded": "2026-10-31T03:28:17.085Z",
-   "mtime": 1793417173725,
-   "preview": "2026-10-31T03:28:18.747Z"
+   "uploaded": "2026-10-31T11:05:12.094Z",
+   "mtime": 1793443989643,
+   "preview": "2026-10-31T11:05:14.204Z"
   },
   "/at/de/anfrage-sitzplatz-menueauswahl": {
-   "uploaded": "2026-10-31T03:28:19.879Z",
-   "mtime": 1793417173755,
-   "preview": "2026-10-31T03:28:21.574Z"
+   "uploaded": "2026-10-31T11:05:15.454Z",
+   "mtime": 1793443989666,
+   "preview": "2026-10-31T11:05:17.221Z"
   },
   "/at/de/anfrage-sonstige-themen": {
-   "uploaded": "2026-10-31T03:28:22.692Z",
-   "mtime": 1793417173778,
-   "preview": "2026-10-31T03:28:24.463Z"
+   "uploaded": "2026-10-31T11:05:18.600Z",
+   "mtime": 1793443989691,
+   "preview": "2026-10-31T11:05:20.426Z"
   },
   "/at/de/anreise-zu-den-regionalflughaefen": {
    "uploaded": "2026-10-31T03:28:25.613Z",
@@ -1666,9 +1666,9 @@
    "preview": "2026-10-31T03:28:39.139Z"
   },
   "/at/de/betroffenenrechte-anfrage": {
-   "uploaded": "2026-10-31T03:28:40.222Z",
-   "mtime": 1793417173960,
-   "preview": "2026-10-31T03:28:41.936Z"
+   "uploaded": "2026-10-31T11:05:24.664Z",
+   "mtime": 1793443989741,
+   "preview": "2026-10-31T11:05:26.383Z"
   },
   "/at/de/boeing-767-300er": {
    "uploaded": "2026-10-31T03:28:43.184Z",
@@ -1691,9 +1691,9 @@
    "preview": "2026-10-31T03:28:53.977Z"
   },
   "/at/de/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T03:28:55.172Z",
-   "mtime": 1793417174140,
-   "preview": "2026-10-31T03:28:56.702Z"
+   "uploaded": "2026-10-31T11:05:27.709Z",
+   "mtime": 1793443989772,
+   "preview": "2026-10-31T11:05:29.379Z"
   },
   "/at/de/book/rebook/voluntary-rebooking": {
    "uploaded": "2026-10-31T03:28:57.888Z",
@@ -1831,9 +1831,9 @@
    "preview": "2026-10-31T04:08:20.347Z"
   },
   "/at/de/fluggaeste-mit-betreuungsbedarf": {
-   "uploaded": "2026-10-31T04:08:21.491Z",
-   "mtime": 1793417564998,
-   "preview": "2026-10-31T04:08:23.549Z"
+   "uploaded": "2026-10-31T11:05:56.029Z",
+   "mtime": 1793443990077,
+   "preview": "2026-10-31T11:05:57.710Z"
   },
   "/at/de/fluggastgebuehr-grossbritannien": {
    "uploaded": "2026-10-31T04:08:24.930Z",
@@ -1861,9 +1861,9 @@
    "preview": "2026-10-31T04:08:38.623Z"
   },
   "/at/de/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T04:08:39.854Z",
-   "mtime": 1793417562531,
-   "preview": "2026-10-31T04:08:41.691Z"
+   "uploaded": "2026-10-31T11:05:59.101Z",
+   "mtime": 1793443990105,
+   "preview": "2026-10-31T11:06:00.859Z"
   },
   "/at/de/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T04:08:42.808Z",
@@ -1931,9 +1931,9 @@
    "preview": "2026-10-31T04:09:19.771Z"
   },
   "/at/de/formular-upload-angeforderter-dokumente": {
-   "uploaded": "2026-10-31T04:09:20.894Z",
-   "mtime": 1793417563144,
-   "preview": "2026-10-31T04:09:22.602Z"
+   "uploaded": "2026-10-31T11:06:46.617Z",
+   "mtime": 1793443990563,
+   "preview": "2026-10-31T11:06:48.065Z"
   },
   "/at/de/freigepaeck": {
    "uploaded": "2026-10-31T04:09:23.718Z",
@@ -2156,9 +2156,9 @@
    "preview": "2026-10-31T04:51:30.054Z"
   },
   "/at/de/footer-pages/help-and-contact/request-for-refund-of-expenses": {
-   "uploaded": "2026-10-31T04:51:31.249Z",
-   "mtime": 1793419999625,
-   "preview": "2026-10-31T04:51:33.338Z"
+   "uploaded": "2026-10-31T11:06:40.756Z",
+   "mtime": 1793443990505,
+   "preview": "2026-10-31T11:06:42.489Z"
   },
   "/at/de/fly-more-sustainably-search": {
    "uploaded": "2026-10-31T04:51:34.475Z",
@@ -2191,9 +2191,9 @@
    "preview": "2026-10-31T04:51:50.108Z"
   },
   "/at/de/footer-pages/help-and-contact/bagdamage": {
-   "uploaded": "2026-10-31T04:51:51.350Z",
-   "mtime": 1793419997150,
-   "preview": "2026-10-31T04:51:52.948Z"
+   "uploaded": "2026-10-31T11:06:32.261Z",
+   "mtime": 1793443990418,
+   "preview": "2026-10-31T11:06:33.927Z"
   },
   "/at/de/medizinische-flugfreigabe": {
    "uploaded": "2026-10-31T04:51:54.013Z",
@@ -2201,9 +2201,9 @@
    "preview": "2026-10-31T04:51:55.617Z"
   },
   "/at/de/footer-pages/help-and-contact/contact-form-refund/refund-form": {
-   "uploaded": "2026-10-31T04:51:56.675Z",
-   "mtime": 1793419997183,
-   "preview": "2026-10-31T04:51:58.564Z"
+   "uploaded": "2026-10-31T11:06:37.944Z",
+   "mtime": 1793444384896,
+   "preview": "2026-10-31T11:06:39.592Z"
   },
   "/at/de/book/overview-manage/manage-my-bookings": {
    "uploaded": "2026-10-31T04:51:59.580Z",
@@ -2216,9 +2216,9 @@
    "preview": "2026-10-31T04:52:04.230Z"
   },
   "/at/de/anfrage-umbuchung": {
-   "uploaded": "2026-10-31T04:52:05.439Z",
-   "mtime": 1793419996020,
-   "preview": "2026-10-31T04:52:07.008Z"
+   "uploaded": "2026-10-31T11:05:21.734Z",
+   "mtime": 1793443989713,
+   "preview": "2026-10-31T11:05:23.459Z"
   },
   "/at/de/book/flights/air-baltic": {
    "uploaded": "2026-10-31T04:52:08.095Z",
@@ -2241,14 +2241,14 @@
    "preview": "2026-10-31T04:52:18.760Z"
   },
   "/at/de/footer-pages/help-and-contact/application-for-compensation-in-the-event-of-flight-irregularities": {
-   "uploaded": "2026-10-31T04:52:19.933Z",
-   "mtime": 1793419999711,
-   "preview": "2026-10-31T04:52:21.673Z"
+   "uploaded": "2026-10-31T11:06:29.083Z",
+   "mtime": 1793443990390,
+   "preview": "2026-10-31T11:06:30.801Z"
   },
   "/at/de/anfrage-gruppenreisen": {
-   "uploaded": "2026-10-31T04:52:22.755Z",
-   "mtime": 1793419995955,
-   "preview": "2026-10-31T04:52:24.617Z"
+   "uploaded": "2026-10-31T11:04:31.277Z",
+   "mtime": 1793443989282,
+   "preview": "2026-10-31T11:04:33.588Z"
   },
   "/at/de/voucher-nutzungsbedingungen": {
    "uploaded": "2026-10-31T04:52:25.633Z",
@@ -2366,9 +2366,9 @@
    "preview": "2026-10-31T05:10:29.673Z"
   },
   "/fr/fr/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T05:10:30.833Z",
-   "mtime": 1793423336751,
-   "preview": "2026-10-31T05:10:32.596Z"
+   "uploaded": "2026-10-31T11:04:50.167Z",
+   "mtime": 1793444388974,
+   "preview": "2026-10-31T11:04:51.744Z"
   },
   "/fr/fr/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T05:10:33.759Z",
@@ -2486,9 +2486,9 @@
    "preview": "2026-10-31T05:11:42.009Z"
   },
   "/fr/fr/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T05:11:43.091Z",
-   "mtime": 1793423337239,
-   "preview": "2026-10-31T05:11:44.932Z"
+   "uploaded": "2026-10-31T11:05:39.179Z",
+   "mtime": 1793444389081,
+   "preview": "2026-10-31T11:05:40.758Z"
   },
   "/fr/fr/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T05:11:46.176Z",
@@ -2571,14 +2571,14 @@
    "preview": "2026-10-31T05:12:30.853Z"
   },
   "/fr/fr/nav": {
-   "uploaded": "2026-10-31T05:32:32.404Z",
-   "mtime": 1793424560125,
-   "preview": "2026-10-31T05:32:33.892Z"
+   "uploaded": "2026-10-31T11:02:46.030Z",
+   "mtime": 1793444402495,
+   "preview": "2026-10-31T11:02:47.792Z"
   },
   "/fr/fr/footer": {
-   "uploaded": "2026-10-31T05:32:35.274Z",
-   "mtime": 1793424560154,
-   "preview": "2026-10-31T05:32:37.375Z"
+   "uploaded": "2026-10-31T11:02:49.117Z",
+   "mtime": 1793444402524,
+   "preview": "2026-10-31T11:02:51.122Z"
   },
   "/fr/fr/company": {
    "uploaded": "2026-10-31T05:17:01.439Z",
@@ -2586,59 +2586,59 @@
    "preview": "2026-10-31T05:17:03.294Z"
   },
   "/fr/fr/contact-form-baggage": {
-   "uploaded": "2026-10-31T05:17:04.307Z",
-   "mtime": 1793423734134,
-   "preview": "2026-10-31T05:17:06.284Z"
+   "uploaded": "2026-10-31T11:07:01.144Z",
+   "mtime": 1793444389180,
+   "preview": "2026-10-31T11:07:02.795Z"
   },
   "/fr/fr/contact-form-booking": {
-   "uploaded": "2026-10-31T05:17:07.415Z",
-   "mtime": 1793423734180,
-   "preview": "2026-10-31T05:17:09.334Z"
+   "uploaded": "2026-10-31T11:07:53.350Z",
+   "mtime": 1793444389225,
+   "preview": "2026-10-31T11:07:54.927Z"
   },
   "/fr/fr/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T05:17:10.423Z",
-   "mtime": 1793423734158,
-   "preview": "2026-10-31T05:17:12.109Z"
+   "uploaded": "2026-10-31T11:07:26.999Z",
+   "mtime": 1793444389202,
+   "preview": "2026-10-31T11:07:28.550Z"
   },
   "/fr/fr/contact-form-charter": {
-   "uploaded": "2026-10-31T05:17:13.260Z",
-   "mtime": 1793423734201,
-   "preview": "2026-10-31T05:17:14.815Z"
+   "uploaded": "2026-10-31T11:08:18.826Z",
+   "mtime": 1793444389249,
+   "preview": "2026-10-31T11:08:20.394Z"
   },
   "/fr/fr/contact-form-medical-request": {
-   "uploaded": "2026-10-31T05:17:15.960Z",
-   "mtime": 1793423735269,
-   "preview": "2026-10-31T05:17:17.601Z"
+   "uploaded": "2026-10-31T11:08:44.111Z",
+   "mtime": 1793444389274,
+   "preview": "2026-10-31T11:08:45.770Z"
   },
   "/fr/fr/contact-form-other": {
-   "uploaded": "2026-10-31T05:17:18.714Z",
-   "mtime": 1793423734248,
-   "preview": "2026-10-31T05:17:20.361Z"
+   "uploaded": "2026-10-31T11:09:10.646Z",
+   "mtime": 1793444389296,
+   "preview": "2026-10-31T11:09:12.254Z"
   },
   "/fr/fr/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T05:17:21.499Z",
-   "mtime": 1793423734270,
-   "preview": "2026-10-31T05:17:23.317Z"
+   "uploaded": "2026-10-31T11:09:37.443Z",
+   "mtime": 1793444389327,
+   "preview": "2026-10-31T11:09:39.054Z"
   },
   "/fr/fr/contact-form-rebooking": {
-   "uploaded": "2026-10-31T05:17:24.547Z",
-   "mtime": 1793423734295,
-   "preview": "2026-10-31T05:17:26.265Z"
+   "uploaded": "2026-10-31T11:10:02.778Z",
+   "mtime": 1793444389350,
+   "preview": "2026-10-31T11:10:04.554Z"
   },
   "/fr/fr/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T05:17:27.346Z",
-   "mtime": 1793423734318,
-   "preview": "2026-10-31T05:17:28.968Z"
+   "uploaded": "2026-10-31T11:10:29.978Z",
+   "mtime": 1793444389374,
+   "preview": "2026-10-31T11:10:31.553Z"
   },
   "/fr/fr/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T05:17:30.136Z",
-   "mtime": 1793423734340,
-   "preview": "2026-10-31T05:17:31.641Z"
+   "uploaded": "2026-10-31T11:10:56.277Z",
+   "mtime": 1793444389394,
+   "preview": "2026-10-31T11:10:58.138Z"
   },
   "/fr/fr/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T05:17:32.829Z",
-   "mtime": 1793423734364,
-   "preview": "2026-10-31T05:17:34.430Z"
+   "uploaded": "2026-10-31T11:11:22.452Z",
+   "mtime": 1793444389417,
+   "preview": "2026-10-31T11:11:24.182Z"
   },
   "/fr/fr/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T05:17:35.636Z",
@@ -2661,9 +2661,9 @@
    "preview": "2026-10-31T05:17:45.486Z"
   },
   "/fr/fr/data-protection-contact": {
-   "uploaded": "2026-10-31T05:17:46.805Z",
-   "mtime": 1793423734462,
-   "preview": "2026-10-31T05:17:48.466Z"
+   "uploaded": "2026-10-31T11:11:49.004Z",
+   "mtime": 1793444389458,
+   "preview": "2026-10-31T11:11:50.575Z"
   },
   "/fr/fr/data-protection-rights": {
    "uploaded": "2026-10-31T05:17:49.696Z",
@@ -2706,9 +2706,9 @@
    "preview": "2026-10-31T05:18:13.081Z"
   },
   "/fr/fr/emergency-contact": {
-   "uploaded": "2026-10-31T05:18:14.148Z",
-   "mtime": 1793423734668,
-   "preview": "2026-10-31T05:18:15.914Z"
+   "uploaded": "2026-10-31T11:12:14.890Z",
+   "mtime": 1793444389515,
+   "preview": "2026-10-31T11:12:16.794Z"
   },
   "/fr/fr/entryregulations": {
    "uploaded": "2026-10-31T05:18:17.151Z",
@@ -2846,9 +2846,9 @@
    "preview": "2026-10-31T05:23:44.030Z"
   },
   "/fr/fr/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T05:23:45.164Z",
-   "mtime": 1793424160831,
-   "preview": "2026-10-31T05:23:47.091Z"
+   "uploaded": "2026-10-31T11:06:11.025Z",
+   "mtime": 1793444389668,
+   "preview": "2026-10-31T11:06:12.800Z"
   },
   "/fr/fr/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T05:23:48.079Z",
@@ -3221,9 +3221,9 @@
    "preview": "2026-10-31T05:31:21.358Z"
   },
   "/fr/fr/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T05:31:22.468Z",
-   "mtime": 1793424557422,
-   "preview": "2026-10-31T05:31:24.148Z"
+   "uploaded": "2026-10-31T11:12:40.977Z",
+   "mtime": 1793444390024,
+   "preview": "2026-10-31T11:12:42.529Z"
   },
   "/fr/fr/reservation-priceguarantee": {
    "uploaded": "2026-10-31T05:31:25.207Z",
@@ -3396,9 +3396,9 @@
    "preview": "2026-10-31T05:36:44.236Z"
   },
   "/it/it/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T05:36:45.218Z",
-   "mtime": 1793424926031,
-   "preview": "2026-10-31T05:36:46.786Z"
+   "uploaded": "2026-10-31T11:04:56.491Z",
+   "mtime": 1793444391598,
+   "preview": "2026-10-31T11:04:58.057Z"
   },
   "/it/it/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T05:36:47.864Z",
@@ -3521,9 +3521,9 @@
    "preview": "2026-10-31T05:37:57.303Z"
   },
   "/it/it/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T05:37:58.499Z",
-   "mtime": 1793424926527,
-   "preview": "2026-10-31T05:38:00.184Z"
+   "uploaded": "2026-10-31T11:05:44.722Z",
+   "mtime": 1793444391719,
+   "preview": "2026-10-31T11:05:46.411Z"
   },
   "/it/it/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T05:38:01.503Z",
@@ -3596,14 +3596,14 @@
    "preview": "2026-10-31T05:38:39.629Z"
   },
   "/it/it/nav": {
-   "uploaded": "2026-10-31T05:56:36.481Z",
-   "mtime": 1793426028871,
-   "preview": "2026-10-31T05:56:38.210Z"
+   "uploaded": "2026-10-31T11:02:58.567Z",
+   "mtime": 1793444404687,
+   "preview": "2026-10-31T11:03:00.036Z"
   },
   "/it/it/footer": {
-   "uploaded": "2026-10-31T05:56:39.523Z",
-   "mtime": 1793426028900,
-   "preview": "2026-10-31T05:56:41.095Z"
+   "uploaded": "2026-10-31T11:03:01.524Z",
+   "mtime": 1793444404717,
+   "preview": "2026-10-31T11:03:02.988Z"
   },
   "/it/it/check-in-deadlines": {
    "uploaded": "2026-10-31T05:42:08.250Z",
@@ -3621,59 +3621,59 @@
    "preview": "2026-10-31T05:42:15.994Z"
   },
   "/it/it/contact-form-baggage": {
-   "uploaded": "2026-10-31T05:42:17.215Z",
-   "mtime": 1793425306036,
-   "preview": "2026-10-31T05:42:18.818Z"
+   "uploaded": "2026-10-31T11:07:07.011Z",
+   "mtime": 1793444391817,
+   "preview": "2026-10-31T11:07:08.681Z"
   },
   "/it/it/contact-form-booking": {
-   "uploaded": "2026-10-31T05:42:19.990Z",
-   "mtime": 1793425306083,
-   "preview": "2026-10-31T05:42:22.156Z"
+   "uploaded": "2026-10-31T11:07:58.984Z",
+   "mtime": 1793444391864,
+   "preview": "2026-10-31T11:08:00.565Z"
   },
   "/it/it/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T05:42:23.330Z",
-   "mtime": 1793425306059,
-   "preview": "2026-10-31T05:42:24.931Z"
+   "uploaded": "2026-10-31T11:07:32.546Z",
+   "mtime": 1793444391841,
+   "preview": "2026-10-31T11:07:34.166Z"
   },
   "/it/it/contact-form-charter": {
-   "uploaded": "2026-10-31T05:42:26.141Z",
-   "mtime": 1793425306115,
-   "preview": "2026-10-31T05:42:27.935Z"
+   "uploaded": "2026-10-31T11:08:24.267Z",
+   "mtime": 1793444391891,
+   "preview": "2026-10-31T11:08:25.870Z"
   },
   "/it/it/contact-form-medical-request": {
-   "uploaded": "2026-10-31T05:42:29.146Z",
-   "mtime": 1793425307209,
-   "preview": "2026-10-31T05:42:30.989Z"
+   "uploaded": "2026-10-31T11:08:50.076Z",
+   "mtime": 1793444391915,
+   "preview": "2026-10-31T11:08:51.761Z"
   },
   "/it/it/contact-form-other": {
-   "uploaded": "2026-10-31T05:42:32.120Z",
-   "mtime": 1793425306161,
-   "preview": "2026-10-31T05:42:33.810Z"
+   "uploaded": "2026-10-31T11:09:16.600Z",
+   "mtime": 1793444391938,
+   "preview": "2026-10-31T11:09:18.585Z"
   },
   "/it/it/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T05:42:34.919Z",
-   "mtime": 1793425306195,
-   "preview": "2026-10-31T05:42:36.485Z"
+   "uploaded": "2026-10-31T11:09:43.055Z",
+   "mtime": 1793444391960,
+   "preview": "2026-10-31T11:09:44.797Z"
   },
   "/it/it/contact-form-rebooking": {
-   "uploaded": "2026-10-31T05:42:37.579Z",
-   "mtime": 1793425306217,
-   "preview": "2026-10-31T05:42:39.325Z"
+   "uploaded": "2026-10-31T11:10:09.062Z",
+   "mtime": 1793444391983,
+   "preview": "2026-10-31T11:10:10.869Z"
   },
   "/it/it/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T05:42:40.506Z",
-   "mtime": 1793425306239,
-   "preview": "2026-10-31T05:42:42.254Z"
+   "uploaded": "2026-10-31T11:10:35.782Z",
+   "mtime": 1793444392007,
+   "preview": "2026-10-31T11:10:37.405Z"
   },
   "/it/it/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T05:42:43.387Z",
-   "mtime": 1793425306263,
-   "preview": "2026-10-31T05:42:45.640Z"
+   "uploaded": "2026-10-31T11:11:02.065Z",
+   "mtime": 1793444392030,
+   "preview": "2026-10-31T11:11:03.823Z"
   },
   "/it/it/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T05:42:46.633Z",
-   "mtime": 1793425306284,
-   "preview": "2026-10-31T05:42:48.192Z"
+   "uploaded": "2026-10-31T11:11:28.860Z",
+   "mtime": 1793444392053,
+   "preview": "2026-10-31T11:11:30.477Z"
   },
   "/it/it/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T05:42:49.434Z",
@@ -3696,9 +3696,9 @@
    "preview": "2026-10-31T05:42:59.021Z"
   },
   "/it/it/data-protection-contact": {
-   "uploaded": "2026-10-31T05:43:00.140Z",
-   "mtime": 1793425306379,
-   "preview": "2026-10-31T05:43:01.657Z"
+   "uploaded": "2026-10-31T11:11:54.674Z",
+   "mtime": 1793444392092,
+   "preview": "2026-10-31T11:11:56.343Z"
   },
   "/it/it/data-protection-rights": {
    "uploaded": "2026-10-31T05:43:02.952Z",
@@ -3741,9 +3741,9 @@
    "preview": "2026-10-31T05:43:25.400Z"
   },
   "/it/it/emergency-contact": {
-   "uploaded": "2026-10-31T05:43:26.506Z",
-   "mtime": 1793425306578,
-   "preview": "2026-10-31T05:43:28.324Z"
+   "uploaded": "2026-10-31T11:12:20.771Z",
+   "mtime": 1793444392149,
+   "preview": "2026-10-31T11:12:22.314Z"
   },
   "/it/it/entryregulations": {
    "uploaded": "2026-10-31T05:43:29.411Z",
@@ -3881,9 +3881,9 @@
    "preview": "2026-10-31T05:48:12.322Z"
   },
   "/it/it/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T05:48:13.411Z",
-   "mtime": 1793425661768,
-   "preview": "2026-10-31T05:48:15.092Z"
+   "uploaded": "2026-10-31T11:06:17.031Z",
+   "mtime": 1793444392305,
+   "preview": "2026-10-31T11:06:18.899Z"
   },
   "/it/it/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T05:48:16.152Z",
@@ -4116,9 +4116,9 @@
    "preview": "2026-10-31T05:50:31.985Z"
   },
   "/it/it/newsletter": {
-   "uploaded": "2026-10-31T05:54:14.034Z",
-   "mtime": 1793426025127,
-   "preview": "2026-10-31T05:54:15.527Z"
+   "uploaded": "2026-10-31T11:13:00.418Z",
+   "mtime": 1793444392546,
+   "preview": "2026-10-31T11:13:02.008Z"
   },
   "/it/it/offers-destinations": {
    "uploaded": "2026-10-31T05:54:16.575Z",
@@ -4251,9 +4251,9 @@
    "preview": "2026-10-31T05:55:29.689Z"
   },
   "/it/it/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T05:55:30.746Z",
-   "mtime": 1793426025814,
-   "preview": "2026-10-31T05:55:32.383Z"
+   "uploaded": "2026-10-31T11:12:46.698Z",
+   "mtime": 1793444392672,
+   "preview": "2026-10-31T11:12:48.419Z"
   },
   "/it/it/reservation-priceguarantee": {
    "uploaded": "2026-10-31T05:55:33.535Z",
@@ -4421,9 +4421,9 @@
    "preview": "2026-10-31T06:00:40.050Z"
   },
   "/ru/ru/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T06:00:41.094Z",
-   "mtime": 1793426378309,
-   "preview": "2026-10-31T06:00:43.126Z"
+   "uploaded": "2026-10-31T11:05:05.310Z",
+   "mtime": 1793444395727,
+   "preview": "2026-10-31T11:05:07.002Z"
   },
   "/ru/ru/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T06:00:44.442Z",
@@ -4536,9 +4536,9 @@
    "preview": "2026-10-31T06:01:49.522Z"
   },
   "/ru/ru/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T06:01:50.848Z",
-   "mtime": 1793426378856,
-   "preview": "2026-10-31T06:01:52.398Z"
+   "uploaded": "2026-10-31T11:05:53.257Z",
+   "mtime": 1793444395832,
+   "preview": "2026-10-31T11:05:54.837Z"
   },
   "/ru/ru/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T06:01:53.555Z",
@@ -4616,14 +4616,14 @@
    "preview": "2026-10-31T06:02:36.192Z"
   },
   "/ru/ru/nav": {
-   "uploaded": "2026-10-31T06:20:27.604Z",
-   "mtime": 1793427459111,
-   "preview": "2026-10-31T06:20:29.274Z"
+   "uploaded": "2026-10-31T11:03:16.918Z",
+   "mtime": 1793444408049,
+   "preview": "2026-10-31T11:03:18.563Z"
   },
   "/ru/ru/footer": {
-   "uploaded": "2026-10-31T06:20:30.603Z",
-   "mtime": 1793427459143,
-   "preview": "2026-10-31T06:20:32.494Z"
+   "uploaded": "2026-10-31T11:03:19.818Z",
+   "mtime": 1793444408079,
+   "preview": "2026-10-31T11:03:21.353Z"
   },
   "/ru/ru/coc-lobbyists": {
    "uploaded": "2026-10-31T06:06:10.302Z",
@@ -4636,59 +4636,59 @@
    "preview": "2026-10-31T06:06:14.558Z"
   },
   "/ru/ru/contact-form-baggage": {
-   "uploaded": "2026-10-31T06:06:15.622Z",
-   "mtime": 1793426737431,
-   "preview": "2026-10-31T06:06:17.310Z"
+   "uploaded": "2026-10-31T11:07:15.874Z",
+   "mtime": 1793444395932,
+   "preview": "2026-10-31T11:07:17.537Z"
   },
   "/ru/ru/contact-form-booking": {
-   "uploaded": "2026-10-31T06:06:18.439Z",
-   "mtime": 1793426737488,
-   "preview": "2026-10-31T06:06:20.091Z"
+   "uploaded": "2026-10-31T11:08:07.447Z",
+   "mtime": 1793444395982,
+   "preview": "2026-10-31T11:08:09.013Z"
   },
   "/ru/ru/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T06:06:21.588Z",
-   "mtime": 1793426737459,
-   "preview": "2026-10-31T06:06:23.252Z"
+   "uploaded": "2026-10-31T11:07:41.547Z",
+   "mtime": 1793444395957,
+   "preview": "2026-10-31T11:07:43.060Z"
   },
   "/ru/ru/contact-form-charter": {
-   "uploaded": "2026-10-31T06:06:24.349Z",
-   "mtime": 1793426737517,
-   "preview": "2026-10-31T06:06:26.222Z"
+   "uploaded": "2026-10-31T11:08:32.871Z",
+   "mtime": 1793444396006,
+   "preview": "2026-10-31T11:08:34.629Z"
   },
   "/ru/ru/contact-form-medical-request": {
-   "uploaded": "2026-10-31T06:06:27.159Z",
-   "mtime": 1793426738831,
-   "preview": "2026-10-31T06:06:29.146Z"
+   "uploaded": "2026-10-31T11:08:59.374Z",
+   "mtime": 1793444396029,
+   "preview": "2026-10-31T11:09:00.906Z"
   },
   "/ru/ru/contact-form-other": {
-   "uploaded": "2026-10-31T06:06:30.295Z",
-   "mtime": 1793426737570,
-   "preview": "2026-10-31T06:06:32.005Z"
+   "uploaded": "2026-10-31T11:09:25.569Z",
+   "mtime": 1793444396054,
+   "preview": "2026-10-31T11:09:27.394Z"
   },
   "/ru/ru/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T06:06:33.169Z",
-   "mtime": 1793426737596,
-   "preview": "2026-10-31T06:06:34.681Z"
+   "uploaded": "2026-10-31T11:09:51.494Z",
+   "mtime": 1793444396078,
+   "preview": "2026-10-31T11:09:53.056Z"
   },
   "/ru/ru/contact-form-rebooking": {
-   "uploaded": "2026-10-31T06:06:35.889Z",
-   "mtime": 1793426737625,
-   "preview": "2026-10-31T06:06:37.654Z"
+   "uploaded": "2026-10-31T11:10:17.999Z",
+   "mtime": 1793444396101,
+   "preview": "2026-10-31T11:10:19.678Z"
   },
   "/ru/ru/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T06:06:38.859Z",
-   "mtime": 1793426737654,
-   "preview": "2026-10-31T06:06:40.851Z"
+   "uploaded": "2026-10-31T11:10:44.663Z",
+   "mtime": 1793444396125,
+   "preview": "2026-10-31T11:10:46.232Z"
   },
   "/ru/ru/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T06:06:42.033Z",
-   "mtime": 1793426737684,
-   "preview": "2026-10-31T06:06:43.703Z"
+   "uploaded": "2026-10-31T11:11:10.724Z",
+   "mtime": 1793444396150,
+   "preview": "2026-10-31T11:11:12.355Z"
   },
   "/ru/ru/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T06:06:44.860Z",
-   "mtime": 1793426737711,
-   "preview": "2026-10-31T06:06:46.604Z"
+   "uploaded": "2026-10-31T11:11:37.565Z",
+   "mtime": 1793444396172,
+   "preview": "2026-10-31T11:11:39.210Z"
   },
   "/ru/ru/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T06:06:47.686Z",
@@ -4711,9 +4711,9 @@
    "preview": "2026-10-31T06:06:57.602Z"
   },
   "/ru/ru/data-protection-contact": {
-   "uploaded": "2026-10-31T06:06:58.726Z",
-   "mtime": 1793426737838,
-   "preview": "2026-10-31T06:07:00.476Z"
+   "uploaded": "2026-10-31T11:12:03.330Z",
+   "mtime": 1793444396212,
+   "preview": "2026-10-31T11:12:04.908Z"
   },
   "/ru/ru/data-protection-rights": {
    "uploaded": "2026-10-31T06:07:01.591Z",
@@ -4756,9 +4756,9 @@
    "preview": "2026-10-31T06:07:24.377Z"
   },
   "/ru/ru/emergency-contact": {
-   "uploaded": "2026-10-31T06:07:25.396Z",
-   "mtime": 1793426738117,
-   "preview": "2026-10-31T06:07:26.973Z"
+   "uploaded": "2026-10-31T11:12:29.434Z",
+   "mtime": 1793444396267,
+   "preview": "2026-10-31T11:12:30.916Z"
   },
   "/ru/ru/entryregulations": {
    "uploaded": "2026-10-31T06:07:28.030Z",
@@ -4886,9 +4886,9 @@
    "preview": "2026-10-31T06:12:18.922Z"
   },
   "/ru/ru/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T06:12:20.482Z",
-   "mtime": 1793427099626,
-   "preview": "2026-10-31T06:12:21.930Z"
+   "uploaded": "2026-10-31T11:06:26.148Z",
+   "mtime": 1793444396416,
+   "preview": "2026-10-31T11:06:27.853Z"
   },
   "/ru/ru/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T06:12:22.936Z",
@@ -5121,9 +5121,9 @@
    "preview": "2026-10-31T06:14:32.098Z"
   },
   "/ru/ru/newsletter": {
-   "uploaded": "2026-10-31T06:14:33.105Z",
-   "mtime": 1793427100949,
-   "preview": "2026-10-31T06:14:34.612Z"
+   "uploaded": "2026-10-31T11:13:09.047Z",
+   "mtime": 1793444396652,
+   "preview": "2026-10-31T11:13:10.723Z"
   },
   "/ru/ru/offers-destinations": {
    "uploaded": "2026-10-31T06:18:10.273Z",
@@ -5256,9 +5256,9 @@
    "preview": "2026-10-31T06:19:22.533Z"
   },
   "/ru/ru/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T06:19:23.664Z",
-   "mtime": 1793427456029,
-   "preview": "2026-10-31T06:19:25.200Z"
+   "uploaded": "2026-10-31T11:12:55.006Z",
+   "mtime": 1793444396780,
+   "preview": "2026-10-31T11:12:56.613Z"
   },
   "/ru/ru/reservation-priceguarantee": {
    "uploaded": "2026-10-31T06:19:26.258Z",
@@ -5426,9 +5426,9 @@
    "preview": "2026-10-31T06:24:39.264Z"
   },
   "/es/es/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T06:24:40.672Z",
-   "mtime": 1793427810161,
-   "preview": "2026-10-31T06:24:42.431Z"
+   "uploaded": "2026-10-31T11:04:47.330Z",
+   "mtime": 1793444387783,
+   "preview": "2026-10-31T11:04:48.915Z"
   },
   "/es/es/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T06:24:43.607Z",
@@ -5546,9 +5546,9 @@
    "preview": "2026-10-31T06:25:49.640Z"
   },
   "/es/es/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T06:25:50.668Z",
-   "mtime": 1793427810718,
-   "preview": "2026-10-31T06:25:52.213Z"
+   "uploaded": "2026-10-31T11:05:36.529Z",
+   "mtime": 1793444387887,
+   "preview": "2026-10-31T11:05:38.030Z"
   },
   "/es/es/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T06:25:53.311Z",
@@ -5626,14 +5626,14 @@
    "preview": "2026-10-31T06:26:34.766Z"
   },
   "/es/es/nav": {
-   "uploaded": "2026-10-31T06:45:04.960Z",
-   "mtime": 1793428934663,
-   "preview": "2026-10-31T06:45:06.545Z"
+   "uploaded": "2026-10-31T11:02:39.224Z",
+   "mtime": 1793444401358,
+   "preview": "2026-10-31T11:02:40.960Z"
   },
   "/es/es/footer": {
-   "uploaded": "2026-10-31T06:45:07.957Z",
-   "mtime": 1793428934708,
-   "preview": "2026-10-31T06:45:09.662Z"
+   "uploaded": "2026-10-31T11:02:42.440Z",
+   "mtime": 1793444401392,
+   "preview": "2026-10-31T11:02:44.533Z"
   },
   "/es/es/coc-lobbyists": {
    "uploaded": "2026-10-31T06:30:22.720Z",
@@ -5646,59 +5646,59 @@
    "preview": "2026-10-31T06:30:27.470Z"
   },
   "/es/es/contact-form-baggage": {
-   "uploaded": "2026-10-31T06:30:28.652Z",
-   "mtime": 1793428182002,
-   "preview": "2026-10-31T06:30:30.399Z"
+   "uploaded": "2026-10-31T11:06:58.373Z",
+   "mtime": 1793444387983,
+   "preview": "2026-10-31T11:06:59.932Z"
   },
   "/es/es/contact-form-booking": {
-   "uploaded": "2026-10-31T06:30:31.628Z",
-   "mtime": 1793428182056,
-   "preview": "2026-10-31T06:30:33.601Z"
+   "uploaded": "2026-10-31T11:07:50.202Z",
+   "mtime": 1793444388039,
+   "preview": "2026-10-31T11:07:51.972Z"
   },
   "/es/es/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T06:30:34.649Z",
-   "mtime": 1793428182030,
-   "preview": "2026-10-31T06:30:36.188Z"
+   "uploaded": "2026-10-31T11:07:24.208Z",
+   "mtime": 1793444388015,
+   "preview": "2026-10-31T11:07:25.852Z"
   },
   "/es/es/contact-form-charter": {
-   "uploaded": "2026-10-31T06:30:37.158Z",
-   "mtime": 1793428182083,
-   "preview": "2026-10-31T06:30:38.773Z"
+   "uploaded": "2026-10-31T11:08:16.065Z",
+   "mtime": 1793444388059,
+   "preview": "2026-10-31T11:08:17.540Z"
   },
   "/es/es/contact-form-medical-request": {
-   "uploaded": "2026-10-31T06:30:39.779Z",
-   "mtime": 1793428186354,
-   "preview": "2026-10-31T06:30:41.359Z"
+   "uploaded": "2026-10-31T11:08:41.434Z",
+   "mtime": 1793444388083,
+   "preview": "2026-10-31T11:08:42.974Z"
   },
   "/es/es/contact-form-other": {
-   "uploaded": "2026-10-31T06:30:42.516Z",
-   "mtime": 1793428182138,
-   "preview": "2026-10-31T06:30:44.288Z"
+   "uploaded": "2026-10-31T11:09:07.967Z",
+   "mtime": 1793444388107,
+   "preview": "2026-10-31T11:09:09.455Z"
   },
   "/es/es/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T06:30:45.329Z",
-   "mtime": 1793428182164,
-   "preview": "2026-10-31T06:30:46.959Z"
+   "uploaded": "2026-10-31T11:09:34.571Z",
+   "mtime": 1793444388131,
+   "preview": "2026-10-31T11:09:36.136Z"
   },
   "/es/es/contact-form-rebooking": {
-   "uploaded": "2026-10-31T06:30:48.015Z",
-   "mtime": 1793428182191,
-   "preview": "2026-10-31T06:30:49.614Z"
+   "uploaded": "2026-10-31T11:09:59.874Z",
+   "mtime": 1793444388154,
+   "preview": "2026-10-31T11:10:01.558Z"
   },
   "/es/es/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T06:30:50.734Z",
-   "mtime": 1793428182217,
-   "preview": "2026-10-31T06:30:52.324Z"
+   "uploaded": "2026-10-31T11:10:26.867Z",
+   "mtime": 1793444388178,
+   "preview": "2026-10-31T11:10:28.725Z"
   },
   "/es/es/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T06:30:53.352Z",
-   "mtime": 1793428182247,
-   "preview": "2026-10-31T06:30:54.973Z"
+   "uploaded": "2026-10-31T11:10:53.377Z",
+   "mtime": 1793444388201,
+   "preview": "2026-10-31T11:10:55.002Z"
   },
   "/es/es/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T06:30:56.079Z",
-   "mtime": 1793428182273,
-   "preview": "2026-10-31T06:30:57.584Z"
+   "uploaded": "2026-10-31T11:11:19.411Z",
+   "mtime": 1793444388225,
+   "preview": "2026-10-31T11:11:21.207Z"
   },
   "/es/es/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T06:30:58.866Z",
@@ -5721,9 +5721,9 @@
    "preview": "2026-10-31T06:31:08.740Z"
   },
   "/es/es/data-protection-contact": {
-   "uploaded": "2026-10-31T06:31:09.860Z",
-   "mtime": 1793428182384,
-   "preview": "2026-10-31T06:31:11.393Z"
+   "uploaded": "2026-10-31T11:11:45.987Z",
+   "mtime": 1793444388264,
+   "preview": "2026-10-31T11:11:47.716Z"
   },
   "/es/es/data-protection-rights": {
    "uploaded": "2026-10-31T06:31:12.419Z",
@@ -5766,9 +5766,9 @@
    "preview": "2026-10-31T06:31:35.048Z"
   },
   "/es/es/emergency-contact": {
-   "uploaded": "2026-10-31T06:31:36.187Z",
-   "mtime": 1793428182620,
-   "preview": "2026-10-31T06:31:37.654Z"
+   "uploaded": "2026-10-31T11:12:12.171Z",
+   "mtime": 1793444388318,
+   "preview": "2026-10-31T11:12:13.638Z"
   },
   "/es/es/entryregulations": {
    "uploaded": "2026-10-31T06:31:38.793Z",
@@ -5906,9 +5906,9 @@
    "preview": "2026-10-31T06:36:47.982Z"
   },
   "/es/es/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T06:36:48.988Z",
-   "mtime": 1793428558377,
-   "preview": "2026-10-31T06:36:50.773Z"
+   "uploaded": "2026-10-31T11:06:08.004Z",
+   "mtime": 1793444388467,
+   "preview": "2026-10-31T11:06:09.796Z"
   },
   "/es/es/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T06:36:51.895Z",
@@ -6271,9 +6271,9 @@
    "preview": "2026-10-31T06:43:58.747Z"
   },
   "/es/es/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T06:43:59.869Z",
-   "mtime": 1793428928481,
-   "preview": "2026-10-31T06:44:01.531Z"
+   "uploaded": "2026-10-31T11:12:37.906Z",
+   "mtime": 1793444388807,
+   "preview": "2026-10-31T11:12:39.677Z"
   },
   "/es/es/reservation-priceguarantee": {
    "uploaded": "2026-10-31T06:44:02.619Z",
@@ -6441,9 +6441,9 @@
    "preview": "2026-10-31T06:49:23.174Z"
   },
   "/gr/el/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T06:49:24.160Z",
-   "mtime": 1793429289771,
-   "preview": "2026-10-31T06:49:25.650Z"
+   "uploaded": "2026-10-31T11:04:53.156Z",
+   "mtime": 1793444390248,
+   "preview": "2026-10-31T11:04:55.347Z"
   },
   "/gr/el/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T06:49:26.720Z",
@@ -6566,9 +6566,9 @@
    "preview": "2026-10-31T06:50:34.302Z"
   },
   "/gr/el/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T06:50:35.399Z",
-   "mtime": 1793429290371,
-   "preview": "2026-10-31T06:50:37.057Z"
+   "uploaded": "2026-10-31T11:05:42.049Z",
+   "mtime": 1793444390360,
+   "preview": "2026-10-31T11:05:43.486Z"
   },
   "/gr/el/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T06:50:38.059Z",
@@ -6641,14 +6641,14 @@
    "preview": "2026-10-31T06:51:16.149Z"
   },
   "/gr/el/nav": {
-   "uploaded": "2026-10-31T07:10:07.505Z",
-   "mtime": 1793430428801,
-   "preview": "2026-10-31T07:10:08.960Z"
+   "uploaded": "2026-10-31T11:02:52.411Z",
+   "mtime": 1793444403571,
+   "preview": "2026-10-31T11:02:53.980Z"
   },
   "/gr/el/footer": {
-   "uploaded": "2026-10-31T07:10:10.161Z",
-   "mtime": 1793430428831,
-   "preview": "2026-10-31T07:10:11.873Z"
+   "uploaded": "2026-10-31T11:02:55.265Z",
+   "mtime": 1793444403607,
+   "preview": "2026-10-31T11:02:57.205Z"
   },
   "/gr/el/check-in-deadlines": {
    "uploaded": "2026-10-31T06:55:07.679Z",
@@ -6666,59 +6666,59 @@
    "preview": "2026-10-31T06:55:15.435Z"
   },
   "/gr/el/contact-form-baggage": {
-   "uploaded": "2026-10-31T06:55:16.472Z",
-   "mtime": 1793429662651,
-   "preview": "2026-10-31T06:55:18.073Z"
+   "uploaded": "2026-10-31T11:07:04.078Z",
+   "mtime": 1793444390462,
+   "preview": "2026-10-31T11:07:05.761Z"
   },
   "/gr/el/contact-form-booking": {
-   "uploaded": "2026-10-31T06:55:19.242Z",
-   "mtime": 1793429662706,
-   "preview": "2026-10-31T06:55:20.958Z"
+   "uploaded": "2026-10-31T11:07:56.147Z",
+   "mtime": 1793444390514,
+   "preview": "2026-10-31T11:07:57.853Z"
   },
   "/gr/el/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T06:55:22.082Z",
-   "mtime": 1793429662677,
-   "preview": "2026-10-31T06:55:23.729Z"
+   "uploaded": "2026-10-31T11:07:29.696Z",
+   "mtime": 1793444390488,
+   "preview": "2026-10-31T11:07:31.418Z"
   },
   "/gr/el/contact-form-charter": {
-   "uploaded": "2026-10-31T06:55:25.010Z",
-   "mtime": 1793429662733,
-   "preview": "2026-10-31T06:55:26.694Z"
+   "uploaded": "2026-10-31T11:08:21.574Z",
+   "mtime": 1793444390536,
+   "preview": "2026-10-31T11:08:23.061Z"
   },
   "/gr/el/contact-form-medical-request": {
-   "uploaded": "2026-10-31T06:55:27.888Z",
-   "mtime": 1793429666099,
-   "preview": "2026-10-31T06:55:29.513Z"
+   "uploaded": "2026-10-31T11:08:47.026Z",
+   "mtime": 1793444390558,
+   "preview": "2026-10-31T11:08:48.766Z"
   },
   "/gr/el/contact-form-other": {
-   "uploaded": "2026-10-31T06:55:30.741Z",
-   "mtime": 1793429662786,
-   "preview": "2026-10-31T06:55:32.475Z"
+   "uploaded": "2026-10-31T11:09:13.499Z",
+   "mtime": 1793444390580,
+   "preview": "2026-10-31T11:09:15.294Z"
   },
   "/gr/el/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T06:55:33.564Z",
-   "mtime": 1793429662813,
-   "preview": "2026-10-31T06:55:35.216Z"
+   "uploaded": "2026-10-31T11:09:40.246Z",
+   "mtime": 1793444390605,
+   "preview": "2026-10-31T11:09:41.887Z"
   },
   "/gr/el/contact-form-rebooking": {
-   "uploaded": "2026-10-31T06:55:36.396Z",
-   "mtime": 1793429662840,
-   "preview": "2026-10-31T06:55:38.067Z"
+   "uploaded": "2026-10-31T11:10:05.960Z",
+   "mtime": 1793444390629,
+   "preview": "2026-10-31T11:10:07.956Z"
   },
   "/gr/el/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T06:55:39.150Z",
-   "mtime": 1793429662867,
-   "preview": "2026-10-31T06:55:40.969Z"
+   "uploaded": "2026-10-31T11:10:32.710Z",
+   "mtime": 1793444390653,
+   "preview": "2026-10-31T11:10:34.408Z"
   },
   "/gr/el/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T06:55:42.065Z",
-   "mtime": 1793429662896,
-   "preview": "2026-10-31T06:55:43.711Z"
+   "uploaded": "2026-10-31T11:10:59.324Z",
+   "mtime": 1793444390677,
+   "preview": "2026-10-31T11:11:00.857Z"
   },
   "/gr/el/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T06:55:44.716Z",
-   "mtime": 1793429662922,
-   "preview": "2026-10-31T06:55:46.247Z"
+   "uploaded": "2026-10-31T11:11:25.723Z",
+   "mtime": 1793444390702,
+   "preview": "2026-10-31T11:11:27.419Z"
   },
   "/gr/el/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T06:55:47.319Z",
@@ -6741,9 +6741,9 @@
    "preview": "2026-10-31T06:55:57.017Z"
   },
   "/gr/el/data-protection-contact": {
-   "uploaded": "2026-10-31T06:55:58.093Z",
-   "mtime": 1793429663044,
-   "preview": "2026-10-31T06:55:59.548Z"
+   "uploaded": "2026-10-31T11:11:51.812Z",
+   "mtime": 1793444390745,
+   "preview": "2026-10-31T11:11:53.406Z"
   },
   "/gr/el/data-protection-rights": {
    "uploaded": "2026-10-31T06:56:00.623Z",
@@ -6786,9 +6786,9 @@
    "preview": "2026-10-31T06:56:22.668Z"
   },
   "/gr/el/emergency-contact": {
-   "uploaded": "2026-10-31T06:56:23.690Z",
-   "mtime": 1793429663294,
-   "preview": "2026-10-31T06:56:25.161Z"
+   "uploaded": "2026-10-31T11:12:17.968Z",
+   "mtime": 1793444390805,
+   "preview": "2026-10-31T11:12:19.432Z"
   },
   "/gr/el/entryregulations": {
    "uploaded": "2026-10-31T06:56:26.301Z",
@@ -6926,9 +6926,9 @@
    "preview": "2026-10-31T07:01:40.623Z"
   },
   "/gr/el/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T07:01:41.704Z",
-   "mtime": 1793430042814,
-   "preview": "2026-10-31T07:01:43.563Z"
+   "uploaded": "2026-10-31T11:06:14.059Z",
+   "mtime": 1793444390966,
+   "preview": "2026-10-31T11:06:15.788Z"
   },
   "/gr/el/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T07:01:44.845Z",
@@ -7291,9 +7291,9 @@
    "preview": "2026-10-31T07:09:02.430Z"
   },
   "/gr/el/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T07:09:03.625Z",
-   "mtime": 1793430423452,
-   "preview": "2026-10-31T07:09:05.047Z"
+   "uploaded": "2026-10-31T11:12:43.732Z",
+   "mtime": 1793444391321,
+   "preview": "2026-10-31T11:12:45.357Z"
   },
   "/gr/el/reservation-priceguarantee": {
    "uploaded": "2026-10-31T07:09:06.357Z",
@@ -7461,9 +7461,9 @@
    "preview": "2026-10-31T07:14:43.325Z"
   },
   "/jp/ja/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T07:14:44.401Z",
-   "mtime": 1793430805086,
-   "preview": "2026-10-31T07:14:46.034Z"
+   "uploaded": "2026-10-31T11:04:59.314Z",
+   "mtime": 1793444392892,
+   "preview": "2026-10-31T11:05:01.025Z"
   },
   "/jp/ja/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T07:14:47.123Z",
@@ -7596,9 +7596,9 @@
    "preview": "2026-10-31T07:15:59.923Z"
   },
   "/jp/ja/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T07:16:00.961Z",
-   "mtime": 1793430805742,
-   "preview": "2026-10-31T07:16:02.374Z"
+   "uploaded": "2026-10-31T11:05:47.556Z",
+   "mtime": 1793444393014,
+   "preview": "2026-10-31T11:05:49.366Z"
   },
   "/jp/ja/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T07:16:03.444Z",
@@ -7666,14 +7666,14 @@
    "preview": "2026-10-31T07:16:41.957Z"
   },
   "/jp/ja/nav": {
-   "uploaded": "2026-10-31T07:36:18.855Z",
-   "mtime": 1793431991231,
-   "preview": "2026-10-31T07:36:20.406Z"
+   "uploaded": "2026-10-31T11:03:04.204Z",
+   "mtime": 1793444405821,
+   "preview": "2026-10-31T11:03:05.674Z"
   },
   "/jp/ja/footer": {
-   "uploaded": "2026-10-31T07:36:22.195Z",
-   "mtime": 1793431991260,
-   "preview": "2026-10-31T07:36:24.498Z"
+   "uploaded": "2026-10-31T11:03:06.990Z",
+   "mtime": 1793444405852,
+   "preview": "2026-10-31T11:03:09.001Z"
   },
   "/jp/ja/check-in-airport": {
    "uploaded": "2026-10-31T07:20:50.405Z",
@@ -7696,59 +7696,59 @@
    "preview": "2026-10-31T07:21:00.556Z"
   },
   "/jp/ja/contact-form-baggage": {
-   "uploaded": "2026-10-31T07:21:01.756Z",
-   "mtime": 1793431200494,
-   "preview": "2026-10-31T07:21:03.469Z"
+   "uploaded": "2026-10-31T11:07:09.831Z",
+   "mtime": 1793444393112,
+   "preview": "2026-10-31T11:07:11.453Z"
   },
   "/jp/ja/contact-form-booking": {
-   "uploaded": "2026-10-31T07:21:04.551Z",
-   "mtime": 1793431200546,
-   "preview": "2026-10-31T07:21:06.257Z"
+   "uploaded": "2026-10-31T11:08:01.807Z",
+   "mtime": 1793444393160,
+   "preview": "2026-10-31T11:08:03.465Z"
   },
   "/jp/ja/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T07:21:07.313Z",
-   "mtime": 1793431200519,
-   "preview": "2026-10-31T07:21:08.840Z"
+   "uploaded": "2026-10-31T11:07:35.321Z",
+   "mtime": 1793444393137,
+   "preview": "2026-10-31T11:07:37.094Z"
   },
   "/jp/ja/contact-form-charter": {
-   "uploaded": "2026-10-31T07:21:10.125Z",
-   "mtime": 1793431200572,
-   "preview": "2026-10-31T07:21:11.667Z"
+   "uploaded": "2026-10-31T11:08:27.251Z",
+   "mtime": 1793444393183,
+   "preview": "2026-10-31T11:08:28.913Z"
   },
   "/jp/ja/contact-form-medical-request": {
-   "uploaded": "2026-10-31T07:21:12.689Z",
-   "mtime": 1793431202859,
-   "preview": "2026-10-31T07:21:14.378Z"
+   "uploaded": "2026-10-31T11:08:52.972Z",
+   "mtime": 1793444393206,
+   "preview": "2026-10-31T11:08:55.122Z"
   },
   "/jp/ja/contact-form-other": {
-   "uploaded": "2026-10-31T07:21:15.324Z",
-   "mtime": 1793431200622,
-   "preview": "2026-10-31T07:21:17.059Z"
+   "uploaded": "2026-10-31T11:09:19.761Z",
+   "mtime": 1793444393227,
+   "preview": "2026-10-31T11:09:21.208Z"
   },
   "/jp/ja/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T07:21:18.288Z",
-   "mtime": 1793431200648,
-   "preview": "2026-10-31T07:21:19.905Z"
+   "uploaded": "2026-10-31T11:09:46.059Z",
+   "mtime": 1793444393249,
+   "preview": "2026-10-31T11:09:47.635Z"
   },
   "/jp/ja/contact-form-rebooking": {
-   "uploaded": "2026-10-31T07:21:20.956Z",
-   "mtime": 1793431200675,
-   "preview": "2026-10-31T07:21:22.689Z"
+   "uploaded": "2026-10-31T11:10:12.023Z",
+   "mtime": 1793444393274,
+   "preview": "2026-10-31T11:10:13.618Z"
   },
   "/jp/ja/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T07:21:23.806Z",
-   "mtime": 1793431200701,
-   "preview": "2026-10-31T07:21:26.332Z"
+   "uploaded": "2026-10-31T11:10:38.591Z",
+   "mtime": 1793444393299,
+   "preview": "2026-10-31T11:10:40.617Z"
   },
   "/jp/ja/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T07:21:27.379Z",
-   "mtime": 1793431200729,
-   "preview": "2026-10-31T07:21:28.915Z"
+   "uploaded": "2026-10-31T11:11:05.006Z",
+   "mtime": 1793444393319,
+   "preview": "2026-10-31T11:11:06.673Z"
   },
   "/jp/ja/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T07:21:30.057Z",
-   "mtime": 1793431200754,
-   "preview": "2026-10-31T07:21:31.722Z"
+   "uploaded": "2026-10-31T11:11:31.810Z",
+   "mtime": 1793444393343,
+   "preview": "2026-10-31T11:11:33.444Z"
   },
   "/jp/ja/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T07:21:32.874Z",
@@ -7771,9 +7771,9 @@
    "preview": "2026-10-31T07:21:42.657Z"
   },
   "/jp/ja/data-protection-contact": {
-   "uploaded": "2026-10-31T07:21:43.694Z",
-   "mtime": 1793431200865,
-   "preview": "2026-10-31T07:21:45.327Z"
+   "uploaded": "2026-10-31T11:11:57.517Z",
+   "mtime": 1793444393382,
+   "preview": "2026-10-31T11:11:59.201Z"
   },
   "/jp/ja/data-protection-rights": {
    "uploaded": "2026-10-31T07:21:46.376Z",
@@ -7816,9 +7816,9 @@
    "preview": "2026-10-31T07:22:08.697Z"
   },
   "/jp/ja/emergency-contact": {
-   "uploaded": "2026-10-31T07:22:09.735Z",
-   "mtime": 1793431201100,
-   "preview": "2026-10-31T07:22:11.339Z"
+   "uploaded": "2026-10-31T11:12:23.458Z",
+   "mtime": 1793444393438,
+   "preview": "2026-10-31T11:12:25.139Z"
   },
   "/jp/ja/entryregulations": {
    "uploaded": "2026-10-31T07:22:12.427Z",
@@ -7946,9 +7946,9 @@
    "preview": "2026-10-31T07:27:34.282Z"
   },
   "/jp/ja/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T07:27:35.347Z",
-   "mtime": 1793431598472,
-   "preview": "2026-10-31T07:27:36.999Z"
+   "uploaded": "2026-10-31T11:06:20.199Z",
+   "mtime": 1793444393608,
+   "preview": "2026-10-31T11:06:21.861Z"
   },
   "/jp/ja/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T07:27:38.036Z",
@@ -8186,9 +8186,9 @@
    "preview": "2026-10-31T07:29:47.052Z"
   },
   "/jp/ja/newsletter": {
-   "uploaded": "2026-10-31T07:29:48.218Z",
-   "mtime": 1793431599760,
-   "preview": "2026-10-31T07:29:49.891Z"
+   "uploaded": "2026-10-31T11:13:03.227Z",
+   "mtime": 1793444393861,
+   "preview": "2026-10-31T11:13:04.896Z"
   },
   "/jp/ja/offers-destinations": {
    "uploaded": "2026-10-31T07:29:50.956Z",
@@ -8326,9 +8326,9 @@
    "preview": "2026-10-31T07:35:08.807Z"
   },
   "/jp/ja/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T07:35:09.827Z",
-   "mtime": 1793431987081,
-   "preview": "2026-10-31T07:35:11.379Z"
+   "uploaded": "2026-10-31T11:12:49.567Z",
+   "mtime": 1793444393992,
+   "preview": "2026-10-31T11:12:51.195Z"
   },
   "/jp/ja/reservation-priceguarantee": {
    "uploaded": "2026-10-31T07:35:12.374Z",
@@ -8501,9 +8501,9 @@
    "preview": "2026-10-31T07:40:51.462Z"
   },
   "/pl/pl/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T07:40:52.676Z",
-   "mtime": 1793432364257,
-   "preview": "2026-10-31T07:40:54.194Z"
+   "uploaded": "2026-10-31T11:05:02.284Z",
+   "mtime": 1793444394376,
+   "preview": "2026-10-31T11:05:04.037Z"
   },
   "/pl/pl/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T07:40:55.441Z",
@@ -8626,9 +8626,9 @@
    "preview": "2026-10-31T07:42:06.549Z"
   },
   "/pl/pl/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T07:42:07.614Z",
-   "mtime": 1793432364833,
-   "preview": "2026-10-31T07:42:09.270Z"
+   "uploaded": "2026-10-31T11:05:50.528Z",
+   "mtime": 1793444394485,
+   "preview": "2026-10-31T11:05:52.004Z"
   },
   "/pl/pl/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T07:42:10.389Z",
@@ -8696,14 +8696,14 @@
    "preview": "2026-10-31T07:42:47.058Z"
   },
   "/pl/pl/nav": {
-   "uploaded": "2026-10-31T08:03:30.785Z",
-   "mtime": 1793433615535,
-   "preview": "2026-10-31T08:03:32.573Z"
+   "uploaded": "2026-10-31T11:03:10.476Z",
+   "mtime": 1793444406970,
+   "preview": "2026-10-31T11:03:12.322Z"
   },
   "/pl/pl/footer": {
-   "uploaded": "2026-10-31T08:03:33.894Z",
-   "mtime": 1793433615571,
-   "preview": "2026-10-31T08:03:35.920Z"
+   "uploaded": "2026-10-31T11:03:13.655Z",
+   "mtime": 1793444407006,
+   "preview": "2026-10-31T11:03:15.618Z"
   },
   "/pl/pl/check-in-airport": {
    "uploaded": "2026-10-31T07:47:58.594Z",
@@ -8726,59 +8726,59 @@
    "preview": "2026-10-31T07:48:09.290Z"
   },
   "/pl/pl/contact-form-baggage": {
-   "uploaded": "2026-10-31T07:48:10.603Z",
-   "mtime": 1793432762776,
-   "preview": "2026-10-31T07:48:12.361Z"
+   "uploaded": "2026-10-31T11:07:12.739Z",
+   "mtime": 1793444394581,
+   "preview": "2026-10-31T11:07:14.705Z"
   },
   "/pl/pl/contact-form-booking": {
-   "uploaded": "2026-10-31T07:48:13.625Z",
-   "mtime": 1793432762826,
-   "preview": "2026-10-31T07:48:15.210Z"
+   "uploaded": "2026-10-31T11:08:04.705Z",
+   "mtime": 1793444394625,
+   "preview": "2026-10-31T11:08:06.301Z"
   },
   "/pl/pl/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T07:48:16.381Z",
-   "mtime": 1793432762801,
-   "preview": "2026-10-31T07:48:17.974Z"
+   "uploaded": "2026-10-31T11:07:38.331Z",
+   "mtime": 1793444394603,
+   "preview": "2026-10-31T11:07:40.073Z"
   },
   "/pl/pl/contact-form-charter": {
-   "uploaded": "2026-10-31T07:48:19.097Z",
-   "mtime": 1793432762852,
-   "preview": "2026-10-31T07:48:20.810Z"
+   "uploaded": "2026-10-31T11:08:30.218Z",
+   "mtime": 1793444394650,
+   "preview": "2026-10-31T11:08:31.735Z"
   },
   "/pl/pl/contact-form-medical-request": {
-   "uploaded": "2026-10-31T07:48:22.010Z",
-   "mtime": 1793432765084,
-   "preview": "2026-10-31T07:48:23.702Z"
+   "uploaded": "2026-10-31T11:08:56.462Z",
+   "mtime": 1793444394675,
+   "preview": "2026-10-31T11:08:58.202Z"
   },
   "/pl/pl/contact-form-other": {
-   "uploaded": "2026-10-31T07:48:24.896Z",
-   "mtime": 1793432762903,
-   "preview": "2026-10-31T07:48:26.575Z"
+   "uploaded": "2026-10-31T11:09:22.623Z",
+   "mtime": 1793444394698,
+   "preview": "2026-10-31T11:09:24.280Z"
   },
   "/pl/pl/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T07:48:27.852Z",
-   "mtime": 1793432762929,
-   "preview": "2026-10-31T07:48:29.486Z"
+   "uploaded": "2026-10-31T11:09:48.765Z",
+   "mtime": 1793444394721,
+   "preview": "2026-10-31T11:09:50.326Z"
   },
   "/pl/pl/contact-form-rebooking": {
-   "uploaded": "2026-10-31T07:48:30.840Z",
-   "mtime": 1793432762954,
-   "preview": "2026-10-31T07:48:32.643Z"
+   "uploaded": "2026-10-31T11:10:14.863Z",
+   "mtime": 1793444394745,
+   "preview": "2026-10-31T11:10:16.684Z"
   },
   "/pl/pl/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T07:48:33.703Z",
-   "mtime": 1793432762980,
-   "preview": "2026-10-31T07:48:35.494Z"
+   "uploaded": "2026-10-31T11:10:41.910Z",
+   "mtime": 1793444394768,
+   "preview": "2026-10-31T11:10:43.433Z"
   },
   "/pl/pl/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T07:48:36.763Z",
-   "mtime": 1793432763004,
-   "preview": "2026-10-31T07:48:38.363Z"
+   "uploaded": "2026-10-31T11:11:07.937Z",
+   "mtime": 1793444394791,
+   "preview": "2026-10-31T11:11:09.449Z"
   },
   "/pl/pl/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T07:48:39.525Z",
-   "mtime": 1793432763032,
-   "preview": "2026-10-31T07:48:41.201Z"
+   "uploaded": "2026-10-31T11:11:34.622Z",
+   "mtime": 1793444394814,
+   "preview": "2026-10-31T11:11:36.416Z"
   },
   "/pl/pl/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T07:48:42.385Z",
@@ -8801,9 +8801,9 @@
    "preview": "2026-10-31T07:48:53.053Z"
   },
   "/pl/pl/data-protection-contact": {
-   "uploaded": "2026-10-31T07:48:54.235Z",
-   "mtime": 1793432763146,
-   "preview": "2026-10-31T07:48:55.878Z"
+   "uploaded": "2026-10-31T11:12:00.385Z",
+   "mtime": 1793444394853,
+   "preview": "2026-10-31T11:12:01.972Z"
   },
   "/pl/pl/data-protection-rights": {
    "uploaded": "2026-10-31T07:48:57.189Z",
@@ -8846,9 +8846,9 @@
    "preview": "2026-10-31T07:49:20.848Z"
   },
   "/pl/pl/emergency-contact": {
-   "uploaded": "2026-10-31T07:49:21.979Z",
-   "mtime": 1793432763386,
-   "preview": "2026-10-31T07:49:23.588Z"
+   "uploaded": "2026-10-31T11:12:26.493Z",
+   "mtime": 1793444394907,
+   "preview": "2026-10-31T11:12:28.182Z"
   },
   "/pl/pl/entryregulations": {
    "uploaded": "2026-10-31T07:49:24.738Z",
@@ -8981,9 +8981,9 @@
    "preview": "2026-10-31T07:54:43.069Z"
   },
   "/pl/pl/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T07:54:44.222Z",
-   "mtime": 1793433222547,
-   "preview": "2026-10-31T07:54:45.994Z"
+   "uploaded": "2026-10-31T11:06:23.112Z",
+   "mtime": 1793444395061,
+   "preview": "2026-10-31T11:06:24.920Z"
   },
   "/pl/pl/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T07:54:47.191Z",
@@ -9216,9 +9216,9 @@
    "preview": "2026-10-31T07:57:03.710Z"
   },
   "/pl/pl/newsletter": {
-   "uploaded": "2026-10-31T07:57:04.832Z",
-   "mtime": 1793433223726,
-   "preview": "2026-10-31T07:57:06.514Z"
+   "uploaded": "2026-10-31T11:13:06.331Z",
+   "mtime": 1793444395302,
+   "preview": "2026-10-31T11:13:07.825Z"
   },
   "/pl/pl/offers-destinations": {
    "uploaded": "2026-10-31T08:01:01.278Z",
@@ -9351,9 +9351,9 @@
    "preview": "2026-10-31T08:02:20.017Z"
   },
   "/pl/pl/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T08:02:21.200Z",
-   "mtime": 1793433611923,
-   "preview": "2026-10-31T08:02:23.574Z"
+   "uploaded": "2026-10-31T11:12:52.380Z",
+   "mtime": 1793444395426,
+   "preview": "2026-10-31T11:12:53.858Z"
   },
   "/pl/pl/reservation-priceguarantee": {
    "uploaded": "2026-10-31T08:02:24.800Z",
@@ -9521,9 +9521,9 @@
    "preview": "2026-10-31T08:08:04.606Z"
   },
   "/cn/zh/anfrage-gutscheine": {
-   "uploaded": "2026-10-31T08:08:05.705Z",
-   "mtime": 1793433995584,
-   "preview": "2026-10-31T08:08:07.452Z"
+   "uploaded": "2026-10-31T11:04:44.303Z",
+   "mtime": 1793444386450,
+   "preview": "2026-10-31T11:04:46.077Z"
   },
   "/cn/zh/anfrage-rueckerstattung": {
    "uploaded": "2026-10-31T08:08:08.510Z",
@@ -9646,9 +9646,9 @@
    "preview": "2026-10-31T08:09:20.070Z"
   },
   "/cn/zh/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry": {
-   "uploaded": "2026-10-31T08:09:21.168Z",
-   "mtime": 1793433996117,
-   "preview": "2026-10-31T08:09:22.996Z"
+   "uploaded": "2026-10-31T11:05:33.695Z",
+   "mtime": 1793444386560,
+   "preview": "2026-10-31T11:05:35.169Z"
   },
   "/cn/zh/book/groups-and-enterprises/group-travel-and-charter": {
    "uploaded": "2026-10-31T08:09:24.105Z",
@@ -9731,14 +9731,14 @@
    "preview": "2026-10-31T08:10:12.349Z"
   },
   "/cn/zh/nav": {
-   "uploaded": "2026-10-31T08:30:09.167Z",
-   "mtime": 1793435212270,
-   "preview": "2026-10-31T08:30:10.768Z"
+   "uploaded": "2026-10-31T11:02:33.112Z",
+   "mtime": 1793444400251,
+   "preview": "2026-10-31T11:02:34.704Z"
   },
   "/cn/zh/footer": {
-   "uploaded": "2026-10-31T08:30:12.050Z",
-   "mtime": 1793435212304,
-   "preview": "2026-10-31T08:30:13.627Z"
+   "uploaded": "2026-10-31T11:02:36.015Z",
+   "mtime": 1793444400286,
+   "preview": "2026-10-31T11:02:37.910Z"
   },
   "/cn/zh/company": {
    "uploaded": "2026-10-31T08:14:18.720Z",
@@ -9746,59 +9746,59 @@
    "preview": "2026-10-31T08:14:20.398Z"
   },
   "/cn/zh/contact-form-baggage": {
-   "uploaded": "2026-10-31T08:14:21.730Z",
-   "mtime": 1793434401172,
-   "preview": "2026-10-31T08:14:23.495Z"
+   "uploaded": "2026-10-31T11:06:55.082Z",
+   "mtime": 1793444386657,
+   "preview": "2026-10-31T11:06:57.170Z"
   },
   "/cn/zh/contact-form-booking": {
-   "uploaded": "2026-10-31T08:14:24.653Z",
-   "mtime": 1793434401219,
-   "preview": "2026-10-31T08:14:26.373Z"
+   "uploaded": "2026-10-31T11:07:47.132Z",
+   "mtime": 1793444386704,
+   "preview": "2026-10-31T11:07:48.775Z"
   },
   "/cn/zh/contact-form-booking-confirmation": {
-   "uploaded": "2026-10-31T08:14:27.360Z",
-   "mtime": 1793434401196,
-   "preview": "2026-10-31T08:14:29.375Z"
+   "uploaded": "2026-10-31T11:07:21.543Z",
+   "mtime": 1793444386681,
+   "preview": "2026-10-31T11:07:23.082Z"
   },
   "/cn/zh/contact-form-charter": {
-   "uploaded": "2026-10-31T08:14:30.550Z",
-   "mtime": 1793434401243,
-   "preview": "2026-10-31T08:14:32.438Z"
+   "uploaded": "2026-10-31T11:08:13.248Z",
+   "mtime": 1793444386728,
+   "preview": "2026-10-31T11:08:14.845Z"
   },
   "/cn/zh/contact-form-medical-request": {
-   "uploaded": "2026-10-31T08:14:33.528Z",
-   "mtime": 1793434408401,
-   "preview": "2026-10-31T08:14:35.213Z"
+   "uploaded": "2026-10-31T11:08:38.560Z",
+   "mtime": 1793444386750,
+   "preview": "2026-10-31T11:08:40.222Z"
   },
   "/cn/zh/contact-form-other": {
-   "uploaded": "2026-10-31T08:14:36.368Z",
-   "mtime": 1793434401289,
-   "preview": "2026-10-31T08:14:38.153Z"
+   "uploaded": "2026-10-31T11:09:05.009Z",
+   "mtime": 1793444386774,
+   "preview": "2026-10-31T11:09:06.740Z"
   },
   "/cn/zh/contact-form-passenger-receipt": {
-   "uploaded": "2026-10-31T08:14:39.403Z",
-   "mtime": 1793434401313,
-   "preview": "2026-10-31T08:14:41.284Z"
+   "uploaded": "2026-10-31T11:09:31.665Z",
+   "mtime": 1793444386797,
+   "preview": "2026-10-31T11:09:33.388Z"
   },
   "/cn/zh/contact-form-rebooking": {
-   "uploaded": "2026-10-31T08:14:42.307Z",
-   "mtime": 1793434401339,
-   "preview": "2026-10-31T08:14:44.101Z"
+   "uploaded": "2026-10-31T11:09:56.922Z",
+   "mtime": 1793444386821,
+   "preview": "2026-10-31T11:09:58.713Z"
   },
   "/cn/zh/contact-form-refund-seat-reservation": {
-   "uploaded": "2026-10-31T08:14:45.378Z",
-   "mtime": 1793434401362,
-   "preview": "2026-10-31T08:14:47.127Z"
+   "uploaded": "2026-10-31T11:10:23.853Z",
+   "mtime": 1793444386844,
+   "preview": "2026-10-31T11:10:25.682Z"
   },
   "/cn/zh/contact-form-requested-documents": {
-   "uploaded": "2026-10-31T08:14:48.180Z",
-   "mtime": 1793434401386,
-   "preview": "2026-10-31T08:14:49.908Z"
+   "uploaded": "2026-10-31T11:10:50.334Z",
+   "mtime": 1793444386869,
+   "preview": "2026-10-31T11:10:51.993Z"
   },
   "/cn/zh/contact-form-seat-meal-requests": {
-   "uploaded": "2026-10-31T08:14:51.075Z",
-   "mtime": 1793434401409,
-   "preview": "2026-10-31T08:14:52.756Z"
+   "uploaded": "2026-10-31T11:11:16.487Z",
+   "mtime": 1793444386892,
+   "preview": "2026-10-31T11:11:18.275Z"
   },
   "/cn/zh/contingency-plan-lengthy-tarmac-delays": {
    "uploaded": "2026-10-31T08:14:54.027Z",
@@ -9821,9 +9821,9 @@
    "preview": "2026-10-31T08:15:04.428Z"
   },
   "/cn/zh/data-protection-contact": {
-   "uploaded": "2026-10-31T08:15:05.563Z",
-   "mtime": 1793434401516,
-   "preview": "2026-10-31T08:15:07.365Z"
+   "uploaded": "2026-10-31T11:11:43.159Z",
+   "mtime": 1793444386929,
+   "preview": "2026-10-31T11:11:44.815Z"
   },
   "/cn/zh/data-protection-rights": {
    "uploaded": "2026-10-31T08:15:08.497Z",
@@ -9866,9 +9866,9 @@
    "preview": "2026-10-31T08:15:31.763Z"
   },
   "/cn/zh/emergency-contact": {
-   "uploaded": "2026-10-31T08:15:32.793Z",
-   "mtime": 1793434401726,
-   "preview": "2026-10-31T08:15:34.413Z"
+   "uploaded": "2026-10-31T11:12:09.253Z",
+   "mtime": 1793444386984,
+   "preview": "2026-10-31T11:12:10.925Z"
   },
   "/cn/zh/entryregulations": {
    "uploaded": "2026-10-31T08:15:35.518Z",
@@ -9996,9 +9996,9 @@
    "preview": "2026-10-31T08:16:45.186Z"
   },
   "/cn/zh/fly/check-in/private-check-in-counter": {
-   "uploaded": "2026-10-31T08:16:46.202Z",
-   "mtime": 1793434402318,
-   "preview": "2026-10-31T08:16:47.871Z"
+   "uploaded": "2026-10-31T11:06:04.828Z",
+   "mtime": 1793444387135,
+   "preview": "2026-10-31T11:06:06.772Z"
   },
   "/cn/zh/fly/flight-information/flight-disruptions": {
    "uploaded": "2026-10-31T08:21:05.404Z",
@@ -10251,9 +10251,9 @@
    "preview": "2026-10-31T08:23:30.283Z"
   },
   "/cn/zh/newsletter": {
-   "uploaded": "2026-10-31T08:23:31.363Z",
-   "mtime": 1793434806745,
-   "preview": "2026-10-31T08:23:32.925Z"
+   "uploaded": "2026-10-31T11:12:57.832Z",
+   "mtime": 1793444387393,
+   "preview": "2026-10-31T11:12:59.273Z"
   },
   "/cn/zh/offers-destinations": {
    "uploaded": "2026-10-31T08:23:34.065Z",
@@ -10386,9 +10386,9 @@
    "preview": "2026-10-31T08:28:59.290Z"
   },
   "/cn/zh/request-traveling-with-animals": {
-   "uploaded": "2026-10-31T08:29:00.409Z",
-   "mtime": 1793435201743,
-   "preview": "2026-10-31T08:29:02.009Z"
+   "uploaded": "2026-10-31T11:12:34.860Z",
+   "mtime": 1793444387520,
+   "preview": "2026-10-31T11:12:36.576Z"
   },
   "/cn/zh/reservation-priceguarantee": {
    "uploaded": "2026-10-31T08:29:03.124Z",
@@ -10521,9 +10521,9 @@
    "preview": "2026-10-31T08:53:14.301Z"
   },
   "/ca/en/local-pages/conditions-of-carriage-for-canada": {
-   "uploaded": "2026-10-31T08:53:15.414Z",
-   "mtime": 1793435556565,
-   "preview": "2026-10-31T08:53:16.806Z"
+   "uploaded": "2026-10-31T10:25:41.437Z",
+   "mtime": 1793441141480,
+   "preview": "2026-10-31T10:25:43.159Z"
   },
   "/ca/en/local-page/austrian-in-canada": {
    "uploaded": "2026-10-31T08:53:17.952Z",
@@ -10541,9 +10541,9 @@
    "preview": "2026-10-31T08:53:25.565Z"
   },
   "/ca/fr/local-pages/conditions-of-carriage-for-canada-fr": {
-   "uploaded": "2026-10-31T08:53:26.641Z",
-   "mtime": 1793435556628,
-   "preview": "2026-10-31T08:53:28.100Z"
+   "uploaded": "2026-10-31T10:25:44.327Z",
+   "mtime": 1793441141504,
+   "preview": "2026-10-31T10:25:46.034Z"
   },
   "/ch/de/local-page/black-friday": {
    "uploaded": "2026-10-31T08:53:29.210Z",
@@ -10616,9 +10616,9 @@
    "preview": "2026-10-31T08:54:11.217Z"
   },
   "/hu/en/local-page/invoice-request-hungary": {
-   "uploaded": "2026-10-31T08:54:12.301Z",
-   "mtime": 1793435552123,
-   "preview": "2026-10-31T08:54:14.071Z"
+   "uploaded": "2026-10-31T11:13:12.004Z",
+   "mtime": 1793443993683,
+   "preview": "2026-10-31T11:13:13.738Z"
   },
   "/hu/en/local-page/invoice-request-hungary/thank-you-for-your-request": {
    "uploaded": "2026-10-31T08:54:15.241Z",
@@ -10636,9 +10636,9 @@
    "preview": "2026-10-31T08:54:22.106Z"
   },
   "/il/en/legal/cancellation-refund-via-document-upload": {
-   "uploaded": "2026-10-31T08:54:23.203Z",
-   "mtime": 1793435552147,
-   "preview": "2026-10-31T08:54:24.755Z"
+   "uploaded": "2026-10-31T11:13:14.902Z",
+   "mtime": 1793443993713,
+   "preview": "2026-10-31T11:13:16.537Z"
   },
   "/jp/en/schedule-for-japan-routes": {
    "uploaded": "2026-10-31T08:54:25.889Z",
@@ -10661,9 +10661,9 @@
    "preview": "2026-10-31T08:54:36.493Z"
   },
   "/th/en/th-requested-documents": {
-   "uploaded": "2026-10-31T08:54:37.583Z",
-   "mtime": 1793435556466,
-   "preview": "2026-10-31T08:54:39.061Z"
+   "uploaded": "2026-10-31T11:13:17.688Z",
+   "mtime": 1793443993736,
+   "preview": "2026-10-31T11:13:19.590Z"
   },
   "/us/en/austrian-in-the-us": {
    "uploaded": "2026-10-31T08:54:40.070Z",
@@ -11479,6 +11479,131 @@
    "uploaded": "2026-10-31T09:12:27.834Z",
    "mtime": 1793437701647,
    "preview": "2026-10-31T09:12:29.190Z"
+  },
+  "/at/de/footer-pages/help-and-contact/contact-form-refund/refund-form/refunds-success": {
+   "uploaded": "2026-10-31T11:01:19.458Z",
+   "mtime": 1793444333091,
+   "preview": "2026-10-31T11:01:21.075Z"
+  },
+  "/cn/zh/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:01:22.384Z",
+   "mtime": 1793444387107,
+   "preview": "2026-10-31T11:01:23.888Z"
+  },
+  "/cn/zh/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:01:25.008Z",
+   "mtime": 1793444333162,
+   "preview": "2026-10-31T11:01:26.646Z"
+  },
+  "/cn/zh/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:01:27.839Z",
+   "mtime": 1793444387232,
+   "preview": "2026-10-31T11:01:29.336Z"
+  },
+  "/es/es/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:01:30.399Z",
+   "mtime": 1793444388442,
+   "preview": "2026-10-31T11:01:31.915Z"
+  },
+  "/es/es/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:01:33.060Z",
+   "mtime": 1793444333279,
+   "preview": "2026-10-31T11:01:34.647Z"
+  },
+  "/es/es/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:01:35.847Z",
+   "mtime": 1793444388563,
+   "preview": "2026-10-31T11:01:37.330Z"
+  },
+  "/fr/fr/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:01:38.321Z",
+   "mtime": 1793444389641,
+   "preview": "2026-10-31T11:01:39.731Z"
+  },
+  "/fr/fr/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:01:40.834Z",
+   "mtime": 1793444333397,
+   "preview": "2026-10-31T11:01:42.463Z"
+  },
+  "/fr/fr/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:01:43.523Z",
+   "mtime": 1793444389766,
+   "preview": "2026-10-31T11:01:45.188Z"
+  },
+  "/gr/el/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:01:46.486Z",
+   "mtime": 1793444390938,
+   "preview": "2026-10-31T11:01:48.121Z"
+  },
+  "/gr/el/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:01:49.263Z",
+   "mtime": 1793444333500,
+   "preview": "2026-10-31T11:01:50.680Z"
+  },
+  "/gr/el/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:01:51.836Z",
+   "mtime": 1793444391063,
+   "preview": "2026-10-31T11:01:53.315Z"
+  },
+  "/it/it/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:01:54.371Z",
+   "mtime": 1793444392278,
+   "preview": "2026-10-31T11:01:55.973Z"
+  },
+  "/it/it/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:01:57.120Z",
+   "mtime": 1793444333628,
+   "preview": "2026-10-31T11:01:58.843Z"
+  },
+  "/it/it/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:02:00.197Z",
+   "mtime": 1793444392402,
+   "preview": "2026-10-31T11:02:01.773Z"
+  },
+  "/jp/ja/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:02:02.984Z",
+   "mtime": 1793444393568,
+   "preview": "2026-10-31T11:02:04.429Z"
+  },
+  "/jp/ja/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:02:05.543Z",
+   "mtime": 1793444333730,
+   "preview": "2026-10-31T11:02:06.954Z"
+  },
+  "/jp/ja/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:02:07.990Z",
+   "mtime": 1793444393720,
+   "preview": "2026-10-31T11:02:09.633Z"
+  },
+  "/pl/pl/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:02:10.865Z",
+   "mtime": 1793444395032,
+   "preview": "2026-10-31T11:02:12.368Z"
+  },
+  "/pl/pl/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:02:13.610Z",
+   "mtime": 1793444333834,
+   "preview": "2026-10-31T11:02:15.075Z"
+  },
+  "/pl/pl/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:02:16.158Z",
+   "mtime": 1793444395158,
+   "preview": "2026-10-31T11:02:17.506Z"
+  },
+  "/ru/ru/fly/check-in/emergency-contact/confirmation": {
+   "uploaded": "2026-10-31T11:02:18.582Z",
+   "mtime": 1793444396387,
+   "preview": "2026-10-31T11:02:20.217Z"
+  },
+  "/ru/ru/fly/check-in/private-check-in-counter/confirmation-private-check-in-counter": {
+   "uploaded": "2026-10-31T11:02:21.404Z",
+   "mtime": 1793444333938,
+   "preview": "2026-10-31T11:02:22.892Z"
+  },
+  "/ru/ru/footer-pages/help-and-contact/form-confirmation": {
+   "uploaded": "2026-10-31T11:02:23.970Z",
+   "mtime": 1793444396510,
+   "preview": "2026-10-31T11:02:25.445Z"
   }
  },
  "media": {

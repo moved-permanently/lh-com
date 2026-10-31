@@ -139,6 +139,7 @@ export const withCheckinHandoff = (doc, p) => doc
 // them yet, so the form pages stay on preview)
 export const formIdOf = (p) => `austrian-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
 const CONFIG_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>(?:form|success|error)<\/div>(?:<div><\/div>){7}<\/div>/g;
+const ERROR_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>error<\/div>(?:<div><\/div>){7}<\/div>/g;
 const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
 const linkRow = (name, href) => configRow(name, `<a href="${href}">${href}</a>`);
 
@@ -167,7 +168,13 @@ export function withItaForm(doc, p, html = '') {
   if (has('form')) out = out.replace(rows.find((r) => r.includes('<div>config</div><div>form</div>')), configRow('form', id));
   const add = [has('form') ? '' : configRow('form', id), success && !has('success') ? linkRow('success', success) : ''].join('');
   const first = [...out.matchAll(CONFIG_ROW)][0];
-  return add && first ? `${out.slice(0, first.index)}${add}${out.slice(first.index)}` : out;
+  if (add && first) out = `${out.slice(0, first.index)}${add}${out.slice(first.index)}`;
+  // no error row (www's /error.html answers 404 here: the block shows its message in place); the
+  // drop zones whose accept is no type list ("pdf, png, jpg") get the four types and the full
+  // not-allowed set (lh-forms' FILE_RULES for these forms)
+  return out.replace(ERROR_ROW, '')
+    .replace(/accept=(?:Approved file formats: pdf, png and jpg\.|pdf, png, jpg)(?=<br>)/g, 'accept=image/png, image/jpeg, image/jpg, application/pdf')
+    .replace(/(max-size=2048000<br> not-allowed=)#(?=<\/div>)/g, '$1#$$%^*()[]');
 }
 
 /** Metadata rows (name, value) added to the document's metadata block (made when it has none). */

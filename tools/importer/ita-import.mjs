@@ -10,7 +10,8 @@
  * - live widgets the importers would flatten (the security waiting times; the booking login of
  *   the manage-my-bookings page) become a link to the page on www.ita-airways.com (withLinkOuts;
  *   the login widget's cards are lh-com's carousel-cards, its booking-code card links to www);
- * - the MICE form gets its lh-forms id ita-mice (withItaForm; preview only until lh-forms knows it);
+ * - the forms get their lh-forms ids (ITA_FORMS: ita-mice, ita-group-travel, ita-voglia-di-volare,
+ *   ita-emergency-contact; withItaForm);
  * - the flight search hands off to shop.ita-airways.com from the market's airport (withFlightSearch);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs: in a tabs container as on
  *   lufthansa.com), its hand-off the page on www (withCheckinHandoff);
@@ -129,7 +130,14 @@ export const withCheckinHandoff = (doc, p) => doc
   .split('href="#booking-code"').join(`href="https://${HOST}${p}"`).replace(/<div class="booking-lookup(?: [^"]*)?">/g, (m) => (/Submit URL/.test(doc) ? m : `${m}<div><div>Submit URL</div><div>https://${HOST}${p}</div></div>`));
 
 // the MICE form (the only form of batch 1): its lh-forms id
-export const ITA_FORMS = { mice: 'ita-mice' };
+// the page name of each ITA form and its lh-forms id; the form row replaces the first config row,
+// the others (www's /error.html: 404 here, the block shows its message in place) go
+export const ITA_FORMS = {
+  mice: 'ita-mice',
+  'group-travel': 'ita-group-travel',
+  'voglia-di-volare-registration-form': 'ita-voglia-di-volare',
+  'emergency-contact': 'ita-emergency-contact',
+};
 const CONFIG_ROW = /<div><div>(?:(?!<\/div><div>)[\s\S])*?<\/div><div>config<\/div><div>(?:form|success|error)<\/div>(?:<div><\/div>){7}<\/div>/g;
 const configRow = (name, value) => `<div><div>${value}</div><div>config</div><div>${name}</div>${'<div></div>'.repeat(7)}</div>`;
 
