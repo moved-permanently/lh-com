@@ -6,6 +6,10 @@
  * notice (scripts/showcase-notice.js). Tests: test/brand.test.mjs.
  */
 
+import { DEFAULT_ICONS, iconsOf } from './brand-icons.js';
+
+export { DEFAULT_ICONS };
+
 /**
  * The known brands: metadata value -> display name, OneTrust id (the data-domain-script of the
  * brand's www pages, 2026-10-30; scripts/consent.js) and theme (styles/themes/<key>.css; false:
@@ -16,10 +20,8 @@
  * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). destinationImages: the
  * folder of the destination images of the brand's fare widgets on www (its imageBaseUrl; the
  * site's own copies under that path); Lufthansa's without one. www: the brand's own www host (its
- * links open like lufthansa.com's on lh-com: isOwnWwwHost). icons: the brand's favicon (type)
- * and web app manifest on www, the code's copies under the same paths ('' manifest: www links
- * none); lh-edge links them on the brand's host before the first paint (src/brand-icons.js), the
- * page on other hosts (applyBrandIcons). The languages of the sites
+ * links open like lufthansa.com's on lh-com: isOwnWwwHost). The brands' favicons and manifests:
+ * scripts/brand-icons.js (brandIcons, applyBrandIcons). The languages of the sites
  * without <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
  */
 export const BRANDS = {
@@ -29,7 +31,6 @@ export const BRANDS = {
     messageCenter: 'four_y',
     destinationImages: '/content/dam/four_y/images/offers/destination',
     www: 'www.discover-airlines.com',
-    icons: { icon: '/etc/designs/four_y/favicon.ico', type: 'image/ico', manifest: '' },
   },
   ita: {
     name: 'ITA Airways',
@@ -37,18 +38,15 @@ export const BRANDS = {
     messageCenter: 'ita',
     destinationImages: '/content/dam/ita/images/offers/destination',
     www: 'www.ita-airways.com',
-    icons: { icon: '/etc/designs/ita/favicon.ico', type: 'image/ico', manifest: '/etc/designs/ita/manifest.json' },
   },
   // Austrian Airlines (lh-austrian): when the Austrian session adds its brand key here, its entry
-  // gets messageCenter: 'os' (its tenant on www) and icons: { icon: '/etc/designs/os/favicon.ico',
-  // type: 'image/ico', manifest: '/etc/designs/os/manifest.json' } (files in etc/designs/os/)
+  // gets messageCenter: 'os' (its tenant on www); its icons row: scripts/brand-icons.js
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
   cargo: {
     name: 'Lufthansa Cargo',
     theme: false,
     www: 'www.lufthansa-cargo.com',
-    icons: { icon: '/o/eportal-theme/images/favicon.ico', type: 'image/x-icon', manifest: '' },
   },
   // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
   // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
@@ -56,7 +54,6 @@ export const BRANDS = {
   airdolomiti: {
     name: 'Air Dolomiti',
     www: 'www.airdolomiti.it',
-    icons: { icon: '/favicon/favicon.ico', type: 'image/png', manifest: '' },
   },
 };
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
@@ -64,8 +61,6 @@ export const DEFAULT_BRAND_NAME = 'Lufthansa';
 export const DEFAULT_ONETRUST = '01994cb2-af99-7dbe-8fb0-56427773e54e';
 /** www.lufthansa.com's destination images (lh-com, and the brands without a folder of their own) */
 export const DEFAULT_DESTINATION_IMAGES = '/content/dam/lh/images/offers/destination';
-/** www.lufthansa.com's favicon and manifest (head.html): lh-com, brands without their own. */
-export const DEFAULT_ICONS = { icon: '/etc/designs/dcep/favicon.ico', manifest: '/etc/designs/dcep/manifest.json' };
 
 /** A page metadata value (as aem.js getMetadata: <meta name> or <meta property>). */
 const metadata = (name) => {
@@ -121,7 +116,7 @@ export function isOwnWwwHost(hostname, read = metadata) {
 /** The site's favicon (icon, type) and web app manifest ('' for none). */
 export function brandIcons(read = metadata) {
   const key = brandOf(read);
-  return (key && BRANDS[key].icons) || DEFAULT_ICONS;
+  return iconsOf(key) || DEFAULT_ICONS;
 }
 
 /**

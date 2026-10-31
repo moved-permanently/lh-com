@@ -73,5 +73,6 @@ test('lh-edge rewrites the links on a brand host before the first paint (src/bra
   const src = fs.readFileSync(file('tools/workers/lh-edge/src/index.js'), 'utf8');
   assert.match(src, /if \(site\) resp = rewriteBrandIcons\(resp, incoming, site\);/);
   const deploy = fs.readFileSync(file('.github/workflows/deploy-lh-edge.yaml'), 'utf8');
-  assert.match(deploy, /- 'scripts\/brand\.js'/, 'lh-edge bundles brand.js: its changes deploy');
+  assert.match(deploy, /- 'scripts\/brand-icons\.js'/, 'lh-edge bundles brand-icons.js: its changes deploy');
+  assert.match(fs.readFileSync(file('tools/workers/lh-edge/src/brand-icons.js'), 'utf8'), /from '\.\.\/\.\.\/\.\.\/\.\.\/scripts\/brand-icons\.js'/, 'not brand.js (it loads aem.js)');
 });
