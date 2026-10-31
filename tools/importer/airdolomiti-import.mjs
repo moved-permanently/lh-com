@@ -199,8 +199,12 @@ export class Page {
         this.missing.delete(key);
         src = original !== key ? this.file(original, 'image') : null;
         if (!src) {
-          this.note(`image ${key.split('/').pop()}: 404 on www${original !== key ? ', its original not downloaded yet' : ', left out'}`);
-          if (original === key) return '';
+          // the original 404 as well (or no other size): broken on www itself, left out
+          const od = loadSite().state.done[original];
+          const gone = original === key || (od && od.status === 404);
+          if (gone) this.missing.delete(original);
+          this.note(`image ${key.split('/').pop()}: 404 on www${gone ? ', left out' : ', its original not downloaded yet'}`);
+          if (gone) return '';
         }
       }
     }
@@ -665,9 +669,11 @@ export function convert(rendered, sourceUrl) {
   if (seo.metaRobotsNoindex === 'noindex') meta.push(['Robots', `noindex, ${seo.metaRobotsNofollow === 'nofollow' ? 'nofollow' : 'follow'}`]);
   const prefix = lang === 'it' ? '' : `/${lang}`;
   if (isPost) {
-    // www shows the post's date and its reading time ("Tempo di lettura: 2 minuti"), 200 words a minute
-    const words = plain(docs.flatMap((x) => x.items).map((it) => it.html || (it.rows || []).flat().join(' ')).join(' ')).split(' ').length;
-    const min = Math.max(1, Math.ceil(words / 200));
+    // www shows the post's date and its reading time ("Tempo di lettura: 2 minuti"): the words of
+    // the post's body (its html-content blocks) at 200 a minute, rounded (136 of 154 Italian posts)
+    const body = (post.blocks || []).filter((b) => b.name === 'lazyblock/html-content').map((b) => plain(dec(b.attributes || {}).content)).join(' ');
+    const words = (body || plain(docs.flatMap((x) => x.items).map((it) => it.html || (it.rows || []).flat().join(' ')).join(' '))).split(' ').filter(Boolean).length;
+    const min = Math.max(1, Math.round(words / 200));
     const label = { it: `Tempo di lettura: ${min} ${min === 1 ? 'minuto' : 'minuti'}`, en: `Reading time: ${min} ${min === 1 ? 'minute' : 'minutes'}`, de: `Lesezeit: ${min} ${min === 1 ? 'Minute' : 'Minuten'}` }[lang];
     if (post.date) meta.push(['Publication Date', post.date.slice(0, 10)]);
     meta.push(['Reading Time', label]);
