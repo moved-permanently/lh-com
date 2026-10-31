@@ -13,8 +13,10 @@
  * banner (and nothing that needs consent runs on its pages). messageCenter: the brand's Message
  * Center tenant on www (its messages' tenant in the site's own /message-center/index.json and its
  * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant); a brand
- * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). www: the brand's own www host
- * (its links open like lufthansa.com's on lh-com: isOwnWwwHost). The languages of the sites
+ * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). destinationImages: the
+ * folder of the destination images of the brand's fare widgets on www (its imageBaseUrl; the
+ * site's own copies under that path); Lufthansa's without one. www: the brand's own www host (its
+ * links open like lufthansa.com's on lh-com: isOwnWwwHost). The languages of the sites
  * without <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
  */
 export const BRANDS = {
@@ -22,12 +24,14 @@ export const BRANDS = {
     name: 'Discover Airlines',
     oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370',
     messageCenter: 'four_y',
+    destinationImages: '/content/dam/four_y/images/offers/destination',
     www: 'www.discover-airlines.com',
   },
   ita: {
     name: 'ITA Airways',
     oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd',
     messageCenter: 'ita',
+    destinationImages: '/content/dam/ita/images/offers/destination',
     www: 'www.ita-airways.com',
   },
   // Austrian Airlines (lh-austrian): when the Austrian session adds its brand key here, its entry
@@ -43,6 +47,8 @@ export const BRANDS = {
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
 /** www.lufthansa.com's OneTrust id: lh-com (no brand key). */
 export const DEFAULT_ONETRUST = '01994cb2-af99-7dbe-8fb0-56427773e54e';
+/** www.lufthansa.com's destination images (lh-com, and the brands without a folder of their own) */
+export const DEFAULT_DESTINATION_IMAGES = '/content/dam/lh/images/offers/destination';
 
 /** A page metadata value (as aem.js getMetadata: <meta name> or <meta property>). */
 const metadata = (name) => {
@@ -67,6 +73,12 @@ export function brandName(read = metadata) {
 export function oneTrustId(read = metadata) {
   const key = brandOf(read);
   return key ? BRANDS[key].oneTrust || '' : DEFAULT_ONETRUST;
+}
+
+/** The folder of the site's destination images ({code}-square.jpg, {code}-panorama.jpg). */
+export function destinationImageBase(read = metadata) {
+  const key = brandOf(read);
+  return (key && BRANDS[key].destinationImages) || DEFAULT_DESTINATION_IMAGES;
 }
 
 /** The brand's own www host ('' for lh-com). */

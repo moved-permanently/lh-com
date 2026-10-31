@@ -8,6 +8,7 @@
  * fallback).
  */
 import { lhFetch, lhRecorded } from './lh-data.js';
+import { destinationImageBase } from './brand.js';
 
 /* ------------------------------------------------------------------------------------------- */
 /* Requests                                                                                    */
@@ -711,12 +712,13 @@ export function htmlToParagraphs(html) {
 
 /**
  * Square destination image of the live fare widgets (720 or 180 px wide): www's
- * /content/dam/lh/images/offers/destination/{code}-square.jpg rendition, from the site's own copy
- * (scripts/dam-path.js localDamUrl; after damPathReady()).
+ * {folder}/{code}-square.jpg rendition, the folder of the site's brand (scripts/brand.js
+ * destinationImageBase: lh-com /content/dam/lh/images/offers/destination), from the site's own
+ * copy (scripts/dam-path.js localDamUrl; after damPathReady()).
  */
 export function destinationImageUrl(code, width = 720) {
   if (!isCode(code)) return '';
-  return localDamUrl(`/content/dam/lh/images/offers/destination/${code.toLowerCase()}-square.jpg`, { width, ext: 'jpg' });
+  return localDamUrl(`${destinationImageBase()}/${code.toLowerCase()}-square.jpg`, { width, ext: 'jpg' });
 }
 
 /**

@@ -1,5 +1,6 @@
 import { getLocale } from '../../scripts/locale.js';
 import { localDamUrl, attachDamFallback } from '../../scripts/dam-path.js';
+import { destinationImageBase } from '../../scripts/brand.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode,
 } from '../../scripts/block-config.js';
@@ -416,8 +417,8 @@ export default async function decorate(block) {
   const overview = content && content.overview;
   const about = el('div', 'destination-offer-about');
   const img = el('img');
-  // www's original panorama, from the site's own copy (not www's DAM)
-  img.src = localDamUrl(`/content/dam/lh/images/offers/destination/${route.destination.toLowerCase()}-panorama.jpg`);
+  // www's original panorama (the brand's folder), from the site's own copy (not www's DAM)
+  img.src = localDamUrl(`${destinationImageBase()}/${route.destination.toLowerCase()}-panorama.jpg`);
   img.alt = '';
   img.loading = 'eager';
   attachDamFallback(img, () => img.remove());
