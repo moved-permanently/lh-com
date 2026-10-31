@@ -7,6 +7,7 @@ import {
 import { createAirportCombobox } from '../../scripts/airport-combobox.js';
 import { searchAirportsWithSource, resolveOrigin } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { isHandoffUrl, submitShopHandoff } from '../../scripts/shop-handoff.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract. Request building, response mapping and the hand-off URL live here so a
@@ -23,9 +24,13 @@ const TAB_KEYS = ['number', 'route', 'airport'];
 
 /**
  * Builds the live flight status URL the search hands off to. This function is the single
- * place where form values are mapped to query parameters. The parameter names are an
- * assumption (the live widget's bundle was not captured); the live page opens on its own form
- * if it ignores them.
+ * place where form values are mapped to query parameters: www's own, captured 2026-10-31 on
+ * www.lufthansa.com, www.austrian.com, www.discover-airlines.com and www.ita-airways.com (the same
+ * component and names; www shows results for these codes-only URLs): per tab its request object
+ * flightStatus.flightStatusByFlightNumberRequest (airline, flightNumber, date),
+ * ...ByFlightRouteRequest (originCode.code, destinationCode.code, date), ...ByAirportRequest
+ * (airport.code, odType DEPARTURE|ARRIVAL, date), the date as YYYY-MM-DDT00:00:00, and
+ * flightStatus.activeTab.
  * @param {Object} query { type: 'number'|'route'|'airport', airline, flightNumber, origin,
  *   destination, airport, direction: 'departure'|'arrival', date: 'YYYY-MM-DD' }
  * @param {Object} locale result of getLocale()
@@ -47,20 +52,40 @@ export function buildFlightStatusUrl(query, locale, submitUrl) {
   } catch (e) {
     url = new URL(fallback, origin);
   }
-  const params = { tab: query.type, date: query.date };
-  if (query.type === 'number') params.flightNumber = `${query.airline}${query.flightNumber}`;
-  if (query.type === 'route') {
-    params.origin = query.origin;
-    params.destination = query.destination;
+  const date = query.date ? `${query.date}T00:00:00` : '';
+  const request = {
+    number: ['flightStatusByFlightNumberRequest', { airline: query.airline, flightNumber: query.flightNumber }],
+    route: ['flightStatusByFlightRouteRequest', { 'originCode.code': query.origin, 'destinationCode.code': query.destination }],
+    airport: ['flightStatusByAirportRequest', {
+      'airport.code': query.airport, odType: query.direction === 'arrival' ? 'ARRIVAL' : 'DEPARTURE',
+    }],
+  }[query.type];
+  if (request) {
+    const [name, fields] = request;
+    Object.entries({ ...fields, date }).forEach(([key, value]) => {
+      if (value) url.searchParams.set(`flightStatus.${name}.${key}`, value);
+    });
+    url.searchParams.set('flightStatus.activeTab', query.type);
   }
-  if (query.type === 'airport') {
-    params.airport = query.airport;
-    params.direction = query.direction;
-  }
-  Object.entries(params).forEach(([key, value]) => {
-    if (value) url.searchParams.set(key, value);
-  });
   return url.toString();
+}
+
+/**
+ * The POST mode (rows Submit method post, Airline field, Flight number field, Date field): a
+ * number search posted as a form to the Submit URL, as Air Dolomiti's engine takes it
+ * (https://digital.airdolomiti.it/booking/flight-status?lang=it-IT: airlineCode EN,
+ * flightNumber 8201, departureDate 2026-10-31). Only https on the handoff hosts
+ * (scripts/shop-handoff.js isHandoffUrl); else null and the GET link.
+ * @returns {{action: string, fields: Object<string, string>}|null}
+ */
+export function flightStatusPost(query, submitUrl, rows = {}) {
+  if (!/^post$/i.test(String(rows.method || '').trim()) || query.type !== 'number' || !isHandoffUrl(submitUrl)) return null;
+  const fields = {};
+  [['airline', query.airline], ['flightNumber', query.flightNumber], ['date', query.date]].forEach(([key, value]) => {
+    const name = String(rows[key] || '').trim();
+    if (name && value) fields[name] = value;
+  });
+  return { action: new URL(submitUrl).toString(), fields };
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -563,7 +588,18 @@ export default async function decorate(block) {
   const resolved = await resolveOrigin(authoredAirport, locale);
   const home = { code: resolved.code, name: resolved.name };
 
-  const go = (query) => window.location.assign(buildFlightStatusUrl(query, locale, submitUrl));
+  // the POST mode's rows (Air Dolomiti's engine); without them the GET link as before
+  const postRows = {
+    method: text('submit-method', 'method'),
+    airline: text('airline-field'),
+    flightNumber: text('flight-number-field'),
+    date: text('date-field'),
+  };
+  const go = (query) => {
+    const post = flightStatusPost(query, submitUrl, postRows);
+    if (post) submitShopHandoff(post);
+    else window.location.assign(buildFlightStatusUrl(query, locale, submitUrl));
+  };
   const makeForm = (key) => {
     const form = el('form', `flight-status-form flight-status-form-${key}`);
     form.noValidate = true;

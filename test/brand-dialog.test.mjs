@@ -39,18 +39,18 @@ const query = {
 test('flight status: a brand page hands off to the same page on the brand\'s www', () => {
   setPath('/it/en/manage-my-bookings/manage/flight-status');
   const url = onPage({ brand: 'ita' }, () => FS.buildFlightStatusUrl(query, getLocale(), ''));
-  assert.equal(url, 'https://www.ita-airways.com/it/en/manage-my-bookings/manage/flight-status?tab=number&date=2026-11-02&flightNumber=AZ610');
+  assert.equal(url, 'https://www.ita-airways.com/it/en/manage-my-bookings/manage/flight-status?flightStatus.flightStatusByFlightNumberRequest.airline=AZ&flightStatus.flightStatusByFlightNumberRequest.flightNumber=610&flightStatus.flightStatusByFlightNumberRequest.date=2026-11-02T00%3A00%3A00&flightStatus.activeTab=number');
   // an authored relative live page: on the brand's www
-  assert.equal(onPage({ brand: 'ita' }, () => FS.buildFlightStatusUrl(query, getLocale(), '/it/en/x')), 'https://www.ita-airways.com/it/en/x?tab=number&date=2026-11-02&flightNumber=AZ610');
-  assert.equal(onPage({ brand: 'ita' }, () => FS.buildFlightStatusUrl(query, getLocale(), 'https://example.org/fs')), 'https://example.org/fs?tab=number&date=2026-11-02&flightNumber=AZ610');
+  assert.equal(onPage({ brand: 'ita' }, () => FS.buildFlightStatusUrl(query, getLocale(), '/it/en/x')), 'https://www.ita-airways.com/it/en/x?flightStatus.flightStatusByFlightNumberRequest.airline=AZ&flightStatus.flightStatusByFlightNumberRequest.flightNumber=610&flightStatus.flightStatusByFlightNumberRequest.date=2026-11-02T00%3A00%3A00&flightStatus.activeTab=number');
+  assert.equal(onPage({ brand: 'ita' }, () => FS.buildFlightStatusUrl(query, getLocale(), 'https://example.org/fs')), 'https://example.org/fs?flightStatus.flightStatusByFlightNumberRequest.airline=AZ&flightStatus.flightStatusByFlightNumberRequest.flightNumber=610&flightStatus.flightStatusByFlightNumberRequest.date=2026-11-02T00%3A00%3A00&flightStatus.activeTab=number');
   setPath('/de/en/my-bookings/flight-status', 'discover.turnsthe.page');
   assert.match(onPage({ brand: 'discover' }, () => FS.buildFlightStatusUrl(query, getLocale(), '')), /^https:\/\/www\.discover-airlines\.com\/de\/en\/my-bookings\/flight-status\?/);
 });
 
 test('flight status on lh-com: www.lufthansa.com\'s timetable page, as before', () => {
   setPath('/de/en/flight-status', 'lufthansa.turnsthe.page');
-  assert.equal(onPage({}, () => FS.buildFlightStatusUrl(query, getLocale(), '')), 'https://www.lufthansa.com/de/en/timetable-and-flight-status?tab=number&date=2026-11-02&flightNumber=AZ610');
-  assert.equal(onPage({}, () => FS.buildFlightStatusUrl(query, getLocale(), '/de/en/x')), 'https://www.lufthansa.com/de/en/x?tab=number&date=2026-11-02&flightNumber=AZ610');
+  assert.equal(onPage({}, () => FS.buildFlightStatusUrl(query, getLocale(), '')), 'https://www.lufthansa.com/de/en/timetable-and-flight-status?flightStatus.flightStatusByFlightNumberRequest.airline=AZ&flightStatus.flightStatusByFlightNumberRequest.flightNumber=610&flightStatus.flightStatusByFlightNumberRequest.date=2026-11-02T00%3A00%3A00&flightStatus.activeTab=number');
+  assert.equal(onPage({}, () => FS.buildFlightStatusUrl(query, getLocale(), '/de/en/x')), 'https://www.lufthansa.com/de/en/x?flightStatus.flightStatusByFlightNumberRequest.airline=AZ&flightStatus.flightStatusByFlightNumberRequest.flightNumber=610&flightStatus.flightStatusByFlightNumberRequest.date=2026-11-02T00%3A00%3A00&flightStatus.activeTab=number');
 });
 
 test('the default airline: the brand\'s (AZ, 4Y), LH on lh-com and the brands without one', () => {
