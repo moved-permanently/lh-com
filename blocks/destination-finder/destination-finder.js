@@ -32,13 +32,22 @@ const TRIP_TYPE_CODES = ['RETURN', 'ONEWAY'];
  * service (fareteaser/offers), which only answers www; the slider shows the destination finder's
  * answer instead (GET .../destinationfinder/destination/finder/{origin}/E?months=0_11&tripType=
  * RETURN|ONEWAY, direct, live only): the top deals first, then by price. www's recommendation
- * order is not reproduced.
+ * order is not reproduced. A brand page whose block has the Airline whitelist row (www's
+ * airlineWhitelistingEnabled: Discover's homepages) lists the brand's own flights instead, as www
+ * does: the offers with isTenantAirlineOperating (under the brand's X-Portal), in the answer's
+ * order; all offers as above when it has none.
  */
 const MAX_DESTINATIONS = 15;
 
 /** The slider's order: topDeal destinations first, then the lowest price. */
 export function sliderOrder(offers) {
   return [...offers].sort((a, b) => Number(b.topDeal) - Number(a.topDeal) || a.price - b.price);
+}
+
+/** The slider's offers: the brand's own flights when asked for (see above), else sliderOrder. */
+export function sliderOffers(offers, ownOnly) {
+  const own = ownOnly ? offers.filter((o) => o.tenantOperating) : [];
+  return own.length ? own : sliderOrder(offers);
 }
 
 /**
@@ -91,8 +100,10 @@ export async function loadDestinations(state, locale) {
     const request = destinationFinderRequests(state, locale).offers;
     // a price route: live or nothing (scripts/lh-data.js)
     const [{ data, source }] = await Promise.all([fetchRequest(request, locale), damPathReady()]);
+    // lufthansa.com: never its own flights only (its whitelist row, if any, as before)
+    const ownOnly = Boolean(state.airlineWhitelist && brandEntry());
     return {
-      destinations: sliderOrder(mapDestinationFinderOffers(data).offers)
+      destinations: sliderOffers(mapDestinationFinderOffers(data).offers, ownOnly)
         .filter((d) => d.code !== state.origin.code)
         .map((d) => ({ ...d, image: destinationImageUrl(d.code, 720) })),
       source,
@@ -494,6 +505,16 @@ export function sortGridOffers(offers, sort, highlighted = [], lang = 'en') {
   }
   const top = new Set(highlighted);
   return [...highlighted].sort(byPrice).concat(offers.filter((o) => !top.has(o)).sort(byPrice));
+}
+
+/**
+ * Whether the grid opens with "<brand> only": on a brand page with ?PartnerFlights=one, as www's
+ * links to its offers page (Discover's nav: offers?PartnerFlights=one&OriginCode=FRA); never on
+ * lufthansa.com (all partners, as before).
+ */
+export function gridTenantOnly(search = window.location.search, brand = brandEntry()) {
+  if (!brand) return false;
+  return /^one$/i.test(new URLSearchParams(search).get('PartnerFlights') || '');
 }
 
 /**
@@ -1549,7 +1570,7 @@ async function decorateGrid(block, uid) {
     destinations: [],
     maxPrice: null,
     nonstop: false,
-    tenantOnly: false,
+    tenantOnly: gridTenantOnly(),
     activities: [],
   };
   // every request starts now; the filters are built once the labels are there
@@ -1701,8 +1722,8 @@ async function decorateGrid(block, uid) {
 
   // airline
   const airline = filterGroup(labels['airline label'], { fieldset: true });
-  const allPartners = choice('radio', `${uid}-airline`, 'all-partners', labels['all partners label'], true);
-  const tenantOnly = choice('radio', `${uid}-airline`, 'one-only', labels['tenant only label']);
+  const allPartners = choice('radio', `${uid}-airline`, 'all-partners', labels['all partners label'], !state.tenantOnly);
+  const tenantOnly = choice('radio', `${uid}-airline`, 'one-only', labels['tenant only label'], state.tenantOnly);
   airline.append(allPartners.label, tenantOnly.label);
   addInfo(airline, labels['stops info'], labels['info label'], `${uid}-airline-info`);
 
