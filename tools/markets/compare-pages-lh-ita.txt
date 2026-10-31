@@ -1,0 +1,9 @@
+# ITA (lh-ita): homepages and content pages (header, footer badges, blocks)
+/it/it/homepage
+/it/en/homepage
+/it/en/book-and-prepare/offers/mice
+/it/en/support/support-faq/baggage-faq
+/it/en/world-of-ita-airways/discover-ita-airways/sustainability/female-talent
+/it/it/world-of-ita-airways/discover-ita-airways/inspired-by-alitalia
+/it/en/world-of-ita-airways/travel-classes/business-long-haul
+/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul

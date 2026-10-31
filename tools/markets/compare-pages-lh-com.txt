@@ -1,0 +1,24 @@
+# lufthansa.com: the four roots' pages (compare-roots.mjs PAGES) and pages with the blocks brand-sites touches
+/de/en/homepage
+/de/en/feedback-past-flight
+/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history
+/de/en/flights
+/de/de/homepage
+/de/de/feedback-past-flight
+/de/de/fluege
+/at/de/homepage
+/gb/en/homepage
+/gb/en/flights
+# hero-campaign, video (media.js)
+/de/de/first-class
+/de/de/sitzplaene
+/de/de/handgepaeck
+# accordion-columns
+/mk/de/articles/munich
+/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/faq-saf
+# embed (YouTube, in-flight entertainment widget)
+/de/de/unterhaltung-an-bord
+/de/de/fliegen-mit-kindern
+/ke/en/homepage
+# columns-media
+/nz/en/local-page/nz-multi-city

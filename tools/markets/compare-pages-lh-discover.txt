@@ -1,0 +1,9 @@
+# Discover (lh-discover): homepages, hero-campaign + video, accordion-columns, footer badges
+/de/de/homepage
+/de/en/homepage
+/xx/fr/homepage
+/de/de/discover/ocean-blue
+/de/en/discover/ocean-blue
+/xx/de/buccaneers-season-kickoff
+/xx/fr/about-us/career/cabin
+/xx/fr/my-bookings/check-in/check-in-at-the-airport
