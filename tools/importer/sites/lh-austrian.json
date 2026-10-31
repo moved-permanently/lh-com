@@ -2349,7 +2349,21 @@
   "/ru/ru/book/flights",
   "/ru/ru/flightbooking",
   "/ru/ru/contact",
-  "/ru/ru/travel-briefing"
+  "/ru/ru/travel-briefing",
+  "/at/en/support/search/search-result",
+  "/at/de/support/search/search-result",
+  "/fr/fr/support/search/search-result",
+  "/it/it/support/search/search-result",
+  "/es/es/support/search/search-result",
+  "/gr/el/support/search/search-result",
+  "/jp/ja/support/search/search-result",
+  "/pl/pl/support/search/search-result",
+  "/ru/ru/support/search/search-result",
+  "/cn/zh/support/search/search-result",
+  "/cn/zh/book/flights",
+  "/cn/zh/flightbooking",
+  "/cn/zh/travel-briefing",
+  "/cn/zh/contact"
  ],
  "linkOuts": [
   "/at/en/check-in-deadlines",
