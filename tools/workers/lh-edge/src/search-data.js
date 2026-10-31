@@ -35,12 +35,6 @@ export const SEARCH_DATA_FORMAT = 1;
  * checks it is the file's): data built with other scoring code is not used.
  */
 export const SEARCH_CODE = '17701113b9b6b15e';
-/**
- * The code before it (" | <brand>" titles, 2026-10-31): the data it built for lh-com's four indexes
- * is byte for byte the current code's (built both ways), so it stays used until the Action has
- * rebuilt the branch with SEARCH_CODE; drop it then.
- */
-export const SEARCH_CODE_PREVIOUS = '493e9892aee8611b';
 const FIELDS = Object.keys(WEIGHTS);
 export const DOCS_PER_CHUNK = 8;
 const TTL_MS = 60000;
@@ -260,7 +254,7 @@ export async function dataSearchAnswer(request, env, locale, phrase) {
   ]);
   if (!meta || !lean) return null;
   if (meta.format !== SEARCH_DATA_FORMAT) return null;
-  if (![SEARCH_CODE, SEARCH_CODE_PREVIOUS].includes(meta.code)) return null;
+  if (meta.code !== SEARCH_CODE) return null;
   const live = leanStamp(lean);
   const { stamp } = meta;
   if (live.total !== stamp.total || live.max !== stamp.max || live.sum !== stamp.sum) return null;
