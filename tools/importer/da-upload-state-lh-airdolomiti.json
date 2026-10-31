@@ -4949,6 +4949,201 @@
    "uploaded": "2026-10-31T23:42:09.844Z",
    "mtime": 1793489691560,
    "preview": "2026-10-31T23:42:11.835Z"
+  },
+  "/de/unsere-dienste/mietwagen": {
+   "uploaded": "2026-10-31T23:54:35.366Z",
+   "mtime": 1793490785332,
+   "preview": "2026-10-31T23:54:37.040Z"
+  },
+  "/de/unsere-dienste/lounge-zutritt": {
+   "uploaded": "2026-10-31T23:54:38.391Z",
+   "mtime": 1793490785368,
+   "preview": "2026-10-31T23:54:40.081Z"
+  },
+  "/de/dienstleistungen-an-bord/unterhaltung-an-bord": {
+   "uploaded": "2026-10-31T23:54:41.359Z",
+   "mtime": 1793490785402,
+   "preview": "2026-10-31T23:54:43.262Z"
+  },
+  "/de/dienstleistungen-an-bord/bordservice": {
+   "uploaded": "2026-10-31T23:54:44.500Z",
+   "mtime": 1793490785429,
+   "preview": "2026-10-31T23:54:46.220Z"
+  },
+  "/de/reisenformationen/schwangere-und-kinder": {
+   "uploaded": "2026-10-31T23:54:47.881Z",
+   "mtime": 1793490872442,
+   "preview": "2026-10-31T23:54:49.608Z"
+  },
+  "/de/reisenformationen/sitzplatzreservierung": {
+   "uploaded": "2026-10-31T23:54:51.630Z",
+   "mtime": 1793490872535,
+   "preview": "2026-10-31T23:54:54.081Z"
+  },
+  "/de/reisenformationen/tiere-an-bord": {
+   "uploaded": "2026-10-31T23:54:55.973Z",
+   "mtime": 1793490872621,
+   "preview": "2026-10-31T23:54:57.747Z"
+  },
+  "/de/zusatzleistungen/gepack": {
+   "uploaded": "2026-10-31T23:54:59.619Z",
+   "mtime": 1793490872723,
+   "preview": "2026-10-31T23:55:01.846Z"
+  },
+  "/de/zusatzleistungen/vorreservierung-ihres-sitzplatzes": {
+   "uploaded": "2026-10-31T23:55:03.022Z",
+   "mtime": 1793490785597,
+   "preview": "2026-10-31T23:55:04.744Z"
+  },
+  "/de/zusatzleistungen/esim": {
+   "uploaded": "2026-10-31T23:55:05.944Z",
+   "mtime": 1793490785626,
+   "preview": "2026-10-31T23:55:07.506Z"
+  },
+  "/de/werbeaktionen/neue-reiseziele": {
+   "uploaded": "2026-10-31T23:55:08.561Z",
+   "mtime": 1793490785661,
+   "preview": "2026-10-31T23:55:10.717Z"
+  },
+  "/de/werbeaktionen/valentinstags-special": {
+   "uploaded": "2026-10-31T23:55:11.819Z",
+   "mtime": 1793490785688,
+   "preview": "2026-10-31T23:55:13.519Z"
+  },
+  "/de/gepaeck/sondergepaeck": {
+   "uploaded": "2026-10-31T23:55:14.578Z",
+   "mtime": 1793490785726,
+   "preview": "2026-10-31T23:55:16.328Z"
+  },
+  "/de/gepaeck/handgepaeck": {
+   "uploaded": "2026-10-31T23:55:17.358Z",
+   "mtime": 1793490872847,
+   "preview": "2026-10-31T23:55:19.169Z"
+  },
+  "/de/gepaeck/zusaetzliches-gepaeck-und-uebergepaeck": {
+   "uploaded": "2026-10-31T23:55:20.195Z",
+   "mtime": 1793490872883,
+   "preview": "2026-10-31T23:55:22.009Z"
+  },
+  "/de/gepaeck/elektronische-gegenstaende-und-batterien": {
+   "uploaded": "2026-10-31T23:55:23.103Z",
+   "mtime": 1793490785834,
+   "preview": "2026-10-31T23:55:24.831Z"
+  },
+  "/de/gepaeck/gepaeckinformationen": {
+   "uploaded": "2026-10-31T23:55:26.198Z",
+   "mtime": 1793490785861,
+   "preview": "2026-10-31T23:55:27.975Z"
+  },
+  "/de/gepaeck/gefaehrliche-gegenstaende": {
+   "uploaded": "2026-10-31T23:55:29.115Z",
+   "mtime": 1793490785907,
+   "preview": "2026-10-31T23:55:31.158Z"
+  },
+  "/de/faq-de/sustainable-aviation-fuel-saf-de": {
+   "uploaded": "2026-10-31T23:55:32.253Z",
+   "mtime": 1793490785942,
+   "preview": "2026-10-31T23:55:34.273Z"
+  },
+  "/de/faq-de/an-bord": {
+   "uploaded": "2026-10-31T23:55:35.519Z",
+   "mtime": 1793490785967,
+   "preview": "2026-10-31T23:55:37.035Z"
+  },
+  "/de/faq-de/reisevorbereitungen-faq": {
+   "uploaded": "2026-10-31T23:55:38.037Z",
+   "mtime": 1793490786000,
+   "preview": "2026-10-31T23:55:39.580Z"
+  },
+  "/de/faq-de/check-in-faq-de": {
+   "uploaded": "2026-10-31T23:55:40.720Z",
+   "mtime": 1793490786032,
+   "preview": "2026-10-31T23:55:42.289Z"
+  },
+  "/de/faq-de/gepaeck-faq": {
+   "uploaded": "2026-10-31T23:55:43.400Z",
+   "mtime": 1793490786071,
+   "preview": "2026-10-31T23:55:45.499Z"
+  },
+  "/de/faq-de/auf-dem-flughafen": {
+   "uploaded": "2026-10-31T23:55:46.746Z",
+   "mtime": 1793490786101,
+   "preview": "2026-10-31T23:55:48.301Z"
+  },
+  "/de/faq-de/sport-und-sondergepaeck": {
+   "uploaded": "2026-10-31T23:55:49.373Z",
+   "mtime": 1793490786129,
+   "preview": "2026-10-31T23:55:50.903Z"
+  },
+  "/de/faq-de/tarifflexibilitaet": {
+   "uploaded": "2026-10-31T23:55:52.081Z",
+   "mtime": 1793490786156,
+   "preview": "2026-10-31T23:55:53.707Z"
+  },
+  "/de/reisetipps/sicherheitskontrolle-am-flughafen": {
+   "uploaded": "2026-10-31T23:55:55.049Z",
+   "mtime": 1793490786195,
+   "preview": "2026-10-31T23:55:56.848Z"
+  },
+  "/de/reisetipps/tipps-fuer-das-packen": {
+   "uploaded": "2026-10-31T23:55:58.064Z",
+   "mtime": 1793490786223,
+   "preview": "2026-10-31T23:55:59.759Z"
+  },
+  "/de/reisetipps/der-erste-flug-nuetzliche-hinweise": {
+   "uploaded": "2026-10-31T23:56:00.853Z",
+   "mtime": 1793490786250,
+   "preview": "2026-10-31T23:56:02.576Z"
+  },
+  "/de/reisetipps/was-darf-man-im-flugzeug-mitnehmen": {
+   "uploaded": "2026-10-31T23:56:03.703Z",
+   "mtime": 1793490786276,
+   "preview": "2026-10-31T23:56:05.527Z"
+  },
+  "/de/reisetipps/packliste-fuer-urlaub-mit-kindern": {
+   "uploaded": "2026-10-31T23:56:07.292Z",
+   "mtime": 1793490873266,
+   "preview": "2026-10-31T23:56:09.746Z"
+  },
+  "/de/reisetipps/fluggastrechte-verspaetung": {
+   "uploaded": "2026-10-31T23:56:10.832Z",
+   "mtime": 1793490786343,
+   "preview": "2026-10-31T23:56:12.883Z"
+  },
+  "/de/reisetipps/handgepaeckgroesse-im-flugzeug": {
+   "uploaded": "2026-10-31T23:56:13.960Z",
+   "mtime": 1793490786370,
+   "preview": "2026-10-31T23:56:15.784Z"
+  },
+  "/de/reisetipps/beste-reiseziele-im-dezember": {
+   "uploaded": "2026-10-31T23:56:17.596Z",
+   "mtime": 1793490873391,
+   "preview": "2026-10-31T23:56:19.898Z"
+  },
+  "/de/reisetipps/wie-lange-vor-abflug-am-flughafen": {
+   "uploaded": "2026-10-31T23:56:21.071Z",
+   "mtime": 1793490786432,
+   "preview": "2026-10-31T23:56:22.963Z"
+  },
+  "/de/reisetipps/reise-nach-italien": {
+   "uploaded": "2026-10-31T23:56:24.190Z",
+   "mtime": 1793490786459,
+   "preview": "2026-10-31T23:56:25.946Z"
+  },
+  "/de/reisetipps/fliegen-in-der-schwangerschaft": {
+   "uploaded": "2026-10-31T23:56:27.650Z",
+   "mtime": 1793490873511,
+   "preview": "2026-10-31T23:56:29.510Z"
+  },
+  "/de/reisetipps/fliegen-mit-neugeborenen": {
+   "uploaded": "2026-10-31T23:56:30.665Z",
+   "mtime": 1793490786511,
+   "preview": "2026-10-31T23:56:32.275Z"
+  },
+  "/de/flughaefen/prag": {
+   "uploaded": "2026-10-31T23:56:33.336Z",
+   "mtime": 1793490786541,
+   "preview": "2026-10-31T23:56:35.049Z"
   }
  },
  "media": {
@@ -9313,6 +9508,27 @@
   },
   "/media-da/airdolomiti/milano-nuovosito-thumbnail-3-0843d8e2.jpg": {
    "at": "2026-10-31T23:42:00.370Z"
+  },
+  "/media-da/airdolomiti/istock-959983910-2-ee48434d.jpg": {
+   "at": "2026-10-31T23:54:47.161Z"
+  },
+  "/media-da/airdolomiti/air-112022-65-seat-reservation-8be83284.jpg": {
+   "at": "2026-10-31T23:54:50.898Z"
+  },
+  "/media-da/airdolomiti/istock-1069541252-sezione-animali-a-bordo-2-60cb1ee0.jpg": {
+   "at": "2026-10-31T23:54:55.067Z"
+  },
+  "/media-da/airdolomiti/foto-x-cosa-mettere-in-valigia-6baa3948.jpg": {
+   "at": "2026-10-31T23:54:58.769Z"
+  },
+  "/media-da/airdolomiti/children-airport-ecdf27ef.jpg": {
+   "at": "2026-10-31T23:56:06.601Z"
+  },
+  "/media-da/airdolomiti/city-of-westminster-londons-politisches-herz-e1739976794121-5039b81b.jpg": {
+   "at": "2026-10-31T23:56:16.793Z"
+  },
+  "/media-da/airdolomiti/foto-x-donne-in-gravidanza-1-cb7c4c5a.jpg": {
+   "at": "2026-10-31T23:56:26.904Z"
   }
  }
 }

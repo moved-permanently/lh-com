@@ -240,6 +240,10 @@
   "Destination": "/en/destinations"
  },
  {
+  "Source": "/de/engagement-fur-die-umwelt",
+  "Destination": "/de/faq-de/sustainable-aviation-fuel-saf-de"
+ },
+ {
   "Source": "/de/homepage-de",
   "Destination": "/de"
  },

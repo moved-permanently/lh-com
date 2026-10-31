@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-26 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T23:57Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/unsere-dienste/mietwagen
+/de/unsere-dienste/lounge-zutritt
+/de/dienstleistungen-an-bord/unterhaltung-an-bord
+/de/dienstleistungen-an-bord/bordservice
+/de/reisenformationen/schwangere-und-kinder
+/de/reisenformationen/sitzplatzreservierung
+/de/reisenformationen/tiere-an-bord
+/de/zusatzleistungen/gepack
+/de/zusatzleistungen/vorreservierung-ihres-sitzplatzes
+/de/zusatzleistungen/esim
+/de/werbeaktionen/neue-reiseziele
+/de/werbeaktionen/valentinstags-special
+/de/gepaeck/sondergepaeck
+/de/gepaeck/handgepaeck
+/de/gepaeck/zusaetzliches-gepaeck-und-uebergepaeck
+/de/gepaeck/elektronische-gegenstaende-und-batterien
+/de/gepaeck/gepaeckinformationen
+/de/gepaeck/gefaehrliche-gegenstaende
+/de/faq-de/sustainable-aviation-fuel-saf-de
+/de/faq-de/an-bord
+/de/faq-de/reisevorbereitungen-faq
+/de/faq-de/check-in-faq-de
+/de/faq-de/gepaeck-faq
+/de/faq-de/auf-dem-flughafen
+/de/faq-de/sport-und-sondergepaeck
+/de/faq-de/tarifflexibilitaet
+/de/reisetipps/sicherheitskontrolle-am-flughafen
+/de/reisetipps/tipps-fuer-das-packen
+/de/reisetipps/der-erste-flug-nuetzliche-hinweise
+/de/reisetipps/was-darf-man-im-flugzeug-mitnehmen
+/de/reisetipps/packliste-fuer-urlaub-mit-kindern
+/de/reisetipps/fluggastrechte-verspaetung
+/de/reisetipps/handgepaeckgroesse-im-flugzeug
+/de/reisetipps/beste-reiseziele-im-dezember
+/de/reisetipps/wie-lange-vor-abflug-am-flughafen
+/de/reisetipps/reise-nach-italien
+/de/reisetipps/fliegen-in-der-schwangerschaft
+/de/reisetipps/fliegen-mit-neugeborenen
+/de/flughaefen/prag
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de/unsere-dienste/mietwagen -> /de/unsere-dienste/mietwagen: text 5/5, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.de/faq-de/an-bord -> /de/faq-de/an-bord: text 3/3, images 0/0 (+0), links 2/2 (+0)
+#   https://www.airdolomiti.de/flughaefen/prag -> /de/flughaefen/prag: text 18/18, images 2/2 (+0), links 1/1 (+3)
+#   https://www.airdolomiti.de/unsere-dienste/mietwagen: no text, image or link of www's missing
+#   https://www.airdolomiti.de/faq-de/an-bord: no text, image or link of www's missing
+#   https://www.airdolomiti.de/flughaefen/prag: no text, image or link of www's missing
