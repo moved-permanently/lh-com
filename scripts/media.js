@@ -8,7 +8,11 @@
  * Embed: a link alone in its paragraph to a YouTube video (shown as a youtube-nocookie.com
  * player, 16:9) or to a Lufthansa in-flight entertainment widget
  * (www.lufthansa-inflightentertainment.com/.../widgets/?id=…&type=…&lang=…, 520px high, at most
- * 1240px wide, as the Lufthansa iframe component).
+ * 1240px wide, as the Lufthansa iframe component). Both load lazily, as the page scrolls to them.
+ * Loaded on click (a button first, the player after it; no consent layer of its own): a Matterport
+ * tour (my.matterport.com/show/?m=…, 16:9; Lufthansa Cargo) and a Mynewsdesk newsroom
+ * (<newsroom>.mynewsdesk.com or www.mynewsdesk.com/…, 800px high; Cargo's newsroom). Google Maps
+ * links stay links.
  * The styles are in styles/media.css (loadMediaStyles()).
  */
 import { loadCSS } from './aem.js';
@@ -23,8 +27,12 @@ const VIDEO_MARKER = new RegExp(`\\s*\\{((?:${VIDEO_SETTINGS.join('|')})(?: (?:$
 export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');
 
 const LABELS = {
-  en: { video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment' },
-  de: { video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung' },
+  en: {
+    video: 'Play video', youtube: 'YouTube video', 'inflight-entertainment': 'In-flight entertainment', matterport: 'Start the virtual tour', mynewsdesk: 'Show the newsroom',
+  },
+  de: {
+    video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen',
+  },
 };
 
 let mediaCount = 0;
@@ -108,6 +116,15 @@ export function embedFor(href) {
   if (url.hostname === 'www.lufthansa-inflightentertainment.com' && /\/widgets\/?$/.test(url.pathname)) {
     return { type: 'inflight-entertainment', src: url.href };
   }
+  // a Matterport tour: the player starts at once after the click (play=1)
+  const tour = url.hostname === 'my.matterport.com' && /^\/show\/?$/.test(url.pathname)
+    && (url.searchParams.get('m') || '').match(/^[A-Za-z0-9]+$/);
+  if (tour) {
+    return { type: 'matterport', src: `https://my.matterport.com/show/?m=${tour[0]}&play=1`, onClick: true };
+  }
+  if (/(^|\.)mynewsdesk\.com$/.test(url.hostname) && url.protocol === 'https:') {
+    return { type: 'mynewsdesk', src: url.href, onClick: true };
+  }
   return null;
 }
 
@@ -118,7 +135,7 @@ export function isEmbedLink(a) {
 }
 
 /**
- * Builds the player for an embed link (lazy iframe).
+ * Builds the player for an embed link (a lazy iframe; Matterport and Mynewsdesk: on click).
  * @param {HTMLAnchorElement} link
  * @returns {HTMLElement|null}
  */
@@ -127,16 +144,35 @@ export function buildEmbed(link) {
   if (!embed) return null;
   const wrapper = document.createElement('div');
   wrapper.className = `media-embed media-embed-${embed.type}`;
+  const title = isUrlText(link) ? label(embed.type) : cleanText(link);
   const iframe = document.createElement('iframe');
-  iframe.src = embed.src;
-  iframe.title = isUrlText(link) ? label(embed.type) : cleanText(link);
-  iframe.loading = 'lazy';
+  // the lazy embeds' attributes in their order of today (src, title, loading, ...)
+  if (!embed.onClick) iframe.src = embed.src;
+  iframe.title = title;
+  if (!embed.onClick) iframe.loading = 'lazy';
   iframe.setAttribute('allowfullscreen', '');
   if (embed.type === 'youtube') {
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
   }
-  wrapper.append(iframe);
+  if (embed.type === 'matterport') iframe.allow = 'fullscreen; xr-spatial-tracking';
+  if (!embed.onClick) {
+    wrapper.append(iframe);
+    return wrapper;
+  }
+  // loaded on click: a button with the link's text; the player replaces it and takes the focus
+  wrapper.classList.add('media-embed-on-click');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'media-embed-load';
+  button.textContent = title;
+  button.addEventListener('click', () => {
+    iframe.src = embed.src;
+    button.replaceWith(iframe);
+    wrapper.classList.add('media-embed-loaded');
+    iframe.focus();
+  }, { once: true });
+  wrapper.append(button);
   return wrapper;
 }
 
