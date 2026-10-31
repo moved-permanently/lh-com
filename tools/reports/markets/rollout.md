@@ -907,3 +907,167 @@ discover, ita, cargo, airdolomiti, austrian `.turnsthe.page`):
   `sitemap_lh_at_de.xml.gz`), discover (four server endpoints), airdolomiti (`/`, `/en/`, `/de/`:
   its pages published); lufthansa-cn, ita and austrian have no committed baseline. smoke.mjs has
   no `--derive` since 56791d9 (the derived lhedge baseline went with that host).
+
+## Batch 8 (2026-10-31): CY DZ EC ES FR GQ GR HK IT JP, en and de, 20 roots
+
+The en and de roots of the next ten countries that also have roots in other languages. 162 pilot
+roots, all on lufthansa-edge.turnsthe.page only.
+
+### Smoke baselines first
+
+Before this batch: today's answers became the committed baselines of all eight hosts (b9c9be7,
+19:13 UTC; lufthansa-cn, ita and austrian had none). Every difference from the old ones has a known
+cause: the site's 404 page (540d883: every 404 body, the status still 404), the search answers
+(the search data rebuilt with c6b2cb3's code), publishes since 30 Oct (search indexes, sitemap
+files, Discover's footer and homepage, Air Dolomiti's / and /en/), lh-com's sitemap names answering
+404 on a brand host (0faa77f), two new font checks (996aae7) and the known HEAD row of a DAM pdf.
+
+### Captures
+
+- Plan: 95 pages (20 homepages, 15 own pages, 60 compared with the language version) and 6 same-day
+  references.
+- One warm session at a time, one page every 5 to 10 s, 19:18 to 20:51 UTC. **No 403.**
+- **The 95 pages**: all captured (61 before a crash at 19:49, the browser closed; a new session after
+  a minute, 34 more); no www error page.
+- **The references**: all six (20:08 to 20:33; one crash, one session at its time limit).
+- **Homepages without a label** (the selector's skeleton): cy/de, cy/en, dz/de. Captured again in a
+  fresh session each: dz/de at once, cy/de and cy/en on the third try.
+- **ec/de's homepage**: twice (19:25 and 20:39, two sessions) www answered it with a broken head:
+  canonical `https://www.lufthansa.com/null/null/home`. The page itself is ec/de's (label
+  "Ecuador | Deutsch", fare teaser from Quito, finder from Guayaquil, every link into /ec/de), so its
+  document and row come from that capture.
+
+### Pages in the local language
+
+None. Every capture of these en and de roots has its root's language as `lang` and in its text
+(common words of en, de, es, pt, fr, nl, ru, it, el counted; kana for ja, CJK for zh, Arabic script
+for ar). In www's sitemaps every path of these roots is the language version's, apart from two
+English names (ec/en `oneTrip` for `during-your-trip`, jp/en `local-page/lufthansa-ana` for
+`lufthansa-ana`).
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| cy/de, cy/en | Zypern \| Deutsch, Cyprus \| English | Cyprus / Zypern | LCA | EUR |
+| dz/de, dz/en | Algerien \| Deutsch, DZ \| EN | DZ / Algerien | ALG | DZD |
+| ec/de, ec/en | Ecuador \| Deutsch, Ecuador \| English | Ecuador / Ecuador | UIO | USD |
+| es/de, es/en | Spanien \| Deutsch, Spain \| English | Spain / Spanien | MAD | EUR |
+| fr/de, fr/en | France \| Deutsch, France \| English | France / France | PAR | EUR |
+| gq/de, gq/en | Äquatorialguinea \| Deutsch, Equatorial Guinea \| English | Equatorial Guinea / Äquatorialguinea | SSG | XAF |
+| gr/de, gr/en | Griechenland \| Deutsch, Greece \| English | Greece / Griechenland | ATH | EUR |
+| hk/de, hk/en | Hong Kong, China \| Deutsch, Hong Kong, China \| English | Hong Kong, China (both) | HKG | HKD |
+| it/de, it/en | Italy \| Deutsch, Italien \| English | Italien / Italy | MIL | EUR |
+| jp/de, jp/en | Japan \| Deutsch, Japan \| English | Japan / Japan | TYO | JPY |
+
+- Every value found. **ec/de**: `rowsOf` sets a capture aside whose canonical names another page
+  (al/en in batch 1 got al/de's); ec/de's names none (`/null/null/home`), so its airport and
+  currency are the capture's own (UIO, USD, as ec/en).
+- **hk and jp currencies**: their homepages show prices only with a sign ("HK$ 6,491",
+  "¥ 240,110"); www's price element names the currency (`currency="HKD"`, `"JPY"`). `homepageFacts`
+  counts that attribute when a page has no code next to a price (18faf30; a sign alone is no
+  evidence, ¥ is also China's). Every row of batches 1 to 7 stays the same (iq keeps EUR: its fare
+  teaser's EUR codes decide, as before).
+- www's own oddities, taken as they are: dz/en shows codes only ("DZ | EN", as am in batch 1), fr's
+  German root "France", it has its labels the other way round (the Italian name on the German root,
+  the German one on the English root, as ar, sg and si), hk "Hong Kong, China" in both languages,
+  city codes PAR, MIL, TYO.
+- timeZone and shopLang: null for every root.
+
+### Documents
+
+- 20 homepages, 15 own pages, nav and footer of every root, and three local versions (below): 78
+  documents uploaded and previewed (not published). At most 23 images in a document.
+- Own pages: es/en `lgtbiq`; fr/en `winter-sun-in-asia`, `yes`; hk/en
+  `local-page/apac-sales-and-station-leaderhip-meeting-hkg-oct23`, `local-page/hongkong-euro-cup-2024`
+  and its nine player-video pages (the same campaign as cn/en's in batch 7), `local-page/uci-hkg`.
+- **No redirect rows**: no www alias, no document name that differs from www's URL.
+
+### Local versions
+
+`rollout-batch8-compare.json`, against same-day de/en and de/de: 39 of 60 the same.
+- **Three pages differ in content: root documents made** (hub template, the flight pages' own; made
+  the root's with root-docs.mjs; the route serves them, checked on the preview origin):
+  - `/it/de/fluege` and `/it/en/flights`: www's GetYourGuide teaser ("5 miles per euro") as an extra
+    block (a second `columns-media`); it/de also the entry-rules teaser like every de root;
+  - `/jp/en/flights`: a "Limited Economy Offer!" text (special fares to Europe, travel October to
+    April, blackout dates from Japan).
+- The other de roots' flight offers page: the entry-rules teaser (section `markets` of
+  `/de/de/fluege`), as before.
+- The en roots' flight pages: only the destination offers differ (per origin); cy/en shows none.
+- gr/de's airport page: a masking artifact ("gr" is the country code, inside "größten").
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch8-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| cy/de | 1,048 | 951 | 1 | 94 | 2 | 82 | 12 |
+| cy/en | 1,054 | 958 | 1 | 95 | | 83 | 13 |
+| dz/de | 1,047 | 953 | 1 | 91 | 2 | 81 | 12 |
+| dz/en | 1,054 | 958 | 1 | 95 | | 83 | 13 |
+| ec/de | 1,046 | 950 | 1 | 91 | 4 | 81 | 12 |
+| ec/en | 1,054 | 954 | 2 | 94 | 4 | 83 | 13 |
+| es/de | 1,047 | 952 | 1 | 91 | 3 | 81 | 12 |
+| es/en | 1,057 | 958 | 1 | 97 | 1 | 85 | 13 |
+| fr/de | 1,048 | 951 | 1 | 94 | 2 | 82 | 12 |
+| fr/en | 1,057 | 959 | 1 | 96 | 1 | 84 | 13 |
+| gq/de | 1,047 | 952 | 1 | 92 | 2 | 81 | 12 |
+| gq/en | 1,055 | 956 | 1 | 96 | 2 | 84 | 13 |
+| gr/de | 1,048 | 950 | 1 | 93 | 4 | 82 | 12 |
+| gr/en | 1,054 | 957 | 1 | 94 | 2 | 83 | 13 |
+| hk/de | 1,047 | 953 | 1 | 93 | | 81 | 12 |
+| hk/en | 1,068 | 966 | 1 | 97 | 4 | 85 | 13 |
+| it/de | 1,048 | 952 | 1 | 94 | 1 | 82 | 12 |
+| it/en | 1,057 | 956 | 1 | 98 | 2 | 86 | 13 |
+| jp/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| jp/en | 1,056 | 957 | 1 | 97 | 1 | 85 | 13 |
+
+- Every 200 has the root's canonical. The de roots' 301 is de/de's `support/support`, the en roots'
+  `profile/Best-price-alert` to lower case; ec/en's second is www's `oneTrip` to `onetrip`.
+- **The 500s (44 URLs with the links) are the local runtime's again** ("hung", 74 times in its log):
+  fetched again one at a time, 35 answer 200 through the market route and 9 answer 404 (two profile
+  pages and seven pages neither language version has).
+- Every link on the 20 homepages, navs and footers and the three local versions (63 documents,
+  1,689 links) answers.
+- **On lufthansa-edge.turnsthe.page after the deploy** (live origin): it/de 953 × 200, 1 × 301,
+  94 × 404; jp/en 958 × 200, 1 × 301, 97 × 404; no 500. The root documents (homepages, local
+  versions) are on preview only: there the language version's answer until they are published.
+
+### CPU (Workers Paid)
+
+`bench-market.mjs` as lufthansa-edge.turnsthe.page, the same recorded origin answers, lean sources,
+medians of 25 runs, the code before batch 8 (142 pilot roots) against batch 8's 162, back to back
+twice, the sitemap index stored; then 187 roots (`--roots 187`, 25 synthetic) (ms of CPU, cold /
+warm; the first 142 run overlapped the captures):
+
+| Answer | 142 roots | 162 roots | 187 roots (projection) |
+| --- | --- | --- | --- |
+| pilot page `/hu/en/baggage` | 5.4–8.2 / 1.8–3.3 | 5.4 / 1.9 | 5.2 / 1.7 |
+| pilot `search-index.json` (4.5 MB) | 26–35 / 80–112 | 26–80 / 19–92 | 81 / 19 |
+| pilot `articles/query-index.json` | 6.8–9.5 / 3.6–5.6 | 7.1–7.3 / 3.6–3.7 | 7.1 / 3.7 |
+| sitemap index `.xml` (stored) | 5.7–6.7 / 2.0–2.2 | 5.8 / 2.2 | 6.1 / 2.4 |
+| sitemap index `.gz` (stored) | 5.4–8.5 / 1.7–2.9 | 5.4–5.5 / 1.8–1.9 | 5.5 / 2.0 |
+| market sitemap file `.xml` | 11.9–13.2 / 6.9–8.2 | 11.9–12.0 / 6.8 | 11.7 / 6.4 |
+| market sitemap file `.gz` | 16.9–23.7 / 12.1–14.8 | 16.7–16.9 / 12.1–12.2 | 19.5 / 12.3 |
+
+- **The sitemap index**: 293 KB → 378 KB with batch 8 (503 KB with 187 roots), stored on
+  lufthansa-edge (`x-lh-edge-sitemap-index: stored`); `.gz` cold 5.4–5.5 ms. Market sitemap files
+  get smaller as roots are added (753 → 731 KB).
+- The search index's cold and warm medians swap between runs (Node's fetch plumbing for 4.5 MB, an
+  upper bound, as before).
+
+### Smoke
+
+Against the eight hosts before and after the deploy of 474e863:
+- Only lufthansa-edge differs, in 7 rows: the ch pages' hreflang alternates (166 now), ch's two
+  sitemap files and the sitemap index. Its baseline updated (0 differences after).
+- The other seven: 0 differences between the runs before and after; lufthansa.turnsthe.page's rows
+  unchanged.
+- Against the committed baselines of 19:13: austrian's `/de/de/footer.plain.html` changed before
+  the deploy (the Austrian session's content), the rest 0.
+- lufthansa.com's 19 comparison pages: 19 of 19 equal (de/en and de/de homepages once more after
+  the head-order noise: the same 38 head elements, `showcase-notice.css` loading at another time).
+- `test/locale-table.test.mjs` used fr/de as a root without a row: it now takes a German root of
+  www's without a row yet (fdd307c/474e863).
