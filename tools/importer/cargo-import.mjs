@@ -198,12 +198,13 @@ export class Page {
     };
     let target = local(p);
     // www's shortcut addresses (/products-general-cargo), resolved once (cargo-capture.mjs
-    // --resolve) in an English session: the page they land on, its counterpart on a German page;
+    // --resolve): the page they land on, in the language of the linking page;
     // a shortcut that asks for sign-in stays a link to www
     const resolved = capture[p];
     if (!target && resolved && resolved.status === 'resolved' && resolved.finalPath && !/LoginPortlet/.test(resolved.finalUrl || '')) {
       const fp = webGuest(resolved.finalPath);
-      target = this.lang === 'en' || !fp.startsWith('/en/') ? local(fp) : (alternates[fp] && local(alternates[fp])) || local(fp);
+      // www answers in the session's language: the page in this page's language (its counterpart)
+      target = fp.startsWith(`/${this.lang}/`) ? local(fp) : (alternates[fp] && local(alternates[fp])) || local(fp);
     }
     // language-less addresses (/speed-pro, /data-protection): the page of this language
     if (!target && !/^\/[a-z]{2}(\/|$)/.test(p)) {
@@ -231,10 +232,12 @@ export class Page {
     if (f.kind !== 'image') return f.eds;
     // images: in the document tree, where da-upload.mjs finds them (named by their real type;
     // SVGs as the PNGs prepareImages made, as lh-com's documents hold raster images only)
-    const svg = /svg/.test(d.type || '');
+    // the type cargo-assets.mjs settled (read from the file when www's was odd), else www's
+    const type = /^image\//.test(f.type || '') ? f.type : d.type;
+    const svg = /svg/.test(type || '');
     const cached = path.join(W, 'assets/cache', `${sha1(key)}${svg ? '.png' : ''}`);
     if (svg && !fs.existsSync(cached)) { this.missing.add(key); return null; }
-    const eds = edsName(key, 'image', svg ? 'image/png' : d.type);
+    const eds = edsName(key, 'image', svg ? 'image/png' : type);
     const dest = path.join(OUT, eds);
     if (!fs.existsSync(dest)) {
       fs.mkdirSync(path.dirname(dest), { recursive: true });

@@ -113,13 +113,34 @@ const tsv = (f) => {
 // the file types Edge Delivery previews as files (others answer 415: .xlsx, .ics, unknown types)
 const SERVED = /^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf|video\/mp4)$/;
 
+/** A downloaded file's type from its first bytes (www sends some with types like "jpg"). */
+export function sniff(key) {
+  const file = path.join(CACHE, sha1(key));
+  if (!fs.existsSync(file)) return '';
+  const b = Buffer.alloc(16);
+  const fd = fs.openSync(file, 'r');
+  fs.readSync(fd, b, 0, 16, 0);
+  fs.closeSync(fd);
+  const ascii = b.toString('latin1');
+  if (b[0] === 0xff && b[1] === 0xd8) return 'image/jpeg';
+  if (ascii.startsWith('\x89PNG')) return 'image/png';
+  if (ascii.startsWith('GIF8')) return 'image/gif';
+  if (ascii.startsWith('RIFF') && ascii.slice(8, 12) === 'WEBP') return 'image/webp';
+  if (ascii.startsWith('%PDF')) return 'application/pdf';
+  if (ascii.slice(4, 8) === 'ftyp') return 'video/mp4';
+  if (/^\s*(<\?xml|<svg)/.test(ascii)) return 'image/svg+xml';
+  return '';
+}
+
 function settle(files) {
   const { done = {} } = readJson(STATE, { done: {} });
   Object.entries(files).forEach(([key, f]) => {
-    // the type and size the download answered win over the list's guesses
+    // the type and size the download answered win over the list's guesses; an odd type from
+    // www ("jpg") is read from the file itself
     const d = done[key];
     if (d && d.status === 200) {
       f.type = (d.type || f.type || '').split(';')[0] || undefined;
+      if (!SERVED.test(f.type || '')) f.type = sniff(key) || f.type;
       f.bytes = d.bytes || f.bytes;
     }
     const limit = f.kind === 'video' ? LIMITS.mp4 : (f.kind === 'image' ? LIMITS.image : LIMITS.pdf);
@@ -239,15 +260,26 @@ async function download() {
           const b = new Uint8Array(await r.arrayBuffer());
           let s = '';
           for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
-          return { status: r.status, type: r.headers.get('content-type') || '', b64: btoa(s) };
+          return {
+            status: r.status, type: r.headers.get('content-type') || '', b64: btoa(s), mitigated: r.headers.get('cf-mitigated') || '',
+          };
         }, f.www ? `${HOST}${f.www}` : key).catch((e) => ({ status: 0, error: e.message.split('\n')[0] }));
         const buf = Buffer.from(got.b64 || '', 'base64');
         const htmlBody = /text\/html/.test(got.type) ? buf.toString('utf8', 0, 4000) : '';
-        if (got.status === 403 || got.status === 429 || (htmlBody && CHALLENGE.test((htmlBody.match(/<title>([^<]*)/i) || [])[1] || ''))) {
+        // a block: 429, a challenge, or a 403 that is Cloudflare's page (or says nothing); a 403
+        // page from Liferay itself (a document not open to the public) is that file's answer
+        const snippet = htmlBody.replace(/\s+/g, ' ').slice(0, 200);
+        const cloudflare = Boolean(got.mitigated) || /cloudflare|attention required|you have been blocked|cf-chl|challenge-platform|just a moment/i.test(htmlBody);
+        if (got.status === 429 || (got.status === 403 && (cloudflare || !htmlBody)) || (htmlBody && CHALLENGE.test((htmlBody.match(/<title>([^<]*)/i) || [])[1] || ''))) {
           blocked = true;
-          recordBlock(`${key} ${got.status}`);
-          console.error(`BLOCKED at ${key} (${got.status})`);
+          recordBlock(`${key} ${got.status} ${got.mitigated} ${snippet}`);
+          console.error(`BLOCKED at ${key} (${got.status}${got.mitigated ? ` cf-mitigated: ${got.mitigated}` : ''}): ${snippet}`);
           break;
+        }
+        if (got.status === 403) {
+          record(key, { status: 403, type: got.type, note: snippet });
+          console.log(`403 (Liferay, not Cloudflare) ${key}: stays a link to www: ${snippet}`);
+          continue;
         }
         if (got.status === 0) {
           console.error(`${key}: ${got.error}`);
