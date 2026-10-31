@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-11 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T16:49Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/legal-info/privacy-facebook-page
+/en/legal-info/privacy-policy
+/en/legal-info/responsabilite-du-transporteur-aerien
+/en/services/car-rental
+/en/services/lounges
+/en/services-on-board/in-flight-entertainment-system
+/en/services-on-board/inflight-service
+/en/travel-info/pets
+/en/travel-info/pregnant-women-and-unaccompanied-children
+/en/travel-info/seat-reservation
+/en/extra-services/baggage
+/en/extra-services/plans-esim
+/en/extra-services/seats-in-advance
+/en/baggage/baggage-essentials
+/en/baggage/dangerous-goods
+/en/baggage/electronic-devices-and-batteries
+/en/baggage/hand-luggage
+/en/baggage/hold-luggage
+/en/baggage/special-baggage
+/en/faq-eu/at-the-airport
+/en/faq-eu/baggage
+/en/faq-eu/check-in-faq-eu
+/en/faq-eu/fare-flexibility
+/en/faq-eu/in-flight
+/en/faq-eu/preliminary-info
+/en/faq-eu/sports-and-special-baggage
+/en/faq-eu/sustainable-aviation-fuel-saf
+/en/promotions/air-dolomiti-business-fares
+/en/promotions/miles-and-more-unicredit-cards
+/en/promotions/miles-more-mastercard-gold
+/en/promotions/new-destinations
+/en/promotions/valentines-special
+/en/travel-tips/airsickness
+/en/travel-tips/best-places-to-visit-in-december
+/en/travel-tips/best-places-to-visit-in-europe
+/en/travel-tips/carry-on-luggage-size-and-dimensions
+/en/travel-tips/cool-places-to-visit-in-italy
+/en/travel-tips/first-flight-on-a-plane
+/en/travel-tips/flying-when-pregnant-useful-tips-for-travelling-by-plane
+/en/travel-tips/flying-with-a-newborn-all-our-tips-for-your-flight
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): lazyblock/breeze-esim-widget
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/legal-info/privacy-facebook-page -> /en/legal-info/privacy-facebook-page: text 6/7, images 0/0 (+1), links 13/14 (+0)
+#   https://www.airdolomiti.eu/services/car-rental -> /en/services/car-rental: text 6/6, images 0/0 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.eu/services-on-board/in-flight-entertainment-system -> /en/services-on-board/in-flight-entertainment-system: text 4/4, images 1/1 (+0), links 0/0 (+0)
+#   https://www.airdolomiti.eu/legal-info/privacy-facebook-page: text missing: "discover italy" | links missing: /en
+#   https://www.airdolomiti.eu/services/car-rental: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/services-on-board/in-flight-entertainment-system: no text, image or link of www's missing

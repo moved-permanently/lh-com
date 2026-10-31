@@ -56,7 +56,7 @@ export const LIVE = {
     host: 'https://www.airdolomiti.it', booking: '/prenotazioni', newsletter: '/iscrizione-newsletter', bookLabel: 'Prenota il tuo volo', newsletterLabel: 'Iscriviti alla nostra newsletter', mapLabel: 'Mappa su Google Maps', h1: 'Air Dolomiti',
   },
   en: {
-    host: 'https://www.airdolomiti.eu', booking: '/booking', newsletter: '/newsletter-subscription', bookLabel: 'Book your flight', newsletterLabel: 'Subscribe to the newsletter', mapLabel: 'Map on Google Maps', h1: 'Air Dolomiti',
+    host: 'https://www.airdolomiti.eu', booking: '/booking', newsletter: '/newsletter-subscription', bookLabel: 'Book your flight', newsletterLabel: 'Sign up to our newsletter', mapLabel: 'Map on Google Maps', h1: 'Air Dolomiti',
   },
   de: {
     host: 'https://www.airdolomiti.de', booking: '/buchung', newsletter: '/newsletter-anmeldung', bookLabel: 'Flug buchen', newsletterLabel: 'Newsletter abonnieren', mapLabel: 'Karte auf Google Maps', h1: 'Air Dolomiti',
