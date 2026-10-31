@@ -21,7 +21,7 @@ export const DEFAULT_DESTINATION_IMAGES = '/content/dam/lh/images/offers/destina
 
 /** A page metadata value (as aem.js getMetadata: <meta name> or <meta property>). */
 const metadata = (name) => {
-  if (typeof document === 'undefined') return '';
+  if (typeof document === 'undefined' || !document.head) return '';
   const meta = document.head.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
   return meta ? meta.content : '';
 };
@@ -42,6 +42,22 @@ export function brandName(read = metadata) {
 export function oneTrustId(read = metadata) {
   const key = brandOf(read);
   return key ? BRANDS[key].oneTrust || '' : DEFAULT_ONETRUST;
+}
+
+/** The suffix of the site's page titles (" | Lufthansa", " | ITA Airways"), as a pattern. */
+export function siteTitleSuffix(read = metadata) {
+  return new RegExp(` \\| ${brandName(read).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
+}
+
+/**
+ * Whether a host is one of the site's own Edge Delivery hosts (<ref>--lh-com--moved-permanently,
+ * a brand's lh-<brand>: lh-ita, lh-discover, ...).
+ * @param {string} hostname
+ * @param {Function} [read] metadata reader
+ */
+export function isSitePreviewHost(hostname, read = metadata) {
+  const repo = `lh-${brandOf(read) || 'com'}`;
+  return new RegExp(`^(?:[a-z0-9-]+--)?${repo}--moved-permanently\\.aem\\.(?:page|live)$`).test(String(hostname || '').toLowerCase());
 }
 
 /** The folder of the site's destination images ({code}-square.jpg, {code}-panorama.jpg). */

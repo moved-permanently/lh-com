@@ -4,10 +4,10 @@ import { cleanText, keepImageSize } from '../../scripts/block-config.js';
 import {
   loadArticles, loadTagPriority, listOf, normalizeTag, normalizeCategory, currentPath, pickRelated,
 } from '../../scripts/articles.js';
+import { isSitePreviewHost } from '../../scripts/brand.js';
 
 const CACHE_KEY = 'lh-related-articles:';
 // hosts of this site besides the current origin (links may be authored absolute)
-const SITE_HOST = /^(?:[a-z0-9-]+--)?lh-com--moved-permanently\.aem\.(?:page|live)$/;
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '750' }, { width: '600' }];
 
 /**
@@ -28,7 +28,7 @@ function devPrefix() {
 function sitePath(href) {
   try {
     const url = new URL(href, window.location.href);
-    if (url.origin !== window.location.origin && !SITE_HOST.test(url.hostname)) return null;
+    if (url.origin !== window.location.origin && !isSitePreviewHost(url.hostname)) return null;
     const prefix = devPrefix();
     const pathname = prefix && url.pathname.startsWith(`${prefix}/`) ? url.pathname.slice(prefix.length) : url.pathname;
     return pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/+$/, '') || '/';
@@ -140,7 +140,7 @@ async function fetchPage(path) {
 function buildPicture(src, alt) {
   try {
     const url = new URL(src, window.location.href);
-    if (url.origin === window.location.origin || SITE_HOST.test(url.hostname)) {
+    if (url.origin === window.location.origin || isSitePreviewHost(url.hostname)) {
       return createOptimizedPicture(url.pathname, alt, false, BREAKPOINTS);
     }
     const picture = document.createElement('picture');

@@ -25,7 +25,9 @@
  * in links: scripts/locale.js siteOrigin). portal: www's X-Portal of the brand's pages (their
  * meta X-Portal: Discover FOUR_Y; ITA ITA), the tenant of its /service/api calls and label
  * bundles (lowercase); hub: the home airport of a root without one; airline: its IATA code (the
- * flight status' default airline). The brands' favicons and
+ * flight status' default airline); consentLinks: the privacy, cookie and imprint pages of the
+ * fallback cookie banner per language (www's, the brand's OneTrust banner or footer; en for the
+ * others). The brands' favicons and
  * manifests: scripts/brand-icons.js. The languages of the sites without <cc>/<ll> roots (Cargo,
  * Air Dolomiti): scripts/site-languages.js.
  */
@@ -39,6 +41,10 @@ export const BRANDS = {
     portal: 'FOUR_Y',
     hub: 'FRA',
     airline: '4Y',
+    consentLinks: {
+      en: { privacy: 'https://www.discover-airlines.com/de/en/legal/data-protection-information', imprint: 'https://www.discover-airlines.com/de/en/legal/imprint' },
+      de: { privacy: 'https://www.discover-airlines.com/de/de/legal/data-protection-information', imprint: 'https://www.discover-airlines.com/de/de/legal/imprint' },
+    },
   },
   ita: {
     name: 'ITA Airways',
@@ -49,6 +55,13 @@ export const BRANDS = {
     portal: 'ITA',
     hub: 'ROM',
     airline: 'AZ',
+    consentLinks: {
+      en: {
+        privacy: 'https://www.ita-airways.com/xy/en/legal/data-protection-overview/data-protection-ita?hidebanner=true',
+        cookies: 'https://www.ita-airways.com/xy/en/legal/cookie-policy?hidebanner=true',
+        imprint: 'https://www.ita-airways.com/xy/en/legal/imprint?hidebanner=true',
+      },
+    },
   },
   // Austrian Airlines (lh-austrian): its icons row: scripts/brand-icons.js; destination images:
   // the fare widgets' imageBaseUrl on www's homepage (2026-10-31)

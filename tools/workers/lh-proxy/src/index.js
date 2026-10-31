@@ -31,7 +31,7 @@ const ALLOWLIST = [
 const DEFAULTS = {
   UPSTREAM_ORIGIN: 'https://www.lufthansa.com',
   ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://lufthansa-edge.turnsthe.page,https://lufthansa-cn.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://lufthansa-edge.turnsthe.page,https://lufthansa-cn.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://cargo.turnsthe.page,https://airdolomiti.turnsthe.page,https://austrian.turnsthe.page,http://localhost:3000',
   CACHE_TTL: 300,
   UPSTREAM_TIMEOUT_MS: 8000,
 };

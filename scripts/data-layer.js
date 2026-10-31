@@ -14,6 +14,7 @@
  */
 import { getLocale, LOCALE_TABLE, isWwwRoot } from './locale.js';
 import { LANGUAGE_VERSIONS } from './locale-table.js';
+import { siteTitleSuffix } from './brand.js';
 
 export const TITLE_SUFFIX = / \| Lufthansa$/;
 export const PAGE_IDS_PATH = '/data/aem-page-ids.json';
@@ -80,7 +81,8 @@ export function buildLhgData({
   const ll = String(language || '').toLowerCase();
   const data = {
     page: {
-      attributes: { htmlTitle: String(title || '').replace(TITLE_SUFFIX, '') },
+      // the site's suffix (" | Lufthansa", a brand's " | ITA Airways")
+      attributes: { htmlTitle: String(title || '').replace(siteTitleSuffix(), '') },
       category,
       pageInfo: {
         country: cc, language: ll, pageId: `${name}_${cc}_${ll}`, pageName: parts[parts.length - 1] || '',

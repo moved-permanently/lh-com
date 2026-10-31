@@ -370,6 +370,11 @@ async function siteRespond(incoming, env, site, ctx) {
   if (read && isOnetrustPath(url.pathname)) return finish(await onetrust(incoming), incoming, senv, 'onetrust');
   if (read && isFontsPath(url.pathname)) return finish(await fonts(incoming, senv, passThrough), incoming, senv, 'fonts');
   if (read && site.design && isDigitalhangarPath(url.pathname)) return finish(await digitalhangar(incoming, senv), incoming, senv, 'digitalhangar');
+  // lh-com's sitemaps (the code's /sitemap/sitemap_lh*.xml name www.lufthansa.com's) are not the
+  // site's: 404 (www's own, sitemap_ita and sitemap_four_y, are not on the replica)
+  if (read && /^\/sitemap\/sitemap_lh[._]/.test(url.pathname)) {
+    return finish(new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'x-lh-edge-route': 'site-sitemap' } }), incoming, senv, 'site-sitemap');
+  }
   // a site without roots (src/sites.js PLAIN_SITES): its entry redirects, every other path as it is
   if (site.plain) {
     const target = read && site.plain.entry[url.pathname];

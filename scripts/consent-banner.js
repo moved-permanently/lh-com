@@ -6,6 +6,7 @@
  */
 
 import { loadCSS } from './aem.js';
+import { BRANDS, brandOf } from './brand.js';
 
 const TEXTS = {
   en: {
@@ -97,9 +98,28 @@ function arrow() {
   return el('span', { className: 'lh-consent-arrow' }, svg);
 }
 
+const LINK_KEYS = ['privacy', 'cookies', 'imprint'];
+
+/**
+ * The banner's privacy, cookie and imprint links: lh-com's (www.lufthansa.com), a brand's own
+ * pages on its www (scripts/brands.js consentLinks; English for other languages; a page the
+ * brand lacks is left out).
+ * @param {string} lang the page language
+ * @param {Function} [read] metadata reader
+ * @returns {Array<[string, string]>}
+ */
+export function bannerLinks(lang, read) {
+  const { links } = TEXTS[lang] || TEXTS.en;
+  const key = brandOf(read);
+  const own = key && BRANDS[key].consentLinks;
+  if (!own) return links;
+  const urls = own[lang] || own.en;
+  return links.map(([label], i) => [label, urls[LINK_KEYS[i]]]).filter(([, href]) => href);
+}
+
 function texts() {
   const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
-  return TEXTS[lang] || TEXTS.en;
+  return { ...(TEXTS[lang] || TEXTS.en), links: bannerLinks(lang) };
 }
 
 /** banner description: intro, purposes, withdrawal note */

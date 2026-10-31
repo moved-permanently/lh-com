@@ -1,4 +1,6 @@
-import { getLocale, LIVE_ORIGIN, LOCALE_TABLE } from '../../scripts/locale.js';
+import {
+  getLocale, LOCALE_TABLE, siteOrigin, brandEntry,
+} from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels,
 } from '../../scripts/block-config.js';
@@ -122,7 +124,8 @@ export function readCarRentalSettings(config, locale, pathname = window.location
     // only Meili's own loader: the row must not load anything else into the page
     script: /^https:\/\/([a-z0-9-]+\.)*meili\.travel\/[^\s]*\.js$/i.test(script) ? script : MEILI_SCRIPT,
     locale: /^[a-z]{2}-[A-Z]{2}$/.test(localeTag) ? localeTag : `${locale.lang}-${locale.country.toUpperCase()}`,
-    liveUrl: /^https?:\/\//.test(href) ? href : `${LIVE_ORIGIN}${path}`,
+    // a relative fallback: the page on the site's www (a brand's own, else www.lufthansa.com)
+    liveUrl: /^https?:\/\//.test(href) ? href : `${siteOrigin()}${path}`,
   };
 }
 
@@ -261,6 +264,9 @@ export default function decorate(block) {
   const config = readConfigRows(block);
   const settings = readCarRentalSettings(config, locale);
   const labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
+  // a brand page: the search opens on the brand's www
+  const brand = brandEntry();
+  if (brand && brand.www) labels['live hint'] = labels['live hint'].replace('lufthansa.com', brand.www.replace(/^www\./, ''));
 
   const wrapper = el('div', 'meili-car-rental');
   // Meili looks its root up by id: only the first block of a page can host the app

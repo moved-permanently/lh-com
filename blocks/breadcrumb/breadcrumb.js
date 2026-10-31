@@ -1,10 +1,10 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { cleanText } from '../../scripts/block-config.js';
+import { isSitePreviewHost } from '../../scripts/brand.js';
 
 const MAX_DEPTH = 10;
 const CACHE_KEY = 'lh-breadcrumb:';
 // hosts of this site besides the current origin (metadata links may come back absolute)
-const SITE_HOST = /^(?:[a-z0-9-]+--)?lh-com--moved-permanently\.aem\.(?:page|live)$/;
 
 /**
  * Crumbs of an authored block (documents imported before the trail came from metadata): the
@@ -43,7 +43,7 @@ function devPrefix() {
 function sitePath(href) {
   try {
     const url = new URL(href, window.location.href);
-    if (url.origin !== window.location.origin && !SITE_HOST.test(url.hostname)) return null;
+    if (url.origin !== window.location.origin && !isSitePreviewHost(url.hostname)) return null;
     const prefix = devPrefix();
     const pathname = prefix && url.pathname.startsWith(`${prefix}/`) ? url.pathname.slice(prefix.length) : url.pathname;
     return pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';

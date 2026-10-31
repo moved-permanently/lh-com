@@ -30,6 +30,7 @@ const TABLES = {
   'blocks/flight-status/flight-status.js': ['DEFAULT_LABELS'],
   'blocks/destination-finder/destination-finder.js': ['DEFAULT_LABELS', 'GRID_DEFAULT_LABELS'],
   'scripts/not-found.js': ['TEXT'],
+  'blocks/booking-lookup/booking-lookup.js': ['DEFAULT_LABELS'],
 };
 const OPTIONAL = ['intro', 'search', 'searchButton'];
 

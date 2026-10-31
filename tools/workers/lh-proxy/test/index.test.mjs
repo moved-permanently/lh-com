@@ -360,7 +360,7 @@ test('DA preview and Universal Editor hosts are accepted', async () => {
 test('preflight from each turnsthe.page host that loads the site: 204 with its origin (wrangler.toml and the defaults)', async () => {
   const toml = (await import('node:fs')).readFileSync(new URL('../wrangler.toml', import.meta.url), 'utf8');
   const extra = toml.match(/^EXTRA_ALLOWED_ORIGINS = "([^"]*)"/m)[1];
-  const hosts = ['lufthansa', 'lufthansa-edge', 'lufthansa-cn', 'discover'].map((h) => `https://${h}.turnsthe.page`);
+  const hosts = ['lufthansa', 'lufthansa-edge', 'lufthansa-cn', 'discover', 'ita', 'cargo', 'airdolomiti', 'austrian'].map((h) => `https://${h}.turnsthe.page`);
   const envs = [{ ...ENV, EXTRA_ALLOWED_ORIGINS: extra }, ENV];
   for (const env of envs) { // eslint-disable-line no-restricted-syntax
     for (const origin of hosts) { // eslint-disable-line no-restricted-syntax
