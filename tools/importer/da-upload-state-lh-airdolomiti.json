@@ -4744,6 +4744,211 @@
    "uploaded": "2026-10-31T23:18:34.377Z",
    "mtime": 1793488661292,
    "preview": "2026-10-31T23:18:35.901Z"
+  },
+  "/de/nav": {
+   "uploaded": "2026-10-31T23:26:02.875Z",
+   "mtime": 1793489113034,
+   "preview": "2026-10-31T23:26:04.554Z"
+  },
+  "/de/footer": {
+   "uploaded": "2026-10-31T23:26:08.151Z",
+   "mtime": 1793489161903,
+   "preview": "2026-10-31T23:26:10.150Z"
+  },
+  "/de/index": {
+   "uploaded": "2026-10-31T23:39:47.781Z",
+   "mtime": 1793489980196,
+   "preview": "2026-10-31T23:39:50.401Z"
+  },
+  "/de/economy-basic-tarif": {
+   "uploaded": "2026-10-31T23:39:51.654Z",
+   "mtime": 1793489690421,
+   "preview": "2026-10-31T23:39:53.237Z"
+  },
+  "/de/erklaerung-zur-zugaenglichkeit": {
+   "uploaded": "2026-10-31T23:39:54.541Z",
+   "mtime": 1793489690451,
+   "preview": "2026-10-31T23:39:56.427Z"
+  },
+  "/de/artikel": {
+   "uploaded": "2026-10-31T23:39:57.670Z",
+   "mtime": 1793489690494,
+   "preview": "2026-10-31T23:39:59.534Z"
+  },
+  "/de/umweltkostenzuschlag": {
+   "uploaded": "2026-10-31T23:40:00.624Z",
+   "mtime": 1793489690521,
+   "preview": "2026-10-31T23:40:02.232Z"
+  },
+  "/de/miles-and-more-de": {
+   "uploaded": "2026-10-31T23:40:05.410Z",
+   "mtime": 1793489980494,
+   "preview": "2026-10-31T23:40:07.605Z"
+  },
+  "/de/services-zur-buchung": {
+   "uploaded": "2026-10-31T23:40:09.036Z",
+   "mtime": 1793489690582,
+   "preview": "2026-10-31T23:40:11.038Z"
+  },
+  "/de/fluege-in-europa": {
+   "uploaded": "2026-10-31T23:40:16.512Z",
+   "mtime": 1793489980973,
+   "preview": "2026-10-31T23:40:20.027Z"
+  },
+  "/de/faq-de": {
+   "uploaded": "2026-10-31T23:40:21.237Z",
+   "mtime": 1793489690638,
+   "preview": "2026-10-31T23:40:23.215Z"
+  },
+  "/de/flotte": {
+   "uploaded": "2026-10-31T23:40:25.031Z",
+   "mtime": 1793489981107,
+   "preview": "2026-10-31T23:40:26.853Z"
+  },
+  "/de/betreuung": {
+   "uploaded": "2026-10-31T23:40:28.461Z",
+   "mtime": 1793489981189,
+   "preview": "2026-10-31T23:40:30.528Z"
+  },
+  "/de/digitale-services": {
+   "uploaded": "2026-10-31T23:40:31.687Z",
+   "mtime": 1793489690746,
+   "preview": "2026-10-31T23:40:33.469Z"
+  },
+  "/de/einreisebestimmungen": {
+   "uploaded": "2026-10-31T23:40:34.587Z",
+   "mtime": 1793489690772,
+   "preview": "2026-10-31T23:40:36.440Z"
+  },
+  "/de/online-check-in-anleitung": {
+   "uploaded": "2026-10-31T23:40:38.144Z",
+   "mtime": 1793489981322,
+   "preview": "2026-10-31T23:40:40.575Z"
+  },
+  "/de/leisure-de": {
+   "uploaded": "2026-10-31T23:40:42.369Z",
+   "mtime": 1793489981402,
+   "preview": "2026-10-31T23:40:44.120Z"
+  },
+  "/de/unternehmen": {
+   "uploaded": "2026-10-31T23:40:45.370Z",
+   "mtime": 1793489690859,
+   "preview": "2026-10-31T23:40:47.400Z"
+  },
+  "/de/pressebereich": {
+   "uploaded": "2026-10-31T23:40:48.699Z",
+   "mtime": 1793489690887,
+   "preview": "2026-10-31T23:40:50.641Z"
+  },
+  "/de/reisetipps": {
+   "uploaded": "2026-10-31T23:40:53.244Z",
+   "mtime": 1793489981623,
+   "preview": "2026-10-31T23:40:55.616Z"
+  },
+  "/de/fluginformationen": {
+   "uploaded": "2026-10-31T23:40:56.782Z",
+   "mtime": 1793489690943,
+   "preview": "2026-10-31T23:40:58.698Z"
+  },
+  "/de/unterstutzung-und-kontakte": {
+   "uploaded": "2026-10-31T23:40:59.821Z",
+   "mtime": 1793489690968,
+   "preview": "2026-10-31T23:41:01.751Z"
+  },
+  "/de/reiseziele": {
+   "uploaded": "2026-10-31T23:41:04.804Z",
+   "mtime": 1793489981939,
+   "preview": "2026-10-31T23:41:08.027Z"
+  },
+  "/de/gruppenreisen": {
+   "uploaded": "2026-10-31T23:41:09.177Z",
+   "mtime": 1793489691023,
+   "preview": "2026-10-31T23:41:10.824Z"
+  },
+  "/de/werbeaktionen": {
+   "uploaded": "2026-10-31T23:41:12.674Z",
+   "mtime": 1793489982045,
+   "preview": "2026-10-31T23:41:14.859Z"
+  },
+  "/de/eu-cont-tarife": {
+   "uploaded": "2026-10-31T23:41:16.093Z",
+   "mtime": 1793489691083,
+   "preview": "2026-10-31T23:41:18.086Z"
+  },
+  "/de/gepaeck": {
+   "uploaded": "2026-10-31T23:41:21.731Z",
+   "mtime": 1793489982300,
+   "preview": "2026-10-31T23:41:23.540Z"
+  },
+  "/de/flughaefen": {
+   "uploaded": "2026-10-31T23:41:29.932Z",
+   "mtime": 1793489982774,
+   "preview": "2026-10-31T23:41:32.089Z"
+  },
+  "/de/tarife": {
+   "uploaded": "2026-10-31T23:41:33.213Z",
+   "mtime": 1793489691179,
+   "preview": "2026-10-31T23:41:35.457Z"
+  },
+  "/de/unternehmen/geschichte": {
+   "uploaded": "2026-10-31T23:41:37.276Z",
+   "mtime": 1793489982946,
+   "preview": "2026-10-31T23:41:39.067Z"
+  },
+  "/de/kontakt/adressen": {
+   "uploaded": "2026-10-31T23:41:40.248Z",
+   "mtime": 1793489691247,
+   "preview": "2026-10-31T23:41:41.817Z"
+  },
+  "/de/kontakt/pr-abteilung": {
+   "uploaded": "2026-10-31T23:41:43.026Z",
+   "mtime": 1793489691274,
+   "preview": "2026-10-31T23:41:45.048Z"
+  },
+  "/de/kontakt/reisebueros": {
+   "uploaded": "2026-10-31T23:41:46.079Z",
+   "mtime": 1793489691302,
+   "preview": "2026-10-31T23:41:47.848Z"
+  },
+  "/de/unterstutzung-und-kontakte/unregelmaessigkeit-verlorenes-gepaeck": {
+   "uploaded": "2026-10-31T23:41:48.968Z",
+   "mtime": 1793489691338,
+   "preview": "2026-10-31T23:41:50.771Z"
+  },
+  "/de/unterstutzung-und-kontakte/customer-relations-de": {
+   "uploaded": "2026-10-31T23:41:51.940Z",
+   "mtime": 1793489691365,
+   "preview": "2026-10-31T23:41:53.814Z"
+  },
+  "/de/unterstutzung-und-kontakte/sales-center-de": {
+   "uploaded": "2026-10-31T23:41:55.078Z",
+   "mtime": 1793489691391,
+   "preview": "2026-10-31T23:41:56.505Z"
+  },
+  "/de/rechtliche-informationen/datenschutz": {
+   "uploaded": "2026-10-31T23:41:57.669Z",
+   "mtime": 1793489691428,
+   "preview": "2026-10-31T23:41:59.347Z"
+  },
+  "/de/rechtliche-informationen/datenschutz-airdolomiti-facebook": {
+   "uploaded": "2026-10-31T23:42:01.161Z",
+   "mtime": 1793489983275,
+   "preview": "2026-10-31T23:42:03.203Z"
+  },
+  "/de/rechtliche-informationen/befoerderungsbestimmung": {
+   "uploaded": "2026-10-31T23:42:04.294Z",
+   "mtime": 1793489691500,
+   "preview": "2026-10-31T23:42:06.057Z"
+  },
+  "/de/rechtliche-informationen/fluggastrechte": {
+   "uploaded": "2026-10-31T23:42:07.192Z",
+   "mtime": 1793489691532,
+   "preview": "2026-10-31T23:42:08.819Z"
+  },
+  "/de/rechtliche-informationen/schlichtungsstellen": {
+   "uploaded": "2026-10-31T23:42:09.844Z",
+   "mtime": 1793489691560,
+   "preview": "2026-10-31T23:42:11.835Z"
   }
  },
  "media": {
@@ -8988,6 +9193,126 @@
   },
   "/media-da/airdolomiti/paypal-6-411a53e1.png": {
    "at": "2026-10-31T23:01:56.208Z"
+  },
+  "/media-da/airdolomiti/amex-3-85e47b16.png": {
+   "at": "2026-10-31T23:26:05.483Z"
+  },
+  "/media-da/airdolomiti/mastercard-2-8be02efb.png": {
+   "at": "2026-10-31T23:26:06.044Z"
+  },
+  "/media-da/airdolomiti/visa-2-d5e20b24.png": {
+   "at": "2026-10-31T23:26:06.742Z"
+  },
+  "/media-da/airdolomiti/paypal-7-6ec51439.png": {
+   "at": "2026-10-31T23:26:07.437Z"
+  },
+  "/media-da/airdolomiti/sixt-visual-car-ensemble-12500x6818-1-scaled-cc939302.jpg": {
+   "at": "2026-10-31T23:39:45.580Z"
+  },
+  "/media-da/airdolomiti/trulli-alberobello-apulien-8ad5366b.jpg": {
+   "at": "2026-10-31T23:39:46.251Z"
+  },
+  "/media-da/airdolomiti/venezia-rialto-2-41c021da.jpg": {
+   "at": "2026-10-31T23:39:46.915Z"
+  },
+  "/media-da/airdolomiti/milesandmore-2024-new-programme-1012x740-2-66f93abf.jpg": {
+   "at": "2026-10-31T23:40:03.352Z"
+  },
+  "/media-da/airdolomiti/coppia-felice-a-vce-6056accd.jpg": {
+   "at": "2026-10-31T23:40:03.955Z"
+  },
+  "/media-da/airdolomiti/foto-worldshop-ae9ec035.jpg": {
+   "at": "2026-10-31T23:40:04.529Z"
+  },
+  "/media-da/airdolomiti/genf-gebaeude-am-ufer-der-rhone-740x474-1-d64e0892.jpg": {
+   "at": "2026-10-31T23:40:12.139Z"
+  },
+  "/media-da/airdolomiti/flug-frankfurt-london-city-740x474-1-0beea9ac.jpg": {
+   "at": "2026-10-31T23:40:12.708Z"
+  },
+  "/media-da/airdolomiti/pisa-mainbanner-m-2-4727be74.jpg": {
+   "at": "2026-10-31T23:40:13.420Z"
+  },
+  "/media-da/airdolomiti/muenchen-graz-740x474-1-c98ddcbc.jpg": {
+   "at": "2026-10-31T23:40:14.292Z"
+  },
+  "/media-da/airdolomiti/milan-33bf6ef0.jpg": {
+   "at": "2026-10-31T23:40:14.988Z"
+  },
+  "/media-da/airdolomiti/pula-kroatien-amphitheater-740x474-1-7a8b8ad8.jpg": {
+   "at": "2026-10-31T23:40:15.645Z"
+  },
+  "/media-da/airdolomiti/i-adjmtoalt-2-491d9266.jpg": {
+   "at": "2026-10-31T23:40:24.269Z"
+  },
+  "/media-da/airdolomiti/one-click-away-768x400-deu-10ffdb0d.jpg": {
+   "at": "2026-10-31T23:40:27.757Z"
+  },
+  "/media-da/airdolomiti/corporate-fare-768x400-1-1a46edf7.jpg": {
+   "at": "2026-10-31T23:40:37.360Z"
+  },
+  "/media-da/airdolomiti/faq-bagaglio-2-c0660c79.jpg": {
+   "at": "2026-10-31T23:40:41.508Z"
+  },
+  "/media-da/airdolomiti/kind-reise-f7a94863.jpg": {
+   "at": "2026-10-31T23:40:51.599Z"
+  },
+  "/media-da/airdolomiti/up-in-the-air-181dcb9d.jpg": {
+   "at": "2026-10-31T23:40:52.257Z"
+  },
+  "/media-da/airdolomiti/prague-airdolomiti-2-e1752759958821-70f8fe4a.jpg": {
+   "at": "2026-10-31T23:41:02.735Z"
+  },
+  "/media-da/airdolomiti/firenze-spring-1-e1772805629218-f5e019c9.jpg": {
+   "at": "2026-10-31T23:41:03.343Z"
+  },
+  "/media-da/airdolomiti/img-9515-scaled-fed11118.jpg": {
+   "at": "2026-10-31T23:41:04.034Z"
+  },
+  "/media-da/airdolomiti/nuovi-voli-summer23-1270x1000-1-c054def9.jpg": {
+   "at": "2026-10-31T23:41:11.810Z"
+  },
+  "/media-da/airdolomiti/bagagli-franchigia-3-390a8fae.jpg": {
+   "at": "2026-10-31T23:41:19.037Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagagliodastiva-4-4e5cf2df.jpg": {
+   "at": "2026-10-31T23:41:19.616Z"
+  },
+  "/media-da/airdolomiti/bagagli-oggettipericolosi-3-fbe82b65.jpg": {
+   "at": "2026-10-31T23:41:20.264Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagaglispeciali-3-342a2c20.jpg": {
+   "at": "2026-10-31T23:41:20.868Z"
+  },
+  "/media-da/airdolomiti/ancona-monument-am-meer-1012x740-1-e3ba91e7.webp": {
+   "at": "2026-10-31T23:41:24.571Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-72-b1e0f63e.jpg": {
+   "at": "2026-10-31T23:41:25.188Z"
+  },
+  "/media-da/airdolomiti/brindisi-flughafen-1012x740-1-fecc11b7.jpg": {
+   "at": "2026-10-31T23:41:25.903Z"
+  },
+  "/media-da/airdolomiti/genua-flughafen-1012x740-1-680a2bfe.jpg": {
+   "at": "2026-10-31T23:41:26.564Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-74-102a67b4.jpg": {
+   "at": "2026-10-31T23:41:27.243Z"
+  },
+  "/media-da/airdolomiti/breslau-wroclaw-historisches-zentrum-1012x740-1-cfd7382d.jpg": {
+   "at": "2026-10-31T23:41:27.860Z"
+  },
+  "/media-da/airdolomiti/genfersee-montreaux-1012x740-1-22909532.jpg": {
+   "at": "2026-10-31T23:41:28.437Z"
+  },
+  "/media-da/airdolomiti/zurich-stadt-1-09c340c1.jpg": {
+   "at": "2026-10-31T23:41:29.139Z"
+  },
+  "/media-da/airdolomiti/illustrazione-2-f67c132e.png": {
+   "at": "2026-10-31T23:41:36.491Z"
+  },
+  "/media-da/airdolomiti/milano-nuovosito-thumbnail-3-0843d8e2.jpg": {
+   "at": "2026-10-31T23:42:00.370Z"
   }
  }
 }

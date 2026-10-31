@@ -240,6 +240,14 @@
   "Destination": "/en/destinations"
  },
  {
+  "Source": "/de/homepage-de",
+  "Destination": "/de"
+ },
+ {
+  "Source": "/de/artikel/reiseziele/aarhus",
+  "Destination": "/de/reiseziele"
+ },
+ {
   "Source": "/en/articles/dyk/up_in_the_air",
   "Destination": "/en/articles/dyk/up-in-the-air"
  }

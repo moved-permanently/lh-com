@@ -1,0 +1,53 @@
+# lh-airdolomiti batch-25 (de): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T23:43Z; not published
+# documents (39 + /de/nav, /de/footer):
+/de/index
+/de/economy-basic-tarif
+/de/erklaerung-zur-zugaenglichkeit
+/de/artikel
+/de/umweltkostenzuschlag
+/de/miles-and-more-de
+/de/services-zur-buchung
+/de/fluege-in-europa
+/de/faq-de
+/de/flotte
+/de/betreuung
+/de/digitale-services
+/de/einreisebestimmungen
+/de/online-check-in-anleitung
+/de/leisure-de
+/de/unternehmen
+/de/pressebereich
+/de/reisetipps
+/de/fluginformationen
+/de/unterstutzung-und-kontakte
+/de/reiseziele
+/de/gruppenreisen
+/de/werbeaktionen
+/de/eu-cont-tarife
+/de/gepaeck
+/de/flughaefen
+/de/tarife
+/de/unternehmen/geschichte
+/de/kontakt/adressen
+/de/kontakt/pr-abteilung
+/de/kontakt/reisebueros
+/de/unterstutzung-und-kontakte/unregelmaessigkeit-verlorenes-gepaeck
+/de/unterstutzung-und-kontakte/customer-relations-de
+/de/unterstutzung-und-kontakte/sales-center-de
+/de/rechtliche-informationen/datenschutz
+/de/rechtliche-informationen/datenschutz-airdolomiti-facebook
+/de/rechtliche-informationen/befoerderungsbestimmung
+/de/rechtliche-informationen/fluggastrechte
+/de/rechtliche-informationen/schlichtungsstellen
+/de/nav
+/de/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 39 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.de -> /de: text 24/25, images 7/7 (+7), links 18/18 (+3)
+#   https://www.airdolomiti.de/unterstutzung-und-kontakte -> /de/unterstutzung-und-kontakte: text 8/8, images 0/0 (+6), links 6/6 (+0)
+#   https://www.airdolomiti.de/rechtliche-informationen/schlichtungsstellen -> /de/rechtliche-informationen/schlichtungsstellen: text 22/22, images 0/0 (+1), links 3/4 (+0)
+#   https://www.airdolomiti.de: text missing: "abonnieren sie unseren newsletter"
+#   https://www.airdolomiti.de/unterstutzung-und-kontakte: no text, image or link of www's missing
+#   https://www.airdolomiti.de/rechtliche-informationen/schlichtungsstellen: links missing: /de
