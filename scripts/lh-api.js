@@ -871,7 +871,10 @@ export async function searchAirports(term, locale) {
 export async function resolveOrigin(authored, locale) {
   if (authored && authored.code) return { name: '', ...authored, from: 'authored' };
   try {
-    const { data } = await lhFetch(defaultAirportRequest().route, { market: locale.key });
+    const { data, source } = await lhFetch(defaultAirportRequest().route, { market: locale.key });
+    // a brand root has no recording of its own: a recorded answer is another market's (lh-com's
+    // at/de, Vienna), the root's home airport is the brand's
+    if (locale.brand && source === 'recorded') throw new Error('another market\'s recording');
     const airport = mapDefaultAirport(data);
     if (airport) return { ...airport, from: 'defaultAirport' };
   } catch (e) {
