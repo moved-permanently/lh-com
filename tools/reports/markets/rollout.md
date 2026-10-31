@@ -1070,4 +1070,4 @@ Against the eight hosts before and after the deploy of 474e863:
 - lufthansa.com's 19 comparison pages: 19 of 19 equal (de/en and de/de homepages once more after
   the head-order noise: the same 38 head elements, `showcase-notice.css` loading at another time).
 - `test/locale-table.test.mjs` used fr/de as a root without a row: it now takes a German root of
-  www's without a row yet (fdd307c/474e863).
+  www's without a row yet (474e863).
