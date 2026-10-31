@@ -295,25 +295,38 @@ export async function loadRecordedIndex() {
 
 const pathOf = (rest) => rest.replace(/[?#].*$/, '');
 
+/** The portal an index entry was recorded for: "OS:at/de|GET ..." OS, "at/de|GET ..." LH. */
+const recordedPortal = (k) => {
+  const head = k.slice(0, k.indexOf('|'));
+  return head.includes(':') ? head.slice(0, head.indexOf(':')) : 'LH';
+};
+
 /**
  * Finds the recorded response closest to a request: same market and request first,
  * then the same request in any market, then (unless exact) the same method and path in this
  * market. Never another market's response for a different request: it could show the wrong
  * prices or currency. Callers of the path fallback must check the answer belongs to their
  * request (e.g. the fare mappers match origin and destination).
+ * A brand page (portalOf not LH) looks the same way among its portal's recordings first
+ * ("OS:at/de|GET ..."), then among lh-com's; an lh-com page only among lh-com's.
  */
 async function fetchRecorded(market, key, exact) {
   const { entries = {} } = await loadRecordedIndex();
   const [method, rest] = key.split(' ');
   const path = pathOf(rest);
-  const keys = Object.keys(entries);
   const samePath = (k) => {
     const [, , m, r] = k.match(/^([^|]+)\|(\S+) (.*)$/) || [];
     return m === method && r && pathOf(r) === path;
   };
-  const hit = entries[`${market}|${key}`]
-    || entries[keys.find((k) => k.endsWith(`|${key}`))]
-    || (!exact && entries[keys.find((k) => k.startsWith(`${market}|`) && samePath(k))]);
+  const lookup = (portal) => {
+    const prefix = portal === 'LH' ? '' : `${portal}:`;
+    const keys = Object.keys(entries).filter((k) => recordedPortal(k) === portal);
+    return entries[`${prefix}${market}|${key}`]
+      || entries[keys.find((k) => k.endsWith(`|${key}`))]
+      || (!exact && entries[keys.find((k) => k.startsWith(`${prefix}${market}|`) && samePath(k))]);
+  };
+  const portal = portalOf(siteLocales()[market] || LOCALE_TABLE[market]);
+  const hit = (portal !== 'LH' && lookup(portal)) || lookup('LH');
   if (!hit) throw new Error(`no recorded data for ${key}`);
   const resp = await fetch(`${RECORDED_BASE}/${hit.file}`);
   if (!resp.ok) throw new Error(`recorded data missing: ${hit.file}`);
@@ -374,15 +387,23 @@ export function directRequest(route, { method = 'GET', body, market } = {}) {
   return { url: `${liveOrigin()}${route}`, init };
 }
 
+// the tenant headers lh-proxy forwards to www (not X-Portal-Taxonomy, -CountryId)
+const PROXY_PORTAL_HEADERS = ['X-Portal', 'X-Portal-Site', 'X-Portal-Language'];
+
 /**
  * The request to lh-proxy (headers within its CORS allowlist: Content-Type, Accept,
- * Accept-Language, X-LH-Market).
+ * Accept-Language, X-LH-Market, X-Portal, X-Portal-Site, X-Portal-Language). A brand page sends
+ * its tenant (portalHeaders); an lh-com page none, as before.
  */
 function proxyRequest(origin, route, { method, body, market }) {
   const init = { method, headers: { Accept: 'application/json' } };
   const language = acceptLanguage(market);
   if (language) init.headers['Accept-Language'] = language;
   if (market) init.headers['X-LH-Market'] = market;
+  const tenant = portalHeaders(market);
+  if (tenant['X-Portal'] && tenant['X-Portal'] !== 'LH') {
+    PROXY_PORTAL_HEADERS.forEach((name) => { init.headers[name] = tenant[name]; });
+  }
   if (body !== undefined && body !== null) {
     init.body = bodyText(body);
     init.headers['Content-Type'] = 'application/json';

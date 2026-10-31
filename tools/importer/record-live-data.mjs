@@ -5,9 +5,13 @@
  * Reads, from the source export (default tools/source-export):
  *   har/**\/*.har       browser HAR captures of the market pages (flight search typed into,
  *                       calendar and passengers opened, fare teasers and destination finder loaded)
- *   api/**\/*.ndjson    one JSON object per line: {locale, method, url, body?, status, text}
+ *   api/**\/*.ndjson    one JSON object per line: {locale, method, url, body?, status, text,
+ *                       portal?}
  * The locale of a HAR entry comes from its Referer (/{country}/{lang}/...), else from a
  * folder named like de-en, de_en or de/en in the file path.
+ * A brand's answer (a HAR request's X-Portal header or the line's portal, other than LH, e.g. OS)
+ * is indexed under its portal, "OS:at/de|GET ...", file os-at-de-<hash>.json: lh-data.js gives
+ * it to that brand's pages only (lh-com's answers stay "at/de|GET ...").
  *
  * Usage: node tools/importer/record-live-data.mjs [--src tools/source-export] [--out data/recorded]
  */
@@ -52,11 +56,13 @@ walk(path.join(src, 'har'), '.har').forEach((file) => {
   (har.log?.entries || []).forEach(({ request, response, startedDateTime }) => {
     const url = new URL(request.url);
     if (!/(^|\.)lufthansa\.com$/.test(url.hostname) || !RECORDABLE.test(url.pathname)) return;
-    const referer = request.headers.find((h) => h.name.toLowerCase() === 'referer')?.value;
+    const header = (name) => request.headers.find((h) => h.name.toLowerCase() === name)?.value;
+    const referer = header('referer');
     let text = response.content?.text;
     if (text && response.content.encoding === 'base64') text = Buffer.from(text, 'base64').toString('utf8');
     records.push({
       locale: localeFrom(referer, path.relative(src, file)),
+      portal: header('x-portal'),
       method: request.method,
       route: `${url.pathname}${url.search}`,
       body: request.postData?.text,
@@ -75,6 +81,7 @@ walk(path.join(src, 'api'), '.ndjson').forEach((file) => {
     if (!RECORDABLE.test(url.pathname)) return;
     records.push({
       locale: r.locale || localeFrom(r.referer, path.relative(src, file)),
+      portal: r.portal,
       method: r.method || 'GET',
       route: `${url.pathname}${url.search}`,
       body: r.body,
@@ -102,11 +109,13 @@ records.forEach((r) => {
   let data;
   try { data = JSON.parse(r.text); } catch (e) { skipped.json += 1; return; }
   const key = requestKey(r.method, r.route, r.body);
-  const entry = `${r.locale}|${key}`;
+  const portal = /^[A-Za-z0-9_]{1,16}$/.test(r.portal || '') && r.portal.toUpperCase() !== 'LH'
+    ? r.portal.toUpperCase() : '';
+  const entry = `${portal ? `${portal}:` : ''}${r.locale}|${key}`;
   // first answer wins: later calls of the same request come from a session already changed by
   // the capture (e.g. catalogs/airportnames lists the airports searched for so far)
   if (index.entries[entry]) { skipped.duplicate += 1; return; }
-  const file = `${r.locale.replace('/', '-')}-${fnv1a(key)}.json`;
+  const file = `${portal ? `${portal.toLowerCase()}-` : ''}${r.locale.replace('/', '-')}-${fnv1a(key)}.json`;
   fs.writeFileSync(path.join(out, file), `${JSON.stringify(data)}\n`);
   // ndjson lines carry no time: keep the time of the run that first recorded them
   const recordedAt = r.recordedAt || previous[entry]?.recordedAt || new Date().toISOString();
@@ -116,7 +125,7 @@ records.forEach((r) => {
 // recordings no longer referenced (their request key changed) are removed
 const referenced = new Set(Object.values(index.entries).map((e) => e.file));
 const removed = fs.readdirSync(out)
-  .filter((f) => /^[a-z]{2}-[a-z]{2}-[0-9a-f]{8}\.json$/.test(f) && !referenced.has(f));
+  .filter((f) => /^(?:[a-z0-9_]{1,16}-)?[a-z]{2}-[a-z]{2}-[0-9a-f]{8}\.json$/.test(f) && !referenced.has(f));
 removed.forEach((f) => fs.unlinkSync(path.join(out, f)));
 
 index.updatedAt = new Date().toISOString();
