@@ -110,11 +110,18 @@ function redirect(location) {
 
 /**
  * The home of an alias host (the China hosts: www's China host answers / with /cn/en/homepage):
- * /<ALIAS_HOME_ROOT>/homepage once that root is in the locale table, else null (/ by country).
+ * /<ALIAS_HOME_ROOT>/homepage once that root is in the locale table and the host serves it (a
+ * live row, or a pilot row of a country PILOT_COUNTRIES_BY_HOST gives the host), else null (/ by
+ * country).
  */
-export function aliasHome(request, env = {}, table = LOCALE_TABLE) {
+export function aliasHome(
+  request,
+  env = {},
+  table = LOCALE_TABLE,
+  served = servedMarketRoots(request, env),
+) {
   const root = String(env.ALIAS_HOME_ROOT || '').trim();
-  if (!root || !table[root] || !aliasHostOf(request, env)) return null;
+  if (!root || !table[root] || !served.includes(root) || !aliasHostOf(request, env)) return null;
   return `/${root}/homepage`;
 }
 
@@ -126,7 +133,7 @@ export function entry(request, env = {}) {
   const served = servedMarketRoots(request, env);
   if (cc && ll) return redirect(homepageUrl(cc, ll, search, served));
   if (cc) return redirect(homepageUrl(cc, pickLanguage(cc, request, served), search, served));
-  const home = aliasHome(request, env);
+  const home = aliasHome(request, env, LOCALE_TABLE, served);
   if (home) return redirect(`${home}${search}`);
   const saved = savedChoice(request);
   const country = String(request.headers.get('cf-ipcountry') || '').trim().toLowerCase();

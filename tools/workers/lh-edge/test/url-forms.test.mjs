@@ -165,7 +165,7 @@ test('a long path the site has a page at answers as itself; its other spellings 
   }
 });
 
-test('China hosts: / to /cn/en/homepage once cn/en is in the locale table; until then by country, as today', async () => {
+test('China hosts: / to /cn/en/homepage once the host serves cn/en; until then by country, as today', async () => {
   const lhcn = new Request('https://lufthansa-cn.turnsthe.page/', { headers: { 'cf-ipcountry': 'DE' } });
   const cn = new Request('https://lufthansa-cn.turnsthe.page/', { headers: { 'cf-ipcountry': 'DE' } });
   // today: no cn/en row
@@ -174,15 +174,25 @@ test('China hosts: / to /cn/en/homepage once cn/en is in the locale table; until
     const r = await worker.fetch(new Request(`https://${host}/`, { headers: { 'cf-ipcountry': 'DE', 'accept-language': 'de' } }), env(), {}); // eslint-disable-line no-await-in-loop
     assert.equal(r.headers.get('location'), '/de/de/homepage', host);
   }
-  // with a cn/en row (any status)
+  // with a cn/en row the host serves (a live row, or a pilot row with cn in PILOT_COUNTRIES_BY_HOST)
   const table = {
     'cn/en': {
       country: 'cn', lang: 'en', status: 'pilot', documents: 'language',
     },
   };
-  assert.equal(aliasHome(lhcn, env(), table), '/cn/en/homepage');
-  assert.equal(aliasHome(cn, env(), table), '/cn/en/homepage');
+  assert.equal(aliasHome(lhcn, env(), table, ['cn/en']), '/cn/en/homepage');
+  assert.equal(aliasHome(cn, env(), table, ['cn/en']), '/cn/en/homepage');
+  // a pilot cn/en row the host does not serve (rollout batch 7: lufthansa-cn without cn in
+  // PILOT_COUNTRIES_BY_HOST; its documents are on preview only): by country, as today
+  assert.equal(aliasHome(lhcn, env(), table, []), null);
+  assert.equal(aliasHome(lhcn, env(), table), null, 'served roots from the env: no cn pilot root');
   // not on the other hosts, not without the var
-  assert.equal(aliasHome(new Request('https://lufthansa-edge.turnsthe.page/'), env(), table), null);
-  assert.equal(aliasHome(lhcn, env({ ALIAS_HOME_ROOT: '' }), table), null);
+  assert.equal(aliasHome(new Request('https://lufthansa-edge.turnsthe.page/'), env(), table, ['cn/en']), null);
+  assert.equal(aliasHome(lhcn, env({ ALIAS_HOME_ROOT: '' }), table, ['cn/en']), null);
+});
+
+test('wrangler.toml: lufthansa-cn serves no pilot country (cn waits for its published documents)', () => {
+  const toml = fs.readFileSync(path.join(here, '../wrangler.toml'), 'utf8');
+  const value = (toml.match(/^PILOT_COUNTRIES_BY_HOST = "([^"]*)"/m) || [])[1];
+  assert.equal(value, 'lufthansa.turnsthe.page=ch');
 });
