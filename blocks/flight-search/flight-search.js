@@ -227,6 +227,19 @@ export function tabKind(label) {
   return 'other';
 }
 
+/**
+ * Kinds of a block's tabs. When no label reads as a flight tab, the first tab is the flight tab
+ * when its label is unknown (the brand sites author it in their language: "Voli", "Vols",
+ * "Vuelos", "Πτήσεις", ...; the live flight manager's first tab is always Flights).
+ * @param {string[]} labels
+ * @returns {string[]}
+ */
+export function tabKinds(labels) {
+  const kinds = (labels || []).map(tabKind);
+  if (kinds[0] === 'other' && !kinds.includes('flight')) kinds[0] = 'flight';
+  return kinds;
+}
+
 /** The live page of the current replica page (same path on www.lufthansa.com). */
 function livePageUrl(config) {
   const authored = config['live-page'] && config['live-page'].link;
@@ -449,10 +462,10 @@ export default function decorate(block) {
   const content = document.createDocumentFragment();
   // standalone design (every page but the homepage): a card with a tab bar; a hotel tab or
   // further tabs (cash-and-miles: Flights, Rental car, Hotel) get the tab bar in any design
-  const tabKinds = settings.tabs.map(tabKind);
-  const hasFlight = !settings.tabs.length || tabKinds.includes('flight');
+  const tabKindList = tabKinds(settings.tabs);
+  const hasFlight = !settings.tabs.length || tabKindList.includes('flight');
   const tabbed = settings.tabs.length > 0
-    && (block.classList.contains('standalone') || tabKinds.some((k) => k !== 'flight'));
+    && (block.classList.contains('standalone') || tabKindList.some((k) => k !== 'flight'));
 
   if (settings.tabs.length && !tabbed) {
     const tabBar = el('div', 'flight-search-tabs');
@@ -690,13 +703,13 @@ export default function decorate(block) {
         tab.tabIndex = j === i || (i < 0 && j === 0) ? 0 : -1;
       });
       Object.entries(panels).forEach(([kind, panel]) => {
-        panel.hidden = i < 0 || tabKinds[i] !== kind;
+        panel.hidden = i < 0 || tabKindList[i] !== kind;
       });
       block.classList.toggle('flight-search-closed', i < 0);
     };
-    if (tabKinds.includes('hotel')) panels.hotel = buildHotelPanel(config, locale, () => select(-1));
+    if (tabKindList.includes('hotel')) panels.hotel = buildHotelPanel(config, locale, () => select(-1));
     settings.tabs.forEach((label, i) => {
-      const kind = tabKinds[i];
+      const kind = tabKindList[i];
       const tab = el('button', `flight-search-tab flight-search-tab-${kind}`);
       tab.type = 'button';
       tab.setAttribute('role', 'tab');
@@ -726,7 +739,8 @@ export default function decorate(block) {
     content.append(tabBar, ...Object.values(panels));
     const authoredActive = text('active-tab').toLowerCase();
     const active = settings.tabs.findIndex((l) => l.toLowerCase() === authoredActive);
-    select(active >= 0 && panels[tabKinds[active]] ? active : tabKinds.findIndex((k) => panels[k]));
+    const first = tabKindList.findIndex((k) => panels[k]);
+    select(active >= 0 && panels[tabKindList[active]] ? active : first);
   }
 
   // read before the rows are replaced: the pictures move into the band
