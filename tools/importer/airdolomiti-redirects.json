@@ -1,0 +1,38 @@
+[
+ {
+  "Source": "/bagagli/dispositivi-elettronici-e-batterie",
+  "Destination": "/bagaglio/dispositivi-elettronici-e-batterie"
+ },
+ {
+  "Source": "/bagagli/franchigia",
+  "Destination": "/bagaglio/franchigia"
+ },
+ {
+  "Source": "/bagagli/bagaglio-a-mano",
+  "Destination": "/bagaglio/bagaglio-a-mano"
+ },
+ {
+  "Source": "/bagagli/bagaglio-da-stiva",
+  "Destination": "/bagaglio/bagaglio-da-stiva"
+ },
+ {
+  "Source": "/bagagli/oggetti-pericolosi",
+  "Destination": "/bagaglio/oggetti-pericolosi"
+ },
+ {
+  "Source": "/bagagli/bagagli-speciali",
+  "Destination": "/bagaglio/bagagli-speciali"
+ },
+ {
+  "Source": "/faq/covid",
+  "Destination": "/faq"
+ },
+ {
+  "Source": "/homepage-it",
+  "Destination": "/"
+ },
+ {
+  "Source": "/hai-bisogno-di-aiuto/assistenza-pre-volo-e-prenotazioni",
+  "Destination": "/supporto-e-contatti/assistenza-pre-volo-e-prenotazioni"
+ }
+]

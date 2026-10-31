@@ -1,0 +1,999 @@
+{
+ "docs": {
+  "/index": {
+   "uploaded": "2026-10-31T12:02:37.581Z",
+   "mtime": 1793447936791,
+   "preview": "2026-10-31T12:02:40.372Z"
+  },
+  "/destinazioni": {
+   "uploaded": "2026-10-31T12:02:47.257Z",
+   "mtime": 1793447937583,
+   "preview": "2026-10-31T12:02:49.772Z"
+  },
+  "/destinazioni/monaco-di-baviera": {
+   "uploaded": "2026-10-31T12:13:51.129Z",
+   "mtime": 1793448786530,
+   "preview": "2026-10-31T12:13:53.439Z"
+  },
+  "/destinazioni/francoforte": {
+   "uploaded": "2026-10-31T12:13:54.613Z",
+   "mtime": 1793448786567,
+   "preview": "2026-10-31T12:13:56.723Z"
+  },
+  "/servizi/parcheggi-convenzionati": {
+   "uploaded": "2026-10-31T12:03:25.116Z",
+   "mtime": 1793447940012,
+   "preview": "2026-10-31T12:03:27.214Z"
+  },
+  "/servizi/accesso-lounge": {
+   "uploaded": "2026-10-31T12:03:28.919Z",
+   "mtime": 1793447940103,
+   "preview": "2026-10-31T12:03:31.058Z"
+  },
+  "/servizi/autonoleggio": {
+   "uploaded": "2026-10-31T12:03:32.801Z",
+   "mtime": 1793447940173,
+   "preview": "2026-10-31T12:03:34.607Z"
+  },
+  "/miles-and-more-it": {
+   "uploaded": "2026-10-31T12:13:58.118Z",
+   "mtime": 1793448786656,
+   "preview": "2026-10-31T12:13:59.766Z"
+  },
+  "/flotta": {
+   "uploaded": "2026-10-31T12:03:42.216Z",
+   "mtime": 1793447940530,
+   "preview": "2026-10-31T12:03:44.079Z"
+  },
+  "/promozioni": {
+   "uploaded": "2026-10-31T12:03:45.743Z",
+   "mtime": 1793447940620,
+   "preview": "2026-10-31T12:03:47.867Z"
+  },
+  "/podcast": {
+   "uploaded": "2026-10-31T12:03:51.694Z",
+   "mtime": 1793447940852,
+   "preview": "2026-10-31T12:03:53.930Z"
+  },
+  "/articoli": {
+   "uploaded": "2026-10-31T12:03:55.112Z",
+   "mtime": 1793447940896,
+   "preview": "2026-10-31T12:03:56.391Z"
+  },
+  "/assistenza": {
+   "uploaded": "2026-10-31T12:03:58.186Z",
+   "mtime": 1793447940983,
+   "preview": "2026-10-31T12:04:00.286Z"
+  },
+  "/supporto-e-contatti": {
+   "uploaded": "2026-10-31T12:04:04.574Z",
+   "mtime": 1793447941265,
+   "preview": "2026-10-31T12:04:06.793Z"
+  },
+  "/viaggi-di-gruppo": {
+   "uploaded": "2026-10-31T12:04:08.718Z",
+   "mtime": 1793447941346,
+   "preview": "2026-10-31T12:04:10.601Z"
+  },
+  "/aeroporti": {
+   "uploaded": "2026-10-31T12:04:28.555Z",
+   "mtime": 1793447942771,
+   "preview": "2026-10-31T12:04:32.386Z"
+  },
+  "/requisiti-d-ingresso": {
+   "uploaded": "2026-10-31T12:04:33.482Z",
+   "mtime": 1793447942802,
+   "preview": "2026-10-31T12:04:35.158Z"
+  },
+  "/check-in-online-istruzioni-per-l-uso": {
+   "uploaded": "2026-10-31T12:04:38.944Z",
+   "mtime": 1793447943189,
+   "preview": "2026-10-31T12:04:41.167Z"
+  },
+  "/servizi-digitali": {
+   "uploaded": "2026-10-31T12:04:42.375Z",
+   "mtime": 1793447943225,
+   "preview": "2026-10-31T12:04:43.962Z"
+  },
+  "/voli-europa": {
+   "uploaded": "2026-10-31T12:04:56.219Z",
+   "mtime": 1793447944433,
+   "preview": "2026-10-31T12:04:59.413Z"
+  },
+  "/tariffe": {
+   "uploaded": "2026-10-31T12:05:06.021Z",
+   "mtime": 1793448085930,
+   "preview": "2026-10-31T12:05:08.498Z"
+  },
+  "/servizi-extra": {
+   "uploaded": "2026-10-31T12:05:11.412Z",
+   "mtime": 1793447944762,
+   "preview": "2026-10-31T12:05:18.548Z"
+  },
+  "/bagagli": {
+   "uploaded": "2026-10-31T12:05:23.368Z",
+   "mtime": 1793447945108,
+   "preview": "2026-10-31T12:05:25.558Z"
+  },
+  "/bagaglio/franchigia": {
+   "uploaded": "2026-10-31T12:05:27.368Z",
+   "mtime": 1793447945214,
+   "preview": "2026-10-31T12:05:29.322Z"
+  },
+  "/bagaglio/bagaglio-a-mano": {
+   "uploaded": "2026-10-31T12:05:30.908Z",
+   "mtime": 1793448086041,
+   "preview": "2026-10-31T12:05:33.156Z"
+  },
+  "/bagaglio/bagaglio-da-stiva": {
+   "uploaded": "2026-10-31T12:05:34.249Z",
+   "mtime": 1793447945353,
+   "preview": "2026-10-31T12:05:36.125Z"
+  },
+  "/bagaglio/bagagli-speciali": {
+   "uploaded": "2026-10-31T12:05:38.007Z",
+   "mtime": 1793447945457,
+   "preview": "2026-10-31T12:05:39.822Z"
+  },
+  "/bagaglio/oggetti-pericolosi": {
+   "uploaded": "2026-10-31T12:05:42.845Z",
+   "mtime": 1793447945665,
+   "preview": "2026-10-31T12:05:45.523Z"
+  },
+  "/bagaglio/dispositivi-elettronici-e-batterie": {
+   "uploaded": "2026-10-31T12:05:47.432Z",
+   "mtime": 1793447945769,
+   "preview": "2026-10-31T12:05:49.417Z"
+  },
+  "/servizi-a-bordo/sistema-di-intrattenimento-a-bordo": {
+   "uploaded": "2026-10-31T12:05:51.113Z",
+   "mtime": 1793447945849,
+   "preview": "2026-10-31T12:05:52.995Z"
+  },
+  "/servizi-a-bordo/servizio-di-bordo": {
+   "uploaded": "2026-10-31T12:14:00.965Z",
+   "mtime": 1793448787146,
+   "preview": "2026-10-31T12:14:02.690Z"
+  },
+  "/informazioni-per-il-viaggio/prenotazione-del-posto": {
+   "uploaded": "2026-10-31T12:05:58.507Z",
+   "mtime": 1793447946032,
+   "preview": "2026-10-31T12:06:00.574Z"
+  },
+  "/informazioni-per-il-viaggio/donne-in-gravidanza-e-minori-in-viaggio": {
+   "uploaded": "2026-10-31T12:06:02.390Z",
+   "mtime": 1793447946105,
+   "preview": "2026-10-31T12:06:04.216Z"
+  },
+  "/informazioni-per-il-viaggio/animali-a-bordo": {
+   "uploaded": "2026-10-31T12:06:06.625Z",
+   "mtime": 1793448086324,
+   "preview": "2026-10-31T12:06:08.699Z"
+  },
+  "/azienda/chi-siamo": {
+   "uploaded": "2026-10-31T12:06:12.475Z",
+   "mtime": 1793447946421,
+   "preview": "2026-10-31T12:06:14.566Z"
+  },
+  "/azienda/corporate-governance": {
+   "uploaded": "2026-10-31T12:06:15.607Z",
+   "mtime": 1793447946457,
+   "preview": "2026-10-31T12:06:17.005Z"
+  },
+  "/azienda/training": {
+   "uploaded": "2026-10-31T12:06:18.731Z",
+   "mtime": 1793448086401,
+   "preview": "2026-10-31T12:06:20.735Z"
+  },
+  "/contatti/sede": {
+   "uploaded": "2026-10-31T12:06:21.865Z",
+   "mtime": 1793447946557,
+   "preview": "2026-10-31T12:06:23.765Z"
+  },
+  "/contatti/ufficio-stampa": {
+   "uploaded": "2026-10-31T12:06:27.317Z",
+   "mtime": 1793447946754,
+   "preview": "2026-10-31T12:06:29.306Z"
+  },
+  "/supporto-e-contatti/assistenza-pre-volo-e-prenotazioni": {
+   "uploaded": "2026-10-31T12:06:30.302Z",
+   "mtime": 1793447946785,
+   "preview": "2026-10-31T12:06:31.793Z"
+  },
+  "/contatti/agenzie-di-viaggio": {
+   "uploaded": "2026-10-31T12:06:33.457Z",
+   "mtime": 1793447946852,
+   "preview": "2026-10-31T12:06:35.625Z"
+  },
+  "/comunicati-stampa": {
+   "uploaded": "2026-10-31T12:06:36.756Z",
+   "mtime": 1793447946917,
+   "preview": "2026-10-31T12:06:38.477Z"
+  },
+  "/consigli-di-viaggio": {
+   "uploaded": "2026-10-31T12:06:43.060Z",
+   "mtime": 1793447947279,
+   "preview": "2026-10-31T12:06:45.094Z"
+  },
+  "/tratte/volo-verona-monaco-di-baviera": {
+   "uploaded": "2026-10-31T12:06:47.422Z",
+   "mtime": 1793447947436,
+   "preview": "2026-10-31T12:06:49.789Z"
+  },
+  "/tratte/volo-da-firenze-a-francoforte": {
+   "uploaded": "2026-10-31T12:06:51.511Z",
+   "mtime": 1793447947521,
+   "preview": "2026-10-31T12:06:53.598Z"
+  },
+  "/tratte/volo-trieste-francoforte": {
+   "uploaded": "2026-10-31T12:06:55.215Z",
+   "mtime": 1793447947615,
+   "preview": "2026-10-31T12:06:57.201Z"
+  },
+  "/tratte/volo-brindisi-monaco-di-baviera": {
+   "uploaded": "2026-10-31T12:06:58.943Z",
+   "mtime": 1793447947706,
+   "preview": "2026-10-31T12:07:00.931Z"
+  },
+  "/informazioni-aggiornate": {
+   "uploaded": "2026-10-31T12:07:02.611Z",
+   "mtime": 1793448086719,
+   "preview": "2026-10-31T12:07:04.516Z"
+  },
+  "/informazioni-legali/uffici-di-conciliazione": {
+   "uploaded": "2026-10-31T12:07:06.233Z",
+   "mtime": 1793447947999,
+   "preview": "2026-10-31T12:07:08.346Z"
+  },
+  "/faq": {
+   "uploaded": "2026-10-31T12:07:14.500Z",
+   "mtime": 1793447948365,
+   "preview": "2026-10-31T12:07:16.512Z"
+  },
+  "/informazioni-legali/privacy": {
+   "uploaded": "2026-10-31T12:07:18.194Z",
+   "mtime": 1793447948440,
+   "preview": "2026-10-31T12:07:20.172Z"
+  },
+  "/informazioni-legali/condizioni-di-trasporto": {
+   "uploaded": "2026-10-31T12:07:21.824Z",
+   "mtime": 1793447948521,
+   "preview": "2026-10-31T12:07:23.829Z"
+  },
+  "/informazioni-legali/diritti-dei-passeggeri": {
+   "uploaded": "2026-10-31T12:07:25.601Z",
+   "mtime": 1793447948612,
+   "preview": "2026-10-31T12:07:27.513Z"
+  },
+  "/whistleblowing-it": {
+   "uploaded": "2026-10-31T12:07:28.613Z",
+   "mtime": 1793447948641,
+   "preview": "2026-10-31T12:07:30.046Z"
+  },
+  "/dichiarazione-accessibilita": {
+   "uploaded": "2026-10-31T12:07:31.715Z",
+   "mtime": 1793447948725,
+   "preview": "2026-10-31T12:07:33.423Z"
+  },
+  "/aeroporti/monaco-di-baviera": {
+   "uploaded": "2026-10-31T12:07:35.392Z",
+   "mtime": 1793447948826,
+   "preview": "2026-10-31T12:07:37.360Z"
+  },
+  "/destinazioni/monaco-di-baviera/cosa-vedere": {
+   "uploaded": "2026-10-31T12:07:43.925Z",
+   "mtime": 1793447949339,
+   "preview": "2026-10-31T12:07:46.559Z"
+  },
+  "/destinazioni/monaco-di-baviera/cosa-vedere/englischer-garten": {
+   "uploaded": "2026-10-31T12:07:49.581Z",
+   "mtime": 1793447949529,
+   "preview": "2026-10-31T12:07:51.604Z"
+  },
+  "/articoli/avgeek/i-flap": {
+   "uploaded": "2026-10-31T12:07:53.869Z",
+   "mtime": 1793448087081,
+   "preview": "2026-10-31T12:07:55.750Z"
+  },
+  "/faq/bagaglio": {
+   "uploaded": "2026-10-31T12:07:58.095Z",
+   "mtime": 1793447950006,
+   "preview": "2026-10-31T12:08:00.356Z"
+  },
+  "/promozioni/nuove-destinazioni": {
+   "uploaded": "2026-10-31T12:08:05.550Z",
+   "mtime": 1793447950364,
+   "preview": "2026-10-31T12:08:07.700Z"
+  },
+  "/servizi-extra/posto-a-sedere": {
+   "uploaded": "2026-10-31T12:08:08.718Z",
+   "mtime": 1793447950401,
+   "preview": "2026-10-31T12:08:10.386Z"
+  },
+  "/consigli-di-viaggio/come-fare-la-valigia": {
+   "uploaded": "2026-10-31T12:08:12.604Z",
+   "mtime": 1793447950544,
+   "preview": "2026-10-31T12:08:14.509Z"
+  },
+  "/tratte": {
+   "uploaded": "2026-10-31T12:08:15.503Z",
+   "mtime": 1793447950573,
+   "preview": "2026-10-31T12:08:16.859Z"
+  },
+  "/nav": {
+   "uploaded": "2026-10-31T12:08:18.569Z",
+   "mtime": 1793447952307,
+   "preview": "2026-10-31T12:08:20.640Z"
+  },
+  "/footer": {
+   "uploaded": "2026-10-31T12:14:03.972Z",
+   "mtime": 1793448788944,
+   "preview": "2026-10-31T12:14:05.271Z"
+  }
+ },
+ "media": {
+  "/media-da/airdolomiti/bavaria-autunno-homepage-d1a09534.jpg": {
+   "at": "2026-10-31T12:02:29.215Z"
+  },
+  "/media-da/airdolomiti/francoforte-skyline-e1749732142481-1b3cf51d.jpg": {
+   "at": "2026-10-31T12:02:29.878Z"
+  },
+  "/media-da/airdolomiti/monaco-di-baviera-e1749732401880-8f0bb7ff.jpg": {
+   "at": "2026-10-31T12:02:30.491Z"
+  },
+  "/media-da/airdolomiti/frankfurt-roemerberg-ostzeile-gerechtigkeitsbrunnen-1040242-64da3127.jpg": {
+   "at": "2026-10-31T12:02:31.208Z"
+  },
+  "/media-da/airdolomiti/esim-deals-e1792484731804-b6b9fb89.jpg": {
+   "at": "2026-10-31T12:02:31.842Z"
+  },
+  "/media-da/airdolomiti/promo-unicredit-2e55d6aa.jpg": {
+   "at": "2026-10-31T12:02:32.402Z"
+  },
+  "/media-da/airdolomiti/en-lhg-banner-701bf272.png": {
+   "at": "2026-10-31T12:02:32.994Z"
+  },
+  "/media-da/airdolomiti/leisure-airdolomiti-2180563b.jpg": {
+   "at": "2026-10-31T12:02:33.657Z"
+  },
+  "/media-da/airdolomiti/business-airdolomiti-e1749807643122-19e8a4e3.jpg": {
+   "at": "2026-10-31T12:02:34.267Z"
+  },
+  "/media-da/airdolomiti/esperienze-a-bordo-103b747b.jpg": {
+   "at": "2026-10-31T12:02:34.855Z"
+  },
+  "/media-da/airdolomiti/francoforte-verticale-scaled-43436944.jpg": {
+   "at": "2026-10-31T12:02:35.514Z"
+  },
+  "/media-da/airdolomiti/monaco-baviera-fiori-primavera-scaled-2a064f8f.jpg": {
+   "at": "2026-10-31T12:02:36.127Z"
+  },
+  "/media-da/airdolomiti/white-on-tuquoise-1024x724-122d0a9b.png": {
+   "at": "2026-10-31T12:02:36.867Z"
+  },
+  "/media-da/airdolomiti/francoforte-skyline-afca4ad0.jpg": {
+   "at": "2026-10-31T12:02:41.375Z"
+  },
+  "/media-da/airdolomiti/munich-gfac257d5c-1920-1-1-b38f6143.jpg": {
+   "at": "2026-10-31T12:02:42.116Z"
+  },
+  "/media-da/airdolomiti/extra-services-baggage-e1732262388818-4ef05a93.jpg": {
+   "at": "2026-10-31T12:02:42.914Z"
+  },
+  "/media-da/airdolomiti/liquids-baggage-4c04439f.jpg": {
+   "at": "2026-10-31T12:02:43.527Z"
+  },
+  "/media-da/airdolomiti/foto-x-mal-d-aereo-235e767f.jpg": {
+   "at": "2026-10-31T12:02:44.296Z"
+  },
+  "/media-da/airdolomiti/controllo-aeroporto-1-e1767018264565-6b085f00.jpg": {
+   "at": "2026-10-31T12:02:44.911Z"
+  },
+  "/media-da/airdolomiti/istock-853863796-servizi-digitali-1d69c363.jpg": {
+   "at": "2026-10-31T12:02:45.747Z"
+  },
+  "/media-da/airdolomiti/baggage-c6871b04.png": {
+   "at": "2026-10-31T12:02:46.605Z"
+  },
+  "/media-da/airdolomiti/monaco-di-baviera-marienplatz-0f6c615b.jpg": {
+   "at": "2026-10-31T12:02:50.793Z"
+  },
+  "/media-da/airdolomiti/monacodibaviera-dolomiti-1920x800-61777e48.jpg": {
+   "at": "2026-10-31T12:02:51.485Z"
+  },
+  "/media-da/airdolomiti/foto-donna-per-podcast-b185b1d5.jpg": {
+   "at": "2026-10-31T12:02:52.118Z"
+  },
+  "/media-da/airdolomiti/castello-di-neuschwanstein-monaco-baviera-1012x740-1-76983418.jpg": {
+   "at": "2026-10-31T12:02:52.761Z"
+  },
+  "/media-da/airdolomiti/biergarten-thumbnail-a993528b.jpg": {
+   "at": "2026-10-31T12:02:53.366Z"
+  },
+  "/media-da/airdolomiti/englischer-garten-thumbnail-cbb69df0.jpg": {
+   "at": "2026-10-31T12:02:53.957Z"
+  },
+  "/media-da/airdolomiti/maximilianstrasse-nachtimpression-augsburg-thumbnail-735c2f83.jpg": {
+   "at": "2026-10-31T12:02:54.599Z"
+  },
+  "/media-da/airdolomiti/zoo-famiglia-tierparkhellabrunn-thumbnail-af9db44c.jpg": {
+   "at": "2026-10-31T12:02:55.521Z"
+  },
+  "/media-da/airdolomiti/regensburg-germany-5c435570.jpg": {
+   "at": "2026-10-31T12:02:56.226Z"
+  },
+  "/media-da/airdolomiti/nuremberg-air-dolomiti-fc8b9882.jpg": {
+   "at": "2026-10-31T12:02:56.909Z"
+  },
+  "/media-da/airdolomiti/fussen-germany-74bb1c3c.jpg": {
+   "at": "2026-10-31T12:02:57.518Z"
+  },
+  "/media-da/airdolomiti/baviera-laghi-e1780583429574-2b11a033.jpg": {
+   "at": "2026-10-31T12:02:58.246Z"
+  },
+  "/media-da/airdolomiti/monaco-di-baviera-fiori-e1773737428861-6fdded11.jpg": {
+   "at": "2026-10-31T12:02:58.927Z"
+  },
+  "/media-da/airdolomiti/pinakothek-munchen-e1776777603658-237ec92d.jpg": {
+   "at": "2026-10-31T12:02:59.618Z"
+  },
+  "/media-da/airdolomiti/glockenspiel-marienplatz-monacodibaviera-991d9ebf.jpg": {
+   "at": "2026-10-31T12:03:00.222Z"
+  },
+  "/media-da/airdolomiti/parco-olimpico-monaco-di-baviera-1012x740-1-d69ced39.jpg": {
+   "at": "2026-10-31T12:03:00.888Z"
+  },
+  "/media-da/airdolomiti/istock-000048587264-medium-deutsches-museum-thumbnail-0a7d4848.jpg": {
+   "at": "2026-10-31T12:03:01.566Z"
+  },
+  "/media-da/airdolomiti/hofbr-uhaus-copy-thumbnail-7ce1e8b7.jpg": {
+   "at": "2026-10-31T12:03:02.398Z"
+  },
+  "/media-da/airdolomiti/englischergarten-1400x600-thumbnail-0e115ea7.jpg": {
+   "at": "2026-10-31T12:03:02.944Z"
+  },
+  "/media-da/airdolomiti/biergarten-2b98c112.jpg": {
+   "at": "2026-10-31T12:03:03.860Z"
+  },
+  "/media-da/airdolomiti/piatti-tipici-bavaresi-5108b49f.jpg": {
+   "at": "2026-10-31T12:03:04.618Z"
+  },
+  "/media-da/airdolomiti/foresta-nera-torta-fill-1400x600-1-54cb98a9.jpg": {
+   "at": "2026-10-31T12:03:05.250Z"
+  },
+  "/media-da/airdolomiti/dolci-tipici-tedeschi-1fa3a08b.jpg": {
+   "at": "2026-10-31T12:03:05.882Z"
+  },
+  "/media-da/airdolomiti/brezel-73a97b2f.png": {
+   "at": "2026-10-31T12:03:06.525Z"
+  },
+  "/media-da/airdolomiti/hb-muc-thumbnail-2dc6ecfc.jpg": {
+   "at": "2026-10-31T12:03:07.096Z"
+  },
+  "/media-da/airdolomiti/schermata-2021-10-21-alle-11-00-13-68c97c96.png": {
+   "at": "2026-10-31T12:03:07.659Z"
+  },
+  "/media-da/airdolomiti/francoforte-sulmeno-air-dolomiti-e1749718181716-2eb0d2e2.jpg": {
+   "at": "2026-10-31T12:03:13.344Z"
+  },
+  "/media-da/airdolomiti/frankfurt-main-tower-1012x740-2-737b73cc.jpg": {
+   "at": "2026-10-31T12:03:13.924Z"
+  },
+  "/media-da/airdolomiti/antiquariato-mercatini-bf5f12bd.jpg": {
+   "at": "2026-10-31T12:03:14.500Z"
+  },
+  "/media-da/airdolomiti/fiera-di-francoforte-1012x740-1-ea44788d.jpg": {
+   "at": "2026-10-31T12:03:15.102Z"
+  },
+  "/media-da/airdolomiti/tradizioni-natalizie-dolci-tipici-tedeschi-fb-thumbnail-1-036482e6.jpg": {
+   "at": "2026-10-31T12:03:15.669Z"
+  },
+  "/media-da/airdolomiti/frankfurt-e1790937794436-aa222250.jpg": {
+   "at": "2026-10-31T12:03:16.324Z"
+  },
+  "/media-da/airdolomiti/heidelberg-frankfurt-e1779271038980-e4d5af95.jpg": {
+   "at": "2026-10-31T12:03:16.959Z"
+  },
+  "/media-da/airdolomiti/francoforte-divertimento-scaled-3a61e383.jpg": {
+   "at": "2026-10-31T12:03:17.558Z"
+  },
+  "/media-da/airdolomiti/fra-hp-ita-scaled-a4086ec3.jpg": {
+   "at": "2026-10-31T12:03:18.235Z"
+  },
+  "/media-da/airdolomiti/stadio-calcio-370x442-fill-370x442-1-442ddc9b.jpg": {
+   "at": "2026-10-31T12:03:18.851Z"
+  },
+  "/media-da/airdolomiti/borsa-francoforte-370x442-fill-370x442-1-9f058257.jpg": {
+   "at": "2026-10-31T12:03:19.453Z"
+  },
+  "/media-da/airdolomiti/formaggio-con-musica-piattotipico-card-285c45c9.jpg": {
+   "at": "2026-10-31T12:03:20.120Z"
+  },
+  "/media-da/airdolomiti/parcheggio-aeropark-verona-scaled-e1730732438360-e91ca115.jpg": {
+   "at": "2026-10-31T12:03:24.429Z"
+  },
+  "/media-da/airdolomiti/istock-1144995627-lounges-93abe37d.jpg": {
+   "at": "2026-10-31T12:03:28.164Z"
+  },
+  "/media-da/airdolomiti/landingpage-sixt-air-dolomiti-promo-visual-650x452px-b88e8e6f.jpg": {
+   "at": "2026-10-31T12:03:32.018Z"
+  },
+  "/media-da/airdolomiti/istock-1149049398-miles-and-more-immersivo-e151f48f.jpg": {
+   "at": "2026-10-31T12:03:35.559Z"
+  },
+  "/media-da/airdolomiti/mm-unicredit-scaled-50072f26.jpg": {
+   "at": "2026-10-31T12:03:36.179Z"
+  },
+  "/media-da/airdolomiti/milesandmore-2024-new-programme-1012x740-3-a0a68a24.jpg": {
+   "at": "2026-10-31T12:03:36.844Z"
+  },
+  "/media-da/airdolomiti/adz-2305-gi-1285812471-768x1024-1-704ff642.jpg": {
+   "at": "2026-10-31T12:03:37.582Z"
+  },
+  "/media-da/airdolomiti/i-adjmtoalt-7e0b0d21.jpg": {
+   "at": "2026-10-31T12:03:41.545Z"
+  },
+  "/media-da/airdolomiti/ala-en-promo-scaled-8e65932f.jpg": {
+   "at": "2026-10-31T12:03:45.017Z"
+  },
+  "/media-da/airdolomiti/hero-image-podcast-3-1024x576-1-980f5053.jpg": {
+   "at": "2026-10-31T12:03:48.786Z"
+  },
+  "/media-da/airdolomiti/istock-1401006880-dark-microfono-dc338ed4.jpg": {
+   "at": "2026-10-31T12:03:49.367Z"
+  },
+  "/media-da/airdolomiti/lp-banner-ag-1024-71cd61f0.jpg": {
+   "at": "2026-10-31T12:03:50.055Z"
+  },
+  "/media-da/airdolomiti/lp-banner-green-1024-494db6f0.jpg": {
+   "at": "2026-10-31T12:03:50.956Z"
+  },
+  "/media-da/airdolomiti/one-click-away-768x400-ita-c2113c1c.jpg": {
+   "at": "2026-10-31T12:03:57.440Z"
+  },
+  "/media-da/airdolomiti/business-comfort-air-dolomiti-1399582c.jpg": {
+   "at": "2026-10-31T12:04:01.276Z"
+  },
+  "/media-da/airdolomiti/air-dolomiti-1-f9cee343.jpg": {
+   "at": "2026-10-31T12:04:01.865Z"
+  },
+  "/media-da/airdolomiti/book-a-group-1920x800-1-e1732013191118-c2ed59fa.jpg": {
+   "at": "2026-10-31T12:04:02.447Z"
+  },
+  "/media-da/airdolomiti/cabin-crew-air-dolomiti-e1787577411235-0f99ef10.jpg": {
+   "at": "2026-10-31T12:04:03.085Z"
+  },
+  "/media-da/airdolomiti/how-early-to-get-to-the-aiport-1012x740-1-34f98180.jpg": {
+   "at": "2026-10-31T12:04:03.672Z"
+  },
+  "/media-da/airdolomiti/book-a-group-1920x800-e1732004922857-7d28c18d.jpg": {
+   "at": "2026-10-31T12:04:07.921Z"
+  },
+  "/media-da/airdolomiti/ancona-monumento-sul-mare-1012x740-1-0b46a2d9.webp": {
+   "at": "2026-10-31T12:04:11.697Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-02-45-5aa6569c.jpg": {
+   "at": "2026-10-31T12:04:12.434Z"
+  },
+  "/media-da/airdolomiti/bologna-95824be5.jpg": {
+   "at": "2026-10-31T12:04:13.154Z"
+  },
+  "/media-da/airdolomiti/brindisi-aeroporto-1012x740-1-badbf040.jpg": {
+   "at": "2026-10-31T12:04:13.861Z"
+  },
+  "/media-da/airdolomiti/firenze-mainbanner-d-4-f3b23d57.jpg": {
+   "at": "2026-10-31T12:04:14.531Z"
+  },
+  "/media-da/airdolomiti/genova-aeroporto-1012x740-1-87defd5f.jpg": {
+   "at": "2026-10-31T12:04:15.239Z"
+  },
+  "/media-da/airdolomiti/milano-duomo-3cf9d69b.jpg": {
+   "at": "2026-10-31T12:04:15.846Z"
+  },
+  "/media-da/airdolomiti/milano-galleria-9ecc589d.jpg": {
+   "at": "2026-10-31T12:04:16.430Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-77-16af8bc8.jpg": {
+   "at": "2026-10-31T12:04:17.028Z"
+  },
+  "/media-da/airdolomiti/torino-e1731942699440-191a74e9.jpg": {
+   "at": "2026-10-31T12:04:17.766Z"
+  },
+  "/media-da/airdolomiti/aeroporto-trieste-1012x740-1-46317933.jpg": {
+   "at": "2026-10-31T12:04:18.353Z"
+  },
+  "/media-da/airdolomiti/venezia-gondole-519df4de.jpg": {
+   "at": "2026-10-31T12:04:18.952Z"
+  },
+  "/media-da/airdolomiti/verona-a03ad718.jpg": {
+   "at": "2026-10-31T12:04:19.610Z"
+  },
+  "/media-da/airdolomiti/munich-gfac257d5c-1920-1-2-849f6bd3.jpg": {
+   "at": "2026-10-31T12:04:20.372Z"
+  },
+  "/media-da/airdolomiti/aeroporto-basilea-1-e1739889723823-f72f692c.jpg": {
+   "at": "2026-10-31T12:04:21.031Z"
+  },
+  "/media-da/airdolomiti/birmingham-airdolomiti-dcfef680.jpg": {
+   "at": "2026-10-31T12:04:21.688Z"
+  },
+  "/media-da/airdolomiti/breslavia-centro-storico-1012x740-1-3091d09c.jpg": {
+   "at": "2026-10-31T12:04:22.285Z"
+  },
+  "/media-da/airdolomiti/cracovia-collina-wavel-1270x660-1-402c6b90.jpg": {
+   "at": "2026-10-31T12:04:22.914Z"
+  },
+  "/media-da/airdolomiti/ginevra-lago-montreaux-1012x740-1-889e5260.jpg": {
+   "at": "2026-10-31T12:04:23.669Z"
+  },
+  "/media-da/airdolomiti/graz-740x474-1-e1b409bb.webp": {
+   "at": "2026-10-31T12:04:24.240Z"
+  },
+  "/media-da/airdolomiti/lyon-place-des-terreaux-1012x740-2-38d610c5.jpg": {
+   "at": "2026-10-31T12:04:24.922Z"
+  },
+  "/media-da/airdolomiti/london-city-1012x740-1-8b19569f.jpg": {
+   "at": "2026-10-31T12:04:25.573Z"
+  },
+  "/media-da/airdolomiti/luxembourg-kirchberg-1012x740-1-7c2fcbec.jpg": {
+   "at": "2026-10-31T12:04:26.358Z"
+  },
+  "/media-da/airdolomiti/praga-airdolomiti-e1752663210828-9583c7e4.jpg": {
+   "at": "2026-10-31T12:04:27.058Z"
+  },
+  "/media-da/airdolomiti/zurigo-panorama-b3772c2e.jpg": {
+   "at": "2026-10-31T12:04:27.699Z"
+  },
+  "/media-da/airdolomiti/blog-f8fb5c15.jpg": {
+   "at": "2026-10-31T12:04:36.077Z"
+  },
+  "/media-da/airdolomiti/boarding-priority-scaled-e1751530073703-6da8460d.jpg": {
+   "at": "2026-10-31T12:04:36.735Z"
+  },
+  "/media-da/airdolomiti/servizi-extra-donna-bagaglio-787d6dfc.jpg": {
+   "at": "2026-10-31T12:04:37.533Z"
+  },
+  "/media-da/airdolomiti/img-0109-scaled-545d7ba8.jpg": {
+   "at": "2026-10-31T12:04:38.207Z"
+  },
+  "/media-da/airdolomiti/francoforte-centro-storico-740x474-1-372eb338.jpg": {
+   "at": "2026-10-31T12:04:45.068Z"
+  },
+  "/media-da/airdolomiti/francoforte768x1024-1a2530a2.jpg": {
+   "at": "2026-10-31T12:04:45.782Z"
+  },
+  "/media-da/airdolomiti/voli-per-francoforte-740x474-1-97e9c081.jpg": {
+   "at": "2026-10-31T12:04:46.348Z"
+  },
+  "/media-da/airdolomiti/fb-widescreen-clean-1-1-e001466f.jpg": {
+   "at": "2026-10-31T12:04:47.016Z"
+  },
+  "/media-da/airdolomiti/frankfurt-740x474-1-6c589c45.jpg": {
+   "at": "2026-10-31T12:04:47.632Z"
+  },
+  "/media-da/airdolomiti/francoforte-al-tramonto-vista-dal-meno-740x474-1-5be79a00.jpg": {
+   "at": "2026-10-31T12:04:48.247Z"
+  },
+  "/media-da/airdolomiti/piazza-della-citta-vecchia-romerberg-a-francoforte-germania-6a0cdd0b.jpg": {
+   "at": "2026-10-31T12:04:48.871Z"
+  },
+  "/media-da/airdolomiti/hofgarten-monaco-di-baviera-740x474-1-dabab66b.jpg": {
+   "at": "2026-10-31T12:04:49.560Z"
+  },
+  "/media-da/airdolomiti/marienplatz-monaco-di-baviera-veduta-aerea-740x474-1-f185a77e.jpg": {
+   "at": "2026-10-31T12:04:50.136Z"
+  },
+  "/media-da/airdolomiti/marienplatz-monaco-di-baviera-autunno-740x474-2-2bd3354b.jpg": {
+   "at": "2026-10-31T12:04:50.767Z"
+  },
+  "/media-da/airdolomiti/monaco-740x474-1-a8744b1b.jpg": {
+   "at": "2026-10-31T12:04:51.380Z"
+  },
+  "/media-da/airdolomiti/parco-olimpico-monaco-di-baviera-740x474-1-301b212b.jpg": {
+   "at": "2026-10-31T12:04:52.048Z"
+  },
+  "/media-da/airdolomiti/marienplatz-monaco-di-baviera-e1742481971903-f8a5c6b3.jpg": {
+   "at": "2026-10-31T12:04:52.791Z"
+  },
+  "/media-da/airdolomiti/marienplatz-monaco-di-baviera-autunno-740x474-1-dd435963.jpg": {
+   "at": "2026-10-31T12:04:53.443Z"
+  },
+  "/media-da/airdolomiti/04-munich-airport-center-thumbnail-1-9bc2241b.jpg": {
+   "at": "2026-10-31T12:04:54.073Z"
+  },
+  "/media-da/airdolomiti/monaco-1-thumbnail-7da61258.jpg": {
+   "at": "2026-10-31T12:04:54.784Z"
+  },
+  "/media-da/airdolomiti/air-dolomiti-eng-summer26-1920x1300-margini-larghi-91c671b1.png": {
+   "at": "2026-10-31T12:04:55.442Z"
+  },
+  "/media-da/airdolomiti/basic-air-dolomiti-cbc600df.jpg": {
+   "at": "2026-10-31T12:05:00.539Z"
+  },
+  "/media-da/airdolomiti/light-air-dolomiti-scaled-01072dcb.jpg": {
+   "at": "2026-10-31T12:05:01.195Z"
+  },
+  "/media-da/airdolomiti/smilingwoman-istock-2247404230-2268facd.jpg": {
+   "at": "2026-10-31T12:05:01.964Z"
+  },
+  "/media-da/airdolomiti/flex-air-dolomiti-0db232ec.jpg": {
+   "at": "2026-10-31T12:05:02.801Z"
+  },
+  "/media-da/airdolomiti/businessman-istock-2218789601-940b4d77.jpg": {
+   "at": "2026-10-31T12:05:03.539Z"
+  },
+  "/media-da/airdolomiti/lounges-e1787837693320-cd451dbe.jpg": {
+   "at": "2026-10-31T12:05:04.154Z"
+  },
+  "/media-da/airdolomiti/external-link-77c3fc9e-0aa353ed.png": {
+   "at": "2026-10-31T12:05:04.727Z"
+  },
+  "/media-da/airdolomiti/galleria-degli-uffizi-c8c0a993.jpg": {
+   "at": "2026-10-31T12:05:05.332Z"
+  },
+  "/media-da/airdolomiti/seats-air-dolomiti-bbf552a4.jpg": {
+   "at": "2026-10-31T12:05:09.413Z"
+  },
+  "/media-da/airdolomiti/esim-air-dolomiti-2bf55572.jpg": {
+   "at": "2026-10-31T12:05:10.043Z"
+  },
+  "/media-da/airdolomiti/uomo-al-computer-0a3d3dd9.jpg": {
+   "at": "2026-10-31T12:05:10.703Z"
+  },
+  "/media-da/airdolomiti/bagagli-franchigia-1-180df894.jpg": {
+   "at": "2026-10-31T12:05:19.476Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagaglioamano-1-ab9ab80d.jpg": {
+   "at": "2026-10-31T12:05:20.179Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagagliodastiva-2-34d77c1d.jpg": {
+   "at": "2026-10-31T12:05:20.747Z"
+  },
+  "/media-da/airdolomiti/bagagli-oggettipericolosi-1-250f884e.jpg": {
+   "at": "2026-10-31T12:05:21.405Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagaglispeciali-1-aab5d373.jpg": {
+   "at": "2026-10-31T12:05:22.008Z"
+  },
+  "/media-da/airdolomiti/card-dispositivi-elettronici-8c96b136.jpg": {
+   "at": "2026-10-31T12:05:22.615Z"
+  },
+  "/media-da/airdolomiti/servizi-extra-uomo-tatuato-bagaglio-8aeaedb3.jpg": {
+   "at": "2026-10-31T12:05:26.651Z"
+  },
+  "/media-da/airdolomiti/bagaglio-a-mano-2-723ec9ce.jpg": {
+   "at": "2026-10-31T12:05:30.251Z"
+  },
+  "/media-da/airdolomiti/istock-1146669397-bagagli-speciali-scaled-aaa35696.jpg": {
+   "at": "2026-10-31T12:05:37.218Z"
+  },
+  "/media-da/airdolomiti/istock-1330569479-dangerous-good-1-4b5b33ea.jpg": {
+   "at": "2026-10-31T12:05:40.840Z"
+  },
+  "/media-da/airdolomiti/liquidi-bagaglio-a-mano-fb-0f1c189d.jpg": {
+   "at": "2026-10-31T12:05:41.418Z"
+  },
+  "/media-da/airdolomiti/foto-x-donne-in-gravidanza-543088a0.jpg": {
+   "at": "2026-10-31T12:05:42.061Z"
+  },
+  "/media-da/airdolomiti/electronic-devices-1270x660-1-9a775668.jpg": {
+   "at": "2026-10-31T12:05:46.458Z"
+  },
+  "/media-da/airdolomiti/smartphone-sito-1920x1080-0f7d9b53.jpg": {
+   "at": "2026-10-31T12:05:50.297Z"
+  },
+  "/media-da/airdolomiti/img-0313-min-scaled-c88e32dc.jpg": {
+   "at": "2026-10-31T12:05:54.039Z"
+  },
+  "/media-da/airdolomiti/economy-seats-23f0132b.jpg": {
+   "at": "2026-10-31T12:05:57.731Z"
+  },
+  "/media-da/airdolomiti/istock-959983910-34a585e7.jpg": {
+   "at": "2026-10-31T12:06:01.635Z"
+  },
+  "/media-da/airdolomiti/fighting-dogs-1024x683-3f65933c.jpg": {
+   "at": "2026-10-31T12:06:05.251Z"
+  },
+  "/media-da/airdolomiti/istock-1069541252-sezione-animali-a-bordo-b5d611fd.jpg": {
+   "at": "2026-10-31T12:06:05.872Z"
+  },
+  "/media-da/airdolomiti/illustrazione-3b2194f3.png": {
+   "at": "2026-10-31T12:06:09.721Z"
+  },
+  "/media-da/airdolomiti/chi-siamo-e6648b0d.jpg": {
+   "at": "2026-10-31T12:06:10.331Z"
+  },
+  "/media-da/airdolomiti/fotogruppo-v4-1a9c8d00.jpg": {
+   "at": "2026-10-31T12:06:11.146Z"
+  },
+  "/media-da/airdolomiti/foto-interna-aereo-1dd66ee2.jpg": {
+   "at": "2026-10-31T12:06:11.719Z"
+  },
+  "/media-da/airdolomiti/istock-501064516-lavora-con-noi-d849c843.jpg": {
+   "at": "2026-10-31T12:06:17.937Z"
+  },
+  "/media-da/airdolomiti/azienda-2-8372d930.jpg": {
+   "at": "2026-10-31T12:06:24.732Z"
+  },
+  "/media-da/airdolomiti/esperienza-a-bordo-cddb364a.jpg": {
+   "at": "2026-10-31T12:06:25.348Z"
+  },
+  "/media-da/airdolomiti/azienda-1-a2d158af.jpg": {
+   "at": "2026-10-31T12:06:25.911Z"
+  },
+  "/media-da/airdolomiti/azienda-5-bc1b992f.jpg": {
+   "at": "2026-10-31T12:06:26.588Z"
+  },
+  "/media-da/airdolomiti/agenzie-viaggi-limit-500x500-1-b30659de.jpg": {
+   "at": "2026-10-31T12:06:32.728Z"
+  },
+  "/media-da/airdolomiti/airport-view-727602d4.jpg": {
+   "at": "2026-10-31T12:06:39.424Z"
+  },
+  "/media-da/airdolomiti/cosa-non-portare-3-f0e42c70.jpg": {
+   "at": "2026-10-31T12:06:40.008Z"
+  },
+  "/media-da/airdolomiti/check-in-aereo-1-e1741961499425-135fc1e0.jpg": {
+   "at": "2026-10-31T12:06:40.671Z"
+  },
+  "/media-da/airdolomiti/bagaglio-a-mano-cosa-portare-1012x740-1-82871eaf.jpg": {
+   "at": "2026-10-31T12:06:41.236Z"
+  },
+  "/media-da/airdolomiti/primo-volo-536a3fdb.jpg": {
+   "at": "2026-10-31T12:06:41.801Z"
+  },
+  "/media-da/airdolomiti/paura-di-volare-consigli-di-viaggio-403ba4dd.jpg": {
+   "at": "2026-10-31T12:06:42.407Z"
+  },
+  "/media-da/airdolomiti/monaco-mainbanner-d-7-a2e9a45f.jpg": {
+   "at": "2026-10-31T12:06:46.100Z"
+  },
+  "/media-da/airdolomiti/embraer195-air-dolomiti-sedili-nuovi-a590f4f0.jpg": {
+   "at": "2026-10-31T12:06:46.685Z"
+  },
+  "/media-da/airdolomiti/francoforteo-full-img-4-03f4b646.jpg": {
+   "at": "2026-10-31T12:06:50.740Z"
+  },
+  "/media-da/airdolomiti/francoforte-skyline-tramonto-hero1920x1080-6ae11047.jpg": {
+   "at": "2026-10-31T12:06:54.558Z"
+  },
+  "/media-da/airdolomiti/bds-landing-page-087af82a.jpg": {
+   "at": "2026-10-31T12:06:58.134Z"
+  },
+  "/media-da/airdolomiti/compliant-noncompliant-dogs-8f68b113.png": {
+   "at": "2026-10-31T12:07:01.907Z"
+  },
+  "/media-da/airdolomiti/istock-1396604423-conciliazione-cd7dd2a6.jpg": {
+   "at": "2026-10-31T12:07:05.459Z"
+  },
+  "/media-da/airdolomiti/tariffeaziendali2-0d78571a.jpg": {
+   "at": "2026-10-31T12:07:09.288Z"
+  },
+  "/media-da/airdolomiti/faq-checkin-2-6970c516.jpg": {
+   "at": "2026-10-31T12:07:09.899Z"
+  },
+  "/media-da/airdolomiti/faq-preparativiviaggio-2-610acc44.jpg": {
+   "at": "2026-10-31T12:07:10.523Z"
+  },
+  "/media-da/airdolomiti/faq-inareoporto-1-ff97a82e.jpg": {
+   "at": "2026-10-31T12:07:11.126Z"
+  },
+  "/media-da/airdolomiti/faq-abordo-5706f6ac.jpg": {
+   "at": "2026-10-31T12:07:11.752Z"
+  },
+  "/media-da/airdolomiti/faq-bagaglio-1-a9619f3a.jpg": {
+   "at": "2026-10-31T12:07:12.336Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagaglispeciali-3-f1fa3eed.jpg": {
+   "at": "2026-10-31T12:07:12.964Z"
+  },
+  "/media-da/airdolomiti/saf-card-faq-f0a0527b.jpg": {
+   "at": "2026-10-31T12:07:13.708Z"
+  },
+  "/media-da/airdolomiti/istock-1073378786-privacy-7a1b0fc1.jpg": {
+   "at": "2026-10-31T12:07:17.415Z"
+  },
+  "/media-da/airdolomiti/istock-1550170441-condizioni-di-trasporto-7deedb74.jpg": {
+   "at": "2026-10-31T12:07:21.128Z"
+  },
+  "/media-da/airdolomiti/istock-1337017931-diritti-dei-passeggeri-20108447.jpg": {
+   "at": "2026-10-31T12:07:24.748Z"
+  },
+  "/media-da/airdolomiti/yeah-logo-f22f247b.png": {
+   "at": "2026-10-31T12:07:30.930Z"
+  },
+  "/media-da/airdolomiti/monacodibaviera-dolomiti-768x1024-37b2516f.jpg": {
+   "at": "2026-10-31T12:07:34.602Z"
+  },
+  "/media-da/airdolomiti/monaco-di-baviera-20b9ae33.jpg": {
+   "at": "2026-10-31T12:07:38.408Z"
+  },
+  "/media-da/airdolomiti/monacodibaviera-marienplatz-1920x800-5e36ba98.jpg": {
+   "at": "2026-10-31T12:07:39.032Z"
+  },
+  "/media-da/airdolomiti/passau-donau-57cbaec2.jpg": {
+   "at": "2026-10-31T12:07:39.718Z"
+  },
+  "/media-da/airdolomiti/hofbr-uhaus-49ed40b7.jpg": {
+   "at": "2026-10-31T12:07:40.438Z"
+  },
+  "/media-da/airdolomiti/deutsches-museum-b3fd7077.jpg": {
+   "at": "2026-10-31T12:07:41.014Z"
+  },
+  "/media-da/airdolomiti/olympiapark-munich-7f2f90fb.jpg": {
+   "at": "2026-10-31T12:07:41.587Z"
+  },
+  "/media-da/airdolomiti/park-green-e1765968849377-809b7688.jpg": {
+   "at": "2026-10-31T12:07:42.360Z"
+  },
+  "/media-da/airdolomiti/olympiapark-muc-thumbnail-37808e0f.jpg": {
+   "at": "2026-10-31T12:07:43.009Z"
+  },
+  "/media-da/airdolomiti/hofbrauhaus-munchen-biers-dbff81b6.jpg": {
+   "at": "2026-10-31T12:07:47.573Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-07-3-fc7d3918.jpg": {
+   "at": "2026-10-31T12:07:48.179Z"
+  },
+  "/media-da/airdolomiti/monaco-deutsches-museum-e1773928415914-364a7930.jpg": {
+   "at": "2026-10-31T12:07:48.840Z"
+  },
+  "/media-da/airdolomiti/progetto-senza-titolo-1-1024x576-adaa0fb2.png": {
+   "at": "2026-10-31T12:07:52.533Z"
+  },
+  "/media-da/airdolomiti/foresta-nera-torta-thumbnail-5bf3eb33.jpg": {
+   "at": "2026-10-31T12:07:53.115Z"
+  },
+  "/media-da/airdolomiti/erol-ahmed-9xin0r2nwsm-unsplash-e1564570261977-41ca090d.jpg": {
+   "at": "2026-10-31T12:07:56.664Z"
+  },
+  "/media-da/airdolomiti/bagaglio-speciale-scaled-e1752149491144-286f132f.jpg": {
+   "at": "2026-10-31T12:07:57.325Z"
+  },
+  "/media-da/airdolomiti/monaco-dettaglio-neve-d358617c.jpg": {
+   "at": "2026-10-31T12:08:01.610Z"
+  },
+  "/media-da/airdolomiti/amsterdam-canal-card-e1743606441572-46125e43.jpg": {
+   "at": "2026-10-31T12:08:02.192Z"
+  },
+  "/media-da/airdolomiti/ancona-conero-sirolo-beach-740x740-1-23c4bdaa.jpg": {
+   "at": "2026-10-31T12:08:02.853Z"
+  },
+  "/media-da/airdolomiti/zurigo-panorama-fef538be.jpg": {
+   "at": "2026-10-31T12:08:03.573Z"
+  },
+  "/media-da/airdolomiti/pula-croatia-amphitheatre-740x740-1-939fcc05.jpg": {
+   "at": "2026-10-31T12:08:04.202Z"
+  },
+  "/media-da/airdolomiti/palermo-pretoria-fountain-740x740-1-abf8d499.jpg": {
+   "at": "2026-10-31T12:08:04.873Z"
+  },
+  "/media-da/airdolomiti/servizi-extra-bagaglio-e1750339706448-033be70c.jpg": {
+   "at": "2026-10-31T12:08:11.318Z"
+  },
+  "/media-da/airdolomiti/valigia-bagaglio-a-mano-370x442-1-93023005.jpg": {
+   "at": "2026-10-31T12:08:11.907Z"
+  },
+  "/media-da/airdolomiti/logo-desktop-475ff090-420a9116.png": {
+   "at": "2026-10-31T12:08:17.816Z"
+  },
+  "/media-da/airdolomiti/logo-x-footer-9438f903.png": {
+   "at": "2026-10-31T12:08:21.566Z"
+  },
+  "/media-da/airdolomiti/logo-tiktok-footer-6cf0706f.png": {
+   "at": "2026-10-31T12:08:22.202Z"
+  },
+  "/media-da/airdolomiti/amex-1-d618d271.png": {
+   "at": "2026-10-31T12:08:22.767Z"
+  },
+  "/media-da/airdolomiti/mastercard-c8933340.png": {
+   "at": "2026-10-31T12:08:23.385Z"
+  },
+  "/media-da/airdolomiti/visa-2ed953e1.png": {
+   "at": "2026-10-31T12:08:23.937Z"
+  },
+  "/media-da/airdolomiti/paypal-a1c5b4b1.png": {
+   "at": "2026-10-31T12:08:24.494Z"
+  }
+ }
+}
