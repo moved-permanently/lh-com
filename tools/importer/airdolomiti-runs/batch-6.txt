@@ -1,0 +1,59 @@
+# lh-airdolomiti batch-6 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T14:31Z; not published
+# documents (40 + /nav, /footer):
+/articoli/avgeek/il-flight-director
+/articoli/avgeek/il-tail-number
+/articoli/avgeek/il-tubo-di-pitot
+/articoli/avgeek/il-variometro
+/articoli/avgeek/imbarco-a-sinistra
+/articoli/avgeek/la-manutenzione-degli-aerei
+/articoli/avgeek/la-manutenzione-degli-aerei-negli-hangar-air-dolomiti
+/articoli/avgeek/la-scatola-nera
+/articoli/avgeek/la-segnaletica-sulle-piste-di-atterraggio
+/articoli/avgeek/la-strumentazione-bordo
+/articoli/avgeek/let-it-snow-let-it-snow-let-it-snow-2
+/articoli/avgeek/motori-degli-aerei
+/articoli/avgeek/perche-gli-aerei-possono-volare
+/articoli/avgeek/perche-il-comandante-siede-a-sinistra
+/articoli/avgeek/pilota-automatico
+/articoli/avgeek/plane-speaking-3
+/articoli/avgeek/professione-pilota-intervista-con-il-comandante-marino-palla
+/articoli/avgeek/professione-pilota-intervista-con-il-primo-ufficiale-grigory-shevandin
+/articoli/avgeek/ridondanza
+/articoli/avgeek/rifornimento-in-volo
+/articoli/avgeek/roger-o-romeo
+/articoli/avgeek/una-giornata-con-un-comandante-air-dolomiti
+/articoli/avgeek/vhf-omnidirectional-range-vor-2
+/articoli/destinazioni/a-sud-di-bari-il-salento
+/articoli/destinazioni/alla-scoperta-della-germania-fiabesca
+/articoli/destinazioni/arte-contemporanea-pisa-itinerario-street-art
+/articoli/destinazioni/bari-contemporanea-cose-da-non-perdere-art-addicted
+/articoli/destinazioni/biennale-arte-2019-venezia-consigli-padiglioni-da-visitare
+/articoli/destinazioni/bologna-diversa-per-ogni-eta
+/articoli/destinazioni/bologna-in-bicicletta-locali-negozi-vintage-street-art
+/articoli/destinazioni/bologna-segreta
+/articoli/destinazioni/brindisi-per-gli-appassionati-di-storia-e-non-solo
+/articoli/destinazioni/cosa-fare-a-francoforte-se
+/articoli/destinazioni/da-verona-a-peschiera-del-garda-in-soli-30-minuti
+/articoli/destinazioni/discover-monaco-di-baviera-storia-e-leggende
+/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio
+/articoli/destinazioni/dove-sciare-vicino-venezia-cortina-dampezzo
+/articoli/destinazioni/estate-sulle-alpi-calcaree-nord-tirolesi-lincredibile-zugspitze
+/articoli/destinazioni/firenze-prato-consigli-itinerario-creativo
+/articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: 5 problems:
+#   /articoli/avgeek/la-segnaletica-sulle-piste-di-atterraggio h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=2 errors=-
+#   /articoli/avgeek/vhf-omnidirectional-range-vor-2 h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/destinazioni/a-sud-di-bari-il-salento  h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/destinazioni/bologna-diversa-per-ogni-eta h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/destinazioni/bologna-in-bicicletta-locali-negozi-vintage-street-art h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=3 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/articoli/avgeek/il-flight-director -> /articoli/avgeek/il-flight-director: text 1/2, images 1/1 (+1), links 3/3 (+0)
+#   https://www.airdolomiti.it/articoli/avgeek/roger-o-romeo -> /articoli/avgeek/roger-o-romeo: text 1/2, images 0/0 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.it/articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione -> /articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione: text 5/6, images 3/3 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.it/articoli/avgeek/il-flight-director: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/avgeek/roger-o-romeo: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione: text missing: "tempo di lettura: 3 minuti"
