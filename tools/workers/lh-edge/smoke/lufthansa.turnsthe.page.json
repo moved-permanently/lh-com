@@ -136,7 +136,7 @@
   "status": 404,
   "location": "",
   "type": "text/html; charset=utf-8",
-  "hash": "0b9b30cc42d6566d",
+  "hash": "24f492ec3f3ee16f",
   "route": ""
  },
  {
@@ -236,7 +236,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "72127a98c97510aa",
+  "hash": "e4d827821145d845",
   "route": ""
  },
  {
@@ -296,7 +296,7 @@
   "status": 200,
   "location": "",
   "type": "application/pdf",
-  "length": 171474,
+  "length": 106176,
   "hash": "e3b0c44298fc1c14",
   "route": "dam"
  },
@@ -794,7 +794,7 @@
   "status": 200,
   "location": "",
   "type": "text/xml",
-  "hash": "61a86aa5a102ada4",
+  "hash": "779e7f67a1b5b67a",
   "route": ""
  },
  {
@@ -804,8 +804,8 @@
   "status": 200,
   "location": "",
   "type": "application/octet-stream",
-  "length": 28222,
-  "hash": "6f8dfc56746b49eb",
+  "length": 28252,
+  "hash": "1cbe3270af305166",
   "route": "sitemap-gz"
  },
  {
@@ -869,13 +869,35 @@
   "route": "well-known"
  },
  {
+  "key": "GET /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "path": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa/LufthansaTextWeb-Regular.woff2",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "font/woff2",
+  "length": 51648,
+  "hash": "d9f86fb0251696b9",
+  "route": "digitalhangar"
+ },
+ {
+  "key": "GET /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff",
+  "path": "/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/ita/OpenSans-Regular.woff",
+  "method": "GET",
+  "status": 200,
+  "location": "",
+  "type": "font/woff",
+  "length": 63712,
+  "hash": "2e1587380141daff",
+  "route": "digitalhangar"
+ },
+ {
   "key": "POST /service/secured/api/search",
   "path": "/service/secured/api/search",
   "method": "POST",
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "537ed05f33362ff4",
+  "hash": "26faef549c584ed3",
   "route": "search"
  },
  {
@@ -885,7 +907,7 @@
   "status": 200,
   "location": "",
   "type": "application/json",
-  "hash": "43af34144f75a2a1",
+  "hash": "1b737f5d3569dd66",
   "route": "search"
  },
  {
