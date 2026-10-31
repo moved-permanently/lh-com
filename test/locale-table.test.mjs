@@ -81,7 +81,11 @@ test('a root without a row: its own country and language, no home airport or cur
   }, {
     country: 'us', lang: 'en', homeAirport: null, currency: null, key: 'de/en', base: '/de/en', root: 'us/en',
   });
-  assert.equal(getLocale('/fr/de/x').key, 'de/de', 'German: de/de\'s documents');
+  // a German root of www's without a row yet (the rollout gives them rows batch by batch: fr/de
+  // in batch 8), else none left to check
+  const { roots } = JSON.parse(fs.readFileSync('tools/source-export/feeds/sitemaps/roots.json', 'utf8'));
+  const rowless = roots.map((r) => `${r.cc}/${r.ll}`).find((k) => k.endsWith('/de') && !LOCALE_TABLE[k]);
+  if (rowless) assert.equal(getLocale(`/${rowless}/x`).key, 'de/de', `German: de/de's documents (${rowless})`);
   const fr = getLocale('/fr/fr/homepage');
   assert.deepEqual({ ...core(fr), key: fr.key }, {
     country: 'fr', lang: 'fr', homeAirport: null, currency: null, key: 'de/en',

@@ -1,0 +1,958 @@
+[
+ {
+  "root": "cy/de",
+  "page": "/cy/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "cy/de",
+  "page": "/cy/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "cy/de",
+  "page": "/cy/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "cy/en",
+  "page": "/cy/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "dublin ireland"
+  ],
+  "nHere": 0,
+  "nLanguage": 456,
+  "components": ""
+ },
+ {
+  "root": "cy/en",
+  "page": "/cy/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "cy/en",
+  "page": "/cy/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "dz/de",
+  "page": "/dz/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "dz/de",
+  "page": "/dz/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "dz/de",
+  "page": "/dz/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "dz/en",
+  "page": "/dz/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 92,
+  "onlyHere": [
+   "best price prague czech republic",
+   "best price brussels belgium",
+   "best price paris france",
+   "best price chicago usa",
+   "best price male maldives"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "paris france",
+   "linz austria"
+  ],
+  "nHere": 12,
+  "nLanguage": 380,
+  "components": ""
+ },
+ {
+  "root": "dz/en",
+  "page": "/dz/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "dz/en",
+  "page": "/dz/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "ec/de",
+  "page": "/ec/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "ec/de",
+  "page": "/ec/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "ec/de",
+  "page": "/ec/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "ec/en",
+  "page": "/ec/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 28,
+  "onlyHere": [
+   "frankfurt germany"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "dublin ireland"
+  ],
+  "nHere": 1,
+  "nLanguage": 444,
+  "components": ""
+ },
+ {
+  "root": "ec/en",
+  "page": "/ec/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "ec/en",
+  "page": "/ec/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "es/de",
+  "page": "/es/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "es/de",
+  "page": "/es/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "es/de",
+  "page": "/es/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "es/en",
+  "page": "/es/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 219,
+  "onlyHere": [
+   "recommended delhi india",
+   "recommended vancouver canada",
+   "frankfurt germany",
+   "best price zagreb croatia",
+   "bern switzerland"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "dublin ireland"
+  ],
+  "nHere": 32,
+  "nLanguage": 253,
+  "components": ""
+ },
+ {
+  "root": "es/en",
+  "page": "/es/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "es/en",
+  "page": "/es/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "fr/de",
+  "page": "/fr/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "fr/de",
+  "page": "/fr/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "fr/de",
+  "page": "/fr/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "fr/en",
+  "page": "/fr/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 293,
+  "onlyHere": [
+   "best price olbia italy",
+   "best price zagreb croatia",
+   "best price brussels belgium",
+   "best price ottawa canada",
+   "best price jacksonville, fl usa"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "strasbourg france"
+  ],
+  "nHere": 55,
+  "nLanguage": 179,
+  "components": ""
+ },
+ {
+  "root": "fr/en",
+  "page": "/fr/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "fr/en",
+  "page": "/fr/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gq/de",
+  "page": "/gq/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "gq/de",
+  "page": "/gq/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gq/de",
+  "page": "/gq/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gq/en",
+  "page": "/gq/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 19,
+  "onlyHere": [
+   "best price madrid spain",
+   "best price barcelona spain",
+   "best price lisbon portugal",
+   "best price new york usa",
+   "best price edinburgh united kingdom"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "dublin ireland"
+  ],
+  "nHere": 7,
+  "nLanguage": 453,
+  "components": ""
+ },
+ {
+  "root": "gq/en",
+  "page": "/gq/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gq/en",
+  "page": "/gq/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gr/de",
+  "page": "/gr/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "gr/de",
+  "page": "/gr/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 15,
+  "onlyHere": [
+   "mit rund #millionen passagieren pro jahr zählt der frankfurt airport zu den drei ‹cc›ößten flughäfen europas. informieren sie sich über die anfahrtsmöglichkeiten, das lufthansa terminal, die lufthansa services sowie regelmäßig stattfindende veranstaltungen des ‹cc›ößten der sechs lufthansa drehkreuze."
+  ],
+  "onlyLanguage": [
+   "mit rund #millionen passagieren pro jahr zählt der frankfurt airport zu den drei größten flughäfen europas. informieren sie sich über die anfahrtsmöglichkeiten, das lufthansa terminal, die lufthansa services sowie regelmäßig stattfindende veranstaltungen des größten der sechs lufthansa drehkreuze."
+  ],
+  "nHere": 1,
+  "nLanguage": 1,
+  "components": ""
+ },
+ {
+  "root": "gr/de",
+  "page": "/gr/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gr/en",
+  "page": "/gr/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 211,
+  "onlyHere": [
+   "recommended boston usa",
+   "recommended new york usa",
+   "recommended montreal canada",
+   "recommended vancouver canada",
+   "recommended los angeles usa"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "athens greece"
+  ],
+  "nHere": 30,
+  "nLanguage": 261,
+  "components": ""
+ },
+ {
+  "root": "gr/en",
+  "page": "/gr/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "gr/en",
+  "page": "/gr/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "hk/de",
+  "page": "/hk/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "hk/de",
+  "page": "/hk/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "hk/de",
+  "page": "/hk/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "hk/en",
+  "page": "/hk/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 132,
+  "onlyHere": [
+   "best price brussels belgium",
+   "best price stockholm sweden",
+   "best price riga latvia",
+   "best price gdansk poland",
+   "best price zagreb croatia"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "basel switzerland",
+   "palma ‹cc› mallorca spain"
+  ],
+  "nHere": 13,
+  "nLanguage": 340,
+  "components": ""
+ },
+ {
+  "root": "hk/en",
+  "page": "/hk/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "hk/en",
+  "page": "/hk/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "it/de",
+  "page": "/it/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "#meilen pro ¤",
+   "für jede über getyourguide getätigte buchung erhalten sie pro ausgegebenem euro fünf meilen. geben sie bei der buchung einfach ihre miles & more servicekartennummer an und die meilen werden ihnen automatisch nach durchführung der aktivität gutgeschrieben. für unvergessliche reisemomente.",
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 4,
+  "nLanguage": 2,
+  "components": "+image,headline,text,link -"
+ },
+ {
+  "root": "it/de",
+  "page": "/it/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "it/de",
+  "page": "/it/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "it/en",
+  "page": "/it/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 271,
+  "onlyHere": [
+   "recommended new york usa",
+   "recommended los angeles usa",
+   "recommended bangkok thailand",
+   "recommended tokyo japan",
+   "palma de mallorca spain"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "mulhouse basel switzerland",
+   "palma ‹cc› mallorca spain"
+  ],
+  "nHere": 58,
+  "nLanguage": 201,
+  "components": "+headline,text,link,image -"
+ },
+ {
+  "root": "it/en",
+  "page": "/it/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "it/en",
+  "page": "/it/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "jp/de",
+  "page": "/jp/de/fluege",
+  "language": "/de/de/fluege",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 6,
+  "onlyHere": [
+   "einreisebestimmungen",
+   "die aktuellen bestimmungen für ihr reiseziel finden sie nach eingabe ihres ab- und zielflughafens hier."
+  ],
+  "onlyLanguage": [
+   "parken am terminal",
+   "parkplatz direkt am terminal buchen, sparen und jetzt doppelt meilen sammeln!"
+  ],
+  "nHere": 2,
+  "nLanguage": 2,
+  "components": ""
+ },
+ {
+  "root": "jp/de",
+  "page": "/jp/de/flughafeninformation",
+  "language": "/de/de/flughafeninformation",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "jp/de",
+  "page": "/jp/de/additional-services",
+  "language": "/de/de/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "jp/en",
+  "page": "/jp/en/flights",
+  "language": "/de/en/flights",
+  "status": "differs",
+  "reference": "same day",
+  "textShared": 130,
+  "onlyHere": [
+   "limited economy offer! special fares for your europe getaway our limited economy offer to europe is available until october #with travel valid from october #to april #*. * blackout dates: departures from japan december #-#departure from europe january #-#may #-#august #– november#january #-#availability is subject to fare conditions and seat availability.",
+   "best price stockholm sweden",
+   "best price brussels belgium",
+   "best price stuttgart germany",
+   "best price zagreb croatia"
+  ],
+  "onlyLanguage": [
+   "recommended salzburg austria",
+   "recommended larnaca cyprus",
+   "recommended calgary canada",
+   "palma ‹cc› mallorca spain",
+   "chisinau moldova"
+  ],
+  "nHere": 22,
+  "nLanguage": 342,
+  "components": "+text -"
+ },
+ {
+  "root": "jp/en",
+  "page": "/jp/en/airport-information",
+  "language": "/de/en/airport-information",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 16,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ },
+ {
+  "root": "jp/en",
+  "page": "/jp/en/additional-services",
+  "language": "/de/en/additional-services",
+  "status": "same",
+  "reference": "same day",
+  "textShared": 24,
+  "onlyHere": [],
+  "onlyLanguage": [],
+  "nHere": 0,
+  "nLanguage": 0,
+  "components": ""
+ }
+]
