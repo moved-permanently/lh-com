@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-10 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T16:27Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/index
+/en/accessibility-statement
+/en/additional-services
+/en/airports
+/en/articles
+/en/assistance
+/en/baggage
+/en/business-en
+/en/current-flight-information
+/en/destinations
+/en/digital-services
+/en/economy-basic-fare
+/en/entry-requirements
+/en/environmental-cost-surcharge
+/en/eu-cont-fares
+/en/faq-eu
+/en/fares
+/en/fleet
+/en/flights-europe
+/en/group-travel
+/en/leisure-en
+/en/miles-and-more
+/en/online-check-in-instructions
+/en/press-area
+/en/privacy-policy
+/en/promotions
+/en/routes
+/en/support-and-contacts
+/en/travel-tips
+/en/whistleblowing
+/en/corporate/history
+/en/contacts/addresses
+/en/contacts/press-office
+/en/contacts/travel-agents-area
+/en/support-and-contacts/customer-relations-eu
+/en/support-and-contacts/customer-relations-eu-2
+/en/do-you-need-help/irregularity-lost-luggage
+/en/legal-info/air-carrier-liability
+/en/legal-info/arbitration-boards
+/en/legal-info/passengers-rights
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu -> /en: text 24/25, images 7/7 (+7), links 18/18 (+3)
+#   https://www.airdolomiti.eu/accessibility-statement -> /en/accessibility-statement: text 44/44, images 1/1 (+0), links 4/4 (+0)
+#   https://www.airdolomiti.eu/corporate/history -> /en/corporate/history: text 25/26, images 1/1 (+3), links 2/2 (+1)
+#   https://www.airdolomiti.eu: text missing: "sign up to our newsletter"
+#   https://www.airdolomiti.eu/accessibility-statement: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/corporate/history: text missing: "sign up to our newsletter"

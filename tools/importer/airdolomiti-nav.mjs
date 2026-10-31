@@ -40,7 +40,7 @@ const SETUP = {
     home: 'https://www.airdolomiti.eu', menu: 'menu', footer: 'footer', prefix: '/en', logoAlt: 'Air Dolomiti, back to the homepage', menuLabel: 'Menu', assist: ['Assistance', '/assistance'], payments: 'Payment methods',
   },
   de: {
-    home: 'https://www.airdolomiti.de', menu: 'menu-3', footer: 'footer-de', prefix: '/de', logoAlt: 'Air Dolomiti, zurück zur Startseite', menuLabel: 'Menü', assist: ['Assistenz', '/assistenz'], payments: 'Zahlungsmethoden',
+    home: 'https://www.airdolomiti.de', menu: 'menu-3', footer: 'footer-de', prefix: '/de', logoAlt: 'Air Dolomiti, zurück zur Startseite', menuLabel: 'Menü', assist: ['Betreuung', '/betreuung'], payments: 'Zahlungsmethoden',
   },
 }[lang];
 const LOGO = 'https://www.airdolomiti.it/_next/static/media/logo-desktop.475ff090.png';
