@@ -15,7 +15,7 @@ import {
   toCamelCase,
   toClassName,
 } from './aem.js';
-import { getLocale } from './locale.js';
+import { getLocale, rootRedirectPath } from './locale.js';
 import { marketAllows } from './market-rules.js';
 import { initConsent, isAuthoringContext, martechWanted } from './consent.js';
 import { applyChannel } from './channel.js';
@@ -474,10 +474,13 @@ function loadDelayed() {
 
 async function loadPage() {
   // the live site sends / to the German homepage for a visitor in Germany (not inside DA)
-  // (keeps the query, e.g. ?channel=app; on lh-flynet this lands on the FlyNet start page);
-  // demo hosts only: in production the router answers / (lh-edge entry redirects)
-  if (window.location.pathname === '/' && !isAuthoringContext() && isDemoHost()) {
-    window.location.replace(`/de/de/homepage${window.location.search}`);
+  // (keeps the query, e.g. ?channel=app; on lh-flynet this lands on the FlyNet start page); a
+  // brand site to its own homepage, none for a brand whose homepage is / (locale.js
+  // rootRedirectPath); demo hosts only: in production the router answers / (lh-edge entry
+  // redirects)
+  const home = rootRedirectPath();
+  if (home && window.location.pathname === '/' && !isAuthoringContext() && isDemoHost()) {
+    window.location.replace(`${home}${window.location.search}`);
     return;
   }
   await loadEager(document);

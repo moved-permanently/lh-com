@@ -204,6 +204,20 @@ export function ownRoots(read = pageMeta) {
   return Object.keys(site.rows).filter((root) => site.names[root] || site.rows[root].label);
 }
 
+/**
+ * Where a demo host sends / (scripts.js loadPage): lh-com's German homepage, as the live site does
+ * for a visitor in Germany; a brand site with roots its first language version's homepage, as
+ * lh-edge's entry redirect for / (src/index.js siteRespond); '' (no redirect) for a brand without
+ * roots: Air Dolomiti's homepage is the document at /, Cargo's hosts redirect / before the page.
+ * @param {Function} [read] metadata reader
+ * @returns {string}
+ */
+export function rootRedirectPath(read = pageMeta) {
+  if (!brandKey(read)) return '/de/de/homepage';
+  const site = brandSite(read);
+  return site ? `/${Object.values(site.versions)[0]}/homepage` : '';
+}
+
 /** The page's brand entry (scripts/brands.js BRANDS), or null (lh-com and no page). */
 export function brandEntry(read = pageMeta) {
   const key = brandKey(read);
