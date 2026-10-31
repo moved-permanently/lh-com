@@ -1,0 +1,149 @@
+/*
+ * Air Dolomiti: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * `brand: airdolomiti` (lh-airdolomiti's /metadata.json). Values from the Stardust design-system
+ * extract of www.airdolomiti.it (computed-style census of the homepage, a route, the Munich
+ * destination, a baggage page and a blog post at 1440 px, 2026-10-31; stardust/current/
+ * _computed-styles.json): navy #002e54 for text, headings and links, teal #00798a for the large
+ * coloured bands and the buttons (hover #0093a8), a dark teal footer #00616d, a warm beige
+ * surface #f6f2ef, borders #e8e8e8, a white header bar with navy text, a 10 px radius.
+ * Type: Euclid Circular B (next/font on www, weights 300-700, roman and italic), headings light
+ * (h2 38 px / 300, h1 600), copy 16 px with a 1.7 line height. The font files are copies of
+ * www's (cleared for the demo, also for serving from our own hosts) in fonts/airdolomiti/.
+ * The logo is the image in the site's nav and footer documents. lh-com's own pages never load
+ * this file.
+ */
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-300-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-400-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-500-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-600-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EuclidCircularB;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/airdolomiti/EuclidCircularB-700-italic.woff2') format('woff2');
+}
+
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with Air Dolomiti's values */
+  --lh-deepblue: #002e54; /* navy: text, headings, borders, dark surfaces */
+  --lh-deepblue-transparent: #002e541a;
+  --lh-midnight: #040f32; /* the darkest navy (menu borders on www) */
+  --lh-whale-blue: #00798a; /* teal */
+  --lh-marble-blue: #00616d; /* dark teal */
+  --lh-yellow: #00798a; /* teal: primary actions */
+  --lh-sunglow-yellow: #0093a8; /* their hover */
+  --lh-grey-1: #f6f2ef; /* warm beige surface (grey bands, cards) */
+  --lh-grey-2: #e8e8e8; /* borders */
+  --lh-grey-3: #d2d2d2;
+  --lh-grey-6: #808080;
+  --lh-grey-7: #6e6e6e; /* muted text */
+  --lh-grey-8: #1f1f1f; /* form text */
+
+  /* roles */
+  --text-color: #002e54;
+  --heading-color: #002e54;
+  --link-color: #002e54;
+  --link-hover-color: #00798a;
+  --brand-color: #00798a;
+  --border-color: #d2d2d2;
+  --border-light-color: #e8e8e8;
+
+  /* radius: www's cards and buttons 10 px */
+  --radius-l: 10px;
+
+  /* fonts: Euclid Circular B throughout, copy 16 px / 1.7 */
+  --body-font-family: euclidcircularb, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: euclidcircularb, arial, helvetica, mammilessymbol, sans-serif;
+  --body-font-size-m: 16px;
+  --body-line-height: 1.7;
+
+  /* buttons: primary white on teal, secondary teal on white, 10 px radius */
+  --button-primary-text: #fff;
+  --button-secondary-color: #00798a;
+  --button-secondary-hover: #0093a8;
+  --button-radius: 10px;
+
+  /* the hero card's headline (hero-card-overlay light) */
+  --hero-card-heading-color: #002e54;
+
+  /* header: white bar, navy text, teal hover */
+  --header-bar-surface: #fff;
+  --header-bar-text: #002e54;
+  --header-bar-text-hover: #00798a;
+  --header-bar-line: #e8e8e8;
+
+  /* footer: dark teal link area with white text; the logo row white (lh-com's default) */
+  --footer-surface: #00616d;
+  --footer-muted-text: #fff;
+  --footer-line-color: rgb(255 255 255 / 20%);
+  --footer-field-color: #fff;
+}
