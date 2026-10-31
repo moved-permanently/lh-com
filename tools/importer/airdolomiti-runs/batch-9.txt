@@ -1,0 +1,36 @@
+# lh-airdolomiti batch-9 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T15:47Z; not published
+# documents (21 + /nav, /footer):
+/articoli/throwback/sarla-thakral
+/articoli/throwback/volo-nella-mitologia-co
+/articoli/travellers/bambini-a-bordo-giochi-passatempo-e-gadget-imperdibili
+/articoli/travellers/dedicato-a-chi-non-puo-viaggiare-con-noi
+/articoli/travellers/guida-per-passeggeri-con-esigenze-speciali
+/articoli/travellers/il-viaggiatore-buongustaio
+/articoli/travellers/il-viaggiatore-distratto
+/articoli/travellers/modalita-aereo
+/articoli/travellers/quando-iniziare-a-volare-i-consigli-del-pediatra
+/articoli/travellers/scegliere-bagaglio-perfetto
+/articoli/travellers/sos-rimedi-naturali
+/articoli/travellers/spiegare-il-volo-ai-bambini-attraverso-il-gioco
+/articoli/travellers/tipstricks-viaggiare-comodi
+/articoli/travellers/viaggiare-in-gruppo
+/articoli/travellers/viaggiatore-esigente
+/articoli/travellers/vincere-la-paura-di-volare
+/articoli/travellers/vita-da-blogger
+/articoli/travellers/volare-completo-relax
+/articoli/travellers/volare-con-le-lenti-a-contatto
+/articoli/travellers/volare-gli-animali
+/articoli/travellers/weekend-bagaglio-mano
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: 1 problems:
+#   /articoli/travellers/sos-rimedi-naturali         h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/articoli/throwback/sarla-thakral -> /articoli/throwback/sarla-thakral: text 1/2, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.it/articoli/travellers/sos-rimedi-naturali -> /articoli/travellers/sos-rimedi-naturali: text 1/2, images 1/1 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.it/articoli/travellers/weekend-bagaglio-mano -> /articoli/travellers/weekend-bagaglio-mano: text 30/31, images 1/1 (+1), links 2/2 (+1)
+#   https://www.airdolomiti.it/articoli/throwback/sarla-thakral: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/travellers/sos-rimedi-naturali: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/travellers/weekend-bagaglio-mano: text missing: "tempo di lettura: 2 minuti"

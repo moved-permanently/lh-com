@@ -57,8 +57,10 @@ urls.forEach((url) => {
     .map((h) => (h.startsWith(`${eds}#`) ? h.slice(eds.length) : h)))];
   const { document: d } = parseHTML(`<main>${fs.readFileSync(doc, 'utf8')}</main>`);
   const main = d.querySelector('main');
+  // the byline's reading time (article-header shows the Reading Time metadata) counts as text
+  const byline = [...main.querySelectorAll('.metadata > div')].filter((r) => /^reading time$/i.test((r.children[0] || {}).textContent || '')).map((r) => r.children[1].textContent).join(' ');
   main.querySelectorAll('.metadata, .section-metadata').forEach((m) => m.remove());
-  const docText = norm(main.textContent);
+  const docText = norm(`${main.textContent} ${byline}`);
   const docImgs = [...new Set([...main.querySelectorAll('img')].map((i) => {
     const s = i.getAttribute('src');
     return imgKey(s.startsWith('/media-da/') ? (byEds[s] || s) : s);
