@@ -37,6 +37,18 @@ test('rollout: homepage facts: the label of www, the preselected origin (else th
   assert.deepEqual(homepageFacts('<span class="country-language-skeleton"></span>'), { label: null, airport: null, currency: null });
 });
 
+test('rollout: prices shown with a currency sign only: their elements\' currency attribute (hk HK$, jp ¥)', () => {
+  const display = (price, currency) => `<maui-price-display data-testid="maui-price-display" price="${price}" label="Round trip from" currency="${currency}" size="extra-large"></maui-price-display>`;
+  const hk = `<span class="country-language-text">Hong Kong, China | English</span>${display('HK$ 6,491', 'HKD')}${display('HK$ 4,896', 'HKD')}`;
+  assert.equal(homepageFacts(hk).currency, 'HKD');
+  assert.equal(homepageFacts(`${display('¥ 240,110', 'JPY')}${display('¥ 238,580', 'JPY')}`).currency, 'JPY');
+  // the sign alone is no evidence (¥ is also China's): no attribute, no currency
+  assert.equal(homepageFacts('<p>Round trip from ¥ 240,110</p>').currency, null);
+  // a code next to a price decides as before; the attributes only without one (iq: its fare
+  // teaser's EUR, another component's "$" prices with currency="USD")
+  assert.equal(homepageFacts(`<a aria-label="Round trip from 602 EUR"></a>${display('1,547 $', 'USD')}${display('502 $', 'USD')}`).currency, 'EUR');
+});
+
 const ROOTS = ['de/en', 'gb/en', 'ch/en', 'at/en', 'us/en'].map((root) => ({ root, ll: 'en', ownSitemap: true }));
 const g = (paths) => ({ paths });
 

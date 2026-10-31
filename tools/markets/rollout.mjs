@@ -110,7 +110,10 @@ const decode = (s) => s.replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/
  * What a homepage capture says: {label, airport, currency}. airport: the booking form's
  * preselected origin, else the fare teaser's origin when all its routes start there (offer links'
  * OriginCode counts are no evidence: dk/de links Aalborg more often than Copenhagen); currency:
- * the most frequent currency next to a price, in text and attributes (prices sit in aria-labels).
+ * the most frequent currency next to a price, in text and attributes (prices sit in aria-labels);
+ * without one, the currency attribute of the price elements (hk and jp show only "HK$ 6,491",
+ * "¥ 240,110" with currency="HKD" / "JPY"; a sign alone is no evidence: ¥ is also China's). Only
+ * then: iq's fare teaser in EUR and another component's "$" prices keep EUR, as before.
  */
 export function homepageFacts(html) {
   const label = (html.match(/class="country-language-text">([^<]+)</) || [])[1]?.trim() || null;
@@ -130,6 +133,11 @@ export function homepageFacts(html) {
     const c = m[1] || m[2] || (m[3] ? 'EUR' : null);
     if (c) counts[c] = (counts[c] || 0) + 1;
   });
+  if (!Object.keys(counts).length) {
+    for (const m of html.matchAll(/\sprice="[^"]*\d[^"]*"[^>]*?\scurrency="([A-Z]{3})"/g)) {
+      if (CURRENCIES.includes(m[1])) counts[m[1]] = (counts[m[1]] || 0) + 1;
+    }
+  }
   const currency = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   return { label, airport, currency };
 }
