@@ -277,6 +277,31 @@
     'note';
 }
 
+/* the brand's wordmark at the top of the link area (section Style: wordmark, austrian's "servus") */
+.footer .footer-inner.has-wordmark {
+  grid-template-areas:
+    'wordmark'
+    'search'
+    'columns'
+    'badges'
+    'locale'
+    'divider'
+    'legal'
+    'note';
+}
+
+.footer .footer-wordmark {
+  grid-area: wordmark;
+  margin: 0 0 32px;
+  line-height: 0;
+}
+
+.footer .footer-wordmark img {
+  width: auto;
+  max-width: 100%;
+  height: 40px;
+}
+
 .footer .footer-badges {
   display: flex;
   flex-wrap: wrap;
@@ -433,6 +458,17 @@
       'note note';
   }
 
+  .footer .footer-inner.has-wordmark {
+    grid-template-areas:
+      'wordmark wordmark'
+      'search locale'
+      'columns columns'
+      'badges badges'
+      'divider divider'
+      'legal legal'
+      'note note';
+  }
+
   /* live (de/de, at/de): 16px globe, 10px gap, text 70px below the footer top */
   .footer .footer-locale {
     justify-self: end;
@@ -509,6 +545,17 @@
   /* search as wide as one link column (live col-lg-3) */
   .footer .footer-inner {
     grid-template-columns: calc((100% - 60px) / 4) minmax(0, 1fr);
+  }
+
+  /* the wordmark beside the link columns and logo rows (austrian: col-lg-3 next to col-lg-9) */
+  .footer .footer-inner.has-wordmark {
+    grid-template-areas:
+      'wordmark columns'
+      '. badges'
+      'search locale'
+      'divider divider'
+      'legal legal'
+      'note note';
   }
 }
 

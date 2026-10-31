@@ -19,6 +19,8 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  *    icon links (":facebook:", ":youtube:", ":instagram:", ":linkedin:"; lh-cargo), shown between
  *    the link columns and the legal row
  *  - note: a paragraph below the legal row (the company's registration line)
+ *  - wordmark: an image at the top of the link area (austrian's "servus"; beside the link columns
+ *    from 1025px)
  * Footers without them (lh-com) look as before.
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
  */
@@ -88,13 +90,14 @@ function classifySections(fragment) {
   const marked = (name) => all.filter((s) => s.classList.contains(name));
   const badges = marked('badges');
   const notes = marked('note');
-  const sections = all.filter((s) => !badges.includes(s) && !notes.includes(s));
+  const wordmarks = marked('wordmark');
+  const sections = all.filter((s) => ![...badges, ...notes, ...wordmarks].includes(s));
   const columns = sections.find((s) => s.querySelector('h2, h3, h4, h5, h6') && s.querySelector('ul'));
   const top = sections.find((s) => s !== columns && !s.querySelector('ul'));
   const logos = sections.find((s) => ![columns, top].includes(s) && s.querySelector('img, picture'));
   const legal = sections.find((s) => ![columns, top, logos].includes(s) && s.querySelector('ul'));
   return {
-    top, columns, legal, logos, badges, notes,
+    top, columns, legal, logos, badges, notes, wordmarks,
   };
 }
 
@@ -252,6 +255,12 @@ function buildBadges(sections, labels) {
   return wrapper.querySelector('li') ? wrapper : null;
 }
 
+/** The wordmark sections: the brand's wordmark image atop the link area (austrian: "servus"). */
+function buildWordmark(sections) {
+  const pic = sections.map((s) => s.querySelector('picture') || s.querySelector('img')).find(Boolean);
+  return pic ? el('div', { className: 'footer-wordmark' }, pic) : null;
+}
+
 function buildNotes(sections) {
   const paras = sections.flatMap((s) => [...s.querySelectorAll('p')]).map((p) => text(p)).filter(Boolean);
   return paras.length ? el('div', { className: 'footer-note' }, ...paras.map((t) => el('p', {}, t))) : null;
@@ -320,7 +329,7 @@ export default async function decorate(block) {
   }
 
   const {
-    top, columns, legal, logos, badges, notes,
+    top, columns, legal, logos, badges, notes, wordmarks,
   } = classifySections(fragment);
 
   const inner = el('div', { className: 'footer-inner' });
@@ -332,11 +341,13 @@ export default async function decorate(block) {
   const legalEl = buildLegal(legal, labels);
   const badgesEl = buildBadges(badges, labels);
   const noteEl = buildNotes(notes);
-  inner.append(...[search, localeEl, columnsEl, badgesEl].filter(Boolean));
+  const wordmarkEl = buildWordmark(wordmarks);
+  inner.append(...[wordmarkEl, search, localeEl, columnsEl, badgesEl].filter(Boolean));
   if (legalEl) inner.append(el('hr', { className: 'footer-divider' }), legalEl);
   if (noteEl) inner.append(noteEl);
   // the grid with the optional rows (brand sites); without them the areas are as before
-  if (badgesEl || noteEl) inner.classList.add('has-extras');
+  if (badgesEl || noteEl || wordmarkEl) inner.classList.add('has-extras');
+  if (wordmarkEl) inner.classList.add('has-wordmark');
 
   block.textContent = '';
   block.append(el('div', { className: 'footer-main' }, inner));
