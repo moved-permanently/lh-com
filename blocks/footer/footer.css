@@ -393,6 +393,23 @@
   height: 8px;
 }
 
+/* badges row: icon links (:facebook: ... ; lh-cargo's www: 24x24 sprite cells) */
+.footer .footer-badges a[class^="footer-badge-"] img {
+  width: 24px;
+  height: 24px;
+}
+
+/* lh-cargo's www: Lufthansa Group 160x20, IATA Cargo iQ 80x20 (in any place of the row) */
+.footer .footer-logos li a.footer-logo-lufthansa-group img {
+  width: 160px;
+  height: 20px;
+}
+
+.footer .footer-logos li a.footer-logo-iata-cargo-iq img {
+  width: 80px;
+  height: 20px;
+}
+
 /* ---------------------------------------------------------------- tablet+ ------------ */
 
 @media (width >= 768px) {

@@ -113,6 +113,39 @@
   height: 520px;
 }
 
+/* loaded on click (Matterport tour 16:9, Mynewsdesk newsroom 800px): a button over the player's
+   area until then */
+.media-embed-matterport {
+  aspect-ratio: 16 / 9;
+  background-color: var(--dark-color, #000);
+}
+
+.media-embed-mynewsdesk {
+  height: 800px;
+  background-color: var(--light-color, #f4f4f4);
+}
+
+.media-embed-on-click .media-embed-load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: calc(100% - 32px);
+  padding: 12px 24px;
+  border: 2px solid var(--lh-deepblue, #05164d);
+  border-radius: 4px;
+  background: var(--lh-white, #fff);
+  color: var(--lh-deepblue, #05164d);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.media-embed-on-click .media-embed-load:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
 /* in running content (accordion panels): .video-player / .iframe-wrapper margin-bottom 4rem */
 :is(p, ul, ol) + :is(.media-embed, .media-video) {
   margin-top: 24px;

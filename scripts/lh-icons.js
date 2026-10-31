@@ -93,3 +93,44 @@ export function takeIconName(el) {
   }
   return null;
 }
+
+/** Alt texts of the logos and social icons authored as icon links (footer: Lufthansa Cargo). */
+const ICON_LABELS = {
+  facebook: 'Facebook',
+  youtube: 'YouTube',
+  instagram: 'Instagram',
+  linkedin: 'LinkedIn',
+  'lufthansa-group': 'Lufthansa Group',
+  'iata-cargo-iq': 'IATA Cargo iQ',
+};
+
+/**
+ * The alt text of an icon link without a text or title: the icon's label, else its name.
+ * @param {string} [name] icon name
+ * @returns {string}
+ */
+export function iconLabel(name) {
+  if (!name) return '';
+  return Object.hasOwn(ICON_LABELS, name) ? ICON_LABELS[name] : name.replace(/-/g, ' ');
+}
+
+/**
+ * The image of a link: an undecorated ":name:" link text becomes the image of
+ * /icons/{name}.svg (data-icon-name: the name; variants: another file for a name).
+ * @param {HTMLAnchorElement} a
+ * @param {string} codeBasePath
+ * @param {Object<string, string>} [variants]
+ * @returns {HTMLImageElement|null}
+ */
+export function iconTokenImage(a, codeBasePath, variants = {}) {
+  const token = a.textContent.replace(/\s+/g, ' ').trim().match(/^:([a-z0-9-]+):$/);
+  if (token && !a.querySelector('img')) {
+    const img = document.createElement('img');
+    img.setAttribute('src', `${codeBasePath}/icons/${Object.hasOwn(variants, token[1]) ? variants[token[1]] : token[1]}.svg`);
+    img.setAttribute('data-icon-name', token[1]);
+    img.setAttribute('alt', '');
+    a.textContent = '';
+    a.append(img);
+  }
+  return a.querySelector('img');
+}

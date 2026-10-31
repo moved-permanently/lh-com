@@ -11,8 +11,10 @@ on:
       - 'scripts/dam-collisions.js'
       # and the site search scoring
       - 'scripts/site-search.js'
-      # and the locales (the country and language selector, AMS rest A4)
+      # and the locales (the country and language selector, AMS rest A4), with the languages of the
+      # brand sites without roots they read
       - 'scripts/locale.js'
+      - 'scripts/site-languages.js'
       # and the locale table it bundles (generated from tools/markets/locale-data.json: a row
       # from pilot to live, a new root) and the market rules (section markets, served locale)
       - 'scripts/locale-table.js'

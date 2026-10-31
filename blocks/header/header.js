@@ -4,6 +4,7 @@ import {
   getLocale, LOCALES, LOCALE_TABLE, LIVE_ORIGIN, getCounterpartPath, getHomepageUrl,
   isMigratedLocale,
 } from '../../scripts/locale.js';
+import { languageSwitch, switchTarget } from '../../scripts/site-languages.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 import { isDemoHost } from '../../scripts/demo.js';
@@ -659,8 +660,13 @@ export default async function decorate(block) {
 
   // tools
   // FlyNet: no login and no shopping cart
-  const toolItems = (tools ? readTools(tools) : [])
+  const navTools = (tools ? readTools(tools) : [])
     .filter((t) => !flynet || !['login', 'cart', 'search'].includes(t.role));
+  // a brand site without <cc>/<ll> roots (scripts/site-languages.js): a switch between its
+  // languages (the nav's links to their homepages become it) instead of the country selector
+  const siteSwitch = locale.siteLanguages
+    ? languageSwitch(navTools, window.location.pathname, locale.lang, locale.siteLanguages) : null;
+  const toolItems = siteSwitch ? siteSwitch.tools : navTools;
   const menuLabel = text(tools && tools.querySelector('.default-content-wrapper > p')) || labels.menu;
   const byRole = (role) => toolItems.find((t) => t.role === role);
   const localeTool = byRole('locale') || {
@@ -711,9 +717,25 @@ export default async function decorate(block) {
     if (!tool.href) return null;
     return toolLink(tool, 'nav-flyout-extra', true);
   })).then((links) => links.filter(Boolean).forEach((a) => extras.push(el('li', {}, a))));
-  const flyoutLocale = await localeButton(localeTool, 'nav-flyout-extra nav-flyout-locale', labels);
-  flyoutLocale.addEventListener('click', () => openLocale(flyoutLocale));
-  extras.push(el('li', {}, flyoutLocale));
+  if (siteSwitch) {
+    // each other language: its homepage at once, the page's counterpart once it is known to exist
+    const exists = (p) => fetch(p, { method: 'HEAD' }).then((r) => r.ok);
+    siteSwitch.links.forEach((link) => {
+      const a = el(
+        'a',
+        {
+          href: link.home, className: 'nav-flyout-extra nav-flyout-language', lang: link.lang, hreflang: link.lang,
+        },
+        el('span', { className: 'nav-tool-label' }, link.label),
+      );
+      switchTarget(link, exists).then((href) => { a.href = href; });
+      extras.push(el('li', {}, a));
+    });
+  } else {
+    const flyoutLocale = await localeButton(localeTool, 'nav-flyout-extra nav-flyout-locale', labels);
+    flyoutLocale.addEventListener('click', () => openLocale(flyoutLocale));
+    extras.push(el('li', {}, flyoutLocale));
+  }
   const flyoutLogin = loginTool && loginTool.href ? useLoginUrl(await toolLink(loginTool, 'nav-flyout-extra', true)) : null;
 
   const menuImage = menu && [...menu.querySelectorAll('picture, img')].find((p) => !p.closest('li') && !(p.tagName === 'IMG' && p.closest('picture')));
@@ -734,9 +756,14 @@ export default async function decorate(block) {
   });
   flyout.bind(menuButton);
 
-  // the footer's country/language button opens the same dialog
+  // the footer's country/language button opens the same dialog (a brand site without roots: the
+  // menu with its language switch)
   document.addEventListener('lh:locale-selector', (e) => {
     e.preventDefault();
+    if (siteSwitch) {
+      if (menuButton.getAttribute('aria-expanded') !== 'true') menuButton.click();
+      return;
+    }
     flyout.close(false);
     openLocale(e.detail && e.detail.trigger);
   });
@@ -760,5 +787,6 @@ export default async function decorate(block) {
   navWrapper.addEventListener('focusin', () => navWrapper.classList.remove('is-hidden'));
 
   block.textContent = '';
-  block.append(navWrapper, dialog);
+  block.append(navWrapper);
+  if (!siteSwitch) block.append(dialog);
 }

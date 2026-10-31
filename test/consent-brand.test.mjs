@@ -50,7 +50,7 @@ test('initConsent: a brand without an id loads no banner and announces the neces
     assert.deepEqual(events.map((e) => [e.consented, e.groups.join()]), [[false, 'C0001']]);
     // the footer's "Change Privacy Settings" opens nothing either (no OneTrust, no look-alike)
     window.dispatchEvent(new window.CustomEvent('consent.preferences'));
-    assert.equal(window.document.querySelector('script[data-domain-script]'), null);
+    assert.ok(window.document.querySelector('script[data-domain-script]') === null, 'no script[data-domain-script]');
     assert.equal(window.document.documentElement.classList.contains('lh-consent-fallback'), false);
     assert.equal(events.length, 1);
   } finally {

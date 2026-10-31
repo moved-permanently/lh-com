@@ -70,7 +70,7 @@ test('footerPlain: one <div> per section, the section metadata table as its bloc
   assert.equal(divs.length, 5);
   assert.ok(divs.every((d) => d.tagName === 'DIV'));
   assert.equal(divs[2].querySelector('.section-metadata').outerHTML, '<div class="section-metadata"><div><div>Style</div><div>badges</div></div></div>');
-  assert.equal(document.querySelector('table'), null);
+  assert.ok(document.querySelector('table') === null, 'no table');
 });
 
 test('the logo row: Discover\'s inverted logo graphic as its icon token before the Lufthansa Group logo; Star Alliance as before', () => {

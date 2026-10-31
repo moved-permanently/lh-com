@@ -390,3 +390,65 @@ main > .section > .accordion-columns-row > .accordion-columns-wrapper {
     max-width: none;
   }
 }
+
+/* ------------------------------------------------------------------ option tabs ------- */
+
+/* tabs: the accordion below 1025px (the tab bar hidden, its first item has the top border); from
+   1025px the tab bar (.is-tabbed) shows one item's panel, the items' own titles hidden */
+.accordion-columns.tabs > .accordion-columns-tablist {
+  display: none;
+}
+
+.accordion-columns.tabs > .accordion-columns-tablist + .accordion-columns-item {
+  border-top: 1px solid var(--border-color);
+}
+
+@media (width >= 1025px) {
+  .accordion-columns.tabs.is-tabbed > .accordion-columns-tablist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .accordion-columns.tabs .accordion-columns-tab {
+    margin: 0 0 -1px;
+    padding: 12px 0;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: none;
+    color: var(--lh-deepblue);
+    font-family: var(--heading-font-family);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .accordion-columns.tabs .accordion-columns-tab:hover {
+    color: var(--link-hover-color, var(--lh-deepblue));
+  }
+
+  .accordion-columns.tabs .accordion-columns-tab[aria-selected="true"] {
+    border-bottom-color: var(--brand-color, var(--lh-deepblue));
+  }
+
+  .accordion-columns.tabs .accordion-columns-tab:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  .accordion-columns.tabs.is-tabbed > .accordion-columns-item,
+  .accordion-columns.tabs.is-tabbed > .accordion-columns-tablist + .accordion-columns-item {
+    border: 0;
+  }
+
+  .accordion-columns.tabs.is-tabbed > .accordion-columns-item > .accordion-columns-title {
+    display: none;
+  }
+
+  .accordion-columns.tabs.is-tabbed > .accordion-columns-item:not(.is-selected) {
+    display: none;
+  }
+}

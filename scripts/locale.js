@@ -6,6 +6,7 @@
 import {
   LOCALE_TABLE, DEFAULT_LOCALE, LANGUAGE_VERSIONS, FALLBACK_LANGUAGE_VERSION, WWW_ROOTS,
 } from './locale-table.js';
+import { siteLanguagesOf } from './site-languages.js';
 
 export { LOCALE_TABLE, DEFAULT_LOCALE };
 
@@ -44,6 +45,28 @@ export function languageDefaults(country, lang) {
   };
 }
 
+const pageMeta = (name) => {
+  if (typeof document === 'undefined' || !document.head) return '';
+  const meta = document.head.querySelector(`meta[name="${name}"]`);
+  return meta ? meta.content.trim().toLowerCase() : '';
+};
+
+/**
+ * The locale of a page of a brand site without <cc>/<ll> roots (scripts/site-languages.js:
+ * Cargo, Air Dolomiti): the interface language from the page's `language` metadata, English
+ * without it; the rest of a migrated locale of that language (de/en for English), else of the
+ * default locale. null for every other site (lh-com, Discover, ITA: as before).
+ */
+export function brandSiteLocale(prefix = '', read = pageMeta) {
+  const languages = siteLanguagesOf(read);
+  if (!languages) return null;
+  const lang = (/^[a-z]{2}$/.test(read('language')) && read('language')) || 'en';
+  const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${lang}`)) || DEFAULT_LOCALE;
+  return {
+    ...LOCALE_TABLE[key], lang, key, base: `${prefix}/${key}`, root: key, siteLanguages: languages,
+  };
+}
+
 /**
  * Resolves the locale of a path.
  * @param {string} [pathname] Page path, defaults to the current page
@@ -58,8 +81,11 @@ export function getLocale(pathname = window.location.pathname) {
   // /content/lh/markets/{country}/{lang}/...
   const rest = pathname.slice(prefix.length).replace(/^\/content\/lh\/markets(?=\/)/, '');
   const match = rest.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
-  // no root in the path (app screens, experience fragments, /index): the default locale
+  // no root in the path: a brand site without roots (its page's language), else (app screens,
+  // experience fragments, /index) the default locale
   if (!match) {
+    const site = brandSiteLocale(prefix);
+    if (site) return site;
     return {
       ...LOCALE_TABLE[DEFAULT_LOCALE], key: DEFAULT_LOCALE, base: `${prefix}/${DEFAULT_LOCALE}`, root: DEFAULT_LOCALE,
     };
@@ -80,7 +106,10 @@ export function getLocale(pathname = window.location.pathname) {
     const defaults = languageDefaults(match[1], match[2]);
     return { ...defaults, base: `${prefix}/${defaults.key}`, root };
   }
-  // two segments that are no root (/xf/lh/…): a migrated locale of that language, else the default
+  // two segments that are no root (/xf/lh/…): a brand site without roots (its page's language),
+  // else a migrated locale of that language, else the default
+  const site = brandSiteLocale(prefix);
+  if (site) return site;
   const key = Object.keys(LOCALES).find((k) => k.endsWith(`/${match[2]}`)) || DEFAULT_LOCALE;
   return {
     ...LOCALE_TABLE[key], key, base: `${prefix}/${key}`, root: key,

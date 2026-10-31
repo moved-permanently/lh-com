@@ -14,6 +14,9 @@
  *     [--sitekey 1x00000000000000000000AA]   (Cloudflare's test key on both hosts: the form's
  *     bot check renders the same on a branch preview as on main's)
  *   node tools/markets/compare-roots.mjs --compare <dirA> <dirB> [--report tools/reports/markets/compare-roots.md]
+ *   --pages <file> (both modes): these pages instead of the four roots' (one path per line, # comments;
+ *     grouped by their first two segments), e.g. tools/markets/compare-pages-lh-discover.txt with
+ *     --capture https://main--lh-discover--moved-permanently.aem.page
  * Example (branch against main):
  *   --capture https://main--lh-com--moved-permanently.aem.page --out /tmp/main
  *   --capture https://locale-table--lh-com--moved-permanently.aem.page --out /tmp/branch
@@ -36,12 +39,24 @@ export const PAGES = {
   'gb/en': ['/gb/en/homepage', '/gb/en/feedback-past-flight', '/gb/en/articles/explore-flying/7-people-who-shaped-lufthansa-history', '/gb/en/flights'],
 };
 
+/** The pages compared: --pages <file> (one path per line), else the four roots'. */
+function pagesOf(file) {
+  if (!file) return PAGES;
+  const out = {};
+  fs.readFileSync(path.resolve(file), 'utf8').split('\n').map((l) => l.replace(/#.*/, '').trim()).filter(Boolean)
+    .forEach((p) => {
+      const key = p.split('/').slice(1, 3).join('/');
+      out[key] = [...(out[key] || []), p];
+    });
+  return out;
+}
+
 /** Masks what differs between two loads of the same page and code. */
 export function mask(html) {
   return String(html || '')
     .replace(/\snonce="[^"]*"/g, '')
-    // the host of the compared preview (main--… or <branch>--…) in absolute URLs
-    .replace(/https:\/\/[a-z0-9-]+--lh-com--moved-permanently\.aem\.(page|live)/g, '‹origin›')
+    // the host of the compared preview (main--… or <branch>--…, any of the sites) in absolute URLs
+    .replace(/https:\/\/[a-z0-9-]+--lh-[a-z0-9]+--moved-permanently\.aem\.(page|live)/g, '‹origin›')
     // the sources a block records, in the order its requests happened to finish
     .replace(/data-lh-sources="([^"]*)"/g, (m, list) => `data-lh-sources="${list.split(' ').sort().join(' ')}"`)
     .replace(/([?&])(ck|_|t|cb|v|rum|cachebust)=[^&"'\s]*/gi, '$1$2=…')
@@ -52,13 +67,13 @@ export function mask(html) {
     .replace(/\s+/g, ' ');
 }
 
-async function capture(base, outDir, prefix, sitekey) {
+async function capture(base, outDir, prefix, sitekey, pages = PAGES) {
   fs.mkdirSync(outDir, { recursive: true });
   const executablePath = process.env.CHROMIUM_PATH
     || ['/ms-playwright/chromium-1208/chrome-linux64/chrome'].find((p) => fs.existsSync(p));
   const browser = await chromium.launch({ executablePath, headless: true });
   try {
-    for (const pagePath of Object.values(PAGES).flat()) {
+    for (const pagePath of Object.values(pages).flat()) {
       const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'en-GB' });
       // --sitekey: the same Turnstile key on every host (the real key renders only on main's
       // preview and the live hosts; scripts/lh-forms.js reads localStorage lh-forms-sitekey)
@@ -100,9 +115,9 @@ function firstDiff(a, b) {
   return i >= a.length && i >= b.length ? '' : `at ${i}: «${a.slice(Math.max(0, i - 60), i + 80)}» vs «${b.slice(Math.max(0, i - 60), i + 80)}»`;
 }
 
-function compare(dirA, dirB, report) {
+function compare(dirA, dirB, report, pages = PAGES) {
   const rows = [];
-  Object.entries(PAGES).forEach(([key, list]) => list.forEach((pagePath) => {
+  Object.entries(pages).forEach(([key, list]) => list.forEach((pagePath) => {
     const file = `${pagePath.replace(/\//g, '_')}.json`;
     const read = (d) => (fs.existsSync(path.join(d, file)) ? JSON.parse(fs.readFileSync(path.join(d, file), 'utf8')) : null);
     const a = read(dirA);
@@ -120,7 +135,7 @@ function compare(dirA, dirB, report) {
     });
   }));
   const equal = rows.filter((r) => r.result === 'equal').length;
-  const lines = ['# The four roots: rendered DOM compared', '', `${new Date().toISOString()}. A: ${dirA}, B: ${dirB}. ${equal} of ${rows.length} pages equal (head, header, main, footer and html lang, after masking nonces, cache-busting queries, timestamps, randomised ids and animation state).`, '',
+  const lines = [`# ${pages === PAGES ? 'The four roots' : 'Pages'}: rendered DOM compared`, '', `${new Date().toISOString()}. A: ${dirA}, B: ${dirB}. ${equal} of ${rows.length} pages equal (head, header, main, footer and html lang, after masking nonces, cache-busting queries, timestamps, randomised ids and animation state).`, '',
     '| Root | Page | Status A/B | Result | First difference |', '| --- | --- | --- | --- | --- |',
     ...rows.map((r) => `| ${r.key} | ${r.pagePath} | ${r.status || '-'} | ${r.result} | ${(r.detail || '').replace(/\|/g, '\\|').slice(0, 400)} |`), ''];
   if (report) fs.writeFileSync(path.resolve(root, report), lines.join('\n'));
@@ -130,9 +145,9 @@ function compare(dirA, dirB, report) {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
-  if (argv.includes('--capture')) await capture(opt('capture'), path.resolve(opt('out')), opt('prefix', ''), opt('sitekey'));
+  if (argv.includes('--capture')) await capture(opt('capture'), path.resolve(opt('out')), opt('prefix', ''), opt('sitekey'), pagesOf(opt('pages')));
   else if (argv.includes('--compare')) {
     const i = argv.indexOf('--compare');
-    compare(path.resolve(argv[i + 1]), path.resolve(argv[i + 2]), opt('report'));
+    compare(path.resolve(argv[i + 1]), path.resolve(argv[i + 2]), opt('report'), pagesOf(opt('pages')));
   }
 }

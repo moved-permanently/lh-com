@@ -358,3 +358,116 @@ main > .section.stage.flush:has(> .hero-campaign-wrapper) {
 main > .section.stage.flush.before-padded:has(> .hero-campaign-wrapper) {
   margin-bottom: var(--section-padding);
 }
+
+/* ---------------------------------------------------------------- option slider ------- */
+
+/* slider: the block holds a track of stages (each slide is a .hero-campaign of its own, full
+   width), one shown at a time; previous/next at the sides, dots at the bottom */
+.hero-campaign.slider {
+  display: block;
+  min-height: 0;
+}
+
+.hero-campaign.slider .hero-campaign-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.hero-campaign.slider .hero-campaign-track::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-campaign.slider .hero-campaign-track:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -4px;
+}
+
+.hero-campaign.slider .hero-campaign-slide {
+  flex: 0 0 100%;
+  margin-inline: 0;
+  scroll-snap-align: start;
+}
+
+.hero-campaign.slider .hero-campaign-prev,
+.hero-campaign.slider .hero-campaign-next {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 85%);
+  color: var(--lh-deepblue);
+  cursor: pointer;
+}
+
+.hero-campaign.slider .hero-campaign-prev {
+  left: 16px;
+}
+
+.hero-campaign.slider .hero-campaign-next {
+  right: 16px;
+}
+
+.hero-campaign.slider .hero-campaign-prev::before,
+.hero-campaign.slider .hero-campaign-next::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.6 20 7 18.4l6.4-6.4L7 5.6 8.6 4l8 8z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.hero-campaign.slider .hero-campaign-prev::before {
+  transform: rotate(180deg);
+}
+
+.hero-campaign.slider .hero-campaign-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(-50%);
+}
+
+.hero-campaign.slider .hero-campaign-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid var(--lh-white);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hero-campaign.slider .hero-campaign-dot[aria-current="true"] {
+  background: var(--lh-white);
+}
+
+.hero-campaign.slider .hero-campaign-prev:focus-visible,
+.hero-campaign.slider .hero-campaign-next:focus-visible,
+.hero-campaign.slider .hero-campaign-dot:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width < 768px) {
+  .hero-campaign.slider .hero-campaign-prev,
+  .hero-campaign.slider .hero-campaign-next {
+    display: none;
+  }
+}

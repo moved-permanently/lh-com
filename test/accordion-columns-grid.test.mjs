@@ -27,7 +27,7 @@ const cell = (alt, text) => `<td><p><picture><img src="/media_${alt}.png" alt="$
 test('a one-row table of picture cells becomes a grid of items, in order, the count as a property', () => {
   const panel = panelOf(`<p>Intro</p><table><tbody><tr>${cell('a', 'Kleidersack')}${cell('b', 'Buggy')}${cell('c', 'Einkauf')}${cell('d', 'Musik')}</tr></tbody></table><p>Bitte beachten</p>`);
   buildGrids(panel);
-  assert.equal(panel.querySelector('table'), null);
+  assert.ok(panel.querySelector('table') === null, 'no table');
   const grid = panel.querySelector('.accordion-columns-grid');
   assert.ok(grid);
   assert.equal(grid.style.getPropertyValue('--accordion-columns-grid-count'), '4');
@@ -41,7 +41,7 @@ test('data tables stay tables: several rows, or a row without pictures', () => {
   const fees = panelOf('<table><tbody><tr><td>Zone</td><td>Gebühr</td></tr><tr><td>Europa</td><td>EUR 85</td></tr></tbody></table>');
   buildGrids(fees);
   assert.ok(fees.querySelector('table'));
-  assert.equal(fees.querySelector('.accordion-columns-grid'), null);
+  assert.ok(fees.querySelector('.accordion-columns-grid') === null, 'no .accordion-columns-grid');
   const oneRow = panelOf(`<table><tbody><tr>${cell('a', 'A')}<td>Text only</td></tr></tbody></table>`);
   buildGrids(oneRow);
   assert.ok(oneRow.querySelector('table'), 'a cell without a picture: not an item grid');

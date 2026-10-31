@@ -1,7 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
-import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
+import {
+  uiIcon, inlineIcon, takeIconName, iconTokenImage, iconLabel,
+} from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
 
 /*
@@ -9,10 +11,12 @@ import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
  *  1. ":search: [search page link](label)" and ":globe: Country | Language"
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
  *  3. legal row: list of links
- *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:)
+ *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:,
+ *     :lufthansa-group:, :iata-cargo-iq:)
  * Optional sections, marked with section metadata (Style), for brand sites (lh-ita):
- *  - badges: rows of a heading and a list of linked images (payment methods, social links),
- *    shown between the link columns and the legal row
+ *  - badges: rows of a heading and a list of linked images (payment methods, social links) or
+ *    icon links (":facebook:", ":youtube:", ":instagram:", ":linkedin:"; lh-cargo), shown between
+ *    the link columns and the legal row
  *  - note: a paragraph below the legal row (the company's registration line)
  * Footers without them (lh-com) look as before.
  * FlyNet channel (scripts/channel.js): links that book, log in or search flights are left out.
@@ -224,10 +228,12 @@ function buildBadges(sections, labels) {
       }
       const list = group.querySelector('ul') || group.appendChild(el('ul'));
       child.querySelectorAll('a[href]').forEach((a) => {
-        const img = a.querySelector('img');
+        const img = iconTokenImage(a, window.hlx.codeBasePath);
         const link = el('a', { href: a.getAttribute('href') });
         if (img) {
-          if (!img.alt) img.alt = a.title || text(a);
+          const name = img.dataset.iconName;
+          if (name) link.classList.add(`footer-badge-${name}`);
+          if (!img.alt) img.alt = a.title || text(a) || iconLabel(name);
           img.loading = 'lazy';
           link.append(a.querySelector('picture') || img);
         } else {
@@ -261,19 +267,13 @@ function buildLogos(section, labels) {
   const list = el('ul');
   section.querySelectorAll('a[href]').forEach((a) => {
     // an undecorated ":name:" icon token stands for /icons/{name}.svg
-    const token = text(a).match(/^:([a-z0-9-]+):$/);
-    if (token && !a.querySelector('img')) {
-      const file = AEM_LOGO_VARIANTS[token[1]] || token[1];
-      a.textContent = '';
-      a.append(el('img', { src: `${window.hlx.codeBasePath}/icons/${file}.svg`, 'data-icon-name': token[1], alt: '' }));
-    }
-    const img = a.querySelector('img');
+    const img = iconTokenImage(a, window.hlx.codeBasePath, AEM_LOGO_VARIANTS);
     if (!img && !text(a)) return;
     const link = el('a', { href: a.getAttribute('href') });
     if (img) {
       const name = img.dataset.iconName;
       if (name) link.classList.add(`footer-logo-${name}`);
-      if (!img.alt) img.alt = a.title || text(a) || (name ? name.replace(/-/g, ' ') : '');
+      if (!img.alt) img.alt = a.title || text(a) || iconLabel(name);
       img.loading = 'lazy';
       link.append(a.querySelector('picture') || img);
     } else {
