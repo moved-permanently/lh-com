@@ -110,7 +110,7 @@ test('below 1025px the accordion as it is; switching back keeps the selected ite
 test('one item: no tab bar', () => {
   const { block, items } = accordion('tabs', ['Only']);
   assert.equal(buildTabs(block, items, media(true)), null);
-  assert.equal(block.querySelector('.accordion-columns-tablist'), null);
+  assert.ok(block.querySelector('.accordion-columns-tablist') === null, 'no .accordion-columns-tablist');
 });
 
 test('the option is opt-in: decorate adds the bar for tabs only (the source of decorate)', async () => {

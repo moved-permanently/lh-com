@@ -113,7 +113,7 @@ test('a slider further down: no eager image; one slide: the block as without the
   assert.deepEqual([...lower.querySelectorAll('img')].map((i) => i.getAttribute('loading')), ['lazy', 'lazy', 'lazy']);
   const one = stageBlock('slider', `<div><div>${pic(1)}</div></div><div><div><h1>One</h1></div></div>`);
   decorate(one);
-  assert.equal(one.querySelector('.hero-campaign-track'), null);
+  assert.ok(one.querySelector('.hero-campaign-track') === null, 'no .hero-campaign-track');
   assert.equal(one.getAttribute('role'), 'region');
   assert.ok(one.getAttribute('aria-labelledby'));
   assert.ok(one.querySelector(':scope > .hero-campaign-media') && one.querySelector(':scope > .hero-campaign-inner'));
@@ -122,6 +122,6 @@ test('a slider further down: no eager image; one slide: the block as without the
 test('without the option two pictures are still one stage (the first picture the background)', () => {
   const block = stageBlock('', CARGO);
   decorate(block);
-  assert.equal(block.querySelector('.hero-campaign-track'), null);
+  assert.ok(block.querySelector('.hero-campaign-track') === null, 'no .hero-campaign-track');
   assert.equal(block.querySelectorAll(':scope > .hero-campaign-media').length, 1);
 });

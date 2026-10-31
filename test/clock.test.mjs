@@ -80,7 +80,7 @@ test('the bar: chosen time, time zone, a link back to now; outside main and form
   const href = `https://${PREVIEW}/de/de/homepage?time-travel=2026-12-24T09:00&x=1`;
   initClock(at('?time-travel=2026-12-24T09:00&x=1'));
   const bar = showTimeTravelBar(document, href);
-  assert.equal(bar.parentElement, document.body);
+  assert.ok(bar.parentElement === document.body, 'in the body');
   assert.ok(!bar.closest('main, form'));
   assert.equal(bar.querySelectorAll('input, select, textarea, button').length, 0);
   assert.match(bar.textContent, /Time travel: the page shows 24 Dec 2026, 09:00 \(Europe\/Berlin, UTC\+01:00\)\./);

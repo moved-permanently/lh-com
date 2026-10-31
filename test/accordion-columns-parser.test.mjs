@@ -78,7 +78,7 @@ test('a link-column panel stays in column mode (headings and links per column)',
   const panel = rows[0][1];
   assert.deepEqual([...panel.querySelectorAll('h3')].map((h) => h.textContent), ['Deutschland', 'Italien']);
   assert.deepEqual([...panel.querySelectorAll('a')].map((a) => a.getAttribute('href')), ['/de/de/fra', '/de/de/rom']);
-  assert.equal(panel.querySelector('table'), null);
+  assert.ok(panel.querySelector('table') === null, 'no table');
 });
 
 const GRID = `<div class="accordion"><maui-collapsible><maui-collapsible-item headline="Im Rahmen Ihrer Handgepäcksmenge"><div>
@@ -117,7 +117,7 @@ test('a nested column view of image items is a one-row table, one item per cell,
 test('a text-and-image two-column view (not all items images) stays flat text then image', () => {
   const { rows } = run(GRID);
   const panel = rows[1][1];
-  assert.equal(panel.querySelector('table'), null);
+  assert.ok(panel.querySelector('table') === null, 'no table');
   assert.match(panel.textContent, /Gegen Jetlag hilft viel Licht\./);
   assert.equal(panel.querySelectorAll('img').length, 1);
 });
