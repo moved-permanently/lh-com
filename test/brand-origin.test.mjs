@@ -63,3 +63,19 @@ test('an authored origin wins everywhere', async () => {
   const o = await onPage({ brand: 'ita' }, async () => resolveOrigin({ code: 'MIL', name: 'Milano' }, getLocale('/it/it/homepage')));
   assert.equal(o.code, 'MIL');
 });
+
+test('the flight search: a brand root without an authored origin prefills its home airport', async () => {
+  live = null;
+  setHost('discover.turnsthe.page', '/xx/fr/homepage');
+  const { loadFlightSearchData } = await import('../blocks/flight-search/flight-search.js');
+  const fs = await onPage({ brand: 'discover' }, async () => {
+    const locale = getLocale('/xx/fr/homepage');
+    return loadFlightSearchData({ fallbackOrigin: locale.homeAirport }, locale);
+  });
+  assert.equal(fs.origin.code, 'FRA');
+  assert.equal(fs.sources.defaultAirport, 'none');
+  setHost('lufthansa.turnsthe.page', '/de/en/homepage');
+  const lh = await onPage({}, async () => loadFlightSearchData({ fallbackOrigin: 'FRA' }, getLocale('/de/en/homepage')));
+  assert.equal(lh.origin.code, 'FRA');
+  assert.equal(lh.sources.defaultAirport, 'recorded', 'lh-com: its recording, as before');
+});

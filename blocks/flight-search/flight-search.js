@@ -86,6 +86,12 @@ export async function loadFlightSearchData(settings, locale) {
   const sources = {};
   const settle = (name, mapper, fallback) => fetchRequest(requests[name], locale)
     .then(({ data, source }) => {
+      // a brand root has no recordings of its own: a recorded default airport is another
+      // market's (lh-com's at/de, Vienna); the fallback is the root's home airport
+      if (name === 'defaultAirport' && locale.brand && source === 'recorded') {
+        sources[name] = 'none';
+        return fallback;
+      }
       sources[name] = source;
       return mapper(data);
     })
