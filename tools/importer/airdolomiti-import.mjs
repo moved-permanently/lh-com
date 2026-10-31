@@ -64,6 +64,23 @@ export const LIVE = {
   },
 };
 
+/**
+ * The posts list (blog-overview over the language's posts index; Italian only: /articoli/query-index.json):
+ * www's page size and no filter (www links its categories instead), the labels in the language.
+ * www's /articoli has "Categorie" and its "Carica altri articoli" only; the other labels are ours.
+ */
+const BLOG = {
+  it: [
+    ['Page size', '9'], ['Hide filter', 'yes'],
+    ['Results label', '{TOTAL} articoli trovati'], ['Search label', 'Cerca negli articoli'],
+    ['Categories label', 'Categorie'], ['All categories label', 'Tutte le categorie'],
+    ['Read label', 'Leggi l’articolo'], ['Read screen reader label', 'Leggi l’articolo {TITLE}'],
+    ['No results label', 'Non ci sono ancora articoli su questo argomento.'],
+    ['Current page label', 'Sei a pagina {CURRENT_PAGE} dei risultati'], ['Pagination label', 'Pagine degli articoli'],
+    ['Previous label', 'Pagina precedente'], ['Next label', 'Pagina successiva'], ['Page label', 'Pagina {PAGE}'],
+  ],
+};
+
 /* ------------------------------------------------------------------ site data ---------- */
 
 let site;
@@ -576,8 +593,19 @@ const HANDLERS = {
     const cats = [...new Map([...document.querySelectorAll('#page-content a[href], main a[href]')]
       .filter((x) => /^\/(articoli|articles|artikel)\/[a-z0-9-]+$/.test(x.getAttribute('href') || '') && x.textContent.trim())
       .map((x) => [x.getAttribute('href'), x.textContent.trim()])).entries()];
+    const head = document.querySelector('[class*="BlogPosts_categories_wrapper"] h2, [class*="BlogPosts_categories_wrapper"] h3');
+    if (head && BLOG[page.lang]) {
+      // www's page has no H1: the page's title ("Articoli"), then www's "Categorie"
+      const title = plain((document.querySelector('title') || {}).textContent || '').replace(/\s*\|\s*Air Dolomiti\s*$/, '');
+      if (title) page.add(`<h1>${esc(title)}</h1>`);
+      page.add(page.heading('h2', head.textContent));
+    }
     page.add(`<ul>${cats.map(([h, t]) => `<li>${page.link(h, t).replace(/^<p>|<\/p>$/g, '')}</li>`).join('')}</ul>`);
-    page.note(`blog list (www's live list of posts): its ${cats.length} category links`);
+    if (BLOG[page.lang]) {
+      // www's list of posts: blog-overview over the posts index
+      page.block('blog-overview', BLOG[page.lang].map(([k, v]) => [k, esc(v)]));
+      page.note(`blog list: www's ${cats.length} category links and blog-overview over the posts index`);
+    } else page.note(`blog list (www's live list of posts; no posts index for ${page.lang}): its ${cats.length} category links`);
   },
   'lazyblock/horizontal-pictures': (a, page) => HANDLERS['lazyblock/horizontal-pictures-tre'](a, page),
   'lazyblock/quiz': (a, page) => {
@@ -721,6 +749,15 @@ export function convert(rendered, sourceUrl) {
     const fi = post.featuredImage && post.featuredImage.node;
     page.block('article-header', [[fi ? page.img({ url: fi.sourceUrl, alt: fi.altText || '' }) : ''], [`<h1>${esc(plain(post.title))}</h1>${post.excerpt ? `<p>${esc(plain(post.excerpt))}</p>` : ''}`]]);
     page.section();
+  }
+  // a category of the posts (www's archive: name, description, its posts): the name, the
+  // description (an h2 on www) and blog-overview over the category's posts
+  // eslint-disable-next-line no-underscore-dangle -- WPGraphQL's type name
+  if (post.__typename === 'Category') {
+    page.add(`<h1>${esc(plain(post.name))}</h1>`);
+    if (post.description) page.add(page.heading('h2', post.description));
+    // the index's category is the posts' Category metadata, in lower case ("#didyouknow")
+    if (BLOG[lang]) page.block('blog-overview', [['Category', esc(plain(post.name).toLowerCase())], ...BLOG[lang].map(([k, v]) => [k, esc(v)])]);
   }
   (post.blocks || []).forEach((b) => render(b, page, 'top'));
   // a post's own fields when it has no blocks (title, content)

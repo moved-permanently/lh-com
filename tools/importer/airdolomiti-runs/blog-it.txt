@@ -1,0 +1,12 @@
+# lh-airdolomiti blog-it: www's posts list as blog-overview over /articoli/query-index.json, uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31; not published
+# /articoli: www's "Categorie" and its five category links (now pages of the site), blog-overview (Page size 9 as www shows, Hide filter yes: www has no search or filter); the category pages (captured from www, not in its sitemap): www's name (H1) and description, blog-overview with Category
+# labels: www's /articoli has "Categorie" only (and "Carica altri articoli", which the block has no row for); the other label rows are Italian texts of ours
+# documents (6, to publish):
+/articoli
+/articoli/didyouknow
+/articoli/avgeek
+/articoli/destinazioni
+/articoli/throwback
+/articoli/travellers
+# check on the preview (index: 155 posts): /articoli 9 cards, 18 pages, newest first (26 maggio 2026, as www); each category page only its category's posts, its first post as www's (#DidYouKnow 34 posts in 4 pages, AvGeek 37 in 5, Destinazioni 42 in 5, Throwback 23 in 3, Travellers 19 in 3)
+# against www at 1440 and 390 px: the same posts, order and dates ("26 maggio 2026"); the block's design differs (rows with text, reading time and "Leggi l'articolo" instead of www's 3-column cards with a category chip; numbered pages instead of "Carica altri articoli"); six cards show the posts' og:image (www's share images, stamped "BLOG") where www's cards show the featured image

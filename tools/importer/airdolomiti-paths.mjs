@@ -35,6 +35,13 @@ export function edsPath(url) {
   return `${HOSTS[u.host]}${p}` || '/';
 }
 
+/**
+ * www's category pages of the posts (linked from /articoli, not in www's sitemap, so not in the
+ * delivery's URL lists): pages in scope as well, path for path.
+ */
+export const BLOG_CATEGORIES = ['didyouknow', 'avgeek', 'destinazioni', 'throwback', 'travellers']
+  .map((c) => `https://www.airdolomiti.it/articoli/${c}`);
+
 /** The document of an Edge Delivery path (/ -> /index, /en/ -> /en/index). */
 export const docOf = (eds) => (eds === '/' ? '/index' : (/^\/(en|de)$/.test(eds) ? `${eds}/index` : eds));
 
@@ -61,7 +68,7 @@ const main = () => {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
   const W = path.join(root, 'content-sites/lh-airdolomiti');
   const rows = allRows(path.join(W, 'delivery'));
-  const pages = rows.filter((r) => r.decision === 'in');
+  const pages = [...rows.filter((r) => r.decision === 'in'), ...BLOG_CATEGORIES.map((url) => ({ url, lang: langOf(url) }))];
   const map = {};
   const byEds = new Map();
   pages.forEach((r) => {

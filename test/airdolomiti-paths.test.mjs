@@ -2,8 +2,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  edsPath, docOf, langOf, sourceKey, targetOf,
+  edsPath, docOf, langOf, sourceKey, targetOf, BLOG_CATEGORIES,
 } from '../tools/importer/airdolomiti-paths.mjs';
+
+test('the posts\' category pages are pages of the site, path for path', () => {
+  assert.equal(BLOG_CATEGORIES.length, 5);
+  assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/avgeek'));
+  assert.ok(BLOG_CATEGORIES.map(edsPath).includes('/articoli/didyouknow'));
+  assert.ok(BLOG_CATEGORIES.every((u) => langOf(u) === 'it'));
+});
 
 test('the three language domains become one site, path for path', () => {
   assert.equal(edsPath('https://www.airdolomiti.it/tratte/volo-verona-monaco-di-baviera'), '/tratte/volo-verona-monaco-di-baviera');
