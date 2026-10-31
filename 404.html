@@ -13,10 +13,10 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Page not found | Lufthansa">
-  <!-- text and links in the language of the path (live's not-found page per market); before
-       scripts.js, which then decorates main like any page -->
+  <!-- text and links in the language of the path (live's not-found page per market), on a brand
+       site the brand of its /metadata.json first; not-found.js then loads scripts.js, which
+       decorates main like any page -->
   <script nonce="aem" src="/scripts/not-found.js" type="module"></script>
-  <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
   <script nonce="aem" type="module">
     import { sampleRUM } from '/scripts/aem.js';
     sampleRUM('404', { source: document.referrer });

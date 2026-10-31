@@ -11,10 +11,19 @@
  * (e.g. /error.html, where the Form (core) block goes when a submission fails) is English de/en,
  * as live's /error.html is the English not-found page. Help & contact is not migrated and links
  * to www.lufthansa.com. Runs before scripts.js decorates main.
+ * Brand sites (ITA, Discover, Cargo, Air Dolomiti): the 404 has no metadata of its own, so it
+ * takes the brand of the site's /metadata.json row that matches the path, and the nav, footer and
+ * language its pages carry (a site without roots: the language of the path's prefix; with roots:
+ * the path's <cc>/<ll>), before scripts.js loads (theme, consent, showcase notice and header and
+ * footer then follow the brand). Its title names the brand; it links only the site's pages that
+ * answer (homepage, booking, check-in, bookings: a HEAD request each), without Lufthansa's search
+ * and help page. lh-com (no brand row) as above. scripts.js is loaded from here, after that.
  */
 import {
   getLocale, getHomepageUrl, LIVE_ORIGIN, LOCALES,
 } from './locale.js';
+import { BRANDS, brandName } from './brand.js';
+import { siteLanguagesOf, languageOfPath } from './site-languages.js';
 
 const TEXT = {
   en: {
@@ -88,7 +97,7 @@ function searchForm(locale, t) {
   return form;
 }
 
-export default function buildNotFound(main = document.querySelector('main')) {
+export function buildNotFound(main = document.querySelector('main')) {
   if (!main) return;
   const locale = notFoundLocale();
   const t = TEXT[locale.lang] || TEXT.en;
@@ -107,4 +116,127 @@ export default function buildNotFound(main = document.querySelector('main')) {
   if (og) og.content = document.title;
 }
 
-buildNotFound();
+/** A metadata sheet's URL glob as a regular expression (** any path, * one segment). */
+function globRegExp(glob) {
+  const source = String(glob || '').trim().split('**')
+    .map((part) => part.split('*').map((p) => p.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*'))
+    .join('.*');
+  return new RegExp(`^${source}$`);
+}
+
+/**
+ * The brand of the rows of the site's /metadata.json that match a path (the last one wins, as
+ * Edge Delivery applies them); '' for none or an unknown brand.
+ * @param {Object[]} rows
+ * @param {string} pathname
+ */
+export function metadataBrand(rows, pathname) {
+  const brand = (rows || [])
+    .filter((r) => r && r.brand && r.URL && globRegExp(r.URL).test(pathname))
+    .map((r) => String(r.brand).trim().toLowerCase()).pop() || '';
+  return Object.prototype.hasOwnProperty.call(BRANDS, brand) ? brand : '';
+}
+
+/**
+ * The metadata a brand's pages carry, for its 404 at a path: brand; nav, footer (and language on
+ * a site without roots) of the path's language or root.
+ * @param {string} pathname
+ * @param {string} brand
+ * @returns {Object<string, string>}
+ */
+export function brandPageMeta(pathname, brand) {
+  const meta = { brand };
+  const languages = siteLanguagesOf((n) => (n === 'brand' ? brand : ''));
+  if (languages) {
+    const entry = languageOfPath(pathname, languages) || languages[0];
+    return {
+      ...meta, language: entry.lang, nav: `${entry.path}nav`, footer: `${entry.path}footer`,
+    };
+  }
+  const root = pathname.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  if (!root) return meta;
+  return { ...meta, nav: `/${root[1]}/${root[2]}/nav`, footer: `/${root[1]}/${root[2]}/footer` };
+}
+
+/** Sets a page metadata value (<meta name>). */
+export function setMeta(name, content) {
+  let meta = document.head.querySelector(`meta[name="${name}"]`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute('name', name);
+    document.head.append(meta);
+  }
+  meta.setAttribute('content', content);
+}
+
+const pageMeta = (name) => document.head.querySelector(`meta[name="${name}"]`)?.getAttribute('content') || '';
+
+/** Whether a page of this site answers (HEAD, after redirects). */
+async function pageExists(href) {
+  try {
+    return (await fetch(href, { method: 'HEAD' })).ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+/**
+ * A brand's not-found page: the title, then the homepage and the booking, check-in and bookings
+ * pages of the path's language or root that exist on the site; the brand's name in the title.
+ * @param {Element} [main]
+ * @param {Function} [exists] async (href) => boolean
+ */
+export async function buildBrandNotFound(main = document.querySelector('main'), exists = pageExists) {
+  if (!main) return;
+  const { pathname } = window.location;
+  const languages = siteLanguagesOf(pageMeta);
+  const root = pathname.match(/^\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+  let lang = 'en';
+  let base = '';
+  let home = '/';
+  if (languages) {
+    const entry = languageOfPath(pathname, languages) || languages[0];
+    ({ lang, home } = entry);
+    base = entry.path.replace(/\/$/, '');
+  } else if (root) {
+    [, , lang] = root;
+    base = `/${root[1]}/${root[2]}`;
+    home = `${base}/homepage`;
+  }
+  const t = TEXT[lang] || TEXT.en;
+  const candidates = t.links.map(([label, slug]) => [label, slug === 'home' ? home : `${base}/${slug}`]);
+  const found = await Promise.all(candidates.map(([, href]) => exists(href).catch(() => false)));
+  const content = el('div', {}, el('h1', {}, t.title));
+  candidates.forEach(([label, href], i) => {
+    if (found[i]) content.append(linkParagraph(label, href, ''));
+  });
+  main.replaceChildren(content);
+  document.title = `${t.title} | ${brandName()}`;
+  const og = document.querySelector('meta[property="og:title"]');
+  if (og) og.content = document.title;
+}
+
+/** The brand of this site: its /metadata.json row for the path ('' for lh-com and on errors). */
+async function siteBrand(pathname) {
+  try {
+    const resp = await fetch('/metadata.json');
+    return resp.ok ? metadataBrand((await resp.json()).data, pathname) : '';
+  } catch (e) {
+    return '';
+  }
+}
+
+export default buildNotFound;
+
+// the not-found page (404.html): the brand first, then the page's text, then scripts.js
+if (window.isErrorPage) {
+  const { pathname } = window.location;
+  const brand = await siteBrand(pathname);
+  if (brand) {
+    Object.entries(brandPageMeta(pathname, brand)).forEach(([k, v]) => setMeta(k, v));
+    await buildBrandNotFound();
+  } else {
+    buildNotFound();
+  }
+  await import('./scripts.js');
+}
