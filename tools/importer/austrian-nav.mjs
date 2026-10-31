@@ -77,7 +77,17 @@ export function linkFor(href, sitePaths) {
 const a = (href, label, sitePaths) => `<a href="${esc(linkFor(href, sitePaths))}">${esc(label)}</a>`;
 // www images Edge Delivery refuses at preview (an SVG holding a 56 KB embedded PNG): a local
 // rendering of the same drawing, uploaded to DA by da-upload.mjs (/media-da/)
-export const LOCAL_IMAGES = {};
+export const LOCAL_IMAGES = {
+  // the same 56 KB SVG with an embedded PNG as ITA's (lh-ita's rendering)
+  '/content/dam/austrian/global/icons/svg-white/paypal.svg': '/media-da/austrian/paypal-white.png',
+  // path-only SVGs of 409 and 218 KB for 32px icons (/at/en/book/flights/giftvoucher)
+  '/content/dam/aua/icons/os-world-of-austrian-chevron_32px.svg': '/media-da/austrian/os-world-of-austrian-chevron_32px.png',
+  '/content/dam/aua/icons/service-offline-payment_32px.svg': '/media-da/austrian/service-offline-payment_32px.png',
+};
+
+/** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their local renderings. */
+export const withLocalImages = (doc) => Object.entries(LOCAL_IMAGES).reduce((d, [www, own]) => d
+  .replace(new RegExp(`src="(?:https://www\\.austrian\\.com)?${www.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`, 'g'), `src="${own}"`), doc);
 const img = (src, alt) => {
   const own = LOCAL_IMAGES[new URL(src, `${ORIGIN}/`).pathname];
   return `<img src="${esc(own || new URL(src, `${ORIGIN}/`).href)}" alt="${esc(alt)}">`;

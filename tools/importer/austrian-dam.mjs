@@ -56,7 +56,7 @@ const TYPES = {
 };
 const IMAGE = /^(jpe?g|png)$/;
 const extOf = (p) => (p.match(/\.([a-z0-9]+)$/i) || [])[1]?.toLowerCase() || '';
-const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$/i;
+const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|access denied|^blocked$/i;
 
 /** The file's own path: a rendition (x.jpg.transform/.../img.jpg) is its asset's copy. */
 export const assetOf = (www) => {

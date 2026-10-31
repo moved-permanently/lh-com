@@ -104,7 +104,7 @@ if (isMain) {
       linksOf(html, ref).forEach((t) => targets.add(t));
       // a form's confirmation page (its :redirect), at its public path (successOf, austrian-import)
       [...html.matchAll(/name=":redirect"[^>]*value="\/content\/aua\/markets(\/[a-z]{2}\/[a-z]{2})(\/[^"]+?)(?:\.html)?"/g)].forEach((m) => {
-        if (m[1] === `/${ref}`) targets.add(m[2] === '/footer-pages/help-and-contact/form-confirmation' ? `${m[1]}/form-confirmation` : `${m[1]}${m[2]}`);
+        if (m[1] === `/${ref}`) targets.add(m[2] === '/footer-pages/help-and-contact/form-confirmation' && m[1].endsWith('/en') ? `${m[1]}/form-confirmation` : `${m[1]}${m[2]}`);
       });
     });
     [...targets].forEach((t) => {

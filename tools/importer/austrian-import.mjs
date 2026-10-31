@@ -27,6 +27,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { relativeDamLinks } from './austrian-dam.mjs';
+import { withLocalImages } from './austrian-nav.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -146,8 +147,9 @@ export function successOf(html) {
   const redirect = (String(html || '').match(/name=":redirect"[^>]*value="([^"]+)"|value="([^"]+)"[^>]*name=":redirect"/) || []).slice(1).find(Boolean) || '';
   const m = redirect.match(/^\/content\/aua\/markets(\/[a-z]{2}\/[a-z]{2})(\/.+?)(?:\.html)?$/);
   if (!m) return '';
-  // the common confirmation page answers at its short path on www (/at/<ll>/form-confirmation)
-  return m[2] === '/footer-pages/help-and-contact/form-confirmation' ? `${m[1]}/form-confirmation` : `${m[1]}${m[2]}`;
+  // the common confirmation page: its short path on the English roots (/at/en/form-confirmation;
+  // /at/de/form-confirmation is 404 on www), else its content path
+  return m[2] === '/footer-pages/help-and-contact/form-confirmation' && m[1].endsWith('/en') ? `${m[1]}/form-confirmation` : `${m[1]}${m[2]}`;
 }
 
 /**
@@ -314,7 +316,7 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`));
+      const next = withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`)));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);

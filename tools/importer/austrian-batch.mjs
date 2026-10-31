@@ -116,9 +116,9 @@ async function batch(n) {
   const full = path.join(RUNS, `${name}-preview.txt`);
   fs.writeFileSync(full, `${all.join('\n')}\n`);
   const da = run(['tools/importer/da-upload.mjs', '--site', 'lh-austrian', '--list', full]);
-  log(`${name}: ${da.out.slice(-1)[0]}`);
+  log(`${name}: ${(da.out.find((l) => l.startsWith('da-upload: ')) || da.out.slice(-1)[0])}`);
   da.out.filter((l) => /^\s+\//.test(l)).forEach((l) => log(`${name}: problem ${l.trim()}`));
-  const previewed = Number(((da.out.slice(-1)[0] || '').match(/(\d+) previewed/) || [])[1] || 0);
+  const previewed = Number((((da.out.find((l) => l.startsWith('da-upload: ')) || da.out.slice(-1)[0]) || '').match(/(\d+) previewed/) || [])[1] || 0);
   if (previewed) {
     const check = run(['tools/importer/austrian-check.mjs', '--list', full]);
     check.out.slice(0, 2).forEach((l) => log(`${name}: ${l}`));

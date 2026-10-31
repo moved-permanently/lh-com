@@ -115,7 +115,7 @@ async function batch(n) {
   const full = path.join(RUNS, `${name}-preview.txt`);
   fs.writeFileSync(full, `${all.join('\n')}\n`);
   const da = run(['tools/importer/da-upload.mjs', '--site', 'lh-ita', '--list', full]);
-  log(`${name}: ${da.out.slice(-1)[0]}`);
+  log(`${name}: ${(da.out.find((l) => l.startsWith('da-upload: ')) || da.out.slice(-1)[0])}`);
   da.out.filter((l) => /^\s+\//.test(l)).forEach((l) => log(`${name}: problem ${l.trim()}`));
   const check = run(['tools/importer/ita-check.mjs', '--list', full]);
   check.out.slice(0, 2).forEach((l) => log(`${name}: ${l}`));
@@ -125,7 +125,7 @@ async function batch(n) {
   const docSet = new Set(docs);
   const aem = report.filter((x) => x.status === 'aem' && x.pages.some((p) => docSet.has(p)));
   fs.writeFileSync(path.join(RUNS, `${name}-aem.tsv`), `page\tedsDamPath\twww path\tbytes\n${aem.map((x) => `${x.pages.filter((p) => docSet.has(p)).join(' ')}\t${x.eds}\t${x.www}\t${x.bytes ?? x.note ?? ''}`).join('\n')}\n`);
-  const previewed = (da.out.slice(-1)[0] || '').match(/(\d+) previewed/);
+  const previewed = ((da.out.find((l) => l.startsWith('da-upload: ')) || da.out.slice(-1)[0]) || '').match(/(\d+) previewed/);
   console.log(`batch ${n} previewed: ${previewed ? previewed[1] : 0} documents, ${path.relative(root, list)}`);
   fs.appendFileSync(LOG, `batch ${n} previewed: ${previewed ? previewed[1] : 0} documents, ${path.relative(root, list)}; for AEM ${aem.length}\n`);
   return true;
