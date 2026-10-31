@@ -64,6 +64,14 @@ export const withLinkOuts = (html, p) => html.replace(/<div class="securitywaiti
   return `<div class="iframe-link-out"><p><a href="https://${LINK_OUT}${p}">${label}</a></p></div>`;
 });
 
+/**
+ * A snapshot that loads nothing while it is imported (setContent would fetch its absolute
+ * www.ita-airways.com URLs): a Content-Security-Policy meta tag refuses every subresource and allows
+ * only the importer's inline script; the URLs stay in the markup (austrian-import.mjs the same).
+ */
+export const OFFLINE_CSP = "default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:";
+export const withoutLoads = (html) => html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}<meta http-equiv="Content-Security-Policy" content="${OFFLINE_CSP}">`);
+
 /** The end (index after its closing tag) of the div that opens at `start`, by div depth. */
 export function divEnd(html, start) {
   const re = /<div\b|<\/div>/g;
@@ -205,7 +213,7 @@ if (isMain) {
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
-    const mapped = withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p)))
+    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(stripScripts(html)), p))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
@@ -214,6 +222,15 @@ if (isMain) {
   });
   console.log(`${name}: ${Object.entries(byTemplate).map(([t, l]) => `${t} ${l.length}`).join(', ')}; no snapshot: ${missing.length ? missing.join(' ') : 'none'}`);
   if (!argv.includes('--dry-run')) {
+    // the bulk importer loads a page live (page.goto) unless its workspace is flagged protected:
+    // the flag first, so every page comes from its snapshot and nothing is requested from www
+    // (without it the first pages of a new workspace went to www live until one was refused)
+    const flag = path.join(W, '.migration/project.json');
+    const flags = fs.existsSync(flag) ? JSON.parse(fs.readFileSync(flag, 'utf8')) : {};
+    if (flags.botProtected !== true) {
+      fs.mkdirSync(path.dirname(flag), { recursive: true });
+      fs.writeFileSync(flag, `${JSON.stringify({ ...flags, botProtected: true }, null, 2)}\n`);
+    }
     // the bulk importer writes its reports into lh-com's tree (tools/importer/reports/<path>),
     // where lh-com has reports of its own at paths ITA has too (/de/de/homepage, /gb/en/feedback):
     // those are set aside before the import and put back after it
@@ -228,8 +245,11 @@ if (isMain) {
       const listFile = path.join(W, `urls-${name}-${t}.txt`);
       fs.writeFileSync(listFile, `${l.join('\n')}\n`);
       const log = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', `tools/importer/import-${t}.bundle.js`, '--urls', listFile, '--force', '--html-dir', MAPPED], {
-        cwd: root, env: { ...process.env, WORKSPACE_PATH: W }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
+        // no Bright Data fallback from inside the import (BD_ENDPOINT empty): pages come from snapshots
+        cwd: root, env: { ...process.env, WORKSPACE_PATH: W, BD_ENDPOINT: '' }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
       });
+      // a snapshot import that failed falls through to a live load of www: name every one
+      log.split('\n').filter((x) => /Snapshot import failed|falling through to live/i.test(x)).forEach((x) => console.log(`WARNING (live fallback): ${x.trim()}`));
       const lines = log.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x));
       console.log(`${t}: ${lines.slice(-2).join(' | ')}`);
     });
