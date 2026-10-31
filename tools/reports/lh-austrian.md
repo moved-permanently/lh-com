@@ -183,6 +183,36 @@ is for AEM, and so is the 353.9 MB shark video (size from the Studio list, not r
 | `/content/dam/video/travel-briefing/delayed-baggage-os/2025-os-delayed-baggage-en-cc.vtt` | 2957 | /at/en/missing-baggage |
 | `/content/dam/video/travel-briefing/delayed-baggage-os/2025-os-delayed-baggage-en-ad.vtt` | 880 | /at/en/missing-baggage |
 
+## Batches 9-43 (2026-10-31): the other reference roots and the market roots
+
+From the Studio's snapshots (no page captured), one batch after the other, 05:06-09:12 UTC; every
+document previewed, 0 preview problems. The documents previewed include each root's nav and
+footer and the documents the DAM switch changed.
+
+| batches | root | pages | documents previewed |
+|---|---|---|---|
+| 9-12 | fr/fr | 204 | 57, 54, 54, 53 |
+| 13-16 | it/it | 203 | 54, 55, 53, 53 |
+| 17-20 | ru/ru | 199 | 53, 53, 52, 52 |
+| 21-24 | es/es | 201 | 54, 54, 54, 51 |
+| 25-28 | gr/el | 202 | 54, 54, 53, 52 |
+| 29-32 | jp/ja | 206 | 55, 55, 55, 53 |
+| 33-36 | pl/pl | 202 | 53, 54, 54, 52 |
+| 37-40 | cn/zh | 206 | 56, 55, 55, 52 |
+| 41 | own pages of 18 market roots | 33 | 70 |
+| 42 | homepages of 32 market roots | 32 | 97 |
+| 43 | homepages of 22 market roots | 22 | 66 |
+
+All told: the scope's 2168 documents (language 2081, market homepages 54, own pages 33) and the
+nav and footer of all 64 roots (128) are on the preview. One under its Edge Delivery name: www's
+`/ca/en/local-page/austrian_in_canada` is `/ca/en/local-page/austrian-in-canada` (a
+`redirects.json` row for the www path). The market homepages have no H1, as on www. DAM copies
+in all: 175 in DA and previewed, 15 for AEM, 65 www 404, 2 refused to the one-byte GET; one PDF
+in DA answers 409 at preview twice
+(`/content/dam/aua/images/local-pages/nyc/ca/historical-conditions-of-carriage-ca/pdfs/16Aug2024.pdf`,
+382 KB; the page links www's file). The reference roots' language pages link the English videos'
+`.vtt` (`runs/batch-NN-aem.tsv`); no new file for AEM after the pilot.
+
 ## Other findings
 
 - `/at/en/fly/flight-information/flight-irregularities` (and at/de): the current disruption
