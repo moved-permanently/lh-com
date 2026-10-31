@@ -12,6 +12,110 @@
   "Destination": "/en/news/10-years-of-the-frankfurt-animal-lounge"
  },
  {
+  "Source": "/en/-/112-caprisonne",
+  "Destination": "/en/news/112-caprisonne"
+ },
+ {
+  "Source": "/en/-/113-cfi",
+  "Destination": "/en/news/113-cfi"
+ },
+ {
+  "Source": "/en/-/114-china_singlesday",
+  "Destination": "/en/news/114-china-singlesday"
+ },
+ {
+  "Source": "/en/-/115-kuckucksuhren",
+  "Destination": "/en/news/115-kuckucksuhren"
+ },
+ {
+  "Source": "/en/-/116-pentra",
+  "Destination": "/en/news/116-pentra"
+ },
+ {
+  "Source": "/en/-/117-spargel",
+  "Destination": "/en/news/117-spargel"
+ },
+ {
+  "Source": "/en/-/118-stars-from-uganda",
+  "Destination": "/en/news/118-stars-from-uganda"
+ },
+ {
+  "Source": "/en/-/119-space-mission",
+  "Destination": "/en/news/119-space-mission"
+ },
+ {
+  "Source": "/en/-/120-world-premiere",
+  "Destination": "/en/news/120-world-premiere"
+ },
+ {
+  "Source": "/en/-/121-konnichiwa-bojo-",
+  "Destination": "/en/news/121-konnichiwa-bojo"
+ },
+ {
+  "Source": "/en/-/122-hyper-agility",
+  "Destination": "/en/news/122-hyper-agility"
+ },
+ {
+  "Source": "/en/-/123-flying-horses",
+  "Destination": "/en/news/123-flying-horses"
+ },
+ {
+  "Source": "/en/-/124-cats-traveling",
+  "Destination": "/en/news/124-cats-traveling"
+ },
+ {
+  "Source": "/en/-/125-blood-sweat-and-tears",
+  "Destination": "/en/news/125-blood-sweat-and-tears"
+ },
+ {
+  "Source": "/en/-/126-papaya",
+  "Destination": "/en/news/126-papaya"
+ },
+ {
+  "Source": "/en/-/127-growing-together",
+  "Destination": "/en/news/127-growing-together"
+ },
+ {
+  "Source": "/en/-/128-exhibition-tokio-1",
+  "Destination": "/en/news/128-exhibition-tokio-1"
+ },
+ {
+  "Source": "/en/-/129.-check-in-for-freight.",
+  "Destination": "/en/news/129-check-in-for-freight"
+ },
+ {
+  "Source": "/en/-/131-keeping-cool",
+  "Destination": "/en/news/131-keeping-cool"
+ },
+ {
+  "Source": "/en/-/133.-wfb-1",
+  "Destination": "/en/news/133-wfb-1"
+ },
+ {
+  "Source": "/en/-/134.-upcycling",
+  "Destination": "/en/news/134-upcycling"
+ },
+ {
+  "Source": "/en/-/135.-digital-speed",
+  "Destination": "/en/news/135-digital-speed"
+ },
+ {
+  "Source": "/en/-/136.-cherries",
+  "Destination": "/en/news/136-cherries"
+ },
+ {
+  "Source": "/en/-/137.-crystal-clear",
+  "Destination": "/en/news/137-crystal-clear"
+ },
+ {
+  "Source": "/en/-/138.-gold-rush",
+  "Destination": "/en/news/138-gold-rush"
+ },
+ {
+  "Source": "/en/-/141.-spider-man-2",
+  "Destination": "/en/news/141-spider-man-2"
+ },
+ {
   "Source": "/en/-/142.-arctic-temperatures-on-board",
   "Destination": "/en/news/142-arctic-temperatures-on-board"
  },
@@ -26,6 +130,10 @@
  {
   "Source": "/en/-/aerologic-fleet-set-to-grow-to-eleven-freighters",
   "Destination": "/en/news/aerologic-fleet-set-to-grow-to-eleven-freighters"
+ },
+ {
+  "Source": "/en/-/almresi-53",
+  "Destination": "/en/news/almresi-53"
  },
  {
   "Source": "/en/-/around-the-world-with-88-tons-39",
@@ -50,6 +158,18 @@
  {
   "Source": "/en/-/blueprint-new-york-80",
   "Destination": "/en/news/blueprint-new-york-80"
+ },
+ {
+  "Source": "/en/-/car-enthusiasts-98",
+  "Destination": "/en/news/car-enthusiasts-98"
+ },
+ {
+  "Source": "/en/-/cathay-pacific-cargo-and-lufthansa-cargo-now-under-one-roof-for-frankfurt-cargo-handling",
+  "Destination": "/en/news/cathay-pacific-cargo-and-lufthansa-cargo-now-under-one-roof-for-frankfurt-cargo-handling"
+ },
+ {
+  "Source": "/en/-/china-post-and-lufthansa-cargo-announce-strategic-cooperation-",
+  "Destination": "/en/news/china-post-and-lufthansa-cargo-announce-strategic-cooperation"
  },
  {
   "Source": "/en/-/claws-13",
@@ -80,8 +200,16 @@
   "Destination": "/en/news/cranach-flies-lufthansa-68"
  },
  {
+  "Source": "/en/-/deep-water-91",
+  "Destination": "/en/news/deep-water-91"
+ },
+ {
   "Source": "/en/-/denim-deluxe-72",
   "Destination": "/en/news/denim-deluxe-72"
+ },
+ {
+  "Source": "/en/-/dhl-global-forwarding-honored-as-top-customer",
+  "Destination": "/en/news/dhl-global-forwarding-honored-as-top-customer"
  },
  {
   "Source": "/en/-/direct-ramp-34",
@@ -144,8 +272,16 @@
   "Destination": "/en/news/go-west-alfred-66"
  },
  {
+  "Source": "/en/-/harald-gloy-to-become-board-member-operations-at-lufthansa-cargo",
+  "Destination": "/en/news/harald-gloy-to-become-board-member-operations-at-lufthansa-cargo"
+ },
+ {
   "Source": "/en/-/herrenknecht-97",
   "Destination": "/en/news/herrenknecht-97"
+ },
+ {
+  "Source": "/en/-/heyworld",
+  "Destination": "/en/news/heyworld"
  },
  {
   "Source": "/en/-/high-flying-fashion-73",
@@ -184,6 +320,214 @@
   "Destination": "/en/news/lhc-press-media-details-2010-page-4-2"
  },
  {
+  "Source": "/en/-/lhc-press-media-details-2013-page2-4-1",
+  "Destination": "/en/news/lhc-press-media-details-2013-page2-4-1"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page2-4-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page2-4-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page2-5-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page2-5-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page2-7-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page2-7-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page2-8-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page2-8-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-1-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-1-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-2-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-2-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-3-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-3-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-4-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-4-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-5-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-5-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-6-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-6-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-7-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-7-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page3-8-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page3-8-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-1-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-1-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-2-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-2-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-3-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-3-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-4-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-4-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-5-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-5-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-6-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-6-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-7-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-7-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2013-page4-8-wc",
+  "Destination": "/en/news/lhc-press-media-details-2013-page4-8-wc"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-2",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-2"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-3",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-3"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-4",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-4"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-5",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-5"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-6",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-6"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-7",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-7"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page1-8",
+  "Destination": "/en/news/lhc-press-media-details-2014-page1-8"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-1",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-1"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-2",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-2"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-3",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-3"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-4",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-4"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-5",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-5"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-6",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-6"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-7",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-7"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page2-8",
+  "Destination": "/en/news/lhc-press-media-details-2014-page2-8"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-1",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-1"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-2",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-2"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-3",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-3"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-4",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-4"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-5",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-5"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-6",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-6"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-7",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-7"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page3-8",
+  "Destination": "/en/news/lhc-press-media-details-2014-page3-8"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-1",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-1"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-2",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-2"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-3",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-3"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-4",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-4"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-5",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-5"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-6",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-6"
+ },
+ {
+  "Source": "/en/-/lhc-press-media-details-2014-page4-7",
+  "Destination": "/en/news/lhc-press-media-details-2014-page4-7"
+ },
+ {
   "Source": "/en/-/lifesaver-76",
   "Destination": "/en/news/lifesaver-76"
  },
@@ -204,12 +548,32 @@
   "Destination": "/en/news/lufthansa-cargo-awarded-ceiv-certification-for-pharmaceuticals-transport"
  },
  {
+  "Source": "/en/-/lufthansa-cargo-awarded-for-reliability-and-excellence",
+  "Destination": "/en/news/lufthansa-cargo-awarded-for-reliability-and-excellence"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-cool-center-to-be-expanded",
+  "Destination": "/en/news/lufthansa-cargo-cool-center-to-be-expanded"
+ },
+ {
   "Source": "/en/-/lufthansa-cargo-exhibiting-at-fruit-logistica",
   "Destination": "/en/news/lufthansa-cargo-exhibiting-at-fruit-logistica"
  },
  {
   "Source": "/en/-/lufthansa-cargo-expanding-its-range-of-digital-services",
   "Destination": "/en/news/lufthansa-cargo-expanding-its-range-of-digital-services"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-flies-calmly-through-a-challenging-year",
+  "Destination": "/en/news/lufthansa-cargo-flies-calmly-through-a-challenging-year"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-freighter-named-marhaba-egypt-",
+  "Destination": "/en/news/lufthansa-cargo-freighter-named-marhaba-egypt"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-further-expands-digital-offering",
+  "Destination": "/en/news/lufthansa-cargo-further-expands-digital-offering"
  },
  {
   "Source": "/en/-/lufthansa-cargo-global-environmental-management-system-recognised-again",
@@ -220,8 +584,24 @@
   "Destination": "/en/news/lufthansa-cargo-greets-canada-with-hello-bonjour-canada"
  },
  {
+  "Source": "/en/-/lufthansa-cargo-in-dialogue-with-customers",
+  "Destination": "/en/news/lufthansa-cargo-in-dialogue-with-customers"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-is-deemed-best-cargo-airline-of-2014-in-italy",
+  "Destination": "/en/news/lufthansa-cargo-is-deemed-best-cargo-airline-of-2014-in-italy"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-presents-itself-at-the-cebit-recruiting-days",
+  "Destination": "/en/news/lufthansa-cargo-presents-itself-at-the-cebit-recruiting-days"
+ },
+ {
   "Source": "/en/-/lufthansa-cargo-starts-iata-proof-of-concept-for-edgd-together-with-dakosy-community-collaboration-platform",
   "Destination": "/en/news/lufthansa-cargo-starts-iata-proof-of-concept-for-edgd-together-with-dakosy-community-collaboration-platform"
+ },
+ {
+  "Source": "/en/-/lufthansa-cargo-takes-off-for-the-future-with-new-freighters",
+  "Destination": "/en/news/lufthansa-cargo-takes-off-for-the-future-with-new-freighters"
  },
  {
   "Source": "/en/-/made-in-kenya-51",
@@ -244,6 +624,14 @@
   "Destination": "/en/news/new-cars-to-cuba-78"
  },
  {
+  "Source": "/en/-/new-managing-director-for-operations-finance-of-the-time-matters-group",
+  "Destination": "/en/news/new-managing-director-for-operations-finance-of-the-time-matters-group"
+ },
+ {
+  "Source": "/en/-/new-pricing-structures-at-lufthansa-cargo-and-swiss-worldcargo",
+  "Destination": "/en/news/new-pricing-structures-at-lufthansa-cargo-and-swiss-worldcargo"
+ },
+ {
   "Source": "/en/-/night-shift-in-chicago-44",
   "Destination": "/en/news/night-shift-in-chicago-44"
  },
@@ -254,6 +642,10 @@
  {
   "Source": "/en/-/passion-for-technology-49",
   "Destination": "/en/news/passion-for-technology-49"
+ },
+ {
+  "Source": "/en/-/personnel-changes-at-lufthansa-cargo-s-sales-division",
+  "Destination": "/en/news/personnel-changes-at-lufthansa-cargo-s-sales-division"
  },
  {
   "Source": "/en/-/pharma-ninjas-99",
@@ -290,6 +682,10 @@
  {
   "Source": "/en/-/smoking-flight-86",
   "Destination": "/en/news/smoking-flight-86"
+ },
+ {
+  "Source": "/en/-/solutions-for-the-future-of-airfreight",
+  "Destination": "/en/news/solutions-for-the-future-of-airfreight"
  },
  {
   "Source": "/en/-/starstruck-81-1",
