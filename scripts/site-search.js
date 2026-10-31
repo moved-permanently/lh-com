@@ -23,6 +23,8 @@
  *   characters, cut at word boundaries with "..." where it was cut.
  */
 
+import { BRANDS } from './brands.js';
+
 export const MAX_RESULTS = 30;
 export const PAGE_SIZE = 10;
 export const WEIGHTS = {
@@ -75,9 +77,20 @@ const list = (v) => {
   return [s];
 };
 
+/**
+ * The site suffixes of page titles: Lufthansa's and every brand's (scripts/brands.js BRANDS:
+ * ITA Airways, Discover Airlines, Austrian Airlines, Lufthansa Cargo, Air Dolomiti). The prebuilt
+ * search data (lh-edge src/search-data.js) is built from lh-com's indexes, whose titles end
+ * " | Lufthansa": a brand added to brands.js changes no answer there (SEARCH_CODE hashes this
+ * file only).
+ */
+const SUFFIX = new RegExp(`\\s*\\|\\s*(?:${['Lufthansa', ...Object.values(BRANDS).map((b) => b.name)]
+  .sort((x, y) => y.length - x.length)
+  .map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\s*$`, 'i');
+
 /** The page title without the site suffix ("Baggage | Lufthansa" -> "Baggage"). */
 export function headline(title) {
-  return String(title || '').replace(/\s*\|\s*Lufthansa\s*$/i, '').trim();
+  return String(title || '').replace(SUFFIX, '').trim();
 }
 
 // the documents' style markers ("Baggage {heading-small}", "{divider-25}"): not text

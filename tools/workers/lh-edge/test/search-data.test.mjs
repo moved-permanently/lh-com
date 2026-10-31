@@ -9,7 +9,7 @@ import worker from '../src/index.js';
 import { resetSearchCache } from '../src/search.js';
 import { resetLeanCache, MODEL_COLUMNS } from '../src/market-lean.js';
 import {
-  buildSearchData, dataSearchAnswer, resetSearchDataCache, SEARCH_CODE, DOCS_PER_CHUNK,
+  buildSearchData, dataSearchAnswer, resetSearchDataCache, SEARCH_CODE, SEARCH_CODE_PREVIOUS, DOCS_PER_CHUNK,
 } from '../src/search-data.js';
 import { searchAnswer, prepareRow } from '../../../../scripts/site-search.js';
 
@@ -129,4 +129,18 @@ test('search route: from the data without reading the index; without data from t
   const fromIndex = await (await post('Gepäck')).text();
   assert.ok(calls.some((c) => / \/de\/de\/search-index\.json\?limit=1000/.test(c)), 'no data: the index');
   assert.equal(fromData, fromIndex);
+});
+
+test('search data: the previous scoring code\'s data is used too (the same answers on lh-com\'s indexes: built both ways 2026-10-31)', async () => {
+  resetSearchDataCache();
+  resetLeanCache();
+  lean = leanText(ROWS);
+  files = buildSearchData(ROWS, SEARCH_CODE_PREVIOUS);
+  assert.equal(SEARCH_CODE_PREVIOUS, '493e9892aee8611b');
+  assert.notEqual(SEARCH_CODE_PREVIOUS, SEARCH_CODE);
+  const prepared = ROWS.map(prepareRow);
+  assert.equal(JSON.stringify(await dataSearchAnswer(req, env, 'de/de', 'gepäck')), JSON.stringify(searchAnswer(prepared, 'gepäck')), 'previous code: used, the same answer');
+  resetSearchDataCache();
+  files = buildSearchData(ROWS, 'another-code');
+  assert.equal(await dataSearchAnswer(req, env, 'de/de', 'gepäck'), null, 'any other code: not used');
 });
