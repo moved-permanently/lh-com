@@ -1,0 +1,56 @@
+# lh-airdolomiti batch-20 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T21:28Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/articles/avgeek-en/redundancy
+/en/articles/avgeek-en/roger-or-romeo
+/en/articles/avgeek-en/seaplanes-and-seaplane-bases-history-and-geek-stuff
+/en/articles/avgeek-en/tail-number
+/en/articles/avgeek-en/the-autobrake
+/en/articles/avgeek-en/the-flight-director
+/en/articles/avgeek-en/the-life-of-a-pilot-interview-with-first-officer-grigory-shevandin
+/en/articles/avgeek-en/the-lifecycle-of-aircraft
+/en/articles/avgeek-en/the-variometer
+/en/articles/avgeek-en/vertical-takeoff
+/en/articles/avgeek-en/vhf-omnidirectional-range-vor
+/en/articles/avgeek-en/what-exactly-is-aeroplane-landing-gear
+/en/articles/avgeek-en/what-material-is-an-aircraft-made-of
+/en/articles/avgeek-en/why-can-aeroplanes-fly
+/en/articles/avgeek-en/why-does-the-captain-sit-on-the-left
+/en/articles/avgeek-en/windy-landing
+/en/articles/destinations/a-different-bologna-for-every-age
+/en/articles/destinations/a-journey-through-apulias-4-unesco-wonders
+/en/articles/destinations/aarhus-outside-the-city
+/en/articles/destinations/aarhus-pronounced-aa-huhs
+/en/articles/destinations/biennale-arte-2019-venice
+/en/articles/destinations/bologna-by-bike-cafes-bars-vintage-shops-street-art
+/en/articles/destinations/brindisi-for-history-fans-among-others
+/en/articles/destinations/contemporary-art-bari
+/en/articles/destinations/contemporary-art-pisa
+/en/articles/destinations/discover-munich-history-and-legends
+/en/articles/destinations/discovering-the-fairytales-of-germany
+/en/articles/destinations/florence-prato-tips-creative-itinerary
+/en/articles/destinations/from-verona-to-peschiera-del-garda-in-just-30-minutes
+/en/articles/destinations/genoa-in-three-days
+/en/articles/destinations/hidden-bologna
+/en/articles/destinations/just-outside-of-munich-starnberg-lake
+/en/articles/destinations/m9-in-mestre
+/en/articles/destinations/mainfest-frankfurt-2025
+/en/articles/destinations/on-tour-with-andrea-lorenzon-aka-cartoni-morti
+/en/articles/destinations/outside-of-bologna-summer-in-rimini-and-riccione
+/en/articles/destinations/outside-of-florence-discovering-chianti
+/en/articles/destinations/ozapft-is-its-time-for-oktoberfest
+/en/articles/destinations/south-of-bari-salento
+/en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: 2 problems:
+#   /en/articles/destinations/aarhus-outside-the-city h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+#   /en/articles/destinations/contemporary-art-pisa  h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/articles/avgeek-en/redundancy -> /en/articles/avgeek-en/redundancy: text 2/2, images 1/1 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.eu/articles/destinations/biennale-arte-2019-venice -> /en/articles/destinations/biennale-arte-2019-venice: text 9/9, images 2/2 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.eu/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season -> /en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season: text 11/14, images 6/9 (+2), links 3/3 (+0)
+#   https://www.airdolomiti.eu/articles/avgeek-en/redundancy: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/destinations/biennale-arte-2019-venice: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season: text missing: "destinations"; "how well do you know the air dolomiti destinations?"; "start quiz" | images missing: mare_sard3-1.png, Fru%CC%88hling-in-Sardinien-4.jpg, Ala-Embraer-Air-Dolomiti-e1774004245429.jpg

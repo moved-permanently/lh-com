@@ -5,7 +5,8 @@
  *  2. the language's nav and footer when its homepage is captured (airdolomiti-nav.mjs --lang);
  *  3. import (airdolomiti-import.mjs; it lists the files the pages use), their files
  *     (airdolomiti-assets.mjs --download: one GET every 5-10 s; --upload: PDFs to DA, previewed),
- *     import again with the files;
+ *     import again with the files (and once more after the originals of resized images that
+ *     answer 404, found by that import);
  *  4. upload and preview the documents, the language's nav and footer (da-upload.mjs --site
  *     lh-airdolomiti; only changed documents are sent) and the redirects of what is imported
  *     (airdolomiti-paths.mjs: tools/importer/airdolomiti-redirects.json);
@@ -58,6 +59,13 @@ if (homeCaptured) step(`nav and footer (${lang})`, 'airdolomiti-nav.mjs', ['--la
 step('files: download', 'airdolomiti-assets.mjs', ['--download']);
 step('files: upload and preview', 'airdolomiti-assets.mjs', ['--upload']);
 step('import', 'airdolomiti-import.mjs', ['--list', list, '--name', name]);
+// files this import found only now (the originals of resized images that answer 404 on www):
+// downloaded and uploaded, then the import once more
+if (Object.values(readJson(path.join(RUNS, `${name}-import.json`), {})).some((r) => (r.missing || []).length)) {
+  step('files: download (originals)', 'airdolomiti-assets.mjs', ['--download']);
+  step('files: upload and preview (originals)', 'airdolomiti-assets.mjs', ['--upload']);
+  step('import (with the originals)', 'airdolomiti-import.mjs', ['--list', list, '--name', name]);
+}
 if (homeCaptured) step(`nav and footer (${lang})`, 'airdolomiti-nav.mjs', ['--lang', lang]);
 
 const report = readJson(path.join(RUNS, `${name}-import.json`), {});

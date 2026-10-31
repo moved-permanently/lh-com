@@ -148,6 +148,13 @@ export class Page {
 
   note(s) { if (!this.notes.includes(s)) this.notes.push(s); }
 
+  /** The page's next quiz or gallery (www renders them in the order of the source). */
+  next(kind) {
+    this.counts = this.counts || {};
+    this.counts[kind] = (this.counts[kind] || 0) + 1;
+    return this.counts[kind] - 1;
+  }
+
   /** A link's target: the site's path for pages in scope, the live site for the rest. */
   href(raw) {
     const h = String(raw || '').trim().replace(/&amp;/g, '&');
@@ -239,11 +246,74 @@ export class Page {
 
 const KEEP_INLINE = new Set(['STRONG', 'B', 'EM', 'I', 'A', 'BR', 'SUP', 'SUB']);
 
-/** WordPress HTML as clean block-level HTML (cell: tables as lists; top: tables as table-striped). */
+/**
+ * WordPress HTML as clean block-level HTML (cell: tables as lists; top: tables as table-striped,
+ * its blocks placed on the page where they stand and the text after the last one returned).
+ */
 function rich(html, page, mode = 'cell') {
   if (!html || !String(html).trim()) return '';
-  const { document } = parseHTML(`<div id="r">${html}</div>`);
-  return flow(document.getElementById('r'), page, mode).join('');
+  const { document } = parseHTML(`<div id="r">${shortcodes(String(html), page)}</div>`);
+  const parts = flow(document.getElementById('r'), page, mode);
+  if (mode !== 'top') return parts.filter((p) => typeof p === 'string').join('');
+  return put(page, parts);
+}
+
+/** Text and blocks (flow's parts) onto the page in their order; the text after the last block returned. */
+function put(page, parts) {
+  let text = '';
+  parts.forEach((p) => {
+    if (typeof p === 'string') { text += p; return; }
+    page.add(text);
+    text = '';
+    page.block(p.block, p.rows);
+  });
+  return text;
+}
+
+/**
+ * WordPress shortcodes in post HTML: [caption] as its image and the caption in italics, [embed] as
+ * an iframe; [quiz-cat] and [gallery] (www renders them) as placeholders flow fills from www's render.
+ */
+function shortcodes(html, page) {
+  return html
+    .replace(/\[caption[^\]]*\]([\s\S]*?)\[\/caption\]/g, (m, inner) => {
+      const im = inner.match(/^\s*(<a\b[^>]*>\s*<img[^>]*>\s*<\/a>|<img[^>]*>)/i);
+      const text = (im ? inner.slice(im[0].length) : inner).trim();
+      return `<p>${im ? im[1] : ''}</p>${text ? `<p><em>${text}</em></p>` : ''}`;
+    })
+    .replace(/\[embed\]([\s\S]*?)\[\/embed\]/g, (m, url) => `<iframe src="${attr(plain(url))}"></iframe>`)
+    .replace(/\[(quiz-cat|gallery)\b[^\]]*\]/g, (m, kind) => `<div data-shortcode="${kind}" data-n="${page.next(kind)}"></div>`);
+}
+
+/** The n-th quiz or gallery of www's render, for its shortcode. */
+function shortcodeOf(kind, n, page, mode) {
+  if (kind === 'gallery') {
+    const { document } = parseHTML(page.rendered);
+    const g = document.querySelectorAll('[class*="ImageGallery_gallery"]')[n];
+    if (!g) return [];
+    page.note('gallery: its images one after another');
+    return [...g.querySelectorAll('img')].map((im) => page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' })).filter(Boolean).map((im) => `<p>${im}</p>`);
+  }
+  const rows = quizRows(page, n);
+  if (!rows) return [];
+  return mode === 'top' ? [{ block: 'columns-media', rows }] : [rows[0].join('')];
+}
+
+/**
+ * www's quiz loads its questions after "start" (the source holds only an id): the n-th quiz's
+ * intro (image, title, text) as columns-media, the start a link to the post on the live site.
+ */
+function quizRows(page, n) {
+  const { document } = parseHTML(page.rendered);
+  const q = document.querySelectorAll('[class*="Quiz_quiz"]')[n];
+  if (!q) return null;
+  const im = q.querySelector('img');
+  const title = q.querySelector('h1, h2, h3');
+  const text = q.querySelector('p');
+  const start = q.querySelector('button, a');
+  const body = `${title ? page.heading('h2', title.textContent) : ''}${text ? `<p>${esc(plain(text.textContent))}</p>` : ''}<p><strong><a href="${attr(page.source)}">${esc(plain(start ? start.textContent : 'Quiz'))}</a></strong></p>`;
+  page.note('quiz (questions load on www after start): its intro and a link to the post on www');
+  return [[im ? page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }) : '', body]];
 }
 
 function inline(node, page) {
@@ -281,20 +351,24 @@ function flow(node, page, mode) {
     if (c.nodeType === 3) { run += esc(c.textContent.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ')); return; }
     if (c.nodeType !== 1 || /^(SCRIPT|STYLE|NOSCRIPT|FORM|BUTTON|INPUT|SELECT|svg)$/i.test(c.tagName)) return;
     const t = c.tagName;
+    const sc = c.getAttribute('data-shortcode');
+    if (sc) { flush(); out.push(...shortcodeOf(sc, Number(c.getAttribute('data-n')), page, mode)); return; }
     if (KEEP_INLINE.has(t) || t === 'SPAN' || t === 'IMG' || t === 'U' || t === 'SMALL') {
-      if (t === 'SPAN' && c.querySelector('p, div, ul, ol, table, h1, h2, h3, h4, h5, h6')) { flush(); out.push(...flow(c, page, mode)); return; }
+      if (t === 'SPAN' && c.querySelector('p, div, ul, ol, table, h1, h2, h3, h4, h5, h6, iframe')) { flush(); out.push(...flow(c, page, mode)); return; }
       run += inline({ childNodes: [c] }, page);
       return;
     }
     flush();
     if (/^H[1-6]$/.test(t)) { const h = tidy(inline(c, page)).replace(/<br>/g, ' '); if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`); return; }
+    // a paragraph holding an iframe or a shortcode's placeholder: its parts in their order
+    if (t === 'P' && c.querySelector('iframe, div')) { out.push(...flow(c, page, mode)); return; }
     if (t === 'P') { const h = tidy(inline(c, page)); if (!empty(h)) out.push(`<p>${h}</p>`); return; }
     if (t === 'UL' || t === 'OL') { out.push(list(c, page)); return; }
     if (t === 'TABLE') {
       const rows = [...c.querySelectorAll('tr')].map((tr) => [...tr.children].filter((x) => /^T[DH]$/.test(x.tagName)).map((td) => tidy(inline(td, page))));
       const r = rows.filter((x) => x.some((y) => !empty(y)));
       if (!r.length) return;
-      if (mode === 'top') { page.block(c.querySelector('th') || c.querySelector('thead') ? 'table-striped (header)' : 'table-striped', r); return; }
+      if (mode === 'top') { out.push({ block: c.querySelector('th') || c.querySelector('thead') ? 'table-striped (header)' : 'table-striped', rows: r }); return; }
       out.push(`<ul>${r.map((x) => `<li>${x.filter((y) => !empty(y)).join(': ')}</li>`).join('')}</ul>`);
       return;
     }
@@ -324,7 +398,7 @@ function iframe(src, title, page, mode) {
   const s = String(src || '').replace(/^\/\//, 'https://');
   if (/youtube(-nocookie)?\.com|youtu\.be/.test(s)) {
     const link = `<p><a href="${attr(s)}">${attr(s)}</a></p>`;
-    if (mode === 'top') { page.block('embed', [[link]]); return []; }
+    if (mode === 'top') return [{ block: 'embed', rows: [[link]] }];
     return [link];
   }
   if (/google\.[a-z.]+\/maps|maps\.google/.test(s)) {
@@ -506,18 +580,8 @@ const HANDLERS = {
   },
   'lazyblock/horizontal-pictures': (a, page) => HANDLERS['lazyblock/horizontal-pictures-tre'](a, page),
   'lazyblock/quiz': (a, page) => {
-    // www's quiz loads its questions after "start" (its block holds only an id): its intro
-    // (image, title, text) as columns-media, the start a link to the post on the live site
-    const { document } = parseHTML(page.rendered);
-    const q = document.querySelector('[class*="Quiz_quiz"]');
-    if (!q) return;
-    const im = q.querySelector('img');
-    const title = q.querySelector('h1, h2, h3');
-    const text = q.querySelector('p');
-    const start = q.querySelector('button, a');
-    const body = `${title ? page.heading('h2', title.textContent) : ''}${text ? `<p>${esc(plain(text.textContent))}</p>` : ''}<p><strong><a href="${attr(page.source)}">${esc(plain(start ? start.textContent : 'Quiz'))}</a></strong></p>`;
-    page.block('columns-media', [[im ? page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }) : '', body]]);
-    page.note('quiz (questions load on www after start): its intro and a link to the post on www');
+    const rows = quizRows(page, page.next('quiz-cat'));
+    if (rows) page.block('columns-media', rows);
   },
   'lazyblock/breeze-esim-widget': (a, page) => {
     // www's eSIM shop (Breeze widget, a live tool): a link to the page on the live site
@@ -531,7 +595,8 @@ const HANDLERS = {
   'core/heading': (a, page) => { page.add(page.heading(`h${a.level || 2}`, a.content)); },
   'core/list': (a, page, b) => { page.add(rich(b.originalContent || b.saveContent || a.values || '', page, 'top')); },
   'core/image': (a, page) => { page.add(`<p>${page.img({ url: a.url, alt: a.alt })}</p>`); },
-  'core/embed': (a, page) => { iframe(a.url, a.providerNameSlug, page, 'top').forEach((h) => page.add(h)); },
+  // www does not render core/embed (its videos come from the [embed] shortcode of the post's HTML)
+  'core/embed': (a, page) => { page.note('core/embed: not shown on www, left out'); },
   'core/html': (a, page, b) => { page.add(rich(a.content || b.originalContent || '', page, 'top')); },
   'core/table': (a, page) => { tableBlock(a, page); },
   'lazyblock/tariffe-table': (a, page, b) => {
@@ -545,7 +610,7 @@ const HANDLERS = {
     page.block('hero-card-overlay', [[page.img(a.img)], [`${page.heading(a.tag || 'h3', a.title)}${a.subtitle ? `<p>${esc(plain(a.subtitle))}</p>` : ''}${a.urlbtn ? page.link(a.urlbtn, a.textbtn, 'primary') : ''}`]]);
     page.section();
   },
-  'lazyblock/embed-url': (a, page) => { iframe(a.url, '', page, 'top').forEach((h) => page.add(h)); },
+  'lazyblock/embed-url': (a, page) => { page.add(put(page, iframe(a.url, '', page, 'top'))); },
   'lazyblock/download-cta': (a, page) => {
     const f = a.fileToDownload && (a.fileToDownload.url || a.fileToDownload);
     if (f && a.textCta) page.add(page.link(f, a.textCta, 'secondary'));
