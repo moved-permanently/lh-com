@@ -3044,6 +3044,206 @@
    "uploaded": "2026-10-31T18:47:25.274Z",
    "mtime": 1793472226019,
    "preview": "2026-10-31T18:47:27.193Z"
+  },
+  "/en/destinations/florence/what-to-do/florence-inferno-following-langdon-s-footsteps-through-the-city": {
+   "uploaded": "2026-10-31T19:08:20.978Z",
+   "mtime": 1793473691359,
+   "preview": "2026-10-31T19:08:23.211Z"
+  },
+  "/en/destinations/florence/what-to-do/tours-around-florence": {
+   "uploaded": "2026-10-31T19:08:24.361Z",
+   "mtime": 1793473691393,
+   "preview": "2026-10-31T19:08:26.313Z"
+  },
+  "/en/destinations/florence/what-to-eat": {
+   "uploaded": "2026-10-31T19:08:29.564Z",
+   "mtime": 1793473691622,
+   "preview": "2026-10-31T19:08:31.471Z"
+  },
+  "/en/destinations/florence/what-to-eat/florentine-cuisine": {
+   "uploaded": "2026-10-31T19:08:34.691Z",
+   "mtime": 1793473691854,
+   "preview": "2026-10-31T19:08:36.846Z"
+  },
+  "/en/destinations/florence/what-to-eat/lampredotto-and-florentine-tripe": {
+   "uploaded": "2026-10-31T19:08:39.927Z",
+   "mtime": 1793473692057,
+   "preview": "2026-10-31T19:08:42.276Z"
+  },
+  "/en/destinations/florence/what-to-eat/what-to-eat-in-florence-schiacciata-alla-fiorentina-and-cantucci": {
+   "uploaded": "2026-10-31T19:08:45.452Z",
+   "mtime": 1793473692265,
+   "preview": "2026-10-31T19:08:47.805Z"
+  },
+  "/en/destinations/florence/what-to-see": {
+   "uploaded": "2026-10-31T19:08:50.194Z",
+   "mtime": 1793473692403,
+   "preview": "2026-10-31T19:08:52.040Z"
+  },
+  "/en/destinations/florence/what-to-see/florence-duomo": {
+   "uploaded": "2026-10-31T19:08:55.231Z",
+   "mtime": 1793473692615,
+   "preview": "2026-10-31T19:08:57.661Z"
+  },
+  "/en/destinations/florence/what-to-see/florence-galleria-degli-uffizi": {
+   "uploaded": "2026-10-31T19:09:00.207Z",
+   "mtime": 1793473692765,
+   "preview": "2026-10-31T19:09:02.668Z"
+  },
+  "/en/destinations/florence/what-to-see/what-to-see-in-florence": {
+   "uploaded": "2026-10-31T19:09:05.505Z",
+   "mtime": 1793473692927,
+   "preview": "2026-10-31T19:09:08.006Z"
+  },
+  "/en/destinations/frankfurt-eu": {
+   "uploaded": "2026-10-31T19:09:10.196Z",
+   "mtime": 1793473693074,
+   "preview": "2026-10-31T19:09:12.503Z"
+  },
+  "/en/destinations/frankfurt-eu/frankfurt-fair": {
+   "uploaded": "2026-10-31T19:09:14.222Z",
+   "mtime": 1793473693165,
+   "preview": "2026-10-31T19:09:16.241Z"
+  },
+  "/en/destinations/frankfurt-eu/main-tower": {
+   "uploaded": "2026-10-31T19:09:18.259Z",
+   "mtime": 1793473693253,
+   "preview": "2026-10-31T19:09:20.278Z"
+  },
+  "/en/destinations/frankfurt-eu/typical-dishes": {
+   "uploaded": "2026-10-31T19:09:22.016Z",
+   "mtime": 1793473693340,
+   "preview": "2026-10-31T19:09:24.222Z"
+  },
+  "/en/destinations/geneva": {
+   "uploaded": "2026-10-31T19:09:26.022Z",
+   "mtime": 1793473693433,
+   "preview": "2026-10-31T19:09:28.210Z"
+  },
+  "/en/destinations/genoa": {
+   "uploaded": "2026-10-31T19:09:30.603Z",
+   "mtime": 1793473693593,
+   "preview": "2026-10-31T19:09:32.877Z"
+  },
+  "/en/destinations/genoa/what-to-see": {
+   "uploaded": "2026-10-31T19:09:34.194Z",
+   "mtime": 1793473693627,
+   "preview": "2026-10-31T19:09:35.876Z"
+  },
+  "/en/destinations/genoa/what-to-see/cathedral-of-san-lorenzo": {
+   "uploaded": "2026-10-31T19:09:37.554Z",
+   "mtime": 1793473693723,
+   "preview": "2026-10-31T19:09:39.837Z"
+  },
+  "/en/destinations/genoa/what-to-see/genoa-aquarium": {
+   "uploaded": "2026-10-31T19:09:41.622Z",
+   "mtime": 1793473693810,
+   "preview": "2026-10-31T19:09:43.851Z"
+  },
+  "/en/destinations/graz-eu": {
+   "uploaded": "2026-10-31T19:09:46.324Z",
+   "mtime": 1793473694142,
+   "preview": "2026-10-31T19:09:48.630Z"
+  },
+  "/en/destinations/graz-eu/what-to-see": {
+   "uploaded": "2026-10-31T19:09:49.774Z",
+   "mtime": 1793473694175,
+   "preview": "2026-10-31T19:09:51.504Z"
+  },
+  "/en/destinations/graz-eu/what-to-see/kunsthaus-graz-en": {
+   "uploaded": "2026-10-31T19:09:53.179Z",
+   "mtime": 1793473694265,
+   "preview": "2026-10-31T19:09:55.410Z"
+  },
+  "/en/destinations/jersey": {
+   "uploaded": "2026-10-31T19:09:57.720Z",
+   "mtime": 1793473694422,
+   "preview": "2026-10-31T19:09:59.785Z"
+  },
+  "/en/destinations/jersey/what-to-do": {
+   "uploaded": "2026-10-31T19:10:02.633Z",
+   "mtime": 1793473694575,
+   "preview": "2026-10-31T19:10:05.065Z"
+  },
+  "/en/destinations/jersey/what-to-do/nature-as-the-protagonist": {
+   "uploaded": "2026-10-31T19:10:06.801Z",
+   "mtime": 1793473694673,
+   "preview": "2026-10-31T19:10:09.244Z"
+  },
+  "/en/destinations/jersey/what-to-do/saint-helier": {
+   "uploaded": "2026-10-31T19:10:11.131Z",
+   "mtime": 1793473694759,
+   "preview": "2026-10-31T19:10:13.514Z"
+  },
+  "/en/destinations/katowice": {
+   "uploaded": "2026-10-31T19:10:17.092Z",
+   "mtime": 1793473695010,
+   "preview": "2026-10-31T19:10:19.441Z"
+  },
+  "/en/destinations/katowice/what-to-do": {
+   "uploaded": "2026-10-31T19:10:20.924Z",
+   "mtime": 1793473695048,
+   "preview": "2026-10-31T19:10:22.470Z"
+  },
+  "/en/destinations/katowice/what-to-do/silesian-museum": {
+   "uploaded": "2026-10-31T19:10:24.291Z",
+   "mtime": 1793473695142,
+   "preview": "2026-10-31T19:10:26.997Z"
+  },
+  "/en/destinations/katowice/what-to-eat": {
+   "uploaded": "2026-10-31T19:10:28.044Z",
+   "mtime": 1793473695175,
+   "preview": "2026-10-31T19:10:29.787Z"
+  },
+  "/en/destinations/katowice/what-to-eat/typical-silesian-dishes": {
+   "uploaded": "2026-10-31T19:10:31.866Z",
+   "mtime": 1793473695272,
+   "preview": "2026-10-31T19:10:34.091Z"
+  },
+  "/en/destinations/katowice/what-to-see": {
+   "uploaded": "2026-10-31T19:10:35.172Z",
+   "mtime": 1793473695302,
+   "preview": "2026-10-31T19:10:36.877Z"
+  },
+  "/en/destinations/katowice/what-to-see/spodek-arena": {
+   "uploaded": "2026-10-31T19:10:39.099Z",
+   "mtime": 1793473695394,
+   "preview": "2026-10-31T19:10:41.600Z"
+  },
+  "/en/destinations/krakow-eu": {
+   "uploaded": "2026-10-31T19:10:42.596Z",
+   "mtime": 1793473116756,
+   "preview": "2026-10-31T19:10:44.372Z"
+  },
+  "/en/destinations/linz": {
+   "uploaded": "2026-10-31T19:10:46.141Z",
+   "mtime": 1793473695710,
+   "preview": "2026-10-31T19:10:48.921Z"
+  },
+  "/en/destinations/ljubljana": {
+   "uploaded": "2026-10-31T19:10:50.898Z",
+   "mtime": 1793473695803,
+   "preview": "2026-10-31T19:10:53.146Z"
+  },
+  "/en/destinations/london-eu": {
+   "uploaded": "2026-10-31T19:11:01.191Z",
+   "mtime": 1793473696394,
+   "preview": "2026-10-31T19:11:03.760Z"
+  },
+  "/en/destinations/london-eu/what-to-do": {
+   "uploaded": "2026-10-31T19:11:05.538Z",
+   "mtime": 1793473696485,
+   "preview": "2026-10-31T19:11:07.749Z"
+  },
+  "/en/destinations/london-eu/what-to-do/best-season-to-visit-london": {
+   "uploaded": "2026-10-31T19:11:11.465Z",
+   "mtime": 1793473696762,
+   "preview": "2026-10-31T19:11:14.089Z"
+  },
+  "/en/destinations/london-eu/what-to-do/london-in-2-days": {
+   "uploaded": "2026-10-31T19:11:18.562Z",
+   "mtime": 1793473697089,
+   "preview": "2026-10-31T19:11:21.171Z"
   }
  },
  "media": {
@@ -6304,6 +6504,219 @@
   },
   "/media-da/airdolomiti/cosafare-listato-06-36-f72797ce.jpg": {
    "at": "2026-10-31T18:47:24.481Z"
+  },
+  "/media-da/airdolomiti/firenze-dante-inferno-1400x600-fill-1400x600-1-a0b8e943.jpg": {
+   "at": "2026-10-31T19:08:19.418Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-06-37-3b7c5264.jpg": {
+   "at": "2026-10-31T19:08:20.036Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-02-57-def1a2ae.jpg": {
+   "at": "2026-10-31T19:08:27.331Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-04-7-1a646c1b.jpg": {
+   "at": "2026-10-31T19:08:27.989Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-03-38-c4ba3650.jpg": {
+   "at": "2026-10-31T19:08:28.742Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-02-17-335b31c3.jpg": {
+   "at": "2026-10-31T19:08:32.529Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-04-8-d631ee6a.jpg": {
+   "at": "2026-10-31T19:08:33.106Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-03-39-697124f6.jpg": {
+   "at": "2026-10-31T19:08:33.792Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-04-1-69fac303.jpg": {
+   "at": "2026-10-31T19:08:37.768Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-02-59-246111eb.jpg": {
+   "at": "2026-10-31T19:08:38.481Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-03-40-70458ed2.jpg": {
+   "at": "2026-10-31T19:08:39.176Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-03-11-553c9482.jpg": {
+   "at": "2026-10-31T19:08:43.229Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-02-60-fa489a04.jpg": {
+   "at": "2026-10-31T19:08:43.831Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-04-9-b72f1707.jpg": {
+   "at": "2026-10-31T19:08:44.671Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-1-34-f217017e.jpg": {
+   "at": "2026-10-31T19:08:48.792Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-03-36-9e722f10.jpg": {
+   "at": "2026-10-31T19:08:49.467Z"
+  },
+  "/media-da/airdolomiti/cosavedere-dettaglio-01-1-9-aa274b74.jpg": {
+   "at": "2026-10-31T19:08:52.981Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-65-1f2811e4.jpg": {
+   "at": "2026-10-31T19:08:53.659Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-03-38-465328d8.jpg": {
+   "at": "2026-10-31T19:08:54.317Z"
+  },
+  "/media-da/airdolomiti/01-uffizi-fill-1400x600-1-eb294ef4.jpg": {
+   "at": "2026-10-31T19:08:58.753Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-1-37-e9dcbb8b.jpg": {
+   "at": "2026-10-31T19:08:59.337Z"
+  },
+  "/media-da/airdolomiti/florence-in-a-day-e1791799760656-f90801cc.jpg": {
+   "at": "2026-10-31T19:09:03.743Z"
+  },
+  "/media-da/airdolomiti/tuscany-1920-73020d6d.jpg": {
+   "at": "2026-10-31T19:09:04.411Z"
+  },
+  "/media-da/airdolomiti/frankfurt-fair-1012x740-1-29e65f9e.jpg": {
+   "at": "2026-10-31T19:09:08.943Z"
+  },
+  "/media-da/airdolomiti/frankfurt-typical-cheese-with-music-1012x740-1-05cf9dd5.jpg": {
+   "at": "2026-10-31T19:09:09.513Z"
+  },
+  "/media-da/airdolomiti/frankfurt-fair-c70363cc.jpg": {
+   "at": "2026-10-31T19:09:13.451Z"
+  },
+  "/media-da/airdolomiti/frankfurt-main-tower-772c39b7.jpg": {
+   "at": "2026-10-31T19:09:17.239Z"
+  },
+  "/media-da/airdolomiti/frankfurt-typical-cheese-with-music-e40eaf6c.jpg": {
+   "at": "2026-10-31T19:09:21.245Z"
+  },
+  "/media-da/airdolomiti/geneva-twilight-1920x1080-1-ac5c3b7a.jpg": {
+   "at": "2026-10-31T19:09:25.221Z"
+  },
+  "/media-da/airdolomiti/genova-1920x1080-1-059e2b21.jpg": {
+   "at": "2026-10-31T19:09:29.147Z"
+  },
+  "/media-da/airdolomiti/genova-cattedrale-san-lorenzo-1012x740-1-4c00b50c.jpg": {
+   "at": "2026-10-31T19:09:29.832Z"
+  },
+  "/media-da/airdolomiti/genova-cattedrale-san-lorenzo-1270x660-1-73e8e586.jpg": {
+   "at": "2026-10-31T19:09:36.852Z"
+  },
+  "/media-da/airdolomiti/genova-acquario-1270x660-1-bab6f534.jpg": {
+   "at": "2026-10-31T19:09:40.877Z"
+  },
+  "/media-da/airdolomiti/graz-1920x1080-1-1cf8b51d.jpg": {
+   "at": "2026-10-31T19:09:44.791Z"
+  },
+  "/media-da/airdolomiti/kunsthaus-graz-1012x740-1-3bcbe364.jpg": {
+   "at": "2026-10-31T19:09:45.403Z"
+  },
+  "/media-da/airdolomiti/kunsthaus-graz-1270x660-1-4bd648b1.jpg": {
+   "at": "2026-10-31T19:09:52.488Z"
+  },
+  "/media-da/airdolomiti/istock-489606700-jersey-harbour-1012x740-1-34cadcd5.jpg": {
+   "at": "2026-10-31T19:09:56.442Z"
+  },
+  "/media-da/airdolomiti/istock-1163939789-jersey-beach-1012x740-1-0ff3a5cf.jpg": {
+   "at": "2026-10-31T19:09:57.029Z"
+  },
+  "/media-da/airdolomiti/istock-1349270791-st-helier-capital-city1012x740-878d0ba4.jpg": {
+   "at": "2026-10-31T19:10:00.782Z"
+  },
+  "/media-da/airdolomiti/istock-96441558-lighthouse-jersey1012x740-4e5812a1.jpg": {
+   "at": "2026-10-31T19:10:01.602Z"
+  },
+  "/media-da/airdolomiti/istock-1163939789-jersey-beach-1270x660-1-cf5e8ba7.jpg": {
+   "at": "2026-10-31T19:10:06.070Z"
+  },
+  "/media-da/airdolomiti/istock-1349270791-st-helier-capital-city1270x660-caa9ac42.jpg": {
+   "at": "2026-10-31T19:10:10.251Z"
+  },
+  "/media-da/airdolomiti/katowice-aerial-view-1920x1080-1-aebf4d84.jpg": {
+   "at": "2026-10-31T19:10:14.471Z"
+  },
+  "/media-da/airdolomiti/spodek-arena-katowice-1012x740-1-a32ecf75.jpg": {
+   "at": "2026-10-31T19:10:15.051Z"
+  },
+  "/media-da/airdolomiti/silesian-museum-katowice-1012x740-1-00623c8b.jpg": {
+   "at": "2026-10-31T19:10:15.698Z"
+  },
+  "/media-da/airdolomiti/typical-silesian-dishes-1012x740-1-67d1cb2c.jpg": {
+   "at": "2026-10-31T19:10:16.337Z"
+  },
+  "/media-da/airdolomiti/silesian-museum-katowice-1270x660-1-433ef08e.jpg": {
+   "at": "2026-10-31T19:10:23.464Z"
+  },
+  "/media-da/airdolomiti/typical-silesian-dishes-1270x660-1-bf3d2533.jpg": {
+   "at": "2026-10-31T19:10:30.872Z"
+  },
+  "/media-da/airdolomiti/spodek-arena-katowice-1270x660-1-e21e3543.jpg": {
+   "at": "2026-10-31T19:10:37.940Z"
+  },
+  "/media-da/airdolomiti/linz-istock-1250047721-76e87e8c.jpg": {
+   "at": "2026-10-31T19:10:45.398Z"
+  },
+  "/media-da/airdolomiti/fish-slovenia-419ae749.jpg": {
+   "at": "2026-10-31T19:10:50.057Z"
+  },
+  "/media-da/airdolomiti/london-directions-attractions-1920x1080-1-e8c70cb3.jpg": {
+   "at": "2026-10-31T19:10:54.097Z"
+  },
+  "/media-da/airdolomiti/cosa-fare-59546b65.png": {
+   "at": "2026-10-31T19:10:54.729Z"
+  },
+  "/media-da/airdolomiti/cosa-vedere-f97898a6.png": {
+   "at": "2026-10-31T19:10:55.303Z"
+  },
+  "/media-da/airdolomiti/london-places-to-visit-46a10074.jpg": {
+   "at": "2026-10-31T19:10:56.062Z"
+  },
+  "/media-da/airdolomiti/st-pauls-cathedral-e1736865109918-147a856e.jpg": {
+   "at": "2026-10-31T19:10:56.885Z"
+  },
+  "/media-da/airdolomiti/things-to-do-in-london-2-days-card-e1735037843557-d1af1bbc.jpg": {
+   "at": "2026-10-31T19:10:57.529Z"
+  },
+  "/media-da/airdolomiti/best-season-to-visit-london-e1738669603703-ffd051c6.jpg": {
+   "at": "2026-10-31T19:10:58.177Z"
+  },
+  "/media-da/airdolomiti/english-food-d8813cde.jpg": {
+   "at": "2026-10-31T19:10:58.925Z"
+  },
+  "/media-da/airdolomiti/things-to-see-london-fb03aeac.jpg": {
+   "at": "2026-10-31T19:10:59.734Z"
+  },
+  "/media-da/airdolomiti/london-neighborhoods-6a764a4d.jpg": {
+   "at": "2026-10-31T19:11:00.451Z"
+  },
+  "/media-da/airdolomiti/things-to-do-in-london-2-days-d575fa6e.jpg": {
+   "at": "2026-10-31T19:11:04.712Z"
+  },
+  "/media-da/airdolomiti/london-in-winter-e1738669577440-23157496.jpg": {
+   "at": "2026-10-31T19:11:08.710Z"
+  },
+  "/media-da/airdolomiti/london-in-spring-e1738666099504-d42855c9.jpg": {
+   "at": "2026-10-31T19:11:09.326Z"
+  },
+  "/media-da/airdolomiti/london-in-summer-1-e1738671899280-9ab63148.jpg": {
+   "at": "2026-10-31T19:11:10.011Z"
+  },
+  "/media-da/airdolomiti/london-in-autumn-1-e1738669553997-0be828f5.jpg": {
+   "at": "2026-10-31T19:11:10.727Z"
+  },
+  "/media-da/airdolomiti/changing-of-the-guard-at-buckingham-palace-9c412fba.jpg": {
+   "at": "2026-10-31T19:11:15.178Z"
+  },
+  "/media-da/airdolomiti/a-ride-on-the-london-eye-e1735028140325-3591d4fc.jpg": {
+   "at": "2026-10-31T19:11:15.799Z"
+  },
+  "/media-da/airdolomiti/shopping-at-harrods-department-store-london-2-e1735032456603-843a0ac1.jpg": {
+   "at": "2026-10-31T19:11:16.453Z"
+  },
+  "/media-da/airdolomiti/platform-9-3-4-at-king-s-cross-station-e1735031908527-d4e57928.jpg": {
+   "at": "2026-10-31T19:11:17.069Z"
+  },
+  "/media-da/airdolomiti/afternoon-tea-in-london-scaled-e1735034694634-7fcadc03.jpg": {
+   "at": "2026-10-31T19:11:17.695Z"
   }
  }
 }

@@ -12,6 +12,7 @@
  *   H1 is its logo: a visually hidden H1, section style hidden-heading); hero: hero-campaign (narrow);
  * - title, title-margin, title-description-text-cta: default content (heading at its tag, text,
  *   the CTA as a primary button);
+ * - hero-middle: hero-campaign (narrow), its paragraph over an H2;
  * - cardfullwidth, reach-monaco: hero-card-overlay (reach-monaco's section buttons, icon over label:
  *   cards-icon, their anchors as www has them);
  * - mini-card-slider, story-card-slider, cosa-fare-carroussel: carousel-cards;
@@ -385,13 +386,18 @@ const HANDLERS = {
     page.section();
     const price = [a.titleWidget, a.widgetPrice].filter(Boolean).map(plain).join(' ');
     // the city's title is the page's H1 on www (HeroSecond h1)
-    page.block('hero-card-overlay', [[page.img(a.backgroundImg)], [`${page.heading('h1', a.title)}${price ? `<p>${esc(price)}</p>` : ''}${a.ctaUrl ? page.link(a.ctaUrl, a.ctaText, 'primary') : ''}`]]);
+    page.block('hero-card-overlay', [[page.img(a.backgroundImg)], [`${a.header ? `<p>${esc(plain(a.header))}</p>` : ''}${page.heading('h1', a.title)}${price ? `<p>${esc(price)}</p>` : ''}${a.ctaUrl ? page.link(a.ctaUrl, a.ctaText, 'primary') : ''}`]]);
     // the city's section buttons (icon over label: "Cosa fare" #cosa-fare, "Cosa ascoltare" /podcast):
     // cards-icon tiles with www's icons, the anchors as www has them
     const buttons = (a.buttonTexts || []).filter((b) => b.ctaUrl && b.text);
     if (buttons.length) {
       page.block('cards-icon', buttons.map((b) => [page.img(b.icon), `<p><a href="${attr(b.ctaUrl.startsWith('#') ? b.ctaUrl : page.href(b.ctaUrl))}">${esc(plain(b.text))}</a></p>`]));
     }
+    page.section();
+  },
+  'lazyblock/hero-middle': (a, page) => {
+    page.section();
+    page.block('hero-campaign (narrow)', [[page.img(a.imageBg)], [`${a.header ? `<p>${esc(plain(a.header))}</p>` : ''}${page.heading('h2', a.title)}`]]);
     page.section();
   },
   'lazyblock/mini-card-slider': (a, page) => {

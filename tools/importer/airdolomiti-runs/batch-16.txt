@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-16 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T19:12Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/destinations/florence/what-to-do/florence-inferno-following-langdon-s-footsteps-through-the-city
+/en/destinations/florence/what-to-do/tours-around-florence
+/en/destinations/florence/what-to-eat
+/en/destinations/florence/what-to-eat/florentine-cuisine
+/en/destinations/florence/what-to-eat/lampredotto-and-florentine-tripe
+/en/destinations/florence/what-to-eat/what-to-eat-in-florence-schiacciata-alla-fiorentina-and-cantucci
+/en/destinations/florence/what-to-see
+/en/destinations/florence/what-to-see/florence-duomo
+/en/destinations/florence/what-to-see/florence-galleria-degli-uffizi
+/en/destinations/florence/what-to-see/what-to-see-in-florence
+/en/destinations/frankfurt-eu
+/en/destinations/frankfurt-eu/frankfurt-fair
+/en/destinations/frankfurt-eu/main-tower
+/en/destinations/frankfurt-eu/typical-dishes
+/en/destinations/geneva
+/en/destinations/genoa
+/en/destinations/genoa/what-to-see
+/en/destinations/genoa/what-to-see/cathedral-of-san-lorenzo
+/en/destinations/genoa/what-to-see/genoa-aquarium
+/en/destinations/graz-eu
+/en/destinations/graz-eu/what-to-see
+/en/destinations/graz-eu/what-to-see/kunsthaus-graz-en
+/en/destinations/jersey
+/en/destinations/jersey/what-to-do
+/en/destinations/jersey/what-to-do/nature-as-the-protagonist
+/en/destinations/jersey/what-to-do/saint-helier
+/en/destinations/katowice
+/en/destinations/katowice/what-to-do
+/en/destinations/katowice/what-to-do/silesian-museum
+/en/destinations/katowice/what-to-eat
+/en/destinations/katowice/what-to-eat/typical-silesian-dishes
+/en/destinations/katowice/what-to-see
+/en/destinations/katowice/what-to-see/spodek-arena
+/en/destinations/krakow-eu
+/en/destinations/linz
+/en/destinations/ljubljana
+/en/destinations/london-eu
+/en/destinations/london-eu/what-to-do
+/en/destinations/london-eu/what-to-do/best-season-to-visit-london
+/en/destinations/london-eu/what-to-do/london-in-2-days
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/destinations/florence/what-to-do/florence-inferno-following-langdon-s-footsteps-through-the-city -> /en/destinations/florence/what-to-do/florence-inferno-following-langdon-s-footsteps-through-the-city: text 14/14, images 1/2 (+2), links 4/4 (+0)
+#   https://www.airdolomiti.eu/destinations/graz-eu/what-to-see -> /en/destinations/graz-eu/what-to-see: text 5/5, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.eu/destinations/london-eu/what-to-do/london-in-2-days -> /en/destinations/london-eu/what-to-do/london-in-2-days: text 24/24, images 6/7 (+2), links 3/3 (+0)
+#   https://www.airdolomiti.eu/destinations/florence/what-to-do/florence-inferno-following-langdon-s-footsteps-through-the-city: images missing: Schermata-2021-10-22-alle-08.58.23.png
+#   https://www.airdolomiti.eu/destinations/graz-eu/what-to-see: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/destinations/london-eu/what-to-do/london-in-2-days: images missing: Schermata-2021-10-22-alle-16.08.02.png
