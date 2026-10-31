@@ -12,7 +12,8 @@
  *   H1 is its logo: a visually hidden H1, section style hidden-heading); hero: hero-campaign (narrow);
  * - title, title-margin, title-description-text-cta: default content (heading at its tag, text,
  *   the CTA as a primary button);
- * - cardfullwidth, reach-monaco: hero-card-overlay (reach-monaco's section buttons: jump-links);
+ * - cardfullwidth, reach-monaco: hero-card-overlay (reach-monaco's section buttons, icon over label:
+ *   cards-icon, their anchors as www has them);
  * - mini-card-slider, story-card-slider, cosa-fare-carroussel: carousel-cards;
  * - gridtwocolumns, gridtwocolumnsdownloadpdf: cards-teaser; news-list-grid, select-flight-list,
  *   add-baggage-cards: cards-teaser (three-up) (the "from" prices typed on the cards stay text);
@@ -362,11 +363,12 @@ const HANDLERS = {
     const price = [a.titleWidget, a.widgetPrice].filter(Boolean).map(plain).join(' ');
     // the city's title is the page's H1 on www (HeroSecond h1)
     page.block('hero-card-overlay', [[page.img(a.backgroundImg)], [`${page.heading('h1', a.title)}${price ? `<p>${esc(price)}</p>` : ''}${a.ctaUrl ? page.link(a.ctaUrl, a.ctaText, 'primary') : ''}`]]);
-    // the city's section buttons: anchors on the page as jump-links, the others (podcast) as links
+    // the city's section buttons (icon over label: "Cosa fare" #cosa-fare, "Cosa ascoltare" /podcast):
+    // cards-icon tiles with www's icons, the anchors as www has them
     const buttons = (a.buttonTexts || []).filter((b) => b.ctaUrl && b.text);
-    const jumps = buttons.filter((b) => b.ctaUrl.startsWith('#'));
-    if (jumps.length) page.block('jump-links', jumps.map((b) => [`<p><a href="${attr(b.ctaUrl)}">${esc(plain(b.text))}</a></p>`]));
-    buttons.filter((b) => !b.ctaUrl.startsWith('#')).forEach((b) => page.add(page.link(b.ctaUrl, b.text)));
+    if (buttons.length) {
+      page.block('cards-icon', buttons.map((b) => [page.img(b.icon), `<p><a href="${attr(b.ctaUrl.startsWith('#') ? b.ctaUrl : page.href(b.ctaUrl))}">${esc(plain(b.text))}</a></p>`]));
+    }
     page.section();
   },
   'lazyblock/mini-card-slider': (a, page) => {

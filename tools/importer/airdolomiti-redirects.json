@@ -32,7 +32,19 @@
   "Destination": "/"
  },
  {
+  "Source": "/impegno-ambientale",
+  "Destination": "/faq/carburante-sostenibile-aviazione-saf"
+ },
+ {
+  "Source": "/supporto-e-contatti/irregolarita-bagaglio",
+  "Destination": "/hai-bisogno-di-aiuto/irregolarita-bagaglio"
+ },
+ {
   "Source": "/hai-bisogno-di-aiuto/assistenza-pre-volo-e-prenotazioni",
   "Destination": "/supporto-e-contatti/assistenza-pre-volo-e-prenotazioni"
+ },
+ {
+  "Source": "/hai-bisogno-di-aiuto/customer-relations",
+  "Destination": "/supporto-e-contatti/customer-relations"
  }
 ]

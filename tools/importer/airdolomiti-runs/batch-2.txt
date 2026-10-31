@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-2 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T12:45Z; not published
+# documents (40 + /nav, /footer):
+/business
+/eu-cont-tariffe
+/leisure
+/recruiting-day-piloti
+/supplemento-per-costi-ambientali
+/tariffa-economy-basic
+/azienda/codice-etico
+/hai-bisogno-di-aiuto/irregolarita-bagaglio
+/supporto-e-contatti/customer-relations
+/informazioni-legali/privacy-facebook
+/servizi-extra/bagagli-extra
+/faq/a-bordo
+/faq/bagaglio-sportivo-e-speciale
+/faq/carburante-sostenibile-aviazione-saf
+/faq/check-in-faq
+/faq/flessibilita-tariffaria
+/faq/in-aeroporto
+/faq/preparativi-per-il-viaggio
+/promozioni/carte-unicredit-miles-more
+/promozioni/miles-more-mastercard-gold-it
+/promozioni/tariffe-aziendali-di-air-dolomiti
+/consigli-di-viaggio/check-in-aereo
+/consigli-di-viaggio/controlli-in-aeroporto
+/consigli-di-viaggio/cosa-portare-in-viaggio-in-aereo
+/consigli-di-viaggio/cosa-si-puo-portare-bagaglio-mano
+/consigli-di-viaggio/liquidi-bagaglio-a-mano
+/consigli-di-viaggio/paura-di-volare
+/consigli-di-viaggio/primo-volo-in-aereo
+/consigli-di-viaggio/rimborsi-per-voli-e-servizi-di-assistenza-ai-viaggiatori
+/aeroporti/amsterdam
+/aeroporti/ancona-it
+/aeroporti/bari
+/aeroporti/basilea
+/aeroporti/biarritz-it
+/aeroporti/billund
+/aeroporti/birmingham-it
+/aeroporti/bologna-it
+/aeroporti/bordeaux-it
+/aeroporti/brindisi-it
+/aeroporti/cagliari-it
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): lazyblock/title-news
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/business -> /business: text 12/12, images 0/0 (+5), links 1/1 (+6)
+#   https://www.airdolomiti.it/azienda/codice-etico -> /azienda/codice-etico: text 21/21, images 0/0 (+1), links 1/2 (+0)
+#   https://www.airdolomiti.it/hai-bisogno-di-aiuto/irregolarita-bagaglio -> /hai-bisogno-di-aiuto/irregolarita-bagaglio: text 44/44, images 0/0 (+0), links 10/10 (+0)
+#   https://www.airdolomiti.it/business: no text, image or link of www's missing
+#   https://www.airdolomiti.it/azienda/codice-etico: links missing: /
+#   https://www.airdolomiti.it/hai-bisogno-di-aiuto/irregolarita-bagaglio: no text, image or link of www's missing

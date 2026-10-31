@@ -52,7 +52,9 @@ urls.forEach((url) => {
     .map((s) => { try { return new URL(s, 'https://www.airdolomiti.it/').href; } catch (e) { return ''; } })
     .filter((s) => /cms\.airdolomiti\.it\/wp-content\/uploads/.test(s)).map(imgKey))];
   const srcLinks = [...new Set([...content.querySelectorAll('a[href]')].filter((a) => !a.closest('form'))
-    .map((a) => page.href(a.getAttribute('href'))).filter((h) => h && !h.startsWith('#')))];
+    .map((a) => page.href(a.getAttribute('href'))).filter(Boolean)
+    // a link to an anchor of this very page is the anchor ("/destinazioni/x#cosa-fare" = "#cosa-fare")
+    .map((h) => (h.startsWith(`${eds}#`) ? h.slice(eds.length) : h)))];
   const { document: d } = parseHTML(`<main>${fs.readFileSync(doc, 'utf8')}</main>`);
   const main = d.querySelector('main');
   main.querySelectorAll('.metadata, .section-metadata').forEach((m) => m.remove());

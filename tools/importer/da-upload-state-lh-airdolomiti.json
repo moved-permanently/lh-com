@@ -11,14 +11,14 @@
    "preview": "2026-10-31T12:02:49.772Z"
   },
   "/destinazioni/monaco-di-baviera": {
-   "uploaded": "2026-10-31T12:13:51.129Z",
-   "mtime": 1793448786530,
-   "preview": "2026-10-31T12:13:53.439Z"
+   "uploaded": "2026-10-31T12:28:22.475Z",
+   "mtime": 1793449687404,
+   "preview": "2026-10-31T12:28:25.317Z"
   },
   "/destinazioni/francoforte": {
-   "uploaded": "2026-10-31T12:13:54.613Z",
-   "mtime": 1793448786567,
-   "preview": "2026-10-31T12:13:56.723Z"
+   "uploaded": "2026-10-31T12:28:26.489Z",
+   "mtime": 1793449687439,
+   "preview": "2026-10-31T12:28:28.583Z"
   },
   "/servizi/parcheggi-convenzionati": {
    "uploaded": "2026-10-31T12:03:25.116Z",
@@ -329,6 +329,206 @@
    "uploaded": "2026-10-31T12:14:03.972Z",
    "mtime": 1793448788944,
    "preview": "2026-10-31T12:14:05.271Z"
+  },
+  "/business": {
+   "uploaded": "2026-10-31T12:42:07.255Z",
+   "mtime": 1793450520157,
+   "preview": "2026-10-31T12:42:09.623Z"
+  },
+  "/eu-cont-tariffe": {
+   "uploaded": "2026-10-31T12:42:10.744Z",
+   "mtime": 1793450244989,
+   "preview": "2026-10-31T12:42:12.218Z"
+  },
+  "/leisure": {
+   "uploaded": "2026-10-31T12:42:15.727Z",
+   "mtime": 1793450520405,
+   "preview": "2026-10-31T12:42:17.910Z"
+  },
+  "/recruiting-day-piloti": {
+   "uploaded": "2026-10-31T12:42:19.659Z",
+   "mtime": 1793450520502,
+   "preview": "2026-10-31T12:42:21.462Z"
+  },
+  "/supplemento-per-costi-ambientali": {
+   "uploaded": "2026-10-31T12:42:22.469Z",
+   "mtime": 1793450245073,
+   "preview": "2026-10-31T12:42:24.046Z"
+  },
+  "/tariffa-economy-basic": {
+   "uploaded": "2026-10-31T12:42:25.051Z",
+   "mtime": 1793450245101,
+   "preview": "2026-10-31T12:42:26.779Z"
+  },
+  "/azienda/codice-etico": {
+   "uploaded": "2026-10-31T12:42:28.523Z",
+   "mtime": 1793450520616,
+   "preview": "2026-10-31T12:42:30.556Z"
+  },
+  "/hai-bisogno-di-aiuto/irregolarita-bagaglio": {
+   "uploaded": "2026-10-31T12:42:31.818Z",
+   "mtime": 1793450245169,
+   "preview": "2026-10-31T12:42:33.181Z"
+  },
+  "/supporto-e-contatti/customer-relations": {
+   "uploaded": "2026-10-31T12:42:34.241Z",
+   "mtime": 1793450245197,
+   "preview": "2026-10-31T12:42:35.626Z"
+  },
+  "/informazioni-legali/privacy-facebook": {
+   "uploaded": "2026-10-31T12:42:37.538Z",
+   "mtime": 1793450520756,
+   "preview": "2026-10-31T12:42:39.592Z"
+  },
+  "/servizi-extra/bagagli-extra": {
+   "uploaded": "2026-10-31T12:42:40.535Z",
+   "mtime": 1793450245256,
+   "preview": "2026-10-31T12:42:42.393Z"
+  },
+  "/faq/a-bordo": {
+   "uploaded": "2026-10-31T12:42:43.508Z",
+   "mtime": 1793450245284,
+   "preview": "2026-10-31T12:42:45.334Z"
+  },
+  "/faq/bagaglio-sportivo-e-speciale": {
+   "uploaded": "2026-10-31T12:42:46.372Z",
+   "mtime": 1793450245310,
+   "preview": "2026-10-31T12:42:47.883Z"
+  },
+  "/faq/carburante-sostenibile-aviazione-saf": {
+   "uploaded": "2026-10-31T12:42:49.815Z",
+   "mtime": 1793450520891,
+   "preview": "2026-10-31T12:42:52.019Z"
+  },
+  "/faq/check-in-faq": {
+   "uploaded": "2026-10-31T12:42:53.203Z",
+   "mtime": 1793450245367,
+   "preview": "2026-10-31T12:42:54.843Z"
+  },
+  "/faq/flessibilita-tariffaria": {
+   "uploaded": "2026-10-31T12:42:55.909Z",
+   "mtime": 1793450245392,
+   "preview": "2026-10-31T12:42:57.213Z"
+  },
+  "/faq/in-aeroporto": {
+   "uploaded": "2026-10-31T12:42:58.396Z",
+   "mtime": 1793450245421,
+   "preview": "2026-10-31T12:42:59.921Z"
+  },
+  "/faq/preparativi-per-il-viaggio": {
+   "uploaded": "2026-10-31T12:43:00.947Z",
+   "mtime": 1793450245451,
+   "preview": "2026-10-31T12:43:02.449Z"
+  },
+  "/promozioni/carte-unicredit-miles-more": {
+   "uploaded": "2026-10-31T12:43:04.761Z",
+   "mtime": 1793450521127,
+   "preview": "2026-10-31T12:43:06.972Z"
+  },
+  "/promozioni/miles-more-mastercard-gold-it": {
+   "uploaded": "2026-10-31T12:43:08.729Z",
+   "mtime": 1793450521212,
+   "preview": "2026-10-31T12:43:10.875Z"
+  },
+  "/promozioni/tariffe-aziendali-di-air-dolomiti": {
+   "uploaded": "2026-10-31T12:43:12.572Z",
+   "mtime": 1793450521304,
+   "preview": "2026-10-31T12:43:14.590Z"
+  },
+  "/consigli-di-viaggio/check-in-aereo": {
+   "uploaded": "2026-10-31T12:43:16.782Z",
+   "mtime": 1793450521452,
+   "preview": "2026-10-31T12:43:18.837Z"
+  },
+  "/consigli-di-viaggio/controlli-in-aeroporto": {
+   "uploaded": "2026-10-31T12:43:20.575Z",
+   "mtime": 1793450521563,
+   "preview": "2026-10-31T12:43:22.846Z"
+  },
+  "/consigli-di-viaggio/cosa-portare-in-viaggio-in-aereo": {
+   "uploaded": "2026-10-31T12:43:24.620Z",
+   "mtime": 1793450521642,
+   "preview": "2026-10-31T12:43:26.602Z"
+  },
+  "/consigli-di-viaggio/cosa-si-puo-portare-bagaglio-mano": {
+   "uploaded": "2026-10-31T12:43:28.323Z",
+   "mtime": 1793450521736,
+   "preview": "2026-10-31T12:43:30.347Z"
+  },
+  "/consigli-di-viaggio/liquidi-bagaglio-a-mano": {
+   "uploaded": "2026-10-31T12:43:32.651Z",
+   "mtime": 1793450521884,
+   "preview": "2026-10-31T12:43:34.829Z"
+  },
+  "/consigli-di-viaggio/paura-di-volare": {
+   "uploaded": "2026-10-31T12:43:36.759Z",
+   "mtime": 1793450521972,
+   "preview": "2026-10-31T12:43:38.867Z"
+  },
+  "/consigli-di-viaggio/primo-volo-in-aereo": {
+   "uploaded": "2026-10-31T12:43:40.878Z",
+   "mtime": 1793450522063,
+   "preview": "2026-10-31T12:43:43.174Z"
+  },
+  "/consigli-di-viaggio/rimborsi-per-voli-e-servizi-di-assistenza-ai-viaggiatori": {
+   "uploaded": "2026-10-31T12:43:44.097Z",
+   "mtime": 1793450245775,
+   "preview": "2026-10-31T12:43:45.805Z"
+  },
+  "/aeroporti/amsterdam": {
+   "uploaded": "2026-10-31T12:43:47.386Z",
+   "mtime": 1793450522151,
+   "preview": "2026-10-31T12:43:49.280Z"
+  },
+  "/aeroporti/ancona-it": {
+   "uploaded": "2026-10-31T12:43:51.035Z",
+   "mtime": 1793450522237,
+   "preview": "2026-10-31T12:43:53.160Z"
+  },
+  "/aeroporti/bari": {
+   "uploaded": "2026-10-31T12:43:54.953Z",
+   "mtime": 1793450522324,
+   "preview": "2026-10-31T12:43:56.933Z"
+  },
+  "/aeroporti/basilea": {
+   "uploaded": "2026-10-31T12:43:58.047Z",
+   "mtime": 1793450245881,
+   "preview": "2026-10-31T12:43:59.682Z"
+  },
+  "/aeroporti/biarritz-it": {
+   "uploaded": "2026-10-31T12:44:01.620Z",
+   "mtime": 1793450522626,
+   "preview": "2026-10-31T12:44:03.512Z"
+  },
+  "/aeroporti/billund": {
+   "uploaded": "2026-10-31T12:44:05.108Z",
+   "mtime": 1793450522717,
+   "preview": "2026-10-31T12:44:07.046Z"
+  },
+  "/aeroporti/birmingham-it": {
+   "uploaded": "2026-10-31T12:44:08.213Z",
+   "mtime": 1793450245987,
+   "preview": "2026-10-31T12:44:09.750Z"
+  },
+  "/aeroporti/bologna-it": {
+   "uploaded": "2026-10-31T12:44:11.435Z",
+   "mtime": 1793450522823,
+   "preview": "2026-10-31T12:44:13.390Z"
+  },
+  "/aeroporti/bordeaux-it": {
+   "uploaded": "2026-10-31T12:44:15.084Z",
+   "mtime": 1793450522904,
+   "preview": "2026-10-31T12:44:17.115Z"
+  },
+  "/aeroporti/brindisi-it": {
+   "uploaded": "2026-10-31T12:44:18.880Z",
+   "mtime": 1793450522989,
+   "preview": "2026-10-31T12:44:21.132Z"
+  },
+  "/aeroporti/cagliari-it": {
+   "uploaded": "2026-10-31T12:44:22.959Z",
+   "mtime": 1793450523070,
+   "preview": "2026-10-31T12:44:24.815Z"
   }
  },
  "media": {
@@ -994,6 +1194,120 @@
   },
   "/media-da/airdolomiti/paypal-a1c5b4b1.png": {
    "at": "2026-10-31T12:08:24.494Z"
+  },
+  "/media-da/airdolomiti/cosa-fare-666e0fb3.png": {
+   "at": "2026-10-31T12:28:19.720Z"
+  },
+  "/media-da/airdolomiti/cosa-vedere-b1bb7be0.png": {
+   "at": "2026-10-31T12:28:20.330Z"
+  },
+  "/media-da/airdolomiti/cosa-mangiare-75594eab.png": {
+   "at": "2026-10-31T12:28:20.949Z"
+  },
+  "/media-da/airdolomiti/icona-cuffie-blu-578a816b.png": {
+   "at": "2026-10-31T12:28:21.564Z"
+  },
+  "/media-da/airdolomiti/business-airdolomiti-1-8c3fd76f.jpg": {
+   "at": "2026-10-31T12:42:04.858Z"
+  },
+  "/media-da/airdolomiti/ppb-2022-768x400-1-e814ea52.jpg": {
+   "at": "2026-10-31T12:42:05.428Z"
+  },
+  "/media-da/airdolomiti/corporate-fare-scaled-f1f69ac5.jpg": {
+   "at": "2026-10-31T12:42:06.016Z"
+  },
+  "/media-da/airdolomiti/promo-miles-and-more-2021-double-miles-2-66204b1b.jpg": {
+   "at": "2026-10-31T12:42:06.602Z"
+  },
+  "/media-da/airdolomiti/mainbanner-leisure-d-2c64df24.jpg": {
+   "at": "2026-10-31T12:42:13.168Z"
+  },
+  "/media-da/airdolomiti/bagagli-bagaglioamano-3-5baf2755.jpg": {
+   "at": "2026-10-31T12:42:13.820Z"
+  },
+  "/media-da/airdolomiti/faq-checkin-1-00e52842.jpg": {
+   "at": "2026-10-31T12:42:14.379Z"
+  },
+  "/media-da/airdolomiti/faq-rimborso-1-876293fe.jpg": {
+   "at": "2026-10-31T12:42:15.039Z"
+  },
+  "/media-da/airdolomiti/recruiting-piloti-1920x1080-1-ba330fed.jpg": {
+   "at": "2026-10-31T12:42:18.883Z"
+  },
+  "/media-da/airdolomiti/istock-1391695739-codice-etico-f429c880.jpg": {
+   "at": "2026-10-31T12:42:27.747Z"
+  },
+  "/media-da/airdolomiti/monaco-13fdfe90.png": {
+   "at": "2026-10-31T12:42:36.695Z"
+  },
+  "/media-da/airdolomiti/en-co-funded-rgb-pos-co-funded-1024x163-4b9a4f3f.png": {
+   "at": "2026-10-31T12:42:48.992Z"
+  },
+  "/media-da/airdolomiti/business-mm-uc-bafb91a7.png": {
+   "at": "2026-10-31T12:43:03.435Z"
+  },
+  "/media-da/airdolomiti/flexia-mm-uc-0ba2a0cc.png": {
+   "at": "2026-10-31T12:43:04.095Z"
+  },
+  "/media-da/airdolomiti/mam-2305-mastercard-gold-advanzia-bank-650x650-1-aeabab4b.jpg": {
+   "at": "2026-10-31T12:43:07.945Z"
+  },
+  "/media-da/airdolomiti/corporate-istock-1396819080-e9b234d5.jpg": {
+   "at": "2026-10-31T12:43:11.830Z"
+  },
+  "/media-da/airdolomiti/check-in-aereo-e1741961314616-782412fa.jpg": {
+   "at": "2026-10-31T12:43:15.516Z"
+  },
+  "/media-da/airdolomiti/carry-on-luggage-ccbd9d5e.jpg": {
+   "at": "2026-10-31T12:43:16.103Z"
+  },
+  "/media-da/airdolomiti/controllo-aeroporto-e1767017233573-5da0f683.jpg": {
+   "at": "2026-10-31T12:43:19.773Z"
+  },
+  "/media-da/airdolomiti/cosa-si-puo-portare-bagaglio-a-mano-fb-a9cab984.jpg": {
+   "at": "2026-10-31T12:43:23.776Z"
+  },
+  "/media-da/airdolomiti/viaggiare-in-aereo-con-il-bagaglio-a-mano-8e9e576a.jpg": {
+   "at": "2026-10-31T12:43:27.624Z"
+  },
+  "/media-da/airdolomiti/liquidi-bagaglio-3764344e.jpg": {
+   "at": "2026-10-31T12:43:31.294Z"
+  },
+  "/media-da/airdolomiti/servizi-extra-bagaglio-912164d2.jpg": {
+   "at": "2026-10-31T12:43:31.912Z"
+  },
+  "/media-da/airdolomiti/paura-di-volare-1400x600-764cf680.jpg": {
+   "at": "2026-10-31T12:43:35.738Z"
+  },
+  "/media-da/airdolomiti/a-bordo-primo-volo-c7b44818.jpg": {
+   "at": "2026-10-31T12:43:40.029Z"
+  },
+  "/media-da/airdolomiti/amsterdam-aeroporto-schiphol-1270x660-1-fef36462.jpg": {
+   "at": "2026-10-31T12:43:46.688Z"
+  },
+  "/media-da/airdolomiti/ancona-monumento-sul-mare-1270x660-1-93708144.webp": {
+   "at": "2026-10-31T12:43:50.289Z"
+  },
+  "/media-da/airdolomiti/polignano-a-mare-bari-e1763461913923-60414f46.jpg": {
+   "at": "2026-10-31T12:43:54.144Z"
+  },
+  "/media-da/airdolomiti/biarritz-air-dolomiti-20fa9405.jpg": {
+   "at": "2026-10-31T12:44:00.780Z"
+  },
+  "/media-da/airdolomiti/billund-lego-city-1270x660-96d4c3e0.jpg": {
+   "at": "2026-10-31T12:44:04.469Z"
+  },
+  "/media-da/airdolomiti/bologna-mainbanner-d-3-15f5e616.jpg": {
+   "at": "2026-10-31T12:44:10.724Z"
+  },
+  "/media-da/airdolomiti/bordeaux-city-e1743159244859-71e707b3.jpg": {
+   "at": "2026-10-31T12:44:14.407Z"
+  },
+  "/media-da/airdolomiti/brindisi-aeroporto-1270x660-1-7cf84520.jpg": {
+   "at": "2026-10-31T12:44:18.191Z"
+  },
+  "/media-da/airdolomiti/porto-giunco-villasimius-cagliari-1270x660-1-44e52f0f.jpg": {
+   "at": "2026-10-31T12:44:22.177Z"
   }
  }
 }
