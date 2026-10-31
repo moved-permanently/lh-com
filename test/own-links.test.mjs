@@ -70,3 +70,15 @@ test('aliases: a www path that stands for a site page (www\'s redirect or canoni
   assert.equal(r.made.alias, 1);
   assert.equal(r.doc, '<a href="/it/en/book-and-prepare/offers?x=1#a">a</a><a href="https://www.ita-airways.com/it/en/old">b</a>');
 });
+
+test('a link-out document (the allowlist\'s linkOuts: www runs an app there) keeps its link to its own www page; one made relative goes back', () => {
+  const own = '/it/en/book-and-prepare/offers';
+  const doc = '<p><a href="https://www.ita-airways.com/it/en/book-and-prepare/offers">Offers</a> {full-width}</p><p><a href="/it/en/book-and-prepare/offers">again</a> <a href="/it/en/book-and-prepare/offers#terms">terms</a> <a href="https://www.ita-airways.com/it/en/homepage">home</a></p>';
+  const r = withOwnLinks(doc, HOST, pages, new Map(), { linkOut: own });
+  assert.equal(r.doc, '<p><a href="https://www.ita-airways.com/it/en/book-and-prepare/offers">Offers</a> {full-width}</p><p><a href="https://www.ita-airways.com/it/en/book-and-prepare/offers">again</a> <a href="/it/en/book-and-prepare/offers#terms">terms</a> <a href="/it/en/homepage">home</a></p>');
+  assert.equal(r.made.href, 1, 'only the homepage link');
+  assert.equal(r.made.back, 1, 'the self link made relative before');
+  assert.equal(r.kept['the page\'s own link out to www (its app or widget)'], 1);
+  // without linkOut the same document links to itself
+  assert.ok(withOwnLinks(doc, HOST, pages).doc.startsWith('<p><a href="/it/en/book-and-prepare/offers">Offers</a>'));
+});

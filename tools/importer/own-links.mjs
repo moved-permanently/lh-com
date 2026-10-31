@@ -64,6 +64,15 @@ export function ownAliases(site) {
   return new Map(fs.existsSync(f) ? Object.entries(JSON.parse(fs.readFileSync(f, 'utf8'))) : []);
 }
 
+/**
+ * The site's link-out documents: tools/importer/sites/<site>.json linkOuts (pages where www runs an
+ * app or widget the site links to; site-postprocess.mjs keeps their link to www).
+ */
+export function ownLinkOuts(site) {
+  const f = path.join(root, 'tools/importer/sites', `${site}.json`);
+  return new Set(fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')).linkOuts || [] : []);
+}
+
 /** The site path of a www URL's path (.html and a trailing slash dropped), or ''. */
 export function sitePath(pathname) {
   let p = pathname;
@@ -87,11 +96,16 @@ export function keptReason(p, pages) {
   return 'pages not in the site (left out or not on www)';
 }
 
+const LINK_OUT = 'the page\'s own link out to www (its app or widget)';
+
 /**
  * A document with its www links to the site's pages relative. Returns the document and the
  * counts: made (links made relative), kept {reason: count}, examples {reason: [paths]}.
+ * linkOut: the document's own path when it is one of the allowlist's linkOuts (www runs an app
+ * or widget there and the document links to it, as site-postprocess.mjs keeps it): its link to
+ * that page stays on www, and one an earlier run made relative goes back.
  */
-export function withOwnLinks(doc, host, pages, aliases = new Map()) {
+export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = null } = {}) {
   const made = {
     href: 0, text: 0, back: 0, alias: 0,
   };
@@ -110,6 +124,10 @@ export function withOwnLinks(doc, host, pages, aliases = new Map()) {
   };
   let out = doc.replace(new RegExp(`href="(https?://${esc}[^"]*)"`, 'g'), (m, url) => {
     const t = toSite(url);
+    if (linkOut && t && t.p === linkOut && !/[?#]/.test(url)) {
+      kept[LINK_OUT] = (kept[LINK_OUT] || 0) + 1;
+      return m;
+    }
     if (t && t.rel) {
       made.href += 1;
       if (t.alias) made.alias += 1;
@@ -124,7 +142,8 @@ export function withOwnLinks(doc, host, pages, aliases = new Map()) {
   // ITA's xx/de, xx/el, at/de, be/nl, ch/de, roots lh-edge doesn't serve) goes back to www
   out = out.replace(/href="(\/[a-z]{2}\/[a-z]{2}\/[^"#?]*)([^"]*)"/g, (m, rel, rest) => {
     const p = sitePath(rel);
-    if (pages.has(p) || !/^\/[a-z]{2}\/[a-z]{2}\//.test(p)) return m;
+    const self = linkOut && p === linkOut && !rest;
+    if ((pages.has(p) && !self) || !/^\/[a-z]{2}\/[a-z]{2}\//.test(p)) return m;
     made.back = (made.back || 0) + 1;
     return `href="https://${host}${rel}${rest}"`;
   });
@@ -152,6 +171,7 @@ if (isMain) {
   }
   const pages = ownPages(site);
   const aliases = ownAliases(site);
+  const linkOuts = ownLinkOuts(site);
   const dir = path.join(root, 'content-sites', site, 'content');
   const total = {
     href: 0, text: 0, back: 0, alias: 0,
@@ -161,7 +181,8 @@ if (isMain) {
   const changed = [];
   walk(dir).filter((f) => f.endsWith('.plain.html')).forEach((f) => {
     const before = fs.readFileSync(f, 'utf8');
-    const r = withOwnLinks(before, host, pages, aliases);
+    const p = `/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`;
+    const r = withOwnLinks(before, host, pages, aliases, { linkOut: linkOuts.has(p) ? p : null });
     total.href += r.made.href;
     total.text += r.made.text;
     total.back += r.made.back;
@@ -169,7 +190,7 @@ if (isMain) {
     Object.entries(r.kept).forEach(([k, n]) => { kept[k] = (kept[k] || 0) + n; });
     Object.entries(r.examples).forEach(([k, v]) => { (examples[k] ||= new Set()); v.forEach((x) => examples[k].add(x)); });
     if (r.doc !== before) {
-      changed.push(`/${path.relative(dir, f).replace(/\.plain\.html$/, '')}`);
+      changed.push(p);
       if (argv.includes('--write')) fs.writeFileSync(f, r.doc);
     }
   });
