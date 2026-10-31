@@ -21,6 +21,7 @@
  *    PRICE_ROUTES answer live or not at all).
  */
 import { getLocale, LOCALE_TABLE, LIVE_ORIGIN } from './locale.js';
+import { FALLBACK_LANGUAGE_VERSION } from './locale-table.js';
 import { isDemoHost } from './demo.js';
 
 // Origin of the deployed lh-proxy worker (see tools/workers/DEPLOY-PROMPT.md)
@@ -328,9 +329,14 @@ export async function lhRecorded(pathPrefix, { method = 'GET', market = getLocal
   // recordings are the demo's (shown when www can't be called): none on a production host
   if (!isDemoHost()) return [];
   const { entries = {} } = await loadRecordedIndex();
-  const prefix = `${market}|${method.toUpperCase()} ${pathPrefix}`;
-  const files = Object.keys(entries)
-    .filter((k) => k.startsWith(prefix)).map((k) => entries[k].file);
+  const listOf = (m) => {
+    const prefix = `${m}|${method.toUpperCase()} ${pathPrefix}`;
+    return Object.keys(entries).filter((k) => k.startsWith(prefix)).map((k) => entries[k].file);
+  };
+  let files = listOf(market);
+  // a brand site's root (not in lh-com's table: no recordings of its own): de/en's, as before
+  // its roots were locales of their own
+  if (!files.length && !LOCALE_TABLE[market]) files = listOf(FALLBACK_LANGUAGE_VERSION);
   const results = await Promise.allSettled([...new Set(files)].map(async (file) => {
     const resp = await fetch(`${RECORDED_BASE}/${file}`);
     if (!resp.ok) throw new Error(file);

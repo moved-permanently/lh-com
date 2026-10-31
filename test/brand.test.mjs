@@ -65,5 +65,5 @@ test('brand: the Message Center tenants (www\'s): ita, four_y; Cargo and Air Dol
   assert.equal(BRANDS.cargo.messageCenter, undefined);
   assert.equal(BRANDS.airdolomiti.messageCenter, undefined);
   // where the Austrian session adds its key: the comment names its tenant
-  assert.match(fs.readFileSync(new URL('../scripts/brand.js', import.meta.url), 'utf8'), /messageCenter: 'os'/);
+  assert.match(fs.readFileSync(new URL('../scripts/brands.js', import.meta.url), 'utf8'), /messageCenter: 'os'/);
 });

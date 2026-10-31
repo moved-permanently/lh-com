@@ -26,6 +26,8 @@ on:
       - 'scripts/demo.js'
       # and the brands' favicons and manifests (src/brand-icons.js)
       - 'scripts/brand-icons.js'
+      # and the brands and their sites' roots (src/sites.js, scripts/locale.js)
+      - 'scripts/brands.js'
       # and the bound Workers' check (tools/workers/README.md "Account")
       - 'tools/workers/wait-for-workers.sh'
       - '.github/workflows/deploy-lh-edge.yaml'

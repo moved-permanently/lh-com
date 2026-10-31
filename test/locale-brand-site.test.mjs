@@ -1,7 +1,7 @@
 /* The locale of a brand site without <cc>/<ll> roots (scripts/locale.js brandSiteLocale,
    scripts/site-languages.js: Cargo, Air Dolomiti): the page's `language` metadata sets the
    interface language, English without it; pages under <cc>/<ll> roots and every other site
-   (lh-com, Discover, ITA) keep today's rule. Run: node --test test/*.test.mjs */
+   (lh-com) keeps today's rule; Discover and ITA have their own roots (scripts/brands.js). Run: node --test test/*.test.mjs */
 /* global globalThis */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -45,7 +45,7 @@ test('Air Dolomiti (no roots): Italian at the root, English and German from thei
   withPage({ brand: 'airdolomiti', language: 'de' }, () => assert.equal(getLocale('/de/voli').lang, 'de'));
 });
 
-test('lh-com, Discover and ITA as today: roots by their row, pages outside roots the default locale', () => {
+test('lh-com as today; Discover and ITA (roots): their own table (test/brand-locale.test.mjs), outside the roots their first root', () => {
   withPage({}, () => {
     assert.deepEqual(pick(getLocale('/de/en/baggage')), { lang: 'en', key: 'de/en', base: '/de/en' });
     assert.deepEqual(pick(getLocale('/index')), { lang: 'de', key: 'de/de', base: '/de/de' });
@@ -54,9 +54,9 @@ test('lh-com, Discover and ITA as today: roots by their row, pages outside roots
   });
   withPage({ brand: 'discover', language: 'en' }, () => {
     assert.deepEqual(pick(getLocale('/de/en/homepage')), { lang: 'en', key: 'de/en', base: '/de/en' });
-    assert.deepEqual(pick(getLocale('/index')), { lang: 'de', key: 'de/de', base: '/de/de' }, 'Discover has roots: no brand rule');
+    assert.deepEqual(pick(getLocale('/index')), { lang: 'en', key: 'de/en', base: '/de/en' }, 'Discover has roots: its first, not the language rule');
   });
-  withPage({ brand: 'ita', language: 'it' }, () => assert.deepEqual(pick(getLocale('/index')), { lang: 'de', key: 'de/de', base: '/de/de' }));
+  withPage({ brand: 'ita', language: 'it' }, () => assert.deepEqual(pick(getLocale('/index')), { lang: 'en', key: 'it/en', base: '/it/en' }));
   // a brand site's page under a root (none today): the root's rule
   withPage({ brand: 'cargo', language: 'en' }, () => assert.equal(getLocale('/de/de/x').lang, 'de'));
 });

@@ -13,6 +13,7 @@
  */
 /* eslint-disable import/no-relative-packages */
 import { LOCALE_TABLE, LANGUAGE_VERSIONS } from '../../../../scripts/locale-table.js';
+import { BRAND_SITES } from '../../../../scripts/brands.js';
 /* eslint-enable import/no-relative-packages */
 
 /** A site's tables: the locale rows, the language versions, the market roots, the own roots. */
@@ -30,59 +31,13 @@ export function tablesOf(table, versions) {
 /** lh-com's tables (scripts/locale-table.js). */
 export const LH_TABLES = tablesOf(LOCALE_TABLE, LANGUAGE_VERSIONS);
 
-// label: www's country and language label of the root (its header's selector), set where a
-// market root's nav and footer come from its language version's (src/markets.js)
-const row = (country, lang, hreflang, documents, label) => ({
-  country, lang, hreflang, status: 'live', documents, ...(label ? { label } : {}),
-});
-
-// rows of roots <cc>/<ll>: hreflang <ll>-<CC>, an xx root's the language alone (as Discover's)
-const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
-  const [cc, ll] = r.split('/');
-  return [r, row(cc, ll, cc === 'xx' ? ll : `${ll}-${cc.toUpperCase()}`, documents)];
-}));
-
 /**
- * The sites. Discover Airlines (DA moved-permanently/lh-discover, www.discover-airlines.com):
- * de/en, de/de and xx/fr hold the language documents (the largest root of each language), the
- * market roots get them where their sitemaps list the page (the page's `markets` metadata) and
- * hold their own homepage and own pages; hreflang as www's sitemaps (2026-10-29); the market
- * roots' labels as www's country and language selector (its snapshots, 2026-10-30).
- * ITA Airways (DA moved-permanently/lh-ita, www.ita-airways.com): the nine reference roots hold
- * the language documents (tools/importer/ita-scope.mjs LANGUAGE_VERSIONS), the market roots get
- * them where the document's `markets` row lists the root (written as roots, "be/fr, ch/fr":
- * scripts/market-rules.js); the market roots as the published documents' markets rows and
- * tools/reports/lh-ita.md name them (50 of www's 55: the de, nl, pt, el and ja ones beyond xx/nl,
- * xx/pt and xx/ja come with those languages' documents).
+ * The sites with <cc>/<ll> roots: their tables, built from scripts/brands.js BRAND_SITES (the one
+ * source of their roots, language versions and labels, shared with the site's pages:
+ * scripts/locale.js).
  */
-export const SITES = {
-  discover: tablesOf({
-    'de/en': row('de', 'en', 'en-DE', 'own'),
-    'de/de': row('de', 'de', 'de-DE', 'own'),
-    'xx/fr': row('xx', 'fr', 'fr', 'own'),
-    'us/en': row('us', 'en', 'en-US', 'language', 'USA | English'),
-    'ca/en': row('ca', 'en', 'en-CA', 'language', 'Canada | English'),
-    'xx/en': row('xx', 'en', 'en', 'language', 'Other countries | English'),
-    'us/de': row('us', 'de', 'de-US', 'language', 'USA | Deutsch'),
-    'xx/de': row('xx', 'de', 'de', 'language', 'Andere Länder | Deutsch'),
-    'ca/fr': row('ca', 'fr', 'fr-CA', 'language', 'Canada | Français'),
-  }, { en: 'de/en', de: 'de/de', fr: 'xx/fr' }),
-  ita: tablesOf({
-    ...rowsOf('own', ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja']),
-    ...rowsOf('language', [
-      'ae/en', 'al/en', 'ar/en', 'at/en', 'au/en', 'be/en', 'bg/en', 'br/en', 'ca/en', 'ch/en',
-      'de/en', 'do/en', 'dz/en', 'eg/en', 'es/en', 'fr/en', 'gb/en', 'gh/en', 'gr/en', 'hr/en',
-      'il/en', 'in/en', 'jp/en', 'ly/en', 'mt/en', 'mu/en', 'mv/en', 'nl/en', 'sa/en', 'sn/en',
-      'th/en', 'tn/en', 'us/en', 've/en', 'xx/en',
-      'al/it', 'be/it', 'ch/it', 'xx/it',
-      'be/fr', 'ca/fr', 'ch/fr', 'tn/fr', 'xx/fr',
-      'ar/es', 'do/es', 'xx/es',
-      'xx/nl', 'xx/pt', 'xx/ja',
-    ]),
-  }, {
-    en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',
-  }),
-};
+export const SITES = Object.fromEntries(Object.entries(BRAND_SITES)
+  .map(([name, site]) => [name, tablesOf(site.rows, site.versions)]));
 
 /**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through

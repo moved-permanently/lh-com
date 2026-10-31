@@ -7,62 +7,12 @@
  */
 
 import { DEFAULT_ICONS, iconsOf } from './brand-icons.js';
+import { BRANDS } from './brands.js';
 
 export { DEFAULT_ICONS };
 
-/**
- * The known brands: metadata value -> display name, OneTrust id (the data-domain-script of the
- * brand's www pages, 2026-10-30; scripts/consent.js) and theme (styles/themes/<key>.css; false:
- * Lufthansa's look). Unknown values are ignored. A brand without a oneTrust id gets no consent
- * banner (and nothing that needs consent runs on its pages). messageCenter: the brand's Message
- * Center tenant on www (its messages' tenant in the site's own /message-center/index.json and its
- * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant); a brand
- * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). destinationImages: the
- * folder of the destination images of the brand's fare widgets on www (its imageBaseUrl; the
- * site's own copies under that path); Lufthansa's without one. www: the brand's own www host (its
- * links open like lufthansa.com's on lh-com: isOwnWwwHost). The brands' favicons and manifests:
- * scripts/brand-icons.js (brandIcons, applyBrandIcons). The languages of the sites
- * without <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
- */
-export const BRANDS = {
-  discover: {
-    name: 'Discover Airlines',
-    oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370',
-    messageCenter: 'four_y',
-    destinationImages: '/content/dam/four_y/images/offers/destination',
-    www: 'www.discover-airlines.com',
-  },
-  ita: {
-    name: 'ITA Airways',
-    oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd',
-    messageCenter: 'ita',
-    destinationImages: '/content/dam/ita/images/offers/destination',
-    www: 'www.ita-airways.com',
-  },
-  // Austrian Airlines (lh-austrian): its icons row: scripts/brand-icons.js; destination images:
-  // the fare widgets' imageBaseUrl on www's homepage (2026-10-31)
-  austrian: {
-    name: 'Austrian Airlines',
-    oneTrust: '01994cb3-6317-72f4-8589-1be98309c258',
-    messageCenter: 'os',
-    destinationImages: '/content/dam/austrian/global/images/offers/destination',
-    www: 'www.austrian.com',
-  },
-  // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
-  // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
-  cargo: {
-    name: 'Lufthansa Cargo',
-    theme: false,
-    www: 'www.lufthansa-cargo.com',
-  },
-  // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
-  // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
-  // OneTrust (2026-10-30)
-  airdolomiti: {
-    name: 'Air Dolomiti',
-    www: 'www.airdolomiti.it',
-  },
-};
+/** The known brands (their entries: scripts/brands.js, shared with lh-edge and locale.js). */
+export { BRANDS };
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
 /** www.lufthansa.com's OneTrust id: lh-com (no brand key). */
 export const DEFAULT_ONETRUST = '01994cb2-af99-7dbe-8fb0-56427773e54e';
