@@ -1,0 +1,59 @@
+# lh-airdolomiti batch-19 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T21:11Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/destinations/verona/what-to-eat/main-courses-to-eat-in-verona
+/en/destinations/verona/what-to-eat/traditional-sweet-dishes
+/en/destinations/verona/what-to-see
+/en/destinations/verona/what-to-see/around-verona-lake-garda-attractions
+/en/destinations/verona/what-to-see/best-beaches-lake-garda
+/en/destinations/verona/what-to-see/juliet-balcony
+/en/destinations/verona/what-to-see/verona-travel-guide
+/en/destinations/wroclaw
+/en/destinations/zurich
+/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain
+/en/articles/avgeek-en/aeroplane-maintenance
+/en/articles/avgeek-en/aeroplane-tails
+/en/articles/avgeek-en/air-conditioning-up-in-the-air
+/en/articles/avgeek-en/aircraft-light
+/en/articles/avgeek-en/aircraft-maintenance-at-air-dolomiti-hangars
+/en/articles/avgeek-en/aircraft-tyres
+/en/articles/avgeek-en/airplanes-engines
+/en/articles/avgeek-en/autopilot
+/en/articles/avgeek-en/boarding-the-left
+/en/articles/avgeek-en/ceramic-coating-could-make-the-hypersonic-plane-reality
+/en/articles/avgeek-en/discover-embraer-e195-e-e190-2
+/en/articles/avgeek-en/flaps
+/en/articles/avgeek-en/flight-instruments
+/en/articles/avgeek-en/flight-recorder
+/en/articles/avgeek-en/hangars
+/en/articles/avgeek-en/holding-patterns
+/en/articles/avgeek-en/how-do-aerostats-fly
+/en/articles/avgeek-en/how-do-aircraft-hold-doors-work
+/en/articles/avgeek-en/how-do-gliders-fly
+/en/articles/avgeek-en/how-do-helicopters-fly
+/en/articles/avgeek-en/how-do-you-start-an-aeroplane
+/en/articles/avgeek-en/how-to-recognize-the-ranks-on-pilots-uniforms
+/en/articles/avgeek-en/in-flight-refuelling
+/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit
+/en/articles/avgeek-en/is-plane-window-made
+/en/articles/avgeek-en/let-it-snow-let-it-snow-let-it-snow-3
+/en/articles/avgeek-en/markings-on-runways
+/en/articles/avgeek-en/pitot-tube
+/en/articles/avgeek-en/plane-speaking
+/en/articles/avgeek-en/profession-pilot-interview-with-captain-marino-palla
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: 5 problems:
+#   /en/articles/avgeek-en/aeroplane-tails           h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+#   /en/articles/avgeek-en/air-conditioning-up-in-the-air h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+#   /en/articles/avgeek-en/aircraft-light            h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+#   /en/articles/avgeek-en/how-do-aircraft-hold-doors-work h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+#   /en/articles/avgeek-en/how-do-helicopters-fly    h1=1 blocks=1 bad=- header=true footer=true lang=en brokenLocalImgs=1 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/destinations/verona/what-to-eat/main-courses-to-eat-in-verona -> /en/destinations/verona/what-to-eat/main-courses-to-eat-in-verona: text 5/5, images 1/2 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.eu/articles/avgeek-en/a-day-with-an-air-dolomiti-captain -> /en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain: text 36/36, images 2/2 (+2), links 3/3 (+2)
+#   https://www.airdolomiti.eu/articles/avgeek-en/discover-embraer-e195-e-e190-2 -> /en/articles/avgeek-en/discover-embraer-e195-e-e190-2: text 4/8, images 1/2 (+1), links 4/4 (+0)
+#   https://www.airdolomiti.eu/destinations/verona/what-to-eat/main-courses-to-eat-in-verona: images missing: Schermata-2021-10-22-alle-08.58.23.png
+#   https://www.airdolomiti.eu/articles/avgeek-en/a-day-with-an-air-dolomiti-captain: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/avgeek-en/discover-embraer-e195-e-e190-2: text missing: "reading time: 1 minutes"; "are you a true avgeek?"; "find out how much you know about aeronautics!"; "start quiz" | images missing: Ala-Embraer-Air-Dolomiti-e1774004245429.jpg
