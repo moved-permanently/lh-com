@@ -39,7 +39,9 @@ const log = (s) => {
   console.log(line);
   fs.appendFileSync(LOG, `${line}\n`);
 };
-let lastBlock = 0;
+// the last block a run before this one recorded (its 30 minutes hold for this run too)
+let lastBlock = (fs.existsSync(LOG) ? fs.readFileSync(LOG, 'utf8').split('\n') : [])
+  .filter((l) => /: BLOCKED /.test(l)).map((l) => Date.parse(l.slice(0, 24)) || 0).reduce((a, b) => Math.max(a, b), 0);
 
 /** A tool run (node, from the repository); its exit code and output. */
 function run(args, { env = {}, timeout = 3 * 3600 * 1000 } = {}) {
@@ -58,11 +60,13 @@ async function bd(args, label) {
     await sleep(wait);
   }
   const r = run(args);
-  if (r.code === 2 || r.out.some((l) => /BLOCKED|; stopping|403 at/.test(l))) {
+  // a challenge or "Access Denied" on the warm-up page comes as a thrown error (exit 1)
+  if (r.code === 2 || r.out.some((l) => /BLOCKED|; stopping|403 at|behind the challenge/.test(l))) {
     lastBlock = Date.now();
-    log(`${label}: BLOCKED (${r.out.filter((l) => /BLOCKED|403|429/.test(l)).slice(-1)[0] || 'exit 2'}); 30 min stop`);
+    log(`${label}: BLOCKED (${r.out.filter((l) => /BLOCKED|403|429|challenge/.test(l)).slice(-1)[0] || 'exit 2'}); 30 min stop`);
     return false;
   }
+  if (r.code !== 0) log(`${label}: exit ${r.code}: ${r.out.slice(-3).join(' | ')}`);
   return true;
 }
 

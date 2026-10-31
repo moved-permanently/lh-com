@@ -83,6 +83,12 @@ export const LOCAL_IMAGES = {
   // path-only SVGs of 409 and 218 KB for 32px icons (/at/en/book/flights/giftvoucher)
   '/content/dam/aua/icons/os-world-of-austrian-chevron_32px.svg': '/media-da/austrian/os-world-of-austrian-chevron_32px.png',
   '/content/dam/aua/icons/service-offline-payment_32px.svg': '/media-da/austrian/service-offline-payment_32px.png',
+  // the other path-only 32px icons of about 400 KB among the reference roots' 87 SVGs (fetched
+  // 2026-10-31; the rest are 21 KB or less): /fly/on-board/lhg-wifi and others
+  '/content/dam/aua/icons/ife-audio_32px.svg': '/media-da/austrian/ife-audio_32px.png',
+  '/content/dam/aua/icons/service-checkin_32px.svg': '/media-da/austrian/service-checkin_32px.png',
+  '/content/dam/aua/icons/product-add-pass_32px.svg': '/media-da/austrian/product-add-pass_32px.png',
+  '/content/dam/aua/icons/product-train-carrier_32px.svg': '/media-da/austrian/product-train-carrier_32px.png',
 };
 
 /** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their local renderings. */

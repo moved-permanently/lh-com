@@ -165,7 +165,11 @@ async function download() {
           return { status: r.status, total: Number(total) || Number(r.headers.get('content-length')) || 0 };
         }, url).catch((e) => ({ status: 0, error: e.message.split('\n')[0] }));
         if (size.status === 403 || size.status === 429) {
-          state[x.www] = { ...state[x.www], status: `blocked-${size.status}`, at: new Date().toISOString() };
+          // still a stop, but not asked again (2026-10-31: 403 for the two chat assistant videos'
+          // one-byte GETs, other videos answered): the page links www's file
+          state[x.www] = {
+            ...state[x.www], status: size.status === 403 ? 'www-403-range' : `blocked-${size.status}`, at: new Date().toISOString(),
+          };
           blocked = true;
           console.error(`austrian-dam: ${size.status} at ${x.www}; stopping`);
           break;
