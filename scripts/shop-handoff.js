@@ -60,11 +60,17 @@ export function buildShopHandoff(query, locale, shop = '') {
     });
   }
   const adults = Math.max(1, parseInt(query.adults, 10) || 1);
+  // the picker's children (2-11) and infants (under 2), after the adults
+  const count = (v) => Math.max(0, parseInt(v, 10) || 0);
+  const travelers = [['ADT', adults], ['CHD', count(query.children)], ['INF', count(query.infants)]]
+    .flatMap(([code, n]) => Array.from({ length: n }, () => ({
+      discounts: [], passengerTypeCode: code,
+    })));
   const cabinCode = String(query.cabin || 'E').toUpperCase();
   const groups = query.consentGroups || [];
   const search = {
     itineraries,
-    travelers: Array.from({ length: adults }, () => ({ discounts: [], passengerTypeCode: 'ADT' })),
+    travelers,
     cabin: SHOP_CABINS[cabinCode] || (Object.values(SHOP_CABINS).includes(cabinCode) ? cabinCode : 'ECONOMY'),
     portalFacts: Object.fromEntries(Object.entries(PORTAL_FACT_GROUPS)
       .map(([fact, group]) => [fact, groups.includes(group)])),

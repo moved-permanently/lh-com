@@ -9,6 +9,7 @@ import {
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
 import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
+import { createPassengerPicker, PASSENGER_LABELS, PICKER_CABINS } from './passenger-picker.js';
 
 /* ---------------------------------------------------------------------------------------------
  * Data contract (see scripts/lh-api.js for the live request and response shapes). The live
@@ -37,6 +38,11 @@ const LIVE_LABELS = {
 /** Live label bundles: flightmanager (homepage), common (loaded by the live site elsewhere). */
 const LABEL_BUNDLES = ['flightmanager', 'common'];
 
+/** The codes of a comma list ("VRN, MUC"), upper case, those of the given form only. */
+function codesOf(value, form) {
+  return String(value || '').split(/[\s,;]+/).map((c) => c.trim().toUpperCase()).filter((c) => form.test(c));
+}
+
 /**
  * Settings of an authored block.
  * @param {Object} config result of readConfigRows
@@ -47,6 +53,7 @@ export function readFlightSearchSettings(config, locale) {
   const originValue = text('default-origin', 'origin');
   const destinationValue = text('default-destination', 'destination');
   const destinationCode = parseAirportCode(destinationValue);
+  const cabins = codesOf(text('cabins'), /^[EPBF]$/);
   return {
     tabs: (pick(config, 'tabs', 'tab') || { list: [] }).list,
     tripTypes: (pick(config, 'trip-types', 'trip-type') || { list: [] }).list.slice(0, 2),
@@ -63,7 +70,20 @@ export function readFlightSearchSettings(config, locale) {
     fallbackOrigin: locale.homeAirport,
     // the shop the search is handed to (a brand site's own, lh-ita); none: Lufthansa's
     shop: ((pick(config, 'shop') || {}).link || {}).href || text('shop'),
+    // Passenger picker row: the traveller line opens adults, children, infants and the cabins
+    // of the Cabins row (codes E, P, B, F; default all four); without it the line is a text
+    passengerPicker: /^(y|yes|true|ja|si|sì|oui|1)$/i.test(text('passenger-picker')),
+    cabins: cabins.length ? cabins : PICKER_CABINS.map(([c]) => c),
+    // Airports row: the origin and destination suggestions only these codes (Air Dolomiti's
+    // own airports); without it every airport
+    airports: codesOf(text('airports'), /^[A-Z]{3}$/),
   };
+}
+
+/** Suggestions limited to the Airports row's codes (none: every suggestion). */
+export function allowedAirports(list, codes) {
+  if (!codes || !codes.length) return list;
+  return list.filter((a) => codes.includes(a.code));
 }
 
 /** The live requests of the block (the typed-term suggestions come from searchAirports). */
@@ -697,7 +717,17 @@ export default function decorate(block) {
     wrap.append(label, tripTypeSelect);
     optionsRow.append(wrap);
   }
-  if (settings.travellerLabel) optionsRow.append(el('span', 'flight-search-travellers', settings.travellerLabel));
+  let passengers;
+  if (settings.passengerPicker) {
+    passengers = createPassengerPicker({
+      labels: resolveLabels(PASSENGER_LABELS, config, locale.lang),
+      cabins: settings.cabins,
+      value: { adults: settings.adults, cabin: settings.cabin },
+    });
+    optionsRow.append(passengers.element);
+  } else if (settings.travellerLabel) {
+    optionsRow.append(el('span', 'flight-search-travellers', settings.travellerLabel));
+  }
   let nonstop;
   if (settings.nonstopLabel) {
     const label = el('label', 'flight-search-nonstop');
@@ -716,8 +746,11 @@ export default function decorate(block) {
     const { list, source } = await searchAirportsWithSource(term, locale);
     sources.suggestions = source;
     markSource(block, sources, primary);
-    return list;
+    return allowedAirports(list, settings.airports);
   };
+  // an origin outside the Airports row is no prefill
+  const allowed = (airport) => (airport && (!settings.airports.length
+    || settings.airports.includes(airport.code)) ? airport : null);
 
   // fields row: origin, swap, destination, dates, submit
   const fields = el('div', 'flight-search-fields');
@@ -728,7 +761,7 @@ export default function decorate(block) {
   const origin = createAirportCombobox({
     label: text('origin-label', 'from') || labels['from label'],
     name: 'origin',
-    value: settings.origin || { code: settings.fallbackOrigin, name: '' },
+    value: allowed(settings.origin || { code: settings.fallbackOrigin, name: '' }),
     fetchSuggestions: (term) => suggest(term),
     onChange: () => {
       originTouched = true;
@@ -740,7 +773,7 @@ export default function decorate(block) {
   const destination = createAirportCombobox({
     label: text('destination-label', 'to') || labels['to label'],
     name: 'destination',
-    value: settings.destination,
+    value: allowed(settings.destination),
     fetchSuggestions: (term) => suggest(term),
     onChange: () => {
       destinationTouched = true;
@@ -839,6 +872,8 @@ export default function decorate(block) {
       adults: settings.adults,
       cabin: settings.cabin,
       nonstop: Boolean(nonstop && nonstop.checked),
+      // the picker's adults, children, infants and cabin
+      ...(passengers ? passengers.getValue() : {}),
     };
     let message = '';
     let focus;
@@ -961,10 +996,10 @@ export default function decorate(block) {
     // prefill like the live site (authored origin named, else the market default airport)
     // unless the visitor already picked an origin
     if (!originTouched) {
-      origin.setValue(data.origin, { silent: true });
+      origin.setValue(allowed(data.origin), { silent: true });
       updateSwapLabel();
     }
-    if (data.destination && data.destination.name && !destinationTouched) {
+    if (allowed(data.destination) && data.destination.name && !destinationTouched) {
       destination.setValue(data.destination, { silent: true });
       updateSwapLabel();
     }

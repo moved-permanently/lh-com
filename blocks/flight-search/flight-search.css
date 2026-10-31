@@ -997,3 +997,104 @@ main > .section > .flight-search-wrapper.flight-search-band {
     margin: 0;
   }
 }
+
+/* the Passenger picker row: the traveller line opens adults, children, infants and the cabin */
+.flight-search .flight-search-passengers {
+  position: relative;
+  grid-area: trav;
+}
+
+.flight-search .flight-search-passengers .flight-search-travellers {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.flight-search .flight-search-passengers .flight-search-travellers:hover,
+.flight-search .flight-search-passengers .flight-search-travellers:focus-visible {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.flight-search .flight-search-passengers-panel {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 8px);
+  left: 0;
+  display: grid;
+  gap: 16px;
+  width: min(320px, calc(100vw - 32px));
+  padding: 20px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: 4px;
+  background: var(--background-color, #fff);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+}
+
+.flight-search .flight-search-passengers-panel[hidden] {
+  display: none;
+}
+
+.flight-search .flight-search-passenger {
+  display: grid;
+  grid-template-columns: 1fr 36px 28px 36px;
+  align-items: center;
+  gap: 8px;
+}
+
+.flight-search .flight-search-passenger-text {
+  display: grid;
+}
+
+.flight-search .flight-search-passenger-label {
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+}
+
+.flight-search .flight-search-passenger-hint {
+  color: var(--lh-grey-7);
+  font-size: var(--body-font-size-xs);
+}
+
+.flight-search .flight-search-passenger-fewer,
+.flight-search .flight-search-passenger-more {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--link-color);
+  border-radius: 50%;
+  background: none;
+  color: var(--link-color);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.flight-search .flight-search-passenger-fewer:disabled,
+.flight-search .flight-search-passenger-more:disabled {
+  border-color: var(--lh-grey-4);
+  color: var(--lh-grey-5);
+  cursor: default;
+}
+
+.flight-search .flight-search-passenger-count {
+  text-align: center;
+  font-weight: 700;
+}
+
+.flight-search .flight-search-passenger-cabin {
+  display: grid;
+  gap: 4px;
+}
+
+.flight-search .flight-search-passenger-cabin-select {
+  min-height: 40px;
+  font: inherit;
+}
+
+.flight-search .flight-search-passengers-done {
+  justify-self: end;
+  margin: 0;
+}
