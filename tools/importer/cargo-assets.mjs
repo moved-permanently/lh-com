@@ -63,7 +63,9 @@ export function recordBlock(where) {
   writeJson(BLOCK_FILE, { at: new Date().toISOString(), where });
 }
 const sleep = (ms) => new Promise((r) => { setTimeout(r, ms); });
-const pause = () => sleep(5000 + Math.floor(Math.random() * 5000));
+// the pace between two requests to www: 5-10 s, or slower with $CARGO_FILE_DELAY (ms, "10000-15000")
+const [MIN_DELAY, MAX_DELAY] = (process.env.CARGO_FILE_DELAY || '5000-10000').split('-').map(Number);
+const pause = () => sleep(Math.max(5000, MIN_DELAY) + Math.floor(Math.random() * Math.max(0, MAX_DELAY - MIN_DELAY)));
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
 
 const EXT = {
