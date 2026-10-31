@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-13 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T17:49Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/airports/venice
+/en/airports/verona-en
+/en/airports/wroclaw
+/en/airports/zurich
+/en/routes/flight-frankfurt-graz
+/en/routes/flight-from-amsterdam-to-munich
+/en/routes/flight-from-cluj-to-munich
+/en/routes/flight-from-dresden-to-frankfurt
+/en/routes/flight-from-dresden-to-munich
+/en/routes/flight-from-frankfurt-to-basel
+/en/routes/flight-from-frankfurt-to-biarritz
+/en/routes/flight-from-frankfurt-to-bordeaux
+/en/routes/flight-from-frankfurt-to-cagliari
+/en/routes/flight-from-frankfurt-to-dresden
+/en/routes/flight-from-frankfurt-to-figari
+/en/routes/flight-from-frankfurt-to-florence
+/en/routes/flight-from-frankfurt-to-geneva
+/en/routes/flight-from-frankfurt-to-katowice
+/en/routes/flight-from-frankfurt-to-london-city
+/en/routes/flight-from-frankfurt-to-luxembourg
+/en/routes/flight-from-frankfurt-to-milan-linate
+/en/routes/flight-from-frankfurt-to-milan-malpensa
+/en/routes/flight-from-frankfurt-to-pisa
+/en/routes/flight-from-frankfurt-to-pula
+/en/routes/flight-from-frankfurt-to-trieste
+/en/routes/flight-from-frankfurt-to-turin
+/en/routes/flight-from-frankfurt-to-verona
+/en/routes/flight-from-frankfurt-to-wroclaw
+/en/routes/flight-from-frankfurt-to-zurich
+/en/routes/flight-from-geneva-to-frankfurt
+/en/routes/flight-from-geneva-to-munich
+/en/routes/flight-from-jersey-to-munich
+/en/routes/flight-from-katowice-to-frankfurt
+/en/routes/flight-from-krakow-to-munich
+/en/routes/flight-from-london-city-to-frankfurt
+/en/routes/flight-from-luxembourg-to-frankfurt
+/en/routes/flight-from-munich-to-amsterdam
+/en/routes/flight-from-munich-to-ancona
+/en/routes/flight-from-munich-to-bari
+/en/routes/flight-from-munich-to-bologna
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/airports/venice -> /en/airports/venice: text 58/58, images 2/2 (+0), links 6/6 (+3)
+#   https://www.airdolomiti.eu/routes/flight-frankfurt-graz -> /en/routes/flight-frankfurt-graz: text 8/8, images 0/0 (+2), links 2/2 (+1)
+#   https://www.airdolomiti.eu/routes/flight-from-frankfurt-to-milan-linate -> /en/routes/flight-from-frankfurt-to-milan-linate: text 8/8, images 0/0 (+2), links 2/2 (+1)
+#   https://www.airdolomiti.eu/airports/venice: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/routes/flight-frankfurt-graz: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/routes/flight-from-frankfurt-to-milan-linate: no text, image or link of www's missing

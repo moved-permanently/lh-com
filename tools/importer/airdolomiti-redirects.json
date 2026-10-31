@@ -72,6 +72,10 @@
   "Destination": "/en/airports/biarritz-eu"
  },
  {
+  "Source": "/en/airport/zurich",
+  "Destination": "/en/airports/zurich"
+ },
+ {
   "Source": "/en/airport/figari-eu",
   "Destination": "/en/airports/figari-eu"
  },
@@ -132,6 +136,10 @@
   "Destination": "/en/airports/geneva"
  },
  {
+  "Source": "/en/airport/wroclaw",
+  "Destination": "/en/airports/wroclaw"
+ },
+ {
   "Source": "/en/airport/luxembourg-en",
   "Destination": "/en/airports/luxembourg-en"
  },
@@ -154,6 +162,14 @@
  {
   "Source": "/en/airport/brindisi-en",
   "Destination": "/en/airports/brindisi-en"
+ },
+ {
+  "Source": "/en/airport/venice",
+  "Destination": "/en/airports/venice"
+ },
+ {
+  "Source": "/en/airport/verona-en",
+  "Destination": "/en/airports/verona-en"
  },
  {
   "Source": "/en/airport/turin-en",
