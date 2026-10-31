@@ -32,9 +32,17 @@ const hidden = (n, stop) => {
   }
   return false;
 };
-const imgKey = (src) => (src || '').replace(/[?#].*$/, '').replace(/-\d+x\d+(?=\.[a-z]+$)/i, '');
+// an image's name without its size, decoded and in one Unicode form (www writes "ü" as u + U+0308)
+const imgKey = (src) => {
+  let s = (src || '').replace(/[?#].*$/, '');
+  try { s = decodeURI(s); } catch (e) { /* as it is */ }
+  return s.normalize('NFC').replace(/-\d+x\d+(?=\.[a-z]+$)/i, '');
+};
 
-const { paths, files } = loadSite();
+const { paths, files, state } = loadSite();
+// images www links that answer 404 there, in their size and as originals (the import leaves them out)
+const broken = new Set(Object.entries(state.done || {}).filter(([, v]) => v.status === 404).map(([k]) => imgKey(k)));
+const gone = (k) => broken.has(k) && Object.keys(state.done || {}).filter((u) => imgKey(u) === k).every((u) => state.done[u].status === 404);
 const byEds = {};
 Object.entries(files).forEach(([k, f]) => { if (f.eds) byEds[f.eds] = k; });
 const report = {};
@@ -70,13 +78,13 @@ urls.forEach((url) => {
     eds,
     text: { source: texts.length, missing: texts.filter((t) => !docText.includes(t)) },
     images: {
-      source: srcImgs.length, document: docImgs.length, missing: srcImgs.filter((i) => !docImgs.includes(i)), extra: docImgs.filter((i) => !srcImgs.includes(i)),
+      source: srcImgs.length, document: docImgs.length, missing: srcImgs.filter((i) => !docImgs.includes(i) && !gone(i)), broken: srcImgs.filter((i) => !docImgs.includes(i) && gone(i)), extra: docImgs.filter((i) => !srcImgs.includes(i)),
     },
     links: {
       source: srcLinks.length, document: docLinks.length, missing: srcLinks.filter((l) => !docLinks.includes(l)), extra: docLinks.filter((l) => !srcLinks.includes(l)),
     },
   };
   report[url] = r;
-  console.log(`${url} -> ${eds}: text ${r.text.source - r.text.missing.length}/${r.text.source}, images ${r.images.source - r.images.missing.length}/${r.images.source} (+${r.images.extra.length}), links ${r.links.source - r.links.missing.length}/${r.links.source} (+${r.links.extra.length})`);
+  console.log(`${url} -> ${eds}: text ${r.text.source - r.text.missing.length}/${r.text.source}, images ${r.images.source - r.images.missing.length - r.images.broken.length}/${r.images.source}${r.images.broken.length ? ` (${r.images.broken.length} broken on www)` : ''} (+${r.images.extra.length}), links ${r.links.source - r.links.missing.length}/${r.links.source} (+${r.links.extra.length})`);
 });
 fs.writeFileSync(path.join(W, 'runs', `${name}-check.json`), `${JSON.stringify(report, null, 1)}\n`);

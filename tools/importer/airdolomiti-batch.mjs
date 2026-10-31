@@ -101,6 +101,7 @@ const differs = Object.entries(detail).map(([u, r]) => {
   const parts = [];
   if (r.text.missing.length) parts.push(`text missing: ${r.text.missing.map((t) => `"${t.slice(0, 80)}"`).join('; ')}`);
   if (r.images.missing.length) parts.push(`images missing: ${r.images.missing.map((i) => i.split('/').pop()).join(', ')}`);
+  if ((r.images.broken || []).length) parts.push(`images broken on www too (404, left out): ${r.images.broken.map((i) => i.split('/').pop()).join(', ')}`);
   if (r.links.missing.length) parts.push(`links missing: ${r.links.missing.join(', ')}`);
   return parts.length ? `#   ${u}: ${parts.join(' | ')}` : `#   ${u}: no text, image or link of www's missing`;
 });

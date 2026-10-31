@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-21 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T21:49Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog
+/en/articles/destinations/street-art-munich-must-see-places
+/en/articles/destinations/street-food-in-munich
+/en/articles/destinations/summer-in-the-north-tyrol-limestone-alps-the-incredible-zugspitze
+/en/articles/destinations/the-barcolana-in-trieste
+/en/articles/destinations/the-best-snowshoeing-near-verona
+/en/articles/destinations/the-christmas-markets-of-munich
+/en/articles/destinations/the-frankfurt-book-fair-everything-you-need-to-know-about-this-years-fair
+/en/articles/destinations/the-italian-aperitivo-where-to-whet-your-appetite
+/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz
+/en/articles/destinations/the-most-beautiful-via-ferratas-near-turin
+/en/articles/destinations/the-verona-arena
+/en/articles/destinations/travel-insurance-policy
+/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy
+/en/articles/destinations/turin-creative-itinerary-contemporary-art
+/en/articles/destinations/turin-with-kids
+/en/articles/destinations/venice-carnival
+/en/articles/destinations/visit-venice-during-the-film-festival
+/en/articles/destinations/weird-and-wonderful-munich
+/en/articles/destinations/what-to-do-in-frankfurt-if
+/en/articles/destinations/where-the-adriatic-becomes-wild
+/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo
+/en/articles/dyk/5-apps-for-travellers
+/en/articles/dyk/5-things-you-didnt-know-about-pride
+/en/articles/dyk/a-brief-history-of-aircraft-seats
+/en/articles/dyk/a-short-history-of-the-passport
+/en/articles/dyk/a-trip-to-the-museum-part-ii
+/en/articles/dyk/aerial-photography-today
+/en/articles/dyk/aeropainting-and-futurism
+/en/articles/dyk/aeroplanes-in-contemporary-art
+/en/articles/dyk/aircraft-parts-transformed-into-designer-furniture
+/en/articles/dyk/airplane-1980
+/en/articles/dyk/airport-codes
+/en/articles/dyk/airports-designed-by-archistars
+/en/articles/dyk/aisle-or-window-its-a-question-of-personality
+/en/articles/dyk/antoine-de-saint-exupery-writer-aviator
+/en/articles/dyk/aviators-and-writers-of-the-past-3-books-for-aeroplane-lovers
+/en/articles/dyk/blind-pilot-finally-possible-thanks-to-technology
+/en/articles/dyk/born-on-an-aeroplane
+/en/articles/dyk/casablanca-2
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog -> /en/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog: text 5/5, images 3/3 (+0), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/destinations/where-the-adriatic-becomes-wild -> /en/articles/destinations/where-the-adriatic-becomes-wild: text 18/18, images 1/1 (+2), links 3/3 (+0)
+#   https://www.airdolomiti.eu/articles/dyk/casablanca-2 -> /en/articles/dyk/casablanca-2: text 2/2, images 0/0 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/destinations/where-the-adriatic-becomes-wild: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/dyk/casablanca-2: no text, image or link of www's missing

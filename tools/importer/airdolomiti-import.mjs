@@ -353,6 +353,9 @@ function flow(node, page, mode) {
     const t = c.tagName;
     const sc = c.getAttribute('data-shortcode');
     if (sc) { flush(); out.push(...shortcodeOf(sc, Number(c.getAttribute('data-n')), page, mode)); return; }
+    // a paragraph, heading or inline element holding an iframe or a shortcode's placeholder
+    // (www's "<h3>[quiz-cat id=…]</h3>"): its parts in their order
+    if (!/^(DIV|SECTION|FIGURE|BLOCKQUOTE|UL|OL|TABLE)$/.test(t) && c.querySelector('iframe, [data-shortcode]')) { flush(); out.push(...flow(c, page, mode)); return; }
     if (KEEP_INLINE.has(t) || t === 'SPAN' || t === 'IMG' || t === 'U' || t === 'SMALL') {
       if (t === 'SPAN' && c.querySelector('p, div, ul, ol, table, h1, h2, h3, h4, h5, h6, iframe')) { flush(); out.push(...flow(c, page, mode)); return; }
       run += inline({ childNodes: [c] }, page);
@@ -360,8 +363,6 @@ function flow(node, page, mode) {
     }
     flush();
     if (/^H[1-6]$/.test(t)) { const h = tidy(inline(c, page)).replace(/<br>/g, ' '); if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`); return; }
-    // a paragraph holding an iframe or a shortcode's placeholder: its parts in their order
-    if (t === 'P' && c.querySelector('iframe, div')) { out.push(...flow(c, page, mode)); return; }
     if (t === 'P') { const h = tidy(inline(c, page)); if (!empty(h)) out.push(`<p>${h}</p>`); return; }
     if (t === 'UL' || t === 'OL') { out.push(list(c, page)); return; }
     if (t === 'TABLE') {
