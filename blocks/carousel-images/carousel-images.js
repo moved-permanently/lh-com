@@ -21,6 +21,48 @@ const DEFAULT_LABELS = {
     'next label': 'Nächstes Bild',
     'slide label': '{n} von {total}',
   },
+  it: {
+    'carousel label': 'Carosello di immagini',
+    'previous label': 'Slide precedente',
+    'next label': 'Slide successiva',
+    'slide label': '{n} di {total}',
+  },
+  fr: {
+    'carousel label': 'Carrousel d’images',
+    'previous label': 'Diapositive précédente',
+    'next label': 'Diapositive suivante',
+    'slide label': '{n} sur {total}',
+  },
+  es: {
+    'carousel label': 'Carrusel de imágenes',
+    'previous label': 'Diapositiva anterior',
+    'next label': 'Diapositiva siguiente',
+    'slide label': '{n} de {total}',
+  },
+  nl: {
+    'carousel label': 'Afbeeldingencarrousel',
+    'previous label': 'Vorige dia',
+    'next label': 'Volgende dia',
+    'slide label': '{n} van {total}',
+  },
+  pt: {
+    'carousel label': 'Carrossel de imagens',
+    'previous label': 'Slide anterior',
+    'next label': 'Próximo slide',
+    'slide label': '{n} de {total}',
+  },
+  el: {
+    'carousel label': 'Καρουζέλ εικόνων',
+    'previous label': 'Προηγούμενη διαφάνεια',
+    'next label': 'Επόμενη διαφάνεια',
+    'slide label': '{n} από {total}',
+  },
+  ja: {
+    'carousel label': '画像カルーセル',
+    'previous label': '前のスライド',
+    'next label': '次のスライド',
+    'slide label': '{n}/{total}',
+  },
 };
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);

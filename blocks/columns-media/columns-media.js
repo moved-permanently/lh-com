@@ -11,6 +11,41 @@ import {
 const DEFAULT_LABELS = {
   en: { 'play video': 'Play video', 'show image': 'Show image', 'show slide': 'Show slide' },
   de: { 'play video': 'Video abspielen', 'show image': 'Bild anzeigen', 'show slide': 'Folie anzeigen' },
+  it: {
+    'play video': 'Riproduci video',
+    'show image': 'Mostra immagine',
+    'show slide': 'Mostra slide',
+  },
+  fr: {
+    'play video': 'Lire la vidéo',
+    'show image': 'Afficher l’image',
+    'show slide': 'Afficher la diapositive',
+  },
+  es: {
+    'play video': 'Reproducir vídeo',
+    'show image': 'Mostrar imagen',
+    'show slide': 'Mostrar diapositiva',
+  },
+  nl: {
+    'play video': 'Video afspelen',
+    'show image': 'Afbeelding tonen',
+    'show slide': 'Dia tonen',
+  },
+  pt: {
+    'play video': 'Reproduzir vídeo',
+    'show image': 'Mostrar imagem',
+    'show slide': 'Mostrar slide',
+  },
+  el: {
+    'play video': 'Αναπαραγωγή βίντεο',
+    'show image': 'Εμφάνιση εικόνας',
+    'show slide': 'Εμφάνιση διαφάνειας',
+  },
+  ja: {
+    'play video': '動画を再生',
+    'show image': '画像を表示',
+    'show slide': 'スライドを表示',
+  },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];

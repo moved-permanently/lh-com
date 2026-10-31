@@ -102,6 +102,34 @@ function buildOffersLink(authoredHref, destination, locale) {
 const DEFAULT_LABELS = {
   en: { 'price label': 'Round trip from', 'link label': 'Find flights' },
   de: { 'price label': 'Hin- und Rückflug ab', 'link label': 'Flüge finden' },
+  it: {
+    'price label': 'Andata e ritorno da',
+    'link label': 'Cerca voli',
+  },
+  fr: {
+    'price label': 'Aller-retour à partir de',
+    'link label': 'Rechercher des vols',
+  },
+  es: {
+    'price label': 'Ida y vuelta desde',
+    'link label': 'Buscar vuelos',
+  },
+  nl: {
+    'price label': 'Retour vanaf',
+    'link label': 'Vluchten zoeken',
+  },
+  pt: {
+    'price label': 'Ida e volta a partir de',
+    'link label': 'Pesquisar voos',
+  },
+  el: {
+    'price label': 'Με επιστροφή από',
+    'link label': 'Αναζήτηση πτήσεων',
+  },
+  ja: {
+    'price label': '往復',
+    'link label': 'フライトを検索',
+  },
 };
 
 function el(tag, className, text) {

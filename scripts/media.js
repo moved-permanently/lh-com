@@ -33,6 +33,55 @@ const LABELS = {
   de: {
     video: 'Video abspielen', youtube: 'YouTube-Video', 'inflight-entertainment': 'Bordunterhaltung', matterport: 'Virtuelle Tour starten', mynewsdesk: 'Newsroom anzeigen',
   },
+  it: {
+    video: 'Riproduci video',
+    youtube: 'Video YouTube',
+    'inflight-entertainment': 'Intrattenimento a bordo',
+    matterport: 'Avvia il tour virtuale',
+    mynewsdesk: 'Mostra la newsroom',
+  },
+  fr: {
+    video: 'Lire la vidéo',
+    youtube: 'Vidéo YouTube',
+    'inflight-entertainment': 'Divertissement à bord',
+    matterport: 'Démarrer la visite virtuelle',
+    mynewsdesk: 'Afficher la salle de presse',
+  },
+  es: {
+    video: 'Reproducir vídeo',
+    youtube: 'Vídeo de YouTube',
+    'inflight-entertainment': 'Entretenimiento a bordo',
+    matterport: 'Iniciar el recorrido virtual',
+    mynewsdesk: 'Mostrar la sala de prensa',
+  },
+  nl: {
+    video: 'Video afspelen',
+    youtube: 'YouTube-video',
+    'inflight-entertainment': 'Entertainment aan boord',
+    matterport: 'Virtuele rondleiding starten',
+    mynewsdesk: 'Nieuwsruimte tonen',
+  },
+  pt: {
+    video: 'Reproduzir vídeo',
+    youtube: 'Vídeo do YouTube',
+    'inflight-entertainment': 'Entretenimento a bordo',
+    matterport: 'Iniciar o tour virtual',
+    mynewsdesk: 'Mostrar a sala de imprensa',
+  },
+  el: {
+    video: 'Αναπαραγωγή βίντεο',
+    youtube: 'Βίντεο YouTube',
+    'inflight-entertainment': 'Ψυχαγωγία εν πτήσει',
+    matterport: 'Έναρξη εικονικής περιήγησης',
+    mynewsdesk: 'Εμφάνιση αίθουσας τύπου',
+  },
+  ja: {
+    video: '動画を再生',
+    youtube: 'YouTube動画',
+    'inflight-entertainment': '機内エンターテインメント',
+    matterport: 'バーチャルツアーを開始',
+    mynewsdesk: 'ニュースルームを表示',
+  },
 };
 
 let mediaCount = 0;

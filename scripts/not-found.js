@@ -43,6 +43,55 @@ const TEXT = {
     help: 'Zu Hilfe & Kontakt',
     newTab: 'Der Link wird in einem neuen Browser-Tab geöffnet',
   },
+  it: {
+    title: 'Pagina non trovata',
+    links: [['Vai alla homepage', 'home'], ['Prenota voli', 'flight-search'], ['Check-in online', 'online-check-in-info'], ['Le mie prenotazioni', 'my-bookings']],
+    feedback: 'Non hai trovato le informazioni giuste o vuoi lasciarci un feedback? Consulta le nostre opzioni di feedback e contatto.',
+    help: 'Assistenza e contatti',
+    newTab: '',
+  },
+  fr: {
+    title: 'Page introuvable',
+    links: [['Aller à la page d’accueil', 'home'], ['Réserver des vols', 'flight-search'], ['Enregistrement en ligne', 'online-check-in-info'], ['Mes réservations', 'my-bookings']],
+    feedback: 'Vous n’avez pas trouvé l’information recherchée ou souhaitez nous faire part de vos commentaires ? Consultez nos possibilités de contact.',
+    help: 'Aide et contact',
+    newTab: '',
+  },
+  es: {
+    title: 'Página no encontrada',
+    links: [['Ir a la página de inicio', 'home'], ['Reservar vuelos', 'flight-search'], ['Check-in online', 'online-check-in-info'], ['Mis reservas', 'my-bookings']],
+    feedback: '¿No ha encontrado la información adecuada o desea darnos su opinión? Consulte nuestras opciones de opinión y contacto.',
+    help: 'Ayuda y contacto',
+    newTab: '',
+  },
+  nl: {
+    title: 'Pagina niet gevonden',
+    links: [['Naar de homepage', 'home'], ['Vluchten boeken', 'flight-search'], ['Online inchecken', 'online-check-in-info'], ['Mijn boekingen', 'my-bookings']],
+    feedback: 'Hebt u de juiste informatie niet gevonden of wilt u ons feedback geven? Bekijk onze feedback- en contactmogelijkheden.',
+    help: 'Hulp en contact',
+    newTab: '',
+  },
+  pt: {
+    title: 'Página não encontrada',
+    links: [['Ir para a página inicial', 'home'], ['Reservar voos', 'flight-search'], ['Check-in online', 'online-check-in-info'], ['Minhas reservas', 'my-bookings']],
+    feedback: 'Não encontrou a informação certa ou quer nos enviar sua opinião? Veja nossas opções de feedback e contato.',
+    help: 'Ajuda e contato',
+    newTab: '',
+  },
+  el: {
+    title: 'Η σελίδα δεν βρέθηκε',
+    links: [['Μετάβαση στην αρχική σελίδα', 'home'], ['Κράτηση πτήσεων', 'flight-search'], ['Online check-in', 'online-check-in-info'], ['Οι κρατήσεις μου', 'my-bookings']],
+    feedback: 'Δεν βρήκατε τις πληροφορίες που θέλατε ή θέλετε να μας πείτε τη γνώμη σας; Δείτε τις επιλογές σχολίων και επικοινωνίας.',
+    help: 'Βοήθεια και επικοινωνία',
+    newTab: '',
+  },
+  ja: {
+    title: 'ページが見つかりません',
+    links: [['ホームページへ', 'home'], ['航空券を予約', 'flight-search'], ['オンラインチェックイン', 'online-check-in-info'], ['予約の確認', 'my-bookings']],
+    feedback: 'お探しの情報が見つからない場合や、ご意見をお寄せいただける場合は、フィードバックとお問い合わせの方法をご覧ください。',
+    help: 'ヘルプとお問い合わせ',
+    newTab: '',
+  },
 };
 
 /** Locale of the path; a path without a migrated locale gets de/en (live's /error.html). */

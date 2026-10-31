@@ -197,6 +197,34 @@ function buildDestinationLink({
 const DEFAULT_LABELS = {
   en: { 'price label': 'Round trip from', 'show more': 'Show more' },
   de: { 'price label': 'Hin- und Rückflug ab', 'show more': 'mehr anzeigen' },
+  it: {
+    'price label': 'Andata e ritorno da',
+    'show more': 'Mostra di più',
+  },
+  fr: {
+    'price label': 'Aller-retour à partir de',
+    'show more': 'Afficher plus',
+  },
+  es: {
+    'price label': 'Ida y vuelta desde',
+    'show more': 'Mostrar más',
+  },
+  nl: {
+    'price label': 'Retour vanaf',
+    'show more': 'Meer tonen',
+  },
+  pt: {
+    'price label': 'Ida e volta a partir de',
+    'show more': 'Mostrar mais',
+  },
+  el: {
+    'price label': 'Με επιστροφή από',
+    'show more': 'Εμφάνιση περισσότερων',
+  },
+  ja: {
+    'price label': '往復',
+    'show more': 'もっと見る',
+  },
 };
 
 /** Routes shown on small screens before "Show more" (the live site hides the rest below 768px). */

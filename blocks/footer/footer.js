@@ -32,6 +32,41 @@ const LABELS = {
   de: {
     search: 'Suchen', localeCurrent: 'Auswahl von Land und Sprache; aktuell:', newTab: 'öffnet in einem neuen Tab',
   },
+  it: {
+    search: 'Cerca',
+    localeCurrent: 'Selezione di paese e lingua; attuale:',
+    newTab: 'si apre in una nuova scheda',
+  },
+  fr: {
+    search: 'Rechercher',
+    localeCurrent: 'Choix du pays et de la langue ; actuellement :',
+    newTab: 's’ouvre dans un nouvel onglet',
+  },
+  es: {
+    search: 'Buscar',
+    localeCurrent: 'Selección de país e idioma; actual:',
+    newTab: 'se abre en una pestaña nueva',
+  },
+  nl: {
+    search: 'Zoeken',
+    localeCurrent: 'Keuze van land en taal; huidig:',
+    newTab: 'opent in een nieuw tabblad',
+  },
+  pt: {
+    search: 'Pesquisar',
+    localeCurrent: 'Seleção de país e idioma; atual:',
+    newTab: 'abre em uma nova aba',
+  },
+  el: {
+    search: 'Αναζήτηση',
+    localeCurrent: 'Επιλογή χώρας και γλώσσας· τρέχουσα:',
+    newTab: 'ανοίγει σε νέα καρτέλα',
+  },
+  ja: {
+    search: '検索',
+    localeCurrent: '国と言語の選択、現在:',
+    newTab: '新しいタブで開きます',
+  },
 };
 
 const MOBILE = window.matchMedia('(width < 768px)');
