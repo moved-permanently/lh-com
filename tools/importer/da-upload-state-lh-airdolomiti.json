@@ -3244,6 +3244,206 @@
    "uploaded": "2026-10-31T19:11:18.562Z",
    "mtime": 1793473697089,
    "preview": "2026-10-31T19:11:21.171Z"
+  },
+  "/en/destinations/london-eu/what-to-do/what-to-eat-in-london": {
+   "uploaded": "2026-10-31T19:35:15.644Z",
+   "mtime": 1793474677458,
+   "preview": "2026-10-31T19:35:17.716Z"
+  },
+  "/en/destinations/london-eu/what-to-see": {
+   "uploaded": "2026-10-31T19:35:18.838Z",
+   "mtime": 1793474677488,
+   "preview": "2026-10-31T19:35:20.939Z"
+  },
+  "/en/destinations/london-eu/what-to-see/london-city-neighborhoods": {
+   "uploaded": "2026-10-31T19:35:26.854Z",
+   "mtime": 1793475307459,
+   "preview": "2026-10-31T19:35:29.620Z"
+  },
+  "/en/destinations/london-eu/what-to-see/movies-set-in-london": {
+   "uploaded": "2026-10-31T19:35:31.448Z",
+   "mtime": 1793475307557,
+   "preview": "2026-10-31T19:35:33.756Z"
+  },
+  "/en/destinations/london-eu/what-to-see/top-things-to-see-in-london": {
+   "uploaded": "2026-10-31T19:35:37.969Z",
+   "mtime": 1793475307862,
+   "preview": "2026-10-31T19:35:40.266Z"
+  },
+  "/en/destinations/luxembourg": {
+   "uploaded": "2026-10-31T19:35:43.457Z",
+   "mtime": 1793475308121,
+   "preview": "2026-10-31T19:35:45.903Z"
+  },
+  "/en/destinations/lyon": {
+   "uploaded": "2026-10-31T19:35:47.198Z",
+   "mtime": 1793474677688,
+   "preview": "2026-10-31T19:35:49.090Z"
+  },
+  "/en/destinations/milan-eu": {
+   "uploaded": "2026-10-31T19:35:53.889Z",
+   "mtime": 1793475308498,
+   "preview": "2026-10-31T19:35:56.497Z"
+  },
+  "/en/destinations/milan-eu/what-to-do": {
+   "uploaded": "2026-10-31T19:35:57.663Z",
+   "mtime": 1793475308535,
+   "preview": "2026-10-31T19:35:59.328Z"
+  },
+  "/en/destinations/milan-eu/what-to-do/galleria-vittorio-emanuele-ii-in-milan": {
+   "uploaded": "2026-10-31T19:36:01.208Z",
+   "mtime": 1793475308628,
+   "preview": "2026-10-31T19:36:03.657Z"
+  },
+  "/en/destinations/milan-eu/what-to-eat": {
+   "uploaded": "2026-10-31T19:36:04.711Z",
+   "mtime": 1793475308660,
+   "preview": "2026-10-31T19:36:06.785Z"
+  },
+  "/en/destinations/milan-eu/what-to-eat/milanese-cuisine": {
+   "uploaded": "2026-10-31T19:36:07.936Z",
+   "mtime": 1793475308699,
+   "preview": "2026-10-31T19:36:09.760Z"
+  },
+  "/en/destinations/milan-eu/what-to-see": {
+   "uploaded": "2026-10-31T19:36:11.545Z",
+   "mtime": 1793475308795,
+   "preview": "2026-10-31T19:36:13.852Z"
+  },
+  "/en/destinations/milan-eu/what-to-see/castello-sforzesco": {
+   "uploaded": "2026-10-31T19:36:15.976Z",
+   "mtime": 1793475308892,
+   "preview": "2026-10-31T19:36:18.025Z"
+  },
+  "/en/destinations/milan-eu/what-to-see/milan-duomo": {
+   "uploaded": "2026-10-31T19:36:19.155Z",
+   "mtime": 1793475308928,
+   "preview": "2026-10-31T19:36:21.074Z"
+  },
+  "/en/destinations/munich-eu": {
+   "uploaded": "2026-10-31T19:36:24.793Z",
+   "mtime": 1793475309347,
+   "preview": "2026-10-31T19:36:27.261Z"
+  },
+  "/en/destinations/munich-eu/munich-attractions-itinerary-for-your-visit": {
+   "uploaded": "2026-10-31T19:36:29.103Z",
+   "mtime": 1793475309447,
+   "preview": "2026-10-31T19:36:31.233Z"
+  },
+  "/en/destinations/munich-eu/olympiapark-in-munich": {
+   "uploaded": "2026-10-31T19:36:32.653Z",
+   "mtime": 1793474678049,
+   "preview": "2026-10-31T19:36:34.516Z"
+  },
+  "/en/destinations/munich-eu/the-glockenspiel-in-marienplatz": {
+   "uploaded": "2026-10-31T19:36:36.346Z",
+   "mtime": 1793475309563,
+   "preview": "2026-10-31T19:36:38.595Z"
+  },
+  "/en/destinations/munich-eu/tour-of-ludwig-s-castles": {
+   "uploaded": "2026-10-31T19:36:40.435Z",
+   "mtime": 1793475309655,
+   "preview": "2026-10-31T19:36:42.267Z"
+  },
+  "/en/destinations/munich-eu/what-to-see-in-munich-in-2-days": {
+   "uploaded": "2026-10-31T19:36:43.382Z",
+   "mtime": 1793475309704,
+   "preview": "2026-10-31T19:36:45.609Z"
+  },
+  "/en/destinations/olbia": {
+   "uploaded": "2026-10-31T19:36:47.349Z",
+   "mtime": 1793475309802,
+   "preview": "2026-10-31T19:36:49.777Z"
+  },
+  "/en/destinations/palermo-eu": {
+   "uploaded": "2026-10-31T19:36:51.468Z",
+   "mtime": 1793475309897,
+   "preview": "2026-10-31T19:36:53.685Z"
+  },
+  "/en/destinations/pisa": {
+   "uploaded": "2026-10-31T19:37:01.609Z",
+   "mtime": 1793475310556,
+   "preview": "2026-10-31T19:37:04.547Z"
+  },
+  "/en/destinations/pisa/what-to-do": {
+   "uploaded": "2026-10-31T19:37:07.084Z",
+   "mtime": 1793475310703,
+   "preview": "2026-10-31T19:37:09.432Z"
+  },
+  "/en/destinations/pisa/what-to-do/pisa-beach-holiday": {
+   "uploaded": "2026-10-31T19:37:12.069Z",
+   "mtime": 1793475310926,
+   "preview": "2026-10-31T19:37:14.531Z"
+  },
+  "/en/destinations/pisa/what-to-do/pisa-tuscany": {
+   "uploaded": "2026-10-31T19:37:17.036Z",
+   "mtime": 1793475311077,
+   "preview": "2026-10-31T19:37:19.144Z"
+  },
+  "/en/destinations/pisa/what-to-eat": {
+   "uploaded": "2026-10-31T19:37:21.615Z",
+   "mtime": 1793475311233,
+   "preview": "2026-10-31T19:37:23.773Z"
+  },
+  "/en/destinations/pisa/what-to-eat/pisa-tuscan-cuisine": {
+   "uploaded": "2026-10-31T19:37:26.161Z",
+   "mtime": 1793475311383,
+   "preview": "2026-10-31T19:37:28.342Z"
+  },
+  "/en/destinations/pisa/what-to-eat/wine-pisa-tuscany": {
+   "uploaded": "2026-10-31T19:37:30.845Z",
+   "mtime": 1793475311518,
+   "preview": "2026-10-31T19:37:32.884Z"
+  },
+  "/en/destinations/pisa/what-to-see": {
+   "uploaded": "2026-10-31T19:37:35.436Z",
+   "mtime": 1793475311647,
+   "preview": "2026-10-31T19:37:37.618Z"
+  },
+  "/en/destinations/pisa/what-to-see/camposanto-monumentale-pisa": {
+   "uploaded": "2026-10-31T19:37:40.922Z",
+   "mtime": 1793475311838,
+   "preview": "2026-10-31T19:37:43.038Z"
+  },
+  "/en/destinations/pisa/what-to-see/day-trips-from-pisa": {
+   "uploaded": "2026-10-31T19:37:44.824Z",
+   "mtime": 1793475311948,
+   "preview": "2026-10-31T19:37:46.903Z"
+  },
+  "/en/destinations/pisa/what-to-see/leaning-tower-pisa": {
+   "uploaded": "2026-10-31T19:37:49.904Z",
+   "mtime": 1793475312134,
+   "preview": "2026-10-31T19:37:52.062Z"
+  },
+  "/en/destinations/pisa/what-to-see/pisa-cathedral-baptistery": {
+   "uploaded": "2026-10-31T19:37:54.686Z",
+   "mtime": 1793475312276,
+   "preview": "2026-10-31T19:37:56.394Z"
+  },
+  "/en/destinations/prague": {
+   "uploaded": "2026-10-31T19:37:58.934Z",
+   "mtime": 1793475312454,
+   "preview": "2026-10-31T19:38:01.644Z"
+  },
+  "/en/destinations/pula-eu": {
+   "uploaded": "2026-10-31T19:38:03.695Z",
+   "mtime": 1793475312556,
+   "preview": "2026-10-31T19:38:05.908Z"
+  },
+  "/en/destinations/rijeka": {
+   "uploaded": "2026-10-31T19:38:08.436Z",
+   "mtime": 1793475312718,
+   "preview": "2026-10-31T19:38:10.778Z"
+  },
+  "/en/destinations/trieste": {
+   "uploaded": "2026-10-31T19:38:14.812Z",
+   "mtime": 1793475312986,
+   "preview": "2026-10-31T19:38:17.216Z"
+  },
+  "/en/destinations/trieste/what-to-do": {
+   "uploaded": "2026-10-31T19:38:18.528Z",
+   "mtime": 1793475313029,
+   "preview": "2026-10-31T19:38:20.076Z"
   }
  },
  "media": {
@@ -6717,6 +6917,228 @@
   },
   "/media-da/airdolomiti/afternoon-tea-in-london-scaled-e1735034694634-7fcadc03.jpg": {
    "at": "2026-10-31T19:11:17.695Z"
+  },
+  "/media-da/airdolomiti/london-neighborhoods-1-e1738682365835-6d79d1b8.jpg": {
+   "at": "2026-10-31T19:35:21.922Z"
+  },
+  "/media-da/airdolomiti/camden-town-london-a2e04047.jpg": {
+   "at": "2026-10-31T19:35:22.549Z"
+  },
+  "/media-da/airdolomiti/city-of-westminster-1-9f4559e4.jpg": {
+   "at": "2026-10-31T19:35:23.315Z"
+  },
+  "/media-da/airdolomiti/soho-chinatown-london-ffe5d78f.jpg": {
+   "at": "2026-10-31T19:35:23.918Z"
+  },
+  "/media-da/airdolomiti/hyde-park-london-b221ced9.jpg": {
+   "at": "2026-10-31T19:35:24.682Z"
+  },
+  "/media-da/airdolomiti/shoreditch-london-1-8090622f.jpg": {
+   "at": "2026-10-31T19:35:25.329Z"
+  },
+  "/media-da/airdolomiti/mayfair-london-e1738681269759-e32ee703.jpg": {
+   "at": "2026-10-31T19:35:25.966Z"
+  },
+  "/media-da/airdolomiti/movies-set-in-london-e1742461198241-5933d6fa.jpg": {
+   "at": "2026-10-31T19:35:30.596Z"
+  },
+  "/media-da/airdolomiti/big-ben-london-a04990c2.jpg": {
+   "at": "2026-10-31T19:35:34.701Z"
+  },
+  "/media-da/airdolomiti/westminster-abbey-e8982632.jpg": {
+   "at": "2026-10-31T19:35:35.779Z"
+  },
+  "/media-da/airdolomiti/british-museum-e1736865744195-810cef5e.jpg": {
+   "at": "2026-10-31T19:35:36.389Z"
+  },
+  "/media-da/airdolomiti/madame-tussaud-1-7138d65a.jpg": {
+   "at": "2026-10-31T19:35:37.087Z"
+  },
+  "/media-da/airdolomiti/luxemburg-hero1920x1080-8f371515.jpg": {
+   "at": "2026-10-31T19:35:41.399Z"
+  },
+  "/media-da/airdolomiti/luxembourg-city-attractions-1-e1738252688515-a0b32b4d.jpg": {
+   "at": "2026-10-31T19:35:41.999Z"
+  },
+  "/media-da/airdolomiti/luxembourg-city-food-e1738252115689-33aa2a9d.jpg": {
+   "at": "2026-10-31T19:35:42.605Z"
+  },
+  "/media-da/airdolomiti/darsena-milano-192ee94f.jpg": {
+   "at": "2026-10-31T19:35:50.133Z"
+  },
+  "/media-da/airdolomiti/galleria-what-to-do-istock-170027194-a94312a5.jpg": {
+   "at": "2026-10-31T19:35:50.750Z"
+  },
+  "/media-da/airdolomiti/madonnina-istock-856682034-ee11a1fc.jpg": {
+   "at": "2026-10-31T19:35:51.406Z"
+  },
+  "/media-da/airdolomiti/istock-173824588-castello-sforzesco-27660851.jpg": {
+   "at": "2026-10-31T19:35:52.355Z"
+  },
+  "/media-da/airdolomiti/istock-494346119-risotto-alla-milanese-0c647838.jpg": {
+   "at": "2026-10-31T19:35:52.961Z"
+  },
+  "/media-da/airdolomiti/milan-galleria-vittorio-emanuele-ii-1270x660-1-d85b03da.jpg": {
+   "at": "2026-10-31T19:36:00.324Z"
+  },
+  "/media-da/airdolomiti/duomo-istock-1445158517-120a5d5d.jpg": {
+   "at": "2026-10-31T19:36:10.730Z"
+  },
+  "/media-da/airdolomiti/milan-castello-sforzesco-1270x660-1-8c8e8690.jpg": {
+   "at": "2026-10-31T19:36:14.870Z"
+  },
+  "/media-da/airdolomiti/munich-attractions-1012x740-1-556fd398.jpg": {
+   "at": "2026-10-31T19:36:22.120Z"
+  },
+  "/media-da/airdolomiti/olympiapark-munich-1012x740-1-2fd9c6d5.jpg": {
+   "at": "2026-10-31T19:36:22.695Z"
+  },
+  "/media-da/airdolomiti/glockenspiel-marienplatz-munich-1012x740-1-bd361f61.jpg": {
+   "at": "2026-10-31T19:36:23.422Z"
+  },
+  "/media-da/airdolomiti/neuschwanstein-castle-munich-1012x740-1-56cad004.jpg": {
+   "at": "2026-10-31T19:36:24.040Z"
+  },
+  "/media-da/airdolomiti/munich-attractions-1270x660-1-e1766996864786-f61fffcd.jpg": {
+   "at": "2026-10-31T19:36:28.240Z"
+  },
+  "/media-da/airdolomiti/glockenspiel-marienplatz-munich-a35b178c.jpg": {
+   "at": "2026-10-31T19:36:35.598Z"
+  },
+  "/media-da/airdolomiti/neuschwanstein-castle-munich-0e83b6fa.jpg": {
+   "at": "2026-10-31T19:36:39.744Z"
+  },
+  "/media-da/airdolomiti/destination-costa-smeralda-olbia-1920x1080-a42cacc4.jpg": {
+   "at": "2026-10-31T19:36:46.632Z"
+  },
+  "/media-da/airdolomiti/palermo-cathedral-1920x1080-1-8f9220bf.jpg": {
+   "at": "2026-10-31T19:36:50.744Z"
+  },
+  "/media-da/airdolomiti/pisa-mainbanner-d-766e136d.jpg": {
+   "at": "2026-10-31T19:36:54.644Z"
+  },
+  "/media-da/airdolomiti/pisa-full-img-22821dda.jpg": {
+   "at": "2026-10-31T19:36:55.256Z"
+  },
+  "/media-da/airdolomiti/treasures-of-tuscany-fill-1400x600-1-875675b6.jpg": {
+   "at": "2026-10-31T19:36:55.998Z"
+  },
+  "/media-da/airdolomiti/marina-di-pisa-fill-1400x600-1-c4f2fb31.jpg": {
+   "at": "2026-10-31T19:36:56.666Z"
+  },
+  "/media-da/airdolomiti/lucca-amphitheatre-square-id1387320729-275e233d.jpg": {
+   "at": "2026-10-31T19:36:57.294Z"
+  },
+  "/media-da/airdolomiti/leaning-tower-of-pisa-fill-1400x600-1-41a9acc4.jpg": {
+   "at": "2026-10-31T19:36:58.090Z"
+  },
+  "/media-da/airdolomiti/pisa-camposanto-monumentale-fill-1400x600-1-d74590b4.jpg": {
+   "at": "2026-10-31T19:36:58.691Z"
+  },
+  "/media-da/airdolomiti/pisa-cathedral-baptistery-fill-1400x600-1-471893ae.jpg": {
+   "at": "2026-10-31T19:36:59.340Z"
+  },
+  "/media-da/airdolomiti/chianti-tuscany-wine-fill-1400x600-1-e2ec6c28.jpg": {
+   "at": "2026-10-31T19:37:00.056Z"
+  },
+  "/media-da/airdolomiti/ribollita-fill-1400x600-1-7a3c730b.jpg": {
+   "at": "2026-10-31T19:37:00.777Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-02-10-b0ae69fd.jpg": {
+   "at": "2026-10-31T19:37:05.565Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-03-5-d7dba995.jpg": {
+   "at": "2026-10-31T19:37:06.161Z"
+  },
+  "/media-da/airdolomiti/cosafare-dettaglio-03-2-f0acac03.jpg": {
+   "at": "2026-10-31T19:37:10.558Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-02-11-2046f1aa.jpg": {
+   "at": "2026-10-31T19:37:11.187Z"
+  },
+  "/media-da/airdolomiti/cosafare-dettaglio-02-2-e3afb97e.jpg": {
+   "at": "2026-10-31T19:37:15.521Z"
+  },
+  "/media-da/airdolomiti/cosafare-listato-03-6-a72a305d.jpg": {
+   "at": "2026-10-31T19:37:16.188Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-02-10-dc9d06ee.jpg": {
+   "at": "2026-10-31T19:37:20.087Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-01-11-289e38ce.jpg": {
+   "at": "2026-10-31T19:37:20.880Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-01-4-7d81e56b.jpg": {
+   "at": "2026-10-31T19:37:24.735Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-02-4-adaa8870.jpg": {
+   "at": "2026-10-31T19:37:25.397Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-dettaglio-02-5-0eb1bbe5.jpg": {
+   "at": "2026-10-31T19:37:29.396Z"
+  },
+  "/media-da/airdolomiti/cosamangiare-listato-01-12-a7b8d66a.jpg": {
+   "at": "2026-10-31T19:37:30.006Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-11-9ed9e17d.jpg": {
+   "at": "2026-10-31T19:37:33.924Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-02-4-efc00b04.jpg": {
+   "at": "2026-10-31T19:37:34.554Z"
+  },
+  "/media-da/airdolomiti/cosavedere-dettaglio-02-1-5a58d8f8.jpg": {
+   "at": "2026-10-31T19:37:38.584Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-12-d95435d4.jpg": {
+   "at": "2026-10-31T19:37:39.319Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-03-7-c6c56df5.jpg": {
+   "at": "2026-10-31T19:37:40.032Z"
+  },
+  "/media-da/airdolomiti/lucca-amphitheatre-square-id1387320729-1-2300c9d4.jpg": {
+   "at": "2026-10-31T19:37:44.054Z"
+  },
+  "/media-da/airdolomiti/cosavedere-dettaglio-01-7-9e499f34.jpg": {
+   "at": "2026-10-31T19:37:47.875Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-02-6-5999f592.jpg": {
+   "at": "2026-10-31T19:37:48.546Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-03-8-70b7316e.jpg": {
+   "at": "2026-10-31T19:37:49.144Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-01-13-fa835980.jpg": {
+   "at": "2026-10-31T19:37:53.051Z"
+  },
+  "/media-da/airdolomiti/cosavedere-listato-02-5-4c0a1513.jpg": {
+   "at": "2026-10-31T19:37:53.798Z"
+  },
+  "/media-da/airdolomiti/prague-museum-airdolomiti-c6da9eca.jpg": {
+   "at": "2026-10-31T19:37:57.351Z"
+  },
+  "/media-da/airdolomiti/trdelnik-db7103fb.jpg": {
+   "at": "2026-10-31T19:37:58.070Z"
+  },
+  "/media-da/airdolomiti/pula-croatia-1920x1080-1-813eb79a.webp": {
+   "at": "2026-10-31T19:38:02.723Z"
+  },
+  "/media-da/airdolomiti/rijeka-attractions-e1743173518414-0b164849.jpg": {
+   "at": "2026-10-31T19:38:06.868Z"
+  },
+  "/media-da/airdolomiti/palacinke-10541a92.jpg": {
+   "at": "2026-10-31T19:38:07.578Z"
+  },
+  "/media-da/airdolomiti/trieste-1920x1080-1-f58473f7.jpg": {
+   "at": "2026-10-31T19:38:11.785Z"
+  },
+  "/media-da/airdolomiti/trieste-piazza-unita-ditalia-1012x740-1-de3757c9.jpg": {
+   "at": "2026-10-31T19:38:12.501Z"
+  },
+  "/media-da/airdolomiti/castello-miramare-trieste-1012x740-1-f73aed9c.jpg": {
+   "at": "2026-10-31T19:38:13.247Z"
+  },
+  "/media-da/airdolomiti/pinsa-triestina-1012x740-1-2702440d.jpg": {
+   "at": "2026-10-31T19:38:13.930Z"
   }
  }
 }

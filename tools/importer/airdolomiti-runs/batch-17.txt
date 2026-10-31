@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-17 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T19:39Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/destinations/london-eu/what-to-do/what-to-eat-in-london
+/en/destinations/london-eu/what-to-see
+/en/destinations/london-eu/what-to-see/london-city-neighborhoods
+/en/destinations/london-eu/what-to-see/movies-set-in-london
+/en/destinations/london-eu/what-to-see/top-things-to-see-in-london
+/en/destinations/luxembourg
+/en/destinations/lyon
+/en/destinations/milan-eu
+/en/destinations/milan-eu/what-to-do
+/en/destinations/milan-eu/what-to-do/galleria-vittorio-emanuele-ii-in-milan
+/en/destinations/milan-eu/what-to-eat
+/en/destinations/milan-eu/what-to-eat/milanese-cuisine
+/en/destinations/milan-eu/what-to-see
+/en/destinations/milan-eu/what-to-see/castello-sforzesco
+/en/destinations/milan-eu/what-to-see/milan-duomo
+/en/destinations/munich-eu
+/en/destinations/munich-eu/munich-attractions-itinerary-for-your-visit
+/en/destinations/munich-eu/olympiapark-in-munich
+/en/destinations/munich-eu/the-glockenspiel-in-marienplatz
+/en/destinations/munich-eu/tour-of-ludwig-s-castles
+/en/destinations/munich-eu/what-to-see-in-munich-in-2-days
+/en/destinations/olbia
+/en/destinations/palermo-eu
+/en/destinations/pisa
+/en/destinations/pisa/what-to-do
+/en/destinations/pisa/what-to-do/pisa-beach-holiday
+/en/destinations/pisa/what-to-do/pisa-tuscany
+/en/destinations/pisa/what-to-eat
+/en/destinations/pisa/what-to-eat/pisa-tuscan-cuisine
+/en/destinations/pisa/what-to-eat/wine-pisa-tuscany
+/en/destinations/pisa/what-to-see
+/en/destinations/pisa/what-to-see/camposanto-monumentale-pisa
+/en/destinations/pisa/what-to-see/day-trips-from-pisa
+/en/destinations/pisa/what-to-see/leaning-tower-pisa
+/en/destinations/pisa/what-to-see/pisa-cathedral-baptistery
+/en/destinations/prague
+/en/destinations/pula-eu
+/en/destinations/rijeka
+/en/destinations/trieste
+/en/destinations/trieste/what-to-do
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/destinations/london-eu/what-to-do/what-to-eat-in-london -> /en/destinations/london-eu/what-to-do/what-to-eat-in-london: text 40/40, images 1/2 (+3), links 5/5 (+0)
+#   https://www.airdolomiti.eu/destinations/munich-eu/what-to-see-in-munich-in-2-days -> /en/destinations/munich-eu/what-to-see-in-munich-in-2-days: text 28/28, images 1/1 (+3), links 6/6 (+0)
+#   https://www.airdolomiti.eu/destinations/trieste/what-to-do -> /en/destinations/trieste/what-to-do: text 5/5, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.eu/destinations/london-eu/what-to-do/what-to-eat-in-london: images missing: Schermata-2021-10-22-alle-16.08.02.png
+#   https://www.airdolomiti.eu/destinations/munich-eu/what-to-see-in-munich-in-2-days: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/destinations/trieste/what-to-do: no text, image or link of www's missing
