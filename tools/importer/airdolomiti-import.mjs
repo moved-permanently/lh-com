@@ -348,6 +348,7 @@ const HANDLERS = {
   },
   'lazyblock/title': (a, page) => { page.add(page.heading(a.tag, a.title)); if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`); },
   'lazyblock/title-margin': (a, page) => HANDLERS['lazyblock/title'](a, page),
+  'lazyblock/title-news': (a, page) => HANDLERS['lazyblock/title'](a, page),
   'lazyblock/title-description-text-cta': (a, page) => {
     page.add(page.heading(a.tag, a.title));
     page.add(rich(a.description || a.text, page, 'top'));

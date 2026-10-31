@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-3 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T13:05Z; not published
+# documents (40 + /nav, /footer):
+/aeroporti/cracovia
+/aeroporti/figari
+/aeroporti/firenze
+/aeroporti/francoforte
+/aeroporti/genova-it
+/aeroporti/ginevra
+/aeroporti/graz-it
+/aeroporti/innsbruck-it
+/aeroporti/jersey-it
+/aeroporti/katowice-it
+/aeroporti/lione-it
+/aeroporti/london-city-it
+/aeroporti/lubiana
+/aeroporti/lussemburgo
+/aeroporti/milano-linate
+/aeroporti/milano-malpensa-it
+/aeroporti/olbia-it
+/aeroporti/palermo-it
+/aeroporti/parigi-orly
+/aeroporti/pisa
+/aeroporti/pola
+/aeroporti/praga
+/aeroporti/rijeka-it
+/aeroporti/torino
+/aeroporti/trieste-it
+/aeroporti/venezia
+/aeroporti/verona
+/aeroporti/wroclaw-breslavia
+/aeroporti/zurigo
+/tratte/amsterdam-francoforte
+/tratte/amsterdam-monaco-di-baviera
+/tratte/basilea-francoforte
+/tratte/biarritz-francoforte
+/tratte/billund-francoforte
+/tratte/billund-monaco-di-baviera
+/tratte/birmingham-francoforte
+/tratte/bordeaux-francoforte
+/tratte/figari-francoforte
+/tratte/francoforte-graz
+/tratte/ginevra-francoforte
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/aeroporti/cracovia -> /aeroporti/cracovia: text 8/8, images 1/1 (+0), links 0/0 (+3)
+#   https://www.airdolomiti.it/tratte/amsterdam-francoforte -> /tratte/amsterdam-francoforte: text 8/8, images 0/0 (+1), links 1/1 (+1)
+#   https://www.airdolomiti.it/aeroporti/pola -> /aeroporti/pola: text 8/8, images 1/1 (+0), links 0/0 (+3)
+#   https://www.airdolomiti.it/aeroporti/cracovia: no text, image or link of www's missing
+#   https://www.airdolomiti.it/tratte/amsterdam-francoforte: no text, image or link of www's missing
+#   https://www.airdolomiti.it/aeroporti/pola: no text, image or link of www's missing
