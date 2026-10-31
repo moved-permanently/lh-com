@@ -186,15 +186,19 @@ async function download() {
         await pause();
       }
       // one GET per file, no HEAD (2026-10-29: www answered a HEAD of a large video with 403)
-      const got = await page.evaluate(async (u) => {
-        const r = await fetch(u, { credentials: 'include' });
+      // an offers image (a destination square) www lacks answers 302 to a stand-in (its fallback,
+      // or Lufthansa Group's destination image): not followed, recorded as www-302
+      const manual = /\/images\/offers\//.test(x.www);
+      const got = await page.evaluate(async ([u, noFollow]) => {
+        const r = await fetch(u, { credentials: 'include', redirect: noFollow ? 'manual' : 'follow' });
+        if (r.type === 'opaqueredirect') return { status: 302, type: '', b64: '' };
         const type = r.headers.get('content-type') || '';
         if (r.status !== 200) return { status: r.status, type, b64: '' };
         const bytes = new Uint8Array(await r.arrayBuffer());
         let b = '';
         for (let i = 0; i < bytes.length; i += 0x8000) b += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
         return { status: r.status, type, b64: btoa(b) };
-      }, url).catch((e) => ({
+      }, [url, manual]).catch((e) => ({
         status: 0, type: '', b64: '', error: e.message.split('\n')[0],
       }));
       if (got.error) {
