@@ -25,6 +25,14 @@ const BLOCK_FILE = path.join(W, 'source-blocked.json');
 const CHALLENGE = /just a moment|checking your browser|attention required|verifying you are human|performing security verification|^blocked$|access denied/i;
 const PAUSE_AFTER_BLOCK = 30 * 60 * 1000;
 const sleep = (ms) => new Promise((r) => { setTimeout(r, ms); });
+// a call on the page that never answers (a dead session) rejects after ms
+const STALL = 60000;
+const within = (promise, what) => {
+  let timer;
+  return Promise.race([promise, new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${what}: no answer in ${STALL / 1000} s (session stalled)`)), STALL);
+  })]).finally(() => clearTimeout(timer));
+};
 const pause = () => sleep(5000 + Math.floor(Math.random() * 5000));
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
 const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, `${JSON.stringify(v, null, 1)}\n`); };
@@ -83,6 +91,7 @@ async function main() {
   let browser = await connectSource();
   let page = await browser.newPage();
   let exit = 0;
+  const stalled = new Set();
   try {
     for (const [i, url] of todo.entries()) {
       if (i) await pause();
@@ -106,22 +115,39 @@ async function main() {
         }
       }
       page.off('response', onResponse);
-      const title = await page.title().catch(() => '');
+      let title = '';
+      let html = '';
+      try {
+        title = await within(page.title(), 'title');
+        if (!error) {
+          await within(page.evaluate(async () => {
+            for (let y = 0; y < document.body.scrollHeight && y < 60000; y += 700) {
+              window.scrollTo(0, y);
+              await new Promise((r) => { setTimeout(r, 120); });
+            }
+            window.scrollTo(0, 0);
+          }).catch(() => {}), 'scroll');
+          await sleep(1200);
+        }
+        html = await within(page.content(), 'content');
+      } catch (e) {
+        // the session stalled: a new session, and this page once more at the end of the list
+        await browser.close().catch(() => {});
+        browser = await connectSource();
+        page = await browser.newPage();
+        state[key] = { status: 'error', error: e.message, at: new Date().toISOString() };
+        writeJson(STATE, state);
+        const again = !stalled.has(key);
+        stalled.add(key);
+        if (again) todo.push(url);
+        console.error(`${key}: ${e.message} (new session${again ? ', again at the end' : ''})`);
+        continue;
+      }
       if (CHALLENGE.test(title) || http === 403 || http === 429) {
         recordBlock(`${url} ${http} ${title}`);
         console.error(`BLOCKED at ${url} (${http} "${title}"): stop for 30 minutes`);
         exit = 2;
         break;
-      }
-      if (!error) {
-        await page.evaluate(async () => {
-          for (let y = 0; y < document.body.scrollHeight; y += 700) {
-            window.scrollTo(0, y);
-            await new Promise((r) => { setTimeout(r, 120); });
-          }
-          window.scrollTo(0, 0);
-        }).catch(() => {});
-        await sleep(1200);
       }
       const finalUrl = page.url();
       let status = 'ok';
@@ -132,7 +158,6 @@ async function main() {
         status, http, finalUrl, title, at: new Date().toISOString(), ...(error ? { error } : {}),
       };
       if (status === 'ok' || status === 'redirect') {
-        const html = await page.content().catch(() => '');
         if (html && /__NEXT_DATA__/.test(html)) {
           const out = snapshotFile(url);
           fs.mkdirSync(path.dirname(out), { recursive: true });

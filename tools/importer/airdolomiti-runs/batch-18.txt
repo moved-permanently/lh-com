@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-18 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T20:53Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/destinations/trieste/what-to-do/miramare-castle
+/en/destinations/trieste/what-to-eat
+/en/destinations/trieste/what-to-eat/trieste-cuisine
+/en/destinations/trieste/what-to-see
+/en/destinations/trieste/what-to-see/piazza-unita-italia
+/en/destinations/turin
+/en/destinations/turin/destinations-turin-what-to-do
+/en/destinations/turin/destinations-turin-what-to-do/discover-the-international-book-fair-the-annual-event-in-turin
+/en/destinations/turin/destinations-turin-what-to-do/piedmont-turin
+/en/destinations/turin/destinations-turin-what-to-do/turin-by-night-explore-the-most-fascinating-glimpses-of-the-city
+/en/destinations/turin/destinations-turin-what-to-eat
+/en/destinations/turin/destinations-turin-what-to-eat/a-tasting-tour-discovering-gianduiotti-and-other-traditional-chocolates-in-turin
+/en/destinations/turin/destinations-turin-what-to-eat/agnolotti-del-plin-the-typical-recipe-to-try-in-turin
+/en/destinations/turin/destinations-turin-what-to-eat/bagna-cauda-an-old-cookery-tradition
+/en/destinations/turin/destinations-turin-what-to-see
+/en/destinations/turin/destinations-turin-what-to-see/explore-the-museum-dedicated-to-egyptian-art-and-culture
+/en/destinations/turin/destinations-turin-what-to-see/the-mole-antonelliana
+/en/destinations/turin/destinations-turin-what-to-see/visit-the-cinema-museum-a-vertical-exhibition-hall-unique-in-the-world
+/en/destinations/venice
+/en/destinations/venice/what-to-do
+/en/destinations/venice/what-to-do/10-best-things-to-do-in-venice
+/en/destinations/venice/what-to-do/christmas-in-venice
+/en/destinations/venice/what-to-do/spritz-time
+/en/destinations/venice/what-to-do/venice-by-gondola
+/en/destinations/venice/what-to-eat
+/en/destinations/venice/what-to-eat/aperitif-in-venice-with-typical-cicchetti
+/en/destinations/venice/what-to-eat/food-in-venice
+/en/destinations/venice/what-to-eat/typical-fish-dishes
+/en/destinations/venice/what-to-see
+/en/destinations/venice/what-to-see/places-to-visit-in-venice-in-2-days
+/en/destinations/venice/what-to-see/st-mark-basilica
+/en/destinations/venice/what-to-see/venetian-lagoon-islands
+/en/destinations/venice/what-to-see/venice-culture-and-art
+/en/destinations/venice/what-to-see/venice-travel-guide
+/en/destinations/verona
+/en/destinations/verona/what-to-do
+/en/destinations/verona/what-to-do/arena-opera-festival
+/en/destinations/verona/what-to-do/theme-parks-in-and-around-verona
+/en/destinations/verona/what-to-do/vinitaly-verona
+/en/destinations/verona/what-to-eat
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/destinations/trieste/what-to-do/miramare-castle -> /en/destinations/trieste/what-to-do/miramare-castle: text 12/12, images 2/2 (+0), links 1/1 (+0)
+#   https://www.airdolomiti.eu/destinations/venice/what-to-do/10-best-things-to-do-in-venice -> /en/destinations/venice/what-to-do/10-best-things-to-do-in-venice: text 56/56, images 1/1 (+3), links 13/13 (+0)
+#   https://www.airdolomiti.eu/destinations/verona/what-to-eat -> /en/destinations/verona/what-to-eat: text 5/5, images 0/0 (+2), links 2/2 (+0)
+#   https://www.airdolomiti.eu/destinations/trieste/what-to-do/miramare-castle: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/destinations/venice/what-to-do/10-best-things-to-do-in-venice: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/destinations/verona/what-to-eat: no text, image or link of www's missing
