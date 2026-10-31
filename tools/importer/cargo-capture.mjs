@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { HOST, sourcePath } from './cargo-paths.mjs';
-import { blockedUntil, recordBlock } from './cargo-assets.mjs';
+import { blockedUntil, recordBlock, connectSource } from './cargo-assets.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -51,9 +51,7 @@ async function main() {
   }).slice(0, Number(opt('max', 1000)));
   console.log(`to ${resolveOnly ? 'resolve' : 'capture'}: ${todo.length} of ${urls.length}`);
   if (!todo.length) return 0;
-  const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
-  const { connectBrowser } = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/browser-source.js'));
-  let browser = await connectBrowser('bd');
+  let browser = await connectSource();
   let page = await browser.newPage();
   let exit = 0;
   try {
@@ -71,7 +69,7 @@ async function main() {
         if (/Target closed|has been closed|disconnected|Session closed/i.test(error)) {
           // the session ended: a new one, and this page again
           await browser.close().catch(() => {});
-          browser = await connectBrowser('bd');
+          browser = await connectSource();
           page = await browser.newPage();
           state[source] = { status: 'error', error, at: new Date().toISOString() };
           writeJson(STATE, state);

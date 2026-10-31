@@ -1556,12 +1556,40 @@
   "Destination": "/en/news/worldwide-recognition-of-environmental-management-system"
  },
  {
+  "Source": "/de/-/%E2%80%9Emehr-logistik-mit-weniger-co2-vierte-umweltkonferenz-von-lufthansa-cargo-in-frankfurt",
+  "Destination": "/de/news/mehr-logistik-mit-weniger-co2-vierte-umweltkonferenz-von-lufthansa-cargo-in-frankfurt"
+ },
+ {
+  "Source": "/de/-/%E2%80%9Eni-hao-china-lufthansa-cargo-schickt-neue-boeing-777f-t%C3%A4glich-nach-schanghai",
+  "Destination": "/de/news/ni-hao-china-lufthansa-cargo-schickt-neue-boeing-777f-taeglich-nach-schanghai"
+ },
+ {
   "Source": "/de/-/-be-bold-for-logistic-innovation-",
   "Destination": "/de/news/be-bold-for-logistic-innovation"
  },
  {
+  "Source": "/de/-/-name-the-plane-der-countdown-l%C3%A4uft",
+  "Destination": "/de/news/name-the-plane-der-countdown-laeuft"
+ },
+ {
+  "Source": "/de/-/1.500-tonnen-rosen-an-bord",
+  "Destination": "/de/news/1-500-tonnen-rosen-an-bord"
+ },
+ {
+  "Source": "/de/-/10-jahre-cargo-human-care-e.v.",
+  "Destination": "/de/news/10-jahre-cargo-human-care-e-v"
+ },
+ {
   "Source": "/de/-/10-jahre-frankfurt-animal-lounge",
   "Destination": "/de/news/10-jahre-frankfurt-animal-lounge"
+ },
+ {
+  "Source": "/de/-/100.000-tonnen-fracht-%C3%BCber-das-speedgate-verladen",
+  "Destination": "/de/news/100-000-tonnen-fracht-ueber-das-speedgate-verladen"
+ },
+ {
+  "Source": "/de/-/1000-tonnen-rosen-an-bord",
+  "Destination": "/de/news/1000-tonnen-rosen-an-bord"
  },
  {
   "Source": "/de/-/112-.-caprisonne",
@@ -1676,6 +1704,14 @@
   "Destination": "/de/news/142-arktische-temperaturen-an-bord"
  },
  {
+  "Source": "/de/-/20-jahre-fliegende-frische",
+  "Destination": "/de/news/20-jahre-fliegende-frische"
+ },
+ {
+  "Source": "/de/-/30-millionen-rote-rosen-an-bord",
+  "Destination": "/de/news/30-millionen-rote-rosen-an-bord"
+ },
+ {
   "Source": "/de/-/a-vital-job.-50",
   "Destination": "/de/news/a-vital-job-50"
  },
@@ -1692,8 +1728,20 @@
   "Destination": "/de/news/almresi-53"
  },
  {
+  "Source": "/de/-/ana-und-lufthansa-cargo-erhalten-kartellrechtliche-freigabe-f%C3%BCr-japan-europa-joint-venture",
+  "Destination": "/de/news/ana-und-lufthansa-cargo-erhalten-kartellrechtliche-freigabe-fuer-japan-europa-joint-venture"
+ },
+ {
   "Source": "/de/-/around-the-world-with-88-tons.-39",
   "Destination": "/de/news/around-the-world-with-88-tons-39"
+ },
+ {
+  "Source": "/de/-/aufsichtsrat-verl%C3%A4ngert-vertrag-von-vorstand-produkt-und-vertrieb",
+  "Destination": "/de/news/aufsichtsrat-verlaengert-vertrag-von-vorstand-produkt-und-vertrieb"
+ },
+ {
+  "Source": "/de/-/ausbau-des-lufthansa-cargo-cool-centers-hat-begonnen",
+  "Destination": "/de/news/ausbau-des-lufthansa-cargo-cool-centers-hat-begonnen"
  },
  {
   "Source": "/de/-/auto-piloten-22",
@@ -1704,12 +1752,32 @@
   "Destination": "/de/news/awoojung-55"
  },
  {
+  "Source": "/de/-/beim-klimaschutz-ganz-vorne-dabei",
+  "Destination": "/de/news/beim-klimaschutz-ganz-vorne-dabei"
+ },
+ {
   "Source": "/de/-/beyond-the-sea.-56",
   "Destination": "/de/news/beyond-the-sea-56"
  },
  {
+  "Source": "/de/-/blumen-der-liebe-lassen-herzen-h%C3%B6herschlagen",
+  "Destination": "/de/news/blumen-der-liebe-lassen-herzen-hoeherschlagen"
+ },
+ {
   "Source": "/de/-/car-enthusiasts.-98",
   "Destination": "/de/news/car-enthusiasts-98"
+ },
+ {
+  "Source": "/de/-/cargo-human-care-schafft-perspektiven",
+  "Destination": "/de/news/cargo-human-care-schafft-perspektiven"
+ },
+ {
+  "Source": "/de/-/cathay-pacific-und-lufthansa-cargo-schlie%C3%9Fen-kooperationsvertrag",
+  "Destination": "/de/news/cathay-pacific-und-lufthansa-cargo-schliessen-kooperationsvertrag"
+ },
+ {
+  "Source": "/de/-/ceva-logistics-gewinnt-planet-award-of-excellence-",
+  "Destination": "/de/news/ceva-logistics-gewinnt-planet-award-of-excellence"
  },
  {
   "Source": "/de/-/china-post-und-lufthansa-cargo-geben-strategische-zusammenarbeit-bekannt.",
@@ -1722,6 +1790,14 @@
  {
   "Source": "/de/-/cool-connection-8",
   "Destination": "/de/news/cool-connection-8"
+ },
+ {
+  "Source": "/de/-/dachser-wird-global-partner-von-lufthansa-cargo",
+  "Destination": "/de/news/dachser-wird-global-partner-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/db-schenker-logistics-gewinnt-%E2%80%9Eplanet-award-of-excellence-von-lufthansa-cargo",
+  "Destination": "/de/news/db-schenker-logistics-gewinnt-planet-award-of-excellence-von-lufthansa-cargo"
  },
  {
   "Source": "/de/-/de/blueprint-new-york-80",
@@ -1776,12 +1852,24 @@
   "Destination": "/de/news/deep-water-91"
  },
  {
+  "Source": "/de/-/der-beaujolais-nouveau-erfreut-weinliebhaber-in-japan",
+  "Destination": "/de/news/der-beaujolais-nouveau-erfreut-weinliebhaber-in-japan"
+ },
+ {
   "Source": "/de/-/der-bmw-vision-inext-world-flight",
   "Destination": "/de/news/der-bmw-vision-inext-world-flight"
  },
  {
   "Source": "/de/-/der-wert-der-rose-17",
   "Destination": "/de/news/der-wert-der-rose-17"
+ },
+ {
+  "Source": "/de/-/dhaka-neu-im-flugplan-von-lufthansa-cargo",
+  "Destination": "/de/news/dhaka-neu-im-flugplan-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/dhl-global-forwarding-%C3%BCbernimmt-100-prozent-der-anteile-an-lifeconex-von-lufthansa-cargo",
+  "Destination": "/de/news/dhl-global-forwarding-uebernimmt-100-prozent-der-anteile-an-lifeconex-von-lufthansa-cargo"
  },
  {
   "Source": "/de/-/dhl-global-forwarding-als-top-kunde-geehrt",
@@ -1796,6 +1884,22 @@
   "Destination": "/de/news/direct-ramp-34"
  },
  {
+  "Source": "/de/-/doppelte-auszeichnung-f%C3%BCr-lufthansa-cargo",
+  "Destination": "/de/news/doppelte-auszeichnung-fuer-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/dr.-alexis-von-hoensbroech-wird-neuer-vorstand-f%C3%BCr-produkt-und-vertrieb-von-lufthansa-cargo",
+  "Destination": "/de/news/dr-alexis-von-hoensbroech-wird-neuer-vorstand-fuer-produkt-und-vertrieb-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/dr.-andreas-otto-wird-neuer-cco-bei-austrian-airlines",
+  "Destination": "/de/news/dr-andreas-otto-wird-neuer-cco-bei-austrian-airlines"
+ },
+ {
+  "Source": "/de/-/dr.-martin-schmitt-wird-vorstand-bei-lufthansa-cargo",
+  "Destination": "/de/news/dr-martin-schmitt-wird-vorstand-bei-lufthansa-cargo"
+ },
+ {
   "Source": "/de/-/dream-cooperation.-45",
   "Destination": "/de/news/dream-cooperation-45"
  },
@@ -1804,8 +1908,40 @@
   "Destination": "/de/news/echtzeit-tracking-jetzt-auf-vielen-strecken-buchbar"
  },
  {
+  "Source": "/de/-/efreight-lufthansa-cargo-mit-weiterem-meilenstein-auf-dem-weg-zur-papierlosen-luftfracht",
+  "Destination": "/de/news/efreight-lufthansa-cargo-mit-weiterem-meilenstein-auf-dem-weg-zur-papierlosen-luftfracht"
+ },
+ {
+  "Source": "/de/-/ein-blumenmeer-f%C3%BCr-ganz-europa",
+  "Destination": "/de/news/ein-blumenmeer-fuer-ganz-europa"
+ },
+ {
+  "Source": "/de/-/ein-fliegender-pferdestall",
+  "Destination": "/de/news/ein-fliegender-pferdestall"
+ },
+ {
+  "Source": "/de/-/ein-flug-gegen-den-hunger",
+  "Destination": "/de/news/ein-flug-gegen-den-hunger"
+ },
+ {
   "Source": "/de/-/everything-except-%C2%ADpepperoni-pizza.-102",
   "Destination": "/de/news/everything-except-pepperoni-pizza-102"
+ },
+ {
+  "Source": "/de/-/expeditors-gewinnt-%E2%80%9Eplanet-award-of-excellence-von-lufthansa-cargo",
+  "Destination": "/de/news/expeditors-gewinnt-planet-award-of-excellence-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/expeditors-gewinnt-erneut-%E2%80%9Eplanet-award-of-excellence-von-lufthansa-cargo",
+  "Destination": "/de/news/expeditors-gewinnt-erneut-planet-award-of-excellence-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/exzellente-umweltverantwortung",
+  "Destination": "/de/news/exzellente-umweltverantwortung"
+ },
+ {
+  "Source": "/de/-/f%C3%BCr-souvenirs-mit-format",
+  "Destination": "/de/news/fuer-souvenirs-mit-format"
  },
  {
   "Source": "/de/-/faktor-mensch-85",
@@ -1840,6 +1976,14 @@
   "Destination": "/de/news/frachtabfertigung-von-cathay-pacific-cargo-und-lufthansa-cargo-auch-in-frankfurt-jetzt-unter-einem-dach"
  },
  {
+  "Source": "/de/-/frachtgesch%C3%A4ft-am-pad-w%C3%A4chst-weiter",
+  "Destination": "/de/news/frachtgeschaeft-am-pad-waechst-weiter"
+ },
+ {
+  "Source": "/de/-/frachtmengen-bei-lufthansa-cargo-stabil",
+  "Destination": "/de/news/frachtmengen-bei-lufthansa-cargo-stabil"
+ },
+ {
   "Source": "/de/-/frankfurter-brett-und-nik-huber-guitars-gewinnen-wettbewerb-%E2%80%9Ehessen-goes-global-von-lufthansa-cargo",
   "Destination": "/de/news/frankfurter-brett-und-nik-huber-guitars-gewinnen-wettbewerb-hessen-goes-global-von-lufthansa-cargo"
  },
@@ -1848,12 +1992,28 @@
   "Destination": "/de/news/from-above-48"
  },
  {
+  "Source": "/de/-/gemeinsam-schneller-helfen-lufthansa-cargo-und-aktion-deutschland-hilft-starten-kooperation",
+  "Destination": "/de/news/gemeinsam-schneller-helfen-lufthansa-cargo-und-aktion-deutschland-hilft-starten-kooperation"
+ },
+ {
   "Source": "/de/-/gemeinsame-vereinbarung-zwischen-brussels-airlines-und-lufthansa-cargo",
   "Destination": "/de/news/gemeinsame-vereinbarung-zwischen-brussels-airlines-und-lufthansa-cargo"
  },
  {
+  "Source": "/de/-/global-traveler-zeichnet-lufthansa-cargo-als-beste-frachtairline-der-welt-aus",
+  "Destination": "/de/news/global-traveler-zeichnet-lufthansa-cargo-als-beste-frachtairline-der-welt-aus"
+ },
+ {
   "Source": "/de/-/go-west-alfred-66",
   "Destination": "/de/news/go-west-alfred-66"
+ },
+ {
+  "Source": "/de/-/gr%C3%BCner-transportieren",
+  "Destination": "/de/news/gruener-transportieren"
+ },
+ {
+  "Source": "/de/-/ground-handling-von-lufthansa-cargo-und-cathay-pacific-cargo-in-hongkong-jetzt-unter-einem-dach",
+  "Destination": "/de/news/ground-handling-von-lufthansa-cargo-und-cathay-pacific-cargo-in-hongkong-jetzt-unter-einem-dach"
  },
  {
   "Source": "/de/-/harald-gloy-wird-operations-vorstand-bei-lufthansa-cargo",
@@ -1862,6 +2022,14 @@
  {
   "Source": "/de/-/herrenknecht.-97",
   "Destination": "/de/news/herrenknecht-97"
+ },
+ {
+  "Source": "/de/-/hessens-ministerpr%C3%A4sident-bezeichnet-luftfracht-als-%E2%80%9Eherausragenden-standortvorteil-",
+  "Destination": "/de/news/hessens-ministerpraesident-bezeichnet-luftfracht-als-herausragenden-standortvorteil"
+ },
+ {
+  "Source": "/de/-/hochbetrieb-im-k%C3%BChlzentrum-von-lufthansa-cargo",
+  "Destination": "/de/news/hochbetrieb-im-kuehlzentrum-von-lufthansa-cargo"
  },
  {
   "Source": "/de/-/hummerm%C3%A4%C3%9Fig-13",
@@ -1884,8 +2052,32 @@
   "Destination": "/de/news/it-s-in-95"
  },
  {
+  "Source": "/de/-/itg-gewinnt-quality-award-von-lufthansa-cargo",
+  "Destination": "/de/news/itg-gewinnt-quality-award-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/jacqueline-casini-leitet-unternehmenskommunikation-von-lufthansa-cargo",
+  "Destination": "/de/news/jacqueline-casini-leitet-unternehmenskommunikation-von-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/jettainer-und-lufthansa-cargo-testen-anwendung-f%C3%BCr-smartphones",
+  "Destination": "/de/news/jettainer-und-lufthansa-cargo-testen-anwendung-fuer-smartphones"
+ },
+ {
+  "Source": "/de/-/joint-venture-von-lufthansa-cargo-und-ana-cargo-ab-august-auch-von-europa-nach-japan",
+  "Destination": "/de/news/joint-venture-von-lufthansa-cargo-und-ana-cargo-ab-august-auch-von-europa-nach-japan"
+ },
+ {
+  "Source": "/de/-/joint-venture-von-lufthansa-cargo-und-ana-cargo-startet-in-belgien",
+  "Destination": "/de/news/joint-venture-von-lufthansa-cargo-und-ana-cargo-startet-in-belgien"
+ },
+ {
   "Source": "/de/-/kaltstart-7",
   "Destination": "/de/news/kaltstart-7"
+ },
+ {
+  "Source": "/de/-/kinderf%C3%BC%C3%9Fe-schm%C3%BCcken-frachter",
+  "Destination": "/de/news/kinderfuesse-schmuecken-frachter"
  },
  {
   "Source": "/de/-/kits-for-kids.-62",
@@ -1894,6 +2086,10 @@
  {
   "Source": "/de/-/kleine-fische-gro%C3%9Fer-erfolg-15",
   "Destination": "/de/news/kleine-fische-grosser-erfolg-15"
+ },
+ {
+  "Source": "/de/-/kohnen-komplettiert-gesch%C3%A4ftsleitung-von-time-matters",
+  "Destination": "/de/news/kohnen-komplettiert-geschaeftsleitung-von-time-matters"
  },
  {
   "Source": "/de/-/kreative-flugzeugnamen-gesucht",
@@ -1908,8 +2104,20 @@
   "Destination": "/de/news/kunstflug-87"
  },
  {
+  "Source": "/de/-/laufen-f%C3%BCr-den-guten-zweck",
+  "Destination": "/de/news/laufen-fuer-den-guten-zweck"
+ },
+ {
+  "Source": "/de/-/liebesgr%C3%BC%C3%9Fe-an-bord",
+  "Destination": "/de/news/liebesgruesse-an-bord"
+ },
+ {
   "Source": "/de/-/luftfracht-joint-venture-zwischen-ana-und-lufthansa-cargo-erfolgreich-gestartet",
   "Destination": "/de/news/luftfracht-joint-venture-zwischen-ana-und-lufthansa-cargo-erfolgreich-gestartet"
+ },
+ {
+  "Source": "/de/-/luftfracht-joint-venture-zwischen-united-und-lufthansa-cargo-erfolgreich-gestartet",
+  "Destination": "/de/news/luftfracht-joint-venture-zwischen-united-und-lufthansa-cargo-erfolgreich-gestartet"
  },
  {
   "Source": "/de/-/luftfracht-wird-zum-multimedia-erlebnis",
@@ -1924,6 +2132,10 @@
   "Destination": "/de/news/lufthansa-baut-neues-logistikzentrum-in-frankfurt"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-%C3%BCbernimmt-time-matters",
+  "Destination": "/de/news/lufthansa-cargo-uebernimmt-time-matters"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-2011-mit-rekordtonnage",
   "Destination": "/de/news/lufthansa-cargo-2011-mit-rekordtonnage"
  },
@@ -1934,6 +2146,10 @@
  {
   "Source": "/de/-/lufthansa-cargo-ab-sofort-u%CC%88ber-freightos-in-echtzeit-buchbar",
   "Destination": "/de/news/lufthansa-cargo-ab-sofort-uber-freightos-in-echtzeit-buchbar"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-als-beste-frachtairline-der-welt-ausgezeichnet",
+  "Destination": "/de/news/lufthansa-cargo-als-beste-frachtairline-der-welt-ausgezeichnet"
  },
  {
   "Source": "/de/-/lufthansa-cargo-auf-facebook-erfolgreich",
@@ -1952,6 +2168,14 @@
   "Destination": "/de/news/lufthansa-cargo-aufsichtsrat-verlaengert-vertrag-von-karl-ulrich-garnadt"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-aufsichtsrat-verl%C3%A4ngert-vertrag-von-peter-gerber",
+  "Destination": "/de/news/lufthansa-cargo-aufsichtsrat-verlaengert-vertrag-von-peter-gerber"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-baut-%C3%BCber-plug-and-play-zusammenarbeit-mit-startups-aus",
+  "Destination": "/de/news/lufthansa-cargo-baut-ueber-plug-and-play-zusammenarbeit-mit-startups-aus"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-baut-digitalangebot-weiter-aus",
   "Destination": "/de/news/lufthansa-cargo-baut-digitalangebot-weiter-aus"
  },
@@ -1968,6 +2192,14 @@
   "Destination": "/de/news/lufthansa-cargo-bekraeftigt-notwendigkeit-von-nachtfluegen"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-besetzt-wichtige-managementpositionen-neu",
+  "Destination": "/de/news/lufthansa-cargo-besetzt-wichtige-managementpositionen-neu"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-beteiligt-sich-am-berliner-start-up-cargo.one",
+  "Destination": "/de/news/lufthansa-cargo-beteiligt-sich-am-berliner-start-up-cargo-one"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-bietet-neuen-express-service-f%C3%BCr-sendungen-jeder-gr%C3%B6%C3%9Fe",
   "Destination": "/de/news/lufthansa-cargo-bietet-neuen-express-service-fuer-sendungen-jeder-groesse"
  },
@@ -1982,6 +2214,10 @@
  {
   "Source": "/de/-/lufthansa-cargo-bringt-ipads-ins-cockpit",
   "Destination": "/de/news/lufthansa-cargo-bringt-ipads-ins-cockpit"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-bringt-weiteren-frachter-bei-aerologic-ein",
+  "Destination": "/de/news/lufthansa-cargo-bringt-weiteren-frachter-bei-aerologic-ein"
  },
  {
   "Source": "/de/-/lufthansa-cargo-cool-center-wird-erweitert",
@@ -2004,6 +2240,14 @@
   "Destination": "/de/news/lufthansa-cargo-erhaelt-ceiv-zertifizierung-fuer-pharmatransporte"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-erh%C3%B6ht-frachtflugfrequenz-nach-japan",
+  "Destination": "/de/news/lufthansa-cargo-erhoeht-frachtflugfrequenz-nach-japan"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-erm%C3%B6glicht-hessischen-unternehmen-kostenlosen-zugang-zum-weltmarkt",
+  "Destination": "/de/news/lufthansa-cargo-ermoeglicht-hessischen-unternehmen-kostenlosen-zugang-zum-weltmarkt"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-ernennt-neue-area-manager",
   "Destination": "/de/news/lufthansa-cargo-ernennt-neue-area-manager"
  },
@@ -2016,12 +2260,24 @@
   "Destination": "/de/news/lufthansa-cargo-erweitert-digitales-service-angebot"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-erweitert-s%C3%BCdamerika-netzwerk",
+  "Destination": "/de/news/lufthansa-cargo-erweitert-suedamerika-netzwerk"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-erzielt-gewinnsprung",
   "Destination": "/de/news/lufthansa-cargo-erzielt-gewinnsprung"
  },
  {
   "Source": "/de/-/lufthansa-cargo-erzielt-im-ersten-quartal-hohe-auslastung",
   "Destination": "/de/news/lufthansa-cargo-erzielt-im-ersten-quartal-hohe-auslastung"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-f%C3%BChrt-ersten-kommerziellen-transport-eines-fahrzeugs-in-den-bellies-der-eurowings-durch",
+  "Destination": "/de/news/lufthansa-cargo-fuehrt-ersten-kommerziellen-transport-eines-fahrzeugs-in-den-bellies-der-eurowings-durch"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-f%C3%BChrt-zusammenarbeit-mit-startups-weiter",
+  "Destination": "/de/news/lufthansa-cargo-fuehrt-zusammenarbeit-mit-startups-weiter"
  },
  {
   "Source": "/de/-/lufthansa-cargo-feiert-20.-geburtstag",
@@ -2034,6 +2290,14 @@
  {
   "Source": "/de/-/lufthansa-cargo-fliegt-auf-tel-aviv",
   "Destination": "/de/news/lufthansa-cargo-fliegt-auf-tel-aviv"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-fliegt-beaujolais-nouveau-nach-japan",
+  "Destination": "/de/news/lufthansa-cargo-fliegt-beaujolais-nouveau-nach-japan"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-fliegt-berliner-pandas-first-class",
+  "Destination": "/de/news/lufthansa-cargo-fliegt-berliner-pandas-first-class"
  },
  {
   "Source": "/de/-/lufthansa-cargo-fliegt-erneut-in-die-gewinnzone",
@@ -2064,6 +2328,10 @@
   "Destination": "/de/news/lufthansa-cargo-fliegt-solide-durch-herausforderndes-jahr"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-fordert-einheitliche-sicherheitsstandards",
+  "Destination": "/de/news/lufthansa-cargo-fordert-einheitliche-sicherheitsstandards"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-fordert-schnellere-umsetzung-der-zertifizierung-bekannter-versender",
   "Destination": "/de/news/lufthansa-cargo-fordert-schnellere-umsetzung-der-zertifizierung-bekannter-versender"
  },
@@ -2082,6 +2350,10 @@
  {
   "Source": "/de/-/lufthansa-cargo-gr%C3%BC%C3%9Ft-indien-mit-%E2%80%9Enamaste-",
   "Destination": "/de/news/lufthansa-cargo-gruesst-indien-mit-namaste"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-gr%C3%BC%C3%9Ft-italien-mit-%E2%80%9Ebuongiorno-",
+  "Destination": "/de/news/lufthansa-cargo-gruesst-italien-mit-buongiorno"
  },
  {
   "Source": "/de/-/lufthansa-cargo-gr%C3%BC%C3%9Ft-japan-mit-%E2%80%9Ekonnichiwa-",
@@ -2104,6 +2376,10 @@
   "Destination": "/de/news/lufthansa-cargo-haelt-auslastung-stabil"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-im-jahr-2015-mit-1-6-millionen-tonnen-fracht",
+  "Destination": "/de/news/lufthansa-cargo-im-jahr-2015-mit-1-6-millionen-tonnen-fracht"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-im-kundendialog",
   "Destination": "/de/news/lufthansa-cargo-im-kundendialog"
  },
@@ -2118,6 +2394,14 @@
  {
   "Source": "/de/-/lufthansa-cargo-in-anspruchsvollem-markt-mit-plus-bei-auslastung",
   "Destination": "/de/news/lufthansa-cargo-in-anspruchsvollem-markt-mit-plus-bei-auslastung"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-in-italien-erneut-zur-besten-frachtfluggesellschaft-gek%C3%BCrt",
+  "Destination": "/de/news/lufthansa-cargo-in-italien-erneut-zur-besten-frachtfluggesellschaft-gekuert"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-investiert-in-das-us-amerikanische-technologieunternehmen-%E2%80%9Efleet-",
+  "Destination": "/de/news/lufthansa-cargo-investiert-in-das-us-amerikanische-technologieunternehmen-fleet"
  },
  {
   "Source": "/de/-/lufthansa-cargo-ist-%E2%80%9Ebeste-europ%C3%A4ische-cargo-airline-",
@@ -2176,6 +2460,14 @@
   "Destination": "/de/news/lufthansa-cargo-neu-nach-guadalajara"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-nimmt-direktfl%C3%BCge-nach-chengdu-auf",
+  "Destination": "/de/news/lufthansa-cargo-nimmt-direktfluege-nach-chengdu-auf"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-nimmt-pharma-drehkreuz-in-hyderabad-in-betrieb",
+  "Destination": "/de/news/lufthansa-cargo-nimmt-pharma-drehkreuz-in-hyderabad-in-betrieb"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-ordnet-chartergesch%C3%A4ft-neu",
   "Destination": "/de/news/lufthansa-cargo-ordnet-chartergeschaeft-neu"
  },
@@ -2184,8 +2476,20 @@
   "Destination": "/de/news/lufthansa-cargo-plant-gewinnsprung-fuer-2014"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-pr%C3%A4sentiert-sich-auf-transport-logistic",
+  "Destination": "/de/news/lufthansa-cargo-praesentiert-sich-auf-transport-logistic"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-pr%C3%A4sentiert-sich-bei-den-cebit-recruitingtagen",
   "Destination": "/de/news/lufthansa-cargo-praesentiert-sich-bei-den-cebit-recruitingtagen"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-schafft-mit-rekordergebnis-basis-f%C3%BCr-zukunftsinvestitionen",
+  "Destination": "/de/news/lufthansa-cargo-schafft-mit-rekordergebnis-basis-fuer-zukunftsinvestitionen"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-schlie%C3%9Ft-das-gesch%C3%A4ftsjahr-2017-mit-gro%C3%9Fem-erfolg-ab",
+  "Destination": "/de/news/lufthansa-cargo-schliesst-das-geschaeftsjahr-2017-mit-grossem-erfolg-ab"
  },
  {
   "Source": "/de/-/lufthansa-cargo-setzt-auf-lateinamerika",
@@ -2194,6 +2498,10 @@
  {
   "Source": "/de/-/lufthansa-cargo-setzt-auf-leichte-container",
   "Destination": "/de/news/lufthansa-cargo-setzt-auf-leichte-container"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-setzt-auf-startups",
+  "Destination": "/de/news/lufthansa-cargo-setzt-auf-startups"
  },
  {
   "Source": "/de/-/lufthansa-cargo-starkes-ergebnis-trotz-gegenwind",
@@ -2232,12 +2540,28 @@
   "Destination": "/de/news/lufthansa-cargo-stellt-plaene-fuer-gruene-luftfracht-vor"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-stellt-vertrieb-neu-auf",
+  "Destination": "/de/news/lufthansa-cargo-stellt-vertrieb-neu-auf"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-stellt-weichen-f%C3%BCr-k%C3%BCnftiges-wachstum",
+  "Destination": "/de/news/lufthansa-cargo-stellt-weichen-fuer-kuenftiges-wachstum"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-sucht-innovative-ideen",
   "Destination": "/de/news/lufthansa-cargo-sucht-innovative-ideen"
  },
  {
   "Source": "/de/-/lufthansa-cargo-transportiert-kunstwerke-f%C3%BCr-deutsch-chinesische-ausstellung-%E2%80%9Edie-kunst-der-aufkl%C3%A4rung-",
   "Destination": "/de/news/lufthansa-cargo-transportiert-kunstwerke-fuer-deutsch-chinesische-ausstellung-die-kunst-der-aufklaerung"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-und-ana-cargo-erweitern-gemeinsames-netz-in-japan",
+  "Destination": "/de/news/lufthansa-cargo-und-ana-cargo-erweitern-gemeinsames-netz-in-japan"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-und-ana-erweitern-joint-venture",
+  "Destination": "/de/news/lufthansa-cargo-und-ana-erweitern-joint-venture"
  },
  {
   "Source": "/de/-/lufthansa-cargo-und-brussels-airlines-cargo-starten-mit-enger-zusammenarbeit",
@@ -2252,28 +2576,72 @@
   "Destination": "/de/news/lufthansa-cargo-und-cool-chain-group-arbeiten-kuenftig-eng-zusammen-1"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-und-deutsches-rotes-kreuz-unterzeichnen-kooperationsvertrag",
+  "Destination": "/de/news/lufthansa-cargo-und-deutsches-rotes-kreuz-unterzeichnen-kooperationsvertrag"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-und-die-deutsche-post-dhl-unterst%C3%BCtzen-gemeinsam-santa-claus",
+  "Destination": "/de/news/lufthansa-cargo-und-die-deutsche-post-dhl-unterstuetzen-gemeinsam-santa-claus"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-unterst%C3%BCtzt-katastrophenopfer-in-japan-mit-hilfsflug",
   "Destination": "/de/news/lufthansa-cargo-unterstuetzt-katastrophenopfer-in-japan-mit-hilfsflug"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-unterst%C3%BCtzung-f%C3%BCr-deutsche-post-und-santa-claus",
+  "Destination": "/de/news/lufthansa-cargo-unterstuetzung-fuer-deutsche-post-und-santa-claus"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-verbessert-streckennetz-weiter",
+  "Destination": "/de/news/lufthansa-cargo-verbessert-streckennetz-weiter"
  },
  {
   "Source": "/de/-/lufthansa-cargo-vereinfacht-preismodelle-f%C3%BCr-temperaturgef%C3%BChrte-sendungen",
   "Destination": "/de/news/lufthansa-cargo-vereinfacht-preismodelle-fuer-temperaturgefuehrte-sendungen"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-verleiht-qualit%C3%A4tspreise",
+  "Destination": "/de/news/lufthansa-cargo-verleiht-qualitaetspreise"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-verleiht-umweltpreis-an-forscher-kunden-und-mitarbeiter",
   "Destination": "/de/news/lufthansa-cargo-verleiht-umweltpreis-an-forscher-kunden-und-mitarbeiter"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-vermarktet-frachtkapazit%C3%A4ten-der-eurowings",
+  "Destination": "/de/news/lufthansa-cargo-vermarktet-frachtkapazitaeten-der-eurowings"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-vermarktet-luftfrachtkapazit%C3%A4ten-im-spotmarkt-auf-der-digitalen-plattform-cargo.one",
+  "Destination": "/de/news/lufthansa-cargo-vermarktet-luftfrachtkapazitaeten-im-spotmarkt-auf-der-digitalen-plattform-cargo-one"
  },
  {
   "Source": "/de/-/lufthansa-cargo-will-trotz-streik-komplettes-programm-fliegen",
   "Destination": "/de/news/lufthansa-cargo-will-trotz-streik-komplettes-programm-fliegen"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-zeichnet-dachser-aus",
+  "Destination": "/de/news/lufthansa-cargo-zeichnet-dachser-aus"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-zeichnet-dhl-aus",
   "Destination": "/de/news/lufthansa-cargo-zeichnet-dhl-aus"
  },
  {
+  "Source": "/de/-/lufthansa-cargo-zeichnet-dienstleistungspartner-aus",
+  "Destination": "/de/news/lufthansa-cargo-zeichnet-dienstleistungspartner-aus"
+ },
+ {
   "Source": "/de/-/lufthansa-cargo-zeichnet-innovationen-aus",
   "Destination": "/de/news/lufthansa-cargo-zeichnet-innovationen-aus"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-zeichnet-panalpina-aus",
+  "Destination": "/de/news/lufthansa-cargo-zeichnet-panalpina-aus"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargo-zeichnet-premium-road-partner-aus",
+  "Destination": "/de/news/lufthansa-cargo-zeichnet-premium-road-partner-aus"
  },
  {
   "Source": "/de/-/lufthansa-cargo-zur-besten-europ%C3%A4ischen-frachtairline-gew%C3%A4hlt",
@@ -2282,6 +2650,14 @@
  {
   "Source": "/de/-/lufthansa-cargo-zur-besten-internationalen-frachtairline-gew%C3%A4hlt",
   "Destination": "/de/news/lufthansa-cargo-zur-besten-internationalen-frachtairline-gewaehlt"
+ },
+ {
+  "Source": "/de/-/lufthansa-cargos-triple-seven-%E2%80%9Ehallo-germany-wird-zum-filmstar",
+  "Destination": "/de/news/lufthansa-cargos-triple-seven-hallo-germany-wird-zum-filmstar"
+ },
+ {
+  "Source": "/de/-/lufthansa-fliegt-hilfsg%C3%BCter-nach-puerto-rico",
+  "Destination": "/de/news/lufthansa-fliegt-hilfsgueter-nach-puerto-rico"
  },
  {
   "Source": "/de/-/lufthansa-investiert-in-passagier-und-frachterflotte",
@@ -2300,6 +2676,10 @@
   "Destination": "/de/news/masterpieces-51"
  },
  {
+  "Source": "/de/-/mobile-sendungsverfolgung-mit-der-neuen-app-%E2%80%9Elufthansa-cargo-eservices-",
+  "Destination": "/de/news/mobile-sendungsverfolgung-mit-der-neuen-app-lufthansa-cargo-eservices"
+ },
+ {
   "Source": "/de/-/musik-fliegt-in-der-luft-28",
   "Destination": "/de/news/musik-fliegt-in-der-luft-28"
  },
@@ -2308,12 +2688,20 @@
   "Destination": "/de/news/nachtflugverbot-in-frankfurt-bleibt-vorerst-bestehen-ein-schwerer-schlag-gegen-den-wirtschaftsstandort-deutschland"
  },
  {
+  "Source": "/de/-/neuartiger-sonnenschutz-f%C3%BCr-k%C3%BChlfracht",
+  "Destination": "/de/news/neuartiger-sonnenschutz-fuer-kuehlfracht"
+ },
+ {
   "Source": "/de/-/neue-%E2%80%9Etriple-seven-nimmt-kurs-auf-nordamerika",
   "Destination": "/de/news/neue-triple-seven-nimmt-kurs-auf-nordamerika"
  },
  {
   "Source": "/de/-/neue-f%C3%BChrungsspitze-bei-lufthansa-cargo-tochter",
   "Destination": "/de/news/neue-fuehrungsspitze-bei-lufthansa-cargo-tochter"
+ },
+ {
+  "Source": "/de/-/neue-gesch%C3%A4ftsf%C3%BChrung-bei-aerologic",
+  "Destination": "/de/news/neue-geschaeftsfuehrung-bei-aerologic"
  },
  {
   "Source": "/de/-/neue-preisstruktur-bei-lufthansa-cargo-und-swiss-worldcargo",
@@ -2330,6 +2718,10 @@
  {
   "Source": "/de/-/neuer-leiter-im-lufthansa-cargo-center-frankfurt",
   "Destination": "/de/news/neuer-leiter-im-lufthansa-cargo-center-frankfurt"
+ },
+ {
+  "Source": "/de/-/neues-online-angebot-f%C3%BCr-standardfracht",
+  "Destination": "/de/news/neues-online-angebot-fuer-standardfracht"
  },
  {
   "Source": "/de/-/new-cars-to-cuba.-78",
@@ -2354,6 +2746,10 @@
  {
   "Source": "/de/-/personalver%C3%A4nderungen-bei-lufthansa-cargo",
   "Destination": "/de/news/personalveraenderungen-bei-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/pferde-im-siebten-himmel",
+  "Destination": "/de/news/pferde-im-siebten-himmel"
  },
  {
   "Source": "/de/-/pharma-ist-vertrauenssache-6",
@@ -2384,6 +2780,14 @@
   "Destination": "/de/news/rosen-auf-reisen"
  },
  {
+  "Source": "/de/-/s%C3%B6ren-stark-wird-operations-vorstand-bei-lufthansa-cargo",
+  "Destination": "/de/news/soeren-stark-wird-operations-vorstand-bei-lufthansa-cargo"
+ },
+ {
+  "Source": "/de/-/schnelle-hilfe-aus-der-luft-f%C3%BCr-fl%C3%BCchtlinge",
+  "Destination": "/de/news/schnelle-hilfe-aus-der-luft-fuer-fluechtlinge"
+ },
+ {
   "Source": "/de/-/schneller-weiter-schwerer-2",
   "Destination": "/de/news/schneller-weiter-schwerer-2"
  },
@@ -2394,6 +2798,22 @@
  {
   "Source": "/de/-/steinway.-100",
   "Destination": "/de/news/steinway-100"
+ },
+ {
+  "Source": "/de/-/streckennetz-der-lufthansa-cargo-w%C3%A4chst",
+  "Destination": "/de/news/streckennetz-der-lufthansa-cargo-waechst"
+ },
+ {
+  "Source": "/de/-/streiks-der-gewerkschaft-ver.di",
+  "Destination": "/de/news/streiks-der-gewerkschaft-ver-di"
+ },
+ {
+  "Source": "/de/-/streiks-der-gewerkschaft-ver.di-1",
+  "Destination": "/de/news/streiks-der-gewerkschaft-ver-di-1"
+ },
+ {
+  "Source": "/de/-/streiks-der-vereinigung-cockpit-f%C3%BCr-donnerstag-1.-dezember.2016-ausgesetzt",
+  "Destination": "/de/news/streiks-der-vereinigung-cockpit-fuer-donnerstag-1-dezember-2016-ausgesetzt"
  },
  {
   "Source": "/de/-/swiftly-to-destinations-worldwide.-35",
@@ -2412,16 +2832,40 @@
   "Destination": "/de/news/technology-transfer-47"
  },
  {
+  "Source": "/de/-/triple-seven-flotte-von-lufthansa-cargo-w%C3%A4chst",
+  "Destination": "/de/news/triple-seven-flotte-von-lufthansa-cargo-waechst"
+ },
+ {
   "Source": "/de/-/umweltmanagement-im-fokus",
   "Destination": "/de/news/umweltmanagement-im-fokus"
+ },
+ {
+  "Source": "/de/-/umweltmanagementsystem-weltweit-ausgezeichnet",
+  "Destination": "/de/news/umweltmanagementsystem-weltweit-ausgezeichnet"
+ },
+ {
+  "Source": "/de/-/umweltpartnerschaft-spart-20.000-tonnen-co2-bis-2020",
+  "Destination": "/de/news/umweltpartnerschaft-spart-20-000-tonnen-co2-bis-2020"
  },
  {
   "Source": "/de/-/understanding-shopping-2.0-83",
   "Destination": "/de/news/understanding-shopping-2-0-83"
  },
  {
+  "Source": "/de/-/united-airlines-und-lufthansa-cargo-verk%C3%BCnden-cargo-joint-venture",
+  "Destination": "/de/news/united-airlines-und-lufthansa-cargo-verkuenden-cargo-joint-venture"
+ },
+ {
+  "Source": "/de/-/united-und-lufthansa-planen-fracht-kooperation-zwischen-usa-und-europa",
+  "Destination": "/de/news/united-und-lufthansa-planen-fracht-kooperation-zwischen-usa-und-europa"
+ },
+ {
   "Source": "/de/-/va-q-tec-und-lufthansa-cargo-kooperieren-bei-pharmatransporten",
   "Destination": "/de/news/va-q-tec-und-lufthansa-cargo-kooperieren-bei-pharmatransporten"
+ },
+ {
+  "Source": "/de/-/verbindung-nach-aschgabat-erfolgreich-aufgenommen",
+  "Destination": "/de/news/verbindung-nach-aschgabat-erfolgreich-aufgenommen"
  },
  {
   "Source": "/de/-/versorger-der-versorger-5",
@@ -2432,12 +2876,24 @@
   "Destination": "/de/news/vierzehn-flugzeuge-voller-rosen"
  },
  {
+  "Source": "/de/-/vietnam-nun-fest-im-netz-von-lufthansa-cargo",
+  "Destination": "/de/news/vietnam-nun-fest-im-netz-von-lufthansa-cargo"
+ },
+ {
   "Source": "/de/-/von-20%C2%B0c-bis-30%C2%B0c-10",
   "Destination": "/de/news/von-20-c-bis-30-c-10"
  },
  {
+  "Source": "/de/-/von-der-fliegenden-kiste-zum-fracht-jumbo-logistikbranche-feiert-100-jahre-luftfracht-in-deutschland",
+  "Destination": "/de/news/von-der-fliegenden-kiste-zum-fracht-jumbo-logistikbranche-feiert-100-jahre-luftfracht-in-deutschland"
+ },
+ {
   "Source": "/de/-/we-offer-resistance-where-others-give-up.-33",
   "Destination": "/de/news/we-offer-resistance-where-others-give-up-33"
+ },
+ {
+  "Source": "/de/-/weltneuheit-%E2%80%9Eroad-feeder-service-cool-buchbar",
+  "Destination": "/de/news/weltneuheit-road-feeder-service-cool-buchbar"
  },
  {
   "Source": "/de/-/weltpremiere-f%C3%BCr-digitale-gefahrgutdeklaration-in-frankfurt",
@@ -2446,6 +2902,10 @@
  {
   "Source": "/de/-/weltweites-umweltmanagementsystem-von-lufthansa-cargo-erneut-ausgezeichnet",
   "Destination": "/de/news/weltweites-umweltmanagementsystem-von-lufthansa-cargo-erneut-ausgezeichnet"
+ },
+ {
+  "Source": "/de/-/wetterlage-in-frankfurt-hat-sich-normalisiert",
+  "Destination": "/de/news/wetterlage-in-frankfurt-hat-sich-normalisiert"
  },
  {
   "Source": "/de/-/when-logistics-saves-lives.-96",

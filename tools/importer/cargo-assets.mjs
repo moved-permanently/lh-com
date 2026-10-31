@@ -58,6 +58,26 @@ export function blockedUntil() {
   return at && Date.now() - at < PAUSE_AFTER_BLOCK ? new Date(at + PAUSE_AFTER_BLOCK) : null;
 }
 
+/**
+ * A Bright Data browser (the project is bot-protected): its connect sometimes times out, so up to
+ * three tries, 30 s apart (no request to www is made by connecting).
+ */
+export async function connectSource() {
+  const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
+  const { connectBrowser } = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/browser-source.js'));
+  for (let i = 1; ; i += 1) {
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      return await connectBrowser('bd');
+    } catch (e) {
+      if (i >= 3) throw e;
+      console.error(`Bright Data connect failed (${e.message.split('\n')[0]}): again in 30 s`);
+      // eslint-disable-next-line no-await-in-loop, no-use-before-define
+      await sleep(30000);
+    }
+  }
+}
+
 /** Records a challenge or block on www (every Cargo tool stops for 30 minutes). */
 export function recordBlock(where) {
   writeJson(BLOCK_FILE, { at: new Date().toISOString(), where });
@@ -239,9 +259,7 @@ async function download() {
   const record = (key, r) => { state.done[key] = r; writeJson(STATE, state); };
   let blocked = false;
   if (www.length) {
-    const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
-    const { connectBrowser } = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/browser-source.js'));
-    let browser = await connectBrowser('bd');
+    let browser = await connectSource();
     try {
       let page = await browser.newPage();
       const open = async () => {
@@ -288,7 +306,7 @@ async function download() {
           // the session ended (Bright Data closes long sessions): a new one, its anchor page, this file again later
           if (/closed|disconnected/i.test(got.error)) {
             await browser.close().catch(() => {});
-            browser = await connectBrowser('bd');
+            browser = await connectSource();
             page = await browser.newPage();
           }
           if (!await open()) blocked = true;
