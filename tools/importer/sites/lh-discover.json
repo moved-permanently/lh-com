@@ -570,7 +570,10 @@
   "/de/de/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities",
   "/xx/fr/book/flights/timetable",
   "/xx/fr/book/travel-information/airport-info/security-check-time-slot",
-  "/xx/fr/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities"
+  "/xx/fr/my-bookings/manage/customer-service/contact-form/compensation-flight-irregularities",
+  "/de/de/my-bookings/flight-status",
+  "/de/en/my-bookings/flight-status",
+  "/xx/fr/my-bookings/flight-status"
  ],
  "marketRoots": {
   "us/en": "de/en",

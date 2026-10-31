@@ -36,13 +36,19 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_287832_exports = {};
-  __export(tmp_bundle_flight_status_287832_exports, {
-    default: () => tmp_bundle_flight_status_287832_default
+  var tmp_bundle_flight_status_84673_exports = {};
+  __export(tmp_bundle_flight_status_84673_exports, {
+    default: () => tmp_bundle_flight_status_84673_default
   });
 
   // tools/importer/parsers/flight-status.js
-  function parse(element, { document }) {
+  function parse(element, { document, params } = {}) {
+    let sourceHost = "";
+    try {
+      sourceHost = new URL(params && params.originalURL).hostname;
+    } catch (e) {
+      sourceHost = "";
+    }
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -107,6 +113,14 @@ var CustomImportScript = (() => {
     }
     const submit = element.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]');
     if (submit && visibleText(submit)) cells.push(["Submit label", visibleText(submit)]);
+    if (sourceHost === "www.discover-airlines.com") {
+      const page = new URL(params.originalURL);
+      const href = `${page.origin}${page.pathname}`;
+      const link = document.createElement("a");
+      link.setAttribute("href", href);
+      link.textContent = href;
+      cells.push(["Live page", link]);
+    }
     const block = WebImporter.Blocks.createBlock(document, { name: "flight-status", cells });
     element.replaceWith(...before, block);
   }
@@ -2424,7 +2438,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_287832_default = {
+  var tmp_bundle_flight_status_84673_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -2454,5 +2468,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_287832_exports);
+  return __toCommonJS(tmp_bundle_flight_status_84673_exports);
 })();

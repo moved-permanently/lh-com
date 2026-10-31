@@ -16,7 +16,10 @@
  * Dates themselves are runtime data and are never authored. The widget's maui-headline (the
  * page H1) is default content and is emitted before the block table.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, params } = {}) {
+  // the source page's host (params.originalURL): Discover's pages get rows lufthansa.com's do not
+  let sourceHost = '';
+  try { sourceHost = new URL(params && params.originalURL).hostname; } catch (e) { sourceHost = ''; }
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
   const clean = (s) => (s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim();
   const visibleText = (node) => {
@@ -87,6 +90,15 @@ export default function parse(element, { document }) {
 
   const submit = element.querySelector('maui-button[behavior="submit"], maui-button[type="primary"], button[type="submit"]');
   if (submit && visibleText(submit)) cells.push(['Submit label', visibleText(submit)]);
+  // Discover (www.discover-airlines.com): the live page the search hands off to is the page itself
+  if (sourceHost === 'www.discover-airlines.com') {
+    const page = new URL(params.originalURL);
+    const href = `${page.origin}${page.pathname}`;
+    const link = document.createElement('a');
+    link.setAttribute('href', href);
+    link.textContent = href;
+    cells.push(['Live page', link]);
+  }
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'flight-status', cells });
   element.replaceWith(...before, block);

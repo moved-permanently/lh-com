@@ -21,7 +21,10 @@
  * column title and the section break the sections transformer put before it) are hoisted out
  * and placed after the booking-lookup table, in source order, instead of being dropped.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, params } = {}) {
+  // the source page's host (params.originalURL): Discover's pages get rows lufthansa.com's do not
+  let sourceHost = '';
+  try { sourceHost = new URL(params && params.originalURL).hostname; } catch (e) { sourceHost = ''; }
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
   const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
   const clean = (s) => (s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -149,6 +152,18 @@ export default function parse(element, { document }) {
   if (submit && visibleText(submit)) cells.push(['Submit label', visibleText(submit)]);
   const action = form.tagName === 'FORM' ? attr(form, 'action') : attr(form.querySelector('form'), 'action');
   if (action && !/^(#|javascript:)/i.test(action)) cells.push(['Submit URL', action]);
+  // Discover (www.discover-airlines.com): its form posts nowhere, the check-in is the page's own
+  // once.discover-airlines.com link (a maui-button-link, TENANT=4Y): the Submit URL, a link, as its
+  // documents have it
+  if (sourceHost === 'www.discover-airlines.com' && !cells.some(([k]) => k === 'Submit URL')) {
+    const once = document.querySelector('[href*="once.discover-airlines.com/connect/main-app"]');
+    if (once) {
+      const link = document.createElement('a');
+      link.setAttribute('href', once.getAttribute('href'));
+      link.textContent = once.getAttribute('href');
+      cells.push(['Submit URL', link]);
+    }
+  }
 
   // --- further tabs: Tab | name, Panel | rich content
   const panelContent = (panel) => {

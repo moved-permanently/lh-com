@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_914066_exports = {};
-  __export(tmp_bundle_app_entry_914066_exports, {
-    default: () => tmp_bundle_app_entry_914066_default
+  var tmp_bundle_app_entry_84673_exports = {};
+  __export(tmp_bundle_app_entry_84673_exports, {
+    default: () => tmp_bundle_app_entry_84673_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1685,7 +1685,13 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/booking-lookup.js
-  function parse6(element, { document }) {
+  function parse6(element, { document, params } = {}) {
+    let sourceHost = "";
+    try {
+      sourceHost = new URL(params && params.originalURL).hostname;
+    } catch (e) {
+      sourceHost = "";
+    }
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const clean2 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
@@ -1810,6 +1816,15 @@ var CustomImportScript = (() => {
     if (submit && visibleText(submit)) cells.push(["Submit label", visibleText(submit)]);
     const action = form.tagName === "FORM" ? attr(form, "action") : attr(form.querySelector("form"), "action");
     if (action && !/^(#|javascript:)/i.test(action)) cells.push(["Submit URL", action]);
+    if (sourceHost === "www.discover-airlines.com" && !cells.some(([k]) => k === "Submit URL")) {
+      const once = document.querySelector('[href*="once.discover-airlines.com/connect/main-app"]');
+      if (once) {
+        const link = document.createElement("a");
+        link.setAttribute("href", once.getAttribute("href"));
+        link.textContent = once.getAttribute("href");
+        cells.push(["Submit URL", link]);
+      }
+    }
     const panelContent = (panel) => {
       const out = [];
       const walk = (node) => {
@@ -3850,7 +3865,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_914066_default = {
+  var tmp_bundle_app_entry_84673_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -3880,5 +3895,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_914066_exports);
+  return __toCommonJS(tmp_bundle_app_entry_84673_exports);
 })();

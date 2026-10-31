@@ -222,6 +222,9 @@ if (isMain) {
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     const mapped = withLinkOuts(withPlaceholder(html), p);
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
+    // a timetable page's Live page row (parsers/flight-status.js) links the page itself on www: a
+    // link out that stays absolute (site-postprocess.mjs linkOuts)
+    else if (t === 'flight-status') linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);
     out[p] = t;
