@@ -40,6 +40,37 @@ function buildHandoffUrl(values, locale, submitUrl) {
   return pattern.replace(/\{(country|lang|reference|firstname|lastname)\}/gi, (m, key) => encodeURIComponent(replacements[key.toLowerCase()] || ''));
 }
 
+/**
+ * Lufthansa Cargo's shipment tracking (variant "tracking"): the air waybill's prefix (3 digits)
+ * and serial (8 digits) into eTracking, which opens without login. Placeholders of an authored
+ * Submit URL: {PREFIX}, {SERIAL}, {lang} (lower case, the site's paths), {LANG} and {COUNTRY}
+ * (upper case), case-sensitive.
+ */
+const TRACKING_URL = 'https://www.lufthansa-cargo.com/{lang}/eservices/etracking/tracking/-/awb?etrk_awbp={PREFIX}&etrk_awbs={SERIAL}';
+
+export function buildTrackingUrl(values, locale, submitUrl) {
+  const replacements = {
+    PREFIX: values.prefix,
+    SERIAL: values.serial,
+    lang: locale.lang.toLowerCase(),
+    LANG: locale.lang.toUpperCase(),
+    COUNTRY: (locale.country || '').toUpperCase(),
+  };
+  let pattern = submitUrl || TRACKING_URL;
+  try {
+    pattern = decodeURI(pattern);
+  } catch (e) {
+    // keep as authored
+  }
+  return pattern.replace(/\{(PREFIX|SERIAL|lang|LANG|COUNTRY)\}/g, (m, key) => encodeURIComponent(replacements[key] || ''));
+}
+
+/** A whole air waybill number ("020-12345678", "020 1234 5678", "02012345678") in its parts. */
+export function splitAwb(value) {
+  const digits = String(value || '').replace(/[\s-]+/g, '');
+  return /^\d{11}$/.test(digits) ? { prefix: digits.slice(0, 3), serial: digits.slice(3) } : null;
+}
+
 /* ------------------------------------------------------------------------------------------- */
 
 const DEFAULT_REFERENCE_PATTERN = '^([A-Z0-9]{6}|\\d{13})$';
@@ -266,7 +297,7 @@ function buildTabs(id, tabs, panels, label) {
 }
 
 function createField(id, {
-  name, label, autocomplete, maxLength, error,
+  name, label, autocomplete, maxLength, error, numeric,
 }) {
   const wrap = el('div', 'booking-lookup-field');
   const labelEl = el('label', '', label);
@@ -278,6 +309,7 @@ function createField(id, {
   input.placeholder = label;
   input.autocomplete = autocomplete;
   if (maxLength) input.maxLength = maxLength;
+  if (numeric) input.setAttribute('inputmode', 'numeric');
   labelEl.htmlFor = input.id;
   const message = el('p', 'booking-lookup-error');
   message.id = `${id}-${name}-error`;
@@ -463,6 +495,100 @@ function decorateMyBookings(block, id, locale, config) {
   block.replaceChildren(tablist, panel);
 }
 
+/** The tracking variant's texts (Cargo's www: en, de); authored rows win. */
+const TRACKING_LABELS = {
+  en: {
+    'prefix label': 'AWB prefix',
+    'serial label': 'AWB number',
+    'prefix error': 'Please enter the 3-digit prefix',
+    'serial error': 'Please enter the 8-digit air waybill number',
+    'submit label': 'Track',
+  },
+  de: {
+    'prefix label': 'AWB-Präfix',
+    'serial label': 'AWB-Nummer',
+    'prefix error': 'Bitte geben Sie das 3-stellige Präfix ein',
+    'serial error': 'Bitte geben Sie die 8-stellige Luftfrachtbriefnummer ein',
+    'submit label': 'Verfolgen',
+  },
+};
+
+/**
+ * The tracking variant (Lufthansa Cargo): no name fields, the air waybill's prefix and serial,
+ * eTracking (buildTrackingUrl); tabs and notice as the booking lookup.
+ */
+function decorateTracking(block, id, locale, config) {
+  const labels = resolveLabels(TRACKING_LABELS, config, locale.lang);
+  const tabs = readTabs(block);
+  const submitRow = pick(config, 'submit-url', 'handoff-url');
+  let submitUrl = '';
+  if (submitRow) submitUrl = submitRow.link ? submitRow.link.getAttribute('href') : submitRow.text;
+  const formPanel = el('div', 'booking-lookup-panel booking-lookup-form-panel');
+  formPanel.id = `${id}-panel-0`;
+  if (tabs[0] && tabs[0].panel && cleanText(tabs[0].panel)) {
+    const intro = el('div', 'booking-lookup-intro');
+    intro.append(...tabs[0].panel.childNodes);
+    formPanel.append(intro);
+  }
+  const form = el('form', 'booking-lookup-form booking-lookup-tracking-form');
+  form.noValidate = true;
+  if (tabs[0]) form.setAttribute('aria-label', tabs[0].label);
+  const prefix = createField(id, {
+    name: 'prefix', label: labels['prefix label'], autocomplete: 'off', maxLength: 3, error: labels['prefix error'], numeric: true,
+  });
+  const serial = createField(id, {
+    name: 'serial', label: labels['serial label'], autocomplete: 'off', maxLength: 8, error: labels['serial error'], numeric: true,
+  });
+  // a whole number pasted into the prefix field fills both
+  prefix.input.addEventListener('paste', (e) => {
+    const parts = splitAwb((e.clipboardData || window.clipboardData || { getData: () => '' }).getData('text'));
+    if (!parts) return;
+    e.preventDefault();
+    prefix.input.value = parts.prefix;
+    serial.input.value = parts.serial;
+    serial.input.focus();
+  });
+  const submit = el('button', 'booking-lookup-submit button', labels['submit label']);
+  submit.type = 'submit';
+  const actions = el('div', 'booking-lookup-actions');
+  actions.append(submit);
+  form.append(prefix.wrap, serial.wrap, actions);
+  formPanel.append(form);
+  const checks = [[prefix, /^\d{3}$/], [serial, /^\d{8}$/]];
+  checks.forEach(([field, re]) => field.input.addEventListener('input', () => {
+    if (field.input.hasAttribute('aria-invalid') && re.test(field.input.value.trim())) field.setError(false);
+  }));
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let firstInvalid = null;
+    checks.forEach(([field, re]) => {
+      const ok = re.test(field.input.value.trim());
+      field.setError(!ok);
+      if (!ok && !firstInvalid) firstInvalid = field.input;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
+    window.location.assign(buildTrackingUrl({
+      prefix: prefix.input.value.trim(), serial: serial.input.value.trim(),
+    }, locale, submitUrl));
+  });
+  const extraPanels = tabs.slice(1).map((tab, i) => {
+    const panel = el('div', 'booking-lookup-panel');
+    panel.id = `${id}-panel-${i + 1}`;
+    if (tab.panel) panel.append(...tab.panel.childNodes);
+    decorateExternalLinks(panel);
+    return panel;
+  });
+  if (extraPanels.length) {
+    const panels = [formPanel, ...extraPanels];
+    block.replaceChildren(buildTabs(id, tabs, panels, tabs[0] ? tabs[0].label : ''), ...panels);
+  } else {
+    block.replaceChildren(formPanel);
+  }
+}
+
 export default function decorate(block) {
   instance += 1;
   const id = `booking-lookup-${instance}`;
@@ -470,6 +596,10 @@ export default function decorate(block) {
   const config = readConfigRows(block);
   if (block.classList.contains('my-bookings')) {
     decorateMyBookings(block, id, locale, config);
+    return;
+  }
+  if (block.classList.contains('tracking')) {
+    decorateTracking(block, id, locale, config);
     return;
   }
   const labels = applyErrorList(resolveLabels(DEFAULT_LABELS, config, locale.lang), config);
