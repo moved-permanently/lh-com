@@ -76,13 +76,19 @@ Row types:
 - `file`: Form: a file input (Options: accepted types and `multiple`). Form (core): the drop zone
   (live `forms-filedrop`): Label = drop prompt, Placeholder = button text, Help text = format hint,
   Required = `yes` or the optional text; Rules `accept=`, `max-files=`, `max-size=` (bytes),
-  `not-allowed=` (characters not allowed in file names). Added files are checked and listed with a
-  delete button; the accepted ones are sent with the submission (feedback-past-flight).
+  `not-allowed=` (characters not allowed in file names), `max-total=` (bytes, all files together;
+  default 18,500,000, lh-forms' `MAIL_FILES.maxTotal`). Added files are checked and listed with a
+  delete button; the accepted ones are sent with the submission (feedback-past-flight). A file that
+  would take the selection over the total is refused like a file that is too big; a zone whose
+  files could exceed it (max-files x max-size over the total: Austrian's 5 x 5 MB data protection
+  forms) names the total below the hint ("All files together: max. 18.5 MB", in the page's
+  language: en, de, fr, it, es, ru, zh, el, ja, pl, nl, pt).
 - `hidden`: Name and value (Options); never shown, never sent.
 - `config` (Form (core)): sending settings, Name = key, Label = value (text or a link; the
   Options cell is read when Label is empty): `form` = the worker form id (e.g. `special-needs`),
   `success` = link to the page shown after a successful submission, `error` = link to the page
-  shown when it fails (`/error.html`). Never rendered. See "Sending".
+  shown when it fails, only when it is a page of this site that exists (else the send error in
+  place). Never rendered. See "Sending".
 - `note`: static rich text in the card (Label cell: paragraphs, lists, links, bold); paragraph
   markers such as `{copytext-small}` work.
 - `submit`: the button; Label = its text (empty: Submit / Absenden). Form (core): below the last band.
@@ -95,7 +101,7 @@ Row types:
 Rules keys: `pattern=` (whole value, live `pattern` / `data-cmp-pattern`), `maxlength=`,
 `minlength=`, `inputmode=` (numeric, tel, email), `uppercase` (booking codes), `mask=`, `rows=`,
 `min=`, `max=`, `value=`, `step=`, `toggles=`, `hidden`, `country=`, `accept=`, `max-files=`,
-`max-size=`, `not-allowed=`, and for repeatable sections `repeat=`, `add=`, `remove=`, `remaining=`.
+`max-size=`, `not-allowed=`, `max-total=`, and for repeatable sections `repeat=`, `add=`, `remove=`, `remaining=`.
 
 Repeatable section (live `forms-repeatable-section`, e.g. Flight 1–4, Person 1–7): one `fieldset`
 row with Rules `repeat=4` (copies in total), `add=add another flight` (link text),
@@ -118,8 +124,12 @@ file list headline, file remove ({NAME}), file required, file invalid type, file
 invalid name, file too many ({MAX}) = the lufthansa.com common.fileupload labels (en / de);
 stepper decrease / increase, repeat remove (screen-reader labels); Form (core): success message
 (shown when there is no `success` row) = Thank you. Your request has been sent. / Vielen Dank. Ihre
-Anfrage wurde gesendet.; sending (status while posting) = Sending… / Wird gesendet…; yes / no
-(value of a single checkbox) = Yes / No, Ja / Nein.
+Anfrage wurde gesendet.; sending (status while posting) = Sending… / Wird gesendet…; send error
+(above the submit button when sending fails) = Sorry, your request could not be sent. Please try
+again. / Leider konnte Ihre Anfrage nicht gesendet werden. Bitte versuchen Sie es noch einmal.;
+file total ({TOTAL}) = All files together: max. {TOTAL} / Alle Dateien zusammen: max. {TOTAL}
+(and in fr, it, es, ru, zh, el, ja, pl, nl, pt); yes / no (value of a single checkbox) = Yes / No,
+Ja / Nein. Other languages: the English table.
 
 ### Sending (Form (core))
 
@@ -169,11 +179,14 @@ DOM and not in the recorded CSS, so the spinner is our own.)
 
 Afterwards, no retries: response 200 with `{"ok":true}` → `location.href` = the `success` page
 (no `success` row: the button is enabled again and the success message shows); anything else
-(network error, non-2xx, `ok:false`) → the `error` page (default `/error.html`, live's error page,
-the English not-found page; `scripts/not-found.js` shows paths without a locale in English).
+(network error, non-2xx, `ok:false`) → the `error` page when it is on this site and exists (a HEAD
+of it answers 2xx; default `/error.html`, which answers 404 on every site today); else the send
+error shows above the submit button (`p.form-send-error`, `role="alert"`), the button is enabled
+again and the entries stay, so the visitor can try once more.
 Authored links are relative (same path on this site); a link DA made absolute to an aem.page /
-aem.live host is followed on the current host, and under `/content/` (local dev server) locale
-paths get the `/content` prefix.
+aem.live host, a www.lufthansa.com link and a link to the brand's own www (`scripts/brand.js`
+`brandWwwHost`: www.austrian.com, www.ita-airways.com ...) are followed on the current host, and
+under `/content/` (local dev server) locale paths get the `/content` prefix.
 
 ### Validation (as live)
 

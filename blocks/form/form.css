@@ -366,6 +366,17 @@
   display: none;
 }
 
+/* sending failed: above the submit button, the form keeps its entries */
+.form .form-send-error {
+  margin: 0;
+  color: var(--lh-red);
+  font-size: var(--body-font-size-s);
+}
+
+.form .form-send-error[hidden] {
+  display: none;
+}
+
 @media (width >= 768px) {
   .form .form-step {
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -838,6 +849,15 @@
 /* p.footnote: 1.4rem, margin-top 1rem, padding-bottom 1.8rem */
 .form.core .form-filedrop-hint {
   margin: 10px 0 0;
+  padding-bottom: 18px;
+  color: var(--lh-deepblue);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+/* the files' total (a drop zone whose files could exceed it), as the hint */
+.form.core .form-filedrop-total {
+  margin: 0;
   padding-bottom: 18px;
   color: var(--lh-deepblue);
   font-size: var(--body-font-size-xs);

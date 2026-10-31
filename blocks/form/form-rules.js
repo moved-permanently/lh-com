@@ -183,7 +183,7 @@ export function parseOptionLines(lines) {
 
 /** Rule keys with a number value. */
 const NUMBER_RULES = ['maxlength', 'minlength', 'min', 'max', 'value', 'rows', 'repeat',
-  'max-files', 'max-size', 'step'];
+  'max-files', 'max-size', 'max-total', 'step'];
 /** Rule keys that are flags (no value). */
 const FLAG_RULES = ['hidden', 'uppercase', 'multiple'];
 

@@ -1,6 +1,7 @@
 import { loadScript } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import { outsideUrl } from '../../scripts/clock.js';
+import { brandWwwHost } from '../../scripts/brand.js';
 import {
   cleanText, stripZeroWidth, toConfigKey, resolveLabels, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -23,9 +24,11 @@ import {
  * (shown from the first submit on, then while typing), the submit button below the last band.
  * A valid submit posts the entries to the lh-forms worker (scripts/lh-forms.js, multipart:
  * form, locale, page, fields JSON, honeypot lh_hp, the bot check token, files) and goes to the
- * success page, or to the error page when anything fails (config rows: Type "config", Name
- * form / success / error). The bot check: a Cloudflare Turnstile widget above the submit button
- * (managed, shown only when it needs the visitor), its site key from lh-forms' configuration.
+ * success page; when sending fails, to the error page if the form names one on this site that
+ * exists, else an error message above the submit button, the entries kept for another try (config
+ * rows: Type "config", Name form / success / error). The bot check: a Cloudflare Turnstile
+ * widget above the submit button (managed, shown only when it needs the visitor), its site key
+ * from lh-forms' configuration.
  */
 
 /** UI strings; each can be overridden by a row of type "label" (Name = key, Label = text). */
@@ -53,6 +56,8 @@ const DEFAULT_LABELS = {
     'file too big': 'Please upload a file with an accepted file size',
     'file invalid name': 'The file name contains an invalid character',
     'file too many': 'No more than {MAX} can be uploaded',
+    'file total': 'All files together: max. {TOTAL}',
+    'send error': 'Sorry, your request could not be sent. Please try again.',
     'stepper decrease': 'Decrease',
     'stepper increase': 'Increase',
     'repeat remove': 'Remove',
@@ -80,10 +85,32 @@ const DEFAULT_LABELS = {
     'file too big': 'Bitte laden Sie eine Datei mit akzeptierter Dateigröße hoch',
     'file invalid name': 'Der Dateiname enthält ein ungültiges Zeichen',
     'file too many': 'Es können nicht mehr als {MAX} hochgeladen werden',
+    'file total': 'Alle Dateien zusammen: max. {TOTAL}',
+    'send error': 'Leider konnte Ihre Anfrage nicht gesendet werden. Bitte versuchen Sie es noch einmal.',
     'stepper decrease': 'Verringern',
     'stepper increase': 'Erhöhen',
     'repeat remove': 'Entfernen',
   },
+};
+
+/**
+ * The total of a submission's files (lh-forms MAIL_FILES.maxTotal: www's 5 x 3.7 MB); a file row's
+ * rule max-total sets another. A drop zone whose files could exceed it names it.
+ */
+export const FILES_TOTAL = 18500000;
+
+/** The total's line in the page's language (the brand sites' forms; others: the label table). */
+const FILE_TOTAL_LABELS = {
+  fr: 'Tous les fichiers ensemble : max. {TOTAL}',
+  it: 'Tutti i file insieme: max. {TOTAL}',
+  es: 'Todos los archivos juntos: máx. {TOTAL}',
+  ru: 'Все файлы вместе: не более {TOTAL}',
+  zh: '所有文件合计不超过 {TOTAL}',
+  el: 'Όλα τα αρχεία μαζί: έως {TOTAL}',
+  ja: 'すべてのファイルの合計：最大 {TOTAL}',
+  pl: 'Wszystkie pliki łącznie: maks. {TOTAL}',
+  nl: 'Alle bestanden samen: max. {TOTAL}',
+  pt: 'Todos os arquivos juntos: máx. {TOTAL}',
 };
 
 /** Rows that end the current sub-section (fieldset). */
@@ -566,6 +593,8 @@ function renderFileDrop(row, ctx) {
   const tokens = row.options.split(',').map((t) => t.trim()).filter(Boolean);
   if (!rules.accept) rules.accept = tokens.filter((t) => t.toLowerCase() !== 'multiple').join(',');
   const maxFiles = rules['max-files'] || (tokens.some((t) => /^multiple$/i.test(t)) ? 10 : 1);
+  const total = rules['max-total'] || FILES_TOTAL;
+  const totalText = labels['file total'].replace('{TOTAL}', formatFileSize(total));
   wrapper.classList.add('form-filedrop');
 
   const input = el('input', 'form-filedrop-input');
@@ -593,6 +622,13 @@ function renderFileDrop(row, ctx) {
   if (help) {
     help.classList.add('form-filedrop-hint');
     zone.append(help);
+  }
+  // files that could exceed the total (5 x 5 MB): the zone says it, in the page's language
+  if (!rules['max-size'] || maxFiles * rules['max-size'] > total) {
+    const line = el('p', 'form-filedrop-total', totalText);
+    line.id = `${id}-total`;
+    describe(button, line.id);
+    zone.append(line);
   }
   const status = srOnly(row.required ? labels['file required'] : (row.optionalMark || ''));
   status.id = `${id}-status`;
@@ -630,12 +666,16 @@ function renderFileDrop(row, ctx) {
   const add = (added) => {
     [...added].forEach((file) => {
       let problem = fileProblem(file, rules);
-      if (!problem && files.filter((f) => !f.problem).length >= maxFiles) problem = 'tooMany';
+      const kept = files.filter((f) => !f.problem);
+      if (!problem && kept.length >= maxFiles) problem = 'tooMany';
+      // the selection over the total is refused before sending, as a file that is too big
+      if (!problem && kept.reduce((n, f) => n + f.file.size, file.size) > total) problem = 'totalTooBig';
       const message = {
         invalidFileName: labels['file invalid name'],
         fileTooBig: labels['file too big'],
         invalidFileType: labels['file invalid type'],
         tooMany: labels['file too many'].replace('{MAX}', String(maxFiles)),
+        totalTooBig: totalText,
       }[problem] || '';
       files.push({ file, problem, message });
     });
@@ -1138,17 +1178,20 @@ function readConfig(rows) {
 
 /**
  * URL to go to for an authored page link: relative links stay on this host (also links DA made
- * absolute to an aem.page / aem.live host, and www.lufthansa.com links); under /content/ (local
- * dev server) the locale paths get the /content prefix.
+ * absolute to an aem.page / aem.live host, www.lufthansa.com links and links to the brand's own
+ * www, scripts/brand.js brandWwwHost); under /content/ (local dev server) the locale paths get
+ * the /content prefix.
  */
-function pageUrl(href) {
+export function pageUrl(href) {
   const here = window.location;
   const url = new URL(href, here.href);
   let path = `${url.pathname}${url.search}${url.hash}`;
   // www.lufthansa.com links (the importer keeps links to pages not migrated at import time, and
-  // live's /error.html, absolute) name the same page on this site
+  // live's /error.html, absolute) and the brand's www (www.austrian.com/at/en/form-confirmation)
+  // name the same page on this site
+  const own = ['www.lufthansa.com', brandWwwHost()].filter(Boolean);
   if (url.origin !== here.origin && !/\.aem\.(page|live)$/.test(url.hostname)
-    && url.hostname !== 'www.lufthansa.com') return url.href;
+    && !own.includes(url.hostname)) return url.href;
   if (here.pathname.startsWith('/content/') && /^\/[a-z]{2}\/[a-z]{2}(\/|$)/.test(path)) {
     path = `/content${path}`;
   }
@@ -1318,14 +1361,51 @@ function setBusy(button, busy) {
 }
 
 /**
- * Posts a valid core form once: ok -> the success page (no success row: the success message),
- * any failure (network, non-2xx, ok false) -> the error page. No retries.
+ * The error page to go to when sending fails: the error row's page (else /error.html) when it is
+ * on this site and exists (a HEAD answers 2xx); else null: the message in place.
  */
-async function sendForm(form, fieldWrappers, ctx, button, status) {
+export async function errorPage(href, fetchImpl = fetch) {
+  const forms = await import('../../scripts/lh-forms.js');
+  const target = pageUrl(href || forms.DEFAULT_ERROR_PAGE);
+  if (new URL(target).origin !== window.location.origin) return null;
+  try {
+    const res = await fetchImpl(target, { method: 'HEAD', credentials: 'same-origin' });
+    return res.ok ? target : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/** The send error above the submit button (role alert); the form keeps its entries. */
+function showSendError(form, ctx, show) {
+  let note = form.querySelector(':scope > .form-send-error');
+  if (!show) {
+    if (note) note.hidden = true;
+    return;
+  }
+  if (!note) {
+    note = el('p', 'form-send-error');
+    note.setAttribute('role', 'alert');
+    const actions = [...form.children].find((c) => c.classList.contains('form-actions'));
+    const before = form.querySelector(':scope > .form-bot-check') || actions || form.querySelector(':scope > .form-status');
+    form.insertBefore(note, before);
+  }
+  note.textContent = ctx.labels['send error'];
+  note.hidden = false;
+  if (note.scrollIntoView) note.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/**
+ * Posts a valid core form once: ok -> the success page (no success row: the success message);
+ * any failure (network, non-2xx, ok false) -> the error page when it exists on this site, else
+ * the send error above the submit button, the entries kept (the visitor may try again).
+ */
+export async function sendForm(form, fieldWrappers, ctx, button, status) {
   if (ctx.sending) return;
   ctx.sending = true;
   ctx.busyButton = button;
   setBusy(button, true);
+  showSendError(form, ctx, false);
   status.textContent = ctx.labels.sending;
   const { config } = ctx;
   let ok = false;
@@ -1347,7 +1427,16 @@ async function sendForm(form, fieldWrappers, ctx, button, status) {
     ok = false;
   }
   if (!ok) {
-    window.location.href = pageUrl(config.error || '/error.html');
+    const target = await errorPage(config.error);
+    if (target) {
+      window.location.href = target;
+      return;
+    }
+    ctx.sending = false;
+    setBusy(button, false);
+    status.textContent = '';
+    if (ctx.botCheck) ctx.botCheck.reset();
+    showSendError(form, ctx, true);
     return;
   }
   if (config.success) {
@@ -1387,6 +1476,9 @@ export default function decorate(block) {
     if (key && r.label && !overrides[key]) overrides[key] = { text: r.label };
   });
   const labels = resolveLabels(DEFAULT_LABELS, overrides, locale.lang);
+  if (!overrides[toConfigKey('file total')] && FILE_TOTAL_LABELS[locale.lang]) {
+    labels['file total'] = FILE_TOTAL_LABELS[locale.lang];
+  }
   const ctx = {
     prefix,
     labels,
