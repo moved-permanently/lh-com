@@ -227,6 +227,31 @@ in DA answers 409 at preview twice
 - `/at/en/culinaryjourney` links out to www's culinary hub (micro-frontend); the check-in
   deadline search and the help centre link out as on lh-ita.
 
+## lh-edge: austrian.turnsthe.page (2026-10-31)
+
+Commits 7c1b2709 (indexes) and 6a45da5c (site), deployed 10:03 UTC; the host is not attached yet.
+- Site entry (`scripts/brands.js` `BRAND_SITES.austrian`, lh-edge's `SITES` are built from it):
+  64 roots, the ten reference roots holding the language documents, 54 market roots (48 English,
+  ch/de, de/de, ca/fr, ch/fr, ch/it, by/ru); names from www's selector, airports from the
+  homepages' flight search. Not roots: the nine xx homepages that answer 404 on www, ae/ae, be/fr,
+  kr/en. No `portal`, `hub` or `airline` yet (the pages keep Lufthansa's API tenant and labels).
+- Entry paths: `/`, `/xx/en`, `/at` to `/at/en/homepage` (`SITE_ENTRIES`, 302).
+- Fonts: `SITE_DESIGN_HOSTS austrian=www.lufthansa.com` (the same mausy-v1.40.1 release has
+  `fonts/austrian/`; www.austrian.com refuses plain requests).
+- DAM: no change; `/content/dam/aua/...`, `/austrian/...`, `/video/...` name as the copies.
+- Indexes: `search-at-en`, `-ru-ru`, `-cn-zh`, `-pl-pl` and their lean indexes were missing; until
+  those pages are published again (or reindexed) the 48 English market roots and by/ru answer
+  404 (ch/fr, ca/fr, ch/de, de/de, ch/it answer from fr/fr, at/de, it/it).
+- Checks with the deployed code and vars (`wrangler dev --local-upstream austrian.turnsthe.page`;
+  workers.dev with that Host header: Cloudflare's 403): `/`, `/xx/en`, `/at` 302; `/at/en/homepage`,
+  `/at/de/homepage`, `/fr/fr/airbus-a320neo` 200; `/ch/fr/…`, `/de/de/…`, `/ch/de/…` 200 (market,
+  canonical on the host); `/gb/en/…` 404 (index); `/ca/en/local-page/austrian-in-canada` 200;
+  fonts 200 (digitalhangar); an image and a PDF 200 (dam); the shark video and a `.vtt` 206
+  (dam-aem). Smoke of the seven hosts before and after: 0 differences.
+- Content: the Canada conditions-of-carriage pages (en, fr) link `16Aug2024.pdf` on www (local
+  documents); `/redirects` (11 rows: `austrian_in_canada`, `mobile-check-in` on the ten
+  reference roots) uploaded to DA, not previewed.
+
 ## For the Workers and shared config (not changed here)
 
 - lh-forms: the 35 form ids and lh-austrian's origins; attachments over 3.5 MB.
