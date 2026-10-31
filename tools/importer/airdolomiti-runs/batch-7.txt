@@ -1,0 +1,56 @@
+# lh-airdolomiti batch-7 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T15:07Z; not published
+# documents (39 + /nav, /footer):
+/articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti
+/articoli/destinazioni/fuori-monaco-di-baviera-il-lago-di-starnberg
+/articoli/destinazioni/genova-in-tre-giorni
+/articoli/destinazioni/i-mercatini-di-natale-a-monaco-di-baviera
+/articoli/destinazioni/il-famoso-carillon-di-marienplatz-a-monaco-di-baviera
+/articoli/destinazioni/il-mainfest-di-francoforte-2025
+/articoli/destinazioni/in-viaggio-con-andrea-lorenzon-alias-cartoni-morti
+/articoli/destinazioni/in-viaggio-con-mamma-tra-le-meraviglie-ditalia
+/articoli/destinazioni/la-barcolana-di-trieste
+/articoli/destinazioni/la-fiera-del-libro-di-francoforte-tutto-quello-che-ce-da-sapere-su-questa-edizione
+/articoli/destinazioni/larena-di-verona
+/articoli/destinazioni/le-migliori-ciaspolate-vicino-verona
+/articoli/destinazioni/le-piu-belle-ferrate-vicino-torino
+/articoli/destinazioni/m9-di-mestre-il-900-super-tecnologico-a-due-passi-da-venezia
+/articoli/destinazioni/monaco-di-baviera-insolita
+/articoli/destinazioni/o-zapft-is-il-nuovo-oktoberfest
+/articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione
+/articoli/destinazioni/stravagante-hostel-verona
+/articoli/destinazioni/street-art-monaco-di-baviera-luoghi-imperdibili
+/articoli/destinazioni/street-food-a-monaco-di-baviera
+/articoli/destinazioni/torino-con-i-bambini
+/articoli/destinazioni/torino-creativa-itinerario-arte-contemporanea
+/articoli/destinazioni/un-viaggio-tra-le-4-meraviglie-unesco-pugliesi
+/articoli/destinazioni/visitare-venezia-durante-la-mostra-del-cinema
+/articoli/didyouknow/5-cose-che-non-sapevi-sul-pride
+/articoli/didyouknow/aeropittura-e-futurismo
+/articoli/didyouknow/aeroplanini-di-carta
+/articoli/didyouknow/aeroporti-progettati-da-archistar
+/articoli/didyouknow/aforismi-e-quotes-sugli-aerei
+/articoli/didyouknow/antoine-de-saint-exupery-scrittore-aviatore
+/articoli/didyouknow/boeing-boeing-di-marc-camoletti
+/articoli/didyouknow/breve-storia-dei-sedili-degli-aerei
+/articoli/didyouknow/breve-storia-del-passaporto
+/articoli/didyouknow/casablanca-3
+/articoli/didyouknow/celebrities-aerei
+/articoli/didyouknow/chi-ha-inventato-il-tavolino-pieghevole-dellaereo
+/articoli/didyouknow/come-sara-il-viaggiatore-del-futuro
+/articoli/didyouknow/come-si-vernicia-un-aereo-e-perche-tutti-gli-aerei-sono-bianchi
+/articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita
+/nav
+/footer
+# not imported (1):
+#   https://www.airdolomiti.it/articoli/destinazioni/il-carnevale-di-venezia: error on the source (HTTP null https://www.airdolomiti.it/articoli/destinazioni/i-mercatini-di-natale-a-monaco-di-baviera)
+# blocks without a handler (their content generically): none
+# render check: 2 problems:
+#   /articoli/destinazioni/la-fiera-del-libro-di-francoforte-tutto-quello-che-ce-da-sapere-su-questa-edizione h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti -> /articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti: text 10/11, images 0/0 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.it/articoli/destinazioni/street-food-a-monaco-di-baviera -> /articoli/destinazioni/street-food-a-monaco-di-baviera: text 20/21, images 3/3 (+1), links 3/3 (+1)
+#   https://www.airdolomiti.it/articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita -> /articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita: text 4/5, images 0/0 (+1), links 3/3 (+0)
+#   https://www.airdolomiti.it/articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/destinazioni/street-food-a-monaco-di-baviera: text missing: "tempo di lettura: 4 minuti"
+#   https://www.airdolomiti.it/articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita: text missing: "tempo di lettura: 2 minuti"

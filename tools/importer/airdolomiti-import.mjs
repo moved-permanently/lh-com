@@ -189,8 +189,22 @@ export class Page {
   img(image) {
     const im = imageOf(image);
     if (!im) return '';
-    const src = this.file(im.url, 'image') || im.url;
-    return `<picture><img src="${attr(src)}" alt="${attr(im.alt)}"></picture>`;
+    let src = this.file(im.url, 'image');
+    if (!src) {
+      const key = im.url.replace(/[?#].*$/, '');
+      const d = loadSite().state.done[key];
+      if (d && d.status === 404) {
+        // a resized copy WordPress no longer has (-1024x683): the original file, else left out
+        const original = key.replace(/-\d+x\d+(?=\.[a-z0-9]+$)/i, '');
+        this.missing.delete(key);
+        src = original !== key ? this.file(original, 'image') : null;
+        if (!src) {
+          this.note(`image ${key.split('/').pop()}: 404 on www${original !== key ? ', its original not downloaded yet' : ', left out'}`);
+          if (original === key) return '';
+        }
+      }
+    }
+    return `<picture><img src="${attr(src || im.url)}" alt="${attr(im.alt)}"></picture>`;
   }
 
   link(url, label, button) {
