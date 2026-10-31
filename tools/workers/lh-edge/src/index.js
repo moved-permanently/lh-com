@@ -49,6 +49,7 @@ import {
 import { referrerRefusal } from './referrer.js';
 import { frontDoorOf, frontDoorTarget, withPublicHost } from './front-door.js';
 import { headUrlHost, rewriteHeadUrls } from './head-urls.js';
+import { rewriteBrandIcons } from './brand-icons.js';
 import { urlForm, urlFormUnlessPage, isLongPagePath } from './url-forms.js';
 import {
   onetrust, isOnetrustPath, fonts, isFontsPath, withGeoCookie,
@@ -394,6 +395,8 @@ export default {
     let resp = site
       ? await siteRespond(incoming, env, site, ctx)
       : await respond(incoming, env, ctx);
+    // a brand's host (src/brand-icons.js): its favicon and manifest in the head, before the paint
+    if (site) resp = rewriteBrandIcons(resp, incoming, site);
     // turnsthe.page hosts (src/head-urls.js): head URLs that name the site config's production host
     // (HEAD_URLS_FROM, "" today) point at the host; no rewriter anywhere else
     const head = headUrlHost(incoming, env, alias);

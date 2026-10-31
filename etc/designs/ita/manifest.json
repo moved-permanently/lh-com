@@ -1,0 +1,32 @@
+{
+  "icons": [
+    {
+      "src": "/etc/designs/ita/clientlib-all/vite/img/icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/etc/designs/ita/clientlib-all/vite/img/icon_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/etc/designs/ita/clientlib-all/vite/img/icon_16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "name": "ITA airways",
+  "short_name": "ITA",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.itaairways.bmobile"
+    }
+  ]
+}
