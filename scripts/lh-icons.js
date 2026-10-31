@@ -100,6 +100,8 @@ const ICON_LABELS = {
   youtube: 'YouTube',
   instagram: 'Instagram',
   linkedin: 'LinkedIn',
+  x: 'X',
+  tiktok: 'TikTok',
   'lufthansa-group': 'Lufthansa Group',
   'iata-cargo-iq': 'IATA Cargo iQ',
 };
