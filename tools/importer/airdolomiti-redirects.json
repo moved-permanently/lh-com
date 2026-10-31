@@ -48,6 +48,150 @@
   "Destination": "/supporto-e-contatti/customer-relations"
  },
  {
+  "Source": "/en/airport/prague",
+  "Destination": "/en/airports/prague"
+ },
+ {
+  "Source": "/en/airport/ljubljana-eu",
+  "Destination": "/en/airports/ljubljana-eu"
+ },
+ {
+  "Source": "/en/airport/birmingham-eu",
+  "Destination": "/en/airports/birmingham-eu"
+ },
+ {
+  "Source": "/en/airport/rijeka",
+  "Destination": "/en/airports/rijeka"
+ },
+ {
+  "Source": "/en/airport/bordeaux",
+  "Destination": "/en/airports/bordeaux"
+ },
+ {
+  "Source": "/en/airport/biarritz-eu",
+  "Destination": "/en/airports/biarritz-eu"
+ },
+ {
+  "Source": "/en/airport/figari-eu",
+  "Destination": "/en/airports/figari-eu"
+ },
+ {
+  "Source": "/en/airport/basel",
+  "Destination": "/en/airports/basel"
+ },
+ {
+  "Source": "/en/airport/billund-eu",
+  "Destination": "/en/airports/billund-eu"
+ },
+ {
+  "Source": "/en/airport/innsbruck",
+  "Destination": "/en/airports/innsbruck"
+ },
+ {
+  "Source": "/en/airport/jersey",
+  "Destination": "/en/airports/jersey"
+ },
+ {
+  "Source": "/en/airport/graz-eu",
+  "Destination": "/en/airports/graz-eu"
+ },
+ {
+  "Source": "/en/airport/cagliari-eu",
+  "Destination": "/en/airports/cagliari-eu"
+ },
+ {
+  "Source": "/en/airport/pula-eu",
+  "Destination": "/en/airports/pula-eu"
+ },
+ {
+  "Source": "/en/airport/palermo-eu",
+  "Destination": "/en/airports/palermo-eu"
+ },
+ {
+  "Source": "/en/airport/krakow-eu",
+  "Destination": "/en/airports/krakow-eu"
+ },
+ {
+  "Source": "/en/airport/amsterdam-eu",
+  "Destination": "/en/airports/amsterdam-eu"
+ },
+ {
+  "Source": "/en/airport/ancona-en",
+  "Destination": "/en/airports/ancona-en"
+ },
+ {
+  "Source": "/en/airport/london-city",
+  "Destination": "/en/airports/london-city"
+ },
+ {
+  "Source": "/en/airport/lyon",
+  "Destination": "/en/airports/lyon"
+ },
+ {
+  "Source": "/en/airport/geneva",
+  "Destination": "/en/airports/geneva"
+ },
+ {
+  "Source": "/en/airport/luxembourg-en",
+  "Destination": "/en/airports/luxembourg-en"
+ },
+ {
+  "Source": "/en/airport/katowice",
+  "Destination": "/en/airports/katowice"
+ },
+ {
+  "Source": "/en/airport/genoa-en",
+  "Destination": "/en/airports/genoa-en"
+ },
+ {
+  "Source": "/en/airport/trieste-en",
+  "Destination": "/en/airports/trieste-en"
+ },
+ {
+  "Source": "/en/airport/olbia-en",
+  "Destination": "/en/airports/olbia-en"
+ },
+ {
+  "Source": "/en/airport/brindisi-en",
+  "Destination": "/en/airports/brindisi-en"
+ },
+ {
+  "Source": "/en/airport/turin-en",
+  "Destination": "/en/airports/turin-en"
+ },
+ {
+  "Source": "/en/airport/pisa-en",
+  "Destination": "/en/airports/pisa-en"
+ },
+ {
+  "Source": "/en/airport/munich",
+  "Destination": "/en/airports/munich"
+ },
+ {
+  "Source": "/en/airport/milan-malpensa",
+  "Destination": "/en/airports/milan-malpensa"
+ },
+ {
+  "Source": "/en/airport/milan-linate",
+  "Destination": "/en/airports/milan-linate"
+ },
+ {
+  "Source": "/en/airport/frankfurt-eu",
+  "Destination": "/en/airports/frankfurt-eu"
+ },
+ {
+  "Source": "/en/airport/florence",
+  "Destination": "/en/airports/florence"
+ },
+ {
+  "Source": "/en/airport/bologna-en",
+  "Destination": "/en/airports/bologna-en"
+ },
+ {
+  "Source": "/en/airport/bari-en",
+  "Destination": "/en/airports/bari-en"
+ },
+ {
   "Source": "/en/environmental-commitment",
   "Destination": "/en/faq-eu/sustainable-aviation-fuel-saf"
  },

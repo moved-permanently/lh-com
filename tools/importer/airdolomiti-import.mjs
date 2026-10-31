@@ -470,7 +470,7 @@ const HANDLERS = {
     else page.add(text);
   },
   'lazyblock/half-page': (a, page, b) => {
-    const card = `${page.heading(a.tag || 'h3', a.cardTitle)}${a.cardSubtitle ? `<p>${esc(plain(a.cardSubtitle))}</p>` : ''}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}${a.urlLink ? page.link(a.urlLink, a.textLink) : ''}`;
+    const card = `${page.heading(a.tag || 'h3', a.cardTitle)}${a.cardSubtitle ? `<p>${esc(plain(a.cardSubtitle))}</p>` : ''}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}${a.urlLink ? page.link(a.urlLink, plain(a.textImage) || a.textLink) : ''}`;
     // a column holding a list block (accordion, cards): its blocks on the page, then the card as
     // its own image | text row; else the column's texts beside the card
     if ((b.innerBlocks || []).some((x) => LIST_BLOCKS.test(x.name))) {
@@ -512,6 +512,12 @@ const HANDLERS = {
     const body = `${title ? page.heading('h2', title.textContent) : ''}${text ? `<p>${esc(plain(text.textContent))}</p>` : ''}<p><strong><a href="${attr(page.source)}">${esc(plain(start ? start.textContent : 'Quiz'))}</a></strong></p>`;
     page.block('columns-media', [[im ? page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }) : '', body]]);
     page.note('quiz (questions load on www after start): its intro and a link to the post on www');
+  },
+  'lazyblock/breeze-esim-widget': (a, page) => {
+    // www's eSIM shop (Breeze widget, a live tool): a link to the page on the live site
+    const label = { it: 'Scopri le offerte eSIM', en: 'Find your eSIM plan', de: 'eSIM-Tarif finden' }[page.lang];
+    page.add(`<p><strong><a href="${attr(page.source)}">${esc(label)}</a></strong></p>`);
+    page.note('eSIM widget (live tool): a link to the page on www');
   },
   'lazyblock/margin-top': () => {},
   'lazyblock/html-content': (a, page) => { page.add(rich(a.content || a.html || a.text, page, 'top')); },
