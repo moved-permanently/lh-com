@@ -39,8 +39,15 @@ export const BRANDS = {
     destinationImages: '/content/dam/ita/images/offers/destination',
     www: 'www.ita-airways.com',
   },
-  // Austrian Airlines (lh-austrian): when the Austrian session adds its brand key here, its entry
-  // gets messageCenter: 'os' (its tenant on www); its icons row: scripts/brand-icons.js
+  // Austrian Airlines (lh-austrian): its icons row: scripts/brand-icons.js; destination images:
+  // the fare widgets' imageBaseUrl on www's homepage (2026-10-31)
+  austrian: {
+    name: 'Austrian Airlines',
+    oneTrust: '01994cb3-6317-72f4-8589-1be98309c258',
+    messageCenter: 'os',
+    destinationImages: '/content/dam/austrian/global/images/offers/destination',
+    www: 'www.austrian.com',
+  },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
   cargo: {

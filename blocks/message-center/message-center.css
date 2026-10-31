@@ -89,12 +89,13 @@ main > .section > .message-center-wrapper:not(.message-center-empty) + div {
   height: 24px;
 }
 
-/* .richtext p: 18px/27px, margin 0 0 2.4rem; links bold #52627c */
+/* .richtext p: 18px/27px, margin 0 0 2.4rem; links bold #52627c (the body tokens: 18px x 1.5
+   as before; a brand theme's body size follows, austrian 16/24) */
 .message-center .message-center-panel {
   padding: 10px 20px 20px 13px;
   color: var(--lh-deepblue, #05164d);
-  font-size: 18px;
-  line-height: 27px;
+  font-size: var(--body-font-size-m, 18px);
+  line-height: var(--body-line-height, 1.5);
 }
 
 .message-center .message-center-panel p {

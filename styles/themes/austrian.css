@@ -1,0 +1,109 @@
+/*
+ * Austrian Airlines: design tokens only, loaded by scripts/brand.js on a site whose metadata sets
+ * `brand: austrian` (lh-austrian's /metadata.json). Values from www.austrian.com's design system
+ * (mausy v1.40.1, theme maui-os; the at/en homepage, 2026-10-30): text and headings #1a1a1a, Austrian
+ * red for the primary button and the footer's link area, links in copy #4d4d4d, Austrian's greys and
+ * status colours, a white header bar. Fonts: www's Portada (headings, SemiBold) and CoreSans (copy,
+ * 16/24 px), woff2 only, cleared for the demo, at www's own path
+ * /digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/: from the site's own
+ * host where lh-edge serves it, else www.austrian.com's absolute URL of the same file (the second
+ * src), as the ita theme does. The logos are images in the site's nav and footer documents. lh-com's
+ * own pages never load this file.
+ */
+@font-face {
+  font-family: Portada;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-Regular.woff2') format('woff2'),
+    url('https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Portada;
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-SemiBold.woff2') format('woff2'),
+    url('https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: CoreSans;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansRegular.woff2') format('woff2'),
+    url('https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansRegular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: CoreSans;
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src:
+    url('/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansMedium.woff2') format('woff2'),
+    url('https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansMedium.woff2') format('woff2');
+}
+
+:root {
+  /* palette: the --lh-* names lh-com's blocks read, with Austrian's values */
+  --lh-deepblue: #1a1a1a; /* os-text: text, borders, dark surfaces */
+  --lh-deepblue-transparent: #1a1a1a1a;
+  --lh-midnight: #1a1a1a;
+  --lh-whale-blue: #4d4d4d; /* osgrey7: links in copy */
+  --lh-marble-blue: #262626; /* osgrey8: their hover on dark accents */
+  --lh-electric-blue: #0968f6;
+  --lh-yellow: #d81e05; /* os-red: primary actions */
+  --lh-sunglow-yellow: #ac1804; /* milano-red: their hover */
+  --lh-red: #ad1804; /* status error (dark-milano-red) */
+  --lh-green: #007d35; /* status success (fun-green); warning #826c1c: lh-com's blocks have no warning colour */
+  --lh-grey-1: #f6f6f6;
+  --lh-grey-2: #e7e7e7;
+  --lh-grey-3: #d1d1d1;
+  --lh-grey-4: #b0b0b0;
+  --lh-grey-5: #888;
+  --lh-grey-6: #5d5d5d;
+  --lh-grey-7: #4d4d4d;
+  --lh-grey-8: #262626;
+
+  /* roles */
+  --text-color: #1a1a1a;
+  --heading-color: #1a1a1a;
+  --link-color: #4d4d4d;
+  --link-hover-color: #ac1804;
+  --focus-color: #0968f6;
+  --brand-color: #d81e05;
+  --border-color: #d1d1d1;
+  --border-light-color: #e7e7e7;
+
+  /* fonts: Portada for headings (SemiBold), CoreSans for copy, 16/24 px body */
+  --body-font-family: coresans, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: portada, arial, helvetica, mammilessymbol, sans-serif;
+  --heading-light-weight: 500; /* every Austrian heading is Portada SemiBold */
+  --body-font-size-m: 16px; /* with --body-line-height 1.5: 24px */
+
+  /* buttons: primary white on Austrian red, secondary red on white; lh-com's radius and height */
+  --button-primary-text: #fff;
+  --button-secondary-color: #d81e05;
+  --button-secondary-hover: #ac1804;
+
+  /* the hero card's headline (hero-card-overlay light) */
+  --hero-card-heading-color: #1a1a1a;
+
+  /* header: white bar, text #1a1a1a, hover milano red */
+  --header-bar-surface: #fff;
+  --header-bar-text: #1a1a1a;
+  --header-bar-text-hover: #ac1804;
+  --header-bar-line: #e7e7e7;
+
+  /* footer: red link area with white text; the logo row white (lh-com's default) */
+  --footer-surface: #d81e05;
+  --footer-muted-text: #fff;
+  --footer-line-color: rgb(255 255 255 / 50%);
+  --footer-field-color: #fff;
+}
