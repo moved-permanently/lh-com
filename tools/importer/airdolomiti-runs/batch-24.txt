@@ -1,0 +1,29 @@
+# lh-airdolomiti batch-24 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T22:33Z; not published
+# documents (15 + /en/nav, /en/footer):
+/en/articles/travellers-en/group-travelling
+/en/articles/travellers-en/guide-for-passengers-requiring-additional-assistance
+/en/articles/travellers-en/lost-luggage
+/en/articles/travellers-en/munich-airport-muc-covid-19-health-and-safety-precautions
+/en/articles/travellers-en/natural-remedies-sos
+/en/articles/travellers-en/never-on-board
+/en/articles/travellers-en/overcoming-the-fear-of-flying
+/en/articles/travellers-en/the-distracted-traveller
+/en/articles/travellers-en/tipstricks-4-opportunities-you-should-seize-the-fly
+/en/articles/travellers-en/tipstricks-for-comfortable-trip-2
+/en/articles/travellers-en/to-choose-the-perfect-bag
+/en/articles/travellers-en/travelling-with-pets
+/en/articles/travellers-en/weekend-hand-luggage
+/en/articles/travellers-en/when-to-start-flying-a-paediatricians-advice
+/en/articles/travellers-en/yoga-and-mindfulness-in-the-air
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 15 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/articles/travellers-en/group-travelling -> /en/articles/travellers-en/group-travelling: text 8/8, images 0/0 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.eu/articles/travellers-en/the-distracted-traveller -> /en/articles/travellers-en/the-distracted-traveller: text 11/11, images 0/0 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/travellers-en/yoga-and-mindfulness-in-the-air -> /en/articles/travellers-en/yoga-and-mindfulness-in-the-air: text 14/14, images 0/0 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.eu/articles/travellers-en/group-travelling: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/travellers-en/the-distracted-traveller: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/travellers-en/yoga-and-mindfulness-in-the-air: no text, image or link of www's missing
