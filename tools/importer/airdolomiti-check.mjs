@@ -53,9 +53,23 @@ urls.forEach((url) => {
   const { document } = parseHTML(html);
   const content = document.querySelector('#page-content') || document.querySelector('main') || document.body;
   const page = new Page(url, langOf(url), html);
-  const texts = [...new Set([...content.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, th')]
+  // www's post HTML is text without paragraphs (HtmlContent): its runs between block elements count too
+  const runs = [];
+  content.querySelectorAll('[class*="HtmlContent_innerContent"]').forEach((box) => {
+    let run = '';
+    // a blank line is a paragraph break (WordPress's wpautop)
+    const flushRun = () => { run.split(/\r?\n\s*\r?\n/).map(norm).filter((t) => t.length > 2).forEach((t) => runs.push(t)); run = ''; };
+    box.childNodes.forEach((c) => {
+      if (c.nodeType === 3) run += c.textContent;
+      else if (c.nodeType === 1 && /^(A|STRONG|B|EM|I|SPAN|U|SUP|SUB|SMALL)$/.test(c.tagName)) run += c.textContent;
+      else if (c.nodeType === 1 && c.tagName === 'BR') run += ' ';
+      else flushRun();
+    });
+    flushRun();
+  });
+  const texts = [...new Set([...[...content.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, th')]
     .filter((n) => !hidden(n, content) && !n.closest('form, nav, [role=dialog]') && !n.querySelector('p, li, h1, h2, h3, h4, h5, h6, td'))
-    .map((n) => norm(n.textContent)).filter((t) => t.length > 2))];
+    .map((n) => norm(n.textContent)), ...runs].filter((t) => t.length > 2))];
   const srcImgs = [...new Set([...content.querySelectorAll('img')].map((i) => i.getAttribute('src') || '')
     .map((s) => { try { return new URL(s, 'https://www.airdolomiti.it/').href; } catch (e) { return ''; } })
     .filter((s) => /cms\.airdolomiti\.it\/wp-content\/uploads/.test(s)).map(imgKey))];
@@ -68,6 +82,8 @@ urls.forEach((url) => {
   // the byline's reading time (article-header shows the Reading Time metadata) counts as text
   const byline = [...main.querySelectorAll('.metadata > div')].filter((r) => /^reading time$/i.test((r.children[0] || {}).textContent || '')).map((r) => r.children[1].textContent).join(' ');
   main.querySelectorAll('.metadata, .section-metadata').forEach((m) => m.remove());
+  // block elements apart, as on the page
+  main.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, div').forEach((n) => n.append(' '));
   const docText = norm(`${main.textContent} ${byline}`);
   const docImgs = [...new Set([...main.querySelectorAll('img')].map((i) => {
     const s = i.getAttribute('src');
