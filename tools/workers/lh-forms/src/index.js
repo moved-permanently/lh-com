@@ -19,6 +19,12 @@
 // eslint-disable-next-line import/no-unresolved -- Workers runtime module (tests: a shim)
 import { WorkerEntrypoint } from 'cloudflare:workers';
 
+/** Austrian's ids (austrian-<page name>) and titles: [en, de], one title for both languages. */
+function austrianForms(titles) {
+  return Object.fromEntries(Object.entries(titles)
+    .map(([name, [en, de = en]]) => [`austrian-${name}`, { en, de }]));
+}
+
 /*
  * Form ids and their titles (the page h1 of /de/en/... and /de/de/...). special-needs and
  * add-sports-baggage have no German page, so their German title is the English one.
@@ -90,18 +96,75 @@ const FORMS = {
     en: 'Gewinnspiel zum Season Kick-Off der Tampa Bay Buccaneers',
     de: 'Gewinnspiel zum Season Kick-Off der Tampa Bay Buccaneers',
   },
+  // ITA Airways (lh-ita): the h1 of its pages (2026-10-31); ita-mice: it/en and de/de; the others
+  // exist in one language (xx/en's group travel page has an Italian h1, as on www)
+  'ita-mice': {
+    en: 'MICE – Meetings, Incentives, Conferences, Exhibition',
+    de: 'MICE – Meetings, Belohnungsreisen, Konferenzen, Ausstellungen',
+  },
+  'ita-group-travel': { en: 'Viaggi di gruppo', de: 'Viaggi di gruppo' },
+  'ita-voglia-di-volare': {
+    en: 'Form di registrazione al corso Voglia di Volare',
+    de: 'Form di registrazione al corso Voglia di Volare',
+  },
+  'ita-emergency-contact': { en: 'Emergency contact', de: 'Emergency contact' },
+  // Austrian Airlines (lh-austrian): the h1 of its at/en (else another English root's) and at/de
+  // pages (2026-10-31); an id with one language has that title for both; austrian-newsletter
+  // has no en or de page (cn/zh, it/it, jp/ja, pl/pl, ru/ru): it/it's and pl/pl's h1
+  ...austrianForms({
+    'anfrage-bestaetigung': ['Anfrage zur Bestätigung'],
+    'anfrage-charterfluege': ['Anfrage zu Charterflügen'],
+    'anfrage-flugbuchung': ['Anfrage zur Flugbuchung'],
+    'anfrage-gepaeck': ['Anfrage zum Gepäck'],
+    'anfrage-gruppenreisen': ['Group travel enquiries', 'Anfrage Gruppenreisen'],
+    'anfrage-gutscheine': ['Enquiry about vouchers', 'Anfrage zu Gutscheinen'],
+    'anfrage-rechnung': ['Anfrage zur Rechnung'],
+    'anfrage-reisen-mit-tieren': ['Anfrage zum Reisen mit Tieren'],
+    'anfrage-sitzplatz-menueauswahl': ['Anfrage zur Sitzplatz- und Menüauswahl'],
+    'anfrage-sonstige-themen': ['Anfrage zu sonstigen Themen'],
+    'anfrage-umbuchung': ['Anfrage zur Umbuchung'],
+    'application-for-compensation-in-the-event-of-flight-irregularities': ['Antrag auf Kompensation und Kostenerstattung bei Unregelmäßigkeiten Ihres Fluges'],
+    bagdamage: ['Enquiry regarding damaged baggage and repairs', 'Anfrage zu beschädigtem Gepäck und Reparatur'],
+    'betroffenenrechte-anfrage': ['Betroffenenrechte-Anfrage'],
+    'cancellation-refund-via-document-upload': ['Request for cancellation and refund via webform'],
+    'contact-form-baggage': ['Baggage enquiry'],
+    'contact-form-booking': ['Enquiry about flight bookings'],
+    'contact-form-booking-confirmation': ['Enquiry about confirmation'],
+    'contact-form-charter': ['Enquiry about charter flights'],
+    'contact-form-medical-request': ['Register your assistance requirements online'],
+    'contact-form-other': ['Enquiry about other topics'],
+    'contact-form-passenger-receipt': ['Enquiry about passenger receipt'],
+    'contact-form-rebooking': ['Enquiry about rebooking'],
+    'contact-form-refund-seat-reservation': ['Request a refund for an additional purchased service'],
+    'contact-form-requested-documents': ['Form for uploading requested documents'],
+    'contact-form-seat-meal-requests': ['Enquiry about seat and menu selection'],
+    'data-protection-contact': ['Data subject rights request'],
+    'emergency-contact': ['Emergency contact'],
+    'exclusive-charter-enquiry': ['Enquiry about exclusive charters', 'Exklusiv-Charter Anfrage'],
+    'fluggaeste-mit-betreuungsbedarf': ['Betreuungsbedarf online anmelden'],
+    'formular-upload-angeforderter-dokumente': ['Formular zum Upload angeforderter Dokumente'],
+    'invoice-request-hungary': ['Invoice Request Hungary'],
+    newsletter: ['Newsletter'],
+    notfallkontakt: ['Notfallkontakt'],
+    'private-check-in-counter': ['Private Check-in Counter', 'Privater Check-in Schalter'],
+    'refund-form': ['Erstattungen'],
+    'request-for-refund-of-expenses': ['Request for a reimbursement of expenses in the event of lost, damaged, or delayed Items', 'Antrag auf Kostenerstattung im Fall von verlorenen, beschädigten oder verspäteten Gegenständen'],
+    'request-traveling-with-animals': ['Enquiry about travelling with pets'],
+    'th-requested-documents': ['Form for uploading requested documents'],
+  }),
 };
 // any country-language pair (the site's roots: de-en, de-de, at-de, gb-en, and the next ones)
 const LOCALE = /^[a-z]{2}-[a-z]{2}$/;
 
 const DEFAULTS = {
-  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
-  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000',
+  ALLOWED_ORIGIN_PATTERN: '^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$',
+  EXTRA_ALLOWED_ORIGINS: 'https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,http://localhost:3000',
 };
 
 const MB = 1000 * 1000;
 const LIMITS = {
-  body: 6 * MB,
+  // the files' total (MAIL_FILES.maxTotal) plus the fields part and the multipart overhead
+  body: 19 * MB,
   fieldsBytes: 256 * 1024,
   fields: 400,
   section: 300,
@@ -113,10 +176,11 @@ const LIMITS = {
 };
 
 // Files, per form that has a dropzone: the rules of its live dropzone plus a total cap that keeps
-// the mail under the Email Service limit: the whole JSON message must stay under 5 MiB,
-// attachments base64-encoded (+33 %), so the files may total 3.5 MB before encoding. A file's
-// sniffed type must be one of the form's types.
-const MAIL_FILES = { maxTotal: 3.5 * MB, notAllowed: '#$%^*()[]', maxName: 200 };
+// the mail under the Email Service limit: 25 MiB per message, attachments included
+// (developers.cloudflare.com/email-service/platform/limits "Total message size", 2026-10-31);
+// attachments are base64-encoded (+33 %), so the files may total 18.5 MB before encoding (www's
+// 5 x 3.7 MB; about 24.7 MB in the message). A file's sniffed type must be one of the form's types.
+const MAIL_FILES = { maxTotal: 18.5 * MB, notAllowed: '#$%^*()[]', maxName: 200 };
 // Discover's contact forms (www.discover-airlines.com compensation-baggage, other-concerns:
 // accept=image/jpeg, image/jpg, application/pdf; max-files=5; max-size=3145728;
 // not-allowed=#$%^*()[])
@@ -127,6 +191,58 @@ const DISCOVER_CONTACT_FILES = {
   maxSize: 3145728,
   ...MAIL_FILES,
 };
+/*
+ * Austrian's drop zones (the file rows of lh-austrian's form pages, as www's forms-filedrop:
+ * accept, max-files, max-size; not-allowed #$%^*()[]). contact-form-booking, anfrage-flugbuchung
+ * and th-requested-documents had "pdf, png, jpg" (and not-allowed=#) there: the same four types.
+ * The 5 x 5 MB of betroffenenrechte-anfrage and data-protection-contact are over the total: the
+ * block refuses a selection over it.
+ */
+function austrianFileRules() {
+  const rules = (types, maxSize, maxFiles = 5) => ({
+    types,
+    extensions: [...new Set(types.map((t) => ({ 'image/png': '.png', 'application/pdf': '.pdf' }[t] || '.jpg')))]
+      .flatMap((e) => (e === '.jpg' ? ['.jpg', '.jpeg'] : [e])),
+    maxFiles,
+    maxSize,
+    ...MAIL_FILES,
+  });
+  const ALL = ['image/png', 'image/jpeg', 'image/jpg', 'application/pdf'];
+  const byForm = {
+    'anfrage-bestaetigung': rules(ALL, 3700000),
+    'anfrage-charterfluege': rules(ALL, 3700000),
+    'anfrage-flugbuchung': rules(ALL, 2048000),
+    'anfrage-gepaeck': rules(ALL, 3700000),
+    'anfrage-gutscheine': rules(ALL, 3700000),
+    'anfrage-rechnung': rules(ALL, 3700000),
+    'anfrage-reisen-mit-tieren': rules(ALL, 3700000),
+    'anfrage-sitzplatz-menueauswahl': rules(ALL, 3700000),
+    'anfrage-sonstige-themen': rules(ALL, 2048000),
+    'anfrage-umbuchung': rules(ALL, 3700000),
+    'application-for-compensation-in-the-event-of-flight-irregularities': rules(ALL, 3700000),
+    bagdamage: rules(['image/png', 'image/jpeg', 'image/jpg'], 3700000),
+    'betroffenenrechte-anfrage': rules(ALL, 5000000),
+    'contact-form-baggage': rules(ALL, 3700000),
+    'contact-form-booking': rules(ALL, 2048000),
+    'contact-form-booking-confirmation': rules(ALL, 3700000),
+    'contact-form-charter': rules(ALL, 3700000),
+    'contact-form-medical-request': rules(ALL, 2048000),
+    'contact-form-other': rules(ALL, 3700000),
+    'contact-form-passenger-receipt': rules(ALL, 3700000),
+    'contact-form-rebooking': rules(ALL, 3700000),
+    'contact-form-refund-seat-reservation': rules(ALL, 3700000),
+    'contact-form-requested-documents': rules(ALL, 3700000),
+    'contact-form-seat-meal-requests': rules(ALL, 3700000),
+    'data-protection-contact': rules(ALL, 5000000),
+    'fluggaeste-mit-betreuungsbedarf': rules(ALL, 3700000),
+    'formular-upload-angeforderter-dokumente': rules(ALL, 3700000),
+    'private-check-in-counter': rules(['image/jpeg', 'image/jpg'], 3700000, 1),
+    'request-for-refund-of-expenses': rules(ALL, 3700000),
+    'request-traveling-with-animals': rules(ALL, 3700000),
+    'th-requested-documents': rules(ALL, 2048000),
+  };
+  return Object.fromEntries(Object.entries(byForm).map(([name, r]) => [`austrian-${name}`, r]));
+}
 const FILE_RULES = {
   // content/de/en/feedback-past-flight: accept=image/png, image/jpeg, image/jpg, application/pdf;
   // max-files=5; max-size=3700000; not-allowed=#$%^*()[]
@@ -139,6 +255,7 @@ const FILE_RULES = {
   },
   'discover-compensation-baggage': DISCOVER_CONTACT_FILES,
   'discover-other-concerns': DISCOVER_CONTACT_FILES,
+  ...austrianFileRules(),
 };
 
 const HONEYPOT = 'lh_hp';
@@ -372,13 +489,32 @@ function sniffType(bytes) {
   return null;
 }
 
-/** Base64 of bytes (attachments in the REST API's JSON). */
+/**
+ * Base64 of bytes (attachments in the REST API's JSON), in chunks of a multiple of 3 bytes: no
+ * binary string of the whole file next to its encoding (memory: 18.5 MB of files per message).
+ */
 function base64(bytes) {
-  let bin = '';
-  for (let i = 0; i < bytes.length; i += 0x8000) {
-    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  const CHUNK = 3 * 0x8000;
+  const parts = [];
+  for (let i = 0; i < bytes.length; i += CHUNK) {
+    parts.push(btoa(String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK))));
   }
-  return btoa(bin);
+  return parts.join('');
+}
+
+/**
+ * The REST API's JSON body: a string without attachments; with them a Blob of parts, so the
+ * base64 contents are not copied into one more string of the whole message (about 25 MB).
+ */
+export function messageBody(message) {
+  const { attachments = [], ...rest } = message;
+  if (!attachments.length) return JSON.stringify(message);
+  const parts = [`${JSON.stringify(rest).slice(0, -1)},"attachments":[`];
+  attachments.forEach(({ content, ...meta }, i) => {
+    parts.push(`${i ? ',' : ''}{"content":"`, content, `",${JSON.stringify(meta).slice(1)}`);
+  });
+  parts.push(']}');
+  return new Blob(parts, { type: 'application/json' });
 }
 
 const MAIL_API = 'https://api.cloudflare.com/client/v4/accounts';
@@ -399,7 +535,7 @@ async function sendMail(env, message) {
         authorization: `Bearer ${String(env.FORM_MAIL_TOKEN).trim()}`,
         'content-type': 'application/json',
       },
-      body: JSON.stringify(message),
+      body: messageBody(message),
       signal: AbortSignal.timeout(MAIL_TIMEOUT_MS),
     });
   } catch (e) {
@@ -437,17 +573,36 @@ async function validateFiles(files, form) {
   }).find(Boolean);
   if (bad) return { status: bad[0], error: bad[1] };
   if (total > rules.maxTotal) return { status: 413, error: 'files-too-large' };
-  const attachments = await Promise.all(files.map(async (file) => {
-    const bytes = new Uint8Array(await file.arrayBuffer());
-    return {
-      content: base64(bytes), filename: file.name, type: sniffType(bytes), disposition: 'attachment',
-    };
-  }));
+  // one file at a time: its bytes go once it is encoded
+  const attachments = [];
+  for (let i = 0; i < files.length; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    const bytes = new Uint8Array(await files[i].arrayBuffer());
+    attachments.push({
+      content: base64(bytes), filename: files[i].name, type: sniffType(bytes), disposition: 'attachment',
+    });
+  }
   if (attachments.some((a) => !a.type || !rules.types.includes(a.type))) return { status: 400, error: 'invalid-file-type' };
   return { attachments };
 }
 
 /* ---------- mail ---------- */
+
+// the brand sites by their turnsthe.page host label and form id prefix (lh-com: neither)
+const BRAND_TAGS = {
+  discover: 'lh-discover', ita: 'lh-ita', austrian: 'lh-austrian', airdolomiti: 'lh-airdolomiti',
+};
+const BRAND_ORIGIN = /^https:\/\/[a-z0-9-]+--(lh-discover|lh-ita|lh-austrian|lh-airdolomiti)--/;
+
+/** The site of a submission (the subject's tag): its origin's, else its form id's, else lh-com. */
+export function siteTag(origin, form) {
+  const site = String(origin || '').match(BRAND_ORIGIN);
+  if (site) return site[1];
+  const host = String(origin || '').match(/^https:\/\/([a-z0-9]+)\.turnsthe\.page$/);
+  if (host && BRAND_TAGS[host[1]]) return BRAND_TAGS[host[1]];
+  const prefix = String(form || '').match(/^([a-z]+)-/);
+  return (prefix && BRAND_TAGS[prefix[1]]) || 'lh-com';
+}
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
@@ -579,13 +734,23 @@ async function submit(request, env, origin) {
   if (!/^multipart\/form-data\s*;/i.test(type)) return fail(400, 'expected-multipart', origin);
   if (await rateLimited(request, env)) return fail(429, 'rate-limited', origin);
 
-  const body = await readLimited(request.body, LIMITS.body);
-  if (body === null) return fail(413, 'payload-too-large', origin);
+  // with a Content-Length (browsers send one; checked above) the runtime parses the body as it
+  // is; without one it is read up to the limit first (one copy of the body less in memory)
   let data;
-  try {
-    data = await new Response(body, { headers: { 'content-type': type } }).formData();
-  } catch (e) {
-    return fail(400, 'invalid-multipart', origin);
+  if (Number.isFinite(declared) && request.headers.has('content-length')) {
+    try {
+      data = await request.formData();
+    } catch (e) {
+      return fail(400, 'invalid-multipart', origin);
+    }
+  } else {
+    const body = await readLimited(request.body, LIMITS.body);
+    if (body === null) return fail(413, 'payload-too-large', origin);
+    try {
+      data = await new Response(body, { headers: { 'content-type': type } }).formData();
+    } catch (e) {
+      return fail(400, 'invalid-multipart', origin);
+    }
   }
 
   const text = {};
@@ -620,6 +785,9 @@ async function submit(request, env, origin) {
   if (checked.error) return fail(400, checked.error, origin);
   const filesChecked = await validateFiles(files, form);
   if (filesChecked.error) return fail(filesChecked.status, filesChecked.error, origin);
+  // the parsed parts are not needed any more (the files are in the attachments)
+  files.length = 0;
+  data = null;
 
   const mode = deliveryMode(env);
   if (mode === 'backends' ? !(isDeliveryConfigured(env) && parseConfig(env.FORM_CONFIG)) : !isMailConfigured(env)) {
@@ -637,7 +805,7 @@ async function submit(request, env, origin) {
   const message = {
     from: String(env.FORM_SENDER || '').trim(),
     to: recipients.to,
-    subject: recipients.subject || `[lh-com] ${title} (${locale})`,
+    subject: recipients.subject || `[${siteTag(origin, form)}] ${title} (${locale})`,
     html,
     text: plain,
   };

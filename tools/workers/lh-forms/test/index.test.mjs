@@ -79,7 +79,8 @@ globalThis.fetch = async (url, init = {}) => {
   mailCalls.push({ url: String(url), init });
   if (mailReply === 'network') throw new TypeError('fetch failed');
   const { status, body } = mailReply;
-  if (status >= 200 && status < 300 && body && body.success) sent.push(JSON.parse(init.body));
+  // the body: a string, or a Blob when the message has attachments (messageBody)
+  if (status >= 200 && status < 300 && body && body.success) sent.push(JSON.parse(typeof init.body === 'string' ? init.body : await init.body.text()));
   return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 };
 const MAIL_OK = {
@@ -372,8 +373,8 @@ test('non-multipart body → 400', async () => {
   assert.deepEqual(await res.json(), { ok: false, error: 'expected-multipart' });
 });
 
-test('Content-Length over 6 MB → 413 before reading', async () => {
-  const req = submission({ headers: { 'Content-Length': String(6 * 1000 * 1000 + 1) } });
+test('Content-Length over 19 MB → 413 before reading', async () => {
+  const req = submission({ headers: { 'Content-Length': String(19 * 1000 * 1000 + 1) } });
   const res = await worker.fetch(req, makeEnv());
   assert.equal(res.status, 413);
   assert.deepEqual(await res.json(), { ok: false, error: 'payload-too-large' });
@@ -381,7 +382,7 @@ test('Content-Length over 6 MB → 413 before reading', async () => {
   assert.equal(minuteHits.size, 0);
 });
 
-test('body over 6 MB without Content-Length → 413 while reading', async () => {
+test('body over 19 MB without Content-Length → 413 while reading', async () => {
   let pulled = 0;
   let cancelled = false;
   const chunk = new Uint8Array(1000 * 1000);
@@ -389,7 +390,7 @@ test('body over 6 MB without Content-Length → 413 while reading', async () => 
     pull(controller) {
       pulled += 1;
       controller.enqueue(chunk);
-      if (pulled > 20) controller.close();
+      if (pulled > 30) controller.close();
     },
     cancel() { cancelled = true; },
   });
@@ -404,7 +405,7 @@ test('body over 6 MB without Content-Length → 413 while reading', async () => 
   assert.equal(res.status, 413);
   assert.deepEqual(await res.json(), { ok: false, error: 'payload-too-large' });
   assert.ok(cancelled);
-  assert.ok(pulled <= 8);
+  assert.ok(pulled <= 21);
   assert.equal(sent.length, 0);
 });
 
@@ -518,8 +519,6 @@ test('file rules of the live form: count, type, name, size, total', async () => 
     [[pdf('bad#name.pdf')], 400, 'invalid-file-name'],
     [[pdf('bad(1).pdf')], 400, 'invalid-file-name'],
     [[pdf('a.pdf', 3700001)], 413, 'file-too-large'],
-    [[pdf('a.pdf', 2300000), pdf('b.pdf', 2300000)], 413, 'files-too-large'],
-    [[pdf('a.pdf', 2000000), pdf('b.pdf', 1500001)], 413, 'files-too-large'],
   ];
   const results = await Promise.all(cases.map(([files], i) => post({ files, ip: `192.0.2.${100 + i}` })));
   results.forEach(({ res, body }, i) => {
@@ -527,10 +526,10 @@ test('file rules of the live form: count, type, name, size, total', async () => 
     assert.deepEqual(body, { ok: false, error: cases[i][2] });
   });
   assert.equal(sent.length, 0);
-  // 3.5 MB in total before base64 (the JSON message must stay under 5 MiB)
-  const ok = await post({ files: [pdf('a.pdf', 2000000), pdf('b.pdf', 1500000)], ip: '192.0.2.200' });
+  // five files of the form's 3.7 MB: 18.5 MB, the total (MAIL_FILES.maxTotal)
+  const ok = await post({ files: [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, 3700000)), ip: '192.0.2.200' });
   assert.equal(ok.res.status, 200);
-  assert.equal(sent[0].attachments.length, 2);
+  assert.equal(sent[0].attachments.length, 5);
 });
 
 test('send failure → 502 and the log carries no address or value', async () => {
@@ -963,4 +962,150 @@ test('files on Discover\'s contact forms: www\'s rule (5 files, 3,145,728 bytes 
   // feedback-past-flight keeps its own rule: a PNG is fine there
   const fb = await post({ ip: '192.0.2.243', files: [['Attachments', file(PNG, 'photo.png', 'image/png')]] });
   assert.equal(fb.res.status, 200);
+});
+
+/* ---------- the brand sites (lh-ita, lh-austrian, lh-airdolomiti) ---------- */
+
+const ITA_IDS = ['ita-mice', 'ita-group-travel', 'ita-voglia-di-volare', 'ita-emergency-contact'];
+const AUSTRIAN_IDS = ['anfrage-bestaetigung', 'anfrage-charterfluege', 'anfrage-flugbuchung', 'anfrage-gepaeck',
+  'anfrage-gruppenreisen', 'anfrage-gutscheine', 'anfrage-rechnung', 'anfrage-reisen-mit-tieren',
+  'anfrage-sitzplatz-menueauswahl', 'anfrage-sonstige-themen', 'anfrage-umbuchung',
+  'application-for-compensation-in-the-event-of-flight-irregularities', 'bagdamage', 'betroffenenrechte-anfrage',
+  'cancellation-refund-via-document-upload', 'contact-form-baggage', 'contact-form-booking',
+  'contact-form-booking-confirmation', 'contact-form-charter', 'contact-form-medical-request', 'contact-form-other',
+  'contact-form-passenger-receipt', 'contact-form-rebooking', 'contact-form-refund-seat-reservation',
+  'contact-form-requested-documents', 'contact-form-seat-meal-requests', 'data-protection-contact',
+  'emergency-contact', 'exclusive-charter-enquiry', 'fluggaeste-mit-betreuungsbedarf',
+  'formular-upload-angeforderter-dokumente', 'invoice-request-hungary', 'newsletter', 'notfallkontakt',
+  'private-check-in-counter', 'refund-form', 'request-for-refund-of-expenses', 'request-traveling-with-animals',
+  'th-requested-documents'].map((n) => `austrian-${n}`);
+const preflight = (origin) => worker.fetch(new Request(`${BASE}/submit`, {
+  method: 'OPTIONS', headers: { Origin: origin, 'Access-Control-Request-Method': 'POST' },
+}), makeEnv());
+
+test('brand sites: their hosts and Edge Delivery hosts are allowed origins; lh-cargo and look-alikes are not', async () => {
+  const allowed = ['https://ita.turnsthe.page', 'https://austrian.turnsthe.page', 'https://airdolomiti.turnsthe.page',
+    'https://main--lh-ita--moved-permanently.aem.page', 'https://main--lh-ita--moved-permanently.aem.live',
+    'https://main--lh-austrian--moved-permanently.aem.page', 'https://main--lh-austrian--moved-permanently.aem.live',
+    'https://main--lh-airdolomiti--moved-permanently.aem.page', 'https://main--lh-discover--moved-permanently.aem.page',
+    'https://discover.turnsthe.page', 'https://lufthansa.turnsthe.page', ORIGIN];
+  const refused = ['https://main--lh-cargo--moved-permanently.aem.page', 'https://cargo.turnsthe.page',
+    'https://main--lh-austrian--moved-permanently.aem.page.example.com', 'https://main--lh-austria--moved-permanently.aem.page',
+    'https://austrian.turnsthe.page.example.com', 'http://austrian.turnsthe.page'];
+  const ok = await Promise.all(allowed.map(preflight));
+  ok.forEach((res, i) => {
+    assert.equal(res.status, 204, allowed[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), allowed[i]);
+  });
+  const no = await Promise.all(refused.map(preflight));
+  no.forEach((res, i) => {
+    assert.equal(res.status, 403, refused[i]);
+    assert.equal(res.headers.get('access-control-allow-origin'), null);
+  });
+  // a submission from a refused origin: nothing read, nothing sent
+  const { res, body } = await post({ form: 'austrian-emergency-contact', locale: 'at-en', origin: 'https://main--lh-cargo--moved-permanently.aem.page' });
+  assert.equal(res.status, 403);
+  assert.deepEqual(body, { ok: false, error: 'origin-not-allowed' });
+  assert.equal(sent.length, 0);
+});
+
+test('brand sites: every ITA and Austrian form id is accepted from its site; an unknown id is not', async () => {
+  const ids = [...ITA_IDS, ...AUSTRIAN_IDS];
+  assert.equal(AUSTRIAN_IDS.length, 39);
+  const results = await Promise.all(ids.map((form, i) => post({
+    form, locale: form.startsWith('ita-') ? 'it-en' : 'at-de', origin: form.startsWith('ita-') ? 'https://ita.turnsthe.page' : 'https://austrian.turnsthe.page', ip: `198.51.100.${i + 1}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    assert.equal(res.status, 200, ids[i]);
+    assert.deepEqual(body, { ok: true }, ids[i]);
+  });
+  assert.equal(sent.length, ids.length);
+  const unknown = await Promise.all(['austrian-unknown', 'ita-group-travel-2', 'austrian', 'group-travel-ita'].map((form, i) => post({ form, origin: 'https://austrian.turnsthe.page', ip: `198.51.100.${200 + i}` })));
+  unknown.forEach(({ res, body }) => {
+    assert.equal(res.status, 400);
+    assert.deepEqual(body, { ok: false, error: 'unknown-form' });
+  });
+  assert.equal(sent.length, ids.length);
+});
+
+test('brand sites: the title is the form\'s, German on a -de root, English elsewhere', async () => {
+  await post({ form: 'austrian-bagdamage', locale: 'at-de', origin: 'https://austrian.turnsthe.page' });
+  await post({ form: 'austrian-bagdamage', locale: 'gb-en', origin: 'https://austrian.turnsthe.page' });
+  await post({ form: 'ita-mice', locale: 'it-it', origin: 'https://ita.turnsthe.page' });
+  assert.match(sent[0].html, /<h1>Anfrage zu beschädigtem Gepäck und Reparatur<\/h1>/);
+  assert.match(sent[1].html, /<h1>Enquiry regarding damaged baggage and repairs<\/h1>/);
+  assert.match(sent[2].html, /<h1>MICE – Meetings, Incentives, Conferences, Exhibition<\/h1>/);
+});
+
+test('brand sites: the subject names the site the mail came from (origin, else form id); lh-com keeps [lh-com]', async () => {
+  const env = makeEnv({ FORM_CONFIG: JSON.stringify({ default: { to: 'only@example.com' } }) });
+  const cases = [
+    [{ form: 'ita-mice', locale: 'it-en', origin: 'https://ita.turnsthe.page' }, '[lh-ita] MICE – Meetings, Incentives, Conferences, Exhibition (it-en)'],
+    [{ form: 'ita-group-travel', locale: 'xx-en', origin: 'https://main--lh-ita--moved-permanently.aem.page' }, '[lh-ita] Viaggi di gruppo (xx-en)'],
+    [{ form: 'austrian-notfallkontakt', locale: 'at-de', origin: 'https://austrian.turnsthe.page' }, '[lh-austrian] Notfallkontakt (at-de)'],
+    [{ form: 'austrian-emergency-contact', locale: 'at-en', origin: 'https://main--lh-austrian--moved-permanently.aem.live' }, '[lh-austrian] Emergency contact (at-en)'],
+    [{ form: 'discover-other-concerns', locale: 'de-en', origin: 'https://discover.turnsthe.page' }, '[lh-discover] Other issues (de-en)'],
+    [{ form: 'discover-other-concerns', locale: 'de-de', origin: 'https://main--lh-discover--moved-permanently.aem.page' }, '[lh-discover] Anderes Anliegen (de-de)'],
+    // the form id when the origin is lh-com's (a test page there)
+    [{ form: 'austrian-anfrage-gepaeck', locale: 'at-de', origin: ORIGIN }, '[lh-austrian] Anfrage zum Gepäck (at-de)'],
+    [{ form: 'group-travel', locale: 'de-de', origin: ORIGIN }, '[lh-com] Gruppenreisen (de-de)'],
+    [{ form: 'group-travel', locale: 'de-en', origin: 'https://lufthansa.turnsthe.page' }, '[lh-com] Group travel (de-en)'],
+  ];
+  const results = await Promise.all(cases.map(([opts], i) => post({ ...opts, ip: `203.0.113.${100 + i}` }, env)));
+  results.forEach(({ res }, i) => assert.equal(res.status, 200, cases[i][1]));
+  assert.deepEqual(sent.map((m) => m.subject).sort(), cases.map((c) => c[1]).sort());
+  // a subject in the configuration still wins
+  await post({
+    form: 'ita-mice', locale: 'it-en', origin: 'https://ita.turnsthe.page', ip: '203.0.113.200',
+  });
+  assert.equal(sent.at(-1).subject, 'Default subject');
+});
+
+test('Austrian file rules: types, per-file size, count, the 18.5 MB total', async () => {
+  const at = { origin: 'https://austrian.turnsthe.page', locale: 'at-en' };
+  const pdf = (name, size = 0) => {
+    const bytes = new Uint8Array(Math.max(size, PDF.length));
+    bytes.set(PDF);
+    return ['Attachments', file(bytes, name, 'application/pdf')];
+  };
+  const png = (name = 'a.png') => ['Attachments', file(PNG, name, 'image/png')];
+  const jpg = (name = 'a.jpg') => ['Attachments', file(JPG, name, 'image/jpeg')];
+  const cases = [
+    // the data protection form: 5 x 5 MB per file, but not more than the total
+    ['austrian-data-protection-contact', [pdf('a.pdf', 5000000)], 200, null],
+    ['austrian-data-protection-contact', [pdf('a.pdf', 5000001)], 413, 'file-too-large'],
+    // 18.6 MB: over the total, under the body cap (over 19 MB: payload-too-large before reading)
+    ['austrian-data-protection-contact', [pdf('1.pdf', 5000000), pdf('2.pdf', 5000000), pdf('3.pdf', 5000000), pdf('4.pdf', 3600000)], 413, 'files-too-large'],
+    ['austrian-data-protection-contact', [1, 2, 3, 4, 5, 6].map((n) => pdf(`${n}.pdf`)), 400, 'too-many-files'],
+    ['austrian-betroffenenrechte-anfrage', [1, 2, 3].map((n) => pdf(`${n}.pdf`, 5000000)), 200, null],
+    // five of 3.7 MB: the total itself
+    ['austrian-contact-form-baggage', [1, 2, 3, 4, 5].map((n) => pdf(`${n}.pdf`, 3700000)), 200, null],
+    ['austrian-contact-form-baggage', [pdf('a.pdf', 3700001)], 413, 'file-too-large'],
+    ['austrian-contact-form-baggage', [png(), jpg()], 200, null],
+    ['austrian-contact-form-baggage', [pdf('bad[1].pdf')], 400, 'invalid-file-name'],
+    // 2,048,000 per file; the three rows that had "pdf, png, jpg": the same four types
+    ['austrian-contact-form-booking', [pdf('a.pdf', 2048000)], 200, null],
+    ['austrian-contact-form-booking', [pdf('a.pdf', 2048001)], 413, 'file-too-large'],
+    ['austrian-anfrage-flugbuchung', [png(), jpg(), pdf('a.pdf')], 200, null],
+    ['austrian-th-requested-documents', [pdf('a#1.pdf')], 400, 'invalid-file-name'],
+    // bagdamage: images only
+    ['austrian-bagdamage', [pdf('a.pdf')], 400, 'invalid-file-type'],
+    ['austrian-bagdamage', [png(), jpg()], 200, null],
+    // the private check-in counter: one JPEG
+    ['austrian-private-check-in-counter', [jpg()], 200, null],
+    ['austrian-private-check-in-counter', [png()], 400, 'invalid-file-type'],
+    ['austrian-private-check-in-counter', [jpg('a.jpg'), jpg('b.jpg')], 400, 'too-many-files'],
+    // forms without a drop zone take no files
+    ['austrian-emergency-contact', [pdf('a.pdf')], 400, 'files-not-allowed'],
+    ['ita-mice', [pdf('a.pdf')], 400, 'files-not-allowed'],
+  ];
+  const results = await Promise.all(cases.map(([form, files], i) => post({
+    ...at, form, files, ip: `192.0.2.${10 + i}`,
+  })));
+  results.forEach(({ res, body }, i) => {
+    const [form, , status, error] = cases[i];
+    assert.equal(res.status, status, `${form} ${i}`);
+    assert.deepEqual(body, error ? { ok: false, error } : { ok: true }, `${form} ${i}`);
+  });
+  assert.equal(sent.length, cases.filter((c) => !c[3]).length);
 });

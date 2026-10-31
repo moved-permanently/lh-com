@@ -23,9 +23,10 @@ service = "lh-backends"
 # backends: lh-backends instead of the e-mail. Switched by Ben once DELIVERY and
 # FORMS_DELIVERY_TOKEN are in place; keep "email" here.
 FORM_DELIVERY = "email"
-# lh-discover (Discover Airlines, repoless on lh-com's code) and its host discover.turnsthe.page
-ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
-EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnsthe.page,http://localhost:3000"
+# the brand sites on lh-com's code (repoless: lh-discover, lh-ita, lh-austrian, lh-airdolomiti; not
+# lh-cargo, whose forms link to its live site) and their turnsthe.page hosts
+ALLOWED_ORIGIN_PATTERN = "^https://[a-z0-9-]+--(lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti)--moved-permanently\\.(aem\\.(page|live)|(stage-)?(preview|ue)\\.da\\.(live|page))$"
+EXTRA_ALLOWED_ORIGINS = "https://lufthansa.turnsthe.page,https://discover.turnsthe.page,https://ita.turnsthe.page,https://austrian.turnsthe.page,https://airdolomiti.turnsthe.page,http://localhost:3000"
 # Bot check (AMS rest A6): Cloudflare Turnstile widget "lh-com forms (lh-forms)" (managed mode;
 # hosts: lh-com's and lh-discover's aem.page/.aem.live hosts and the turnsthe.page hosts). The site
 # key is public; the secret TURNSTILE_SECRET is set in the dashboard. BOT_CHECK on: /submit

@@ -43,9 +43,11 @@ Any other path answers `404 {"ok":false,"error":"not-found"}`. A wrong method an
 ## CORS and Origin
 
 An `Origin` is allowed if it matches `ALLOWED_ORIGIN_PATTERN` (the same pattern as lh-proxy:
-`{branch}--lh-com|lh-flynet|lh-discover--moved-permanently` on aem.page/live and the DA preview,
-Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
-`https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `http://localhost:3000`). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
+`{branch}--lh-com|lh-flynet|lh-discover|lh-ita|lh-austrian|lh-airdolomiti--moved-permanently` on
+aem.page/live and the DA preview, Quick Edit and UE hosts) or is listed in `EXTRA_ALLOWED_ORIGINS` (
+`https://lufthansa.turnsthe.page`, `https://discover.turnsthe.page`, `https://ita.turnsthe.page`,
+`https://austrian.turnsthe.page`, `https://airdolomiti.turnsthe.page`, `http://localhost:3000`).
+Air Dolomiti has no forms yet; lh-cargo is not allowed (its forms link to its live site). Both are `[vars]` in `wrangler.toml`. The worker echoes the allowed
 origin and sets `Vary: Origin`. Any other origin gets `403 {"ok":false,"error":"origin-not-allowed"}`,
 and so does a `POST /submit` with no `Origin` header. `GET /health` works without an `Origin`
 (for curl).
@@ -56,13 +58,13 @@ The body is `multipart/form-data` (for example a `FormData`). It has these parts
 
 | Part | Content |
 | --- | --- |
-| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff` |
-| `locale` | `de-en`, `de-de`, `at-de` or `gb-en` |
+| `form` | the form id, one of: `anmeldung-tiere-frachtraum`, `refund-form`, `feedback-past-flight`, `register-ammunition`, `register-animal-cabin`, `special-needs`, `add-sports-baggage`, `group-travel`, `passenger-receipt-90`; Discover Airlines (lh-discover): `discover-assistance`, `discover-add-sports-baggage`, `discover-register-ammunition`, `discover-register-hunting-firearm`, `discover-register-sporting-firearm`, `discover-register-animal-cargo-hold`, `discover-register-animal-cabin`, `discover-compensation-baggage`, `discover-other-concerns`, `discover-buccaneers-season-kickoff`; ITA Airways (lh-ita): `ita-mice`, `ita-group-travel`, `ita-voglia-di-volare`, `ita-emergency-contact`; Austrian Airlines (lh-austrian): the 39 ids `austrian-<page name>` of its form pages (`FORMS` in `src/index.js`) |
+| `locale` | the page's root as `<cc>-<ll>` (`de-en`, `at-de`, `it-it`, `cn-zh` ...) |
 | `page` | the page URL (`http:` or `https:`, at most 2000 characters) |
 | `fields` | a JSON array in page order: `[{"section":"...","label":"...","name":"...","value":"..."}]`. All four keys are required and must be strings (`""` is allowed). |
 | `cf-turnstile-response` | the Turnstile token (bot check below); needed when `BOT_CHECK` is on, ignored when off |
 | `lh_hp` | the honeypot: a hidden, empty text input. If it is not empty, the worker answers `200 {"ok":true}` and sends nothing. |
-| any other name | an uploaded file (only for `feedback-past-flight`, `discover-compensation-baggage` and `discover-other-concerns`). An empty part (an empty file input) is ignored. A non-empty text part under any other name gets `400 invalid-parts`. |
+| any other name | an uploaded file (only for the forms with a drop zone: `FILE_RULES`, see below). An empty part (an empty file input) is ignored. A non-empty text part under any other name gets `400 invalid-parts`. |
 
 Limits for `fields`: at most 400 entries and 256 KB of JSON. `section` can be up to 300
 characters, `label` 1000, `name` 200 and `value` 10000.
@@ -73,7 +75,7 @@ image/jpeg, image/jpg, application/pdf`, `max-files=5`, `max-size=3700000`,
 
 - at most 5 files
 - each file at most 3,700,000 bytes
-- at most 3,500,000 bytes for all files together (before base64)
+- at most 18,500,000 bytes for all files together (before base64)
 - extension `.png`, `.jpg`, `.jpeg` or `.pdf`
 - a part type from the list above
 - content that really is a PNG, JPEG or PDF (checked by its first bytes)
@@ -82,31 +84,50 @@ image/jpeg, image/jpg, application/pdf`, `max-files=5`, `max-size=3700000`,
 Discover's contact forms (`discover-compensation-baggage`, `discover-other-concerns`) have their own
 rule, www.discover-airlines.com's dropzone (`accept=image/jpeg, image/jpg, application/pdf`,
 `max-files=5`, `max-size=3145728`, `not-allowed=#$%^*()[]`): at most 5 files of at most 3,145,728
-bytes each, `.jpg`, `.jpeg` or `.pdf`, content a JPEG or PDF; the 3,500,000-byte total, the name
+bytes each, `.jpg`, `.jpeg` or `.pdf`, content a JPEG or PDF; the 18,500,000-byte total, the name
 rules and the first-byte check as above (the total keeps the mail under the Email Service
 limit; www's own dropzone has none). The rules are `FILE_RULES` per form in `src/index.js`.
 
-The REST API takes the attachments base64-encoded in its JSON body and caps the whole message at
-5 MiB including that encoding (+33 %), hence the 3.5 MB total before encoding.
+Austrian's forms with a drop zone (31 ids) follow the file row of their lh-austrian page, as
+www's forms-filedrop: `image/png, image/jpeg, image/jpg, application/pdf` (bagdamage: the three
+image types; private-check-in-counter: one JPEG), at most 5 files of 2,048,000, 3,700,000 or
+5,000,000 bytes (betroffenenrechte-anfrage, data-protection-contact), `not-allowed=#$%^*()[]`.
+`contact-form-booking`, `anfrage-flugbuchung` and `th-requested-documents` had "pdf, png, jpg" as
+their accept list (and `not-allowed=#`) on the page: the four types and the full set here and there.
+The 5 x 5 MB forms can exceed the total: their drop zone names it, and the block refuses a
+selection over it before sending.
+
+The Email Service takes 25 MiB per message, attachments included
+(developers.cloudflare.com/email-service/platform/limits, "Total message size", and the REST API
+page, "Attachments"; read 2026-10-31). The REST API takes the attachments base64-encoded in its
+JSON body (+33 %), so the files may total 18.5 MB before encoding (www's 5 x 3.7 MB): about
+24.7 MB in the message. Memory: an 18.5 MB submission peaks at about 87 MB of the Worker's 128 MB
+(`test/memory.test.mjs`, `memory-probe.mjs`): the body is parsed once (with a Content-Length),
+the files are encoded one at a time, and the API body is a Blob of parts, not one more string of
+the whole message.
 
 | Status | `error` |
 | --- | --- |
 | 200 | (`{"ok":true}`) sent, or the honeypot was filled |
 | 400 | `expected-multipart`, `invalid-multipart`, `invalid-parts`, `unknown-form`, `unknown-locale`, `invalid-page`, `missing-fields`, `invalid-fields`, `fields-too-large`, `files-not-allowed`, `too-many-files`, `invalid-file-name`, `invalid-file-type` |
 | 403 | `origin-not-allowed` |
-| 413 | `payload-too-large` (body over 6 MB), `file-too-large`, `files-too-large` |
+| 413 | `payload-too-large` (body over 19 MB), `file-too-large`, `files-too-large` |
 | 429 | `rate-limited` |
 | 500 | `not-configured`, `no-recipients`, `internal-error` |
 | 502 | `send-failed`: the API answered a non-2xx status or `success: false`, or did not answer. The answer (`"codes"`) and the log carry only the API's error codes and machine messages, e.g. `"codes":["10001 email.sending.error.invalid_request_schema"]`, `http-503`, `network`, `timeout`; never addresses, values or the token |
 
-The body cap is 6,000,000 bytes. A larger `Content-Length` is rejected before the body is read.
+The body cap is 19,000,000 bytes (the files' total, the fields' 256 KB and the multipart
+overhead). A larger `Content-Length` is rejected before the body is read.
 Without a `Content-Length`, the cap is enforced while the body is read.
 
 ### The e-mail
 
 - From: `FORM_SENDER`. To: from `FORM_CONFIG` (see below).
-- Subject: the subject from the config. Without one, `[lh-com] <form title> (<locale>)`. The
-  form title is the page h1 in English (`de-en`, `gb-en`) or German (`de-de`, `at-de`). The
+- Subject: the subject from the config. Without one, `[<site>] <form title> (<locale>)`: the site
+  the mail came from, by its origin (`--lh-discover--`, `--lh-ita--`, `--lh-austrian--`,
+  `--lh-airdolomiti--` hosts and `discover`, `ita`, `austrian`, `airdolomiti.turnsthe.page`), else
+  by the form id's prefix (`discover-`, `ita-`, `austrian-`), else `lh-com`. The form title is the
+  page h1 in German on a `-de` root, in English on every other. The
   table is `FORMS` in `src/index.js`. `special-needs` and `add-sports-baggage` have no German
   page, so they use the English title.
 - HTML and plain text with the same content: the form title, the page URL, the time (ISO,
@@ -121,8 +142,8 @@ Without a `Content-Length`, the cap is enforced while the body is read.
 ## Bot check (Turnstile, `BOT_CHECK`)
 
 Cloudflare Turnstile widget "lh-com forms (lh-forms)", managed mode. It accepts only
-lh-com's and lh-discover's `main--…--moved-permanently.aem.page` and `.aem.live` hosts and the
-turnsthe.page hosts; branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
+lh-com's and lh-discover's `main--…--moved-permanently.aem.page` and `.aem.live` hosts, lh-ita's
+and lh-austrian's, lh-airdolomiti's aem.page host and the turnsthe.page brand hosts; branch previews and localhost cannot render it (use Cloudflare's test keys there, see the form block).
 
 - `TURNSTILE_SITE_KEY` (`[vars]`, public): served to the block by `GET /config`, never hard-coded
   in the block.
