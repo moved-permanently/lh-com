@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-5 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T13:57Z; not published
+# documents (40 + /nav, /footer):
+/destinazioni/francoforte/cosa-vedere/francoforte-vita-notturna
+/destinazioni/francoforte/cosa-vedere/stadio-francoforte
+/destinazioni/francoforte/cosa-vedere/viaggio-a-francoforte
+/destinazioni/monaco-di-baviera/cosa-fare
+/destinazioni/monaco-di-baviera/cosa-fare/biergarten-i-migliori-giardini-della-birra-di-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-fare/ludwig-ii-baviera
+/destinazioni/monaco-di-baviera/cosa-fare/monaco-all-aria-aperta
+/destinazioni/monaco-di-baviera/cosa-fare/monaco-di-baviera-in-due-giorni
+/destinazioni/monaco-di-baviera/cosa-fare/principessa-sissi
+/destinazioni/monaco-di-baviera/cosa-fare/tierpark-hellabrunn-lo-zoo-di-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-mangiare
+/destinazioni/monaco-di-baviera/cosa-mangiare/birre-tedesche
+/destinazioni/monaco-di-baviera/cosa-mangiare/cosa-mangiare-a-monaco-alla-scoperta-dei-brezel
+/destinazioni/monaco-di-baviera/cosa-mangiare/cosa-mangiare-a-monaco-piatti-tipici
+/destinazioni/monaco-di-baviera/cosa-mangiare/dolci-tipici-tedeschi
+/destinazioni/monaco-di-baviera/cosa-mangiare/foresta-nera-torta
+/destinazioni/monaco-di-baviera/cosa-mangiare/tour-fra-le-piu-famose-birrerie-di-monaco
+/destinazioni/monaco-di-baviera/cosa-vedere/alla-scoperta-dell-olympiapark-a-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-vedere/baviera-da-vedere-tour-lungo-il-danubio
+/destinazioni/monaco-di-baviera/cosa-vedere/deutsches-museum-il-museo-della-scienza-e-della-tecnica-a-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-vedere/hofbrauhaus-la-storia-della-piu-celebre-birreria-di-monaco
+/destinazioni/monaco-di-baviera/cosa-vedere/il-glockenspiel-di-marienplatz-il-carillon-nel-cuore-di-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-vedere/laghi-dintorni-di-monaco-di-baviera
+/destinazioni/monaco-di-baviera/cosa-vedere/norimberga-cosa-vedere-in-un-giorno
+/destinazioni/monaco-di-baviera/cosa-vedere/pinacoteca-di-monaco-di-baviera-la-vecchia-la-nuova-e-la-moderna
+/destinazioni/monaco-di-baviera/cosa-vedere/quartieri-di-monaco
+/destinazioni/monaco-di-baviera/cosa-vedere/strada-romantica
+/articoli/avgeek/atterraggio-con-vento
+/articoli/avgeek/come-fatto-un-finestrino
+/articoli/avgeek/come-riconoscere-i-gradi-sulle-uniformi-dei-piloti
+/articoli/avgeek/come-si-accende-un-aereo
+/articoli/avgeek/come-sono-fatti-i-carrelli-degli-aerei
+/articoli/avgeek/dentro-il-cockpit-di-un-aereo-air-dolomiti
+/articoli/avgeek/di-quali-materiali-e-fatto-un-aereo
+/articoli/avgeek/discover-embraer-e195-e-e190
+/articoli/avgeek/gli-hangar
+/articoli/avgeek/gli-pneumatici-degli-aerei
+/articoli/avgeek/i-circuiti-di-attesa
+/articoli/avgeek/il-ciclo-di-vita-degli-aerei
+/articoli/avgeek/il-decollo-verticale
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): lazyblock/quiz
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/destinazioni/francoforte/cosa-vedere/francoforte-vita-notturna -> /destinazioni/francoforte/cosa-vedere/francoforte-vita-notturna: text 6/6, images 1/2 (+3), links 5/5 (+0)
+#   https://www.airdolomiti.it/articoli/avgeek/atterraggio-con-vento -> /articoli/avgeek/atterraggio-con-vento: text 1/2, images 1/1 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.it/destinazioni/monaco-di-baviera/cosa-vedere/hofbrauhaus-la-storia-della-piu-celebre-birreria-di-monaco -> /destinazioni/monaco-di-baviera/cosa-vedere/hofbrauhaus-la-storia-della-piu-celebre-birreria-di-monaco: text 58/58, images 1/2 (+5), links 10/10 (+0)
+#   https://www.airdolomiti.it/destinazioni/francoforte/cosa-vedere/francoforte-vita-notturna: images missing: Schermata-2021-10-22-alle-08.58.23.png
+#   https://www.airdolomiti.it/articoli/avgeek/atterraggio-con-vento: text missing: "tempo di lettura: 3 minuti"
+#   https://www.airdolomiti.it/destinazioni/monaco-di-baviera/cosa-vedere/hofbrauhaus-la-storia-della-piu-celebre-birreria-di-monaco: images missing: Schermata-2021-10-22-alle-08.58.23.png

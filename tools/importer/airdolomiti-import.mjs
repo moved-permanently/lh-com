@@ -349,6 +349,10 @@ const HANDLERS = {
   'lazyblock/title': (a, page) => { page.add(page.heading(a.tag, a.title)); if (a.subtitle) page.add(`<p>${esc(plain(a.subtitle))}</p>`); },
   'lazyblock/title-margin': (a, page) => HANDLERS['lazyblock/title'](a, page),
   'lazyblock/title-news': (a, page) => HANDLERS['lazyblock/title'](a, page),
+  // title, text (subTitle) and an optional CTA, as title-description-text-cta
+  'lazyblock/title-description-cta': (a, page) => HANDLERS['lazyblock/title-description-text-cta']({
+    ...a, description: a.subTitle || a.description, ctaText: a.ctaText || a.textCta, url: a.url || a.ctaUrl,
+  }, page),
   'lazyblock/title-description-text-cta': (a, page) => {
     page.add(page.heading(a.tag, a.title));
     page.add(rich(a.description || a.text, page, 'top'));
@@ -477,6 +481,20 @@ const HANDLERS = {
     page.note(`blog list (www's live list of posts): its ${cats.length} category links`);
   },
   'lazyblock/horizontal-pictures': (a, page) => HANDLERS['lazyblock/horizontal-pictures-tre'](a, page),
+  'lazyblock/quiz': (a, page) => {
+    // www's quiz loads its questions after "start" (its block holds only an id): its intro
+    // (image, title, text) as columns-media, the start a link to the post on the live site
+    const { document } = parseHTML(page.rendered);
+    const q = document.querySelector('[class*="Quiz_quiz"]');
+    if (!q) return;
+    const im = q.querySelector('img');
+    const title = q.querySelector('h1, h2, h3');
+    const text = q.querySelector('p');
+    const start = q.querySelector('button, a');
+    const body = `${title ? page.heading('h2', title.textContent) : ''}${text ? `<p>${esc(plain(text.textContent))}</p>` : ''}<p><strong><a href="${attr(page.source)}">${esc(plain(start ? start.textContent : 'Quiz'))}</a></strong></p>`;
+    page.block('columns-media', [[im ? page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }) : '', body]]);
+    page.note('quiz (questions load on www after start): its intro and a link to the post on www');
+  },
   'lazyblock/margin-top': () => {},
   'lazyblock/html-content': (a, page) => { page.add(rich(a.content || a.html || a.text, page, 'top')); },
   'core/paragraph': (a, page) => { page.add(rich(a.content ? `<p>${a.content}</p>` : '', page, 'top')); },
