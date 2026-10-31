@@ -3413,3 +3413,36 @@ indices:
       ai-guidance:
         select: head > meta[name="ai-guidance"]
         value: attribute(el, "content")
+  # lh-airdolomiti (Air Dolomiti, Italian): its posts /articoli/<category>/<post> for the posts list
+  # on /articoli (blocks/blog-overview, scripts/brands.js articleIndex). No other site has an
+  # /articoli folder (DA, 2026-10-31). The post's header (article-header) has the title only:
+  # the teaser text is the page description, the image og:image.
+  articles-airdolomiti-it:
+    include:
+      - /articoli/*/*
+    target: /articoli/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      image-alt:
+        select: head > meta[property="og:image:alt"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

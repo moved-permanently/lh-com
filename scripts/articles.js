@@ -100,6 +100,7 @@ export function toArticle(row) {
     image: String(row.image || '').trim(),
     imageAlt: String(row['image-alt'] || '').trim(),
     category: normalizeCategory(row.category),
+    categoryName: String(row.category || '').trim(),
     tags,
     tagIds,
     author: String(row.author || '').trim(),
@@ -113,11 +114,16 @@ export function toArticle(row) {
 }
 
 /**
- * The articles of a locale (page-type "article" only), newest first.
- * @param {{key: string}} locale
+ * The articles of a locale (page-type "article" only), newest first. With a brand that has an
+ * index of its own for the locale's language (scripts/brands.js articleIndex: Air Dolomiti's
+ * /articoli/query-index.json), that index's rows, every one a post.
+ * @param {{key: string, lang?: string}} locale
+ * @param {Object} [brand] the page's brand entry (scripts/locale.js brandEntry)
  * @returns {Promise<Object[]>}
  */
-export async function loadArticles(locale) {
+export async function loadArticles(locale, brand = null) {
+  const own = brand && brand.articleIndex && brand.articleIndex[locale.lang];
+  if (own) return (await loadSheet(own)).filter((r) => r.path).map(toArticle).sort(byDate);
   const rows = await loadSheet(`/${locale.key}/articles/query-index.json`);
   return rows.filter((r) => String(r['page-type'] || '').trim() === 'article' && r.path)
     .map(toArticle).sort(byDate);
@@ -173,6 +179,12 @@ export function formatArticleDate(value, locale, style = 'market') {
   const time = dateValue(value);
   if (Number.isNaN(time)) return String(value || '').trim();
   const d = new Date(time);
+  // a brand site's list (blog-overview): the language's long date ("19 luglio 2023")
+  if (style === 'local') {
+    return new Intl.DateTimeFormat(locale.lang, {
+      day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+    }).format(d);
+  }
   const months = MONTHS[locale.lang] || MONTHS.en;
   const day = d.getUTCDate();
   const month = months[d.getUTCMonth()];

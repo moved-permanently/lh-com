@@ -1,5 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, brandEntry } from '../../scripts/locale.js';
 import { readConfigRows, resolveLabels } from '../../scripts/block-config.js';
 import { fetchLabels, pickLabels } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
@@ -197,14 +197,18 @@ export default async function decorate(block) {
   const uid = `blog-overview-${instanceCount}`;
   const locale = getLocale();
   const options = readOptions(block);
+  // a brand site with a posts index of its own (scripts/brands.js articleIndex: Air Dolomiti's
+  // /articoli): its posts, its category names, the language's dates; lufthansa.com as before
+  const brand = brandEntry();
   // www prints English dates on author pages as "April 30, 2024", elsewhere (de/en)
   // "30. April 2024"
-  const dateStyle = options.author ? 'us' : 'market';
+  let dateStyle = options.author ? 'us' : 'market';
+  if (brand) dateStyle = 'local';
   block.replaceChildren();
   block.setAttribute('aria-busy', 'true');
 
   const [articlesResult, live] = await Promise.all([
-    loadArticles(locale).then((list) => ({ list }), (error) => ({ error })),
+    loadArticles(locale, brand).then((list) => ({ list }), (error) => ({ error })),
     fetchLabels(['blogOverview'], locale).catch(() => ({ labels: {}, sources: { blogOverview: 'none' } })),
   ]);
   const defaults = DEFAULT_LABELS[locale.lang] || DEFAULT_LABELS.en;
@@ -261,7 +265,8 @@ export default async function decorate(block) {
     select = el('select');
     select.id = `${uid}-category`;
     select.name = 'category';
-    const names = CATEGORY_NAMES[locale.lang] || CATEGORY_NAMES.en;
+    const names = brand ? Object.fromEntries(all.map((a) => [a.category, a.categoryName]))
+      : CATEGORY_NAMES[locale.lang] || CATEGORY_NAMES.en;
     const categories = [...new Set([...Object.keys(names), ...all.map((a) => a.category)])]
       .filter((c) => c && (names[c] || all.some((a) => a.category === c))).sort();
     const optionEl = (value, text) => {

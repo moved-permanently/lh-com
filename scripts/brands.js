@@ -143,6 +143,9 @@ export const BRANDS = {
     // link to (www's /articoli page links /articoli/<slug>, 2026-10-31; English and German not
     // migrated yet: their chips without a link)
     articleTags: { it: 'https://www.airdolomiti.it/articoli' },
+    // articleIndex: per language, the query index of its posts (helix-query.yaml
+    // articles-airdolomiti-it) the posts list (blog-overview) reads instead of lh-com's
+    articleIndex: { it: '/articoli/query-index.json' },
   },
 };
 
