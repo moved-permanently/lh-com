@@ -1,0 +1,78 @@
+# lh-airdolomiti sweep-2: documents of batches 1-24 that changed, uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T22:43Z; not published
+# why: the [quiz-cat], [caption], [gallery] and [embed] shortcodes of the post HTML (quiz intro, image and caption, the gallery's images, the video; core/embed left out as on www), tables and videos in the post HTML in their place, the destination pages' eyebrow (reach-monaco header) and hero-middle band, the originals of resized images that answer 404, the English newsletter label, half-page card labels, the eSIM link
+# documents (63, to publish again):
+/articoli/avgeek/discover-embraer-e195-e-e190
+/articoli/avgeek/gli-pneumatici-degli-aerei
+/articoli/avgeek/i-circuiti-di-attesa
+/articoli/avgeek/il-decollo-verticale
+/articoli/avgeek/la-manutenzione-degli-aerei
+/articoli/avgeek/la-scatola-nera
+/articoli/avgeek/la-segnaletica-sulle-piste-di-atterraggio
+/articoli/avgeek/perche-il-comandante-siede-a-sinistra
+/articoli/destinazioni/biennale-arte-2019-venezia-consigli-padiglioni-da-visitare
+/articoli/destinazioni/bologna-segreta
+/articoli/destinazioni/estate-sulle-alpi-calcaree-nord-tirolesi-lincredibile-zugspitze
+/articoli/destinazioni/firenze-prato-consigli-itinerario-creativo
+/articoli/destinazioni/il-famoso-carillon-di-marienplatz-a-monaco-di-baviera
+/articoli/destinazioni/il-mainfest-di-francoforte-2025
+/articoli/destinazioni/in-viaggio-con-andrea-lorenzon-alias-cartoni-morti
+/articoli/destinazioni/in-viaggio-con-mamma-tra-le-meraviglie-ditalia
+/articoli/destinazioni/larena-di-verona
+/articoli/destinazioni/le-piu-belle-ferrate-vicino-torino
+/articoli/destinazioni/o-zapft-is-il-nuovo-oktoberfest
+/articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione
+/articoli/destinazioni/torino-con-i-bambini
+/articoli/destinazioni/torino-creativa-itinerario-arte-contemporanea
+/articoli/destinazioni/un-viaggio-tra-le-4-meraviglie-unesco-pugliesi
+/articoli/destinazioni/visitare-venezia-durante-la-mostra-del-cinema
+/articoli/didyouknow/aeropittura-e-futurismo
+/articoli/didyouknow/celebrities-aerei
+/articoli/didyouknow/gita-al-museo
+/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design
+/articoli/didyouknow/pilota-non-vedente-finalmente-si-puo-grazie-alla-tecnologia
+/articoli/didyouknow/pride-nellarcobaleno-ce-anche-il-turchese
+/articoli/throwback/amy-johnson
+/articoli/throwback/jacqueline-jackie-cochran
+/articoli/throwback/le-divise-degli-assistenti-volo-la-storia
+/articoli/travellers/weekend-bagaglio-mano
+/en/index
+/en/additional-services
+/en/baggage
+/en/business-en
+/en/digital-services
+/en/faq-eu
+/en/leisure-en
+/en/online-check-in-instructions
+/en/corporate/history
+/en/legal-info/privacy-facebook-page
+/en/extra-services/plans-esim
+/en/destinations/bari
+/en/destinations/billund
+/en/destinations/bologna
+/en/articles/avgeek-en/aeroplane-maintenance
+/en/articles/avgeek-en/aeroplane-tails
+/en/articles/avgeek-en/air-conditioning-up-in-the-air
+/en/articles/avgeek-en/aircraft-light
+/en/articles/avgeek-en/aircraft-tyres
+/en/articles/avgeek-en/discover-embraer-e195-e-e190-2
+/en/articles/avgeek-en/flight-recorder
+/en/articles/avgeek-en/holding-patterns
+/en/articles/avgeek-en/how-do-aerostats-fly
+/en/articles/avgeek-en/how-do-aircraft-hold-doors-work
+/en/articles/avgeek-en/how-do-helicopters-fly
+/en/articles/avgeek-en/markings-on-runways
+/en/articles/destinations/aarhus-outside-the-city
+/en/articles/destinations/contemporary-art-pisa
+/en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season
+# render check: all 63 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/articles/avgeek-en/discover-embraer-e195-e-e190-2 -> /en/articles/avgeek-en/discover-embraer-e195-e-e190-2: text 14/15, images 2/2 (+1), links 4/4 (+1)
+#   https://www.airdolomiti.eu/destinations/bari -> /en/destinations/bari: text 30/30, images 4/7 (+11), links 18/18 (+1)
+#   https://www.airdolomiti.it/articoli/travellers/weekend-bagaglio-mano -> /articoli/travellers/weekend-bagaglio-mano: text 31/31, images 1/1 (+1), links 2/2 (+1)
+#   https://www.airdolomiti.it/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design -> /articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design: text 8/8, images 4/4 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.eu/articles/avgeek-en/aeroplane-tails -> /en/articles/avgeek-en/aeroplane-tails: text 12/12, images 0/0 (+0), links 1/1 (+0)
+#   https://www.airdolomiti.eu/articles/avgeek-en/discover-embraer-e195-e-e190-2: text missing: "reading time: 1 minutes"
+#   https://www.airdolomiti.eu/destinations/bari: images missing: Schermata-2021-10-22-alle-08.58.23.png, Schermata-2021-10-22-alle-16.08.02.png, Schermata-2021-10-22-alle-16.21.11.png
+#   https://www.airdolomiti.it/articoli/travellers/weekend-bagaglio-mano: no text, image or link of www's missing
+#   https://www.airdolomiti.it/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/avgeek-en/aeroplane-tails: no text, image or link of www's missing
