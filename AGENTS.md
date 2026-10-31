@@ -12,7 +12,8 @@ Edge Delivery Services. Read a block first. Omissions are in the repo or known.
 - `fragment/fragment.js` is the only cross-block import. Otherwise use `/scripts/`.
 
 ## Outdated
-- `fstab.yaml`, `helix-query.yaml`, `paths.json` are retired. Config lives at tools.aem.live.
+- `fstab.yaml`, `paths.json` are retired. Config lives at tools.aem.live.
+- `helix-query.yaml` is in use: every site's query indexes. Extend it, never replace it. An index fills on publish or an index job.
 
 ## Remember
 - `npx -y @adobe/aem-cli up`: local code, previewed content.
