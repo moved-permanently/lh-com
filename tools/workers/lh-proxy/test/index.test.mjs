@@ -171,7 +171,7 @@ test('preflight returns 204 with CORS headers', async () => {
   assert.equal(res.status, 204);
   assert.equal(res.headers.get('access-control-allow-origin'), ORIGIN);
   assert.equal(res.headers.get('access-control-allow-methods'), 'GET,POST,OPTIONS');
-  assert.equal(res.headers.get('access-control-allow-headers'), 'Content-Type, Accept, Accept-Language, X-LH-Market');
+  assert.equal(res.headers.get('access-control-allow-headers'), 'Content-Type, Accept, Accept-Language, X-LH-Market, X-Portal, X-Portal-Site, X-Portal-Language');
   assert.equal(res.headers.get('access-control-max-age'), '86400');
   assert.equal(res.headers.get('vary'), 'Origin');
   assert.equal(calls.length, 0);
@@ -380,4 +380,62 @@ test('preflight from each turnsthe.page host that loads the site: 204 with its o
       assert.equal(res.status, 403, origin);
     }
   }
+});
+
+test('X-Portal, X-Portal-Site and X-Portal-Language go to www (valid values only, nothing else) and key the cache', async () => {
+  const store = new Map();
+  globalThis.caches = {
+    default: {
+      match: async (key) => store.get(key.url)?.clone(),
+      put: async (key, res) => { store.set(key.url, res); },
+    },
+  };
+  const pending = [];
+  const ctx = { waitUntil: (p) => pending.push(p) };
+  const path = '/service/api/defaultAirport';
+  const portal = {
+    'X-Portal': 'OS', 'X-Portal-Site': 'AT', 'X-Portal-Language': 'de',
+  };
+
+  await worker.fetch(req(path, {
+    headers: {
+      Origin: ORIGIN,
+      'X-LH-Market': 'at/de',
+      ...portal,
+      'X-Portal-Taxonomy': 'x',
+      'X-Portal-CountryId': '1',
+      'X-Other': 'y',
+    },
+  }), ENV, ctx);
+  const h = calls[0].init.headers;
+  assert.equal(h.get('x-portal'), 'OS');
+  assert.equal(h.get('x-portal-site'), 'AT');
+  assert.equal(h.get('x-portal-language'), 'de');
+  assert.equal(h.get('x-portal-taxonomy'), null);
+  assert.equal(h.get('x-portal-countryid'), null);
+  assert.equal(h.get('x-other'), null);
+  assert.equal(h.get('x-lh-market'), null);
+  await Promise.all(pending);
+  assert.ok(store.has(`https://upstream.test${path}?__lh_market=at/de&__lh_portal=OS.AT.de`));
+
+  // lufthansa.com's at/de (no X-Portal-*) is not served from Austrian's entry, nor the reverse
+  await worker.fetch(req(path, { headers: { Origin: ORIGIN, 'X-LH-Market': 'at/de' } }), ENV, ctx);
+  assert.equal(calls.length, 2);
+  assert.equal(calls[1].init.headers.get('x-portal'), null);
+  await Promise.all(pending);
+  assert.ok(store.has(`https://upstream.test${path}?__lh_market=at/de`));
+  const again = await worker.fetch(req(path, { headers: { Origin: ORIGIN, 'X-LH-Market': 'at/de', ...portal } }), ENV, ctx);
+  assert.equal(again.headers.get('x-lh-proxy-cache'), 'HIT');
+  assert.equal(calls.length, 2);
+
+  // values that are no portal, site or language are dropped
+  await worker.fetch(req(`${path}?x=1`, {
+    headers: {
+      Origin: ORIGIN, 'X-Portal': 'OS X', 'X-Portal-Site': 'AUT', 'X-Portal-Language': '../de',
+    },
+  }), ENV, ctx);
+  const bad = calls[2].init.headers;
+  assert.equal(bad.get('x-portal'), null);
+  assert.equal(bad.get('x-portal-site'), null);
+  assert.equal(bad.get('x-portal-language'), null);
 });

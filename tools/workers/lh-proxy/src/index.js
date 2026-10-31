@@ -38,6 +38,13 @@ const DEFAULTS = {
 
 const MAX_BODY_BYTES = 64 * 1024;
 const FORWARDED_HEADERS = ['accept', 'accept-language', 'content-type'];
+// the tenant headers www's own pages send (brand sites: X-Portal OS, FOUR_Y, ITA...), forwarded
+// only with a value of their form; X-Portal-Taxonomy, -CountryId and the rest are not
+const PORTAL_HEADERS = [
+  ['x-portal', /^[A-Za-z0-9_]{1,16}$/],
+  ['x-portal-site', /^[A-Za-z]{2}$/],
+  ['x-portal-language', /^[a-z]{2}(?:[-_][A-Za-z]{2,4})?$/i],
+];
 const DEFAULT_ACCEPT = 'application/json, text/plain, */*';
 const DEFAULT_ACCEPT_LANGUAGE = 'en-US,en;q=0.9';
 const REGION = {
@@ -86,7 +93,7 @@ function corsHeaders(origin) {
   if (origin) {
     h.set('Access-Control-Allow-Origin', origin);
     h.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-    h.set('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, X-LH-Market');
+    h.set('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, X-LH-Market, X-Portal, X-Portal-Site, X-Portal-Language');
     h.set('Access-Control-Max-Age', '86400');
   }
   return h;
@@ -202,8 +209,19 @@ async function handle(request, env, ctx) {
   const cache = isGet && cfg.cacheTtl > 0 ? getCache() : null;
   const marketHeader = (request.headers.get('x-lh-market') || '').toLowerCase();
   const market = /^[a-z]{2}\/[a-z]{2}$/.test(marketHeader) ? marketHeader : null;
-  // answers differ per market, so the market is part of the cache key (never sent upstream)
-  const cacheUrl = market ? `${upstreamUrl}${upstreamUrl.includes('?') ? '&' : '?'}__lh_market=${market}` : upstreamUrl;
+  // [name, value] per tenant header, '' when missing or not of its form
+  const portal = PORTAL_HEADERS.map(([name, re]) => {
+    const v = request.headers.get(name) || '';
+    return [name, re.test(v) ? v : ''];
+  });
+  const portalKey = portal.some(([, v]) => v) ? portal.map(([, v]) => v).join('.') : '';
+  // answers differ per market and tenant, so both are part of the cache key (the market is never
+  // sent upstream)
+  const keyParams = [
+    market && `__lh_market=${market}`,
+    portalKey && `__lh_portal=${portalKey}`,
+  ].filter(Boolean).join('&');
+  const cacheUrl = keyParams ? `${upstreamUrl}${upstreamUrl.includes('?') ? '&' : '?'}${keyParams}` : upstreamUrl;
   const cacheKey = cache ? new Request(cacheUrl, { method: 'GET' }) : null;
 
   if (cache) {
@@ -217,6 +235,7 @@ async function handle(request, env, ctx) {
     const v = request.headers.get(name);
     if (v) headers.set(name, v);
   });
+  portal.forEach(([name, v]) => { if (v) headers.set(name, v); });
   if (!headers.has('accept')) headers.set('accept', DEFAULT_ACCEPT);
   if (!headers.has('accept-language')) {
     const lang = match.groups.lang || url.searchParams.get('lang');

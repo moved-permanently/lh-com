@@ -25,7 +25,10 @@ bindings or secrets. The site's pages use it on every host (`scripts/lh-data.js`
   `EXTRA_ALLOWED_ORIGINS`. The worker echoes the origin and sets `Vary: Origin`. Preflight
   requests get `204`. A disallowed origin gets `403 {"error":"origin-not-allowed"}`. Requests
   with no `Origin` header (curl, for example) are allowed, but still only on allowlisted routes.
-- Upstream requests carry only `Accept`, `Accept-Language` and `Content-Type`. `Origin` and
+- Upstream requests carry only `Accept`, `Accept-Language`, `Content-Type` and the tenant
+  headers `X-Portal`, `X-Portal-Site` and `X-Portal-Language` (brand sites send their portal,
+  e.g. `OS`, `AT`, `de`; a value not of its form is dropped, the headers are part of the cache
+  key). `Origin` and
   `Referer` are set to the upstream origin. Cookies and `Authorization` are never forwarded.
   When `Accept-Language` is missing, the worker derives one from the path lang (labels route)
   or the `?lang=` parameter, and falls back to `en-US`.
