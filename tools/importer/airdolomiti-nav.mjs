@@ -11,10 +11,10 @@
  *   In viaggio) with their columns and links (the menu cards as one column each); 4. tools:
  *   assistance (:wheelchair:), the other languages' homepages (the header's language switch), the
  *   menu label.
- * - footer: the link columns (company, contacts, news, routes, assistance), the main buttons and
- *   the social links (badges: :facebook:, :instagram:, :linkedin:, :youtube: tokens; X and
- *   TikTok as www's own logos, lh-com has no icon for them; www's payment logos are plain images,
- *   which lh-com's badges don't show, left out), the
+ * - footer: the link columns (company, contacts, news, routes, assistance), a section with the
+ *   style badges: the main buttons, the social links (:facebook:, :instagram:, :linkedin:,
+ *   :youtube:, :x:, :tiktok: tokens) and www's payment logos under their heading (images without
+ *   a link, as on www), the
  *   legal row (www's "change cookie settings" opens PrivacyLab's banner: left out, the site has
  *   no consent layer), the company line (note) and the logo row.
  * Booking, portal and live tools point at the live site; pages in scope become the site's paths.
@@ -48,9 +48,13 @@ const OTHERS = {
   it: [['English', '/en/'], ['Deutsch', '/de/']], en: [['Italiano', '/'], ['Deutsch', '/de/']], de: [['Italiano', '/'], ['English', '/en/']],
 }[lang];
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const ICONS = {
-  linkedin: ':linkedin:', facebook: ':facebook:', instagram: ':instagram:', youtube: ':youtube:',
-};
+// the social networks' icon tokens (icons/*.svg), by the link's address
+const ICONS = [
+  [/linkedin\./i, ':linkedin:'], [/facebook\./i, ':facebook:'], [/instagram\./i, ':instagram:'], [/youtube\./i, ':youtube:'],
+  [/\/\/(www\.)?(twitter|x)\.com\//i, ':x:'], [/tiktok\./i, ':tiktok:'],
+];
+// the payment logos' names when www's data has none (its English alt texts are file names)
+const PAYMENT_NAMES = [[/amex|american/i, 'American Express'], [/mastercard/i, 'Mastercard'], [/visa/i, 'Visa'], [/paypal/i, 'PayPal']];
 
 const html = fs.readFileSync(snapshotFile(SETUP.home), 'utf8');
 const nodes = JSON.parse(html.match(/<script id="__NEXT_DATA__" type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1]).props.pageProps.menus.nodes;
@@ -96,16 +100,18 @@ const columns = [
   column(fd.assistenzaTitle, fd.assistenzaLinks),
 ].join('');
 const social = (fd.socialMedias || []).map((s) => {
-  const net = Object.keys(ICONS).find((k) => new RegExp(k, 'i').test(`${s.altImage} ${s.url}`));
-  if (net) return `<li><a href="${s.url}">${ICONS[net]}</a></li>`;
-  // www's own logo for the networks lh-com has no icon for (X, TikTok); named from the address
-  const name = s.altImage || (/tiktok/i.test(s.url) ? 'TikTok' : (/twitter|x\.com/i.test(s.url) ? 'X' : ''));
-  const im = s.pic && s.pic.url ? page.img({ url: s.pic.url, alt: name }) : '';
+  const icon = ICONS.find(([re]) => re.test(s.url || ''));
+  if (icon) return `<li><a href="${s.url}">${icon[1]}</a></li>`;
+  // a network without an icon: www's own logo
+  const im = s.pic && s.pic.url ? page.img({ url: s.pic.url, alt: s.ariaLabel || s.altImage || '' }) : '';
   return im ? `<li><a href="${s.url}">${im}</a></li>` : '';
 }).join('');
 const mainButtons = (fd.mainButtons || []).map((b) => li(b.url, b.text)).join('');
-// www's payment logos are plain images; lh-com's footer badges show linked images only: left out
-const payments = '';
+// www's payment logos: images without a link (the footer's badges row shows them unlinked)
+const payments = (fd.paymentImages || []).filter((p) => p.pic && p.pic.url).map((p) => {
+  const name = p.ariaLabel || (PAYMENT_NAMES.find(([re]) => re.test(p.pic.url)) || [])[1] || p.pic.alt || '';
+  return `<li>${page.img({ url: p.pic.url, alt: name })}</li>`;
+}).join('');
 const legal = (fd.infoLegaliLinks || []).filter((l) => !/^\{\{/.test(l.url || '')).map((l) => li(l.url, l.text)).join('');
 const note = [fd.address, fd.copyright].filter(Boolean).map((t) => `<p>${esc(t.trim())}</p>`).join('');
 const section = (body, style) => `<div>${body}${style ? `<div class="section-metadata"><div><div>Style</div><div>${style}</div></div></div>` : ''}</div>`;
