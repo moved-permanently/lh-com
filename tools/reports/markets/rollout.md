@@ -1,4 +1,4 @@
-# Choice B rolled out to www's en and de roots (pilot, lhedge only)
+# Choice B rolled out to www's en and de roots (pilot, test address only)
 
 `tools/markets/rollout.mjs` (batches, capture lists, table rows, documents, comparison),
 `tools/markets/check-market-route.mjs` (route check). Nothing published. Every new root is
@@ -722,3 +722,188 @@ come as synthetic rows, `--roots 187`) (ms of CPU, cold / warm):
   has stored the new key, `x-lh-edge-sitemap-index: made`) it costs 14.7 / 9.0 ms with 122 roots
   and 20.9 / 16.5 ms with 187.
 - Everything else costs what batch 5's did; market sitemap files stay the same size (815 → 785 KB).
+
+## Batch 7 (2026-10-31): AO AR BE BR BY CA CL CN CO CR, en and de, 20 roots
+
+The en and de roots of the first ten countries that also have roots in other languages; their
+other-language roots wait for the language versions. 142 pilot roots.
+
+**The test address is now `lufthansa-edge.turnsthe.page`** (lh-edge `PILOT_HOSTS`): every pilot
+root answers there only. lhedge.bbird.live, the test address of batches 1 to 6, is retired.
+
+### Captures
+
+- Plan: 99 pages (20 homepages, 19 own pages, 60 compared with the language version) and 6
+  same-day references of de/en and de/de; then sa/en's homepage and the 12 app screens left from
+  batch 6.
+- One warm session at a time, one page every 5 to 10 s, 16:13 to 17:29 UTC. **No 403 on any page.**
+- **The 99 pages**: 93 captured in one session (16:13 to 16:57). be/de and ca/en's homepages and
+  flight pages already had snapshots of 27 Oct: captured again (forced) for the same day. Every
+  capture has its own URL as canonical.
+- **www 500**: two ca/en own pages, `/ca/en/local-page/transfer-ita/travelling-with-children/child-in-businessclass`
+  and `…/planning-with-kids`, answer www's error page (500): no document, taken off the list after
+  the first answer.
+- **The references**: all six (16:57 to 17:17; one session hit its time limit, the next one
+  finished).
+- **Homepages without a label** (only the country selector's skeleton): by/de, then be/de and
+  ca/en in the forced recapture; captured again in a fresh session each, all three got their label.
+- **sa/en's homepage** (batch 6's leftover): captured (17:23), label "Saudi Arabia | English".
+- **The 12 app screens** (`/content/mobile/lh/{en,de}/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-{1,2,3}.sdui`
+  and `.v2.sdui`, bd-fetch from inside a www page): **403 on the first one** again (17:24,
+  `…/en/…/100-years-of-lufthansa-part-1.sdui`). One plain request to that URL (no retry): 403 as
+  well, `server: cloudflare`, Cloudflare's 11,304-byte "Lufthansa" page, byte for byte the size of
+  the page this machine got for www's `/service/api` routes on 2026-10-31. So it shows Cloudflare
+  refusing this machine, not something about the URL. All 12 left for your decision.
+
+### Pages in the local language
+
+None. Every capture of these en and de roots (homepages, own pages, compared pages) has its root's
+language as `lang` and in its text (the common words of en, de, es, pt, fr, nl, ru counted, CJK for
+zh). In www's sitemaps every path of these roots is the language version's path, apart from two
+English names (ca/en `best-price-search` for de/en's `book-and-manage/best-price`, cr/en `oneTrip`
+for `during-your-trip`), so no page is listed under a local-language name either.
+
+### Locale rows
+
+| Root | name | countryName en / de | Airport | Currency |
+| --- | --- | --- | --- | --- |
+| ao/de, ao/en | Angola \| Deutsch, Angola \| English | Angola / Angola | LAD | USD |
+| ar/de, ar/en | Argentina \| Deutsch, Argentinien \| English | Argentinien / Argentina | BUE | USD |
+| be/de, be/en | Belgien \| Deutsch, Belgium \| English | Belgium / Belgien | BRU | EUR |
+| br/de, br/en | Brazil \| Deutsch, Brazil \| English | Brazil / Brazil | SAO | BRL |
+| by/de, by/en | Belarus \| Deutsch, Belarus \| English | Belarus / Belarus | FRA | EUR |
+| ca/de, ca/en | Kanada \| Deutsch, Canada \| English | Canada / Kanada | – | – |
+| cl/de, cl/en | Chile \| Deutsch, Chile \| English | Chile / Chile | SCL | USD |
+| cn/de, cn/en | China (Mainland) \| Deutsch, China (Mainland) \| English | China (Mainland) / China (Mainland) | SHA | CNY |
+| co/de, co/en | Kolumbien \| Deutsch, Colombia \| English | Colombia / Kolumbien | BOG | USD |
+| cr/de, cr/en | Costa Rica \| Deutsch, Costa Rica \| English | Costa Rica / Costa Rica | SJO | USD |
+
+- Not found (`–`): ca's homeAirport and currency. www's ca homepage has no preselected origin, no
+  fare teaser and no price (its flight search configures no origin): `null`, listed in
+  `unverified`.
+- www's own oddities, taken as they are: ar has its labels the other way round (the Spanish name on
+  the German root, the German name on the English one, as sg and si in batch 6), br shows the
+  English "Brazil" on its German root, cn "China (Mainland)" in both, by preselects FRA with EUR
+  prices (as sd and ua), ao, ar, cl, co and cr show prices in USD, ar and br give city codes (BUE,
+  SAO).
+- **Batch 6's sa/en**: `name` "Saudi Arabia | English" and sa's English country name
+  "Saudi Arabia" (both sa rows) from today's capture; no longer `unverified`.
+- timeZone and shopLang: null for every root, as in batches 1 to 6.
+
+### Documents
+
+- 20 homepages, 17 own pages and nav and footer of every root: 77 documents uploaded and previewed
+  (not published).
+- Own pages: be/en `early-bird-september2022`, `first-class-companion`; ca/en
+  `local-page/lufthansa-student-fares`; cn/en `local-page/1212-specials`,
+  `local-page/china-euro-cup-2024` and its nine player-video pages (`…/european-championship-2024-player-videos-anton`,
+  `-beier`, `-fuellkrug`, `-kimmich`, `-kroos`, `-leno`, `-raum`, `-ter-stegen`, `-undav`: a
+  campaign of June 2024 that www still serves), `local-page/cn-en-tarmac-delay`,
+  `local-page/promocode-pe-business-cn-en`, `local-page/your-winter-wonderland-escape`. At most 23
+  images in a document.
+- **No redirect rows** for the redirect sheet: no www alias (every own page has its own URL as
+  canonical) and no document name that differs from www's URL.
+
+### Local versions
+
+`rollout-batch7-compare.json`, against same-day de/en and de/de:
+- 39 of 60 the same.
+- The de roots' flight offers page: the same entry-rules teaser as batches 1 to 6 (section
+  `markets` of `/de/de/fluege`).
+- The en roots' flight pages: only the destination offers differ (per origin); ca/en shows none
+  (no origin).
+- by/en's flight and services pages: a masking artifact ("by" is the country code and an English
+  word: "eSIM by Breeze", "Be inspired by our destinations").
+- **Root documents made: none.**
+
+### Checks against the preview origin
+
+Local runtime, `rollout-batch7-check.json`:
+
+| Root | www URLs | 200 | 301 | 404 | 500 | in neither language version | login/profile |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ao/de | 1,045 | 952 | 1 | 92 | | 80 | 12 |
+| ao/en | 1,055 | 955 | 1 | 95 | 4 | 84 | 13 |
+| ar/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| ar/en | 1,056 | 957 | 1 | 97 | 1 | 85 | 13 |
+| be/de | 1,051 | 951 | 1 | 97 | 2 | 85 | 12 |
+| be/en | 1,058 | 958 | 1 | 97 | 2 | 85 | 13 |
+| br/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| br/en | 1,055 | 957 | 1 | 96 | 1 | 84 | 13 |
+| by/de | 1,047 | 951 | 1 | 92 | 3 | 81 | 12 |
+| by/en | 1,055 | 957 | 1 | 96 | 1 | 84 | 13 |
+| ca/de | 1,047 | 951 | 1 | 93 | 2 | 81 | 12 |
+| ca/en | 1,057 | 959 | 1 | 97 | | 85 | 13 |
+| cl/de | 1,047 | 952 | 1 | 92 | 2 | 81 | 12 |
+| cl/en | 1,053 | 957 | 1 | 94 | 1 | 82 | 13 |
+| cn/de | 1,047 | 952 | 1 | 93 | 1 | 81 | 12 |
+| cn/en | 1,069 | 970 | 1 | 95 | 3 | 84 | 13 |
+| co/de | 1,047 | 950 | 1 | 93 | 3 | 81 | 12 |
+| co/en | 1,055 | 957 | 1 | 95 | 2 | 84 | 13 |
+| cr/de | 1,046 | 951 | 1 | 92 | 2 | 80 | 12 |
+| cr/en | 1,056 | 955 | 2 | 96 | 3 | 85 | 13 |
+
+- Every 200 has the root's canonical. The de roots' 301 is de/de's `support/support` redirect,
+  moved into the root; the en roots' is `profile/Best-price-alert` to lower case (as batch 6);
+  cr/en's second is www's `oneTrip`, now a 301 to `onetrip` (no document).
+- **The 500s (40 URLs, among them 3 links) are the local runtime's again** ("hung", 70 times in
+  its log): fetched again one at a time, 35 answer 200 through the market route and 5 answer 404
+  (pages the replica does not have).
+- Every link on the 20 homepages, navs and footers (60 documents, 1,680 links) answers.
+- **On lufthansa-edge.turnsthe.page after the deploy** (live origin, four concurrent requests):
+  cn/en 958 × 200, 1 × 301, 110 × 404 (its 14 own pages are on preview only), be/de 953 × 200,
+  1 × 301, 97 × 404; no 500; the two homepages' links answer 200.
+
+### The China host
+
+lufthansa-cn.turnsthe.page serves no pilot country and answers as before (7232ac7, deployed before
+the rows): `PILOT_COUNTRIES_BY_HOST` no longer gives it cn, and its `/` goes to `ALIAS_HOME_ROOT`
+cn/en only once it serves that root. After the deploy its smoke is unchanged, and `/cn/en/homepage`,
+`/cn/de/homepage` and cn's sitemaps answer 404 there, as before. **To turn the China host on**:
+publish cn/en's and cn/de's own documents (`/cn/en/homepage`, `/cn/en/nav`, `/cn/en/footer`, the 14
+cn/en own pages above, `/cn/de/homepage`, `/cn/de/nav`, `/cn/de/footer`), then put
+`; lufthansa-cn.turnsthe.page=cn` back into `PILOT_COUNTRIES_BY_HOST` and deploy: its `/` then goes
+to `/cn/en/homepage`, as www's China host.
+
+### CPU (Workers Paid; the 10 ms limit no longer applies)
+
+`bench-market.mjs` as lufthansa-edge.turnsthe.page, locally, the same recorded origin answers
+(`--record`, `--replay`), lean sources, medians of 25 runs, the code before batch 7 (122 pilot
+roots) against batch 7's 142, back to back twice, the sitemap index as served (stored); then all
+187 en and de roots (`--roots 187`, the 45 still to come as synthetic rows) (ms of CPU, cold /
+warm):
+
+| Answer | 122 roots | 142 roots | 187 roots (projection) |
+| --- | --- | --- | --- |
+| pilot page `/hu/en/baggage` | 5.3–8.9 / 1.8–3.1 | 5.2–8.2 / 1.8–2.5 | 6.8 / 2.4 |
+| pilot `search-index.json` (4.5 MB) | 26–104 / 26–81 | 27–97 / 21–84 | 102 / 25 |
+| pilot `articles/query-index.json` | 6.7–9.9 / 3.3–5.9 | 6.7–11.3 / 3.4–5.3 | 7.5 / 3.8 |
+| sitemap index `.xml` (stored) | 5.9–7.6 / 1.8–2.4 | 5.6–8.2 / 1.9–2.5 | 6.5 / 2.5 |
+| sitemap index `.gz` (stored) | 5.1–7.6 / 1.6–2.6 | 5.3–5.9 / 1.7 | 6.0 / 2.1 |
+| market sitemap file `.xml` | 12.2–16.4 / 6.9–9.9 | 11.5–12.4 / 6.9–7.4 | 13.2 / 7.2 |
+| market sitemap file `.gz` | 16.8–23.3 / 12.0–16.5 | 16.8–21.3 / 11.9–14.1 | 20.3 / 14.5 |
+
+- The second pair ran on a busier machine (both code versions slower alike); between the code
+  versions the numbers move within that noise.
+- **The sitemap index**: 219 KB → 293 KB with batch 7 (503 KB with 187 roots); served from the
+  stored bytes (`x-lh-edge-sitemap-index: stored` on lufthansa-edge after the deploy) it costs the
+  model and the counts only. Market sitemap files get smaller as roots are added (785 → 753 KB).
+- The search index's cold and warm medians swap between runs: Node's fetch plumbing for a 4.5 MB
+  answer, an upper bound (as noted since batch 4).
+
+### Smoke
+
+Against the eight hosts before and after each deploy (lufthansa, lufthansa-edge, lufthansa-cn,
+discover, ita, cargo, airdolomiti, austrian `.turnsthe.page`):
+- 7232ac7 (the China host): 0 differences on all eight.
+- 1cc9183 (batch 7's rows): only lufthansa-edge differs, in 7 rows: the ch pages (`/ch/en/baggage`,
+  `/ch/de/gepaeck`, `/ch/en/baggage.solo_continue`: their hreflang alternates name the 20 new roots,
+  146 alternates now, the rest equal to lufthansa.turnsthe.page's), ch's two sitemap files and the
+  sitemap index. Its baseline updated. The other seven hosts: 0 differences; lufthansa.turnsthe.page's
+  rows unchanged.
+- lufthansa.com's 19 comparison pages: 19 of 19 equal.
+- Before any change of this batch the committed baselines already differed from today's answers:
+  lufthansa and lufthansa-edge (the search answers since the search data rebuild, `sitemap_lh_de_en.xml`,
+  `sitemap_lh_at_de.xml.gz`), discover (four server endpoints), airdolomiti (`/`, `/en/`, `/de/`:
+  its pages published); lufthansa-cn, ita and austrian have no committed baseline. smoke.mjs has
+  no `--derive` since 56791d9 (the derived lhedge baseline went with that host).
