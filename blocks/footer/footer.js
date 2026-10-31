@@ -16,8 +16,9 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  *     :lufthansa-group:, :iata-cargo-iq:)
  * Optional sections, marked with section metadata (Style), for brand sites (lh-ita):
  *  - badges: rows of a heading and a list of linked images (payment methods, social links) or
- *    icon links (":facebook:", ":youtube:", ":instagram:", ":linkedin:"; lh-cargo), shown between
- *    the link columns and the legal row
+ *    icon links (":facebook:", ":youtube:", ":instagram:", ":linkedin:"; lh-cargo), or images
+ *    without a link (lh-airdolomiti's payment logos), shown between the link columns and the legal
+ *    row
  *  - note: a paragraph below the legal row (the company's registration line)
  *  - wordmark: an image at the top of the link area (austrian's "servus"; beside the link columns
  *    from 1025px)
@@ -264,8 +265,11 @@ function buildLegal(section, labels) {
   return list.children.length ? list : null;
 }
 
-/** The badges sections: per group a heading and its linked images (payments, social links). */
-function buildBadges(sections, labels) {
+/**
+ * The badges sections: per group a heading and its linked images (payments, social links), text
+ * links, and images outside links (unlinked, in their place).
+ */
+export function buildBadges(sections, labels) {
   if (!sections.length) return null;
   const wrapper = el('div', { className: 'footer-badges' });
   sections.forEach((section) => {
@@ -281,7 +285,16 @@ function buildBadges(sections, labels) {
         return;
       }
       const list = group.querySelector('ul') || group.appendChild(el('ul'));
-      child.querySelectorAll('a[href]').forEach((a) => {
+      // the links, and the pictures and images outside a link, in their order
+      const items = [...child.querySelectorAll('a[href], picture, img')].filter((e) => (e.tagName === 'A'
+        || (!e.closest('a[href]') && !(e.tagName === 'IMG' && e.closest('picture')))));
+      items.forEach((a) => {
+        if (a.tagName !== 'A') {
+          const image = a.tagName === 'IMG' ? a : a.querySelector('img');
+          if (image) image.loading = 'lazy';
+          list.append(el('li', {}, el('span', { className: 'footer-badge-image' }, a)));
+          return;
+        }
         const img = iconTokenImage(a, window.hlx.codeBasePath);
         const link = el('a', { href: a.getAttribute('href') });
         if (img) {

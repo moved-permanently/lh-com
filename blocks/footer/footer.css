@@ -328,7 +328,8 @@
   list-style: none;
 }
 
-.footer .footer-badges a {
+.footer .footer-badges a,
+.footer .footer-badge-image {
   display: block;
   line-height: 0;
 }
