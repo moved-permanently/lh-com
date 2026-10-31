@@ -145,7 +145,8 @@
   margin: 0;
 }
 
-.article-header .article-header-tags a:any-link {
+.article-header .article-header-tags a:any-link,
+.article-header .article-header-tags span {
   display: inline-flex;
   align-items: center;
   box-sizing: border-box;

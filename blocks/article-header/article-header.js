@@ -1,5 +1,5 @@
 import { createOptimizedPicture, getMetadata, toClassName } from '../../scripts/aem.js';
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, brandEntry } from '../../scripts/locale.js';
 import { outsideUrl } from '../../scripts/clock.js';
 import {
   readConfigRows, resolveLabels, cleanText, toConfigKey, keepImageSize,
@@ -277,9 +277,21 @@ async function copyText(text) {
   return ok;
 }
 
-function buildTags(labels, locale) {
-  // the pipeline writes the Tags row as one <meta property="article:tag"> per tag (no name="tags")
-  const tags = (getMetadata('article:tag') || getMetadata('tags'))
+/**
+ * A tag's page: lufthansa.com's /<root>/articles/tags/<slug>; a brand's tag page of the page's
+ * language on its www (scripts/brands.js articleTags), '' (no link) without one.
+ */
+function tagHref(slug, locale, brand) {
+  if (!brand) return `${locale.base}/articles/tags/${slug}`;
+  const base = brand.articleTags && brand.articleTags[locale.lang];
+  return base ? `${base}/${slug}` : '';
+}
+
+export function buildTags(labels, locale) {
+  const brand = brandEntry();
+  // the pipeline writes the Tags row as one <meta property="article:tag"> per tag (no name="tags");
+  // a brand's post without one names its tag in Category (Air Dolomiti's importer)
+  const tags = (getMetadata('article:tag') || getMetadata('tags') || (brand ? getMetadata('category') : ''))
     .split(',').map((t) => t.trim()).filter(Boolean);
   const unique = [...new Map(tags.map((t) => [tagSlug(t), t])).entries()].filter(([slug]) => slug);
   if (!unique.length) return null;
@@ -288,10 +300,11 @@ function buildTags(labels, locale) {
   list.setAttribute('aria-label', labels['tags label']);
   unique.forEach(([slug, tag]) => {
     const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = `${locale.base}/articles/tags/${slug}`;
-    a.textContent = tag;
-    li.append(a);
+    const href = tagHref(slug, locale, brand);
+    const chip = document.createElement(href ? 'a' : 'span');
+    if (href) chip.href = href;
+    chip.textContent = tag;
+    li.append(chip);
     list.append(li);
   });
   return list;

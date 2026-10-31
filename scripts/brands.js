@@ -136,7 +136,14 @@ export const BRANDS = {
   // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
   // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
   // OneTrust (2026-10-30)
-  airdolomiti: { name: 'Air Dolomiti', www: 'www.airdolomiti.it' },
+  airdolomiti: {
+    name: 'Air Dolomiti',
+    www: 'www.airdolomiti.it',
+    // articleTags: per language, the base of the post categories' pages the article header's tags
+    // link to (www's /articoli page links /articoli/<slug>, 2026-10-31; English and German not
+    // migrated yet: their chips without a link)
+    articleTags: { it: 'https://www.airdolomiti.it/articoli' },
+  },
 };
 
 // label: www's country and language label of the root (its header's selector), set where a
