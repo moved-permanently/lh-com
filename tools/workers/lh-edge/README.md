@@ -22,6 +22,7 @@ bbird.live hosts are retired. Hosts on turnsthe.page follow the brand pattern
 | lufthansa-cn.turnsthe.page | `ALIAS_HOSTS`, `PILOT_COUNTRIES_BY_HOST` (cn) |
 | discover.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | ita.turnsthe.page | `SITE_HOSTS` ("Other sites") |
+| austrian.turnsthe.page | `SITE_HOSTS` ("Other sites") |
 | lh-edge.benpeter.workers.dev | (none) |
 
 `ALIAS_REWRITE_HOSTS` also keeps the retired lhcom.bbird.live and lhedge.bbird.live: an old link
@@ -146,6 +147,14 @@ nl/nl, br/pt, gr/el, jp/ja hold the language documents; 50 market roots (35 Engl
 xx/nl, xx/pt, xx/ja) get them where the document's `markets` row lists the root (lh-ita writes roots, `be/fr, ch/fr`;
 `scripts/market-rules.js` reads a root as its country). hreflang `<ll>-<CC>`, an xx root's the language alone.
 
+Austrian Airlines (`austrian`, DA `moved-permanently/lh-austrian`): the ten reference roots at/en, at/de, fr/fr, it/it,
+ru/ru, cn/zh, es/es, gr/el, jp/ja, pl/pl hold the language documents; 54 market roots (48 English, ch/de, de/de, ca/fr,
+ch/fr, ch/it, by/ru) get them where the document's `markets` row lists the root and hold their own homepage, nav,
+footer and own pages (www's sitemaps name 73 roots: the nine xx homepages that answer 404 on www and the roots only
+hreflang links name are none). Entry paths besides `/` (`SITE_ENTRIES` in `src/sites.js`, 302 as on www): `/xx/en`
+and `/at` (www: a 404) to `/at/en/homepage`. Its fonts (`/digitalhangar/`) come from www.lufthansa.com, which has the
+same design-system release with `fonts/austrian/` (www.austrian.com refuses plain requests).
+
 Sites without `<cc>/<ll>` roots (`PLAIN_SITES` in `src/sites.js`, brief 162) have no locale table and no market
 route: every path passes through to the site's origin as it is (the site's `/redirects` sheet answers there), only the
 site's `entry` paths redirect (302, `cache-control: max-age=60`). OneTrust and the immutable fonts as on every host.
@@ -160,10 +169,10 @@ www.lufthansa.com: it uses Lufthansa's fonts, and www.lufthansa-cargo.com doesn'
 scripts with a challenge), while its links still name www.lufthansa-cargo.com (`SITE_WWW_HOSTS`).
 
 ```toml
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa.com"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com"
 ```
 
 Check first against the preview origin (documents on preview only):

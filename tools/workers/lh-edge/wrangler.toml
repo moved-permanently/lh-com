@@ -115,15 +115,18 @@ URL_FORMS = "on"
 # "site=main--<repo>--<owner>.aem.live" its origin, SITE_WWW_HOSTS "site=www.example.com" the host
 # its links name on the source site; "": none (every host as before). discover.turnsthe.page:
 # Discover Airlines (DA moved-permanently/lh-discover, brief 124); ita.turnsthe.page: ITA Airways
-# (DA moved-permanently/lh-ita, brief 158); cargo.turnsthe.page: Lufthansa Cargo (lh-cargo) and
+# (DA moved-permanently/lh-ita, brief 158); austrian.turnsthe.page: Austrian Airlines (DA
+# moved-permanently/lh-austrian); cargo.turnsthe.page: Lufthansa Cargo (lh-cargo) and
 # airdolomiti.turnsthe.page: Air Dolomiti (lh-airdolomiti), sites without roots (PLAIN_SITES,
 # brief 162); rollback: a site's entries out of the vars
-SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
-SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
-SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
+SITE_HOSTS = "discover.turnsthe.page=discover; ita.turnsthe.page=ita; austrian.turnsthe.page=austrian; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti"
+SITE_ORIGINS = "discover=main--lh-discover--moved-permanently.aem.live; ita=main--lh-ita--moved-permanently.aem.live; austrian=main--lh-austrian--moved-permanently.aem.live; cargo=main--lh-cargo--moved-permanently.aem.live; airdolomiti=main--lh-airdolomiti--moved-permanently.aem.live"
+SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.austrian.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it"
 # where a site's /digitalhangar/ (www's design-system files, the brand fonts) comes from; Cargo uses
-# Lufthansa's (www.lufthansa-cargo.com doesn't serve them); a site without one: its origin's answer
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa.com"
+# Lufthansa's (www.lufthansa-cargo.com doesn't serve them), so does Austrian (www.lufthansa.com has the
+# same release with its fonts/austrian/; www.austrian.com refuses plain requests); a site without one:
+# its origin's answer
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com"
 # www's large DAM files (mp4 over 36 MB, vtt, PDFs over 20 MB) from this AEM publish tier, the only
 # source of them (src/dam-aem.js); "": off. AEM_KEEPALIVE_URLS: one GET each an hour from the
 # poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none

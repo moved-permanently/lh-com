@@ -50,9 +50,9 @@ test('the code defaults of the origin lists equal their wrangler.toml and name n
 });
 
 test('brand hosts: <brand>.turnsthe.page and <brand>-<role>.turnsthe.page of the brand list only', () => {
-  ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'lufthansa-forms.turnsthe.page', 'discover.turnsthe.page', 'discover-cn.turnsthe.page', 'ita.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page']
+  ['lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'lufthansa-forms.turnsthe.page', 'discover.turnsthe.page', 'discover-cn.turnsthe.page', 'ita.turnsthe.page', 'austrian.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page']
     .forEach((h) => assert.ok(isTurnsThePageHost(h), h));
   ['turnsthe.page', 'demo2.turnsthe.page', 'www.lufthansa.turnsthe.page', 'lufthansa-discover.example', 'lhcom.bbird.live', 'xcargo.turnsthe.page', 'dolomiti.turnsthe.page']
     .forEach((h) => assert.ok(!isTurnsThePageHost(h), h));
-  assert.deepEqual(['lufthansa-cn.turnsthe.page', 'discover.turnsthe.page', 'ita.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page', 'x.example'].map(turnsThePageBrandOf), ['lufthansa', 'discover', 'ita', 'cargo', 'airdolomiti', null]);
+  assert.deepEqual(['lufthansa-cn.turnsthe.page', 'discover.turnsthe.page', 'ita.turnsthe.page', 'austrian.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page', 'x.example'].map(turnsThePageBrandOf), ['lufthansa', 'discover', 'ita', 'austrian', 'cargo', 'airdolomiti', null]);
 });

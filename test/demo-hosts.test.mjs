@@ -34,7 +34,7 @@ beforeEach(() => {
 test('demo hosts: the replica, Edge Delivery hosts and previews, workers.dev, localhost; not www', () => {
   ['main--lh-com--moved-permanently.aem.page', 'branch--lh-com--moved-permanently.aem.live', 'x.hlx.page', 'lh-edge.benpeter.workers.dev', 'localhost', '127.0.0.1',
     'lufthansa.turnsthe.page', 'lufthansa-edge.turnsthe.page', 'lufthansa-cn.turnsthe.page', 'lufthansa-forms.turnsthe.page', 'lh-proxy.benpeter.workers.dev',
-    'discover.turnsthe.page', 'discover-cn.turnsthe.page', 'ita.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page']
+    'discover.turnsthe.page', 'discover-cn.turnsthe.page', 'ita.turnsthe.page', 'austrian.turnsthe.page', 'cargo.turnsthe.page', 'airdolomiti.turnsthe.page']
     .forEach((h) => assert.ok(isDemoHost(h), h));
   // turnsthe.page: the lufthansa hosts only (other demos may live on the domain); the retired
   // bbird.live hosts are no demo hosts any more

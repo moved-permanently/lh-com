@@ -40,6 +40,17 @@ export const SITES = Object.fromEntries(Object.entries(BRAND_SITES)
   .map(([name, site]) => [name, tablesOf(site.rows, site.versions)]));
 
 /**
+ * A site's entry paths besides / (which goes to its first language version's homepage): path ->
+ * the path it redirects to (302), as on the source. Austrian: www sends /xx/en to /at/en/homepage
+ * and /at to a 404 (/at/at/en/homepage), here to /at/en/homepage too.
+ */
+export const SITE_ENTRIES = {
+  austrian: {
+    '/xx/en': '/at/en/homepage', '/xx/en/': '/at/en/homepage', '/at': '/at/en/homepage', '/at/': '/at/en/homepage',
+  },
+};
+
+/**
  * The sites without <cc>/<ll> roots (no locale table, no market roots): every path passes through
  * to the site's origin as it is; entry: the paths that redirect (302) as on the source.
  */
@@ -83,6 +94,7 @@ export function siteOf(request, env = {}) {
     name,
     tables: SITES[name] || null,
     plain: SITES[name] ? null : PLAIN_SITES[name],
+    entry: (SITES[name] && SITE_ENTRIES[name]) || {},
     origin,
     www: pairs(env.SITE_WWW_HOSTS)[name] || '',
     design: pairs(env.SITE_DESIGN_HOSTS)[name] || '',

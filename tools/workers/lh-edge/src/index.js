@@ -380,8 +380,11 @@ async function siteRespond(incoming, env, site, ctx) {
   }
   // www's DAM URLs: lh-com's DAM route with the site's origin (its DA copies), then AEM
   if (isDamPath(url.pathname)) return finish(await dam(incoming, senv, ctx), incoming, senv, 'dam');
-  if (url.pathname === '/' && ['GET', 'HEAD'].includes(incoming.method)) {
-    const home = `/${Object.values(site.tables.versions)[0]}/homepage${url.search}`;
+  // / to the first language version's homepage, the site's other entry paths (SITE_ENTRIES) as
+  // on its source
+  const entryTarget = url.pathname === '/' ? `/${Object.values(site.tables.versions)[0]}/homepage` : (site.entry || {})[url.pathname];
+  if (entryTarget && read) {
+    const home = `${entryTarget}${url.search}`;
     return finish(new Response(null, { status: 302, headers: { location: home, 'cache-control': 'max-age=60', 'x-lh-edge-route': 'site-entry' } }), incoming, senv, 'site-entry');
   }
   return finish(await market(incoming, senv), incoming, senv, 'site');
