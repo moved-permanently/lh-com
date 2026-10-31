@@ -1,0 +1,54 @@
+# lh-airdolomiti batch-22 (en): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T22:08Z; not published
+# documents (40 + /en/nav, /en/footer):
+/en/articles/dyk/celebrities-airplanes
+/en/articles/dyk/chi-ha-inventato-il-tavolino-pieghevole-dellaereo-2
+/en/articles/dyk/contrails-of-airplanes
+/en/articles/dyk/drones-and-the-future-of-aerial-photography
+/en/articles/dyk/five-apps-for-sports-travellers
+/en/articles/dyk/five-things-you-didnt-know-about-aeroplanes
+/en/articles/dyk/flight-comics
+/en/articles/dyk/guinness-world-record
+/en/articles/dyk/history-of-aerial-photography
+/en/articles/dyk/home-alone
+/en/articles/dyk/how-many-aeroplanes-head-for-the-skies-each-day-around-the-world
+/en/articles/dyk/how-to-paint-an-aeroplane
+/en/articles/dyk/how-will-the-future-traveller-be
+/en/articles/dyk/inside-the-aeroplanes-of-the-super-rich
+/en/articles/dyk/interpreting-dreams-flight
+/en/articles/dyk/it-makes-me-fly-the-best-aviation-memes
+/en/articles/dyk/leonardo-da-vinci-and-the-flying-machines
+/en/articles/dyk/lessons-from-hollywood-the-terminal
+/en/articles/dyk/marc-camolettis-boeing-boeing
+/en/articles/dyk/nel-blu-dipinto-di-blu-or-volare-by-domenico-modugno
+/en/articles/dyk/novels-to-take-on-holiday
+/en/articles/dyk/paper-aeroplanes
+/en/articles/dyk/podcasts-to-listen-to-while-on-the-plane
+/en/articles/dyk/pride-theres-a-touch-of-turquoise-in-the-rainbow-too
+/en/articles/dyk/quotes-on-aeroplanes
+/en/articles/dyk/saying-do-cloud-nine
+/en/articles/dyk/scenes-set-on-aeroplanes-in-tv-series
+/en/articles/dyk/singing-the-air
+/en/articles/dyk/top-gun-by-tony-scott
+/en/articles/dyk/trip-to-the-museum
+/en/articles/dyk/up-in-the-air
+/en/articles/dyk/video-games-flight-simulator
+/en/articles/dyk/who-are-plane-spotters
+/en/articles/dyk/who-invented-the-trolley
+/en/articles/dyk/why-is-the-command-bar-called-the-cloche-in-italian
+/en/articles/throwback-en/amalia-ercoli-finzi-mother-of-the-rosetta-space-probe
+/en/articles/throwback-en/amelia-earhart-2
+/en/articles/throwback-en/amy-johnson-2
+/en/articles/throwback-en/before-gps
+/en/articles/throwback-en/bessie-coleman-2
+/en/nav
+/en/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: all 40 documents render
+# check against www (text, images, links):
+#   https://www.airdolomiti.eu/articles/dyk/celebrities-airplanes -> /en/articles/dyk/celebrities-airplanes: text 2/2, images 1/1 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/dyk/novels-to-take-on-holiday -> /en/articles/dyk/novels-to-take-on-holiday: text 19/19, images 0/0 (+0), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/throwback-en/bessie-coleman-2 -> /en/articles/throwback-en/bessie-coleman-2: text 2/2, images 1/1 (+1), links 0/0 (+0)
+#   https://www.airdolomiti.eu/articles/dyk/celebrities-airplanes: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/dyk/novels-to-take-on-holiday: no text, image or link of www's missing
+#   https://www.airdolomiti.eu/articles/throwback-en/bessie-coleman-2: no text, image or link of www's missing
