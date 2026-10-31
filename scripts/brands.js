@@ -176,8 +176,8 @@ const rowsOf = (documents, roots) => Object.fromEntries(roots.map((r) => {
  * the language documents (tools/importer/ita-scope.mjs LANGUAGE_VERSIONS), the market roots get
  * them where the document's `markets` row lists the root (written as roots, "be/fr, ch/fr":
  * scripts/market-rules.js); the market roots as the published documents' markets rows and
- * tools/reports/lh-ita.md name them (50 of www's 55: the de, nl, pt, el and ja ones beyond xx/nl,
- * xx/pt and xx/ja come with those languages' documents).
+ * tools/reports/lh-ita.md name them (55: xx/de, at/de, ch/de, xx/el and be/nl with the de/de,
+ * gr/el and nl/nl documents).
  * Austrian Airlines (DA moved-permanently/lh-austrian, www.austrian.com): the ten reference roots
  * hold the language documents (tools/importer/austrian-scope.mjs LANGUAGE_VERSIONS), the 54
  * market roots get them where the document's `markets` row lists the root and hold their own
@@ -217,6 +217,13 @@ export const BRAND_SITES = {
         'ar/es', 'do/es', 'xx/es',
         'xx/nl', 'xx/pt', 'xx/ja',
       ]),
+      // the market roots of the de, el and nl documents (de/de, gr/el, nl/nl, live since
+      // 2026-10-31), with www's country and language selector label (their homepage snapshots)
+      'xx/de': row('xx', 'de', 'de', 'language', 'Andere Länder | Deutsch'),
+      'at/de': row('at', 'de', 'de-AT', 'language', 'Österreich | Deutsch'),
+      'ch/de': row('ch', 'de', 'de-CH', 'language', 'Schweiz | Deutsch'),
+      'xx/el': row('xx', 'el', 'el', 'language', 'Παγκόσμιος ιστότοπος | Ελληνικά'),
+      'be/nl': row('be', 'nl', 'nl-BE', 'language', 'België | Nederlands'),
     },
     versions: {
       en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',

@@ -51,6 +51,6 @@ test('Austrian: its roots are its own locales; a market root with its language v
 test('Austrian\'s entry leaves lh-com, ITA and Discover as they were', () => {
   assert.equal(onPage({}, () => L.getLocale('/at/en/x')).brand, undefined, 'lh-com: no brand row');
   assert.equal(onPage({ brand: 'ita' }, () => L.getLocale('/at/en/x')).versionBase, '/it/en', 'ITA\'s at/en: a market root of it/en');
-  assert.equal(Object.keys(BRAND_SITES.ita.rows).length, 59);
+  assert.equal(Object.keys(BRAND_SITES.ita.rows).length, 64);
   assert.equal(Object.keys(BRAND_SITES.discover.rows).length, 9);
 });

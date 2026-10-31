@@ -187,8 +187,8 @@ test('sites: ITA on its host: nine language roots, the market roots, its origin'
   assert.deepEqual(site.tables.versions, {
     en: 'it/en', it: 'it/it', fr: 'fr/fr', es: 'es/es', de: 'de/de', nl: 'nl/nl', pt: 'br/pt', el: 'gr/el', ja: 'jp/ja',
   });
-  assert.equal(site.tables.marketRoots.length, 50);
-  assert.equal(Object.keys(site.tables.table).length, 59);
+  assert.equal(site.tables.marketRoots.length, 55);
+  assert.equal(Object.keys(site.tables.table).length, 64);
   assert.deepEqual(SITES.ita.ownRoots, []);
   assert.equal(site.tables.table['xx/fr'].hreflang, 'fr');
   assert.equal(site.tables.table['ch/fr'].hreflang, 'fr-CH');
@@ -271,7 +271,8 @@ test('sites: a market root\'s nav and footer name the root (www\'s label, the si
   assert.equal(await label('https://discover.example/xx/fr/footer.plain.html'), 'Autre pays | Français');
   // lh-com's rows carry no label: its market roots' footers as before
   assert.ok(MARKET_ROOTS.every((r) => !LH_TABLES.table[r].label));
-  assert.ok(Object.values(SITES.ita.table).every((r) => !r.label), 'ITA\'s rows: no label');
+  // ITA's rows: a label only on the five roots of the de, el and nl documents (www's selector)
+  assert.deepEqual(Object.keys(SITES.ita.table).filter((r) => SITES.ita.table[r].label).sort(), ['at/de', 'be/nl', 'ch/de', 'xx/de', 'xx/el']);
 });
 
 test('withRootLabel: the text after every globe icon, escaped; documents without one unchanged', () => {

@@ -80,7 +80,7 @@ test('homepages, the www origin, the roots: the brand\'s on its pages', () => {
   assert.equal(roots['it/it'].name, 'Italia | Italiano');
   assert.ok(onPage({}, () => L.siteLocales()) === L.LOCALES, 'lh-com: LOCALES');
   assert.ok(onPage({ brand: 'cargo' }, () => L.siteLocales()) === L.LOCALES, 'no roots: LOCALES (Cargo has its own switch)');
-  assert.deepEqual(ita(() => L.ownRoots()), ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja']);
+  assert.deepEqual(ita(() => L.ownRoots()), ['it/en', 'it/it', 'fr/fr', 'es/es', 'de/de', 'nl/nl', 'br/pt', 'gr/el', 'jp/ja', 'xx/de', 'at/de', 'ch/de', 'xx/el', 'be/nl'], 'ITA: its named roots and the labelled market roots of de, el, nl');
   assert.deepEqual(discover(() => L.ownRoots()), ['de/en', 'de/de', 'xx/fr', 'us/en', 'ca/en', 'xx/en', 'us/de', 'xx/de', 'ca/fr'], 'Discover: every root with a name');
 });
 
