@@ -163,6 +163,12 @@ export const BRANDS = {
   airdolomiti: {
     name: 'Air Dolomiti',
     www: 'www.airdolomiti.it',
+    airline: 'EN',
+    // booking: its own Amadeus engine, not shop.lufthansa.com (scripts/shop-handoff.js): a POST
+    // form as www.airdolomiti.it's widget posts it (captured 2026-10-31 on .it, .eu and .de)
+    booking: {
+      format: 'airdolomiti', url: 'https://digital.airdolomiti.it/booking', officeId: 'EN01', langs: { it: 'it-IT', en: 'en-GB', de: 'de-DE' },
+    },
     // articleTags: per language, the base of the post categories' pages the article header's tags
     // link to (www's /articoli page links /articoli/<slug>, 2026-10-31; English and German not
     // migrated yet: their chips without a link)

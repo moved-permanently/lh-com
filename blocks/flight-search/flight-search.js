@@ -1,4 +1,4 @@
-import { getLocale, LIVE_ORIGIN } from '../../scripts/locale.js';
+import { getLocale, LIVE_ORIGIN, brandEntry } from '../../scripts/locale.js';
 import {
   readConfigRows, pick, resolveLabels, parseAirportCode, parseAirportName,
 } from '../../scripts/block-config.js';
@@ -904,7 +904,9 @@ export default function decorate(block) {
       .then(({ getStoredConsent }) => (getStoredConsent() || {}).groups)
       .catch(() => [])
       .then((consentGroups) => {
-        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale, settings.shop));
+        const brand = brandEntry();
+        const handoff = buildShopHandoff({ ...query, consentGroups }, locale, settings.shop, brand);
+        submitShopHandoff(handoff);
       });
   });
 

@@ -1,4 +1,4 @@
-import { getLocale } from '../../scripts/locale.js';
+import { getLocale, brandEntry } from '../../scripts/locale.js';
 import { localDamUrl, attachDamFallback } from '../../scripts/dam-path.js';
 import { destinationImageBase } from '../../scripts/brand.js';
 import {
@@ -517,7 +517,7 @@ export default async function decorate(block) {
       .then(({ getStoredConsent }) => (getStoredConsent() || {}).groups)
       .catch(() => [])
       .then((consentGroups) => {
-        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale));
+        submitShopHandoff(buildShopHandoff({ ...query, consentGroups }, locale, '', brandEntry()));
       });
   };
 
