@@ -1,0 +1,57 @@
+# lh-airdolomiti batch-8 (it): uploaded to DA moved-permanently/lh-airdolomiti and previewed on main--lh-airdolomiti--moved-permanently.aem.page on 2026-10-31T15:34Z; not published
+# documents (40 + /nav, /footer):
+/articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo
+/articoli/didyouknow/gita-al-museo
+/articoli/didyouknow/gli-aerei-nellarte-contemporanea
+/articoli/didyouknow/hollywood-insegna
+/articoli/didyouknow/i-droni-e-la-fotografia-aerea-nel-futuro
+/articoli/didyouknow/laereo-piu-pazzo-del-mondo
+/articoli/didyouknow/leonardo-da-vinci-e-le-macchine-volanti
+/articoli/didyouknow/mamma-perso-laereo
+/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design
+/articoli/didyouknow/pilota-non-vedente-finalmente-si-puo-grazie-alla-tecnologia
+/articoli/didyouknow/pride-nellarcobaleno-ce-anche-il-turchese
+/articoli/didyouknow/quanti-aerei-volano-contemporaneamente-nel-mondo
+/articoli/didyouknow/scie-bianche-aerei
+/articoli/didyouknow/si-lo-volo
+/articoli/didyouknow/storia-della-fotografia-aerea
+/articoli/didyouknow/top-gun-tony-scott
+/articoli/didyouknow/una-gita-al-museo-parte-ii
+/articoli/didyouknow/video-games-flight-simulator-2
+/articoli/didyouknow/volo-nei-fumetti
+/articoli/throwback/amalia-ercoli-finzi-madre-della-sonda-spaziale-rosetta
+/articoli/throwback/amelia-earhart
+/articoli/throwback/amy-johnson
+/articoli/throwback/bessie-coleman
+/articoli/throwback/charles-lindbergh-3
+/articoli/throwback/ellen-church
+/articoli/throwback/embraer-50o
+/articoli/throwback/fiorenza-de-bernardi
+/articoli/throwback/gabriella-gaby-angelini
+/articoli/throwback/harriet-quimby
+/articoli/throwback/heinrich-kubis-primo-assistente-volo
+/articoli/throwback/helene-dutrieu
+/articoli/throwback/i-fratelli-montgolfier
+/articoli/throwback/jacqueline-jackie-cochran
+/articoli/throwback/john-gillespie-magee-jr-aviatore-e-poeta
+/articoli/throwback/le-divise-degli-assistenti-volo-la-storia
+/articoli/throwback/louis-bleriot
+/articoli/throwback/margot-duhalde-sotomayor
+/articoli/throwback/marilyn-e-gli-aerei
+/articoli/throwback/mary-chance-vanscyoc
+/articoli/throwback/pan-storia-un-mito-dellaviazione
+/nav
+/footer
+# not imported (0):
+# blocks without a handler (their content generically): none
+# render check: 3 problems:
+#   /articoli/didyouknow/gli-aerei-nellarte-contemporanea h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/didyouknow/si-lo-volo                  h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+#   /articoli/throwback/charles-lindbergh-3          h1=1 blocks=1 bad=- header=true footer=true lang=it brokenLocalImgs=1 errors=-
+# check against www (text, images, links):
+#   https://www.airdolomiti.it/articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo -> /articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo: text 2/3, images 1/1 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.it/articoli/throwback/amelia-earhart -> /articoli/throwback/amelia-earhart: text 1/2, images 0/0 (+1), links 2/2 (+0)
+#   https://www.airdolomiti.it/articoli/throwback/pan-storia-un-mito-dellaviazione -> /articoli/throwback/pan-storia-un-mito-dellaviazione: text 1/2, images 0/0 (+1), links 1/1 (+0)
+#   https://www.airdolomiti.it/articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/throwback/amelia-earhart: text missing: "tempo di lettura: 2 minuti"
+#   https://www.airdolomiti.it/articoli/throwback/pan-storia-un-mito-dellaviazione: text missing: "tempo di lettura: 2 minuti"
