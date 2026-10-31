@@ -1864,7 +1864,7 @@
       "documents": "language",
       "name": "Saudi-Arabien | Deutsch",
       "countryName": {
-        "en": null,
+        "en": "Saudi Arabia",
         "de": "Saudi-Arabien"
       },
       "homeAirport": "RUH",
@@ -1872,7 +1872,6 @@
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "countryName.en",
         "timeZone",
         "shopLang"
       ],
@@ -1881,9 +1880,9 @@
     "sa/en": {
       "status": "pilot",
       "documents": "language",
-      "name": null,
+      "name": "Saudi Arabia | English",
       "countryName": {
-        "en": null,
+        "en": "Saudi Arabia",
         "de": "Saudi-Arabien"
       },
       "homeAirport": "RUH",
@@ -1891,8 +1890,6 @@
       "timeZone": null,
       "shopLang": null,
       "unverified": [
-        "name",
-        "countryName.en",
         "timeZone",
         "shopLang"
       ],
@@ -2257,6 +2254,370 @@
         "shopLang"
       ],
       "batch": 6
+    },
+    "ao/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Angola | Deutsch",
+      "countryName": {
+        "en": "Angola",
+        "de": "Angola"
+      },
+      "homeAirport": "LAD",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "ao/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Angola | English",
+      "countryName": {
+        "en": "Angola",
+        "de": "Angola"
+      },
+      "homeAirport": "LAD",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "ar/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Argentina | Deutsch",
+      "countryName": {
+        "en": "Argentinien",
+        "de": "Argentina"
+      },
+      "homeAirport": "BUE",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "ar/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Argentinien | English",
+      "countryName": {
+        "en": "Argentinien",
+        "de": "Argentina"
+      },
+      "homeAirport": "BUE",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "be/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Belgien | Deutsch",
+      "countryName": {
+        "en": "Belgium",
+        "de": "Belgien"
+      },
+      "homeAirport": "BRU",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "be/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Belgium | English",
+      "countryName": {
+        "en": "Belgium",
+        "de": "Belgien"
+      },
+      "homeAirport": "BRU",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "br/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Brazil | Deutsch",
+      "countryName": {
+        "en": "Brazil",
+        "de": "Brazil"
+      },
+      "homeAirport": "SAO",
+      "currency": "BRL",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "br/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Brazil | English",
+      "countryName": {
+        "en": "Brazil",
+        "de": "Brazil"
+      },
+      "homeAirport": "SAO",
+      "currency": "BRL",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "by/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Belarus | Deutsch",
+      "countryName": {
+        "en": "Belarus",
+        "de": "Belarus"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "by/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Belarus | English",
+      "countryName": {
+        "en": "Belarus",
+        "de": "Belarus"
+      },
+      "homeAirport": "FRA",
+      "currency": "EUR",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "ca/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kanada | Deutsch",
+      "countryName": {
+        "en": "Canada",
+        "de": "Kanada"
+      },
+      "homeAirport": null,
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "homeAirport",
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "ca/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Canada | English",
+      "countryName": {
+        "en": "Canada",
+        "de": "Kanada"
+      },
+      "homeAirport": null,
+      "currency": null,
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "homeAirport",
+        "currency",
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cl/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Chile | Deutsch",
+      "countryName": {
+        "en": "Chile",
+        "de": "Chile"
+      },
+      "homeAirport": "SCL",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cl/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Chile | English",
+      "countryName": {
+        "en": "Chile",
+        "de": "Chile"
+      },
+      "homeAirport": "SCL",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cn/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "China (Mainland) | Deutsch",
+      "countryName": {
+        "en": "China (Mainland)",
+        "de": "China (Mainland)"
+      },
+      "homeAirport": "SHA",
+      "currency": "CNY",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cn/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "China (Mainland) | English",
+      "countryName": {
+        "en": "China (Mainland)",
+        "de": "China (Mainland)"
+      },
+      "homeAirport": "SHA",
+      "currency": "CNY",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "co/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Kolumbien | Deutsch",
+      "countryName": {
+        "en": "Colombia",
+        "de": "Kolumbien"
+      },
+      "homeAirport": "BOG",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "co/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Colombia | English",
+      "countryName": {
+        "en": "Colombia",
+        "de": "Kolumbien"
+      },
+      "homeAirport": "BOG",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cr/de": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Costa Rica | Deutsch",
+      "countryName": {
+        "en": "Costa Rica",
+        "de": "Costa Rica"
+      },
+      "homeAirport": "SJO",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
+    },
+    "cr/en": {
+      "status": "pilot",
+      "documents": "language",
+      "name": "Costa Rica | English",
+      "countryName": {
+        "en": "Costa Rica",
+        "de": "Costa Rica"
+      },
+      "homeAirport": "SJO",
+      "currency": "USD",
+      "timeZone": null,
+      "shopLang": null,
+      "unverified": [
+        "timeZone",
+        "shopLang"
+      ],
+      "batch": 7
     }
   }
 }
