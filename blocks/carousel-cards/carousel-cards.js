@@ -5,6 +5,7 @@ import {
 } from '../../scripts/block-config.js';
 import { isVideoLink, buildVideo, loadMediaStyles } from '../../scripts/media.js';
 import { loadAuthors, loadArticles } from '../../scripts/articles.js';
+import { isOwnWwwHost } from '../../scripts/brand.js';
 
 /**
  * UI strings; authors override any of them with a two-cell row such as
@@ -218,13 +219,14 @@ export default async function decorate(block) {
   block.setAttribute('aria-label', labels['carousel label']);
   decorateExternalLinks(track);
 
-  // teaser cards (article, grid, four-up): links to lufthansa.com pages outside the site open
-  // in the same tab, as on live; article and grid are cards in rows, no carousel controls
+  // teaser cards (article, grid, four-up): links to lufthansa.com pages (and the brand's own www)
+  // outside the site open in the same tab, as on live; article and grid are cards in rows, no
+  // carousel controls
   const article = block.classList.contains('article');
   const grid = article || block.classList.contains('grid');
   if (grid || block.classList.contains('four-up')) {
     track.querySelectorAll('a[target="_blank"]').forEach((a) => {
-      if (/(^|\.)lufthansa\.com$/.test(new URL(a.href).hostname)) a.removeAttribute('target');
+      if (isOwnWwwHost(new URL(a.href).hostname)) a.removeAttribute('target');
     });
   }
   const media = track.querySelector('.media-video') ? loadMediaStyles() : null;

@@ -1,5 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { cleanText, decorateExternalLinks, keepImageSize } from '../../scripts/block-config.js';
+import { brandWwwHost } from '../../scripts/brand.js';
 
 const PICTURE_BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];
 
@@ -84,5 +85,12 @@ export default function decorate(block) {
   });
 
   decorateExternalLinks(ul);
+  // links to the brand's own www get www.lufthansa.com's arrow (cards-teaser.css)
+  const own = brandWwwHost();
+  if (own) {
+    ul.querySelectorAll('a.cards-teaser-cta-link[href]').forEach((a) => {
+      if (new URL(a.href).hostname === own) a.classList.add('cards-teaser-cta-own');
+    });
+  }
   block.replaceChildren(ul);
 }

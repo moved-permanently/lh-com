@@ -118,8 +118,8 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* variant external (off-site links): lh-arrow-up-right */
-.cards-teaser .cards-teaser-cta-link[target="_blank"]:not([href*="//www.lufthansa.com"])::before {
+/* variant external (off-site links): lh-arrow-up-right; not www.lufthansa.com nor the brand's own www */
+.cards-teaser .cards-teaser-cta-link[target="_blank"]:not([href*="//www.lufthansa.com"]):not(.cards-teaser-cta-own)::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 19 5 17.7 15.7 7H8V5.2h10.8V16H17V8.3z'/%3E%3C/svg%3E");
 }
 

@@ -8,6 +8,7 @@ import { languageSwitch, switchTarget } from '../../scripts/site-languages.js';
 import { uiIcon, inlineIcon, takeIconName } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/channel.js';
 import { isDemoHost } from '../../scripts/demo.js';
+import { isOwnWwwHost } from '../../scripts/brand.js';
 
 /*
  * Lufthansa header. Nav document (/{cc}/{ll}/nav), one section each:
@@ -187,7 +188,7 @@ function el(tag, attrs = {}, ...children) {
 function isExternal(href) {
   try {
     const u = new URL(href, window.location.href);
-    return u.origin !== window.location.origin && !/(^|\.)lufthansa\.com$/.test(u.hostname);
+    return u.origin !== window.location.origin && !isOwnWwwHost(u.hostname);
   } catch (e) {
     return false;
   }

@@ -13,21 +13,32 @@
  * banner (and nothing that needs consent runs on its pages). messageCenter: the brand's Message
  * Center tenant on www (its messages' tenant in the site's own /message-center/index.json and its
  * row of /message-center/config/cti-pages.json; scripts/message-center.js siteTenant); a brand
- * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). The languages of the sites
+ * without one shows no messages, lh-com (no key) Lufthansa's ('lh'). www: the brand's own www host
+ * (its links open like lufthansa.com's on lh-com: isOwnWwwHost). The languages of the sites
  * without <cc>/<ll> roots (Cargo, Air Dolomiti): scripts/site-languages.js.
  */
 export const BRANDS = {
-  discover: { name: 'Discover Airlines', oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370', messageCenter: 'four_y' },
-  ita: { name: 'ITA Airways', oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd', messageCenter: 'ita' },
+  discover: {
+    name: 'Discover Airlines',
+    oneTrust: '01994cb4-6d4f-7911-abbc-7117e4e6c370',
+    messageCenter: 'four_y',
+    www: 'www.discover-airlines.com',
+  },
+  ita: {
+    name: 'ITA Airways',
+    oneTrust: '01994cb4-04ea-768d-baf8-f6ed09be97dd',
+    messageCenter: 'ita',
+    www: 'www.ita-airways.com',
+  },
   // Austrian Airlines (lh-austrian): when the Austrian session adds its brand key here, its entry
   // gets messageCenter: 'os' (its tenant on www)
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing
-  cargo: { name: 'Lufthansa Cargo', theme: false },
+  cargo: { name: 'Lufthansa Cargo', theme: false, www: 'www.lufthansa-cargo.com' },
   // Air Dolomiti (lh-airdolomiti): its own theme (styles/themes/airdolomiti.css, the Air Dolomiti
   // session's; until it exists the pages keep Lufthansa's look); www.airdolomiti.it loads no
   // OneTrust (2026-10-30)
-  airdolomiti: { name: 'Air Dolomiti' },
+  airdolomiti: { name: 'Air Dolomiti', www: 'www.airdolomiti.it' },
 };
 export const DEFAULT_BRAND_NAME = 'Lufthansa';
 /** www.lufthansa.com's OneTrust id: lh-com (no brand key). */
@@ -35,6 +46,7 @@ export const DEFAULT_ONETRUST = '01994cb2-af99-7dbe-8fb0-56427773e54e';
 
 /** A page metadata value (as aem.js getMetadata: <meta name> or <meta property>). */
 const metadata = (name) => {
+  if (typeof document === 'undefined') return '';
   const meta = document.head.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
   return meta ? meta.content : '';
 };
@@ -55,6 +67,26 @@ export function brandName(read = metadata) {
 export function oneTrustId(read = metadata) {
   const key = brandOf(read);
   return key ? BRANDS[key].oneTrust || '' : DEFAULT_ONETRUST;
+}
+
+/** The brand's own www host ('' for lh-com). */
+export function brandWwwHost(read = metadata) {
+  const key = brandOf(read);
+  return (key && BRANDS[key].www) || '';
+}
+
+/**
+ * Whether a host is the site's own www (its links open in the same tab, as www's do):
+ * lufthansa.com and its subdomains on every site (as before), and the brand's domain (its www
+ * host without "www.", and its subdomains) on the brand's site.
+ * @param {string} hostname
+ * @param {Function} [read] metadata reader
+ */
+export function isOwnWwwHost(hostname, read = metadata) {
+  const host = String(hostname || '').toLowerCase();
+  if (/(^|\.)lufthansa\.com$/.test(host)) return true;
+  const domain = brandWwwHost(read).replace(/^www\./, '');
+  return Boolean(domain) && (host === domain || host.endsWith(`.${domain}`));
 }
 
 /**

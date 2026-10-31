@@ -5,6 +5,7 @@ import {
   uiIcon, inlineIcon, takeIconName, iconTokenImage, iconLabel,
 } from '../../scripts/lh-icons.js';
 import { getChannel, isFlynetHiddenLink } from '../../scripts/channel.js';
+import { isOwnWwwHost } from '../../scripts/brand.js';
 
 /*
  * Lufthansa footer. Footer document (/{cc}/{ll}/footer), one section each:
@@ -54,7 +55,7 @@ function el(tag, attrs = {}, ...children) {
 function isExternal(href) {
   try {
     const u = new URL(href, window.location.href);
-    return u.origin !== window.location.origin && !/(^|\.)lufthansa\.com$/.test(u.hostname);
+    return u.origin !== window.location.origin && !isOwnWwwHost(u.hostname);
   } catch (e) {
     return false;
   }
