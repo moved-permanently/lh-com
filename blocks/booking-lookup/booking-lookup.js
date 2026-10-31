@@ -136,6 +136,36 @@ const DEFAULT_LABELS = {
     'last name error': '姓を入力してください',
     'tabs label': 'ご予約を検索',
   },
+  ru: {
+    'reference label': 'Код бронирования или номер билета',
+    'first name label': 'Имя',
+    'last name label': 'Фамилия',
+    'submit label': 'Подтвердить',
+    'reference error': 'Введите 6-значный код бронирования или 13-значный номер билета',
+    'first name error': 'Укажите имя',
+    'last name error': 'Укажите фамилию',
+    'tabs label': 'Найти бронирование',
+  },
+  zh: {
+    'reference label': '预订代码或机票号',
+    'first name label': '名',
+    'last name label': '姓',
+    'submit label': '确认',
+    'reference error': '请输入 6 位预订代码或 13 位机票号',
+    'first name error': '请输入名',
+    'last name error': '请输入姓',
+    'tabs label': '查找您的预订',
+  },
+  pl: {
+    'reference label': 'Kod rezerwacji lub numer biletu',
+    'first name label': 'Imię',
+    'last name label': 'Nazwisko',
+    'submit label': 'Potwierdź',
+    'reference error': 'Podaj 6-znakowy kod rezerwacji lub 13-cyfrowy numer biletu',
+    'first name error': 'Imię jest wymagane',
+    'last name error': 'Nazwisko jest wymagane',
+    'tabs label': 'Znajdź rezerwację',
+  },
 };
 
 let instance = 0;

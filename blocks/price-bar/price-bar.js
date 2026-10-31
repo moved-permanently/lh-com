@@ -130,6 +130,18 @@ const DEFAULT_LABELS = {
     'price label': '往復',
     'link label': 'フライトを検索',
   },
+  ru: {
+    'price label': 'Туда и обратно от',
+    'link label': 'Найти рейсы',
+  },
+  zh: {
+    'price label': '往返',
+    'link label': '搜索航班',
+  },
+  pl: {
+    'price label': 'W obie strony od',
+    'link label': 'Szukaj lotów',
+  },
 };
 
 function el(tag, className, text) {

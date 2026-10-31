@@ -13,7 +13,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const LANGS = ['it', 'fr', 'es', 'nl', 'pt', 'el', 'ja'];
+const LANGS = ['it', 'fr', 'es', 'nl', 'pt', 'el', 'ja', 'ru', 'zh', 'pl'];
 // file -> the label tables (their const names) and the en keys a language may leave out
 const TABLES = {
   'blocks/flight-search/flight-search.js': ['DEFAULT_LABELS'],

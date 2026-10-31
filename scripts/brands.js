@@ -71,6 +71,64 @@ export const BRANDS = {
     messageCenter: 'os',
     destinationImages: '/content/dam/austrian/global/images/offers/destination',
     www: 'www.austrian.com',
+    // www.austrian.com's snapshots (2026-10-30): its pages' meta X-Portal OS, the at roots' origin
+    // Vienna, the flight status' selected airline OS; the banner's links: each own root's footer
+    // (Datenschutz, Imprint) and the Cookie Policy its data protection page links
+    portal: 'OS',
+    hub: 'VIE',
+    airline: 'OS',
+    consentLinks: {
+      en: {
+        privacy: 'https://www.austrian.com/at/en/datenschutz',
+        cookies: 'https://www.austrian.com/at/en/browser-cookies',
+        imprint: 'https://www.austrian.com/at/en/imprint',
+      },
+      de: {
+        privacy: 'https://www.austrian.com/at/de/datenschutz',
+        cookies: 'https://www.austrian.com/at/de/browser-cookies',
+        imprint: 'https://www.austrian.com/at/de/impressum',
+      },
+      fr: {
+        privacy: 'https://www.austrian.com/fr/fr/datenschutz',
+        cookies: 'https://www.austrian.com/fr/fr/browser-cookies',
+        imprint: 'https://www.austrian.com/fr/fr/imprint',
+      },
+      it: {
+        privacy: 'https://www.austrian.com/it/it/datenschutz',
+        cookies: 'https://www.austrian.com/it/it/browser-cookies',
+        imprint: 'https://www.austrian.com/it/it/imprint',
+      },
+      ru: {
+        privacy: 'https://www.austrian.com/ru/ru/datenschutz',
+        cookies: 'https://www.austrian.com/ru/ru/browser-cookies',
+        imprint: 'https://www.austrian.com/ru/ru/imprint',
+      },
+      zh: {
+        privacy: 'https://www.austrian.com/cn/zh/datenschutz',
+        cookies: 'https://www.austrian.com/cn/zh/browser-cookies',
+        imprint: 'https://www.austrian.com/cn/zh/imprint',
+      },
+      es: {
+        privacy: 'https://www.austrian.com/es/es/datenschutz',
+        cookies: 'https://www.austrian.com/es/es/browser-cookies',
+        imprint: 'https://www.austrian.com/es/es/imprint',
+      },
+      el: {
+        privacy: 'https://www.austrian.com/gr/el/datenschutz',
+        cookies: 'https://www.austrian.com/gr/el/browser-cookies',
+        imprint: 'https://www.austrian.com/gr/el/imprint',
+      },
+      ja: {
+        privacy: 'https://www.austrian.com/jp/ja/datenschutz',
+        cookies: 'https://www.austrian.com/jp/ja/browser-cookies',
+        imprint: 'https://www.austrian.com/jp/ja/imprint',
+      },
+      pl: {
+        privacy: 'https://www.austrian.com/pl/pl/datenschutz',
+        cookies: 'https://www.austrian.com/pl/pl/browser-cookies',
+        imprint: 'https://www.austrian.com/pl/pl/imprint',
+      },
+    },
   },
   // Lufthansa Cargo (lh-cargo): Lufthansa's look; www.lufthansa-cargo.com shows no cookie banner;
   // no Message Center tenant (nor Air Dolomiti's): their blocks show nothing

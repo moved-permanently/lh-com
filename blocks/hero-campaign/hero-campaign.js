@@ -77,6 +77,30 @@ const DEFAULT_LABELS = {
     'next label': '次のスライド',
     'slide label': '{n}/{total}',
   },
+  ru: {
+    'pause label': 'Приостановить фоновое видео',
+    'play label': 'Воспроизвести фоновое видео',
+    'slider label': 'Главный баннер',
+    'previous label': 'Предыдущий слайд',
+    'next label': 'Следующий слайд',
+    'slide label': '{n} из {total}',
+  },
+  zh: {
+    'pause label': '暂停背景视频',
+    'play label': '播放背景视频',
+    'slider label': '主横幅',
+    'previous label': '上一张',
+    'next label': '下一张',
+    'slide label': '第 {n} 张，共 {total} 张',
+  },
+  pl: {
+    'pause label': 'Wstrzymaj film w tle',
+    'play label': 'Odtwórz film w tle',
+    'slider label': 'Baner główny',
+    'previous label': 'Poprzedni slajd',
+    'next label': 'Następny slajd',
+    'slide label': '{n} z {total}',
+  },
 };
 
 const LABEL_KEYS = ['pause-label', 'play-label', 'slider-label', 'previous-label', 'next-label', 'slide-label'];

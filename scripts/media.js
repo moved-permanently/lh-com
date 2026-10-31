@@ -82,6 +82,27 @@ const LABELS = {
     matterport: 'バーチャルツアーを開始',
     mynewsdesk: 'ニュースルームを表示',
   },
+  ru: {
+    video: 'Воспроизвести видео',
+    youtube: 'Видео YouTube',
+    'inflight-entertainment': 'Развлечения на борту',
+    matterport: 'Начать виртуальный тур',
+    mynewsdesk: 'Показать пресс-центр',
+  },
+  zh: {
+    video: '播放视频',
+    youtube: 'YouTube 视频',
+    'inflight-entertainment': '机上娱乐',
+    matterport: '开始虚拟游览',
+    mynewsdesk: '显示新闻中心',
+  },
+  pl: {
+    video: 'Odtwórz film',
+    youtube: 'Film w YouTube',
+    'inflight-entertainment': 'Rozrywka na pokładzie',
+    matterport: 'Rozpocznij wirtualną wycieczkę',
+    mynewsdesk: 'Pokaż newsroom',
+  },
 };
 
 let mediaCount = 0;

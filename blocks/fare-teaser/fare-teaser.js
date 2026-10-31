@@ -225,6 +225,18 @@ const DEFAULT_LABELS = {
     'price label': '往復',
     'show more': 'もっと見る',
   },
+  ru: {
+    'price label': 'Туда и обратно от',
+    'show more': 'Показать больше',
+  },
+  zh: {
+    'price label': '往返',
+    'show more': '显示更多',
+  },
+  pl: {
+    'price label': 'W obie strony od',
+    'show more': 'Pokaż więcej',
+  },
 };
 
 /** Routes shown on small screens before "Show more" (the live site hides the rest below 768px). */

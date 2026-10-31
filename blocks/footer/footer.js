@@ -67,6 +67,21 @@ const LABELS = {
     localeCurrent: '国と言語の選択、現在:',
     newTab: '新しいタブで開きます',
   },
+  ru: {
+    search: 'Поиск',
+    localeCurrent: 'Выбор страны и языка; текущий выбор:',
+    newTab: 'откроется в новой вкладке',
+  },
+  zh: {
+    search: '搜索',
+    localeCurrent: '国家/地区和语言选择；当前：',
+    newTab: '在新标签页中打开',
+  },
+  pl: {
+    search: 'Szukaj',
+    localeCurrent: 'Wybór kraju i języka; obecnie:',
+    newTab: 'otwiera się w nowej karcie',
+  },
 };
 
 const MOBILE = window.matchMedia('(width < 768px)');

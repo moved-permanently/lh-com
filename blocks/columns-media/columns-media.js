@@ -46,6 +46,21 @@ const DEFAULT_LABELS = {
     'show image': '画像を表示',
     'show slide': 'スライドを表示',
   },
+  ru: {
+    'play video': 'Воспроизвести видео',
+    'show image': 'Показать изображение',
+    'show slide': 'Показать слайд',
+  },
+  zh: {
+    'play video': '播放视频',
+    'show image': '显示图片',
+    'show slide': '显示幻灯片',
+  },
+  pl: {
+    'play video': 'Odtwórz film',
+    'show image': 'Pokaż zdjęcie',
+    'show slide': 'Pokaż slajd',
+  },
 };
 
 const BREAKPOINTS = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }];

@@ -63,6 +63,24 @@ const DEFAULT_LABELS = {
     'next label': '次のスライド',
     'slide label': '{n}/{total}',
   },
+  ru: {
+    'carousel label': 'Карусель изображений',
+    'previous label': 'Предыдущий слайд',
+    'next label': 'Следующий слайд',
+    'slide label': '{n} из {total}',
+  },
+  zh: {
+    'carousel label': '图片轮播',
+    'previous label': '上一张',
+    'next label': '下一张',
+    'slide label': '第 {n} 张，共 {total} 张',
+  },
+  pl: {
+    'carousel label': 'Karuzela zdjęć',
+    'previous label': 'Poprzedni slajd',
+    'next label': 'Następny slajd',
+    'slide label': '{n} z {total}',
+  },
 };
 
 const LABEL_KEYS = Object.keys(DEFAULT_LABELS.en).map(toConfigKey);

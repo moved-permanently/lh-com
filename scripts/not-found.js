@@ -92,6 +92,27 @@ const TEXT = {
     help: 'ヘルプとお問い合わせ',
     newTab: '',
   },
+  ru: {
+    title: 'Страница не найдена',
+    links: [['Перейти на главную страницу', 'home'], ['Забронировать рейс', 'flight-search'], ['Онлайн-регистрация', 'online-check-in-info'], ['Мои бронирования', 'my-bookings']],
+    feedback: 'Не нашли нужную информацию или хотите оставить отзыв? Ознакомьтесь с возможностями обратной связи и контактами.',
+    help: 'Помощь и контакты',
+    newTab: '',
+  },
+  zh: {
+    title: '未找到页面',
+    links: [['前往主页', 'home'], ['预订航班', 'flight-search'], ['在线值机', 'online-check-in-info'], ['我的预订', 'my-bookings']],
+    feedback: '没有找到所需信息，或者想向我们提供反馈？请查看我们的反馈和联系方式。',
+    help: '帮助与联系',
+    newTab: '',
+  },
+  pl: {
+    title: 'Nie znaleziono strony',
+    links: [['Przejdź do strony głównej', 'home'], ['Zarezerwuj lot', 'flight-search'], ['Odprawa online', 'online-check-in-info'], ['Moje rezerwacje', 'my-bookings']],
+    feedback: 'Nie znaleziono potrzebnych informacji lub chcesz przekazać nam opinię? Zobacz nasze możliwości kontaktu i przekazywania opinii.',
+    help: 'Pomoc i kontakt',
+    newTab: '',
+  },
 };
 
 /** Locale of the path; a path without a migrated locale gets de/en (live's /error.html). */
