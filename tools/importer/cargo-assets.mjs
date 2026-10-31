@@ -110,12 +110,22 @@ const tsv = (f) => {
 };
 
 /** Each file's Edge Delivery name, or why it stays a link to the source (size, spreadsheet, broken). */
+// the file types Edge Delivery previews as files (others answer 415: .xlsx, .ics, unknown types)
+const SERVED = /^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf|video\/mp4)$/;
+
 function settle(files) {
+  const { done = {} } = readJson(STATE, { done: {} });
   Object.entries(files).forEach(([key, f]) => {
+    // the type and size the download answered win over the list's guesses
+    const d = done[key];
+    if (d && d.status === 200) {
+      f.type = (d.type || f.type || '').split(';')[0] || undefined;
+      f.bytes = d.bytes || f.bytes;
+    }
     const limit = f.kind === 'video' ? LIMITS.mp4 : (f.kind === 'image' ? LIMITS.image : LIMITS.pdf);
     if (f.bytes && f.bytes > limit) f.linkSource = `${(f.bytes / MB).toFixed(1)} MB: over Edge Delivery's ${limit / MB} MB, linked on the source`;
-    // spreadsheets: Edge Delivery's preview refuses them as files (415), they stay on the source
-    else if (/spreadsheet|excel/.test(f.type || '')) f.linkSource = 'spreadsheet: Edge Delivery serves no .xlsx files, linked on the source';
+    else if (f.type && !SERVED.test(f.type)) f.linkSource = `${f.type}: Edge Delivery serves no such file, linked on the source`;
+    else if (f.previewRefused) f.linkSource = `Edge Delivery's preview refused it (${f.previewRefused}), linked on the source`;
     else delete f.linkSource;
     f.eds = f.linkSource || f.broken ? null : edsName(key, f.kind, f.type);
   });
@@ -308,20 +318,27 @@ function upload() {
   const files = readJson(LIST, {});
   const state = readJson(STATE, { done: {} });
   state.uploaded ||= {};
+  settle(files);
   for (const [key, f] of Object.entries(files)) {
     const d = state.done[key];
-    if (f.kind === 'image' || !f.eds || !d || d.status !== 200 || state.uploaded[key]?.preview) continue;
+    if (f.kind === 'image' || !f.eds || !d || d.status !== 200 || state.uploaded[key]?.preview || state.uploaded[key]?.refused) continue;
     const local = path.join(CACHE, sha1(key));
     const type = (d.type || f.type || 'application/octet-stream').split(';')[0];
     const up = execFileSync('curl', ['-sS', '-o', '/dev/null', '-w', '%{http_code}', '-X', 'POST', '-F', `data=@${local};type=${type}`, `https://admin.da.live/source/${ORG}/${SITE}${f.eds}`]).toString();
     if (!/^2/.test(up)) { console.error(`${f.eds}: DA ${up}`); if (/^40[13]$/.test(up)) break; continue; }
-    const pv = execFileSync('curl', ['-sS', '-o', '/dev/null', '-w', '%{http_code}', '-X', 'POST', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${f.eds}`]).toString();
+    const out = execFileSync('curl', ['-sS', '-D', '-', '-o', '/dev/null', '-w', '\n%{http_code}', '-X', 'POST', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${f.eds}`]).toString();
+    const pv = out.trim().split('\n').pop();
+    const why = (out.match(/^x-error:\s*(.*)$/mi) || [])[1]?.trim() || '';
     state.uploaded[key] = {
-      eds: f.eds, da: up, preview: /^2/.test(pv) ? new Date().toISOString() : null, previewStatus: pv,
+      eds: f.eds, da: up, preview: /^2/.test(pv) ? new Date().toISOString() : null, previewStatus: pv, ...(why ? { previewError: why } : {}),
     };
+    // a file the preview refuses (409, 415) stays a link to the source from now on
+    if (/^4(09|15)$/.test(pv)) { f.previewRefused = `${pv} ${why}`.trim(); state.uploaded[key].refused = true; }
     writeJson(STATE, state);
-    console.log(`${f.eds}: DA ${up}, preview ${pv}`);
+    console.log(`${f.eds}: DA ${up}, preview ${pv}${why ? ` (${why})` : ''}`);
   }
+  settle(files);
+  writeJson(LIST, files);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
