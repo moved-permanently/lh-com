@@ -330,3 +330,116 @@
     flex: 0 1 600px;
   }
 }
+
+/* variant grid (www.airdolomiti.it/articoli, 2026-11-01): cards in a grid, 20px apart (3 columns
+   at 1440: 443px each; 1 at 390), each card one link: the image (top corners 10px), then 25px 15px
+   padding: the category chip (white on #003061, 14px, 6px 12px, 8px corners), the title (24px /
+   30px, 600) and the date (15px, #757575); 9 posts and a Load more button (white on #01145f, 4px
+   border, 10px corners, 20px 30px, 17px 600) instead of numbered pages */
+.blog-overview.grid .blog-overview-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.blog-overview.grid .blog-overview-card {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--background-color, #fff);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+}
+
+.blog-overview.grid .blog-overview-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.blog-overview.grid .blog-overview-image {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  aspect-ratio: 443 / 282;
+}
+
+.blog-overview.grid .blog-overview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-overview.grid .blog-overview-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px 15px;
+}
+
+.blog-overview.grid .blog-overview-chip {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #003061;
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.blog-overview.grid .blog-overview-title {
+  margin: 0;
+  color: #05164d;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.blog-overview.grid .blog-overview-date {
+  margin: auto 0 0;
+  padding-top: 10px;
+  color: #757575;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.blog-overview.grid .blog-overview-card-link:hover .blog-overview-title,
+.blog-overview.grid .blog-overview-card-link:focus-visible .blog-overview-title {
+  text-decoration: underline;
+}
+
+.blog-overview.grid .blog-overview-load-more {
+  display: block;
+  margin: 40px auto 0;
+  padding: 20px 30px;
+  border: 4px solid #01145f;
+  border-radius: 10px;
+  background-color: #01145f;
+  color: #fff;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.blog-overview.grid .blog-overview-load-more[hidden] {
+  display: none;
+}
+
+@media (width >= 600px) {
+  .blog-overview.grid .blog-overview-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1025px) {
+  .blog-overview.grid .blog-overview-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

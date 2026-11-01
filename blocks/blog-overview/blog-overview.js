@@ -27,6 +27,7 @@ const DEFAULT_LABELS = {
     'previous label': 'Previous page',
     'next label': 'Next page',
     'page label': 'Page {PAGE}',
+    'load more label': 'Load more',
   },
   de: {
     'results label': '{TOTAL} Treffer gefunden',
@@ -42,6 +43,7 @@ const DEFAULT_LABELS = {
     'previous label': 'Vorherige Seite',
     'next label': 'Nächste Seite',
     'page label': 'Seite {PAGE}',
+    'load more label': 'Mehr laden',
   },
 };
 
@@ -99,17 +101,21 @@ function resolveCategory(wanted, articles) {
   return byFolder ? byFolder.category : wanted;
 }
 
-/** The options of the block (www's widget configuration). */
+/** The options of the block (www's widget configuration; variant grid: Air Dolomiti's). */
 function readOptions(block) {
   const config = readConfigRows(block);
   const text = (...keys) => keys.map((k) => config[k]?.text).find(Boolean) || '';
   const size = Number.parseInt(text('page-size', 'pagination-size'), 10);
+  const grid = block.classList.contains('grid');
+  // www.airdolomiti.it's grid: 9 posts, then 9 more per Load more
+  const defaultSize = grid ? 9 : 6;
   return {
     config,
+    grid,
     category: normalizeCategory(text('category', 'category-id')),
     tag: normalizeTag(text('tag', 'selected-tag')),
     author: text('author', 'author-id'),
-    pageSize: Number.isFinite(size) && size > 0 ? size : 6,
+    pageSize: Number.isFinite(size) && size > 0 ? size : defaultSize,
     hideFilter: /^(true|yes|ja|1)$/i.test(text('hide-filter')),
   };
 }
@@ -196,6 +202,31 @@ function buildCard(article, labels, locale, dateStyle) {
   return li;
 }
 
+/**
+ * One card of the grid variant (www.airdolomiti.it/articoli): one link holding the post's image,
+ * its category chip, its title and the date.
+ */
+function buildGridCard(article, locale, dateStyle) {
+  const li = el('li', 'blog-overview-card');
+  const link = el('a', 'blog-overview-card-link');
+  link.href = article.path;
+  if (article.image) {
+    const media = el('div', 'blog-overview-image');
+    const picture = buildPicture(article.image, article.imageAlt);
+    if (picture) media.append(picture);
+    link.append(media);
+  }
+  const details = el('div', 'blog-overview-details');
+  const name = article.categoryName || article.category;
+  if (name) details.append(el('span', 'blog-overview-chip', name));
+  details.append(el('h2', 'blog-overview-title', article.title));
+  const date = formatArticleDate(article.date, locale, dateStyle);
+  if (date) details.append(el('p', 'blog-overview-date', date));
+  link.append(details);
+  li.append(link);
+  return li;
+}
+
 /** Page numbers with gaps, as maui-pagination: 1 2 3 … 71 / 1 … 4 5 6 … 71. */
 function pageItems(current, total) {
   if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
@@ -259,6 +290,9 @@ export default async function decorate(block) {
   const empty = el('p', 'blog-overview-empty', labels['no results label']);
   const pager = el('nav', 'blog-overview-pagination');
   pager.setAttribute('aria-label', labels['pagination label']);
+  // the grid variant: a Load more button instead of numbered pages
+  const loadMore = options.grid ? el('button', 'blog-overview-load-more', labels['load more label']) : null;
+  if (loadMore) loadMore.type = 'button';
 
   let form;
   let input;
@@ -313,18 +347,24 @@ export default async function decorate(block) {
       && matches(a, state.query));
     const pages = Math.max(1, Math.ceil(filtered.length / options.pageSize));
     state.page = Math.min(Math.max(1, state.page), pages);
-    const start = (state.page - 1) * options.pageSize;
-    const shown = filtered.slice(start, start + options.pageSize);
+    // the grid variant shows the first pages together (state.page: how many)
+    const start = options.grid ? 0 : (state.page - 1) * options.pageSize;
+    const shown = filtered.slice(start, state.page * options.pageSize);
 
     count.replaceChildren();
     const [before, after] = labels['results label'].split('{TOTAL}');
     count.append(document.createTextNode(before || ''), el('strong', '', String(filtered.length)), document.createTextNode(after ?? ''));
     status.textContent = fill(labels['current page label'], { CURRENT_PAGE: state.page });
 
-    list.replaceChildren(...shown.map((a) => buildCard(a, labels, locale, dateStyle)));
+    list.replaceChildren(...shown.map((a) => (options.grid
+      ? buildGridCard(a, locale, dateStyle) : buildCard(a, labels, locale, dateStyle))));
     list.hidden = !shown.length;
     empty.hidden = !!shown.length;
 
+    if (loadMore) {
+      loadMore.hidden = shown.length >= filtered.length;
+      return;
+    }
     pager.replaceChildren();
     pager.hidden = pages < 2;
     if (pages > 1) {
@@ -385,8 +425,19 @@ export default async function decorate(block) {
     });
   }
 
+  if (loadMore) {
+    loadMore.addEventListener('click', () => {
+      const before = list.children.length;
+      state.page += 1;
+      save();
+      render();
+      // the first of the new cards takes the focus (the button may go away)
+      list.children[before]?.querySelector('a')?.focus({ preventScroll: true });
+    });
+  }
+
   status.tabIndex = -1;
-  block.append(status, ...(form ? [bar] : []), list, empty, pager);
+  block.append(status, ...(form ? [bar] : []), list, empty, ...(loadMore ? [loadMore] : [pager]));
   render();
   block.removeAttribute('aria-busy');
 }
