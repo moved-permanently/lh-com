@@ -411,15 +411,17 @@
 }
 
 /* "Where we fly" (.flma-where-we-fly-wrapper) only shows inside the open destination list in the
-   source: here it appears while the search is in use */
+   source: here it appears while the search is in use (flight-search-in-use, set by the block
+   after a press's click; :focus-within where the block does not set it) */
 .flight-search .flight-search-links {
   display: none;
   margin-top: 10px;
   font-size: var(--body-font-size-s);
 }
 
-.flight-search:focus-within .flight-search-links,
-.flight-search .flight-search-links:hover {
+.flight-search .flight-search-links:hover,
+.flight-search.flight-search-in-use .flight-search-links,
+.flight-search:not(.flight-search-deferred-links):focus-within .flight-search-links {
   display: block;
 }
 

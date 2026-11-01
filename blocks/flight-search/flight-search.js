@@ -47,6 +47,36 @@ function codesOf(value, form) {
   return String(value || '').split(/[\s,;]+/).map((c) => c.trim().toUpperCase()).filter((c) => form.test(c));
 }
 
+/**
+ * "Where we fly" shows while the search is in use (class flight-search-in-use): at once when the
+ * focus comes by keyboard, after the click when it comes with a press (mouse, touch). On a band
+ * page the card sits at the band's bottom and grows upwards: the row appearing between press and
+ * release moved the pressed control away and its first click was lost.
+ */
+function showLinksInUse(block) {
+  block.classList.add('flight-search-deferred-links');
+  let pressed = false;
+  let within = false;
+  block.addEventListener('pointerdown', () => { pressed = true; });
+  const released = () => {
+    if (!pressed) return;
+    pressed = false;
+    // a task later: after the click this release makes
+    setTimeout(() => { if (within) block.classList.add('flight-search-in-use'); }, 0);
+  };
+  document.addEventListener('pointerup', released, true);
+  document.addEventListener('pointercancel', released, true);
+  block.addEventListener('focusin', () => {
+    within = true;
+    if (!pressed) block.classList.add('flight-search-in-use');
+  });
+  block.addEventListener('focusout', (e) => {
+    if (e.relatedTarget && block.contains(e.relatedTarget)) return;
+    within = false;
+    block.classList.remove('flight-search-in-use');
+  });
+}
+
 /** The Group booking row's link: { href, text }, or null. */
 function groupBookingOf(entry) {
   const link = entry && entry.link;
@@ -956,6 +986,7 @@ export default function decorate(block) {
     const linkRow = el('div', 'flight-search-links');
     linkRow.append(...links.childNodes);
     flightContent.push(linkRow);
+    showLinksInUse(block);
   }
 
   if (!tabbed) {
